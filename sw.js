@@ -1,16 +1,15 @@
-const CACHE="summit-one-course-v6";
-const CORE=["./","./index.html","./app.css","./main.js","./course-engine.js","./supabase-client.js","./login.html","./login.js","./session.html","./session.js","./media-player.js","./exams.html","./exams.js","./exam.html","./exam.js","./exam-engine.js","./profile.html","./profile.js","./review.html","./review.js"];
-self.addEventListener("install",e=>{self.skipWaiting();e.waitUntil(caches.open(CACHE).then(c=>c.addAll(CORE)))});
+const CACHE="summit-one-v5";
+const STATIC=["./","./index.html","./main.css?v=1","./app-main.js?v=1","./lesson-player.js","./login.html","./login.js","./supabase-client.js","./tests.html","./tests.js?v=1","./exam.css?v=1","./data/sessions-372.json","./data/teaching-72.json","./data/mawa-investigations-20.json","./data/rossmoyne-h23.json","./data/amc-awards.json"];
+self.addEventListener("install",e=>{self.skipWaiting();e.waitUntil(caches.open(CACHE).then(c=>c.addAll(STATIC).catch(()=>{})))});
 self.addEventListener("activate",e=>e.waitUntil(Promise.all([caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))),self.clients.claim()])));
 self.addEventListener("fetch",e=>{
- if(e.request.method!=="GET"||new URL(e.request.url).origin!==location.origin)return;
- e.respondWith((async()=>{
-   try{
-     const fresh=await fetch(e.request);
-     if(fresh.ok){const c=await caches.open(CACHE);c.put(e.request,fresh.clone())}
-     return fresh;
-   }catch{
-     return (await caches.match(e.request))||new Response("Offline",{status:503});
-   }
- })());
+  if(e.request.method!=="GET")return;
+  const u=new URL(e.request.url);
+  if(u.origin!==location.origin)return;
+  const isPage=e.request.mode==="navigate"||u.pathname.endsWith(".html")||u.pathname.endsWith("/");
+  if(isPage){
+    e.respondWith(fetch(e.request).then(r=>{const copy=r.clone();caches.open(CACHE).then(c=>c.put(e.request,copy));return r}).catch(()=>caches.match(e.request)));
+  }else{
+    e.respondWith(caches.match(e.request).then(cached=>cached||fetch(e.request).then(r=>{const copy=r.clone();caches.open(CACHE).then(c=>c.put(e.request,copy));return r})));
+  }
 });
