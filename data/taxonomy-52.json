@@ -1,0 +1,493 @@
+{
+  "schema_version": "summit-one-taxonomy-v1",
+  "category_count": 12,
+  "technique_count": 52,
+  "strategy_count": 10,
+  "rossmoyne_family_count": 23,
+  "categories": [
+    {
+      "id": "DIG",
+      "name": "Number sense, place value and digit puzzles",
+      "subskills": [
+        {
+          "id": "DIG-01",
+          "name": "Place-value decomposition and estimation"
+        },
+        {
+          "id": "DIG-02",
+          "name": "Digits, zero and positional constraints"
+        },
+        {
+          "id": "DIG-03",
+          "name": "Digit sums and counting digits in ranges"
+        },
+        {
+          "id": "DIG-04",
+          "name": "Repeated digits, palindromes and repunits"
+        },
+        {
+          "id": "DIG-05",
+          "name": "Cryptarithms and symbol-to-digit arithmetic"
+        }
+      ],
+      "amc_archive_140_primary_label_count": 25,
+      "amc_upper_final_five_50_primary_label_count": 8,
+      "rossmoyne_H_codes": [
+        "H01",
+        "H18",
+        "H21"
+      ]
+    },
+    {
+      "id": "DIV",
+      "name": "Factors, divisibility, remainders and cycles",
+      "subskills": [
+        {
+          "id": "DIV-01",
+          "name": "Primes, factors and factorisation"
+        },
+        {
+          "id": "DIV-02",
+          "name": "Multiples, HCF and LCM"
+        },
+        {
+          "id": "DIV-03",
+          "name": "Divisibility tests and modular remainders"
+        },
+        {
+          "id": "DIV-04",
+          "name": "Parity and odd/even structure"
+        },
+        {
+          "id": "DIV-05",
+          "name": "Last-digit, clock and repeating-cycle reasoning"
+        }
+      ],
+      "amc_archive_140_primary_label_count": 15,
+      "amc_upper_final_five_50_primary_label_count": 5,
+      "rossmoyne_H_codes": [
+        "H08",
+        "H09",
+        "H11",
+        "H20"
+      ]
+    },
+    {
+      "id": "FRAC",
+      "name": "Fractions, ratios, proportion and percentage",
+      "subskills": [
+        {
+          "id": "FRAC-01",
+          "name": "Parts and wholes, including remaining fractions"
+        },
+        {
+          "id": "FRAC-02",
+          "name": "Ratio and scale factors"
+        },
+        {
+          "id": "FRAC-03",
+          "name": "Fractions, percentages and proportional comparisons"
+        },
+        {
+          "id": "FRAC-04",
+          "name": "Grouped fractions and weighted totals"
+        }
+      ],
+      "amc_archive_140_primary_label_count": 5,
+      "amc_upper_final_five_50_primary_label_count": 1,
+      "rossmoyne_H_codes": [
+        "H23"
+      ]
+    },
+    {
+      "id": "RATE",
+      "name": "Rates, time, work and motion",
+      "subskills": [
+        {
+          "id": "RATE-01",
+          "name": "Unit conversion and repeated-event rates"
+        },
+        {
+          "id": "RATE-02",
+          "name": "Combined work rates"
+        },
+        {
+          "id": "RATE-03",
+          "name": "Distance–speed–time reasoning"
+        },
+        {
+          "id": "RATE-04",
+          "name": "Relative speeds, timed movement and meetings"
+        }
+      ],
+      "amc_archive_140_primary_label_count": 5,
+      "amc_upper_final_five_50_primary_label_count": 2,
+      "rossmoyne_H_codes": [
+        "H03",
+        "H10",
+        "H12"
+      ]
+    },
+    {
+      "id": "ALG",
+      "name": "Algebra, balancing and unknown quantities",
+      "subskills": [
+        {
+          "id": "ALG-01",
+          "name": "One- and two-variable word equations"
+        },
+        {
+          "id": "ALG-02",
+          "name": "Simultaneous and total-sum constraints"
+        },
+        {
+          "id": "ALG-03",
+          "name": "Eliminating an unknown by differences"
+        },
+        {
+          "id": "ALG-04",
+          "name": "Working backwards through operations"
+        },
+        {
+          "id": "ALG-05",
+          "name": "Winner margins, shared totals and linear rules"
+        }
+      ],
+      "amc_archive_140_primary_label_count": 22,
+      "amc_upper_final_five_50_primary_label_count": 7,
+      "rossmoyne_H_codes": [
+        "H06",
+        "H14",
+        "H15"
+      ]
+    },
+    {
+      "id": "SEQ",
+      "name": "Sequences, patterns and recurrence",
+      "subskills": [
+        {
+          "id": "SEQ-01",
+          "name": "Arithmetic sequences and fixed increments"
+        },
+        {
+          "id": "SEQ-02",
+          "name": "Doubling, geometric growth and finite sums"
+        },
+        {
+          "id": "SEQ-03",
+          "name": "Recurrence relations, steps and branching"
+        },
+        {
+          "id": "SEQ-04",
+          "name": "Repeating transformations and finite-state patterns"
+        }
+      ],
+      "amc_archive_140_primary_label_count": 15,
+      "amc_upper_final_five_50_primary_label_count": 8,
+      "rossmoyne_H_codes": [
+        "H05"
+      ]
+    },
+    {
+      "id": "COUNT",
+      "name": "Counting, arrangements and combinations",
+      "subskills": [
+        {
+          "id": "COUNT-01",
+          "name": "Systematic enumeration without missing cases"
+        },
+        {
+          "id": "COUNT-02",
+          "name": "Multiplication principle and combinations"
+        },
+        {
+          "id": "COUNT-03",
+          "name": "Restricted arrangements and neighbour rules"
+        },
+        {
+          "id": "COUNT-04",
+          "name": "Complement counting and inclusion–exclusion"
+        },
+        {
+          "id": "COUNT-05",
+          "name": "Double-counting and shared objects"
+        },
+        {
+          "id": "COUNT-06",
+          "name": "Partitioning into non-overlapping cases"
+        }
+      ],
+      "amc_archive_140_primary_label_count": 18,
+      "amc_upper_final_five_50_primary_label_count": 9,
+      "rossmoyne_H_codes": [
+        "H02",
+        "H04",
+        "H07",
+        "H19"
+      ]
+    },
+    {
+      "id": "LOGIC",
+      "name": "Logic, deduction and constraints",
+      "subskills": [
+        {
+          "id": "LOGIC-01",
+          "name": "Truth-tellers, liars and contradiction"
+        },
+        {
+          "id": "LOGIC-02",
+          "name": "Constraint elimination and logical deduction"
+        },
+        {
+          "id": "LOGIC-03",
+          "name": "Magic grids, symbolic rules and consistency"
+        },
+        {
+          "id": "LOGIC-04",
+          "name": "Proving all cases and unique solutions"
+        }
+      ],
+      "amc_archive_140_primary_label_count": 7,
+      "amc_upper_final_five_50_primary_label_count": 3,
+      "rossmoyne_H_codes": []
+    },
+    {
+      "id": "GEO",
+      "name": "2D geometry and measurement",
+      "subskills": [
+        {
+          "id": "GEO-01",
+          "name": "Perimeter, shared edges and boundary effects"
+        },
+        {
+          "id": "GEO-02",
+          "name": "Area decomposition and shaded complements"
+        },
+        {
+          "id": "GEO-03",
+          "name": "Angle and polygon reasoning"
+        },
+        {
+          "id": "GEO-04",
+          "name": "Symmetry, transformations and tessellation"
+        },
+        {
+          "id": "GEO-05",
+          "name": "Optimising areas and lengths under constraints"
+        }
+      ],
+      "amc_archive_140_primary_label_count": 10,
+      "amc_upper_final_five_50_primary_label_count": 2,
+      "rossmoyne_H_codes": [
+        "H13",
+        "H16",
+        "H17"
+      ]
+    },
+    {
+      "id": "SOLID",
+      "name": "3D geometry and solids",
+      "subskills": [
+        {
+          "id": "SOLID-01",
+          "name": "Unit-cube counting and layered solids"
+        },
+        {
+          "id": "SOLID-02",
+          "name": "Painted faces, boundary and hidden cubes"
+        },
+        {
+          "id": "SOLID-03",
+          "name": "Nets, surface area, volume and 3D views"
+        }
+      ],
+      "amc_archive_140_primary_label_count": 7,
+      "amc_upper_final_five_50_primary_label_count": 3,
+      "rossmoyne_H_codes": [
+        "H22"
+      ]
+    },
+    {
+      "id": "SPATIAL",
+      "name": "Grids, routes and spatial patterns",
+      "subskills": [
+        {
+          "id": "SPATIAL-01",
+          "name": "Counting paths by dynamic totals"
+        },
+        {
+          "id": "SPATIAL-02",
+          "name": "Grid lines, crossings and coordinates"
+        },
+        {
+          "id": "SPATIAL-03",
+          "name": "Polyominoes, tiling and shape assembly"
+        },
+        {
+          "id": "SPATIAL-04",
+          "name": "Restricted routes and spatial adjacency"
+        }
+      ],
+      "amc_archive_140_primary_label_count": 11,
+      "amc_upper_final_five_50_primary_label_count": 2,
+      "rossmoyne_H_codes": []
+    },
+    {
+      "id": "DATA",
+      "name": "Probability, statistics and data",
+      "subskills": [
+        {
+          "id": "DATA-01",
+          "name": "Elementary probability and favourable outcomes"
+        },
+        {
+          "id": "DATA-02",
+          "name": "Averages, weighted means and simple distributions"
+        },
+        {
+          "id": "DATA-03",
+          "name": "Reading and reasoning from graphs/tables"
+        }
+      ],
+      "amc_archive_140_primary_label_count": 0,
+      "amc_upper_final_five_50_primary_label_count": 0,
+      "rossmoyne_H_codes": []
+    }
+  ],
+  "universal_strategies": [
+    {
+      "id": "S01",
+      "name": "Choose a useful model: draw, tabulate, graph, or write an equation"
+    },
+    {
+      "id": "S02",
+      "name": "Work backwards from the requested result"
+    },
+    {
+      "id": "S03",
+      "name": "Try small cases and generalise the pattern"
+    },
+    {
+      "id": "S04",
+      "name": "Partition possibilities into exhaustive non-overlapping cases"
+    },
+    {
+      "id": "S05",
+      "name": "Count the complement or remove an overlap"
+    },
+    {
+      "id": "S06",
+      "name": "Find an invariant, conserved total or unchanged difference"
+    },
+    {
+      "id": "S07",
+      "name": "Count the same quantity in two ways"
+    },
+    {
+      "id": "S08",
+      "name": "Exploit symmetry or transform to a simpler equivalent"
+    },
+    {
+      "id": "S09",
+      "name": "Reduce by parity, divisibility, remainders or cycles"
+    },
+    {
+      "id": "S10",
+      "name": "Use bounds/optimisation and verify the final answer independently"
+    }
+  ],
+  "rossmoyne_skill_map": [
+    {
+      "code": "H01",
+      "primary_category": "DIG"
+    },
+    {
+      "code": "H02",
+      "primary_category": "COUNT"
+    },
+    {
+      "code": "H03",
+      "primary_category": "RATE"
+    },
+    {
+      "code": "H04",
+      "primary_category": "COUNT"
+    },
+    {
+      "code": "H05",
+      "primary_category": "SEQ"
+    },
+    {
+      "code": "H06",
+      "primary_category": "ALG"
+    },
+    {
+      "code": "H07",
+      "primary_category": "COUNT"
+    },
+    {
+      "code": "H08",
+      "primary_category": "DIV"
+    },
+    {
+      "code": "H09",
+      "primary_category": "DIV"
+    },
+    {
+      "code": "H10",
+      "primary_category": "RATE"
+    },
+    {
+      "code": "H11",
+      "primary_category": "DIV"
+    },
+    {
+      "code": "H12",
+      "primary_category": "RATE"
+    },
+    {
+      "code": "H13",
+      "primary_category": "GEO"
+    },
+    {
+      "code": "H14",
+      "primary_category": "ALG"
+    },
+    {
+      "code": "H15",
+      "primary_category": "ALG"
+    },
+    {
+      "code": "H16",
+      "primary_category": "GEO"
+    },
+    {
+      "code": "H17",
+      "primary_category": "GEO"
+    },
+    {
+      "code": "H18",
+      "primary_category": "DIG"
+    },
+    {
+      "code": "H19",
+      "primary_category": "COUNT"
+    },
+    {
+      "code": "H20",
+      "primary_category": "DIV"
+    },
+    {
+      "code": "H21",
+      "primary_category": "DIG"
+    },
+    {
+      "code": "H22",
+      "primary_category": "SOLID"
+    },
+    {
+      "code": "H23",
+      "primary_category": "FRAC"
+    }
+  ]
+}
