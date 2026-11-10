@@ -7,6 +7,10 @@ on:
     paths:
       - ".github/workflows/generate-remaining-audio.yml"
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: write
 
