@@ -1,0 +1,20 @@
+import fs from "node:fs/promises";
+import path from "node:path";
+import { KokoroTTS } from "kokoro-js";
+
+const [queueFile,videoId,indexText,outDir]=process.argv.slice(2);
+if(!queueFile||!videoId||indexText===undefined||!outDir) throw new Error("Usage: generate-single-chunk.mjs queue video index outDir");
+const queue=JSON.parse(await fs.readFile(queueFile,"utf8"));
+const video=queue.find(v=>v.video_id===videoId);
+if(!video) throw new Error("Video not found");
+const index=Number(indexText);
+const chunk=video.chunks[index];
+if(!chunk) throw new Error("Chunk not found");
+await fs.mkdir(outDir,{recursive:true});
+const tts=await KokoroTTS.from_pretrained("onnx-community/Kokoro-82M-v1.0-ONNX",{dtype:"q8",device:"cpu"});
+const audio=await tts.generate(chunk.text,{voice:"af_heart",speed:0.88});
+const target=path.join(outDir,`chunk-${String(index+1).padStart(2,"0")}.wav`);
+await audio.save(target);
+const st=await fs.stat(target);
+if(st.size<1000) throw new Error("Chunk WAV too small");
+console.log(`${videoId} chunk ${index+1}/${video.chunks.length} -> ${target}`);
