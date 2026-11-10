@@ -28,7 +28,7 @@ function renderLibrary(){
 async function startExam(id){
   activeExam=catalog.find(x=>x.id===id);if(!activeExam)return;
   if(innerWidth<650&&!confirm("The official AMC is not intended for a phone-sized screen. You can practise here, but an iPad or computer is better for realistic rehearsal. Continue?"))return;
-  const {data:q,error}=await supabase.from("exam_questions").select("*").eq("exam_id",id).order("question_number");
+  const {data:q,error}=await supabase.from("exam_questions_student").select("*").eq("exam_id",id).order("question_number");
   if(error)throw error;if((q||[]).length!==30){alert("This paper is not complete yet.");return}
   questions=q;responses={};typedInteger={};qIndex=0;
   const start=new Date(),expires=new Date(start.getTime()+activeExam.duration_minutes*60000);
@@ -39,7 +39,7 @@ async function startExam(id){
 }
 async function resumeSitting(s){
   const {data:exam}=await supabase.from("exam_catalog").select("*").eq("id",s.exam_id).single();activeExam=exam;
-  const {data:q}=await supabase.from("exam_questions").select("*").eq("exam_id",s.exam_id).order("question_number");questions=q||[];
+  const {data:q}=await supabase.from("exam_questions_student").select("*").eq("exam_id",s.exam_id).order("question_number");questions=q||[];
   sitting=s;responses=s.responses||{};typedInteger={};qIndex=0;
   if(new Date(s.expires_at)<=new Date()){await finishExam(true);return}
   renderExam();startTimer();
@@ -85,36 +85,36 @@ async function persistResponses(integerSave=false,qnum=null){
   }
   const {data,error}=await supabase.from("exam_sittings").update(patch).eq("id",sitting.id).select().single();if(error)throw error;sitting=data;
 }
-function isCorrect(q,response){
-  const ans=q.answer;
-  if(q.question_type==="multiple_choice")return norm(response)===norm(typeof ans==="string"?ans:ans?.choice);
-  const expected=typeof ans==="number"?String(ans):String(ans?.value??ans);
-  return norm(response)===norm(expected);
-}
-function scoreAndRows(){
-  let score=0;const rows=questions.map(q=>{const r=responses[q.question_number],ok=r!==undefined&&isCorrect(q,r),earned=ok?q.marks:0;score+=earned;return{q,response:r??"—",ok,earned,marks:q.marks,answer:q.answer,explanation:q.explanation}});return{score,rows}
-}
-function awardFor(score){
-  const y=activeExam.student_year===6?"year6":"year5";
-  const official=activeExam.award_cutoffs;
-  const c=official||awards.practice_estimate_wa[y];
-  if(score===135)return{label:"Perfect score · Peter O’Halloran Award standard",estimated:!official};
-  if(score>=(c.prize??999))return{label:"Prize range",estimated:!official};
-  if(score>=(c.high_distinction??999))return{label:"High Distinction",estimated:!official};
-  if(score>=(c.distinction??999))return{label:"Distinction",estimated:!official};
-  if(score>=(c.credit??999))return{label:"Credit",estimated:!official};
-  if(score>=(c.proficiency??32))return{label:"Proficiency",estimated:!official};
-  return{label:"Participation",estimated:!official};
-}
 async function finishExam(auto){
-  clearInterval(timerHandle);const {score,rows}=scoreAndRows(),award=awardFor(score),now=new Date().toISOString();
-  const {data,error}=await supabase.from("exam_sittings").update({responses,score,submitted_at:now,completed:true,metadata:{...(sitting.metadata||{}),auto_submitted:auto,award:award.label}}).eq("id",sitting.id).select().single();
-  if(error){alert(error.message);return}sitting=data;renderResults(score,rows,award,auto);
+  clearInterval(timerHandle);
+  try{
+    await persistResponses();
+    const {data:session,error:sessionError}=await supabase.auth.getSession();
+    if(sessionError) throw sessionError;
+    const token=session?.session?.access_token;
+    if(!token) throw new Error("Your sign-in session expired. Sign in again.");
+    const response=await fetch("https://dyidjdagwdvsczudkryt.supabase.co/functions/v1/grade-exam",{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json",
+        "apikey":"sb_publishable_rz3w3N3QxfgLZjTa6xb-hg_mTv9YM-y",
+        "Authorization":"Bearer "+token
+      },
+      body:JSON.stringify({sitting_id:sitting.id,auto_submitted:Boolean(auto)})
+    });
+    const result=await response.json();
+    if(!response.ok) throw new Error(result.error||"Grading failed.");
+    sitting={...sitting,completed:true,score:result.score};
+    renderResults(result.score,result.rows,result.award,auto,result.max_score||135);
+  }catch(e){
+    alert(e.message||"Could not finish the paper.");
+    startTimer();
+  }
 }
-function renderResults(score,rows,award,auto){
-  app.innerHTML=`<section class="panel result-hero"><div class="eyebrow">${auto?"TIME EXPIRED · ":""}PAPER COMPLETE</div><div class="score-big">${score}<span class="muted" style="font-size:.25em"> / 135</span></div><div class="award-badge">${esc(award.label)}</div><p class="estimate-note">${award.estimated?esc(awards.practice_estimate_wa.label)+". Official AMT cut-offs vary by year and WA cohort; a verified paper-year WA cutoff will replace this estimate whenever available.":"This paper uses a verified award-cutoff table stored with the exam."}</p></section>
-  <section class="panel result-card"><h2>Question-by-question results</h2><table class="result-table"><thead><tr><th>Q</th><th>Your answer</th><th>Result</th><th>Marks</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${r.q.question_number}</td><td>${esc(r.response)}</td><td class="${r.ok?"ok":"bad"}">${r.ok?"Correct":"Incorrect"}</td><td>${r.earned} / ${r.marks}</td></tr>`).join("")}</tbody></table></section>
-  <section class="panel result-card"><h2>Review each problem</h2>${rows.map(r=>`<details class="question-review"><summary>Question ${r.q.question_number} · ${r.ok?"✓ Correct":"Review"} · ${r.earned}/${r.marks}</summary><p><b>Problem</b><br>${esc(r.q.stem)}</p><p><b>Your answer:</b> ${esc(r.response)}<br><b>Correct answer:</b> ${esc(typeof r.answer==="object"?JSON.stringify(r.answer):r.answer)}</p>${r.explanation?`<p><b>Worked explanation</b><br>${esc(r.explanation)}</p>`:""}</details>`).join("")}<div class="complete-row"><a class="secondary" href="./">Return to Summit One</a><button id="backTests" class="primary">Test Centre</button></div></section>`;
+function renderResults(score,rows,award,auto,maxScore=135){
+  app.innerHTML=`<section class="panel result-hero"><div class="eyebrow">${auto?"TIME EXPIRED · ":""}PAPER COMPLETE</div><div class="score-big">${score}<span class="muted" style="font-size:.25em"> / ${maxScore}</span></div><div class="award-badge">${esc(award.label)}</div><p class="estimate-note">${award.estimated?esc(awards.practice_estimate_wa.label)+". Official AMT cut-offs vary by year and WA cohort; a verified paper-year WA cutoff will replace this estimate whenever available.":"This paper uses a verified award-cutoff table stored with the exam."}</p></section>
+  <section class="panel result-card"><h2>Question-by-question results</h2><table class="result-table"><thead><tr><th>Q</th><th>Your answer</th><th>Result</th><th>Marks</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${r.question_number}</td><td>${esc(r.response??"—")}</td><td class="${r.correct?"ok":"bad"}">${r.correct?"Correct":"Incorrect"}</td><td>${r.earned} / ${r.marks}</td></tr>`).join("")}</tbody></table></section>
+  <section class="panel result-card"><h2>Review each problem</h2>${rows.map(r=>`<details class="question-review"><summary>Question ${r.question_number} · ${r.correct?"✓ Correct":"Review"} · ${r.earned}/${r.marks}</summary><p><b>Problem</b><br>${esc(r.stem)}</p><p><b>Your answer:</b> ${esc(r.response??"—")}<br><b>Correct answer:</b> ${esc(typeof r.correct_answer==="object"?JSON.stringify(r.correct_answer):r.correct_answer)}</p>${r.explanation?`<p><b>Worked explanation</b><br>${esc(r.explanation)}</p>`:""}</details>`).join("")}<div class="complete-row"><a class="secondary" href="./">Return to Summit One</a><button id="backTests" class="primary">Test Centre</button></div></section>`;
   document.getElementById("backTests").onclick=()=>{sitting=null;activeExam=null;questions=[];responses={};renderLibrary()};
 }
 boot().catch(e=>{app.innerHTML='<section class="panel hero-panel"><h1>Test Centre error</h1><p class="muted">'+esc(e.message)+'</p></section>'});
