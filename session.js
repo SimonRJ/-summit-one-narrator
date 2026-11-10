@@ -43,7 +43,11 @@ async function bindChallenge(id,p,slot){
 async function render(){
  await requireUser();
  const [course,pack]=await Promise.all([loadCourse(),getProfile()]);
- const slot=requested||Math.min(372,(pack.progress.completed_sessions||0)+1);
+ const completed=pack.progress.completed_sessions||0;
+ const allowed=Math.min(372,completed+1);
+ const slot=requested||allowed;
+ if(slot>allowed)throw new Error("That session is still locked. Complete the current session first.");
+ if(slot<=completed){location.replace("review.html");return}
  const session=course.sessions[slot-1];if(!session)throw new Error("Unknown session");
  if(session.type==="AMC MOCK"){
    root.innerHTML=`<div class="card"><div class="eyebrow">Session ${slot} · AMC mock</div><h1>${esc(session.focus)}</h1><p class="lead">This is a formal 60-minute, 30-question, 135-mark training mock. Teaching aids are disabled during the sitting.</p><a class="cta" href="exam.html?practiceSession=${slot}&mode=amc">Begin mock →</a></div>`;return;
