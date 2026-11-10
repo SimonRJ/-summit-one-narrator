@@ -1,0 +1,121 @@
+{
+  "schema_version": "summit-one-rossmoyne-h23-v1",
+  "count": 23,
+  "format": {
+    "questions": 23,
+    "max_score": 100,
+    "sections": [
+      {
+        "count": 7,
+        "marks": 3
+      },
+      {
+        "count": 6,
+        "marks": 4
+      },
+      {
+        "count": 5,
+        "marks": 5
+      },
+      {
+        "count": 5,
+        "marks": 6
+      }
+    ],
+    "timing_note": "60 minutes is a home-practice target only, not an asserted official Rossmoyne test time."
+  },
+  "items": [
+    {
+      "id": "H01",
+      "insight": "Decimal borrowing/place value; inverse addition; decimal alignment"
+    },
+    {
+      "id": "H02",
+      "insight": "Ranks counted from opposite ends; convert position; exclude endpoints"
+    },
+    {
+      "id": "H03",
+      "insight": "Repeated events and units; number of sessions × duration; hours↔minutes"
+    },
+    {
+      "id": "H04",
+      "insight": "Two overlapping sets; Venn or inclusion–exclusion; avoid double-count"
+    },
+    {
+      "id": "H05",
+      "insight": "Doubling/finite geometric sum; account for outside/eaten items"
+    },
+    {
+      "id": "H06",
+      "insight": "Picture-grid row-total = column-total invariant first; equations are a valid but slower alternative"
+    },
+    {
+      "id": "H07",
+      "insight": "Restricted permutations; exhaustive disjoint cases and adjacency constraints"
+    },
+    {
+      "id": "H08",
+      "insight": "Last digit of huge powers; cycle and correct remainder-zero indexing"
+    },
+    {
+      "id": "H09",
+      "insight": "Nested calendar directions; apply innermost-first signed offsets"
+    },
+    {
+      "id": "H10",
+      "insight": "Combined work rates; add jobs per minute, never average completion times"
+    },
+    {
+      "id": "H11",
+      "insight": "Large 24-hour clock offsets; modular arithmetic and am/pm"
+    },
+    {
+      "id": "H12",
+      "insight": "Per-block-or-part-thereof pricing; ceiling and endpoint cases"
+    },
+    {
+      "id": "H13",
+      "insight": "Joined-shape perimeter; remove a shared edge twice; optimise legal joins"
+    },
+    {
+      "id": "H14",
+      "insight": "Hidden linear rule from two input/output pairs; differences reveal multiplier"
+    },
+    {
+      "id": "H15",
+      "insight": "Relative score/vote margins and fixed sum; verify all people included"
+    },
+    {
+      "id": "H16",
+      "insight": "Shaded diagonal band by complement; subtract simple triangles rather than trigonometry"
+    },
+    {
+      "id": "H17",
+      "insight": "Bent orthogonal wire; total horizontal projection only if no horizontal reversal"
+    },
+    {
+      "id": "H18",
+      "insight": "Repeated-digit borrowing cascade; digit sum, small-case and mod-9 checks"
+    },
+    {
+      "id": "H19",
+      "insight": "Grouped weighted counting; adults/couples/children distinguished"
+    },
+    {
+      "id": "H20",
+      "insight": "Rotating words and simultaneous periods; minimal intrinsic periods and LCM"
+    },
+    {
+      "id": "H21",
+      "insight": "Column cryptarithm; distinct digits, borrows, no leading zeros, unique result"
+    },
+    {
+      "id": "H22",
+      "insight": "Five painted cuboid faces with unpainted bottom; total minus (h−1)(w−2)(d−2) when dimensions allow"
+    },
+    {
+      "id": "H23",
+      "insight": "Find whole from remaining fraction; distinguish fraction of whole from sequential remainder"
+    }
+  ]
+}
