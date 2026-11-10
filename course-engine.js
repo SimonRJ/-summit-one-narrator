@@ -83,17 +83,38 @@ export function chapterForFocus(focus){
   return (rules.find(([,re])=>re.test(s))||["T18"])[0];
 }
 function seed(slot,salt=0){let x=(slot*1103515245+12345+salt*2654435761)>>>0;return()=>{x=(1664525*x+1013904223)>>>0;return x/4294967296}}
+function focusFamilies(focus){
+ const s=(focus||"").toLowerCase();
+ if(/divisib|factor|multiple|remainder|hcf|lcm/.test(s))return ["factors-multiples","digits"];
+ if(/digit|place-value|palindrome|repunits|cryptarithm/.test(s))return ["digits"];
+ if(/working backwards|total|difference|before|after|age/.test(s))return ["totals-differences","before-after"];
+ if(/cube|solid|painted|surface|volume/.test(s))return ["solids"];
+ if(/area|perimeter|angle|geometry|tessell|grid|polygon/.test(s))return ["area-perimeter","shape-counting","symmetry"];
+ if(/count|enumerat|arrang|combination|case|pigeonhole|partition/.test(s))return ["counting","shape-counting"];
+ if(/pattern|recurrence|sequence|growth/.test(s))return ["patterns"];
+ if(/ratio|rate|fraction|percent|average|speed/.test(s))return ["fractions-ratios"];
+ if(/time|clock|schedule/.test(s))return ["time"];
+ if(/logic|truth|deduction|proof|contradiction/.test(s))return ["logic"];
+ return [];
+}
 export function challengePair(course,session){
-  const pool=course.challenges.filter(x=>x.prompt&&x.answer!==null&&x.answer!==undefined);
-  const rnd=seed(session.slot,session.focus.length);
-  let a=Math.floor(rnd()*pool.length),b=Math.floor(rnd()*pool.length);
-  if(b===a)b=(b+37)%pool.length;
-  // Later phases deliberately bias toward harder authentic problems.
-  if(session.slot>120){
-    const hard=pool.filter(x=>Number(x.difficulty||3)>=4);
-    if(hard.length){a=Math.floor(rnd()*hard.length);b=Math.floor(rnd()*hard.length);return [hard[a],hard[b===a?(b+1)%hard.length:b]]}
+  let base=course.challenges.filter(x=>x.prompt&&x.answer!==null&&x.answer!==undefined);
+  if(session.type==="MAWA"){
+    const original=base.filter(x=>x.kind==="original_challenge"||x.type==="original_challenge");
+    if(original.length>=2)base=original;
+  }else{
+    const fam=focusFamilies(session.focus);
+    const aligned=base.filter(x=>fam.includes(x.category));
+    if(aligned.length>=8)base=aligned;
   }
-  return [pool[a],pool[b]];
+  if(session.slot>120){
+    const hard=base.filter(x=>x.difficulty==null||Number(x.difficulty)>=4);
+    if(hard.length>=6)base=hard;
+  }
+  const rnd=seed(session.slot,session.focus.length);
+  let a=Math.floor(rnd()*base.length),b=Math.floor(rnd()*base.length);
+  if(b===a)b=(b+Math.max(1,Math.floor(base.length/2)))%base.length;
+  return [base[a],base[b]];
 }
 export function teachingSet(course,session){
   const chapter=chapterForFocus(session.focus);
