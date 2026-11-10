@@ -15,22 +15,22 @@
     "year5": {
       "participation": 0,
       "proficiency": 32,
-      "credit": 58,
+      "credit": 55,
       "distinction": 78,
       "high_distinction": 85,
-      "prize": 118,
+      "prize": 115,
       "perfect": 135
     },
     "year6": {
       "participation": 0,
       "proficiency": 32,
-      "credit": 62,
+      "credit": 60,
       "distinction": 80,
-      "high_distinction": 90,
-      "prize": 120,
+      "high_distinction": 85,
+      "prize": 118,
       "perfect": 135
     },
-    "rationale": "Training estimate only. AMT cut-offs vary by year level, paper difficulty and region. The Year 5 estimate gives extra weight to the user's recent WA reference that scores in the low 80s were around Distinction territory and High Distinction began around the mid-80s. When a paper-year WA cutoff can be verified, the exam record overrides these estimates."
+    "rationale": "Training-only WA estimate for immediate feedback when no official paper-year WA raw cutoff is verifiable. Distinction is centred around the low 80s and High Distinction from about 85, based on the learner's prior WA result context. The UI must label this as an estimate and replace it with verified paper-year WA cutoffs whenever available."
   },
   "historical_reference_non_wa": {
     "2024": {
