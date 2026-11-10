@@ -273,13 +273,13 @@ async function renderReview(){
 }
 async function renderProfile(){
   activeView="profile";const r=currentRank();
-  const {data:completed}=await supabase.from("session_records").select("session_number,summary,evidence").eq("user_id",user.id).not("completed_at","is",null);
+  const [{data:completed},{data:exams}]=await Promise.all([supabase.from("session_records").select("session_number,summary,evidence").eq("user_id",user.id).not("completed_at","is",null),supabase.from("exam_sittings").select("exam_id,score,max_score,submitted_at,metadata").eq("user_id",user.id).eq("completed",true).order("submitted_at",{ascending:false}).limit(12)]);
   const focusCounts=new Map();
   for(const row of completed||[]){
     const focus=String(row.summary?.focus||course[row.session_number-1]?.focus||"").toLowerCase();
     for(const cat of taxonomy?.categories||[])for(const skill of cat.subskills||[]){
       const key=skill.name.toLowerCase();
-      if(focus===key||focus.includes(key)||key.includes(focus))focusCounts.set(skill.id,(focusCounts.get(skill.id)||0)+1);
+      if(focus && (focus===key||focus.includes(key)||key.includes(focus)))focusCounts.set(skill.id,(focusCounts.get(skill.id)||0)+1);
     }
   }
   const covered=[...focusCounts.values()].filter(x=>x>0).length;
