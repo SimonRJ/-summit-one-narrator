@@ -50,3 +50,5 @@ async function render(){
 }
 document.getElementById("signOut").onclick=async()=>{await supabase.auth.signOut();location.replace("login.html")};
 render().catch(e=>app.innerHTML=`<div class="card"><h2>Could not load Summit One</h2><p class="mini">${esc(e.message)}</p><a class="cta" href="login.html">Return to login</a></div>`);
+
+if("serviceWorker" in navigator){navigator.serviceWorker.register("./sw.js").catch(()=>{});}
