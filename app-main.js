@@ -232,8 +232,9 @@ function renderChallenge(el,s,p,mode){
     try{
       const d=await loadProblemDetail(p.id);
       await recordAttempt({problem_id:p.id,session_number:s.slot,answer_text:null,is_correct:null,evidence_level:"viewed",solution_video_opened:true,independent_credit:false,elapsed_seconds:null});
-      solution.hidden=false;solution.innerHTML=`<b>Compare reasoning</b>\n\n${esc(d.solution_text||d.spoken_script||"Solution unavailable.")}
-      <div class="audio-row"><audio controls preload="none" src="https://github.com/SimonRJ/-summit-one-narrator/releases/download/summit-one-audio-v1/${encodeURIComponent(p.id)}_narration.wav"></audio><span class="muted">Narrated solution when media is available</span></div>`;
+      const transcript=d.solution_text||d.spoken_script||"Solution unavailable.";
+      solution.hidden=false;solution.innerHTML=`<b>Compare reasoning</b><div id="solutionPlayer-${p.id.replace(/[^A-Za-z0-9]/g,"_")}"></div><details style="margin-top:12px"><summary>Read full worked solution</summary><p class="math-copy">${esc(transcript)}</p></details>`;
+      mountNarratedPlayer(document.getElementById("solutionPlayer-"+p.id.replace(/[^A-Za-z0-9]/g,"_")),{title:p.title||p.id,transcript,audioUrl:`https://github.com/SimonRJ/-summit-one-narrator/releases/download/summit-one-audio-v1/${encodeURIComponent(p.id)}_narration.wav`});
       reveal.disabled=true;
     }catch(e){solution.hidden=false;solution.textContent=e.message}
   };
