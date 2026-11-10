@@ -39,7 +39,7 @@ async function startExam(id){
   questions=q;responses={};typedInteger={};qIndex=0;
   const start=new Date(),expires=new Date(start.getTime()+activeExam.duration_minutes*60000);
   const {data:s,error:e}=await supabase.from("exam_sittings").insert({
-    user_id:user.id,exam_id:id,exam_year:activeExam.year,started_at:start.toISOString(),expires_at:expires.toISOString(),completed:false,max_score:activeExam.max_score,responses:{},integer_save_times:{},metadata:{title:activeExam.title,student_year:activeExam.student_year,course_slot:activeExam.session_slot||null}
+    user_id:user.id,exam_id:id,exam_year:activeExam.year,started_at:start.toISOString(),expires_at:expires.toISOString(),completed:false,max_score:activeExam.max_score,responses:{},integer_save_times:{},metadata:{title:activeExam.title,student_year:activeExam.student_year,course_slot:courseMode?(activeExam.session_slot||null):null,course_mode:courseMode}
   }).select().single();
   if(e)throw e;sitting=s;renderExam();startTimer();
 }
@@ -123,7 +123,7 @@ function renderResults(score,rows,award,auto,maxScore=135){
         ? esc(awards.practice_estimate_wa.label)+". Official AMT cut-offs vary by year and WA cohort; a verified paper-year WA cutoff will replace this estimate whenever available."
         : "This paper uses a verified award-cutoff table stored with the exam.")
     : "This selective-maths practice paper is reported as a raw score only; no official Rossmoyne award bands are invented.";
-  const courseSlot=Number(sitting?.metadata?.course_slot||activeExam?.session_slot||0);
+  const courseSlot=sitting?.metadata?.course_mode===true?Number(sitting?.metadata?.course_slot||0):0;
   app.innerHTML=`<section class="panel result-hero"><div class="eyebrow">${auto?"TIME EXPIRED · ":""}PAPER COMPLETE</div><div class="score-big">${score}<span class="muted" style="font-size:.25em"> / ${maxScore}</span></div><div class="award-badge">${esc(award.label||"Practice paper complete")}</div><p class="estimate-note">${awardNote}</p></section>
   <section class="panel result-card"><h2>Question-by-question results</h2><table class="result-table"><thead><tr><th>Q</th><th>Your answer</th><th>Result</th><th>Marks</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${r.question_number}</td><td>${esc(r.response??"—")}</td><td class="${r.correct?"ok":"bad"}">${r.correct?"Correct":"Incorrect"}</td><td>${r.earned} / ${r.marks}</td></tr>`).join("")}</tbody></table></section>
   <section class="panel result-card"><h2>Review each problem</h2>${rows.map(r=>`<details class="question-review"><summary>Question ${r.question_number} · ${r.correct?"✓ Correct":"Review"} · ${r.earned}/${r.marks}</summary><p><b>Problem</b><br>${esc(r.stem)}</p><p><b>Your answer:</b> ${esc(r.response??"—")}<br><b>Correct answer:</b> ${esc(typeof r.correct_answer==="object"?JSON.stringify(r.correct_answer):r.correct_answer)}</p>${r.explanation?`<p><b>Worked explanation</b><br>${esc(r.explanation)}</p>`:""}</details>`).join("")}
@@ -135,6 +135,7 @@ function renderResults(score,rows,award,auto,maxScore=135){
     complete.disabled=true;complete.textContent="Locking course session…";
     try{
       const p=await loadProgress();
+      if((p?.completed_sessions||0)!==courseSlot-1) throw new Error("This result is saved, but it is not the next canonical course session and cannot advance the course.");
       const type=maxScore===135?"AMC MOCK":"ROSSMOYNE MOCK";
       await upsertSession({
         session_number:courseSlot,
