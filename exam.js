@@ -5,6 +5,7 @@ import { practicePaper,createSitting,updateSitting,completeSitting,awardFor } fr
 const root=document.getElementById("examApp"),qs=new URLSearchParams(location.search),esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
 let paper=null,sitting=null,responses={},saveTimes={},current=1,timerHandle=null,drafts={},finished=false;
 
+const ACTIVE_KEY="summit-one-active-exam-v1";
 async function loadPaper(){
  const practice=Number(qs.get("practiceSession")||0),mode=qs.get("mode")||"amc",paperId=qs.get("paper");
  if(practice)return practicePaper(practice,mode);
@@ -16,14 +17,39 @@ async function loadPaper(){
 function formatTime(ms){const s=Math.max(0,Math.ceil(ms/1000)),m=Math.floor(s/60),x=s%60;return `${String(m).padStart(2,"0")}:${String(x).padStart(2,"0")}`}
 function remaining(){return sitting?new Date(sitting.expires_at).getTime()-Date.now():paper.duration_minutes*60000}
 function answerCount(){return Object.keys(responses).filter(k=>responses[k]?.value!==undefined&&responses[k]?.value!=="").length}
-async function persist(){if(sitting&&!finished)try{sitting=await updateSitting(sitting,responses,saveTimes)}catch{}}
+function storeActive(){if(sitting)localStorage.setItem(ACTIVE_KEY,JSON.stringify({id:sitting.id,exam_id:paper.id}))}
+function clearActive(){try{localStorage.removeItem(ACTIVE_KEY)}catch{}}
+async function persist(){if(sitting&&!finished)try{sitting=await updateSitting(sitting,responses,saveTimes);storeActive()}catch{}}
+async function resumeOpenSitting(){
+ const user=await requireUser();
+ let candidate=null;
+ try{
+   const local=JSON.parse(localStorage.getItem(ACTIVE_KEY)||"null");
+   if(local?.id){
+     const {data}=await supabase.from("exam_sittings").select("*").eq("id",local.id).eq("user_id",user.id).eq("completed",false).maybeSingle();
+     if(data&&data.exam_id===paper.id)candidate=data;
+   }
+ }catch{}
+ if(!candidate){
+   const {data}=await supabase.from("exam_sittings").select("*").eq("user_id",user.id).eq("exam_id",paper.id).eq("completed",false).order("started_at",{ascending:false}).limit(1);
+   candidate=data?.[0]||null;
+ }
+ if(candidate){
+   sitting=candidate;responses=candidate.responses||{};saveTimes=candidate.integer_save_times||{};storeActive();
+   if(remaining()<=0){await finish(true);return true}
+   renderExam();startTimer();return true;
+ }
+ return false;
+}
 function renderStart(){
  root.innerHTML=`<div class="card"><div class="eyebrow">${esc(paper.kind==="practice"?"Summit One training assessment":"Past-paper rehearsal")}</div><h1 style="font-size:clamp(2rem,5vw,3.4rem);margin:.35em 0">${esc(paper.title)}</h1>
  <p class="lead">${paper.division?esc(paper.division)+" · ":""}${paper.questions.length} questions · ${paper.duration_minutes} minutes · ${paper.max_score} marks.</p>
  <div class="grid3"><div class="kpi"><strong>${paper.duration_minutes}</strong><span>minutes</span></div><div class="kpi"><strong>${paper.questions.length}</strong><span>questions</span></div><div class="kpi"><strong>${paper.max_score}</strong><span>marks</span></div></div>
  <p class="mini" style="margin-top:18px">Once you press Start, the timer continues even if the page is refreshed. Q1–Q25 multiple-choice selections save immediately. Q26–Q30 integer answers count only after you press Save. No hints or solution feedback appear during the sitting.</p>
+ <div id="phoneWarning" class="mini" style="display:none;color:#ffd166;margin-top:12px"><b>Rehearsal note:</b> use a tablet or computer for the closest match to the official online AMC environment. Phone access remains available for convenience.</div>
  <button class="cta" id="startExam">Start assessment</button> <a class="ghost" href="exams.html">Cancel</a></div>`;
- document.getElementById("startExam").onclick=async e=>{e.currentTarget.disabled=true;sitting=await createSitting(paper);responses=sitting.responses||{};saveTimes=sitting.integer_save_times||{};renderExam();startTimer()};
+ document.getElementById("phoneWarning").style.display=matchMedia("(max-width: 600px)").matches?"block":"none";
+ document.getElementById("startExam").onclick=async e=>{e.currentTarget.disabled=true;sitting=await createSitting(paper);responses=sitting.responses||{};saveTimes=sitting.integer_save_times||{};storeActive();renderExam();startTimer()};
 }
 function nav(){
  return paper.questions.map(q=>`<button data-q="${q.number}" class="${responses[String(q.number)]?.value!==undefined?"answered":""} ${q.number===current?"current":""}">${q.number}</button>`).join("");
@@ -40,7 +66,7 @@ function renderExam(){
  document.querySelectorAll("#qnav button").forEach(b=>b.onclick=()=>{current=Number(b.dataset.q);renderExam()});
  document.getElementById("prev").onclick=()=>{if(current>1){current--;renderExam()}};
  document.getElementById("next").onclick=()=>{if(current<paper.questions.length){current++;renderExam()}};
- document.getElementById("submitExam").onclick=()=>finish(false);
+ document.getElementById("submitExam").onclick=()=>{if(confirm("Finish and submit this assessment? You will not be able to change answers afterwards."))finish(false)};
  if(q.type==="multiple_choice")document.querySelectorAll(".choice").forEach(b=>b.onclick=async()=>{
    responses[String(q.number)]={value:b.dataset.value,saved_at:new Date().toISOString()};await persist();renderExam()
  });
@@ -57,7 +83,7 @@ async function updateStarCounts(result){
 }
 async function finish(auto){
  if(finished||!sitting)return;finished=true;clearInterval(timerHandle);
- const {result}=await completeSitting(sitting,paper,responses,saveTimes);await updateStarCounts(result).catch(()=>{});
+ const {result}=await completeSitting(sitting,paper,responses,saveTimes);clearActive();await updateStarCounts(result).catch(()=>{});
  const practice=Number(qs.get("practiceSession")||0);if(practice)await finishSession(practice,`assessment-${practice}`,{answers:responses,working:{},evidence:{exam:true},summary:{type:qs.get("mode")||"amc",score:result.score,max:result.max,auto_submitted:auto}}).catch(()=>{});
  const awards=(await loadCourse()).awards,yearLevel=paper.year_level||5,award=paper.max_score===135?awardFor(result.score,awards,yearLevel,paper.award_cutoffs_wa||null):{name:"Training result",label:"Rossmoyne-style practice",official:false};
  renderResults(result,award,auto);
@@ -70,5 +96,5 @@ function renderResults(result,award,auto){
  <section class="section card"><h2>Question-by-question results</h2><div class="result-grid">${result.rows.map(r=>`<div class="result-cell ${r.correct?"ok":"no"}"><b>Q${r.number}</b><br><span>${r.earned}/${r.marks}</span><br><small>${r.correct?"Correct":"Answer: "+esc(r.answer)}</small></div>`).join("")}</div></section>
  <section class="section card"><h2>Performance by problem family</h2>${Object.entries(byCat).map(([k,v])=>`<div style="margin:10px 0"><b>${esc(k)}</b><span class="mini"> · ${v.correct}/${v.total} correct</span><div class="progress"><span style="width:${v.correct/v.total*100}%"></span></div></div>`).join("")}</section>`;
 }
-async function init(){await requireUser();paper=await loadPaper();renderStart()}
+async function init(){await requireUser();paper=await loadPaper();if(!(await resumeOpenSitting()))renderStart()}
 init().catch(e=>root.innerHTML=`<div class="card"><h2>Assessment could not load</h2><p class="mini">${esc(e.message)}</p><a class="cta" href="exams.html">Return to test centre</a></div>`);
