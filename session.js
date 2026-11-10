@@ -60,12 +60,13 @@ async function render(){
  <div class="card"><div class="eyebrow">${esc(session.phase)} · ${esc(session.type)} · Session ${slot}/372</div><h1 style="font-size:clamp(2rem,5vw,3.6rem);margin:.35em 0">${esc(session.focus)}</h1><p class="lead">${isMawa?"Investigation day: make a conjecture, test it, prove what you can, and explain the argument so another mathematician could follow it.":"Complete the five stages in order. The solution explanations stay locked until you make a genuine attempt."}</p></div>
  <div class="stage-list section">
   <div class="stage"><h3><span class="stage-index">1 · Remember</span>Retrieve before you re-learn</h3><p class="prompt">${isMawa?"Without notes, write two proof moves you could use when a pattern seems true.":"Without notes, write what you already know about: "+esc(session.focus)+". Include one fact, one representation, and one possible trap."}</p><textarea id="remember" placeholder="Your retrieval notes"></textarea></div>
-  <div class="stage"><h3><span class="stage-index">2 · Discover</span>${esc(teach.concept?.title||teach.chapter)}</h3><p class="mini">Read, watch and pause. The goal is to understand the structure, not memorise a trick.</p><div id="discoverMedia"></div></div>
+  <div class="stage"><h3><span class="stage-index">2 · Discover</span>${esc(teach.concept?.title||teach.chapter)}</h3><p class="mini">Read, watch and pause. The goal is to understand the structure, not memorise a trick.</p><div id="discoverMedia"></div><div style="margin-top:18px;border-top:1px solid #20364d;padding-top:18px"><div class="eyebrow">Worked example</div><div id="workedMedia" style="margin-top:10px"></div></div></div>
   ${challengeBlock("try","3 · Try",tryP)}
   ${challengeBlock("transfer","4 · Transfer",transferP)}
   <div class="stage"><h3><span class="stage-index">5 · Check</span>Make the learning explicit</h3><p class="prompt">In one or two sentences: what clue should make you recognise this idea next time, and what mistake will you avoid?</p><textarea id="takeaway" placeholder="My recognition clue and check…"></textarea><div class="btnrow"><button class="primary" id="completeSession">Complete and lock Session ${slot}</button></div><div id="completeMsg" class="mini" style="margin-top:10px"></div></div>
  </div>`;
  renderNarratedLesson(document.getElementById("discoverMedia"),teach.concept,{label:"Concept explanation"});
+ if(teach.example)renderNarratedLesson(document.getElementById("workedMedia"),teach.example,{label:"Worked example"});
  const tryBind=await bindChallenge("try",tryP,slot),transferBind=await bindChallenge("transfer",transferP,slot);
  document.getElementById("completeSession").onclick=async e=>{
   const btn=e.currentTarget,msg=document.getElementById("completeMsg");
