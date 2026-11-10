@@ -2,8 +2,8 @@ import { supabase, loadProgress, saveProgress, signOut, currentUser, upsertSessi
 
 const app=document.getElementById("app");
 const problemTemplate=document.getElementById("problemTemplate");
-let course=[], teaching=[], problemIndex=[], progress=null, user=null, activeView="home", activeStage=0;
-let currentProblems=[], sessionDraft={answers:{},working:{},evidence:{},summary:{}};
+let course=[], teaching=[], mawa=[], rossMap=[], problemIndex=[], progress=null, user=null, activeView="home", activeStage=0;
+let currentProblems=[], currentMawa=null, sessionDraft={answers:{},working:{},evidence:{},summary:{}};
 
 const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
 const pct=n=>Math.max(0,Math.min(100,Number(n)||0));
@@ -74,8 +74,8 @@ async function boot(){
   try{
     user=await currentUser();
     if(!user){location.href="login.html";return}
-    const [c,t]=await Promise.all([fetch("data/sessions-372.json").then(r=>r.json()),fetch("data/teaching-72.json").then(r=>r.json())]);
-    course=c.sessions; teaching=t.items;
+    const [c,t,m,h]=await Promise.all([fetch("data/sessions-372.json").then(r=>r.json()),fetch("data/teaching-72.json").then(r=>r.json()),fetch("data/mawa-investigations-20.json").then(r=>r.json()),fetch("data/rossmoyne-h23.json").then(r=>r.json())]);
+    course=c.sessions; teaching=t.items; mawa=m.items; rossMap=h.items;
     const {data:problems,error}=await supabase.from("content_problems").select("id,source_type,title,source_label,category,difficulty,prompt,unit").order("id");
     if(error)throw error; problemIndex=problems||[];
     progress=await loadProgress();
@@ -110,12 +110,62 @@ function renderHome(){
   document.getElementById("reviewQuick").onclick=()=>renderReview();
 }
 async function startSession(s){
-  activeStage=0;currentProblems=chooseProblems(s);sessionDraft={answers:{},working:{},evidence:{},summary:{}};
+  activeStage=0;currentProblems=chooseProblems(s);currentMawa=s.type==="MAWA"?mawa[(Math.floor(s.slot/7)-1)%mawa.length]:null;sessionDraft={answers:{},working:{},evidence:{},summary:{}};
   const {data:existing}=await supabase.from("session_records").select("*").eq("user_id",user.id).eq("session_number",s.slot).maybeSingle();
   if(existing){sessionDraft={answers:existing.answers||{},working:existing.working||{},evidence:existing.evidence||{},summary:existing.summary||{}}}
   else await upsertSession({session_number:s.slot,session_key:`S${String(s.slot).padStart(3,"0")}`,answers:{},working:{},evidence:{},summary:{}});
+  if(s.type==="MAWA"){renderMawaSession(s);return}
   renderSession(s);
 }
+
+function mawaExtension(s,item){
+  const ordinal=Math.floor(s.slot/7);
+  const cycle=Math.floor((ordinal-1)/20);
+  if(cycle===0)return "Base investigation: solve every part and justify the general or optimal claim.";
+  if(cycle===1)return "Extension: change one numerical condition in a sensible way. Predict what changes before calculating, solve the new case, then state which part of the original reasoning still works.";
+  return "Deep extension: write a variable/general version of the problem. State a conjecture, test boundary cases or a counterexample, and give an argument for when the rule is true.";
+}
+function renderMawaSession(s){
+  app.innerHTML=`
+  <section class="session-page">
+    <header class="panel session-header"><div class="eyebrow">SESSION ${s.slot} / 372 · MAWA INVESTIGATION</div><h1>${esc(currentMawa.title)}</h1><div><span class="type-chip">PROOF & INVESTIGATION</span><span class="phase-chip">${esc(s.phase)}</span></div></header>
+    <nav class="stage-nav" aria-label="MAWA stages">${["Remember","Discover","Try","Transfer","Check"].map((x,i)=>`<button data-stage="${i}" class="${i===activeStage?"active":""}">${i+1}. ${x}</button>`).join("")}</nav>
+    <section id="stage" class="panel stage"></section>
+  </section>`;
+  document.querySelectorAll("[data-stage]").forEach(b=>b.onclick=()=>{activeStage=Number(b.dataset.stage);renderMawaSession(s)});
+  const el=document.getElementById("stage"), item=currentMawa;
+  if(activeStage===0){
+    const prevSlot=s.slot-7,prev=prevSlot>=7?mawa[(Math.floor(prevSlot/7)-1)%mawa.length]:null;
+    el.innerHTML=`<div class="stage-number">STAGE 1 · RETRIEVAL</div><h2>Remember</h2><p class="muted">MAWA-style work rewards systematic thinking and clear justification, not speed alone.</p><div class="teaching-item"><h3>${prev?esc(prev.title):"Proof habit"}</h3><p class="math-copy">${prev?"Without reopening the old solution, write one sentence about what made the previous investigation complete.":"Write the difference between finding an example and proving a maximum, minimum or impossibility."}</p></div><div class="complete-row"><span></span><button id="nextStage" class="primary">Discover</button></div>`;
+  }
+  if(activeStage===1){
+    el.innerHTML=`<div class="stage-number">STAGE 2 · INVESTIGATION SETUP</div><h2>Discover</h2><p class="muted">Read the problem slowly. Decide what evidence would count as a proof before calculating.</p><div class="problem-card"><div class="problem-meta">${esc(item.topic)}</div><h3 class="problem-title">${esc(item.title)}</h3><div class="problem-prompt math-copy">${esc(item.prompt)}</div><details style="margin-top:14px"><summary>First hint — use only if you are genuinely stuck</summary><p class="math-copy">${esc(item.hint)}</p></details></div><div class="complete-row"><span class="muted">Plan cases, a diagram, a table or an invariant.</span><button id="nextStage" class="primary">Try the investigation</button></div>`;
+  }
+  if(activeStage===2){
+    const saved=sessionDraft.working.mawa_base||"";
+    el.innerHTML=`<div class="stage-number">STAGE 3 · INDEPENDENT WORK</div><h2>Try</h2><p class="muted">Use paper, a notebook or this box. A correct number without justification is not complete evidence.</p><div class="problem-card"><div class="math-copy">${esc(item.prompt)}</div><label class="answer-label">Your organised reasoning<textarea id="mawaBase" class="answer-box" rows="12">${esc(saved)}</textarea></label><button id="recordMawa" class="primary">Record investigation work</button><div id="mawaMsg" class="attempt-feedback" hidden></div></div><div class="complete-row"><button id="backStage" class="ghost">Back</button><button id="nextStage" class="primary">Transfer</button></div>`;
+    document.getElementById("recordMawa").onclick=async()=>{const v=document.getElementById("mawaBase").value.trim();if(v.length<20){alert("Record enough working to show the method, not only an answer.");return}sessionDraft.working.mawa_base=v;sessionDraft.evidence.mawa_base={status:"proof_evidence_unreviewed",recorded_at:new Date().toISOString()};await upsertSession({session_number:s.slot,session_key:`S${String(s.slot).padStart(3,"0")}`,answers:sessionDraft.answers,working:sessionDraft.working,evidence:sessionDraft.evidence,summary:sessionDraft.summary});const m=document.getElementById("mawaMsg");m.hidden=false;m.textContent="Work saved. Proof evidence remains unreviewed until you compare/check it."};
+  }
+  if(activeStage===3){
+    const ext=mawaExtension(s,item),saved=sessionDraft.working.mawa_extension||"";
+    el.innerHTML=`<div class="stage-number">STAGE 4 · GENERALISE</div><h2>Transfer</h2><p class="muted">${esc(ext)}</p><label class="answer-label">Extension reasoning<textarea id="mawaExt" class="answer-box" rows="10">${esc(saved)}</textarea></label><button id="recordExt" class="primary">Record extension</button><div class="complete-row"><button id="backStage" class="ghost">Back</button><button id="nextStage" class="primary">Check</button></div>`;
+    document.getElementById("recordExt").onclick=async()=>{const v=document.getElementById("mawaExt").value.trim();if(v.length<20){alert("Give a mathematical reason, example, diagram description or proof step.");return}sessionDraft.working.mawa_extension=v;await upsertSession({session_number:s.slot,session_key:`S${String(s.slot).padStart(3,"0")}`,answers:sessionDraft.answers,working:sessionDraft.working,evidence:sessionDraft.evidence,summary:sessionDraft.summary});};
+  }
+  if(activeStage===4){
+    const ready=sessionDraft.working.mawa_base&&sessionDraft.working.mawa_extension;
+    el.innerHTML=`<div class="stage-number">STAGE 5 · PROOF CHECK</div><h2>Check</h2><p class="muted">Score the evidence, not confidence. This is a practice rubric, not an official MAWA admissions score.</p><div class="problem-card"><details><summary>Compare with model reasoning</summary><p class="solution-panel" style="display:block">${esc(item.solution)}</p><p class="muted"><b>Common trap:</b> ${esc(item.trap)}</p></details><div class="check-grid"><label class="answer-label">Result 0–3<input id="rResult" type="number" min="0" max="3" value="3"></label><label class="answer-label">Method 0–3<input id="rMethod" type="number" min="0" max="3" value="2"></label><label class="answer-label">Proof / completeness 0–3<input id="rProof" type="number" min="0" max="3" value="2"></label><label class="answer-label">Clarity 0–1<input id="rClarity" type="number" min="0" max="1" value="1"></label></div></div><div class="complete-row"><span class="muted">${ready?"Investigation and extension recorded.":"Record both the investigation and extension before completion."}</span><button id="completeMawa" class="primary" ${ready?"":"disabled"}>Complete and lock Session ${s.slot}</button></div>`;
+    if(ready)document.getElementById("completeMawa").onclick=async()=>{const rubric={result:Number(document.getElementById("rResult").value),method:Number(document.getElementById("rMethod").value),proof:Number(document.getElementById("rProof").value),clarity:Number(document.getElementById("rClarity").value)};sessionDraft.summary={focus:item.title,type:"MAWA",phase:s.phase,investigation_id:item.id,rubric,total:rubric.result+rubric.method+rubric.proof+rubric.clarity};await completeSpecialSession(s)};
+  }
+  const next=document.getElementById("nextStage");if(next)next.onclick=()=>{activeStage=Math.min(4,activeStage+1);renderMawaSession(s)};
+  const back=document.getElementById("backStage");if(back)back.onclick=()=>{activeStage=Math.max(0,activeStage-1);renderMawaSession(s)};
+}
+async function completeSpecialSession(s){
+  await upsertSession({session_number:s.slot,session_key:`S${String(s.slot).padStart(3,"0")}`,completed_at:new Date().toISOString(),immutable:true,answers:sessionDraft.answers,working:sessionDraft.working,evidence:sessionDraft.evidence,summary:sessionDraft.summary});
+  const done=Math.max(progress.completed_sessions||0,s.slot),p=done/372*100,r=Math.max(1,Math.min(20,Math.ceil(Math.max(.0001,p)/5)));
+  progress=await saveProgress({completed_sessions:done,current_session:Math.min(372,done+1),xp:done*100,rank:r,overall_percent:Number(p.toFixed(2)),next_practice_exam_in:(course.find(x=>x.slot>done&&(x.type==="AMC MOCK"||x.type==="ROSSMOYNE MOCK"))?.slot??done)-done});
+  renderHome();
+}
+
 function renderSession(s){
   app.innerHTML=`
   <section class="session-page">
