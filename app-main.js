@@ -3,7 +3,7 @@ import { mountNarratedPlayer } from "./lesson-player.js";
 
 const app=document.getElementById("app");
 const problemTemplate=document.getElementById("problemTemplate");
-let course=[], teaching=[], mawa=[], rossMap=[], problemIndex=[], progress=null, user=null, activeView="home", activeStage=0;
+let course=[], teaching=[], mawa=[], rossMap=[], taxonomy=null, problemIndex=[], progress=null, user=null, activeView="home", activeStage=0;
 let currentProblems=[], currentMawa=null, sessionDraft={answers:{},working:{},evidence:{},summary:{}};
 
 const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
@@ -75,8 +75,8 @@ async function boot(){
   try{
     user=await currentUser();
     if(!user){location.href="login.html";return}
-    const [c,t,m,h]=await Promise.all([fetch("data/sessions-372.json").then(r=>r.json()),fetch("data/teaching-72.json").then(r=>r.json()),fetch("data/mawa-investigations-20.json").then(r=>r.json()),fetch("data/rossmoyne-h23.json").then(r=>r.json())]);
-    course=c.sessions; teaching=t.items; mawa=m.items; rossMap=h.items;
+    const [c,t,m,h,tax]=await Promise.all([fetch("data/sessions-372.json").then(r=>r.json()),fetch("data/teaching-72.json").then(r=>r.json()),fetch("data/mawa-investigations-20.json").then(r=>r.json()),fetch("data/rossmoyne-h23.json").then(r=>r.json()),fetch("data/taxonomy-52.json").then(r=>r.json())]);
+    course=c.sessions; teaching=t.items; mawa=m.items; rossMap=h.items; taxonomy=tax;
     const {data:problems,error}=await supabase.from("content_problems").select("id,source_type,title,source_label,category,difficulty,prompt,unit").order("id");
     if(error)throw error; problemIndex=problems||[];
     progress=await loadProgress();
@@ -89,6 +89,8 @@ function wireNav(){
 }
 function renderHome(){
   const s=courseSession(),done=progress.completed_sessions||0,amc=nextSlot("AMC MOCK"),mawa=nextSlot("MAWA");
+  const nextPractice=course.find(x=>x.slot>done&&(x.type==="AMC MOCK"||x.type==="ROSSMOYNE MOCK"));
+  const practiceGap=nextPractice?nextPractice.slot-done:null;
   app.innerHTML=`
   <section class="dashboard-grid">
     <article class="panel mission-card">
@@ -102,7 +104,7 @@ function renderHome(){
     </article>
     <aside class="side-stack">
       <article class="panel stat-card"><div class="eyebrow">COURSE PROGRESS</div><div class="stat-value">${done} / 372</div><div class="progress-track"><div class="progress-fill" style="width:${overall().toFixed(2)}%"></div></div><div class="stat-label">${overall().toFixed(1)}% complete · Rank ${currentRank()} / 20</div></article>
-      <article class="panel stat-card"><div class="eyebrow">NEXT PRACTICE</div><div class="stat-value">${amc??"—"}</div><div class="stat-label">completed session${amc===1?"":"s"} until next AMC-format mock</div></article>
+      <article class="panel stat-card"><div class="eyebrow">NEXT PRACTICE EXAM</div><div class="stat-value">${practiceGap??"—"}</div><div class="stat-label">${nextPractice?`${esc(nextPractice.type)} · Session ${nextPractice.slot}`:"All scheduled mocks complete"}</div></article>
       <article class="panel stat-card"><div class="eyebrow">NEXT MAWA INVESTIGATION</div><div class="stat-value">${mawa??"—"}</div><div class="stat-label">completed session${mawa===1?"":"s"} away</div></article>
     </aside>
   </section>
@@ -271,8 +273,20 @@ async function renderReview(){
 }
 async function renderProfile(){
   activeView="profile";const r=currentRank();
+  const {data:completed}=await supabase.from("session_records").select("session_number,summary,evidence").eq("user_id",user.id).not("completed_at","is",null);
+  const focusCounts=new Map();
+  for(const row of completed||[]){
+    const focus=String(row.summary?.focus||course[row.session_number-1]?.focus||"").toLowerCase();
+    for(const cat of taxonomy?.categories||[])for(const skill of cat.subskills||[]){
+      const key=skill.name.toLowerCase();
+      if(focus===key||focus.includes(key)||key.includes(focus))focusCounts.set(skill.id,(focusCounts.get(skill.id)||0)+1);
+    }
+  }
+  const covered=[...focusCounts.values()].filter(x=>x>0).length;
   app.innerHTML=`<section class="panel hero-panel"><div class="eyebrow">LEARNER PROFILE</div><h1>Summit progress</h1>
-  <div class="profile-grid"><div class="panel profile-stat"><b>${(progress.completed_sessions||0)}</b><span>sessions complete</span></div><div class="panel profile-stat"><b>${overall().toFixed(1)}%</b><span>course complete</span></div><div class="panel profile-stat"><b>${r}</b><span>current rank</span></div><div class="panel profile-stat"><b>${progress.xp||0}</b><span>XP</span></div></div>
+  <div class="profile-grid"><div class="panel profile-stat"><b>${progress.completed_sessions||0}</b><span>sessions complete</span></div><div class="panel profile-stat"><b>${overall().toFixed(1)}%</b><span>course complete</span></div><div class="panel profile-stat"><b>${r}</b><span>current rank</span></div><div class="panel profile-stat"><b>${covered}/52</b><span>techniques with completed-session evidence</span></div></div>
+  <h2 style="margin-top:28px">Technique evidence map</h2><p class="muted">A check means the technique has appeared in a completed session. It does <b>not</b> automatically mean independent mastery; timed and transfer evidence remains separate.</p>
+  <div class="technique-map">${(taxonomy?.categories||[]).map(cat=>`<article class="tech-category"><div class="eyebrow">${esc(cat.id)}</div><h3>${esc(cat.name)}</h3><div class="tech-list">${cat.subskills.map(sk=>{const n=focusCounts.get(sk.id)||0;return `<div class="tech ${n?"covered":""}"><span>${n?"✓":"○"}</span><div><b>${esc(sk.name)}</b><small>${esc(sk.id)} · ${n?n+" completed-session exposure"+(n===1?"":"s"):"not yet completed"}</small></div></div>`}).join("")}</div></article>`).join("")}</div>
   <h2 style="margin-top:28px">20 explorer ranks</h2><div class="rank-grid">${rankNames.map((n,i)=>`<div class="rank ${i+1>r?"locked":""}"><span class="rnum">RANK ${i+1}</span><b>${esc(n)}</b><small class="muted">${Math.ceil(372*(i+1)/20)} sessions</small></div>`).join("")}</div>
   <div class="complete-row"><a class="secondary" href="tests.html">Open AMC Test Centre</a><button id="logout" class="danger">Sign out</button></div>
   <p class="footer-note">Ranks recognise course completion; they do not replace evidence of independent mathematical mastery.</p></section>`;
