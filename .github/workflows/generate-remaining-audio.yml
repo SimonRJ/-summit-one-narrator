@@ -1,5 +1,5 @@
 name: Generate remaining 175 narration tracks
-# isolated-kokoro-v1
+# isolated-kokoro-v2-no-ffmpeg
 
 on:
   workflow_dispatch:
@@ -59,10 +59,6 @@ jobs:
         run: |
           npm init -y
           npm install kokoro-js@1.2.1
-      - name: Verify FFmpeg
-        run: |
-          ffmpeg -version | head -1
-          ffprobe -version | head -1
       - name: Generate isolated narration
         run: node scripts/generate-video-isolated.mjs "${{ matrix.queue }}" "${{ matrix.id }}" out
       - name: Publish narration asset
