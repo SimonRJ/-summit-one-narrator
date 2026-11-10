@@ -1,0 +1,2340 @@
+{
+  "schema_version": "summit-one-canonical-sessions-v1",
+  "source": "Summit_One_CANONICAL_Reviewed_Developer_Handoff_2026-11-08.pdf",
+  "total_sessions": 372,
+  "counts": {
+    "lesson": 283,
+    "mawa": 53,
+    "amc_mock": 25,
+    "rossmoyne_mock": 11
+  },
+  "amc_mock_slots": [
+    16,
+    32,
+    48,
+    64,
+    80,
+    96,
+    111,
+    128,
+    136,
+    144,
+    160,
+    176,
+    192,
+    208,
+    225,
+    240,
+    256,
+    272,
+    288,
+    304,
+    320,
+    328,
+    337,
+    344,
+    352
+  ],
+  "mawa_slots": [
+    7,
+    14,
+    21,
+    28,
+    35,
+    42,
+    49,
+    56,
+    63,
+    70,
+    77,
+    84,
+    91,
+    98,
+    105,
+    112,
+    119,
+    126,
+    133,
+    140,
+    147,
+    154,
+    161,
+    168,
+    175,
+    182,
+    189,
+    196,
+    203,
+    210,
+    217,
+    224,
+    231,
+    238,
+    245,
+    252,
+    259,
+    266,
+    273,
+    280,
+    287,
+    294,
+    301,
+    308,
+    315,
+    322,
+    329,
+    336,
+    343,
+    350,
+    357,
+    364,
+    371
+  ],
+  "rossmoyne_mock_slots": [
+    184,
+    212,
+    236,
+    264,
+    292,
+    316,
+    340,
+    356,
+    363,
+    369,
+    372
+  ],
+  "sessions": [
+    {
+      "slot": 1,
+      "type": "LESSON",
+      "focus": "Divisibility tests and modular remainders",
+      "phase": "Foundations"
+    },
+    {
+      "slot": 2,
+      "type": "LESSON",
+      "focus": "Place-value decomposition and estimation",
+      "phase": "Foundations"
+    },
+    {
+      "slot": 3,
+      "type": "LESSON",
+      "focus": "Working backwards through operations",
+      "phase": "Foundations"
+    },
+    {
+      "slot": 4,
+      "type": "LESSON",
+      "focus": "Digits, zero and positional constraints",
+      "phase": "Foundations"
+    },
+    {
+      "slot": 5,
+      "type": "LESSON",
+      "focus": "Digit sums and counting digits in ranges",
+      "phase": "Foundations"
+    },
+    {
+      "slot": 6,
+      "type": "LESSON",
+      "focus": "Unit-cube counting and layered solids",
+      "phase": "Foundations"
+    },
+    {
+      "slot": 7,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "Foundations"
+    },
+    {
+      "slot": 8,
+      "type": "LESSON",
+      "focus": "Repeated digits, palindromes and repunits",
+      "phase": "Foundations"
+    },
+    {
+      "slot": 9,
+      "type": "LESSON",
+      "focus": "Cryptarithms and symbol-to-digit arithmetic",
+      "phase": "Foundations"
+    },
+    {
+      "slot": 10,
+      "type": "LESSON",
+      "focus": "Cryptarithms and symbol-to-digit arithmetic",
+      "phase": "Foundations"
+    },
+    {
+      "slot": 11,
+      "type": "LESSON",
+      "focus": "Primes, factors and factorisation",
+      "phase": "Foundations"
+    },
+    {
+      "slot": 12,
+      "type": "LESSON",
+      "focus": "Recurrence relations, steps and branching",
+      "phase": "Foundations"
+    },
+    {
+      "slot": 13,
+      "type": "LESSON",
+      "focus": "Multiples, HCF and LCM",
+      "phase": "Foundations"
+    },
+    {
+      "slot": 14,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "Foundations"
+    },
+    {
+      "slot": 15,
+      "type": "LESSON",
+      "focus": "Divisibility tests and modular remainders",
+      "phase": "Foundations"
+    },
+    {
+      "slot": 16,
+      "type": "AMC MOCK",
+      "focus": "2027 Upper Primary",
+      "phase": "Foundations"
+    },
+    {
+      "slot": 17,
+      "type": "LESSON",
+      "focus": "Grid lines, crossings and coordinates",
+      "phase": "Foundations"
+    },
+    {
+      "slot": 18,
+      "type": "LESSON",
+      "focus": "Parity and odd/even structure",
+      "phase": "Foundations"
+    },
+    {
+      "slot": 19,
+      "type": "LESSON",
+      "focus": "Parity and odd/even structure",
+      "phase": "Foundations"
+    },
+    {
+      "slot": 20,
+      "type": "LESSON",
+      "focus": "Last-digit, clock and repeating-cycle reasoning",
+      "phase": "Foundations"
+    },
+    {
+      "slot": 21,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "Foundations"
+    },
+    {
+      "slot": 22,
+      "type": "LESSON",
+      "focus": "Parts and wholes, including remaining fractions",
+      "phase": "Foundations"
+    },
+    {
+      "slot": 23,
+      "type": "LESSON",
+      "focus": "Restricted arrangements and neighbour rules",
+      "phase": "Foundations"
+    },
+    {
+      "slot": 24,
+      "type": "LESSON",
+      "focus": "Ratio and scale factors",
+      "phase": "Foundations"
+    },
+    {
+      "slot": 25,
+      "type": "LESSON",
+      "focus": "Fractions, percentages and proportional comparisons",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 26,
+      "type": "LESSON",
+      "focus": "Averages, weighted means and simple distributions",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 27,
+      "type": "LESSON",
+      "focus": "Grouped fractions and weighted totals",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 28,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 29,
+      "type": "LESSON",
+      "focus": "Fractions, percentages and proportional comparisons",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 30,
+      "type": "LESSON",
+      "focus": "Unit conversion and repeated-event rates",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 31,
+      "type": "LESSON",
+      "focus": "Combined work rates",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 32,
+      "type": "AMC MOCK",
+      "focus": "2027 Upper Primary",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 33,
+      "type": "LESSON",
+      "focus": "Truth-tellers, liars and contradiction",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 34,
+      "type": "LESSON",
+      "focus": "Distance–speed–time reasoning",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 35,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 36,
+      "type": "LESSON",
+      "focus": "Polyominoes, tiling and shape assembly",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 37,
+      "type": "LESSON",
+      "focus": "Relative speeds, timed movement and meetings",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 38,
+      "type": "LESSON",
+      "focus": "One- and two-variable word equations",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 39,
+      "type": "LESSON",
+      "focus": "Distance–speed–time reasoning",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 40,
+      "type": "LESSON",
+      "focus": "Simultaneous and total-sum constraints",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 41,
+      "type": "LESSON",
+      "focus": "Eliminating an unknown by differences",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 42,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 43,
+      "type": "LESSON",
+      "focus": "Perimeter, shared edges and boundary effects",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 44,
+      "type": "LESSON",
+      "focus": "Working backwards through operations",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 45,
+      "type": "LESSON",
+      "focus": "Reading and reasoning from graphs/tables",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 46,
+      "type": "LESSON",
+      "focus": "Winner margins, shared totals and linear rules",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 47,
+      "type": "LESSON",
+      "focus": "Arithmetic sequences and fixed increments",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 48,
+      "type": "AMC MOCK",
+      "focus": "2027 Upper Primary",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 49,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 50,
+      "type": "LESSON",
+      "focus": "Eliminating an unknown by differences",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 51,
+      "type": "LESSON",
+      "focus": "Doubling, geometric growth and finite sums",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 52,
+      "type": "LESSON",
+      "focus": "Recurrence relations, steps and branching",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 53,
+      "type": "LESSON",
+      "focus": "Optimising areas and lengths under constraints",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 54,
+      "type": "LESSON",
+      "focus": "Repeating transformations and finite-state patterns",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 55,
+      "type": "LESSON",
+      "focus": "Repeated digits, palindromes and repunits",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 56,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 57,
+      "type": "LESSON",
+      "focus": "Systematic enumeration without missing cases",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 58,
+      "type": "LESSON",
+      "focus": "Multiplication principle and combinations",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 59,
+      "type": "LESSON",
+      "focus": "Doubling, geometric growth and finite sums",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 60,
+      "type": "LESSON",
+      "focus": "Restricted arrangements and neighbour rules",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 61,
+      "type": "LESSON",
+      "focus": "Area decomposition and shaded complements",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 62,
+      "type": "LESSON",
+      "focus": "Complement counting and inclusion–exclusion",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 63,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 64,
+      "type": "AMC MOCK",
+      "focus": "2027 Upper Primary",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 65,
+      "type": "LESSON",
+      "focus": "Double-counting and shared objects",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 66,
+      "type": "LESSON",
+      "focus": "Divisibility tests and modular remainders",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 67,
+      "type": "LESSON",
+      "focus": "Partitioning into non-overlapping cases",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 68,
+      "type": "LESSON",
+      "focus": "Truth-tellers, liars and contradiction",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 69,
+      "type": "LESSON",
+      "focus": "Multiplication principle and combinations",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 70,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 71,
+      "type": "LESSON",
+      "focus": "Constraint elimination and logical deduction",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 72,
+      "type": "LESSON",
+      "focus": "Unit-cube counting and layered solids",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 73,
+      "type": "LESSON",
+      "focus": "Magic grids, symbolic rules and consistency",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 74,
+      "type": "LESSON",
+      "focus": "Proving all cases and unique solutions",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 75,
+      "type": "LESSON",
+      "focus": "Ratio and scale factors",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 76,
+      "type": "LESSON",
+      "focus": "Perimeter, shared edges and boundary effects",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 77,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 78,
+      "type": "LESSON",
+      "focus": "Area decomposition and shaded complements",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 79,
+      "type": "LESSON",
+      "focus": "Partitioning into non-overlapping cases",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 80,
+      "type": "AMC MOCK",
+      "focus": "2027 Upper Primary",
+      "phase": "Toolkit I"
+    },
+    {
+      "slot": 81,
+      "type": "LESSON",
+      "focus": "Angle and polygon reasoning",
+      "phase": "Toolkit II"
+    },
+    {
+      "slot": 82,
+      "type": "LESSON",
+      "focus": "Grid lines, crossings and coordinates",
+      "phase": "Toolkit II"
+    },
+    {
+      "slot": 83,
+      "type": "LESSON",
+      "focus": "Symmetry, transformations and tessellation",
+      "phase": "Toolkit II"
+    },
+    {
+      "slot": 84,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "Toolkit II"
+    },
+    {
+      "slot": 85,
+      "type": "LESSON",
+      "focus": "Optimising areas and lengths under constraints",
+      "phase": "Toolkit II"
+    },
+    {
+      "slot": 86,
+      "type": "LESSON",
+      "focus": "Combined work rates",
+      "phase": "Toolkit II"
+    },
+    {
+      "slot": 87,
+      "type": "LESSON",
+      "focus": "Unit-cube counting and layered solids",
+      "phase": "Toolkit II"
+    },
+    {
+      "slot": 88,
+      "type": "LESSON",
+      "focus": "Restricted arrangements and neighbour rules",
+      "phase": "Toolkit II"
+    },
+    {
+      "slot": 89,
+      "type": "LESSON",
+      "focus": "Painted faces, boundary and hidden cubes",
+      "phase": "Toolkit II"
+    },
+    {
+      "slot": 90,
+      "type": "LESSON",
+      "focus": "Nets, surface area, volume and 3D views",
+      "phase": "Toolkit II"
+    },
+    {
+      "slot": 91,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "Toolkit II"
+    },
+    {
+      "slot": 92,
+      "type": "LESSON",
+      "focus": "Averages, weighted means and simple distributions",
+      "phase": "Toolkit II"
+    },
+    {
+      "slot": 93,
+      "type": "LESSON",
+      "focus": "Counting paths by dynamic totals",
+      "phase": "Toolkit II"
+    },
+    {
+      "slot": 94,
+      "type": "LESSON",
+      "focus": "Grid lines, crossings and coordinates",
+      "phase": "Toolkit II"
+    },
+    {
+      "slot": 95,
+      "type": "LESSON",
+      "focus": "Simultaneous and total-sum constraints",
+      "phase": "Toolkit II"
+    },
+    {
+      "slot": 96,
+      "type": "AMC MOCK",
+      "focus": "2027 Upper Primary",
+      "phase": "Toolkit II"
+    },
+    {
+      "slot": 97,
+      "type": "LESSON",
+      "focus": "Polyominoes, tiling and shape assembly",
+      "phase": "Toolkit II"
+    },
+    {
+      "slot": 98,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "Toolkit II"
+    },
+    {
+      "slot": 99,
+      "type": "LESSON",
+      "focus": "Truth-tellers, liars and contradiction",
+      "phase": "Toolkit II"
+    },
+    {
+      "slot": 100,
+      "type": "LESSON",
+      "focus": "Restricted routes and spatial adjacency",
+      "phase": "Toolkit II"
+    },
+    {
+      "slot": 101,
+      "type": "LESSON",
+      "focus": "Elementary probability and favourable outcomes",
+      "phase": "Toolkit II"
+    },
+    {
+      "slot": 102,
+      "type": "LESSON",
+      "focus": "Digit sums and counting digits in ranges",
+      "phase": "Toolkit II"
+    },
+    {
+      "slot": 103,
+      "type": "LESSON",
+      "focus": "Averages, weighted means and simple distributions",
+      "phase": "Toolkit II"
+    },
+    {
+      "slot": 104,
+      "type": "LESSON",
+      "focus": "Reading and reasoning from graphs/tables",
+      "phase": "Toolkit II"
+    },
+    {
+      "slot": 105,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "Transfer"
+    },
+    {
+      "slot": 106,
+      "type": "LESSON",
+      "focus": "Combined work rates",
+      "phase": "Transfer"
+    },
+    {
+      "slot": 107,
+      "type": "LESSON",
+      "focus": "Repeating transformations and finite-state patterns",
+      "phase": "Transfer"
+    },
+    {
+      "slot": 108,
+      "type": "LESSON",
+      "focus": "Perimeter, shared edges and boundary effects",
+      "phase": "Transfer"
+    },
+    {
+      "slot": 109,
+      "type": "LESSON",
+      "focus": "Restricted routes and spatial adjacency",
+      "phase": "Transfer"
+    },
+    {
+      "slot": 110,
+      "type": "LESSON",
+      "focus": "Divisibility tests and modular remainders",
+      "phase": "Transfer"
+    },
+    {
+      "slot": 111,
+      "type": "AMC MOCK",
+      "focus": "2027 Upper Primary",
+      "phase": "Transfer"
+    },
+    {
+      "slot": 112,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "Transfer"
+    },
+    {
+      "slot": 113,
+      "type": "LESSON",
+      "focus": "Painted faces, boundary and hidden cubes",
+      "phase": "Transfer"
+    },
+    {
+      "slot": 114,
+      "type": "LESSON",
+      "focus": "Digit sums and counting digits in ranges",
+      "phase": "Transfer"
+    },
+    {
+      "slot": 115,
+      "type": "LESSON",
+      "focus": "Grouped fractions and weighted totals",
+      "phase": "Transfer"
+    },
+    {
+      "slot": 116,
+      "type": "LESSON",
+      "focus": "Doubling, geometric growth and finite sums",
+      "phase": "Transfer"
+    },
+    {
+      "slot": 117,
+      "type": "LESSON",
+      "focus": "Magic grids, symbolic rules and consistency",
+      "phase": "Transfer"
+    },
+    {
+      "slot": 118,
+      "type": "LESSON",
+      "focus": "Grid lines, crossings and coordinates",
+      "phase": "Transfer"
+    },
+    {
+      "slot": 119,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "Transfer"
+    },
+    {
+      "slot": 120,
+      "type": "LESSON",
+      "focus": "Simultaneous and total-sum constraints",
+      "phase": "Transfer"
+    },
+    {
+      "slot": 121,
+      "type": "LESSON",
+      "focus": "Complement counting and inclusion–exclusion",
+      "phase": "Transfer"
+    },
+    {
+      "slot": 122,
+      "type": "LESSON",
+      "focus": "Optimising areas and lengths under constraints",
+      "phase": "Transfer"
+    },
+    {
+      "slot": 123,
+      "type": "LESSON",
+      "focus": "Place-value decomposition and estimation",
+      "phase": "Transfer"
+    },
+    {
+      "slot": 124,
+      "type": "LESSON",
+      "focus": "Ratio and scale factors",
+      "phase": "Transfer"
+    },
+    {
+      "slot": 125,
+      "type": "LESSON",
+      "focus": "Winner margins, shared totals and linear rules",
+      "phase": "Transfer"
+    },
+    {
+      "slot": 126,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "Transfer"
+    },
+    {
+      "slot": 127,
+      "type": "LESSON",
+      "focus": "Polyominoes, tiling and shape assembly",
+      "phase": "Transfer"
+    },
+    {
+      "slot": 128,
+      "type": "AMC MOCK",
+      "focus": "2027 Upper Primary",
+      "phase": "Transfer"
+    },
+    {
+      "slot": 129,
+      "type": "LESSON",
+      "focus": "Relative speeds, timed movement and meetings",
+      "phase": "AMC 2027"
+    },
+    {
+      "slot": 130,
+      "type": "LESSON",
+      "focus": "Multiplication principle and combinations",
+      "phase": "AMC 2027"
+    },
+    {
+      "slot": 131,
+      "type": "LESSON",
+      "focus": "Angle and polygon reasoning",
+      "phase": "AMC 2027"
+    },
+    {
+      "slot": 132,
+      "type": "LESSON",
+      "focus": "Averages, weighted means and simple distributions",
+      "phase": "AMC 2027"
+    },
+    {
+      "slot": 133,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "AMC 2027"
+    },
+    {
+      "slot": 134,
+      "type": "LESSON",
+      "focus": "Arithmetic sequences and fixed increments",
+      "phase": "AMC 2027"
+    },
+    {
+      "slot": 135,
+      "type": "LESSON",
+      "focus": "Constraint elimination and logical deduction",
+      "phase": "AMC 2027"
+    },
+    {
+      "slot": 136,
+      "type": "AMC MOCK",
+      "focus": "2027 Upper Primary",
+      "phase": "AMC 2027"
+    },
+    {
+      "slot": 137,
+      "type": "LESSON",
+      "focus": "Cryptarithms and symbol-to-digit arithmetic",
+      "phase": "AMC 2027"
+    },
+    {
+      "slot": 138,
+      "type": "LESSON",
+      "focus": "Combined work rates",
+      "phase": "AMC 2027"
+    },
+    {
+      "slot": 139,
+      "type": "LESSON",
+      "focus": "Repeating transformations and finite-state patterns",
+      "phase": "AMC 2027"
+    },
+    {
+      "slot": 140,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "AMC 2027"
+    },
+    {
+      "slot": 141,
+      "type": "LESSON",
+      "focus": "Reading and reasoning from graphs/tables",
+      "phase": "AMC 2027"
+    },
+    {
+      "slot": 142,
+      "type": "LESSON",
+      "focus": "Parts and wholes, including remaining fractions",
+      "phase": "AMC 2027"
+    },
+    {
+      "slot": 143,
+      "type": "LESSON",
+      "focus": "Working backwards through operations",
+      "phase": "AMC 2027"
+    },
+    {
+      "slot": 144,
+      "type": "AMC MOCK",
+      "focus": "2027 Upper Primary",
+      "phase": "AMC 2027"
+    },
+    {
+      "slot": 145,
+      "type": "LESSON",
+      "focus": "Painted faces, boundary and hidden cubes",
+      "phase": "AMC 2027"
+    },
+    {
+      "slot": 146,
+      "type": "LESSON",
+      "focus": "Digit sums and counting digits in ranges",
+      "phase": "AMC 2027"
+    },
+    {
+      "slot": 147,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "AMC 2027"
+    },
+    {
+      "slot": 148,
+      "type": "LESSON",
+      "focus": "Systematic enumeration without missing cases",
+      "phase": "AMC 2027"
+    },
+    {
+      "slot": 149,
+      "type": "LESSON",
+      "focus": "Area decomposition and shaded complements",
+      "phase": "AMC 2027"
+    },
+    {
+      "slot": 150,
+      "type": "LESSON",
+      "focus": "Elementary probability and favourable outcomes",
+      "phase": "AMC 2027"
+    },
+    {
+      "slot": 151,
+      "type": "LESSON",
+      "focus": "Parity and odd/even structure",
+      "phase": "AMC 2027"
+    },
+    {
+      "slot": 152,
+      "type": "LESSON",
+      "focus": "Simultaneous and total-sum constraints",
+      "phase": "AMC 2027"
+    },
+    {
+      "slot": 153,
+      "type": "LESSON",
+      "focus": "Complement counting and inclusion–exclusion",
+      "phase": "MAWA application"
+    },
+    {
+      "slot": 154,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "MAWA application"
+    },
+    {
+      "slot": 155,
+      "type": "LESSON",
+      "focus": "Repeated digits, palindromes and repunits",
+      "phase": "MAWA application"
+    },
+    {
+      "slot": 156,
+      "type": "LESSON",
+      "focus": "Unit conversion and repeated-event rates",
+      "phase": "MAWA application"
+    },
+    {
+      "slot": 157,
+      "type": "LESSON",
+      "focus": "Recurrence relations, steps and branching",
+      "phase": "MAWA application"
+    },
+    {
+      "slot": 158,
+      "type": "LESSON",
+      "focus": "Proving all cases and unique solutions",
+      "phase": "MAWA application"
+    },
+    {
+      "slot": 159,
+      "type": "LESSON",
+      "focus": "Polyominoes, tiling and shape assembly",
+      "phase": "MAWA application"
+    },
+    {
+      "slot": 160,
+      "type": "AMC MOCK",
+      "focus": "2028 Upper Primary",
+      "phase": "MAWA application"
+    },
+    {
+      "slot": 161,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "MAWA application"
+    },
+    {
+      "slot": 162,
+      "type": "LESSON",
+      "focus": "Double-counting and shared objects",
+      "phase": "MAWA application"
+    },
+    {
+      "slot": 163,
+      "type": "LESSON",
+      "focus": "Unit-cube counting and layered solids",
+      "phase": "MAWA application"
+    },
+    {
+      "slot": 164,
+      "type": "LESSON",
+      "focus": "Digits, zero and positional constraints",
+      "phase": "MAWA application"
+    },
+    {
+      "slot": 165,
+      "type": "LESSON",
+      "focus": "Fractions, percentages and proportional comparisons",
+      "phase": "MAWA application"
+    },
+    {
+      "slot": 166,
+      "type": "LESSON",
+      "focus": "Arithmetic sequences and fixed increments",
+      "phase": "MAWA application"
+    },
+    {
+      "slot": 167,
+      "type": "LESSON",
+      "focus": "Constraint elimination and logical deduction",
+      "phase": "MAWA application"
+    },
+    {
+      "slot": 168,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "MAWA application"
+    },
+    {
+      "slot": 169,
+      "type": "LESSON",
+      "focus": "Divisibility tests and modular remainders",
+      "phase": "MAWA application"
+    },
+    {
+      "slot": 170,
+      "type": "LESSON",
+      "focus": "One- and two-variable word equations",
+      "phase": "MAWA application"
+    },
+    {
+      "slot": 171,
+      "type": "LESSON",
+      "focus": "Restricted arrangements and neighbour rules",
+      "phase": "MAWA application"
+    },
+    {
+      "slot": 172,
+      "type": "LESSON",
+      "focus": "Symmetry, transformations and tessellation",
+      "phase": "MAWA application"
+    },
+    {
+      "slot": 173,
+      "type": "LESSON",
+      "focus": "Reading and reasoning from graphs/tables",
+      "phase": "MAWA application"
+    },
+    {
+      "slot": 174,
+      "type": "LESSON",
+      "focus": "Parts and wholes, including remaining fractions",
+      "phase": "MAWA application"
+    },
+    {
+      "slot": 175,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "MAWA application"
+    },
+    {
+      "slot": 176,
+      "type": "AMC MOCK",
+      "focus": "2028 Upper Primary",
+      "phase": "MAWA application"
+    },
+    {
+      "slot": 177,
+      "type": "LESSON",
+      "focus": "Grid lines, crossings and coordinates",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 178,
+      "type": "LESSON",
+      "focus": "Primes, factors and factorisation",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 179,
+      "type": "LESSON",
+      "focus": "Distance–speed–time reasoning",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 180,
+      "type": "LESSON",
+      "focus": "Systematic enumeration without missing cases",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 181,
+      "type": "LESSON",
+      "focus": "Area decomposition and shaded complements",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 182,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 183,
+      "type": "LESSON",
+      "focus": "Ratio and scale factors",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 184,
+      "type": "ROSSMOYNE MOCK",
+      "focus": "Rossmoyne-style 100-mark",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 185,
+      "type": "LESSON",
+      "focus": "Truth-tellers, liars and contradiction",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 186,
+      "type": "LESSON",
+      "focus": "Nets, surface area, volume and 3D views",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 187,
+      "type": "LESSON",
+      "focus": "Repeated digits, palindromes and repunits",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 188,
+      "type": "LESSON",
+      "focus": "Unit conversion and repeated-event rates",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 189,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 190,
+      "type": "LESSON",
+      "focus": "Angle and polygon reasoning",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 191,
+      "type": "LESSON",
+      "focus": "Averages, weighted means and simple distributions",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 192,
+      "type": "AMC MOCK",
+      "focus": "2028 Upper Primary",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 193,
+      "type": "LESSON",
+      "focus": "Eliminating an unknown by differences",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 194,
+      "type": "LESSON",
+      "focus": "Double-counting and shared objects",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 195,
+      "type": "LESSON",
+      "focus": "Unit-cube counting and layered solids",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 196,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 197,
+      "type": "LESSON",
+      "focus": "Combined work rates",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 198,
+      "type": "LESSON",
+      "focus": "Repeating transformations and finite-state patterns",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 199,
+      "type": "LESSON",
+      "focus": "Perimeter, shared edges and boundary effects",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 200,
+      "type": "LESSON",
+      "focus": "Restricted routes and spatial adjacency",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 201,
+      "type": "LESSON",
+      "focus": "Divisibility tests and modular remainders",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 202,
+      "type": "LESSON",
+      "focus": "One- and two-variable word equations",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 203,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 204,
+      "type": "LESSON",
+      "focus": "Painted faces, boundary and hidden cubes",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 205,
+      "type": "LESSON",
+      "focus": "Digit sums and counting digits in ranges",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 206,
+      "type": "LESSON",
+      "focus": "Grouped fractions and weighted totals",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 207,
+      "type": "LESSON",
+      "focus": "Doubling, geometric growth and finite sums",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 208,
+      "type": "AMC MOCK",
+      "focus": "2028 Upper Primary",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 209,
+      "type": "LESSON",
+      "focus": "Grid lines, crossings and coordinates",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 210,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 211,
+      "type": "LESSON",
+      "focus": "Simultaneous and total-sum constraints",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 212,
+      "type": "ROSSMOYNE MOCK",
+      "focus": "Rossmoyne-style 100-mark",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 213,
+      "type": "LESSON",
+      "focus": "Optimising areas and lengths under constraints",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 214,
+      "type": "LESSON",
+      "focus": "Place-value decomposition and estimation",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 215,
+      "type": "LESSON",
+      "focus": "Ratio and scale factors",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 216,
+      "type": "LESSON",
+      "focus": "Winner margins, shared totals and linear rules",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 217,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 218,
+      "type": "LESSON",
+      "focus": "Polyominoes, tiling and shape assembly",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 219,
+      "type": "LESSON",
+      "focus": "Multiples, HCF and LCM",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 220,
+      "type": "LESSON",
+      "focus": "Relative speeds, timed movement and meetings",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 221,
+      "type": "LESSON",
+      "focus": "Multiplication principle and combinations",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 222,
+      "type": "LESSON",
+      "focus": "Angle and polygon reasoning",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 223,
+      "type": "LESSON",
+      "focus": "Averages, weighted means and simple distributions",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 224,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 225,
+      "type": "AMC MOCK",
+      "focus": "2028 Upper Primary",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 226,
+      "type": "LESSON",
+      "focus": "Constraint elimination and logical deduction",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 227,
+      "type": "LESSON",
+      "focus": "Counting paths by dynamic totals",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 228,
+      "type": "LESSON",
+      "focus": "Cryptarithms and symbol-to-digit arithmetic",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 229,
+      "type": "LESSON",
+      "focus": "Combined work rates",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 230,
+      "type": "LESSON",
+      "focus": "Repeating transformations and finite-state patterns",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 231,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 232,
+      "type": "LESSON",
+      "focus": "Reading and reasoning from graphs/tables",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 233,
+      "type": "LESSON",
+      "focus": "Parts and wholes, including remaining fractions",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 234,
+      "type": "LESSON",
+      "focus": "Working backwards through operations",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 235,
+      "type": "LESSON",
+      "focus": "Partitioning into non-overlapping cases",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 236,
+      "type": "ROSSMOYNE MOCK",
+      "focus": "Rossmoyne-style 100-mark",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 237,
+      "type": "LESSON",
+      "focus": "Digit sums and counting digits in ranges",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 238,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 239,
+      "type": "LESSON",
+      "focus": "Systematic enumeration without missing cases",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 240,
+      "type": "AMC MOCK",
+      "focus": "2028 Upper Primary",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 241,
+      "type": "LESSON",
+      "focus": "Elementary probability and favourable outcomes",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 242,
+      "type": "LESSON",
+      "focus": "Parity and odd/even structure",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 243,
+      "type": "LESSON",
+      "focus": "Simultaneous and total-sum constraints",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 244,
+      "type": "LESSON",
+      "focus": "Complement counting and inclusion–exclusion",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 245,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 246,
+      "type": "LESSON",
+      "focus": "Repeated digits, palindromes and repunits",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 247,
+      "type": "LESSON",
+      "focus": "Unit conversion and repeated-event rates",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 248,
+      "type": "LESSON",
+      "focus": "Recurrence relations, steps and branching",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 249,
+      "type": "LESSON",
+      "focus": "Proving all cases and unique solutions",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 250,
+      "type": "LESSON",
+      "focus": "Polyominoes, tiling and shape assembly",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 251,
+      "type": "LESSON",
+      "focus": "Multiples, HCF and LCM",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 252,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 253,
+      "type": "LESSON",
+      "focus": "Double-counting and shared objects",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 254,
+      "type": "LESSON",
+      "focus": "Unit-cube counting and layered solids",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 255,
+      "type": "LESSON",
+      "focus": "Digits, zero and positional constraints",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 256,
+      "type": "AMC MOCK",
+      "focus": "2028 Upper Primary",
+      "phase": "Year 6 deepening"
+    },
+    {
+      "slot": 257,
+      "type": "LESSON",
+      "focus": "Arithmetic sequences and fixed increments",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 258,
+      "type": "LESSON",
+      "focus": "Constraint elimination and logical deduction",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 259,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 260,
+      "type": "LESSON",
+      "focus": "Divisibility tests and modular remainders",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 261,
+      "type": "LESSON",
+      "focus": "One- and two-variable word equations",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 262,
+      "type": "LESSON",
+      "focus": "Restricted arrangements and neighbour rules",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 263,
+      "type": "LESSON",
+      "focus": "Symmetry, transformations and tessellation",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 264,
+      "type": "ROSSMOYNE MOCK",
+      "focus": "Rossmoyne-style 100-mark",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 265,
+      "type": "LESSON",
+      "focus": "Parts and wholes, including remaining fractions",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 266,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 267,
+      "type": "LESSON",
+      "focus": "Magic grids, symbolic rules and consistency",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 268,
+      "type": "LESSON",
+      "focus": "Grid lines, crossings and coordinates",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 269,
+      "type": "LESSON",
+      "focus": "Primes, factors and factorisation",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 270,
+      "type": "LESSON",
+      "focus": "Distance–speed–time reasoning",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 271,
+      "type": "LESSON",
+      "focus": "Systematic enumeration without missing cases",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 272,
+      "type": "AMC MOCK",
+      "focus": "2028 Upper Primary",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 273,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 274,
+      "type": "LESSON",
+      "focus": "Ratio and scale factors",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 275,
+      "type": "LESSON",
+      "focus": "Winner margins, shared totals and linear rules",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 276,
+      "type": "LESSON",
+      "focus": "Truth-tellers, liars and contradiction",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 277,
+      "type": "LESSON",
+      "focus": "Nets, surface area, volume and 3D views",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 278,
+      "type": "LESSON",
+      "focus": "Repeated digits, palindromes and repunits",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 279,
+      "type": "LESSON",
+      "focus": "Unit conversion and repeated-event rates",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 280,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 281,
+      "type": "LESSON",
+      "focus": "Angle and polygon reasoning",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 282,
+      "type": "LESSON",
+      "focus": "Averages, weighted means and simple distributions",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 283,
+      "type": "LESSON",
+      "focus": "Last-digit, clock and repeating-cycle reasoning",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 284,
+      "type": "LESSON",
+      "focus": "Eliminating an unknown by differences",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 285,
+      "type": "LESSON",
+      "focus": "Double-counting and shared objects",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 286,
+      "type": "LESSON",
+      "focus": "Unit-cube counting and layered solids",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 287,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 288,
+      "type": "AMC MOCK",
+      "focus": "2028 Upper Primary",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 289,
+      "type": "LESSON",
+      "focus": "Repeating transformations and finite-state patterns",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 290,
+      "type": "LESSON",
+      "focus": "Perimeter, shared edges and boundary effects",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 291,
+      "type": "LESSON",
+      "focus": "Restricted routes and spatial adjacency",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 292,
+      "type": "ROSSMOYNE MOCK",
+      "focus": "Rossmoyne-style 100-mark",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 293,
+      "type": "LESSON",
+      "focus": "One- and two-variable word equations",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 294,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 295,
+      "type": "LESSON",
+      "focus": "Painted faces, boundary and hidden cubes",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 296,
+      "type": "LESSON",
+      "focus": "Digit sums and counting digits in ranges",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 297,
+      "type": "LESSON",
+      "focus": "Grouped fractions and weighted totals",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 298,
+      "type": "LESSON",
+      "focus": "Doubling, geometric growth and finite sums",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 299,
+      "type": "LESSON",
+      "focus": "Magic grids, symbolic rules and consistency",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 300,
+      "type": "LESSON",
+      "focus": "Grid lines, crossings and coordinates",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 301,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 302,
+      "type": "LESSON",
+      "focus": "Simultaneous and total-sum constraints",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 303,
+      "type": "LESSON",
+      "focus": "Complement counting and inclusion–exclusion",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 304,
+      "type": "AMC MOCK",
+      "focus": "2028 Upper Primary",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 305,
+      "type": "LESSON",
+      "focus": "Place-value decomposition and estimation",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 306,
+      "type": "LESSON",
+      "focus": "Ratio and scale factors",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 307,
+      "type": "LESSON",
+      "focus": "Winner margins, shared totals and linear rules",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 308,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 309,
+      "type": "LESSON",
+      "focus": "Polyominoes, tiling and shape assembly",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 310,
+      "type": "LESSON",
+      "focus": "Multiples, HCF and LCM",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 311,
+      "type": "LESSON",
+      "focus": "Relative speeds, timed movement and meetings",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 312,
+      "type": "LESSON",
+      "focus": "Multiplication principle and combinations",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 313,
+      "type": "LESSON",
+      "focus": "Angle and polygon reasoning",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 314,
+      "type": "LESSON",
+      "focus": "Averages, weighted means and simple distributions",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 315,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 316,
+      "type": "ROSSMOYNE MOCK",
+      "focus": "Rossmoyne-style 100-mark",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 317,
+      "type": "LESSON",
+      "focus": "Constraint elimination and logical deduction",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 318,
+      "type": "LESSON",
+      "focus": "Counting paths by dynamic totals",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 319,
+      "type": "LESSON",
+      "focus": "Cryptarithms and symbol-to-digit arithmetic",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 320,
+      "type": "AMC MOCK",
+      "focus": "2028 Upper Primary",
+      "phase": "Advanced synthesis"
+    },
+    {
+      "slot": 321,
+      "type": "LESSON",
+      "focus": "Repeating transformations and finite-state patterns",
+      "phase": "AMC 2028"
+    },
+    {
+      "slot": 322,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "AMC 2028"
+    },
+    {
+      "slot": 323,
+      "type": "LESSON",
+      "focus": "Reading and reasoning from graphs/tables",
+      "phase": "AMC 2028"
+    },
+    {
+      "slot": 324,
+      "type": "LESSON",
+      "focus": "Parts and wholes, including remaining fractions",
+      "phase": "AMC 2028"
+    },
+    {
+      "slot": 325,
+      "type": "LESSON",
+      "focus": "Working backwards through operations",
+      "phase": "AMC 2028"
+    },
+    {
+      "slot": 326,
+      "type": "LESSON",
+      "focus": "Partitioning into non-overlapping cases",
+      "phase": "AMC 2028"
+    },
+    {
+      "slot": 327,
+      "type": "LESSON",
+      "focus": "Painted faces, boundary and hidden cubes",
+      "phase": "AMC 2028"
+    },
+    {
+      "slot": 328,
+      "type": "AMC MOCK",
+      "focus": "2028 Upper Primary",
+      "phase": "AMC 2028"
+    },
+    {
+      "slot": 329,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "AMC 2028"
+    },
+    {
+      "slot": 330,
+      "type": "LESSON",
+      "focus": "Systematic enumeration without missing cases",
+      "phase": "AMC 2028"
+    },
+    {
+      "slot": 331,
+      "type": "LESSON",
+      "focus": "Area decomposition and shaded complements",
+      "phase": "AMC 2028"
+    },
+    {
+      "slot": 332,
+      "type": "LESSON",
+      "focus": "Elementary probability and favourable outcomes",
+      "phase": "AMC 2028"
+    },
+    {
+      "slot": 333,
+      "type": "LESSON",
+      "focus": "Parity and odd/even structure",
+      "phase": "AMC 2028"
+    },
+    {
+      "slot": 334,
+      "type": "LESSON",
+      "focus": "Simultaneous and total-sum constraints",
+      "phase": "AMC 2028"
+    },
+    {
+      "slot": 335,
+      "type": "LESSON",
+      "focus": "Complement counting and inclusion–exclusion",
+      "phase": "AMC 2028"
+    },
+    {
+      "slot": 336,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "AMC 2028"
+    },
+    {
+      "slot": 337,
+      "type": "AMC MOCK",
+      "focus": "2028 Upper Primary",
+      "phase": "AMC 2028"
+    },
+    {
+      "slot": 338,
+      "type": "LESSON",
+      "focus": "Unit conversion and repeated-event rates",
+      "phase": "AMC 2028"
+    },
+    {
+      "slot": 339,
+      "type": "LESSON",
+      "focus": "Recurrence relations, steps and branching",
+      "phase": "AMC 2028"
+    },
+    {
+      "slot": 340,
+      "type": "ROSSMOYNE MOCK",
+      "focus": "Rossmoyne-style 100-mark",
+      "phase": "AMC 2028"
+    },
+    {
+      "slot": 341,
+      "type": "LESSON",
+      "focus": "Polyominoes, tiling and shape assembly",
+      "phase": "AMC 2028"
+    },
+    {
+      "slot": 342,
+      "type": "LESSON",
+      "focus": "Multiples, HCF and LCM",
+      "phase": "AMC 2028"
+    },
+    {
+      "slot": 343,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "AMC 2028"
+    },
+    {
+      "slot": 344,
+      "type": "AMC MOCK",
+      "focus": "2028 Upper Primary",
+      "phase": "AMC 2028"
+    },
+    {
+      "slot": 345,
+      "type": "LESSON",
+      "focus": "Unit-cube counting and layered solids",
+      "phase": "AMC 2028"
+    },
+    {
+      "slot": 346,
+      "type": "LESSON",
+      "focus": "Digits, zero and positional constraints",
+      "phase": "AMC 2028"
+    },
+    {
+      "slot": 347,
+      "type": "LESSON",
+      "focus": "Fractions, percentages and proportional comparisons",
+      "phase": "AMC 2028"
+    },
+    {
+      "slot": 348,
+      "type": "LESSON",
+      "focus": "Arithmetic sequences and fixed increments",
+      "phase": "AMC 2028"
+    },
+    {
+      "slot": 349,
+      "type": "LESSON",
+      "focus": "Constraint elimination and logical deduction",
+      "phase": "AMC 2028"
+    },
+    {
+      "slot": 350,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "AMC 2028"
+    },
+    {
+      "slot": 351,
+      "type": "LESSON",
+      "focus": "Divisibility tests and modular remainders",
+      "phase": "AMC 2028"
+    },
+    {
+      "slot": 352,
+      "type": "AMC MOCK",
+      "focus": "2028 Upper Primary",
+      "phase": "AMC 2028"
+    },
+    {
+      "slot": 353,
+      "type": "LESSON",
+      "focus": "Restricted arrangements and neighbour rules",
+      "phase": "AMC 2028"
+    },
+    {
+      "slot": 354,
+      "type": "LESSON",
+      "focus": "Symmetry, transformations and tessellation",
+      "phase": "AMC 2028"
+    },
+    {
+      "slot": 355,
+      "type": "LESSON",
+      "focus": "Reading and reasoning from graphs/tables",
+      "phase": "AMC 2028"
+    },
+    {
+      "slot": 356,
+      "type": "ROSSMOYNE MOCK",
+      "focus": "Rossmoyne-style 100-mark",
+      "phase": "AMC 2028"
+    },
+    {
+      "slot": 357,
+      "type": "MAWA",
+      "focus": "Proof and reasoning",
+      "phase": "AMC 2028"
+    },
+    {
+      "slot": 358,
+      "type": "LESSON",
+      "focus": "Magic grids, symbolic rules and consistency",
+      "phase": "AMC 2028"
+    },
+    {
+      "slot": 359,
+      "type": "LESSON",
+      "focus": "Grid lines, crossings and coordinates",
+      "phase": "AMC 2028"
+    },
+    {
+      "slot": 360,
+      "type": "LESSON",
+      "focus": "Primes, factors and factorisation",
+      "phase": "AMC 2028"
+    },
+    {
+      "slot": 361,
+      "type": "LESSON",
+      "focus": "Rossmoyne method combinations and evidence-based review",
+      "phase": "Rossmoyne capstone"
+    },
+    {
+      "slot": 362,
+      "type": "LESSON",
+      "focus": "Rossmoyne method combinations and evidence-based review",
+      "phase": "Rossmoyne capstone"
+    },
+    {
+      "slot": 363,
+      "type": "ROSSMOYNE MOCK",
+      "focus": "Rossmoyne original practice paper 9",
+      "phase": "Rossmoyne capstone"
+    },
+    {
+      "slot": 364,
+      "type": "MAWA",
+      "focus": "Rossmoyne method combinations and evidence-based review",
+      "phase": "Rossmoyne capstone"
+    },
+    {
+      "slot": 365,
+      "type": "LESSON",
+      "focus": "Rossmoyne method combinations and evidence-based review",
+      "phase": "Rossmoyne capstone"
+    },
+    {
+      "slot": 366,
+      "type": "LESSON",
+      "focus": "Rossmoyne method combinations and evidence-based review",
+      "phase": "Rossmoyne capstone"
+    },
+    {
+      "slot": 367,
+      "type": "LESSON",
+      "focus": "Rossmoyne method combinations and evidence-based review",
+      "phase": "Rossmoyne capstone"
+    },
+    {
+      "slot": 368,
+      "type": "LESSON",
+      "focus": "Rossmoyne method combinations and evidence-based review",
+      "phase": "Rossmoyne capstone"
+    },
+    {
+      "slot": 369,
+      "type": "ROSSMOYNE MOCK",
+      "focus": "Rossmoyne original practice paper 10",
+      "phase": "Rossmoyne capstone"
+    },
+    {
+      "slot": 370,
+      "type": "LESSON",
+      "focus": "Rossmoyne method combinations and evidence-based review",
+      "phase": "Rossmoyne capstone"
+    },
+    {
+      "slot": 371,
+      "type": "MAWA",
+      "focus": "Rossmoyne method combinations and evidence-based review",
+      "phase": "Rossmoyne capstone"
+    },
+    {
+      "slot": 372,
+      "type": "ROSSMOYNE MOCK",
+      "focus": "Rossmoyne final protected readiness assessment",
+      "phase": "Rossmoyne capstone"
+    }
+  ]
+}
