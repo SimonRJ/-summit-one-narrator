@@ -5,6 +5,10 @@ on:
   push:
     paths:
       - ".github/workflows/generate-special-audio.yml"
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: write
 jobs:
