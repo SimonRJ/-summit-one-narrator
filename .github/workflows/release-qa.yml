@@ -1,0 +1,65 @@
+name: Summit One release QA
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "*.js"
+      - "*.html"
+      - "*.css"
+      - "data/**"
+      - ".github/workflows/release-qa.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: JavaScript syntax
+        run: |
+          node --check app-main.js
+          node --check tests.js
+          node --check lesson-player.js
+          node --check login.js
+          node --check supabase-client.js
+          node --check sw.js
+      - name: Canonical data invariants
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from "node:fs";
+          const sessions=JSON.parse(fs.readFileSync("data/sessions-372.json","utf8"));
+          const teach=JSON.parse(fs.readFileSync("data/teaching-72.json","utf8"));
+          const mawa=JSON.parse(fs.readFileSync("data/mawa-investigations-20.json","utf8"));
+          const ross=JSON.parse(fs.readFileSync("data/rossmoyne-h23.json","utf8"));
+          const awards=JSON.parse(fs.readFileSync("data/amc-awards.json","utf8"));
+          const fail=m=>{throw new Error(m)};
+          if(sessions.sessions.length!==372)fail("Expected 372 sessions");
+          const slots=sessions.sessions.map(x=>x.slot);
+          if(new Set(slots).size!==372||slots[0]!==1||slots.at(-1)!==372)fail("Session IDs invalid");
+          const count=t=>sessions.sessions.filter(x=>x.type===t).length;
+          if(count("LESSON")!==283||count("MAWA")!==53||count("AMC MOCK")!==25||count("ROSSMOYNE MOCK")!==11)fail("Session type counts invalid");
+          const expectedMawa=Array.from({length:53},(_,i)=>(i+1)*7);
+          const gotMawa=sessions.sessions.filter(x=>x.type==="MAWA").map(x=>x.slot);
+          if(JSON.stringify(expectedMawa)!==JSON.stringify(gotMawa))fail("MAWA cadence invalid");
+          if(teach.items.length!==72)fail("Teaching count invalid");
+          if(new Set(teach.items.map(x=>x.id)).size!==72)fail("Duplicate teaching IDs");
+          if(mawa.items.length!==20)fail("MAWA source bank count invalid");
+          if(ross.items.length!==23)fail("Rossmoyne H-map invalid");
+          if(!awards.practice_estimate_wa?.year5||!awards.official)fail("Award config invalid");
+          console.log("Canonical invariants passed.");
+          NODE
+      - name: Public-content safety
+        run: |
+          test ! -f data/challenges-amc-001-040.json
+          test ! -f data/challenges-amc-041-080.json
+          test ! -f data/challenges-amc-081-120.json
+          test ! -f data/challenges-amc-121-152.json
+          ! grep -R --line-number -E '"answer"[[:space:]]*:' data/sessions-372.json data/teaching-72.json || exit 1
+          echo "No authenticated AMC answer bank on current Pages branch."
