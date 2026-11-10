@@ -111,6 +111,7 @@ function renderHome(){
   document.getElementById("reviewQuick").onclick=()=>renderReview();
 }
 async function startSession(s){
+  if(s.type==="AMC MOCK"||s.type==="ROSSMOYNE MOCK"){location.href=`tests.html?slot=${s.slot}&course=1`;return}
   activeStage=0;currentProblems=chooseProblems(s);currentMawa=s.type==="MAWA"?mawa[(Math.floor(s.slot/7)-1)%mawa.length]:null;sessionDraft={answers:{},working:{},evidence:{},summary:{}};
   const {data:existing}=await supabase.from("session_records").select("*").eq("user_id",user.id).eq("session_number",s.slot).maybeSingle();
   if(existing){sessionDraft={answers:existing.answers||{},working:existing.working||{},evidence:existing.evidence||{},summary:existing.summary||{}}}
