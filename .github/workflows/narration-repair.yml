@@ -1,0 +1,35 @@
+name: Narration repair batch
+# batch-1794355023011
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/narration-repair.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  narrate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      max-parallel: 10
+      matrix: {"include":[{"id":"K020","queue":"queue-06.json"},{"id":"K021","queue":"queue-06.json"},{"id":"K022","queue":"queue-06.json"},{"id":"N1.26","queue":"queue-06.json"},{"id":"N1.27","queue":"queue-06.json"},{"id":"N1.29","queue":"queue-06.json"},{"id":"N1.30","queue":"queue-06.json"},{"id":"N2.26","queue":"queue-06.json"},{"id":"N2.27","queue":"queue-06.json"},{"id":"N2.28","queue":"queue-06.json"},{"id":"N2.29","queue":"queue-06.json"},{"id":"N2.30","queue":"queue-06.json"},{"id":"N3.26","queue":"queue-06.json"},{"id":"N3.27","queue":"queue-07.json"},{"id":"N3.28","queue":"queue-07.json"},{"id":"N3.29","queue":"queue-07.json"},{"id":"N3.30","queue":"queue-07.json"},{"id":"N4.26","queue":"queue-07.json"},{"id":"N4.27","queue":"queue-07.json"},{"id":"N4.28","queue":"queue-07.json"},{"id":"N4.29","queue":"queue-07.json"},{"id":"N4.30","queue":"queue-07.json"},{"id":"A002","queue":"queue-07.json"},{"id":"A003","queue":"queue-07.json"},{"id":"A004","queue":"queue-07.json"}]}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install Kokoro
+        run: |
+          npm init -y
+          npm install kokoro-js@1.2.1
+      - name: Generate isolated narration
+        run: node scripts/generate-video-isolated.mjs "${{ matrix.queue }}" "${{ matrix.id }}" out
+      - name: Publish narration
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release upload summit-one-audio-v1 "out/${{ matrix.id }}_narration.wav" --repo "${{ github.repository }}" --clobber
