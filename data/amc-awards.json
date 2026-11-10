@@ -1,0 +1,71 @@
+{
+  "schema_version": "summit-one-amc-awards-v1",
+  "official": {
+    "source": "Australian Maths Trust",
+    "proficiency": "preset score; varies by competition/year",
+    "credit": "approximately top 55% of year and region",
+    "distinction": "approximately top 20% of year and region",
+    "high_distinction": "approximately top 3% of year and region",
+    "prize": "generally no more than 1 in 300 within region and year group",
+    "perfect_score_award": "Peter O'Halloran Award",
+    "note": "Official raw-score cutoffs vary by year and region. The app must use paper-year WA cutoffs when verified; otherwise label the result as an estimate."
+  },
+  "practice_estimate_wa": {
+    "label": "WA practice estimate — not an official AMT cutoff",
+    "year5": {
+      "participation": 0,
+      "proficiency": 32,
+      "credit": 55,
+      "distinction": 75,
+      "high_distinction": 90,
+      "prize": 120,
+      "perfect": 135
+    },
+    "year6": {
+      "participation": 0,
+      "proficiency": 32,
+      "credit": 60,
+      "distinction": 80,
+      "high_distinction": 95,
+      "prize": 123,
+      "perfect": 135
+    },
+    "rationale": "Conservative training bands informed by recent Australian reference cutoffs and WA award distributions. Override with verified WA paper-year thresholds whenever available."
+  },
+  "historical_reference_non_wa": {
+    "2024": {
+      "year5": {
+        "proficiency": 32,
+        "credit": 71,
+        "distinction": 91,
+        "high_distinction": 112,
+        "prize": 125
+      },
+      "year6": {
+        "proficiency": 32,
+        "credit": 75,
+        "distinction": 94,
+        "high_distinction": 112,
+        "prize": 125
+      },
+      "source_note": "Published reference table, not WA-specific."
+    },
+    "2025": {
+      "year5": {
+        "proficiency": 32,
+        "credit": 75,
+        "distinction": 92,
+        "high_distinction": 118,
+        "prize": 135
+      },
+      "year6": {
+        "proficiency": 32,
+        "credit": 74,
+        "distinction": 91,
+        "high_distinction": 111,
+        "prize": 128
+      },
+      "source_note": "Published reference table, not WA-specific."
+    }
+  }
+}
