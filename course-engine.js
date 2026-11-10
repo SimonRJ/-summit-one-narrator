@@ -8,13 +8,6 @@ export const RANK_NAMES=[
 "Rossmoyne Challenger","Competition Analyst","Master Strategist","Summit Elite","Summit One"
 ];
 
-const JSON_FILES=[
-"./data/challenges-original-42.json",
-"./data/challenges-amc-001-040.json",
-"./data/challenges-amc-041-080.json",
-"./data/challenges-amc-081-120.json",
-"./data/challenges-amc-121-152.json"
-];
 let cache=null;
 
 async function json(url){
@@ -29,11 +22,17 @@ export async function requireUser(){
 }
 export async function loadCourse(){
   if(cache)return cache;
-  const [sessions,teaching,awards,...banks]=await Promise.all([
+  await requireUser();
+  const [sessions,teaching,awards,protectedContent]=await Promise.all([
     json("./data/sessions-372.json"),json("./data/teaching-72.json"),json("./data/amc-awards.json"),
-    ...JSON_FILES.map(json)
+    supabase.from("challenge_content").select("*").order("id",{ascending:true})
   ]);
-  const challenges=banks.flatMap(b=>b.items||[]);
+  if(protectedContent.error) throw protectedContent.error;
+  const challenges=(protectedContent.data||[]).map(x=>({
+    ...x,type:x.kind,
+    independent_credit:true,
+    solution_video_id:x.id
+  }));
   cache={sessions:sessions.sessions,sessionMeta:sessions,teaching:teaching.items,challenges,awards};
   return cache;
 }
