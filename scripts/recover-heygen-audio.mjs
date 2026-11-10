@@ -3,7 +3,7 @@ import path from "node:path";
 import crypto from "node:crypto";
 
 const src=process.argv[2]||"heygen-89-audio-manifest.json";
-const outDir=process.argv[3]||"heygen-audio";
+const outDir=process.argv[3]||"heygen-audio";\nconst shardIndex=Number(process.argv[4]||0);\nconst shardCount=Number(process.argv[5]||1);
 await fs.mkdir(outDir,{recursive:true});
 const data=JSON.parse(await fs.readFile(src,"utf8"));
 const results=[];
