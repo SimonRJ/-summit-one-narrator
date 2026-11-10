@@ -1,0 +1,96 @@
+name: Render and publish 266 narrated videos
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows:
+      - "Generate remaining 175 narration tracks"
+      - "Publish A001 and A049 narration"
+    types: [completed]
+
+permissions:
+  contents: write
+
+jobs:
+  readiness:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    outputs:
+      ready: ${{ steps.check.outputs.ready }}
+      matrix: ${{ steps.matrix.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - id: check
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: |
+          count=$(gh api "repos/${{ github.repository }}/releases/tags/summit-one-audio-v1" --jq '.assets | map(select(.name | endswith("_narration.wav"))) | length')
+          echo "Narration assets: $count"
+          if [ "$count" -eq 266 ]; then echo "ready=true" >> "$GITHUB_OUTPUT"; else echo "ready=false" >> "$GITHUB_OUTPUT"; fi
+      - id: matrix
+        run: |
+          node scripts/build-render-manifest.mjs
+          node --input-type=module <<'NODE' >> "$GITHUB_OUTPUT"
+          import fs from "node:fs";
+          const ids=JSON.parse(fs.readFileSync("render/manifest.json","utf8")).items.map(x=>x.id);
+          const shards=Array.from({length:10},(_,i)=>({shard:i,ids:ids.filter((_,j)=>j%10===i)}));
+          console.log("matrix="+JSON.stringify({include:shards}));
+          NODE
+
+  render:
+    needs: readiness
+    if: ${{ needs.readiness.outputs.ready == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    strategy:
+      fail-fast: false
+      max-parallel: 10
+      matrix: ${{ fromJSON(needs.readiness.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - name: Install renderer
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg fonts-dejavu-core
+          python3 -m pip install --break-system-packages pillow
+      - name: Build render manifest
+        run: node scripts/build-render-manifest.mjs
+      - name: Download shard narration
+        env:
+          GH_TOKEN: ${{ github.token }}
+          IDS: ${{ toJSON(matrix.ids) }}
+        run: |
+          mkdir -p render/audio
+          node --input-type=module <<'NODE' > render/ids.txt
+          const ids=JSON.parse(process.env.IDS);for(const id of ids)console.log(id);
+          NODE
+          while read -r id; do
+            gh release download summit-one-audio-v1 --repo "${{ github.repository }}" --pattern "${id}_narration.wav" --dir render/audio --clobber
+          done < render/ids.txt
+      - name: Render 1280x720 H.264 videos
+        env:
+          IDS: ${{ toJSON(matrix.ids) }}
+        run: |
+          mapfile -t ids < render/ids.txt
+          python3 scripts/render_videos.py render/manifest.json "${ids[@]}"
+          test "$(find render/out -name '*_final.mp4' | wc -l)" -eq "$(wc -l < render/ids.txt)"
+      - name: Ensure video release
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: |
+          gh release view summit-one-videos-v1 --repo "${{ github.repository }}" >/dev/null 2>&1 ||             gh release create summit-one-videos-v1 --repo "${{ github.repository }}" --title "Summit One narrated videos v1" --notes "1280x720 H.264/AAC narrated mathematical explanations."
+      - name: Publish videos
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: |
+          for f in render/out/*_final.mp4; do gh release upload summit-one-videos-v1 "$f" --repo "${{ github.repository }}" --clobber; done
+
+  verify:
+    needs: [readiness, render]
+    if: ${{ always() && needs.readiness.outputs.ready == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify 266 published videos
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: |
+          count=$(gh api "repos/${{ github.repository }}/releases/tags/summit-one-videos-v1" --jq '.assets | map(select(.name | endswith("_final.mp4"))) | length')
+          echo "Published MP4s: $count"
+          test "$count" -eq 266
