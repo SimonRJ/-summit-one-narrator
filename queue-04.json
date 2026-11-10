@@ -1,0 +1,620 @@
+[
+  {
+    "video_id": "T14.1",
+    "title": "Translate the movement rules exactly",
+    "type": "concept",
+    "source": "Turn routes and schedules into networks",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 277,
+    "estimated_seconds": 123.1,
+    "chunks": [
+      {
+        "chunk_id": "T14.1__01",
+        "sequence": 1,
+        "text": "This section is called Translate the movement rules exactly. Two drawn lines crossing do not necessarily create a meeting point. A connection exists only when the problem's rules or markings establish one. Likewise, touching at a corner may or may not permit a move. Read the definition of adjacency before counting. A013 and A109 use different kinds of local connection, so their permitted moves must be read from their own diagrams. SEE IT The last edge separates routes into cases Each circle shows the number of directed routes from S.",
+        "word_count": 90
+      },
+      {
+        "chunk_id": "T14.1__02",
+        "sequence": 2,
+        "text": "Only the drawn arrows are permitted. A route arriving at T comes from C or D, giving 2 + 3 = 5. Record direction if movement is restricted. An undirected edge permits movement both ways; a directed edge permits only the stated direction. Also record whether a route may revisit a vertex, reuse an edge, or pass through every vertex exactly once. These are different problems. A sequence that obeys adjacency can still be illegal because it repeats a forbidden location.",
+        "word_count": 79
+      },
+      {
+        "chunk_id": "T14.1__03",
+        "sequence": 3,
+        "text": "For a route that only moves forward through an ordered network, count paths into each vertex by adding the counts from its legal predecessors. Every route into the vertex has a unique last edge, so the predecessor cases are disjoint and complete. Start with one empty route at the starting vertex. Give blocked or unreachable vertices count zero. A138 is useful for checking this rule one location at a time. Before moving on, open your notebook. In one sentence, name the mathematical relationship this section is making visible.",
+        "word_count": 88
+      },
+      {
+        "chunk_id": "T14.1__04",
+        "sequence": 4,
+        "text": "Then draw the smallest model, table or example that would help you recognise the same idea in a new problem.",
+        "word_count": 20
+      }
+    ]
+  },
+  {
+    "video_id": "T14.2",
+    "title": "Use future obligations to reject tempting moves",
+    "type": "concept",
+    "source": "Turn routes and schedules into networks",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 272,
+    "estimated_seconds": 120.9,
+    "chunks": [
+      {
+        "chunk_id": "T14.2__01",
+        "sequence": 1,
+        "text": "This section is called Use future obligations to reject tempting moves. When a route must visit many locations without repetition, a locally legal move may make the final goal impossible. After a proposed move, inspect what remains. Can every unvisited location still be reached? Has a location become cut off? Does a branch have only one usable connection left, forcing it to be an endpoint? These are necessary conditions that can eliminate choices early.",
+        "word_count": 74
+      },
+      {
+        "chunk_id": "T14.2__02",
+        "sequence": 2,
+        "text": "SEE IT A local obligation can prove impossibility To visit all four vertices exactly once, each degree-one vertex would have to be an endpoint. There are three such vertices, but a path has only two endpoints, so no route works. A route required to visit every vertex exactly once is often called a Hamiltonian path. The name does not supply a formula. The useful reasoning comes from the particular network: narrow passages, dead ends, forced neighbours and separations.",
+        "word_count": 78
+      },
+      {
+        "chunk_id": "T14.2__03",
+        "sequence": 3,
+        "text": "A128 and A144 reward explaining why certain continuations must occur, rather than merely presenting one route that happens to work. For a maximum-value route, compare all required omissions with an explicit successful route. For a largest code, examine possible next symbols in descending order but reject a symbol only with a reason that no valid completion exists. A103 combines a route construction with an upper bound on what can be collected. The construction shows possibility; the argument about unavoidable omissions establishes optimality. Before moving on, open your notebook.",
+        "word_count": 88
+      },
+      {
+        "chunk_id": "T14.2__04",
+        "sequence": 4,
+        "text": "In one sentence, name the mathematical relationship this section is making visible. Then draw the smallest model, table or example that would help you recognise the same idea in a new problem.",
+        "word_count": 32
+      }
+    ]
+  },
+  {
+    "video_id": "T14.3",
+    "title": "Read a schedule as groups of nonconflicting edges",
+    "type": "concept",
+    "source": "Turn routes and schedules into networks",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 266,
+    "estimated_seconds": 118.3,
+    "chunks": [
+      {
+        "chunk_id": "T14.3__01",
+        "sequence": 1,
+        "text": "This section is called Read a schedule as groups of nonconflicting edges. A schedule can also be represented by a network. Participants are vertices and required meetings are edges. If a participant can take part in at most one meeting during a time slot, the edges placed in that slot must have no shared vertex. This turns a verbal conflict rule into a precise structural condition. Count the total required meetings and the maximum number that can fit in one slot.",
+        "word_count": 81
+      },
+      {
+        "chunk_id": "T14.3__02",
+        "sequence": 2,
+        "text": "Dividing gives a lower bound on the number of slots, rounded up if necessary. Individual participants can create another lower bound through their own number of required meetings. Use the strongest available bound, but remember that capacity alone does not guarantee a conflict-free schedule. All the required edges must still be placed legally. N4.29 shows why capacity is only a first bound. Its rest-day restriction and the odd number of participants rule out shorter schedules.",
+        "word_count": 76
+      },
+      {
+        "chunk_id": "T14.3__03",
+        "sequence": 3,
+        "text": "The attaining schedule must satisfy the rest pattern as well as use every required pair exactly once and avoid conflicts within each day. Rotation or modular labelling can help organise pairings, but the arrangement must also meet every restriction linking consecutive time slots. Verify these properties separately. A042 adds timing conditions to movement rather than pairwise meetings; there the repeating time structure must be read alongside the distance and speed restrictions. Before moving on, open your notebook. In one sentence, name the mathematical relationship this section is making visible.",
+        "word_count": 89
+      },
+      {
+        "chunk_id": "T14.3__04",
+        "sequence": 4,
+        "text": "Then draw the smallest model, table or example that would help you recognise the same idea in a new problem.",
+        "word_count": 20
+      }
+    ]
+  },
+  {
+    "video_id": "T14.E",
+    "title": "Turn routes and schedules into networks",
+    "type": "worked_example",
+    "source": "Turn routes and schedules into networks",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 227,
+    "estimated_seconds": 101.0,
+    "chunks": [
+      {
+        "chunk_id": "T14.E__01",
+        "sequence": 1,
+        "text": "Here is a worked teaching example for Turn routes and schedules into networks. Schedule only the required meetings Five pupils A, B, C, D and E need only these meetings: AB, AC, AD, BE and CE. A pupil can attend at most one meeting in a time slot. Find the smallest possible number of slots and give a schedule. Each column is one set of nonconflicting edges. The busiest pupil gives a lower bound; the three columns show that the bound can be reached. Work through the example 1.",
+        "word_count": 89
+      },
+      {
+        "chunk_id": "T14.E__02",
+        "sequence": 2,
+        "text": "A has to meet B, C and D. Those three meetings cannot share a slot, so at least 3 slots are necessary. 2. In slot 1, hold AB and CE. These meetings involve four different pupils. 3. In slot 2, hold AC and BE. Again the two meetings have no pupil in common. 4. In slot 3, hold AD. The list now contains each of the five required pairs once, with no other meeting needed. 5.",
+        "word_count": 76
+      },
+      {
+        "chunk_id": "T14.E__03",
+        "sequence": 3,
+        "text": "The lower bound of 3 slots is attained by this schedule, so it is the minimum. Answer. 3 slots: AB with CE; AC with BE; then AD. Now cover the worked steps and reconstruct the reasoning in your notebook. Do not copy only the answer. Write the observation that made each next step possible, then compare your explanation with the worked example.",
+        "word_count": 62
+      }
+    ]
+  },
+  {
+    "video_id": "T15.1",
+    "title": "Define sameness before counting",
+    "type": "concept",
+    "source": "Use symmetry without losing or repeating cases",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 268,
+    "estimated_seconds": 119.2,
+    "chunks": [
+      {
+        "chunk_id": "T15.1__01",
+        "sequence": 1,
+        "text": "This section is called Define sameness before counting. A rotation moves a figure by turning it. A reflection reverses its orientation as a mirror would. A physical solid can be rotated in space, but a mirror image is not always obtainable by a rotation. Similarly, exchanging colour names may preserve some properties while creating a different colouring under the question's rules. Never add an equivalence that the problem has not allowed. SEE IT A turn and a mirror change different things The coloured labels are fixed identities.",
+        "word_count": 87
+      },
+      {
+        "chunk_id": "T15.1__02",
+        "sequence": 2,
+        "text": "A rotation keeps their clockwise order. Reflection reverses that order, so this reflected labelled triangle cannot be obtained by a rotation alone. Distinguish an arrangement of pieces from its outside outline. Different internal joins can sometimes produce the same outline. If only outlines count, those constructions belong to one outcome; if placements of individual pieces count, they may be different. A041 and A082 reward a careful reading of the allowed joins and the meaning of “different” before the pictures are classified.",
+        "word_count": 81
+      },
+      {
+        "chunk_id": "T15.1__03",
+        "sequence": 3,
+        "text": "One way to compare two candidates is to move each through every permitted orientation and choose a standard description, such as the smallest coordinate or label pattern. Matching standard descriptions identifies the same class. This method is useful for checking a finite list, but the description must preserve all relevant information: colours, incidences, piece boundaries and any labels that the question distinguishes. Before moving on, open your notebook. In one sentence, name the mathematical relationship this section is making visible.",
+        "word_count": 80
+      },
+      {
+        "chunk_id": "T15.1__04",
+        "sequence": 4,
+        "text": "Then draw the smallest model, table or example that would help you recognise the same idea in a new problem.",
+        "word_count": 20
+      }
+    ]
+  },
+  {
+    "video_id": "T15.2",
+    "title": "Do not divide by a symmetry count blindly",
+    "type": "concept",
+    "source": "Use symmetry without losing or repeating cases",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 281,
+    "estimated_seconds": 124.9,
+    "chunks": [
+      {
+        "chunk_id": "T15.2__01",
+        "sequence": 1,
+        "text": "This section is called Do not divide by a symmetry count blindly. A symmetry may leave some objects unchanged. Such an object has fewer visibly different orientations than an object with no symmetry. Therefore dividing a raw count by the number of rotations can fail: not every outcome has been counted that many times. Establish equal repetition before using division, just as in ordinary unordered counting. SEE IT Count the distinct appearances of each object Turn each marked square through 0 degrees, 90 degrees, 180 degrees and 270 degrees.",
+        "word_count": 89
+      },
+      {
+        "chunk_id": "T15.2__02",
+        "sequence": 2,
+        "text": "The three kinds of marking give 1, 2 and 4 different appearances. Equal numbers of turns do not guarantee equal repetition. For a cube, there are six choices for the upward face and four choices for a neighbouring face to point forward, giving twenty-four rotations. But this does not mean every cube colouring has twenty-four different appearances. Some colourings look unchanged under several rotations. A026 is a place to classify colour patterns carefully instead of dividing the initial selection count by the rotation total.",
+        "word_count": 84
+      },
+      {
+        "chunk_id": "T15.2__03",
+        "sequence": 3,
+        "text": "A useful first classification uses properties that rotations cannot change: the number of marked corners on a face, the pattern of adjacencies, or the number of components. Different values of such a property prove two objects different. Equal values do not necessarily prove them the same. You may need a finer classification or an explicit allowed motion connecting the two candidates. An invariant can separate classes without fully identifying them. Before moving on, open your notebook. In one sentence, name the mathematical relationship this section is making visible.",
+        "word_count": 88
+      },
+      {
+        "chunk_id": "T15.2__04",
+        "sequence": 4,
+        "text": "Then draw the smallest model, table or example that would help you recognise the same idea in a new problem.",
+        "word_count": 20
+      }
+    ]
+  },
+  {
+    "video_id": "T15.3",
+    "title": "Pair objects or classify their local structure",
+    "type": "concept",
+    "source": "Use symmetry without losing or repeating cases",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 248,
+    "estimated_seconds": 110.2,
+    "chunks": [
+      {
+        "chunk_id": "T15.3__01",
+        "sequence": 1,
+        "text": "This section is called Pair objects or classify their local structure. Sometimes symmetry gives an exact pairing rather than a complicated rotation class. If an operation reverses itself when applied twice and has no fixed objects, every object is paired with a different partner. A sign reversal can pair positive and negative totals, provided no total is zero. Before halving a count, prove those conditions and prove that different constructions really give different totals. N3.28 combines these requirements. Local patterns can also produce a complete classification.",
+        "word_count": 87
+      },
+      {
+        "chunk_id": "T15.3__02",
+        "sequence": 2,
+        "text": "Fix one allowed orientation or colour temporarily, then describe all ways the remaining parts can attach while satisfying the rules. Restore any genuinely different initial choices at the end. A068, A148 and A151 use local restrictions to constrain neighbouring cells. A rule involving every small region must be checked in every such region, not just in the most visible ones. Finally, distinguish a history from its result. Several deletions or rearrangements can collapse to one final word or shape.",
+        "word_count": 79
+      },
+      {
+        "chunk_id": "T15.3__03",
+        "sequence": 3,
+        "text": "N3.30 asks for a classification of resulting words, so each proposed class needs a reason why its members coincide and why different classes stay different. A successful enumeration explains both uniqueness and completeness; a gallery of attractive examples provides only the existence part. Before moving on, open your notebook. In one sentence, name the mathematical relationship this section is making visible. Then draw the smallest model, table or example that would help you recognise the same idea in a new problem.",
+        "word_count": 82
+      }
+    ]
+  },
+  {
+    "video_id": "T15.E",
+    "title": "Use symmetry without losing or repeating cases",
+    "type": "worked_example",
+    "source": "Use symmetry without losing or repeating cases",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 227,
+    "estimated_seconds": 100.9,
+    "chunks": [
+      {
+        "chunk_id": "T15.E__01",
+        "sequence": 1,
+        "text": "Here is a worked teaching example for Use symmetry without losing or repeating cases. Pair choices by toggling one member Choose any subset of {A, B, C}, including the empty set. Explain why exactly half of the eight subsets have an even number of members. Teal cells have even size and purple cells have odd size. The empty set ∅ participates in the pairing just like every other subset. Work through the example 1.",
+        "word_count": 73
+      },
+      {
+        "chunk_id": "T15.E__02",
+        "sequence": 2,
+        "text": "Each of A, B and C can be chosen or not chosen, so there are 2  times  2  times  2 = 8 subsets. 2. Pair each subset with the result of toggling A: add A when it is absent, and remove A when it is present. 3. Toggling A twice returns to the starting subset. Toggling once always changes the subset, so no subset is left unpaired. 4. The size changes by exactly 1, so every pair contains one even-sized subset and one odd-sized subset. 5.",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "T15.E__03",
+        "sequence": 3,
+        "text": "There are 8  divided by  2 = 4 pairs, giving 4 even-sized subsets and 4 odd-sized subsets. The empty set has size 0, which is even. Answer. 4 of the 8 subsets have even size. Now cover the worked steps and reconstruct the reasoning in your notebook. Do not copy only the answer. Write the observation that made each next step possible, then compare your explanation with the worked example.",
+        "word_count": 69
+      }
+    ]
+  },
+  {
+    "video_id": "T16.1",
+    "title": "Turn a ratio into equal parts",
+    "type": "concept",
+    "source": "Keep ratios, rates and averages precise",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 286,
+    "estimated_seconds": 127.2,
+    "chunks": [
+      {
+        "chunk_id": "T16.1__01",
+        "sequence": 1,
+        "text": "This section is called Turn a ratio into equal parts. A ratio a: b means that the two quantities can be written ak and bk for one common scale k. Their total is (a+b)k and their difference is (a-b)k, with the order chosen consistently. A known quantity or total determines k when its coefficient is nonzero. A known difference determines k only when a≠b. The ratio labels are numbers of equal parts, not the quantities themselves.",
+        "word_count": 80
+      },
+      {
+        "chunk_id": "T16.1__02",
+        "sequence": 2,
+        "text": "SEE IT Ratio labels count parts, not objects Both bars use the same-sized part. Group A gets 3 of the 5 parts, so its fraction of the whole is 3/5 and its count is 15; group B gets 10. Fractions of the whole use the total number of parts in the denominator. A ratio between two groups is different from the fraction of all members belonging to one group. When two fractional portions are equal, translate that equality before deciding which group is larger.",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "T16.1__03",
+        "sequence": 3,
+        "text": "A094 can be revisited through this lens, while A136 connects several ratio conditions through a shared whole-number scale. For linked ratios, identify the quantity shared between them and give it the same value in both representations. Simply adding ratio labels from unrelated scales is invalid. Age problems add another condition: the same elapsed time is added to everyone's age, preserving age differences but generally changing age ratios. A005 and A035 require such relationships to be combined with ordinary restrictions on order and distinctness. Before moving on, open your notebook.",
+        "word_count": 89
+      },
+      {
+        "chunk_id": "T16.1__04",
+        "sequence": 4,
+        "text": "In one sentence, name the mathematical relationship this section is making visible. Then draw the smallest model, table or example that would help you recognise the same idea in a new problem.",
+        "word_count": 32
+      }
+    ]
+  },
+  {
+    "video_id": "T16.2",
+    "title": "Convert time descriptions into rates",
+    "type": "concept",
+    "source": "Keep ratios, rates and averages precise",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 288,
+    "estimated_seconds": 128.0,
+    "chunks": [
+      {
+        "chunk_id": "T16.2__01",
+        "sequence": 1,
+        "text": "This section is called Convert time descriptions into rates. For a fixed job, a worker who completes it in time T has rate 1/T jobs per unit time, assuming constant work rate. Rates for simultaneous independent contributions can be added when they measure the same kind of work in the same time unit. Completion times themselves cannot generally be added or averaged to obtain the joint time. A008 and A104 reward finding a common unit of work first.",
+        "word_count": 79
+      },
+      {
+        "chunk_id": "T16.2__02",
+        "sequence": 2,
+        "text": "SEE IT Add the two contributions to closing one gap In the same minute, A removes 6 m from the left of the gap and B removes 4 m from the right. With constant speeds they meet after 50  divided by  10 = 5 minutes. An amount produced equals rate multiplied by time. If workers have different rate ratios and work for different durations, their total contributions depend on both. A050 develops this distinction. Keep the unit attached: items per hour multiplied by hours gives items.",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "T16.2__03",
+        "sequence": 3,
+        "text": "A unit check often reveals that an attractive multiplication or division has combined the wrong quantities. For motion towards one another, the gap closes at the sum of the speeds. For motion in the same direction, the gap changes at their difference, with the sign indicating which object gains. On a circular track, a meeting may correspond to a full lap of relative motion rather than the distance one runner travels. A091 requires the motion relationship to be interpreted before a missing individual rate is recovered.",
+        "word_count": 86
+      },
+      {
+        "chunk_id": "T16.2__04",
+        "sequence": 4,
+        "text": "Before moving on, open your notebook. In one sentence, name the mathematical relationship this section is making visible. Then draw the smallest model, table or example that would help you recognise the same idea in a new problem.",
+        "word_count": 38
+      }
+    ]
+  },
+  {
+    "video_id": "T16.3",
+    "title": "Recover totals and interpret averages",
+    "type": "concept",
+    "source": "Keep ratios, rates and averages precise",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 343,
+    "estimated_seconds": 152.5,
+    "chunks": [
+      {
+        "chunk_id": "T16.3__01",
+        "sequence": 1,
+        "text": "This section is called Recover totals and interpret averages. For a nonempty finite list of numbers, the arithmetic mean is the sum divided by the number of entries. Find the median after sorting the entries from smallest to largest: with an odd number of entries it is the middle entry; with an even number it is the mean of the two middle entries. Repeated values still occupy separate positions. The range is the largest entry minus the smallest.",
+        "word_count": 78
+      },
+      {
+        "chunk_id": "T16.3__02",
+        "sequence": 2,
+        "text": "These statistics describe different features, so equal means and equal ranges do not force equal medians. When a mean is given, recover the sum before combining it with other conditions. Average speed is total distance divided by total time. It is a time-weighted average of the separate speeds, because a speed maintained for longer contributes for more of the journey. Equal distances do not imply equal times.",
+        "word_count": 67
+      },
+      {
+        "chunk_id": "T16.3__03",
+        "sequence": 3,
+        "text": "A slower leg can take much longer than a faster leg, so an ordinary mean of the speed labels may give the wrong result. The same principle applies to combined scores and prices. Recover each group's total before combining groups of unequal sizes. For a mixture price, total cost divided by total mass gives the price per unit mass. For an exchange, track the units through each conversion and reverse the rate when travelling in the opposite direction.",
+        "word_count": 78
+      },
+      {
+        "chunk_id": "T16.3__04",
+        "sequence": 4,
+        "text": "A020 uses rates supplied within its problem; their role is to connect the currency amounts exactly. Distinguish distance travelled from net displacement. Travelling away and returning uses time and distance even when some of the displacement cancels. A118 rewards accounting for the entire route. After any rate calculation, reconstruct the quantities over the claimed time and check that they satisfy the original total or meeting condition. The check should test the story's relationship, not merely repeat the division that produced the answer. Before moving on, open your notebook.",
+        "word_count": 88
+      },
+      {
+        "chunk_id": "T16.3__05",
+        "sequence": 5,
+        "text": "In one sentence, name the mathematical relationship this section is making visible. Then draw the smallest model, table or example that would help you recognise the same idea in a new problem.",
+        "word_count": 32
+      }
+    ]
+  },
+  {
+    "video_id": "T16.E",
+    "title": "Keep ratios, rates and averages precise",
+    "type": "worked_example",
+    "source": "Keep ratios, rates and averages precise",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 224,
+    "estimated_seconds": 99.6,
+    "chunks": [
+      {
+        "chunk_id": "T16.E__01",
+        "sequence": 1,
+        "text": "Here is a worked teaching example for Keep ratios, rates and averages precise. Combine totals before averaging Two learners each score 6 points, and three learners each score 10 points. What is the mean score for all five learners? Explain why averaging 6 and 10 directly gives the wrong answer. Each dot represents one learner, including repeated scores. Three dots sit at 10, so the mean lies closer to 10 than to 6. Work through the example 1. The first group contributes 2  times  6 = 12 points.",
+        "word_count": 87
+      },
+      {
+        "chunk_id": "T16.E__02",
+        "sequence": 2,
+        "text": "The second contributes 3  times  10 = 30 points. 2. Together they contribute 12 + 30 = 42 points across 2 + 3 = 5 learners. 3. The mean is total points divided by the number of learners: 42  divided by  5 = 8.4 points. 4. The calculation (6 + 10)  divided by  2 = 8 gives equal weight to the two groups, although their sizes are different. Each learner needs equal weight, so 10 must be counted three times and 6 twice. 5.",
+        "word_count": 77
+      },
+      {
+        "chunk_id": "T16.E__03",
+        "sequence": 3,
+        "text": "Check: five scores averaging 8.4 have total 5  times  8.4 = 42, which matches the original total. Answer. The mean is 8.4 points. Now cover the worked steps and reconstruct the reasoning in your notebook. Do not copy only the answer. Write the observation that made each next step possible, then compare your explanation with the worked example.",
+        "word_count": 60
+      }
+    ]
+  },
+  {
+    "video_id": "T17.1",
+    "title": "Match the strength of the proof to the claim",
+    "type": "concept",
+    "source": "Write proofs that leave no hidden cases",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 276,
+    "estimated_seconds": 122.7,
+    "chunks": [
+      {
+        "chunk_id": "T17.1__01",
+        "sequence": 1,
+        "text": "This section is called Match the strength of the proof to the claim. An example proves that something can happen. It does not prove that it always happens or that it is the only possibility. A necessary condition is one every solution must satisfy; a sufficient condition guarantees a solution. They may differ. Passing a divisibility test, for instance, can be necessary without enforcing all the other digit restrictions in a problem. SEE IT A bound becomes a maximum only when reached The area bound rules out five dominoes.",
+        "word_count": 89
+      },
+      {
+        "chunk_id": "T17.1__02",
+        "sequence": 2,
+        "text": "The four coloured dominoes meet the rules and do not overlap, so four is both possible and optimal. For uniqueness, show that every legal solution must lie among your candidates, then show that exactly one candidate works. If your algebra consists of reversible steps, say why the allowed values remain unchanged. If a step only gives a necessary condition, return to the original problem to test the survivors. A052 and A117 are useful for examining whether every permitted position or case has really been covered.",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "T17.1__03",
+        "sequence": 3,
+        "text": "For counting, state why cases are disjoint and exhaustive. An interval and a parity restriction may describe where answers can lie without proving that every permitted value in that interval is attainable. A124 develops this gap between bounding a range and filling it. A complete solution must supply the missing construction or correspondence, rather than treating a plausible list of possibilities as established fact. Before moving on, open your notebook. In one sentence, name the mathematical relationship this section is making visible.",
+        "word_count": 82
+      },
+      {
+        "chunk_id": "T17.1__04",
+        "sequence": 4,
+        "text": "Then draw the smallest model, table or example that would help you recognise the same idea in a new problem.",
+        "word_count": 20
+      }
+    ]
+  },
+  {
+    "video_id": "T17.2",
+    "title": "Use counterexamples and contradictions carefully",
+    "type": "concept",
+    "source": "Write proofs that leave no hidden cases",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 283,
+    "estimated_seconds": 125.8,
+    "chunks": [
+      {
+        "chunk_id": "T17.2__01",
+        "sequence": 1,
+        "text": "This section is called Use counterexamples and contradictions carefully. To disprove a statement claiming that every object has a property, one legal counterexample is enough. The word legal matters: the example must satisfy all the statement's assumptions. An apparent exception outside the allowed set does not refute the claim. When a method fails, ask which assumption it needed; this can turn an error into a more accurate theorem. A contradiction proof begins by assuming the opposite of what you want to establish, then derives an impossibility using the problem's conditions.",
+        "word_count": 90
+      },
+      {
+        "chunk_id": "T17.2__02",
+        "sequence": 2,
+        "text": "An odd degree total in an ordinary finite network contradicts the fact that every edge has two endpoints. A proposed equality case may contradict a parity requirement. The final sentence should identify the incompatible facts explicitly, not merely announce that the attempt “does not work”. For truth-and-lie constraints such as A002, assign each speaker a proposed status, then evaluate the exact claim being made. A truth teller's claim must be true and a liar's false. Propagate these requirements, then check every speaker for consistency before accepting an assignment.",
+        "word_count": 88
+      },
+      {
+        "chunk_id": "T17.2__03",
+        "sequence": 3,
+        "text": "A failed construction is not a contradiction. It rules out only that construction unless you prove it represents every possibility. Organise failures by a complete classification or replace trial with an invariant, a bound or a divisibility obstruction. N1.30 demonstrates how a general obstruction can eliminate an entire proposed equality case, while A097 uses bounds to reduce a search to a small set of forced possibilities. Before moving on, open your notebook. In one sentence, name the mathematical relationship this section is making visible.",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "T17.2__04",
+        "sequence": 4,
+        "text": "Then draw the smallest model, table or example that would help you recognise the same idea in a new problem.",
+        "word_count": 20
+      }
+    ]
+  },
+  {
+    "video_id": "T17.3",
+    "title": "Connect finite checks to general conclusions",
+    "type": "concept",
+    "source": "Write proofs that leave no hidden cases",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 352,
+    "estimated_seconds": 156.5,
+    "chunks": [
+      {
+        "chunk_id": "T17.3__01",
+        "sequence": 1,
+        "text": "This section is called Connect finite checks to general conclusions. A finite exhaustive search can establish a finite claim if the search space is complete and every acceptance test matches the conditions. Explain the range, the classification and why nothing lies outside it. A computer can help verify such a search, but a list of outputs without a description of what was checked leaves the mathematical coverage unclear.",
+        "word_count": 68
+      },
+      {
+        "chunk_id": "T17.3__02",
+        "sequence": 2,
+        "text": "SEE IT A starting block and a valid extension cover every case Every whole number at least 6 appears in exactly one lane. If a property is true at 6, 7 and 8 and is preserved by adding 3, it is true everywhere in these lanes; k is any non-negative whole number. For an unlimited family, finite checking alone is insufficient. You need a rule extending the verified cases. Induction provides one form: establish starting cases, then prove that the truth of suitable smaller cases forces the next one.",
+        "word_count": 89
+      },
+      {
+        "chunk_id": "T17.3__03",
+        "sequence": 3,
+        "text": "A recurrence proof uses this idea when every route is obtained from shorter legal routes. N3.29 uses an extension by a fixed available increment to cover all larger values from a finite starting block. Finish by checking both the requested conclusion and its scope. Have you proved a maximum or merely an upper bound? All solutions or one? Every starting state or only the tested ones? A115 requires an attaining arrangement as well as a lower bound, and A063 requires separate treatment of cases with different multiplicities.",
+        "word_count": 88
+      },
+      {
+        "chunk_id": "T17.3__04",
+        "sequence": 4,
+        "text": "A brief final sentence naming the completed claim helps expose any missing half of the argument. Watch out for these • One counterexample disproves an “always” claim only when it satisfies every assumption of that claim. • A necessary condition is a filter, not automatically a complete solution. Test the survivors. • A finite pattern does not prove an unlimited rule; supply a transition, invariant or extension that covers the untested cases. Before moving on, open your notebook. In one sentence, name the mathematical relationship this section is making visible.",
+        "word_count": 87
+      },
+      {
+        "chunk_id": "T17.3__05",
+        "sequence": 5,
+        "text": "Then draw the smallest model, table or example that would help you recognise the same idea in a new problem.",
+        "word_count": 20
+      }
+    ]
+  },
+  {
+    "video_id": "T17.E",
+    "title": "Write proofs that leave no hidden cases",
+    "type": "worked_example",
+    "source": "Write proofs that leave no hidden cases",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 230,
+    "estimated_seconds": 102.2,
+    "chunks": [
+      {
+        "chunk_id": "T17.E__01",
+        "sequence": 1,
+        "text": "Here is a worked teaching example for Write proofs that leave no hidden cases. Prove a statement for every whole number Prove that n(n + 1) is even for every non-negative whole number n. Checking several values is useful, but your proof must also cover values you have not checked. Exactly one of two consecutive integers is even. In either case the product visibly contains a factor of 2. Work through the example 1. Every whole number is either even or odd.",
+        "word_count": 82
+      },
+      {
+        "chunk_id": "T17.E__02",
+        "sequence": 2,
+        "text": "These two cases do not overlap, and there is no third parity case. 2. If n is even, write n = 2k for a non-negative whole number k. Then n(n + 1) = 2k(2k + 1), which is 2 times a whole number. 3. If n is odd, write n = 2k + 1 for a non-negative whole number k. Then n + 1 = 2k + 2 = 2(k + 1), so n(n + 1) = 2(2k + 1)(k + 1), again 2 times a whole number. 4. Thus the product is even in every case.",
+        "word_count": 88
+      },
+      {
+        "chunk_id": "T17.E__03",
+        "sequence": 3,
+        "text": "The first case includes n = 0, whose product is 0 and is even. Answer. n(n + 1) is even for every non-negative whole number n. Now cover the worked steps and reconstruct the reasoning in your notebook. Do not copy only the answer. Write the observation that made each next step possible, then compare your explanation with the worked example.",
+        "word_count": 60
+      }
+    ]
+  },
+  {
+    "video_id": "T18.1",
+    "title": "Start with the structure that limits the choices",
+    "type": "concept",
+    "source": "Choose a strategy, then learn from the decision",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 273,
+    "estimated_seconds": 121.4,
+    "chunks": [
+      {
+        "chunk_id": "T18.1__01",
+        "sequence": 1,
+        "text": "This section is called Start with the structure that limits the choices. Read the request and identify the strongest restriction. A fixed total may suggest contributions or a baseline. A product may suggest prime factors. An ordering condition may suggest positions or cases. A repeated process may suggest an invariant, a reverse route or a state. These are invitations to investigate, not rules that guarantee a particular method.",
+        "word_count": 68
+      },
+      {
+        "chunk_id": "T18.1__02",
+        "sequence": 2,
+        "text": "SEE IT Let one restriction create the search space For positive whole-number side lengths and area 24, the four factor pairs are complete, up to exchanging the two sides. Requiring a perimeter of 20 then selects only the 4-by-6 rectangle. Choose a first step that reduces uncertainty. Write the possible endings, recover a hidden total, mark the legal connections or state an equation with named quantities. A092, A102 and A114 reward combining restrictions instead of developing one clue in isolation.",
+        "word_count": 80
+      },
+      {
+        "chunk_id": "T18.1__03",
+        "sequence": 3,
+        "text": "After using a clue, keep it visible so that later choices cannot accidentally break it. Before starting a long calculation, estimate the size of the search. Can one variable be bounded? Can symmetry identify equivalent cases? Can a complement reduce the work? If a method begins to create a large uncontrolled list, pause and identify what makes the cases different. Changing representation is often more useful than pushing the same arithmetic harder. Record a short reason for your chosen method so you can assess that decision afterwards.",
+        "word_count": 87
+      },
+      {
+        "chunk_id": "T18.1__04",
+        "sequence": 4,
+        "text": "Before moving on, open your notebook. In one sentence, name the mathematical relationship this section is making visible. Then draw the smallest model, table or example that would help you recognise the same idea in a new problem.",
+        "word_count": 38
+      }
+    ]
+  },
+  {
+    "video_id": "T18.2",
+    "title": "Manage a complete attempt and an independent check",
+    "type": "concept",
+    "source": "Choose a strategy, then learn from the decision",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 153,
+    "estimated_seconds": 68.0,
+    "chunks": [
+      {
+        "chunk_id": "T18.2__01",
+        "sequence": 1,
+        "text": "This section is called Manage a complete attempt and an independent check. An attempt should leave a clear trail even when it is unfinished. Write the facts already established, the cases already handled and the next decision that remains. This makes it possible to return without restarting or repeating the same failed branch. Under time pressure, a well-marked partial solution is more useful than scattered calculations whose purpose has been forgotten.",
+        "word_count": 71
+      },
+      {
+        "chunk_id": "T18.2__02",
+        "sequence": 2,
+        "text": "SEE IT A second decomposition attacks a different counting error On the left, remove the 3-by-3 centre from the 5-by-5 square. On the right, give both corner cells of each side to the top or bottom row, leaving 3 cells on each vertical side. Before moving on, open your notebook. In one sentence, name the mathematical relationship this section is making visible. Then draw the smallest model, table or example that would help you recognise the same idea in a new problem.",
+        "word_count": 82
+      }
+    ]
+  }
+]
