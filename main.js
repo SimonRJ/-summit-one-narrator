@@ -13,7 +13,8 @@ async function render(){
  const [course,profilePack]=await Promise.all([loadCourse(),getProfile()]);
  const {profile,progress}=profilePack;
  const completed=progress.completed_sessions||0,current=sessionNumber(progress);
- const s=course.sessions[current-1],pct=Math.min(100,completed/372*100),rank=rankForCompleted(completed);
+ const courseComplete=completed>=372;
+ const s=course.sessions[Math.min(371,current-1)],pct=Math.min(100,completed/372*100),rank=rankForCompleted(completed);
  const nextAMC=nextSlot(course.sessions,current,["AMC MOCK"]),nextMAWA=nextSlot(course.sessions,current,["MAWA"]);
  const nextPractice=nextSlot(course.sessions,current,["AMC MOCK","ROSSMOYNE MOCK"]);
  const nearby=course.sessions.slice(Math.max(0,current-2),Math.min(372,current+5));
@@ -21,10 +22,10 @@ async function render(){
  app.innerHTML=`
  <section class="hero">
   <div class="card">
-   <div class="eyebrow">${esc(s.phase)} · Session ${current} of 372</div>
-   <h2 class="mission-title">${esc(s.focus)}</h2>
-   <p class="lead">${s.type==="LESSON"?"Remember → Discover → Try → Transfer → Check. One focused session, then your progress is sealed and synced.":s.type==="MAWA"?"Today is a deep proof-and-investigation session. Explain why, test cases, generalise, and communicate the reasoning clearly.":s.type==="AMC MOCK"?"A formal AMC-format practice slot: 30 questions, 60 minutes, 135 marks.":"A Rossmoyne-style independent practice assessment."}</p>
-   <a class="cta" href="session.html?session=${current}">${s.type==="LESSON"?"Continue Session":s.type==="MAWA"?"Begin Investigation":"Open Practice Assessment"} ${current} →</a>
+   <div class="eyebrow">${courseComplete?"Summit reached":esc(s.phase)+" · Session "+current+" of 372"}</div>
+   <h2 class="mission-title">${courseComplete?"372 Sessions Complete":esc(s.focus)}</h2>
+   <p class="lead">${courseComplete?"The full Summit One learning path is complete. Keep the skill sharp with AMC past-paper rehearsals and read-only review.":s.type==="LESSON"?"Remember → Discover → Try → Transfer → Check. One focused session, then your progress is sealed and synced.":s.type==="MAWA"?"Today is a deep proof-and-investigation session. Explain why, test cases, generalise, and communicate the reasoning clearly.":s.type==="AMC MOCK"?"A formal AMC-format practice slot: 30 questions, 60 minutes, 135 marks.":"A Rossmoyne-style independent practice assessment."}</p>
+   ${courseComplete?'<a class="cta" href="exams.html">Open AMC Test Centre →</a>':`<a class="cta" href="session.html?session=${current}">${s.type==="LESSON"?"Continue Session":s.type==="MAWA"?"Begin Investigation":"Open Practice Assessment"} ${current} →</a>`}
   </div>
   <aside class="card">
    <div class="eyebrow">Synced progress</div>
