@@ -23,7 +23,7 @@ if(awards.practice_estimate_wa?.year5?.perfect===135&&awards.practice_estimate_w
 const html=fs.readdirSync(".").filter(x=>x.endsWith(".html"));
 for(const file of html){
  const t=fs.readFileSync(file,"utf8"),re=/(?:src|href)="([^"#?]+)(?:[?#][^"]*)?"/g;let m;
- while((m=re.exec(t))){const u=m[1];if(/^https?:|^mailto:|^tel:/.test(u))continue;const p=u.replace(/^\.\//,"");if(p.endsWith("/"))continue;if(!fs.existsSync(p))fail(`${file} missing local link ${p}`)}
+ while((m=re.exec(t))){const u=m[1];if(/^https?:|^mailto:|^tel:/.test(u))continue;const p=u.replace(/^\.\//,"");if(!p||p.endsWith("/"))continue;if(!fs.existsSync(p))fail(`${file} missing local link ${p}`)}
 }
 ok("HTML local-link scan complete");
 for(const file of fs.readdirSync(".").filter(x=>x.endsWith(".js"))){
