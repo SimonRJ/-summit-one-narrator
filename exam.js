@@ -18,9 +18,19 @@ async function loadPaper(){
    return practicePaper(practice,mode);
  }
  if(!paperId)throw new Error("No paper selected.");
- const index=await fetch("./data/exams/index.json",{cache:"no-store"}).then(r=>r.json());
- const entry=(index.papers||[]).find(x=>x.id===paperId);if(!entry)throw new Error("Paper not found.");
- return fetch(entry.file,{cache:"no-store"}).then(r=>{if(!r.ok)throw new Error("Paper file unavailable.");return r.json()});
+ const [{data:entry,error:paperError},{data:questions,error:qError}]=await Promise.all([
+   supabase.from("exam_catalog").select("*").eq("id",paperId).eq("active",true).maybeSingle(),
+   supabase.from("exam_questions").select("*").eq("exam_id",paperId).order("question_number",{ascending:true})
+ ]);
+ if(paperError)throw paperError;if(qError)throw qError;if(!entry)throw new Error("Paper not found.");
+ if((questions||[]).length!==30)throw new Error("This paper is not yet fully imported.");
+ const normalized=(questions||[]).map(q=>{
+   let choices=q.choices;
+   if(Array.isArray(choices))choices=choices.map((x,i)=>typeof x==="object"?x:{label:String.fromCharCode(65+i),value:String(x)});
+   const answer=(q.answer&&typeof q.answer==="object"&&"value" in q.answer)?q.answer.value:q.answer;
+   return {number:q.question_number,prompt:q.stem,prompt_html:null,figure_svg:q.figure_svg||null,answer:String(answer??""),type:q.question_type,choices,marks:q.marks,category:q.category||"reasoning"};
+ });
+ return {id:entry.id,title:entry.title,year:entry.year,division:entry.division,year_level:entry.student_year,duration_minutes:entry.duration_minutes,max_score:entry.max_score,kind:"official_past_paper",award_cutoffs_wa:entry.award_cutoffs||null,questions:normalized};
 }
 function formatTime(ms){const s=Math.max(0,Math.ceil(ms/1000)),m=Math.floor(s/60),x=s%60;return `${String(m).padStart(2,"0")}:${String(x).padStart(2,"0")}`}
 function remaining(){return sitting?new Date(sitting.expires_at).getTime()-Date.now():paper.duration_minutes*60000}
@@ -66,7 +76,7 @@ function renderExam(){
  const q=paper.questions[current-1],saved=responses[String(q.number)]?.value??"",draft=drafts[q.number]??saved;
  root.innerHTML=`<header class="exam-head"><div><b>Summit One</b><div class="mini">${esc(paper.title)}</div></div><div><span id="answeredCount">${answerCount()}</span>/${paper.questions.length} answered · <span class="timer" id="timer">${formatTime(remaining())}</span></div></header>
  <div class="qnav" id="qnav">${nav()}</div>
- <main class="card question"><div class="eyebrow">Question ${q.number} · ${q.marks} marks</div><h2 style="line-height:1.45">${esc(q.prompt)}</h2>
+ <main class="card question"><div class="eyebrow">Question ${q.number} · ${q.marks} marks</div><h2 style="line-height:1.45">${esc(q.prompt)}</h2>${q.figure_svg?`<div style="max-width:620px;margin:18px auto">${q.figure_svg}</div>`:""}
  ${q.type==="multiple_choice"?`<div id="choices">${(q.choices||[]).map(c=>`<button class="choice ${saved===c.value?"selected":""}" data-value="${esc(c.value)}"><b>${esc(c.label)}.</b> ${esc(c.value)}</button>`).join("")}</div>`:
  `<label class="mini">Integer answer</label><input class="input" id="integerDraft" inputmode="numeric" value="${esc(draft)}" placeholder="Type your integer answer"><div class="btnrow"><button id="saveInteger" class="primary">Save answer</button><span id="saveState" class="${saved!==""?"saved":"unsaved"}">${saved!==""?"Saved: "+esc(saved):"Not saved"}</span></div>`}
  </main>
