@@ -56,11 +56,10 @@ def visual(draw,key,accent):
             y=130+i*95;draw.rounded_rectangle((90,y,90+w,y+54),18,outline=a,width=5)
 def make_slide(item,text,idx,total,out):
     accent=colour(item.get("category",""))
-    base=Image.new("RGB",(W,H),(5,10,18));px=base.load()
-    # soft vertical gradient
-    for y in range(H):
-        t=y/H;col=(int(7+6*(1-t)),int(17+18*(1-t)),int(29+27*(1-t)))
-        for x in range(W):px[x,y]=col
+    # Build the vertical gradient as a 1×H strip, then resize in native Pillow code.
+    strip=Image.new("RGB",(1,H))
+    strip.putdata([(int(7+6*(1-y/H)),int(17+18*(1-y/H)),int(29+27*(1-y/H))) for y in range(H)])
+    base=strip.resize((W,H))
     # glow
     glow=Image.new("RGBA",(W,H),(0,0,0,0));gd=ImageDraw.Draw(glow)
     gd.ellipse((W-520,-260,W+180,440),fill=(*accent,42))
