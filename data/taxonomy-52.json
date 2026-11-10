@@ -1,9 +1,21 @@
 {
-  "schema_version": "summit-one-taxonomy-v1",
+  "title": "Summit One provisional problem-type taxonomy",
+  "version": "1.0",
+  "date": "2026-11-07",
+  "purpose": "Tag and schedule existing AMC and Rossmoyne content under ONE daily student journey, NOT 12 independent streams.",
+  "scope": {
+    "AMC_indexed_items": 140,
+    "AMC_upper_primary_Q26_to_Q30": 50,
+    "AMC_middle_primary_Q26_to_Q30": 90,
+    "AMC_exact_normalised_cross_division_duplicates_in_index": 7,
+    "Rossmoyne_indexed_items": 115,
+    "Rossmoyne_underlying_method_families": 23,
+    "existing_live_app_questions_not_classified": true,
+    "limits": "Existing app source bank not accessible; no exhaustive classification of current live app. AMC Q26-Q30 selected sample is not representative of Q1-Q25."
+  },
   "category_count": 12,
-  "technique_count": 52,
-  "strategy_count": 10,
-  "rossmoyne_family_count": 23,
+  "specific_teachable_subskill_count": 52,
+  "universal_method_count": 10,
   "categories": [
     {
       "id": "DIG",
@@ -489,5 +501,2339 @@
       "code": "H23",
       "primary_category": "FRAC"
     }
-  ]
+  ],
+  "amc_140_index_classification": [
+    {
+      "source_id": "amc-2007-middle-primary-q26",
+      "year": 2007,
+      "division": "Middle Primary",
+      "question": 26,
+      "primary_category": "ALG",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2007-middle-primary-q27",
+      "year": 2007,
+      "division": "Middle Primary",
+      "question": 27,
+      "primary_category": "LOGIC",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2007-middle-primary-q28",
+      "year": 2007,
+      "division": "Middle Primary",
+      "question": 28,
+      "primary_category": "DIG",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2007-middle-primary-q29",
+      "year": 2007,
+      "division": "Middle Primary",
+      "question": 29,
+      "primary_category": "DIV",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2007-middle-primary-q30",
+      "year": 2007,
+      "division": "Middle Primary",
+      "question": 30,
+      "primary_category": "LOGIC",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2008-middle-primary-q26",
+      "year": 2008,
+      "division": "Middle Primary",
+      "question": 26,
+      "primary_category": "DIG",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2008-middle-primary-q27",
+      "year": 2008,
+      "division": "Middle Primary",
+      "question": 27,
+      "primary_category": "COUNT",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2008-middle-primary-q28",
+      "year": 2008,
+      "division": "Middle Primary",
+      "question": 28,
+      "primary_category": "RATE",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2008-middle-primary-q29",
+      "year": 2008,
+      "division": "Middle Primary",
+      "question": 29,
+      "primary_category": "DIV",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2008-middle-primary-q30",
+      "year": 2008,
+      "division": "Middle Primary",
+      "question": 30,
+      "primary_category": "ALG",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2009-middle-primary-q26",
+      "year": 2009,
+      "division": "Middle Primary",
+      "question": 26,
+      "primary_category": "FRAC",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2009-middle-primary-q27",
+      "year": 2009,
+      "division": "Middle Primary",
+      "question": 27,
+      "primary_category": "DIV",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2009-middle-primary-q28",
+      "year": 2009,
+      "division": "Middle Primary",
+      "question": 28,
+      "primary_category": "SPATIAL",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2009-middle-primary-q29",
+      "year": 2009,
+      "division": "Middle Primary",
+      "question": 29,
+      "primary_category": "ALG",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2009-middle-primary-q30",
+      "year": 2009,
+      "division": "Middle Primary",
+      "question": 30,
+      "primary_category": "ALG",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2010-middle-primary-q26",
+      "year": 2010,
+      "division": "Middle Primary",
+      "question": 26,
+      "primary_category": "DIG",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2010-middle-primary-q27",
+      "year": 2010,
+      "division": "Middle Primary",
+      "question": 27,
+      "primary_category": "FRAC",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2010-middle-primary-q28",
+      "year": 2010,
+      "division": "Middle Primary",
+      "question": 28,
+      "primary_category": "GEO",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2010-middle-primary-q29",
+      "year": 2010,
+      "division": "Middle Primary",
+      "question": 29,
+      "primary_category": "DIV",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2010-middle-primary-q30",
+      "year": 2010,
+      "division": "Middle Primary",
+      "question": 30,
+      "primary_category": "SPATIAL",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2011-middle-primary-q26",
+      "year": 2011,
+      "division": "Middle Primary",
+      "question": 26,
+      "primary_category": "DIG",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2011-middle-primary-q27",
+      "year": 2011,
+      "division": "Middle Primary",
+      "question": 27,
+      "primary_category": "GEO",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2011-middle-primary-q28",
+      "year": 2011,
+      "division": "Middle Primary",
+      "question": 28,
+      "primary_category": "ALG",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2011-middle-primary-q29",
+      "year": 2011,
+      "division": "Middle Primary",
+      "question": 29,
+      "primary_category": "GEO",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2011-middle-primary-q30",
+      "year": 2011,
+      "division": "Middle Primary",
+      "question": 30,
+      "primary_category": "SPATIAL",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2012-middle-primary-q26",
+      "year": 2012,
+      "division": "Middle Primary",
+      "question": 26,
+      "primary_category": "SOLID",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2012-middle-primary-q27",
+      "year": 2012,
+      "division": "Middle Primary",
+      "question": 27,
+      "primary_category": "ALG",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2012-middle-primary-q28",
+      "year": 2012,
+      "division": "Middle Primary",
+      "question": 28,
+      "primary_category": "GEO",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2012-middle-primary-q29",
+      "year": 2012,
+      "division": "Middle Primary",
+      "question": 29,
+      "primary_category": "SPATIAL",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2012-middle-primary-q30",
+      "year": 2012,
+      "division": "Middle Primary",
+      "question": 30,
+      "primary_category": "GEO",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2013-middle-primary-q26",
+      "year": 2013,
+      "division": "Middle Primary",
+      "question": 26,
+      "primary_category": "RATE",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2013-middle-primary-q27",
+      "year": 2013,
+      "division": "Middle Primary",
+      "question": 27,
+      "primary_category": "GEO",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2013-middle-primary-q28",
+      "year": 2013,
+      "division": "Middle Primary",
+      "question": 28,
+      "primary_category": "COUNT",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2013-middle-primary-q29",
+      "year": 2013,
+      "division": "Middle Primary",
+      "question": 29,
+      "primary_category": "DIV",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2013-middle-primary-q30",
+      "year": 2013,
+      "division": "Middle Primary",
+      "question": 30,
+      "primary_category": "FRAC",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2014-middle-primary-q26",
+      "year": 2014,
+      "division": "Middle Primary",
+      "question": 26,
+      "primary_category": "DIG",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2014-middle-primary-q27",
+      "year": 2014,
+      "division": "Middle Primary",
+      "question": 27,
+      "primary_category": "COUNT",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2014-middle-primary-q28",
+      "year": 2014,
+      "division": "Middle Primary",
+      "question": 28,
+      "primary_category": "ALG",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2014-middle-primary-q29",
+      "year": 2014,
+      "division": "Middle Primary",
+      "question": 29,
+      "primary_category": "SEQ",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2014-middle-primary-q30",
+      "year": 2014,
+      "division": "Middle Primary",
+      "question": 30,
+      "primary_category": "DIV",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2014-upper-primary-q26",
+      "year": 2014,
+      "division": "Upper Primary",
+      "question": 26,
+      "primary_category": "GEO",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2014-upper-primary-q27",
+      "year": 2014,
+      "division": "Upper Primary",
+      "question": 27,
+      "primary_category": "SOLID",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2014-upper-primary-q28",
+      "year": 2014,
+      "division": "Upper Primary",
+      "question": 28,
+      "primary_category": "DIV",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2014-upper-primary-q29",
+      "year": 2014,
+      "division": "Upper Primary",
+      "question": 29,
+      "primary_category": "DIG",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2014-upper-primary-q30",
+      "year": 2014,
+      "division": "Upper Primary",
+      "question": 30,
+      "primary_category": "COUNT",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2015-middle-primary-q26",
+      "year": 2015,
+      "division": "Middle Primary",
+      "question": 26,
+      "primary_category": "COUNT",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2015-middle-primary-q27",
+      "year": 2015,
+      "division": "Middle Primary",
+      "question": 27,
+      "primary_category": "DIG",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2015-middle-primary-q28",
+      "year": 2015,
+      "division": "Middle Primary",
+      "question": 28,
+      "primary_category": "GEO",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2015-middle-primary-q29",
+      "year": 2015,
+      "division": "Middle Primary",
+      "question": 29,
+      "primary_category": "COUNT",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2015-middle-primary-q30",
+      "year": 2015,
+      "division": "Middle Primary",
+      "question": 30,
+      "primary_category": "COUNT",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2015-upper-primary-q26",
+      "year": 2015,
+      "division": "Upper Primary",
+      "question": 26,
+      "primary_category": "GEO",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2015-upper-primary-q27",
+      "year": 2015,
+      "division": "Upper Primary",
+      "question": 27,
+      "primary_category": "COUNT",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2015-upper-primary-q28",
+      "year": 2015,
+      "division": "Upper Primary",
+      "question": 28,
+      "primary_category": "DIV",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2015-upper-primary-q29",
+      "year": 2015,
+      "division": "Upper Primary",
+      "question": 29,
+      "primary_category": "COUNT",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2015-upper-primary-q30",
+      "year": 2015,
+      "division": "Upper Primary",
+      "question": 30,
+      "primary_category": "SEQ",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2016-middle-primary-q26",
+      "year": 2016,
+      "division": "Middle Primary",
+      "question": 26,
+      "primary_category": "DIG",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2016-middle-primary-q27",
+      "year": 2016,
+      "division": "Middle Primary",
+      "question": 27,
+      "primary_category": "ALG",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2016-middle-primary-q28",
+      "year": 2016,
+      "division": "Middle Primary",
+      "question": 28,
+      "primary_category": "SPATIAL",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2016-middle-primary-q29",
+      "year": 2016,
+      "division": "Middle Primary",
+      "question": 29,
+      "primary_category": "SEQ",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2016-middle-primary-q30",
+      "year": 2016,
+      "division": "Middle Primary",
+      "question": 30,
+      "primary_category": "DIV",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2016-upper-primary-q26",
+      "year": 2016,
+      "division": "Upper Primary",
+      "question": 26,
+      "primary_category": "ALG",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2016-upper-primary-q27",
+      "year": 2016,
+      "division": "Upper Primary",
+      "question": 27,
+      "primary_category": "DIV",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2016-upper-primary-q28",
+      "year": 2016,
+      "division": "Upper Primary",
+      "question": 28,
+      "primary_category": "SEQ",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2016-upper-primary-q29",
+      "year": 2016,
+      "division": "Upper Primary",
+      "question": 29,
+      "primary_category": "COUNT",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2016-upper-primary-q30",
+      "year": 2016,
+      "division": "Upper Primary",
+      "question": 30,
+      "primary_category": "DIV",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2017-middle-primary-q26",
+      "year": 2017,
+      "division": "Middle Primary",
+      "question": 26,
+      "primary_category": "DIG",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2017-middle-primary-q27",
+      "year": 2017,
+      "division": "Middle Primary",
+      "question": 27,
+      "primary_category": "SPATIAL",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2017-middle-primary-q28",
+      "year": 2017,
+      "division": "Middle Primary",
+      "question": 28,
+      "primary_category": "GEO",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2017-middle-primary-q29",
+      "year": 2017,
+      "division": "Middle Primary",
+      "question": 29,
+      "primary_category": "ALG",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2017-middle-primary-q30",
+      "year": 2017,
+      "division": "Middle Primary",
+      "question": 30,
+      "primary_category": "DIG",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2018-middle-primary-q26",
+      "year": 2018,
+      "division": "Middle Primary",
+      "question": 26,
+      "primary_category": "ALG",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2018-middle-primary-q27",
+      "year": 2018,
+      "division": "Middle Primary",
+      "question": 27,
+      "primary_category": "DIV",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2018-middle-primary-q28",
+      "year": 2018,
+      "division": "Middle Primary",
+      "question": 28,
+      "primary_category": "SOLID",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2018-middle-primary-q29",
+      "year": 2018,
+      "division": "Middle Primary",
+      "question": 29,
+      "primary_category": "DIG",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2018-middle-primary-q30",
+      "year": 2018,
+      "division": "Middle Primary",
+      "question": 30,
+      "primary_category": "DIG",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2018-upper-primary-q26",
+      "year": 2018,
+      "division": "Upper Primary",
+      "question": 26,
+      "primary_category": "DIG",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2018-upper-primary-q27",
+      "year": 2018,
+      "division": "Upper Primary",
+      "question": 27,
+      "primary_category": "LOGIC",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2018-upper-primary-q28",
+      "year": 2018,
+      "division": "Upper Primary",
+      "question": 28,
+      "primary_category": "DIG",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2018-upper-primary-q29",
+      "year": 2018,
+      "division": "Upper Primary",
+      "question": 29,
+      "primary_category": "RATE",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2018-upper-primary-q30",
+      "year": 2018,
+      "division": "Upper Primary",
+      "question": 30,
+      "primary_category": "LOGIC",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2019-middle-primary-q26",
+      "year": 2019,
+      "division": "Middle Primary",
+      "question": 26,
+      "primary_category": "DIG",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2019-middle-primary-q27",
+      "year": 2019,
+      "division": "Middle Primary",
+      "question": 27,
+      "primary_category": "FRAC",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2019-middle-primary-q28",
+      "year": 2019,
+      "division": "Middle Primary",
+      "question": 28,
+      "primary_category": "COUNT",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2019-middle-primary-q29",
+      "year": 2019,
+      "division": "Middle Primary",
+      "question": 29,
+      "primary_category": "SOLID",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2019-middle-primary-q30",
+      "year": 2019,
+      "division": "Middle Primary",
+      "question": 30,
+      "primary_category": "ALG",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2019-upper-primary-q26",
+      "year": 2019,
+      "division": "Upper Primary",
+      "question": 26,
+      "primary_category": "SEQ",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2019-upper-primary-q27",
+      "year": 2019,
+      "division": "Upper Primary",
+      "question": 27,
+      "primary_category": "COUNT",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2019-upper-primary-q28",
+      "year": 2019,
+      "division": "Upper Primary",
+      "question": 28,
+      "primary_category": "ALG",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2019-upper-primary-q29",
+      "year": 2019,
+      "division": "Upper Primary",
+      "question": 29,
+      "primary_category": "DIV",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2019-upper-primary-q30",
+      "year": 2019,
+      "division": "Upper Primary",
+      "question": 30,
+      "primary_category": "COUNT",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2020-middle-primary-q26",
+      "year": 2020,
+      "division": "Middle Primary",
+      "question": 26,
+      "primary_category": "DIG",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2020-middle-primary-q27",
+      "year": 2020,
+      "division": "Middle Primary",
+      "question": 27,
+      "primary_category": "SPATIAL",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2020-middle-primary-q28",
+      "year": 2020,
+      "division": "Middle Primary",
+      "question": 28,
+      "primary_category": "RATE",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2020-middle-primary-q29",
+      "year": 2020,
+      "division": "Middle Primary",
+      "question": 29,
+      "primary_category": "COUNT",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2020-middle-primary-q30",
+      "year": 2020,
+      "division": "Middle Primary",
+      "question": 30,
+      "primary_category": "SOLID",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2020-upper-primary-q26",
+      "year": 2020,
+      "division": "Upper Primary",
+      "question": 26,
+      "primary_category": "COUNT",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2020-upper-primary-q27",
+      "year": 2020,
+      "division": "Upper Primary",
+      "question": 27,
+      "primary_category": "FRAC",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2020-upper-primary-q28",
+      "year": 2020,
+      "division": "Upper Primary",
+      "question": 28,
+      "primary_category": "COUNT",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2020-upper-primary-q29",
+      "year": 2020,
+      "division": "Upper Primary",
+      "question": 29,
+      "primary_category": "SPATIAL",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2020-upper-primary-q30",
+      "year": 2020,
+      "division": "Upper Primary",
+      "question": 30,
+      "primary_category": "DIG",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2021-middle-primary-q26",
+      "year": 2021,
+      "division": "Middle Primary",
+      "question": 26,
+      "primary_category": "LOGIC",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2021-middle-primary-q27",
+      "year": 2021,
+      "division": "Middle Primary",
+      "question": 27,
+      "primary_category": "ALG",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2021-middle-primary-q28",
+      "year": 2021,
+      "division": "Middle Primary",
+      "question": 28,
+      "primary_category": "SEQ",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2021-middle-primary-q29",
+      "year": 2021,
+      "division": "Middle Primary",
+      "question": 29,
+      "primary_category": "DIV",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2021-middle-primary-q30",
+      "year": 2021,
+      "division": "Middle Primary",
+      "question": 30,
+      "primary_category": "ALG",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2021-upper-primary-q26",
+      "year": 2021,
+      "division": "Upper Primary",
+      "question": 26,
+      "primary_category": "SEQ",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2021-upper-primary-q27",
+      "year": 2021,
+      "division": "Upper Primary",
+      "question": 27,
+      "primary_category": "LOGIC",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2021-upper-primary-q28",
+      "year": 2021,
+      "division": "Upper Primary",
+      "question": 28,
+      "primary_category": "RATE",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2021-upper-primary-q29",
+      "year": 2021,
+      "division": "Upper Primary",
+      "question": 29,
+      "primary_category": "ALG",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2021-upper-primary-q30",
+      "year": 2021,
+      "division": "Upper Primary",
+      "question": 30,
+      "primary_category": "ALG",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2022-middle-primary-q26",
+      "year": 2022,
+      "division": "Middle Primary",
+      "question": 26,
+      "primary_category": "DIG",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2022-middle-primary-q27",
+      "year": 2022,
+      "division": "Middle Primary",
+      "question": 27,
+      "primary_category": "COUNT",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2022-middle-primary-q28",
+      "year": 2022,
+      "division": "Middle Primary",
+      "question": 28,
+      "primary_category": "DIG",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2022-middle-primary-q29",
+      "year": 2022,
+      "division": "Middle Primary",
+      "question": 29,
+      "primary_category": "SEQ",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2022-middle-primary-q30",
+      "year": 2022,
+      "division": "Middle Primary",
+      "question": 30,
+      "primary_category": "SEQ",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2022-upper-primary-q26",
+      "year": 2022,
+      "division": "Upper Primary",
+      "question": 26,
+      "primary_category": "SEQ",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2022-upper-primary-q27",
+      "year": 2022,
+      "division": "Upper Primary",
+      "question": 27,
+      "primary_category": "SOLID",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2022-upper-primary-q28",
+      "year": 2022,
+      "division": "Upper Primary",
+      "question": 28,
+      "primary_category": "SEQ",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2022-upper-primary-q29",
+      "year": 2022,
+      "division": "Upper Primary",
+      "question": 29,
+      "primary_category": "COUNT",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2022-upper-primary-q30",
+      "year": 2022,
+      "division": "Upper Primary",
+      "question": 30,
+      "primary_category": "SOLID",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2023-middle-primary-q26",
+      "year": 2023,
+      "division": "Middle Primary",
+      "question": 26,
+      "primary_category": "SPATIAL",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2023-middle-primary-q27",
+      "year": 2023,
+      "division": "Middle Primary",
+      "question": 27,
+      "primary_category": "DIG",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2023-middle-primary-q28",
+      "year": 2023,
+      "division": "Middle Primary",
+      "question": 28,
+      "primary_category": "LOGIC",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2023-middle-primary-q29",
+      "year": 2023,
+      "division": "Middle Primary",
+      "question": 29,
+      "primary_category": "SEQ",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2023-middle-primary-q30",
+      "year": 2023,
+      "division": "Middle Primary",
+      "question": 30,
+      "primary_category": "ALG",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2023-upper-primary-q26",
+      "year": 2023,
+      "division": "Upper Primary",
+      "question": 26,
+      "primary_category": "DIG",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2023-upper-primary-q27",
+      "year": 2023,
+      "division": "Upper Primary",
+      "question": 27,
+      "primary_category": "ALG",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2023-upper-primary-q28",
+      "year": 2023,
+      "division": "Upper Primary",
+      "question": 28,
+      "primary_category": "DIG",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2023-upper-primary-q29",
+      "year": 2023,
+      "division": "Upper Primary",
+      "question": 29,
+      "primary_category": "ALG",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2023-upper-primary-q30",
+      "year": 2023,
+      "division": "Upper Primary",
+      "question": 30,
+      "primary_category": "SEQ",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2024-middle-primary-q26",
+      "year": 2024,
+      "division": "Middle Primary",
+      "question": 26,
+      "primary_category": "DIV",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2024-middle-primary-q27",
+      "year": 2024,
+      "division": "Middle Primary",
+      "question": 27,
+      "primary_category": "SEQ",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2024-middle-primary-q28",
+      "year": 2024,
+      "division": "Middle Primary",
+      "question": 28,
+      "primary_category": "SPATIAL",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2024-middle-primary-q29",
+      "year": 2024,
+      "division": "Middle Primary",
+      "question": 29,
+      "primary_category": "ALG",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2024-middle-primary-q30",
+      "year": 2024,
+      "division": "Middle Primary",
+      "question": 30,
+      "primary_category": "DIG",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2024-upper-primary-q26",
+      "year": 2024,
+      "division": "Upper Primary",
+      "question": 26,
+      "primary_category": "DIG",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2024-upper-primary-q27",
+      "year": 2024,
+      "division": "Upper Primary",
+      "question": 27,
+      "primary_category": "ALG",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2024-upper-primary-q28",
+      "year": 2024,
+      "division": "Upper Primary",
+      "question": 28,
+      "primary_category": "DIG",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2024-upper-primary-q29",
+      "year": 2024,
+      "division": "Upper Primary",
+      "question": 29,
+      "primary_category": "SEQ",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    },
+    {
+      "source_id": "amc-2024-upper-primary-q30",
+      "year": 2024,
+      "division": "Upper Primary",
+      "question": 30,
+      "primary_category": "SPATIAL",
+      "secondary_tags": "pending source-level quality review",
+      "note": "Hand-assigned based on private transcriptions/solution summaries; verify original diagrams before release"
+    }
+  ],
+  "rossmoyne_115_index_classification": [
+    {
+      "source_id": "rossmoyne-trial-01-q01",
+      "paper": 1,
+      "question": 1,
+      "rossmoyne_h_code": "H01",
+      "primary_category": "DIG",
+      "marks": 3,
+      "source_classification": "official-sample-user-screenshots"
+    },
+    {
+      "source_id": "rossmoyne-trial-01-q02",
+      "paper": 1,
+      "question": 2,
+      "rossmoyne_h_code": "H02",
+      "primary_category": "COUNT",
+      "marks": 3,
+      "source_classification": "official-sample-user-screenshots"
+    },
+    {
+      "source_id": "rossmoyne-trial-01-q03",
+      "paper": 1,
+      "question": 3,
+      "rossmoyne_h_code": "H03",
+      "primary_category": "RATE",
+      "marks": 3,
+      "source_classification": "official-sample-user-screenshots"
+    },
+    {
+      "source_id": "rossmoyne-trial-01-q04",
+      "paper": 1,
+      "question": 4,
+      "rossmoyne_h_code": "H04",
+      "primary_category": "COUNT",
+      "marks": 3,
+      "source_classification": "official-sample-user-screenshots"
+    },
+    {
+      "source_id": "rossmoyne-trial-01-q05",
+      "paper": 1,
+      "question": 5,
+      "rossmoyne_h_code": "H05",
+      "primary_category": "SEQ",
+      "marks": 3,
+      "source_classification": "official-sample-user-screenshots"
+    },
+    {
+      "source_id": "rossmoyne-trial-01-q06",
+      "paper": 1,
+      "question": 6,
+      "rossmoyne_h_code": "H06",
+      "primary_category": "ALG",
+      "marks": 3,
+      "source_classification": "official-sample-user-screenshots"
+    },
+    {
+      "source_id": "rossmoyne-trial-01-q07",
+      "paper": 1,
+      "question": 7,
+      "rossmoyne_h_code": "H07",
+      "primary_category": "COUNT",
+      "marks": 3,
+      "source_classification": "official-sample-user-screenshots"
+    },
+    {
+      "source_id": "rossmoyne-trial-01-q08",
+      "paper": 1,
+      "question": 8,
+      "rossmoyne_h_code": "H08",
+      "primary_category": "DIV",
+      "marks": 4,
+      "source_classification": "official-sample-user-screenshots"
+    },
+    {
+      "source_id": "rossmoyne-trial-01-q09",
+      "paper": 1,
+      "question": 9,
+      "rossmoyne_h_code": "H09",
+      "primary_category": "DIV",
+      "marks": 4,
+      "source_classification": "official-sample-user-screenshots"
+    },
+    {
+      "source_id": "rossmoyne-trial-01-q10",
+      "paper": 1,
+      "question": 10,
+      "rossmoyne_h_code": "H10",
+      "primary_category": "RATE",
+      "marks": 4,
+      "source_classification": "official-sample-user-screenshots"
+    },
+    {
+      "source_id": "rossmoyne-trial-01-q11",
+      "paper": 1,
+      "question": 11,
+      "rossmoyne_h_code": "H11",
+      "primary_category": "DIV",
+      "marks": 4,
+      "source_classification": "official-sample-user-screenshots"
+    },
+    {
+      "source_id": "rossmoyne-trial-01-q12",
+      "paper": 1,
+      "question": 12,
+      "rossmoyne_h_code": "H12",
+      "primary_category": "RATE",
+      "marks": 4,
+      "source_classification": "official-sample-user-screenshots"
+    },
+    {
+      "source_id": "rossmoyne-trial-01-q13",
+      "paper": 1,
+      "question": 13,
+      "rossmoyne_h_code": "H13",
+      "primary_category": "GEO",
+      "marks": 4,
+      "source_classification": "official-sample-user-screenshots"
+    },
+    {
+      "source_id": "rossmoyne-trial-01-q14",
+      "paper": 1,
+      "question": 14,
+      "rossmoyne_h_code": "H14",
+      "primary_category": "ALG",
+      "marks": 5,
+      "source_classification": "official-sample-user-screenshots"
+    },
+    {
+      "source_id": "rossmoyne-trial-01-q15",
+      "paper": 1,
+      "question": 15,
+      "rossmoyne_h_code": "H15",
+      "primary_category": "ALG",
+      "marks": 5,
+      "source_classification": "official-sample-user-screenshots"
+    },
+    {
+      "source_id": "rossmoyne-trial-01-q16",
+      "paper": 1,
+      "question": 16,
+      "rossmoyne_h_code": "H16",
+      "primary_category": "GEO",
+      "marks": 5,
+      "source_classification": "official-sample-user-screenshots"
+    },
+    {
+      "source_id": "rossmoyne-trial-01-q17",
+      "paper": 1,
+      "question": 17,
+      "rossmoyne_h_code": "H17",
+      "primary_category": "GEO",
+      "marks": 5,
+      "source_classification": "official-sample-user-screenshots"
+    },
+    {
+      "source_id": "rossmoyne-trial-01-q18",
+      "paper": 1,
+      "question": 18,
+      "rossmoyne_h_code": "H18",
+      "primary_category": "DIG",
+      "marks": 5,
+      "source_classification": "official-sample-user-screenshots"
+    },
+    {
+      "source_id": "rossmoyne-trial-01-q19",
+      "paper": 1,
+      "question": 19,
+      "rossmoyne_h_code": "H19",
+      "primary_category": "COUNT",
+      "marks": 6,
+      "source_classification": "official-sample-user-screenshots"
+    },
+    {
+      "source_id": "rossmoyne-trial-01-q20",
+      "paper": 1,
+      "question": 20,
+      "rossmoyne_h_code": "H20",
+      "primary_category": "DIV",
+      "marks": 6,
+      "source_classification": "official-sample-user-screenshots"
+    },
+    {
+      "source_id": "rossmoyne-trial-01-q21",
+      "paper": 1,
+      "question": 21,
+      "rossmoyne_h_code": "H21",
+      "primary_category": "DIG",
+      "marks": 6,
+      "source_classification": "official-sample-user-screenshots"
+    },
+    {
+      "source_id": "rossmoyne-trial-01-q22",
+      "paper": 1,
+      "question": 22,
+      "rossmoyne_h_code": "H22",
+      "primary_category": "SOLID",
+      "marks": 6,
+      "source_classification": "official-sample-user-screenshots"
+    },
+    {
+      "source_id": "rossmoyne-trial-01-q23",
+      "paper": 1,
+      "question": 23,
+      "rossmoyne_h_code": "H23",
+      "primary_category": "FRAC",
+      "marks": 6,
+      "source_classification": "official-sample-user-screenshots"
+    },
+    {
+      "source_id": "rossmoyne-trial-02-q01",
+      "paper": 2,
+      "question": 1,
+      "rossmoyne_h_code": "H01",
+      "primary_category": "DIG",
+      "marks": 3,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-02-q02",
+      "paper": 2,
+      "question": 2,
+      "rossmoyne_h_code": "H02",
+      "primary_category": "COUNT",
+      "marks": 3,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-02-q03",
+      "paper": 2,
+      "question": 3,
+      "rossmoyne_h_code": "H03",
+      "primary_category": "RATE",
+      "marks": 3,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-02-q04",
+      "paper": 2,
+      "question": 4,
+      "rossmoyne_h_code": "H04",
+      "primary_category": "COUNT",
+      "marks": 3,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-02-q05",
+      "paper": 2,
+      "question": 5,
+      "rossmoyne_h_code": "H05",
+      "primary_category": "SEQ",
+      "marks": 3,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-02-q06",
+      "paper": 2,
+      "question": 6,
+      "rossmoyne_h_code": "H06",
+      "primary_category": "ALG",
+      "marks": 3,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-02-q07",
+      "paper": 2,
+      "question": 7,
+      "rossmoyne_h_code": "H07",
+      "primary_category": "COUNT",
+      "marks": 3,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-02-q08",
+      "paper": 2,
+      "question": 8,
+      "rossmoyne_h_code": "H08",
+      "primary_category": "DIV",
+      "marks": 4,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-02-q09",
+      "paper": 2,
+      "question": 9,
+      "rossmoyne_h_code": "H09",
+      "primary_category": "DIV",
+      "marks": 4,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-02-q10",
+      "paper": 2,
+      "question": 10,
+      "rossmoyne_h_code": "H10",
+      "primary_category": "RATE",
+      "marks": 4,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-02-q11",
+      "paper": 2,
+      "question": 11,
+      "rossmoyne_h_code": "H11",
+      "primary_category": "DIV",
+      "marks": 4,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-02-q12",
+      "paper": 2,
+      "question": 12,
+      "rossmoyne_h_code": "H12",
+      "primary_category": "RATE",
+      "marks": 4,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-02-q13",
+      "paper": 2,
+      "question": 13,
+      "rossmoyne_h_code": "H13",
+      "primary_category": "GEO",
+      "marks": 4,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-02-q14",
+      "paper": 2,
+      "question": 14,
+      "rossmoyne_h_code": "H14",
+      "primary_category": "ALG",
+      "marks": 5,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-02-q15",
+      "paper": 2,
+      "question": 15,
+      "rossmoyne_h_code": "H15",
+      "primary_category": "ALG",
+      "marks": 5,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-02-q16",
+      "paper": 2,
+      "question": 16,
+      "rossmoyne_h_code": "H16",
+      "primary_category": "GEO",
+      "marks": 5,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-02-q17",
+      "paper": 2,
+      "question": 17,
+      "rossmoyne_h_code": "H17",
+      "primary_category": "GEO",
+      "marks": 5,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-02-q18",
+      "paper": 2,
+      "question": 18,
+      "rossmoyne_h_code": "H18",
+      "primary_category": "DIG",
+      "marks": 5,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-02-q19",
+      "paper": 2,
+      "question": 19,
+      "rossmoyne_h_code": "H19",
+      "primary_category": "COUNT",
+      "marks": 6,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-02-q20",
+      "paper": 2,
+      "question": 20,
+      "rossmoyne_h_code": "H20",
+      "primary_category": "DIV",
+      "marks": 6,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-02-q21",
+      "paper": 2,
+      "question": 21,
+      "rossmoyne_h_code": "H21",
+      "primary_category": "DIG",
+      "marks": 6,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-02-q22",
+      "paper": 2,
+      "question": 22,
+      "rossmoyne_h_code": "H22",
+      "primary_category": "SOLID",
+      "marks": 6,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-02-q23",
+      "paper": 2,
+      "question": 23,
+      "rossmoyne_h_code": "H23",
+      "primary_category": "FRAC",
+      "marks": 6,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-03-q01",
+      "paper": 3,
+      "question": 1,
+      "rossmoyne_h_code": "H01",
+      "primary_category": "DIG",
+      "marks": 3,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-03-q02",
+      "paper": 3,
+      "question": 2,
+      "rossmoyne_h_code": "H02",
+      "primary_category": "COUNT",
+      "marks": 3,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-03-q03",
+      "paper": 3,
+      "question": 3,
+      "rossmoyne_h_code": "H03",
+      "primary_category": "RATE",
+      "marks": 3,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-03-q04",
+      "paper": 3,
+      "question": 4,
+      "rossmoyne_h_code": "H04",
+      "primary_category": "COUNT",
+      "marks": 3,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-03-q05",
+      "paper": 3,
+      "question": 5,
+      "rossmoyne_h_code": "H05",
+      "primary_category": "SEQ",
+      "marks": 3,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-03-q06",
+      "paper": 3,
+      "question": 6,
+      "rossmoyne_h_code": "H06",
+      "primary_category": "ALG",
+      "marks": 3,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-03-q07",
+      "paper": 3,
+      "question": 7,
+      "rossmoyne_h_code": "H07",
+      "primary_category": "COUNT",
+      "marks": 3,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-03-q08",
+      "paper": 3,
+      "question": 8,
+      "rossmoyne_h_code": "H08",
+      "primary_category": "DIV",
+      "marks": 4,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-03-q09",
+      "paper": 3,
+      "question": 9,
+      "rossmoyne_h_code": "H09",
+      "primary_category": "DIV",
+      "marks": 4,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-03-q10",
+      "paper": 3,
+      "question": 10,
+      "rossmoyne_h_code": "H10",
+      "primary_category": "RATE",
+      "marks": 4,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-03-q11",
+      "paper": 3,
+      "question": 11,
+      "rossmoyne_h_code": "H11",
+      "primary_category": "DIV",
+      "marks": 4,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-03-q12",
+      "paper": 3,
+      "question": 12,
+      "rossmoyne_h_code": "H12",
+      "primary_category": "RATE",
+      "marks": 4,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-03-q13",
+      "paper": 3,
+      "question": 13,
+      "rossmoyne_h_code": "H13",
+      "primary_category": "GEO",
+      "marks": 4,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-03-q14",
+      "paper": 3,
+      "question": 14,
+      "rossmoyne_h_code": "H14",
+      "primary_category": "ALG",
+      "marks": 5,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-03-q15",
+      "paper": 3,
+      "question": 15,
+      "rossmoyne_h_code": "H15",
+      "primary_category": "ALG",
+      "marks": 5,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-03-q16",
+      "paper": 3,
+      "question": 16,
+      "rossmoyne_h_code": "H16",
+      "primary_category": "GEO",
+      "marks": 5,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-03-q17",
+      "paper": 3,
+      "question": 17,
+      "rossmoyne_h_code": "H17",
+      "primary_category": "GEO",
+      "marks": 5,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-03-q18",
+      "paper": 3,
+      "question": 18,
+      "rossmoyne_h_code": "H18",
+      "primary_category": "DIG",
+      "marks": 5,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-03-q19",
+      "paper": 3,
+      "question": 19,
+      "rossmoyne_h_code": "H19",
+      "primary_category": "COUNT",
+      "marks": 6,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-03-q20",
+      "paper": 3,
+      "question": 20,
+      "rossmoyne_h_code": "H20",
+      "primary_category": "DIV",
+      "marks": 6,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-03-q21",
+      "paper": 3,
+      "question": 21,
+      "rossmoyne_h_code": "H21",
+      "primary_category": "DIG",
+      "marks": 6,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-03-q22",
+      "paper": 3,
+      "question": 22,
+      "rossmoyne_h_code": "H22",
+      "primary_category": "SOLID",
+      "marks": 6,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-03-q23",
+      "paper": 3,
+      "question": 23,
+      "rossmoyne_h_code": "H23",
+      "primary_category": "FRAC",
+      "marks": 6,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-04-q01",
+      "paper": 4,
+      "question": 1,
+      "rossmoyne_h_code": "H01",
+      "primary_category": "DIG",
+      "marks": 3,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-04-q02",
+      "paper": 4,
+      "question": 2,
+      "rossmoyne_h_code": "H02",
+      "primary_category": "COUNT",
+      "marks": 3,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-04-q03",
+      "paper": 4,
+      "question": 3,
+      "rossmoyne_h_code": "H03",
+      "primary_category": "RATE",
+      "marks": 3,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-04-q04",
+      "paper": 4,
+      "question": 4,
+      "rossmoyne_h_code": "H04",
+      "primary_category": "COUNT",
+      "marks": 3,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-04-q05",
+      "paper": 4,
+      "question": 5,
+      "rossmoyne_h_code": "H05",
+      "primary_category": "SEQ",
+      "marks": 3,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-04-q06",
+      "paper": 4,
+      "question": 6,
+      "rossmoyne_h_code": "H06",
+      "primary_category": "ALG",
+      "marks": 3,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-04-q07",
+      "paper": 4,
+      "question": 7,
+      "rossmoyne_h_code": "H07",
+      "primary_category": "COUNT",
+      "marks": 3,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-04-q08",
+      "paper": 4,
+      "question": 8,
+      "rossmoyne_h_code": "H08",
+      "primary_category": "DIV",
+      "marks": 4,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-04-q09",
+      "paper": 4,
+      "question": 9,
+      "rossmoyne_h_code": "H09",
+      "primary_category": "DIV",
+      "marks": 4,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-04-q10",
+      "paper": 4,
+      "question": 10,
+      "rossmoyne_h_code": "H10",
+      "primary_category": "RATE",
+      "marks": 4,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-04-q11",
+      "paper": 4,
+      "question": 11,
+      "rossmoyne_h_code": "H11",
+      "primary_category": "DIV",
+      "marks": 4,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-04-q12",
+      "paper": 4,
+      "question": 12,
+      "rossmoyne_h_code": "H12",
+      "primary_category": "RATE",
+      "marks": 4,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-04-q13",
+      "paper": 4,
+      "question": 13,
+      "rossmoyne_h_code": "H13",
+      "primary_category": "GEO",
+      "marks": 4,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-04-q14",
+      "paper": 4,
+      "question": 14,
+      "rossmoyne_h_code": "H14",
+      "primary_category": "ALG",
+      "marks": 5,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-04-q15",
+      "paper": 4,
+      "question": 15,
+      "rossmoyne_h_code": "H15",
+      "primary_category": "ALG",
+      "marks": 5,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-04-q16",
+      "paper": 4,
+      "question": 16,
+      "rossmoyne_h_code": "H16",
+      "primary_category": "GEO",
+      "marks": 5,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-04-q17",
+      "paper": 4,
+      "question": 17,
+      "rossmoyne_h_code": "H17",
+      "primary_category": "GEO",
+      "marks": 5,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-04-q18",
+      "paper": 4,
+      "question": 18,
+      "rossmoyne_h_code": "H18",
+      "primary_category": "DIG",
+      "marks": 5,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-04-q19",
+      "paper": 4,
+      "question": 19,
+      "rossmoyne_h_code": "H19",
+      "primary_category": "COUNT",
+      "marks": 6,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-04-q20",
+      "paper": 4,
+      "question": 20,
+      "rossmoyne_h_code": "H20",
+      "primary_category": "DIV",
+      "marks": 6,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-04-q21",
+      "paper": 4,
+      "question": 21,
+      "rossmoyne_h_code": "H21",
+      "primary_category": "DIG",
+      "marks": 6,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-04-q22",
+      "paper": 4,
+      "question": 22,
+      "rossmoyne_h_code": "H22",
+      "primary_category": "SOLID",
+      "marks": 6,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-04-q23",
+      "paper": 4,
+      "question": 23,
+      "rossmoyne_h_code": "H23",
+      "primary_category": "FRAC",
+      "marks": 6,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-05-q01",
+      "paper": 5,
+      "question": 1,
+      "rossmoyne_h_code": "H01",
+      "primary_category": "DIG",
+      "marks": 3,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-05-q02",
+      "paper": 5,
+      "question": 2,
+      "rossmoyne_h_code": "H02",
+      "primary_category": "COUNT",
+      "marks": 3,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-05-q03",
+      "paper": 5,
+      "question": 3,
+      "rossmoyne_h_code": "H03",
+      "primary_category": "RATE",
+      "marks": 3,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-05-q04",
+      "paper": 5,
+      "question": 4,
+      "rossmoyne_h_code": "H04",
+      "primary_category": "COUNT",
+      "marks": 3,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-05-q05",
+      "paper": 5,
+      "question": 5,
+      "rossmoyne_h_code": "H05",
+      "primary_category": "SEQ",
+      "marks": 3,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-05-q06",
+      "paper": 5,
+      "question": 6,
+      "rossmoyne_h_code": "H06",
+      "primary_category": "ALG",
+      "marks": 3,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-05-q07",
+      "paper": 5,
+      "question": 7,
+      "rossmoyne_h_code": "H07",
+      "primary_category": "COUNT",
+      "marks": 3,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-05-q08",
+      "paper": 5,
+      "question": 8,
+      "rossmoyne_h_code": "H08",
+      "primary_category": "DIV",
+      "marks": 4,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-05-q09",
+      "paper": 5,
+      "question": 9,
+      "rossmoyne_h_code": "H09",
+      "primary_category": "DIV",
+      "marks": 4,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-05-q10",
+      "paper": 5,
+      "question": 10,
+      "rossmoyne_h_code": "H10",
+      "primary_category": "RATE",
+      "marks": 4,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-05-q11",
+      "paper": 5,
+      "question": 11,
+      "rossmoyne_h_code": "H11",
+      "primary_category": "DIV",
+      "marks": 4,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-05-q12",
+      "paper": 5,
+      "question": 12,
+      "rossmoyne_h_code": "H12",
+      "primary_category": "RATE",
+      "marks": 4,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-05-q13",
+      "paper": 5,
+      "question": 13,
+      "rossmoyne_h_code": "H13",
+      "primary_category": "GEO",
+      "marks": 4,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-05-q14",
+      "paper": 5,
+      "question": 14,
+      "rossmoyne_h_code": "H14",
+      "primary_category": "ALG",
+      "marks": 5,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-05-q15",
+      "paper": 5,
+      "question": 15,
+      "rossmoyne_h_code": "H15",
+      "primary_category": "ALG",
+      "marks": 5,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-05-q16",
+      "paper": 5,
+      "question": 16,
+      "rossmoyne_h_code": "H16",
+      "primary_category": "GEO",
+      "marks": 5,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-05-q17",
+      "paper": 5,
+      "question": 17,
+      "rossmoyne_h_code": "H17",
+      "primary_category": "GEO",
+      "marks": 5,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-05-q18",
+      "paper": 5,
+      "question": 18,
+      "rossmoyne_h_code": "H18",
+      "primary_category": "DIG",
+      "marks": 5,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-05-q19",
+      "paper": 5,
+      "question": 19,
+      "rossmoyne_h_code": "H19",
+      "primary_category": "COUNT",
+      "marks": 6,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-05-q20",
+      "paper": 5,
+      "question": 20,
+      "rossmoyne_h_code": "H20",
+      "primary_category": "DIV",
+      "marks": 6,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-05-q21",
+      "paper": 5,
+      "question": 21,
+      "rossmoyne_h_code": "H21",
+      "primary_category": "DIG",
+      "marks": 6,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-05-q22",
+      "paper": 5,
+      "question": 22,
+      "rossmoyne_h_code": "H22",
+      "primary_category": "SOLID",
+      "marks": 6,
+      "source_classification": "original-authored"
+    },
+    {
+      "source_id": "rossmoyne-trial-05-q23",
+      "paper": 5,
+      "question": 23,
+      "rossmoyne_h_code": "H23",
+      "primary_category": "FRAC",
+      "marks": 6,
+      "source_classification": "original-authored"
+    }
+  ],
+  "cross_division_same_year_exact_text_pairs": [
+    [
+      "amc-2015-middle-primary-q29",
+      "amc-2015-upper-primary-q27"
+    ],
+    [
+      "amc-2016-middle-primary-q29",
+      "amc-2016-upper-primary-q28"
+    ],
+    [
+      "amc-2018-middle-primary-q29",
+      "amc-2018-upper-primary-q26"
+    ],
+    [
+      "amc-2019-middle-primary-q30",
+      "amc-2019-upper-primary-q28"
+    ],
+    [
+      "amc-2020-middle-primary-q29",
+      "amc-2020-upper-primary-q26"
+    ],
+    [
+      "amc-2022-middle-primary-q30",
+      "amc-2022-upper-primary-q28"
+    ],
+    [
+      "amc-2024-middle-primary-q30",
+      "amc-2024-upper-primary-q28"
+    ]
+  ],
+  "interpretation": {
+    "exact_recurrence": "Seven identical normalized transcribed question texts across Middle/Upper sets, all within a single year; do not interpret as repeated across different years.",
+    "concept_recurrence": "Many shared techniques and structurally similar constructions across years; study methods not scripts.",
+    "strict_accuracy": "Primary topic classification is judgemental, especially multi-skill problems. Diagram dependent entries require human review. No automatic readiness prediction."
+  }
 }
