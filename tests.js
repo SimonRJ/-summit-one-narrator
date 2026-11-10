@@ -12,6 +12,11 @@ async function boot(){
   if(error)throw error;catalog=data||[];
   const open=await loadOpenSitting();
   if(open){await resumeSitting(open);return}
+  const slot=Number(new URLSearchParams(location.search).get("slot")||0);
+  if(slot){
+    const {data:bySlot}=await supabase.from("exam_catalog").select("*").eq("session_slot",slot).maybeSingle();
+    if(bySlot){catalog.push(bySlot);await startExam(bySlot.id);return}
+  }
   renderLibrary();
 }
 async function loadOpenSitting(){
@@ -21,7 +26,7 @@ async function loadOpenSitting(){
 function renderLibrary(){
   app.innerHTML=`<section class="panel test-hero"><div class="eyebrow">SEPARATE EXAM MODE</div><h1>AMC Test Centre</h1><p class="muted">Sit a complete paper only when you choose. Exam mode has no hints, no solution videos and no correctness feedback until the sitting ends.</p>
   <div class="notice-box"><b>Official format:</b> Upper Primary is 30 questions in 60 minutes: Questions 1–25 multiple choice; Questions 26–30 integer answer. The practice interface reproduces the timing, navigation and save behaviour without copying AMT branding.</div>
-  <div class="test-grid">${catalog.map(exam=>`<article class="panel test-card"><div class="eyebrow">${esc(exam.source_type.replaceAll("_"," "))}</div><h3>${esc(exam.title)}</h3><div class="test-meta"><span class="phase-chip">${esc(exam.division)}</span><span class="phase-chip">${exam.duration_minutes} min</span><span class="phase-chip">135 marks</span></div><button class="primary startExam" data-id="${esc(exam.id)}">Start paper</button></article>`).join("")||`<article class="panel test-card"><div class="eyebrow">ENGINE READY</div><h3>Your first full AMC paper goes here</h3><p class="muted">The timer, navigation, autosave, scoring, per-question results and award calculation are already built. No full past paper has been installed yet.</p><span class="type-chip">Awaiting PDF</span></article>`}</div>
+  <div class="test-grid">${catalog.filter(exam=>exam.max_score===135).map(exam=>`<article class="panel test-card"><div class="eyebrow">${esc(exam.source_type.replaceAll("_"," "))}</div><h3>${esc(exam.title)}</h3><div class="test-meta"><span class="phase-chip">${esc(exam.division)}</span><span class="phase-chip">${exam.duration_minutes} min</span><span class="phase-chip">${exam.max_score} marks</span></div><button class="primary startExam" data-id="${esc(exam.id)}">Start paper</button></article>`).join("")||`<article class="panel test-card"><div class="eyebrow">ENGINE READY</div><h3>Your first full AMC paper goes here</h3><p class="muted">The timer, navigation, autosave, scoring, per-question results and award calculation are already built. No full past paper has been installed yet.</p><span class="type-chip">Awaiting PDF</span></article>`}</div>
   <p class="footer-note">Official AMC award cut-offs are region/year specific and vary with paper difficulty. When a verified WA cutoff is available for an installed paper, that cutoff is used. Otherwise results show a clearly labelled WA practice estimate.</p></section>`;
   document.querySelectorAll(".startExam").forEach(b=>b.onclick=()=>startExam(b.dataset.id));
 }
@@ -29,7 +34,7 @@ async function startExam(id){
   activeExam=catalog.find(x=>x.id===id);if(!activeExam)return;
   if(innerWidth<650&&!confirm("The official AMC is not intended for a phone-sized screen. You can practise here, but an iPad or computer is better for realistic rehearsal. Continue?"))return;
   const {data:q,error}=await supabase.from("exam_questions_student").select("*").eq("exam_id",id).order("question_number");
-  if(error)throw error;if((q||[]).length!==30){alert("This paper is not complete yet.");return}
+  if(error)throw error;if((q||[]).length!==(activeExam.question_count||30)){alert("This paper is not complete yet.");return}
   questions=q;responses={};typedInteger={};qIndex=0;
   const start=new Date(),expires=new Date(start.getTime()+activeExam.duration_minutes*60000);
   const {data:s,error:e}=await supabase.from("exam_sittings").insert({
@@ -57,12 +62,12 @@ function renderExam(){
   const q=questions[qIndex];if(!q)return;
   app.innerHTML=`<section class="exam-shell">
   <aside class="panel exam-sidebar"><div class="eyebrow">TIME REMAINING</div><div id="timer" class="timer">60:00</div><div class="qnav">${questions.map((x,i)=>`<button data-q="${i}" class="${i===qIndex?"current":""} ${responses[x.question_number]!==undefined?"answered":""}">${x.question_number}</button>`).join("")}</div><button id="finish" class="danger" style="width:100%;margin-top:15px">Finish paper</button></aside>
-  <article class="panel exam-main"><div class="qhead"><div class="qnum">QUESTION ${q.question_number} / 30</div><div class="marks">${q.marks} mark${q.marks===1?"":"s"}</div></div><div class="stem">${esc(q.stem)}</div><div id="answerArea"></div>
-  <div class="exam-actions"><button id="prev" class="ghost" ${qIndex===0?"disabled":""}>Previous</button><button id="next" class="primary">${qIndex===29?"Review menu":"Next"}</button></div></article></section>`;
+  <article class="panel exam-main"><div class="qhead"><div class="qnum">QUESTION ${q.question_number} / ${questions.length}</div><div class="marks">${q.marks} mark${q.marks===1?"":"s"}</div></div><div class="stem">${esc(q.stem)}</div><div id="answerArea"></div>
+  <div class="exam-actions"><button id="prev" class="ghost" ${qIndex===0?"disabled":""}>Previous</button><button id="next" class="primary">${qIndex===questions.length-1?"Review menu":"Next"}</button></div></article></section>`;
   renderAnswer(q);
   document.querySelectorAll("[data-q]").forEach(b=>b.onclick=()=>{qIndex=Number(b.dataset.q);renderExam()});
   document.getElementById("prev").onclick=()=>{if(qIndex>0){qIndex--;renderExam()}};
-  document.getElementById("next").onclick=()=>{if(qIndex<29){qIndex++;renderExam()}};
+  document.getElementById("next").onclick=()=>{if(qIndex<questions.length-1){qIndex++;renderExam()}};
   document.getElementById("finish").onclick=()=>{if(confirm("Finish this paper? You will not be able to change answers afterwards."))finishExam(false)};
 }
 function renderAnswer(q){
@@ -112,7 +117,7 @@ async function finishExam(auto){
   }
 }
 function renderResults(score,rows,award,auto,maxScore=135){
-  app.innerHTML=`<section class="panel result-hero"><div class="eyebrow">${auto?"TIME EXPIRED · ":""}PAPER COMPLETE</div><div class="score-big">${score}<span class="muted" style="font-size:.25em"> / ${maxScore}</span></div><div class="award-badge">${esc(award.label)}</div><p class="estimate-note">${award.estimated?esc(awards.practice_estimate_wa.label)+". Official AMT cut-offs vary by year and WA cohort; a verified paper-year WA cutoff will replace this estimate whenever available.":"This paper uses a verified award-cutoff table stored with the exam."}</p></section>
+  app.innerHTML=`<section class="panel result-hero"><div class="eyebrow">${auto?"TIME EXPIRED · ":""}PAPER COMPLETE</div><div class="score-big">${score}<span class="muted" style="font-size:.25em"> / ${maxScore}</span></div><div class="award-badge">${esc(award.label||"Practice paper complete")}</div><p class="estimate-note">${maxScore===135?(award.estimated?esc(awards.practice_estimate_wa.label)+". Official AMT cut-offs vary by year and WA cohort; a verified paper-year WA cutoff will replace this estimate whenever available.:"This paper uses a verified award-cutoff table stored with the exam."):"This selective-maths practice paper is reported as a raw score only; no official Rossmoyne award bands are invented."}</p></section>
   <section class="panel result-card"><h2>Question-by-question results</h2><table class="result-table"><thead><tr><th>Q</th><th>Your answer</th><th>Result</th><th>Marks</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${r.question_number}</td><td>${esc(r.response??"—")}</td><td class="${r.correct?"ok":"bad"}">${r.correct?"Correct":"Incorrect"}</td><td>${r.earned} / ${r.marks}</td></tr>`).join("")}</tbody></table></section>
   <section class="panel result-card"><h2>Review each problem</h2>${rows.map(r=>`<details class="question-review"><summary>Question ${r.question_number} · ${r.correct?"✓ Correct":"Review"} · ${r.earned}/${r.marks}</summary><p><b>Problem</b><br>${esc(r.stem)}</p><p><b>Your answer:</b> ${esc(r.response??"—")}<br><b>Correct answer:</b> ${esc(typeof r.correct_answer==="object"?JSON.stringify(r.correct_answer):r.correct_answer)}</p>${r.explanation?`<p><b>Worked explanation</b><br>${esc(r.explanation)}</p>`:""}</details>`).join("")}<div class="complete-row"><a class="secondary" href="./">Return to Summit One</a><button id="backTests" class="primary">Test Centre</button></div></section>`;
   document.getElementById("backTests").onclick=()=>{sitting=null;activeExam=null;questions=[];responses={};renderLibrary()};
