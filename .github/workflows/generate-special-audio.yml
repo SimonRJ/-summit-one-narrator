@@ -1,0 +1,31 @@
+name: Publish A001 and A049 narration
+# special-audio-v1
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/generate-special-audio.yml"
+permissions:
+  contents: write
+jobs:
+  special:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        id: [A001, A049]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "22" }
+      - run: |
+          npm init -y
+          npm install kokoro-js@1.2.1
+      - name: Generate
+        run: node scripts/generate-video-isolated.mjs queue-special.json "${{ matrix.id }}" out
+      - name: Publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view summit-one-audio-v1 --repo "${{ github.repository }}" >/dev/null 2>&1 || gh release create summit-one-audio-v1 --repo "${{ github.repository }}" --title "Summit One narration v1"
+          gh release upload summit-one-audio-v1 "out/${{ matrix.id }}_narration.wav" --repo "${{ github.repository }}" --clobber
