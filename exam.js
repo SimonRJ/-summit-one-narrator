@@ -1,5 +1,5 @@
 import { supabase } from "./supabase-client.js";
-import { requireUser,loadCourse,finishSession } from "./course-engine.js";
+import { requireUser,loadCourse,getProfile,finishSession } from "./course-engine.js";
 import { practicePaper,createSitting,updateSitting,completeSitting,awardFor } from "./exam-engine.js";
 
 const root=document.getElementById("examApp"),qs=new URLSearchParams(location.search),esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
@@ -8,7 +8,15 @@ let paper=null,sitting=null,responses={},saveTimes={},current=1,timerHandle=null
 const ACTIVE_KEY="summit-one-active-exam-v1";
 async function loadPaper(){
  const practice=Number(qs.get("practiceSession")||0),mode=qs.get("mode")||"amc",paperId=qs.get("paper");
- if(practice)return practicePaper(practice,mode);
+ if(practice){
+   const {progress}=await getProfile();
+   const allowed=Math.min(372,(progress.completed_sessions||0)+1);
+   if(practice!==allowed)throw new Error("That practice assessment is locked until you reach its session in the learning path.");
+   const course=await loadCourse(),slot=course.sessions[practice-1];
+   if(mode==="amc"&&slot?.type!=="AMC MOCK")throw new Error("This session is not an AMC mock.");
+   if(mode==="ross"&&slot?.type!=="ROSSMOYNE MOCK")throw new Error("This session is not a Rossmoyne mock.");
+   return practicePaper(practice,mode);
+ }
  if(!paperId)throw new Error("No paper selected.");
  const index=await fetch("./data/exams/index.json",{cache:"no-store"}).then(r=>r.json());
  const entry=(index.papers||[]).find(x=>x.id===paperId);if(!entry)throw new Error("Paper not found.");
@@ -93,7 +101,9 @@ function renderResults(result,award,auto){
  root.innerHTML=`<div class="card"><div class="eyebrow">${auto?"Time expired — automatically submitted":"Assessment complete"}</div><h1 style="font-size:clamp(2.5rem,8vw,5rem);margin:.2em 0">${result.score}<span style="color:#8297aa;font-size:.45em"> / ${result.max}</span></h1>
  <div class="award ${/High/.test(award.name)?"hd":award.name==="Distinction"?"d":award.name==="Credit"?"c":""}">${esc(award.name)}</div><p class="mini">${esc(award.label)}${award.official?"":" · not an official AMT award determination"}</p>
  <a class="cta" href="exams.html">Return to test centre</a> <a class="ghost" href="./">Back to mission</a></div>
- <section class="section card"><h2>Question-by-question results</h2><div class="result-grid">${result.rows.map(r=>`<div class="result-cell ${r.correct?"ok":"no"}"><b>Q${r.number}</b><br><span>${r.earned}/${r.marks}</span><br><small>${r.correct?"Correct":"Answer: "+esc(r.answer)}</small></div>`).join("")}</div></section>
+ <section class="section card"><h2>Question-by-question results</h2>
+ <div class="result-grid">${result.rows.map(r=>`<div class="result-cell ${r.correct?"ok":"no"}"><b>Q${r.number}</b><br><span>${r.earned}/${r.marks}</span><br><small>${r.correct?"Correct":"Review"}</small></div>`).join("")}</div>
+ <div style="display:grid;gap:10px;margin-top:18px">${result.rows.map(r=>`<details class="stage"><summary><b>Q${r.number} · ${r.correct?"Correct":"Incorrect"} · ${r.earned}/${r.marks}</b></summary><div class="prompt" style="margin-top:12px">${esc(r.prompt)}</div><p class="mini"><b>Your answer:</b> ${esc(r.response||"Unanswered")}<br><b>Correct answer:</b> ${esc(r.answer)}<br><b>Problem family:</b> ${esc(r.category||"reasoning")}</p></details>`).join("")}</div></section>
  <section class="section card"><h2>Performance by problem family</h2>${Object.entries(byCat).map(([k,v])=>`<div style="margin:10px 0"><b>${esc(k)}</b><span class="mini"> · ${v.correct}/${v.total} correct</span><div class="progress"><span style="width:${v.correct/v.total*100}%"></span></div></div>`).join("")}</section>`;
 }
 async function init(){await requireUser();paper=await loadPaper();if(!(await resumeOpenSitting()))renderStart()}
