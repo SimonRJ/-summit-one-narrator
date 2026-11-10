@@ -13,12 +13,17 @@ async function boot(){
   if(error)throw error;catalog=data||[];
   const open=await loadOpenSitting();
   if(open){await resumeSitting(open);return}
-  const slot=Number(new URLSearchParams(location.search).get("slot")||0);
+  const slot=Number(params.get("slot")||0);
   if(slot){
     const {data:bySlot}=await supabase.from("exam_catalog").select("*").eq("session_slot",slot).maybeSingle();
-    if(bySlot){catalog.push(bySlot);await startExam(bySlot.id);return}
+    if(bySlot){renderCourseExamIntro(bySlot);return}
   }
   renderLibrary();
+}
+function renderCourseExamIntro(exam){
+  const isAMC=exam.max_score===135;
+  app.innerHTML=`<section class="panel test-hero"><div class="eyebrow">CANONICAL SESSION ${exam.session_slot}</div><h1>${esc(exam.title)}</h1><p class="muted">${isAMC?"Full AMC-format rehearsal: 30 questions, 60 minutes, 135 marks.":"Original Rossmoyne-style selective-mathematics rehearsal: 23 questions, 100 marks. The 60-minute clock is a Summit One home-practice target, not a claim about the official Rossmoyne entrance-test duration."}</p><div class="notice-box"><b>Before you start:</b> close notes and solution pages. The timer begins only when you press Start. Answers are autosaved where appropriate; numeric AMC answers require the explicit Save answer button.</div><div class="complete-row"><a class="ghost" href="./">Return to mission</a><button id="startCourseExam" class="primary cta">Start timed paper</button></div></section>`;
+  document.getElementById("startCourseExam").onclick=()=>{catalog=[exam];startExam(exam.id)};
 }
 async function loadOpenSitting(){
   const {data}=await supabase.from("exam_sittings").select("*").eq("user_id",user.id).eq("completed",false).order("started_at",{ascending:false}).limit(1).maybeSingle();
@@ -33,7 +38,7 @@ function renderLibrary(){
 }
 async function startExam(id){
   activeExam=catalog.find(x=>x.id===id);if(!activeExam)return;
-  if(innerWidth<650&&!confirm("The official AMC is not intended for a phone-sized screen. You can practise here, but an iPad or computer is better for realistic rehearsal. Continue?"))return;
+  if(innerWidth<650){const message=activeExam.max_score===135?"The official AMC is not intended for a phone-sized screen. You can practise here, but an iPad or computer is better for realistic rehearsal. Continue?":"A larger screen is recommended for realistic selective-maths rehearsal. Continue on this phone?";if(!confirm(message))return}
   const {data:q,error}=await supabase.from("exam_questions_student").select("*").eq("exam_id",id).order("question_number");
   if(error)throw error;if((q||[]).length!==(activeExam.question_count||30)){alert("This paper is not complete yet.");return}
   questions=q;responses={};typedInteger={};qIndex=0;
