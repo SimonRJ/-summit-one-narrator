@@ -1,4 +1,5 @@
 const RELEASE_BASE="https://github.com/SimonRJ/-summit-one-narrator/releases/download/summit-one-audio-v1";
+const VIDEO_BASE="https://github.com/SimonRJ/-summit-one-narrator/releases/download/summit-one-videos-v1";
 
 function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]))}
 function visual(item){
@@ -19,10 +20,12 @@ function segments(item){
   return [s];
 }
 export function mediaUrl(id){return `${RELEASE_BASE}/${encodeURIComponent(id)}_narration.wav`}
+export function videoUrl(id){return `${VIDEO_BASE}/${encodeURIComponent(id)}_final.mp4`}
 export function renderNarratedLesson(container,item,{label="Video explanation"}={}){
   const seg=segments(item),id=item.id||item.video_id;
   container.innerHTML=`
-    <div class="cinema">
+    <video id="finishedVideo" controls playsinline preload="metadata" style="width:100%;aspect-ratio:16/9;border-radius:20px;border:1px solid #29455f;background:#07111d" hidden src="${videoUrl(id)}"></video>
+    <div class="cinema" id="interactiveCinema">
       ${visual(item)}
       <div class="frame-content">
         <div class="frame-kicker">${esc(label)} · ${esc(id)}</div>
@@ -38,7 +41,10 @@ export function renderNarratedLesson(container,item,{label="Video explanation"}=
     <div id="mediaNote" class="mini">Narration and visual explanation stay separate from independent-solve credit.</div>
     <details><summary>Transcript</summary><div class="mini" style="white-space:pre-wrap;margin-top:10px">${esc(seg.join("\n\n"))}</div></details>
   `;
-  const audio=container.querySelector("#narration"),text=container.querySelector("#frameText"),note=container.querySelector("#mediaNote");
+  const audio=container.querySelector("#narration"),video=container.querySelector("#finishedVideo"),cinema=container.querySelector("#interactiveCinema"),text=container.querySelector("#frameText"),note=container.querySelector("#mediaNote");
+  let useVideo=false;
+  video.addEventListener("loadedmetadata",()=>{useVideo=true;video.hidden=false;cinema.hidden=true;audio.hidden=true;note.textContent="Finished 1280×720 narrated video · transcript and playback speed remain available.";});
+  video.addEventListener("error",()=>{useVideo=false;video.hidden=true;cinema.hidden=false;audio.hidden=false;});
   let last=-1;
   const update=()=>{
     const ratio=audio.duration?Math.min(0.999,audio.currentTime/audio.duration):0;
@@ -48,7 +54,7 @@ export function renderNarratedLesson(container,item,{label="Video explanation"}=
   audio.addEventListener("timeupdate",update);
   audio.addEventListener("loadedmetadata",update);
   audio.addEventListener("error",()=>note.textContent="Narration media is still publishing. The full transcript remains available here; this does not affect your answer record.");
-  container.querySelector("#replayMedia").onclick=()=>{audio.currentTime=0;audio.play().catch(()=>{})};
-  container.querySelector("#mediaSpeed").onchange=e=>audio.playbackRate=Number(e.target.value);
+  container.querySelector("#replayMedia").onclick=()=>{const m=useVideo?video:audio;m.currentTime=0;m.play().catch(()=>{})};
+  container.querySelector("#mediaSpeed").onchange=e=>{const r=Number(e.target.value);audio.playbackRate=r;video.playbackRate=r};
   return {audio};
 }
