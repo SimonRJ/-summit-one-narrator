@@ -1,8 +1,33 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#050a12"><title>Summit One · The 135 Mission</title><link rel="stylesheet" href="app.css"></head>
-<body><div class="shell">
-<header class="topbar"><a class="brand" href="./" style="text-decoration:none"><span class="mark"></span><span><h1>Summit One</h1><small>The 135 Mission</small></span></a>
-<nav class="nav"><a href="./">Mission</a><a href="exams.html">AMC Tests</a><a href="review.html">Review</a><a href="profile.html">Profile</a><button id="signOut">Sign out</button></nav></header>
-<div id="app"><div class="card">Loading your mission…</div></div>
-</div><script type="module" src="main.js?v=1"></script></body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#07111e">
+  <title>Summit One · The 135 Mission</title>
+  <link rel="stylesheet" href="main.css?v=1">
+</head>
+<body>
+  <div class="stars" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="Summit One home"><span class="brand-mark">△</span><span><b>SUMMIT ONE</b><small>THE 135 MISSION</small></span></a>
+    <nav class="topnav" aria-label="Primary">
+      <button data-view="home" class="nav-btn active">Mission</button>
+      <a href="tests.html" class="nav-link">AMC Tests</a>
+      <button data-view="review" class="nav-btn">Review</button>
+      <button data-view="profile" class="nav-btn">Profile</button>
+    </nav>
+  </header>
+  <main id="app" class="shell" aria-live="polite">
+    <section id="loading" class="panel hero-panel"><div class="eyebrow">SYNCING MISSION DATA</div><h1>Preparing Summit One…</h1><p class="muted">Loading your secure progress and the 372-session course.</p></section>
+  </main>
+  <template id="problemTemplate">
+    <article class="problem-card"><div class="problem-meta"></div><h3 class="problem-title"></h3><div class="problem-prompt math-copy"></div>
+      <label class="answer-label">Your reasoning / answer<textarea class="answer-box" rows="5" placeholder="Write enough working that you can explain why your answer should be true."></textarea></label>
+      <div class="problem-actions"><button class="primary submit-answer">Record attempt</button><button class="ghost reveal-solution" hidden>Compare with solution</button></div>
+      <div class="attempt-feedback" hidden></div><div class="solution-panel" hidden></div>
+    </article>
+  </template>
+  <script type="module" src="app-main.js?v=1"></script>
+</body>
+</html>
