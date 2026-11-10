@@ -1,4 +1,5 @@
 import { supabase, loadProgress, saveProgress, signOut, currentUser, upsertSession, recordAttempt } from "./supabase-client.js";
+import { mountNarratedPlayer } from "./lesson-player.js";
 
 const app=document.getElementById("app");
 const problemTemplate=document.getElementById("problemTemplate");
@@ -193,8 +194,9 @@ function renderRemember(el,s){
 function renderDiscover(el,s){
   const items=teachingFor(s);
   el.innerHTML=`<div class="stage-number">STAGE 2 · EXPLANATION</div><h2>Discover</h2><p class="muted">Read, sketch and listen. The goal is to see why the method works, not memorise a slogan.</p>
-  <div class="teaching-box">${items.map(t=>`<article class="teaching-item"><div class="eyebrow">${esc(t.type==="worked_example"?"WORKED EXAMPLE":"CONCEPT")}</div><h3>${esc(t.title)}</h3><details><summary>Read explanation</summary><p class="math-copy">${esc(t.transcript)}</p></details><div class="audio-row"><audio controls preload="none" src="${esc(t.audio_url)}"></audio><span class="muted">Narrated explanation</span></div></article>`).join("")||'<p class="muted">Teaching explanation is being selected from the course library.</p>'}</div>
+  <div class="teaching-box">${items.map((t,i)=>`<article class="teaching-item"><div class="eyebrow">${esc(t.type==="worked_example"?"WORKED EXAMPLE":"CONCEPT")}</div><h3>${esc(t.title)}</h3><div class="lesson-player-slot" id="lessonPlayer${i}"></div><details><summary>Read explanation</summary><p class="math-copy">${esc(t.transcript)}</p></details></article>`).join("")||'<p class="muted">Teaching explanation is being selected from the course library.</p>'}</div>
   <div class="complete-row"><span class="muted">Make one note or diagram before moving on.</span><button class="primary" id="nextStage">Try independently</button></div>`;
+  items.forEach((t,i)=>mountNarratedPlayer(document.getElementById("lessonPlayer"+i),{title:t.title,transcript:t.transcript,audioUrl:t.audio_url}));
   document.getElementById("nextStage").onclick=()=>{activeStage=2;renderSession(s)};
 }
 async function loadProblemDetail(id){
