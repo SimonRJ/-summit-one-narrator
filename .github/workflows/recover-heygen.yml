@@ -1,0 +1,31 @@
+name: Recover 89 HeyGen narration tracks
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/recover-heygen.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Download existing narration
+        run: node scripts/recover-heygen-audio.mjs heygen-89-audio-manifest.json heygen-audio
+      - name: Upload recovered narration
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: summit-one-heygen-89
+          path: heygen-audio/
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 0
