@@ -1,7 +1,8 @@
-import { supabase, currentUser } from "./supabase-client.js";
+import { supabase, currentUser, loadProgress, saveProgress, upsertSession } from "./supabase-client.js";
 
 const app=document.getElementById("examApp");
 let user, catalog=[], awards, activeExam=null, questions=[], sitting=null, qIndex=0, responses={}, typedInteger={}, timerHandle=null;
+const params=new URLSearchParams(location.search); const courseMode=params.get("course")==="1";
 const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
 const norm=s=>String(s??"").trim().toLowerCase().replace(/\s+/g,"").replace(/[.,;:]$/g,"");
 
@@ -38,7 +39,7 @@ async function startExam(id){
   questions=q;responses={};typedInteger={};qIndex=0;
   const start=new Date(),expires=new Date(start.getTime()+activeExam.duration_minutes*60000);
   const {data:s,error:e}=await supabase.from("exam_sittings").insert({
-    user_id:user.id,exam_id:id,exam_year:activeExam.year,started_at:start.toISOString(),expires_at:expires.toISOString(),completed:false,max_score:activeExam.max_score,responses:{},integer_save_times:{},metadata:{title:activeExam.title,student_year:activeExam.student_year}
+    user_id:user.id,exam_id:id,exam_year:activeExam.year,started_at:start.toISOString(),expires_at:expires.toISOString(),completed:false,max_score:activeExam.max_score,responses:{},integer_save_times:{},metadata:{title:activeExam.title,student_year:activeExam.student_year,course_slot:activeExam.session_slot||null}
   }).select().single();
   if(e)throw e;sitting=s;renderExam();startTimer();
 }
@@ -117,9 +118,39 @@ async function finishExam(auto){
   }
 }
 function renderResults(score,rows,award,auto,maxScore=135){
-  app.innerHTML=`<section class="panel result-hero"><div class="eyebrow">${auto?"TIME EXPIRED · ":""}PAPER COMPLETE</div><div class="score-big">${score}<span class="muted" style="font-size:.25em"> / ${maxScore}</span></div><div class="award-badge">${esc(award.label||"Practice paper complete")}</div><p class="estimate-note">${maxScore===135?(award.estimated?esc(awards.practice_estimate_wa.label)+". Official AMT cut-offs vary by year and WA cohort; a verified paper-year WA cutoff will replace this estimate whenever available.:"This paper uses a verified award-cutoff table stored with the exam."):"This selective-maths practice paper is reported as a raw score only; no official Rossmoyne award bands are invented."}</p></section>
+  const awardNote=maxScore===135
+    ? (award.estimated
+        ? esc(awards.practice_estimate_wa.label)+". Official AMT cut-offs vary by year and WA cohort; a verified paper-year WA cutoff will replace this estimate whenever available."
+        : "This paper uses a verified award-cutoff table stored with the exam.")
+    : "This selective-maths practice paper is reported as a raw score only; no official Rossmoyne award bands are invented.";
+  const courseSlot=Number(sitting?.metadata?.course_slot||activeExam?.session_slot||0);
+  app.innerHTML=`<section class="panel result-hero"><div class="eyebrow">${auto?"TIME EXPIRED · ":""}PAPER COMPLETE</div><div class="score-big">${score}<span class="muted" style="font-size:.25em"> / ${maxScore}</span></div><div class="award-badge">${esc(award.label||"Practice paper complete")}</div><p class="estimate-note">${awardNote}</p></section>
   <section class="panel result-card"><h2>Question-by-question results</h2><table class="result-table"><thead><tr><th>Q</th><th>Your answer</th><th>Result</th><th>Marks</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${r.question_number}</td><td>${esc(r.response??"—")}</td><td class="${r.correct?"ok":"bad"}">${r.correct?"Correct":"Incorrect"}</td><td>${r.earned} / ${r.marks}</td></tr>`).join("")}</tbody></table></section>
-  <section class="panel result-card"><h2>Review each problem</h2>${rows.map(r=>`<details class="question-review"><summary>Question ${r.question_number} · ${r.correct?"✓ Correct":"Review"} · ${r.earned}/${r.marks}</summary><p><b>Problem</b><br>${esc(r.stem)}</p><p><b>Your answer:</b> ${esc(r.response??"—")}<br><b>Correct answer:</b> ${esc(typeof r.correct_answer==="object"?JSON.stringify(r.correct_answer):r.correct_answer)}</p>${r.explanation?`<p><b>Worked explanation</b><br>${esc(r.explanation)}</p>`:""}</details>`).join("")}<div class="complete-row"><a class="secondary" href="./">Return to Summit One</a><button id="backTests" class="primary">Test Centre</button></div></section>`;
-  document.getElementById("backTests").onclick=()=>{sitting=null;activeExam=null;questions=[];responses={};renderLibrary()};
+  <section class="panel result-card"><h2>Review each problem</h2>${rows.map(r=>`<details class="question-review"><summary>Question ${r.question_number} · ${r.correct?"✓ Correct":"Review"} · ${r.earned}/${r.marks}</summary><p><b>Problem</b><br>${esc(r.stem)}</p><p><b>Your answer:</b> ${esc(r.response??"—")}<br><b>Correct answer:</b> ${esc(typeof r.correct_answer==="object"?JSON.stringify(r.correct_answer):r.correct_answer)}</p>${r.explanation?`<p><b>Worked explanation</b><br>${esc(r.explanation)}</p>`:""}</details>`).join("")}
+  <div class="complete-row"><a class="secondary" href="./">Return to Summit One</a>${courseSlot?`<button id="completeCourseMock" class="primary">Complete Course Session ${courseSlot}</button>`:`<button id="backTests" class="primary">Test Centre</button>`}</div></section>`;
+  const back=document.getElementById("backTests");
+  if(back)back.onclick=()=>{sitting=null;activeExam=null;questions=[];responses={};renderLibrary()};
+  const complete=document.getElementById("completeCourseMock");
+  if(complete)complete.onclick=async()=>{
+    complete.disabled=true;complete.textContent="Locking course session…";
+    try{
+      const p=await loadProgress();
+      const type=maxScore===135?"AMC MOCK":"ROSSMOYNE MOCK";
+      await upsertSession({
+        session_number:courseSlot,
+        session_key:`S${String(courseSlot).padStart(3,"0")}`,
+        completed_at:new Date().toISOString(),
+        immutable:true,
+        answers:{exam_sitting_id:sitting.id},
+        working:{},
+        evidence:{timed_exam:{score,max_score:maxScore,independent:true}},
+        summary:{focus:activeExam.title,type,exam_id:activeExam.id,score,max_score:maxScore}
+      });
+      const done=Math.max(p?.completed_sessions||0,courseSlot);
+      const percent=done/372*100,rank=Math.max(1,Math.min(20,Math.ceil(Math.max(.0001,percent)/5)));
+      await saveProgress({completed_sessions:done,current_session:Math.min(372,done+1),xp:done*100,rank,overall_percent:Number(percent.toFixed(2))});
+      location.href="./";
+    }catch(e){alert(e.message||"Could not complete the course session.");complete.disabled=false;complete.textContent=`Complete Course Session ${courseSlot}`}
+  };
 }
 boot().catch(e=>{app.innerHTML='<section class="panel hero-panel"><h1>Test Centre error</h1><p class="muted">'+esc(e.message)+'</p></section>'});
