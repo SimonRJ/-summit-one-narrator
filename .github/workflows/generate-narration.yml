@@ -1,4 +1,4 @@
-name: Generate Summit One narration\n# cloud-run-v3
+name: Generate Summit One narration\n# cloud-run-v4-save
 
 on:
   workflow_dispatch:
@@ -33,6 +33,11 @@ jobs:
         run: |
           npm init -y
           npm install kokoro-js@1.2.1
+
+      - name: Ensure FFmpeg
+        run: |
+          ffmpeg -version | head -1
+          ffprobe -version | head -1
 
       - name: Generate WAV narration
         run: |
