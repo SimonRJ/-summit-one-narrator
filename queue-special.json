@@ -1,0 +1,64 @@
+[
+  {
+    "video_id": "A001",
+    "title": "The next page",
+    "type": "challenge",
+    "source": "approved special",
+    "held": false,
+    "word_count": 251,
+    "chunks": [
+      {
+        "chunk_id": "A001__01",
+        "sequence": 1,
+        "text": "Here is the problem. When I opened my new maths book the sum of the two page numbers facing me was 317. What was the number of the next page? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a diagram, use its stated relationships rather than measuring how it looks. Watch out for this common mistake: 159 is the current right-hand page, not the next page. A useful first observation is: Facing pages have consecutive numbers.",
+        "word_count": 95
+      },
+      {
+        "chunk_id": "A001__02",
+        "sequence": 2,
+        "text": "Before you continue, think about this: Take 1 away from the total so the two numbers would be equal. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. The right page is 1 more than the left page. Step 2. Subtract that extra 1: 317 minus 1 = 316. Each equal part is 316 divided by 2 = 158. Step 3. The facing pages are 158 and 159, so the next page is 160.",
+        "word_count": 90
+      },
+      {
+        "chunk_id": "A001__03",
+        "sequence": 3,
+        "text": "Check the answer with a different viewpoint. Half of 317 is 158.5, so the consecutive whole numbers on either side are 158 and 159. Final thinking check: Why subtract 1 before halving? Removing the difference makes the two page numbers equal. The answer is 160. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 66
+      }
+    ]
+  },
+  {
+    "video_id": "A049",
+    "title": "Three numbers divisible by three",
+    "type": "challenge",
+    "source": "approved special",
+    "held": false,
+    "word_count": 331,
+    "chunks": [
+      {
+        "chunk_id": "A049__01",
+        "sequence": 1,
+        "text": "Here is the problem. In how many ways can three different numbers be selected from the numbers 1 to 12, so that their sum can be exactly divided by 3? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks.",
+        "word_count": 72
+      },
+      {
+        "chunk_id": "A049__02",
+        "sequence": 2,
+        "text": "Watch out for this common mistake: The order of the chosen numbers does not create a new selection, so do not multiply the 012 count by 6. A useful first observation is: Group 1 to 12 by their remainders when divided by 3. Each group contains 4 numbers. Before you continue, think about this: Three remainders total a multiple of 3 if all are equal or if they are 0,1 and 2. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on.",
+        "word_count": 95
+      },
+      {
+        "chunk_id": "A049__03",
+        "sequence": 3,
+        "text": "Step 1. The remainder groups are 0:{3,6,9,12},1:{1,4,7,10}, and 2:{2,5,8,11}. Step 2. A valid selection uses remainder pattern 000,111,222 or 012. These are the only ways three remainders can sum to a multiple of 3. Step 3. For any all-equal pattern, choose 3 of the group’s 4 numbers:4 possibilities, found by choosing the one omitted. The three groups give 3 times 4 = 12 selections. Step 4. For 012, choose one number from each group:4 times 4 times 4 = 64. Total 12 + 64 = 76 selections.",
+        "word_count": 87
+      },
+      {
+        "chunk_id": "A049__04",
+        "sequence": 4,
+        "text": "Check the answer with a different viewpoint. List all 220 three-element subsets of 1 to 12 and retain sums divisible by 3; exactly 76 remain. Final thinking check: Which remainder pattern does NOT make a divisible-by-3 sum? 0 + 0 + 1 leaves remainder 1, while the other sums are 3. The answer is 76 selections. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 77
+      }
+    ]
+  }
+]
