@@ -1,0 +1,49 @@
+name: Upload protected AMC video media
+
+on:
+  workflow_dispatch:
+    inputs:
+      artifact_run_id:
+        description: "Actions run ID containing the protected AMC media artifact"
+        required: true
+      artifact_name:
+        description: "Artifact containing protected_amc/"
+        required: false
+        default: "summit-one-protected-amc-media"
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - uses: actions/download-artifact@v4
+        with:
+          name: ${{ inputs.artifact_name }}
+          run-id: ${{ inputs.artifact_run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: incoming
+      - name: Safety check
+        shell: bash
+        run: |
+          set -euo pipefail
+          count=$(find incoming -type f -name '*.mp4' | wc -l)
+          test "$count" -gt 0
+          while IFS= read -r f; do
+            b=$(basename "$f" .mp4)
+            [[ "$b" =~ ^A[0-9]{3}$ ]] || { echo "Non-AMC media detected in protected bundle: $b" >&2; exit 1; }
+          done < <(find incoming -type f -name '*.mp4')
+      - name: Install uploader dependency
+        run: npm install --no-save @supabase/supabase-js@2.78.0
+      - name: Upload to private Supabase Storage
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          PROTECTED_VIDEO_BUCKET: summit-one-protected-video
+        run: node postproduction/upload_protected_media.mjs "$(dirname "$(find incoming -type f -name 'A*.mp4' | head -1)")"
