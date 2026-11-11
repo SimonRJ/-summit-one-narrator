@@ -7,7 +7,8 @@ import { problemFigure } from "./problem-figures.js";
 const app=document.getElementById("app");
 const problemTemplate=document.getElementById("problemTemplate");
 let course=[], teaching=[], mawa=[], rossMap=[], taxonomy=null, milestones=null, problemIndex=[], progress=null, user=null, activeView="home", activeStage=0;
-let currentProblems=[], currentMawa=null, sessionDraft={answers:{},working:{},evidence:{},summary:{}};\nlet attemptedProblemIds=new Set();
+let currentProblems=[], currentMawa=null, sessionDraft={answers:{},working:{},evidence:{},summary:{}};
+let attemptedProblemIds=new Set();
 
 const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
 const pct=n=>Math.max(0,Math.min(100,Number(n)||0));
@@ -18,7 +19,9 @@ function finalVideoUrl(videoId){
   const id=String(videoId||"");
   // Only concept/worked-example T videos are public. Every challenge solution is attempt-gated.
   if(!/^T\d{2}\.(?:1|2|3|E)$/.test(id))return "";
-  if(id==="T01.2")return "media/T01.2_George_0.88.mp4";\n  return `https://github.com/SimonRJ/-summit-one-narrator/releases/download/summit-one-video-v1/${encodeURIComponent(id)}.mp4`;
+  if(id==="T01.2")return ""; // George retired; use natural on-device narration until new T01.2 master is approved.
+  if(id==="T02.1")return "media/T02.1.mp4";
+  return `https://github.com/SimonRJ/-summit-one-narrator/releases/download/summit-one-video-v1/${encodeURIComponent(id)}.mp4`;
 }
 async function recordVideoEvidence(sessionNumber,videoId,kind,detail={}){
   if(!sessionNumber||!videoId)return;
