@@ -33,13 +33,16 @@ function examCard(exam){
   return `<article class="panel test-card"><div class="eyebrow">${esc(exam.source_type.replaceAll("_"," "))}</div><h3>${esc(exam.title)}</h3><div class="test-meta"><span class="phase-chip">${esc(exam.division)}</span><span class="phase-chip">${exam.duration_minutes} min</span><span class="phase-chip">${exam.max_score} marks</span></div><button class="primary startExam" data-id="${esc(exam.id)}">Start paper</button></article>`;
 }
 function renderLibrary(){
-  const past=catalog.filter(e=>e.max_score===135&&e.source_type==="authentic_past_paper");
-  const authored=catalog.filter(e=>e.max_score===135&&e.source_type==="summit_authored_mock").sort((a,b)=>(a.session_slot||0)-(b.session_slot||0));
-  app.innerHTML=`<section class="panel test-hero"><div class="eyebrow">SEPARATE EXAM MODE</div><h1>AMC Test Centre</h1><p class="muted">Sit a complete paper only when you choose. Exam mode has no hints, no solution videos and no correctness feedback until the sitting ends.</p>
-  <div class="notice-box"><b>Upper Primary format:</b> 30 questions in 60 minutes: Questions 1–25 multiple choice; Questions 26–30 integer answer. The Summit interface reproduces the timing, navigation and Save behaviour without copying AMT branding.</div>
-  <h2>Past AMC papers</h2><p class="muted">Original full papers you provide are installed here as authenticated private-study exams, separate from the training sequence.</p><div class="test-grid">${past.map(examCard).join("")||`<article class="panel test-card"><div class="eyebrow">READY FOR FIRST PAPER</div><h3>No full past AMC paper installed yet</h3><p class="muted">The exam engine and results system are complete. A supplied Upper Primary PDF can now be converted into this section.</p><span class="type-chip">Awaiting PDF</span></article>`}</div>
-  <h2 style="margin-top:30px">Summit full-format mocks</h2><p class="muted">Original authored 30-question rehearsals scheduled through the 372-session pathway. These are training papers, not official AMT papers.</p><div class="test-grid">${authored.map(examCard).join("")}</div>
-  <p class="footer-note">Official AMC award cut-offs are region/year specific and vary with paper difficulty. When a verified WA cutoff is available for an installed paper, that cutoff is used. Otherwise results show a clearly labelled WA practice estimate.</p></section>`;
+  const amc=catalog.filter(exam=>exam.max_score===135);
+  const official=amc.filter(exam=>exam.source_type==="authentic_amc_past_paper");
+  const mocks=amc.filter(exam=>exam.source_type!=="authentic_amc_past_paper");
+  const cards=list=>list.map(exam=>`<article class="panel test-card"><div class="eyebrow">${exam.source_type==="authentic_amc_past_paper"?"AUTHENTIC PAST PAPER":"SUMMIT ONE AUTHORED MOCK"}</div><h3>${esc(exam.title)}</h3><div class="test-meta"><span class="phase-chip">${esc(exam.division)}</span><span class="phase-chip">${exam.duration_minutes} min</span><span class="phase-chip">${exam.max_score} marks</span></div><button class="primary startExam" data-id="${esc(exam.id)}">Start paper</button></article>`).join("");
+  app.innerHTML=`<section class="panel test-hero"><div class="eyebrow">SEPARATE EXAM MODE</div><h1>AMC Test Centre</h1><p class="muted">Choose a complete paper only when you want a full exam sitting. Exam mode has no hints, no solution videos and no correctness feedback until the sitting is sealed.</p>
+  <div class="notice-box"><b>Official Upper Primary workflow:</b> 30 questions in 60 minutes; Questions 1–25 multiple choice and Questions 26–30 integer answer. Use the question menu to skip/backtrack. Integer answers count only after <b>Save answer</b>. Submitted answers are retained when time expires.</div>
+  <h2 style="margin-top:24px">Authentic past AMC papers</h2><p class="muted">Full papers supplied by the family are installed here as protected authenticated assessments.</p>
+  <div class="test-grid">${official.length?cards(official):`<article class="panel test-card"><div class="eyebrow">READY FOR IMPORT</div><h3>Past-paper engine is ready</h3><p class="muted">No full authentic past paper has been installed yet. The secure timer, navigation, grading and results engine is complete.</p><span class="type-chip">Awaiting first PDF</span></article>`}</div>
+  <h2 style="margin-top:30px">Summit One authored mocks</h2><p class="muted">Original 135-mark papers for repeated full-format practice. These are not official AMT papers.</p><div class="test-grid">${cards(mocks)}</div>
+  <p class="footer-note">AMT determines official awards by year level and region, and raw-score cutoffs vary with each paper. Authentic papers use verified WA paper-year cutoffs when available. Otherwise the results page labels the displayed band as a WA practice estimate.</p></section>`;
   document.querySelectorAll(".startExam").forEach(b=>b.onclick=()=>startExam(b.dataset.id));
 }
 async function startExam(id){
@@ -129,6 +132,13 @@ async function finishExam(auto){
   }
 }
 function renderResults(score,rows,award,auto,maxScore=135){
+  const correctCount=rows.filter(r=>r.correct).length;
+  const unanswered=rows.filter(r=>r.response===null||r.response===undefined||r.response==="").length;
+  const timeSeconds=Math.max(0,Math.round((new Date(sitting.submitted_at||Date.now()).getTime()-new Date(sitting.started_at).getTime())/1000));
+  const timeUsed=`${Math.floor(timeSeconds/60)}:${String(timeSeconds%60).padStart(2,"0")}`;
+  const sectionDefs=maxScore===135?[[1,10,"Questions 1–10"],[11,20,"Questions 11–20"],[21,30,"Questions 21–30"]]:[[1,7,"Section 1"],[8,13,"Section 2"],[14,18,"Section 3"],[19,23,"Section 4"]];
+  const sectionStats=sectionDefs.map(([a,b,label])=>{const rr=rows.filter(r=>r.question_number>=a&&r.question_number<=b);return{label,earned:rr.reduce((s,r)=>s+r.earned,0),max:rr.reduce((s,r)=>s+r.marks,0),correct:rr.filter(r=>r.correct).length,count:rr.length}});
+
   const awardNote=maxScore===135
     ? (award.estimated
         ? esc(awards.practice_estimate_wa.label)+". Official AMT cut-offs vary by year and WA cohort; a verified paper-year WA cutoff will replace this estimate whenever available."
@@ -136,6 +146,8 @@ function renderResults(score,rows,award,auto,maxScore=135){
     : "This selective-maths practice paper is reported as a raw score only; no official Rossmoyne award bands are invented.";
   const courseSlot=sitting?.metadata?.course_mode===true?Number(sitting?.metadata?.course_slot||0):0;
   app.innerHTML=`<section class="panel result-hero"><div class="eyebrow">${auto?"TIME EXPIRED · ":""}PAPER COMPLETE</div><div class="score-big">${score}<span class="muted" style="font-size:.25em"> / ${maxScore}</span></div><div class="award-badge">${esc(award.label||"Practice paper complete")}</div><p class="estimate-note">${awardNote}</p></section>
+  <section class="profile-grid" style="margin-top:18px"><div class="panel profile-stat"><b>${correctCount}</b><span>questions correct</span></div><div class="panel profile-stat"><b>${unanswered}</b><span>unanswered</span></div><div class="panel profile-stat"><b>${timeUsed}</b><span>time used</span></div><div class="panel profile-stat"><b>${Math.round(score/maxScore*100)}%</b><span>raw mark percentage</span></div></section>
+  <section class="panel result-card"><h2>Paper sections</h2><table class="result-table"><thead><tr><th>Section</th><th>Correct</th><th>Marks</th></tr></thead><tbody>${sectionStats.map(s=>`<tr><td>${esc(s.label)}</td><td>${s.correct} / ${s.count}</td><td>${s.earned} / ${s.max}</td></tr>`).join("")}</tbody></table></section>
   <section class="panel result-card"><h2>Question-by-question results</h2><table class="result-table"><thead><tr><th>Q</th><th>Your answer</th><th>Result</th><th>Marks</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${r.question_number}</td><td>${esc(r.response??"—")}</td><td class="${r.correct?"ok":"bad"}">${r.correct?"Correct":"Incorrect"}</td><td>${r.earned} / ${r.marks}</td></tr>`).join("")}</tbody></table></section>
   <section class="panel result-card"><h2>Review each problem</h2>${rows.map(r=>`<details class="question-review"><summary>Question ${r.question_number} · ${r.correct?"✓ Correct":"Review"} · ${r.earned}/${r.marks}</summary><p><b>Problem</b><br>${esc(r.stem)}</p><p><b>Your answer:</b> ${esc(r.response??"—")}<br><b>Correct answer:</b> ${esc(typeof r.correct_answer==="object"?JSON.stringify(r.correct_answer):r.correct_answer)}</p>${r.explanation?`<p><b>Worked explanation</b><br>${esc(r.explanation)}</p>`:""}</details>`).join("")}
   <div class="complete-row"><a class="secondary" href="./">Return to Summit One</a>${courseSlot?`<button id="completeCourseMock" class="primary">Complete Course Session ${courseSlot}</button>`:`<button id="backTests" class="primary">Test Centre</button>`}</div></section>`;
