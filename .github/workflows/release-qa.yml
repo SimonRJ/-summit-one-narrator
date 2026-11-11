@@ -76,6 +76,7 @@ jobs:
           grep -q 'completed_80_percent:true' lesson-player.js
           grep -q 'finished_video' lesson-player.js
           grep -q 'kokoro_fallback' lesson-player.js
+          ! grep -R --line-number 'summit-one-audio-v1' app-main.js data/teaching-72.json || exit 1
           ! grep -R --line-number -E 'releases/download/[^ ]*/A[0-9]{3}\\.mp4' . --exclude-dir=.git || exit 1
           echo "Attempt gate, protected AMC media and viewed-only video evidence invariants passed."
       - name: Post-production tooling
