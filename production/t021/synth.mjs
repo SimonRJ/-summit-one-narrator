@@ -37,7 +37,7 @@ for(let i=0;i<doc.segments.length;i++){
   const audio=trimSilence(wav instanceof Float32Array?wav:Float32Array.from(wav));
   const seconds=audio.length/RATE;
   // Narrative breathing depends on syntax and a conceptual beat, not a uniform fixed silence.
-  const pause=i===doc.segments.length-1?0:([.40,.28,.34,.25,.42,.48,.33,.26,.33,.25,.36,.37,.44,.34,.30,.44,.50][i]??.28);
+  const pause=i===doc.segments.length-1?0:([.42,.45,.56,.40,.28,.34,.25,.42,.48,.33,.26,.33,.25,.36,.37,.44,.34,.30,.44,.50][i]??.28);
   timings.push({index:i+1,text:speech,start_seconds:+cursor.toFixed(4),duration_seconds:+seconds.toFixed(4),pause_after:pause});
   chunks.push(audio);
   if(pause>0)chunks.push(new Float32Array(Math.round(RATE*pause)));

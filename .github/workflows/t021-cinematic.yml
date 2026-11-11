@@ -49,7 +49,7 @@ jobs:
           import json
           d=json.load(open('build/t021/timing.json'))
           assert d['voice']=='af_heart' and d['speed']>=1.0
-          assert len(d['segments'])==18
+          assert len(d['segments'])==21
           print('NARRATION QA:',d['voice'],d['duration_seconds'],'seconds')
           PY
       - name: Render original mathematical motion graphics at HD 24fps
@@ -118,7 +118,7 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add media/T02.1.mp4 media/T02.1.vtt production/t021/output-qa.json
           if git diff --cached --quiet; then echo 'No new render to publish'; exit 0; fi
-          git commit -m 'Publish rebuilt T02.1 with natural narration and animated invariant proofs'
+          git commit -m 'Publish expanded T02.1 introduction, puzzle, examples and conclusion'
           git fetch origin main
           git rebase origin/main
           git push origin HEAD:main

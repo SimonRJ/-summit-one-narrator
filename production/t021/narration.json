@@ -1,11 +1,14 @@
 {
   "id": "T02.1",
-  "title": "The invariant you can't see",
+  "title": "The invariant you can't see — a guided introduction, puzzle, examples and conclusion",
   "lesson": "Find an invariant by inspecting one move",
   "voice": "af_heart",
   "speed": 1.02,
   "segments": [
-    "Here's a puzzle. One pile has five gold counters. The other has seven blue counters. You may move counters between the piles, as often as you like. Could you finish with ten counters in each pile?",
+    "Today we're learning one of the most useful ideas in difficult maths puzzles: an invariant. That's the name for a quantity that stays fixed even when other things change. Sometimes it's a total. Sometimes it's a difference. And sometimes it's something less obvious.",
+    "Why does that matter? Imagine a game with so many legal moves that you could spend all afternoon trying different routes. You don't need to test every path. If every move preserves one mathematical fact, that fact can tell you when a target is impossible.",
+    "Here's what we'll do. We'll begin with a puzzle, watch one legal move, and discover what stays the same. We'll then change the rules, work through two examples, and prove why our shortcuts really work. Finally, you'll try an invariant question for yourself.",
+    "Let's begin. One pile has five gold counters. The other has seven blue counters. You may transfer counters between the piles, as often as you like. Could you ever finish with ten counters in each pile?",
     "Before you try dozens of moves, ask a better question. Is there something that no legal move can change?",
     "Watch closely. Move two blue counters to the gold pile. Now there are seven on the left and five on the right. The picture has changed, but the total is still twelve.",
     "Every transfer takes some counters away from one pile and adds exactly that many to the other. Nothing is created. Nothing disappears.",

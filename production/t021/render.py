@@ -10,6 +10,8 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 W,H=1280,720
+INTRO_COUNT=3
+TOTAL_SCENES=21
 INK=(234,244,255); MUTED=(146,163,189); GOLD=(255,192,88); AQUA=(83,220,218); PINK=(249,117,145); VIOLET=(177,156,255); GREEN=(132,233,167)
 BG=(7,16,31); ACCENT=(65,99,150)
 FONT_REG=next((x for x in ['/usr/share/fonts/opentype/inter/Inter-Regular.otf','/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'] if os.path.isfile(x)), None)
@@ -73,7 +75,7 @@ def background():
 def base(sidx,t,whole_progress):
     im=background().copy()
     d=ImageDraw.Draw(im,'RGBA')
-    text(d,42,113,f'CHAPTER 02    •    INSIGHT {sidx+1:02d} / 18',13,AQUA,'bold',anchor='lm')
+    text(d,42,113,f'CHAPTER 02    •    INSIGHT {sidx+1:02d} / {TOTAL_SCENES}',13,AQUA,'bold',anchor='lm')
     d.rounded_rectangle((43,574,1237,578),radius=2,fill=(44,62,88,160))
     d.rounded_rectangle((43,574,43+int(1194*clamp(whole_progress)),578),radius=2,fill=rgba(AQUA,225))
     # decorative active waveform, subtle and never competing with the proof
@@ -138,7 +140,85 @@ def bez(p0,p1,tt,h=95):
 
 def draw_scene(im,d,idx,p,elapsed):
     x1,x2=353,927
-    if idx in (0,1):
+
+    # The learning objective comes before the puzzle. These original animated
+    # scenes establish the idea, why it matters and the shape of the lesson.
+    if idx == 0:
+        heading(d,'Spot what never changes',
+                'The mathematical superpower is called an invariant.',
+                'WHAT WE ARE LEARNING')
+        # The *arrangement* moves while the number of luminous points is fixed.
+        p0=ease((p-.08)/.79)
+        panel(d,(129,277,1151,544),outline=(52,104,121))
+        for k in range(9):
+            angle=2*math.pi*k/9
+            start=(640+math.cos(angle)*228,405+math.sin(angle)*62)
+            finish=(640+math.cos(angle+1.40)*245,405+math.sin(angle+1.40)*70)
+            xx=start[0]+(finish[0]-start[0])*p0
+            yy=start[1]+(finish[1]-start[1])*p0
+            counter(d,xx,yy,(GOLD if k%3==0 else AQUA),235,r=11)
+        text(d,640,388,'WHAT MOVES?',25,MUTED,'bold')
+        if p>.43:
+            q=ease((p-.43)/.40)
+            text(d,640,449,'WHAT STAYS FIXED?',31,GREEN,'bold',opacity=int(255*q))
+            underline(d,462,818,480,GREEN,q)
+        pill(d,640,528,'INVARIANT  =  A QUANTITY THAT NEVER CHANGES',AQUA,w=645)
+        return im
+
+    if idx == 1:
+        heading(d,'Why is this useful?',
+                'Many moves. Many possible routes. One thing worth checking.',
+                'WHY IT MATTERS IN AMC PROBLEMS')
+        panel(d,(107,279,1173,545),outline=(62,91,125))
+        # A branching tree of possible moves becomes visibly complicated.
+        ox,oy=248,414
+        circle(d,ox,oy,37,GOLD,43)
+        circle(d,ox,oy,36,GOLD,230,stroke=True)
+        text(d,ox,oy,'START',17,INK,'bold')
+        for branch,dy in enumerate([-86,0,86]):
+            ex,ey=585,oy+dy
+            f=ease((p-.08-branch*.08)/.55)
+            line(d,[(285,oy),(285+(ex-285)*f,oy+(ey-oy)*f)],MUTED,3,int(180*f))
+            circle(d,ex,ey,23,AQUA,int(185*f),stroke=True)
+            if p>.50:
+                for sub,ddy in enumerate([-22,22]):
+                    tgt=(765,ey+ddy)
+                    line(d,[(608,ey),(608+(tgt[0]-608)*f,ey+(tgt[1]-ey)*f)],(116,133,160),2,int(110*f))
+                    circle(d,*tgt,7,VIOLET,int(195*f))
+        if p>.43:
+            panel(d,(870,352,1114,480),fill=(20,50,62,245),outline=(57,153,143))
+            text(d,992,385,'ONE FACT',24,GREEN,'bold')
+            text(d,992,428,'Rules out a',21,INK,'med')
+            text(d,992,457,'target',21,INK,'med')
+        pill(d,628,528,'INSTEAD OF CHECKING EVERY ROUTE',GOLD,w=425)
+        return im
+
+    if idx == 2:
+        heading(d,'Here is our plan',
+                'From a picture, to a proof, to an idea you can reuse.',
+                'HOW THIS LESSON WILL FLOW')
+        cards=[
+            ('01','THE PUZZLE','Watch one move',GOLD),
+            ('02','THE INVARIANT','Spot what stays',AQUA),
+            ('03','TWO EXAMPLES','Test new rules',VIOLET),
+            ('04','YOUR TURN','Prove it yourself',GREEN)
+        ]
+        for k,(num,title,subtitle,col) in enumerate(cards):
+            x=50+k*305
+            reveal=ease((p-.06-k*.15)/.34)
+            if reveal<=0:continue
+            panel(d,(x,307,x+275,511),outline=(61,96,128))
+            text(d,x+27,347,num,24,col,'bold',anchor='lm',opacity=int(255*reveal))
+            text(d,x+137,401,title,22,INK,'bold',opacity=int(255*reveal))
+            text(d,x+137,455,subtitle,17,MUTED,'med',opacity=int(255*reveal))
+            if k<3:
+                xx=x+278
+                line(d,[(xx,411),(xx+25*reveal,411)],col,4,int(240*reveal))
+        pill(d,640,542,'LOOK FOR WHAT A SINGLE MOVE CANNOT CHANGE',AQUA,w=555)
+        return im
+
+    j=idx-INTRO_COUNT
+    if j in (0,1):
         heading(d,'Can we make 10 + 10?', 'A move may TRANSFER counters; it may not create any.', 'THE PUZZLE')
         panel(d,(145,290,560,551));panel(d,(720,290,1135,551))
         pile(d,x1,5,GOLD,'LEFT PILE',y=397);pile(d,x2,7,AQUA,'RIGHT PILE',y=397)
@@ -342,10 +422,10 @@ def main():
     for s in segments:
         begins.append(total)
         total+=float(s['duration_seconds'])+float(s.get('pause_after',0.0))
-    if len(segments)!=18:raise ValueError('T02.1 must have eighteen narration segments')
+    if len(segments)!=TOTAL_SCENES:raise ValueError(f'T02.1 must have {TOTAL_SCENES} narration segments')
     if args.preview:
         out=Path(args.out);out.mkdir(parents=True,exist_ok=True)
-        for i in range(18):
+        for i in range(TOTAL_SCENES):
             fr=render_frame(i,.72,begins[i]+.72*segments[i]['duration_seconds'],(begins[i]+.7*segments[i]['duration_seconds'])/total)
             fr.convert('RGB').save(out/f'scene-{i+1:02d}.png')
         print(f'Wrote {len(segments)} storyboard frames to {out}')
