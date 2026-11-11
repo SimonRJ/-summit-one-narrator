@@ -41,16 +41,20 @@ function motifSvg(kind){
   if(kind==="number")return `<svg viewBox="0 0 360 210" aria-hidden="true"><path d="M45 120H315"/>${[60,100,140,180,220,260,300].map((x,i)=>`<path class="thin" d="M${x} 108V132"/><text x="${x}" y="155">${i}</text>`).join("")}<circle class="accent-fill" cx="220" cy="120" r="10"/><path class="accent" d="M100 90Q160 35 220 90"/></svg>`;
   return `<svg viewBox="0 0 360 210" aria-hidden="true"><g class="thin"><path d="M75 115L145 55L220 90L290 45M75 115L155 165L220 90L290 155M145 55L155 165"/></g>${[[75,115],[145,55],[155,165],[220,90],[290,45],[290,155]].map(([x,y],i)=>`<circle class="${i===3?"accent-fill":""}" cx="${x}" cy="${y}" r="10"/>`).join("")}</svg>`;
 }
-export function mountNarratedPlayer(host,{title="",transcript="",audioUrl="",cacheKey=""}={}){
+export function mountNarratedPlayer(host,{title="",transcript="",audioUrl="",videoUrl="",cacheKey="",onWatch=null}={}){
   if(!host)return;
   const sentences=splitSentences(transcript);
   const words=String(transcript||"").replace(/\s+/g," ").trim().split(" ").filter(Boolean);
   const kind=motifKind(title+" "+transcript.slice(0,500));
+  const resumeKey="summit-one-media-position:"+String(cacheKey||title);
   host.className="narrated-player";
   host.innerHTML=`
     <div class="np-screen">
-      <div class="np-visual"><div class="np-label">${title}</div>${motifSvg(kind)}</div>
-      <div class="np-caption"><div class="np-sentence"></div><div class="np-glowword" aria-hidden="true"></div></div>
+      <video class="np-video" playsinline preload="metadata" ${videoUrl?`src="${videoUrl}"`:""} ${videoUrl?"":"hidden"}></video>
+      <div class="np-fallback" ${videoUrl?"hidden":""}>
+        <div class="np-visual"><div class="np-label">${title}</div>${motifSvg(kind)}</div>
+        <div class="np-caption"><div class="np-sentence"></div><div class="np-glowword" aria-hidden="true"></div></div>
+      </div>
     </div>
     <div class="np-controls">
       <button class="np-play primary">Play</button><button class="np-replay ghost">Replay</button>
@@ -60,31 +64,74 @@ export function mountNarratedPlayer(host,{title="",transcript="",audioUrl="",cac
     <audio class="np-audio" preload="metadata" ${audioUrl?`src="${audioUrl}"`:""}></audio>
     <details class="np-transcript"><summary>Transcript</summary><p>${transcript}</p></details>
     <div class="np-status"></div>`;
-  const audio=host.querySelector(".np-audio"),play=host.querySelector(".np-play"),replay=host.querySelector(".np-replay"),speed=host.querySelector(".np-speed"),sent=host.querySelector(".np-sentence"),glow=host.querySelector(".np-glowword"),time=host.querySelector(".np-time"),status=host.querySelector(".np-status");
+  const video=host.querySelector(".np-video"),fallback=host.querySelector(".np-fallback"),audio=host.querySelector(".np-audio");
+  const play=host.querySelector(".np-play"),replay=host.querySelector(".np-replay"),speed=host.querySelector(".np-speed");
+  const sent=host.querySelector(".np-sentence"),glow=host.querySelector(".np-glowword"),time=host.querySelector(".np-time"),status=host.querySelector(".np-status");
   const sentenceStarts=[];let k=0;for(const s of sentences){sentenceStarts.push(k);k+=s.trim().split(/\s+/).length}
-  const render=()=>{
-    const dur=Number.isFinite(audio.duration)&&audio.duration>0?audio.duration:Math.max(1,words.length/2.4);
-    const wi=Math.min(words.length-1,Math.floor((audio.currentTime/dur)*words.length));
-    let si=0;for(let i=0;i<sentenceStarts.length;i++){if(sentenceStarts[i]<=wi)si=i;else break}
-    sent.textContent=sentences[si]?.trim()||"";
-    const w=words[wi]||"";glow.innerHTML=[...w].map(ch=>`<span class="np-letter">${ch}</span>`).join("");
-    const m=Math.floor(audio.currentTime/60),s=Math.floor(audio.currentTime%60);time.textContent=`${m}:${String(s).padStart(2,"0")}`;
-    play.textContent=audio.paused?"Play":"Pause";
-  };
-  let localNeeded=!audioUrl,localLoading=false;
+  let media=videoUrl?video:audio,localNeeded=!videoUrl&&!audioUrl,localLoading=false,watchMarked=false,lastPersist=0,resumeApplied=false;
+
+  function activateFallback(message){
+    video.pause();video.hidden=true;fallback.hidden=false;media=audio;
+    if(!audio.src)localNeeded=true;
+    status.textContent=message||"Secure Kokoro narration will be prepared on this device.";
+    render();
+  }
+  function durationOf(){return Number.isFinite(media.duration)&&media.duration>0?media.duration:Math.max(1,words.length/2.4)}
+  function persistPosition(){
+    if(!cacheKey||!Number.isFinite(media.currentTime))return;
+    const d=durationOf();
+    if(d>0&&media.currentTime/d>.92)localStorage.removeItem(resumeKey);
+    else localStorage.setItem(resumeKey,String(media.currentTime));
+  }
+  function applyResume(){
+    if(resumeApplied||!cacheKey)return;resumeApplied=true;
+    const saved=Number(localStorage.getItem(resumeKey)||0),d=durationOf();
+    if(Number.isFinite(saved)&&saved>2&&saved<d-8)media.currentTime=saved;
+  }
+  function render(){
+    const dur=durationOf(),current=Number.isFinite(media.currentTime)?media.currentTime:0;
+    if(media===audio){
+      const wi=words.length?Math.min(words.length-1,Math.floor((current/dur)*words.length)):0;
+      let si=0;for(let i=0;i<sentenceStarts.length;i++){if(sentenceStarts[i]<=wi)si=i;else break}
+      sent.textContent=sentences[si]?.trim()||"";
+      const w=words[wi]||"";glow.innerHTML=[...w].map(ch=>`<span class="np-letter">${ch}</span>`).join("");
+    }
+    const m=Math.floor(current/60),s=Math.floor(current%60);time.textContent=`${m}:${String(s).padStart(2,"0")}`;
+    play.textContent=media.paused?"Play":"Pause";
+    if(!watchMarked&&dur>0&&current/dur>=.8){
+      watchMarked=true;
+      try{onWatch?.({completed_80_percent:true,position_seconds:Number(current.toFixed(1)),duration_seconds:Number(dur.toFixed(1)),media_mode:media===video?"finished_video":"kokoro_fallback"})}catch{}
+    }
+    if(current-lastPersist>=5){lastPersist=current;persistPosition()}
+  }
   async function ensureAudio(){
-    if(!localNeeded&&audio.src)return;
+    if(media===video&&video.src)return;
+    if(!localNeeded&&audio.src){media=audio;return}
     if(localLoading)return;
     localLoading=true;play.disabled=true;replay.disabled=true;
-    try{const blob=await synthesizeLocal(transcript,cacheKey||title+"|"+transcript.length,status);audio.src=URL.createObjectURL(blob);audio.load();localNeeded=false;status.textContent="Secure narration cached on this device.";}
-    catch(e){status.textContent="Narration could not be prepared: "+e.message;throw e}
+    try{
+      const blob=await synthesizeLocal(transcript,cacheKey||title+"|"+transcript.length,status);
+      audio.src=URL.createObjectURL(blob);audio.load();media=audio;localNeeded=false;
+      status.textContent="Secure Kokoro narration cached on this device.";
+    }catch(e){status.textContent="Narration could not be prepared: "+e.message;throw e}
     finally{localLoading=false;play.disabled=false;replay.disabled=false}
   }
-  play.onclick=async()=>{try{await ensureAudio();audio.paused?await audio.play():audio.pause()}catch{}};
-  replay.onclick=async()=>{try{await ensureAudio();audio.currentTime=0;await audio.play()}catch{}};
-  speed.onchange=()=>audio.playbackRate=Number(speed.value);
-  audio.addEventListener("timeupdate",render);audio.addEventListener("loadedmetadata",render);audio.addEventListener("play",render);audio.addEventListener("pause",render);
-  audio.addEventListener("error",()=>{localNeeded=true;audio.removeAttribute("src");audio.load();status.textContent="Public narration unavailable; secure on-device narration will be prepared when you press Play.";play.disabled=false;replay.disabled=false});
-  if(localNeeded)status.textContent="Press Play to prepare secure narration on this device.";
+  async function ensureMedia(){
+    if(media===video&&video.src)return;
+    await ensureAudio();
+  }
+  play.onclick=async()=>{try{await ensureMedia();media.paused?await media.play():media.pause()}catch{}};
+  replay.onclick=async()=>{try{await ensureMedia();media.currentTime=0;await media.play()}catch{}};
+  speed.onchange=()=>{const v=Number(speed.value);video.playbackRate=v;audio.playbackRate=v};
+  for(const el of [video,audio]){
+    el.addEventListener("timeupdate",render);
+    el.addEventListener("loadedmetadata",()=>{if(el===media){applyResume();render()}});
+    el.addEventListener("play",render);el.addEventListener("pause",()=>{persistPosition();render()});
+    el.addEventListener("ended",()=>{localStorage.removeItem(resumeKey);render()});
+  }
+  video.addEventListener("error",()=>activateFallback("Finished lesson video is not available yet. Using the secure Kokoro fallback."));
+  audio.addEventListener("error",()=>{if(media!==audio)return;localNeeded=true;audio.removeAttribute("src");audio.load();status.textContent="Audio asset unavailable; press Play to prepare secure Kokoro narration on this device.";play.disabled=false;replay.disabled=false});
+  if(videoUrl)status.textContent="Finished lesson video.";
+  else status.textContent=audioUrl?"Narrated lesson audio.":"Press Play to prepare secure Kokoro narration on this device.";
   render();
 }
