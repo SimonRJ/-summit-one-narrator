@@ -1,3 +1,5 @@
+
+if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));}
 import { supabase, currentUser, loadProgress, saveProgress, upsertSession } from "./supabase-client.js";
 
 const app=document.getElementById("examApp");
