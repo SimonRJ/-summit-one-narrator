@@ -19,7 +19,7 @@ function correctFor(q:any,response:any){
     return norm(response)===norm(expected);
   }
   const expected=typeof ans==="object"&&ans!==null?(ans.value ?? ans.answer ?? ""):ans;
-  return norm(response)===norm(expected);
+  return /^\d{1,3}$/.test(String(response).trim())&&Number(response)===Number(expected);
 }
 function explicitStars(q:any){
   const raw=q?.metadata?.stars ?? q?.metadata?.star_rating ?? q?.metadata?.difficulty_stars;

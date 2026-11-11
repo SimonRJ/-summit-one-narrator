@@ -1,11 +1,11 @@
-const CACHE="summit-one-studio-t022-v1";
-const STATIC=["./","./index.html","./main.css?v=3","./app-main.js?v=studio-t022-v1","./lesson-player.js","./problem-figures.js","./login.html","./login.js","./supabase-client.js","./tests.html","./tests.js?v=3","./exam.css?v=2","./manifest.webmanifest","./icon.svg","./robots.txt","./data/sessions-372.json","./data/teaching-72.json","./data/mawa-investigations-20.json","./data/rossmoyne-h23.json","./data/taxonomy-52.json","./data/amc-awards.json","./data/milestones.json"];
+const CACHE="summit-one-teaching-20261112";
+const STATIC=["./","./index.html","./main.css?v=teaching-20261112","./app-main.js?v=teaching-20261112","./lesson-player.js","./curriculum.js","./learning-ui.js","./problem-figures.js","./login.html","./login.js","./supabase-client.js","./tests.html","./tests.js?v=teaching-20261112","./exam.css?v=2","./manifest.webmanifest","./icon.svg","./robots.txt","./data/sessions-372.json","./data/teaching-72.json","./data/mawa-investigations-20.json","./data/rossmoyne-h23.json","./data/taxonomy-52.json","./data/amc-awards.json","./data/milestones.json"];
 self.addEventListener("install",e=>{self.skipWaiting();e.waitUntil(caches.open(CACHE).then(c=>c.addAll(STATIC).catch(()=>{})))});
 self.addEventListener("activate",e=>e.waitUntil(Promise.all([caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))),self.clients.claim()])));
 self.addEventListener("fetch",e=>{
   if(e.request.method!=="GET")return;
   const u=new URL(e.request.url);
-  if(u.origin!==location.origin)return;
+  if(u.origin!==location.origin||u.pathname.includes("/media/"))return;
   const isPage=e.request.mode==="navigate"||u.pathname.endsWith(".html")||u.pathname.endsWith("/");
   if(isPage){
     e.respondWith(fetch(e.request).then(r=>{const copy=r.clone();caches.open(CACHE).then(c=>c.put(e.request,copy));return r}).catch(()=>caches.match(e.request)));

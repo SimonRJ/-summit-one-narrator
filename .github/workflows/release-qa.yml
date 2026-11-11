@@ -5,7 +5,7 @@ name: Summit One release QA
 on:
   workflow_dispatch:
   push:
-    branches: [main]
+    branches: [main, draft/teaching-audit-2026-11-11]
     paths:
       - "*.js"
       - "*.html"
@@ -74,7 +74,7 @@ jobs:
           grep -q 'let attemptedProblemIds=new Set()' app-main.js
           grep -Fq 'Only concept/worked-example T videos are public. Every challenge solution is attempt-gated.' app-main.js
           grep -q 'independent_credit:false' app-main.js
-          grep -q 'videoUrl:d.video_url||finalVideoUrl(p.id)' app-main.js
+          grep -Fq 'd.video_url||finalVideoUrl(p.id)' app-main.js
           grep -q 'completed_80_percent:true' lesson-player.js
           grep -q 'finished_video' lesson-player.js
           grep -q 'kokoro_fallback' lesson-player.js
@@ -88,3 +88,4 @@ jobs:
           grep -q 'public_contains_challenge' postproduction/prepare_media_release.py
           grep -q 'PROTECTED_VIDEO_BUCKET' postproduction/upload_protected_media.mjs
           echo "Post-production tooling syntax and media split checks passed."
+

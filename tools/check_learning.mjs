@@ -1,0 +1,27 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import vm from 'node:vm';
+import {stripTypeScriptTypes} from 'node:module';
+import {methods,exercise,checkAnswer,recallState,skillFor} from '../curriculum.js';
+const taxonomy=JSON.parse(fs.readFileSync(new URL('../data/taxonomy-52.json',import.meta.url)));
+const sessions=JSON.parse(fs.readFileSync(new URL('../data/sessions-372.json',import.meta.url))).sessions;
+assert.equal(Object.keys(methods).length,52);
+for(const id of Object.keys(methods))for(let seed=0;seed<7;seed++){
+ const q=exercise(id,seed);assert(q.prompt&&q.reason);assert(checkAnswer(q.value,String(q.value)),id);assert(!checkAnswer(q.value,'I think '+q.value),id);
+}
+assert.equal(new Set(sessions.filter(s=>s.slot<=104).map(s=>skillFor(s,taxonomy)).filter(Boolean)).size,52);
+for(let k=7;k<=371;k+=7)assert.equal(sessions[k-1].type,'MAWA');
+assert(checkAnswer('1/2','2/4'));assert(!checkAnswer('1/2','1/0'));assert(!checkAnswer(12,'12 or 13'));
+const rec=(session,seed,independent=true,correct=true,expected=String(seed))=>({session_number:session,evidence:{a:{kind:'retrieval',skill_id:'ALG-01',seed,question_id:'q'+seed,expected,correct,independent}}});
+assert(!recallState([rec(1,2),rec(3,3)],'ALG-01').retained);
+assert(!recallState([rec(1,2),rec(5,3,false)],'ALG-01').retained);
+assert(!recallState([rec(1,2,true,true,'5'),rec(5,3,true,true,'5')],'ALG-01').retained);
+assert(recallState([rec(1,2),rec(5,3)],'ALG-01').retained);
+assert(!recallState([rec(1,2),rec(5,3),rec(8,4,true,false)],'ALG-01').retained);
+const loadBackend=name=>{
+ let source=fs.readFileSync(new URL('../supabase/functions/'+name+'/index.ts',import.meta.url),'utf8').replace(/^import .*;\n/m,'').replace(/export /g,'');
+ source=stripTypeScriptTypes(source);const ctx={Deno:{env:{get:()=>''},serve:()=>{}},Response,console};vm.createContext(ctx);vm.runInContext(source,ctx);return ctx;
+};
+const attempt=loadBackend('submit-problem-attempt');assert.equal(attempt.grade(12,'12'),true);assert.equal(attempt.grade(12,'120'),false);assert.equal(attempt.grade(12,'12 or 15'),null);assert.equal(attempt.grade('1/2','2/4'),true);assert.equal(attempt.grade('a long proof answer','12'),null);
+const exam=loadBackend('grade-exam');assert(exam.correctFor({question_type:'integer',answer:'12'},'012'));assert(!exam.correctFor({question_type:'integer',answer:'12'},'12abc'));assert.equal(exam.awardFor(83,{max_score:135},{metadata:{student_year:5}}).label,'High Distinction');assert.equal(exam.awardFor(83,{max_score:135},{metadata:{student_year:6}}).label,'Distinction');
+console.log('PASS: 364 exercise variants; 52-technique coverage; 53 seventh-session investigations; delayed evidence, strict answers and exam grading.');

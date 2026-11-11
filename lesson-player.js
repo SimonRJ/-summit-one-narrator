@@ -13,6 +13,8 @@ function chunks(text,max=82){const sentences=String(text||"").trim().replace(/\s
 function concatFloat(arrays,rate){const pauses=arrays.map((_,i)=>i===arrays.length-1?0:Math.floor(rate*(.15+.06*(i%3))));const n=arrays.reduce((s,a,i)=>s+a.length+pauses[i],0),out=new Float32Array(n);let p=0;arrays.forEach((a,i)=>{out.set(a,p);p+=a.length+pauses[i]});return out;}
 function wavBlob(samples,rate=24000){const b=new ArrayBuffer(44+samples.length*2),v=new DataView(b);const w=(o,s)=>{for(let i=0;i<s.length;i++)v.setUint8(o+i,s.charCodeAt(i))};w(0,"RIFF");v.setUint32(4,36+samples.length*2,true);w(8,"WAVE");w(12,"fmt ");v.setUint32(16,16,true);v.setUint16(20,1,true);v.setUint16(22,1,true);v.setUint32(24,rate,true);v.setUint32(28,rate*2,true);v.setUint16(32,2,true);v.setUint16(34,16,true);w(36,"data");v.setUint32(40,samples.length*2,true);let o=44;for(const x0 of samples){const x=Math.max(-1,Math.min(1,x0));v.setInt16(o,Math.round(x<0?x*32768:x*32767),true);o+=2}return new Blob([b],{type:"audio/wav"});}
 async function synthesizeLocal(text,key,status){
+  const digest=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(LOCAL_VOICE+"|"+LOCAL_SPEED+"|"+text));
+  key=key+"|"+Array.from(new Uint8Array(digest),b=>b.toString(16).padStart(2,"0")).join("");
   const cached=await cachedAudio(key);if(cached)return cached;
   status.textContent="Preparing secure narration on this device…";
   const tts=await localTts(),parts=[];let rate=24000;

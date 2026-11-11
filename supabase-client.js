@@ -76,6 +76,7 @@ export function upsertSession(session) {
  sessionQueue=task;return task;
 }
 async function writeSession(session) {
+ try{
  window.dispatchEvent(new CustomEvent("summit-save",{detail:"Saving…"}));
   const user = await currentUser();
   if (!user) throw new Error("Not signed in.");
@@ -88,6 +89,7 @@ async function writeSession(session) {
   if (error) {window.dispatchEvent(new CustomEvent("summit-save",{detail:"Not saved — reconnect and retry"}));throw error;}
   window.dispatchEvent(new CustomEvent("summit-save",{detail:"Saved to cloud"}));
   return data;
+ }catch(error){window.dispatchEvent(new CustomEvent("summit-save",{detail:"Not saved — reconnect and retry"}));throw error;}
 }
 
 export async function recordAttempt(attempt) {

@@ -12,6 +12,18 @@ let course=[], teaching=[], mawa=[], rossMap=[], taxonomy=null, milestones=null,
 let currentProblems=[], currentMawa=null, sessionDraft={answers:{},working:{},evidence:{},summary:{}};
 let attemptedProblemIds=new Set();
 let completedRecords=[],attemptHistory=[],recentExams=[];
+let editingSession=null,autosaveTimer=null,draftDirty=false;
+const draftKey=s=>`summit-draft:${user.id}:${s.slot}`;
+function rememberDraft(){
+ if(!editingSession)return;
+ draftDirty=true;saveStatus="Changes saved on this device; syncing…";refreshSyncIndicator();
+ localStorage.setItem(draftKey(editingSession),JSON.stringify({updated_at:new Date().toISOString(),draft:sessionDraft}));
+ clearTimeout(autosaveTimer);const session=editingSession;
+ autosaveTimer=setTimeout(()=>saveDraft(session).catch(()=>{}),700);
+}
+document.addEventListener('input',()=>{if(editingSession&&document.querySelector('.session-page'))rememberDraft()});
+window.addEventListener('beforeunload',e=>{if(draftDirty){e.preventDefault();e.returnValue=''}});
+
 
 const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
 const pct=n=>Math.max(0,Math.min(100,Number(n)||0));
@@ -87,7 +99,7 @@ function chooseProblems(session){
   const words=problemKeywords(session.focus),last=attemptHistory.filter(x=>x.independent_credit!==null).slice(-8);
   const success=last.filter(x=>x.independent_credit).length/Math.max(1,last.length);
   const target=last.length>=4?(success>=.75?4:success<.4?2:3):(session.slot<25?2:3);
-  const ranked=problemIndex.map(p=>{const hay=(p.title+" "+p.prompt+" "+p.category).toLowerCase();return {...p,_score:(categories[cat]?.includes(p.category)?30:0)+words.reduce((n,w)=>n+(hay.includes(w)?2:0),0)-Math.abs(Number(p.difficulty||3)-target)*2,_used:attemptedProblemIds.has(p.id),_tie:hash(session.slot+"|"+p.id)}}).sort((a,b)=>Number(a._used)-Number(b._used)||b._score-a._score||a._tie-b._tie);
+  const ranked=problemIndex.map(p=>{const hay=(p.title+" "+p.prompt+" "+p.category).toLowerCase();return {...p,_score:(categories[cat]?.includes(p.category)?30:0)+words.reduce((n,w)=>n+(hay.includes(w)?2:0),0)-Math.abs(Number(p.difficulty||3)-target)*2,_used:attemptedProblemIds.has(p.id),_tie:hash(session.slot+"|"+p.id)}}).sort((a,b)=>(b._score-(b._used?8:0))-(a._score-(a._used?8:0))||a._tie-b._tie);
   return ranked.slice(0,2);
 }
 function teachingFor(session){
@@ -95,13 +107,16 @@ function teachingFor(session){
  return m?teaching.filter(t=>t.id===m.video):[];
 }
 async function saveDraft(s){
+ clearTimeout(autosaveTimer);const snapshot=JSON.stringify(sessionDraft);
+ localStorage.setItem(draftKey(s),JSON.stringify({updated_at:new Date().toISOString(),draft:sessionDraft}));
  await upsertSession({session_number:s.slot,session_key:`S${String(s.slot).padStart(3,"0")}`,answers:sessionDraft.answers,working:sessionDraft.working,evidence:sessionDraft.evidence,summary:sessionDraft.summary});
+ if(JSON.stringify(sessionDraft)===snapshot){draftDirty=false;localStorage.removeItem(draftKey(s));}
 }
 async function refreshEvidence(){
  const [{data,error},{data:exams,error:ee}]=await Promise.all([
   supabase.from("session_records").select("session_number,completed_at,summary,answers,working,evidence").eq("user_id",user.id).not("completed_at","is",null).order("session_number"),
   supabase.from("exam_sittings").select("id,exam_id,score,max_score,submitted_at,metadata").eq("user_id",user.id).eq("completed",true).order("submitted_at",{ascending:false}).limit(30)
- ]);if(error||ee)throw error||ee;completedRecords=data||[];recentExams=exams||[];
+ ]);if(error||ee)throw error||ee;completedRecords=(data||[]).map(r=>({...r,summary:{...r.summary,skill_id:r.summary?.skill_id||skillFor(course[r.session_number-1]||{},taxonomy)}}));recentExams=exams||[];
 }
 async function renderRoadmap(){await refreshEvidence();app.innerHTML=readinessHTML({records:completedRecords,taxonomy,progress,milestones,exams:recentExams});}
 async function boot(){
@@ -124,7 +139,7 @@ async function boot(){
   }catch(e){app.innerHTML='<section class="panel hero-panel"><h1>Unable to load Summit One</h1><p class="muted">'+esc(e.message)+'</p></section>'}
 }
 function wireNav(){
-  document.querySelectorAll("[data-view]").forEach(b=>b.onclick=()=>{document.querySelectorAll(".nav-btn").forEach(x=>x.classList.remove("active"));b.classList.add("active");activeView=b.dataset.view;if(activeView==="home")renderHome();if(activeView==="review")renderReview();if(activeView==="profile")renderProfile();if(activeView==="roadmap")renderRoadmap().catch(e=>alert(e.message))})
+  document.querySelectorAll("[data-view]").forEach(b=>b.onclick=async()=>{if(editingSession){try{await saveDraft(editingSession);editingSession=null}catch(e){alert("Please retry saving before leaving: "+e.message);return}}document.querySelectorAll(".nav-btn").forEach(x=>x.classList.remove("active"));b.classList.add("active");activeView=b.dataset.view;if(activeView==="home")renderHome();if(activeView==="review")renderReview();if(activeView==="profile")renderProfile();if(activeView==="roadmap")renderRoadmap().catch(e=>alert(e.message))})
 }
 function renderHome(){
   const s=courseSession(),done=progress.completed_sessions||0,amc=nextSlot("AMC MOCK"),mawa=nextSlot("MAWA");
@@ -164,6 +179,9 @@ async function startSession(s){
   const {data:existing,error}=await supabase.from("session_records").select("*").eq("user_id",user.id).eq("session_number",s.slot).maybeSingle();if(error)throw error;
   if(existing?.immutable){await refreshEvidence();renderReview();return}
   sessionDraft={answers:existing?.answers||{},working:existing?.working||{},evidence:existing?.evidence||{},summary:existing?.summary||{}};
+  const local=JSON.parse(localStorage.getItem(draftKey(s))||'null');
+  if(local?.draft&&(!existing?.updated_at||local.updated_at>existing.updated_at))sessionDraft=local.draft;
+  editingSession=s;
   const pinned=sessionDraft.summary.problems||Object.keys(sessionDraft.answers).filter(id=>problemIndex.some(p=>p.id===id));
   currentProblems=pinned.map(id=>problemIndex.find(p=>p.id===id)).filter(Boolean);
   for(const p of chooseProblems(s))if(currentProblems.length<2&&!currentProblems.some(x=>x.id===p.id))currentProblems.push(p);
@@ -217,10 +235,11 @@ function renderMawaSession(s){
   const back=document.getElementById("backStage");if(back)back.onclick=()=>{activeStage=Math.max(0,activeStage-1);renderMawaSession(s)};
 }
 async function completeSpecialSession(s){
+ clearTimeout(autosaveTimer);
   await upsertSession({session_number:s.slot,session_key:`S${String(s.slot).padStart(3,"0")}`,completed_at:new Date().toISOString(),immutable:true,answers:sessionDraft.answers,working:sessionDraft.working,evidence:sessionDraft.evidence,summary:sessionDraft.summary});
   const done=Math.max(progress.completed_sessions||0,s.slot),p=done/372*100,r=Math.max(Number(progress.rank||0),Math.max(0,Math.min(20,Math.floor(done*20/372))));
   progress=await saveProgress({completed_sessions:done,current_session:Math.min(372,done+1),xp:done*100,rank:r,overall_percent:Number(p.toFixed(2)),next_practice_exam_in:(course.find(x=>x.slot>done&&(x.type==="AMC MOCK"||x.type==="ROSSMOYNE MOCK"))?.slot??done)-done});
-  await refreshEvidence();renderHome();
+  localStorage.removeItem(draftKey(s));editingSession=null;draftDirty=false;await refreshEvidence();renderHome();
 }
 
 function renderSession(s){
@@ -232,7 +251,7 @@ function renderSession(s){
     </nav>
     <section id="stage" class="panel stage"></section>
   </section>`;
-  document.querySelectorAll("[data-stage]").forEach(b=>b.onclick=()=>{activeStage=Number(b.dataset.stage);renderSession(s)});
+  document.querySelectorAll("[data-stage]").forEach(b=>b.onclick=async()=>{try{await saveDraft(s);activeStage=Number(b.dataset.stage);renderSession(s)}catch(e){alert("Your work is still here. Could not save: "+e.message)}});
   const target=document.getElementById("stage");
   if(activeStage===0)renderRemember(target,s);
   if(activeStage===1)renderDiscover(target,s);
@@ -283,6 +302,7 @@ function renderChallenge(el,s,p,mode){
       if(graded?.error)throw new Error(graded.error);
       const correct=graded?.correct??null;
       attemptedProblemIds.add(p.id);
+      attemptHistory.push({problem_id:p.id,is_correct:correct,independent_credit:graded?.independent_credit===true,created_at:new Date().toISOString()});
       sessionDraft.answers[p.id]={response,correct,independent_credit:graded?.independent_credit===true,attempted_at:new Date().toISOString()};
       await upsertSession({session_number:s.slot,session_key:`S${String(s.slot).padStart(3,"0")}`,answers:sessionDraft.answers,working:sessionDraft.working,evidence:sessionDraft.evidence,summary:sessionDraft.summary});
       box.disabled=true;submit.hidden=true;reveal.hidden=false;feedback.textContent=correct===true?(graded?.independent_credit?"Correct on a fresh independent attempt.":"Correct — recorded as practice, since this problem has been seen before."):correct===false?"Attempt recorded. Now compare methods and find the exact point to improve.":"Attempt recorded. Compare the proof/reasoning rather than relying on exact text matching.";
@@ -301,7 +321,7 @@ function renderChallenge(el,s,p,mode){
         title:p.title||p.id,
         transcript,
         audioUrl:protectedAudio,
-        videoUrl:d.video_url||finalVideoUrl(p.id),
+        videoUrl:["K001","K007","K015","K022"].includes(p.id)?"":d.video_url||finalVideoUrl(p.id),
         cacheKey:p.id,
         onWatch:detail=>recordVideoEvidence(s.slot,p.id,"challenge_solution",detail)
       });
@@ -320,18 +340,20 @@ function renderCheck(el,s){
   <label class="answer-label">What will you watch for next time?<textarea id="watch" class="answer-box" placeholder="A mistake I want to avoid is…">${esc(sessionDraft.summary.watch||"")}</textarea></label></div>
   <div class="complete-row"><span class="muted">${attempted}/2 challenge attempts recorded.</span><button id="completeSession" class="primary" ${attempted<2?"disabled":""}>Complete and lock Session ${s.slot}</button></div>`;
   const sid=skillFor(s,taxonomy);if(sid)mountCheck(el.querySelector("#exitCheck"),{id:sid,slot:s.slot,records:completedRecords,draft:sessionDraft,save:()=>saveDraft(s)});
+  document.getElementById("takeaway").oninput=e=>{sessionDraft.summary.takeaway=e.target.value};
+  document.getElementById("watch").oninput=e=>{sessionDraft.summary.watch=e.target.value};
   document.getElementById("completeSession").onclick=async()=>{
     if(sid&&!sessionDraft.evidence["retrieval:"+sid]){alert("Try the short exit check first. Use a hint if needed.");return}
     if((sessionDraft.summary.retrieval_ids||[]).some(id=>!sessionDraft.evidence["retrieval:"+id])){alert("Finish the due Remember checks first.");return}
     const take=document.getElementById("takeaway").value.trim(),watch=document.getElementById("watch").value.trim();
     if(!take||!watch){alert("Write both short reflections before completing the session.");return}
-    const btn=document.getElementById("completeSession");btn.disabled=true;btn.textContent="Locking session…";
+    clearTimeout(autosaveTimer);const btn=document.getElementById("completeSession");btn.disabled=true;btn.textContent="Locking session…";
     try{
       sessionDraft.summary={...sessionDraft.summary,takeaway:take,watch,focus:s.focus,type:s.type,phase:s.phase,problems:currentProblems.map(x=>x.id)};
       await upsertSession({session_number:s.slot,session_key:`S${String(s.slot).padStart(3,"0")}`,completed_at:new Date().toISOString(),immutable:true,answers:sessionDraft.answers,working:sessionDraft.working,evidence:sessionDraft.evidence,summary:sessionDraft.summary});
       const done=Math.max(progress.completed_sessions||0,s.slot),p=done/372*100,r=Math.max(Number(progress.rank||0),Math.max(0,Math.min(20,Math.floor(done*20/372))));
       progress=await saveProgress({completed_sessions:done,current_session:Math.min(372,done+1),xp:done*100,rank:r,overall_percent:Number(p.toFixed(2)),next_practice_exam_in:(course.find(x=>x.slot>done&&x.type==="AMC MOCK")?.slot??done)-done});
-      await refreshEvidence();renderHome();
+      localStorage.removeItem(draftKey(s));editingSession=null;draftDirty=false;await refreshEvidence();renderHome();
     }catch(e){alert(e.message);btn.disabled=false;btn.textContent=`Complete and lock Session ${s.slot}`}
   };
 }
@@ -352,7 +374,7 @@ async function exportProgressBackup(){
   const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="Summit-One-progress-"+new Date().toISOString().slice(0,10)+".json";document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1000);
 }
 async function renderProfile(){
-  activeView="profile";const r=currentRank();
+  activeView="profile";await refreshEvidence();const r=currentRank();
   const done=progress.completed_sessions||0,currentXp=progress.xp??done*100;
   const nextRankSession=r>=20?null:Math.ceil(372*(r+1)/20);
   const nextRankXp=nextRankSession===null?0:Math.max(0,nextRankSession*100-currentXp);
