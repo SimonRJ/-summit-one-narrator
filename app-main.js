@@ -108,7 +108,7 @@ async function boot(){
     const {data:attemptRows,error:attemptError}=await supabase.from("problem_attempts").select("problem_id").eq("user_id",user.id).not("answer_text","is",null);
     if(attemptError)throw attemptError; attemptedProblemIds=new Set((attemptRows||[]).map(x=>x.problem_id));
     progress=await loadProgress();
-    if(!progress)progress=await saveProgress({current_session:0,completed_sessions:0,xp:0,rank:1,overall_percent:0,state:{}});
+    if(!progress)progress=await saveProgress({current_session:0,completed_sessions:0,xp:0,rank:0,overall_percent:0,state:{}});
     wireNav(); renderHome();
   }catch(e){app.innerHTML='<section class="panel hero-panel"><h1>Unable to load Summit One</h1><p class="muted">'+esc(e.message)+'</p></section>'}
 }
