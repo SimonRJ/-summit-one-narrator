@@ -1,0 +1,39 @@
+name: Kokoro male voice samples
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "narration/generate-voice-samples.mjs"
+      - ".github/workflows/kokoro-voice-samples.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  samples:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        voice: [am_michael, bm_george, am_fenrir]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: npm install --prefix narration --no-audit --no-fund
+      - name: Generate sample
+        env:
+          VOICE: ${{ matrix.voice }}
+          SPEED: "0.88"
+          OUT_FILE: voice-sample-${{ matrix.voice }}.wav
+          HF_HOME: ${{ runner.temp }}/hf-cache
+        run: node narration/generate-voice-samples.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: voice-sample-${{ matrix.voice }}
+          path: voice-sample-${{ matrix.voice }}.wav
+          retention-days: 7
+          compression-level: 0
