@@ -1,784 +1,994 @@
 {
   "words": [
     {
-      "text": "Five",
+      "text": "Xian",
       "segment": 1,
       "start": 0,
-      "end": 0.4,
+      "end": 0.44,
+      "aligned": false
+    },
+    {
+      "text": "fills",
+      "segment": 1,
+      "start": 0.44,
+      "end": 0.82,
+      "aligned": true
+    },
+    {
+      "text": "this",
+      "segment": 1,
+      "start": 0.82,
+      "end": 1.18,
+      "aligned": true
+    },
+    {
+      "text": "grid",
+      "segment": 1,
+      "start": 1.18,
+      "end": 1.42,
+      "aligned": true
+    },
+    {
+      "text": "with",
+      "segment": 1,
+      "start": 1.42,
+      "end": 1.72,
       "aligned": true
     },
     {
       "text": "numbers.",
       "segment": 1,
-      "start": 0.4,
-      "end": 0.62,
+      "start": 1.72,
+      "end": 2.04,
       "aligned": true
     },
     {
-      "text": "One",
+      "text": "He",
       "segment": 1,
-      "start": 1.42,
-      "end": 1.54,
+      "start": 3.0,
+      "end": 3.06,
       "aligned": true
     },
     {
-      "text": "pyramid.",
+      "text": "places",
       "segment": 1,
-      "start": 1.54,
-      "end": 1.74,
-      "aligned": true
-    },
-    {
-      "text": "How",
-      "segment": 1,
-      "start": 2.54,
-      "end": 2.8,
-      "aligned": true
-    },
-    {
-      "text": "large",
-      "segment": 1,
-      "start": 2.8,
-      "end": 3.14,
-      "aligned": true
-    },
-    {
-      "text": "can",
-      "segment": 1,
-      "start": 3.14,
-      "end": 3.38,
-      "aligned": true
-    },
-    {
-      "text": "we",
-      "segment": 1,
-      "start": 3.38,
-      "end": 3.5,
-      "aligned": true
-    },
-    {
-      "text": "make",
-      "segment": 1,
-      "start": 3.5,
-      "end": 3.66,
+      "start": 3.06,
+      "end": 3.34,
       "aligned": true
     },
     {
       "text": "the",
       "segment": 1,
-      "start": 3.66,
-      "end": 3.78,
+      "start": 3.34,
+      "end": 3.58,
       "aligned": true
     },
     {
-      "text": "top?",
+      "text": "numbers",
       "segment": 1,
-      "start": 3.78,
-      "end": 4.04,
+      "start": 3.58,
+      "end": 3.86,
       "aligned": true
     },
     {
-      "text": "Place",
-      "segment": 2,
-      "start": 4.996,
-      "end": 5.216,
+      "text": "from",
+      "segment": 1,
+      "start": 3.86,
+      "end": 4.18,
       "aligned": true
     },
     {
       "text": "one",
-      "segment": 2,
-      "start": 5.216,
-      "end": 5.516,
+      "segment": 1,
+      "start": 4.18,
+      "end": 4.42,
       "aligned": true
     },
     {
       "text": "to",
-      "segment": 2,
-      "start": 5.516,
-      "end": 5.676,
+      "segment": 1,
+      "start": 4.42,
+      "end": 4.58,
       "aligned": true
     },
     {
       "text": "five",
-      "segment": 2,
-      "start": 5.676,
-      "end": 5.996,
+      "segment": 1,
+      "start": 4.58,
+      "end": 4.98,
       "aligned": true
     },
     {
-      "text": "along",
-      "segment": 2,
-      "start": 5.996,
-      "end": 6.496,
-      "aligned": true
-    },
-    {
-      "text": "the",
-      "segment": 2,
-      "start": 6.496,
-      "end": 6.736000000000001,
-      "aligned": true
-    },
-    {
-      "text": "bottom.",
-      "segment": 2,
-      "start": 6.736000000000001,
-      "end": 7.056000000000001,
-      "aligned": true
-    },
-    {
-      "text": "Each",
-      "segment": 2,
-      "start": 7.896000000000001,
-      "end": 7.996,
-      "aligned": true
-    },
-    {
-      "text": "box",
-      "segment": 2,
-      "start": 7.996,
-      "end": 8.336,
-      "aligned": true
-    },
-    {
-      "text": "adds",
-      "segment": 2,
-      "start": 8.336,
-      "end": 8.816,
+      "text": "in",
+      "segment": 1,
+      "start": 4.98,
+      "end": 5.18,
       "aligned": true
     },
     {
       "text": "the",
-      "segment": 2,
-      "start": 8.816,
-      "end": 9.036000000000001,
+      "segment": 1,
+      "start": 5.18,
+      "end": 5.26,
+      "aligned": true
+    },
+    {
+      "text": "five",
+      "segment": 1,
+      "start": 5.26,
+      "end": 5.58,
+      "aligned": true
+    },
+    {
+      "text": "squares",
+      "segment": 1,
+      "start": 5.58,
+      "end": 5.86,
+      "aligned": true
+    },
+    {
+      "text": "in",
+      "segment": 1,
+      "start": 5.86,
+      "end": 6.3,
+      "aligned": true
+    },
+    {
+      "text": "the",
+      "segment": 1,
+      "start": 6.3,
+      "end": 6.4,
+      "aligned": true
+    },
+    {
+      "text": "bottom",
+      "segment": 1,
+      "start": 6.4,
+      "end": 6.72,
+      "aligned": true
+    },
+    {
+      "text": "row,",
+      "segment": 1,
+      "start": 6.72,
+      "end": 7.0,
+      "aligned": true
+    },
+    {
+      "text": "in",
+      "segment": 1,
+      "start": 7.0,
+      "end": 7.64,
+      "aligned": true
+    },
+    {
+      "text": "some",
+      "segment": 1,
+      "start": 7.64,
+      "end": 7.84,
+      "aligned": true
+    },
+    {
+      "text": "order.",
+      "segment": 1,
+      "start": 7.84,
+      "end": 8.16,
+      "aligned": true
+    },
+    {
+      "text": "In",
+      "segment": 1,
+      "start": 9.12,
+      "end": 9.2,
+      "aligned": true
+    },
+    {
+      "text": "the",
+      "segment": 1,
+      "start": 9.2,
+      "end": 9.3,
+      "aligned": true
+    },
+    {
+      "text": "next",
+      "segment": 1,
+      "start": 9.3,
+      "end": 9.48,
+      "aligned": true
+    },
+    {
+      "text": "two",
+      "segment": 1,
+      "start": 9.48,
+      "end": 9.8,
+      "aligned": true
+    },
+    {
+      "text": "rows,",
+      "segment": 1,
+      "start": 9.8,
+      "end": 10.12,
+      "aligned": true
+    },
+    {
+      "text": "each",
+      "segment": 1,
+      "start": 10.7,
+      "end": 10.92,
+      "aligned": true
+    },
+    {
+      "text": "square",
+      "segment": 1,
+      "start": 10.92,
+      "end": 11.24,
+      "aligned": true
+    },
+    {
+      "text": "contains",
+      "segment": 1,
+      "start": 11.24,
+      "end": 11.64,
+      "aligned": true
+    },
+    {
+      "text": "the",
+      "segment": 1,
+      "start": 11.64,
+      "end": 12.02,
+      "aligned": true
+    },
+    {
+      "text": "sum",
+      "segment": 1,
+      "start": 12.02,
+      "end": 12.24,
+      "aligned": true
+    },
+    {
+      "text": "of",
+      "segment": 1,
+      "start": 12.24,
+      "end": 12.38,
+      "aligned": true
+    },
+    {
+      "text": "the",
+      "segment": 1,
+      "start": 12.38,
+      "end": 12.48,
+      "aligned": true
+    },
+    {
+      "text": "numbers",
+      "segment": 1,
+      "start": 12.48,
+      "end": 12.8,
+      "aligned": true
+    },
+    {
+      "text": "in",
+      "segment": 1,
+      "start": 12.8,
+      "end": 13.26,
+      "aligned": true
+    },
+    {
+      "text": "the",
+      "segment": 1,
+      "start": 13.26,
+      "end": 13.36,
       "aligned": true
     },
     {
       "text": "three",
-      "segment": 2,
-      "start": 9.036000000000001,
-      "end": 9.336,
+      "segment": 1,
+      "start": 13.36,
+      "end": 13.66,
       "aligned": true
     },
     {
       "text": "closest",
-      "segment": 2,
-      "start": 9.336,
-      "end": 9.736,
+      "segment": 1,
+      "start": 13.66,
+      "end": 14.18,
       "aligned": true
     },
     {
-      "text": "boxes",
-      "segment": 2,
-      "start": 9.736,
-      "end": 10.476,
+      "text": "squares",
+      "segment": 1,
+      "start": 14.18,
+      "end": 14.62,
       "aligned": true
     },
     {
-      "text": "below",
-      "segment": 2,
-      "start": 10.476,
-      "end": 10.876000000000001,
-      "aligned": true
-    },
-    {
-      "text": "it.",
-      "segment": 2,
-      "start": 10.876000000000001,
-      "end": 11.136,
-      "aligned": true
-    },
-    {
-      "text": "Follow",
-      "segment": 3,
-      "start": 12.028,
-      "end": 12.448,
+      "text": "in",
+      "segment": 1,
+      "start": 14.62,
+      "end": 15.28,
       "aligned": true
     },
     {
       "text": "the",
+      "segment": 1,
+      "start": 15.28,
+      "end": 15.38,
+      "aligned": true
+    },
+    {
+      "text": "row",
+      "segment": 1,
+      "start": 15.38,
+      "end": 15.56,
+      "aligned": true
+    },
+    {
+      "text": "below.",
+      "segment": 1,
+      "start": 15.56,
+      "end": 15.92,
+      "aligned": true
+    },
+    {
+      "text": "The",
+      "segment": 1,
+      "start": 16.96,
+      "end": 17.08,
+      "aligned": true
+    },
+    {
+      "text": "arrows",
+      "segment": 1,
+      "start": 17.08,
+      "end": 17.34,
+      "aligned": true
+    },
+    {
+      "text": "indicate",
+      "segment": 1,
+      "start": 17.34,
+      "end": 17.78,
+      "aligned": true
+    },
+    {
+      "text": "how",
+      "segment": 1,
+      "start": 17.78,
+      "end": 18.26,
+      "aligned": true
+    },
+    {
+      "text": "this",
+      "segment": 1,
+      "start": 18.26,
+      "end": 18.46,
+      "aligned": true
+    },
+    {
+      "text": "addition",
+      "segment": 1,
+      "start": 18.46,
+      "end": 19.0,
+      "aligned": true
+    },
+    {
+      "text": "works",
+      "segment": 1,
+      "start": 19.0,
+      "end": 19.3,
+      "aligned": true
+    },
+    {
+      "text": "for",
+      "segment": 1,
+      "start": 19.3,
+      "end": 19.58,
+      "aligned": true
+    },
+    {
+      "text": "the",
+      "segment": 1,
+      "start": 19.58,
+      "end": 19.66,
+      "aligned": true
+    },
+    {
+      "text": "first",
+      "segment": 1,
+      "start": 19.66,
+      "end": 19.94,
+      "aligned": true
+    },
+    {
+      "text": "square",
+      "segment": 1,
+      "start": 19.94,
+      "end": 20.22,
+      "aligned": true
+    },
+    {
+      "text": "in",
+      "segment": 1,
+      "start": 20.22,
+      "end": 20.58,
+      "aligned": true
+    },
+    {
+      "text": "the",
+      "segment": 1,
+      "start": 20.58,
+      "end": 20.7,
+      "aligned": true
+    },
+    {
+      "text": "second",
+      "segment": 1,
+      "start": 20.7,
+      "end": 21.0,
+      "aligned": true
+    },
+    {
+      "text": "row.",
+      "segment": 1,
+      "start": 21.0,
+      "end": 21.26,
+      "aligned": true
+    },
+    {
+      "text": "What",
+      "segment": 1,
+      "start": 21.94,
+      "end": 22.2,
+      "aligned": true
+    },
+    {
+      "text": "is",
+      "segment": 1,
+      "start": 22.2,
+      "end": 22.32,
+      "aligned": true
+    },
+    {
+      "text": "the",
+      "segment": 1,
+      "start": 22.32,
+      "end": 22.48,
+      "aligned": true
+    },
+    {
+      "text": "largest",
+      "segment": 1,
+      "start": 22.48,
+      "end": 22.92,
+      "aligned": true
+    },
+    {
+      "text": "possible",
+      "segment": 1,
+      "start": 22.92,
+      "end": 23.28,
+      "aligned": true
+    },
+    {
+      "text": "value",
+      "segment": 1,
+      "start": 23.28,
+      "end": 23.98,
+      "aligned": true
+    },
+    {
+      "text": "of",
+      "segment": 1,
+      "start": 23.98,
+      "end": 24.2,
+      "aligned": true
+    },
+    {
+      "text": "the",
+      "segment": 1,
+      "start": 24.2,
+      "end": 24.3,
+      "aligned": true
+    },
+    {
+      "text": "number",
+      "segment": 1,
+      "start": 24.3,
+      "end": 24.56,
+      "aligned": true
+    },
+    {
+      "text": "in",
+      "segment": 1,
+      "start": 24.56,
+      "end": 24.78,
+      "aligned": true
+    },
+    {
+      "text": "the",
+      "segment": 1,
+      "start": 24.78,
+      "end": 24.88,
+      "aligned": true
+    },
+    {
+      "text": "top",
+      "segment": 1,
+      "start": 24.88,
+      "end": 25.12,
+      "aligned": true
+    },
+    {
+      "text": "square?",
+      "segment": 1,
+      "start": 25.12,
+      "end": 25.46,
+      "aligned": true
+    },
+    {
+      "text": "This",
+      "segment": 2,
+      "start": 26.401,
+      "end": 26.641,
+      "aligned": true
+    },
+    {
+      "text": "is",
+      "segment": 2,
+      "start": 26.641,
+      "end": 26.821,
+      "aligned": true
+    },
+    {
+      "text": "a",
+      "segment": 2,
+      "start": 26.821,
+      "end": 26.961,
+      "aligned": true
+    },
+    {
+      "text": "maximising",
+      "segment": 2,
+      "start": 26.961,
+      "end": 27.341,
+      "aligned": false
+    },
+    {
+      "text": "problem.",
+      "segment": 2,
+      "start": 27.341,
+      "end": 28.141,
+      "aligned": true
+    },
+    {
+      "text": "We",
+      "segment": 2,
+      "start": 28.941,
+      "end": 28.961,
+      "aligned": true
+    },
+    {
+      "text": "will",
+      "segment": 2,
+      "start": 28.961,
+      "end": 29.081,
+      "aligned": true
+    },
+    {
+      "text": "count",
+      "segment": 2,
+      "start": 29.081,
+      "end": 29.361,
+      "aligned": true
+    },
+    {
+      "text": "how",
+      "segment": 2,
+      "start": 29.361,
+      "end": 29.701,
+      "aligned": true
+    },
+    {
+      "text": "often",
+      "segment": 2,
+      "start": 29.701,
+      "end": 30.181,
+      "aligned": true
+    },
+    {
+      "text": "each",
+      "segment": 2,
+      "start": 30.181,
+      "end": 30.500999999999998,
+      "aligned": true
+    },
+    {
+      "text": "bottom",
+      "segment": 2,
+      "start": 30.500999999999998,
+      "end": 30.881,
+      "aligned": true
+    },
+    {
+      "text": "number",
+      "segment": 2,
+      "start": 30.881,
+      "end": 31.421,
+      "aligned": true
+    },
+    {
+      "text": "contributes.",
+      "segment": 2,
+      "start": 31.421,
+      "end": 31.901,
+      "aligned": true
+    },
+    {
+      "text": "The",
       "segment": 3,
-      "start": 12.448,
-      "end": 12.588000000000001,
+      "start": 32.957,
+      "end": 33.117,
       "aligned": true
     },
     {
       "text": "centre",
       "segment": 3,
-      "start": 12.588000000000001,
-      "end": 12.808,
+      "start": 33.117,
+      "end": 33.357,
       "aligned": false
     },
     {
-      "text": "number.",
+      "text": "counts",
       "segment": 3,
-      "start": 12.808,
-      "end": 13.268,
-      "aligned": true
-    },
-    {
-      "text": "It",
-      "segment": 3,
-      "start": 13.848,
-      "end": 13.928,
-      "aligned": true
-    },
-    {
-      "text": "appears",
-      "segment": 3,
-      "start": 13.928,
-      "end": 14.188,
-      "aligned": true
-    },
-    {
-      "text": "in",
-      "segment": 3,
-      "start": 14.188,
-      "end": 14.568000000000001,
-      "aligned": true
-    },
-    {
-      "text": "all",
-      "segment": 3,
-      "start": 14.568000000000001,
-      "end": 14.808,
+      "start": 33.357,
+      "end": 33.697,
       "aligned": true
     },
     {
       "text": "three",
       "segment": 3,
-      "start": 14.808,
-      "end": 15.208,
+      "start": 33.697,
+      "end": 34.037,
       "aligned": true
     },
     {
-      "text": "middle",
+      "text": "times,",
       "segment": 3,
-      "start": 15.208,
-      "end": 15.468,
+      "start": 34.037,
+      "end": 34.577,
       "aligned": true
     },
     {
-      "text": "sums.",
+      "text": "its",
       "segment": 3,
-      "start": 15.468,
-      "end": 15.768,
-      "aligned": true
-    },
-    {
-      "text": "So",
-      "segment": 4,
-      "start": 16.958,
-      "end": 17.197999999999997,
-      "aligned": true
-    },
-    {
-      "text": "it",
-      "segment": 4,
-      "start": 17.197999999999997,
-      "end": 17.298,
-      "aligned": true
-    },
-    {
-      "text": "reaches",
-      "segment": 4,
-      "start": 17.298,
-      "end": 17.558,
-      "aligned": true
-    },
-    {
-      "text": "the",
-      "segment": 4,
-      "start": 17.558,
-      "end": 17.798,
-      "aligned": true
-    },
-    {
-      "text": "top",
-      "segment": 4,
-      "start": 17.798,
-      "end": 18.017999999999997,
-      "aligned": true
-    },
-    {
-      "text": "three",
-      "segment": 4,
-      "start": 18.017999999999997,
-      "end": 18.337999999999997,
-      "aligned": true
-    },
-    {
-      "text": "times.",
-      "segment": 4,
-      "start": 18.337999999999997,
-      "end": 18.697999999999997,
-      "aligned": true
-    },
-    {
-      "text": "The",
-      "segment": 5,
-      "start": 20.006,
-      "end": 20.186,
+      "start": 35.117000000000004,
+      "end": 35.217,
       "aligned": true
     },
     {
       "text": "neighbours",
-      "segment": 5,
-      "start": 20.186,
-      "end": 20.446,
+      "segment": 3,
+      "start": 35.217,
+      "end": 35.497,
       "aligned": false
     },
     {
-      "text": "count",
-      "segment": 5,
-      "start": 20.446,
-      "end": 20.906,
+      "text": "twice,",
+      "segment": 3,
+      "start": 35.497,
+      "end": 35.917,
       "aligned": true
     },
     {
-      "text": "twice.",
-      "segment": 5,
-      "start": 20.906,
-      "end": 21.286,
+      "text": "and",
+      "segment": 3,
+      "start": 36.477000000000004,
+      "end": 36.597,
       "aligned": true
     },
     {
-      "text": "Each",
-      "segment": 5,
-      "start": 22.046,
-      "end": 22.186,
+      "text": "the",
+      "segment": 3,
+      "start": 36.597,
+      "end": 36.677,
       "aligned": true
     },
     {
-      "text": "end",
-      "segment": 5,
-      "start": 22.186,
-      "end": 22.466,
-      "aligned": true
-    },
-    {
-      "text": "counts",
-      "segment": 5,
-      "start": 22.466,
-      "end": 22.826,
-      "aligned": true
-    },
-    {
-      "text": "only",
-      "segment": 5,
-      "start": 22.826,
-      "end": 23.226,
+      "text": "ends",
+      "segment": 3,
+      "start": 36.677,
+      "end": 36.877,
       "aligned": true
     },
     {
       "text": "once.",
-      "segment": 5,
-      "start": 23.226,
-      "end": 23.506,
+      "segment": 3,
+      "start": 36.877,
+      "end": 37.177,
       "aligned": true
     },
     {
       "text": "Put",
-      "segment": 6,
-      "start": 24.57,
-      "end": 24.75,
+      "segment": 4,
+      "start": 38.048,
+      "end": 38.228,
       "aligned": true
     },
     {
       "text": "five",
-      "segment": 6,
-      "start": 24.75,
-      "end": 25.03,
+      "segment": 4,
+      "start": 38.228,
+      "end": 38.588,
       "aligned": true
     },
     {
-      "text": "in",
-      "segment": 6,
-      "start": 25.03,
-      "end": 25.25,
+      "text": "centrally,",
+      "segment": 4,
+      "start": 38.588,
+      "end": 38.988,
       "aligned": true
-    },
-    {
-      "text": "the",
-      "segment": 6,
-      "start": 25.25,
-      "end": 25.330000000000002,
-      "aligned": true
-    },
-    {
-      "text": "centre,",
-      "segment": 6,
-      "start": 25.330000000000002,
-      "end": 26.09,
-      "aligned": false
     },
     {
       "text": "three",
-      "segment": 6,
-      "start": 26.09,
-      "end": 26.39,
+      "segment": 4,
+      "start": 39.368,
+      "end": 39.748000000000005,
       "aligned": true
     },
     {
       "text": "and",
-      "segment": 6,
-      "start": 26.39,
-      "end": 26.53,
+      "segment": 4,
+      "start": 39.748000000000005,
+      "end": 39.888000000000005,
       "aligned": true
     },
     {
       "text": "four",
-      "segment": 6,
-      "start": 26.53,
-      "end": 26.73,
+      "segment": 4,
+      "start": 39.888000000000005,
+      "end": 40.088,
       "aligned": true
     },
     {
       "text": "beside",
-      "segment": 6,
-      "start": 26.73,
-      "end": 27.09,
+      "segment": 4,
+      "start": 40.088,
+      "end": 40.448,
       "aligned": true
     },
     {
       "text": "it,",
-      "segment": 6,
-      "start": 27.09,
-      "end": 27.39,
+      "segment": 4,
+      "start": 40.448,
+      "end": 40.728,
       "aligned": true
     },
     {
       "text": "and",
-      "segment": 6,
-      "start": 27.73,
-      "end": 27.89,
+      "segment": 4,
+      "start": 40.968,
+      "end": 41.068000000000005,
       "aligned": true
     },
     {
       "text": "one",
-      "segment": 6,
-      "start": 27.89,
-      "end": 28.07,
+      "segment": 4,
+      "start": 41.068000000000005,
+      "end": 41.248000000000005,
       "aligned": true
     },
     {
       "text": "and",
-      "segment": 6,
-      "start": 28.07,
-      "end": 28.21,
+      "segment": 4,
+      "start": 41.248000000000005,
+      "end": 41.388000000000005,
       "aligned": true
     },
     {
       "text": "two",
-      "segment": 6,
-      "start": 28.21,
-      "end": 28.43,
+      "segment": 4,
+      "start": 41.388000000000005,
+      "end": 41.608000000000004,
       "aligned": true
     },
     {
       "text": "at",
-      "segment": 6,
-      "start": 28.43,
-      "end": 28.63,
+      "segment": 4,
+      "start": 41.608000000000004,
+      "end": 41.808,
       "aligned": true
     },
     {
       "text": "the",
-      "segment": 6,
-      "start": 28.63,
-      "end": 28.73,
+      "segment": 4,
+      "start": 41.808,
+      "end": 41.908,
       "aligned": true
     },
     {
       "text": "ends.",
-      "segment": 6,
-      "start": 28.73,
-      "end": 28.97,
+      "segment": 4,
+      "start": 41.908,
+      "end": 42.168,
       "aligned": true
     },
     {
-      "text": "A",
-      "segment": 7,
-      "start": 30.362,
-      "end": 30.502,
+      "text": "Larger",
+      "segment": 5,
+      "start": 43.09,
+      "end": 43.470000000000006,
       "aligned": true
     },
     {
-      "text": "larger",
-      "segment": 7,
-      "start": 30.502,
-      "end": 30.782,
-      "aligned": true
-    },
-    {
-      "text": "number",
-      "segment": 7,
-      "start": 30.782,
-      "end": 31.241999999999997,
-      "aligned": true
-    },
-    {
-      "text": "earns",
-      "segment": 7,
-      "start": 31.241999999999997,
-      "end": 31.642,
-      "aligned": true
-    },
-    {
-      "text": "more",
-      "segment": 7,
-      "start": 31.642,
-      "end": 32.162,
+      "text": "numbers",
+      "segment": 5,
+      "start": 43.470000000000006,
+      "end": 43.89,
       "aligned": true
     },
     {
       "text": "in",
-      "segment": 7,
-      "start": 32.162,
-      "end": 32.361999999999995,
+      "segment": 5,
+      "start": 43.89,
+      "end": 44.31,
+      "aligned": true
+    },
+    {
+      "text": "more-counted",
+      "segment": 5,
+      "start": 44.31,
+      "end": 44.81,
+      "aligned": false
+    },
+    {
+      "text": "positions",
+      "segment": 5,
+      "start": 44.81,
+      "end": 45.63,
+      "aligned": true
+    },
+    {
+      "text": "give",
+      "segment": 5,
+      "start": 45.63,
+      "end": 46.230000000000004,
       "aligned": true
     },
     {
       "text": "a",
-      "segment": 7,
-      "start": 32.361999999999995,
-      "end": 32.422,
+      "segment": 5,
+      "start": 46.230000000000004,
+      "end": 46.410000000000004,
       "aligned": true
     },
     {
-      "text": "position",
-      "segment": 7,
-      "start": 32.422,
-      "end": 32.842,
+      "text": "larger",
+      "segment": 5,
+      "start": 46.410000000000004,
+      "end": 46.75,
       "aligned": true
     },
     {
-      "text": "that",
-      "segment": 7,
-      "start": 32.842,
-      "end": 33.202,
-      "aligned": true
-    },
-    {
-      "text": "counts",
-      "segment": 7,
-      "start": 33.202,
-      "end": 33.461999999999996,
-      "aligned": true
-    },
-    {
-      "text": "more.",
-      "segment": 7,
-      "start": 33.461999999999996,
-      "end": 33.802,
-      "aligned": true
-    },
-    {
-      "text": "That",
-      "segment": 7,
-      "start": 34.602,
-      "end": 34.722,
-      "aligned": true
-    },
-    {
-      "text": "is",
-      "segment": 7,
-      "start": 34.722,
-      "end": 34.902,
-      "aligned": true
-    },
-    {
-      "text": "why",
-      "segment": 7,
-      "start": 34.902,
-      "end": 35.102,
-      "aligned": true
-    },
-    {
-      "text": "this",
-      "segment": 7,
-      "start": 35.102,
-      "end": 35.342,
-      "aligned": true
-    },
-    {
-      "text": "arrangement",
-      "segment": 7,
-      "start": 35.342,
-      "end": 35.722,
-      "aligned": true
-    },
-    {
-      "text": "is",
-      "segment": 7,
-      "start": 35.722,
-      "end": 36.102,
-      "aligned": true
-    },
-    {
-      "text": "best.",
-      "segment": 7,
-      "start": 36.102,
-      "end": 36.321999999999996,
+      "text": "total.",
+      "segment": 5,
+      "start": 46.75,
+      "end": 47.17,
       "aligned": true
     },
     {
       "text": "The",
-      "segment": 8,
-      "start": 37.436,
-      "end": 37.596,
+      "segment": 6,
+      "start": 47.95,
+      "end": 48.11,
       "aligned": true
     },
     {
       "text": "middle",
-      "segment": 8,
-      "start": 37.596,
-      "end": 37.736,
+      "segment": 6,
+      "start": 48.11,
+      "end": 48.27,
       "aligned": true
     },
     {
-      "text": "row",
-      "segment": 8,
-      "start": 37.736,
-      "end": 38.036,
+      "text": "sums",
+      "segment": 6,
+      "start": 48.27,
+      "end": 48.49,
       "aligned": true
     },
     {
-      "text": "becomes",
-      "segment": 8,
-      "start": 38.036,
-      "end": 38.376,
+      "text": "are",
+      "segment": 6,
+      "start": 48.49,
+      "end": 48.790000000000006,
       "aligned": true
     },
     {
       "text": "nine,",
-      "segment": 8,
-      "start": 38.376,
-      "end": 38.776,
+      "segment": 6,
+      "start": 48.790000000000006,
+      "end": 49.03,
       "aligned": true
     },
     {
-      "text": "twelve",
-      "segment": 8,
-      "start": 39.236,
-      "end": 39.396,
-      "aligned": true
-    },
-    {
-      "text": "and",
-      "segment": 8,
-      "start": 39.396,
-      "end": 39.736,
+      "text": "twelve,",
+      "segment": 6,
+      "start": 49.550000000000004,
+      "end": 49.650000000000006,
       "aligned": true
     },
     {
       "text": "eleven.",
-      "segment": 8,
-      "start": 39.736,
-      "end": 39.996,
+      "segment": 6,
+      "start": 49.67,
+      "end": 50.25,
       "aligned": true
     },
     {
-      "text": "Add",
-      "segment": 8,
-      "start": 41.056,
-      "end": 41.056,
+      "text": "The",
+      "segment": 6,
+      "start": 51.09,
+      "end": 51.13,
       "aligned": true
     },
     {
-      "text": "them:",
-      "segment": 8,
-      "start": 41.056,
-      "end": 41.296,
+      "text": "maximum",
+      "segment": 6,
+      "start": 51.13,
+      "end": 51.35,
       "aligned": true
     },
     {
-      "text": "thirty-two.",
-      "segment": 8,
-      "start": 41.296,
-      "end": 41.816,
+      "text": "is",
+      "segment": 6,
+      "start": 51.35,
+      "end": 51.89,
       "aligned": true
     },
     {
-      "text": "Answer",
-      "segment": 9,
-      "start": 43.267,
-      "end": 43.687000000000005,
+      "text": "thirty-two:",
+      "segment": 6,
+      "start": 51.89,
+      "end": 52.25,
+      "aligned": true
+    },
+    {
+      "text": "answer",
+      "segment": 6,
+      "start": 53.09,
+      "end": 53.31,
       "aligned": true
     },
     {
       "text": "C.",
-      "segment": 9,
-      "start": 43.687000000000005,
-      "end": 44.047000000000004,
-      "aligned": true
-    },
-    {
-      "text": "Count",
-      "segment": 9,
-      "start": 44.787000000000006,
-      "end": 44.787000000000006,
-      "aligned": true
-    },
-    {
-      "text": "how",
-      "segment": 9,
-      "start": 44.787000000000006,
-      "end": 44.967000000000006,
-      "aligned": true
-    },
-    {
-      "text": "often",
-      "segment": 9,
-      "start": 44.967000000000006,
-      "end": 45.387,
-      "aligned": true
-    },
-    {
-      "text": "each",
-      "segment": 9,
-      "start": 45.387,
-      "end": 45.627,
-      "aligned": true
-    },
-    {
-      "text": "number",
-      "segment": 9,
-      "start": 45.627,
-      "end": 45.987,
-      "aligned": true
-    },
-    {
-      "text": "contributes.",
-      "segment": 9,
-      "start": 45.987,
-      "end": 46.447,
+      "segment": 6,
+      "start": 53.31,
+      "end": 53.690000000000005,
       "aligned": true
     }
   ],
   "alignment": {
-    "match_percent": 97.22,
+    "match_percent": 96.38,
     "segments": [
       {
         "segment": 1,
-        "words": 11,
-        "matched": 11
+        "words": 75,
+        "matched": 74
       },
       {
         "segment": 2,
-        "words": 16,
-        "matched": 16
+        "words": 14,
+        "matched": 13
       },
       {
         "segment": 3,
-        "words": 11,
+        "words": 12,
         "matched": 10
       },
       {
         "segment": 4,
-        "words": 7,
-        "matched": 7
+        "words": 15,
+        "matched": 15
       },
       {
         "segment": 5,
@@ -787,26 +997,11 @@
       },
       {
         "segment": 6,
-        "words": 17,
-        "matched": 16
-      },
-      {
-        "segment": 7,
-        "words": 18,
-        "matched": 18
-      },
-      {
-        "segment": 8,
-        "words": 11,
-        "matched": 11
-      },
-      {
-        "segment": 9,
-        "words": 8,
-        "matched": 8
+        "words": 13,
+        "matched": 13
       }
     ],
-    "words": 108,
+    "words": 138,
     "caption_layers": 1,
     "method": "per-sentence audio alignment; unmatched words bounded by matched neighbours"
   }

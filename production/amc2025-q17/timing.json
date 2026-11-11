@@ -3,69 +3,48 @@
   "title": "The number pyramid",
   "voice": "af_heart",
   "speed": 0.82,
-  "duration_seconds": 47.015,
+  "duration_seconds": 54.065,
   "segments": [
     {
       "index": 1,
-      "text": "Five numbers. One pyramid. How large can we make the top?",
+      "text": "Xian fills this grid with numbers. He places the numbers from one to five in the five squares in the bottom row, in some order. In the next two rows, each square contains the sum of the numbers in the three closest squares in the row below. The arrows indicate how this addition works for the first square in the second row. What is the largest possible value of the number in the top square?",
       "start_seconds": 0,
-      "duration_seconds": 4.496,
+      "duration_seconds": 25.901,
       "pause_after": 0.5
     },
     {
       "index": 2,
-      "text": "Place one to five along the bottom. Each box adds the three closest boxes below it.",
-      "start_seconds": 4.996,
-      "duration_seconds": 6.432,
-      "pause_after": 0.6
+      "text": "This is a maximising problem. We will count how often each bottom number contributes.",
+      "start_seconds": 26.401,
+      "duration_seconds": 6.006,
+      "pause_after": 0.55
     },
     {
       "index": 3,
-      "text": "Follow the centre number. It appears in all three middle sums.",
-      "start_seconds": 12.028,
-      "duration_seconds": 4.28,
-      "pause_after": 0.65
+      "text": "The centre counts three times, its neighbours twice, and the ends once.",
+      "start_seconds": 32.957,
+      "duration_seconds": 4.691,
+      "pause_after": 0.4
     },
     {
       "index": 4,
-      "text": "So it reaches the top three times.",
-      "start_seconds": 16.958,
-      "duration_seconds": 2.248,
-      "pause_after": 0.8
+      "text": "Put five centrally, three and four beside it, and one and two at the ends.",
+      "start_seconds": 38.048,
+      "duration_seconds": 4.592,
+      "pause_after": 0.45
     },
     {
       "index": 5,
-      "text": "The neighbours count twice. Each end counts only once.",
-      "start_seconds": 20.006,
-      "duration_seconds": 3.964,
-      "pause_after": 0.6
+      "text": "Larger numbers in more-counted positions give a larger total.",
+      "start_seconds": 43.09,
+      "duration_seconds": 4.46,
+      "pause_after": 0.4
     },
     {
       "index": 6,
-      "text": "Put five in the centre, three and four beside it, and one and two at the ends.",
-      "start_seconds": 24.57,
-      "duration_seconds": 4.892,
-      "pause_after": 0.9
-    },
-    {
-      "index": 7,
-      "text": "A larger number earns more in a position that counts more. That is why this arrangement is best.",
-      "start_seconds": 30.362,
-      "duration_seconds": 6.474,
-      "pause_after": 0.6
-    },
-    {
-      "index": 8,
-      "text": "The middle row becomes nine, twelve and eleven. Add them: thirty-two.",
-      "start_seconds": 37.436,
-      "duration_seconds": 5.081,
-      "pause_after": 0.75
-    },
-    {
-      "index": 9,
-      "text": "Answer C. Count how often each number contributes.",
-      "start_seconds": 43.267,
-      "duration_seconds": 3.748,
+      "text": "The middle sums are nine, twelve, eleven. The maximum is thirty-two: answer C.",
+      "start_seconds": 47.95,
+      "duration_seconds": 6.115,
       "pause_after": 0
     }
   ]

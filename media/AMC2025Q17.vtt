@@ -1,50 +1,56 @@
 WEBVTT
 
-00:00:00.000 --> 00:00:01.800
-Five numbers. One pyramid.
+00:00:00.000 --> 00:00:02.100
+Xian fills this grid with numbers.
 
-00:00:02.540 --> 00:00:04.100
-How large can we make the top?
+00:00:03.000 --> 00:00:05.580
+He places the numbers from one to five in the five
 
-00:00:04.996 --> 00:00:07.116
-Place one to five along the bottom.
+00:00:05.580 --> 00:00:08.220
+squares in the bottom row, in some order.
 
-00:00:07.896 --> 00:00:11.196
-Each box adds the three closest boxes below it.
+00:00:09.120 --> 00:00:12.380
+In the next two rows, each square contains the sum of
 
-00:00:12.028 --> 00:00:13.328
-Follow the centre number.
+00:00:12.380 --> 00:00:15.980
+the numbers in the three closest squares in the row below.
 
-00:00:13.848 --> 00:00:15.828
-It appears in all three middle sums.
+00:00:16.960 --> 00:00:19.940
+The arrows indicate how this addition works for the first
 
-00:00:16.958 --> 00:00:18.758
-So it reaches the top three times.
+00:00:19.940 --> 00:00:21.320
+square in the second row.
 
-00:00:20.006 --> 00:00:21.346
-The neighbours count twice.
+00:00:21.940 --> 00:00:24.880
+What is the largest possible value of the number in the
 
-00:00:22.046 --> 00:00:23.566
-Each end counts only once.
+00:00:24.880 --> 00:00:25.520
+top square?
 
-00:00:24.570 --> 00:00:27.890
-Put five in the centre, three and four beside it, and
+00:00:26.401 --> 00:00:28.201
+This is a maximising problem.
 
-00:00:27.890 --> 00:00:29.030
-one and two at the ends.
+00:00:28.941 --> 00:00:31.961
+We will count how often each bottom number contributes.
 
-00:00:30.362 --> 00:00:33.862
-A larger number earns more in a position that counts more.
+00:00:32.957 --> 00:00:36.677
+The centre counts three times, its neighbours twice, and the
 
-00:00:34.602 --> 00:00:36.382
-That is why this arrangement is best.
+00:00:36.677 --> 00:00:37.237
+ends once.
 
-00:00:37.436 --> 00:00:40.056
-The middle row becomes nine, twelve and eleven.
+00:00:38.048 --> 00:00:41.388
+Put five centrally, three and four beside it, and one and
 
-00:00:41.056 --> 00:00:41.876
-Add them: thirty-two.
+00:00:41.388 --> 00:00:42.228
+two at the ends.
 
-00:00:43.267 --> 00:00:46.447
-Answer C. Count how often each number contributes.
+00:00:43.090 --> 00:00:47.230
+Larger numbers in more-counted positions give a larger total.
+
+00:00:47.950 --> 00:00:50.310
+The middle sums are nine, twelve, eleven.
+
+00:00:51.090 --> 00:00:53.690
+The maximum is thirty-two: answer C.
 
