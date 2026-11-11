@@ -1,0 +1,512 @@
+[
+  {
+    "video_id": "A041",
+    "title": "Three rhombus tiles",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 379,
+    "estimated_seconds": 128.401,
+    "chunks": [
+      {
+        "chunk_id": "A041__01",
+        "sequence": 1,
+        "text": "Here is the problem. A rhombus-shaped tile is formed by joining two equilateral triangles together. Three of these tiles are combined edge to edge to form a variety of shapes as in the example given. How many different shapes can be formed? (Shapes which are reflections or rotations of other shapes are not considered different.) Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A041__02",
+        "sequence": 2,
+        "text": "it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: Different arrangements of internal tile joins can have the same outside shape; those count only once. A useful first observation is: Draw each rhombus as two equilateral-triangle cells. Before you continue, think about this: First join two rhombi; up to turning and flipping, there are two different outlines. Now build the solution in small steps. Pause after any step if you want to reproduce it in your",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A041__03",
+        "sequence": 3,
+        "text": "notebook before going on. Step 1. A rhombus covers two adjacent cells of the equilateral-triangle grid. Two rhombi joined along a full edge give exactly two different outlines when turning and flipping are ignored. Step 2. For each of those two outlines, place the first triangle of a new rhombus across every exposed edge. Try each possible second triangle beside it, rejecting any overlap with the existing tiles. This checks every way the third rhombus can attach. Step 3. Compare the resulting six-triangle outlines after",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A041__04",
+        "sequence": 4,
+        "text": "all six 60 degrees rotations and after reflection. Keep only one of each matching group; internal tile boundaries do not create a new shape. Step 4. The nine distinct outlines are shown in the worked gallery. Thus three rhombi can form 9 different shapes. Check the answer with a different viewpoint. Use three paper rhombi on triangular dot paper. Trace each new outside boundary and compare it with earlier traces by turning the paper over and rotating it. Final thinking check: When are two drawings",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A041__05",
+        "sequence": 5,
+        "text": "counted as the same shape? The question explicitly identifies rotated and reflected copies. The answer is 9 shapes. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 39
+      }
+    ]
+  },
+  {
+    "video_id": "A042",
+    "title": "Catch each green light",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 350,
+    "estimated_seconds": 135.086,
+    "chunks": [
+      {
+        "chunk_id": "A042__01",
+        "sequence": 1,
+        "text": "Here is the problem. Traffic signals at each intersection on a main road all change on the same 2-minute cycle. A taxi driver knows that it is exactly 3.5 km from one intersection to the next. Without breaking the 50 km/h speed limit, what is the highest average speed, in kilometres per hour, he can travel to get to each intersection as it just changes to green? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A042__02",
+        "sequence": 2,
+        "text": "from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: Using the speed limit itself does not guarantee arrival at the beginning of a green phase. A useful first observation is: Starting on green, the next green starts after a whole number of 2-minute cycles. Before you continue, think about this: Try travel times 2,4,6, and so on minutes for the 3.5km distance. Now build",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A042__03",
+        "sequence": 3,
+        "text": "the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. Arrival at the next green must be after 2, 4, 6, and so on minutes. Step 2. In 2 minutes the required speed is 3.5 times 30=105 km/h; too fast. Step 3. In 4 minutes it is 3.5 times 15=52.5 km/h; still too fast. Step 4. In 6 minutes it is 3.5 times 10=35 km/h, which is permitted. Step 5. Longer travel",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A042__04",
+        "sequence": 4,
+        "text": "times give lower average speeds, so 35 km/h is the largest possible. Check the answer with a different viewpoint. At 50 km/h the trip takes 4.2 minutes. The first allowed 2-minute multiple at least that large is 6 minutes. Final thinking check: Why does the first permitted travel time give the highest permitted speed? Speed is distance divided by time. Among allowed times, the shortest gives the largest speed. The answer is 35 km/h. Read the original question once more and make sure this is",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A042__05",
+        "sequence": 5,
+        "text": "the requested quantity, and that every condition has been checked.",
+        "word_count": 10
+      }
+    ]
+  },
+  {
+    "video_id": "A046",
+    "title": "The tablet bottle",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 296,
+    "estimated_seconds": 100.344,
+    "chunks": [
+      {
+        "chunk_id": "A046__01",
+        "sequence": 1,
+        "text": "Here is the problem. I take 2 vitamin C tablets every day. If I increase my dose to 3 tablets a day, a full bottle would last 8 days less. How many tablets are in a full bottle? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A046__02",
+        "sequence": 2,
+        "text": "mistake: The 8-day difference is not the bottle’s full duration at either rate. A useful first observation is: Consider a group of 6 tablets. Before you continue, think about this: At 2 per day it lasts 3 days; at 3 per day it lasts 2 days. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. Every group of 6 tablets lasts 3 days at 2 tablets a day, but",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A046__03",
+        "sequence": 3,
+        "text": "2 days at 3 tablets a day. Step 2. So each group of 6 produces a difference of 1 day. An 8-day difference requires 8 such groups. Step 3. The bottle contains 8 times 6 = 48 tablets. Check:48 divided by 2 = 24 days and 48 divided by 3 = 16 days, a difference of 8. Check the answer with a different viewpoint. If there are N tablets, N/2 minus N/3 = N/6 = 8, so N = 48. Final thinking check: How long",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A046__04",
+        "sequence": 4,
+        "text": "do 6 tablets last at 2 per day? 6 divided by 2 = 3 days. The answer is 48 tablets. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 41
+      }
+    ]
+  },
+  {
+    "video_id": "A049",
+    "title": "Three numbers divisible by three",
+    "type": "challenge",
+    "source": "approved-final-word-timing-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 890,
+    "estimated_seconds": 408.425,
+    "chunks": [
+      {
+        "chunk_id": "A049__01",
+        "sequence": 1,
+        "text": "In how many ways can three different numbers be selected from the numbers one to twelve, so that their sum can be exactly divided by three? Before calculating, let us make sure we know what is being counted. We may choose any whole numbers from one to twelve, including both ends. We must choose exactly three, and each number can be used only once. Three, three and six is not allowed, even though its sum is twelve. The word sum means add the chosen numbers.",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A049__02",
+        "sequence": 2,
+        "text": "That total must divide by three with nothing left over. It does not say that each chosen number must divide by three. For example, three, four and eight sum to fifteen, so this selection works. Four and eight do not individually divide by three, and that is fine. Choosing three, eight and four uses the same numbers; changing their order does not make another selection. The question asks how many different selections work altogether. Finding one example is a start. Our answer must be a",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A049__03",
+        "sequence": 3,
+        "text": "count, not the sum fifteen. You might start listing triples and adding them: one, two, three; one, two, four; and so on. A careful list could work, but it becomes long, and it is easy to miss a selection or count one twice. Multiplying twelve by eleven by ten also does not answer this question: it counts different orders and includes triples whose sums do not divide by three. When you feel stuck, return to the special condition: division by three. Could we sort the",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A049__04",
+        "sequence": 4,
+        "text": "numbers by what is left over after making groups of three? Pause the video and think about that. We will use these leftovers, called remainders, to organize the counting. Different numbers can have the same remainder. Start with eight dots. Make a group of three. Then another group of three. Two dots remain. We call that leftover amount the remainder. Eight has remainder two when divided by three. Anything left must be smaller than three, or we could make another group. Seven leaves one, while",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A049__05",
+        "sequence": 5,
+        "text": "six leaves zero. So the possible remainders are zero, one and two. Now sort all twelve numbers by those leftovers. Three, six, nine and twelve leave zero. Each can be split into complete groups of three. One, four, seven and ten leave one. Adding three to a number does not change its remainder. Two, five, eight and eleven leave two. Each group contains four numbers. The numbers are different; it is their remainders that match. Why does this help? Look again at three, four and",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A049__06",
+        "sequence": 6,
+        "text": "eight. Each number contains complete groups of three. Those groups already divide exactly. We only need to examine their leftovers: zero, one and two. These make one more group of three. So the total divides exactly. This is why we can work with remainders. There are two useful types of selection. First, take three numbers from the same group. Their remainders are all zero, all one, or all two. The leftover totals are zero, three and six. Each works. Second, take one number from each",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A049__07",
+        "sequence": 7,
+        "text": "group. Its remainders are zero, one and two, which total three. That works too. Could another pattern work? Suppose two remainders match. The third remainder can only be zero, one or two. Two zeros need another zero, so the total still divides by three. Two ones make two, so they need another one to complete three. Two twos make four, so they need another two to reach six. The third remainder must match as well. If no two remainders match, they must be zero, one",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A049__08",
+        "sequence": 8,
+        "text": "and two. Therefore every valid selection uses one group, or one number from each group. Nothing is missing. Let's count the first type. Start with the zero group: three, six, nine and twelve. Choosing three means leaving one out. Leave out three: keep six, nine and twelve. Leave out six: keep three, nine and twelve. Leave out nine: keep three, six and twelve. Leave out twelve: keep three, six and nine. Each omission leaves a different selection. That gives four selections. The other two groups",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A049__09",
+        "sequence": 9,
+        "text": "also contain four numbers, so each gives four selections. Three groups, with four selections each, give twelve altogether. Now count one number from each group. First, choose from just the zero and one groups. Hold three fixed in the zero group. It can pair with one, four, seven or ten. Four pairs. Six also has four partners, and so do nine and twelve. Four choices, each with four partners, give sixteen pairs. These are pairs, so we still need a third number. Each pair now",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A049__10",
+        "sequence": 10,
+        "text": "needs a number from the two group. For example, the pair three and four can be finished with two, five, eight or eleven. Four possibilities. Every one of our sixteen pairs has four possible finishes. Sixteen times four gives sixty-four selections. Now add the counts. Twelve selections use one group. Sixty-four use one number from each group. A selection cannot be both types, so none is counted twice. Twelve plus sixty-four is seventy-six. We have counted seventy-six different selections of three numbers from one to",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A049__11",
+        "sequence": 11,
+        "text": "twelve whose sum is divisible by three. Check the rules: three different numbers, a suitable sum, and each selection counted once. The method was to understand the conditions, group by remainders, find every possible type, and count each type carefully.",
+        "word_count": 40
+      }
+    ]
+  },
+  {
+    "video_id": "A067",
+    "title": "The greatest product with a total of 12",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 343,
+    "estimated_seconds": 146.893,
+    "chunks": [
+      {
+        "chunk_id": "A067__01",
+        "sequence": 1,
+        "text": "Here is the problem. There are many ways that you can add three different positive whole numbers to get a total of 12. For instance, 1 + 5 + 6 = 12 is one way but 2 + 2 + 8 = 12 is not, since 2, 2 and 8 are not all different. If you multiply these three numbers, you get a number called the product. Of all the ways to do this, what is the largest possible product? Before doing any calculation, say",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A067__02",
+        "sequence": 2,
+        "text": "exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: Choosing 4,4,4 gives 64 but violates the requirement for three different numbers. A useful first observation is: Write the three numbers in increasing order so each triple is counted once. Before you continue, think about this: The smallest number cannot exceed 3,",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A067__03",
+        "sequence": 3,
+        "text": "because 4+5+6 already exceeds 12. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. Write a<b<c with a+b+c=12. If a≥4, the total is at least 4+5+6=15, so a is 1,2 or 3. Step 2. For a=1, the triples are (1,2,9), (1,3,8), (1,4,7), (1,5,6), with products 18,24,28,30. Step 3. For a=2, the triples are (2,3,7), (2,4,6), with products 42,48. For a=3, only (3,4,5) works, with product 60. Step 4. The",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A067__04",
+        "sequence": 4,
+        "text": "largest product is therefore 3 times 4 times 5=60. Check the answer with a different viewpoint. Balancing numbers with a fixed sum tends to increase their product. The nearest distinct positive integers to equal thirds are 3,4,5; the complete list confirms the maximum. Final thinking check: Why is 4 times 4 times 4 not allowed? The equal numbers 4,4,4 fail the distinctness condition. The answer is 60. Read the original question once more and make sure this is the requested quantity, and that every condition",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A067__05",
+        "sequence": 5,
+        "text": "has been checked.",
+        "word_count": 3
+      }
+    ]
+  },
+  {
+    "video_id": "A080",
+    "title": "The smallest number containing 7",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 324,
+    "estimated_seconds": 111.846,
+    "chunks": [
+      {
+        "chunk_id": "A080__01",
+        "sequence": 1,
+        "text": "Here is the problem. In a three-digit number, one of the digits is 7 and the difference between any two of the digits is 4 or less. What is the smallest this number could be? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: The digits",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A080__02",
+        "sequence": 2,
+        "text": "need not be different, so using 3 twice is allowed. A useful first observation is: Every digit must be within 4 of the digit 7. How small can another digit be? Before you continue, think about this: The smallest allowed digit is 3. Put it in the highest-value position first. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. Because one digit is 7 and every pair differs by",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A080__03",
+        "sequence": 3,
+        "text": "at most 4, no digit can be below 7 minus 4=3. Step 2. To make the number smallest, choose the smallest hundreds digit 3, then the smallest tens digit 3. Step 3. The units digit must be 7 so that the number contains a 7. The result 337 has pair differences 0,4,4, so it is valid and minimal. Check the answer with a different viewpoint. Any valid number smaller than 337 would need a hundreds digit below 3, or hundreds 3 and tens below 3,",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A080__04",
+        "sequence": 4,
+        "text": "or 33 followed by a digit below 7. The first two break the distance rule; the last has no 7. Final thinking check: Why is 337 allowed even though 3 appears twice? There is no distinct-digit condition, and the largest digit difference is 4. The answer is 337. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 69
+      }
+    ]
+  },
+  {
+    "video_id": "A086",
+    "title": "The teacher’s hidden number",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 328,
+    "estimated_seconds": 118.112,
+    "chunks": [
+      {
+        "chunk_id": "A086__01",
+        "sequence": 1,
+        "text": "Here is the problem. A teacher is thinking of a three-digit number. It is divisible by both 3 and 11. If she subtracts 1, the result is divisible by both 2 and 7. What is the number? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake:",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A086__02",
+        "sequence": 2,
+        "text": "Subtract 1 before testing divisibility by 2 and 7; the original number is odd. A useful first observation is: Being divisible by both 3 and 11 means the number is a multiple of 33. Before you continue, think about this: The number is 1 more than a multiple of 14, so it is odd. List odd multiples of 33. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. The",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A086__03",
+        "sequence": 3,
+        "text": "number must be a multiple of 33 and must leave remainder 1 when divided by 14. Step 2. 99 is such a number: 99 = 3 times 33 and 99 minus 1 = 7 times 14, but it has only two digits. Step 3. Two solutions differ by a multiple of both 33 and 14. Their least common multiple is 462. Step 4. The next solution is 99 + 462 = 561; the following one is 1023. Thus 561 is the only three-digit solution. Check",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A086__04",
+        "sequence": 4,
+        "text": "the answer with a different viewpoint. List the odd three-digit multiples of 33 and test which become multiples of 7 after subtracting 1. Only 561 works. Final thinking check: Why must the hidden number be odd? A number one more than an even multiple of 14 is odd. The answer is 561. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 73
+      }
+    ]
+  },
+  {
+    "video_id": "A101",
+    "title": "Hugh’s place in the photograph",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 315,
+    "estimated_seconds": 114.281,
+    "chunks": [
+      {
+        "chunk_id": "A101__01",
+        "sequence": 1,
+        "text": "Here is the problem. Five different children stand in a line for a photograph. Hugh refuses to stand anywhere between Louise and Richard, even if other children separate them. How many orders keep Hugh happy? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: “Between” concerns",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A101__02",
+        "sequence": 2,
+        "text": "relative position, not merely standing immediately next to both children. A useful first observation is: Ignore the other two children temporarily. How many relative orders can Hugh, Louise and Richard have? Before you continue, think about this: Of their six orders, Hugh is in the middle in exactly LHR and RHL. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. The five different children can stand in 5 times",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A101__03",
+        "sequence": 3,
+        "text": "4 times 3 times 2 times 1 = 120 orders. Step 2. The six relative orders of Hugh, Louise and Richard are equally frequent among those 120. Step 3. Hugh is between the other two in exactly LHR and RHL, so 4 of the 6 relative orders are allowed. Step 4. The allowed number is 120 times 4/6 = 80. Check the answer with a different viewpoint. Choose the 3 positions occupied by Hugh, Louise, Richard in 10 ways. Use 4 acceptable orders for them,",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A101__04",
+        "sequence": 4,
+        "text": "then 2 orders for the remaining children:10 times 4 times 2 = 80. Final thinking check: Which relative orders are forbidden? Exactly these orders put Hugh after one named child and before the other. The answer is 80 orders. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 60
+      }
+    ]
+  },
+  {
+    "video_id": "A109",
+    "title": "Three-button PINs",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 380,
+    "estimated_seconds": 131.422,
+    "chunks": [
+      {
+        "chunk_id": "A109__01",
+        "sequence": 1,
+        "text": "Here is the problem. Madeleine’s three-digit PIN uses three different digits on the keypad shown. The first and second buttons share an edge, and the second and third buttons share an edge. For example 563 is allowed but 536 is not. A PIN may begin with 0. How many possible PINs are there? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A109__02",
+        "sequence": 2,
+        "text": "a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: A reversed PIN is a different code. Also, diagonally touching corners do not count as sharing an edge. A useful first observation is: Choose the middle digit first. Its two neighbours in the PIN must be different adjacent buttons. Before you continue, think about this: If a key has n neighbours, there are n choices for the first digit and n minus 1 for the last. Now build the",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A109__03",
+        "sequence": 3,
+        "text": "solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. For a fixed middle button with n edge-sharing neighbours, there are n(n minus 1) ordered choices for the first and last digits. Step 2. The middle digit 0 has only 1 neighbour, so contributes 0. The four corners 1, 3, 7, 9 each have 2 neighbours and contribute 2 PINs each. Step 3. The three keys 2, 4, 6 each have 3 neighbours",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A109__04",
+        "sequence": 4,
+        "text": "and contribute 6 each. Keys 5 and 8 each have 4 neighbours and contribute 12 each. Step 4. The total is 0 + 4 times 2 + 3 times 6 + 2 times 12 = 8 + 18 + 24 = 50. Check the answer with a different viewpoint. For each possible first digit, draw every two-move edge path that does not return to its starting digit. Counting these ordered paths also gives 50. Final thinking check: Why does a middle key with 4 neighbours",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A109__05",
+        "sequence": 5,
+        "text": "give 12 PINs? The two outside digits are ordered and cannot repeat one another. The answer is 50 PINs. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 40
+      }
+    ]
+  },
+  {
+    "video_id": "A113",
+    "title": "Ten block towers",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 376,
+    "estimated_seconds": 143.254,
+    "chunks": [
+      {
+        "chunk_id": "A113__01",
+        "sequence": 1,
+        "text": "Here is the problem. The towers shown are one block deep. Their rows from top to bottom contain 1 block, then 3, then 5, and so on. The first tower has 1 block, the second 4 blocks and the third 9 blocks. Continuing this pattern, how many blocks are needed to build all of the first ten towers? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A113__02",
+        "sequence": 2,
+        "text": "a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: 100 counts only the tenth tower; the question asks for the combined blocks in all ten. A useful first observation is: The first three tower totals are 1 squared, 2 squared and 3 squared. Each tower adds the next odd-length row. Before you continue, think about this: The ten totals are 1, 4, 9, 16, 25, 36, 49, 64, 81 and 100. Now build",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A113__03",
+        "sequence": 3,
+        "text": "the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. Tower n has rows of lengths 1, 3, 5, and so on , 2 n minus 1. These odd numbers sum to n squared, as a rearrangement into an n times n square shows. Step 2. The first ten tower counts are 1, 4, 9, 16, 25, 36, 49, 64, 81, 100. Step 3. Adding the first five gives 55, and adding",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A113__04",
+        "sequence": 4,
+        "text": "the last five gives 330. Step 4. All ten towers therefore need 55 + 330 = 385 blocks. Check the answer with a different viewpoint. Count equal-length rows across the towers:10 times 1 + 9 times 3 + 8 times 5 + 7 times 7 + 6 times 9 + 5 times 11 + 4 times 13 + 3 times 15 + 2 times 17 + 1 times 19 = 385. Final thinking check: What does the number 100 represent? The tenth tower has 10",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A113__05",
+        "sequence": 5,
+        "text": "squared blocks; the other nine towers must also be included. The answer is 385 blocks. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 36
+      }
+    ]
+  },
+  {
+    "video_id": "A116",
+    "title": "Four squares from one",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 325,
+    "estimated_seconds": 122.159,
+    "chunks": [
+      {
+        "chunk_id": "A116__01",
+        "sequence": 1,
+        "text": "Here is the problem. Pip starts with one large square sheet of paper. She makes two straight cuts to divide it into four smaller squares. She repeatedly chooses one of her squares and makes two straight cuts to divide that square into four smaller squares. How many cuts does she make altogether to obtain 1000 squares of various sizes? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A116__02",
+        "sequence": 2,
+        "text": "is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: Counting four extra squares at each stage forgets the square that is cut up. A useful first observation is: A chosen square is replaced, so four new pieces do not mean four extra pieces. Before you continue, think about this: Each pair of cuts changes the total by 4 minus 1 = 3 squares. Now build the solution in small steps. Pause after",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A116__03",
+        "sequence": 3,
+        "text": "any step if you want to reproduce it in your notebook before going on. Step 1. Replacing one square with four increases the number of squares by 3. Step 2. The required increase is 1000 minus 1 = 999, so Pip performs 999 divided by 3 = 333 replacements. Step 3. Each replacement uses two cuts. Altogether she makes 333 times 2 = 666 cuts. Check the answer with a different viewpoint. List the first few totals: after 0, 2, 4, 6 cuts there are",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A116__04",
+        "sequence": 4,
+        "text": "1, 4, 7, 10 squares. The rule is squares = 1 + 3 times (cuts divided by 2). Final thinking check: How many squares remain after ten pairs of cuts? Start with one square and add three ten times: 1 + 30 = 31. The answer is 666 cuts. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 70
+      }
+    ]
+  },
+  {
+    "video_id": "A127",
+    "title": "Folding the measured net",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 375,
+    "estimated_seconds": 137.711,
+    "chunks": [
+      {
+        "chunk_id": "A127__01",
+        "sequence": 1,
+        "text": "Here is the problem. The following is a net of a rectangular prism with some dimensions, in centimetres, given. What is the volume of the rectangular prism in cubic centimetres? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: The 10 cm and 12 cm labels",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A127__02",
+        "sequence": 2,
+        "text": "each combine two dimensions; neither is a single edge of the finished prism. A useful first observation is: Let the prism dimensions be length L, width W and height H. The side strip contains two lengths and two widths. Before you continue, think about this: The measurements give L + H = 12, W + H = 10 and 2 L + 2 W = 32. Now build the solution in small steps. Pause after any step if you want to reproduce it in your",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A127__03",
+        "sequence": 3,
+        "text": "notebook before going on. Step 1. The four side faces make the 32 cm strip, so 2 L + 2 W = 32 and L + W = 16. Step 2. The upper measurement is L + H = 12 and the lower measurement is W + H = 10. Subtracting gives L minus W = 2. Step 3. Two numbers with sum 16 and difference 2 are L = 9 and W = 7. Then H = 10 minus 7 = 3. Step 4.",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A127__04",
+        "sequence": 4,
+        "text": "The prism volume is L times W times H = 9 times 7 times 3 = 189 cm cubed. Check the answer with a different viewpoint. Try a height H. Then L = 12 minus H and W = 10 minus H, so the strip length is 2(12 minus H) + 2(10 minus H) = 44 minus 4 H. Setting this to 32 gives H = 3. Final thinking check: What does the 32 cm strip measure? The four side faces wrap once around the",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A127__05",
+        "sequence": 5,
+        "text": "base, giving its perimeter 2 L + 2 W. The answer is 189 cm³. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 35
+      }
+    ]
+  }
+]
