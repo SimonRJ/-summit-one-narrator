@@ -202,7 +202,7 @@ function renderDiscover(el,s){
   el.innerHTML=`<div class="stage-number">STAGE 2 · EXPLANATION</div><h2>Discover</h2><p class="muted">Read, sketch and listen. The goal is to see why the method works, not memorise a slogan.</p>
   <div class="teaching-box">${items.map((t,i)=>`<article class="teaching-item"><div class="eyebrow">${esc(t.type==="worked_example"?"WORKED EXAMPLE":"CONCEPT")}</div><h3>${esc(t.title)}</h3><div class="lesson-player-slot" id="lessonPlayer${i}"></div><details><summary>Read explanation</summary><p class="math-copy">${esc(t.transcript)}</p></details></article>`).join("")||'<p class="muted">Teaching explanation is being selected from the course library.</p>'}</div>
   <div class="complete-row"><span class="muted">Make one note or diagram before moving on.</span><button class="primary" id="nextStage">Try independently</button></div>`;
-  items.forEach((t,i)=>mountNarratedPlayer(document.getElementById("lessonPlayer"+i),{title:t.title,transcript:t.transcript,audioUrl:t.audio_url}));
+  items.forEach((t,i)=>mountNarratedPlayer(document.getElementById("lessonPlayer"+i),{title:t.title,transcript:t.transcript,audioUrl:t.audio_url,cacheKey:t.id}));
   document.getElementById("nextStage").onclick=()=>{activeStage=2;renderSession(s)};
 }
 async function loadProblemDetail(id){
@@ -240,7 +240,7 @@ function renderChallenge(el,s,p,mode){
       await recordAttempt({problem_id:p.id,session_number:s.slot,answer_text:null,is_correct:null,evidence_level:"viewed",solution_video_opened:true,independent_credit:false,elapsed_seconds:null});
       const transcript=d.solution_text||d.spoken_script||"Solution unavailable.";
       solution.hidden=false;solution.innerHTML=`<b>Compare reasoning</b><div id="solutionPlayer-${p.id.replace(/[^A-Za-z0-9]/g,"_")}"></div><details style="margin-top:12px"><summary>Read full worked solution</summary><p class="math-copy">${esc(transcript)}</p></details>`;
-      mountNarratedPlayer(document.getElementById("solutionPlayer-"+p.id.replace(/[^A-Za-z0-9]/g,"_")),{title:p.title||p.id,transcript,audioUrl:`https://github.com/SimonRJ/-summit-one-narrator/releases/download/summit-one-audio-v1/${encodeURIComponent(p.id)}_narration.wav`});
+      const protectedAudio=p.source_type==="authentic_amc"?"":`https://github.com/SimonRJ/-summit-one-narrator/releases/download/summit-one-audio-v1/${encodeURIComponent(p.id)}_narration.wav`; mountNarratedPlayer(document.getElementById("solutionPlayer-"+p.id.replace(/[^A-Za-z0-9]/g,"_")),{title:p.title||p.id,transcript,audioUrl:protectedAudio,cacheKey:p.id});
       reveal.disabled=true;
     }catch(e){solution.hidden=false;solution.textContent=e.message}
   };
