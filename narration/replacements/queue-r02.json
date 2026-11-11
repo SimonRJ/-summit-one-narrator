@@ -1,0 +1,512 @@
+[
+  {
+    "video_id": "A043",
+    "title": "Add all the digits",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 302,
+    "estimated_seconds": 113.066,
+    "chunks": [
+      {
+        "chunk_id": "A043__01",
+        "sequence": 1,
+        "text": "Here is the problem. Rani wrote down the numbers from 1 to 100 on a piece of paper and then correctly added up all the individual digits of the numbers. What sum did she obtain? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: Adding the",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A043__02",
+        "sequence": 2,
+        "text": "numbers 1 to 100 is different from adding their individual digits. A useful first observation is: Look at the digits in the units column for 00 to 99. Before you continue, think about this: Each digit occurs equally often in each of the two columns. Leading zeroes add nothing to a digit sum. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. First consider 00 to 99. In the",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A043__03",
+        "sequence": 3,
+        "text": "units column, each digit 0 to 9 occurs ten times, contributing 10 times 45=450. Step 2. The tens column contributes the same 450. Step 3. Adding leading zeroes or including 00 changes no digit sum, so 1 to 99 also contributes 900. Step 4. The number 100 contributes 1+0+0=1. The total is 901. Check the answer with a different viewpoint. Pair numbers 1 and 98, 2 and 97, and so on; use a place-value table to handle the endpoints carefully. Final thinking check: How many",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A043__04",
+        "sequence": 4,
+        "text": "times does 7 appear in the tens column of 00 to 99? It appears in 70,71, and so on ,79: ten numbers. The answer is 901. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 47
+      }
+    ]
+  },
+  {
+    "video_id": "A044",
+    "title": "Opposite-face products",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 378,
+    "estimated_seconds": 143.923,
+    "chunks": [
+      {
+        "chunk_id": "A044__01",
+        "sequence": 1,
+        "text": "Here is the problem. This cube has a different whole number on each face, and has the property that whichever pair of opposite faces is chosen, the two numbers multiply to give the same result. What is the smallest possible total of all 6 numbers on the cube? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A044__02",
+        "sequence": 2,
+        "text": "estimating from how it looks. Watch out for this common mistake: Being a common multiple is necessary but not sufficient: every one of the six labels must also be different. A useful first observation is: Call the common opposite-face product P. What are the three hidden numbers in terms of P? Before you continue, think about this: P must be divisible by 6,9 and 12. Start with their least common multiple. Now build the solution in small steps. Pause after any step if you want",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A044__03",
+        "sequence": 3,
+        "text": "to reproduce it in your notebook before going on. Step 1. The hidden opposites are P/6, P/9, P/12, so P is divisible by 6, 9 and 12. Their least common multiple is 36. Step 2. P=0 would put 0 on all three hidden faces, which is forbidden. Try positive multiples of 36. Step 3. For P=36 the hidden faces are 6, 4, 3; 6 repeats. For 72 they are 12, 8, 6; 12 and 6 repeat. For 108 they are 18, 12, 9; 12 and",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A044__04",
+        "sequence": 4,
+        "text": "9 repeat. For 144 they are 24, 16, 12; 12 repeats. Step 4. For P=180 the hidden faces are 30, 20, 15. All six numbers are different. Step 5. Their total is 6+9+12+30+20+15=92. Larger common products increase all hidden numbers, so cannot improve the sum. Check the answer with a different viewpoint. Use a table with common product and all six face values. Keep the first row with six distinct entries. Final thinking check: Why is common product 36 rejected? The opposite of 6 would",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A044__05",
+        "sequence": 5,
+        "text": "be 36 divided by 6=6, violating the condition that all six numbers differ. The answer is 92. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 38
+      }
+    ]
+  },
+  {
+    "video_id": "A051",
+    "title": "The right price per kilogram",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 399,
+    "estimated_seconds": 157.892,
+    "chunks": [
+      {
+        "chunk_id": "A051__01",
+        "sequence": 1,
+        "text": "Here is the problem. Dried dog food is available in three sizes: 1 kg bags, which cost $6; 3 kg bags, which cost $15; and 8 kg bags, which cost $25. What is the smallest number of bags you can buy such that the average price per kilogram is exactly $4? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A051__02",
+        "sequence": 2,
+        "text": "diagram rather than estimating from how it looks. Watch out for this common mistake: Average price per kilogram is total cost divided by total weight, not the average of the three displayed bag prices. A useful first observation is: Compare each bag’s price with what the same weight would cost at$4/kg. Before you continue, think about this: Some bags are above the target and one type is below. Their cost differences must balance. Now build the solution in small steps. Pause after any step if",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A051__03",
+        "sequence": 3,
+        "text": "you want to reproduce it in your notebook before going on. Step 1. At $4/kg the three bag sizes would cost $4,$12,$32. Their actual deviations are+$2,+$3, minus $7. Step 2. At least one 8 kg bag is needed because the other types are above $4/kg. Step 3. With fewer than four bags, if there is one 8 kg bag there are at most two other bags, giving at most $6 surplus, less than $7. If there are two or more 8 kg bags, at most",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A051__04",
+        "sequence": 4,
+        "text": "one other bag gives at most $3 surplus against a discount of at least $14. No solution uses three or fewer bags. Step 4. Two 1 kg bags and one 3 kg bag give surplus 2+2+3=7, balancing one 8 kg bag. Step 5. These four bags weigh 13 kg and cost $52. Since 52 divided by 13=4, the minimum is 4 bags. Check the answer with a different viewpoint. List all combinations of one, two and three bags to rule them out; then find 2",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A051__05",
+        "sequence": 5,
+        "text": "small, 1 medium, 1 large. Final thinking check: What is the target cost of an 8kg bag at$4/kg? 8 times 4=$32, so the actual$25 price supplies a$7 discount to balance surplus costs elsewhere. The answer is 4 bags. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 59
+      }
+    ]
+  },
+  {
+    "video_id": "A055",
+    "title": "Palindromes between 100 and 300",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 266,
+    "estimated_seconds": 103.357,
+    "chunks": [
+      {
+        "chunk_id": "A055__01",
+        "sequence": 1,
+        "text": "Here is the problem. A number is palindromic if it reads the same forwards as backwards. For example, 686 is palindromic. How many numbers from 100 to 300 are palindromic? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: Forgetting that the middle digit may be",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A055__02",
+        "sequence": 2,
+        "text": "0 loses 101 and 202. A useful first observation is: A three-digit palindrome has the same first and last digit. Before you continue, think about this: Its hundreds digit can be 1 or 2. What can the middle digit be? Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. Write a three-digit palindrome as ABA: its first and last digits agree. Step 2. Between 100 and 300, A can",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A055__03",
+        "sequence": 3,
+        "text": "only be 1 or 2;300 itself is not a palindrome. Step 3. For each A, B can be any digit 0 to 9, giving 10 choices. Thus 2 times 10=20 palindromes. Check the answer with a different viewpoint. List 101,111, and so on ,191 and 202,212, and so on ,292: two lists of 10. Final thinking check: Can the middle digit be 0? 101 and 202 are valid three-digit palindromes. The answer is 20 numbers. Read the original question once more and make sure this",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A055__04",
+        "sequence": 4,
+        "text": "is the requested quantity, and that every condition has been checked.",
+        "word_count": 11
+      }
+    ]
+  },
+  {
+    "video_id": "A059",
+    "title": "Segments through one extra dot",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 323,
+    "estimated_seconds": 118.221,
+    "chunks": [
+      {
+        "chunk_id": "A059__01",
+        "sequence": 1,
+        "text": "Here is the problem. A 3 by 5 grid of dots is set out as shown. How many straight line segments can be drawn that join two of these dots and pass through exactly one other dot? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake:",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A059__02",
+        "sequence": 2,
+        "text": "Counting only 45 degrees diagonals misses the two shallower segments spanning all five columns. A useful first observation is: A valid segment contains three grid dots in all: its two endpoints and one interior dot. Before you continue, think about this: Count horizontal and vertical segments, then look for slanting ones. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. A horizontal segment must span 2 column gaps. There",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A059__03",
+        "sequence": 3,
+        "text": "are 3 choices in each of 3 rows, giving 9. Step 2. A vertical segment must span both row gaps. There is 1 in each of 5 columns, giving 5. Step 3. Diagonals spanning 2 columns and 2 rows give 3 positions in each slant direction:6. Diagonals spanning 4 columns and 2 rows give 1 in each slant direction:2. Step 4. Total 9+5+6+2=22 segments. Any other endpoint offset has either no interior grid dot or too many. Check the answer with a different viewpoint. Using",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A059__04",
+        "sequence": 4,
+        "text": "grid coordinates, a segment has gcd (|Δx|,|Δy|) minus 1 interior dots. Count endpoint pairs with gcd=2 to obtain 22. Final thinking check: Which sloping segments are easy to miss? They pass through the central dot and have exactly one interior grid dot. The answer is 22 segments. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 68
+      }
+    ]
+  },
+  {
+    "video_id": "A061",
+    "title": "A sum of 149 and a product of 987",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 304,
+    "estimated_seconds": 129.151,
+    "chunks": [
+      {
+        "chunk_id": "A061__01",
+        "sequence": 1,
+        "text": "Here is the problem. Three whole numbers add up to 149 and multiply to give 987. What is the largest of the three numbers? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: Choosing the prime factors 3,7,47 gives the correct product but the wrong sum",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A061__02",
+        "sequence": 2,
+        "text": "57. A useful first observation is: Factor 987. The digit sum shows it is divisible by 3. Before you continue, think about this: 987=3 times 7 times 47. One of the three numbers must contain the factor 47. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. Since the product is positive, all three whole numbers are positive. Factor 987=3 times 7 times 47. Step 2. One number must",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A061__03",
+        "sequence": 3,
+        "text": "contain 47. With total 149, the only eligible divisors containing 47 are 47 and 141. Step 3. If it is 47, the other two multiply to 21; their possible pairs are 1,21 or 3,7. Neither pair makes a total of 149. Step 4. If it is 141, the others multiply to 7 and must be 1 and 7. Their sum is 141+1+7=149, so the largest is 141. Check the answer with a different viewpoint. List factor triples of 987 in nondecreasing order and test their",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A061__04",
+        "sequence": 4,
+        "text": "sums; only (1,7,141) sums to 149. Final thinking check: Why is 3,7,47 not the answer? Both the product and the sum conditions must hold. The answer is 141. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 49
+      }
+    ]
+  },
+  {
+    "video_id": "A066",
+    "title": "The basketweave patio",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 314,
+    "estimated_seconds": 131.514,
+    "chunks": [
+      {
+        "chunk_id": "A066__01",
+        "sequence": 1,
+        "text": "Here is the problem. Alex is designing a square patio, paved by putting bricks on edge using the basketweave pattern shown. She has 999 bricks she can use, and designs her patio to be as large a square as possible. How many bricks does she use? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A066__02",
+        "sequence": 2,
+        "text": "how it looks. Watch out for this common mistake: Using the largest square number below 999 treats each brick as a square unit instead of grouping bricks in threes. A useful first observation is: In the pattern, three parallel bricks make one square block. Before you continue, think about this: A square patio with n blocks along each side needs 3n squared bricks. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A066__03",
+        "sequence": 3,
+        "text": "on. Step 1. Each square unit in the basketweave pattern contains 3 bricks. Step 2. With n units on each side, a square patio uses n squared units, or 3n squared bricks. We need n squared≤999 divided by 3=333. Step 3. 18 squared=324 but 19 squared=361, so the largest side is 18 units. Step 4. The patio uses 3 times 324=972 bricks, leaving 999 minus 972=27 unused. Check the answer with a different viewpoint. Test the two neighbouring possibilities directly:3 times 18 squared=972 fits, but",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A066__04",
+        "sequence": 4,
+        "text": "3 times 19 squared=1083 exceeds 999. Final thinking check: Why divide 999 by 3 before looking for a square number? The complete square patio is built from square units, each containing three bricks. The answer is 972 bricks. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 59
+      }
+    ]
+  },
+  {
+    "video_id": "A087",
+    "title": "The twelve-step staircase",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 308,
+    "estimated_seconds": 114.462,
+    "chunks": [
+      {
+        "chunk_id": "A087__01",
+        "sequence": 1,
+        "text": "Here is the problem. The diagram shows solid staircases made from unit blocks. The one-step staircase is one block wide. Each next staircase is one block wider, one block longer and one block taller, with every space below its steps filled. How many blocks are needed for the 12-step staircase? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A087__02",
+        "sequence": 2,
+        "text": "rather than estimating from how it looks. Watch out for this common mistake: Counting only visible blocks omits the solid blocks underneath each step. A useful first observation is: The 12-step staircase is 12 blocks wide. Look at one block-wide slice from the side. Before you continue, think about this: That slice has columns of heights 1, 2, 3, and so on , 12. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A087__03",
+        "sequence": 3,
+        "text": "going on. Step 1. A one-block-wide slice contains 1 + 2 + 3 + ⋯ + 12 blocks. Step 2. Pairing the smallest and largest heights gives six pairs each totalling 13, so one slice contains 78 blocks. Step 3. The staircase has 12 identical slices across its width. Step 4. The total is 12 times 78 = 936 blocks. Check the answer with a different viewpoint. Fit two identical staircases together to make a 12 times 12 times 13 rectangular block. Half its 1872",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A087__04",
+        "sequence": 4,
+        "text": "blocks is 936. Final thinking check: What does 1 + 2 + ⋯ + 12 count here? The solid has 12 equal-width copies of that side slice. The answer is 936 blocks. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 53
+      }
+    ]
+  },
+  {
+    "video_id": "A100",
+    "title": "The missing digit sum",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 334,
+    "estimated_seconds": 122.198,
+    "chunks": [
+      {
+        "chunk_id": "A100__01",
+        "sequence": 1,
+        "text": "Here is the problem. A seven-digit number has the form 20 AMC 19. All seven digits are different, and the number is divisible by 9. What is A + M + C? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: A, M, C are digits",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A100__02",
+        "sequence": 2,
+        "text": "occupying places; AMC is not their sum, and the four fixed digits cannot be reused. A useful first observation is: A multiple of 9 has a digit sum divisible by 9. The known digits add to 12. Before you continue, think about this: A, M, C cannot be 0, 1, 2 or 9, so they are three different digits from 3, 4, 5, 6, 7, 8. Now build the solution in small steps. Pause after any step if you want to reproduce it in your",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A100__03",
+        "sequence": 3,
+        "text": "notebook before going on. Step 1. The known digits 2, 0, 1, 9 add to 12. Thus 12 + A + M + C must be divisible by 9. Step 2. The three unknown digits are different members of{3, 4, 5, 6, 7, 8}. Their sum is at least 12 and at most 21. Step 3. The full digit sum therefore lies from 24 to 33. The only multiple of 9 in that range is 27. Step 4. So A + M + C =",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A100__04",
+        "sequence": 4,
+        "text": "27 minus 12 = 15. Check the answer with a different viewpoint. The unknown sum must leave remainder 6 when divided by 9. Between 12 and 21 the only such number is 15. Final thinking check: Why must the full digit sum be 27? Distinct permitted unknown digits bound the total to that interval. The answer is 15. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 79
+      }
+    ]
+  },
+  {
+    "video_id": "A103",
+    "title": "The highest-scoring route",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 519,
+    "estimated_seconds": 199.826,
+    "chunks": [
+      {
+        "chunk_id": "A103__01",
+        "sequence": 1,
+        "text": "Here is the problem. Enter the grid at the bottom-right white square and leave at the marked exit in row 6, column 2. Move one square at a time horizontally or vertically through white squares, never through a coloured square. No square may be visited twice. Add the numbers in all squares you pass through; blank squares add 0. What is the greatest possible total? Rows are numbered from the top and columns from the left. Before doing any calculation, say exactly what the question",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A103__02",
+        "sequence": 2,
+        "text": "is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: The 150 square is attractive but prevents collecting an outer detour worth 160. Greedily taking the largest single square loses points. A useful first observation is: The 55 in row 4, column 1 and 70 in row 6, column 1 are dead ends: collecting either would",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A103__03",
+        "sequence": 3,
+        "text": "require returning through a visited square. Before you continue, think about this: At the upper-left, compare the branch containing 150 with the outer branch containing 50, 60 and 50. At the right, compare the two branches containing 50 and 55. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. All numbered squares total 910. The dead-end 55 at (row 4, column 1) and 70 at (row 6, column 1)",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A103__04",
+        "sequence": 4,
+        "text": "cannot appear in a complete entry-to-exit route, removing 125. Step 2. In the upper-left section a non-repeating route must choose between the 150 branch and an outer branch worth 50 + 60 + 50 = 160; it cannot collect both. At least 150 more must be omitted. Step 3. The small right-hand loop also forces a choice between its 50 and 55 squares. At least 50 more must be omitted. Therefore every route scores at most 910 minus 125 minus 150 minus 50 = 585.",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A103__05",
+        "sequence": 5,
+        "text": "Step 4. That bound is attained by this route, using (row, column): (6, 5), (6, 4), (5, 4), (4, 4), (4, 5), (3, 5), (2, 5), (1, 5), (1, 4), (1, 3), (1, 2), (1, 1), (2, 1), (2, 2), (3, 2), (4, 2), (4, 3), (5, 3), (5, 2), (6, 2). Step 5. The numbered squares on this route sum to 25 + 55 + 50 + 55 + 50 + 50 + 60 + 50 + 45 + 55 + 60 + 30",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A103__06",
+        "sequence": 6,
+        "text": "= 585. Check the answer with a different viewpoint. Draw a tree of the route choices, stopping every branch at a repeated or blocked square. All 22 complete simple entry-to-exit paths can be compared; the best total is 585. Final thinking check: Why should the 150 branch be skipped in a best route? Route choices must be compared by the total they allow, not their largest individual number. The answer is 585 points. Read the original question once more and make sure this is the",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A103__07",
+        "sequence": 7,
+        "text": "requested quantity, and that every condition has been checked.",
+        "word_count": 9
+      }
+    ]
+  },
+  {
+    "video_id": "A110",
+    "title": "Thirty minutes of digits",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 327,
+    "estimated_seconds": 137.9,
+    "chunks": [
+      {
+        "chunk_id": "A110__01",
+        "sequence": 1,
+        "text": "Here is the problem. You write one digit every second. For half an hour you write the counting numbers in order, starting 1, 2, 3, and so on . What number have you just finished writing when the half hour ends? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A110__02",
+        "sequence": 2,
+        "text": "for this common mistake: There are 537 numbers from 100 through 636 inclusive; adding 537 to 100 would be one too far. A useful first observation is: Half an hour is 1800 seconds, so you can write 1800 digits. Before you continue, think about this: Writing 1 to 9 takes 9 digits. Writing 10 to 99 takes 90 times 2 digits. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A110__03",
+        "sequence": 3,
+        "text": "1. Half an hour gives 30 times 60 = 1800 digits. Step 2. The numbers 1 to 9 use 9 digits and 10 to 99 use 180, so writing through 99 uses 189 digits. Step 3. That leaves 1800 minus 189 = 1611 digits, enough for 1611 divided by 3 = 537 three-digit numbers. Step 4. The next 537 numbers are 100 through 99 + 537 = 636. Thus the last complete number is 636. Check the answer with a different viewpoint. Writing through n,",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A110__04",
+        "sequence": 4,
+        "text": "for 100 ≤ n ≤ 999, requires 189 + 3(n minus 99) digits. Set that equal to 1800 to get n = 636. Final thinking check: Why is the last number 99 + 537? The first added number is 100, so the 537th is 99 + 537. The answer is 636. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 72
+      }
+    ]
+  },
+  {
+    "video_id": "A114",
+    "title": "Verity’s three numbers",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 408,
+    "estimated_seconds": 147.525,
+    "chunks": [
+      {
+        "chunk_id": "A114__01",
+        "sequence": 1,
+        "text": "Here is the problem. Verity uses the digit cards 1, 2, 3, 4, 5, 6 exactly once to form three two-digit numbers. Only the first number is a multiple of 4. Only the second is a multiple of 5. Only the third is a multiple of 6. What is the result of multiplying the first two numbers and then adding the third? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A114__02",
+        "sequence": 2,
+        "text": "find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: “Only” matters: a candidate such as 36 is divisible by both 4 and 6, so it cannot fill either restricted role here. A useful first observation is: The second number must end in 5, reserving that digit. Before you continue, think about this: The third is a multiple of 6 using the other digits, and it must not be a",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A114__03",
+        "sequence": 3,
+        "text": "multiple of 4. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. The second number ends in 5 because it is a multiple of 5 and no 0 card is available. Step 2. Using the remaining digits 1, 2, 3, 4, 6 without repeats, possible multiples of 6 are 12, 24, 36 and 42. The first three are multiples of 4, forbidden for the third number. Thus the third",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A114__04",
+        "sequence": 4,
+        "text": "is 42. Step 3. The first number uses two of 1, 3, 6. Of 13, 16, 31, 36, 61, 63, only 16 and 36 are multiples of 4;36 is also divisible by 6, so the first is 16. Step 4. The remaining cards form 35 as the second number. The required value is 16 times 35 + 42 = 560 + 42 = 602. Check the answer with a different viewpoint. List possible first and third numbers under their divisibility restrictions, then cross out every",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A114__05",
+        "sequence": 5,
+        "text": "pair that reuses a digit or prevents a remaining number ending in 5. Only 16, 35, 42 remains. Final thinking check: Why can 36 not be the third number? Only the first number may be divisible by 4, while 36 has that property. The answer is 602. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 68
+      }
+    ]
+  },
+  {
+    "video_id": "A123",
+    "title": "The repeating number machine",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 356,
+    "estimated_seconds": 135.626,
+    "chunks": [
+      {
+        "chunk_id": "A123__01",
+        "sequence": 1,
+        "text": "Here is the problem. A sequence starts with 1. To get each new term, double the previous term and add 4. If the result has three digits, remove its hundreds digit and keep the last two digits. What is the 2022 nd term of the sequence, counting the initial 1 as the first term? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A123__02",
+        "sequence": 2,
+        "text": "as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: Do not start the four-term cycle at the initial 1; the first two terms are outside it. A useful first observation is: Write the first eight terms, carefully removing the hundreds digit when needed. Before you continue, think about this: The sequence begins 1, 6, 16, 36, 76, 56, 16, 36. Which block repeats? Now build the solution in small steps. Pause after any step if you want",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A123__03",
+        "sequence": 3,
+        "text": "to reproduce it in your notebook before going on. Step 1. The first terms are 1, 6, 16, 36, 76, 56, 16, 36, 76, 56. For example, 2 times 76 + 4 = 156 becomes 56. Step 2. After the first two terms, the four-term block 16, 36, 76, 56 repeats forever, because each value has the same next value every time. Step 3. The term 56 occurs at positions 6, 10, 14, and so on . Since 2022 minus 6 = 2016 = 504",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A123__04",
+        "sequence": 4,
+        "text": "times 4, position 2022 also contains 56. Check the answer with a different viewpoint. There are 2022 minus 2 = 2020 terms from the start of the repeating block to the target. This is 505 complete blocks of four, so the target is the last value in a block, 56. Final thinking check: Why does a repeated value guarantee the same future sequence? The rule always produces the same next term from the same current term. The answer is 56. Read the original question once",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A123__05",
+        "sequence": 5,
+        "text": "more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 16
+      }
+    ]
+  }
+]
