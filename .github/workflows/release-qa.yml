@@ -12,6 +12,7 @@ on:
       - "*.css"
       - "data/**"
       - ".github/workflows/release-qa.yml"
+      - "postproduction/**"
 
 permissions:
   contents: read
@@ -66,3 +67,21 @@ jobs:
           test ! -f data/challenges-amc-121-152.json
           ! grep -R --line-number -E '"answer"[[:space:]]*:' data/sessions-372.json data/teaching-72.json || exit 1
           echo "No authenticated AMC answer bank on current Pages branch."
+      - name: Video and media safety invariants
+        run: |
+          grep -q 'let attemptedProblemIds=new Set()' app-main.js
+          grep -q 'if(/^A\\d{3}$/.test' app-main.js
+          grep -q 'independent_credit:false' app-main.js
+          grep -q 'videoUrl:d.video_url||finalVideoUrl(p.id)' app-main.js
+          grep -q 'completed_80_percent:true' lesson-player.js
+          grep -q 'finished_video' lesson-player.js
+          grep -q 'kokoro_fallback' lesson-player.js
+          ! grep -R --line-number -E 'releases/download/[^ ]*/A[0-9]{3}\\.mp4' . --exclude-dir=.git || exit 1
+          echo "Attempt gate, protected AMC media and viewed-only video evidence invariants passed."
+      - name: Post-production tooling
+        run: |
+          python -m py_compile postproduction/finish_video.py postproduction/batch_finish.py postproduction/prepare_media_release.py
+          node --check postproduction/upload_protected_media.mjs
+          grep -q 'public_contains_amc' postproduction/prepare_media_release.py
+          grep -q 'PROTECTED_VIDEO_BUCKET' postproduction/upload_protected_media.mjs
+          echo "Post-production tooling syntax and media split checks passed."
