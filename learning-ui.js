@@ -7,10 +7,11 @@ export function lessonCard(id,plan){
  const notation=(q.reason.includes('!')?' The symbol ! means multiply the positive whole numbers down to 1: 3! = 3 × 2 × 1.':'')+(q.reason.includes('^')||q.prompt.includes('^')?' A power counts repeated factors: 2^3 means 2 × 2 × 2.':'')+(q.reason.includes('f(')?' Here f(k) means the number of routes to step k. It is a label for a count.':'')+(q.reason.includes('n²')?' The letter n names a side length; n² means n multiplied by itself.':'');
  return `${workedSteps(plan)}${plan.secondary?workedSteps(plan.secondary,"Second tool · recall before combining"):""}<article class="method-card"><div class="eyebrow">NAME THE IDEA · ${esc(id)}</div><h3>What made that work?</h3><p>${esc(m.idea)}</p><div class="worked-example"><div class="eyebrow">BUILD ON IT · A SECOND WORKED EXAMPLE</div><h3>${esc(q.prompt)}</h3><p><b>First move:</b> ${esc(plan.goal)}</p>${notation?`<p class="notation-note">${esc(notation)}</p>`:''}<p class="math-copy">${esc(q.reason)}</p><p><b>Connect the examples:</b> What stayed the same in the method, even though the numbers or setting changed?</p></div><p class="trap-note"><b>Watch for:</b> ${esc(m.trap)}</p></article>`;
 }
-export function mountCheck(el,{id,slot,records,draft,save,kind='retrieval',label='',onDone=()=>{}}){
+export function mountCheck(el,{id,slot,records,draft,save,kind='retrieval',label='',seedOverride=null,onDone=()=>{}}){
  const key=`${kind}:${id}`;
- const seed=kind==='guided'?1:2+((slot+id.charCodeAt(0))%5);
- const q=exercise(id,seed),old=draft.evidence[key];
+ const old=draft.evidence[key];
+ const seed=old?.seed??seedOverride??(kind==='guided'?1:2+((slot+id.charCodeAt(0))%5));
+ const q=exercise(id,seed);
  el.innerHTML=`<article class="mini-check"><div class="eyebrow">${esc(label||(kind==='guided'?'YOUR TURN · SUPPORT AVAILABLE':'FROM MEMORY · '+id))}</div><p>${esc(q.prompt)}</p><form><label class="answer-label">${typeof q.value==='number'?'Your final answer':'Your answer'}<input class="answer-box short-answer" autocomplete="off" value="${esc(old?.response||'')}" ${old?'disabled':''}></label><div class="problem-actions"><button class="primary" ${old?'disabled':''}>Check my answer</button><button type="button" class="ghost hint" ${old?'disabled':''}>I need a hint</button></div></form><div class="check-feedback" role="status"></div></article>`;
  let helped=old?.independent===false||draft.evidence['hint:'+key]===true;
  const feedback=el.querySelector('.check-feedback');

@@ -271,7 +271,7 @@ function renderDiscover(el,s){
   el.innerHTML=`<div class="stage-number">STAGE 2 · EXPLANATION</div><h2>Discover</h2><p class="muted">Read, sketch and listen. The goal is to see why the method works, not memorise a slogan.</p>
   ${lessonCard(skillFor(s,taxonomy),lessonPlan(s,course,taxonomy))}<div id="guidedCheck"></div><details class="optional-lesson"><summary>Optional deeper connection · related video or reading</summary><div class="teaching-box">${items.map((t,i)=>`<article class="teaching-item"><div class="eyebrow">${esc(t.type==="worked_example"?"WORKED EXAMPLE":"CONCEPT")}</div><h3>${esc(t.title)}</h3><div class="lesson-player-slot" id="lessonPlayer${i}"></div><details><summary>Read explanation</summary><p class="math-copy">${esc(t.transcript)}</p>${t.extended_reading?`<h4>Further mathematical connections</h4><p class="math-copy">${esc(t.extended_reading)}</p>`:""}</details></article>`).join("")||'<p class="muted">Teaching explanation is being selected from the course library.</p>'}</div></details>
   <div class="complete-row"><span class="muted">Try the supported question first. A hint is part of learning.</span><button class="primary" id="nextStage">Try independently</button></div>`;
-  if(skillFor(s,taxonomy))mountCheck(el.querySelector("#guidedCheck"),{id:skillFor(s,taxonomy),slot:s.slot,records:completedRecords,draft:sessionDraft,kind:"guided",save:()=>saveDraft(s)});
+  if(skillFor(s,taxonomy))mountCheck(el.querySelector("#guidedCheck"),{id:skillFor(s,taxonomy),slot:s.slot,records:completedRecords,draft:sessionDraft,kind:"guided",seedOverride:lessonPlan(s,course,taxonomy).visit%7,save:()=>saveDraft(s)});
   items.forEach((t,i)=>mountNarratedPlayer(document.getElementById("lessonPlayer"+i),{
     title:t.title,
     transcript:t.transcript,
@@ -338,7 +338,7 @@ function renderChallenge(el,s,p,mode){
     const prep=document.createElement('div');el.appendChild(prep);
     node.hidden=!core;
     const unlock=e=>{node.hidden=false;node.scrollIntoView({behavior:'smooth',block:'start'});};
-    mountCheck(prep,{id:sid,slot:s.slot,records:completedRecords,draft:sessionDraft,save:()=>saveDraft(s),label:'YOUR TURN · INDEPENDENT BASICS CHECK',onDone:unlock});
+    mountCheck(prep,{id:sid,slot:s.slot,records:completedRecords,draft:sessionDraft,save:()=>saveDraft(s),label:'YOUR TURN · INDEPENDENT BASICS CHECK',seedOverride:(lessonPlan(s,course,taxonomy).visit+1)%7,onDone:unlock});
   }
   const bridge=document.createElement('div');bridge.className='challenge-bridge';
   bridge.innerHTML=`<h3>${mode==='try'?'Next: stretch the idea':'Transfer: choose your tools'}</h3><p>This is a challenge, not the first explanation. Read for the requested quantity, sketch or list what is known, and decide which tool fits. If today’s method does not fit on its own, combine it with an older one.</p><details><summary>A starting plan, without the answer</summary><ol><li>Restate the question in your own words.</li><li>Test a smaller case or draw the quantities.</li><li>Look for a connection to the worked examples. Explain why it applies before calculating.</li></ol></details>`;

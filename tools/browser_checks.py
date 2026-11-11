@@ -29,7 +29,7 @@ async def main():
   await page.locator('.mini-check .hint').click();await page.wait_for_timeout(100)
   assert await page.evaluate("Object.values(fixture.records[0].evidence).includes(true)")
   await page.locator('.mini-check input').fill('123');await page.locator('.mini-check button.primary').click();await page.locator('.check-feedback').get_by_text('Not quite yet',exact=False).wait_for()
-  await page.locator('[data-stage="2"]').click();assert not await page.locator('.problem-card').is_visible();await page.locator('.mini-check input').fill('1');await page.locator('.mini-check button.primary').click();await page.locator('.problem-card').wait_for();await page.locator('.working-box').fill('My reasoning survives changing stages.')
+  await page.locator('[data-stage="2"]').click();assert not await page.locator('.problem-card').is_visible();await page.locator('.mini-check input').fill('4');await page.locator('.mini-check button.primary').click();await page.locator('.problem-card').wait_for();await page.locator('.working-box').fill('My reasoning survives changing stages.')
   await page.locator('[data-stage="3"]').click();await page.locator('[data-stage="2"]').click()
   assert await page.locator('.working-box').input_value()=='My reasoning survives changing stages.'
   await page.locator('.problem-card .answer-box:not(.working-box)').fill('12');await page.locator('.submit-answer').click();await page.locator('.submit-answer').wait_for(state='hidden')
@@ -58,7 +58,7 @@ async def main():
    await sp.locator('.session-intro').wait_for()
    assert await sp.evaluate('document.documentElement.scrollWidth<=innerWidth+1')
    if completed in [6,360]:
-    await sp.locator('[data-stage="1"]').click();await sp.locator('.gentle-example').wait_for()
+    await sp.locator('[data-stage="1"]').click();await sp.locator('.gentle-example').first.wait_for()
    else: await sp.locator('#startCourseExam').wait_for()
    await special.close()
   # Exercise the REAL shared currentUser and login modules with a simulated SDK.
