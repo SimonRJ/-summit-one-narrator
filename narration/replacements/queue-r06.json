@@ -1,0 +1,518 @@
+[
+  {
+    "video_id": "A045",
+    "title": "Ages five years later",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 326,
+    "estimated_seconds": 129.789,
+    "chunks": [
+      {
+        "chunk_id": "A045__01",
+        "sequence": 1,
+        "text": "Here is the problem. Andrew has two children, David and Helen. The sum of their three ages is 49. David’s age is three times that of Helen. In 5 years time, Andrew’s age will be three times David’s age. What is the product of their ages now? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A045__02",
+        "sequence": 2,
+        "text": "from how it looks. Watch out for this common mistake: In five years David will be 3h+5, not 3(h+5): the present ratio does not remain constant. A useful first observation is: Use Helen’s age as one part. David is three such parts. Before you continue, think about this: Use the total 49 to express Andrew’s age. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. Let Helen be h",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A045__03",
+        "sequence": 3,
+        "text": "years old. David is 3 h and Andrew is 49 minus 4 h. Step 2. Five years later their ages are h+5, 3 h+5 and 54 minus 4 h. Step 3. The future clue says 54 minus 4 h=3(3 h+5)=9 h+15. Step 4. Thus 13 h=39 and h=3. David is 9 and Andrew 37. Step 5. The product now is 3 times 9 times 37=999. Check: in five years Andrew is 42 and David 14, and 42=3 times 14. Check the answer with a different",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A045__04",
+        "sequence": 4,
+        "text": "viewpoint. Try positive whole-number Helen ages, using the current total to find Andrew and testing the future condition. Final thinking check: If David is 3h now, how old is he in five years? Five years adds 5 to each person’s age, regardless of their present ratio. The answer is 999. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 71
+      }
+    ]
+  },
+  {
+    "video_id": "A057",
+    "title": "Three rows of tables",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 333,
+    "estimated_seconds": 123.165,
+    "chunks": [
+      {
+        "chunk_id": "A057__01",
+        "sequence": 1,
+        "text": "Here is the problem. In the school hall, there are square tables and chairs to put around them. Each table is big enough to seat 4 people. The tables can be joined in a long row to seat more people. For example, a row of four tables can seat 10 people. If the school needs to set up three long rows to seat 240 people, how many tables are needed? Before doing any calculation, say exactly what the question is asking for. Separate the information",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A057__02",
+        "sequence": 2,
+        "text": "you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: Subtracting only 2 end seats forgets that there are three separate rows. A useful first observation is: Draw a row of tables. Which seats disappear when tables touch? Before you continue, think about this: A row with n tables has n seats on each long side and one at each end. Now",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A057__03",
+        "sequence": 3,
+        "text": "build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. A row of n square tables has n seats along each long side and 2 end seats:2n+2 seats. Step 2. For three rows containing T tables altogether, there are 2T side seats and 6 end seats. Step 3. Therefore 2T+6=240, so T=(240 minus 6) divided by 2=117 tables. The three rows need not be equal lengths. Check the answer with a",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A057__04",
+        "sequence": 4,
+        "text": "different viewpoint. Start each row with one table:3 tables seat 12. Each extra table adds 2 seats, so add (240 minus 12) divided by 2=114 tables, giving 117. Final thinking check: How many end seats are there across three rows? Each separate row has two ends, giving 3 times 2=6 end seats. The answer is 117 tables. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 78
+      }
+    ]
+  },
+  {
+    "video_id": "A070",
+    "title": "Count the black spiral",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 361,
+    "estimated_seconds": 154.855,
+    "chunks": [
+      {
+        "chunk_id": "A070__01",
+        "sequence": 1,
+        "text": "Here is the problem. The squares in a 25 times 25 grid are painted black or white in a spiral pattern, starting with black at the centre star and spiralling out. The diagram shows how this starts. How many squares are painted black? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks.",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A070__02",
+        "sequence": 2,
+        "text": "Watch out for this common mistake: Assuming half of the 625 cells are black misses the extra black cells on the outside boundary. A useful first observation is: Look at centred squares of side 1,5,9,13, and so on rather than counting the full spiral one cell at a time. Before you continue, think about this: The centre contributes 1 black square. The next four-cell-wider square adds 16 black squares. Now build the solution in small steps. Pause after any step if you want to reproduce",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A070__03",
+        "sequence": 3,
+        "text": "it in your notebook before going on. Step 1. The black path starts at the centre, goes up 2 cells, right 2, down 4, left 4, up 6, right 6, and continues with lengths increasing by 2 after every two turns. Step 2. Group the grid into centred squares of side 1,5,9,13,17,21,25. The centre contributes 1 black square; the six added layers contribute 16,32,48,64,80,96. Step 3. Each new four-cell-wider layer lengthens each of the four sides of the added spiral band by 4 cells, so",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A070__04",
+        "sequence": 4,
+        "text": "its black count grows by 4 times 4=16. Step 4. Add 1+16+32+48+64+80+96=1+16(1+2+3+4+5+6)=337. Check the answer with a different viewpoint. The offset 24 times 24 interior has equal numbers of black and white cells, giving 288 black. The extra black L along the lower and left boundaries has 25+24=49 cells:288+49=337. Final thinking check: Why are the useful centred side lengths 1,5,9, and so on ? These layers finish the same stage of the black-and-white spiral and give a consistent growth rule. The answer is 337 squares.",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A070__05",
+        "sequence": 5,
+        "text": "Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 21
+      }
+    ]
+  },
+  {
+    "video_id": "A082",
+    "title": "Three half-edge tiles",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 438,
+    "estimated_seconds": 167.876,
+    "chunks": [
+      {
+        "chunk_id": "A082__01",
+        "sequence": 1,
+        "text": "Here is the problem. Zhipu has square construction tiles that may connect only with half a side touching: a corner of one tile meets the midpoint of the other tile’s side, as shown. Tiles must not overlap, and any touching sides must follow this half-side rule. How many different shapes can he make by connecting three tiles? Count rotated or reflected copies as the same shape. Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A082__02",
+        "sequence": 2,
+        "text": "the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: Counting rotated or mirror-image copies again overcounts; placing tiles with a full side touching violates the half-side-only join rule. A useful first observation is: Treat rotated or flipped copies of the whole shape as the same. Start with the two joined tiles in the diagram. Before you continue, think about this: In a three-tile chain, examine",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A082__03",
+        "sequence": 3,
+        "text": "the two sides of the middle tile used for joins: opposite sides or adjacent sides. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. Every valid arrangement has a middle tile joined by half a side to each of the other two, with no overlapping tiles. Rotated and reflected copies count as the same arrangement. Step 2. If the two joins are on opposite sides of the middle tile,",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A082__04",
+        "sequence": 4,
+        "text": "the outer tiles can shift in the same direction (a staircase) or opposite directions (a returning zigzag):2 shapes. Step 3. If the joins are on adjacent sides, there are 2 distinct non-overlapping relative placements, after rotations and reflections are identified. Two neighbours on the same side either overlap or touch each other along a full side, so they are invalid. Step 4. Thus there are 2+2=4 shapes. For a coordinate check with tile side 2, representative lower-left corners are{(0,0), (1,2), (0,4)}, {(0,0), (1,2), (2,4)}, {(0,0),",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A082__05",
+        "sequence": 5,
+        "text": "(1,2), (3,1)}, and{(0,0), (1,2), (3,3)}. Check the answer with a different viewpoint. Fix two tile corners at (0,0), (2,1) for tiles of side 2. Try all half-edge offsets (±2,±1), (±1,±2) for the third tile, reject overlap or full-side joins, then group rotations and reflections; four groups remain. Final thinking check: Should a turned-over or rotated copy count as a new shape? The intended count identifies rotations and reflections of the entire configuration. The answer is 4 shapes. Read the original question once more and make",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A082__06",
+        "sequence": 6,
+        "text": "sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 13
+      }
+    ]
+  },
+  {
+    "video_id": "A092",
+    "title": "The cross-number fragment",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 375,
+    "estimated_seconds": 145.131,
+    "chunks": [
+      {
+        "chunk_id": "A092__01",
+        "sequence": 1,
+        "text": "Here is the problem. In the cross-number fragment, each answer is a whole number written one digit per white cell. Across: 1 is the square of the answer to 27-down; 6 is half of 1-across. Down: 1 is twice 2-down; 2 is a multiple of 9. What is the answer to 2-down? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A092__02",
+        "sequence": 2,
+        "text": "mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: The clue numbers printed in the cell corners are labels, not digits already filled into the puzzle. A useful first observation is: 1-down has four digits and is twice the three-digit 2-down. Its first digit must be 1. Before you continue, think about this: Thus 1-across is an even three-digit square starting with 1: consider 100, 144 and 196. Now build the solution in small steps. Pause after any step",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A092__03",
+        "sequence": 3,
+        "text": "if you want to reproduce it in your notebook before going on. Step 1. 1-down is twice a three-digit number and has four digits, so it starts with 1 and 2-down is at least 500. Step 2. 1-across starts with that same 1. It is a square and is even because 6-across is half of it. The possibilities are 100, 144 and 196. Step 3. Its last digit begins 2-down, which must be at least 500. Only 196 ends in a sufficiently large digit, so",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A092__04",
+        "sequence": 4,
+        "text": "1-across = 196. Step 4. 6-across = 196 divided by 2 = 98. The crossings make 2-down equal to 69?. Its digit sum must be a multiple of 9; 6 + 9 + 3 = 18, so 2-down = 693. Check the answer with a different viewpoint. List all three-digit multiples of 9 whose doubles have four digits, then use their first two digits to test the square and half-square crossings. Only 693 survives. Final thinking check: Why can 1-across not be 144? A three-digit",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A092__05",
+        "sequence": 5,
+        "text": "number starting with 4 cannot double to a four-digit number. The answer is 693. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 35
+      }
+    ]
+  },
+  {
+    "video_id": "A098",
+    "title": "The highest number in the list",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 368,
+    "estimated_seconds": 137.232,
+    "chunks": [
+      {
+        "chunk_id": "A098__01",
+        "sequence": 1,
+        "text": "Here is the problem. A list starts at 0. Warren adds 20, Naida subtracts 1, Warren adds 19, Naida subtracts 2, and so on: 0, 20, 19, 38, 36, and so on . They continue until Warren adds 1 and Naida subtracts 20, finishing at 0. What is the largest number in the list? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A098__02",
+        "sequence": 2,
+        "text": "as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: Returning to 0 at the end says nothing about the largest intermediate value. A useful first observation is: A maximum must occur just after Warren adds, because Naida always subtracts. Before you continue, think about this: The peaks begin 20, 38, 54, and so on . From one peak to the next, the changes are 18, 16, 14, and so on . Now build the solution in small",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A098__03",
+        "sequence": 3,
+        "text": "steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. Only the values just after an addition can be the largest. The first such peak is 20. Step 2. Between successive peaks, the changes are minus 1 + 19 = 18, then minus 2 + 18 = 16, and so on, decreasing by 2 each time. Step 3. The positive peak increases are 18, 16, 14, 12, 10, 8, 6, 4, 2. The next increase is",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A098__04",
+        "sequence": 4,
+        "text": "0 and all later ones are negative. Step 4. The maximum is 20 + 18 + 16 + ⋯ + 2 = 2(10 + 9 + ⋯ + 1) = 110. Check the answer with a different viewpoint. Tabulate running totals after every addition. The peaks are 20, 38, 54, 68, 80, 90, 98, 104, 108, 110, 110, 108, and so on . Final thinking check: What signals that the peak values have stopped growing? Positive changes raise the peaks; after the zero change, negative",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A098__05",
+        "sequence": 5,
+        "text": "changes lower them. The answer is 110. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 28
+      }
+    ]
+  },
+  {
+    "video_id": "A104",
+    "title": "How long will the hay last?",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 323,
+    "estimated_seconds": 111.165,
+    "chunks": [
+      {
+        "chunk_id": "A104__01",
+        "sequence": 1,
+        "text": "Here is the problem. A horse eats one bale of hay in 2 days, a cow eats one bale in 3 days and a sheep eats one bale in 12 days. A farmer has 22 bales and one of each animal, all eating at these steady rates. How many days will the hay last? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A104__02",
+        "sequence": 2,
+        "text": "as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: Add the amounts eaten over the same time, not the individual times 2 + 3 + 12. A useful first observation is: Use 12 days as a shared time interval. Before you continue, think about this: In 12 days the horse eats 6 bales, the cow 4 and the sheep 1. Now build the solution in small steps. Pause after any step if you want to reproduce it",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A104__03",
+        "sequence": 3,
+        "text": "in your notebook before going on. Step 1. Over 12 days, the horse eats 12 divided by 2 = 6 bales. Step 2. The cow eats 12 divided by 3 = 4 bales and the sheep 12 divided by 12 = 1 bale. Step 3. Together they eat 6 + 4 + 1 = 11 bales every 12 days. Step 4. The 22 bales supply 2 such periods, lasting 2 times 12 = 24 days. Check the answer with a different viewpoint. The combined daily",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A104__04",
+        "sequence": 4,
+        "text": "rate is 1/2 + 1/3 + 1/12 = 11/12 bale. Then 22 divided by (11/12) = 24 days. Final thinking check: Why is 12 days a useful interval? 12 is divisible by 2, 3 and 12, so it avoids fractional bale counts. The answer is 24 days. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 68
+      }
+    ]
+  },
+  {
+    "video_id": "A105",
+    "title": "Oddtastic numbers",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 292,
+    "estimated_seconds": 113.446,
+    "chunks": [
+      {
+        "chunk_id": "A105__01",
+        "sequence": 1,
+        "text": "Here is the problem. A number is oddtastic if every digit is odd. For example 9, 57 and 313 are oddtastic, but 50 and 787 are not. How many numbers from 1 to 999 are oddtastic? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: An",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A105__02",
+        "sequence": 2,
+        "text": "odd number can still have even digits, such as 787; every digit must be odd. A useful first observation is: Each digit may be 1, 3, 5, 7 or 9: five choices. Repeating a digit is allowed. Before you continue, think about this: Count one-digit, two-digit and three-digit numbers separately. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. There are 5 odd one-digit numbers. Step 2. Each position",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A105__03",
+        "sequence": 3,
+        "text": "of a two-digit oddtastic number has 5 choices, giving 25 numbers. Step 3. Each of three positions has 5 choices, giving 125 three-digit numbers. Step 4. The lengths are disjoint, so the total is 5 + 25 + 125 = 155. Check the answer with a different viewpoint. Build a branching diagram: each existing string can be extended in 5 ways. The first three levels contain 5, 25 and 125 strings. Final thinking check: Why are there 25 two-digit oddtastic numbers? Repeated odd digits such",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A105__04",
+        "sequence": 4,
+        "text": "as 11 are allowed, so the count is 5 times 5. The answer is 155 numbers. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 37
+      }
+    ]
+  },
+  {
+    "video_id": "A107",
+    "title": "More pens for the chickens",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 318,
+    "estimated_seconds": 119.968,
+    "chunks": [
+      {
+        "chunk_id": "A107__01",
+        "sequence": 1,
+        "text": "Here is the problem. A farmer has 24 pens with the same number of chickens in each. After building 6 more pens, the farmer redistributes the same chickens equally among all 30 pens. Each pen now has 6 fewer chickens. How many chickens are there altogether? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A107__02",
+        "sequence": 2,
+        "text": "how it looks. Watch out for this common mistake: Adding pens changes the number of chickens per pen, not the total number of chickens. A useful first observation is: Moving 6 chickens out of each old pen frees 24 times 6 chickens. Before you continue, think about this: Those chickens fill the 6 new pens, with the same final number in every pen. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A107__03",
+        "sequence": 3,
+        "text": "on. Step 1. The 24 original pens each lose 6 chickens, releasing 24 times 6 = 144 chickens. Step 2. These 144 fill the 6 new pens equally, so each new pen receives 144 divided by 6 = 24 chickens. Step 3. All 30 pens finish with 24 chickens each. Step 4. The total is 30 times 24 = 720 chickens. Check the answer with a different viewpoint. If each original pen held x chickens, 24 x = 30(x minus 6). Thus 6 x =",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A107__04",
+        "sequence": 4,
+        "text": "180, x = 30 and the total is 24 times 30 = 720. Final thinking check: What does 24 times 6 represent? Each of the 24 old pens loses 6 chickens to help fill the new pens. The answer is 720 chickens. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 63
+      }
+    ]
+  },
+  {
+    "video_id": "A108",
+    "title": "Even numbers with digit sum 8",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 325,
+    "estimated_seconds": 117.962,
+    "chunks": [
+      {
+        "chunk_id": "A108__01",
+        "sequence": 1,
+        "text": "Here is the problem. How many even three-digit numbers have digits that add to 8? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: 008 is not a three-digit number, so a units digit 8 gives no valid case. A useful first observation is: The units",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A108__02",
+        "sequence": 2,
+        "text": "digit must be 0, 2, 4, 6 or 8. Before you continue, think about this: If the units digit is 0, the first two digits must add to 8. Their possibilities are 17, 26, 35, 44, 53, 62, 71 and 80. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. Fix the even units digit and count the first two digits, remembering that the hundreds digit is at least",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A108__03",
+        "sequence": 3,
+        "text": "1. Step 2. For units 0, the other digits sum to 8, giving 8 pairs. For units 2, they sum to 6, giving 6 pairs. Step 3. For units 4 there are 4 pairs; for units 6 there are 2; for units 8 there are none because the hundreds digit cannot be 0. Step 4. The complete count is 8 + 6 + 4 + 2 = 20. Check the answer with a different viewpoint. List by hundreds digit: the counts for hundreds 1, 2,",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A108__04",
+        "sequence": 4,
+        "text": "3, 4, 5, 6, 7, 8 are 4, 4, 3, 3, 2, 2, 1, 1. Their sum is 20. Final thinking check: Why are there no numbers with units digit 8? The entire digit sum is already 8, forcing both earlier digits to zero. The answer is 20 numbers. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 70
+      }
+    ]
+  },
+  {
+    "video_id": "A118",
+    "title": "The wrong-way hare",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 385,
+    "estimated_seconds": 140.606,
+    "chunks": [
+      {
+        "chunk_id": "A118__01",
+        "sequence": 1,
+        "text": "Here is the problem. A hare and a tortoise start a 10 km race together. The hare runs at 30 km/h and the tortoise at 3 km/h. The hare first runs in the wrong direction, then turns around and runs towards the finish at the same speed. It catches the tortoise halfway along the race. For how many minutes did the hare run in the wrong direction? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A118__02",
+        "sequence": 2,
+        "text": "from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: Dividing the extra 45 km by the speed counts both the outward detour and the return along it. A useful first observation is: The tortoise has travelled 5 km when they meet. How long does that take at 3 km/h? Before you continue, think about this: In that same time, the hare travels ten times",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A118__03",
+        "sequence": 3,
+        "text": "as far as the tortoise. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. The meeting point is 5 km from the start. The tortoise takes 5 divided by 3 hours, or 100 minutes, to get there. Step 2. The hare is ten times as fast, so it travels 50 km in those 100 minutes. Step 3. If its wrong-way distance is d km, its total journey is d",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A118__04",
+        "sequence": 4,
+        "text": "+ (d + 5) = 2 d + 5 km. Therefore 2 d = 45 and d = 22.5 km. Step 4. At 30 km/h, 22.5 km takes 22.5 divided by 30 hours = 45 minutes. Check the answer with a different viewpoint. Let the wrong-way time be t minutes. The hare travels at 0.5 km/min for 100 minutes, so its net forward distance is 0.5(100 minus t) minus 0.5 t = 5. This gives t = 45. Final thinking check: Why is the extra",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A118__05",
+        "sequence": 5,
+        "text": "distance twice the wrong-way distance? Every kilometre in the wrong direction adds one outward kilometre and one return kilometre. The answer is 45 minutes. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 45
+      }
+    ]
+  },
+  {
+    "video_id": "A119",
+    "title": "The slipped decimal point",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 317,
+    "estimated_seconds": 133.757,
+    "chunks": [
+      {
+        "chunk_id": "A119__01",
+        "sequence": 1,
+        "text": "Here is the problem. Two numbers add to 11.63. When the decimal point in one of them is accidentally moved one place to the left, their sum becomes 5.87. What is 100 times the difference between the two original numbers? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A119__02",
+        "sequence": 2,
+        "text": "this common mistake: The change is nine-tenths of the shifted number, not one-tenth. A useful first observation is: Only one number changes. The total falls by 11.63 minus 5.87. Before you continue, think about this: Moving its decimal one place left replaces the number by one-tenth of itself, so nine-tenths is lost. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. The total decreases by 11.63 minus 5.87 =",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A119__03",
+        "sequence": 3,
+        "text": "5.76. Step 2. If the shifted number is A, it changes from A to A divided by 10. Thus nine-tenths of A is 5.76, one-tenth is 0.64 and A = 6.40. Step 3. The other number is 11.63 minus 6.40 = 5.23. Their difference is 6.40 minus 5.23 = 1.17. Step 4. Multiplying by 100 gives 117. Check the answer with a different viewpoint. Use cents: the original total is 1163 cents and the altered total 587 cents. Their 576-cent difference is nine equal parts,",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A119__04",
+        "sequence": 4,
+        "text": "so the shifted number originally represents 640 cents. Final thinking check: If a number is changed to one-tenth of itself, what fraction is lost? The original ten equal tenths become just one tenth, so nine tenths disappear. The answer is 117. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 62
+      }
+    ]
+  },
+  {
+    "video_id": "A128",
+    "title": "The greatest touch-code",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 442,
+    "estimated_seconds": 164.01,
+    "chunks": [
+      {
+        "chunk_id": "A128__01",
+        "sequence": 1,
+        "text": "Here is the problem. The keypad shown has three rows of hexagonal keys: 1, 2, 3 on top; 4, 5, 6, 7 in the middle; and 8, 9, 0 below. A ten-digit code uses every digit exactly once, and consecutive digits must be on neighbouring keys in the diagram. What are the last three digits of the largest possible code? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A128__02",
+        "sequence": 2,
+        "text": "there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: Choosing the largest neighbour without checking the unused keys can strand a key and produce an incomplete code. A useful first observation is: Maximise the code from left to right. Start with 9 and try the largest available neighbouring key each time. Before you continue, think about this: The largest possible first four digits are 9856. Now check what happens if the",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A128__03",
+        "sequence": 3,
+        "text": "next digit is 7. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. The largest first digit is 9. Its largest neighbour is 8; from 8 the largest unused neighbour is 5; from 5 it is 6. The prefix 9856 can be completed, as the path below shows. Step 2. From 6, the largest unused neighbour is 7. But after taking 7, the only remaining way to visit 0",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A128__04",
+        "sequence": 4,
+        "text": "is 7 → 0; then 0 has no unused neighbour, leaving other digits unvisited. So 7 cannot be next. Step 3. Trying 3 or 2 next also prevents visiting both 7 and 0 and then returning to the remaining keys: their only exits lead through the already used 6 or 9, or through 3. Thus the next digit must be 0. Step 4. Continue with 0 → 7 → 3 → 2 → 1 → 4. This gives the valid largest code 9856073214. Its last",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A128__05",
+        "sequence": 5,
+        "text": "three digits are 214. Check the answer with a different viewpoint. Use a search tree ordered from largest digit to smallest. Whenever a prefix traps an unused key or has no full continuation, cross it out. The first complete path is 9856073214. Final thinking check: Why is 98567 not a valid beginning of a complete code? After 6 and 9 are used, 0 can be entered only from 7, and then it has nowhere unused to go. The answer is 214. Read the original question",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A128__06",
+        "sequence": 6,
+        "text": "once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 17
+      }
+    ]
+  }
+]
