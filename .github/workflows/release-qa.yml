@@ -70,7 +70,7 @@ jobs:
       - name: Video and media safety invariants
         run: |
           grep -q 'let attemptedProblemIds=new Set()' app-main.js
-          grep -q 'if(/^A\\d{3}$/.test' app-main.js
+          grep -q 'if(!/^T\\d{2}\\\\.(?:1|2|3|E)$/.test' app-main.js
           grep -q 'independent_credit:false' app-main.js
           grep -q 'videoUrl:d.video_url||finalVideoUrl(p.id)' app-main.js
           grep -q 'completed_80_percent:true' lesson-player.js
