@@ -1,0 +1,81 @@
+name: T02.2 studio lesson render
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'production/t022-studio/render_reverse.py'
+      - 'production/t022-studio/verify_reverse.py'
+      - 'production/t022-studio/publish_integration.py'
+      - 'production/t022-studio/watch-t02-2.html'
+      - '.github/workflows/t022-studio.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: t022-studio-render
+  cancel-in-progress: false
+jobs:
+  render-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install visual rendering dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-open-sans fonts-dejavu-core
+          python -m pip install --disable-pip-version-check pillow numpy
+      - name: Validate every scene against the locked narration
+        run: |
+          mkdir -p build/t022-studio
+          python production/t022-studio/render_reverse.py --preview --out build/t022-studio/storyboard
+          python - <<'PY'
+          import json
+          d=json.load(open('production/t022-studio/alignment-qa.json'))
+          assert d['match_percent']>=90 and d['caption_layers']==1
+          s=json.load(open('build/t022-studio/storyboard/frames.json'))
+          assert len(s)==48 and len({x['scene'] for x in s})==16
+          PY
+      - name: Render the complete 1080p film
+        run: |
+          python production/t022-studio/render_reverse.py --out build/t022-studio/visual.mp4
+          ffmpeg -v error -y -i build/t022-studio/visual.mp4 -i media/T02.2-narration.m4a -map 0:v:0 -map 1:a:0 -c copy -movflags +faststart -shortest build/t022-studio/final.mp4
+      - name: Verify narration identity and video integrity
+        run: |
+          python production/t022-studio/verify_reverse.py --source media/T02.2-narration.m4a --output build/t022-studio/final.mp4 --report build/t022-studio/qa.json
+          ffmpeg -v error -y -ss 118.2 -i build/t022-studio/final.mp4 -frames:v 1 -q:v 2 build/t022-studio/poster.jpg
+      - name: Integrate the verified lesson into the app
+        run: |
+          cp build/t022-studio/final.mp4 media/T02.2.mp4
+          cp build/t022-studio/poster.jpg media/T02.2-studio-poster.jpg
+          cp build/t022-studio/qa.json review/T02.2-studio-qa.json
+          cp production/t022-studio/watch-t02-2.html watch-t02-2.html
+          python production/t022-studio/publish_integration.py
+          python - <<'PY'
+          import json,pathlib
+          s=pathlib.Path('app-main.js').read_text()
+          assert 'media/T02.2.mp4?v=studio-v1' in s
+          assert 'media/T02.1.mp4?v=studio-v4' in s
+          assert len(json.load(open('data/teaching-72.json'))['items'])==72
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add media/T02.2.mp4 media/T02.2-studio-poster.jpg review/T02.2-studio-qa.json watch-t02-2.html watch-t02-1.html app-main.js index.html sw.js data/teaching-72.json
+          git commit -m 'Publish T02.2 studio video and connect the lesson in Summit One'
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
+      - uses: actions/upload-artifact@v4
+        with:
+          name: t022-studio-1080p
+          path: |
+            build/t022-studio/final.mp4
+            build/t022-studio/qa.json
+            build/t022-studio/storyboard/
+          retention-days: 14
+          compression-level: 0
