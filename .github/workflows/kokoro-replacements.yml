@@ -1,0 +1,58 @@
+name: Kokoro narration replacements
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "narration/replacements/**"
+      - ".github/workflows/kokoro-replacements.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: kokoro-narration-replacements
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    name: Replacement ${{ matrix.shard }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    strategy:
+      fail-fast: false
+      max-parallel: 7
+      matrix:
+        shard: ["r01","r02","r03","r04","r05","r06","r07"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: narration/package.json
+      - name: Install Kokoro
+        run: npm install --prefix narration --no-audit --no-fund
+      - name: Generate Kokoro replacements
+        env:
+          QUEUE_FILE: narration/replacements/queue-${{ matrix.shard }}.json
+          OUT_DIR: narration/output/${{ matrix.shard }}
+          PROCESS_HELD: include
+          HF_HOME: ${{ runner.temp }}/hf-cache
+          NODE_OPTIONS: --max-old-space-size=6144
+        run: node narration/generate-kokoro.mjs
+      - name: Archive shard
+        if: always()
+        run: |
+          cd narration/output/${{ matrix.shard }}
+          zip -9 -r ../../../kokoro-replacement-${{ matrix.shard }}.zip .
+      - name: Upload shard
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kokoro-replacement-${{ matrix.shard }}
+          path: kokoro-replacement-${{ matrix.shard }}.zip
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 0
