@@ -1,0 +1,417 @@
+[
+  {
+    "start": 0,
+    "end": 3.28,
+    "text": "Sometimes a maths puzzle tells you the finish, but hides the"
+  },
+  {
+    "start": 3.28,
+    "end": 6.7,
+    "text": "start. Working backwards means beginning with that finish and"
+  },
+  {
+    "start": 6.7,
+    "end": 7.54,
+    "text": "undoing the moves."
+  },
+  {
+    "start": 8.34,
+    "end": 11.26,
+    "text": "There is one crucial rule: undo the last move first."
+  },
+  {
+    "start": 11.92,
+    "end": 14.24,
+    "text": "Like taking off your shoes before your socks, the order"
+  },
+  {
+    "start": 14.24,
+    "end": 14.540000000000001,
+    "text": "matters."
+  },
+  {
+    "start": 15.496,
+    "end": 18.056,
+    "text": "This is useful when guessing the starting number would take"
+  },
+  {
+    "start": 18.056,
+    "end": 21.796,
+    "text": "ages. If each move can be undone, we can follow a"
+  },
+  {
+    "start": 21.796,
+    "end": 23.156,
+    "text": "clear route back to the start."
+  },
+  {
+    "start": 23.876,
+    "end": 26.255999999999997,
+    "text": "Then we check the answer by travelling forwards again."
+  },
+  {
+    "start": 26.999,
+    "end": 28.218999999999998,
+    "text": "Let's try a number machine."
+  },
+  {
+    "start": 28.819,
+    "end": 31.738999999999997,
+    "text": "It multiplies a secret number by four, then adds three."
+  },
+  {
+    "start": 32.439,
+    "end": 33.679,
+    "text": "The machine finishes at twenty-three."
+  },
+  {
+    "start": 34.439,
+    "end": 35.179,
+    "text": "What number went in?"
+  },
+  {
+    "start": 35.599,
+    "end": 37.919,
+    "text": "Notice the order: multiply first, then add."
+  },
+  {
+    "start": 38.827,
+    "end": 39.527,
+    "text": "Start at twenty-three."
+  },
+  {
+    "start": 40.266999999999996,
+    "end": 43.147,
+    "text": "The last thing the machine did was add three, so undo"
+  },
+  {
+    "start": 43.147,
+    "end": 46.727,
+    "text": "that first. Twenty-three minus three is twenty."
+  },
+  {
+    "start": 46.727,
+    "end": 49.147,
+    "text": "We have recovered the amount just before the final addition."
+  },
+  {
+    "start": 49.97,
+    "end": 51.75,
+    "text": "Only now do we undo the multiplication."
+  },
+  {
+    "start": 51.75,
+    "end": 54.35,
+    "text": "Twenty divided by four is five."
+  },
+  {
+    "start": 54.93,
+    "end": 58.39,
+    "text": "Check the whole journey: five times four is twenty, and twenty"
+  },
+  {
+    "start": 58.39,
+    "end": 59.61,
+    "text": "plus three is twenty-three."
+  },
+  {
+    "start": 60.35,
+    "end": 60.95,
+    "text": "Five works."
+  },
+  {
+    "start": 61.625,
+    "end": 63.985,
+    "text": "What if we undo the operations in the wrong order?"
+  },
+  {
+    "start": 64.865,
+    "end": 68.405,
+    "text": "Twenty-three divided by four is five point seven five."
+  },
+  {
+    "start": 68.405,
+    "end": 71.865,
+    "text": "Subtract three, and we get two point seven five."
+  },
+  {
+    "start": 71.865,
+    "end": 72.825,
+    "text": "That is not five."
+  },
+  {
+    "start": 73.285,
+    "end": 74.625,
+    "text": "The order is part of the method."
+  },
+  {
+    "start": 75.275,
+    "end": 77.935,
+    "text": "Here is why the correct order works for any starting number."
+  },
+  {
+    "start": 78.575,
+    "end": 79.155,
+    "text": "Call the start x."
+  },
+  {
+    "start": 79.83500000000001,
+    "end": 81.75500000000001,
+    "text": "The machine makes four x plus three."
+  },
+  {
+    "start": 82.33500000000001,
+    "end": 84.67500000000001,
+    "text": "Subtracting three leaves four x."
+  },
+  {
+    "start": 84.67500000000001,
+    "end": 86.155,
+    "text": "Dividing by four leaves x."
+  },
+  {
+    "start": 86.795,
+    "end": 88.995,
+    "text": "We peel away the outside operation first."
+  },
+  {
+    "start": 89.75500000000001,
+    "end": 92.935,
+    "text": "Multiplying by zero would lose the starting information, so"
+  },
+  {
+    "start": 92.935,
+    "end": 94.655,
+    "text": "that move cannot be undone uniquely."
+  },
+  {
+    "start": 95.345,
+    "end": 97.005,
+    "text": "Now try a different kind of puzzle."
+  },
+  {
+    "start": 97.705,
+    "end": 99.645,
+    "text": "A child keeps half of a collection of counters."
+  },
+  {
+    "start": 100.425,
+    "end": 101.985,
+    "text": "Then they keep two thirds of what remains."
+  },
+  {
+    "start": 102.745,
+    "end": 104.205,
+    "text": "At the end, there are eight counters."
+  },
+  {
+    "start": 105.025,
+    "end": 106.225,
+    "text": "How many were there at the start?"
+  },
+  {
+    "start": 106.999,
+    "end": 108.199,
+    "text": "Work backwards from eight."
+  },
+  {
+    "start": 108.999,
+    "end": 111.399,
+    "text": "These eight counters are two thirds of the previous pile."
+  },
+  {
+    "start": 111.839,
+    "end": 114.079,
+    "text": "Split them into two equal groups of four."
+  },
+  {
+    "start": 114.81899999999999,
+    "end": 117.039,
+    "text": "Restore the missing third, another group of four."
+  },
+  {
+    "start": 117.719,
+    "end": 119.419,
+    "text": "The previous pile had twelve counters."
+  },
+  {
+    "start": 120.362,
+    "end": 122.322,
+    "text": "Twelve was half of the original collection."
+  },
+  {
+    "start": 123.02199999999999,
+    "end": 124.202,
+    "text": "Double it to recover twenty-four."
+  },
+  {
+    "start": 125.062,
+    "end": 125.822,
+    "text": "Now check forwards."
+  },
+  {
+    "start": 126.582,
+    "end": 127.74199999999999,
+    "text": "Half of twenty-four is twelve."
+  },
+  {
+    "start": 128.482,
+    "end": 129.702,
+    "text": "Two thirds of twelve is eight."
+  },
+  {
+    "start": 130.12199999999999,
+    "end": 130.942,
+    "text": "Every stage agrees."
+  },
+  {
+    "start": 131.817,
+    "end": 134.657,
+    "text": "The common trap is using the wrong whole."
+  },
+  {
+    "start": 134.657,
+    "end": 137.797,
+    "text": "Two thirds of what remains means two thirds of twelve, not"
+  },
+  {
+    "start": 137.797,
+    "end": 139.55700000000002,
+    "text": "two thirds of the original twenty-four."
+  },
+  {
+    "start": 140.537,
+    "end": 143.437,
+    "text": "Write the amount after every stage so the whole stays clear."
+  },
+  {
+    "start": 144.004,
+    "end": 146.564,
+    "text": "There is one more check when a puzzle uses whole counters."
+  },
+  {
+    "start": 147.564,
+    "end": 149.60399999999998,
+    "text": "Every intermediate pile must also be whole."
+  },
+  {
+    "start": 150.284,
+    "end": 153.744,
+    "text": "Suppose a rule halves the pile, adds one counter, then doubles"
+  },
+  {
+    "start": 153.744,
+    "end": 156.464,
+    "text": "it. Could the final pile contain seven?"
+  },
+  {
+    "start": 157.112,
+    "end": 157.832,
+    "text": "Undo the steps."
+  },
+  {
+    "start": 158.672,
+    "end": 160.972,
+    "text": "Seven divided by two is three point five."
+  },
+  {
+    "start": 161.512,
+    "end": 163.59199999999998,
+    "text": "Subtract one to get two point five."
+  },
+  {
+    "start": 164.152,
+    "end": 165.032,
+    "text": "Double it to get five."
+  },
+  {
+    "start": 165.732,
+    "end": 168.47199999999998,
+    "text": "The starting number is whole, but the intermediate piles are"
+  },
+  {
+    "start": 168.47199999999998,
+    "end": 171.09199999999998,
+    "text": "not. You cannot have half a counter in this puzzle."
+  },
+  {
+    "start": 171.716,
+    "end": 173.67600000000002,
+    "text": "So seven is impossible under these rules."
+  },
+  {
+    "start": 174.436,
+    "end": 175.256,
+    "text": "Try eight instead."
+  },
+  {
+    "start": 175.836,
+    "end": 178.476,
+    "text": "Backwards, eight becomes four, then three, then six."
+  },
+  {
+    "start": 178.476,
+    "end": 182.036,
+    "text": "Forwards, six becomes three, then four, then eight."
+  },
+  {
+    "start": 182.79600000000002,
+    "end": 184.876,
+    "text": "Every pile is whole, and every move is legal."
+  },
+  {
+    "start": 185.594,
+    "end": 186.494,
+    "text": "Remember the method."
+  },
+  {
+    "start": 187.174,
+    "end": 187.714,
+    "text": "Reverse the order."
+  },
+  {
+    "start": 188.214,
+    "end": 189.134,
+    "text": "Undo each operation."
+  },
+  {
+    "start": 190.054,
+    "end": 191.374,
+    "text": "Check every intermediate state."
+  },
+  {
+    "start": 192.034,
+    "end": 193.914,
+    "text": "Then check the complete forward journey."
+  },
+  {
+    "start": 194.57399999999998,
+    "end": 197.73399999999998,
+    "text": "A backward calculation finds a candidate; the checks show"
+  },
+  {
+    "start": 197.73399999999998,
+    "end": 198.814,
+    "text": "whether it really works."
+  },
+  {
+    "start": 199.556,
+    "end": 203.23600000000002,
+    "text": "Your turn. A number is multiplied by three, then four is"
+  },
+  {
+    "start": 203.23600000000002,
+    "end": 205.57600000000002,
+    "text": "subtracted. The result is seventeen."
+  },
+  {
+    "start": 206.376,
+    "end": 209.57600000000002,
+    "text": "Pause here. Recover the starting number, then draw the forward"
+  },
+  {
+    "start": 209.57600000000002,
+    "end": 210.85600000000002,
+    "text": "journey to prove your answer."
+  }
+]

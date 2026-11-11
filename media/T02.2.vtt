@@ -1,0 +1,251 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.280
+Sometimes a maths puzzle tells you the finish, but hides the
+
+00:00:03.280 --> 00:00:06.700
+start. Working backwards means beginning with that finish and
+
+00:00:06.700 --> 00:00:07.540
+undoing the moves.
+
+00:00:08.340 --> 00:00:11.260
+There is one crucial rule: undo the last move first.
+
+00:00:11.920 --> 00:00:14.240
+Like taking off your shoes before your socks, the order
+
+00:00:14.240 --> 00:00:14.540
+matters.
+
+00:00:15.496 --> 00:00:18.056
+This is useful when guessing the starting number would take
+
+00:00:18.056 --> 00:00:21.796
+ages. If each move can be undone, we can follow a
+
+00:00:21.796 --> 00:00:23.156
+clear route back to the start.
+
+00:00:23.876 --> 00:00:26.256
+Then we check the answer by travelling forwards again.
+
+00:00:26.999 --> 00:00:28.219
+Let's try a number machine.
+
+00:00:28.819 --> 00:00:31.739
+It multiplies a secret number by four, then adds three.
+
+00:00:32.439 --> 00:00:33.679
+The machine finishes at twenty-three.
+
+00:00:34.439 --> 00:00:35.179
+What number went in?
+
+00:00:35.599 --> 00:00:37.919
+Notice the order: multiply first, then add.
+
+00:00:38.827 --> 00:00:39.527
+Start at twenty-three.
+
+00:00:40.267 --> 00:00:43.147
+The last thing the machine did was add three, so undo
+
+00:00:43.147 --> 00:00:46.727
+that first. Twenty-three minus three is twenty.
+
+00:00:46.727 --> 00:00:49.147
+We have recovered the amount just before the final addition.
+
+00:00:49.970 --> 00:00:51.750
+Only now do we undo the multiplication.
+
+00:00:51.750 --> 00:00:54.350
+Twenty divided by four is five.
+
+00:00:54.930 --> 00:00:58.390
+Check the whole journey: five times four is twenty, and twenty
+
+00:00:58.390 --> 00:00:59.610
+plus three is twenty-three.
+
+00:01:00.350 --> 00:01:00.950
+Five works.
+
+00:01:01.625 --> 00:01:03.985
+What if we undo the operations in the wrong order?
+
+00:01:04.865 --> 00:01:08.405
+Twenty-three divided by four is five point seven five.
+
+00:01:08.405 --> 00:01:11.865
+Subtract three, and we get two point seven five.
+
+00:01:11.865 --> 00:01:12.825
+That is not five.
+
+00:01:13.285 --> 00:01:14.625
+The order is part of the method.
+
+00:01:15.275 --> 00:01:17.935
+Here is why the correct order works for any starting number.
+
+00:01:18.575 --> 00:01:19.155
+Call the start x.
+
+00:01:19.835 --> 00:01:21.755
+The machine makes four x plus three.
+
+00:01:22.335 --> 00:01:24.675
+Subtracting three leaves four x.
+
+00:01:24.675 --> 00:01:26.155
+Dividing by four leaves x.
+
+00:01:26.795 --> 00:01:28.995
+We peel away the outside operation first.
+
+00:01:29.755 --> 00:01:32.935
+Multiplying by zero would lose the starting information, so
+
+00:01:32.935 --> 00:01:34.655
+that move cannot be undone uniquely.
+
+00:01:35.345 --> 00:01:37.005
+Now try a different kind of puzzle.
+
+00:01:37.705 --> 00:01:39.645
+A child keeps half of a collection of counters.
+
+00:01:40.425 --> 00:01:41.985
+Then they keep two thirds of what remains.
+
+00:01:42.745 --> 00:01:44.205
+At the end, there are eight counters.
+
+00:01:45.025 --> 00:01:46.225
+How many were there at the start?
+
+00:01:46.999 --> 00:01:48.199
+Work backwards from eight.
+
+00:01:48.999 --> 00:01:51.399
+These eight counters are two thirds of the previous pile.
+
+00:01:51.839 --> 00:01:54.079
+Split them into two equal groups of four.
+
+00:01:54.819 --> 00:01:57.039
+Restore the missing third, another group of four.
+
+00:01:57.719 --> 00:01:59.419
+The previous pile had twelve counters.
+
+00:02:00.362 --> 00:02:02.322
+Twelve was half of the original collection.
+
+00:02:03.022 --> 00:02:04.202
+Double it to recover twenty-four.
+
+00:02:05.062 --> 00:02:05.822
+Now check forwards.
+
+00:02:06.582 --> 00:02:07.742
+Half of twenty-four is twelve.
+
+00:02:08.482 --> 00:02:09.702
+Two thirds of twelve is eight.
+
+00:02:10.122 --> 00:02:10.942
+Every stage agrees.
+
+00:02:11.817 --> 00:02:14.657
+The common trap is using the wrong whole.
+
+00:02:14.657 --> 00:02:17.797
+Two thirds of what remains means two thirds of twelve, not
+
+00:02:17.797 --> 00:02:19.557
+two thirds of the original twenty-four.
+
+00:02:20.537 --> 00:02:23.437
+Write the amount after every stage so the whole stays clear.
+
+00:02:24.004 --> 00:02:26.564
+There is one more check when a puzzle uses whole counters.
+
+00:02:27.564 --> 00:02:29.604
+Every intermediate pile must also be whole.
+
+00:02:30.284 --> 00:02:33.744
+Suppose a rule halves the pile, adds one counter, then doubles
+
+00:02:33.744 --> 00:02:36.464
+it. Could the final pile contain seven?
+
+00:02:37.112 --> 00:02:37.832
+Undo the steps.
+
+00:02:38.672 --> 00:02:40.972
+Seven divided by two is three point five.
+
+00:02:41.512 --> 00:02:43.592
+Subtract one to get two point five.
+
+00:02:44.152 --> 00:02:45.032
+Double it to get five.
+
+00:02:45.732 --> 00:02:48.472
+The starting number is whole, but the intermediate piles are
+
+00:02:48.472 --> 00:02:51.092
+not. You cannot have half a counter in this puzzle.
+
+00:02:51.716 --> 00:02:53.676
+So seven is impossible under these rules.
+
+00:02:54.436 --> 00:02:55.256
+Try eight instead.
+
+00:02:55.836 --> 00:02:58.476
+Backwards, eight becomes four, then three, then six.
+
+00:02:58.476 --> 00:03:02.036
+Forwards, six becomes three, then four, then eight.
+
+00:03:02.796 --> 00:03:04.876
+Every pile is whole, and every move is legal.
+
+00:03:05.594 --> 00:03:06.494
+Remember the method.
+
+00:03:07.174 --> 00:03:07.714
+Reverse the order.
+
+00:03:08.214 --> 00:03:09.134
+Undo each operation.
+
+00:03:10.054 --> 00:03:11.374
+Check every intermediate state.
+
+00:03:12.034 --> 00:03:13.914
+Then check the complete forward journey.
+
+00:03:14.574 --> 00:03:17.734
+A backward calculation finds a candidate; the checks show
+
+00:03:17.734 --> 00:03:18.814
+whether it really works.
+
+00:03:19.556 --> 00:03:23.236
+Your turn. A number is multiplied by three, then four is
+
+00:03:23.236 --> 00:03:25.576
+subtracted. The result is seventeen.
+
+00:03:26.376 --> 00:03:29.576
+Pause here. Recover the starting number, then draw the forward
+
+00:03:29.576 --> 00:03:30.856
+journey to prove your answer.
+

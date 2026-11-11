@@ -1,0 +1,121 @@
+{
+  "id": "T02.2",
+  "title": "Work backwards: undo the last move first",
+  "voice": "af_heart",
+  "speed": 1.02,
+  "duration_seconds": 211.226,
+  "segments": [
+    {
+      "index": 1,
+      "text": "Sometimes a maths puzzle tells you the finish, but hides the start. Working backwards means beginning with that finish and undoing the moves. There is one crucial rule: undo the last move first. Like taking off your shoes before your socks, the order matters.",
+      "start_seconds": 0,
+      "duration_seconds": 15.076,
+      "pause_after": 0.42
+    },
+    {
+      "index": 2,
+      "text": "This is useful when guessing the starting number would take ages. If each move can be undone, we can follow a clear route back to the start. Then we check the answer by travelling forwards again.",
+      "start_seconds": 15.496,
+      "duration_seconds": 11.053,
+      "pause_after": 0.45
+    },
+    {
+      "index": 3,
+      "text": "Let's try a number machine. It multiplies a secret number by four, then adds three. The machine finishes at twenty-three. What number went in? Notice the order: multiply first, then add.",
+      "start_seconds": 26.999,
+      "duration_seconds": 11.268,
+      "pause_after": 0.56
+    },
+    {
+      "index": 4,
+      "text": "Start at twenty-three. The last thing the machine did was add three, so undo that first. Twenty-three minus three is twenty. We have recovered the amount just before the final addition.",
+      "start_seconds": 38.827,
+      "duration_seconds": 10.743,
+      "pause_after": 0.4
+    },
+    {
+      "index": 5,
+      "text": "Only now do we undo the multiplication. Twenty divided by four is five. Check the whole journey: five times four is twenty, and twenty plus three is twenty-three. Five works.",
+      "start_seconds": 49.97,
+      "duration_seconds": 11.375,
+      "pause_after": 0.28
+    },
+    {
+      "index": 6,
+      "text": "What if we undo the operations in the wrong order? Twenty-three divided by four is five point seven five. Subtract three, and we get two point seven five. That is not five. The order is part of the method.",
+      "start_seconds": 61.625,
+      "duration_seconds": 13.31,
+      "pause_after": 0.34
+    },
+    {
+      "index": 7,
+      "text": "Here is why the correct order works for any starting number. Call the start x. The machine makes four x plus three. Subtracting three leaves four x. Dividing by four leaves x. We peel away the outside operation first. Multiplying by zero would lose the starting information, so that move cannot be undone uniquely.",
+      "start_seconds": 75.275,
+      "duration_seconds": 19.82,
+      "pause_after": 0.25
+    },
+    {
+      "index": 8,
+      "text": "Now try a different kind of puzzle. A child keeps half of a collection of counters. Then they keep two thirds of what remains. At the end, there are eight counters. How many were there at the start?",
+      "start_seconds": 95.345,
+      "duration_seconds": 11.234,
+      "pause_after": 0.42
+    },
+    {
+      "index": 9,
+      "text": "Work backwards from eight. These eight counters are two thirds of the previous pile. Split them into two equal groups of four. Restore the missing third, another group of four. The previous pile had twelve counters.",
+      "start_seconds": 106.999,
+      "duration_seconds": 12.883,
+      "pause_after": 0.48
+    },
+    {
+      "index": 10,
+      "text": "Twelve was half of the original collection. Double it to recover twenty-four. Now check forwards. Half of twenty-four is twelve. Two thirds of twelve is eight. Every stage agrees.",
+      "start_seconds": 120.362,
+      "duration_seconds": 11.125,
+      "pause_after": 0.33
+    },
+    {
+      "index": 11,
+      "text": "The common trap is using the wrong whole. Two thirds of what remains means two thirds of twelve, not two thirds of the original twenty-four. Write the amount after every stage so the whole stays clear.",
+      "start_seconds": 131.817,
+      "duration_seconds": 11.927,
+      "pause_after": 0.26
+    },
+    {
+      "index": 12,
+      "text": "There is one more check when a puzzle uses whole counters. Every intermediate pile must also be whole. Suppose a rule halves the pile, adds one counter, then doubles it. Could the final pile contain seven?",
+      "start_seconds": 144.004,
+      "duration_seconds": 12.778,
+      "pause_after": 0.33
+    },
+    {
+      "index": 13,
+      "text": "Undo the steps. Seven divided by two is three point five. Subtract one to get two point five. Double it to get five. The starting number is whole, but the intermediate piles are not. You cannot have half a counter in this puzzle.",
+      "start_seconds": 157.112,
+      "duration_seconds": 14.354,
+      "pause_after": 0.25
+    },
+    {
+      "index": 14,
+      "text": "So seven is impossible under these rules. Try eight instead. Backwards, eight becomes four, then three, then six. Forwards, six becomes three, then four, then eight. Every pile is whole, and every move is legal.",
+      "start_seconds": 171.716,
+      "duration_seconds": 13.518,
+      "pause_after": 0.36
+    },
+    {
+      "index": 15,
+      "text": "Remember the method. Reverse the order. Undo each operation. Check every intermediate state. Then check the complete forward journey. A backward calculation finds a candidate; the checks show whether it really works.",
+      "start_seconds": 185.594,
+      "duration_seconds": 13.592,
+      "pause_after": 0.37
+    },
+    {
+      "index": 16,
+      "text": "Your turn. A number is multiplied by three, then four is subtracted. The result is seventeen. Pause here. Recover the starting number, then draw the forward journey to prove your answer.",
+      "start_seconds": 199.556,
+      "duration_seconds": 11.67,
+      "pause_after": 0
+    }
+  ]
+}
