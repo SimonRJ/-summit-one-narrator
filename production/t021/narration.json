@@ -1,0 +1,27 @@
+{
+  "id": "T02.1",
+  "title": "The invariant you can't see",
+  "lesson": "Find an invariant by inspecting one move",
+  "voice": "af_heart",
+  "speed": 1.02,
+  "segments": [
+    "Here's a puzzle. One pile has five gold counters. The other has seven blue counters. You may move counters between the piles, as often as you like. Could you finish with ten counters in each pile?",
+    "Before you try dozens of moves, ask a better question. Is there something that no legal move can change?",
+    "Watch closely. Move two blue counters to the gold pile. Now there are seven on the left and five on the right. The picture has changed, but the total is still twelve.",
+    "Every transfer takes some counters away from one pile and adds exactly that many to the other. Nothing is created. Nothing disappears.",
+    "So ten and ten is impossible. That would require twenty counters, and we have only twelve. Six and six, however, is possible.",
+    "A quantity that remains unchanged after every permitted move is called an invariant. Here, the invariant is the total number of counters.",
+    "But here's the twist. Change the rule. Each move now adds two brand-new counters to both piles. What stays fixed this time?",
+    "The total is growing, by four with every move. So the total is no longer an invariant. Look at the difference between the two piles instead.",
+    "We begin with five and seven: a gap of two. Add two to each and we get seven and nine. Add two again, and we get nine and eleven. The gap is always two.",
+    "Let's prove this, rather than just spot a pattern. Call the two pile sizes A and B. After a move, their sizes are A plus two and B plus two.",
+    "Now subtract the new sizes. The positive two and negative two cancel perfectly. We are left with A minus B. So the difference cannot change.",
+    "Go back to transferring counters. If the first pile loses t and the second gains t, the total becomes A minus t, plus B plus t. Again, the changes cancel.",
+    "Here's the important trap. Moving counters preserves the total, but not usually the difference. Adding the same number to both preserves their difference, but changes the total.",
+    "Try one yourself. Start with four counters in one pile and nine in the other. Each move adds two counters to both. Could you reach eighteen and twenty-three?",
+    "Yes. The difference starts at five and ends at five. Exactly seven moves add fourteen counters to each pile. Both target numbers work.",
+    "But could you reach eighteen and twenty-two? No. Their difference is four, not five. The invariant rules that out instantly.",
+    "This is the power of an invariant. You don't need to simulate a hundred moves. Examine one move, identify what cancels, and use that to reason about every move.",
+    "Pause here. Draw one move in your notebook, and write a single equation showing what remains unchanged."
+  ]
+}
