@@ -1,0 +1,63 @@
+name: Prepare T02.2 studio narration
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'production/t022-studio/narration.json'
+      - 'production/t022-studio/synth.mjs'
+      - 'production/t022-studio/prepare_alignment.py'
+      - '.github/workflows/t022-prepare.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: t022-narration
+  cancel-in-progress: false
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install the established narration pipeline
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg
+          python -m pip install --disable-pip-version-check numpy faster-whisper
+          cd narration
+          npm install --no-fund --no-audit
+      - name: Record the complete lesson with the approved T02.1 narrator
+        run: |
+          cp production/t022-studio/synth.mjs narration/t022-synth.mjs
+          node narration/t022-synth.mjs production/t022-studio/narration.json build/t022
+      - name: Align captions and mathematical cues to the finished speech
+        run: |
+          python production/t022-studio/prepare_alignment.py --audio build/t022/narration.wav --timing build/t022/timing.json --out build/t022
+          ffmpeg -v error -y -i build/t022/narration.wav -c:a aac -b:a 160k media/T02.2-narration.m4a
+      - name: Preserve the narration and exact timing for the visual render
+        run: |
+          cp build/t022/timing.json build/t022/words.json build/t022/captions.json build/t022/alignment-qa.json production/t022-studio/
+          cp build/t022/T02.2.vtt media/T02.2.vtt
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add production/t022-studio/timing.json production/t022-studio/words.json production/t022-studio/captions.json production/t022-studio/alignment-qa.json media/T02.2-narration.m4a media/T02.2.vtt
+          git commit -m 'Preserve T02.2 studio narration and speech-aligned captions'
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
+      - uses: actions/upload-artifact@v4
+        with:
+          name: t022-original-studio-narration
+          path: |
+            build/t022/narration.wav
+            build/t022/timing.json
+            build/t022/alignment-qa.json
+          retention-days: 14
