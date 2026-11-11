@@ -1,49 +1,46 @@
-# Paused draft — 11 November 2026
+# Summit One teaching audit — 12 November 2026
 
-User requested a pause for the night. Do not deploy this branch without resuming the task and completing validation.
-Main remains 0b77194f20e2286ff6a09ef040ce9c2b6788c5a7; no app changes or exam imports have been published.
-Supabase project dyidjdagwdvsczudkryt. Temporary import-archive-20261111 endpoint has been disabled (JWT required, always 410, no write code).
-Do not restore its old credential.
+## Installed assessment archive
 
-## Draft changes
-- Explicit method teaching for all 52 techniques, each with a small worked example, trap, guided check and parameterised recall check.
-- Delayed recall by completed sessions; two revision questions at most.
-- Goal/readiness and parent guidance view for AMC August 2027, MAWA 2027 application for 2028, Rossmoyne Year 6 test 2028 for Year 7 entry 2029.
-- Pin unfinished session challenges; separate final answers from working; readable immutable session archive.
-- Safe numerical/fraction grading draft; no first-number extraction; repeated problems do not earn fresh independent credit.
-- Exam save queue, saved results review, original diagrams in results, honest missing-source/explanation labels.
-- Quiet audio fallback; preserve approved T02.1/T02.2 masters; no guessed video URLs.
+All 19 authentic Upper Primary papers from 2007 through 2025 are installed in the protected database. Each has 30 questions and 135 marks: 570 questions total. Existing learner records and the four previously installed papers were preserved.
 
-## Exam audit
-Live database contains 4 authentic complete papers: 2007, 2008, 2023, 2024; 25 authored AMC mocks and 11 Rossmoyne mocks.
-User supplied AMC upper Exams PDF has 2007–2022 and answer keys on PDF pages 157–158.
-Prepared 14 additional 30-question/135-mark import payloads, 2009–2022 (420 questions), but NOT imported.
-The file labelled AMC 2025 is the 2013 Upper Primary paper (all 30 questions match the 2013 archive); do not publish it as 2025.
-2014 scan ends at Q27; Q28–30 recovered from existing authenticated bank A061–A063 and checked against archive key.
-Only available worked solutions are attached; most new earlier questions have verified answer keys but no worked explanations yet.
+2009–2022 use the family-supplied archive and its printed answer tables. The 2014 scan ends at Q27; Q28–30 use the previously authenticated transcriptions, checked against the archive key. The file formerly labelled AMC 2025 was a duplicate 2013 paper and was not treated as 2025.
 
-Local working directory: /workspace/scratch/2c6b7aa92624/summit-audit.
-Source PDFs: sibling upload/.
-Archive work: sibling archive-build/ (import-2009.json through import-2022.json, crops, keys, contact sheets, OCR 2014).
-Archive payloads and source PDFs must remain protected and must NOT be committed to the public repository.
-tools/build_archive.py is a checkpoint of the extraction process and currently uses those local paths.
-private-content-audit.json is local authenticated source content; do not commit it.
+2025 uses the eight newly supplied screenshots (book pages 13–20). All 30 have original worked explanations. Answers were independently solved; an official answer key was not supplied. Counting problems were additionally checked by exhaustive enumeration where suitable. The app labels this distinction. Original question images remain protected database content, not public repository files.
 
-## Validation still required
-Only JS syntax checks have run. No browser or behavior tests, deployment or full mathematical review yet.
-Review all 52 exercise variants independently; constant-answer exercises should not be mistaken for varied mastery evidence.
-Recheck cropped diagrams: initial text-anchor cropping clipped figures beginning above their question numbers; the final builder now chooses full-width whitespace boundaries, but final images still need visual verification.
-Review curriculum progression and difficulty: current draft selection still uses category/keywords, prioritises all unseen questions, and its history needs updating after new attempts.
-Check all stage navigation and unsaved work, MAWA saves, hint persistence, session completion failures, exam save failures, replay/reload behavior.
-Fix service-worker cache (not updated yet), version URLs, include new modules in release QA.
-Confirm no unsupported claims: retained checks are not exam mastery; repeated perfect papers must not inflate distinct-paper readiness.
-Current challenge solutions K001/K007/K015/K022 contain lost exponent notation; fix verified formula text and spoken scripts before publishing.
-Exam server award fallback differs from data config in main; draft aligns it, but verify source cutoff config before deployment.
-Validate backend functions with authenticated fixture tests without changing the real learner’s records.
-Publish only after passing tests; then import protected questions, verify 18 genuine papers 2007–2024, and disclose genuine 2025 source still needed.
+The archive contains 215 worked explanations; 355 earlier questions still have answer keys only. This is an explicit remaining content task, not a complete-solutions claim.
 
-## Official sources checked
-https://amt.edu.au/competitions — AMC 3–5 August 2027.
-https://amt.edu.au/amc — primary 60 minutes, 30 questions, 135 marks.
-https://mawainc.org.au/mawapsp/ — primary entry by application problems; future 2028 application dates not verified.
-https://www.rossmoyne.wa.edu.au/enrolment/specialist-programs/specialist-mathematics-program/ — Year 6 applications, current published schedule is 2026 test for 2027 entry; future 2028 test date unverified.
+The temporary hash-allowlisted import function was replaced with an inert 410 response after import and JWT verification re-enabled. It has no remaining write capability.
+
+## Teaching and interface release
+
+- 52 explicit method cards, worked examples, guided checks and exit/retrieval questions.
+- Delayed recall uses completed-session spacing; hints persist, and repeated identical answers cannot establish varied evidence.
+- All 52 techniques appear by session 104; the 372-session plan and every-seventh-session MAWA cadence remain intact.
+- Readiness distinguishes course completion from independent evidence and counts distinct perfect papers.
+- Challenge selection prioritises topic fit, then novelty/difficulty, and updates recent attempt history immediately.
+- Local draft recovery, queued cloud saves, saved work during stage changes, and review of locked completed sessions.
+- Separate final answer and working fields; strict server marking does not extract the first number from prose.
+- First-attempt independent credit; video viewing remains viewed evidence only.
+- Full-paper results history, integer-save status, save-failure rollback and enlarged original question images.
+- Smaller headings, quieter background, compact mobile navigation and visible keyboard focus.
+- Corrected exponents in K001, K007, K015, K022 and teaching T04.1/T04.2. Those four challenge videos are bypassed in favour of the corrected text/audio. Approved T02.1/T02.2 masters are unchanged.
+- Narration cache identity now includes the exact transcript and voice settings.
+
+## Validation
+
+`node tools/check_learning.mjs` checks exercise generation, independent enumerations, technique coverage, investigation cadence, delayed-evidence rules, strict parsing and exam grading.
+
+`tools/browser_checks.py` runs synthetic learner interactions in Chrome without reading or changing a real learner's account. It checks desktop/mobile navigation, hint recording, working persistence, saved/unsaved exam responses and failure rollback. GitHub Actions runs these checks before release; screenshots are retained as workflow artifacts.
+
+Release QA checks canonical counts, JavaScript syntax and public-content/media safety. Database verification checks 19 complete papers, marks, protected answer-column access and required login. Security advisors report only the two existing intentionally policy-less server-only tables.
+
+## Remaining work
+
+- Add the missing 355 worked explanations, carefully verified against source questions.
+- Obtain an official 2025 key for independent cross-checking (the current paper is independently solved and labelled).
+- Continue the wider video production programme; only approved masters should be offered as finished videos.
+- Extend transfer questions and proof review beyond short generated checks; delayed checks are not a claim of exam mastery.
+- Future MAWA/Rossmoyne dates must be checked when published. A 2028 Year 6 Rossmoyne test normally targets Year 7 entry in 2029.
+
+No claim of a guaranteed perfect score or a completely finished course is made.

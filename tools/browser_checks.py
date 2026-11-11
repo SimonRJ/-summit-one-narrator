@@ -34,7 +34,7 @@ async def main():
   await page.locator('.answer-box:not(.working-box)').fill('12');await page.locator('.submit-answer').click();await page.locator('.submit-answer').wait_for(state='hidden')
   await page.locator('[data-stage="1"]').click();await page.locator('.mini-check input').fill('123');await page.locator('.mini-check button.primary').click()
   assert await page.evaluate("Object.values(fixture.records[0].evidence).find(e=>e.kind==='guided').independent===false")
-  await page.screenshot(path=str(ROOT/'docs/teaching-desktop.png'),full_page=True)
+  await page.evaluate('window.scrollTo(0,0)');await page.screenshot(path=str(ROOT/'docs/teaching-desktop.png'),full_page=True)
   await page.set_viewport_size({'width':390,'height':844});await page.screenshot(path=str(ROOT/'docs/teaching-mobile.png'),full_page=True)
   assert await page.evaluate('document.documentElement.scrollWidth<=innerWidth+1')
   await page.goto('http://127.0.0.1:8765/tests.html');await page.locator('.startExam').first.click();await page.locator('[data-choice="B"]').click()
