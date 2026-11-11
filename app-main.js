@@ -14,6 +14,9 @@ const pct=n=>Math.max(0,Math.min(100,Number(n)||0));
 const hash=s=>{let h=2166136261;for(const c of String(s)){h^=c.charCodeAt(0);h=Math.imul(h,16777619)}return h>>>0};
 const normalize=s=>String(s??"").toLowerCase().replace(/\s+/g,"").replace(/[×·]/g,"*").replace(/[²]/g,"^2").replace(/[³]/g,"^3").replace(/[.,;:]$/g,"");
 const rankNames=["Pathfinder","Pattern Scout","Model Builder","Logic Ranger","Number Navigator","Geometry Pilot","Counting Specialist","Invariant Hunter","Transfer Thinker","Proof Builder","Problem Solver","Strategy Captain","Olympiad Explorer","Insight Engineer","Reasoning Commander","AMC Specialist","MAWA Specialist","Rossmoyne Specialist","Summit Elite","135 Master"];
+function syncStatusText(){return navigator.onLine?"Synced":"Offline — reconnect to save"}
+function refreshSyncIndicator(){const el=document.getElementById("syncStatus");if(el){el.textContent=syncStatusText();el.parentElement.style.color=navigator.onLine?"var(--green)":"var(--gold)"}}
+window.addEventListener("online",refreshSyncIndicator);window.addEventListener("offline",refreshSyncIndicator);
 
 const chapterRules=[
   [/digit|place-value|cryptarithm|palindrome|repunits?/i,"T11"],
@@ -109,7 +112,7 @@ function renderHome(){
       <div><span class="type-chip">${esc(s.type)}</span><span class="phase-chip">${esc(s.phase)}</span></div>
       <p class="muted">Remember → Discover → Try → Transfer → Check. Work carefully; there is no calendar streak and no penalty for taking the time you need.</p>
       <button id="continue" class="primary cta">${done>=372?"Course complete":"Continue Session "+s.slot}</button>
-      <div class="sync-line"><span class="dot"></span> Cloud progress synced</div>
+      <div class="sync-line"><span class="dot"></span> Cloud progress: <span id="syncStatus">${syncStatusText()}</span></div>
       <div class="quick-links"><a class="secondary" href="tests.html">AMC Test Centre</a><button id="reviewQuick" class="ghost">Review completed sessions</button></div>
     </article>
     <aside class="side-stack">
@@ -278,6 +281,17 @@ async function renderReview(){
   const list=document.getElementById("reviewList");if(error){list.textContent=error.message;return}
   list.innerHTML=(data||[]).map(x=>`<article class="review-item"><div><b>Session ${x.session_number} · ${esc(x.summary?.focus||course[x.session_number-1]?.focus||"")}</b><small>${new Date(x.completed_at).toLocaleDateString()} · ${Object.keys(x.answers||{}).length} recorded attempts</small></div><span class="type-chip">LOCKED</span></article>`).join("")||'<div class="empty">No completed sessions yet.</div>';
 }
+async function exportProgressBackup(){
+  const tables=["profiles","progress_state","session_records","problem_attempts","exam_sittings"];
+  const out={schema_version:"summit-one-progress-export-v1",exported_at:new Date().toISOString(),user_id:user.id,data:{}};
+  for(const table of tables){
+    let q=supabase.from(table).select("*");
+    if(table==="profiles")q=q.eq("id",user.id);else q=q.eq("user_id",user.id);
+    const {data,error}=await q;if(error)throw error;out.data[table]=data||[];
+  }
+  const blob=new Blob([JSON.stringify(out,null,2)],{type:"application/json"});
+  const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="Summit-One-progress-"+new Date().toISOString().slice(0,10)+".json";document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+}
 async function renderProfile(){
   activeView="profile";const r=currentRank();
   const [{data:completed},{data:exams}]=await Promise.all([supabase.from("session_records").select("session_number,summary,evidence").eq("user_id",user.id).not("completed_at","is",null),supabase.from("exam_sittings").select("exam_id,score,max_score,submitted_at,metadata").eq("user_id",user.id).eq("completed",true).order("submitted_at",{ascending:false}).limit(12)]);
@@ -295,8 +309,9 @@ async function renderProfile(){
   <h2 style="margin-top:28px">Technique evidence map</h2><p class="muted">A check means the technique has appeared in a completed session. It does <b>not</b> automatically mean independent mastery; timed and transfer evidence remains separate.</p>
   <div class="technique-map">${(taxonomy?.categories||[]).map(cat=>`<article class="tech-category"><div class="eyebrow">${esc(cat.id)}</div><h3>${esc(cat.name)}</h3><div class="tech-list">${cat.subskills.map(sk=>{const n=focusCounts.get(sk.id)||0;return `<div class="tech ${n?"covered":""}"><span>${n?"✓":"○"}</span><div><b>${esc(sk.name)}</b><small>${esc(sk.id)} · ${n?n+" completed-session exposure"+(n===1?"":"s"):"not yet completed"}</small></div></div>`}).join("")}</div></article>`).join("")}</div>
   <h2 style="margin-top:28px">Recent timed assessments</h2><div class="history-list">${(exams||[]).map(e=>`<div class="history-row"><div><b>${esc(e.metadata?.title||e.exam_id)}</b><small>${e.submitted_at?new Date(e.submitted_at).toLocaleDateString():""}</small></div><div class="history-score">${e.score??"—"} / ${e.max_score}</div><div class="history-award">${esc(e.metadata?.award||"")}</div></div>`).join("")||'<div class="empty">No timed assessments completed yet.</div>'}</div><h2 style="margin-top:28px">20 explorer ranks</h2><div class="rank-grid">${rankNames.map((n,i)=>`<div class="rank ${i+1>r?"locked":""}"><span class="rnum">RANK ${i+1}</span><b>${esc(n)}</b><small class="muted">${Math.ceil(372*(i+1)/20)} sessions</small></div>`).join("")}</div>
-  <div class="complete-row"><a class="secondary" href="tests.html">Open AMC Test Centre</a><button id="logout" class="danger">Sign out</button></div>
+  <div class="complete-row"><a class="secondary" href="tests.html">Open AMC Test Centre</a><button id="exportProgress" class="ghost">Export progress backup</button><button id="logout" class="danger">Sign out</button></div>
   <p class="footer-note">Ranks recognise course completion; they do not replace evidence of independent mathematical mastery.</p></section>`;
+  document.getElementById("exportProgress").onclick=async()=>{const b=document.getElementById("exportProgress");b.disabled=true;try{await exportProgressBackup()}catch(e){alert(e.message)}finally{b.disabled=false}};
   document.getElementById("logout").onclick=async()=>{await signOut();location.href="login.html"};
 }
 boot();
