@@ -81,7 +81,7 @@ jobs:
           echo "Attempt gate, protected AMC media and viewed-only video evidence invariants passed."
       - name: Post-production tooling
         run: |
-          python -m py_compile postproduction/finish_video.py postproduction/batch_finish.py postproduction/prepare_media_release.py
+          python -m py_compile postproduction/finish_video.py postproduction/batch_finish.py postproduction/prepare_media_release.py postproduction/make_protected_delivery.py
           node --check postproduction/upload_protected_media.mjs
           grep -q 'public_contains_challenge' postproduction/prepare_media_release.py
           grep -q 'PROTECTED_VIDEO_BUCKET' postproduction/upload_protected_media.mjs
