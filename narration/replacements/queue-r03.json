@@ -1,0 +1,512 @@
+[
+  {
+    "video_id": "A052",
+    "title": "Ascending then descending",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 340,
+    "estimated_seconds": 137.005,
+    "chunks": [
+      {
+        "chunk_id": "A052__01",
+        "sequence": 1,
+        "text": "Here is the problem. Find the largest 3-digit number, with no two digits the same and with its digits in ascending order, which when multiplied by 5 has its digits in descending order? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: A larger first digit",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A052__02",
+        "sequence": 2,
+        "text": "in the product is not enough: every successive digit must be strictly smaller. A useful first observation is: What is the largest three-digit number with strictly increasing digits? Use it to bound the product. Before you continue, think about this: If the product has four digits, what strictly decreasing four-digit numbers could lie below that bound? Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. Any increasing three-digit number",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A052__03",
+        "sequence": 3,
+        "text": "is at most 789, so its product by 5 is at most 3945. Step 2. If the original is at least 200, the product has four digits. A strictly decreasing four-digit number below 4000 must be 3210: four different decreasing digits need to start at least 3. Step 3. But 3210 divided by 5=642, whose digits are not increasing, so the original must be below 200. Step 4. The largest increasing possibilities below 200 in descending order are 189, 179, 178, 169, 168. Step 5.",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A052__04",
+        "sequence": 4,
+        "text": "Their products are 945, 895, 890, 845, 840. The first strictly decreasing product is 840, so the largest original is 168. Check the answer with a different viewpoint. List the increasing three-digit candidates, multiply each by 5 and compare the product’s adjacent digits. Final thinking check: Which product has strictly decreasing digits? 8>4>0. The other products rise at least once. The answer is 168. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 85
+      }
+    ]
+  },
+  {
+    "video_id": "A063",
+    "title": "A digit is the sum of the other two",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 319,
+    "estimated_seconds": 131.908,
+    "chunks": [
+      {
+        "chunk_id": "A063__01",
+        "sequence": 1,
+        "text": "Here is the problem. How many three-digit numbers are there in which one of the digits is the sum of the other two? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: Using six arrangements for 0,a,a overcounts repeated digits and numbers beginning with 0. A",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A063__02",
+        "sequence": 2,
+        "text": "useful first observation is: Split into cases: a zero digit, repeated positive digits, and three different positive digits. Before you continue, think about this: With zero, the digits must be 0,a,a. With a positive repeated digit, they are a,a,2a. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. If zero occurs, the digits are 0,a,a with a=1, and so on ,9. Each gives two three-digit numbers (a 0a and",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A063__03",
+        "sequence": 3,
+        "text": "aa 0), so 18 numbers. Step 2. If positive digits repeat, they must be a,a,2a with a=1,2,3,4. Each gives 3 arrangements, so 12 numbers. Step 3. If all digits are positive and different, write them a,b,a+b with a<b. For a=1,2,3,4 there are respectively 7,5,3,1 choices for b; total 16 pairs. Step 4. Each distinct triple has 6 arrangements, giving 16 times 6=96. The disjoint cases total 18+12+96=126. Check the answer with a different viewpoint. Test all 900 three-digit numbers and check whether any digit equals",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A063__04",
+        "sequence": 4,
+        "text": "the sum of the other two; this gives 126 and verifies the case count. Final thinking check: Why does 0,a,a give only two three-digit numbers? The valid arrangements are a 0a and aa 0;0 aa is not three-digit. The answer is 126 numbers. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 64
+      }
+    ]
+  },
+  {
+    "video_id": "A065",
+    "title": "The newspaper’s missing centre",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 299,
+    "estimated_seconds": 117.584,
+    "chunks": [
+      {
+        "chunk_id": "A065__01",
+        "sequence": 1,
+        "text": "Here is the problem. A newspaper open on the table had page 42 opposite page 55 because someone had removed some pages from the centre. What is the number of the last page of the newspaper? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: Adding",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A065__02",
+        "sequence": 2,
+        "text": "42+55 gives 97, which is one more than the final page number. A useful first observation is: Removing sheets from the centre leaves equally many pages on the outside before and after the gap. Before you continue, think about this: There are 41 pages before page 42. How many should lie after page 55? Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. The removed pages were from the",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A065__03",
+        "sequence": 3,
+        "text": "centre of the folded newspaper, so the pages outside the gap occur symmetrically. Step 2. There are 42 minus 1=41 pages before page 42, so there must also be 41 pages after page 55. Step 3. The last page is 55+41=96. Equivalently, opposite numbers on this exposed sheet add to one more than the total:42+55=97. Check the answer with a different viewpoint. For a folded newspaper with N pages, the exposed paired page numbers sum to N+1. Thus N=42+55 minus 1=96. Final thinking check: Why",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A065__04",
+        "sequence": 4,
+        "text": "subtract 1 from 42+55? The number before page 42 is 41, and the same number follows page 55. The answer is 96 pages. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 44
+      }
+    ]
+  },
+  {
+    "video_id": "A072",
+    "title": "Two sons and two daughters",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 313,
+    "estimated_seconds": 113.404,
+    "chunks": [
+      {
+        "chunk_id": "A072__01",
+        "sequence": 1,
+        "text": "Here is the problem. In a family with two sons and two daughters, the sum of the children’s ages is 55. The two sons were born three years apart, and the two daughters were born two years apart. The younger son is twice the age of the older daughter. How old is the youngest child? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A072__02",
+        "sequence": 2,
+        "text": "it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: Doubling the younger daughter’s age applies the twice-as-old clue to the wrong daughter. A useful first observation is: Let the younger daughter be x years old. Then the older daughter is x+2. Before you continue, think about this: The younger son is 2(x+2), and the older son is 3 more than that. Now build the solution in small steps. Pause after any step if you want to",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A072__03",
+        "sequence": 3,
+        "text": "reproduce it in your notebook before going on. Step 1. Let the younger daughter’s age be x. The daughters are x and x+2. Step 2. The younger son is twice the older daughter’s age:2x+4. The older son is 2x+7. Step 3. Adding all four ages gives 6x+13=55, so 6x=42 and x=7. Step 4. The ages are 7,9,18,21. They sum to 55 and satisfy every clue; the youngest child is 7. Check the answer with a different viewpoint. Use a bar model with six equal x-parts",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A072__04",
+        "sequence": 4,
+        "text": "and extra lengths 2+4+7=13; subtract 13 from 55 and divide by 6. Final thinking check: Which daughter’s age should be doubled? The younger son is twice the age of the older daughter. The answer is 7 years. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 58
+      }
+    ]
+  },
+  {
+    "video_id": "A079",
+    "title": "The cousins’ ages two years ago",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 358,
+    "estimated_seconds": 181.583,
+    "chunks": [
+      {
+        "chunk_id": "A079__01",
+        "sequence": 1,
+        "text": "Here is the problem. Today my three cousins multiplied their ages together and it came to 2016. This day last year their ages multiplied to 1377. When they multiplied their ages together 2 years ago today, what was their answer? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A079__02",
+        "sequence": 2,
+        "text": "this common mistake: Subtracting 2 from the product 2016 does not subtract 2 from each age; each factor must be changed separately. A useful first observation is: Last year’s product is 1377=3⁴ times 17, so at least one age last year was divisible by 17. Before you continue, think about this: The possible such ages are 17,51,153,459,1377. Add 1 and check which resulting age divides 2016. Now build the solution in small steps. Pause after any step if you want to reproduce it in your",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A079__03",
+        "sequence": 3,
+        "text": "notebook before going on. Step 1. Factor last year’s product:1377=3⁴ times 17. A last-year age containing 17 must be 17,51,153,459 or 1377. The corresponding current ages are 18,52,154,460,1378. Only 18 divides 2016, so one cousin is 18 now. Step 2. Let the other current ages be x,y. Their product is 2016 divided by 18=112; last year their product was 1377 divided by 17=81. Step 3. Since (x minus 1)(y minus 1)=xy minus x minus y+1, we get 81=112 minus x minus y+1, so x+y=32. The",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A079__04",
+        "sequence": 4,
+        "text": "factor pair 4,28 of 112 has this sum. Step 4. The current ages are 4,18,28. Two years ago they were 2,16,26, whose product is 2 times 16 times 26=832. Check the answer with a different viewpoint. List all positive triples with product 2016, then retain those whose decremented ages multiply to 1377. Only (4,18,28) survives. Final thinking check: What does (x minus 1)(y minus 1)=81 tell us when xy=112? Expanding gives 81=112 minus x minus y+1, hence x+y=32. The answer is 832. Read the original",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A079__05",
+        "sequence": 5,
+        "text": "question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 18
+      }
+    ]
+  },
+  {
+    "video_id": "A081",
+    "title": "Ways to climb five steps",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 357,
+    "estimated_seconds": 138.519,
+    "chunks": [
+      {
+        "chunk_id": "A081__01",
+        "sequence": 1,
+        "text": "Here is the problem. Julie has 5 steps up to her classroom, where step 5 is the floor of the classroom. Each day she tries to think of a different way of climbing up these steps. She does not have to touch each step, but the biggest distance she can reach is 3 steps. How many different ways are there of going up the steps? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A081__02",
+        "sequence": 2,
+        "text": "quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: The jumps 2 then 3 and 3 then 2 are different climbing routes because they land on different intermediate steps. A useful first observation is: Find the number of ways to reach steps 1,2 and 3 first. Before you continue, think about this: To reach any step, the final move comes from 1,2 or 3 steps below",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A081__03",
+        "sequence": 3,
+        "text": "it. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. Let W (n) be the number of ways to reach step n. There is 1 way to be at the starting point, so W (0)=1; W (1)=1 and W (2)=2. Step 2. A last jump of 1,2 or 3 steps comes from three different previous steps, so W (n)=W (n minus 1)+W (n minus 2)+W (n minus 3). Step",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A081__04",
+        "sequence": 4,
+        "text": "3. Thus W (3)=2+1+1=4 and W (4)=4+2+1=7. Step 4. Finally W (5)=7+4+2=13 ways. Check the answer with a different viewpoint. Group sequences summing 5 by jump sizes: five 1s (1); one 2 and three 1s (4); two 2s and one 1(3); one 3 and two 1s (3); one 3 and one 2(2). Total 1+4+3+3+2=13. Final thinking check: Are 2 then 3 and 3 then 2 different ways? The sequence of jumps determines which steps she touches. The answer is 13 ways. Read the original question",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A081__05",
+        "sequence": 5,
+        "text": "once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 17
+      }
+    ]
+  },
+  {
+    "video_id": "A084",
+    "title": "Two five-digit numbers as close as possible",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 359,
+    "estimated_seconds": 158.009,
+    "chunks": [
+      {
+        "chunk_id": "A084__01",
+        "sequence": 1,
+        "text": "Here is the problem. All of the digits from 0 to 9 are used to form two 5-digit numbers. What is the smallest possible difference between these two numbers? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: Giving both numbers the same leading digit would",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A084__02",
+        "sequence": 2,
+        "text": "make them close but reuses a digit, which is forbidden. A useful first observation is: The leading digits must be different. To get a small difference, make them consecutive. Before you continue, think about this: For fixed leading digits, give the larger number the smallest available trailing digits and the smaller number the largest. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. If the leading digits differ by",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A084__03",
+        "sequence": 3,
+        "text": "2 or more, even suffixes 0000 and 9999 leave a difference of at least 20000 minus 9999=10001, far more than the candidate below. So consider consecutive nonzero leading digits. Step 2. For each fixed leading pair, minimise the larger number’s suffix using the four smallest remaining digits in increasing order, and maximise the smaller number’s suffix using the four largest in decreasing order. This minimises their difference. Step 3. For leading pairs 1/2,2/3,3/4,4/5,5/6,6/7,7/8,8/9, the least possible differences are 469,269,249,247,249,269,469,2469 respectively. Step 4. The minimum is",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A084__04",
+        "sequence": 4,
+        "text": "247, attained by 50123 minus 49876. All ten digits 0 to 9 occur exactly once. Check the answer with a different viewpoint. Exhaust all assignments of the ten digits to two five-digit numbers, excluding leading zeros and identifying swapped pairs. The minimum difference is 247 at 49876 and 50123. Final thinking check: For a fixed larger leading digit, how should its trailing digits be chosen? This makes the larger number as small as possible while keeping the digits distinct. The answer is 247. Read the",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A084__05",
+        "sequence": 5,
+        "text": "original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 19
+      }
+    ]
+  },
+  {
+    "video_id": "A094",
+    "title": "Girls at summer camp",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 302,
+    "estimated_seconds": 106.031,
+    "chunks": [
+      {
+        "chunk_id": "A094__01",
+        "sequence": 1,
+        "text": "Here is the problem. There are 390 children at a summer camp. One-third of the number of girls equals one-half of the number of boys. How many girls are there? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: Equal fractions do not mean equal numbers",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A094__02",
+        "sequence": 2,
+        "text": "of girls and boys: taking a third requires a larger original group than taking a half. A useful first observation is: Call the common amount one group: girls divided by 3 = boys divided by 2. Before you continue, think about this: Then the girls make 3 groups and the boys make 2 groups. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. If one-third of the girls equals",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A094__03",
+        "sequence": 3,
+        "text": "one-half of the boys, the girls and boys are in the ratio 3:2. Step 2. Altogether there are 3 + 2 = 5 equal-sized groups. Step 3. Each group has 390 divided by 5 = 78 children. Step 4. There are 3 times 78 = 234 girls. Check the answer with a different viewpoint. Let the common fractional amount be x. Then girls = 3 x, boys = 2 x and 5 x = 390, giving x = 78. Final thinking check: What is the",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A094__04",
+        "sequence": 4,
+        "text": "ratio of girls to boys? The common amount fits three times into the girls’ group and twice into the boys’ group. The answer is 234 girls. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 47
+      }
+    ]
+  },
+  {
+    "video_id": "A106",
+    "title": "The fifth cube mound",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 389,
+    "estimated_seconds": 144.528,
+    "chunks": [
+      {
+        "chunk_id": "A106__01",
+        "sequence": 1,
+        "text": "Here is the problem. Oliver builds solid cube shapes in the pattern shown. The first uses 1 cube, the second 6 cubes and the third 19 cubes. Each horizontal layer is a diamond of cubes, with row lengths 1, 3, 5, and so on up to its middle row, then decreasing by 2 back to 1. Each new shape has one more layer and extends the base by one cube in each of its four directions. How many cubes are in the fifth shape? Before",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A106__02",
+        "sequence": 2,
+        "text": "doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: The fifth layer has 41 cubes, but the fifth solid also contains all four layers above it. A useful first observation is: Count one horizontal layer at a time from the top. The first layers contain 1, 5",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A106__03",
+        "sequence": 3,
+        "text": "and 13 cubes. Before you continue, think about this: Successive diamond layers add 4, 8, 12, 16, and so on cubes. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. The top layer contains 1 cube. The next is a diamond with rows 1, 3, 1, so it contains 5. Step 2. The third layer has rows 1, 3, 5, 3, 1, totalling 13. Each larger diamond adds a",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A106__04",
+        "sequence": 4,
+        "text": "border of 4 more cubes than the previous border. Step 3. Thus the fourth and fifth layers contain 13 + 12 = 25 and 25 + 16 = 41 cubes. Step 4. The fifth solid contains all five layers:1 + 5 + 13 + 25 + 41 = 85 cubes. Check the answer with a different viewpoint. The nth diamond layer contains n squared + (n minus 1) squared cubes. For n = 1, 2, 3, 4, 5 this gives 1, 5, 13, 25, 41;",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A106__05",
+        "sequence": 5,
+        "text": "add to 85. Final thinking check: What does 41 count in this solution? The total needs the four smaller diamond layers as well. The answer is 85 cubes. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 49
+      }
+    ]
+  },
+  {
+    "video_id": "A121",
+    "title": "Numbers containing a three",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 332,
+    "estimated_seconds": 122.438,
+    "chunks": [
+      {
+        "chunk_id": "A121__01",
+        "sequence": 1,
+        "text": "Here is the problem. How many whole numbers from 200 to 500 inclusive contain the digit 3 at least once? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: Counting each occurrence of the digit 3 is different from counting each number that contains it. A",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A121__02",
+        "sequence": 2,
+        "text": "useful first observation is: Every number from 300 to 399 qualifies. Handle the 200 s and 400 s separately. Before you continue, think about this: In a block such as 200 to 299, count the numbers with no 3 in either of the last two places. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. All 100 numbers from 300 to 399 contain a 3. Step 2. In the",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A121__03",
+        "sequence": 3,
+        "text": "200 s, there are 100 numbers. Exactly 9 times 9 = 81 avoid 3 in both their tens and units places, leaving 19 that contain it. Step 3. The 400 s give another 19 in the same way. The endpoint 500 contains no 3. Step 4. The total is 100 + 19 + 19 = 138. Check the answer with a different viewpoint. In each of the 200 s and 400 s, count 10 with tens digit 3 and 10 with units digit 3, then",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A121__04",
+        "sequence": 4,
+        "text": "subtract the one counted twice: 10 + 10 minus 1 = 19. Final thinking check: How many numbers in the 200 s have a 3 in the tens or units place? There are ten in each list, but 233 occurs in both lists, so 10 + 10 minus 1 = 19. The answer is 138 numbers. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 77
+      }
+    ]
+  },
+  {
+    "video_id": "A122",
+    "title": "A seven-segment special number",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 405,
+    "estimated_seconds": 150.656,
+    "chunks": [
+      {
+        "chunk_id": "A122__01",
+        "sequence": 1,
+        "text": "Here is the problem. On a digital display, a combination of bars light up to represent each digit as shown. In some special numbers, the number of bars which light up in the digits is the same as the sum of the digits. For example, in 373 the number of bars is 5 + 3 + 5 = 13, which equals 3 + 7 + 3 = 13. What is the largest such three-digit number? Before doing any calculation, say exactly what the question is",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A122__02",
+        "sequence": 2,
+        "text": "asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: The number of bars for 0 is six, not zero. A useful first observation is: Try a number beginning 99, since that is the largest possible two-digit prefix. Before you continue, think about this: The two 9 s contribute 18 to the digit sum but only 12",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A122__03",
+        "sequence": 3,
+        "text": "bars. The final digit must supply six more bars than its value. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. Any three-digit number is at most 999. Try the prefix 99. Its digit sum is 18 and it uses 12 bars. Step 2. The last digit therefore needs bars minus digit = 6. Digit 0 uses 6 bars, so it has exactly this difference. Step 3. Thus 990",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A122__04",
+        "sequence": 4,
+        "text": "uses 6 + 6 + 6 = 18 bars and has digit sum 9 + 9 + 0 = 18. Step 4. The only larger numbers are 991 through 999. None of their final digits has bars minus digit = 6, so none is special. The largest is 990. Check the answer with a different viewpoint. Make a table of bars minus digit: for 0..9 the values are 6, 1, 3, 2, 0, 0, 0, minus 4, minus 1, minus 3. Three chosen values must",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A122__05",
+        "sequence": 5,
+        "text": "sum to zero; minus 3 minus 3 +6 gives the largest digit arrangement. Final thinking check: What must the final digit contribute after the prefix 99? The two 9 s leave a bar shortfall of 18 minus 12 = 6. The answer is 990. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 65
+      }
+    ]
+  },
+  {
+    "video_id": "A126",
+    "title": "Choosing the relay team",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 343,
+    "estimated_seconds": 121.368,
+    "chunks": [
+      {
+        "chunk_id": "A126__01",
+        "sequence": 1,
+        "text": "Here is the problem. Five runners from Albury and six runners from Wodonga are available for a relay team. The team must contain exactly two runners from each town. How many different teams can be chosen? Only the chosen runners matter, not their running order. Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A126__02",
+        "sequence": 2,
+        "text": "it looks. Watch out for this common mistake: Do not count different orders of the same two runners, or different running orders of the same four-person team. A useful first observation is: From five runners, there are 5 times 4 ways to choose a first and second runner, but each pair has been counted twice. Before you continue, think about this: There are 10 pairs from Albury. Use the same reasoning for the six Wodonga runners. Now build the solution in small steps. Pause after",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A126__03",
+        "sequence": 3,
+        "text": "any step if you want to reproduce it in your notebook before going on. Step 1. Choosing two Albury runners gives 5 times 4 divided by 2 = 10 unordered pairs. Division by 2 removes the two orders of each pair. Step 2. Choosing two Wodonga runners similarly gives 6 times 5 divided by 2 = 15 pairs. Step 3. Every Albury pair can be combined with each Wodonga pair, so there are 10 times 15 = 150 teams. Check the answer with a different",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A126__04",
+        "sequence": 4,
+        "text": "viewpoint. Label the Albury runners A to E and list 4 + 3 + 2 + 1 = 10 pairs. The Wodonga list has 5 + 4 + 3 + 2 + 1 = 15 pairs. Multiply the two totals. Final thinking check: Why divide 5 times 4 by 2? Choosing Ana then Ben and Ben then Ana selects the same pair. The answer is 150 teams. Read the original question once more and make sure this is the requested quantity, and that every condition",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A126__05",
+        "sequence": 5,
+        "text": "has been checked.",
+        "word_count": 3
+      }
+    ]
+  },
+  {
+    "video_id": "A129",
+    "title": "Three times the shape number",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 363,
+    "estimated_seconds": 131.221,
+    "chunks": [
+      {
+        "chunk_id": "A129__01",
+        "sequence": 1,
+        "text": "Here is the problem. Triangle, square and circle stand for three different non-zero digits. The three-digit number △□○ multiplied by 3 equals the three-digit number □○○. What is the number △□○? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: Carry digits are part of the",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A129__02",
+        "sequence": 2,
+        "text": "next column; forgetting the carried 1 would give the wrong square. A useful first observation is: In the units column, 3 times ○ ends in ○. Which non-zero digit can do that? Before you continue, think about this: The circle is 5 and there is a carry of 1. The tens column now requires 3 times □ + 1 to end in 5. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A129__03",
+        "sequence": 3,
+        "text": "on. Step 1. In the units column, 3 times ○ and ○ have the same final digit, so 2 times ○ is a multiple of 10. The only non-zero possibility is ○ = 5, and 3 times 5 = 15 carries 1. Step 2. In the tens column, 3 times □ + 1 must end in 5. This gives □ = 8, since 3 times 8 + 1 = 25, carrying 2. Step 3. The hundreds column requires 3 times △ + 2 = 8.",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A129__04",
+        "sequence": 4,
+        "text": "Therefore △ = 2. Step 4. The number is 285, and 285 times 3 = 855 checks the whole multiplication. Check the answer with a different viewpoint. Try the possible non-zero circle digits 1..9 in the units column, then test square digits in the tens column. Only the triple (2, 8, 5) survives. Final thinking check: What is carried from the tens column to the hundreds column? The tens calculation is 3 times 8 + 1 = 25: write 5 and carry 2. The answer",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A129__05",
+        "sequence": 5,
+        "text": "is 285. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 23
+      }
+    ]
+  }
+]
