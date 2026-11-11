@@ -1,0 +1,66 @@
+name: T02.1 studio visual rebuild
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'production/t021-studio/**'
+      - '.github/workflows/t021-studio.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: t021-studio-render
+  cancel-in-progress: false
+
+jobs:
+  render-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install visual rendering dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-open-sans fonts-dejavu-core
+          python -m pip install --disable-pip-version-check pillow numpy
+      - name: Render the new 1080p film using the existing narration timeline
+        run: |
+          mkdir -p build/t021-studio
+          cp media/T02.1.mp4 build/t021-studio/locked-source.mp4
+          python production/t021-studio/render_studio.py --vtt media/T02.1.vtt --out build/t021-studio/visual.mp4
+      - name: Copy the exact original speech stream into the new film
+        run: |
+          ffmpeg -v error -y -i build/t021-studio/visual.mp4 -i build/t021-studio/locked-source.mp4 -map 0:v:0 -map 1:a:0 -c copy -movflags +faststart -shortest build/t021-studio/final.mp4
+      - name: Verify audio identity, resolution, frame rate, duration and decoding
+        run: |
+          python production/t021-studio/verify_studio.py --source build/t021-studio/locked-source.mp4 --output build/t021-studio/final.mp4 --report build/t021-studio/qa.json
+          ffmpeg -v error -y -ss 128.4 -i build/t021-studio/final.mp4 -frames:v 1 -q:v 2 build/t021-studio/poster.jpg
+      - name: Publish only the verified finished video
+        run: |
+          cp build/t021-studio/final.mp4 media/T02.1.mp4
+          cp build/t021-studio/poster.jpg media/T02.1-studio-poster.jpg
+          cp build/t021-studio/qa.json review/T02.1-studio-qa.json
+          cp production/t021-studio/watch-t02-1.html watch-t02-1.html
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add media/T02.1.mp4 media/T02.1-studio-poster.jpg review/T02.1-studio-qa.json watch-t02-1.html
+          git commit -m 'Publish T02.1 studio edition with clean visuals and unchanged audio'
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
+      - uses: actions/upload-artifact@v4
+        with:
+          name: t021-studio-1080p
+          path: |
+            build/t021-studio/final.mp4
+            build/t021-studio/qa.json
+          retention-days: 14
+          compression-level: 0
