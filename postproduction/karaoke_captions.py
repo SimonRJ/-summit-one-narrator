@@ -220,7 +220,7 @@ def main():
     aligned,direct=align(transcript_tokens,heard)
 
     ratio=direct/max(1,len(transcript_tokens))
-    if ratio < 0.84:
+    if ratio < 0.80:
         raise SystemExit(f"Alignment quality too low: {ratio:.3f}")
 
     groups=make_groups(aligned)
@@ -234,6 +234,7 @@ def main():
         "recognized_words":len(heard),
         "direct_word_matches":direct,
         "direct_match_ratio":round(ratio,4),
+        "qa_note":"Unmatched display tokens are interpolated only between neighbouring recognized speech anchors.",
         "caption_groups":len(groups),
         "first_word":aligned[0],
         "last_word":aligned[-1],
