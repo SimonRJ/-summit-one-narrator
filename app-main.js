@@ -66,7 +66,9 @@ function overall(){
   const done=progress?.completed_sessions||0;
   return done/372*100;
 }
-function currentRank(){return Math.max(1,Math.min(20,Math.ceil(Math.max(0.0001,overall())/5)))}
+function earnedRankBySessions(done=progress?.completed_sessions||0){return Math.max(0,Math.min(20,Math.floor(Number(done||0)*20/372)))}
+function currentRank(){return Math.max(Number(progress?.rank||0),earnedRankBySessions())}
+function currentRankLabel(){const r=currentRank();return r===0?"Cadet":`Rank ${r} · ${rankNames[r-1]}`}
 function problemKeywords(focus){
   return focus.toLowerCase().split(/[^a-z0-9]+/).filter(w=>w.length>4&&!["including","through","under","using","simple","reasoning"].includes(w));
 }
@@ -131,7 +133,7 @@ function renderHome(){
       <div class="quick-links"><a class="secondary" href="tests.html">AMC Test Centre</a><button id="reviewQuick" class="ghost">Review completed sessions</button></div>
     </article>
     <aside class="side-stack">
-      <article class="panel stat-card"><div class="eyebrow">COURSE PROGRESS</div><div class="stat-value">${done} / 372</div><div class="progress-track"><div class="progress-fill" style="width:${overall().toFixed(2)}%"></div></div><div class="stat-label">${overall().toFixed(1)}% complete · Rank ${currentRank()} / 20</div></article>
+      <article class="panel stat-card"><div class="eyebrow">COURSE PROGRESS</div><div class="stat-value">${done} / 372</div><div class="progress-track"><div class="progress-fill" style="width:${overall().toFixed(2)}%"></div></div><div class="stat-label">${overall().toFixed(1)}% complete · ${esc(currentRankLabel())}</div></article>
       <article class="panel stat-card"><div class="eyebrow">NEXT PRACTICE EXAM</div><div class="stat-value">${practiceGap??"—"}</div><div class="stat-label">${nextPractice?`${esc(nextPractice.type)} · Session ${nextPractice.slot}`:"All scheduled mocks complete"}</div></article>
       <article class="panel stat-card"><div class="eyebrow">NEXT MAWA INVESTIGATION</div><div class="stat-value">${mawa??"—"}</div><div class="stat-label">${mawa===1?"Next session":mawa===null?"All scheduled investigations complete":mawa+" completed sessions away"}</div></article>
       <article class="panel stat-card"><div class="eyebrow">CURRENT MILESTONE</div><div class="stat-value">${milestoneDone} / ${milestone.target}</div><div class="progress-track"><div class="progress-fill" style="width:${(milestoneDone/milestone.target*100).toFixed(1)}%"></div></div><div class="stat-label">${esc(milestone.label)}</div></article>
@@ -194,7 +196,7 @@ function renderMawaSession(s){
 }
 async function completeSpecialSession(s){
   await upsertSession({session_number:s.slot,session_key:`S${String(s.slot).padStart(3,"0")}`,completed_at:new Date().toISOString(),immutable:true,answers:sessionDraft.answers,working:sessionDraft.working,evidence:sessionDraft.evidence,summary:sessionDraft.summary});
-  const done=Math.max(progress.completed_sessions||0,s.slot),p=done/372*100,r=Math.max(1,Math.min(20,Math.ceil(Math.max(.0001,p)/5)));
+  const done=Math.max(progress.completed_sessions||0,s.slot),p=done/372*100,r=Math.max(Number(progress.rank||0),Math.max(0,Math.min(20,Math.floor(done*20/372))));
   progress=await saveProgress({completed_sessions:done,current_session:Math.min(372,done+1),xp:done*100,rank:r,overall_percent:Number(p.toFixed(2)),next_practice_exam_in:(course.find(x=>x.slot>done&&(x.type==="AMC MOCK"||x.type==="ROSSMOYNE MOCK"))?.slot??done)-done});
   renderHome();
 }
@@ -299,7 +301,7 @@ function renderCheck(el,s){
     try{
       sessionDraft.summary={takeaway:take,watch,focus:s.focus,type:s.type,phase:s.phase,problems:currentProblems.map(x=>x.id)};
       await upsertSession({session_number:s.slot,session_key:`S${String(s.slot).padStart(3,"0")}`,completed_at:new Date().toISOString(),immutable:true,answers:sessionDraft.answers,working:sessionDraft.working,evidence:sessionDraft.evidence,summary:sessionDraft.summary});
-      const done=Math.max(progress.completed_sessions||0,s.slot),p=done/372*100,r=Math.max(1,Math.min(20,Math.ceil(Math.max(.0001,p)/5)));
+      const done=Math.max(progress.completed_sessions||0,s.slot),p=done/372*100,r=Math.max(Number(progress.rank||0),Math.max(0,Math.min(20,Math.floor(done*20/372))));
       progress=await saveProgress({completed_sessions:done,current_session:Math.min(372,done+1),xp:done*100,rank:r,overall_percent:Number(p.toFixed(2)),next_practice_exam_in:(course.find(x=>x.slot>done&&x.type==="AMC MOCK")?.slot??done)-done});
       renderHome();
     }catch(e){alert(e.message);btn.disabled=false;btn.textContent=`Complete and lock Session ${s.slot}`}
@@ -325,7 +327,7 @@ async function exportProgressBackup(){
 async function renderProfile(){
   activeView="profile";const r=currentRank();
   const done=progress.completed_sessions||0,currentXp=progress.xp??done*100;
-  const nextRankSession=r>=20?null:Math.floor(372*r/20)+1;
+  const nextRankSession=r>=20?null:Math.ceil(372*(r+1)/20);
   const nextRankXp=nextRankSession===null?0:Math.max(0,nextRankSession*100-currentXp);
   const [{data:completed},{data:exams}]=await Promise.all([supabase.from("session_records").select("session_number,summary,evidence").eq("user_id",user.id).not("completed_at","is",null),supabase.from("exam_sittings").select("exam_id,score,max_score,submitted_at,metadata").eq("user_id",user.id).eq("completed",true).order("submitted_at",{ascending:false}).limit(12)]);
   const focusCounts=new Map();
@@ -338,7 +340,7 @@ async function renderProfile(){
   }
   const covered=[...focusCounts.values()].filter(x=>x>0).length;
   app.innerHTML=`<section class="panel hero-panel"><div class="eyebrow">LEARNER PROFILE</div><h1>Summit progress</h1>
-  <div class="profile-grid"><div class="panel profile-stat"><b>${progress.completed_sessions||0}</b><span>sessions complete</span></div><div class="panel profile-stat"><b>${overall().toFixed(1)}%</b><span>course complete</span></div><div class="panel profile-stat"><b>${r}</b><span>current rank</span></div><div class="panel profile-stat"><b>${nextRankSession===null?"MAX":nextRankXp}</b><span>${nextRankSession===null?"all 20 ranks unlocked":"XP to Rank "+(r+1)}</span></div></div><div class="profile-grid" style="margin-top:12px"><div class="panel profile-stat"><b>${progress.star3_correct||0}</b><span>3-star timed problems correct</span></div><div class="panel profile-stat"><b>${progress.star4_correct||0}</b><span>4-star timed problems correct</span></div><div class="panel profile-stat"><b>${progress.star5_correct||0}</b><span>5-star timed problems correct</span></div><div class="panel profile-stat"><b>${exams?.length||0}</b><span>recent exams in history</span></div></div>
+  <div class="profile-grid"><div class="panel profile-stat"><b>${progress.completed_sessions||0}</b><span>sessions complete</span></div><div class="panel profile-stat"><b>${overall().toFixed(1)}%</b><span>course complete</span></div><div class="panel profile-stat"><b>${r===0?"Cadet":r}</b><span>${r===0?"starting rank":"current rank"}</span></div><div class="panel profile-stat"><b>${nextRankSession===null?"MAX":nextRankXp}</b><span>${nextRankSession===null?"all 20 ranks unlocked":"XP to Rank "+(r+1)}</span></div></div><div class="profile-grid" style="margin-top:12px"><div class="panel profile-stat"><b>${progress.star3_correct||0}</b><span>3-star timed problems correct</span></div><div class="panel profile-stat"><b>${progress.star4_correct||0}</b><span>4-star timed problems correct</span></div><div class="panel profile-stat"><b>${progress.star5_correct||0}</b><span>5-star timed problems correct</span></div><div class="panel profile-stat"><b>${exams?.length||0}</b><span>recent exams in history</span></div></div>
   <h2 style="margin-top:28px">Technique evidence map</h2><p class="muted">A check means the technique has appeared in a completed session. It does <b>not</b> automatically mean independent mastery; timed and transfer evidence remains separate.</p>
   <div class="technique-map">${(taxonomy?.categories||[]).map(cat=>`<article class="tech-category"><div class="eyebrow">${esc(cat.id)}</div><h3>${esc(cat.name)}</h3><div class="tech-list">${cat.subskills.map(sk=>{const n=focusCounts.get(sk.id)||0;return `<div class="tech ${n?"covered":""}"><span>${n?"✓":"○"}</span><div><b>${esc(sk.name)}</b><small>${esc(sk.id)} · ${n?n+" completed-session exposure"+(n===1?"":"s"):"not yet completed"}</small></div></div>`}).join("")}</div></article>`).join("")}</div>
   <h2 style="margin-top:28px">Recent timed assessments</h2><div class="history-list">${(exams||[]).map(e=>`<div class="history-row"><div><b>${esc(e.metadata?.title||e.exam_id)}</b><small>${e.submitted_at?new Date(e.submitted_at).toLocaleDateString():""}</small></div><div class="history-score">${e.score??"—"} / ${e.max_score}</div><div class="history-award">${esc(e.metadata?.award||"")}</div></div>`).join("")||'<div class="empty">No timed assessments completed yet.</div>'}</div><h2 style="margin-top:28px">20 explorer ranks</h2><div class="rank-grid">${rankNames.map((n,i)=>`<div class="rank ${i+1>r?"locked":""}"><span class="rank-emblem" aria-hidden="true">${i+1}</span><div><span class="rnum">RANK ${i+1}</span><b>${esc(n)}</b><small class="muted">${Math.ceil(372*(i+1)/20)} sessions</small></div></div>`).join("")}</div>
