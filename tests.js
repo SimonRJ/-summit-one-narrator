@@ -141,12 +141,13 @@ function renderAnswer(q){
     area.querySelectorAll("[data-choice]").forEach(b=>b.onclick=async()=>{if(!canAnswer())return;saving=true;const previous=responses[q.question_number];responses[q.question_number]=b.dataset.choice;area.querySelectorAll("button").forEach(x=>x.disabled=true);try{await persistResponses();renderExam()}catch(e){if(previous===undefined)delete responses[q.question_number];else responses[q.question_number]=previous;renderExam();alert("Answer not saved: "+e.message)}finally{saving=false}});
   }else{
     const typed=typedInteger[q.question_number]??(saved??"");
-    area.innerHTML=`<div class="integer-row"><label>Your integer answer<br><input id="integerInput" inputmode="numeric" pattern="[0-9]*" value="${esc(typed)}"></label><button id="saveInteger" class="primary">Save</button><span id="saveState" class="${saved!==undefined&&String(typed)===String(saved)?"saved":"unsaved"}">${saved!==undefined&&String(typed)===String(saved)?"Saved":"Not saved"}</span></div><p class="muted" style="margin-top:10px">Typing is not enough. Press <b>Save</b> before leaving the question.</p>`;
+    area.innerHTML=`<div class="integer-row"><label>Your integer answer<br><input id="integerInput" inputmode="numeric" pattern="[0-9]*" value="${esc(typed)}"></label><div class="integer-controls"><button id="saveInteger" class="primary">Save</button><span id="saveState" class="${saved!==undefined&&String(typed)===String(saved)?"saved":"unsaved"}">${saved!==undefined&&String(typed)===String(saved)?"Saved":"Not saved"}</span></div></div><p class="muted" style="margin-top:10px">Typing is not enough. Press <b>Save</b> before leaving the question.</p>`;
     const inp=document.getElementById("integerInput");inp.oninput=()=>{typedInteger[q.question_number]=inp.value;document.getElementById("saveState").className="unsaved";document.getElementById("saveState").textContent="Not saved"};
     document.getElementById("saveInteger").onclick=async()=>{if(!canAnswer())return;const v=inp.value.trim();if(!/^\d{1,3}$/.test(v)){alert("Enter a whole-number answer from 0 to 999.");return}saving=true;const previous=responses[q.question_number];responses[q.question_number]=v;typedInteger[q.question_number]=v;try{await persistResponses(true,q.question_number);renderExam()}catch(e){if(previous===undefined)delete responses[q.question_number];else responses[q.question_number]=previous;document.getElementById("saveState").textContent="Not saved — retry";alert(e.message)}finally{saving=false}};
   }
   const erase=document.createElement("button");erase.id="eraseAnswer";erase.className="erase-answer";erase.textContent="Erase";
-  area.append(erase);
+  const integerControls=area.querySelector(".integer-controls");
+  if(integerControls)integerControls.insertBefore(erase,document.getElementById("saveState"));else area.append(erase);
   erase.onclick=async()=>{
     if(!canAnswer())return;saving=true;const previous=responses[q.question_number],previousTyped=typedInteger[q.question_number];
     delete responses[q.question_number];delete typedInteger[q.question_number];erase.disabled=true;
