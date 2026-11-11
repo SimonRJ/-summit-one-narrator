@@ -1,0 +1,25 @@
+{
+  "id": "T02.1",
+  "voice": "af_heart",
+  "speed": 1.02,
+  "duration_seconds": 165.0,
+  "resolution": "1280x720",
+  "video_codec": "h264",
+  "audio_codec": "aac",
+  "file_size_bytes": 9105452,
+  "sha256": "58df2e10b64ac9125a3d7c4447a7da4af2074123aa894a90c20f7d4aa7a7abea",
+  "caption_alignment": {
+    "method": "faster-whisper base.en + transcript alignment",
+    "recognized_words": 467,
+    "matched_original_words": 432,
+    "match_percent": 93.1,
+    "caption_events": 464,
+    "caption_groups": 66,
+    "single_layer": true,
+    "burned_in_original_subtitles": false,
+    "voice": "af_heart",
+    "speed": 1.02
+  },
+  "watch_path": "watch-t02-1.html",
+  "media_path": "media/T02.1.mp4"
+}

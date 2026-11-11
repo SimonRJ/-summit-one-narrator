@@ -1,0 +1,200 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:00.560
+Here's a puzzle.
+
+00:00:01.180 --> 00:00:02.800
+One pile has five gold counters.
+
+00:00:03.600 --> 00:00:05.080
+The other has seven blue counters.
+
+00:00:05.780 --> 00:00:08.280
+You may move counters between the piles, as often as
+
+00:00:08.280 --> 00:00:10.960
+you like. Could you finish with ten counters in each
+
+00:00:10.960 --> 00:00:11.260
+pile?
+
+00:00:11.960 --> 00:00:14.640
+Before you try dozens of moves, ask a better question.
+
+00:00:15.520 --> 00:00:17.720
+Is there something that no legal move can change?
+
+00:00:18.400 --> 00:00:21.520
+Watch closely. Move two blue counters to the gold pile.
+
+00:00:22.220 --> 00:00:24.400
+Now there are seven on the left and five on
+
+00:00:24.400 --> 00:00:27.300
+the right. The picture has changed, but the total
+
+00:00:27.300 --> 00:00:28.616
+is still twelve.
+
+00:00:28.080 --> 00:00:31.560
+Every transfer takes some counters away from one pile
+
+00:00:31.560 --> 00:00:33.900
+and adds exactly that many to the other.
+
+00:00:34.540 --> 00:00:35.340
+Nothing is created.
+
+00:00:36.040 --> 00:00:36.720
+Nothing disappears.
+
+00:00:37.740 --> 00:00:39.240
+So ten and ten is impossible.
+
+00:00:40.040 --> 00:00:42.460
+That would require twenty counters, and we have only
+
+00:00:42.880 --> 00:00:45.140
+twelve. Six and six, however, is possible.
+
+00:00:46.160 --> 00:00:49.200
+A quantity that remains unchanged after every permitted
+
+00:00:49.200 --> 00:00:50.760
+move is called an invariant.
+
+00:00:51.060 --> 00:00:54.020
+Here, the invariant is the total number of counters.
+
+00:00:54.680 --> 00:00:55.780
+But here's the twist.
+
+00:00:56.340 --> 00:00:57.040
+Change the rule.
+
+00:00:57.580 --> 00:01:00.160
+Each move now adds two brand-new counters to both
+
+00:01:00.160 --> 00:01:02.520
+piles. What stays fixed this time?
+
+00:01:03.120 --> 00:01:05.740
+The total is growing, by four with every move.
+
+00:01:06.180 --> 00:01:08.440
+So the total is no longer an invariant.
+
+00:01:08.840 --> 00:01:10.940
+Look at the difference between the two piles instead.
+
+00:01:11.880 --> 00:01:14.580
+We begin with five and seven: a gap of two.
+
+00:01:14.800 --> 00:01:17.090
+Add two to each and we get seven and nine.
+
+00:01:17.300 --> 00:01:19.710
+Add two again, and we get nine and eleven.
+
+00:01:19.960 --> 00:01:21.443
+The gap is always two.
+
+00:01:21.120 --> 00:01:24.060
+Let's prove this, rather than just spot a pattern.
+
+00:01:24.620 --> 00:01:26.440
+Call the two pile sizes A and B.
+
+00:01:26.960 --> 00:01:29.230
+After a move, their sizes are A plus two
+
+00:01:29.240 --> 00:01:30.367
+and B plus two.
+
+00:01:30.580 --> 00:01:32.100
+Now subtract the new sizes.
+
+00:01:32.840 --> 00:01:35.440
+The positive two and negative two cancel perfectly.
+
+00:01:36.200 --> 00:01:37.560
+We are left with A minus B.
+
+00:01:37.860 --> 00:01:39.260
+So the difference cannot change.
+
+00:01:40.080 --> 00:01:41.520
+Go back to transferring counters.
+
+00:01:42.320 --> 00:01:44.760
+If the first pile loses t and the second gains
+
+00:01:44.760 --> 00:01:48.180
+t, the total becomes A minus t, plus B plus
+
+00:01:48.180 --> 00:01:50.540
+t. Again, the changes cancel.
+
+00:01:51.420 --> 00:01:52.640
+Here's the important trap.
+
+00:01:53.300 --> 00:01:56.120
+Moving counters preserves the total, but not usually
+
+00:01:56.120 --> 00:01:58.760
+the difference. Adding the same number to both
+
+00:01:58.760 --> 00:02:01.320
+preserves their difference, but changes the total.
+
+00:02:02.140 --> 00:02:02.840
+Try one yourself.
+
+00:02:03.600 --> 00:02:05.940
+Start with four counters in one pile and nine
+
+00:02:05.940 --> 00:02:06.500
+in the other.
+
+00:02:07.100 --> 00:02:08.880
+Each move adds two counters to both.
+
+00:02:09.520 --> 00:02:11.405
+Could you reach eighteen and twenty-three?
+
+00:02:11.640 --> 00:02:14.500
+Yes. The difference starts at five and ends at five.
+
+00:02:15.080 --> 00:02:18.080
+Exactly seven moves add fourteen counters to each pile.
+
+00:02:18.640 --> 00:02:19.900
+Both target numbers work.
+
+00:02:20.500 --> 00:02:22.420
+But could you reach eighteen and twenty-two?
+
+00:02:22.740 --> 00:02:25.260
+No. Their difference is four, not five.
+
+00:02:25.840 --> 00:02:27.520
+The invariant rules that out instantly.
+
+00:02:28.440 --> 00:02:30.320
+This is the power of an invariant.
+
+00:02:30.660 --> 00:02:32.460
+You don't need to simulate a hundred moves.
+
+00:02:33.140 --> 00:02:36.780
+Examine one move, identify what cancels, and use that
+
+00:02:36.780 --> 00:02:38.160
+to reason about every move.
+
+00:02:38.900 --> 00:02:42.040
+Pause here. Draw one move in your notebook, and write
+
+00:02:42.040 --> 00:02:44.240
+a single equation showing what remains unchanged.
+
