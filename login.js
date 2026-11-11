@@ -14,7 +14,7 @@ async function redirectIfSignedIn(){
 async function signIn(){
   const username=$("loginName").value.trim();
   const password=$("password").value;
-  if(!username || !password) throw new Error("Enter your login name and password.");
+  if(!username || !password) throw new Error("Enter your login name and PIN / password.");
   const email=usernameToEmail(username);
   const { error }=await supabase.auth.signInWithPassword({email,password});
   if(error) throw error;
