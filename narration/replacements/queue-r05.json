@@ -1,0 +1,506 @@
+[
+  {
+    "video_id": "A053",
+    "title": "Keep the game close",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 403,
+    "estimated_seconds": 144.752,
+    "chunks": [
+      {
+        "chunk_id": "A053__01",
+        "sequence": 1,
+        "text": "Here is the problem. A hockey game between two teams is ‘relatively close’ if the number of goals scored by the two teams never differ by more than two. In how many ways can the first 12 goals of a game be scored if the game is ‘relatively close’? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A053__02",
+        "sequence": 2,
+        "text": "than estimating from how it looks. Watch out for this common mistake: Checking only the final score counts orders that had an illegal lead earlier in the game. A useful first observation is: After an odd number of goals, what can the score difference be? Before you continue, think about this: From a lead of 1, list the allowed orders of the next two goals. One of the four possible pairs is forbidden. Now build the solution in small steps. Pause after any step if",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A053__03",
+        "sequence": 3,
+        "text": "you want to reproduce it in your notebook before going on. Step 1. There are 2 choices for the first goal: team A or team B. Step 2. After any odd number of goals, one team leads by 1. For the next pair, if A leads, the permitted orders are AB, BA, BB. AA would create a forbidden lead of 3. If B leads, the symmetric three choices apply. Step 3. Each permitted pair ends with a difference of 1 again, so this rule can",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A053__04",
+        "sequence": 4,
+        "text": "be repeated independently for five pairs, covering goals 2 through 11. Step 4. From the resulting difference of 1, either team may score goal 12, leaving difference 0 or 2. Step 5. Total orders=2 times 3 times 3 times 3 times 3 times 3 times 2=972. Check the answer with a different viewpoint. Build a table of counts for differences minus 2, minus 1, 0, 1, 2. Each entry receives the previous row’s neighboring entries; delete moves outside the allowed interval. At 12 goals the",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A053__05",
+        "sequence": 5,
+        "text": "counts are 243, 0, 486, 0, 243. Final thinking check: If A leads by 1, which next two-goal order breaks the rule? AA changes the lead from 1 to 2 and then 3, exceeding the permitted difference. The answer is 972 orders. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 63
+      }
+    ]
+  },
+  {
+    "video_id": "A058",
+    "title": "One digit divides the other",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 317,
+    "estimated_seconds": 122.562,
+    "chunks": [
+      {
+        "chunk_id": "A058__01",
+        "sequence": 1,
+        "text": "Here is the problem. How many 2-digit numbers are there where one digit is a multiple of the other and neither digit is zero? For example, 11 and 26, but not 96 or 40. Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: Doubling the 9",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A058__02",
+        "sequence": 2,
+        "text": "equal-digit cases counts each of 11,22, and so on ,99 twice. A useful first observation is: Count equal-digit numbers first, then pairs of different digits. Before you continue, think about this: For unequal digits, choose the smaller digit and list its larger multiples up to 9. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. The equal-digit numbers 11,22, and so on ,99 give 9 possibilities, since each digit",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A058__03",
+        "sequence": 3,
+        "text": "is a multiple of itself. Step 2. For unequal digits, list the smaller digit and larger multiples:1 pairs with 2 to 9(8);2 with 4,6,8(3);3 with 6,9(2);4 with 8(1). Smaller digits 5 to 9 have no larger single-digit multiple. Step 3. There are 8+3+2+1=14 unequal unordered pairs. Each can be written in either order, giving 28 numbers. Step 4. The total is 9+28=37. Check the answer with a different viewpoint. Make a 9 times 9 table of nonzero tens and units digits; mark a cell if",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A058__04",
+        "sequence": 4,
+        "text": "either digit divides the other. The table has 37 marked cells. Final thinking check: Why do we double only the unequal pairs? A pair such as 2,6 makes 26 and 62, but 2,2 makes only 22. The answer is 37 numbers. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 62
+      }
+    ]
+  },
+  {
+    "video_id": "A062",
+    "title": "Eleven times the digit sum",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 264,
+    "estimated_seconds": 130.17,
+    "chunks": [
+      {
+        "chunk_id": "A062__01",
+        "sequence": 1,
+        "text": "Here is the problem. Which three-digit number is 11 times the sum of its digits? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: Reading 10c+b=89 as b=8,c=9 reverses the units and tens roles in the original number. A useful first observation is: Write the number",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A062__02",
+        "sequence": 2,
+        "text": "as 100a+10b+c, where a is its hundreds digit. Before you continue, think about this: Set 100a+10b+c=11(a+b+c), then simplify to 89a=b+10c. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. Let a,b,c be the hundreds, tens and units digits. The condition is 100a+10b+c=11(a+b+c). Step 2. Rearranging gives 89a=b+10c. Since b and c are digits, b+10c≤99; therefore a=1. Step 3. We now have 10c+b=89, so c=8 and b=9. The number is",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A062__03",
+        "sequence": 3,
+        "text": "198. Step 4. Check:1+9+8=18 and 11 times 18=198. Check the answer with a different viewpoint. The digit sum is at most 27, so the number is at most 297. Test multiples of 11 from 110 to 297 and compare each with 11 times its digit sum. Final thinking check: Why must the hundreds digit be 1? If a were 2 or more,89a would exceed the maximum 99 of 10c+b. The answer is 198. Read the original question once more and make sure this is the",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A062__04",
+        "sequence": 4,
+        "text": "requested quantity, and that every condition has been checked.",
+        "word_count": 9
+      }
+    ]
+  },
+  {
+    "video_id": "A078",
+    "title": "Five colours for triangle sides",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 333,
+    "estimated_seconds": 121.557,
+    "chunks": [
+      {
+        "chunk_id": "A078__01",
+        "sequence": 1,
+        "text": "Here is the problem. You have an unlimited supply of pop-sticks in five different colours. You make equilateral triangles using three sticks, one per side. Two triangles count as the same if one is a rotation or reflection of the other. How many different coloured triangles can you make? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A078__02",
+        "sequence": 2,
+        "text": "than estimating from how it looks. Watch out for this common mistake: Multiplying 5 times 5 times 5 counts many rotated or reflected copies separately. A useful first observation is: Separate triangles by whether they use one, two or three colours. Before you continue, think about this: For two colours, choose the repeated colour and then the different colour. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. All",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A078__03",
+        "sequence": 3,
+        "text": "three sides the same colour:5 choices. Step 2. Exactly two sides the same: choose the repeated colour in 5 ways and the other colour in 4 ways, giving 20. Step 3. Three different colours: choose a set of 3 from 5. There are 5 times 4 times 3 divided by (3 times 2 times 1)=10 sets. Any arrangement of those sides is a rotation or reflection of the same triangle. Step 4. The total is 5+20+10=35 different triangles. Check the answer with a different viewpoint.",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A078__04",
+        "sequence": 4,
+        "text": "A triangle is determined by an unordered choice of three colours with repetition allowed. Listing the nondecreasing colour triples gives 35. Final thinking check: How many distinct triangles can a fixed set of three different colours make here? All arrangements of the three side colours are related by a rotation or reflection. The answer is 35 triangles. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 78
+      }
+    ]
+  },
+  {
+    "video_id": "A083",
+    "title": "The smallest product of dog ages",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 329,
+    "estimated_seconds": 137.169,
+    "chunks": [
+      {
+        "chunk_id": "A083__01",
+        "sequence": 1,
+        "text": "Here is the problem. Old Clarrie has three dogs whose ages are whole numbers of years. Bob is oldest, Rex is next, and Fido is youngest; none are the same age. Fido is 10 years younger than Bob, and their ages total 28 years. What is the smallest possible product of their three ages? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A083__02",
+        "sequence": 2,
+        "text": "as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: Trying Fido=1 or 2 makes Rex older than Bob, breaking the stated ordering. A useful first observation is: Let Fido’s age be f. Then Bob is f+10, and Rex is 28 minus f minus (f+10). Before you continue, think about this: Rex’s age is 18 minus 2f, and it must lie strictly between f and f+10. Now build the solution in small steps. Pause after any step if",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A083__03",
+        "sequence": 3,
+        "text": "you want to reproduce it in your notebook before going on. Step 1. Let Fido be f years old. Bob is f+10. Their total with Rex is 28, so Rex is 18 minus 2f. Step 2. The order Fido<Rex<Bob gives f<18 minus 2f<f+10. Hence f<6 and f>8/3, so the whole-number possibilities are 3,4,5. Step 3. For f=3, the ages are 3,12,13 and product 468. For f=4, they are 4,10,14 and product 560. For f=5, they are 5,8,15 and product 600. Step 4. The smallest possible",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A083__04",
+        "sequence": 4,
+        "text": "product is 468. Check the answer with a different viewpoint. List the possible youngest/oldest pairs 3/13,4/14,5/15 after using the total and strict order, then recover Rex and compare products. Final thinking check: Why is Fido=2 impossible? Fido 2 and Bob 12 leave Rex 14, contradicting the names’ age order. The answer is 468. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 74
+      }
+    ]
+  },
+  {
+    "video_id": "A089",
+    "title": "The hundredth zero",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 325,
+    "estimated_seconds": 133.021,
+    "chunks": [
+      {
+        "chunk_id": "A089__01",
+        "sequence": 1,
+        "text": "Here is the problem. The counting numbers are written joined together: 1234567891011121314151617 and so on . Which counting number is being written when the 100th zero is written? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: A number such as 500 contributes two zeroes, not",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A089__02",
+        "sequence": 2,
+        "text": "one. A useful first observation is: There are nine zeroes in the numbers 1 to 99: in 10, 20, and so on , 90. Before you continue, think about this: From 100 to 199, there are ten zeroes in the tens place and ten in the units place. The same holds for each later complete hundred block. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. The numbers 1",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A089__03",
+        "sequence": 3,
+        "text": "to 99 contain 9 zeroes. Step 2. Each block 100 to 199, 200 to 299, 300 to 399 and 400 to 499 contains 20 zeroes, counting both zeroes in its first number. Step 3. By the end of 499 there are 9 + 80 = 89 zeroes. Step 4. 500 supplies zeroes 90 and 91. The numbers 501 through 509 each supply one more, so the 100th zero occurs in 509. Check the answer with a different viewpoint. Make a running table: 99 → 9,",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A089__04",
+        "sequence": 4,
+        "text": "199 → 29, 299 → 49, 399 → 69, 499 → 89, 500 → 91, then increase the count by one for each number through 509. Final thinking check: How many zeroes does 500 contribute? Both its tens digit and its units digit are zero. The answer is 509. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 70
+      }
+    ]
+  },
+  {
+    "video_id": "A090",
+    "title": "The opposite-face total",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 390,
+    "estimated_seconds": 152.624,
+    "chunks": [
+      {
+        "chunk_id": "A090__01",
+        "sequence": 1,
+        "text": "Here is the problem. Each face of a cube has a different number written using only the digits 0, 1 and 2. Three mutually adjacent faces show 220, 121 and 201. Numbers on each pair of opposite faces add to the same three-digit total. What is the largest possible total? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A090__02",
+        "sequence": 2,
+        "text": "rather than estimating from how it looks. Watch out for this common mistake: A candidate total must give six different face numbers; valid digits alone are not enough. A useful first observation is: If the common total is S, the hidden numbers are S minus 220, S minus 121 and S minus 201. Before you continue, think about this: Adding digits chosen from 0, 1 and 2 produces no carry. Compare the possible hundreds, tens and units of the three sums. Now build the solution",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A090__03",
+        "sequence": 3,
+        "text": "in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. There are no carries when two numbers using only digits 0, 1 and 2 are added. Treat a missing leading digit as 0. Step 2. The hundreds digit of the common sum must be 2 or 3; the tens digit must be 2; and the units digit must be 1 or 2. Thus only 221, 222, 321 and 322 can work. Step 3. For",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A090__04",
+        "sequence": 4,
+        "text": "the largest candidate 322, the hidden numbers would be 102, 201 and 121. Two repeat numbers already visible, so 322 is forbidden. Step 4. For 321, the hidden numbers are 101, 200 and 120. All six face numbers are different and use only the permitted digits, so the maximum is 321. Check the answer with a different viewpoint. List the possible opposite partners of 220 in descending order, add each to 220, and check whether subtracting 121 and 201 gives two more permitted, distinct labels.",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A090__05",
+        "sequence": 5,
+        "text": "Final thinking check: Why is a common total of 322 invalid? The total may contain 3, but the cube’s six face labels must all differ. The answer is 321. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 50
+      }
+    ]
+  },
+  {
+    "video_id": "A091",
+    "title": "Meeting on the circular track",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 291,
+    "estimated_seconds": 114.237,
+    "chunks": [
+      {
+        "chunk_id": "A091__01",
+        "sequence": 1,
+        "text": "Here is the problem. Jill runs steadily around a circular track, taking 72 seconds per circuit. Jan walks steadily in the opposite direction and meets Jill every 56 seconds. How many seconds does Jan take for one circuit? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A091__02",
+        "sequence": 2,
+        "text": "mistake: The 56 seconds is a meeting interval, not the difference between their circuit times. A useful first observation is: Between consecutive meetings, their two distances together equal one circuit. Before you continue, think about this: In 56 seconds Jill covers 56/72 = 7/9 of a circuit. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. Between meetings, Jan and Jill together cover one complete circuit because they travel",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A091__03",
+        "sequence": 3,
+        "text": "in opposite directions. Step 2. Jill covers 56/72 = 7/9 of a circuit in those 56 seconds. Step 3. Jan covers the remaining 1 minus 7/9 = 2/9 of a circuit. Step 4. Jan needs 56 times 9 divided by 2 = 252 seconds for a full circuit. Check the answer with a different viewpoint. Their combined rate is 1/56 circuit per second. Subtract Jill’s 1/72 to get Jan’s 1/252 circuit per second. Final thinking check: Between consecutive meetings, their travelled distances add to what?",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A091__04",
+        "sequence": 4,
+        "text": "Travelling in opposite directions closes one full circuit between meetings. The answer is 252 seconds. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 36
+      }
+    ]
+  },
+  {
+    "video_id": "A099",
+    "title": "Moving the decimal point",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 297,
+    "estimated_seconds": 109.232,
+    "chunks": [
+      {
+        "chunk_id": "A099__01",
+        "sequence": 1,
+        "text": "Here is the problem. Use the digits 1, 5, 6 and 8 exactly once each to make a number. A decimal point must be placed between two digits. How many different numbers can be made? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: The decimal",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A099__02",
+        "sequence": 2,
+        "text": "point has three allowed gaps, not five positions including before and after all digits. A useful first observation is: First ignore the decimal point and arrange the four different digits. Before you continue, think about this: There are 4 choices for the first digit, then 3, then 2, then 1. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. There are 4 times 3 times 2 times 1 =",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A099__03",
+        "sequence": 3,
+        "text": "24 orders of the four different digits. Step 2. For each order, the decimal point can go after the first, second or third digit:3 choices. Step 3. These give distinct numbers because there are no zero digits or trailing-zero ambiguities. Step 4. The number of possibilities is 24 times 3 = 72. Check the answer with a different viewpoint. Count by digits before the decimal point:24 numbers with one digit, 24 with two and 24 with three, giving 72. Final thinking check: How many permitted",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A099__04",
+        "sequence": 4,
+        "text": "places for the decimal point does 1568 have? The permitted numbers are 1.568, 15.68 and 156.8. The answer is 72 numbers. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 42
+      }
+    ]
+  },
+  {
+    "video_id": "A115",
+    "title": "The smallest triangle total",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 451,
+    "estimated_seconds": 163.47,
+    "chunks": [
+      {
+        "chunk_id": "A115__01",
+        "sequence": 1,
+        "text": "Here is the problem. Place the numbers 1 to 10 exactly once in the ten circles shown: four rows of 1, 2, 3 and 4 circles. The four circles on each outer side of the triangle must have the same total. What is the smallest possible side total? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A115__02",
+        "sequence": 2,
+        "text": "estimating from how it looks. Watch out for this common mistake: Choosing small corners suggests a lower bound but does not prove it is achievable; all three equal side totals must be demonstrated. A useful first observation is: Adding all three side totals counts corners twice, edge-middle circles once and the centre circle zero times. Before you continue, think about this: Start from 1 + 2 + ⋯ + 10 = 55. Subtract the centre number and add the three corner numbers. Now build the",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A115__03",
+        "sequence": 3,
+        "text": "solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. The sum of 1 to 10 is 55. Adding the three side totals gives 55 minus the centre number plus the three corner numbers. Step 2. The centre is at most 10, and the three distinct corner numbers total at least 1 + 2 + 3 = 6. Thus the three sides together total at least 55 minus 10 + 6 = 51.",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A115__04",
+        "sequence": 4,
+        "text": "Step 3. Every side therefore totals at least 51 divided by 3 = 17. A lower bound alone is not enough; an arrangement must achieve it. Step 4. Put 1 at the top corner, 2 at bottom-left, 3 at bottom-right and 10 in the centre. Put 6 and 8 on the left side, 4 and 9 on the right side, and 5 and 7 along the bottom. Step 5. The side sums are 1 + 6 + 8 + 2 = 17, 1 + 4",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A115__05",
+        "sequence": 5,
+        "text": "+ 9 + 3 = 17, and 2 + 5 + 7 + 3 = 17. Therefore the minimum is 17. Check the answer with a different viewpoint. With centre 10 and corners 1, 2, 3, the three edge-pair totals must be 14, 13 and 12. Pair the remaining numbers as 6+8, 4+9, 5+7 to meet them. Final thinking check: Why are corner values added again when combining the three side totals? The total 55 counts every number once, whereas each corner occurs on two",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A115__06",
+        "sequence": 6,
+        "text": "sides. The answer is 17. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 26
+      }
+    ]
+  },
+  {
+    "video_id": "A117",
+    "title": "The equal-product network",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 474,
+    "estimated_seconds": 171.009,
+    "chunks": [
+      {
+        "chunk_id": "A117__01",
+        "sequence": 1,
+        "text": "Here is the problem. Place seven different digits chosen from 1 to 9 in the seven circles shown. There are two vertical lines of three circles, joined by a horizontal line through their middle circles and the central circle. The product of the three numbers on each of these three lines must be the same. What is this common product? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A117__02",
+        "sequence": 2,
+        "text": "there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: A possible arrangement alone does not show that the common product is forced; the upper bound rules out larger multiples. A useful first observation is: A 5 or 7 on one vertical line would make its product divisible by that prime. Could the other vertical line match it? Before you continue, think about this: Both 5 and 7 must be omitted, leaving",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A117__03",
+        "sequence": 3,
+        "text": "1, 2, 3, 4, 6, 8, 9. The common product must be divisible by both 8 and 9. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. The vertical lines are disjoint. If 5 were used, one line would have a factor 5 but the other could not; the same applies to 7. Thus the seven digits are 1, 2, 3, 4, 6, 8, 9. Step 2. Every digit",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A117__04",
+        "sequence": 4,
+        "text": "lies on a line, so the common product P is divisible by every chosen digit. In particular it is a multiple of 8 times 9 = 72. Step 3. The product of the six digits on the vertical lines is P squared. It is at most the product of all seven digits, 10368. The next multiple of 72 after 72 is 144, but 144 squared = 20736 > 10368. Thus only P = 72 is possible. Step 4. It works: put 1, 9, 8 down",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A117__05",
+        "sequence": 5,
+        "text": "the left line, 3, 4, 6 down the right line, and 2 in the centre. The three products are 1 times 9 times 8 = 3 times 4 times 6 = 9 times 2 times 4 = 72. Check the answer with a different viewpoint. After excluding 5 and 7, list three-digit sets with product 72. The two disjoint sets {1, 8, 9} and {3, 4, 6} leave 2 to join middle digits 9 and 4. Final thinking check: Why can the digit 5 not",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A117__06",
+        "sequence": 6,
+        "text": "be used? Whichever line contains 5 has a product divisible by 5. The other vertical line has no available digit with a factor 5. The answer is 72. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 49
+      }
+    ]
+  },
+  {
+    "video_id": "A120",
+    "title": "The next distinct meter reading",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 326,
+    "estimated_seconds": 141.05,
+    "chunks": [
+      {
+        "chunk_id": "A120__01",
+        "sequence": 1,
+        "text": "Here is the problem. An electricity meter currently shows 896754. Every digit is different. The reading increases by one for each unit of electricity used. How many more units will be used before the meter next shows six different digits? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A120__02",
+        "sequence": 2,
+        "text": "this common mistake: The next reading is not obtained by simply increasing the final digit: that can repeat a digit already used in the prefix. A useful first observation is: Try to keep as much of the starting prefix as possible. Can any larger reading beginning 896 have six different digits? Before you continue, think about this: After the prefix 896, the available final digits are 0, 1, 2, 3, 4, 5, 7. The greatest distinct three-digit ending is 754. Now build the solution in",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A120__03",
+        "sequence": 3,
+        "text": "small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. With prefix 896, the largest possible distinct ending uses 7, 5, 4 in that order. The current reading 896754 is already that maximum. Step 2. The next possible prefix is 897. Its smallest three-digit ending with unused distinct digits is 012, so the next reading is 897012. Step 3. The increase is 897012 minus 896754 = 258 units. Check the answer with a different viewpoint.",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A120__04",
+        "sequence": 4,
+        "text": "Count up to 897000, then choose the smallest allowable suffix: 000 through 011 repeat a digit, and 012 is the first that works. Final thinking check: Why is 897012 smaller than 897021? Both share 8970, and 1 in the next position is smaller than 2. The answer is 258 units. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 71
+      }
+    ]
+  },
+  {
+    "video_id": "A125",
+    "title": "Chocolate dots on a cube cake",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 321,
+    "estimated_seconds": 116.585,
+    "chunks": [
+      {
+        "chunk_id": "A125__01",
+        "sequence": 1,
+        "text": "Here is the problem. A cube-shaped cake has side length 20 cm. Its top and four vertical faces are iced. Each iced face has a square grid of chocolate dots whose centres are 2 cm apart in both directions and 2 cm from every edge. How many chocolate dots are on the cake? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A125__02",
+        "sequence": 2,
+        "text": "a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: There are ten intervals but only nine interior dot positions; the bottom face has no icing. A useful first observation is: Along one face, the dot centres are at 2, 4, 6, and so on centimetres from an edge. Where is the last centre? Before you continue, think about this: The last centre is at 18 cm. Count these nine positions in both directions. Now build the solution in",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A125__03",
+        "sequence": 3,
+        "text": "small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. Along an edge direction, the centres lie at 2, 4, 6, 8, 10, 12, 14, 16, 18 cm: nine positions. Step 2. Each face therefore has 9 times 9 = 81 dots. Step 3. The top and four vertical faces give five iced faces. There are 5 times 81 = 405 dots altogether. Check the answer with a different viewpoint. The 20 cm side has",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A125__04",
+        "sequence": 4,
+        "text": "ten 2 cm intervals. The nine interior dividing points give nine rows and nine columns of dots. Final thinking check: How many iced faces are included? There is one top face and four vertical side faces; the bottom is excluded. The answer is 405 dots. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 66
+      }
+    ]
+  }
+]
