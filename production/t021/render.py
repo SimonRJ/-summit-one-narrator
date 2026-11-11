@@ -363,8 +363,12 @@ def main():
             # Fade through background instead of double-burning any captions.
             k=min(1.0,(p*duration)/.40)
             if idx>0 and k<1:
+                # Fade through a clean mathematical canvas. Direct crossfades
+                # double the equations and headings, making both unreadable.
                 prior=render_frame(idx-1,1.0,elapsed,elapsed/total)
-                frame=Image.blend(prior,frame,ease(k))
+                clean=background()
+                if k<.5:frame=Image.blend(prior,clean,ease(2*k))
+                else:frame=Image.blend(clean,frame,ease(2*k-1))
             try:ff.stdin.write(frame.convert('RGB').tobytes())
             except BrokenPipeError:raise RuntimeError('ffmpeg closed video input')
             count+=1
