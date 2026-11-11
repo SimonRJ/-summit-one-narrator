@@ -20,7 +20,8 @@ function finalVideoUrl(videoId){
   // Only concept/worked-example T videos are public. Every challenge solution is attempt-gated.
   if(!/^T\d{2}\.(?:1|2|3|E)$/.test(id))return "";
   if(id==="T01.2")return ""; // George retired; use natural on-device narration until new T01.2 master is approved.
-  if(id==="T02.1")return "media/T02.1.mp4?v=3d-speechlocked-v3";
+  if(id==="T02.1")return "media/T02.1.mp4?v=studio-v4";
+  if(id==="T02.2")return "media/T02.2.mp4?v=studio-v1";
   return `https://github.com/SimonRJ/-summit-one-narrator/releases/download/summit-one-video-v1/${encodeURIComponent(id)}.mp4`;
 }
 async function recordVideoEvidence(sessionNumber,videoId,kind,detail={}){
