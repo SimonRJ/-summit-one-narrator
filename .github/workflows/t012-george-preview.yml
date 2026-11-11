@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build:
@@ -93,6 +93,12 @@ jobs:
           echo "Visual retime ratio: $RATIO"
           ffmpeg -y -hide_banner -loglevel error             -i T01.2-current.mp4 -i T01.2-bm_george.wav             -map 0:v:0 -map 1:a:0             -vf "setpts=${RATIO}*PTS,tpad=stop_mode=clone:stop_duration=0.35"             -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p             -c:a aac -b:a 160k -ar 48000 -ac 1             -movflags +faststart -shortest T01.2-bm_george-preview.mp4
           ffprobe -v error -show_entries format=duration -show_entries stream=codec_name,codec_type,width,height,sample_rate,channels -of json T01.2-bm_george-preview.mp4 > T01.2-bm_george-preview.qa.json
+      - name: Publish direct preview link
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view t012-george-preview >/dev/null 2>&1 || gh release create t012-george-preview --title "T01.2 George preview" --notes "T01.2 rebuilt with Kokoro bm_george at 0.88 speed."
+          gh release upload t012-george-preview T01.2-bm_george-preview.mp4 --clobber
       - name: Upload preview
         uses: actions/upload-artifact@v4
         with:
