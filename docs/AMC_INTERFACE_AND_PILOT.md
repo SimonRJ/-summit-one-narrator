@@ -33,3 +33,7 @@ Artwork is original, with a black background, white serif mathematics, cyan obje
 ## Verification
 
 Browser checks use a synthetic local fixture only. They exercise the overview, direct navigation, explicit integer Save, unsaved drafts, save-failure rollback, Erase for both question types, final confirmation/cancellation, result labels and solution/video links. Desktop and phone layouts are captured and checked for horizontal overflow. No real learner progress or exam records are changed by QA.
+
+## Revised opening and source colours
+
+The revised pilot displays and narrates the exact 75-word question before the solution, with the original grid, arrows and all five choices. A separate opening explains that this is a maximising problem and that the method counts each bottom position’s contributions. This order and the preservation of meaningful source colours are now required by `production/SOLUTION_VIDEO_STANDARD.md` and validated by the question manifest. The film remains limited to 60 seconds.

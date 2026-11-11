@@ -2,7 +2,7 @@ name: AMC solution pilot
 on:
   push:
     branches: [draft/teaching-audit-2026-11-11]
-    paths: ['production/amc2025-q17/**', '.github/workflows/amc-solution-pilot.yml']
+    paths: ['production/amc2025-q17/**', 'production/solution_design.py', '.github/workflows/amc-solution-pilot.yml']
   workflow_dispatch:
 permissions:
   contents: write
@@ -63,6 +63,7 @@ jobs:
           path: |
             build/amc2025-q17/final.mp4
             build/amc2025-q17/contact.jpg
+            build/amc2025-q17/exact-question.jpg
             build/amc2025-q17/poster.jpg
             build/amc2025-q17/storyboard/
             build/amc2025-q17/qa.json

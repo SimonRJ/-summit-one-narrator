@@ -1,0 +1,35 @@
+{
+  "id": "AMC2025Q17",
+  "source": "User-supplied 2025 AMC Upper Primary, question 17",
+  "question_text": "Xian fills this grid with numbers. He places the numbers from 1 to 5 in the 5 squares in the bottom row, in some order. In the next two rows, each square contains the sum of the numbers in the 3 closest squares in the row below. The arrows indicate how this addition works for the first square in the second row. What is the largest possible value of the number in the top square?",
+  "question_lines": [
+    "Xian fills this grid with numbers.",
+    "He places the numbers from 1 to 5 in the 5 squares",
+    "in the bottom row, in some order. In the next two",
+    "rows, each square contains the sum of the",
+    "numbers in the 3 closest squares in the row below.",
+    "The arrows indicate how this addition works for",
+    "the first square in the second row.",
+    "What is the largest possible value of the number",
+    "in the top square?"
+  ],
+  "choices": [
+    "(A) 27",
+    "(B) 29",
+    "(C) 32",
+    "(D) 34",
+    "(E) 35"
+  ],
+  "problem_type": "Maximising — make the largest possible total",
+  "solution_approach": "Count each position’s contributions, then put larger numbers where they count more.",
+  "colours_carry_meaning": false,
+  "source_colours": {
+    "arrows": "#bfd2ec"
+  },
+  "diagram_surface": "dark",
+  "original_diagram_required": true,
+  "solution_starts_at_segment": 3,
+  "question_segment": 1,
+  "orientation_segment": 2,
+  "revision": "exact-question-v2"
+}

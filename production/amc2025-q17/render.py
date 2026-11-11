@@ -1,9 +1,12 @@
 """Original mathematical animation. Black canvas, cyan objects, gold emphasis.
 All narrative actions use word timestamps from the completed synthetic speech.
 """
-import argparse,functools,json,math,re,subprocess
+import argparse,functools,json,math,re,subprocess,sys
 from pathlib import Path
 from PIL import Image,ImageDraw,ImageFont
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
+from solution_design import load_question,source_colour,diagram_surface
+QUESTION=load_question(Path(__file__).with_name('question.json'))
 ROOT=Path('build/amc2025-q17');W,H=1920,1080;S=1.5;FPS=30
 WHITE='#f7f7f7';BLUE='#28bbee';GOLD='#ffd36a';DIM='#657079';BLACK='#000000'
 X=[380,510,640,770,900];Y=[510,380,250];SIZE=130
@@ -65,91 +68,95 @@ def expression(im,terms,x,y,highlight='c',a=1):
   style='italic' if v.isalpha() else 'math';ww=font(size,style).getlength(v)/S
   text(im,v,start+ww/2,y,size,c,style,a);start+=ww+6
 
+def left_text(im,s,x,y,size=27,color=WHITE):
+ ImageDraw.Draw(im).text((round(x*S),round(y*S)),s,font=font(size),fill=color,anchor='lm')
+def dot(im,x,y,r=10,color=BLUE,a=1):
+ if a<=0:return
+ ImageDraw.Draw(im,'RGBA').ellipse(tuple(round(z*S) for z in [x-r,y-r,x+r,y+r]),fill=(*rgb(color),round(255*a)))
+def opening(im,t):
+ # The exact source wording, all choices, and faithful blank grid are present from frame one.
+ text(im,'2025 AMC UPPER PRIMARY  ·  QUESTION 17',640,61,16,DIM,'sans')
+ text(im,'Xian’s number pyramid',640,111,37,WHITE)
+ question_cue=cue(0,'What is the largest')
+ for j,v in enumerate(QUESTION['question_lines']):
+  left_text(im,v,62,193+43*j,27,GOLD if j>=7 and t>=question_cue else WHITE)
+ # Match the 5 / 3 / 1 square arrangement and the three arrows in the source diagram.
+ xs=[875,950,1025,1100,1175];ys=[399,324,249];d=ImageDraw.Draw(im)
+ surface=diagram_surface(QUESTION)
+ d.rectangle([round(830*S),round(195*S),round(1230*S),round(445*S)],fill=surface)
+ for yy,inds in [(399,range(5)),(324,range(1,4)),(249,[2])]:
+  for k in inds:
+   x=xs[k];d.rectangle([round(v*S) for v in [x-37.5,yy-37.5,x+37.5,yy+37.5]],outline=WHITE,width=2)
+ colour=source_colour(QUESTION,'arrows')
+ # The arrow geometry is instructional, not an answer hint.
+ for start in [(875,385),(950,385),(1025,385)]:
+  end=(950,335);line(im,[start,end],colour,3)
+  angle=math.atan2(end[1]-start[1],end[0]-start[0]);length=12
+  line(im,[(end[0]-length*math.cos(angle-.5),end[1]-length*math.sin(angle-.5)),end,(end[0]-length*math.cos(angle+.5),end[1]-length*math.sin(angle+.5))],colour,3)
+ for j in range(5):
+  text(im,str(j+1),875+75*j,491,32,BLUE,a=anim(t,cue(0,'one to five'),.6))
+ text(im,'Use each number once',1025,534,16,DIM,'sans',anim(t,cue(0,'one to five'),.6))
+ for x,v in zip([140,390,640,890,1140],QUESTION['choices']):text(im,v,x,650,28,WHITE)
+
 def frame(t):
  im=Image.new('RGB',(W,H),BLACK)
  i=max(j for j,s in enumerate(TIMING['segments']) if s['start_seconds']<=t)
- st=TIMING['segments'][i]['start_seconds'];en=st+TIMING['segments'][i]['duration_seconds'];u=clamp((t-st)/(en-st))
+ st=TIMING['segments'][i]['start_seconds'];en=st+TIMING['segments'][i]['duration_seconds']
  if i==0:
-  heading(im,'How large can the top be?')
-  base(im,fade=anim(t,0,.7))
-  for j in range(5):text(im,j+1,X[j],650,42,BLUE,a=anim(t,.4+j*.11,.5))
+  opening(im,t)
  elif i==1:
-  heading(im,'Add the three closest boxes.')
-  base(im)
-  for j in range(5):text(im,j+1,X[j],650,40,BLUE)
-  a=anim(t,cue(i,'Each box'),.4)
-  for j in range(3):
-   box(im,X[j],510,'',BLUE,a,BLUE)
-   tt=anim(t,cue(i,'three closest')+j*.12,.85)
-   if 0<tt<1:flight(im,'•',(X[j],510),(510,380),tt,BLUE,34)
-  box(im,510,380,'+',BLUE,a)
-  text(im,'Use 1, 2, 3, 4, 5 once each',640,691,16,DIM,'sans')
+  heading(im,'What kind of problem is this?')
+  text(im,'MAXIMISING',640,260,50,BLUE)
+  text(im,'Make the top as large as possible.',640,329,29,WHITE)
+  a=anim(t,cue(i,'We will count'),.4)
+  text(im,'THE PLAN',640,429,17,GOLD,'sans',a)
+  text(im,'Count how often each position contributes.',640,485,28,WHITE,a=a)
+  text(im,'Put larger numbers where they count more.',640,539,28,WHITE,a=a)
  elif i==2:
-  heading(im,'Follow the centre number.')
-  base(im,list('abcde'),highlight=(2,))
-  for j in [0,1,3,4]:box(im,X[j],510,'',WHITE);text(im,'abcde'[j],X[j],510,38,DIM,'italic')
-  box(im,640,510,'',BLUE,fill=BLUE);text(im,'c',640,510,44,BLUE,'italic')
-  a=cue(i,'It appears');d=max(.9,(en-a)*.5)
+  heading(im,'How often does each position count?')
+  base(im,top='')
+  centre=cue(i,'centre');three=cue(i,'three times');neighbours=cue(i,'neighbours');ends=cue(i,'ends')
+  dot(im,640,510,11)
   for j in range(3):
-   q=anim(t,a+j*.18,d)
-   if q>0:
-    ray(im,(640,470),(X[j+1],405),q,BLUE)
-    flight(im,'c',(640,510),(X[j+1],380),q,BLUE,34,lift=20)
-  text(im,'One centre number. Three middle sums.',640,644,26,WHITE,a=anim(t,a+.5,.6))
+   q=anim(t,centre,.65);r=anim(t,three,.7)
+   p=bezier((640,510),(X[j+1],380),q,18)
+   if r>0:p=bezier((X[j+1],380),(640+(j-1)*30,250),r,12)
+   dot(im,*p,9)
+  aa=[anim(t,ends,.35),anim(t,neighbours,.35),anim(t,three,.35),anim(t,neighbours,.35),anim(t,ends,.35)]
+  weights(im,alpha=aa)
+  for j in [1,3]:
+   box(im,X[j],510,'',BLUE,aa[j])
+   if neighbours<=t<ends:
+    for k in ([0,1] if j==1 else [1,2]):line(im,[(X[j],470),(X[k+1],405)],BLUE,1.5,a=.7)
+  for j in [0,4]:
+   box(im,X[j],510,'',BLUE,aa[j])
+   if ends<=t<ends+.7:line(im,[(X[j],470),(X[1 if j==0 else 3],405)],BLUE,1.5,a=.7)
  elif i==3:
-  heading(im,'The centre contributes three times.')
-  base(im,list('abcde'),top='',highlight=(2,))
-  for j in range(3):
-   expression(im,[['a','b','c'],['b','c','d'],['c','d','e']][j],X[j+1],380,a=.65)
-   q=anim(t,st+.05+j*.13,max(.6,(en-st)*.45))
-   if q<1:flight(im,'c',(X[j+1],380),(640+(j-1)*30,250),q,BLUE,27,lift=10)
-  q=anim(t,cue(i,'three times'),.4)
-  expression(im,['c','c','c'],640,250,a=max(0,1-2*q))
-  text(im,'3c',640,250,44,GOLD,'italic',max(0,2*q-1))
-  text(im,'centre’s share',825,250,18,DIM,'sans')
-  weights(im,alpha=[0,0,q,0,0])
- elif i==4:
-  heading(im,'Count every position’s contributions.')
-  base(im,list('abcde'))
-  a=anim(t,cue(i,'neighbours'),.55);b=anim(t,cue(i,'Each end'),.55)
-  weights(im,alpha=[b,a,1,a,b])
-  for j in [1,3]:box(im,X[j],510,'abcde'[j],BLUE,a)
-  for j in [0,4]:box(im,X[j],510,'abcde'[j],BLUE,b)
-  text(im,'1     :     2     :     3     :     2     :     1',640,674,19,DIM)
- elif i==5:
   heading(im,'Give the biggest number the biggest weight.')
   base(im,top='');weights(im)
-  # Digit, initial bank position, target cell, spoken action.
-  moves=[(5,4,2,'five'),(3,2,1,'three'),(4,3,3,'four'),(1,0,0,'one'),(2,1,4,'two')]
-  for v,source,target,word in moves:
-   q=anim(t,cue(i,word),.85)
+  for v,source,target,word in [(5,4,2,'five'),(3,2,1,'three'),(4,3,3,'four'),(1,0,0,'one'),(2,1,4,'two')]:
+   q=anim(t,cue(i,word),.65)
    flight(im,str(v),(X[source],680),(X[target],510),q,BLUE,44,lift=42)
- elif i==6:
-  heading(im,'Larger number. More copies. Larger total.')
-  # A concrete swap shows why putting the larger number at the higher weight helps.
+ elif i==4:
+  heading(im,'Why does this give the maximum?')
   text(im,'end',480,245,22,DIM,'sans');text(im,'centre',800,245,22,DIM,'sans')
   box(im,480,345);box(im,800,345)
   text(im,'×1',480,445,38,GOLD);text(im,'×3',800,445,38,GOLD)
-  q=anim(t,cue(i,'in a position'),1.4)
+  q=anim(t,cue(i,'more-counted'),.95)
   flight(im,'5',(480,345),(800,345),q,BLUE,54,lift=90)
   flight(im,'1',(800,345),(480,345),q,BLUE,54,lift=-90)
   text(im,'5 × 1 + 1 × 3 = 8',640,555,38,WHITE,a=max(0,1-2*q))
   text(im,'1 × 1 + 5 × 3 = 16',640,555,38,WHITE,a=max(0,2*q-1))
-  text(im,'Same two numbers. A larger total.',640,638,27,GOLD,a=anim(t,cue(i,'That is why'),.6))
- elif i==7:
+  text(im,'Same numbers. A larger total.',640,638,27,GOLD,a=anim(t,cue(i,'larger total'),.3))
+ elif i==5:
   heading(im,'Now add upwards.')
   base(im,['1','3','5','4','2'],top='',highlight=range(5));weights(im)
-  for j,(v,word) in enumerate([(9,'nine'),(12,'twelve'),(11,'eleven')]):
-   q=anim(t,cue(i,word),.4);text(im,str(v),X[j+1],380,43,BLUE,a=q)
-  q=anim(t,cue(i,'Add them'),.8)
+  for j,(v,word) in enumerate([(9,'nine'),(12,'twelve'),(11,'eleven')]):text(im,str(v),X[j+1],380,43,BLUE,a=anim(t,cue(i,word),.3))
+  q=anim(t,cue(i,'The maximum'),.7)
   for j,v in enumerate([9,12,11]):
    if 0<q<1:flight(im,str(v),(X[j+1],380),(640,250),q,GOLD,26,lift=20,a=math.sin(q*math.pi))
-  a=anim(t,cue(i,'thirty-two'),.35)
-  text(im,'32',640,250,48,GOLD,a=a)
- elif i==8:
-  heading(im,'Count how often each number contributes.')
-  base(im,['1','3','5','4','2'],[9,12,11],'32',highlight=range(5));weights(im)
-  text(im,'Answer C  ·  32',640,684,27,GOLD,a=anim(t,st,.4))
+  text(im,'32',640,250,48,GOLD,a=anim(t,cue(i,'thirty-two'),.3))
+  text(im,'Answer C  ·  32',640,684,27,GOLD,a=anim(t,cue(i,'answer C'),.3))
  return im
 
 def main():
@@ -160,12 +167,13 @@ def main():
  assert duration<=60,f'Too long: {duration}'
  # Check every semantic cue before spending time on full render.
  samples=[]
+ frame(0).save(ROOT/'exact-question.jpg',quality=95)
  for j,s in enumerate(TIMING['segments']):
   for frac in [.2,.6,.9]:samples.append((j,s['start_seconds']+s['duration_seconds']*frac))
  previews=ROOT/'storyboard';previews.mkdir(exist_ok=True,parents=True)
  for j,t in samples:frame(t).save(previews/f'scene-{j+1}-{t:.2f}.jpg',quality=92)
- frame(TIMING['segments'][8]['start_seconds']+1).save(ROOT/'poster.jpg',quality=94)
- contact=Image.new('RGB',(960,540*math.ceil(len(samples)/3)),BLACK)
+ frame(TIMING['duration_seconds']+1).save(ROOT/'poster.jpg',quality=94)
+ contact=Image.new('RGB',(960,180*math.ceil(len(samples)/3)),BLACK)
  for k,(j,t) in enumerate(samples):
   shot=frame(t);shot.thumbnail((320,180));contact.paste(shot,((k%3)*320,(k//3)*180))
  # Crop contact to compact 3-column storyboard.
