@@ -268,7 +268,7 @@ function renderChallenge(el,s,p,mode){
       if(d?.error)throw new Error(d.error);
       const transcript=d.solution_text||d.spoken_script||"Solution unavailable.";
       solution.hidden=false;solution.innerHTML=`<b>Compare reasoning</b><div id="solutionPlayer-${p.id.replace(/[^A-Za-z0-9]/g,"_")}"></div><details style="margin-top:12px"><summary>Read full worked solution</summary><p class="math-copy">${esc(transcript)}</p></details>`;
-      const protectedAudio=p.source_type==="authentic_amc"?"":`https://github.com/SimonRJ/-summit-one-narrator/releases/download/summit-one-audio-v1/${encodeURIComponent(p.id)}_narration.wav`;
+      const protectedAudio="";
       mountNarratedPlayer(document.getElementById("solutionPlayer-"+p.id.replace(/[^A-Za-z0-9]/g,"_")),{
         title:p.title||p.id,
         transcript,
