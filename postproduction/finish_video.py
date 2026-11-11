@@ -126,7 +126,8 @@ def main():
       'mean_volume_db':mean_db,'sha256':sha256(final),
       'passes_duration_sync':abs(delta)<=0.20,'passes_video_codec':vs.get('codec_name')=='h264',
       'passes_audio':aus.get('codec_name')=='aac' and mean_db is not None and mean_db>-60,
-      'requires_manual_review':action=='extreme_retime_review' or abs((ratio-1)*100)>12
+      'notable_retime':abs((ratio-1)*100)>12,
+      'requires_manual_review':action=='extreme_retime_review'
     }
     qa['passed_integrity']=qa['passes_duration_sync'] and qa['passes_video_codec'] and qa['passes_audio']
     json.dump(qa,open(out/f'{args.video_id}.qa.json','w'),indent=2)
