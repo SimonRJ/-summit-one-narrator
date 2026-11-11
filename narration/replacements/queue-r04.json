@@ -1,0 +1,548 @@
+[
+  {
+    "video_id": "A001",
+    "title": "The next page",
+    "type": "challenge",
+    "source": "approved-final-word-timing-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 175,
+    "estimated_seconds": 70.819,
+    "chunks": [
+      {
+        "chunk_id": "A001__01",
+        "sequence": 1,
+        "text": "Two facing page numbers add to three hundred and seventeen. What is the number of the next page? Start with what we know. Facing pages have consecutive numbers. The right page is exactly one more than the left. Call the left page x. Then the right page is x plus one. The two blue parts are equal, and the gold piece is the extra one. Now remove that extra one. Three hundred and seventeen minus one is three hundred and sixteen. The two equal blue",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A001__02",
+        "sequence": 2,
+        "text": "parts now make three hundred and sixteen. Split that total into two equal parts. Three hundred and sixteen divided by two is one hundred and fifty eight. So the facing pages are one hundred and fifty eight and one hundred and fifty nine. Their sum checks: three hundred and seventeen. But read the request again. We want the page after those two. One hundred and fifty nine plus one is one hundred and sixty. The next page is one hundred and sixty. Always check: have",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A001__03",
+        "sequence": 3,
+        "text": "I answered the exact question?",
+        "word_count": 5
+      }
+    ]
+  },
+  {
+    "video_id": "A047",
+    "title": "Four shaded triangles",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 400,
+    "estimated_seconds": 146.066,
+    "chunks": [
+      {
+        "chunk_id": "A047__01",
+        "sequence": 1,
+        "text": "Here is the problem. Each side of the large square is 30 cm. Its side midpoints are joined to corners as shown. What is the total shaded area, in square centimetres? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: The tip is not halfway across",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A047__02",
+        "sequence": 2,
+        "text": "the half-side; measuring the picture or assuming height 7.5 cm gives the wrong area. A useful first observation is: The four shaded triangles are congruent by quarter-turn symmetry. Before you continue, think about this: Focus on the top triangle. Its top-edge base is 15 cm. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. The four shaded triangles are congruent, so find one area and multiply by 4. The",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A047__03",
+        "sequence": 3,
+        "text": "top triangle has base 15 cm, half the square’s 30 cm side. Step 2. Let its tip be h cm below the top edge and x cm right of the left edge. The line from the top midpoint to the bottom-right corner moves right 1 for every 2 down, so x = 15 + h/2. Step 3. The other line goes from the left midpoint to the top-right corner, moving right 2 for every 1 up. Its tip is 15 minus h cm above the",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A047__04",
+        "sequence": 4,
+        "text": "left midpoint, so x = 2 (15 minus h) = 30 minus 2 h. Step 4. Equating gives 15 + h/2 = 30 minus 2 h, so (5/2)h = 15 and h = 6. One area is (15 times 6)/2 = 45 cm squared; all four total 4 times 45 = 180 cm squared. Check the answer with a different viewpoint. Take coordinates from the bottom-left corner. The top tip is the intersection of y = 60 minus 2 x and y = 15 +",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A047__05",
+        "sequence": 5,
+        "text": "x/2, giving (18,24). Its distance below the top is 6 cm. Final thinking check: Why can you multiply one shaded triangle’s area by 4? The midpoint-to-corner construction repeats exactly after a 90 degrees rotation. The answer is 180 cm². Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 60
+      }
+    ]
+  },
+  {
+    "video_id": "A048",
+    "title": "Repeated digits",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 355,
+    "estimated_seconds": 129.636,
+    "chunks": [
+      {
+        "chunk_id": "A048__01",
+        "sequence": 1,
+        "text": "Here is the problem. Starting at 100 and going through to 999, how many numbers have two or more digits the same? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: Zero is allowed in the tens and units places. Counting the distinct digits as 9",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A048__02",
+        "sequence": 2,
+        "text": "times 8 times 7 would wrongly exclude it. A useful first observation is: It is easier to count numbers whose three digits are all different. Before you continue, think about this: There are 9 choices for the hundreds digit, then 9 for the tens digit, then 8 for the units digit. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. There are 999 minus 100 + 1 = 900",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A048__03",
+        "sequence": 3,
+        "text": "three-digit numbers. Step 2. For all digits to be different, the hundreds digit has 9 choices (1 to 9). The tens digit has 9 choices (0 to 9 except the hundreds digit), and the units digit has 8 choices left. Step 3. There are 9 times 9 times 8 = 648 numbers with no repeated digit. Step 4. All other numbers have at least two equal digits:900 minus 648 = 252. Check the answer with a different viewpoint. For each fixed hundreds digit, count three",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A048__04",
+        "sequence": 4,
+        "text": "events: tens equals hundreds (10 choices), units equals hundreds (10), or tens equals units (10). Each pairwise overlap and the triple overlap is the all-equal number. Inclusion to exclusion gives 30 minus 3 + 1 = 28; across nine hundreds digits this is 9 times 28 = 252. Final thinking check: Why are there 9 choices for the tens digit? There are 10 possible digits including 0, and exactly one has already been used. The answer is 252 numbers. Read the original question once more",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A048__05",
+        "sequence": 5,
+        "text": "and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 15
+      }
+    ]
+  },
+  {
+    "video_id": "A050",
+    "title": "Carrying the library books",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 346,
+    "estimated_seconds": 135.91,
+    "chunks": [
+      {
+        "chunk_id": "A050__01",
+        "sequence": 1,
+        "text": "Here is the problem. Adam, Barney and Joe carry 999 books out of the library. Adam works for 3 hours, Barney works for 4 hours and Joe works for 5 hours. They work at different speeds, with Adam carrying 5 books for every 3 books Barney carries and every 2 books Joe carries. How many books did Adam carry? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A050__02",
+        "sequence": 2,
+        "text": "is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: Sharing 999 directly in the rate ratio 5:3:2 ignores that they worked for different durations. A useful first observation is: The 5:3:2 ratio describes equal amounts of time, not their final totals. Before you continue, think about this: Multiply each rate part by that person’s working hours. Now build the solution in small steps. Pause after any step if you want to reproduce",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A050__03",
+        "sequence": 3,
+        "text": "it in your notebook before going on. Step 1. Their carrying rates are in the ratio Adam:Barney:Joe = 5:3:2. Step 2. Multiply by their hours: Adam 5 times 3 = 15 parts, Barney 3 times 4 = 12 parts, Joe 2 times 5 = 10 parts. Step 3. The total is 15 + 12 + 10 = 37 parts, so one part represents 999 divided by 37 = 27 books. Step 4. Adam carries 15 times 27 = 405 books. Barney carries 324 and Joe",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A050__04",
+        "sequence": 4,
+        "text": "270; together they carry 999. Check the answer with a different viewpoint. Let hourly rates be 5 k,3 k,2 k. Then their total is (3 times 5 + 4 times 3 + 5 times 2)k = 37 k = 999, so k 27. Final thinking check: What is Adam’s share of the total-work ratio? His rate weight 5 is multiplied by his 3 working hours. The answer is 405 books. Read the original question once more and make sure this is the requested quantity, and",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A050__05",
+        "sequence": 5,
+        "text": "that every condition has been checked.",
+        "word_count": 6
+      }
+    ]
+  },
+  {
+    "video_id": "A054",
+    "title": "Make the largest number",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 296,
+    "estimated_seconds": 104.553,
+    "chunks": [
+      {
+        "chunk_id": "A054__01",
+        "sequence": 1,
+        "text": "Here is the problem. Six different whole numbers, chosen from the numbers from 1 to 100, add up to 100. What is the greatest possible value of the largest of these numbers? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: Using five copies of 1",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A054__02",
+        "sequence": 2,
+        "text": "ignores the requirement that all six numbers are different. A useful first observation is: The total is fixed, so make the other five numbers as small as possible. Before you continue, think about this: The five numbers must be different and at least 1. Which five have the smallest sum? Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. To make the largest number as large as possible, minimise",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A054__03",
+        "sequence": 3,
+        "text": "the sum of the other five. Step 2. The smallest five different numbers allowed are 1,2,3,4,5, with sum 15. Step 3. The remaining number is 100 minus 15=85. It is different from the other five and lies between 1 and 100, so 85 is attainable and maximal. Check the answer with a different viewpoint. If the largest were 86 or more, the other five would total 14 or less, below their minimum possible total 15. Final thinking check: Why do we use 1,2,3,4,5 for the",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A054__04",
+        "sequence": 4,
+        "text": "other numbers? Leaving the smallest possible total for the other five leaves the greatest possible remainder. The answer is 85. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 41
+      }
+    ]
+  },
+  {
+    "video_id": "A069",
+    "title": "When both watches are right again",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 368,
+    "estimated_seconds": 142.122,
+    "chunks": [
+      {
+        "chunk_id": "A069__01",
+        "sequence": 1,
+        "text": "Here is the problem. I have 2 watches with a 12 hour cycle. One gains 2 minutes a day and the other loses 3 minutes a day. If I set them at the correct time, how many days will it be before they next together tell the correct time? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A069__02",
+        "sequence": 2,
+        "text": "than estimating from how it looks. Watch out for this common mistake: After 144 days the watches agree with each other, but their readings are not yet both correct. A useful first observation is: A 12-hour watch shows the right reading again after its error reaches 12 hours. Before you continue, think about this: Convert 12 hours to 720 minutes. How long does each watch take to gain or lose this much? Now build the solution in small steps. Pause after any step if you",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A069__03",
+        "sequence": 3,
+        "text": "want to reproduce it in your notebook before going on. Step 1. A watch with a 12-hour cycle returns to the correct displayed time whenever its error is a multiple of 720 minutes. Step 2. The gaining watch takes 720 divided by 2=360 days to gain one full cycle. The losing watch takes 720 divided by 3=240 days to lose one full cycle. Step 3. They must complete whole numbers of their cycles together. Multiples of 360 are 360,720, and so on ; multiples of",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A069__04",
+        "sequence": 4,
+        "text": "240 are 240,480,720, and so on . Step 4. The first common time is 720 days. Then the errors are 1440 minutes and 2160 minutes, both multiples of 720. Check the answer with a different viewpoint. Prime factors give 360=2 cubed times 3 squared times 5 and 240=2⁴ times 3 times 5, so their least common multiple is 2⁴ times 3 squared times 5=720. Final thinking check: What must happen for both watches to show the correct time? Each 12-hour display independently repeats after a",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A069__05",
+        "sequence": 5,
+        "text": "720-minute error. The answer is 720 days. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 28
+      }
+    ]
+  },
+  {
+    "video_id": "A071",
+    "title": "The last digit is the sum",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 325,
+    "estimated_seconds": 128.4,
+    "chunks": [
+      {
+        "chunk_id": "A071__01",
+        "sequence": 1,
+        "text": "Here is the problem. With some 3-digit numbers, the third digit is the sum of the first two digits. For example, with the number 213 we can add 1 and 2 to get 3, so the third digit is the sum of the first two digits. How many 3-digit numbers are there where the third digit is the sum of the first two digits? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A071__02",
+        "sequence": 2,
+        "text": "you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: Excluding a middle digit of 0 incorrectly removes 101,202, and so on ,909. A useful first observation is: Choose the first digit. The last digit is then determined by the first two. Before you continue, think about this: If the first digit is 1, the middle digit can be 0 through 8:9 choices. Now build the solution in",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A071__03",
+        "sequence": 3,
+        "text": "small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. Let the first digit be a and the middle digit be b. The last digit must be a+b, which cannot exceed 9. Step 2. For a=1, b can be 0, and so on ,8:9 choices. For a=2 there are 8 choices, continuing down to 1 choice when a=9. Step 3. Each allowed pair determines exactly one three-digit number. The total is 9+8+7+6+5+4+3+2+1=45. Check the answer",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A071__04",
+        "sequence": 4,
+        "text": "with a different viewpoint. List all pairs a∈1 and so on 9,b∈0 and so on 9 with a+b≤9 and form 100a+10b+(a+b). There are 45. Final thinking check: Why can the middle digit be 0? For example 101 has last digit 1=1+0 and is valid. The answer is 45 numbers. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 70
+      }
+    ]
+  },
+  {
+    "video_id": "A073",
+    "title": "Three connected stamps",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 320,
+    "estimated_seconds": 113.324,
+    "chunks": [
+      {
+        "chunk_id": "A073__01",
+        "sequence": 1,
+        "text": "Here is the problem. From this set of six stamps, how many ways could you choose three stamps that are connected along their edges? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: Three stamps need not all touch one another directly; a chain of shared",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A073__02",
+        "sequence": 2,
+        "text": "edges is enough. Corner-only contact is insufficient. A useful first observation is: Treat the stamp labels as fixed positions. A choice is connected if all three are linked by shared edges. Before you continue, think about this: Split into four cases: both A and B, A only, B only, or neither. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. If both A and B are chosen, the third",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A073__03",
+        "sequence": 3,
+        "text": "stamp must be D or E: ABD, ABE. Step 2. If A is chosen but B is not, D is needed to connect A; the third is C or E: ACD, ADE. Step 3. If B is chosen but A is not, E is needed; the third is D or F: BDE, BEF. Step 4. If neither A nor B is chosen, choose three consecutive stamps from the bottom row: CDE or DEF. There are 2+2+2+2=8 choices. Check the answer with a different viewpoint. There",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A073__04",
+        "sequence": 4,
+        "text": "are 20 sets of three stamps in all. Check their shared-edge graph and retain exactly the 8 connected sets. Final thinking check: Does the set A,D,E count as connected? A connected group can be linked through the middle stamp. The answer is 8 ways. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 65
+      }
+    ]
+  },
+  {
+    "video_id": "A077",
+    "title": "How many factors does 840 have?",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 289,
+    "estimated_seconds": 133.724,
+    "chunks": [
+      {
+        "chunk_id": "A077__01",
+        "sequence": 1,
+        "text": "Here is the problem. The number 840 has the greatest number of positive factors attained by a three-digit number. How many positive factors does 840 have? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: Counting only prime factors misses composite factors and 1. A useful",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A077__02",
+        "sequence": 2,
+        "text": "first observation is: Prime-factorise 840. Before you continue, think about this: 840=2 cubed times 3 times 5 times 7. A factor may contain 0,1,2 or 3 copies of 2. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. The prime factorisation is 840=2 cubed times 3 times 5 times 7. Step 2. Every positive factor has the form 2ᵃ times 3ᵇ times 5ᶜ times 7ᵈ, where a can be",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A077__03",
+        "sequence": 3,
+        "text": "0,1,2,3 and b,c,d can each be 0 or 1. Step 3. These choices are independent and give distinct factors. Thus the factor count is 4 times 2 times 2 times 2=32. Step 4. The choices all 0 and the maximum exponents include 1 and 840, so both are counted. Check the answer with a different viewpoint. List the 16 factor pairs:1·840,2·420,3·280,4·210,5·168,6·140,7·120,8·105,10·84,12·70,14·60,15·56,20·42,21·40,24·35,28·30. Each pair contributes two different factors. Final thinking check: Why are there four choices for the power of 2? A divisor may use none,",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A077__04",
+        "sequence": 4,
+        "text": "one, two or all three copies of 2. The answer is 32 factors. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 34
+      }
+    ]
+  },
+  {
+    "video_id": "A085",
+    "title": "Two arrows in the middle",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 318,
+    "estimated_seconds": 115.116,
+    "chunks": [
+      {
+        "chunk_id": "A085__01",
+        "sequence": 1,
+        "text": "Here is the problem. Four archers each shoot two arrows at a target with regions A, B and C. Ari hits A and C for 15 points. Billy hits A and B for 18 points. Charlie hits B and C for 13 points. Davy hits B twice. What is Davy’s score? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A085__02",
+        "sequence": 2,
+        "text": "diagram rather than estimating from how it looks. Watch out for this common mistake: The total 31 contains two B hits, so subtracting 15 already gives Davy’s whole score. A useful first observation is: Write A + C = 15, A + B = 18 and B + C = 13. Before you continue, think about this: Billy and Charlie together hit A once, C once and B twice. Now build the solution in small steps. Pause after any step if you want to reproduce",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A085__03",
+        "sequence": 3,
+        "text": "it in your notebook before going on. Step 1. Billy and Charlie score 18 + 13 = 31 points together. Step 2. Those four arrows hit A once, C once and B twice. Step 3. Ari’s A and C arrows account for 15 of those points. Step 4. The two B arrows therefore score 31 minus 15 = 16 points. Check the answer with a different viewpoint. Add all three pair totals: 46 counts each region twice. One of each scores 23, so B =",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A085__04",
+        "sequence": 4,
+        "text": "23 minus 15 = 8 and Davy scores 16. Final thinking check: What remains in (A + B) + (B + C) minus (A + C)? A and C each cancel, leaving the two copies of B. The answer is 16 points. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 63
+      }
+    ]
+  },
+  {
+    "video_id": "A088",
+    "title": "Letters in the 2018 sum",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 402,
+    "estimated_seconds": 153.177,
+    "chunks": [
+      {
+        "chunk_id": "A088__01",
+        "sequence": 1,
+        "text": "Here is the problem. Different letters a, b and c represent different digits from 0 to 9. Here ab is a two-digit number and abc is a three-digit number. The addition is a + ab + abc + 1000 = 2018. What is abc? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A088__02",
+        "sequence": 2,
+        "text": "looks. Watch out for this common mistake: A column ending in 8 may total 18; ignoring its carry makes the next column incorrect. A useful first observation is: Subtract 1000 first, leaving a + ab + abc = 1018. Before you continue, think about this: In the hundreds column, a plus the carry from the tens must make 10. What must a be? Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A088__03",
+        "sequence": 3,
+        "text": "on. Step 1. Subtracting 1000 gives a + ab + abc = 1018. The hundreds digit a plus a carry must equal 10. Since the tens column can carry at most 1, a = 9 and that carry is 1. Step 2. Let the units carry be k, which can be 0, 1 or 2. The tens column gives 9 + b + k = 11, so b + k = 2. Step 3. If k = 0, then b = 2 but the units",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A088__04",
+        "sequence": 4,
+        "text": "sum 9 + 2 + c cannot be only 8. If k = 2, then b = 0 but the units sum cannot reach 28. Step 4. Therefore k = 1 and b = 1. The units column gives 9 + 1 + c = 18, so c = 8. Thus abc = 918. Check the answer with a different viewpoint. Use place value: 111 a + 11 b + c = 1018. Testing a from 1 to 9 forces a = 9; then 11",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A088__05",
+        "sequence": 5,
+        "text": "b + c = 19, giving b = 1 and c = 8. Final thinking check: Why is a equal to 9? Only a carry of 1 from the tens can turn the hundreds digit into 10. The answer is 918. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 62
+      }
+    ]
+  },
+  {
+    "video_id": "A095",
+    "title": "Exactly one zero",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 316,
+    "estimated_seconds": 118.837,
+    "chunks": [
+      {
+        "chunk_id": "A095__01",
+        "sequence": 1,
+        "text": "Here is the problem. How many whole numbers from 100 to 999 have exactly one zero digit? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: Allowing zero in the other place would count numbers such as 200, which have two zeroes. A useful first observation",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A095__02",
+        "sequence": 2,
+        "text": "is: A three-digit number cannot start with zero. Where can its only zero go? Before you continue, think about this: If the tens digit is zero, the hundreds and units digits each have 9 nonzero choices. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. The zero must be either the tens digit or the units digit. Step 2. For tens-zero numbers, there are 9 choices for the hundreds",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A095__03",
+        "sequence": 3,
+        "text": "digit and 9 nonzero choices for the units digit: 9 times 9 = 81. Step 3. For units-zero numbers, the hundreds and tens digits each have 9 nonzero choices, giving another 81. Step 4. The cases cannot overlap because each has exactly one zero. The total is 81 + 81 = 162. Check the answer with a different viewpoint. For each fixed hundreds digit, 100 endings are possible. Remove the 81 with no zero and the one ending 00: 100 minus 81 minus 1 =",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A095__04",
+        "sequence": 4,
+        "text": "18. Then 9 times 18 = 162. Final thinking check: Why are there only 9 choices for the remaining digit? Every nonzero digit 1 to 9 is allowed, while zero would violate exactly one zero. The answer is 162 numbers. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 61
+      }
+    ]
+  },
+  {
+    "video_id": "A097",
+    "title": "The family’s ages",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 437,
+    "estimated_seconds": 161.491,
+    "chunks": [
+      {
+        "chunk_id": "A097__01",
+        "sequence": 1,
+        "text": "Here is the problem. John is one year older than Mary. Their three children’s ages are two years apart. This year, John and Mary’s ages multiply to less than 2019, and the three children’s ages also multiply to less than 2019. Next year both products will be greater than 2020. Ages are whole numbers of years. What is the sum of all five ages this year? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A097__02",
+        "sequence": 2,
+        "text": "the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: Next year each child becomes one year older; the gaps remain two years, rather than every age increasing by two. A useful first observation is: For the parents, compare 44 times 45 and 45 times 46. Before you continue, think about this: For the children, compare 9 times 11 times 13, 10 times 12 times 14",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A097__03",
+        "sequence": 3,
+        "text": "and 11 times 13 times 15. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. If Mary were 43 or younger, next year the parents’ product would be at most 44 times 45 = 1980, too small. If Mary were 45 or older, this year’s product would be at least 45 times 46 = 2070, too large. Step 2. So Mary is 44 and John 45. Their products are",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A097__04",
+        "sequence": 4,
+        "text": "1980 now and 2070 next year. Step 3. If the youngest child were 9 or younger, next year’s product would be at most 10 times 12 times 14 = 1680. If the youngest were 11 or older, this year’s product would be at least 11 times 13 times 15 = 2145. Step 4. The children must therefore be 10, 12 and 14: their product is 1680 now and 11 times 13 times 15 = 2145 next year. Step 5. The five ages sum to 44",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A097__05",
+        "sequence": 5,
+        "text": "+ 45 + 10 + 12 + 14 = 125. Check the answer with a different viewpoint. Make separate increasing-product tables for consecutive parent ages and child ages spaced by 2. Each table has exactly one row crossing the required threshold after one year. Final thinking check: What are next year’s child ages if they are 10, 12 and 14 now? Every person gains exactly one year, preserving the two-year gaps. The answer is 125 years. Read the original question once more and make sure",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A097__06",
+        "sequence": 6,
+        "text": "this is the requested quantity, and that every condition has been checked.",
+        "word_count": 12
+      }
+    ]
+  },
+  {
+    "video_id": "A111",
+    "title": "The shaded magic-square product",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 420,
+    "estimated_seconds": 171.023,
+    "chunks": [
+      {
+        "chunk_id": "A111__01",
+        "sequence": 1,
+        "text": "Here is the problem. This is a magic square, so that all rows, columns and diagonals add up to the same sum. Some numbers are already filled in. When we complete it and multiply the numbers in the three shaded squares, what do we get? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A111__02",
+        "sequence": 2,
+        "text": "it looks. Watch out for this common mistake: The fixed entry 10 is not shaded in the original paper. Multiplying 3 times 10 times 6 gives 180, the answer to the altered app diagram, rather than the authentic AMC question. A useful first observation is: The complete diagonal is 16, 10, 7, 1. Its sum is the common total. Before you continue, think about this: Use the bottom row and right column to find 14 and 13. Then find a from the top row. Now",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A111__03",
+        "sequence": 3,
+        "text": "build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. The complete diagonal gives the magic total: 16 + 10 + 7 + 1 = 34. Step 2. The bottom row needs 34 - (4 + 15 + 1) = 14. The right column needs 34 - (8 + 12 + 1) = 13 in its top cell. Step 3. The top row now gives a = 34 - (16 +",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A111__04",
+        "sequence": 4,
+        "text": "2 + 13) = 3. Step 4. Column 2 gives b = 34 - (3 + 10 + 15) = 6. Column 3 gives c = 34 - (2 + 7 + 14) = 11. Step 5. The original shaded cells are a, b and c. Their product is 3 times 6 times 11 = 198. Step 6. Check the completed rows: (16,3,2,13), (5,10,11,8), (9,6,7,12), (4,15,14,1). Every row, column and long diagonal totals 34. Check the answer with a different viewpoint. After finding a =",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A111__05",
+        "sequence": 5,
+        "text": "3 and the bottom entry of column 3 as 14, solve each shaded cell directly from its column total. All three shaded values must be identified before multiplying. Final thinking check: Which entries must be multiplied in the original paper? The original question shades a, b and c; their values are 3, 6 and 11. The answer is 198. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 80
+      }
+    ]
+  }
+]
