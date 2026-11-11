@@ -1,5 +1,5 @@
 const LOCAL_TTS_MODEL="onnx-community/Kokoro-82M-v1.0-ONNX";
-const LOCAL_VOICE="af_heart", LOCAL_SPEED=0.88, LOCAL_DB="summit-one-secure-audio-v1";
+const LOCAL_VOICE="af_heart", LOCAL_SPEED=1.02, LOCAL_DB="summit-one-secure-audio-v1";
 let localTtsPromise=null;
 function audioDB(){return new Promise((res,rej)=>{const r=indexedDB.open(LOCAL_DB,1);r.onupgradeneeded=()=>r.result.createObjectStore("audio");r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)});}
 async function cachedAudio(key){if(!key)return null;const db=await audioDB();return new Promise((res,rej)=>{const r=db.transaction("audio").objectStore("audio").get(key);r.onsuccess=()=>res(r.result||null);r.onerror=()=>rej(r.error)});}
@@ -8,8 +8,8 @@ async function localTts(){
   if(!localTtsPromise)localTtsPromise=(async()=>{const {KokoroTTS}=await import("https://esm.run/kokoro-js@1.2.1");let last;for(const dtype of ["q8","q4"]){try{return await KokoroTTS.from_pretrained(LOCAL_TTS_MODEL,{dtype,device:"wasm"})}catch(e){last=e}}throw last||new Error("Local narration model could not load")})();
   return localTtsPromise;
 }
-function chunks(text,max=82){const words=String(text||"").trim().split(/\s+/);const out=[];for(let i=0;i<words.length;i+=max)out.push(words.slice(i,i+max).join(" "));return out;}
-function concatFloat(arrays,rate,gap=.22){const gapN=Math.floor(rate*gap),n=arrays.reduce((s,a)=>s+a.length,0)+Math.max(0,arrays.length-1)*gapN,out=new Float32Array(n);let p=0;arrays.forEach((a,i)=>{out.set(a,p);p+=a.length;if(i<arrays.length-1)p+=gapN});return out;}
+function chunks(text,max=82){const sentences=String(text||"").trim().replace(/\s+/g," ").match(/.*?(?:[.!?](?=\s|$)|$)/g)?.map(x=>x.trim()).filter(Boolean)||[];const out=[];let part="";for(const sentence of sentences){const joined=part?part+" "+sentence:sentence;if(joined.split(/\s+/).length>max&&part){out.push(part);part=sentence}else part=joined}if(part)out.push(part);return out;}
+function concatFloat(arrays,rate){const pauses=arrays.map((_,i)=>i===arrays.length-1?0:Math.floor(rate*(.15+.06*(i%3))));const n=arrays.reduce((s,a,i)=>s+a.length+pauses[i],0),out=new Float32Array(n);let p=0;arrays.forEach((a,i)=>{out.set(a,p);p+=a.length+pauses[i]});return out;}
 function wavBlob(samples,rate=24000){const b=new ArrayBuffer(44+samples.length*2),v=new DataView(b);const w=(o,s)=>{for(let i=0;i<s.length;i++)v.setUint8(o+i,s.charCodeAt(i))};w(0,"RIFF");v.setUint32(4,36+samples.length*2,true);w(8,"WAVE");w(12,"fmt ");v.setUint32(16,16,true);v.setUint16(20,1,true);v.setUint16(22,1,true);v.setUint32(24,rate,true);v.setUint32(28,rate*2,true);v.setUint16(32,2,true);v.setUint16(34,16,true);w(36,"data");v.setUint32(40,samples.length*2,true);let o=44;for(const x0 of samples){const x=Math.max(-1,Math.min(1,x0));v.setInt16(o,Math.round(x<0?x*32768:x*32767),true);o+=2}return new Blob([b],{type:"audio/wav"});}
 async function synthesizeLocal(text,key,status){
   const cached=await cachedAudio(key);if(cached)return cached;
