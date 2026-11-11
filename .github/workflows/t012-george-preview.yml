@@ -23,6 +23,11 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Install media tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
       - name: Install Kokoro
         run: npm install --prefix narration --no-audit --no-fund
 
