@@ -1,6 +1,6 @@
 
 if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));}
-import { supabase, loadProgress, saveProgress, signOut, currentUser, upsertSession, recordAttempt } from "./supabase-client.js";
+import { supabase, loadProgress, saveProgress, signOut, currentUser, upsertSession } from "./supabase-client.js";
 import { mountNarratedPlayer } from "./lesson-player.js";
 import { problemFigure } from "./problem-figures.js";
 
@@ -80,7 +80,7 @@ async function boot(){
     if(!user){location.href="login.html";return}
     const [c,t,m,h,tax,ms]=await Promise.all([fetch("data/sessions-372.json").then(r=>r.json()),fetch("data/teaching-72.json").then(r=>r.json()),fetch("data/mawa-investigations-20.json").then(r=>r.json()),fetch("data/rossmoyne-h23.json").then(r=>r.json()),fetch("data/taxonomy-52.json").then(r=>r.json()),fetch("data/milestones.json").then(r=>r.json())]);
     course=c.sessions; teaching=t.items; mawa=m.items; rossMap=h.items; taxonomy=tax; milestones=ms;
-    const {data:problems,error}=await supabase.from("content_problems").select("id,source_type,title,source_label,category,difficulty,prompt,unit").order("id");
+    const {data:problems,error}=await supabase.from("content_problems_student").select("id,source_type,title,source_label,category,difficulty,prompt,unit").order("id");
     if(error)throw error; problemIndex=problems||[];
     progress=await loadProgress();
     if(!progress)progress=await saveProgress({current_session:0,completed_sessions:0,xp:0,rank:1,overall_percent:0,state:{}});
@@ -208,10 +208,6 @@ function renderDiscover(el,s){
   items.forEach((t,i)=>mountNarratedPlayer(document.getElementById("lessonPlayer"+i),{title:t.title,transcript:t.transcript,audioUrl:t.audio_url,cacheKey:t.id}));
   document.getElementById("nextStage").onclick=()=>{activeStage=2;renderSession(s)};
 }
-async function loadProblemDetail(id){
-  const {data,error}=await supabase.from("content_problems").select("*").eq("id",id).single();
-  if(error)throw error;return data;
-}
 function renderChallenge(el,s,p,mode){
   if(!p){el.innerHTML='<div class="empty">No challenge available.</div>';return}
   el.innerHTML=`<div class="stage-number">STAGE ${mode==="try"?3:4} · ${mode==="try"?"INDEPENDENT ATTEMPT":"TRANSFER"}</div><h2>${mode==="try"?"Try":"Transfer"}</h2><p class="muted">${mode==="try"?"Solve before opening any explanation.":"Use the idea in a different setting. Decide the strategy yourself."}</p>`;
@@ -226,12 +222,10 @@ function renderChallenge(el,s,p,mode){
     const response=box.value.trim();if(!response){feedback.hidden=false;feedback.textContent="Write an answer or reasoning first.";return}
     submit.disabled=true;feedback.hidden=false;feedback.textContent="Recording independent attempt…";
     try{
-      const detail=await loadProblemDetail(p.id);
-      let correct=null;
-      const expected=detail.answer;
-      if(typeof expected==="number") correct=Number(response.replace(/[^0-9.+-]/g,""))===expected;
-      else if(typeof expected==="string"&&expected.length<40) correct=normalize(response)===normalize(expected);
-      await recordAttempt({problem_id:p.id,session_number:s.slot,answer_text:response,is_correct:correct,evidence_level:"independent",solution_video_opened:false,independent_credit:correct===true,elapsed_seconds:null});
+      const {data:graded,error:gradeError}=await supabase.functions.invoke("submit-problem-attempt",{body:{problem_id:p.id,session_number:s.slot,answer_text:response}});
+      if(gradeError)throw gradeError;
+      if(graded?.error)throw new Error(graded.error);
+      const correct=graded?.correct??null;
       sessionDraft.answers[p.id]={response,correct,attempted_at:new Date().toISOString()};
       await upsertSession({session_number:s.slot,session_key:`S${String(s.slot).padStart(3,"0")}`,answers:sessionDraft.answers,working:sessionDraft.working,evidence:sessionDraft.evidence,summary:sessionDraft.summary});
       box.disabled=true;submit.hidden=true;reveal.hidden=false;feedback.textContent=correct===true?"Correct — and recorded as independent evidence.":correct===false?"Attempt recorded. Now compare methods and find the exact point to improve.":"Attempt recorded. Compare the proof/reasoning rather than relying on exact text matching.";
@@ -239,8 +233,9 @@ function renderChallenge(el,s,p,mode){
   };
   reveal.onclick=async()=>{
     try{
-      const d=await loadProblemDetail(p.id);
-      await recordAttempt({problem_id:p.id,session_number:s.slot,answer_text:null,is_correct:null,evidence_level:"viewed",solution_video_opened:true,independent_credit:false,elapsed_seconds:null});
+      const {data:d,error:solutionError}=await supabase.functions.invoke("get-problem-solution",{body:{problem_id:p.id,session_number:s.slot}});
+      if(solutionError)throw solutionError;
+      if(d?.error)throw new Error(d.error);
       const transcript=d.solution_text||d.spoken_script||"Solution unavailable.";
       solution.hidden=false;solution.innerHTML=`<b>Compare reasoning</b><div id="solutionPlayer-${p.id.replace(/[^A-Za-z0-9]/g,"_")}"></div><details style="margin-top:12px"><summary>Read full worked solution</summary><p class="math-copy">${esc(transcript)}</p></details>`;
       const protectedAudio=p.source_type==="authentic_amc"?"":`https://github.com/SimonRJ/-summit-one-narrator/releases/download/summit-one-audio-v1/${encodeURIComponent(p.id)}_narration.wav`; mountNarratedPlayer(document.getElementById("solutionPlayer-"+p.id.replace(/[^A-Za-z0-9]/g,"_")),{title:p.title||p.id,transcript,audioUrl:protectedAudio,cacheKey:p.id});
