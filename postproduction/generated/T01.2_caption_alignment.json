@@ -3,7 +3,7 @@
   "alignment_source": "finished bm_george 0.88 audio",
   "alignment_model": "base.en",
   "transcript_words": 274,
-  "recognized_words": 239,
+  "recognized_words": 267,
   "direct_word_matches": 226,
   "direct_match_ratio": 0.8248,
   "qa_note": "Unmatched display tokens are interpolated only between neighbouring recognized speech anchors.",
@@ -15,8 +15,8 @@
   },
   "last_word": {
     "text": "problem.",
-    "start": 96.72,
-    "end": 97.08
+    "start": 96.74,
+    "end": 97.04
   },
   "highlight_style": "smooth overlapping per-letter weight pulse; no hard word switch"
 }
