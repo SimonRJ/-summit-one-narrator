@@ -229,10 +229,10 @@ function renderMawaSession(s){
   if(activeStage===4){
     const ready=(sessionDraft.working.mawa_base||"").trim().length>=20&&(sessionDraft.working.mawa_extension||"").trim().length>=20;
     el.innerHTML=`<div class="stage-number">STAGE 5 · PROOF CHECK</div><h2>Check</h2><p class="muted">Score the evidence, not confidence. This is a practice rubric, not an official MAWA admissions score.</p><div class="problem-card"><details ${ready?"":"hidden"}><summary>Compare with model reasoning</summary><p class="solution-panel" style="display:block">${esc(item.solution)}</p><p class="muted"><b>Common trap:</b> ${esc(item.trap)}</p></details><div class="check-grid"><label class="answer-label">Result 0–3<input id="rResult" type="number" min="0" max="3" value="" required></label><label class="answer-label">Method 0–3<input id="rMethod" type="number" min="0" max="3" value="" required></label><label class="answer-label">Proof / completeness 0–3<input id="rProof" type="number" min="0" max="3" value="" required></label><label class="answer-label">Clarity 0–1<input id="rClarity" type="number" min="0" max="1" value="" required></label></div></div><div class="complete-row"><span class="muted">${ready?"Investigation and extension recorded.":"Record both the investigation and extension before completion."}</span><button id="completeMawa" class="primary" ${ready?"":"disabled"}>Complete and lock Session ${s.slot}</button></div>`;
-    if(ready)document.getElementById("completeMawa").onclick=async()=>{if(!["rResult","rMethod","rProof","rClarity"].every(id=>{const x=document.getElementById(id);return x.value!==""&&x.checkValidity()})){alert("Enter each rubric score after comparing the reasoning.");return}const rubric={result:Number(document.getElementById("rResult").value),method:Number(document.getElementById("rMethod").value),proof:Number(document.getElementById("rProof").value),clarity:Number(document.getElementById("rClarity").value)};sessionDraft.summary={...sessionDraft.summary,review_status:"self_reviewed_not_independently_verified",focus:item.title,type:"MAWA",phase:s.phase,investigation_id:item.id,rubric,total:rubric.result+rubric.method+rubric.proof+rubric.clarity};await completeSpecialSession(s)};
+    if(ready)document.getElementById("completeMawa").onclick=async()=>{if(!["rResult","rMethod","rProof","rClarity"].every(id=>{const x=document.getElementById(id);return x.value!==""&&x.checkValidity()})){alert("Enter each rubric score after comparing the reasoning.");return}const rubric={result:Number(document.getElementById("rResult").value),method:Number(document.getElementById("rMethod").value),proof:Number(document.getElementById("rProof").value),clarity:Number(document.getElementById("rClarity").value)};sessionDraft.summary={...sessionDraft.summary,review_status:"self_reviewed_not_independently_verified",focus:item.title,type:"MAWA",phase:s.phase,investigation_id:item.id,rubric,total:rubric.result+rubric.method+rubric.proof+rubric.clarity};const button=document.getElementById("completeMawa");button.disabled=true;try{await completeSpecialSession(s)}catch(e){alert("Could not finish saving: "+e.message);button.disabled=false}};
   }
   const next=document.getElementById("nextStage");if(next)next.onclick=async()=>{await saveDraft(s);activeStage=Math.min(4,activeStage+1);renderMawaSession(s)};
-  const back=document.getElementById("backStage");if(back)back.onclick=()=>{activeStage=Math.max(0,activeStage-1);renderMawaSession(s)};
+  const back=document.getElementById("backStage");if(back)back.onclick=async()=>{try{await saveDraft(s);activeStage=Math.max(0,activeStage-1);renderMawaSession(s)}catch(e){alert(e.message)}};
 }
 async function completeSpecialSession(s){
  clearTimeout(autosaveTimer);
@@ -279,7 +279,7 @@ function renderDiscover(el,s){
     cacheKey:t.id,
     onWatch:detail=>recordVideoEvidence(s.slot,t.id,t.type,detail)
   }));
-  document.getElementById("nextStage").onclick=()=>{activeStage=2;renderSession(s)};
+  document.getElementById("nextStage").onclick=async()=>{try{await saveDraft(s);activeStage=2;renderSession(s)}catch(e){alert(e.message)}};
 }
 function renderChallenge(el,s,p,mode){
   if(!p){el.innerHTML='<div class="empty">No challenge available.</div>';return}

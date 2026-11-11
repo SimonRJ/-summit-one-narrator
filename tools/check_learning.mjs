@@ -18,6 +18,15 @@ assert(!recallState([rec(1,2),rec(5,3,false)],'ALG-01').retained);
 assert(!recallState([rec(1,2,true,true,'5'),rec(5,3,true,true,'5')],'ALG-01').retained);
 assert(recallState([rec(1,2),rec(5,3)],'ALG-01').retained);
 assert(!recallState([rec(1,2),rec(5,3),rec(8,4,true,false)],'ALG-01').retained);
+for(let seed=0;seed<7;seed++){
+ const n=2+seed;
+ const digits=Array.from({length:n+1},(_,i)=>i);
+ let count=0;for(const a of digits)for(const b of digits)for(const c of digits)if(a&&a!==b&&b!==c&&a!==c)count++;
+ assert.equal(exercise('DIG-02',seed).value,count);
+ assert.equal(exercise('DIG-03',seed).value,Array.from({length:n*10+9},(_,i)=>String(i+1)).join('').split('1').length-1);
+ const N=2**n*9;let divisors=0;for(let d=1;d<=N;d++)if(N%d===0)divisors++;assert.equal(exercise('DIV-01',seed).value,divisors);
+ let maxArea=0;for(let a=1;a<2*n;a++)maxArea=Math.max(maxArea,a*(2*n-a));assert.equal(exercise('GEO-05',seed).value,maxArea);
+}
 const loadBackend=name=>{
  let source=fs.readFileSync(new URL('../supabase/functions/'+name+'/index.ts',import.meta.url),'utf8').replace(/^import .*;\n/m,'').replace(/export /g,'');
  source=stripTypeScriptTypes(source);const ctx={Deno:{env:{get:()=>''},serve:()=>{}},Response,console};vm.createContext(ctx);vm.runInContext(source,ctx);return ctx;
