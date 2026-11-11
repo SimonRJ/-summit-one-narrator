@@ -1,0 +1,94 @@
+name: Kokoro narration production
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "narration/**"
+      - ".github/workflows/kokoro-narration.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: kokoro-narration-production
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    name: Queue ${{ matrix.shard }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    strategy:
+      fail-fast: false
+      max-parallel: 10
+      matrix:
+        shard: ["01","02","03","04","05","06","07","08","09","10"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: narration/package.json
+      - name: Install Kokoro
+        run: npm install --prefix narration --no-audit --no-fund
+      - name: Generate narration
+        env:
+          QUEUE_FILE: narration/queues/queue-${{ matrix.shard }}.json
+          OUT_DIR: narration/output/${{ matrix.shard }}
+          PROCESS_HELD: exclude
+          HF_HOME: ${{ runner.temp }}/hf-cache
+          NODE_OPTIONS: --max-old-space-size=6144
+        run: node narration/generate-kokoro.mjs
+      - name: Archive shard
+        if: always()
+        run: |
+          cd narration/output/${{ matrix.shard }}
+          zip -9 -r ../../../kokoro-narration-${{ matrix.shard }}.zip .
+      - name: Upload shard
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kokoro-narration-${{ matrix.shard }}
+          path: kokoro-narration-${{ matrix.shard }}.zip
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 0
+
+  held-a040:
+    name: A040 isolated QA
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: narration/package.json
+      - name: Install Kokoro
+        run: npm install --prefix narration --no-audit --no-fund
+      - name: Generate A040 separately
+        env:
+          QUEUE_FILE: narration/queues/queue-09.json
+          OUT_DIR: narration/output/A040
+          PROCESS_HELD: only
+          HF_HOME: ${{ runner.temp }}/hf-cache
+          NODE_OPTIONS: --max-old-space-size=6144
+        run: node narration/generate-kokoro.mjs
+      - name: Archive A040
+        if: always()
+        run: |
+          cd narration/output/A040
+          zip -9 -r ../../../kokoro-narration-A040-QA.zip .
+      - name: Upload A040
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kokoro-narration-A040-QA
+          path: kokoro-narration-A040-QA.zip
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 0
