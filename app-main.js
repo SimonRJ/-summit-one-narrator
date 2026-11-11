@@ -1,3 +1,5 @@
+
+if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));}
 import { supabase, loadProgress, saveProgress, signOut, currentUser, upsertSession, recordAttempt } from "./supabase-client.js";
 import { mountNarratedPlayer } from "./lesson-player.js";
 
