@@ -44,3 +44,13 @@ Release QA checks canonical counts, JavaScript syntax and public-content/media s
 - Future MAWA/Rossmoyne dates must be checked when published. A 2028 Year 6 Rossmoyne test normally targets Year 7 entry in 2029.
 
 No claim of a guaranteed perfect score or a completely finished course is made.
+
+## Session teaching sequence revision — 12 November 2026
+
+All 372 positions now have an explicit opening. The 283 lessons use 52 authored technique introductions with purpose, recognition cues, prerequisites, a small three-step worked example and a larger worked application. Repeated visits have a new purpose (recall, recognise, choose, test limits). The seven mixed capstones explicitly pair methods instead of falling through to an unmapped focus.
+
+The 53 investigations use 20 distinct smaller worked investigations and purpose statements. The 36 scheduled rehearsals introduce strategy selection, preparation and post-test repair before the timer starts.
+
+Lesson order is purpose → small model → worked application → supported attempt → independent basics check → archive stretch → transfer → reflection. The independent basics check moved from the end to before archive challenges. Guided/core attempts unlock challenge work, including when the learner needs support; correctness is not used to block progress. Existing completed records remain unchanged. Archive selections are ordered by stored difficulty, which is an approximation rather than a guarantee of perceived difficulty.
+
+Validation enumerates all 372 openings, technique and investigation coverage, and tests the supported-to-independent-to-stretch route in Chrome, together with MAWA, rehearsal and capstone openings on mobile.

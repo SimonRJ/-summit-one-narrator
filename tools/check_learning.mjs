@@ -43,3 +43,28 @@ assert.equal(await runAuth({data:null,error:{code:'session_not_found'}}),null);
 assert.equal((await runAuth({data:{user:{id:'test'}}})).id,'test');
 await assert.rejects(()=>runAuth({error:new Error('Network unavailable')}),/Network unavailable/);
 console.log('PASS: signed-out and expired sessions, authenticated user, and genuine network error handling.');
+
+const {journeys,investigationOpeners}=await import('../lesson-journeys.js');
+const {lessonPlan,introductionHTML,investigationIntroHTML,investigationWarmupHTML,mockIntroductionHTML}=await import('../session-intros.js');
+const investigations=JSON.parse(fs.readFileSync(new URL('../data/mawa-investigations-20.json',import.meta.url))).items;
+assert.equal(Object.keys(journeys).length,52);
+assert.equal(Object.keys(investigationOpeners).length,20);
+let covered=0;
+for(const s of sessions){
+ let html;
+ if(s.type==='LESSON'){
+  const p=lessonPlan(s,sessions,taxonomy);
+  assert.equal(p.id,skillFor(s,taxonomy));assert(p.visit>=1);
+  for(const key of ['hook','goal','when','prerequisite','starter','target'])assert(p[key]?.length>15,s.slot+' '+key);
+  assert.equal(p.steps.length,3);assert(p.steps.every(x=>x.length>5));
+  assert(p.bridge.prompt&&p.bridge.reason);
+  html=introductionHTML(s,sessions,taxonomy);
+ }else if(s.type==='MAWA'){
+  const item=investigations[(Math.floor(s.slot/7)-1)%20];
+  html=investigationIntroHTML(s,item);assert(investigationWarmupHTML(item).includes('reasoning-steps'));
+ }else{html=mockIntroductionHTML({max_score:s.type==='AMC MOCK'?135:100});assert(html.includes('timer has not started'));}
+ assert(html.includes('Success today'));assert(!html.includes('undefined'));covered++;
+}
+assert.equal(covered,372);
+assert.equal(new Set(Object.values(journeys).map(j=>j.hook)).size,52);
+console.log('PASS: 372 tailored session openings; 52 technique starters; 20 investigation warm-ups; revisit purposes; rehearsal preparation.');

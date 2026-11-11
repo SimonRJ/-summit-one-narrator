@@ -1,3 +1,4 @@
+import {mockIntroductionHTML} from './session-intros.js?v=journey-20261112';
 
 if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));}
 import { supabase, currentUser, loadProgress, saveProgress, upsertSession } from "./supabase-client.js?v=auth-20261112";
@@ -25,7 +26,7 @@ async function boot(){
 }
 function renderCourseExamIntro(exam){
   const isAMC=exam.max_score===135;
-  app.innerHTML=`<section class="panel test-hero"><div class="eyebrow">CANONICAL SESSION ${exam.session_slot}</div><h1>${esc(exam.title)}</h1><p class="muted">${isAMC?"Full AMC-format rehearsal: 30 questions, 60 minutes, 135 marks.":"Original Rossmoyne-style selective-mathematics rehearsal: 23 questions, 100 marks. The 60-minute clock is a Summit One home-practice target, not a claim about the official Rossmoyne entrance-test duration."}</p><div class="notice-box"><b>Before you start:</b> close notes and solution pages. The timer begins only when you press Start. Answers are autosaved where appropriate; numeric AMC answers require the explicit Save answer button.</div><div class="complete-row"><a class="ghost" href="./">Return to mission</a><button id="startCourseExam" class="primary cta">Start timed paper</button></div></section>`;
+  app.innerHTML=`<section class="panel test-hero"><div class="eyebrow">CANONICAL SESSION ${exam.session_slot}</div><h1>${esc(exam.title)}</h1><p class="muted">${isAMC?"Full AMC-format rehearsal: 30 questions, 60 minutes, 135 marks.":"Original Rossmoyne-style selective-mathematics rehearsal: 23 questions, 100 marks. The 60-minute clock is a Summit One home-practice target, not a claim about the official Rossmoyne entrance-test duration."}</p>${mockIntroductionHTML(exam)}<div class="notice-box"><b>Before you start:</b> close notes and solution pages. The timer begins only when you press Start. Answers are autosaved where appropriate; numeric AMC answers require the explicit Save answer button.</div><div class="complete-row"><a class="ghost" href="./">Return to mission</a><button id="startCourseExam" class="primary cta">Start timed paper</button></div></section>`;
   document.getElementById("startCourseExam").onclick=()=>{catalog=[exam];startExam(exam.id)};
 }
 async function loadOpenSitting(){

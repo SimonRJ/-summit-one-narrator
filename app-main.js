@@ -1,9 +1,10 @@
+import {introductionHTML,lessonPlan,investigationIntroHTML,investigationWarmupHTML} from './session-intros.js?v=journey-20261112';
 
 if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));}
 import { supabase, loadProgress, saveProgress, signOut, currentUser, upsertSession } from "./supabase-client.js?v=auth-20261112";
 import { mountNarratedPlayer } from "./lesson-player.js";
-import {methods,skillFor,recallState} from "./curriculum.js";
-import {lessonCard,mountCheck,mountRetrieval,readinessHTML} from "./learning-ui.js";
+import {methods,skillFor,recallState} from "./curriculum.js?v=journey-20261112";
+import {lessonCard,mountCheck,mountRetrieval,readinessHTML} from "./learning-ui.js?v=journey-20261112";
 import { problemFigure } from "./problem-figures.js";
 
 const app=document.getElementById("app");
@@ -100,7 +101,7 @@ function chooseProblems(session){
   const success=last.filter(x=>x.independent_credit).length/Math.max(1,last.length);
   const target=last.length>=4?(success>=.75?4:success<.4?2:3):(session.slot<25?2:3);
   const ranked=problemIndex.map(p=>{const hay=(p.title+" "+p.prompt+" "+p.category).toLowerCase();return {...p,_score:(categories[cat]?.includes(p.category)?30:0)+words.reduce((n,w)=>n+(hay.includes(w)?2:0),0)-Math.abs(Number(p.difficulty||3)-target)*2,_used:attemptedProblemIds.has(p.id),_tie:hash(session.slot+"|"+p.id)}}).sort((a,b)=>(b._score-(b._used?8:0))-(a._score-(a._used?8:0))||a._tie-b._tie);
-  return ranked.slice(0,2);
+  return ranked.slice(0,2).sort((a,b)=>Number(a.difficulty||3)-Number(b.difficulty||3));
 }
 function teachingFor(session){
  const m=methods[skillFor(session,taxonomy)];
@@ -165,7 +166,7 @@ function renderHome(){
       <article class="panel stat-card"><div class="eyebrow">CURRENT MILESTONE</div><div class="stat-value">${milestoneDone} / ${milestone.target}</div><div class="progress-track"><div class="progress-fill" style="width:${(milestoneDone/milestone.target*100).toFixed(1)}%"></div></div><div class="stat-label">${esc(milestone.label)}</div></article>
     </aside>
   </section>
-  <section class="panel learning-note"><h2>Today’s rhythm</h2><p>5 minutes remembering · 8–12 minutes discovering · 15–25 minutes trying and transferring · 5–10 minutes checking. Stop for a short break if concentration drops; unfinished work stays in this session.</p><button id="planQuick" class="secondary">Goals and readiness</button></section>
+  <section class="panel learning-note"><h2>Today’s rhythm</h2><p>3–5 minutes meeting the idea and remembering · 10–15 minutes with worked examples and supported practice · 15–25 minutes applying and transferring · 5–10 minutes checking. Stop for a short break if concentration drops; unfinished work stays in this session.</p><button id="planQuick" class="secondary">Goals and readiness</button></section>
   <p class="footer-note">The course follows the canonical 372-session Summit One plan: 283 teaching/transfer sessions, 53 MAWA investigations, 25 AMC mock positions and 11 Rossmoyne-style mock positions. Full authentic AMC papers live separately in the Test Centre and never replace the teaching sequence.</p>`;
   document.getElementById("continue").onclick=()=>done<372?startSession(s):renderProfile();
   document.getElementById("reviewQuick").onclick=()=>renderReview();
@@ -202,17 +203,17 @@ function renderMawaSession(s){
   app.innerHTML=`
   <section class="session-page">
     <header class="panel session-header"><div class="eyebrow">SESSION ${s.slot} / 372 · MAWA INVESTIGATION</div><h1>${esc(currentMawa.title)}</h1><div><span class="type-chip">PROOF & INVESTIGATION</span><span class="phase-chip">${esc(s.phase)}</span></div></header>
-    <nav class="stage-nav" aria-label="MAWA stages">${["Remember","Discover","Try","Transfer","Check"].map((x,i)=>`<button data-stage="${i}" class="${i===activeStage?"active":""}">${i+1}. ${x}</button>`).join("")}</nav>
+    <nav class="stage-nav" aria-label="MAWA stages">${["Start","Discover","Try","Transfer","Check"].map((x,i)=>`<button data-stage="${i}" class="${i===activeStage?"active":""}">${i+1}. ${x}</button>`).join("")}</nav>
     <section id="stage" class="panel stage"></section>
   </section>`;
   document.querySelectorAll("[data-stage]").forEach(b=>b.onclick=async()=>{try{await saveDraft(s);activeStage=Number(b.dataset.stage);renderMawaSession(s)}catch(e){alert(e.message)}});
   const el=document.getElementById("stage"), item=currentMawa;
   if(activeStage===0){
     const prevSlot=s.slot-7,prev=prevSlot>=7?mawa[(Math.floor(prevSlot/7)-1)%mawa.length]:null;
-    el.innerHTML=`<div class="stage-number">STAGE 1 · RETRIEVAL</div><h2>Remember</h2><p class="muted">MAWA-style work rewards systematic thinking and clear justification, not speed alone.</p><div class="teaching-item"><h3>${prev?esc(prev.title):"Proof habit"}</h3><p class="math-copy">${prev?"Without reopening the old solution, write one sentence about what made the previous investigation complete.":"Write the difference between finding an example and proving a maximum, minimum or impossibility."}</p></div><div class="complete-row"><span></span><button id="nextStage" class="primary">Discover</button></div>`;
+    el.innerHTML=`${investigationIntroHTML(s,item)}<div class="stage-number">NOW REMEMBER · A USEFUL HABIT</div><h2>Bring back an idea</h2><p class="muted">MAWA-style work rewards systematic thinking and clear justification, not speed alone.</p><div class="teaching-item"><h3>${prev?esc(prev.title):"Proof habit"}</h3><p class="math-copy">${prev?"Without reopening the old solution, write one sentence about what made the previous investigation complete.":"Write the difference between finding an example and proving a maximum, minimum or impossibility."}</p></div><div class="complete-row"><span></span><button id="nextStage" class="primary">Discover</button></div>`;
   }
   if(activeStage===1){
-    el.innerHTML=`<div class="stage-number">STAGE 2 · INVESTIGATION SETUP</div><h2>Discover</h2><p class="muted">Read the problem slowly. Decide what evidence would count as a proof before calculating.</p><div class="problem-card"><div class="problem-meta">${esc(item.topic)}</div><h3 class="problem-title">${esc(item.title)}</h3><div class="problem-prompt math-copy">${esc(item.prompt)}</div><details style="margin-top:14px"><summary>First hint — use only if you are genuinely stuck</summary><p class="math-copy">${esc(item.hint)}</p></details></div><div class="complete-row"><span class="muted">Plan cases, a diagram, a table or an invariant.</span><button id="nextStage" class="primary">Try the investigation</button></div>`;
+    el.innerHTML=`<div class="stage-number">STAGE 2 · INVESTIGATION SETUP</div><h2>Discover</h2>${investigationWarmupHTML(item)}<h3>Now grow the investigation</h3><p class="muted">Read the problem slowly. Decide what evidence would count as a proof before calculating.</p><div class="problem-card"><div class="problem-meta">${esc(item.topic)}</div><h3 class="problem-title">${esc(item.title)}</h3><div class="problem-prompt math-copy">${esc(item.prompt)}</div><details style="margin-top:14px"><summary>First hint — use only if you are genuinely stuck</summary><p class="math-copy">${esc(item.hint)}</p></details></div><div class="complete-row"><span class="muted">Plan cases, a diagram, a table or an invariant.</span><button id="nextStage" class="primary">Try the investigation</button></div>`;
   }
   if(activeStage===2){
     const saved=sessionDraft.working.mawa_base||"";
@@ -247,7 +248,7 @@ function renderSession(s){
   <section class="session-page">
     <header class="panel session-header"><div class="eyebrow">SESSION ${s.slot} / 372 · ${esc(s.phase)}</div><h1>${esc(s.focus)}</h1><div><span class="type-chip">${esc(s.type)}</span></div></header>
     <nav class="stage-nav" aria-label="Session stages">
-      ${["Remember","Discover","Try","Transfer","Check"].map((x,i)=>`<button data-stage="${i}" class="${i===activeStage?"active":""}">${i+1}. ${x}</button>`).join("")}
+      ${["Start","Discover","Try","Transfer","Check"].map((x,i)=>`<button data-stage="${i}" class="${i===activeStage?"active":""}">${i+1}. ${x}</button>`).join("")}
     </nav>
     <section id="stage" class="panel stage"></section>
   </section>`;
@@ -260,7 +261,7 @@ function renderSession(s){
   if(activeStage===4)renderCheck(target,s);
 }
 function renderRemember(el,s){
- el.innerHTML=`<div class="stage-number">STAGE 1 · RETRIEVAL · ABOUT 5 MINUTES</div><h2>Remember</h2><p class="muted">Start without notes. Getting stuck shows us what to revisit.</p><div id="retrievalChecks"></div><div class="complete-row"><span class="muted">Try the due checks before continuing.</span><button class="primary" id="nextStage">Discover</button></div>`;
+ el.innerHTML=`${introductionHTML(s,course,taxonomy)}<div class="stage-number">NOW REMEMBER · ABOUT 5 MINUTES</div><h2>Warm up what you know</h2><p class="muted">Start without notes. Getting stuck shows us what to revisit.</p><div id="retrievalChecks"></div><div class="complete-row"><span class="muted">Try the due checks before continuing.</span><button class="primary" id="nextStage">Discover</button></div>`;
  mountRetrieval(el.querySelector('#retrievalChecks'),{records:completedRecords,slot:s.slot,currentId:skillFor(s,taxonomy),draft:sessionDraft,save:()=>saveDraft(s)});
  document.getElementById('nextStage').onclick=async()=>{if((sessionDraft.summary.retrieval_ids||[]).some(id=>!sessionDraft.evidence['retrieval:'+id])){alert('Try each short revision check. Use a hint if needed.');return}await saveDraft(s);activeStage=1;renderSession(s)};
 }
@@ -268,8 +269,8 @@ function renderRemember(el,s){
 function renderDiscover(el,s){
   const items=teachingFor(s);
   el.innerHTML=`<div class="stage-number">STAGE 2 · EXPLANATION</div><h2>Discover</h2><p class="muted">Read, sketch and listen. The goal is to see why the method works, not memorise a slogan.</p>
-  ${lessonCard(skillFor(s,taxonomy))}<div id="guidedCheck"></div><details class="optional-lesson"><summary>Watch or read the related explanation</summary><div class="teaching-box">${items.map((t,i)=>`<article class="teaching-item"><div class="eyebrow">${esc(t.type==="worked_example"?"WORKED EXAMPLE":"CONCEPT")}</div><h3>${esc(t.title)}</h3><div class="lesson-player-slot" id="lessonPlayer${i}"></div><details><summary>Read explanation</summary><p class="math-copy">${esc(t.transcript)}</p>${t.extended_reading?`<h4>Further mathematical connections</h4><p class="math-copy">${esc(t.extended_reading)}</p>`:""}</details></article>`).join("")||'<p class="muted">Teaching explanation is being selected from the course library.</p>'}</div></details>
-  <div class="complete-row"><span class="muted">Make one note or diagram before moving on.</span><button class="primary" id="nextStage">Try independently</button></div>`;
+  ${lessonCard(skillFor(s,taxonomy),lessonPlan(s,course,taxonomy))}<div id="guidedCheck"></div><details class="optional-lesson"><summary>Optional deeper connection · related video or reading</summary><div class="teaching-box">${items.map((t,i)=>`<article class="teaching-item"><div class="eyebrow">${esc(t.type==="worked_example"?"WORKED EXAMPLE":"CONCEPT")}</div><h3>${esc(t.title)}</h3><div class="lesson-player-slot" id="lessonPlayer${i}"></div><details><summary>Read explanation</summary><p class="math-copy">${esc(t.transcript)}</p>${t.extended_reading?`<h4>Further mathematical connections</h4><p class="math-copy">${esc(t.extended_reading)}</p>`:""}</details></article>`).join("")||'<p class="muted">Teaching explanation is being selected from the course library.</p>'}</div></details>
+  <div class="complete-row"><span class="muted">Try the supported question first. A hint is part of learning.</span><button class="primary" id="nextStage">Try independently</button></div>`;
   if(skillFor(s,taxonomy))mountCheck(el.querySelector("#guidedCheck"),{id:skillFor(s,taxonomy),slot:s.slot,records:completedRecords,draft:sessionDraft,kind:"guided",save:()=>saveDraft(s)});
   items.forEach((t,i)=>mountNarratedPlayer(document.getElementById("lessonPlayer"+i),{
     title:t.title,
@@ -279,11 +280,16 @@ function renderDiscover(el,s){
     cacheKey:t.id,
     onWatch:detail=>recordVideoEvidence(s.slot,t.id,t.type,detail)
   }));
-  document.getElementById("nextStage").onclick=async()=>{try{await saveDraft(s);activeStage=2;renderSession(s)}catch(e){alert(e.message)}};
+  document.getElementById("nextStage").onclick=async()=>{try{if(!sessionDraft.evidence["guided:"+skillFor(s,taxonomy)]){alert("Try the supported question first. Use the hint or worked example if needed.");return}await saveDraft(s);activeStage=2;renderSession(s)}catch(e){alert(e.message)}};
 }
 function renderChallenge(el,s,p,mode){
+  const sid=skillFor(s,taxonomy), guided=sessionDraft.evidence['guided:'+sid], core=sessionDraft.evidence['retrieval:'+sid];
+  if(!guided||(mode==='transfer'&&!core)){
+    el.innerHTML=`<h2>Build the method first</h2><p>Before the stretch questions, try the supported example in Discover, then the short independent check in Try. You do not have to get everything right to continue; use the explanation to repair a mistake.</p><button id="prepareMethod" class="primary">${!guided?'Go to Discover':'Go to Try'}</button>`;
+    el.querySelector('#prepareMethod').onclick=()=>{activeStage=!guided?1:2;renderSession(s)};return;
+  }
   if(!p){el.innerHTML='<div class="empty">No challenge available.</div>';return}
-  el.innerHTML=`<div class="stage-number">STAGE ${mode==="try"?3:4} · ${mode==="try"?"INDEPENDENT ATTEMPT":"TRANSFER"}</div><h2>${mode==="try"?"Try":"Transfer"}</h2><p class="muted">${mode==="try"?"Solve before opening any explanation.":"Use the idea in a different setting. Decide the strategy yourself."}</p>`;
+  el.innerHTML=`<div class="stage-number">STAGE ${mode==="try"?3:4} · ${mode==="try"?"INDEPENDENT ATTEMPT":"TRANSFER"}</div><h2>${mode==="try"?"Try":"Transfer"}</h2><p class="muted">${mode==="try"?"First check the method on a manageable question. Then open the stretch problem.":"Now use your tools in a less familiar setting. The problem may need more than today’s method."}</p>`;
   const node=problemTemplate.content.firstElementChild.cloneNode(true);
   node.querySelector(".problem-meta").textContent=`${p.source_type==="authentic_amc"?"AMC ARCHIVE":"ORIGINAL CHALLENGE"} · ${p.source_label||""}`;
   node.querySelector(".problem-title").textContent=p.title||p.id;
@@ -328,7 +334,15 @@ function renderChallenge(el,s,p,mode){
       reveal.disabled=true;
     }catch(e){solution.hidden=false;solution.textContent=e.message}
   };
-  el.appendChild(node);
+  if(mode==='try'){
+    const prep=document.createElement('div');el.appendChild(prep);
+    node.hidden=!core;
+    const unlock=e=>{node.hidden=false;node.scrollIntoView({behavior:'smooth',block:'start'});};
+    mountCheck(prep,{id:sid,slot:s.slot,records:completedRecords,draft:sessionDraft,save:()=>saveDraft(s),label:'YOUR TURN · INDEPENDENT BASICS CHECK',onDone:unlock});
+  }
+  const bridge=document.createElement('div');bridge.className='challenge-bridge';
+  bridge.innerHTML=`<h3>${mode==='try'?'Next: stretch the idea':'Transfer: choose your tools'}</h3><p>This is a challenge, not the first explanation. Read for the requested quantity, sketch or list what is known, and decide which tool fits. If today’s method does not fit on its own, combine it with an older one.</p><details><summary>A starting plan, without the answer</summary><ol><li>Restate the question in your own words.</li><li>Test a smaller case or draw the quantities.</li><li>Look for a connection to the worked examples. Explain why it applies before calculating.</li></ol></details>`;
+  node.prepend(bridge);el.appendChild(node);
   const footer=document.createElement("div");footer.className="complete-row";footer.innerHTML=`<button class="ghost" id="prevStage">Back</button><button class="primary" id="nextStage">${mode==="try"?"Transfer":"Check"}</button>`;el.appendChild(footer);
   footer.querySelector("#prevStage").onclick=async()=>{await saveDraft(s);activeStage=mode==="try"?1:2;renderSession(s)};
   footer.querySelector("#nextStage").onclick=async()=>{await saveDraft(s);activeStage=mode==="try"?3:4;renderSession(s)};
@@ -336,14 +350,14 @@ function renderChallenge(el,s,p,mode){
 function renderCheck(el,s){
   const attempted=currentProblems.filter(p=>sessionDraft.answers[p?.id]).length;
   el.innerHTML=`<div class="stage-number">STAGE 5 · METACOGNITION</div><h2>Check</h2><p class="muted">Make the learning reusable. A short accurate reflection is better than a long vague one.</p>
-  <div id="exitCheck"></div><div class="check-grid"><label class="answer-label">What was the key idea?<textarea id="takeaway" class="answer-box" placeholder="The move that made the problem smaller was…">${esc(sessionDraft.summary.takeaway||"")}</textarea></label>
+  <p class="success-note">You have already checked the basic method before the challenges. Finish by explaining what you learnt, checking your reasoning and choosing a useful next step.</p><div class="check-grid"><label class="answer-label">What was the key idea?<textarea id="takeaway" class="answer-box" placeholder="I would use this when… because… The important step is…">${esc(sessionDraft.summary.takeaway||"")}</textarea></label>
   <label class="answer-label">What will you watch for next time?<textarea id="watch" class="answer-box" placeholder="A mistake I want to avoid is…">${esc(sessionDraft.summary.watch||"")}</textarea></label></div>
   <div class="complete-row"><span class="muted">${attempted}/2 challenge attempts recorded.</span><button id="completeSession" class="primary" ${attempted<2?"disabled":""}>Complete and lock Session ${s.slot}</button></div>`;
-  const sid=skillFor(s,taxonomy);if(sid)mountCheck(el.querySelector("#exitCheck"),{id:sid,slot:s.slot,records:completedRecords,draft:sessionDraft,save:()=>saveDraft(s)});
+  const sid=skillFor(s,taxonomy);
   document.getElementById("takeaway").oninput=e=>{sessionDraft.summary.takeaway=e.target.value};
   document.getElementById("watch").oninput=e=>{sessionDraft.summary.watch=e.target.value};
   document.getElementById("completeSession").onclick=async()=>{
-    if(sid&&!sessionDraft.evidence["retrieval:"+sid]){alert("Try the short exit check first. Use a hint if needed.");return}
+    if(sid&&!sessionDraft.evidence["retrieval:"+sid]){alert("Complete the independent basics check in Try first. Use a hint if needed.");return}
     if((sessionDraft.summary.retrieval_ids||[]).some(id=>!sessionDraft.evidence["retrieval:"+id])){alert("Finish the due Remember checks first.");return}
     const take=document.getElementById("takeaway").value.trim(),watch=document.getElementById("watch").value.trim();
     if(!take||!watch){alert("Write both short reflections before completing the session.");return}

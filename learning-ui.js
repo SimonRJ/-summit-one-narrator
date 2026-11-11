@@ -1,18 +1,20 @@
-import {methods,exercise,checkAnswer,recallState,dueSkills} from './curriculum.js';
+import {workedSteps,lessonPlan} from './session-intros.js?v=journey-20261112';
+import {methods,exercise,checkAnswer,recallState,dueSkills} from './curriculum.js?v=journey-20261112';
 const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
-export function lessonCard(id){
- const m=methods[id];if(!m)return '';
- const q=exercise(id,0);
- return `<article class="method-card"><div class="eyebrow">TODAY’S METHOD · ${esc(id)}</div><h3>See why it works</h3><p>${esc(m.idea)}</p><div class="worked-example"><b>Small worked example</b><p>${esc(q.prompt)}</p><p class="math-copy">${esc(q.reason)}</p></div><p class="trap-note"><b>Watch for:</b> ${esc(m.trap)}</p></article>`;
+export function lessonCard(id,plan){
+ const m=methods[id];if(!m||!plan)return '';
+ const q=plan.bridge;
+ const notation=(q.reason.includes('!')?' The symbol ! means multiply the positive whole numbers down to 1: 3! = 3 × 2 × 1.':'')+(q.reason.includes('^')||q.prompt.includes('^')?' A power counts repeated factors: 2^3 means 2 × 2 × 2.':'')+(q.reason.includes('f(')?' Here f(k) means the number of routes to step k. It is a label for a count.':'')+(q.reason.includes('n²')?' The letter n names a side length; n² means n multiplied by itself.':'');
+ return `${workedSteps(plan)}${plan.secondary?workedSteps(plan.secondary,"Second tool · recall before combining"):""}<article class="method-card"><div class="eyebrow">NAME THE IDEA · ${esc(id)}</div><h3>What made that work?</h3><p>${esc(m.idea)}</p><div class="worked-example"><div class="eyebrow">BUILD ON IT · A SECOND WORKED EXAMPLE</div><h3>${esc(q.prompt)}</h3><p><b>First move:</b> ${esc(plan.goal)}</p>${notation?`<p class="notation-note">${esc(notation)}</p>`:''}<p class="math-copy">${esc(q.reason)}</p><p><b>Connect the examples:</b> What stayed the same in the method, even though the numbers or setting changed?</p></div><p class="trap-note"><b>Watch for:</b> ${esc(m.trap)}</p></article>`;
 }
-export function mountCheck(el,{id,slot,records,draft,save,kind='retrieval',onDone=()=>{}}){
+export function mountCheck(el,{id,slot,records,draft,save,kind='retrieval',label='',onDone=()=>{}}){
  const key=`${kind}:${id}`;
  const seed=kind==='guided'?1:2+((slot+id.charCodeAt(0))%5);
  const q=exercise(id,seed),old=draft.evidence[key];
- el.innerHTML=`<article class="mini-check"><div class="eyebrow">${kind==='guided'?'YOUR TURN · FADING SUPPORT':'FROM MEMORY · '+esc(id)}</div><p>${esc(q.prompt)}</p><form><label class="answer-label">${typeof q.value==='number'?'Your final answer':'Your answer'}<input class="answer-box short-answer" autocomplete="off" value="${esc(old?.response||'')}" ${old?'disabled':''}></label><div class="problem-actions"><button class="primary" ${old?'disabled':''}>Check my answer</button><button type="button" class="ghost hint" ${old?'disabled':''}>I need a hint</button></div></form><div class="check-feedback" role="status"></div></article>`;
+ el.innerHTML=`<article class="mini-check"><div class="eyebrow">${esc(label||(kind==='guided'?'YOUR TURN · SUPPORT AVAILABLE':'FROM MEMORY · '+id))}</div><p>${esc(q.prompt)}</p><form><label class="answer-label">${typeof q.value==='number'?'Your final answer':'Your answer'}<input class="answer-box short-answer" autocomplete="off" value="${esc(old?.response||'')}" ${old?'disabled':''}></label><div class="problem-actions"><button class="primary" ${old?'disabled':''}>Check my answer</button><button type="button" class="ghost hint" ${old?'disabled':''}>I need a hint</button></div></form><div class="check-feedback" role="status"></div></article>`;
  let helped=old?.independent===false||draft.evidence['hint:'+key]===true;
  const feedback=el.querySelector('.check-feedback');
- const explain=e=>{feedback.innerHTML=`<p><b>${e.correct?'Correct.':'A useful place to practise.'}</b> ${e.independent?'First response recorded.':'Recorded with support.'}</p><p>${esc(q.reason)}</p>${!e.correct?'<p>Cover the explanation and solve it again in your notebook. This skill will return in revision.</p>':''}`;};
+ const explain=e=>{feedback.innerHTML=`<p><b>${e.correct?'Correct.':'Not quite yet — let’s repair the method.'}</b> ${e.independent?'First response recorded.':'Recorded with support.'}</p><p>${esc(q.reason)}</p>${!e.correct?'<p>Cover the explanation and solve it again in your notebook. This skill will return in revision.</p>':''}`;};
  if(old)explain(old);
  el.querySelector('.hint').onclick=async()=>{helped=true;draft.evidence['hint:'+key]=true;feedback.textContent=methods[id].idea;try{await save()}catch(err){feedback.textContent+=' Hint use is recorded locally; cloud save failed: '+err.message}};
  el.querySelector('form').onsubmit=async event=>{

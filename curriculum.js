@@ -55,7 +55,8 @@ const rows = [
 ['DATA-03','T01.2','Read the axis labels, scale and units before using a graph or table. Describe what each entry measures and what comparison is requested.','A graph need not begin at zero or use intervals of one.']
 ];
 export const methods=Object.fromEntries(rows.map(([id,video,idea,trap])=>[id,{id,video,idea,trap}]));
-export function skillFor(session,taxonomy){return taxonomy.categories.flatMap(c=>c.subskills).find(s=>s.name===session.focus)?.id||null;}
+export const capstoneSkills={361:['COUNT-06','DIV-03'],362:['ALG-03','FRAC-02'],365:['GEO-02','FRAC-01'],366:['SPATIAL-01','COUNT-04'],367:['DIV-04','SPATIAL-03'],368:['RATE-03','ALG-04'],370:['GEO-05','LOGIC-04']};
+export function skillFor(session,taxonomy){return capstoneSkills[session.slot]?.[0]||taxonomy.categories.flatMap(c=>c.subskills).find(s=>s.name===session.focus)?.id||null;}
 const factorial=n=>n<2?1:n*factorial(n-1);
 const choose=(n,k)=>factorial(n)/(factorial(k)*factorial(n-k));
 export function exercise(id,seed=0){
