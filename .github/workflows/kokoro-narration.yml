@@ -2,11 +2,6 @@ name: Kokoro narration production
 
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - "narration/**"
-      - ".github/workflows/kokoro-narration.yml"
 
 permissions:
   contents: read
