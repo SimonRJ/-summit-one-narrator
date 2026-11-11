@@ -2,6 +2,7 @@
 if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));}
 import { supabase, loadProgress, saveProgress, signOut, currentUser, upsertSession, recordAttempt } from "./supabase-client.js";
 import { mountNarratedPlayer } from "./lesson-player.js";
+import { problemFigure } from "./problem-figures.js";
 
 const app=document.getElementById("app");
 const problemTemplate=document.getElementById("problemTemplate");
@@ -217,7 +218,7 @@ function renderChallenge(el,s,p,mode){
   const node=problemTemplate.content.firstElementChild.cloneNode(true);
   node.querySelector(".problem-meta").textContent=`${p.source_type==="authentic_amc"?"AMC ARCHIVE":"ORIGINAL CHALLENGE"} · ${p.source_label||""}`;
   node.querySelector(".problem-title").textContent=p.title||p.id;
-  node.querySelector(".problem-prompt").textContent=p.prompt;
+  const promptEl=node.querySelector(".problem-prompt"); promptEl.textContent=p.prompt; const figure=problemFigure(p.id); if(figure)promptEl.insertAdjacentHTML("beforebegin",figure);
   const box=node.querySelector(".answer-box"),submit=node.querySelector(".submit-answer"),reveal=node.querySelector(".reveal-solution"),feedback=node.querySelector(".attempt-feedback"),solution=node.querySelector(".solution-panel");
   const saved=sessionDraft.answers[p.id];
   if(saved){box.value=saved.response||"";box.disabled=true;submit.hidden=true;reveal.hidden=false;feedback.hidden=false;feedback.textContent=saved.correct===true?"Recorded as correct independent work.":saved.correct===false?"Attempt recorded. Compare your reasoning, then revisit the method.":"Attempt recorded. This problem needs reasoning rather than a simple exact-answer check."}
