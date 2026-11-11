@@ -18,7 +18,7 @@ function finalVideoUrl(videoId){
   const id=String(videoId||"");
   // Only concept/worked-example T videos are public. Every challenge solution is attempt-gated.
   if(!/^T\d{2}\.(?:1|2|3|E)$/.test(id))return "";
-  return `https://github.com/SimonRJ/-summit-one-narrator/releases/download/summit-one-video-v1/${encodeURIComponent(id)}.mp4`;
+  if(id==="T01.2")return "media/T01.2_George_0.88.mp4";\n  return `https://github.com/SimonRJ/-summit-one-narrator/releases/download/summit-one-video-v1/${encodeURIComponent(id)}.mp4`;
 }
 async function recordVideoEvidence(sessionNumber,videoId,kind,detail={}){
   if(!sessionNumber||!videoId)return;
