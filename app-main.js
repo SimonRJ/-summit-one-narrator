@@ -5,7 +5,7 @@ import { mountNarratedPlayer } from "./lesson-player.js";
 
 const app=document.getElementById("app");
 const problemTemplate=document.getElementById("problemTemplate");
-let course=[], teaching=[], mawa=[], rossMap=[], taxonomy=null, problemIndex=[], progress=null, user=null, activeView="home", activeStage=0;
+let course=[], teaching=[], mawa=[], rossMap=[], taxonomy=null, milestones=null, problemIndex=[], progress=null, user=null, activeView="home", activeStage=0;
 let currentProblems=[], currentMawa=null, sessionDraft={answers:{},working:{},evidence:{},summary:{}};
 
 const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
@@ -77,8 +77,8 @@ async function boot(){
   try{
     user=await currentUser();
     if(!user){location.href="login.html";return}
-    const [c,t,m,h,tax]=await Promise.all([fetch("data/sessions-372.json").then(r=>r.json()),fetch("data/teaching-72.json").then(r=>r.json()),fetch("data/mawa-investigations-20.json").then(r=>r.json()),fetch("data/rossmoyne-h23.json").then(r=>r.json()),fetch("data/taxonomy-52.json").then(r=>r.json())]);
-    course=c.sessions; teaching=t.items; mawa=m.items; rossMap=h.items; taxonomy=tax;
+    const [c,t,m,h,tax,ms]=await Promise.all([fetch("data/sessions-372.json").then(r=>r.json()),fetch("data/teaching-72.json").then(r=>r.json()),fetch("data/mawa-investigations-20.json").then(r=>r.json()),fetch("data/rossmoyne-h23.json").then(r=>r.json()),fetch("data/taxonomy-52.json").then(r=>r.json()),fetch("data/milestones.json").then(r=>r.json())]);
+    course=c.sessions; teaching=t.items; mawa=m.items; rossMap=h.items; taxonomy=tax; milestones=ms;
     const {data:problems,error}=await supabase.from("content_problems").select("id,source_type,title,source_label,category,difficulty,prompt,unit").order("id");
     if(error)throw error; problemIndex=problems||[];
     progress=await loadProgress();
