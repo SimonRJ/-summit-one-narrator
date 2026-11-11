@@ -27,4 +27,8 @@ AMC Upper Primary rehearsal uses 30 questions in 60 minutes with 25 multiple-cho
 Current architecture is designed to operate within free GitHub Pages/Release hosting and the connected Supabase Free project for one learner. Usage limits of those third-party free services still apply.
 
 ## Release status
-The full authentic-past-paper engine is implemented. The first family-supplied AMC Upper Primary PDF is the remaining source-content import before the authentic-paper section contains a live paper.
+The authenticated AMC Test Centre is live with complete 30-question / 135-mark Upper Primary papers for 2007, 2008, 2023 and 2024, alongside 25 original Summit One AMC-format mocks and 11 original Rossmoyne-style papers. A full 2025 Upper Primary paper is not installed because the current project source bank contains verified 2025 final-five material but not a recoverable complete 30-question source.
+
+The 266-video visual library is complete. Final narration is being standardized on Kokoro `af_heart` at speed `0.88`. Public-safe teaching/original videos are packaged separately from authentic AMC media. Authentic AMC finished videos are stored only in the private `summit-one-protected-video` bucket and are served by short-lived signed URLs after the server has verified an independent attempt.
+
+Post-production tooling under `postproduction/` retimes visuals to verified narration without time-stretching speech, produces H.264/AAC MP4s plus VTT/checksums/QA, and hard-fails if protected AMC media is placed in a public release bundle.
