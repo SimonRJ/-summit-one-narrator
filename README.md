@@ -1,16 +1,30 @@
-# Summit One iPhone Narrator
+# Summit One — The 135 Mission
 
-Safari-first local narration generator for the remaining Summit One video queue.
+Private-family mathematics training application deployed with GitHub Pages and Supabase.
 
-- 175 video IDs / 780 chunks embedded.
-- A040 is held unless manually enabled.
-- Kokoro `af_heart`, speed `0.88`.
-- Browser backend: WASM, q8 with q4 fallback.
-- Audio is stored in IndexedDB, exported in small ZIP batches, then can be cleared without losing progress.
-- Requires an HTTPS static host. GitHub Pages is suitable.
+## Learner experience
+- One canonical path through 372 learner-paced sessions.
+- Remember → Discover → Try → Transfer → Check.
+- 53 MAWA proof/investigation sessions at every seventh slot.
+- 25 full 30-question / 135-mark AMC-format authored mocks.
+- 11 original 23-question / 100-mark Rossmoyne-style practice papers.
+- Separate AMC Test Centre for authentic past papers supplied by the family.
+- Completed session and exam records are immutable.
+- Viewed/guided/independent evidence is tracked separately.
+- Twenty passive explorer ranks at 5% course increments.
 
-## Deploy with GitHub Pages
-Upload the files in this folder to a repository root, then enable Pages from the `main` branch/root. No build step is required.
+## Platform
+- GitHub Pages: static learner interface and original authored narration media.
+- Supabase Auth/Postgres: learner login, cloud sync, protected content, attempts and exam records.
+- Supabase Edge Functions: server-side challenge grading/solution unlocks and exam grading.
+- Protected AMC archive text/answers are not stored in the public Pages branch.
+- Authentic AMC narration is generated on the signed-in learner's device and cached locally rather than published as public media.
 
-## iPhone use
-Open the Pages URL in Safari, optionally Share → Add to Home Screen. Keep Safari foregrounded and the phone plugged in during generation. Load the model once, test the voice, then use batches of 1–5.
+## Assessment truth
+AMC Upper Primary rehearsal uses 30 questions in 60 minutes with 25 multiple-choice and 5 integer-answer questions, including explicit Save behaviour for integer responses. Summit One authored mocks are not official AMT papers. Award bands shown without a verified WA paper-year table are clearly labelled practice estimates.
+
+## Costs
+Current architecture is designed to operate within free GitHub Pages/Release hosting and the connected Supabase Free project for one learner. Usage limits of those third-party free services still apply.
+
+## Release status
+The full authentic-past-paper engine is implemented. The first family-supplied AMC Upper Primary PDF is the remaining source-content import before the authentic-paper section contains a live paper.
