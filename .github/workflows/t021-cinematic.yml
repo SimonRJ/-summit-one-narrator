@@ -1,0 +1,134 @@
+name: T02.1 cinematic mathematical explainer
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'production/t021/**'
+      - '.github/workflows/t021-cinematic.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: summit-one-t021-production
+  cancel-in-progress: false
+
+jobs:
+  render-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install the TTS and video production dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fontconfig fonts-dejavu-core
+          python -m pip install --disable-pip-version-check pillow numpy faster-whisper
+          cd narration
+          npm install --no-fund --no-audit
+      - name: Create natural, sentence-coherent narration at normal speed
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp production/t021/synth.mjs narration/t021-synth.mjs
+          node narration/t021-synth.mjs production/t021/narration.json build/t021
+          test -s build/t021/narration.wav
+          python - <<'PY'
+          import json
+          d=json.load(open('build/t021/timing.json'))
+          assert d['voice']=='af_heart' and d['speed']>=1.0
+          assert len(d['segments'])==18
+          print('NARRATION QA:',d['voice'],d['duration_seconds'],'seconds')
+          PY
+      - name: Render original mathematical motion graphics at HD 24fps
+        shell: bash
+        run: |
+          set -euo pipefail
+          python production/t021/render.py --timing build/t021/timing.json --out build/t021/T02.1_visual.mp4 --fps 24
+      - name: Align spoken words and create exactly one caption layer
+        shell: bash
+        env:
+          HF_HOME: ${{ runner.temp }}/hf-cache
+        run: |
+          set -euo pipefail
+          python production/t021/captions.py \
+            --timing build/t021/timing.json --audio build/t021/narration.wav \
+            --ass build/t021/captions.ass --vtt build/t021/T02.1.vtt \
+            --qa build/t021/caption-qa.json
+          python - <<'PY'
+          import json
+          q=json.load(open('build/t021/caption-qa.json'))
+          assert q['single_layer'] and q['caption_events']>=400
+          assert q['match_percent']>=60, f'Insufficiently aligned captions: {q}'
+          PY
+      - name: Burn in one subtitle layer and mux pitch-preserved natural audio
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p media
+          ffmpeg -y -hide_banner -loglevel error \
+            -i build/t021/T02.1_visual.mp4 \
+            -i build/t021/narration.wav \
+            -vf "subtitles=build/t021/captions.ass" \
+            -map 0:v:0 -map 1:a:0 \
+            -c:v libx264 -preset fast -crf 19 -pix_fmt yuv420p \
+            -c:a aac -b:a 128k -ar 48000 -ac 1 \
+            -movflags +faststart -shortest \
+            media/T02.1.mp4
+          cp build/t021/T02.1.vtt media/T02.1.vtt
+      - name: Check video integrity, narration, audio and caption QA
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json,subprocess,pathlib,hashlib
+          p=pathlib.Path('media/T02.1.mp4')
+          ff=json.loads(subprocess.check_output(['ffprobe','-v','error','-show_streams','-show_format','-of','json',str(p)]))
+          v=next(x for x in ff['streams'] if x['codec_type']=='video')
+          a=next(x for x in ff['streams'] if x['codec_type']=='audio')
+          t=json.load(open('build/t021/timing.json'))
+          c=json.load(open('build/t021/caption-qa.json'))
+          duration=float(ff['format']['duration'])
+          assert v['width']==1280 and v['height']==720,(v['width'],v['height'])
+          assert v['codec_name']=='h264' and a['codec_name']=='aac'
+          assert 120<duration<370,(duration,t['duration_seconds'])
+          assert abs(duration-t['duration_seconds'])<1.25,(duration,t['duration_seconds'])
+          sha=hashlib.file_digest(open(p,'rb'),'sha256').hexdigest()
+          result={'id':'T02.1','voice':t['voice'],'speed':t['speed'],'duration_seconds':duration,'resolution':'1280x720','video_codec':v['codec_name'],'audio_codec':a['codec_name'],'file_size_bytes':p.stat().st_size,'sha256':sha,'caption_alignment':c,'watch_path':'watch-t02-1.html','media_path':'media/T02.1.mp4'}
+          pathlib.Path('production/t021/output-qa.json').write_text(json.dumps(result,indent=2)+'\n')
+          print(json.dumps(result,indent=2))
+          PY
+      - name: Publish the HD video to the existing GitHub Pages source branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add media/T02.1.mp4 media/T02.1.vtt production/t021/output-qa.json
+          if git diff --cached --quiet; then echo 'No new render to publish'; exit 0; fi
+          git commit -m 'Publish rebuilt T02.1 with natural narration and animated invariant proofs'
+          git push origin HEAD:main
+      - name: Keep a temporary exact production artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: t021-hd-cinematic-narration
+          path: |
+            media/T02.1.mp4
+            media/T02.1.vtt
+            production/t021/output-qa.json
+            build/t021/timing.json
+            build/t021/caption-qa.json
+          retention-days: 14
+          compression-level: 0
