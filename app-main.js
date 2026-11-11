@@ -7,13 +7,27 @@ import { problemFigure } from "./problem-figures.js";
 const app=document.getElementById("app");
 const problemTemplate=document.getElementById("problemTemplate");
 let course=[], teaching=[], mawa=[], rossMap=[], taxonomy=null, milestones=null, problemIndex=[], progress=null, user=null, activeView="home", activeStage=0;
-let currentProblems=[], currentMawa=null, sessionDraft={answers:{},working:{},evidence:{},summary:{}};
+let currentProblems=[], currentMawa=null, sessionDraft={answers:{},working:{},evidence:{},summary:{}};\nlet attemptedProblemIds=new Set();
 
 const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
 const pct=n=>Math.max(0,Math.min(100,Number(n)||0));
 const hash=s=>{let h=2166136261;for(const c of String(s)){h^=c.charCodeAt(0);h=Math.imul(h,16777619)}return h>>>0};
 const normalize=s=>String(s??"").toLowerCase().replace(/\s+/g,"").replace(/[×·]/g,"*").replace(/[²]/g,"^2").replace(/[³]/g,"^3").replace(/[.,;:]$/g,"");
 const rankNames=["Pathfinder","Pattern Scout","Model Builder","Logic Ranger","Number Navigator","Geometry Pilot","Counting Specialist","Invariant Hunter","Transfer Thinker","Proof Builder","Problem Solver","Strategy Captain","Olympiad Explorer","Insight Engineer","Reasoning Commander","AMC Specialist","MAWA Specialist","Rossmoyne Specialist","Summit Elite","135 Master"];
+function finalVideoUrl(videoId){
+  // Authentic AMC archive material remains protected and is never exposed as a public release asset.
+  if(/^A\d{3}$/.test(String(videoId||"")))return "";
+  return `https://github.com/SimonRJ/-summit-one-narrator/releases/download/summit-one-video-v1/${encodeURIComponent(videoId)}.mp4`;
+}
+async function recordVideoEvidence(sessionNumber,videoId,kind,detail={}){
+  if(!sessionNumber||!videoId)return;
+  const key=`video:${videoId}`;
+  const prev=sessionDraft.evidence?.[key]||{};
+  sessionDraft.evidence={...(sessionDraft.evidence||{}),[key]:{...prev,kind,status:"viewed",independent_credit:false,last_viewed_at:new Date().toISOString(),...detail}};
+  try{
+    await upsertSession({session_number:sessionNumber,session_key:`S${String(sessionNumber).padStart(3,"0")}`,answers:sessionDraft.answers,working:sessionDraft.working,evidence:sessionDraft.evidence,summary:sessionDraft.summary});
+  }catch(e){console.warn("Video evidence save failed",e)}
+}
 function syncStatusText(){return navigator.onLine?"Synced":"Offline — reconnect to save"}
 function refreshSyncIndicator(){const el=document.getElementById("syncStatus");if(el){el.textContent=syncStatusText();el.parentElement.style.color=navigator.onLine?"var(--green)":"var(--gold)"}}
 window.addEventListener("online",refreshSyncIndicator);window.addEventListener("offline",refreshSyncIndicator);
@@ -213,7 +227,14 @@ function renderDiscover(el,s){
   el.innerHTML=`<div class="stage-number">STAGE 2 · EXPLANATION</div><h2>Discover</h2><p class="muted">Read, sketch and listen. The goal is to see why the method works, not memorise a slogan.</p>
   <div class="teaching-box">${items.map((t,i)=>`<article class="teaching-item"><div class="eyebrow">${esc(t.type==="worked_example"?"WORKED EXAMPLE":"CONCEPT")}</div><h3>${esc(t.title)}</h3><div class="lesson-player-slot" id="lessonPlayer${i}"></div><details><summary>Read explanation</summary><p class="math-copy">${esc(t.transcript)}</p></details></article>`).join("")||'<p class="muted">Teaching explanation is being selected from the course library.</p>'}</div>
   <div class="complete-row"><span class="muted">Make one note or diagram before moving on.</span><button class="primary" id="nextStage">Try independently</button></div>`;
-  items.forEach((t,i)=>mountNarratedPlayer(document.getElementById("lessonPlayer"+i),{title:t.title,transcript:t.transcript,audioUrl:t.audio_url,cacheKey:t.id}));
+  items.forEach((t,i)=>mountNarratedPlayer(document.getElementById("lessonPlayer"+i),{
+    title:t.title,
+    transcript:t.transcript,
+    audioUrl:t.audio_url,
+    videoUrl:finalVideoUrl(t.id),
+    cacheKey:t.id,
+    onWatch:detail=>recordVideoEvidence(s.slot,t.id,t.type,detail)
+  }));
   document.getElementById("nextStage").onclick=()=>{activeStage=2;renderSession(s)};
 }
 function renderChallenge(el,s,p,mode){
@@ -247,7 +268,15 @@ function renderChallenge(el,s,p,mode){
       if(d?.error)throw new Error(d.error);
       const transcript=d.solution_text||d.spoken_script||"Solution unavailable.";
       solution.hidden=false;solution.innerHTML=`<b>Compare reasoning</b><div id="solutionPlayer-${p.id.replace(/[^A-Za-z0-9]/g,"_")}"></div><details style="margin-top:12px"><summary>Read full worked solution</summary><p class="math-copy">${esc(transcript)}</p></details>`;
-      const protectedAudio=p.source_type==="authentic_amc"?"":`https://github.com/SimonRJ/-summit-one-narrator/releases/download/summit-one-audio-v1/${encodeURIComponent(p.id)}_narration.wav`; mountNarratedPlayer(document.getElementById("solutionPlayer-"+p.id.replace(/[^A-Za-z0-9]/g,"_")),{title:p.title||p.id,transcript,audioUrl:protectedAudio,cacheKey:p.id});
+      const protectedAudio=p.source_type==="authentic_amc"?"":`https://github.com/SimonRJ/-summit-one-narrator/releases/download/summit-one-audio-v1/${encodeURIComponent(p.id)}_narration.wav`;
+      mountNarratedPlayer(document.getElementById("solutionPlayer-"+p.id.replace(/[^A-Za-z0-9]/g,"_")),{
+        title:p.title||p.id,
+        transcript,
+        audioUrl:protectedAudio,
+        videoUrl:finalVideoUrl(p.id),
+        cacheKey:p.id,
+        onWatch:detail=>recordVideoEvidence(s.slot,p.id,"challenge_solution",detail)
+      });
       reveal.disabled=true;
     }catch(e){solution.hidden=false;solution.textContent=e.message}
   };
