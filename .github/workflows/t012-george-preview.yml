@@ -1,0 +1,106 @@
+name: T01.2 George preview
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/t012-george-preview.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install Kokoro
+        run: npm install --prefix narration --no-audit --no-fund
+      - name: Generate full T01.2 with bm_george at 0.88
+        env:
+          HF_HOME: ${{ runner.temp }}/hf-cache
+          NODE_OPTIONS: --max-old-space-size=6144
+        run: |
+          cd narration
+          node --input-type=module <<'NODE'
+          import fs from "node:fs";
+          import { KokoroTTS } from "kokoro-js";
+
+          const MODEL_ID = "onnx-community/Kokoro-82M-v1.0-ONNX";
+          const VOICE = "bm_george";
+          const SPEED = 0.88;
+          const GAP_SECONDS = 0.22;
+          const chunks = [
+            "This section is called Choose a representation that exposes the relationship. A line is useful for order, ranks and intervals. When counting objects between two endpoints, distinguish the objects from the gaps separating them. Inclusive counting keeps both endpoints; strict counting keeps neither. For a queue described from opposite ends, first translate both descriptions into positions measured from one end. A007 is a place to practise keeping those counting conventions consistent. SEE IT Marks and the gaps between them Keeping the endpoints gives six marks.",
+            "Removing both endpoints gives four marks. Measuring along the same line counts five gaps. A table is useful when several categories must be compared. Put the same kind of quantity in each column, and give the headings units. A drawing is useful when adjacency, parallel sides or a boundary matters. It should record stated facts rather than guessed measurements. An equation is useful when equal totals or repeated changes can be described compactly. Often two representations work together: the picture explains why an equation is true.",
+            "Choose the smallest representation that keeps every restriction. A large drawing can hide a simple relationship; an over-short equation can hide an assumption. If you remove information, explain why it cannot affect the answer. A folded object, for instance, may require a model of which pieces remain connected. A065 rewards reading that physical structure instead of applying a rule remembered from an ordinary open book. Before moving on, open your notebook. In one sentence, name the mathematical relationship this section is making visible.",
+            "Then draw the smallest model, table or example that would help you recognise the same idea in a new problem."
+          ];
+
+          function concatWithGap(arrays, rate, gapSeconds) {
+            const gapN = Math.floor(rate * gapSeconds);
+            const total = arrays.reduce((n,a)=>n+a.length,0) + Math.max(0, arrays.length-1)*gapN;
+            const out = new Float32Array(total);
+            let p=0;
+            arrays.forEach((a,i)=>{ out.set(a,p); p+=a.length; if(i<arrays.length-1) p+=gapN; });
+            return out;
+          }
+          function wavBuffer(samples, rate=24000) {
+            const b=Buffer.alloc(44+samples.length*2);
+            b.write("RIFF",0,4,"ascii"); b.writeUInt32LE(36+samples.length*2,4);
+            b.write("WAVE",8,4,"ascii"); b.write("fmt ",12,4,"ascii"); b.writeUInt32LE(16,16);
+            b.writeUInt16LE(1,20); b.writeUInt16LE(1,22); b.writeUInt32LE(rate,24);
+            b.writeUInt32LE(rate*2,28); b.writeUInt16LE(2,32); b.writeUInt16LE(16,34);
+            b.write("data",36,4,"ascii"); b.writeUInt32LE(samples.length*2,40);
+            let o=44;
+            for(const s of samples){ const x=Math.max(-1,Math.min(1,s)); b.writeInt16LE(Math.round(x<0?x*32768:x*32767),o); o+=2; }
+            return b;
+          }
+
+          console.log("Loading Kokoro...");
+          const tts = await KokoroTTS.from_pretrained(MODEL_ID,{dtype:"q8",device:"cpu"});
+          const parts=[]; let rate=24000;
+          for(let i=0;i<chunks.length;i++){
+            console.log("Generating chunk",i+1,"of",chunks.length);
+            const r=await tts.generate(chunks[i],{voice:VOICE,speed:SPEED});
+            rate=r.sampling_rate||24000;
+            const samples=r.audio ?? r.data;
+            parts.push(samples instanceof Float32Array ? samples : Float32Array.from(samples));
+          }
+          const joined=concatWithGap(parts,rate,GAP_SECONDS);
+          fs.writeFileSync("../T01.2-bm_george.wav",wavBuffer(joined,rate));
+          fs.writeFileSync("../T01.2-bm_george.json",JSON.stringify({
+            video_id:"T01.2",voice:VOICE,speed:SPEED,sample_rate:rate,
+            duration_seconds:Number((joined.length/rate).toFixed(3)),chunks:chunks.length
+          },null,2));
+          console.log("Audio duration",joined.length/rate);
+          NODE
+      - name: Download current T01.2 visual
+        run: |
+          curl -L --fail --retry 3 -o T01.2-current.mp4 "https://github.com/SimonRJ/-summit-one-narrator/releases/download/summit-one-video-v1/T01.2.mp4"
+      - name: Rebuild MP4 with George
+        run: |
+          VD=$(ffprobe -v error -show_entries format=duration -of default=nw=1:nk=1 T01.2-current.mp4)
+          AD=$(ffprobe -v error -show_entries format=duration -of default=nw=1:nk=1 T01.2-bm_george.wav)
+          RATIO=$(python3 -c "print(float('$AD')/float('$VD'))")
+          echo "Visual duration: $VD"
+          echo "George duration: $AD"
+          echo "Visual retime ratio: $RATIO"
+          ffmpeg -y -hide_banner -loglevel error             -i T01.2-current.mp4 -i T01.2-bm_george.wav             -map 0:v:0 -map 1:a:0             -vf "setpts=${RATIO}*PTS,tpad=stop_mode=clone:stop_duration=0.35"             -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p             -c:a aac -b:a 160k -ar 48000 -ac 1             -movflags +faststart -shortest T01.2-bm_george-preview.mp4
+          ffprobe -v error -show_entries format=duration -show_entries stream=codec_name,codec_type,width,height,sample_rate,channels -of json T01.2-bm_george-preview.mp4 > T01.2-bm_george-preview.qa.json
+      - name: Upload preview
+        uses: actions/upload-artifact@v4
+        with:
+          name: T01.2-bm_george-preview
+          path: |
+            T01.2-bm_george-preview.mp4
+            T01.2-bm_george.wav
+            T01.2-bm_george.json
+            T01.2-bm_george-preview.qa.json
+          retention-days: 7
+          compression-level: 0
