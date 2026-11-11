@@ -54,13 +54,16 @@ function problemKeywords(focus){
 }
 function chooseProblems(session){
   const words=problemKeywords(session.focus);
+  const targetDifficulty=session.slot<=40?2:session.slot<=100?3:session.slot<=176?4:4.5;
   const scored=problemIndex.map(p=>{
     const hay=(p.title+" "+p.category+" "+p.source_label).toLowerCase();
     let score=words.reduce((n,w)=>n+(hay.includes(w)?4:0),0);
     if(session.phase.includes("AMC")&&p.source_type==="authentic_amc")score+=2;
-    if(session.type==="MAWA"&&p.source_type==="original_authored")score+=3;
-    return {...p,_score:score,_tie:hash(session.slot+"|"+p.id)};
-  }).sort((a,b)=>b._score-a._score||a._tie-b._tie);
+    if(session.phase.includes("Year 6")||session.phase.includes("Advanced")||session.phase.includes("Rossmoyne"))score+=Number(p.difficulty||3)>=4?1.5:0;
+    score-=Math.abs(Number(p.difficulty||3)-targetDifficulty)*1.25;
+    const used=attemptedProblemIds.has(p.id);
+    return {...p,_score:score,_used:used,_tie:hash(session.slot+"|"+p.id)};
+  }).sort((a,b)=>Number(a._used)-Number(b._used)||b._score-a._score||a._tie-b._tie);
   const chosen=[];
   for(const p of scored){if(!chosen.some(x=>x.id===p.id)){chosen.push(p);if(chosen.length===2)break}}
   return chosen;
@@ -82,6 +85,8 @@ async function boot(){
     course=c.sessions; teaching=t.items; mawa=m.items; rossMap=h.items; taxonomy=tax; milestones=ms;
     const {data:problems,error}=await supabase.from("content_problems_student").select("id,source_type,title,source_label,category,difficulty,prompt,unit").order("id");
     if(error)throw error; problemIndex=problems||[];
+    const {data:attemptRows,error:attemptError}=await supabase.from("problem_attempts").select("problem_id").eq("user_id",user.id).not("answer_text","is",null);
+    if(attemptError)throw attemptError; attemptedProblemIds=new Set((attemptRows||[]).map(x=>x.problem_id));
     progress=await loadProgress();
     if(!progress)progress=await saveProgress({current_session:0,completed_sessions:0,xp:0,rank:1,overall_percent:0,state:{}});
     wireNav(); renderHome();
@@ -226,6 +231,7 @@ function renderChallenge(el,s,p,mode){
       if(gradeError)throw gradeError;
       if(graded?.error)throw new Error(graded.error);
       const correct=graded?.correct??null;
+      attemptedProblemIds.add(p.id);
       sessionDraft.answers[p.id]={response,correct,attempted_at:new Date().toISOString()};
       await upsertSession({session_number:s.slot,session_key:`S${String(s.slot).padStart(3,"0")}`,answers:sessionDraft.answers,working:sessionDraft.working,evidence:sessionDraft.evidence,summary:sessionDraft.summary});
       box.disabled=true;submit.hidden=true;reveal.hidden=false;feedback.textContent=correct===true?"Correct — and recorded as independent evidence.":correct===false?"Attempt recorded. Now compare methods and find the exact point to improve.":"Attempt recorded. Compare the proof/reasoning rather than relying on exact text matching.";
