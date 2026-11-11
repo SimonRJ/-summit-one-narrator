@@ -19,12 +19,12 @@ The platform should combine reading mathematics, writing mathematics, seeing mat
 - Do not place the full video library directly in the Pages site because Pages has site-size and bandwidth limits.
 
 ### Large media
-- Public-safe teaching and original authored final MP4s may be stored as GitHub Release assets.
-- Authentic AMC visual media must never be published to the public repository or a public GitHub Release. Store those MP4s in the private Supabase Storage bucket `summit-one-protected-video`.
-- The authenticated solution Edge Function may issue a short-lived signed URL for an AMC MP4 only after confirming a recorded independent attempt.
+- Only the 72 concept/worked-example final MP4s may be stored as public GitHub Release assets.
+- All 194 challenge/problem explanation MP4s—both authentic AMC and original K/N challenges—must remain private in the Supabase Storage bucket `summit-one-protected-video`.
+- The authenticated solution Edge Function may issue a short-lived signed URL for a challenge MP4 only after confirming a recorded independent attempt.
 - Use stable release URLs for public-safe media and signed URLs for protected media.
 - Preserve high-quality source/master archives separately in the AMC Training Library.
-- The release packager must fail if any `A001`–`A152` file is found in a public bundle.
+- The release packager must fail if any challenge ID (`A…`, `K…` or `N…`) is found in a public bundle.
 
 ### Authentication and progress
 Use Supabase Auth/Postgres for learner authentication, immutable session evidence, problem attempts, exam sittings, progress and protected-content gating.
