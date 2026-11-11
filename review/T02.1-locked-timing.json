@@ -1,0 +1,156 @@
+{
+  "id": "T02.1",
+  "title": "The invariant you can't see — a guided introduction, puzzle, examples and conclusion",
+  "voice": "af_heart",
+  "speed": 1.02,
+  "duration_seconds": 212.926,
+  "segments": [
+    {
+      "index": 1,
+      "text": "Today we're learning one of the most useful ideas in difficult maths puzzles: an invariant. That's the name for a quantity that stays fixed even when other things change. Sometimes it's a total. Sometimes it's a difference. And sometimes it's something less obvious.",
+      "start_seconds": 0,
+      "duration_seconds": 15.835,
+      "pause_after": 0.42
+    },
+    {
+      "index": 2,
+      "text": "Why does that matter? Imagine a game with so many legal moves that you could spend all afternoon trying different routes. You don't need to test every path. If every move preserves one mathematical fact, that fact can tell you when a target is impossible.",
+      "start_seconds": 16.255,
+      "duration_seconds": 14.679,
+      "pause_after": 0.45
+    },
+    {
+      "index": 3,
+      "text": "Here's what we'll do. We'll begin with a puzzle, watch one legal move, and discover what stays the same. We'll then change the rules, work through two examples, and prove why our shortcuts really work. Finally, you'll try an invariant question for yourself.",
+      "start_seconds": 31.384,
+      "duration_seconds": 15.115,
+      "pause_after": 0.56
+    },
+    {
+      "index": 4,
+      "text": "Let's begin. One pile has five gold counters. The other has seven blue counters. You may transfer counters between the piles, as often as you like. Could you ever finish with ten counters in each pile?",
+      "start_seconds": 47.059,
+      "duration_seconds": 12.21,
+      "pause_after": 0.4
+    },
+    {
+      "index": 5,
+      "text": "Before you try dozens of moves, ask a better question. Is there something that no legal move can change?",
+      "start_seconds": 59.669,
+      "duration_seconds": 6.126,
+      "pause_after": 0.28
+    },
+    {
+      "index": 6,
+      "text": "Watch closely. Move two blue counters to the gold pile. Now there are seven on the left and five on the right. The picture has changed, but the total is still twelve.",
+      "start_seconds": 66.075,
+      "duration_seconds": 10.184,
+      "pause_after": 0.34
+    },
+    {
+      "index": 7,
+      "text": "Every transfer takes some counters away from one pile and adds exactly that many to the other. Nothing is created. Nothing disappears.",
+      "start_seconds": 76.599,
+      "duration_seconds": 8.451,
+      "pause_after": 0.25
+    },
+    {
+      "index": 8,
+      "text": "So ten and ten is impossible. That would require twenty counters, and we have only twelve. Six and six, however, is possible.",
+      "start_seconds": 85.3,
+      "duration_seconds": 8.018,
+      "pause_after": 0.42
+    },
+    {
+      "index": 9,
+      "text": "A quantity that remains unchanged after every permitted move is called an invariant. Here, the invariant is the total number of counters.",
+      "start_seconds": 93.738,
+      "duration_seconds": 8.492,
+      "pause_after": 0.48
+    },
+    {
+      "index": 10,
+      "text": "But here's the twist. Change the rule. Each move now adds two brand-new counters to both piles. What stays fixed this time?",
+      "start_seconds": 102.71,
+      "duration_seconds": 7.768,
+      "pause_after": 0.33
+    },
+    {
+      "index": 11,
+      "text": "The total is growing, by four with every move. So the total is no longer an invariant. Look at the difference between the two piles instead.",
+      "start_seconds": 110.808,
+      "duration_seconds": 8.484,
+      "pause_after": 0.26
+    },
+    {
+      "index": 12,
+      "text": "We begin with five and seven: a gap of two. Add two to each and we get seven and nine. Add two again, and we get nine and eleven. The gap is always two.",
+      "start_seconds": 119.552,
+      "duration_seconds": 9.735,
+      "pause_after": 0.33
+    },
+    {
+      "index": 13,
+      "text": "Let's prove this, rather than just spot a pattern. Call the two pile sizes A and B. After a move, their sizes are A plus two and B plus two.",
+      "start_seconds": 129.617,
+      "duration_seconds": 8.552,
+      "pause_after": 0.25
+    },
+    {
+      "index": 14,
+      "text": "Now subtract the new sizes. The positive two and negative two cancel perfectly. We are left with A minus B. So the difference cannot change.",
+      "start_seconds": 138.419,
+      "duration_seconds": 9.152,
+      "pause_after": 0.36
+    },
+    {
+      "index": 15,
+      "text": "Go back to transferring counters. If the first pile loses t and the second gains t, the total becomes A minus t, plus B plus t. Again, the changes cancel.",
+      "start_seconds": 147.931,
+      "duration_seconds": 10.995,
+      "pause_after": 0.37
+    },
+    {
+      "index": 16,
+      "text": "Here's the important trap. Moving counters preserves the total, but not usually the difference. Adding the same number to both preserves their difference, but changes the total.",
+      "start_seconds": 159.296,
+      "duration_seconds": 10.285,
+      "pause_after": 0.44
+    },
+    {
+      "index": 17,
+      "text": "Try one yourself. Start with four counters in one pile and nine in the other. Each move adds two counters to both. Could you reach eighteen and twenty-three?",
+      "start_seconds": 170.021,
+      "duration_seconds": 9.244,
+      "pause_after": 0.34
+    },
+    {
+      "index": 18,
+      "text": "Yes. The difference starts at five and ends at five. Exactly seven moves add fourteen counters to each pile. Both target numbers work.",
+      "start_seconds": 179.605,
+      "duration_seconds": 8.56,
+      "pause_after": 0.3
+    },
+    {
+      "index": 19,
+      "text": "But could you reach eighteen and twenty-two? No. Their difference is four, not five. The invariant rules that out instantly.",
+      "start_seconds": 188.465,
+      "duration_seconds": 7.51,
+      "pause_after": 0.44
+    },
+    {
+      "index": 20,
+      "text": "This is the power of an invariant. You don't need to simulate a hundred moves. Examine one move, identify what cancels, and use that to reason about every move.",
+      "start_seconds": 196.415,
+      "duration_seconds": 10.01,
+      "pause_after": 0.5
+    },
+    {
+      "index": 21,
+      "text": "Pause here. Draw one move in your notebook, and write a single equation showing what remains unchanged.",
+      "start_seconds": 206.925,
+      "duration_seconds": 6.001,
+      "pause_after": 0
+    }
+  ]
+}
