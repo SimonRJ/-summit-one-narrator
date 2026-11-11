@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - ".github/workflows/t012-george-preview.yml"
+      - "postproduction/karaoke_captions.py"
   workflow_dispatch:
 
 permissions:
