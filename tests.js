@@ -141,8 +141,12 @@ function renderResults(score,rows,award,auto,maxScore=135){
   const unanswered=rows.filter(r=>r.response===null||r.response===undefined||r.response==="").length;
   const timeSeconds=Math.max(0,Math.round((new Date(sitting.submitted_at||Date.now()).getTime()-new Date(sitting.started_at).getTime())/1000));
   const timeUsed=`${Math.floor(timeSeconds/60)}:${String(timeSeconds%60).padStart(2,"0")}`;
-  const sectionDefs=maxScore===135?[[1,10,"Questions 1–10"],[11,20,"Questions 11–20"],[21,30,"Questions 21–30"]]:[[1,7,"Section 1"],[8,13,"Section 2"],[14,18,"Section 3"],[19,23,"Section 4"]];
+  const sectionDefs=maxScore===135?[[1,10,"Questions 1–10"],[11,20,"Questions 11–20"],[21,25,"Questions 21–25"],[26,30,"Final five · Q26–Q30"]]:[[1,7,"Section 1"],[8,13,"Section 2"],[14,18,"Section 3"],[19,23,"Section 4"]];
   const sectionStats=sectionDefs.map(([a,b,label])=>{const rr=rows.filter(r=>r.question_number>=a&&r.question_number<=b);return{label,earned:rr.reduce((s,r)=>s+r.earned,0),max:rr.reduce((s,r)=>s+r.marks,0),correct:rr.filter(r=>r.correct).length,count:rr.length}});
+  const finalFive=maxScore===135?rows.filter(r=>r.question_number>=26&&r.question_number<=30):[];
+  const finalFiveCorrect=finalFive.filter(r=>r.correct).length;
+  const finalFiveEarned=finalFive.reduce((s,r)=>s+r.earned,0);
+  const finalFiveMax=finalFive.reduce((s,r)=>s+r.marks,0);
 
   const awardNote=maxScore===135
     ? (award.estimated
@@ -152,7 +156,7 @@ function renderResults(score,rows,award,auto,maxScore=135){
   const courseSlot=sitting?.metadata?.course_mode===true?Number(sitting?.metadata?.course_slot||0):0;
   app.innerHTML=`<section class="panel result-hero"><div class="eyebrow">${auto?"TIME EXPIRED · ":""}PAPER COMPLETE</div><div class="score-big">${score}<span class="muted" style="font-size:.25em"> / ${maxScore}</span></div><div class="award-badge">${esc(award.label||"Practice paper complete")}</div><p class="estimate-note">${awardNote}</p></section>
   <section class="profile-grid" style="margin-top:18px"><div class="panel profile-stat"><b>${correctCount}</b><span>questions correct</span></div><div class="panel profile-stat"><b>${unanswered}</b><span>unanswered</span></div><div class="panel profile-stat"><b>${timeUsed}</b><span>time used</span></div><div class="panel profile-stat"><b>${Math.round(score/maxScore*100)}%</b><span>raw mark percentage</span></div></section>
-  <section class="panel result-card"><h2>Paper sections</h2><table class="result-table"><thead><tr><th>Section</th><th>Correct</th><th>Marks</th></tr></thead><tbody>${sectionStats.map(s=>`<tr><td>${esc(s.label)}</td><td>${s.correct} / ${s.count}</td><td>${s.earned} / ${s.max}</td></tr>`).join("")}</tbody></table></section>
+  <section class="panel result-card"><h2>Paper sections</h2>${maxScore===135?`<div class="final-five-result"><div><span class="eyebrow">AMC FINAL FIVE</span><b>${finalFiveCorrect} / 5 correct</b></div><div><span class="muted">Q26–Q30 marks</span><b>${finalFiveEarned} / ${finalFiveMax}</b></div></div>`:""}<table class="result-table"><thead><tr><th>Section</th><th>Correct</th><th>Marks</th></tr></thead><tbody>${sectionStats.map(s=>`<tr><td>${esc(s.label)}</td><td>${s.correct} / ${s.count}</td><td>${s.earned} / ${s.max}</td></tr>`).join("")}</tbody></table></section>
   <section class="panel result-card"><h2>Question-by-question results</h2><table class="result-table"><thead><tr><th>Q</th><th>Your answer</th><th>Result</th><th>Marks</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${r.question_number}</td><td>${esc(r.response??"—")}</td><td class="${r.correct?"ok":"bad"}">${r.correct?"Correct":"Incorrect"}</td><td>${r.earned} / ${r.marks}</td></tr>`).join("")}</tbody></table></section>
   <section class="panel result-card"><h2>Review each problem</h2>${rows.map(r=>`<details class="question-review"><summary>Question ${r.question_number} · ${r.correct?"✓ Correct":"Review"} · ${r.earned}/${r.marks}</summary><p><b>Problem</b><br>${esc(r.stem)}</p><p><b>Your answer:</b> ${esc(r.response??"—")}<br><b>Correct answer:</b> ${esc(typeof r.correct_answer==="object"?JSON.stringify(r.correct_answer):r.correct_answer)}</p>${r.explanation?`<p><b>Worked explanation</b><br>${esc(r.explanation)}</p>`:""}</details>`).join("")}
   <div class="complete-row"><a class="secondary" href="./">Return to Summit One</a>${courseSlot?`<button id="completeCourseMock" class="primary">Complete Course Session ${courseSlot}</button>`:`<button id="backTests" class="primary">Test Centre</button>`}</div></section>`;
