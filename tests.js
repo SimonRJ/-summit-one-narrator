@@ -79,7 +79,7 @@ function renderExam(){
   const q=questions[qIndex];if(!q)return;
   app.innerHTML=`<section class="exam-shell">
   <aside class="panel exam-sidebar"><div class="eyebrow">TIME REMAINING</div><div id="timer" class="timer">60:00</div><div class="qnav">${questions.map((x,i)=>`<button data-q="${i}" class="${i===qIndex?"current":""} ${responses[x.question_number]!==undefined?"answered":""}">${x.question_number}</button>`).join("")}</div><button id="finish" class="danger" style="width:100%;margin-top:15px">Finish paper</button></aside>
-  <article class="panel exam-main"><div class="qhead"><div class="qnum">QUESTION ${q.question_number} / ${questions.length}</div><div class="marks">${q.marks} mark${q.marks===1?"":"s"}</div></div><div class="stem">${esc(q.stem)}</div><div id="answerArea"></div>
+  <article class="panel exam-main"><div class="qhead"><div class="qnum">QUESTION ${q.question_number} / ${questions.length}</div><div class="marks">${q.marks} mark${q.marks===1?"":"s"}</div></div><div class="stem">${esc(q.stem)}</div>${q.image_ref?`<div class="exam-visual">${q.image_ref}</div>`:""}<div id="answerArea"></div>
   <div class="exam-actions"><button id="prev" class="ghost" ${qIndex===0?"disabled":""}>Previous</button><button id="next" class="primary">${qIndex===questions.length-1?"Review menu":"Next"}</button></div></article></section>`;
   renderAnswer(q);
   document.querySelectorAll("[data-q]").forEach(b=>b.onclick=()=>{qIndex=Number(b.dataset.q);renderExam()});
@@ -91,7 +91,7 @@ function renderAnswer(q){
   const area=document.getElementById("answerArea"),saved=responses[q.question_number];
   if(q.question_type==="multiple_choice"){
     const choices=Array.isArray(q.choices)?q.choices:[];
-    area.innerHTML='<div class="choices">'+choices.map((c,i)=>`<button class="choice ${saved===String.fromCharCode(65+i)?"selected":""}" data-choice="${String.fromCharCode(65+i)}"><span class="choice-letter">${String.fromCharCode(65+i)}</span><span>${esc(typeof c==="string"?c:c.text||"")}</span></button>`).join("")+'</div>';
+    area.innerHTML='<div class="choices">'+choices.map((c,i)=>`<button class="choice ${saved===String.fromCharCode(65+i)?"selected":""}" data-choice="${String.fromCharCode(65+i)}"><span class="choice-letter">${String.fromCharCode(65+i)}</span><span class="choice-content">${typeof c==="string"?esc(c):`${c.visual_html||""}${c.text?`<span>${esc(c.text)}</span>`:""}`}</span></button>`).join("")+'</div>';
     area.querySelectorAll("[data-choice]").forEach(b=>b.onclick=async()=>{responses[q.question_number]=b.dataset.choice;await persistResponses();renderExam()});
   }else{
     const typed=typedInteger[q.question_number]??(saved??"");
