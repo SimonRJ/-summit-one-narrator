@@ -24,6 +24,7 @@ function splitSentences(text){
 }
 function motifKind(text){
   const s=text.toLowerCase();
+  if(/facing page|next page|maths book|page numbers/.test(s))return"book";
   if(/area|perimeter|triangle|square|polygon|geometry|angle/.test(s))return"geometry";
   if(/grid|path|route|coordinate|row|column|table/.test(s))return"grid";
   if(/ratio|fraction|percentage|rate|average|part|whole/.test(s))return"bars";
@@ -32,6 +33,7 @@ function motifKind(text){
   return"network";
 }
 function motifSvg(kind){
+  if(kind==="book")return `<svg viewBox="0 0 360 210" aria-hidden="true"><path d="M42 52Q96 34 168 58V178Q100 154 42 172Z"/><path d="M318 52Q264 34 192 58V178Q260 154 318 172Z"/><path class="accent" d="M180 58V180"/><path class="thin" d="M66 78Q111 68 151 79M66 100Q111 90 151 101M209 79Q252 68 294 78M209 101Q252 90 294 100"/><text x="132" y="146">158</text><text x="228" y="146">159</text><path class="accent" d="M275 155Q312 133 306 95"/><path d="M294 91l13 4-4 13" class="accent"/></svg>`;
   if(kind==="geometry")return `<svg viewBox="0 0 360 210" aria-hidden="true"><rect x="70" y="25" width="210" height="160" rx="5"/><path d="M70 25L175 105L280 25M70 185L175 105L280 185"/><circle cx="175" cy="105" r="7"/><path class="accent" d="M70 25L175 105L70 185Z"/></svg>`;
   if(kind==="grid")return `<svg viewBox="0 0 360 210" aria-hidden="true"><g class="thin">${Array.from({length:7},(_,i)=>`<path d="M60 ${30+i*25}H310"/>`).join("")}${Array.from({length:11},(_,i)=>`<path d="M${60+i*25} 30V180"/>`).join("")}</g><path class="accent" d="M60 180H110V155H160V130H210V105H260V80H310"/><circle cx="60" cy="180" r="7"/><circle cx="310" cy="80" r="7"/></svg>`;
   if(kind==="bars")return `<svg viewBox="0 0 360 210" aria-hidden="true"><rect x="55" y="55" width="250" height="35" rx="8"/><rect class="accent" x="55" y="55" width="100" height="35" rx="8"/><rect x="55" y="125" width="190" height="35" rx="8"/><path class="thin" d="M105 50V95M155 50V95M205 50V95M255 50V95"/></svg>`;
