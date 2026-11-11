@@ -67,12 +67,21 @@ def align(words,audio):
         return {'method':'speech-segment-duration fallback','error':str(e),'matched_original_words':0,'match_percent':0}
 
 def phrase_groups(words):
+    # Make sentence-aware, breath-length captions; don't strand articles at
+    # line ends and don't force children to read two unrelated sentences at once.
     groups=[];cur=[];currentseg=None
+    unhelpful_end={'a','an','the','to','in','with','from','and','or','of','for','but','is'}
     for i,w in enumerate(words):
         maybe=' '.join(words[k]['text'] for k in cur+[i])
-        if cur and (w['segment']!=currentseg or len(maybe)>53 or len(cur)>=10):
-            groups.append(cur);cur=[]
+        if cur and (w['segment']!=currentseg or len(maybe)>55 or len(cur)>=10):
+            carry=[]
+            if w['segment']==currentseg and len(cur)>2 and wordnorm(words[cur[-1]]['text']) in unhelpful_end:
+                carry=[cur.pop()]
+            if cur:groups.append(cur)
+            cur=carry
         cur.append(i);currentseg=w['segment']
+        if len(cur)>=3 and w['text'].endswith(('.', '?', '!')):
+            groups.append(cur);cur=[]
     if cur:groups.append(cur)
     return groups
 
