@@ -269,8 +269,9 @@ function renderChallenge(el,s,p,mode){
       const {data:d,error:solutionError}=await supabase.functions.invoke("get-problem-solution",{body:{problem_id:p.id,session_number:s.slot}});
       if(solutionError)throw solutionError;
       if(d?.error)throw new Error(d.error);
-      const transcript=d.solution_text||d.spoken_script||"Solution unavailable.";
-      solution.hidden=false;solution.innerHTML=`<b>Compare reasoning</b><div id="solutionPlayer-${p.id.replace(/[^A-Za-z0-9]/g,"_")}"></div><details style="margin-top:12px"><summary>Read full worked solution</summary><p class="math-copy">${esc(transcript)}</p></details>`;
+      const transcript=d.spoken_script||d.solution_text||"Solution unavailable.";
+      const writtenSolution=d.solution_text||transcript;
+      solution.hidden=false;solution.innerHTML=`<b>Compare reasoning</b><div id="solutionPlayer-${p.id.replace(/[^A-Za-z0-9]/g,"_")}"></div><details style="margin-top:12px"><summary>Read full worked solution</summary><p class="math-copy">${esc(writtenSolution)}</p></details>`;
       const protectedAudio="";
       mountNarratedPlayer(document.getElementById("solutionPlayer-"+p.id.replace(/[^A-Za-z0-9]/g,"_")),{
         title:p.title||p.id,
