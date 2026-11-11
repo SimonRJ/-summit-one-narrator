@@ -1,5 +1,5 @@
-const CACHE="summit-one-v8";
-const STATIC=["./","./index.html","./main.css?v=2","./app-main.js?v=2","./lesson-player.js","./problem-figures.js","./login.html","./login.js","./supabase-client.js","./tests.html","./tests.js?v=2","./exam.css?v=2","./manifest.webmanifest","./icon.svg","./robots.txt","./data/sessions-372.json","./data/teaching-72.json","./data/mawa-investigations-20.json","./data/rossmoyne-h23.json","./data/taxonomy-52.json","./data/amc-awards.json","./data/milestones.json"];
+const CACHE="summit-one-v9";
+const STATIC=["./","./index.html","./main.css?v=2","./app-main.js?v=3","./lesson-player.js","./problem-figures.js","./login.html","./login.js","./supabase-client.js","./tests.html","./tests.js?v=2","./exam.css?v=2","./manifest.webmanifest","./icon.svg","./robots.txt","./data/sessions-372.json","./data/teaching-72.json","./data/mawa-investigations-20.json","./data/rossmoyne-h23.json","./data/taxonomy-52.json","./data/amc-awards.json","./data/milestones.json"];
 self.addEventListener("install",e=>{self.skipWaiting();e.waitUntil(caches.open(CACHE).then(c=>c.addAll(STATIC).catch(()=>{})))});
 self.addEventListener("activate",e=>e.waitUntil(Promise.all([caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))),self.clients.claim()])));
 self.addEventListener("fetch",e=>{
