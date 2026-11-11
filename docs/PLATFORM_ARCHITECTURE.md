@@ -19,34 +19,25 @@ The platform should combine reading mathematics, writing mathematics, seeing mat
 - Do not place the full video library directly in the Pages site because Pages has site-size and bandwidth limits.
 
 ### Large media
-- Store final high-quality MP4 narration videos, large PDFs and other binary media as GitHub Release assets.
-- Use stable release URLs in the deploy registry.
-- One release can contain up to 1000 assets; all 266 course videos fit within one media release if desired.
-- Keep each individual asset under GitHub's release-asset size limit.
+- Public-safe teaching and original authored final MP4s may be stored as GitHub Release assets.
+- Authentic AMC visual media must never be published to the public repository or a public GitHub Release. Store those MP4s in the private Supabase Storage bucket `summit-one-protected-video`.
+- The authenticated solution Edge Function may issue a short-lived signed URL for an AMC MP4 only after confirming a recorded independent attempt.
+- Use stable release URLs for public-safe media and signed URLs for protected media.
 - Preserve high-quality source/master archives separately in the AMC Training Library.
+- The release packager must fail if any `A001`–`A152` file is found in a public bundle.
 
 ### Authentication and progress
-Use Firebase Authentication + Cloud Firestore for the small amount of per-student state.
+Use Supabase Auth/Postgres for learner authentication, immutable session evidence, problem attempts, exam sittings, progress and protected-content gating.
 
-Student-facing login should present:
+Student-facing login presents:
 - learner name / alias
 - PIN/password
 
-Implementation may use a synthetic private email identifier behind the interface so the child does not need to understand email authentication.
+The browser uses only the publishable client credential. Service-role credentials remain server-side in Supabase Edge Functions or protected CI secrets and must never be committed to the public repository.
 
-Do not put real child names, school details or sensitive data in public GitHub source.
+Public student-facing database views use `security_invoker=true` and expose only safe columns. Answer/solution columns are not granted to the browser role. Challenge solutions are returned by authenticated Edge Functions only after the server verifies an independent attempt.
 
-Firestore stores only progress/state, not videos.
-
-Suggested collections:
-- users/{uid}
-- users/{uid}/sessions/{sessionId}
-- users/{uid}/attempts/{attemptId}
-- users/{uid}/exams/{examId}
-- users/{uid}/mastery/{skillId}
-- users/{uid}/rewards/{rewardId}
-
-Progress must sync across devices.
+Progress syncs across devices through Supabase. Completed session records remain immutable. Video-view evidence is stored separately from independent mathematical evidence.
 
 ## Course structure
 
