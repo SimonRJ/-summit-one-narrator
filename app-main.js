@@ -15,9 +15,10 @@ const hash=s=>{let h=2166136261;for(const c of String(s)){h^=c.charCodeAt(0);h=M
 const normalize=s=>String(s??"").toLowerCase().replace(/\s+/g,"").replace(/[×·]/g,"*").replace(/[²]/g,"^2").replace(/[³]/g,"^3").replace(/[.,;:]$/g,"");
 const rankNames=["Pathfinder","Pattern Scout","Model Builder","Logic Ranger","Number Navigator","Geometry Pilot","Counting Specialist","Invariant Hunter","Transfer Thinker","Proof Builder","Problem Solver","Strategy Captain","Olympiad Explorer","Insight Engineer","Reasoning Commander","AMC Specialist","MAWA Specialist","Rossmoyne Specialist","Summit Elite","135 Master"];
 function finalVideoUrl(videoId){
-  // Authentic AMC archive material remains protected and is never exposed as a public release asset.
-  if(/^A\d{3}$/.test(String(videoId||"")))return "";
-  return `https://github.com/SimonRJ/-summit-one-narrator/releases/download/summit-one-video-v1/${encodeURIComponent(videoId)}.mp4`;
+  const id=String(videoId||"");
+  // Only concept/worked-example T videos are public. Every challenge solution is attempt-gated.
+  if(!/^T\d{2}\.(?:1|2|3|E)$/.test(id))return "";
+  return `https://github.com/SimonRJ/-summit-one-narrator/releases/download/summit-one-video-v1/${encodeURIComponent(id)}.mp4`;
 }
 async function recordVideoEvidence(sessionNumber,videoId,kind,detail={}){
   if(!sessionNumber||!videoId)return;
