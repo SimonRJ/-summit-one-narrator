@@ -91,6 +91,8 @@ function renderHome(){
   const s=courseSession(),done=progress.completed_sessions||0,amc=nextSlot("AMC MOCK"),mawa=nextSlot("MAWA");
   const nextPractice=course.find(x=>x.slot>done&&(x.type==="AMC MOCK"||x.type==="ROSSMOYNE MOCK"));
   const practiceGap=nextPractice?nextPractice.slot-done:null;
+  const milestone=done<152?{target:152,label:"2027 AMC readiness"}:done<176?{target:176,label:"MAWA application readiness"}:done<360?{target:360,label:"2028 AMC readiness"}:{target:372,label:"Rossmoyne capstone"};
+  const milestoneDone=Math.min(done,milestone.target);
   app.innerHTML=`
   <section class="dashboard-grid">
     <article class="panel mission-card">
@@ -105,7 +107,8 @@ function renderHome(){
     <aside class="side-stack">
       <article class="panel stat-card"><div class="eyebrow">COURSE PROGRESS</div><div class="stat-value">${done} / 372</div><div class="progress-track"><div class="progress-fill" style="width:${overall().toFixed(2)}%"></div></div><div class="stat-label">${overall().toFixed(1)}% complete · Rank ${currentRank()} / 20</div></article>
       <article class="panel stat-card"><div class="eyebrow">NEXT PRACTICE EXAM</div><div class="stat-value">${practiceGap??"—"}</div><div class="stat-label">${nextPractice?`${esc(nextPractice.type)} · Session ${nextPractice.slot}`:"All scheduled mocks complete"}</div></article>
-      <article class="panel stat-card"><div class="eyebrow">NEXT MAWA INVESTIGATION</div><div class="stat-value">${mawa??"—"}</div><div class="stat-label">completed session${mawa===1?"":"s"} away</div></article>
+      <article class="panel stat-card"><div class="eyebrow">NEXT MAWA INVESTIGATION</div><div class="stat-value">${mawa??"—"}</div><div class="stat-label">${mawa===1?"Next session":mawa===null?"All scheduled investigations complete":mawa+" completed sessions away"}</div></article>
+      <article class="panel stat-card"><div class="eyebrow">CURRENT MILESTONE</div><div class="stat-value">${milestoneDone} / ${milestone.target}</div><div class="progress-track"><div class="progress-fill" style="width:${(milestoneDone/milestone.target*100).toFixed(1)}%"></div></div><div class="stat-label">${esc(milestone.label)}</div></article>
     </aside>
   </section>
   <p class="footer-note">The course follows the canonical 372-session Summit One plan: 283 teaching/transfer sessions, 53 MAWA investigations, 25 AMC mock positions and 11 Rossmoyne-style mock positions. Full authentic AMC papers live separately in the Test Centre and never replace the teaching sequence.</p>`;
