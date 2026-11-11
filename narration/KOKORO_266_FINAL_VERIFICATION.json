@@ -1,0 +1,24 @@
+{
+  "verified_at": "2026-11-11",
+  "model": "Kokoro 82M ONNX",
+  "voice": "af_heart",
+  "generation_speed": 0.88,
+  "sample_rate_hz": 24000,
+  "channels": 1,
+  "pcm_bits": 16,
+  "original_run_id": 42934308384,
+  "replacement_run_id": 42937625178,
+  "original_verified_count": 175,
+  "replacement_verified_count": 91,
+  "verified_video_count": 266,
+  "verified_unique_video_count": 266,
+  "cross_set_overlap": [],
+  "all_266_verified": true,
+  "verification_rules": [
+    "zero synthesis failures in Kokoro manifests",
+    "unique video ID",
+    "24 kHz mono 16-bit PCM WAV",
+    "non-empty and non-silent audio",
+    "manifest duration agrees with WAV duration"
+  ]
+}
