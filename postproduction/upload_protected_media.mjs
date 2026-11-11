@@ -3,12 +3,12 @@ import path from 'node:path';
 import { createClient } from '@supabase/supabase-js';
 
 const root=process.argv[2];
-if(!root) throw new Error('Usage: node upload_protected_media.mjs <protected_amc_dir>');
+if(!root) throw new Error('Usage: node upload_protected_media.mjs <protected_challenge_dir>');
 const url=process.env.SUPABASE_URL, key=process.env.SUPABASE_SERVICE_ROLE_KEY;
 if(!url||!key) throw new Error('SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY are required');
 const bucket=process.env.PROTECTED_VIDEO_BUCKET||'summit-one-protected-video';
 const ids=fs.readdirSync(root).filter(f=>f.endsWith('.mp4')).map(f=>f.replace(/\.mp4$/,''));
-if(!ids.length) throw new Error('No protected AMC MP4s found');
+if(!ids.length) throw new Error('No protected challenge MP4s found');
 for(const id of ids){if(!/^A\d{3}$/.test(id))throw new Error(`SAFETY: non-AMC file in protected upload set: ${id}`)}
 const sb=createClient(url,key,{auth:{persistSession:false,autoRefreshToken:false}});
 let ok=0;
