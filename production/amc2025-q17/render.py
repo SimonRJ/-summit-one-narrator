@@ -24,10 +24,11 @@ def text(im,s,x,y,size=36,color=WHITE,style='math',a=1):
 def line(im,pts,color=WHITE,width=1.4,a=1):
  if a>0:ImageDraw.Draw(im).line([(round(x*S),round(y*S)) for x,y in pts],fill=rgb(color,a),width=max(1,round(width*S)),joint='curve')
 def box(im,x,y,v='',color=WHITE,a=1,fill=None):
- d=ImageDraw.Draw(im);r=SIZE/2
+ if a<=0:return
+ d=ImageDraw.Draw(im,'RGBA');r=SIZE/2
  rect=[round(z*S) for z in [x-r,y-r,x+r,y+r]]
- if fill:d.rectangle(rect,fill=rgb(fill,a*.12))
- d.rectangle(rect,outline=rgb(color,a),width=round(1.3*S))
+ if fill:d.rectangle(rect,fill=(*rgb(fill),round(a*.12*255)))
+ d.rectangle(rect,outline=(*rgb(color),round(a*255)),width=round(1.3*S))
  if v!='':text(im,v,x,y,44,color,a=a)
 def bezier(p0,p1,u,lift=30):
  return (lerp(p0[0],p1[0],u),lerp(p0[1],p1[1],u)-4*u*(1-u)*lift)
@@ -103,8 +104,9 @@ def frame(t):
    q=anim(t,st+.05+j*.13,max(.6,(en-st)*.45))
    if q<1:flight(im,'c',(X[j+1],380),(640+(j-1)*30,250),q,BLUE,27,lift=10)
   q=anim(t,cue(i,'three times'),.4)
-  expression(im,['c','c','c'],640,250,a=1-q)
-  text(im,'3c',640,250,44,GOLD,'italic',q)
+  expression(im,['c','c','c'],640,250,a=max(0,1-2*q))
+  text(im,'3c',640,250,44,GOLD,'italic',max(0,2*q-1))
+  text(im,'centre’s share',825,250,18,DIM,'sans')
   weights(im,alpha=[0,0,q,0,0])
  elif i==4:
   heading(im,'Count every position’s contributions.')
@@ -131,8 +133,8 @@ def frame(t):
   q=anim(t,cue(i,'in a position'),1.4)
   flight(im,'5',(480,345),(800,345),q,BLUE,54,lift=90)
   flight(im,'1',(800,345),(480,345),q,BLUE,54,lift=-90)
-  text(im,'5 × 1 + 1 × 3 = 8',640,555,38,WHITE,a=1-q)
-  text(im,'1 × 1 + 5 × 3 = 16',640,555,38,WHITE,a=q)
+  text(im,'5 × 1 + 1 × 3 = 8',640,555,38,WHITE,a=max(0,1-2*q))
+  text(im,'1 × 1 + 5 × 3 = 16',640,555,38,WHITE,a=max(0,2*q-1))
   text(im,'Same two numbers. A larger total.',640,638,27,GOLD,a=anim(t,cue(i,'That is why'),.6))
  elif i==7:
   heading(im,'Now add upwards.')

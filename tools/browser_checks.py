@@ -84,7 +84,7 @@ async def main():
   await page.locator('[data-solution="17"]').click()
   assert await page.locator('#solution-17').get_attribute('open') is not None
   assert 'watch-amc-2025-q17.html' in await page.locator('#solution-17 .solution-video-link').get_attribute('href')
-  await page.screenshot(path=str(ROOT/'docs/exam-results.png'),full_page=True)
+  await page.evaluate('window.scrollTo(0,0)');await page.screenshot(path=str(ROOT/'docs/exam-results.png'),full_page=True)
   await page.set_viewport_size({'width':390,'height':844})
   assert await page.evaluate('document.documentElement.scrollWidth<=innerWidth+1')
   assert not errors,errors

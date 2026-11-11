@@ -108,8 +108,11 @@ function examFrame(content,overview=false){
   document.querySelectorAll("[data-q]").forEach(b=>b.onclick=()=>{if(finishing)return;qIndex=Number(b.dataset.q);renderExam()});
   document.getElementById("overview").onclick=()=>{if(!finishing)renderOverview()};
   document.getElementById("finish").onclick=()=>{if(!finishing)renderOverview(true)};
+  window.scrollTo({top:0,behavior:"instant"});
+  const current=document.querySelector("#questionMenu .qnav .current"),sidebar=document.querySelector(".exam-sidebar");
+  if(current&&innerWidth>760)sidebar.scrollTop=Math.max(0,current.offsetTop-sidebar.clientHeight/2);
 }
-function timerHTML(){return `<div class="time-box"><span>Time remaining</span><b id="timer" class="timer">${timeRemaining()}</b></div>`}
+function timerHTML(){return `<div class="time-box"><span>Time remaining</span><b id="timer" class="timer" aria-live="off">${timeRemaining()}</b></div>`}
 function renderOverview(ending=false){
   const unsaved=Object.keys(typedInteger).filter(k=>String(typedInteger[k])!==String(responses[k]??""));
   examFrame(`<div class="qhead"><h1>${ending?"End competition":esc(activeExam.title)}</h1>${timerHTML()}</div>
