@@ -57,6 +57,8 @@ def main():
             'passes_audio':bool(q.get('passes_audio')),
         }
         if not all(checks.values()): raise SystemExit(f'QA failed for {vid}: {checks}')
+        if q.get('requires_manual_review'):
+            raise SystemExit(f'Manual review required before release: {vid}')
         destdir=pub if cls=='public_safe' else prot
         destmp4=destdir/f'{vid}.mp4'
         link_or_copy(mp4,destmp4)
