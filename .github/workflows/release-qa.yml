@@ -57,6 +57,8 @@ jobs:
           if(mawa.items.length!==20)fail("MAWA source bank count invalid");
           if(ross.items.length!==23)fail("Rossmoyne H-map invalid");
           if(!awards.practice_estimate_wa?.year5||!awards.official)fail("Award config invalid");
+          const thresholds=Array.from({length:20},(_,i)=>Math.ceil(372*(i+1)/20));
+          if(thresholds[0]!==19||thresholds.at(-1)!==372)fail("Rank thresholds invalid");
           console.log("Canonical invariants passed.");
           NODE
       - name: Public-content safety
