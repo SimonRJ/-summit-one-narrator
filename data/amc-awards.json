@@ -11,26 +11,25 @@
     "note": "Official raw-score cutoffs vary by year and region. The app must use paper-year WA cutoffs when verified; otherwise label the result as an estimate."
   },
   "practice_estimate_wa": {
-    "label": "WA practice estimate — not an official AMT cutoff",
+    "label": "WA practice reference — based on published 2025 WA cutoffs, not a guarantee for another paper/year",
+    "reference_year": 2025,
     "year5": {
-      "participation": 0,
       "proficiency": 32,
-      "credit": 55,
-      "distinction": 78,
-      "high_distinction": 85,
-      "prize": 115,
+      "credit": 49,
+      "distinction": 64,
+      "high_distinction": 83,
+      "prize": 106,
       "perfect": 135
     },
     "year6": {
-      "participation": 0,
       "proficiency": 32,
-      "credit": 60,
-      "distinction": 80,
-      "high_distinction": 85,
+      "credit": 58,
+      "distinction": 73,
+      "high_distinction": 92,
       "prize": 118,
       "perfect": 135
     },
-    "rationale": "Training-only WA estimate for immediate feedback when no official paper-year WA raw cutoff is verifiable. Distinction is centred around the low 80s and High Distinction from about 85, based on the learner's prior WA result context. The UI must label this as an estimate and replace it with verified paper-year WA cutoffs whenever available."
+    "rationale": "AMT cutoffs vary by year level, paper difficulty and region. For an authored practice paper with no official cutoff, Summit One uses the published 2025 WA table only as a clearly labelled reference. A verified paper-year WA cutoff overrides it."
   },
   "historical_reference_non_wa": {
     "2024": {
@@ -66,6 +65,27 @@
         "prize": 128
       },
       "source_note": "Published reference table, not WA-specific."
+    }
+  },
+  "verified_public_wa_reference": {
+    "2025": {
+      "source": "3E Learning WA published cutoff image (third-party public copy; final award authority remains AMT)",
+      "year5": {
+        "proficiency": 32,
+        "credit": 49,
+        "distinction": 64,
+        "high_distinction": 83,
+        "prize": 106,
+        "perfect": 135
+      },
+      "year6": {
+        "proficiency": 32,
+        "credit": 58,
+        "distinction": 73,
+        "high_distinction": 92,
+        "prize": 118,
+        "perfect": 135
+      }
     }
   }
 }
