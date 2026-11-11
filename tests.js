@@ -4,6 +4,7 @@ import { supabase, currentUser, loadProgress, saveProgress, upsertSession } from
 
 const app=document.getElementById("examApp");
 let user, catalog=[], awards, activeExam=null, questions=[], sitting=null, qIndex=0, responses={}, typedInteger={}, timerHandle=null;
+let awardYear=Number(localStorage.getItem("summitSchoolYear")||5);
 const params=new URLSearchParams(location.search); const courseMode=params.get("course")==="1";
 const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
 const norm=s=>String(s??"").trim().toLowerCase().replace(/\s+/g,"").replace(/[.,;:]$/g,"");
@@ -45,6 +46,7 @@ function renderLibrary(){
   <div class="test-grid">${official.length?cards(official):`<article class="panel test-card"><div class="eyebrow">READY FOR IMPORT</div><h3>Past-paper engine is ready</h3><p class="muted">No full authentic past paper has been installed yet. The secure timer, navigation, grading and results engine is complete.</p><span class="type-chip">Awaiting first PDF</span></article>`}</div>
   <h2 style="margin-top:30px">Summit One authored mocks</h2><p class="muted">Original 135-mark papers for repeated full-format practice. These are not official AMT papers.</p><div class="test-grid">${cards(mocks)}</div>
   <p class="footer-note">AMT determines official awards by year level and region, and raw-score cutoffs vary with each paper. Authentic papers use verified WA paper-year cutoffs when available. Otherwise the results page labels the displayed band as a WA practice estimate.</p></section>`;
+  const yearSelect=document.getElementById("awardYear"); if(yearSelect)yearSelect.onchange=()=>{awardYear=Number(yearSelect.value);localStorage.setItem("summitSchoolYear",String(awardYear))};
   document.querySelectorAll(".startExam").forEach(b=>b.onclick=()=>startExam(b.dataset.id));
 }
 async function startExam(id){
@@ -55,7 +57,7 @@ async function startExam(id){
   questions=q;responses={};typedInteger={};qIndex=0;
   const start=new Date(),expires=new Date(start.getTime()+activeExam.duration_minutes*60000);
   const {data:s,error:e}=await supabase.from("exam_sittings").insert({
-    user_id:user.id,exam_id:id,exam_year:activeExam.year,started_at:start.toISOString(),expires_at:expires.toISOString(),completed:false,max_score:activeExam.max_score,responses:{},integer_save_times:{},metadata:{title:activeExam.title,student_year:activeExam.student_year,course_slot:courseMode?(activeExam.session_slot||null):null,course_mode:courseMode}
+    user_id:user.id,exam_id:id,exam_year:activeExam.year,started_at:start.toISOString(),expires_at:expires.toISOString(),completed:false,max_score:activeExam.max_score,responses:{},integer_save_times:{},metadata:{title:activeExam.title,student_year:activeExam.source_type==="authentic_past_amc"?awardYear:(activeExam.student_year||awardYear),course_slot:courseMode?(activeExam.session_slot||null):null,course_mode:courseMode}
   }).select().single();
   if(e)throw e;sitting=s;renderExam();startTimer();
 }
