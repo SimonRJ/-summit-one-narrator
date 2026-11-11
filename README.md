@@ -14,11 +14,11 @@ Private-family mathematics training application deployed with GitHub Pages and S
 - Twenty passive explorer ranks at 5% course increments.
 
 ## Platform
-- GitHub Pages: static learner interface and original authored narration media.
+- GitHub Pages: static learner interface plus public concept/worked-example media.
 - Supabase Auth/Postgres: learner login, cloud sync, protected content, attempts and exam records.
 - Supabase Edge Functions: server-side challenge grading/solution unlocks and exam grading.
 - Protected AMC archive text/answers are not stored in the public Pages branch.
-- Authentic AMC narration is generated on the signed-in learner's device and cached locally rather than published as public media.
+- Every challenge solution video is attempt-gated. Final challenge MP4s use private Supabase Storage signed URLs; if a protected final is unavailable, Kokoro is generated on the signed-in learner's device and cached locally.
 
 ## Assessment truth
 AMC Upper Primary rehearsal uses 30 questions in 60 minutes with 25 multiple-choice and 5 integer-answer questions, including explicit Save behaviour for integer responses. Summit One authored mocks are not official AMT papers. Award bands shown without a verified WA paper-year table are clearly labelled practice estimates.
@@ -29,6 +29,6 @@ Current architecture is designed to operate within free GitHub Pages/Release hos
 ## Release status
 The authenticated AMC Test Centre is live with complete 30-question / 135-mark Upper Primary papers for 2007, 2008, 2023 and 2024, alongside 25 original Summit One AMC-format mocks and 11 original Rossmoyne-style papers. A full 2025 Upper Primary paper is not installed because the current project source bank contains verified 2025 final-five material but not a recoverable complete 30-question source.
 
-The 266-video visual library is complete. Narration is now verified complete at **266/266 Kokoro tracks**, using Kokoro `af_heart` at generation speed `0.88`. The former HeyGen tracks are no longer counted as final narration. Final MP4 post-production is the active media stage. Public-safe teaching/original videos are packaged separately from authentic AMC media. Authentic AMC finished videos are stored only in the private `summit-one-protected-video` bucket and are served by short-lived signed URLs after the server has verified an independent attempt.
+The 266-video visual library is complete. Narration is now verified complete at **266/266 Kokoro tracks**, using Kokoro `af_heart` at generation speed `0.88`. The former HeyGen tracks are no longer counted as final narration. Final MP4 post-production is the active media stage. The 72 concept/worked-example videos are public-safe media. All 194 challenge-solution videos are stored only in the private `summit-one-protected-video` bucket and are served by short-lived signed URLs after the server has verified an independent attempt.
 
 Post-production tooling under `postproduction/` pairs the verified Kokoro narration with the correct visual master, preserves Kokoro pitch, applies bounded visual retiming and pitch-preserving tempo correction only when needed, produces H.264/AAC MP4s plus VTT/checksums/QA, and hard-fails if protected AMC media is placed in a public release bundle. A001 and A049 use their separately approved polished visual sources rather than the superseded archive masters.
