@@ -180,7 +180,7 @@ function renderResults(score,rows,award,auto,maxScore=135){
         summary:{focus:activeExam.title,type,exam_id:activeExam.id,score,max_score:maxScore}
       });
       const done=Math.max(p?.completed_sessions||0,courseSlot);
-      const percent=done/372*100,rank=Math.max(1,Math.min(20,Math.ceil(Math.max(.0001,percent)/5)));
+      const percent=done/372*100,rank=Math.max(Number(p?.rank||0),Math.max(0,Math.min(20,Math.floor(done*20/372))));
       await saveProgress({completed_sessions:done,current_session:Math.min(372,done+1),xp:done*100,rank,overall_percent:Number(percent.toFixed(2))});
       location.href="./";
     }catch(e){alert(e.message||"Could not complete the course session.");complete.disabled=false;complete.textContent=`Complete Course Session ${courseSlot}`}
