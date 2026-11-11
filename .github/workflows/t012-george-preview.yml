@@ -1,4 +1,4 @@
-name: T01.2 George audio export
+name: T01.2 rebuilt animation + George 0.88
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build:
@@ -16,30 +16,42 @@ jobs:
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
+
       - name: Install Kokoro
         run: npm install --prefix narration --no-audit --no-fund
-      - name: Generate full T01.2 with bm_george at 0.88
+
+      - name: Generate T01.2 narration with bm_george at 0.88
         env:
-          HF_HOME: ${{ runner.temp }}/hf-cache
+          HF_HOME: \${{ runner.temp }}/hf-cache
           NODE_OPTIONS: --max-old-space-size=6144
         run: |
           cd narration
           node --input-type=module <<'NODE'
           import fs from "node:fs";
           import { KokoroTTS } from "kokoro-js";
+
           const MODEL_ID="onnx-community/Kokoro-82M-v1.0-ONNX";
-          const VOICE="bm_george", SPEED=0.88, GAP_SECONDS=0.22;
+          const VOICE="bm_george";
+          const SPEED=0.88;
+          const GAP_SECONDS=0.22;
+
           const chunks=[
             "This section is called Choose a representation that exposes the relationship. A line is useful for order, ranks and intervals. When counting objects between two endpoints, distinguish the objects from the gaps separating them. Inclusive counting keeps both endpoints; strict counting keeps neither. For a queue described from opposite ends, first translate both descriptions into positions measured from one end. A007 is a place to practise keeping those counting conventions consistent. SEE IT Marks and the gaps between them Keeping the endpoints gives six marks.",
             "Removing both endpoints gives four marks. Measuring along the same line counts five gaps. A table is useful when several categories must be compared. Put the same kind of quantity in each column, and give the headings units. A drawing is useful when adjacency, parallel sides or a boundary matters. It should record stated facts rather than guessed measurements. An equation is useful when equal totals or repeated changes can be described compactly. Often two representations work together: the picture explains why an equation is true.",
             "Choose the smallest representation that keeps every restriction. A large drawing can hide a simple relationship; an over-short equation can hide an assumption. If you remove information, explain why it cannot affect the answer. A folded object, for instance, may require a model of which pieces remain connected. A065 rewards reading that physical structure instead of applying a rule remembered from an ordinary open book. Before moving on, open your notebook. In one sentence, name the mathematical relationship this section is making visible.",
             "Then draw the smallest model, table or example that would help you recognise the same idea in a new problem."
           ];
+
           const tts=await KokoroTTS.from_pretrained(MODEL_ID,{dtype:"q8",device:"cpu"});
-          const parts=[]; let rate=24000;
+          const parts=[];
+          let rate=24000;
+
           for(let i=0;i<chunks.length;i++){
             console.log("Generating chunk",i+1,"of",chunks.length);
             const r=await tts.generate(chunks[i],{voice:VOICE,speed:SPEED});
@@ -47,26 +59,110 @@ jobs:
             const a=r.audio??r.data;
             parts.push(a instanceof Float32Array?a:Float32Array.from(a));
           }
+
           const gapN=Math.floor(rate*GAP_SECONDS);
           const total=parts.reduce((n,a)=>n+a.length,0)+gapN*(parts.length-1);
-          const joined=new Float32Array(total); let p=0;
+          const joined=new Float32Array(total);
+          let p=0;
           parts.forEach((a,i)=>{joined.set(a,p);p+=a.length;if(i<parts.length-1)p+=gapN});
+
           const b=Buffer.alloc(44+joined.length*2);
-          b.write("RIFF",0,4,"ascii");b.writeUInt32LE(36+joined.length*2,4);b.write("WAVE",8,4,"ascii");
-          b.write("fmt ",12,4,"ascii");b.writeUInt32LE(16,16);b.writeUInt16LE(1,20);b.writeUInt16LE(1,22);
-          b.writeUInt32LE(rate,24);b.writeUInt32LE(rate*2,28);b.writeUInt16LE(2,32);b.writeUInt16LE(16,34);
-          b.write("data",36,4,"ascii");b.writeUInt32LE(joined.length*2,40);
-          let o=44;for(const s of joined){const x=Math.max(-1,Math.min(1,s));b.writeInt16LE(Math.round(x<0?x*32768:x*32767),o);o+=2}
+          b.write("RIFF",0,4,"ascii");
+          b.writeUInt32LE(36+joined.length*2,4);
+          b.write("WAVE",8,4,"ascii");
+          b.write("fmt ",12,4,"ascii");
+          b.writeUInt32LE(16,16);
+          b.writeUInt16LE(1,20);
+          b.writeUInt16LE(1,22);
+          b.writeUInt32LE(rate,24);
+          b.writeUInt32LE(rate*2,28);
+          b.writeUInt16LE(2,32);
+          b.writeUInt16LE(16,34);
+          b.write("data",36,4,"ascii");
+          b.writeUInt32LE(joined.length*2,40);
+          let o=44;
+          for(const s of joined){
+            const x=Math.max(-1,Math.min(1,s));
+            b.writeInt16LE(Math.round(x<0?x*32768:x*32767),o);
+            o+=2;
+          }
+
           fs.writeFileSync("../T01.2-bm_george.wav",b);
-          fs.writeFileSync("../T01.2-bm_george.json",JSON.stringify({video_id:"T01.2",voice:VOICE,speed:SPEED,sample_rate:rate,duration_seconds:Number((joined.length/rate).toFixed(3)),chunks:4},null,2));
-          console.log("Audio duration",joined.length/rate);
+          fs.writeFileSync("../T01.2-bm_george.json",JSON.stringify({
+            video_id:"T01.2",
+            voice:VOICE,
+            speed:SPEED,
+            sample_rate:rate,
+            duration_seconds:Number((joined.length/rate).toFixed(3)),
+            source_visual:"review/T01.2.mp4",
+            chunks:4
+          },null,2));
+          console.log("George audio duration",joined.length/rate);
           NODE
-      - name: Upload George audio
+
+      - name: Re-time the rebuilt animation to the George narration and mux
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f review/T01.2.mp4
+          test -f T01.2-bm_george.wav
+          mkdir -p media
+
+          VIDEO_DUR=$(ffprobe -v error -show_entries format=duration -of csv=p=0 review/T01.2.mp4)
+          AUDIO_DUR=$(ffprobe -v error -show_entries format=duration -of csv=p=0 T01.2-bm_george.wav)
+          FACTOR=$(python3 - <<PY
+          v=float("$VIDEO_DUR")
+          a=float("$AUDIO_DUR")
+          print(a/v)
+          PY
+          )
+
+          echo "rebuilt visual duration: $VIDEO_DUR"
+          echo "George narration duration: $AUDIO_DUR"
+          echo "visual timing scale factor: $FACTOR"
+
+          ffmpeg -y \
+            -i review/T01.2.mp4 \
+            -i T01.2-bm_george.wav \
+            -filter_complex "[0:v]setpts=PTS*$FACTOR[v]" \
+            -map "[v]" \
+            -map 1:a:0 \
+            -c:v libx264 \
+            -preset medium \
+            -crf 18 \
+            -pix_fmt yuv420p \
+            -c:a aac \
+            -b:a 160k \
+            -ar 48000 \
+            -movflags +faststart \
+            -shortest \
+            media/T01.2_George_0.88.mp4
+
+          ffprobe -v error \
+            -show_entries stream=index,codec_name,codec_type,width,height,sample_rate,channels \
+            -show_entries format=duration,size \
+            -of json media/T01.2_George_0.88.mp4
+
+      - name: Commit the rebuilt George version
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add media/T01.2_George_0.88.mp4 T01.2-bm_george.json
+          if git diff --cached --quiet; then
+            echo "No media change to commit."
+            exit 0
+          fi
+          git commit -m "Rebuild T01.2 animation with bm_george narration"
+          git push
+
+      - name: Upload verification artifact
         uses: actions/upload-artifact@v4
         with:
-          name: T01.2-bm_george-audio
+          name: T01.2-rebuilt-bm_george
           path: |
-            T01.2-bm_george.wav
+            media/T01.2_George_0.88.mp4
             T01.2-bm_george.json
           retention-days: 7
           compression-level: 0
