@@ -8,7 +8,7 @@ permissions:
   contents: read
 jobs:
   teaching:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -19,7 +19,7 @@ jobs:
           python-version: '3.12'
       - run: node tools/check_learning.mjs
       - run: pip install playwright==1.58.0
-      - run: python -m playwright install --with-deps chromium
+      - run: google-chrome --version
       - name: Browser behavior and responsive layout
         run: |
           python -m http.server 8765 > /tmp/server.log 2>&1 &

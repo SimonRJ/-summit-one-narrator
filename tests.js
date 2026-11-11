@@ -80,13 +80,25 @@ function startTimer(){
     if(left<=0){clearInterval(timerHandle);finishExam(true)}
   };tick();timerHandle=setInterval(tick,500);
 }
+function wireQuestionZoom(){
+ document.querySelectorAll('.exam-visual img').forEach(img=>{
+  const button=document.createElement('button');button.type='button';button.className='ghost question-zoom';button.textContent='Enlarge original question';img.after(button);
+  button.onclick=()=>{
+   const dialog=document.createElement('dialog');dialog.className='question-dialog';
+   const close=document.createElement('button');close.className='primary';close.textContent='Close enlarged question';
+   const copy=img.cloneNode();copy.className='enlarged-question';
+   dialog.append(close,copy);document.body.append(dialog);close.onclick=()=>dialog.close();
+   dialog.addEventListener('close',()=>dialog.remove());dialog.showModal();close.focus();
+  };
+ });
+}
 function renderExam(){
   const q=questions[qIndex];if(!q)return;
   app.innerHTML=`<section class="exam-shell">
   <aside class="panel exam-sidebar"><div class="eyebrow">TIME REMAINING</div><div id="timer" class="timer">60:00</div><div class="qnav">${questions.map((x,i)=>`<button data-q="${i}" class="${i===qIndex?"current":""} ${responses[x.question_number]!==undefined?"answered":""}">${x.question_number}</button>`).join("")}</div><button id="finish" class="danger" style="width:100%;margin-top:15px">Finish paper</button></aside>
   <article class="panel exam-main"><div class="qhead"><div class="qnum">QUESTION ${q.question_number} / ${questions.length}</div><div class="marks">${q.marks} mark${q.marks===1?"":"s"}</div></div><div class="stem">${esc(q.stem)}</div>${q.image_ref?`<div class="exam-visual">${q.image_ref}</div>`:""}<div id="answerArea"></div>
   <div class="exam-actions"><button id="prev" class="ghost" ${qIndex===0?"disabled":""}>Previous</button><button id="next" class="primary">${qIndex===questions.length-1?"Review menu":"Next"}</button></div></article></section>`;
-  renderAnswer(q);
+  renderAnswer(q);wireQuestionZoom();
   document.querySelectorAll("[data-q]").forEach(b=>b.onclick=()=>{qIndex=Number(b.dataset.q);renderExam()});
   document.getElementById("prev").onclick=()=>{if(qIndex>0){qIndex--;renderExam()}};
   document.getElementById("next").onclick=()=>{if(qIndex<questions.length-1){qIndex++;renderExam()}else{const first=questions.findIndex(x=>responses[x.question_number]===undefined);qIndex=first<0?0:first;renderExam();document.querySelector(".qnav").scrollIntoView({block:"nearest"})}};
@@ -171,6 +183,7 @@ function renderResults(score,rows,award,auto,maxScore=135){
   <section class="panel result-card"><h2>Question-by-question results</h2><table class="result-table"><thead><tr><th>Q</th><th>Your answer</th><th>Result</th><th>Marks</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${r.question_number}</td><td>${esc(r.response??"—")}</td><td class="${r.correct?"ok":"bad"}">${r.correct?"Correct":"Incorrect"}</td><td>${r.earned} / ${r.marks}</td></tr>`).join("")}</tbody></table></section>
   <section class="panel result-card"><h2>Turn the result into learning</h2><p>Before reading a solution, retry the question. Identify whether the obstacle was reading, modelling, choosing a method, calculation or checking. Explain one corrected solution aloud, then try a related problem in a later session.</p><h2>Review each problem</h2>${rows.map(r=>`<details class="question-review"><summary>Question ${r.question_number} · ${r.correct?"✓ Correct":"Review"} · ${r.earned}/${r.marks}</summary><p><b>Problem</b><br>${esc(r.stem)}</p>${r.image_ref?`<div class="exam-visual">${r.image_ref}</div>`:""}<p><b>Your answer:</b> ${esc(r.response??"—")}<br><b>Correct answer:</b> ${esc(typeof r.correct_answer==="object"?JSON.stringify(r.correct_answer):r.correct_answer)}</p>${r.explanation?`<p class="math-copy"><b>Worked explanation</b><br>${esc(r.explanation)}</p>`:`<p class="muted">The source answer key is verified. A worked explanation for this question has not yet been added.</p>`}</details>`).join("")}
   <div class="complete-row"><a class="secondary" href="./">Return to Summit One</a>${courseSlot?`<button id="completeCourseMock" class="primary">Complete Course Session ${courseSlot}</button>`:`<button id="backTests" class="primary">Test Centre</button>`}</div></section>`;
+  wireQuestionZoom();
   const back=document.getElementById("backTests");
   if(back)back.onclick=()=>{sitting=null;activeExam=null;questions=[];responses={};renderLibrary()};
   const complete=document.getElementById("completeCourseMock");

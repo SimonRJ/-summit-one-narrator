@@ -20,10 +20,10 @@ const rows = [
 ['RATE-03','T16.2','Keep distance, speed and time in compatible units. Distance equals speed multiplied by time; sketch the journey if speeds change.','Minutes must be converted when speed is per hour.'],
 ['RATE-04','T16.2','Watch how quickly the gap changes. Approaching speeds add; chasing speeds subtract when both travel in the same direction.','Add speeds only when the separation is closing at their sum.'],
 ['ALG-01','T09.3','Give the unknown a meaning. Translate the relationship, undo equal operations on both sides, and substitute into the original story.','An equation is useful only if its quantities keep their meaning.'],
-['ALG-02','T02.E','Use the total and the difference together. Remove the extra amount to create two equal parts, then halve.','Halving the total alone ignores the difference.'],
+['ALG-02','T09.3','Use the total and the difference together. Remove the extra amount to create two equal parts, then halve.','Halving the total alone ignores the difference.'],
 ['ALG-03','T02.E','Compare two collections that share an unknown quantity. Subtract the collections so the shared part cancels.','Subtract every term, not just the one you want to remove.'],
 ['ALG-04','T02.2','Start with the result and undo the last operation first. Reverse both the operation and the order; finally check forwards.','Reverse the order as well as the operation.'],
-['ALG-05','T02.3','Separate the total from the winning margin. A transfer changes a gap by twice the amount moved because one side loses what the other gains.','Changing one quantity and transferring between two quantities affect the gap differently.'],
+['ALG-05','T06.2','Separate the total from the winning margin. A transfer changes a gap by twice the amount moved because one side loses what the other gains.','Changing one quantity and transferring between two quantities affect the gap differently.'],
 ['SEQ-01','T10.1','For a constant step, the nth term is the first term plus n−1 steps. Pair the first and last terms to find a sum.','There are n−1 jumps from the first term to the nth.'],
 ['SEQ-02','T10.1','Repeated multiplication gives geometric growth. For a doubling sum, compare the sum with twice itself so the middle terms cancel.','A doubling pattern must be justified by the situation.'],
 ['SEQ-03','T10.1','Classify the final step. If the final move is one or two steps, every route comes from exactly one of two smaller route sets.','A recurrence needs starting values.'],
@@ -128,7 +128,7 @@ export function checkAnswer(expected,response){
  return a!==null&&b!==null?Math.abs(a-b)<1e-10:String(expected).trim().toLowerCase()===String(response).trim().toLowerCase();
 }
 export function evidenceFor(records,id){
- return records.flatMap(r=>Object.values(r.evidence||{}).filter(e=>e.skill_id===id&&e.kind==='retrieval').map(e=>({...e,session:r.session_number}))).sort((a,b)=>a.session-b.session);
+ return records.flatMap(r=>Object.values(r.evidence||{}).filter(e=>e?.skill_id===id&&e.kind==='retrieval').map(e=>({...e,session:r.session_number}))).sort((a,b)=>a.session-b.session);
 }
 export function recallState(records,id){
  const ev=evidenceFor(records,id),last=ev.at(-1),wins=ev.filter(e=>e.correct&&e.independent);

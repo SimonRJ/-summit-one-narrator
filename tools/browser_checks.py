@@ -1,4 +1,4 @@
-import asyncio,json
+import asyncio,json,shutil
 from pathlib import Path
 from playwright.async_api import async_playwright
 ROOT=Path(__file__).resolve().parents[1]
@@ -18,7 +18,7 @@ export async function upsertSession(p){if(state.fail)throw Error('Simulated conn
 '''
 async def main():
  async with async_playwright() as p:
-  browser=await p.chromium.launch(headless=True,args=['--no-sandbox'])
+  browser=await p.chromium.launch(headless=True,executable_path=shutil.which('google-chrome'),args=['--no-sandbox'])
   context=await browser.new_context(viewport={'width':1280,'height':900},service_workers='block')
   await context.route('**/supabase-client.js',lambda route:route.fulfill(content_type='application/javascript',body=MOCK))
   page=await context.new_page();errors=[]
