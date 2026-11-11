@@ -73,7 +73,7 @@ def main():
     if args.expected_total is not None and len(ids)!=args.expected_total:
         raise SystemExit(f'Expected {args.expected_total} finals, found {len(ids)}')
     public=[r for r in rows if r['media_class']=='public_safe']
-    protected=[r for r in rows if r['media_class']=='protected_amc']
+    protected=[r for r in rows if r['media_class']=='protected_challenge']
     app={r['video_id']:{
         'video_id':r['video_id'],
         'media_access':'public_release' if not r['protected'] else 'protected_authenticated',
@@ -82,7 +82,7 @@ def main():
         'duration_seconds':r['duration_seconds']
     } for r in rows}
     (out/'PUBLIC_RELEASE_MANIFEST.json').write_text(json.dumps({'schema_version':'summit-one-public-video-release-v1','count':len(public),'items':public},indent=2),encoding='utf-8')
-    (out/'PROTECTED_AMC_MANIFEST.json').write_text(json.dumps({'schema_version':'summit-one-protected-challenge-media-v1','count':len(protected),'items':protected},indent=2),encoding='utf-8')
+    (out/'PROTECTED_CHALLENGE_MANIFEST.json').write_text(json.dumps({'schema_version':'summit-one-protected-challenge-media-v1','count':len(protected),'items':protected},indent=2),encoding='utf-8')
     (out/'APP_MEDIA_REGISTRY.json').write_text(json.dumps({'schema_version':'summit-one-app-media-v1','count':len(rows),'by_id':app},indent=2),encoding='utf-8')
     with open(out/'MEDIA_PACKAGE_QA.csv','w',newline='',encoding='utf-8') as f:
         w=csv.DictWriter(f,fieldnames=['video_id','media_class','duration_seconds','sha256','video_url']);w.writeheader();w.writerows([{k:r.get(k) for k in w.fieldnames} for r in rows])
