@@ -1,0 +1,39 @@
+name: Post-narration rights cleanup
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["Generate remaining 175 narration tracks"]
+    types: [completed]
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Remove public authentic-AMC narration assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view summit-one-audio-v1 --repo "${{ github.repository }}" --json assets --jq '.assets[].name' |           grep -E '^A[0-9]{3}_narration\.wav$' | while read -r asset; do
+            gh release delete-asset summit-one-audio-v1 "$asset" --repo "${{ github.repository }}" -y
+          done
+          echo "Remaining release assets:"
+          gh release view summit-one-audio-v1 --repo "${{ github.repository }}" --json assets --jq '.assets | length'
+
+      - name: Remove temporary narration source queues from public branch
+        run: |
+          git config user.name "Summit One Build"
+          git config user.email "actions@users.noreply.github.com"
+          git rm -f queue-*.json heygen-89-audio-manifest.json narrator.html app.js || true
+          git rm -f scripts/generate-narration.mjs scripts/generate-one-video.mjs scripts/generate-single-chunk.mjs scripts/generate-video-isolated.mjs scripts/recover-heygen-audio.mjs || true
+          git rm -f .github/workflows/generate-narration.yml .github/workflows/generate-remaining-audio.yml .github/workflows/recover-heygen.yml .github/workflows/publish-audio-release.yml || true
+          if ! git diff --cached --quiet; then
+            git commit -m "Remove temporary public narration production sources"
+            git push origin HEAD:main
+          fi
