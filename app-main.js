@@ -231,7 +231,7 @@ function renderRemember(el,s){
 function renderDiscover(el,s){
   const items=teachingFor(s);
   el.innerHTML=`<div class="stage-number">STAGE 2 · EXPLANATION</div><h2>Discover</h2><p class="muted">Read, sketch and listen. The goal is to see why the method works, not memorise a slogan.</p>
-  <div class="teaching-box">${items.map((t,i)=>`<article class="teaching-item"><div class="eyebrow">${esc(t.type==="worked_example"?"WORKED EXAMPLE":"CONCEPT")}</div><h3>${esc(t.title)}</h3><div class="lesson-player-slot" id="lessonPlayer${i}"></div><details><summary>Read explanation</summary><p class="math-copy">${esc(t.transcript)}</p></details></article>`).join("")||'<p class="muted">Teaching explanation is being selected from the course library.</p>'}</div>
+  <div class="teaching-box">${items.map((t,i)=>`<article class="teaching-item"><div class="eyebrow">${esc(t.type==="worked_example"?"WORKED EXAMPLE":"CONCEPT")}</div><h3>${esc(t.title)}</h3><div class="lesson-player-slot" id="lessonPlayer${i}"></div><details><summary>Read explanation</summary><p class="math-copy">${esc(t.transcript)}</p>${t.extended_reading?`<h4>Further mathematical connections</h4><p class="math-copy">${esc(t.extended_reading)}</p>`:""}</details></article>`).join("")||'<p class="muted">Teaching explanation is being selected from the course library.</p>'}</div>
   <div class="complete-row"><span class="muted">Make one note or diagram before moving on.</span><button class="primary" id="nextStage">Try independently</button></div>`;
   items.forEach((t,i)=>mountNarratedPlayer(document.getElementById("lessonPlayer"+i),{
     title:t.title,
