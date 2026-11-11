@@ -79,7 +79,7 @@ jobs:
           ffmpeg -y \
             -i review/T01.2.mp4 \
             -i media/T01.2_George_0.88.mp4 \
-            -filter_complex "[0:v]setpts=PTS*$FACTOR,drawbox=x=0:y=560:w=iw:h=160:color=0x071525:t=fill,subtitles=postproduction/generated/T01.2_George_0.88.ass:fontsdir=/usr/share/fonts/truetype/dejavu[v]" \
+            -filter_complex "[0:v]setpts=PTS*$FACTOR,drawbox=x=0:y=200:w=iw:h=70:color=0x071525:t=fill,subtitles=postproduction/generated/T01.2_George_0.88.ass:fontsdir=/usr/share/fonts/truetype/dejavu[v]" \
             -map "[v]" \
             -map 1:a:0 \
             -c:v libx264 \
