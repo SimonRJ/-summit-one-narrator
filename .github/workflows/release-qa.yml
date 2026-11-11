@@ -77,12 +77,12 @@ jobs:
           grep -q 'finished_video' lesson-player.js
           grep -q 'kokoro_fallback' lesson-player.js
           ! grep -R --line-number 'summit-one-audio-v1' app-main.js data/teaching-72.json || exit 1
-          ! grep -R --line-number -E 'releases/download/[^ ]*/A[0-9]{3}\\.mp4' . --exclude-dir=.git || exit 1
+          ! grep -R --line-number -E 'releases/download/[^ ]*/(A[0-9]{3}|K[0-9]{3}|N[1-4]\\.(26|27|28|29|30))\\.mp4' . --exclude-dir=.git || exit 1
           echo "Attempt gate, protected AMC media and viewed-only video evidence invariants passed."
       - name: Post-production tooling
         run: |
           python -m py_compile postproduction/finish_video.py postproduction/batch_finish.py postproduction/prepare_media_release.py
           node --check postproduction/upload_protected_media.mjs
-          grep -q 'public_contains_amc' postproduction/prepare_media_release.py
+          grep -q 'public_contains_challenge' postproduction/prepare_media_release.py
           grep -q 'PROTECTED_VIDEO_BUCKET' postproduction/upload_protected_media.mjs
           echo "Post-production tooling syntax and media split checks passed."
