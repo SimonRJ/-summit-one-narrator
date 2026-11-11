@@ -4,7 +4,7 @@ if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.se
 import { supabase, currentUser, loadProgress, saveProgress, upsertSession } from "./supabase-client.js?v=auth-20261112";
 
 const app=document.getElementById("examApp");
-let user, catalog=[], awards, activeExam=null, questions=[], sitting=null, qIndex=0, responses={}, typedInteger={}, timerHandle=null, saveQueue=Promise.resolve(), finishing=false;
+let user, catalog=[], awards, activeExam=null, questions=[], sitting=null, qIndex=0, responses={}, typedInteger={}, timerHandle=null, saveQueue=Promise.resolve(), finishing=false, saving=false;
 let awardYear=Number(localStorage.getItem("summitSchoolYear")||5);
 const params=new URLSearchParams(location.search); const courseMode=params.get("course")==="1";
 const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
@@ -26,7 +26,7 @@ async function boot(){
 }
 function renderCourseExamIntro(exam){
   const isAMC=exam.max_score===135;
-  app.innerHTML=`<section class="panel test-hero"><div class="eyebrow">CANONICAL SESSION ${exam.session_slot}</div><h1>${esc(exam.title)}</h1><p class="muted">${isAMC?"Full AMC-format rehearsal: 30 questions, 60 minutes, 135 marks.":"Original Rossmoyne-style selective-mathematics rehearsal: 23 questions, 100 marks. The 60-minute clock is a Summit One home-practice target, not a claim about the official Rossmoyne entrance-test duration."}</p>${mockIntroductionHTML(exam)}<div class="notice-box"><b>Before you start:</b> close notes and solution pages. The timer begins only when you press Start. Answers are autosaved where appropriate; numeric AMC answers require the explicit Save answer button.</div><div class="complete-row"><a class="ghost" href="./">Return to mission</a><button id="startCourseExam" class="primary cta">Start timed paper</button></div></section>`;
+  app.innerHTML=`<section class="panel test-hero"><div class="eyebrow">CANONICAL SESSION ${exam.session_slot}</div><h1>${esc(exam.title)}</h1><p class="muted">${isAMC?"Full AMC-format rehearsal: 30 questions, 60 minutes, 135 marks.":"Original Rossmoyne-style selective-mathematics rehearsal: 23 questions, 100 marks. The 60-minute clock is a Summit One home-practice target, not a claim about the official Rossmoyne entrance-test duration."}</p>${mockIntroductionHTML(exam)}<div class="notice-box"><b>Before you start:</b> close notes and solution pages. The timer begins only when you press Start. Answers are autosaved where appropriate; numeric AMC answers require the explicit Save button.</div><div class="complete-row"><a class="ghost" href="./">Return to mission</a><button id="startCourseExam" class="primary cta">Start timed paper</button></div></section>`;
   document.getElementById("startCourseExam").onclick=()=>{catalog=[exam];startExam(exam.id)};
 }
 async function loadOpenSitting(){
@@ -37,13 +37,14 @@ function examCard(exam){
   return `<article class="panel test-card"><div class="eyebrow">${esc(exam.source_type.replaceAll("_"," "))}</div><h3>${esc(exam.title)}</h3><div class="test-meta"><span class="phase-chip">${esc(exam.division)}</span><span class="phase-chip">${exam.duration_minutes} min</span><span class="phase-chip">${exam.max_score} marks</span></div><button class="primary startExam" data-id="${esc(exam.id)}">Start paper</button></article>`;
 }
 function renderLibrary(){
+  document.body.classList.remove("exam-mode");
   const amc=catalog.filter(exam=>exam.max_score===135);
   const official=amc.filter(exam=>exam.source_type==="authentic_amc_past_paper");
   const missing=Array.from({length:19},(_,i)=>2007+i).filter(y=>!official.some(e=>e.year===y));
   const mocks=amc.filter(exam=>exam.source_type!=="authentic_amc_past_paper");
   const cards=list=>list.map(exam=>`<article class="panel test-card"><div class="eyebrow">${exam.source_type==="authentic_amc_past_paper"?"AUTHENTIC PAST PAPER":"SUMMIT ONE AUTHORED MOCK"}</div><h3>${esc(exam.title)}</h3><div class="test-meta"><span class="phase-chip">${esc(exam.division)}</span><span class="phase-chip">${exam.duration_minutes} min</span><span class="phase-chip">${exam.max_score} marks</span></div><p class="muted">${exam.year===2025&&exam.source_type==="authentic_amc_past_paper"?"All 30 worked explanations included. Answers independently checked; official answer key not supplied.":esc(exam.metadata?.solutions_note||"")}</p><button class="primary startExam" data-id="${esc(exam.id)}">Start paper</button></article>`).join("");
   app.innerHTML=`<section class="panel test-hero"><div class="eyebrow">SEPARATE EXAM MODE</div><h1>AMC Test Centre</h1><p class="muted">Choose a complete paper only when you want a full exam sitting. Exam mode has no hints, no solution videos and no correctness feedback until the sitting is sealed.</p>
-  <div class="notice-box"><b>Official Upper Primary workflow:</b> 30 questions in 60 minutes; Questions 1–25 multiple choice and Questions 26–30 integer answer. Use the question menu to skip/backtrack. Integer answers count only after <b>Save answer</b>. Submitted answers are retained when time expires.</div>
+  <div class="notice-box"><b>AMC-format practice workflow:</b> 30 questions in 60 minutes; Questions 1–25 multiple choice and Questions 26–30 integer answer. Use the question menu to skip/backtrack. Integer answers count only after <b>Save</b>. Submitted answers are retained when time expires.</div>
   <h2 style="margin-top:24px">Authentic Upper Primary papers · 2007–2025</h2><p class="muted">${official.length} complete papers installed. ${missing.length?"Still to verify: "+missing.join(", ")+".":"All 19 years available."}</p>${missing.includes(2025)?`<div class="archive-gap"><b>2025: verification in progress</b><p>The genuine 2025 screenshots have been received. The paper will appear here after its questions and answers are checked.</p></div>`:""}<p class="muted">Full papers supplied by the family are installed here as protected authenticated assessments.</p>
   <div class="complete-row"><label class="answer-label" style="max-width:220px">Award cohort<select id="awardYear" class="np-speed"><option value="5" ${awardYear===5?"selected":""}>Year 5</option><option value="6" ${awardYear===6?"selected":""}>Year 6</option></select></label><span class="muted">Used when an official WA paper-year cutoff cannot be verified.</span></div>
   <div class="test-grid">${official.length?cards(official):`<article class="panel test-card"><div class="eyebrow">READY FOR IMPORT</div><h3>Past-paper engine is ready</h3><p class="muted">No full authentic past paper has been installed yet. The secure timer, navigation, grading and results engine is complete.</p><span class="type-chip">Awaiting first PDF</span></article>`}</div>
@@ -63,14 +64,14 @@ async function startExam(id){
   const {data:s,error:e}=await supabase.from("exam_sittings").insert({
     user_id:user.id,exam_id:id,exam_year:activeExam.year,started_at:start.toISOString(),expires_at:expires.toISOString(),completed:false,max_score:activeExam.max_score,responses:{},integer_save_times:{},metadata:{title:activeExam.title,student_year:activeExam.source_type==="authentic_amc_past_paper"?awardYear:(activeExam.student_year||awardYear),course_slot:courseMode?(activeExam.session_slot||null):null,course_mode:courseMode}
   }).select().single();
-  if(e)throw e;sitting=s;renderExam();startTimer();
+  if(e)throw e;sitting=s;renderOverview();startTimer();
 }
 async function resumeSitting(s){
   const {data:exam}=await supabase.from("exam_catalog").select("*").eq("id",s.exam_id).single();activeExam=exam;
   const {data:q}=await supabase.from("exam_questions_student").select("*").eq("exam_id",s.exam_id).order("question_number");questions=q||[];
   sitting=s;responses=s.responses||{};typedInteger={};qIndex=0;
   if(new Date(s.expires_at)<=new Date()){await finishExam(true);return}
-  renderExam();startTimer();
+  renderOverview();startTimer();
 }
 function startTimer(){
   clearInterval(timerHandle);
@@ -93,31 +94,61 @@ function wireQuestionZoom(){
   };
  });
 }
+function timeRemaining(){
+  const seconds=Math.max(0,Math.ceil((new Date(sitting.expires_at).getTime()-Date.now())/1000));
+  return `${String(Math.floor(seconds/60)).padStart(2,"0")}:${String(seconds%60).padStart(2,"0")}`;
+}
+function isAnswered(n){return responses[n]!==undefined&&responses[n]!==null&&responses[n]!==""}
+function examFrame(content,overview=false){
+  document.body.classList.add("exam-mode");
+  app.innerHTML=`<div class="practice-label">SUMMIT ONE PRACTICE · Navigation modelled on AMT's public online demonstration</div><section class="exam-shell">
+  <aside class="exam-sidebar"><button id="menuToggle" class="menu-toggle" aria-expanded="false" aria-controls="questionMenu">Question menu ▾</button><nav id="questionMenu" class="question-menu" aria-label="Exam questions"><button id="overview" class="exam-name ${overview?"current":""}">${esc(activeExam.title)}</button><div class="qnav">${questions.map((q,i)=>`<button data-q="${i}" class="${!overview&&i===qIndex?"current":""} ${isAnswered(q.question_number)?"answered":""}" ${!overview&&i===qIndex?'aria-current="step"':''}><span>Question ${q.question_number}</span><span class="answer-marker" aria-label="${isAnswered(q.question_number)?"Answered":"Not answered"}"></span></button>`).join("")}</div><button id="finish" class="end-menu">End competition</button></nav></aside>
+  <article class="exam-main">${content}</article></section>`;
+  document.getElementById("menuToggle").onclick=()=>{const menu=document.getElementById("questionMenu"),open=menu.classList.toggle("open");document.getElementById("menuToggle").setAttribute("aria-expanded",String(open))};
+  document.querySelectorAll("[data-q]").forEach(b=>b.onclick=()=>{if(finishing)return;qIndex=Number(b.dataset.q);renderExam()});
+  document.getElementById("overview").onclick=()=>{if(!finishing)renderOverview()};
+  document.getElementById("finish").onclick=()=>{if(!finishing)renderOverview(true)};
+}
+function timerHTML(){return `<div class="time-box"><span>Time remaining</span><b id="timer" class="timer">${timeRemaining()}</b></div>`}
+function renderOverview(ending=false){
+  const unsaved=Object.keys(typedInteger).filter(k=>String(typedInteger[k])!==String(responses[k]??""));
+  examFrame(`<div class="qhead"><h1>${ending?"End competition":esc(activeExam.title)}</h1>${timerHTML()}</div>
+  ${ending?`<section class="end-confirm" aria-labelledby="endPrompt"><h2 id="endPrompt">Are you certain you want to end your participation?</h2><p>You cannot change your answers after ending the competition.</p>${unsaved.length?`<p><b>Unsaved integer answers: ${unsaved.map(esc).join(", ")}.</b> Return to these questions and press Save if you want them marked.</p>`:""}<div class="confirm-actions"><button id="confirmFinish">Yes, end competition</button><button id="cancelFinish">No</button></div></section>`:`<p class="overview-help">The table lists all questions, their value and whether you have answered them. It does not show whether answers are correct.</p><button id="firstQuestion" class="exam-text-link">CLICK HERE TO GO TO FIRST QUESTION</button>`}
+  <p class="answer-count">${questions.filter(q=>isAnswered(q.question_number)).length} answered · ${questions.filter(q=>!isAnswered(q.question_number)).length} not answered</p>
+  <table class="exam-summary"><thead><tr><th>Question</th><th>Value</th><th>Status</th></tr></thead><tbody>${questions.map((q,i)=>`<tr><td><button data-q="${i}" class="exam-text-link">Question ${q.question_number}</button></td><td>${q.marks}</td><td>${isAnswered(q.question_number)?"Answered":"Not answered"}</td></tr>`).join("")}</tbody></table>
+  ${ending?"":'<button id="endParticipation" class="exam-text-link end-link">End participation</button>'}`,true);
+  const first=document.getElementById("firstQuestion");if(first)first.onclick=()=>{qIndex=0;renderExam()};
+  const end=document.getElementById("endParticipation");if(end)end.onclick=()=>renderOverview(true);
+  const yes=document.getElementById("confirmFinish");if(yes)yes.onclick=()=>{yes.disabled=true;finishExam(false)};
+  const no=document.getElementById("cancelFinish");if(no)no.onclick=()=>renderOverview();
+}
 function renderExam(){
   const q=questions[qIndex];if(!q)return;
-  app.innerHTML=`<section class="exam-shell">
-  <aside class="panel exam-sidebar"><div class="eyebrow">TIME REMAINING</div><div id="timer" class="timer">60:00</div><div class="qnav">${questions.map((x,i)=>`<button data-q="${i}" class="${i===qIndex?"current":""} ${responses[x.question_number]!==undefined?"answered":""}">${x.question_number}</button>`).join("")}</div><button id="finish" class="danger" style="width:100%;margin-top:15px">Finish paper</button></aside>
-  <article class="panel exam-main"><div class="qhead"><div class="qnum">QUESTION ${q.question_number} / ${questions.length}</div><div class="marks">${q.marks} mark${q.marks===1?"":"s"}</div></div><div class="stem">${esc(q.stem)}</div>${q.image_ref?`<div class="exam-visual">${q.image_ref}</div>`:""}<div id="answerArea"></div>
-  <div class="exam-actions"><button id="prev" class="ghost" ${qIndex===0?"disabled":""}>Previous</button><button id="next" class="primary">${qIndex===questions.length-1?"Review menu":"Next"}</button></div></article></section>`;
+  examFrame(`<div class="qhead"><h1>Question ${q.question_number}</h1><div class="exam-actions"><button id="prev" ${qIndex===0?"disabled":""}>Previous</button><button id="next">Next</button></div>${timerHTML()}</div><div class="stem">${esc(q.stem)}</div>${q.image_ref?`<div class="exam-visual">${q.image_ref}</div>`:""}<div id="answerArea"></div>`);
   renderAnswer(q);wireQuestionZoom();
-  document.querySelectorAll("[data-q]").forEach(b=>b.onclick=()=>{qIndex=Number(b.dataset.q);renderExam()});
-  document.getElementById("prev").onclick=()=>{if(qIndex>0){qIndex--;renderExam()}};
-  document.getElementById("next").onclick=()=>{if(qIndex<questions.length-1){qIndex++;renderExam()}else{const first=questions.findIndex(x=>responses[x.question_number]===undefined);qIndex=first<0?0:first;renderExam();document.querySelector(".qnav").scrollIntoView({block:"nearest"})}};
-  document.getElementById("finish").onclick=()=>{if(confirm((Object.keys(typedInteger).some(k=>String(typedInteger[k])!==String(responses[k]??""))?"Some typed integer answers have not been saved. They will not be marked. ":"")+"Finish this paper? You will not be able to change answers afterwards."))finishExam(false)};
+  document.getElementById("prev").onclick=()=>{if(!finishing&&qIndex>0){qIndex--;renderExam()}};
+  document.getElementById("next").onclick=()=>{if(finishing)return;if(qIndex<questions.length-1){qIndex++;renderExam()}else renderOverview()};
 }
-function canAnswer(){return !finishing&&!sitting?.completed&&Date.now()<new Date(sitting.expires_at).getTime()}
+function canAnswer(){return !finishing&&!saving&&!sitting?.completed&&Date.now()<new Date(sitting.expires_at).getTime()}
 function renderAnswer(q){
   const area=document.getElementById("answerArea"),saved=responses[q.question_number];
   if(q.question_type==="multiple_choice"){
     const choices=Array.isArray(q.choices)?q.choices:[];
-    area.innerHTML='<div class="choices">'+choices.map((c,i)=>`<button class="choice ${saved===String.fromCharCode(65+i)?"selected":""}" data-choice="${String.fromCharCode(65+i)}"><span class="choice-letter">${String.fromCharCode(65+i)}</span><span class="choice-content">${typeof c==="string"?esc(c):`${c.visual_html||""}${c.text?`<span>${esc(c.text)}</span>`:""}`}</span></button>`).join("")+'</div>';
-    area.querySelectorAll("[data-choice]").forEach(b=>b.onclick=async()=>{if(!canAnswer())return;const previous=responses[q.question_number];responses[q.question_number]=b.dataset.choice;area.querySelectorAll("button").forEach(x=>x.disabled=true);try{await persistResponses();renderExam()}catch(e){if(previous===undefined)delete responses[q.question_number];else responses[q.question_number]=previous;renderExam();alert("Answer not saved: "+e.message)}});
+    area.innerHTML='<div class="choices">'+choices.map((c,i)=>`<button class="choice ${saved===String.fromCharCode(65+i)?"selected":""}" data-choice="${String.fromCharCode(65+i)}" aria-pressed="${saved===String.fromCharCode(65+i)}"><span class="choice-letter">${String.fromCharCode(65+i)}</span><span class="choice-content">${typeof c==="string"?esc(c):`${c.visual_html||""}${c.text?`<span>${esc(c.text)}</span>`:""}`}</span></button>`).join("")+'</div>';
+    area.querySelectorAll("[data-choice]").forEach(b=>b.onclick=async()=>{if(!canAnswer())return;saving=true;const previous=responses[q.question_number];responses[q.question_number]=b.dataset.choice;area.querySelectorAll("button").forEach(x=>x.disabled=true);try{await persistResponses();renderExam()}catch(e){if(previous===undefined)delete responses[q.question_number];else responses[q.question_number]=previous;renderExam();alert("Answer not saved: "+e.message)}finally{saving=false}});
   }else{
     const typed=typedInteger[q.question_number]??(saved??"");
-    area.innerHTML=`<div class="integer-row"><label>Your integer answer<br><input id="integerInput" inputmode="numeric" pattern="[0-9]*" value="${esc(typed)}"></label><button id="saveInteger" class="primary">Save answer</button><span id="saveState" class="${saved!==undefined?"saved":"unsaved"}">${saved!==undefined&&String(typed)===String(saved)?"Saved":"Not saved"}</span></div><p class="muted" style="margin-top:10px">Typing is not enough. Press <b>Save answer</b> before leaving the question.</p>`;
+    area.innerHTML=`<div class="integer-row"><label>Your integer answer<br><input id="integerInput" inputmode="numeric" pattern="[0-9]*" value="${esc(typed)}"></label><button id="saveInteger" class="primary">Save</button><span id="saveState" class="${saved!==undefined&&String(typed)===String(saved)?"saved":"unsaved"}">${saved!==undefined&&String(typed)===String(saved)?"Saved":"Not saved"}</span></div><p class="muted" style="margin-top:10px">Typing is not enough. Press <b>Save</b> before leaving the question.</p>`;
     const inp=document.getElementById("integerInput");inp.oninput=()=>{typedInteger[q.question_number]=inp.value;document.getElementById("saveState").className="unsaved";document.getElementById("saveState").textContent="Not saved"};
-    document.getElementById("saveInteger").onclick=async()=>{if(!canAnswer())return;const v=inp.value.trim();if(!/^\d{1,3}$/.test(v)){alert("Enter a whole-number answer from 0 to 999.");return}const previous=responses[q.question_number];responses[q.question_number]=v;typedInteger[q.question_number]=v;try{await persistResponses(true,q.question_number);renderExam()}catch(e){if(previous===undefined)delete responses[q.question_number];else responses[q.question_number]=previous;document.getElementById("saveState").textContent="Not saved — retry";alert(e.message)}};
+    document.getElementById("saveInteger").onclick=async()=>{if(!canAnswer())return;const v=inp.value.trim();if(!/^\d{1,3}$/.test(v)){alert("Enter a whole-number answer from 0 to 999.");return}saving=true;const previous=responses[q.question_number];responses[q.question_number]=v;typedInteger[q.question_number]=v;try{await persistResponses(true,q.question_number);renderExam()}catch(e){if(previous===undefined)delete responses[q.question_number];else responses[q.question_number]=previous;document.getElementById("saveState").textContent="Not saved — retry";alert(e.message)}finally{saving=false}};
   }
+  const erase=document.createElement("button");erase.id="eraseAnswer";erase.className="erase-answer";erase.textContent="Erase";
+  area.append(erase);
+  erase.onclick=async()=>{
+    if(!canAnswer())return;saving=true;const previous=responses[q.question_number],previousTyped=typedInteger[q.question_number];
+    delete responses[q.question_number];delete typedInteger[q.question_number];erase.disabled=true;
+    try{await persistResponses();renderExam()}catch(e){if(previous!==undefined)responses[q.question_number]=previous;if(previousTyped!==undefined)typedInteger[q.question_number]=previousTyped;renderExam();alert("Answer could not be erased: "+e.message)}finally{saving=false}
+  };
 }
 async function persistResponses(integerSave=false,qnum=null){
   const patch={responses:structuredClone(responses)};
@@ -130,6 +161,7 @@ async function persistResponses(integerSave=false,qnum=null){
 }
 async function finishExam(auto){
   if(finishing)return;finishing=true;clearInterval(timerHandle);
+  await saveQueue.catch(()=>{});
   try{
     if(!sitting.completed)await persistResponses();
     const {data:session,error:sessionError}=await supabase.auth.getSession();
@@ -151,7 +183,11 @@ async function finishExam(auto){
     renderResults(result.score,result.rows,result.award,auto,result.max_score||135);
   }catch(e){
     alert(e.message||"Could not finish the paper.");
-    const b=document.getElementById("finish");if(b){b.textContent="Retry submission";b.onclick=()=>finishExam(auto)}
+    const host=document.querySelector(".exam-main")||app;
+    const retry=document.createElement("div");retry.className="end-confirm";retry.setAttribute("role","alert");retry.innerHTML='<p>Submission has not completed. Your saved answers are retained.</p><button id="retrySubmission">Retry submission</button>';host.prepend(retry);
+    document.getElementById("retrySubmission").onclick=()=>finishExam(auto);
+    const yes=document.getElementById("confirmFinish");if(yes)yes.disabled=false;
+    if(Date.now()<new Date(sitting.expires_at).getTime())startTimer();
   }finally{finishing=false}
 }
 async function loadResultHistory(){
@@ -160,7 +196,12 @@ async function loadResultHistory(){
  el.innerHTML=(data||[]).map(e=>`<div class="history-row"><span>${esc(e.metadata?.title||e.exam_id)} · ${e.score}/${e.max_score}</span><button class="ghost" data-result="${esc(e.id)}">Review saved paper</button></div>`).join('')||'<p class="muted">Completed papers will appear here.</p>';
  el.querySelectorAll('[data-result]').forEach(b=>b.onclick=async()=>{b.disabled=true;try{const {data:row,error}=await supabase.from("exam_sittings").select("*").eq("id",b.dataset.result).single();if(error)throw error;sitting=row;activeExam=catalog.find(e=>e.id===row.exam_id)||{title:row.metadata?.title,id:row.exam_id};await finishExam(false)}catch(e){alert(e.message);b.disabled=false}});
 }
+function solutionVideo(r){
+  return activeExam?.id==="amc-up-2025"&&r.question_number===17?{url:"watch-amc-2025-q17.html",title:"Watch the number-pyramid solution · under 1 minute"}:null;
+}
+function resultLabel(r){return r.correct?"Correct":(r.response===null||r.response===undefined||r.response==="")?"Not answered":"Incorrect"}
 function renderResults(score,rows,award,auto,maxScore=135){
+  document.body.classList.remove("exam-mode");
   const correctCount=rows.filter(r=>r.correct).length;
   const unanswered=rows.filter(r=>r.response===null||r.response===undefined||r.response==="").length;
   const timeSeconds=Math.max(0,Math.round((new Date(sitting.submitted_at||Date.now()).getTime()-new Date(sitting.started_at).getTime())/1000));
@@ -181,10 +222,11 @@ function renderResults(score,rows,award,auto,maxScore=135){
   app.innerHTML=`<section class="panel result-hero"><div class="eyebrow">${auto?"TIME EXPIRED · ":""}PAPER COMPLETE</div><div class="score-big">${score}<span class="muted" style="font-size:.25em"> / ${maxScore}</span></div><div class="award-badge">${esc(award.label||"Practice paper complete")}</div><p class="estimate-note">${awardNote}</p></section>
   <section class="profile-grid" style="margin-top:18px"><div class="panel profile-stat"><b>${correctCount}</b><span>questions correct</span></div><div class="panel profile-stat"><b>${unanswered}</b><span>unanswered</span></div><div class="panel profile-stat"><b>${timeUsed}</b><span>time used</span></div><div class="panel profile-stat"><b>${Math.round(score/maxScore*100)}%</b><span>raw mark percentage</span></div></section>
   <section class="panel result-card"><h2>Paper sections</h2>${maxScore===135?`<div class="final-five-result"><div><span class="eyebrow">AMC FINAL FIVE</span><b>${finalFiveCorrect} / 5 correct</b></div><div><span class="muted">Q26–Q30 marks</span><b>${finalFiveEarned} / ${finalFiveMax}</b></div></div>`:""}<table class="result-table"><thead><tr><th>Section</th><th>Correct</th><th>Marks</th></tr></thead><tbody>${sectionStats.map(s=>`<tr><td>${esc(s.label)}</td><td>${s.correct} / ${s.count}</td><td>${s.earned} / ${s.max}</td></tr>`).join("")}</tbody></table></section>
-  <section class="panel result-card"><h2>Question-by-question results</h2><table class="result-table"><thead><tr><th>Q</th><th>Your answer</th><th>Result</th><th>Marks</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${r.question_number}</td><td>${esc(r.response??"—")}</td><td class="${r.correct?"ok":"bad"}">${r.correct?"Correct":"Incorrect"}</td><td>${r.earned} / ${r.marks}</td></tr>`).join("")}</tbody></table></section>
-  <section class="panel result-card"><h2>Turn the result into learning</h2><p>Before reading a solution, retry the question. Identify whether the obstacle was reading, modelling, choosing a method, calculation or checking. Explain one corrected solution aloud, then try a related problem in a later session.</p><h2>Review each problem</h2>${rows.map(r=>`<details class="question-review"><summary>Question ${r.question_number} · ${r.correct?"✓ Correct":"Review"} · ${r.earned}/${r.marks}</summary><p><b>Problem</b><br>${esc(r.stem)}</p>${r.image_ref?`<div class="exam-visual">${r.image_ref}</div>`:""}<p><b>Your answer:</b> ${esc(r.response??"—")}<br><b>Correct answer:</b> ${esc(typeof r.correct_answer==="object"?JSON.stringify(r.correct_answer):r.correct_answer)}</p>${r.explanation?`<p class="math-copy"><b>Worked explanation</b><br>${esc(r.explanation)}</p>`:`<p class="muted">The source answer key is verified. A worked explanation for this question has not yet been added.</p>`}</details>`).join("")}
+  <section class="panel result-card"><h2>Question-by-question results</h2><table class="result-table"><thead><tr><th>Q</th><th>Your answer</th><th>Result</th><th>Marks</th><th>Learn</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${r.question_number}</td><td>${esc(r.response??"—")}</td><td class="${r.correct?"ok":"bad"}">${resultLabel(r)}</td><td>${r.earned} / ${r.marks}</td><td><button class="solution-link" data-solution="${r.question_number}">Show solution</button>${solutionVideo(r)?`<a class="solution-link" href="${solutionVideo(r).url}" target="_blank" rel="noopener">Watch video ↗</a>`:""}</td></tr>`).join("")}</tbody></table></section>
+  <section class="panel result-card"><h2>Turn the result into learning</h2><p>Before reading a solution, retry the question. Identify whether the obstacle was reading, modelling, choosing a method, calculation or checking. Explain one corrected solution aloud, then try a related problem in a later session.</p><h2>Review each problem</h2>${rows.map(r=>`<details id="solution-${r.question_number}" class="question-review"><summary>Question ${r.question_number} · ${resultLabel(r)} · ${r.earned}/${r.marks}</summary><p><b>Problem</b><br>${esc(r.stem)}</p>${r.image_ref?`<div class="exam-visual">${r.image_ref}</div>`:""}<p><b>Your answer:</b> ${esc(r.response??"—")}<br><b>Correct answer:</b> ${esc(typeof r.correct_answer==="object"?JSON.stringify(r.correct_answer):r.correct_answer)}</p>${r.explanation?`<p class="math-copy"><b>Worked explanation</b><br>${esc(r.explanation)}</p>`:`<p class="muted">The source answer key is verified. A worked explanation for this question has not yet been added.</p>`}${solutionVideo(r)?`<a class="solution-video-link" href="${solutionVideo(r).url}" target="_blank" rel="noopener">▶ ${solutionVideo(r).title}</a>`:`<p class="video-pending">A video explanation for this question has not yet been produced.</p>`}</details>`).join("")}
   <div class="complete-row"><a class="secondary" href="./">Return to Summit One</a>${courseSlot?`<button id="completeCourseMock" class="primary">Complete Course Session ${courseSlot}</button>`:`<button id="backTests" class="primary">Test Centre</button>`}</div></section>`;
   wireQuestionZoom();
+  document.querySelectorAll("[data-solution]").forEach(button=>button.onclick=()=>{const detail=document.getElementById("solution-"+button.dataset.solution);detail.open=true;detail.scrollIntoView({behavior:"smooth",block:"start"});detail.querySelector("summary").focus()});
   const back=document.getElementById("backTests");
   if(back)back.onclick=()=>{sitting=null;activeExam=null;questions=[];responses={};renderLibrary()};
   const complete=document.getElementById("completeCourseMock");

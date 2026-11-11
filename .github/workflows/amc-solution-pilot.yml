@@ -1,0 +1,73 @@
+name: AMC solution pilot
+on:
+  push:
+    branches: [draft/teaching-audit-2026-11-11]
+    paths: ['production/amc2025-q17/**', '.github/workflows/amc-solution-pilot.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: amc-q17-pilot
+  cancel-in-progress: false
+jobs:
+  produce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install established narration and mathematical rendering tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-dejavu-core
+          pip install pillow numpy faster-whisper
+          cd narration
+          npm install --no-fund --no-audit
+      - name: Generate and align the original solution narration
+        run: |
+          cp production/amc2025-q17/synth.mjs narration/amc-pilot-synth.mjs
+          node narration/amc-pilot-synth.mjs production/amc2025-q17/narration.json build/amc2025-q17
+          python production/amc2025-q17/align.py --audio build/amc2025-q17/narration.wav --timing build/amc2025-q17/timing.json --out build/amc2025-q17
+      - name: Render speech-timed mathematical animation
+        run: |
+          python production/amc2025-q17/render.py
+          ffmpeg -v error -y -i build/amc2025-q17/visual.mp4 -i build/amc2025-q17/narration.wav -map 0:v -map 1:a -c:v copy -c:a aac -b:a 192k -af apad -shortest -movflags +faststart build/amc2025-q17/final.mp4
+          python production/amc2025-q17/verify.py
+      - name: Preserve the review pilot on its development branch
+        run: |
+          mkdir -p review media
+          cp build/amc2025-q17/final.mp4 media/AMC2025Q17.mp4
+          cp build/amc2025-q17/poster.jpg media/AMC2025Q17-poster.jpg
+          cp build/amc2025-q17/AMC2025Q17.vtt media/AMC2025Q17.vtt
+          cp build/amc2025-q17/qa.json review/AMC2025Q17-qa.json
+          cp build/amc2025-q17/timing.json build/amc2025-q17/words.json build/amc2025-q17/alignment-qa.json production/amc2025-q17/
+          cp production/amc2025-q17/watch-amc-2025-q17.html watch-amc-2025-q17.html
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add media/AMC2025Q17.mp4 media/AMC2025Q17-poster.jpg media/AMC2025Q17.vtt review/AMC2025Q17-qa.json production/amc2025-q17/timing.json production/amc2025-q17/words.json production/amc2025-q17/alignment-qa.json watch-amc-2025-q17.html
+          git commit -m 'Render the AMC 2025 question 17 solution pilot'
+          git fetch origin "$GITHUB_REF_NAME"
+          git rebase "origin/$GITHUB_REF_NAME"
+          git push origin "HEAD:$GITHUB_REF_NAME"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: amc-q17-solution-pilot
+          path: |
+            build/amc2025-q17/final.mp4
+            build/amc2025-q17/contact.jpg
+            build/amc2025-q17/poster.jpg
+            build/amc2025-q17/storyboard/
+            build/amc2025-q17/qa.json
+            build/amc2025-q17/timing.json
+            build/amc2025-q17/words.json
+            build/amc2025-q17/alignment-qa.json
+          retention-days: 14
+          compression-level: 0
