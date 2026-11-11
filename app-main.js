@@ -273,7 +273,7 @@ function renderChallenge(el,s,p,mode){
         title:p.title||p.id,
         transcript,
         audioUrl:protectedAudio,
-        videoUrl:finalVideoUrl(p.id),
+        videoUrl:d.video_url||finalVideoUrl(p.id),
         cacheKey:p.id,
         onWatch:detail=>recordVideoEvidence(s.slot,p.id,"challenge_solution",detail)
       });
