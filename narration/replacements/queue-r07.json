@@ -1,0 +1,512 @@
+[
+  {
+    "video_id": "A056",
+    "title": "The rowing fleet",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 295,
+    "estimated_seconds": 113.817,
+    "chunks": [
+      {
+        "chunk_id": "A056__01",
+        "sequence": 1,
+        "text": "Here is the problem. A group of 64 students went rowing. They were given 12 rowing boats, each boat either large or small. The large boats each carried 6 students and the small ones 4 students. How many large boats were they given? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks.",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A056__02",
+        "sequence": 2,
+        "text": "Watch out for this common mistake: Dividing 64 by 6 alone ignores the small boats and the total of 12 boats. A useful first observation is: Imagine all 12 boats were small. How many students could they carry? Before you continue, think about this: Twelve small boats carry 48 students, leaving 16 places to explain. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. If all 12 boats were",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A056__03",
+        "sequence": 3,
+        "text": "small, they would carry 12 times 4=48 students. Step 2. The actual 64 students need 64 minus 48=16 more places. Step 3. Each large boat adds 6 minus 4=2 places compared with a small one, so there are 16 divided by 2=8 large boats. The other 4 small boats give 8 times 6+4 times 4=64. Check the answer with a different viewpoint. Let L be the large boats. Then 6L+4(12 minus L)=64, so 2L=16 and L=8. Final thinking check: Why divide the extra 16 places",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A056__04",
+        "sequence": 4,
+        "text": "by 2? The change is 6 minus 4=2 extra places per large boat. The answer is 8 large boats. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 40
+      }
+    ]
+  },
+  {
+    "video_id": "A060",
+    "title": "A cube becomes a staircase",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 373,
+    "estimated_seconds": 145.276,
+    "chunks": [
+      {
+        "chunk_id": "A060__01",
+        "sequence": 1,
+        "text": "Here is the problem. A cube is made up of 1 cm times 1 cm times 1 cm blocks and measures 12 cm times 12 cm times 12 cm. Sharyn is using the same set of blocks to make a set of stairs. The picture shows how she started, making a set of stairs 4 blocks high, 4 blocks from front to back and 5 blocks wide. Her finished set of stairs will use all the blocks and be 8 blocks high and 8 blocks",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A060__02",
+        "sequence": 2,
+        "text": "from front to back. How many blocks wide will they be? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: Treating the staircase as a full 8 times 8 rectangular cross-section counts empty space above the steps. A useful first observation is: The total number of",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A060__03",
+        "sequence": 3,
+        "text": "unit blocks does not change. How many were in the 12 times 12 times 12 cube? Before you continue, think about this: Look at a side slice one block wide. Its step heights are 1,2, and so on ,8. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. The original cube contains 12 times 12 times 12=1728 unit blocks. Step 2. A staircase 8 blocks high and 8 blocks",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A060__04",
+        "sequence": 4,
+        "text": "deep has step heights 1,2,3,4,5,6,7,8. One slice across its width uses 1+2+⋯+8=36 blocks. Step 3. If the width is w blocks, the staircase uses 36w blocks. Thus w=1728 divided by 36=48. Step 4. Check:48 identical slices of 36 blocks use all 1728 blocks. Check the answer with a different viewpoint. Pair the step heights 1+8,2+7,3+6,4+5: four pairs of 9 make 36 blocks in each slice. Final thinking check: Why is a one-block-wide slice 36 blocks rather than 64? A staircase slice is the sum 1+2+⋯+8,",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A060__05",
+        "sequence": 5,
+        "text": "not an 8 times 8 rectangle. The answer is 48 blocks wide. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 33
+      }
+    ]
+  },
+  {
+    "video_id": "A064",
+    "title": "Coin combinations for a dollar",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 265,
+    "estimated_seconds": 115.386,
+    "chunks": [
+      {
+        "chunk_id": "A064__01",
+        "sequence": 1,
+        "text": "Here is the problem. Jill has three large piles of coins: 10c, 20c and 50c. In how many different ways can she make one dollar? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: Counting different orders of the same coins as different ways overcounts a",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A064__02",
+        "sequence": 2,
+        "text": "collection. A useful first observation is: Start with the possible numbers of 50-cent coins:0,1 or 2. Before you continue, think about this: With no 50-cent coins, choose 0 through 5 twenty-cent coins; tens fill the rest. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. With 0 fifty-cent coins, the number of 20-cent coins can be 0,1,2,3,4,5. Ten-cent coins complete each choice:6 ways. Step 2. With 1 fifty-cent coin,50c",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A064__03",
+        "sequence": 3,
+        "text": "remains. There can be 0,1 or 2 twenty-cent coins:3 ways. Step 3. With 2 fifty-cent coins, no other coins are needed:1 way. Step 4. The cases are distinct and exhaustive, so there are 6+3+1=10 ways. Check the answer with a different viewpoint. Solve 10a+20b+50c=100 in nonnegative integers by trying c=0,1,2. Final thinking check: Do 50c+20c+20c+10c and 10c+20c+50c+20c count separately? The question counts coin collections, so order does not matter. The answer is 10 ways. Read the original question once more and make sure this is",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A064__04",
+        "sequence": 4,
+        "text": "the requested quantity, and that every condition has been checked.",
+        "word_count": 10
+      }
+    ]
+  },
+  {
+    "video_id": "A068",
+    "title": "A flag with no lonely square",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 371,
+    "estimated_seconds": 155.576,
+    "chunks": [
+      {
+        "chunk_id": "A068__01",
+        "sequence": 1,
+        "text": "Here is the problem. A 3 times 2 flag is divided into six squares, as shown. Each square is to be coloured green or blue, so that every square shares at least one edge with another square of the same colour. In how many different ways can this be done? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A068__02",
+        "sequence": 2,
+        "text": "rather than estimating from how it looks. Watch out for this common mistake: Touching only at a corner does not satisfy the shared-edge condition; rotated flags are distinct because the flagpole fixes orientation. A useful first observation is: First fix the top-left square to green; later swap all greens and blues. Before you continue, think about this: Group these flags by their number of blue squares. One or five blue squares cannot work. Now build the solution in small steps. Pause after any step if",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A068__03",
+        "sequence": 3,
+        "text": "you want to reproduce it in your notebook before going on. Step 1. Fix the top-left square green (G), and write each flag as its top row/bottom row, with B for blue. Step 2. With 0 blue squares: GGG/GGG. With 2: GGG/GBB, GGG/BBG, GGB/GGB, GBG/GBG, GBB/GGG. These give 1+5 flags. Step 3. With 3 blue squares: GGG/BBB, GGB/GBB, GBB/GGB. With 4: GGB/BBB, GBB/GBB. These give 3+2 flags. Counts 1 or 5 leave a lone square of one colour, and 6 is impossible because top-left is",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A068__04",
+        "sequence": 4,
+        "text": "green. Step 4. Thus there are 1+5+3+2=11 flags with top-left green. Swapping G and B gives 11 more with top-left blue:22 altogether. Every listed square has an edge-neighbour of its own colour. Check the answer with a different viewpoint. List all 2⁶=64 binary colourings and reject any with a square whose edge-neighbours all have the opposite colour. Exactly 22 survive. Final thinking check: Does a diagonal neighbour of the same colour prevent a square being lonely? The condition specifically requires an edge shared with a",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A068__05",
+        "sequence": 5,
+        "text": "square of the same colour. The answer is 22 colourings. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 31
+      }
+    ]
+  },
+  {
+    "video_id": "A074",
+    "title": "A row of matchstick cubes",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 333,
+    "estimated_seconds": 133.495,
+    "chunks": [
+      {
+        "chunk_id": "A074__01",
+        "sequence": 1,
+        "text": "Here is the problem. A class has 2016 matchsticks. Using blobs of modelling clay to join the matches together, they make a long row of cubes. This is how their row starts. They keep adding cubes to the end of the row until they don’t have enough matches left for another cube. How many cubes will they make? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A074__02",
+        "sequence": 2,
+        "text": "a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: Adding 12 matches for every cube ignores the four matchsticks already present on each shared face. A useful first observation is: One cube has 12 edges. How many edges does a new cube share with the previous cube? Before you continue, think about this: A shared square face already has 4 edges, so every extra cube needs 8 matches. Now build the solution in",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A074__03",
+        "sequence": 3,
+        "text": "small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. The first cube needs 12 matchsticks. Step 2. Each new cube shares one square face with the previous cube, reusing 4 edges; it needs 12 minus 4=8 new matches. Step 3. After the first cube,2016 minus 12=2004 matches remain. This makes 250 more cubes, using 2000 matches and leaving 4. Step 4. The total is 1+250=251 cubes. A 252 nd cube would require 8 more",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A074__04",
+        "sequence": 4,
+        "text": "matches, but only 4 remain. Check the answer with a different viewpoint. For n cubes, the match count is 12+8(n minus 1)=8n+4. The inequality 8n+4≤2016 gives n≤251.5, so n=251. Final thinking check: Why does each extra cube need 8 new matches? The shared face already supplies four edges of the new cube. The answer is 251 cubes. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 78
+      }
+    ]
+  },
+  {
+    "video_id": "A075",
+    "title": "Four different ages under 10",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 333,
+    "estimated_seconds": 129.808,
+    "chunks": [
+      {
+        "chunk_id": "A075__01",
+        "sequence": 1,
+        "text": "Here is the problem. Mary has four children of different ages, all under 10, and the product of their ages is 2016. What is the sum of their ages? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: A child of age 0 is impossible because",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A075__02",
+        "sequence": 2,
+        "text": "it would make the entire product 0; repeated ages are also excluded. A useful first observation is: Factor 2016 into primes. One factor is 7, so one age must be 7. Before you continue, think about this: After removing 7, the other three ages multiply to 288=2⁵ times 3 squared. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. Factor 2016=2⁵ times 3 squared times 7. The only positive",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A075__03",
+        "sequence": 3,
+        "text": "age below 10 containing factor 7 is 7, so one child is 7. Step 2. The other three ages multiply to 288=2⁵ times 3 squared. If no age were 9, two different ages containing 3 would have to be 3 and 6; the third would be 288 divided by 18=16, too old. Step 3. Therefore one age is 9. The remaining two multiply to 288 divided by 9=32; the only pair of different positive integers below 10 with this product is 4 and 8. Step",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A075__04",
+        "sequence": 4,
+        "text": "4. The four ages are 4,7,8,9, with sum 28. Check the answer with a different viewpoint. Test all 126 four-element subsets of ages 1 to 9; only{4,7,8,9} has product 2016. Final thinking check: Why must one child be 7? The factor 7 cannot come from multiplying ages that have no factor 7. The answer is 28 years. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 78
+      }
+    ]
+  },
+  {
+    "video_id": "A076",
+    "title": "The three numbered hats",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 307,
+    "estimated_seconds": 125.788,
+    "chunks": [
+      {
+        "chunk_id": "A076__01",
+        "sequence": 1,
+        "text": "Here is the problem. Qiang, Rory and Sophia are each wearing a hat with a number on it. Each adds the two numbers on the other two hats, giving totals of 11, 17 and 22. What is the largest number on a hat? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks.",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A076__02",
+        "sequence": 2,
+        "text": "Watch out for this common mistake: Taking 22 minus 11=11 gives the difference between two hat numbers, not the largest number itself. A useful first observation is: Add the three reported totals 11,17 and 22. How often does each hat number appear? Before you continue, think about this: The total 50 counts each of the three hat numbers twice. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. Adding",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A076__03",
+        "sequence": 3,
+        "text": "the pair sums gives 11+17+22=50. Each hat number occurs in exactly two of these sums. Step 2. Therefore the sum of the three hat numbers is 50 divided by 2=25. Step 3. The largest hat number is the one omitted from the smallest pair sum 11:25 minus 11=14. Step 4. The other numbers are 25 minus 17=8 and 25 minus 22=3, and their pair sums are 11,17,22. Check the answer with a different viewpoint. If the numbers are a≤b≤c, then a+b=11,a+c=17,b+c=22. Subtract the first from",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A076__04",
+        "sequence": 4,
+        "text": "the sum of the last two:2c=28, so c=14. Final thinking check: Why halve 50? Every hat is included in the sums made by the other two people. The answer is 14. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 52
+      }
+    ]
+  },
+  {
+    "video_id": "A093",
+    "title": "The next ticket",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 281,
+    "estimated_seconds": 109.522,
+    "chunks": [
+      {
+        "chunk_id": "A093__01",
+        "sequence": 1,
+        "text": "Here is the problem. A greengrocer’s ticket roll is numbered 000 to 999 in order. Two neighbours take consecutive tickets whose numbers add to 777. What is the next ticket number after theirs? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: The question asks for",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A093__02",
+        "sequence": 2,
+        "text": "the ticket after both neighbours’ tickets, not the larger of their two tickets. A useful first observation is: The two ticket numbers differ by 1. Before you continue, think about this: Subtract 1 from their total to make the two numbers equal. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. The two consecutive ticket numbers can be written n and n + 1. Step 2. Their total is",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A093__03",
+        "sequence": 3,
+        "text": "2 n + 1 = 777, so 2 n = 776 and n = 388. Step 3. The neighbours took tickets 388 and 389. Step 4. The next ticket is 390. Check the answer with a different viewpoint. Half of 777 is 388.5, so the consecutive whole numbers on either side are 388 and 389. The following ticket is 390. Final thinking check: Once the smaller ticket is 388, which ticket is requested? The two neighbours have 388 and 389, so the next ticket is",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A093__04",
+        "sequence": 4,
+        "text": "390. The answer is 390. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 26
+      }
+    ]
+  },
+  {
+    "video_id": "A096",
+    "title": "A tower of octahedra",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 355,
+    "estimated_seconds": 136.354,
+    "chunks": [
+      {
+        "chunk_id": "A096__01",
+        "sequence": 1,
+        "text": "Here is the problem. A tower is built from exactly 2019 equal rods. It starts with 3 rods forming a triangular face. More rods complete a regular octahedron. Its opposite triangular face is then shared with the next octahedron, and this continues up the tower. How many octahedra are in the finished tower? A regular octahedron has eight triangular faces. Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A096__02",
+        "sequence": 2,
+        "text": "there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: Do not assign 12 new rods to each octahedron; successive solids share the three rods of a face. A useful first observation is: Each triangular face has 3 edges, but each octahedron edge belongs to 2 faces. Before you continue, think about this: An octahedron has 8 times 3 divided by 2 = 12 edges. Three rods of each new octahedron are",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A096__03",
+        "sequence": 3,
+        "text": "already there. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. Eight triangular faces contribute 8 times 3 = 24 edge appearances. Each edge is counted twice, so an octahedron has 12 edges. Step 2. For every octahedron, its starting triangular face already supplies 3 rods. Completing it therefore uses 12 minus 3 = 9 new rods. Step 3. Apart from the original triangular base, there are 2019 minus",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A096__04",
+        "sequence": 4,
+        "text": "3 = 2016 rods. Step 4. These make 2016 divided by 9 = 224 octahedra. Check the answer with a different viewpoint. Build the first complete octahedron with 12 rods. Each later octahedron adds 9. Thus 12 + 9(n minus 1) = 2019, giving n = 224. Final thinking check: How many new rods are needed after the triangular starting face exists? Three of the 12 edge rods already form the shared starting face. The answer is 224 octahedra. Read the original question once more",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A096__05",
+        "sequence": 5,
+        "text": "and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 15
+      }
+    ]
+  },
+  {
+    "video_id": "A102",
+    "title": "The three linked numbers",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 369,
+    "estimated_seconds": 142.606,
+    "chunks": [
+      {
+        "chunk_id": "A102__01",
+        "sequence": 1,
+        "text": "Here is the problem. Three positive whole numbers together use the digits 1, 3, 5, 6, 7, 8 and 9 exactly once. The second number is twice the first, and the third is four times the first. What is the third number? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A102__02",
+        "sequence": 2,
+        "text": "out for this common mistake: Each digit is used once across all three numbers, not once within each number separately. A useful first observation is: The numbers must have 2, 2 and 3 digits respectively, using 7 digits altogether. Before you continue, think about this: The first number is at least 25 and below 50. Its tens digit must therefore be 3. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on.",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A102__03",
+        "sequence": 3,
+        "text": "Step 1. A one-digit first number would use at most 5 digits altogether; a three-digit first number would use at least 9. Thus the first is two-digit. Step 2. To use exactly 7 digits, the doubled number must have 2 digits and the quadrupled number 3. Hence 25 ≤ first < 50. Its only permitted tens digit is 3. Step 3. The candidates are 31, 35, 36, 37, 38 and 39. Doubling 31, 35, 36 and 37 introduces 2, 0, 2 and 4 respectively. Quadrupling",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A102__04",
+        "sequence": 4,
+        "text": "38 gives 152, which includes 2. Step 4. The remaining first number is 39. Its double is 78 and its quadruple 156. Together they use each required digit exactly once, so the third number is 156. Check the answer with a different viewpoint. List all three-digit multiples of 4 using the allowed digits, then halve twice and test whether the resulting three numbers collectively use the seven digits once. Final thinking check: Why can the first number not be 38? The digit restriction applies to",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A102__05",
+        "sequence": 5,
+        "text": "all three linked numbers. The answer is 156. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 29
+      }
+    ]
+  },
+  {
+    "video_id": "A112",
+    "title": "Equal spending, different savings",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 305,
+    "estimated_seconds": 119.645,
+    "chunks": [
+      {
+        "chunk_id": "A112__01",
+        "sequence": 1,
+        "text": "Here is the problem. Hayden saved $1420 and Mitchell saved $505. They each spend the same amount. Hayden then has 4 times as much money left as Mitchell. How many dollars does each spend? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: The ratio changes",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A112__02",
+        "sequence": 2,
+        "text": "when the same amount is removed, but the difference stays fixed. A useful first observation is: Spending equal amounts leaves the difference between their savings unchanged. Before you continue, think about this: The difference is 1420 minus 505 = 915. In a 4:1 ratio, that difference equals 3 equal parts. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. Their starting difference is 1420 minus 505 = 915 dollars.",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A112__03",
+        "sequence": 3,
+        "text": "Equal spending keeps that difference at 915. Step 2. Afterward, Hayden has 4 parts of money and Mitchell 1 part, so the difference is 3 parts. Step 3. One part is 915 divided by 3 = 305 dollars; this is Mitchell’s remaining money. Step 4. Mitchell spent 505 minus 305 = 200 dollars, and Hayden spent the same amount. Check the answer with a different viewpoint. Let the amount spent be x:1420 minus x = 4(505 minus x). Then 3 x = 600 and x",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A112__04",
+        "sequence": 4,
+        "text": "= 200. Final thinking check: Which quantity remains unchanged after equal spending? Subtracting the same amount from both amounts cancels when taking their difference. The answer is 200 dollars. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 50
+      }
+    ]
+  },
+  {
+    "video_id": "A124",
+    "title": "Different sums from odd cards",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 419,
+    "estimated_seconds": 165.793,
+    "chunks": [
+      {
+        "chunk_id": "A124__01",
+        "sequence": 1,
+        "text": "Here is the problem. The cards are numbered with every odd number from 1 to 105: 1, 3, 5, and so on , 105. Choose three different cards and add their numbers. How many different sums are possible? Count each sum once, even if several choices make it. Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there is a picture, use it as a mathematical diagram rather than",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A124__02",
+        "sequence": 2,
+        "text": "estimating from how it looks. Watch out for this common mistake: The number of card selections is much larger than the number of distinct sums. A range count also needs a reason that there are no gaps. A useful first observation is: What are the smallest and largest sums of three different cards? Are the sums odd or even? Before you continue, think about this: The extreme sums are 9 and 309. Counting the odd numbers between them gives an upper bound. Now build the",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A124__03",
+        "sequence": 3,
+        "text": "solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. The smallest sum is 1 + 3 + 5 = 9; the largest is 101 + 103 + 105 = 309. Every sum of three odd numbers is odd. Step 2. There are (309 minus 9) divided by 2 + 1 = 151 odd values from 9 through 309. We must check that none is missing. Step 3. Beginning with (1, 3, 5),",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A124__04",
+        "sequence": 4,
+        "text": "move through (1, 3, 7), (1, 5, 7), (3, 5, 7). Each move increases the sum by 2 and keeps the cards different. Step 4. Repeat that three-move pattern, shifting the whole consecutive triple up by 2 each round. After 50 rounds it reaches (101, 103, 105), never exceeding 105. Thus every odd sum from 9 to 309 occurs, giving 151 different sums. Check the answer with a different viewpoint. Write each card as 2 a + 1, with 0 ≤ a ≤ 52. Three",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A124__05",
+        "sequence": 5,
+        "text": "distinct indices can attain every integer total from 3 to 153 by the same increasing-triple construction, so the card sums attain 2 times 3 + 3 through 2 times 153 + 3. Final thinking check: Why does the increasing-triple construction matter? The construction gives an actual valid selection for each successive odd total. The answer is 151 sums. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 79
+      }
+    ]
+  },
+  {
+    "video_id": "A130",
+    "title": "Three numbers from six digits",
+    "type": "challenge",
+    "source": "deploy-registry-transcript",
+    "held": false,
+    "hold_reason": null,
+    "word_count": 454,
+    "estimated_seconds": 164.343,
+    "chunks": [
+      {
+        "chunk_id": "A130__01",
+        "sequence": 1,
+        "text": "Here is the problem. Ollie uses the digits 1, 2, 3, 4, 5, 6 exactly once to form three two-digit numbers. Exactly one number is divisible by 3, exactly one is divisible by 4, and these are different numbers. None is divisible by 5. The three numbers add to 93. Which number is divisible by neither 3 nor 4? Before doing any calculation, say exactly what the question is asking for. Separate the information you are given from the quantity you must find. If there",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A130__02",
+        "sequence": 2,
+        "text": "is a picture, use it as a mathematical diagram rather than estimating from how it looks. Watch out for this common mistake: The word “other” in the original source can be read in two ways. Here the condition explicitly excludes a number divisible by both 3 and 4. A useful first observation is: The six digits add to 21. If T is the sum of the tens digits, the three numbers add to 10 T + (21 minus T). Before you continue, think about this:",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A130__03",
+        "sequence": 3,
+        "text": "The tens digits sum to 8. Digit 5 cannot be a units digit, so the tens digits must be 1, 2 and 5. Now build the solution in small steps. Pause after any step if you want to reproduce it in your notebook before going on. Step 1. Let T be the sum of the tens digits. The remaining units digits sum to 21 minus T, so 10 T + 21 minus T = 93. Thus 9 T = 72 and T = 8. Step",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A130__04",
+        "sequence": 4,
+        "text": "2. Because no number is divisible by 5, digit 5 must be in a tens position. The other two tens digits sum to 3, so they are 1 and 2. The units digits are therefore 3, 4 and 6. Step 3. The possible multiples of 3 are 24 and 54. Number 24 is also divisible by 4, which would violate the requirement that the two qualifying numbers are different. Hence the multiple of 3 is 54. Step 4. With digits 5 and 4 used, the",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A130__05",
+        "sequence": 5,
+        "text": "only available multiple of 4 is 16. The remaining digits form 23, which is divisible by neither 3 nor 4. Check the answer with a different viewpoint. List the six assignments of units digits 3, 4, 6 to tens digits 1, 2, 5. Of these, only the set {16, 23, 54} has exactly one multiple of each divisor and no overlap. Final thinking check: Why is 24 excluded as the multiple of 3? The unique multiple of 3 and unique multiple of 4 are required",
+        "word_count": 85
+      },
+      {
+        "chunk_id": "A130__06",
+        "sequence": 6,
+        "text": "to be different numbers. The answer is 23. Read the original question once more and make sure this is the requested quantity, and that every condition has been checked.",
+        "word_count": 29
+      }
+    ]
+  }
+]
