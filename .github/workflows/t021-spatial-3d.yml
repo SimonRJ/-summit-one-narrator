@@ -1,0 +1,174 @@
+name: T02.1 speech-locked original 3D mathematical animation
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'production/t021/render_3d.py'
+      - 'production/t021/captions.py'
+      - '.github/workflows/t021-spatial-3d.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: t021-voice-locked-3d
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install render/word alignment dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-dejavu-core
+          python -m pip install --disable-pip-version-check pillow numpy faster-whisper
+      - name: Recover original narration timestamp source (only on initial build)
+        if: ${{ hashFiles('review/T02.1-locked-timing.json') == '' }}
+        uses: actions/download-artifact@v4
+        with:
+          name: t021-hd-cinematic-narration
+          run-id: 42997997423
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: build/original
+      - name: Lock the existing speech track and 21 exact segment boundaries
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build/t021 review
+          if test -s review/T02.1-locked-timing.json; then
+            cp review/T02.1-locked-timing.json build/t021/timing.json
+          else
+            FOUND="$(find build/original -type f -name timing.json -print -quit)"
+            test -n "$FOUND"
+            cp "$FOUND" build/t021/timing.json
+          fi
+          test -s media/T02.1.mp4
+          ffmpeg -y -hide_banner -loglevel error -i media/T02.1.mp4 -map 0:a:0 -ac 1 -ar 16000 -c:a pcm_s16le build/t021/locked.wav
+          python - <<'PY'
+          import json,subprocess
+          t=json.load(open('build/t021/timing.json'))
+          a=float(subprocess.check_output(['ffprobe','-v','error','-show_entries','format=duration','-of','csv=p=0','media/T02.1.mp4']))
+          assert len(t['segments'])==21
+          assert t['voice']=='af_heart'
+          assert abs(a-t['duration_seconds']) < .8,(a,t['duration_seconds'])
+          print('Speech locked:',a,'seconds, 21 segments. No narration regeneration.')
+          PY
+          cp build/t021/timing.json review/T02.1-locked-timing.json
+      - name: Word align original audio and render one caption layer
+        env:
+          HF_HOME: ${{ runner.temp }}/hf-cache
+        run: |
+          set -euo pipefail
+          python production/t021/captions.py --timing build/t021/timing.json --audio build/t021/locked.wav \
+            --ass build/t021/captions.ass --vtt build/t021/captions.vtt \
+            --qa build/t021/captions-qa.json --words build/t021/word-times.json
+          python - <<'PY'
+          import json
+          d=json.load(open('build/t021/captions-qa.json'))
+          w=json.load(open('build/t021/word-times.json'))
+          assert d['single_layer'] and d['match_percent']>=85,d
+          assert len(w['words'])>=500
+          print('Speech-aligned:',len(w['words']),'words,',d['match_percent'],'percent aligned.')
+          PY
+      - name: Preview all 21 perspective-rendered new visuals and validate speech cues
+        run: |
+          set -euo pipefail
+          python -m py_compile production/t021/render_3d.py
+          python production/t021/render_3d.py --timing build/t021/timing.json --words build/t021/word-times.json --preview --out build/t021/storyboard
+          test "$(find build/t021/storyboard -type f -name '*.png' | wc -l)" -eq 21
+          python - <<'PY'
+          import json,importlib.util
+          sp=importlib.util.spec_from_file_location('r3','production/t021/render_3d.py')
+          mod=importlib.util.module_from_spec(sp);sp.loader.exec_module(mod)
+          s=mod.Story(json.load(open('build/t021/timing.json')),json.load(open('build/t021/word-times.json')))
+          cues={0:['an invariant','stays fixed'],1:['one mathematical fact'],3:['ten counters in each pile'],5:['Move two blue','Now there are seven','total is still twelve'],9:['adds two brand-new counters'],11:['Add two to each','Add two again'],13:['cancel perfectly'],14:['loses t'],17:['Exactly seven moves'],18:['rules that out'],19:['Examine one move','identify what cancels'],20:['Draw one move','write a single equation']}
+          report=[]
+          for i,phrases in cues.items():
+            for phrase in phrases:
+              expected=[mod.norm(x) for x in phrase.split()]
+              words=[mod.norm(x) for x in s.seg[i]['text'].split()]
+              assert any(words[j:j+len(expected)]==expected for j in range(len(words)-len(expected)+1)),(i,phrase)
+              moment=s.cue(i,phrase)
+              assert s.spans[i][0]<=moment<s.spans[i][1]
+              report.append({'scene':i+1,'spoken_phrase':phrase,'audio_timestamp':round(moment,3)})
+          json.dump({'locked_audio':True,'semantic_cues':report},open('build/t021/cue-qa.json','w'),indent=2)
+          print('Verified',len(report),'word-triggered mathematical animation cues')
+          PY
+      - name: Render all original spatial mathematics at 1280 × 720 / 24fps
+        run: |
+          python production/t021/render_3d.py --timing build/t021/timing.json --words build/t021/word-times.json --out build/t021/new_3d_visual.mp4 --fps 24
+      - name: Make the finished video, copying current AAC narration with no voice changes
+        run: |
+          set -euo pipefail
+          ffmpeg -y -hide_banner -loglevel error -i build/t021/new_3d_visual.mp4 -i media/T02.1.mp4 \
+            -vf 'subtitles=build/t021/captions.ass' -map 0:v:0 -map 1:a:0 \
+            -c:v libx264 -preset fast -crf 20 -pix_fmt yuv420p -c:a copy -movflags +faststart -shortest build/t021/T02.1.new.mp4
+      - name: Reject any audio change, bad duration, doubled captions or invalid video
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib,json,subprocess,pathlib
+          source='media/T02.1.mp4'; output='build/t021/T02.1.new.mp4'
+          def audio_sha(p):
+            c=subprocess.Popen(['ffmpeg','-v','error','-i',p,'-map','0:a:0','-ac','1','-ar','48000','-c:a','pcm_s16le','-f','s16le','pipe:1'],stdout=subprocess.PIPE)
+            h=hashlib.sha256()
+            for part in iter(lambda:c.stdout.read(1<<20),b''):h.update(part)
+            assert c.wait()==0
+            return h.hexdigest()
+          original=audio_sha(source); replacement=audio_sha(output)
+          assert original==replacement,'Original speech changed — reject'
+          probe=json.loads(subprocess.check_output(['ffprobe','-v','error','-show_streams','-show_format','-of','json',output]))
+          v=next(x for x in probe['streams'] if x['codec_type']=='video')
+          a=next(x for x in probe['streams'] if x['codec_type']=='audio')
+          duration=float(probe['format']['duration'])
+          old=float(subprocess.check_output(['ffprobe','-v','error','-show_entries','format=duration','-of','csv=p=0',source]))
+          assert abs(duration-old)<.25,(duration,old)
+          assert v['codec_name']=='h264' and (v['width'],v['height'])==(1280,720)
+          assert a['codec_name']=='aac'
+          cap=json.load(open('build/t021/captions-qa.json'))
+          cues=json.load(open('build/t021/cue-qa.json'))['semantic_cues']
+          assert cap['single_layer'] and cap['match_percent']>=85
+          result={'id':'T02.1','version':'3d-speechlocked-v3','duration_seconds':duration,
+            'resolution':'1280x720','audio_unchanged':True,'audio_pcm_sha256':original,
+            'voice':'af_heart','word_alignment_percent':cap['match_percent'],
+            'semantic_audio_cues':len(cues),'caption_layers':1,
+            'sha256':hashlib.file_digest(open(output,'rb'),'sha256').hexdigest(),
+            'size_bytes':pathlib.Path(output).stat().st_size}
+          pathlib.Path('review/T02.1-3d-qa.json').write_text(json.dumps(result,indent=2)+'\n')
+          print(json.dumps(result,indent=2))
+          PY
+      - name: Publish the verified audio-identical film to Summit One GitHub Pages
+        run: |
+          set -euo pipefail
+          mv build/t021/T02.1.new.mp4 media/T02.1.mp4
+          cp build/t021/captions.vtt media/T02.1.vtt
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add media/T02.1.mp4 media/T02.1.vtt review/T02.1-3d-qa.json review/T02.1-locked-timing.json
+          git commit -m 'Publish voice-locked 3D T02.1 with speech-synced mathematical animation'
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
+      - name: Retain the movie, 21-scene storyboard and the exact cue QA
+        uses: actions/upload-artifact@v4
+        with:
+          name: t021-3d-speech-locked
+          path: |
+            media/T02.1.mp4
+            media/T02.1.vtt
+            review/T02.1-3d-qa.json
+            build/t021/cue-qa.json
+            build/t021/storyboard/
+          retention-days: 14
+          compression-level: 0

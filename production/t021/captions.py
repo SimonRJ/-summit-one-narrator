@@ -132,9 +132,12 @@ def make_vtt(words,groups,out):
 def main():
     p=argparse.ArgumentParser()
     for name in ['timing','audio','ass','vtt','qa']:p.add_argument('--'+name,required=True)
+    p.add_argument('--words',default=None)
     a=p.parse_args();data=json.load(open(a.timing))
     words=make_base_words(data)
     qa=align(words,a.audio)
+    if a.words:
+        Path(a.words).write_text(json.dumps({'video_id':data['id'],'audio_locked':True,'words':words,'alignment':qa},indent=2),encoding='utf-8')
     groups=phrase_groups(words)
     make_ass(words,groups,a.ass);make_vtt(words,groups,a.vtt)
     qa.update({'caption_events':len(words),'caption_groups':len(groups),'single_layer':True,'burned_in_original_subtitles':False,'voice':data['voice'],'speed':data['speed']})

@@ -1,11 +1,6 @@
 name: T02.1 cinematic mathematical explainer
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'production/t021/**'
-      - '.github/workflows/t021-cinematic.yml'
   workflow_dispatch:
 
 permissions:

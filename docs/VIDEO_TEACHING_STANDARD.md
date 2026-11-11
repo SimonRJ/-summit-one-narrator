@@ -22,3 +22,7 @@ This guide applies to new and revised narrated concept or worked-example videos.
 - Keep exactly **one** visible caption layer. If captions are burned in, do not enable a second in-player text track by default. Smoothly emphasise only the current spoken word using the audio alignment.
 - Verify mathematical correctness (including edge cases), audio clarity, speech/caption alignment, legibility on a phone, and the actual published HTTPS link.
 - The original T02.1 edit introduced three opening scenes before its existing puzzle and extended the visual structure from 18 to 21 scenes. Only adopt the visual standard course-wide after student review.
+
+## Audio-locked original spatial animation — T02.1 benchmark
+
+Keep the approved speech track unchanged. Use moving 3D perspective and lit mathematical solids; trigger the important counter movements, new blocks, and algebraic cancellations at verified spoken-word timestamps, not arbitrary scene fractions. Verify the decoded original/final AAC audio checksum, duration and one caption layer before publishing. Preserve the 21-frame storyboard and cue QA for reviews.
