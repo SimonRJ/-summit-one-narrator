@@ -1,0 +1,148 @@
+{
+  "schema_version": "summit-one-kokoro-replacements-v1",
+  "count": 91,
+  "unique_ids": 91,
+  "purpose": "Replace the 89 HeyGen tracks and re-narrate A001/A049 so final course narration is 266/266 Kokoro",
+  "shards": [
+    {
+      "shard": "r01",
+      "count": 12,
+      "estimated_seconds": 1797.9,
+      "ids": [
+        "A041",
+        "A042",
+        "A046",
+        "A049",
+        "A067",
+        "A080",
+        "A086",
+        "A101",
+        "A109",
+        "A113",
+        "A116",
+        "A127"
+      ]
+    },
+    {
+      "shard": "r02",
+      "count": 13,
+      "estimated_seconds": 1754.7,
+      "ids": [
+        "A043",
+        "A044",
+        "A051",
+        "A055",
+        "A059",
+        "A061",
+        "A066",
+        "A087",
+        "A100",
+        "A103",
+        "A110",
+        "A114",
+        "A123"
+      ]
+    },
+    {
+      "shard": "r03",
+      "count": 13,
+      "estimated_seconds": 1754.3,
+      "ids": [
+        "A052",
+        "A063",
+        "A065",
+        "A072",
+        "A079",
+        "A081",
+        "A084",
+        "A094",
+        "A106",
+        "A121",
+        "A122",
+        "A126",
+        "A129"
+      ]
+    },
+    {
+      "shard": "r04",
+      "count": 14,
+      "estimated_seconds": 1824.2,
+      "ids": [
+        "A001",
+        "A047",
+        "A048",
+        "A050",
+        "A054",
+        "A069",
+        "A071",
+        "A073",
+        "A077",
+        "A085",
+        "A088",
+        "A095",
+        "A097",
+        "A111"
+      ]
+    },
+    {
+      "shard": "r05",
+      "count": 13,
+      "estimated_seconds": 1757.4,
+      "ids": [
+        "A053",
+        "A058",
+        "A062",
+        "A078",
+        "A083",
+        "A089",
+        "A090",
+        "A091",
+        "A099",
+        "A115",
+        "A117",
+        "A120",
+        "A125"
+      ]
+    },
+    {
+      "shard": "r06",
+      "count": 13,
+      "estimated_seconds": 1759.0,
+      "ids": [
+        "A045",
+        "A057",
+        "A070",
+        "A082",
+        "A092",
+        "A098",
+        "A104",
+        "A105",
+        "A107",
+        "A108",
+        "A118",
+        "A119",
+        "A128"
+      ]
+    },
+    {
+      "shard": "r07",
+      "count": 13,
+      "estimated_seconds": 1757.4,
+      "ids": [
+        "A056",
+        "A060",
+        "A064",
+        "A068",
+        "A074",
+        "A075",
+        "A076",
+        "A093",
+        "A096",
+        "A102",
+        "A112",
+        "A124",
+        "A130"
+      ]
+    }
+  ]
+}
