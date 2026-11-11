@@ -2,6 +2,8 @@
 if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));}
 import { supabase, loadProgress, saveProgress, signOut, currentUser, upsertSession } from "./supabase-client.js";
 import { mountNarratedPlayer } from "./lesson-player.js";
+import {methods,skillFor,recallState} from "./curriculum.js";
+import {lessonCard,mountCheck,mountRetrieval,readinessHTML} from "./learning-ui.js";
 import { problemFigure } from "./problem-figures.js";
 
 const app=document.getElementById("app");
@@ -9,6 +11,7 @@ const problemTemplate=document.getElementById("problemTemplate");
 let course=[], teaching=[], mawa=[], rossMap=[], taxonomy=null, milestones=null, problemIndex=[], progress=null, user=null, activeView="home", activeStage=0;
 let currentProblems=[], currentMawa=null, sessionDraft={answers:{},working:{},evidence:{},summary:{}};
 let attemptedProblemIds=new Set();
+let completedRecords=[],attemptHistory=[],recentExams=[];
 
 const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
 const pct=n=>Math.max(0,Math.min(100,Number(n)||0));
@@ -22,7 +25,7 @@ function finalVideoUrl(videoId){
   if(id==="T01.2")return ""; // George retired; use natural on-device narration until new T01.2 master is approved.
   if(id==="T02.1")return "media/T02.1.mp4?v=studio-v4";
   if(id==="T02.2")return "media/T02.2.mp4?v=studio-v1";
-  return `https://github.com/SimonRJ/-summit-one-narrator/releases/download/summit-one-video-v1/${encodeURIComponent(id)}.mp4`;
+  return ""; // Only verified published masters are offered; other lessons use their written/audio teaching.
 }
 async function recordVideoEvidence(sessionNumber,videoId,kind,detail={}){
   if(!sessionNumber||!videoId)return;
@@ -33,7 +36,9 @@ async function recordVideoEvidence(sessionNumber,videoId,kind,detail={}){
     await upsertSession({session_number:sessionNumber,session_key:`S${String(sessionNumber).padStart(3,"0")}`,answers:sessionDraft.answers,working:sessionDraft.working,evidence:sessionDraft.evidence,summary:sessionDraft.summary});
   }catch(e){console.warn("Video evidence save failed",e)}
 }
-function syncStatusText(){return navigator.onLine?"Synced":"Offline — reconnect to save"}
+let saveStatus="Loaded from cloud";
+window.addEventListener("summit-save",e=>{saveStatus=e.detail;refreshSyncIndicator()});
+function syncStatusText(){return navigator.onLine?saveStatus:"Offline — changes are not yet saved"}
 function refreshSyncIndicator(){const el=document.getElementById("syncStatus");if(el){el.textContent=syncStatusText();el.parentElement.style.color=navigator.onLine?"var(--green)":"var(--gold)"}}
 window.addEventListener("online",refreshSyncIndicator);window.addEventListener("offline",refreshSyncIndicator);
 
@@ -77,30 +82,28 @@ function problemKeywords(focus){
   return focus.toLowerCase().split(/[^a-z0-9]+/).filter(w=>w.length>4&&!["including","through","under","using","simple","reasoning"].includes(w));
 }
 function chooseProblems(session){
-  const words=problemKeywords(session.focus);
-  const targetDifficulty=session.slot<=40?2:session.slot<=100?3:session.slot<=176?4:4.5;
-  const scored=problemIndex.map(p=>{
-    const hay=(p.title+" "+p.category+" "+p.source_label).toLowerCase();
-    let score=words.reduce((n,w)=>n+(hay.includes(w)?4:0),0);
-    if(session.phase.includes("AMC")&&p.source_type==="authentic_amc")score+=2;
-    if(session.phase.includes("Year 6")||session.phase.includes("Advanced")||session.phase.includes("Rossmoyne"))score+=Number(p.difficulty||3)>=4?1.5:0;
-    score-=Math.abs(Number(p.difficulty||3)-targetDifficulty)*1.25;
-    const used=attemptedProblemIds.has(p.id);
-    return {...p,_score:score,_used:used,_tie:hash(session.slot+"|"+p.id)};
-  }).sort((a,b)=>Number(a._used)-Number(b._used)||b._score-a._score||a._tie-b._tie);
-  const chosen=[];
-  for(const p of scored){if(!chosen.some(x=>x.id===p.id)){chosen.push(p);if(chosen.length===2)break}}
-  return chosen;
+  const id=skillFor(session,taxonomy),cat=id?.split("-")[0];
+  const categories={DIG:["digits","calculation"],DIV:["factors-multiples","patterns"],FRAC:["fractions-ratios"],RATE:["time","fractions-ratios"],ALG:["totals-differences","before-after"],SEQ:["patterns"],COUNT:["counting","shape-counting"],LOGIC:["logic"],GEO:["area-perimeter","symmetry"],SOLID:["solids"],SPATIAL:["shape-counting","counting"],DATA:["fractions-ratios","counting"]};
+  const words=problemKeywords(session.focus),last=attemptHistory.filter(x=>x.independent_credit!==null).slice(-8);
+  const success=last.filter(x=>x.independent_credit).length/Math.max(1,last.length);
+  const target=last.length>=4?(success>=.75?4:success<.4?2:3):(session.slot<25?2:3);
+  const ranked=problemIndex.map(p=>{const hay=(p.title+" "+p.prompt+" "+p.category).toLowerCase();return {...p,_score:(categories[cat]?.includes(p.category)?30:0)+words.reduce((n,w)=>n+(hay.includes(w)?2:0),0)-Math.abs(Number(p.difficulty||3)-target)*2,_used:attemptedProblemIds.has(p.id),_tie:hash(session.slot+"|"+p.id)}}).sort((a,b)=>Number(a._used)-Number(b._used)||b._score-a._score||a._tie-b._tie);
+  return ranked.slice(0,2);
 }
 function teachingFor(session){
-  const chapter=chapterFor(session.focus);
-  const arr=teaching.filter(x=>x.id.startsWith(chapter+"."));
-  if(!arr.length)return [];
-  const concept=arr.filter(x=>x.type==="concept");
-  const pick=concept[(session.slot-1)%Math.max(1,concept.length)];
-  const example=arr.find(x=>x.type==="worked_example");
-  return [pick,example].filter(Boolean);
+ const m=methods[skillFor(session,taxonomy)];
+ return m?teaching.filter(t=>t.id===m.video):[];
 }
+async function saveDraft(s){
+ await upsertSession({session_number:s.slot,session_key:`S${String(s.slot).padStart(3,"0")}`,answers:sessionDraft.answers,working:sessionDraft.working,evidence:sessionDraft.evidence,summary:sessionDraft.summary});
+}
+async function refreshEvidence(){
+ const [{data,error},{data:exams,error:ee}]=await Promise.all([
+  supabase.from("session_records").select("session_number,completed_at,summary,answers,working,evidence").eq("user_id",user.id).not("completed_at","is",null).order("session_number"),
+  supabase.from("exam_sittings").select("id,exam_id,score,max_score,submitted_at,metadata").eq("user_id",user.id).eq("completed",true).order("submitted_at",{ascending:false}).limit(30)
+ ]);if(error||ee)throw error||ee;completedRecords=data||[];recentExams=exams||[];
+}
+async function renderRoadmap(){await refreshEvidence();app.innerHTML=readinessHTML({records:completedRecords,taxonomy,progress,milestones,exams:recentExams});}
 async function boot(){
   try{
     user=await currentUser();
@@ -109,15 +112,19 @@ async function boot(){
     course=c.sessions; teaching=t.items; mawa=m.items; rossMap=h.items; taxonomy=tax; milestones=ms;
     const {data:problems,error}=await supabase.from("content_problems_student").select("id,source_type,title,source_label,category,difficulty,prompt,unit").order("id");
     if(error)throw error; problemIndex=problems||[];
-    const {data:attemptRows,error:attemptError}=await supabase.from("problem_attempts").select("problem_id").eq("user_id",user.id).not("answer_text","is",null);
-    if(attemptError)throw attemptError; attemptedProblemIds=new Set((attemptRows||[]).map(x=>x.problem_id));
+    const {data:attemptRows,error:attemptError}=await supabase.from("problem_attempts").select("problem_id,independent_credit,is_correct,created_at").eq("user_id",user.id).not("answer_text","is",null).order("created_at");
+    if(attemptError)throw attemptError; attemptHistory=attemptRows||[]; attemptedProblemIds=new Set(attemptHistory.map(x=>x.problem_id));
     progress=await loadProgress();
     if(!progress)progress=await saveProgress({current_session:0,completed_sessions:0,xp:0,rank:0,overall_percent:0,state:{}});
+    await refreshEvidence();
+    // Recover a completed session if the separate progress write lost its connection.
+    let contiguous=0;while(completedRecords.some(r=>r.session_number===contiguous+1))contiguous++;
+    if(contiguous>(progress.completed_sessions||0))progress=await saveProgress({completed_sessions:contiguous,current_session:Math.min(372,contiguous+1),xp:contiguous*100,rank:earnedRankBySessions(contiguous),overall_percent:contiguous/372*100});
     wireNav(); renderHome();
   }catch(e){app.innerHTML='<section class="panel hero-panel"><h1>Unable to load Summit One</h1><p class="muted">'+esc(e.message)+'</p></section>'}
 }
 function wireNav(){
-  document.querySelectorAll("[data-view]").forEach(b=>b.onclick=()=>{document.querySelectorAll(".nav-btn").forEach(x=>x.classList.remove("active"));b.classList.add("active");activeView=b.dataset.view;if(activeView==="home")renderHome();if(activeView==="review")renderReview();if(activeView==="profile")renderProfile()})
+  document.querySelectorAll("[data-view]").forEach(b=>b.onclick=()=>{document.querySelectorAll(".nav-btn").forEach(x=>x.classList.remove("active"));b.classList.add("active");activeView=b.dataset.view;if(activeView==="home")renderHome();if(activeView==="review")renderReview();if(activeView==="profile")renderProfile();if(activeView==="roadmap")renderRoadmap().catch(e=>alert(e.message))})
 }
 function renderHome(){
   const s=courseSession(),done=progress.completed_sessions||0,amc=nextSlot("AMC MOCK"),mawa=nextSlot("MAWA");
@@ -143,18 +150,27 @@ function renderHome(){
       <article class="panel stat-card"><div class="eyebrow">CURRENT MILESTONE</div><div class="stat-value">${milestoneDone} / ${milestone.target}</div><div class="progress-track"><div class="progress-fill" style="width:${(milestoneDone/milestone.target*100).toFixed(1)}%"></div></div><div class="stat-label">${esc(milestone.label)}</div></article>
     </aside>
   </section>
+  <section class="panel learning-note"><h2>Today’s rhythm</h2><p>5 minutes remembering · 8–12 minutes discovering · 15–25 minutes trying and transferring · 5–10 minutes checking. Stop for a short break if concentration drops; unfinished work stays in this session.</p><button id="planQuick" class="secondary">Goals and readiness</button></section>
   <p class="footer-note">The course follows the canonical 372-session Summit One plan: 283 teaching/transfer sessions, 53 MAWA investigations, 25 AMC mock positions and 11 Rossmoyne-style mock positions. Full authentic AMC papers live separately in the Test Centre and never replace the teaching sequence.</p>`;
   document.getElementById("continue").onclick=()=>done<372?startSession(s):renderProfile();
   document.getElementById("reviewQuick").onclick=()=>renderReview();
+  document.getElementById("planQuick").onclick=()=>renderRoadmap().catch(e=>alert(e.message));
 }
 async function startSession(s){
+ try{
   if(s.type==="AMC MOCK"||s.type==="ROSSMOYNE MOCK"){location.href=`tests.html?slot=${s.slot}&course=1`;return}
-  activeStage=0;currentProblems=chooseProblems(s);currentMawa=s.type==="MAWA"?mawa[(Math.floor(s.slot/7)-1)%mawa.length]:null;sessionDraft={answers:{},working:{},evidence:{},summary:{}};
-  const {data:existing}=await supabase.from("session_records").select("*").eq("user_id",user.id).eq("session_number",s.slot).maybeSingle();
-  if(existing){sessionDraft={answers:existing.answers||{},working:existing.working||{},evidence:existing.evidence||{},summary:existing.summary||{}}}
-  else await upsertSession({session_number:s.slot,session_key:`S${String(s.slot).padStart(3,"0")}`,answers:{},working:{},evidence:{},summary:{}});
-  if(s.type==="MAWA"){renderMawaSession(s);return}
-  renderSession(s);
+  await refreshEvidence();
+  activeStage=0;currentMawa=s.type==="MAWA"?mawa[(Math.floor(s.slot/7)-1)%mawa.length]:null;
+  const {data:existing,error}=await supabase.from("session_records").select("*").eq("user_id",user.id).eq("session_number",s.slot).maybeSingle();if(error)throw error;
+  if(existing?.immutable){await refreshEvidence();renderReview();return}
+  sessionDraft={answers:existing?.answers||{},working:existing?.working||{},evidence:existing?.evidence||{},summary:existing?.summary||{}};
+  const pinned=sessionDraft.summary.problems||Object.keys(sessionDraft.answers).filter(id=>problemIndex.some(p=>p.id===id));
+  currentProblems=pinned.map(id=>problemIndex.find(p=>p.id===id)).filter(Boolean);
+  for(const p of chooseProblems(s))if(currentProblems.length<2&&!currentProblems.some(x=>x.id===p.id))currentProblems.push(p);
+  sessionDraft.summary={...sessionDraft.summary,problems:currentProblems.map(p=>p.id),skill_id:skillFor(s,taxonomy),focus:s.focus,type:s.type,phase:s.phase};
+  await saveDraft(s);
+  if(s.type==="MAWA"){renderMawaSession(s);return}renderSession(s);
+ }catch(e){alert("Could not open this session: "+e.message)}
 }
 
 function mawaExtension(s,item){
@@ -171,7 +187,7 @@ function renderMawaSession(s){
     <nav class="stage-nav" aria-label="MAWA stages">${["Remember","Discover","Try","Transfer","Check"].map((x,i)=>`<button data-stage="${i}" class="${i===activeStage?"active":""}">${i+1}. ${x}</button>`).join("")}</nav>
     <section id="stage" class="panel stage"></section>
   </section>`;
-  document.querySelectorAll("[data-stage]").forEach(b=>b.onclick=()=>{activeStage=Number(b.dataset.stage);renderMawaSession(s)});
+  document.querySelectorAll("[data-stage]").forEach(b=>b.onclick=async()=>{try{await saveDraft(s);activeStage=Number(b.dataset.stage);renderMawaSession(s)}catch(e){alert(e.message)}});
   const el=document.getElementById("stage"), item=currentMawa;
   if(activeStage===0){
     const prevSlot=s.slot-7,prev=prevSlot>=7?mawa[(Math.floor(prevSlot/7)-1)%mawa.length]:null;
@@ -183,26 +199,28 @@ function renderMawaSession(s){
   if(activeStage===2){
     const saved=sessionDraft.working.mawa_base||"";
     el.innerHTML=`<div class="stage-number">STAGE 3 · INDEPENDENT WORK</div><h2>Try</h2><p class="muted">Use paper, a notebook or this box. A correct number without justification is not complete evidence.</p><div class="problem-card"><div class="math-copy">${esc(item.prompt)}</div><label class="answer-label">Your organised reasoning<textarea id="mawaBase" class="answer-box" rows="12">${esc(saved)}</textarea></label><button id="recordMawa" class="primary">Record investigation work</button><div id="mawaMsg" class="attempt-feedback" hidden></div></div><div class="complete-row"><button id="backStage" class="ghost">Back</button><button id="nextStage" class="primary">Transfer</button></div>`;
+    document.getElementById("mawaBase").oninput=e=>{sessionDraft.working.mawa_base=e.target.value};
     document.getElementById("recordMawa").onclick=async()=>{const v=document.getElementById("mawaBase").value.trim();if(v.length<20){alert("Record enough working to show the method, not only an answer.");return}sessionDraft.working.mawa_base=v;sessionDraft.evidence.mawa_base={status:"proof_evidence_unreviewed",recorded_at:new Date().toISOString()};await upsertSession({session_number:s.slot,session_key:`S${String(s.slot).padStart(3,"0")}`,answers:sessionDraft.answers,working:sessionDraft.working,evidence:sessionDraft.evidence,summary:sessionDraft.summary});const m=document.getElementById("mawaMsg");m.hidden=false;m.textContent="Work saved. Proof evidence remains unreviewed until you compare/check it."};
   }
   if(activeStage===3){
     const ext=mawaExtension(s,item),saved=sessionDraft.working.mawa_extension||"";
     el.innerHTML=`<div class="stage-number">STAGE 4 · GENERALISE</div><h2>Transfer</h2><p class="muted">${esc(ext)}</p><label class="answer-label">Extension reasoning<textarea id="mawaExt" class="answer-box" rows="10">${esc(saved)}</textarea></label><button id="recordExt" class="primary">Record extension</button><div class="complete-row"><button id="backStage" class="ghost">Back</button><button id="nextStage" class="primary">Check</button></div>`;
+    document.getElementById("mawaExt").oninput=e=>{sessionDraft.working.mawa_extension=e.target.value};
     document.getElementById("recordExt").onclick=async()=>{const v=document.getElementById("mawaExt").value.trim();if(v.length<20){alert("Give a mathematical reason, example, diagram description or proof step.");return}sessionDraft.working.mawa_extension=v;await upsertSession({session_number:s.slot,session_key:`S${String(s.slot).padStart(3,"0")}`,answers:sessionDraft.answers,working:sessionDraft.working,evidence:sessionDraft.evidence,summary:sessionDraft.summary});};
   }
   if(activeStage===4){
-    const ready=sessionDraft.working.mawa_base&&sessionDraft.working.mawa_extension;
-    el.innerHTML=`<div class="stage-number">STAGE 5 · PROOF CHECK</div><h2>Check</h2><p class="muted">Score the evidence, not confidence. This is a practice rubric, not an official MAWA admissions score.</p><div class="problem-card"><details><summary>Compare with model reasoning</summary><p class="solution-panel" style="display:block">${esc(item.solution)}</p><p class="muted"><b>Common trap:</b> ${esc(item.trap)}</p></details><div class="check-grid"><label class="answer-label">Result 0–3<input id="rResult" type="number" min="0" max="3" value="3"></label><label class="answer-label">Method 0–3<input id="rMethod" type="number" min="0" max="3" value="2"></label><label class="answer-label">Proof / completeness 0–3<input id="rProof" type="number" min="0" max="3" value="2"></label><label class="answer-label">Clarity 0–1<input id="rClarity" type="number" min="0" max="1" value="1"></label></div></div><div class="complete-row"><span class="muted">${ready?"Investigation and extension recorded.":"Record both the investigation and extension before completion."}</span><button id="completeMawa" class="primary" ${ready?"":"disabled"}>Complete and lock Session ${s.slot}</button></div>`;
-    if(ready)document.getElementById("completeMawa").onclick=async()=>{const rubric={result:Number(document.getElementById("rResult").value),method:Number(document.getElementById("rMethod").value),proof:Number(document.getElementById("rProof").value),clarity:Number(document.getElementById("rClarity").value)};sessionDraft.summary={focus:item.title,type:"MAWA",phase:s.phase,investigation_id:item.id,rubric,total:rubric.result+rubric.method+rubric.proof+rubric.clarity};await completeSpecialSession(s)};
+    const ready=(sessionDraft.working.mawa_base||"").trim().length>=20&&(sessionDraft.working.mawa_extension||"").trim().length>=20;
+    el.innerHTML=`<div class="stage-number">STAGE 5 · PROOF CHECK</div><h2>Check</h2><p class="muted">Score the evidence, not confidence. This is a practice rubric, not an official MAWA admissions score.</p><div class="problem-card"><details ${ready?"":"hidden"}><summary>Compare with model reasoning</summary><p class="solution-panel" style="display:block">${esc(item.solution)}</p><p class="muted"><b>Common trap:</b> ${esc(item.trap)}</p></details><div class="check-grid"><label class="answer-label">Result 0–3<input id="rResult" type="number" min="0" max="3" value="" required></label><label class="answer-label">Method 0–3<input id="rMethod" type="number" min="0" max="3" value="" required></label><label class="answer-label">Proof / completeness 0–3<input id="rProof" type="number" min="0" max="3" value="" required></label><label class="answer-label">Clarity 0–1<input id="rClarity" type="number" min="0" max="1" value="" required></label></div></div><div class="complete-row"><span class="muted">${ready?"Investigation and extension recorded.":"Record both the investigation and extension before completion."}</span><button id="completeMawa" class="primary" ${ready?"":"disabled"}>Complete and lock Session ${s.slot}</button></div>`;
+    if(ready)document.getElementById("completeMawa").onclick=async()=>{if(!["rResult","rMethod","rProof","rClarity"].every(id=>{const x=document.getElementById(id);return x.value!==""&&x.checkValidity()})){alert("Enter each rubric score after comparing the reasoning.");return}const rubric={result:Number(document.getElementById("rResult").value),method:Number(document.getElementById("rMethod").value),proof:Number(document.getElementById("rProof").value),clarity:Number(document.getElementById("rClarity").value)};sessionDraft.summary={...sessionDraft.summary,review_status:"self_reviewed_not_independently_verified",focus:item.title,type:"MAWA",phase:s.phase,investigation_id:item.id,rubric,total:rubric.result+rubric.method+rubric.proof+rubric.clarity};await completeSpecialSession(s)};
   }
-  const next=document.getElementById("nextStage");if(next)next.onclick=()=>{activeStage=Math.min(4,activeStage+1);renderMawaSession(s)};
+  const next=document.getElementById("nextStage");if(next)next.onclick=async()=>{await saveDraft(s);activeStage=Math.min(4,activeStage+1);renderMawaSession(s)};
   const back=document.getElementById("backStage");if(back)back.onclick=()=>{activeStage=Math.max(0,activeStage-1);renderMawaSession(s)};
 }
 async function completeSpecialSession(s){
   await upsertSession({session_number:s.slot,session_key:`S${String(s.slot).padStart(3,"0")}`,completed_at:new Date().toISOString(),immutable:true,answers:sessionDraft.answers,working:sessionDraft.working,evidence:sessionDraft.evidence,summary:sessionDraft.summary});
   const done=Math.max(progress.completed_sessions||0,s.slot),p=done/372*100,r=Math.max(Number(progress.rank||0),Math.max(0,Math.min(20,Math.floor(done*20/372))));
   progress=await saveProgress({completed_sessions:done,current_session:Math.min(372,done+1),xp:done*100,rank:r,overall_percent:Number(p.toFixed(2)),next_practice_exam_in:(course.find(x=>x.slot>done&&(x.type==="AMC MOCK"||x.type==="ROSSMOYNE MOCK"))?.slot??done)-done});
-  renderHome();
+  await refreshEvidence();renderHome();
 }
 
 function renderSession(s){
@@ -223,17 +241,17 @@ function renderSession(s){
   if(activeStage===4)renderCheck(target,s);
 }
 function renderRemember(el,s){
-  const prev=course[s.slot-2];
-  el.innerHTML=`<div class="stage-number">STAGE 1 · RETRIEVAL</div><h2>Remember</h2><p class="muted">Start without notes. Retrieval is meant to feel effortful.</p>
-  <div class="teaching-item"><h3>${prev?esc(prev.focus):"Mathematical habits"}</h3><p class="math-copy">${prev?`In your notebook, write one idea you remember from <b>Session ${prev.slot}</b>. Then make a tiny example that would prove you understand it rather than merely recognise the words.`:"Write three things that make a mathematical answer trustworthy: a clear model, valid operations and a check against the original conditions."}</p></div>
-  <div class="complete-row"><span class="muted">When you have written something from memory, continue.</span><button class="primary" id="nextStage">Discover</button></div>`;
-  document.getElementById("nextStage").onclick=()=>{activeStage=1;renderSession(s)};
+ el.innerHTML=`<div class="stage-number">STAGE 1 · RETRIEVAL · ABOUT 5 MINUTES</div><h2>Remember</h2><p class="muted">Start without notes. Getting stuck shows us what to revisit.</p><div id="retrievalChecks"></div><div class="complete-row"><span class="muted">Try the due checks before continuing.</span><button class="primary" id="nextStage">Discover</button></div>`;
+ mountRetrieval(el.querySelector('#retrievalChecks'),{records:completedRecords,slot:s.slot,currentId:skillFor(s,taxonomy),draft:sessionDraft,save:()=>saveDraft(s)});
+ document.getElementById('nextStage').onclick=async()=>{if((sessionDraft.summary.retrieval_ids||[]).some(id=>!sessionDraft.evidence['retrieval:'+id])){alert('Try each short revision check. Use a hint if needed.');return}await saveDraft(s);activeStage=1;renderSession(s)};
 }
+
 function renderDiscover(el,s){
   const items=teachingFor(s);
   el.innerHTML=`<div class="stage-number">STAGE 2 · EXPLANATION</div><h2>Discover</h2><p class="muted">Read, sketch and listen. The goal is to see why the method works, not memorise a slogan.</p>
-  <div class="teaching-box">${items.map((t,i)=>`<article class="teaching-item"><div class="eyebrow">${esc(t.type==="worked_example"?"WORKED EXAMPLE":"CONCEPT")}</div><h3>${esc(t.title)}</h3><div class="lesson-player-slot" id="lessonPlayer${i}"></div><details><summary>Read explanation</summary><p class="math-copy">${esc(t.transcript)}</p>${t.extended_reading?`<h4>Further mathematical connections</h4><p class="math-copy">${esc(t.extended_reading)}</p>`:""}</details></article>`).join("")||'<p class="muted">Teaching explanation is being selected from the course library.</p>'}</div>
+  ${lessonCard(skillFor(s,taxonomy))}<div id="guidedCheck"></div><details class="optional-lesson"><summary>Watch or read the related explanation</summary><div class="teaching-box">${items.map((t,i)=>`<article class="teaching-item"><div class="eyebrow">${esc(t.type==="worked_example"?"WORKED EXAMPLE":"CONCEPT")}</div><h3>${esc(t.title)}</h3><div class="lesson-player-slot" id="lessonPlayer${i}"></div><details><summary>Read explanation</summary><p class="math-copy">${esc(t.transcript)}</p>${t.extended_reading?`<h4>Further mathematical connections</h4><p class="math-copy">${esc(t.extended_reading)}</p>`:""}</details></article>`).join("")||'<p class="muted">Teaching explanation is being selected from the course library.</p>'}</div></details>
   <div class="complete-row"><span class="muted">Make one note or diagram before moving on.</span><button class="primary" id="nextStage">Try independently</button></div>`;
+  if(skillFor(s,taxonomy))mountCheck(el.querySelector("#guidedCheck"),{id:skillFor(s,taxonomy),slot:s.slot,records:completedRecords,draft:sessionDraft,kind:"guided",save:()=>saveDraft(s)});
   items.forEach((t,i)=>mountNarratedPlayer(document.getElementById("lessonPlayer"+i),{
     title:t.title,
     transcript:t.transcript,
@@ -253,7 +271,9 @@ function renderChallenge(el,s,p,mode){
   const promptEl=node.querySelector(".problem-prompt"); promptEl.textContent=p.prompt; const figure=problemFigure(p.id); if(figure)promptEl.insertAdjacentHTML("beforebegin",figure);
   const box=node.querySelector(".answer-box"),submit=node.querySelector(".submit-answer"),reveal=node.querySelector(".reveal-solution"),feedback=node.querySelector(".attempt-feedback"),solution=node.querySelector(".solution-panel");
   const saved=sessionDraft.answers[p.id];
-  if(saved){box.value=saved.response||"";box.disabled=true;submit.hidden=true;reveal.hidden=false;feedback.hidden=false;feedback.textContent=saved.correct===true?"Recorded as correct independent work.":saved.correct===false?"Attempt recorded. Compare your reasoning, then revisit the method.":"Attempt recorded. This problem needs reasoning rather than a simple exact-answer check."}
+  const working=node.querySelector(".working-box");working.value=sessionDraft.working[p.id]||"";working.oninput=()=>{sessionDraft.working[p.id]=working.value};
+  box.value=sessionDraft.working["draft-answer:"+p.id]||"";box.oninput=()=>{sessionDraft.working["draft-answer:"+p.id]=box.value};
+  if(saved){box.value=saved.response||"";box.disabled=true;submit.hidden=true;reveal.hidden=false;feedback.hidden=false;feedback.textContent=saved.correct===true?(saved.independent_credit?"Correct on a fresh independent attempt.":"Correct on a repeat/practice attempt."):saved.correct===false?"Attempt recorded. Compare your reasoning, then revisit the method.":"Attempt recorded. This problem needs reasoning rather than a simple exact-answer check."}
   submit.onclick=async()=>{
     const response=box.value.trim();if(!response){feedback.hidden=false;feedback.textContent="Write an answer or reasoning first.";return}
     submit.disabled=true;feedback.hidden=false;feedback.textContent="Recording independent attempt…";
@@ -263,9 +283,9 @@ function renderChallenge(el,s,p,mode){
       if(graded?.error)throw new Error(graded.error);
       const correct=graded?.correct??null;
       attemptedProblemIds.add(p.id);
-      sessionDraft.answers[p.id]={response,correct,attempted_at:new Date().toISOString()};
+      sessionDraft.answers[p.id]={response,correct,independent_credit:graded?.independent_credit===true,attempted_at:new Date().toISOString()};
       await upsertSession({session_number:s.slot,session_key:`S${String(s.slot).padStart(3,"0")}`,answers:sessionDraft.answers,working:sessionDraft.working,evidence:sessionDraft.evidence,summary:sessionDraft.summary});
-      box.disabled=true;submit.hidden=true;reveal.hidden=false;feedback.textContent=correct===true?"Correct — and recorded as independent evidence.":correct===false?"Attempt recorded. Now compare methods and find the exact point to improve.":"Attempt recorded. Compare the proof/reasoning rather than relying on exact text matching.";
+      box.disabled=true;submit.hidden=true;reveal.hidden=false;feedback.textContent=correct===true?(graded?.independent_credit?"Correct on a fresh independent attempt.":"Correct — recorded as practice, since this problem has been seen before."):correct===false?"Attempt recorded. Now compare methods and find the exact point to improve.":"Attempt recorded. Compare the proof/reasoning rather than relying on exact text matching.";
     }catch(e){feedback.textContent=e.message;submit.disabled=false}
   };
   reveal.onclick=async()=>{
@@ -290,34 +310,36 @@ function renderChallenge(el,s,p,mode){
   };
   el.appendChild(node);
   const footer=document.createElement("div");footer.className="complete-row";footer.innerHTML=`<button class="ghost" id="prevStage">Back</button><button class="primary" id="nextStage">${mode==="try"?"Transfer":"Check"}</button>`;el.appendChild(footer);
-  footer.querySelector("#prevStage").onclick=()=>{activeStage=mode==="try"?1:2;renderSession(s)};
-  footer.querySelector("#nextStage").onclick=()=>{activeStage=mode==="try"?3:4;renderSession(s)};
+  footer.querySelector("#prevStage").onclick=async()=>{await saveDraft(s);activeStage=mode==="try"?1:2;renderSession(s)};
+  footer.querySelector("#nextStage").onclick=async()=>{await saveDraft(s);activeStage=mode==="try"?3:4;renderSession(s)};
 }
 function renderCheck(el,s){
   const attempted=currentProblems.filter(p=>sessionDraft.answers[p?.id]).length;
   el.innerHTML=`<div class="stage-number">STAGE 5 · METACOGNITION</div><h2>Check</h2><p class="muted">Make the learning reusable. A short accurate reflection is better than a long vague one.</p>
-  <div class="check-grid"><label class="answer-label">What was the key idea?<textarea id="takeaway" class="answer-box" placeholder="The move that made the problem smaller was…">${esc(sessionDraft.summary.takeaway||"")}</textarea></label>
+  <div id="exitCheck"></div><div class="check-grid"><label class="answer-label">What was the key idea?<textarea id="takeaway" class="answer-box" placeholder="The move that made the problem smaller was…">${esc(sessionDraft.summary.takeaway||"")}</textarea></label>
   <label class="answer-label">What will you watch for next time?<textarea id="watch" class="answer-box" placeholder="A mistake I want to avoid is…">${esc(sessionDraft.summary.watch||"")}</textarea></label></div>
   <div class="complete-row"><span class="muted">${attempted}/2 challenge attempts recorded.</span><button id="completeSession" class="primary" ${attempted<2?"disabled":""}>Complete and lock Session ${s.slot}</button></div>`;
+  const sid=skillFor(s,taxonomy);if(sid)mountCheck(el.querySelector("#exitCheck"),{id:sid,slot:s.slot,records:completedRecords,draft:sessionDraft,save:()=>saveDraft(s)});
   document.getElementById("completeSession").onclick=async()=>{
+    if(sid&&!sessionDraft.evidence["retrieval:"+sid]){alert("Try the short exit check first. Use a hint if needed.");return}
+    if((sessionDraft.summary.retrieval_ids||[]).some(id=>!sessionDraft.evidence["retrieval:"+id])){alert("Finish the due Remember checks first.");return}
     const take=document.getElementById("takeaway").value.trim(),watch=document.getElementById("watch").value.trim();
     if(!take||!watch){alert("Write both short reflections before completing the session.");return}
     const btn=document.getElementById("completeSession");btn.disabled=true;btn.textContent="Locking session…";
     try{
-      sessionDraft.summary={takeaway:take,watch,focus:s.focus,type:s.type,phase:s.phase,problems:currentProblems.map(x=>x.id)};
+      sessionDraft.summary={...sessionDraft.summary,takeaway:take,watch,focus:s.focus,type:s.type,phase:s.phase,problems:currentProblems.map(x=>x.id)};
       await upsertSession({session_number:s.slot,session_key:`S${String(s.slot).padStart(3,"0")}`,completed_at:new Date().toISOString(),immutable:true,answers:sessionDraft.answers,working:sessionDraft.working,evidence:sessionDraft.evidence,summary:sessionDraft.summary});
       const done=Math.max(progress.completed_sessions||0,s.slot),p=done/372*100,r=Math.max(Number(progress.rank||0),Math.max(0,Math.min(20,Math.floor(done*20/372))));
       progress=await saveProgress({completed_sessions:done,current_session:Math.min(372,done+1),xp:done*100,rank:r,overall_percent:Number(p.toFixed(2)),next_practice_exam_in:(course.find(x=>x.slot>done&&x.type==="AMC MOCK")?.slot??done)-done});
-      renderHome();
+      await refreshEvidence();renderHome();
     }catch(e){alert(e.message);btn.disabled=false;btn.textContent=`Complete and lock Session ${s.slot}`}
   };
 }
 async function renderReview(){
-  activeView="review";app.innerHTML='<section class="panel hero-panel"><div class="eyebrow">ARCHIVE</div><h1>Completed sessions</h1><p class="muted">Finished sessions are preserved as read-only evidence.</p><div id="reviewList" class="review-list"><div class="empty">Loading…</div></div></section>';
-  const {data,error}=await supabase.from("session_records").select("session_number,completed_at,summary,answers").eq("user_id",user.id).not("completed_at","is",null).order("session_number",{ascending:false});
-  const list=document.getElementById("reviewList");if(error){list.textContent=error.message;return}
-  list.innerHTML=(data||[]).map(x=>`<article class="review-item"><div><b>Session ${x.session_number} · ${esc(x.summary?.focus||course[x.session_number-1]?.focus||"")}</b><small>${new Date(x.completed_at).toLocaleDateString()} · ${Object.keys(x.answers||{}).length} recorded attempts</small></div><span class="type-chip">LOCKED</span></article>`).join("")||'<div class="empty">No completed sessions yet.</div>';
+ activeView="review";await refreshEvidence();
+ app.innerHTML=`<section class="panel hero-panel"><div class="eyebrow">YOUR MATHEMATICAL NOTEBOOK</div><h1>Completed sessions</h1><p class="muted">The original answers and working are locked. Use a fresh session to show new learning.</p>${[...completedRecords].reverse().map(r=>`<details class="review-detail"><summary>Session ${r.session_number} · ${esc(r.summary?.focus||course[r.session_number-1]?.focus||'')} <span class="type-chip">LOCKED</span></summary><p><b>Key idea:</b> ${esc(r.summary?.takeaway||'—')}</p><p><b>Next time:</b> ${esc(r.summary?.watch||'—')}</p>${Object.entries(r.answers||{}).map(([id,a])=>`<article><h3>${esc(problemIndex.find(p=>p.id===id)?.title||id)}</h3><p class="math-copy">${esc(problemIndex.find(p=>p.id===id)?.prompt||'')}</p><p><b>Recorded answer:</b> ${esc(a?.response??a)}</p><p class="math-copy">${esc(r.working?.[id]||'')}</p></article>`).join('')}${r.working?.mawa_base?`<h3>Investigation</h3><p class="math-copy">${esc(r.working.mawa_base)}</p><h3>Extension</h3><p class="math-copy">${esc(r.working.mawa_extension||'')}</p>`:''}</details>`).join('')||'<p>No completed sessions yet.</p>'}</section>`;
 }
+
 async function exportProgressBackup(){
   const tables=["profiles","progress_state","session_records","problem_attempts","exam_sittings"];
   const out={schema_version:"summit-one-progress-export-v1",exported_at:new Date().toISOString(),user_id:user.id,data:{}};
@@ -347,7 +369,7 @@ async function renderProfile(){
   app.innerHTML=`<section class="panel hero-panel"><div class="eyebrow">LEARNER PROFILE</div><h1>Summit progress</h1>
   <div class="profile-grid"><div class="panel profile-stat"><b>${progress.completed_sessions||0}</b><span>sessions complete</span></div><div class="panel profile-stat"><b>${overall().toFixed(1)}%</b><span>course complete</span></div><div class="panel profile-stat"><b>${r===0?"Cadet":r}</b><span>${r===0?"starting rank":"current rank"}</span></div><div class="panel profile-stat"><b>${nextRankSession===null?"MAX":nextRankXp}</b><span>${nextRankSession===null?"all 20 ranks unlocked":"XP to Rank "+(r+1)}</span></div></div><div class="profile-grid" style="margin-top:12px"><div class="panel profile-stat"><b>${progress.star3_correct||0}</b><span>3-star timed problems correct</span></div><div class="panel profile-stat"><b>${progress.star4_correct||0}</b><span>4-star timed problems correct</span></div><div class="panel profile-stat"><b>${progress.star5_correct||0}</b><span>5-star timed problems correct</span></div><div class="panel profile-stat"><b>${exams?.length||0}</b><span>recent exams in history</span></div></div>
   <h2 style="margin-top:28px">Technique evidence map</h2><p class="muted">A check means the technique has appeared in a completed session. It does <b>not</b> automatically mean independent mastery; timed and transfer evidence remains separate.</p>
-  <div class="technique-map">${(taxonomy?.categories||[]).map(cat=>`<article class="tech-category"><div class="eyebrow">${esc(cat.id)}</div><h3>${esc(cat.name)}</h3><div class="tech-list">${cat.subskills.map(sk=>{const n=focusCounts.get(sk.id)||0;return `<div class="tech ${n?"covered":""}"><span>${n?"✓":"○"}</span><div><b>${esc(sk.name)}</b><small>${esc(sk.id)} · ${n?n+" completed-session exposure"+(n===1?"":"s"):"not yet completed"}</small></div></div>`}).join("")}</div></article>`).join("")}</div>
+  <div class="technique-map">${(taxonomy?.categories||[]).map(cat=>`<article class="tech-category"><div class="eyebrow">${esc(cat.id)}</div><h3>${esc(cat.name)}</h3><div class="tech-list">${cat.subskills.map(sk=>{const n=focusCounts.get(sk.id)||0,recall=recallState(completedRecords,sk.id);return `<div class="tech ${n?"covered":""}"><span>${n?"✓":"○"}</span><div><b>${esc(sk.name)}</b><small>${esc(sk.id)} · ${recall.retained?"retained on delayed checks · ":""}${n?n+" completed-session exposure"+(n===1?"":"s"):"not yet completed"}</small></div></div>`}).join("")}</div></article>`).join("")}</div>
   <h2 style="margin-top:28px">Recent timed assessments</h2><div class="history-list">${(exams||[]).map(e=>`<div class="history-row"><div><b>${esc(e.metadata?.title||e.exam_id)}</b><small>${e.submitted_at?new Date(e.submitted_at).toLocaleDateString():""}</small></div><div class="history-score">${e.score??"—"} / ${e.max_score}</div><div class="history-award">${esc(e.metadata?.award||"")}</div></div>`).join("")||'<div class="empty">No timed assessments completed yet.</div>'}</div><h2 style="margin-top:28px">20 explorer ranks</h2><div class="rank-grid">${rankNames.map((n,i)=>`<div class="rank ${i+1>r?"locked":""}"><span class="rank-emblem" aria-hidden="true">${i+1}</span><div><span class="rnum">RANK ${i+1}</span><b>${esc(n)}</b><small class="muted">${Math.ceil(372*(i+1)/20)} sessions</small></div></div>`).join("")}</div>
   <div class="complete-row"><a class="secondary" href="tests.html">Open AMC Test Centre</a><button id="exportProgress" class="ghost">Export progress backup</button><button id="logout" class="danger">Sign out</button></div>
   <p class="footer-note">Ranks recognise course completion; they do not replace evidence of independent mathematical mastery.</p></section>`;
@@ -355,3 +377,4 @@ async function renderProfile(){
   document.getElementById("logout").onclick=async()=>{await signOut();location.href="login.html"};
 }
 boot();
+

@@ -15,6 +15,7 @@
     <nav class="topnav" aria-label="Primary">
       <button data-view="home" class="nav-btn active">Mission</button>
       <a href="tests.html" class="nav-link">AMC Tests</a>
+      <button data-view="roadmap" class="nav-btn">Goals</button>
       <button data-view="review" class="nav-btn">Review</button>
       <button data-view="profile" class="nav-btn">Profile</button>
     </nav>
@@ -24,7 +25,8 @@
   </main>
   <template id="problemTemplate">
     <article class="problem-card"><div class="problem-meta"></div><h3 class="problem-title"></h3><div class="problem-prompt math-copy"></div>
-      <label class="answer-label">Your reasoning / answer<textarea class="answer-box" rows="5" placeholder="Write enough working that you can explain why your answer should be true."></textarea></label>
+      <label class="answer-label">Final answer only<textarea class="answer-box" rows="2" placeholder="Enter one final number, fraction or requested answer."></textarea></label>
+      <label class="answer-label">Working and explanation<textarea class="answer-box working-box" rows="5" placeholder="Explain your method here, or note that your full working is in your notebook."></textarea></label>
       <div class="problem-actions"><button class="primary submit-answer">Record attempt</button><button class="ghost reveal-solution" hidden>Compare with solution</button></div>
       <div class="attempt-feedback" hidden></div><div class="solution-panel" hidden></div>
     </article>

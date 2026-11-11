@@ -1,6 +1,7 @@
 const LOCAL_TTS_MODEL="onnx-community/Kokoro-82M-v1.0-ONNX";
 const LOCAL_VOICE="af_heart", LOCAL_SPEED=1.02, LOCAL_DB="summit-one-secure-audio-v1";
 let localTtsPromise=null;
+const html=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 function audioDB(){return new Promise((res,rej)=>{const r=indexedDB.open(LOCAL_DB,1);r.onupgradeneeded=()=>r.result.createObjectStore("audio");r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)});}
 async function cachedAudio(key){if(!key)return null;const db=await audioDB();return new Promise((res,rej)=>{const r=db.transaction("audio").objectStore("audio").get(key);r.onsuccess=()=>res(r.result||null);r.onerror=()=>rej(r.error)});}
 async function cacheAudio(key,blob){if(!key)return;const db=await audioDB();return new Promise((res,rej)=>{const tx=db.transaction("audio","readwrite");tx.objectStore("audio").put(blob,key);tx.oncomplete=res;tx.onerror=()=>rej(tx.error)});}
@@ -50,9 +51,9 @@ export function mountNarratedPlayer(host,{title="",transcript="",audioUrl="",vid
   host.className="narrated-player";
   host.innerHTML=`
     <div class="np-screen">
-      <video class="np-video" playsinline preload="metadata" ${videoUrl?`src="${videoUrl}"`:""} ${videoUrl?"":"hidden"}></video>
+      <video class="np-video" controls playsinline preload="metadata" ${videoUrl?`src="${videoUrl}"`:""} ${videoUrl?"":"hidden"}></video>
       <div class="np-fallback" ${videoUrl?"hidden":""}>
-        <div class="np-visual"><div class="np-label">${title}</div>${motifSvg(kind)}</div>
+        <div class="np-visual"><div class="np-label">${html(title)}</div><p class="np-audio-note">Listen, pause, and build the example in your notebook.</p></div>
         <div class="np-caption"><div class="np-sentence"></div><div class="np-glowword" aria-hidden="true"></div></div>
       </div>
     </div>
@@ -62,12 +63,13 @@ export function mountNarratedPlayer(host,{title="",transcript="",audioUrl="",vid
       <span class="np-time">0:00</span>
     </div>
     <audio class="np-audio" preload="metadata" ${audioUrl?`src="${audioUrl}"`:""}></audio>
-    <details class="np-transcript"><summary>Transcript</summary><p>${transcript}</p></details>
+    <details class="np-transcript"><summary>Transcript</summary><p>${html(transcript)}</p></details>
     <div class="np-status"></div>`;
   const video=host.querySelector(".np-video"),fallback=host.querySelector(".np-fallback"),audio=host.querySelector(".np-audio");
   const play=host.querySelector(".np-play"),replay=host.querySelector(".np-replay"),speed=host.querySelector(".np-speed");
   const sent=host.querySelector(".np-sentence"),glow=host.querySelector(".np-glowword"),time=host.querySelector(".np-time"),status=host.querySelector(".np-status");
   const sentenceStarts=[];let k=0;for(const s of sentences){sentenceStarts.push(k);k+=s.trim().split(/\s+/).length}
+  let listened=0,previousTime=0;
   let media=videoUrl?video:audio,localNeeded=!videoUrl&&!audioUrl,localLoading=false,watchMarked=false,lastPersist=0,resumeApplied=false;
 
   function activateFallback(message){
@@ -94,11 +96,12 @@ export function mountNarratedPlayer(host,{title="",transcript="",audioUrl="",vid
       const wi=words.length?Math.min(words.length-1,Math.floor((current/dur)*words.length)):0;
       let si=0;for(let i=0;i<sentenceStarts.length;i++){if(sentenceStarts[i]<=wi)si=i;else break}
       sent.textContent=sentences[si]?.trim()||"";
-      const w=words[wi]||"";glow.innerHTML=[...w].map(ch=>`<span class="np-letter">${ch}</span>`).join("");
+      const w=words[wi]||"";glow.textContent=""; // Word timing is unavailable for on-device fallback audio.
     }
     const m=Math.floor(current/60),s=Math.floor(current%60);time.textContent=`${m}:${String(s).padStart(2,"0")}`;
     play.textContent=media.paused?"Play":"Pause";
-    if(!watchMarked&&dur>0&&current/dur>=.8){
+    if(!media.paused&&current>=previousTime&&current-previousTime<2)listened+=current-previousTime;previousTime=current;
+    if(!watchMarked&&dur>0&&listened/dur>=.8){
       watchMarked=true;
       try{onWatch?.({completed_80_percent:true,position_seconds:Number(current.toFixed(1)),duration_seconds:Number(dur.toFixed(1)),media_mode:media===video?"finished_video":"kokoro_fallback"})}catch{}
     }
@@ -120,8 +123,8 @@ export function mountNarratedPlayer(host,{title="",transcript="",audioUrl="",vid
     if(media===video&&video.src)return;
     await ensureAudio();
   }
-  play.onclick=async()=>{try{await ensureMedia();media.paused?await media.play():media.pause()}catch{}};
-  replay.onclick=async()=>{try{await ensureMedia();media.currentTime=0;await media.play()}catch{}};
+  play.onclick=async()=>{try{await ensureMedia();if(!host.isConnected)return;media.paused?await media.play():media.pause()}catch{}};
+  replay.onclick=async()=>{try{await ensureMedia();if(!host.isConnected)return;media.currentTime=0;await media.play()}catch{}};
   speed.onchange=()=>{const v=Number(speed.value);video.playbackRate=v;audio.playbackRate=v};
   for(const el of [video,audio]){
     el.addEventListener("timeupdate",render);
@@ -133,5 +136,8 @@ export function mountNarratedPlayer(host,{title="",transcript="",audioUrl="",vid
   audio.addEventListener("error",()=>{if(media!==audio)return;localNeeded=true;audio.removeAttribute("src");audio.load();status.textContent="Audio asset unavailable; press Play to prepare secure Kokoro narration on this device.";play.disabled=false;replay.disabled=false});
   if(videoUrl)status.textContent="Finished lesson video.";
   else status.textContent=audioUrl?"Narrated lesson audio.":"Press Play to prepare secure Kokoro narration on this device.";
+  const observer=new MutationObserver(()=>{if(!host.isConnected){video.pause();audio.pause();observer.disconnect();if(audio.src.startsWith("blob:"))URL.revokeObjectURL(audio.src)}});
+  observer.observe(document.body,{childList:true,subtree:true});
   render();
 }
+

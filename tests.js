@@ -3,7 +3,7 @@ if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.se
 import { supabase, currentUser, loadProgress, saveProgress, upsertSession } from "./supabase-client.js";
 
 const app=document.getElementById("examApp");
-let user, catalog=[], awards, activeExam=null, questions=[], sitting=null, qIndex=0, responses={}, typedInteger={}, timerHandle=null;
+let user, catalog=[], awards, activeExam=null, questions=[], sitting=null, qIndex=0, responses={}, typedInteger={}, timerHandle=null, saveQueue=Promise.resolve(), finishing=false;
 let awardYear=Number(localStorage.getItem("summitSchoolYear")||5);
 const params=new URLSearchParams(location.search); const courseMode=params.get("course")==="1";
 const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
@@ -38,15 +38,17 @@ function examCard(exam){
 function renderLibrary(){
   const amc=catalog.filter(exam=>exam.max_score===135);
   const official=amc.filter(exam=>exam.source_type==="authentic_amc_past_paper");
+  const missing=Array.from({length:19},(_,i)=>2007+i).filter(y=>!official.some(e=>e.year===y));
   const mocks=amc.filter(exam=>exam.source_type!=="authentic_amc_past_paper");
   const cards=list=>list.map(exam=>`<article class="panel test-card"><div class="eyebrow">${exam.source_type==="authentic_amc_past_paper"?"AUTHENTIC PAST PAPER":"SUMMIT ONE AUTHORED MOCK"}</div><h3>${esc(exam.title)}</h3><div class="test-meta"><span class="phase-chip">${esc(exam.division)}</span><span class="phase-chip">${exam.duration_minutes} min</span><span class="phase-chip">${exam.max_score} marks</span></div><button class="primary startExam" data-id="${esc(exam.id)}">Start paper</button></article>`).join("");
   app.innerHTML=`<section class="panel test-hero"><div class="eyebrow">SEPARATE EXAM MODE</div><h1>AMC Test Centre</h1><p class="muted">Choose a complete paper only when you want a full exam sitting. Exam mode has no hints, no solution videos and no correctness feedback until the sitting is sealed.</p>
   <div class="notice-box"><b>Official Upper Primary workflow:</b> 30 questions in 60 minutes; Questions 1–25 multiple choice and Questions 26–30 integer answer. Use the question menu to skip/backtrack. Integer answers count only after <b>Save answer</b>. Submitted answers are retained when time expires.</div>
-  <h2 style="margin-top:24px">Authentic past AMC papers</h2><p class="muted">Full papers supplied by the family are installed here as protected authenticated assessments.</p>
+  <h2 style="margin-top:24px">Authentic Upper Primary papers · 2007–2025</h2><p class="muted">${official.length} complete papers installed. ${missing.length?"Still to verify: "+missing.join(", ")+".":"All 19 years available."}</p>${missing.includes(2025)?`<div class="archive-gap"><b>2025: correct source needed</b><p>The supplied file named “AMC 2025” contains the 2013 paper. It is retained under 2013. The 2025 slot will open when the genuine paper and answer key have been checked.</p></div>`:""}<p class="muted">Full papers supplied by the family are installed here as protected authenticated assessments.</p>
   <div class="complete-row"><label class="answer-label" style="max-width:220px">Award cohort<select id="awardYear" class="np-speed"><option value="5" ${awardYear===5?"selected":""}>Year 5</option><option value="6" ${awardYear===6?"selected":""}>Year 6</option></select></label><span class="muted">Used when an official WA paper-year cutoff cannot be verified.</span></div>
   <div class="test-grid">${official.length?cards(official):`<article class="panel test-card"><div class="eyebrow">READY FOR IMPORT</div><h3>Past-paper engine is ready</h3><p class="muted">No full authentic past paper has been installed yet. The secure timer, navigation, grading and results engine is complete.</p><span class="type-chip">Awaiting first PDF</span></article>`}</div>
-  <h2 style="margin-top:30px">Summit One authored mocks</h2><p class="muted">Original 135-mark papers for repeated full-format practice. These are not official AMT papers.</p><div class="test-grid">${cards(mocks)}</div>
+  <h2 style="margin-top:30px">Saved sittings</h2><div id="savedSittings" class="history-list">Loading saved results…</div><h2 style="margin-top:30px">Summit One authored mocks</h2><p class="muted">Original 135-mark papers for repeated full-format practice. These are not official AMT papers.</p><div class="test-grid">${cards(mocks)}</div>
   <p class="footer-note">AMT determines official awards by year level and region, and raw-score cutoffs vary with each paper. Authentic papers use verified WA paper-year cutoffs when available. Otherwise the results page labels the displayed band as a WA practice estimate.</p></section>`;
+  loadResultHistory().catch(e=>{const el=document.getElementById("savedSittings");if(el)el.textContent=e.message});
   const yearSelect=document.getElementById("awardYear"); if(yearSelect)yearSelect.onchange=()=>{awardYear=Number(yearSelect.value);localStorage.setItem("summitSchoolYear",String(awardYear))};
   document.querySelectorAll(".startExam").forEach(b=>b.onclick=()=>startExam(b.dataset.id));
 }
@@ -95,25 +97,27 @@ function renderAnswer(q){
   if(q.question_type==="multiple_choice"){
     const choices=Array.isArray(q.choices)?q.choices:[];
     area.innerHTML='<div class="choices">'+choices.map((c,i)=>`<button class="choice ${saved===String.fromCharCode(65+i)?"selected":""}" data-choice="${String.fromCharCode(65+i)}"><span class="choice-letter">${String.fromCharCode(65+i)}</span><span class="choice-content">${typeof c==="string"?esc(c):`${c.visual_html||""}${c.text?`<span>${esc(c.text)}</span>`:""}`}</span></button>`).join("")+'</div>';
-    area.querySelectorAll("[data-choice]").forEach(b=>b.onclick=async()=>{responses[q.question_number]=b.dataset.choice;await persistResponses();renderExam()});
+    area.querySelectorAll("[data-choice]").forEach(b=>b.onclick=async()=>{responses[q.question_number]=b.dataset.choice;try{await persistResponses();renderExam()}catch(e){alert("Answer not saved: "+e.message)}});
   }else{
     const typed=typedInteger[q.question_number]??(saved??"");
     area.innerHTML=`<div class="integer-row"><label>Your integer answer<br><input id="integerInput" inputmode="numeric" pattern="[0-9]*" value="${esc(typed)}"></label><button id="saveInteger" class="primary">Save answer</button><span id="saveState" class="${saved!==undefined?"saved":"unsaved"}">${saved!==undefined?"Saved":"Not saved"}</span></div><p class="muted" style="margin-top:10px">Typing is not enough. Press <b>Save answer</b> before leaving the question.</p>`;
     const inp=document.getElementById("integerInput");inp.oninput=()=>{typedInteger[q.question_number]=inp.value;document.getElementById("saveState").className="unsaved";document.getElementById("saveState").textContent="Not saved"};
-    document.getElementById("saveInteger").onclick=async()=>{const v=inp.value.trim();if(!/^\d+$/.test(v)){alert("Enter a whole-number answer.");return}responses[q.question_number]=v;typedInteger[q.question_number]=v;await persistResponses(true,q.question_number);renderExam()};
+    document.getElementById("saveInteger").onclick=async()=>{const v=inp.value.trim();if(!/^\d{1,3}$/.test(v)){alert("Enter a whole-number answer from 0 to 999.");return}responses[q.question_number]=v;typedInteger[q.question_number]=v;try{await persistResponses(true,q.question_number);renderExam()}catch(e){document.getElementById("saveState").textContent="Not saved — retry";alert(e.message)}};
   }
 }
 async function persistResponses(integerSave=false,qnum=null){
-  const patch={responses};
+  const patch={responses:structuredClone(responses)};
   if(integerSave){
     const times={...(sitting.integer_save_times||{})};times[qnum]=new Date().toISOString();patch.integer_save_times=times;sitting.integer_save_times=times;
   }
-  const {data,error}=await supabase.from("exam_sittings").update(patch).eq("id",sitting.id).select().single();if(error)throw error;sitting=data;
+  const id=sitting.id;
+  const task=saveQueue.catch(()=>{}).then(async()=>{const {data,error}=await supabase.from("exam_sittings").update(patch).eq("id",id).select().single();if(error)throw error;sitting=data;});
+  saveQueue=task;return task;
 }
 async function finishExam(auto){
-  clearInterval(timerHandle);
+  if(finishing)return;finishing=true;clearInterval(timerHandle);
   try{
-    await persistResponses();
+    if(!sitting.completed)await persistResponses();
     const {data:session,error:sessionError}=await supabase.auth.getSession();
     if(sessionError) throw sessionError;
     const token=session?.session?.access_token;
@@ -129,12 +133,18 @@ async function finishExam(auto){
     });
     const result=await response.json();
     if(!response.ok) throw new Error(result.error||"Grading failed.");
-    sitting={...sitting,completed:true,score:result.score};
+    sitting={...sitting,completed:true,score:result.score,submitted_at:sitting.submitted_at||new Date().toISOString()};
     renderResults(result.score,result.rows,result.award,auto,result.max_score||135);
   }catch(e){
     alert(e.message||"Could not finish the paper.");
-    startTimer();
-  }
+    const b=document.getElementById("finish");if(b){b.textContent="Retry submission";b.onclick=()=>finishExam(auto)}
+  }finally{finishing=false}
+}
+async function loadResultHistory(){
+ const {data,error}=await supabase.from("exam_sittings").select("id,exam_id,score,max_score,submitted_at,metadata").eq("user_id",user.id).eq("completed",true).order("submitted_at",{ascending:false}).limit(30);if(error)throw error;
+ const el=document.getElementById("savedSittings");if(!el)return;
+ el.innerHTML=(data||[]).map(e=>`<div class="history-row"><span>${esc(e.metadata?.title||e.exam_id)} · ${e.score}/${e.max_score}</span><button class="ghost" data-result="${esc(e.id)}">Review saved paper</button></div>`).join('')||'<p class="muted">Completed papers will appear here.</p>';
+ el.querySelectorAll('[data-result]').forEach(b=>b.onclick=async()=>{b.disabled=true;try{const {data:row,error}=await supabase.from("exam_sittings").select("*").eq("id",b.dataset.result).single();if(error)throw error;sitting=row;activeExam=catalog.find(e=>e.id===row.exam_id)||{title:row.metadata?.title,id:row.exam_id};await finishExam(false)}catch(e){alert(e.message);b.disabled=false}});
 }
 function renderResults(score,rows,award,auto,maxScore=135){
   const correctCount=rows.filter(r=>r.correct).length;
@@ -158,7 +168,7 @@ function renderResults(score,rows,award,auto,maxScore=135){
   <section class="profile-grid" style="margin-top:18px"><div class="panel profile-stat"><b>${correctCount}</b><span>questions correct</span></div><div class="panel profile-stat"><b>${unanswered}</b><span>unanswered</span></div><div class="panel profile-stat"><b>${timeUsed}</b><span>time used</span></div><div class="panel profile-stat"><b>${Math.round(score/maxScore*100)}%</b><span>raw mark percentage</span></div></section>
   <section class="panel result-card"><h2>Paper sections</h2>${maxScore===135?`<div class="final-five-result"><div><span class="eyebrow">AMC FINAL FIVE</span><b>${finalFiveCorrect} / 5 correct</b></div><div><span class="muted">Q26–Q30 marks</span><b>${finalFiveEarned} / ${finalFiveMax}</b></div></div>`:""}<table class="result-table"><thead><tr><th>Section</th><th>Correct</th><th>Marks</th></tr></thead><tbody>${sectionStats.map(s=>`<tr><td>${esc(s.label)}</td><td>${s.correct} / ${s.count}</td><td>${s.earned} / ${s.max}</td></tr>`).join("")}</tbody></table></section>
   <section class="panel result-card"><h2>Question-by-question results</h2><table class="result-table"><thead><tr><th>Q</th><th>Your answer</th><th>Result</th><th>Marks</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${r.question_number}</td><td>${esc(r.response??"—")}</td><td class="${r.correct?"ok":"bad"}">${r.correct?"Correct":"Incorrect"}</td><td>${r.earned} / ${r.marks}</td></tr>`).join("")}</tbody></table></section>
-  <section class="panel result-card"><h2>Review each problem</h2>${rows.map(r=>`<details class="question-review"><summary>Question ${r.question_number} · ${r.correct?"✓ Correct":"Review"} · ${r.earned}/${r.marks}</summary><p><b>Problem</b><br>${esc(r.stem)}</p><p><b>Your answer:</b> ${esc(r.response??"—")}<br><b>Correct answer:</b> ${esc(typeof r.correct_answer==="object"?JSON.stringify(r.correct_answer):r.correct_answer)}</p>${r.explanation?`<p><b>Worked explanation</b><br>${esc(r.explanation)}</p>`:""}</details>`).join("")}
+  <section class="panel result-card"><h2>Turn the result into learning</h2><p>Before reading a solution, retry the question. Identify whether the obstacle was reading, modelling, choosing a method, calculation or checking. Explain one corrected solution aloud, then try a related problem in a later session.</p><h2>Review each problem</h2>${rows.map(r=>`<details class="question-review"><summary>Question ${r.question_number} · ${r.correct?"✓ Correct":"Review"} · ${r.earned}/${r.marks}</summary><p><b>Problem</b><br>${esc(r.stem)}</p>${r.image_ref?`<div class="exam-visual">${r.image_ref}</div>`:""}<p><b>Your answer:</b> ${esc(r.response??"—")}<br><b>Correct answer:</b> ${esc(typeof r.correct_answer==="object"?JSON.stringify(r.correct_answer):r.correct_answer)}</p>${r.explanation?`<p class="math-copy"><b>Worked explanation</b><br>${esc(r.explanation)}</p>`:`<p class="muted">The source answer key is verified. A worked explanation for this question has not yet been added.</p>`}</details>`).join("")}
   <div class="complete-row"><a class="secondary" href="./">Return to Summit One</a>${courseSlot?`<button id="completeCourseMock" class="primary">Complete Course Session ${courseSlot}</button>`:`<button id="backTests" class="primary">Test Centre</button>`}</div></section>`;
   const back=document.getElementById("backTests");
   if(back)back.onclick=()=>{sitting=null;activeExam=null;questions=[];responses={};renderLibrary()};
@@ -187,3 +197,4 @@ function renderResults(score,rows,award,auto,maxScore=135){
   };
 }
 boot().catch(e=>{app.innerHTML='<section class="panel hero-panel"><h1>Test Centre error</h1><p class="muted">'+esc(e.message)+'</p></section>'});
+

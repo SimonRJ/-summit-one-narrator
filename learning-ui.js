@@ -1,0 +1,44 @@
+import {methods,exercise,checkAnswer,recallState,dueSkills} from './curriculum.js';
+const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+export function lessonCard(id){
+ const m=methods[id];if(!m)return '';
+ const q=exercise(id,0);
+ return `<article class="method-card"><div class="eyebrow">TODAY’S METHOD · ${esc(id)}</div><h3>See why it works</h3><p>${esc(m.idea)}</p><div class="worked-example"><b>Small worked example</b><p>${esc(q.prompt)}</p><p class="math-copy">${esc(q.reason)}</p></div><p class="trap-note"><b>Watch for:</b> ${esc(m.trap)}</p></article>`;
+}
+export function mountCheck(el,{id,slot,records,draft,save,kind='retrieval',onDone=()=>{}}){
+ const key=`${kind}:${id}`;
+ const seed=kind==='guided'?1:2+((slot+id.charCodeAt(0))%5);
+ const q=exercise(id,seed),old=draft.evidence[key];
+ el.innerHTML=`<article class="mini-check"><div class="eyebrow">${kind==='guided'?'YOUR TURN · FADING SUPPORT':'FROM MEMORY · '+esc(id)}</div><p>${esc(q.prompt)}</p><form><label class="answer-label">${typeof q.value==='number'?'Your final answer':'Your answer'}<input class="answer-box short-answer" autocomplete="off" value="${esc(old?.response||'')}" ${old?'disabled':''}></label><div class="problem-actions"><button class="primary" ${old?'disabled':''}>Check my answer</button><button type="button" class="ghost hint" ${old?'disabled':''}>I need a hint</button></div></form><div class="check-feedback" role="status"></div></article>`;
+ let helped=old?.independent===false;
+ const feedback=el.querySelector('.check-feedback');
+ const explain=e=>{feedback.innerHTML=`<p><b>${e.correct?'Correct.':'A useful place to practise.'}</b> ${e.independent?'First response recorded.':'Recorded with support.'}</p><p>${esc(q.reason)}</p>${!e.correct?'<p>Cover the explanation and solve it again in your notebook. This skill will return in revision.</p>':''}`;};
+ if(old)explain(old);
+ el.querySelector('.hint').onclick=()=>{helped=true;feedback.textContent=methods[id].idea;};
+ el.querySelector('form').onsubmit=async event=>{
+  event.preventDefault();const input=el.querySelector('input'),response=input.value.trim();if(!response)return;
+  const e={kind,skill_id:id,seed,response,correct:checkAnswer(q.value,response),independent:kind==='retrieval'&&!helped,recorded_at:new Date().toISOString()};
+  const buttons=el.querySelectorAll('button');buttons.forEach(b=>b.disabled=true);draft.evidence[key]=e;
+  try{await save();input.disabled=true;explain(e);onDone(e);}catch(err){delete draft.evidence[key];buttons.forEach(b=>b.disabled=false);feedback.textContent='Not saved: '+err.message;}
+ };
+}
+export function mountRetrieval(el,options){
+ const {records,slot,currentId,draft}=options;
+ const ids=draft.summary.retrieval_ids||(draft.summary.retrieval_ids=dueSkills(records,slot,currentId));
+ el.innerHTML=ids.length?`<h3>Bring back an older idea</h3><p class="muted">Two short checks at most. These return after completed sessions, so taking a day off never creates a penalty.</p>${ids.map((id,i)=>`<div id="recall-${i}"></div>`).join('')}`:'<p class="muted">No older checks are due. Sketch what you already know about today’s idea, then continue.</p>';
+ ids.forEach((id,i)=>mountCheck(el.querySelector('#recall-'+i),{...options,id}));
+}
+export function readinessHTML({records,taxonomy,progress,milestones,exams=[]}){
+ const done=progress.completed_sessions||0,skills=taxonomy.categories.flatMap(c=>c.subskills),retained=skills.filter(s=>recallState(records,s.id).retained),taught=new Set(records.map(r=>r.summary?.skill_id).filter(Boolean));
+ const amcDate=new Date('2027-08-03T00:00:00+08:00'),weeks=Math.max(0,(amcDate-Date.now())/604800000),remaining=Math.max(0,152-done),pace=weeks>0?(remaining/weeks).toFixed(1):null;
+ const amc=exams.filter(e=>e.max_score===135),perfect=amc.filter(e=>e.score===135);
+ const recent=amc.slice(0,3);
+ return `<section class="panel roadmap"><div class="eyebrow">THE THREE GOALS</div><h1>Build the evidence, one session at a time</h1><p class="muted">Aim for complete understanding and 135/135. Course progress records effort; independent checks and unfamiliar papers show what is secure.</p>
+ <div class="goal-grid"><article><span class="type-chip">AUGUST 2027</span><h2>AMC Upper Primary</h2><p><b>3–5 August 2027</b> · 30 questions · 60 minutes · 135 marks.</p><p>Build accuracy across Q1–25 as well as the insight needed for Q26–30. Practise skipping a stuck question, returning to it, and checking the requested quantity.</p><a href="https://amt.edu.au/competitions" target="_blank" rel="noopener">AMT dates and entry information ↗</a></article>
+ <article><span class="type-chip">2027 APPLICATION GOAL</span><h2>MAWA Problem Solving Program</h2><p>Prepare written investigations for the 2028 program. The current primary entry route uses application problems; the 2028 application dates are not yet verified.</p><p>Show organised cases, a reason for every step, and why the conclusion covers every possibility. Every seventh completed session is an investigation.</p><a href="https://mawainc.org.au/mawapsp/" target="_blank" rel="noopener">MAWA application requirements ↗</a></article>
+ <article><span class="type-chip">2028 TEST GOAL</span><h2>Rossmoyne Honours Mathematics</h2><p>Prepare for the Year 6 selection test in 2028, normally for Year 7 entry in 2029. The 2028 test date has not yet been published on the school’s current page.</p><p>Practise unfamiliar problems, precise explanations and discussing a solution aloud. The school’s own sample test is the best format check.</p><a href="https://www.rossmoyne.wa.edu.au/enrolment/specialist-programs/specialist-mathematics-program/" target="_blank" rel="noopener">School requirements and sample test ↗</a></article></div>
+ <h2>A flexible path, with a real target</h2><p>Sessions 1–104 introduce all 52 techniques; 105–152 consolidate and rehearse for AMC 2027; 153–176 deepen MAWA application writing; 177–372 revisit and extend the ideas for the 2028 goals. Each session takes about 30–60 minutes. A session may span more than one sitting.</p><div class="profile-grid"><div class="panel profile-stat"><b>${remaining}</b><span>sessions to the first AMC milestone</span></div><div class="panel profile-stat"><b>${pace??'—'}</b><span>average sessions/week needed by 3 August</span></div><div class="panel profile-stat"><b>${retained.length} / 52</b><span>techniques retained on delayed checks</span></div><div class="panel profile-stat"><b>${perfect.length}</b><span>perfect papers in recent history</span></div></div><p class="muted">Four sessions a week is the planning baseline. There are no daily streaks or missed-day penalties. Delayed-check evidence requires correct, unassisted responses with different values at least four completed sessions apart; it is not a claim of exam mastery.</p>
+ <h2>What to work on next</h2><div class="readiness-list">${skills.filter(s=>taught.has(s.id)&&!recallState(records,s.id).retained).slice(0,6).map(s=>`<p><b>${esc(s.name)}</b><br><span class="muted">${recallState(records,s.id).last?.correct===false?'Rebuild the method, then try a fresh example.':'Needs successful delayed recall.'}</span></p>`).join('')||'<p>Complete the opening lessons to start building a personal revision queue.</p>'}</div>
+ <h2>Parent check-in · about ten minutes each week</h2><ol><li>Ask him to explain one solution without reading it. Ask “why does that step work?” and “how do you know you found all cases?”</li><li>Choose one mistake to repair. Classify it as reading, modelling, method, calculation or checking. Solve a changed example later.</li><li>Look for success on unfamiliar problems, including the easier questions. Repeated high marks on a remembered paper are useful practice but weaker readiness evidence.</li><li>Keep a fresh recent paper for a supervised 60-minute rehearsal nearer the AMC. Aim for three different perfect papers, with complete reasoning, as a demanding practice goal—not an admissions prediction.</li></ol>
+ <p class="muted">${recent.length?'Recent AMC papers: '+recent.map(e=>`${esc(e.metadata?.title||e.exam_id)} ${e.score}/135`).join(' · '):'No completed AMC papers in recent history yet.'}</p><p class="footer-note">Exam information checked 11 November 2026. Future MAWA and Rossmoyne dates remain provisional until the organisers publish them.</p></section>`;
+}

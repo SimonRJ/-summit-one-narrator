@@ -69,7 +69,14 @@ export async function saveProgress(patch) {
   return data;
 }
 
-export async function upsertSession(session) {
+let sessionQueue=Promise.resolve();
+export function upsertSession(session) {
+ const snapshot=structuredClone(session);
+ const task=sessionQueue.catch(()=>{}).then(()=>writeSession(snapshot));
+ sessionQueue=task;return task;
+}
+async function writeSession(session) {
+ window.dispatchEvent(new CustomEvent("summit-save",{detail:"Saving…"}));
   const user = await currentUser();
   if (!user) throw new Error("Not signed in.");
   const row = { user_id: user.id, ...session };
@@ -78,7 +85,8 @@ export async function upsertSession(session) {
     .upsert(row, { onConflict: "user_id,session_number" })
     .select()
     .single();
-  if (error) throw error;
+  if (error) {window.dispatchEvent(new CustomEvent("summit-save",{detail:"Not saved — reconnect and retry"}));throw error;}
+  window.dispatchEvent(new CustomEvent("summit-save",{detail:"Saved to cloud"}));
   return data;
 }
 
@@ -116,3 +124,4 @@ export async function saveExam(exam) {
   if (error) throw error;
   return data;
 }
+
