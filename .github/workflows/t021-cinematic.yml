@@ -13,7 +13,7 @@ permissions:
 
 concurrency:
   group: summit-one-t021-production
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   render-and-publish:
@@ -119,6 +119,8 @@ jobs:
           git add media/T02.1.mp4 media/T02.1.vtt production/t021/output-qa.json
           if git diff --cached --quiet; then echo 'No new render to publish'; exit 0; fi
           git commit -m 'Publish rebuilt T02.1 with natural narration and animated invariant proofs'
+          git fetch origin main
+          git rebase origin/main
           git push origin HEAD:main
       - name: Keep a temporary exact production artifact
         uses: actions/upload-artifact@v4
