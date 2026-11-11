@@ -1,4 +1,4 @@
-name: Upload protected AMC video media
+name: Upload protected challenge video media
 
 on:
   workflow_dispatch:
@@ -9,7 +9,7 @@ on:
       artifact_name:
         description: "Artifact containing protected_amc/"
         required: false
-        default: "summit-one-protected-amc-media"
+        default: "summit-one-protected-challenge-media"
 
 permissions:
   contents: read
@@ -37,7 +37,7 @@ jobs:
           test "$count" -gt 0
           while IFS= read -r f; do
             b=$(basename "$f" .mp4)
-            [[ "$b" =~ ^A[0-9]{3}$ ]] || { echo "Non-AMC media detected in protected bundle: $b" >&2; exit 1; }
+            [[ "$b" =~ ^A[0-9]{3}$|^K[0-9]{3}$|^N[1-4]\.(26|27|28|29|30)$ ]] || { echo "Non-challenge media detected in protected bundle: $b" >&2; exit 1; }
           done < <(find incoming -type f -name '*.mp4')
       - name: Install uploader dependency
         run: npm install --no-save @supabase/supabase-js@2.78.0
@@ -46,4 +46,4 @@ jobs:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
           PROTECTED_VIDEO_BUCKET: summit-one-protected-video
-        run: node postproduction/upload_protected_media.mjs "$(dirname "$(find incoming -type f -name 'A*.mp4' | head -1)")"
+        run: node postproduction/upload_protected_media.mjs "$(dirname "$(find incoming -type f -name '*.mp4' | head -1)")"
