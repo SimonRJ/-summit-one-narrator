@@ -35,8 +35,21 @@ jobs:
         run: |
           set -euo pipefail
           find incoming -type f -print
-          if find incoming -type f -regextype posix-extended -regex '.*/A[0-9]{3}\.(mp4|vtt|sha256)$' | grep -q .; then
-            echo 'Protected AMC media detected in public release bundle.' >&2
+          if find incoming -type f -regextype posix-extended -regex '.*/(A[0-9]{3}|K[0-9]{3}|N[1-4]\.(26|27|28|29|30))\.(mp4|vtt|sha256)
+          count=$(find incoming -type f -name '*.mp4' | wc -l)
+          test "$count" -gt 0
+          while IFS= read -r f; do
+            b=$(basename "$f" .mp4)
+            [[ "$b" =~ ^T[0-9]{2}\.(1|2|3|E)$ ]] || { echo "Unexpected public video ID: $b" >&2; exit 1; }
+          done < <(find incoming -type f -name '*.mp4')
+      - name: Create or update release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ inputs.release_tag }}
+        run: |
+          gh release view "$TAG" >/dev/null 2>&1 || gh release create "$TAG" --title "Summit One narrated course videos" --notes "Public-safe concept and worked-example videos only. Every challenge solution remains attempt-gated in private storage."
+          find incoming -type f \( -name '*.mp4' -o -name '*.vtt' -o -name '*.sha256' \) -print0 | xargs -0 gh release upload "$TAG" --clobber | grep -q .; then
+            echo 'Attempt-gated challenge media detected in public release bundle.' >&2
             exit 1
           fi
           count=$(find incoming -type f -name '*.mp4' | wc -l)
