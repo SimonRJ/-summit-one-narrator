@@ -36,8 +36,10 @@ export async function signOut() {
 
 export async function currentUser() {
   const { data, error } = await supabase.auth.getUser();
+  // A signed-out visitor is normal, not a failed page load.
+  if (error?.name === "AuthSessionMissingError" || error?.code === "session_not_found") return null;
   if (error) throw error;
-  return data.user;
+  return data?.user ?? null;
 }
 
 export async function loadProgress() {

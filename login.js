@@ -1,4 +1,4 @@
-import { supabase, usernameToEmail, SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY } from "./supabase-client.js";
+import { supabase, usernameToEmail, SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, currentUser } from "./supabase-client.js?v=auth-20261112";
 
 const $ = id => document.getElementById(id);
 const msg = (text, kind="") => {
@@ -6,9 +6,13 @@ const msg = (text, kind="") => {
   $("message").dataset.kind = kind;
 };
 
+// Only allow known local destinations, never arbitrary redirect URLs.
+const requestedNext = new URLSearchParams(location.search).get("next") || "";
+const destination = /^tests\.html(?:\?[^#]*)?$/.test(requestedNext) ? "./"+requestedNext : "./";
+if(destination.startsWith("./tests.html")) $("subtitle").textContent="Sign in to open the AMC Test Centre.";
 async function redirectIfSignedIn(){
-  const { data } = await supabase.auth.getSession();
-  if(data?.session) location.href="./";
+  try { if(await currentUser()) location.replace(destination); }
+  catch(e) { msg(e.message || "Unable to check your sign-in. Please try again.","error"); }
 }
 
 async function signIn(){
@@ -25,7 +29,7 @@ $("signIn").onclick=async()=>{
     $("signIn").disabled=true;
     msg("Signing in…");
     await signIn();
-    location.href="./";
+    location.replace(destination);
   }catch(e){
     msg(e.message || "Sign in failed.","error");
   }finally{
@@ -40,3 +44,4 @@ $("password").addEventListener("keydown",e=>{
 redirectIfSignedIn();
 
 if("serviceWorker" in navigator){navigator.serviceWorker.register("./sw.js").catch(()=>{});}
+

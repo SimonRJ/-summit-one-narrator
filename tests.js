@@ -1,6 +1,6 @@
 
 if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));}
-import { supabase, currentUser, loadProgress, saveProgress, upsertSession } from "./supabase-client.js";
+import { supabase, currentUser, loadProgress, saveProgress, upsertSession } from "./supabase-client.js?v=auth-20261112";
 
 const app=document.getElementById("examApp");
 let user, catalog=[], awards, activeExam=null, questions=[], sitting=null, qIndex=0, responses={}, typedInteger={}, timerHandle=null, saveQueue=Promise.resolve(), finishing=false;
@@ -10,7 +10,7 @@ const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&
 const norm=s=>String(s??"").trim().toLowerCase().replace(/\s+/g,"").replace(/[.,;:]$/g,"");
 
 async function boot(){
-  user=await currentUser();if(!user){location.href="login.html";return}
+  user=await currentUser();if(!user){location.replace("login.html?next="+encodeURIComponent("tests.html"+location.search));return}
   awards=await fetch("data/amc-awards.json").then(r=>r.json());
   const {data,error}=await supabase.from("exam_catalog").select("*").eq("active",true).order("year",{ascending:false});
   if(error)throw error;catalog=data||[];

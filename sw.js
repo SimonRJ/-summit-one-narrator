@@ -1,5 +1,5 @@
-const CACHE="summit-one-teaching-20261112";
-const STATIC=["./","./index.html","./main.css?v=teaching-20261112","./app-main.js?v=teaching-20261112","./lesson-player.js","./curriculum.js","./learning-ui.js","./problem-figures.js","./login.html","./login.js","./supabase-client.js","./tests.html","./tests.js?v=teaching-20261112","./exam.css?v=teaching-20261112","./manifest.webmanifest","./icon.svg","./robots.txt","./data/sessions-372.json","./data/teaching-72.json","./data/mawa-investigations-20.json","./data/rossmoyne-h23.json","./data/taxonomy-52.json","./data/amc-awards.json","./data/milestones.json"];
+const CACHE="summit-one-auth-20261112";
+const STATIC=["./","./index.html","./main.css?v=auth-20261112","./app-main.js?v=auth-20261112","./lesson-player.js","./curriculum.js","./learning-ui.js","./problem-figures.js","./login.html","./login.js?v=auth-20261112","./supabase-client.js?v=auth-20261112","./tests.html","./tests.js?v=auth-20261112","./exam.css?v=auth-20261112","./manifest.webmanifest","./icon.svg","./robots.txt","./data/sessions-372.json","./data/teaching-72.json","./data/mawa-investigations-20.json","./data/rossmoyne-h23.json","./data/taxonomy-52.json","./data/amc-awards.json","./data/milestones.json"];
 self.addEventListener("install",e=>{self.skipWaiting();e.waitUntil(caches.open(CACHE).then(c=>c.addAll(STATIC).catch(()=>{})))});
 self.addEventListener("activate",e=>e.waitUntil(Promise.all([caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))),self.clients.claim()])));
 self.addEventListener("fetch",e=>{

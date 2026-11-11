@@ -1,6 +1,6 @@
 
 if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));}
-import { supabase, loadProgress, saveProgress, signOut, currentUser, upsertSession } from "./supabase-client.js";
+import { supabase, loadProgress, saveProgress, signOut, currentUser, upsertSession } from "./supabase-client.js?v=auth-20261112";
 import { mountNarratedPlayer } from "./lesson-player.js";
 import {methods,skillFor,recallState} from "./curriculum.js";
 import {lessonCard,mountCheck,mountRetrieval,readinessHTML} from "./learning-ui.js";

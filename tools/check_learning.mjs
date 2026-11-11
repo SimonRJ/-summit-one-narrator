@@ -34,3 +34,12 @@ const loadBackend=name=>{
 const attempt=loadBackend('submit-problem-attempt');assert.equal(attempt.grade(12,'12'),true);assert.equal(attempt.grade(12,'120'),false);assert.equal(attempt.grade(12,'12 or 15'),null);assert.equal(attempt.grade('1/2','2/4'),true);assert.equal(attempt.grade('a long proof answer','12'),null);
 const exam=loadBackend('grade-exam');assert(exam.correctFor({question_type:'integer',answer:'12'},'012'));assert(!exam.correctFor({question_type:'integer',answer:'12'},'12abc'));assert.equal(exam.awardFor(83,{max_score:135},{metadata:{student_year:5}}).label,'High Distinction');assert.equal(exam.awardFor(83,{max_score:135},{metadata:{student_year:6}}).label,'Distinction');
 console.log('PASS: 364 exercise variants; 52-technique coverage; 53 seventh-session investigations; delayed evidence, strict answers and exam grading.');
+
+const clientSource=fs.readFileSync(new URL('../supabase-client.js',import.meta.url),'utf8');
+const currentUserBody=clientSource.match(/export async function currentUser\(\) \{([\s\S]*?)\n\}/)[1];
+const runAuth=async(result)=>new Function('supabase','return (async()=>{'+currentUserBody+'})()')({auth:{getUser:async()=>result}});
+assert.equal(await runAuth({data:{user:null},error:{name:'AuthSessionMissingError'}}),null);
+assert.equal(await runAuth({data:null,error:{code:'session_not_found'}}),null);
+assert.equal((await runAuth({data:{user:{id:'test'}}})).id,'test');
+await assert.rejects(()=>runAuth({error:new Error('Network unavailable')}),/Network unavailable/);
+console.log('PASS: signed-out and expired sessions, authenticated user, and genuine network error handling.');

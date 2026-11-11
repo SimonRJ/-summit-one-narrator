@@ -20,7 +20,7 @@ async def main():
  async with async_playwright() as p:
   browser=await p.chromium.launch(headless=True,executable_path=shutil.which('google-chrome'),args=['--no-sandbox'])
   context=await browser.new_context(viewport={'width':1280,'height':900},service_workers='block')
-  await context.route('**/supabase-client.js',lambda route:route.fulfill(content_type='application/javascript',body=MOCK))
+  await context.route('**/supabase-client.js*',lambda route:route.fulfill(content_type='application/javascript',body=MOCK))
   page=await context.new_page();errors=[]
   page.on('pageerror',lambda e:errors.append(str(e)))
   page.on('dialog',lambda d:d.accept())
@@ -47,5 +47,25 @@ async def main():
   await page.screenshot(path=str(ROOT/'docs/exam-mobile.png'),full_page=True)
   assert not errors,errors
   print('PASS: desktop/mobile lesson navigation, hint persistence, working save, strict practice evidence, exam save failure rollback, unsaved integer status; no browser errors.')
+
+  # Exercise the REAL shared currentUser and login modules with a simulated SDK.
+  auth_context=await browser.new_context(service_workers='block')
+  sdk="""export function createClient(){return {auth:{
+    getUser:async()=>sessionStorage.getItem('auth-fixture')?{data:{user:{id:'fixture'}}}:{data:{user:null},error:{name:'AuthSessionMissingError',message:'Auth session missing!'}},
+    signInWithPassword:async()=>{sessionStorage.setItem('auth-fixture','1');return {error:null}}
+  },from:()=>{throw Error('End of authenticated fixture')}}}"""
+  await auth_context.route('https://esm.sh/**',lambda r:r.fulfill(content_type='application/javascript',body=sdk))
+  auth_page=await auth_context.new_page()
+  await auth_page.goto('http://127.0.0.1:8765/tests.html?course=1&slot=7')
+  await auth_page.wait_for_url('**/login.html?next=*')
+  assert await auth_page.locator('#subtitle').inner_text()=='Sign in to open the AMC Test Centre.'
+  await auth_page.locator('#loginName').fill('fixture')
+  await auth_page.locator('#password').fill('fixture')
+  await auth_page.locator('#signIn').click()
+  await auth_page.wait_for_url('**/tests.html?course=1&slot=7')
+  await auth_page.evaluate('sessionStorage.clear()')
+  await auth_page.goto('http://127.0.0.1:8765/')
+  await auth_page.wait_for_url('**/login.html')
+  print('PASS: real shared auth handles signed-out Mission and Test Centre; login returns to original exam URL.')
   await browser.close()
 asyncio.run(main())
