@@ -93,6 +93,18 @@
 .solution-link{display:block;text-align:left;color:var(--cyan);background:none;border:0;padding:5px 0;text-decoration:underline;font:inherit;font-size:.85rem;cursor:pointer}
 .solution-video-link{display:inline-block;margin:20px 0 5px;border:1px solid #3b849c;border-radius:9px;padding:13px 18px;color:var(--cyan);background:#123244;text-decoration:none;font-weight:700}
 .video-pending{font-size:.82rem;color:var(--muted)}
+.exam-start-warning .notice-box h2{font-size:1.35rem;margin:0 0 12px}
+.exam-start-warning .notice-box p{line-height:1.65;margin:12px 0}
+.paper-locked{font-size:.85rem;line-height:1.5;color:var(--muted)}
+.exam-mode .time-box{min-height:52px;min-width:198px;box-sizing:border-box}
+.exam-mode .time-box .timer{display:inline-block;width:90px;text-align:right}
+.exam-mode .timer.timer-prominent{font-size:30px;font-weight:800}
+.exam-mode .timer.timer-urgent{color:#b42318}
+.exam-mode .submission-countdown{display:flex;align-items:center;gap:9px;flex-wrap:wrap;min-height:40px}
+.exam-mode .submit-time{font-size:24px;display:inline-block;min-width:95px;text-align:center}
+.exam-mode .missing-answers{padding:12px 14px;margin:14px 0;border-left:4px solid #ac500b;background:#fff9ed}
+.exam-mode .missing-answers p{margin:8px 0 0}
+.exam-mode .missing-answers .exam-text-link{padding:4px;white-space:nowrap}
 .question-review{scroll-margin-top:110px}.question-review summary:focus-visible{outline:2px solid var(--cyan)}
 @media(max-width:760px){
  .exam-mode .topbar{padding:14px 18px}.exam-mode .brand-mark{width:40px;height:40px}.exam-mode .brand b{font-size:16px}.exam-mode .brand small{font-size:10px}

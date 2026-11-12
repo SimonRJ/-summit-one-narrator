@@ -1,10 +1,12 @@
+import {examClock,answerGaps} from './exam-rules.js?v=exam-lock-20261112';
 import {mockIntroductionHTML} from './session-intros.js?v=flash-20261112';
 
 if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));}
 import { supabase, currentUser, loadProgress, saveProgress, upsertSession } from "./supabase-client.js?v=auth-20261112";
 
 const app=document.getElementById("examApp");
-let user, catalog=[], awards, activeExam=null, questions=[], sitting=null, qIndex=0, responses={}, typedInteger={}, timerHandle=null, saveQueue=Promise.resolve(), finishing=false, saving=false;
+let user, catalog=[], awards, activeExam=null, questions=[], sitting=null, qIndex=0, responses={}, typedInteger={}, timerHandle=null, saveQueue=Promise.resolve(), finishing=false, saving=false, starting=false;
+let sittingsByExam=new Map();
 let awardYear=Number(localStorage.getItem("summitSchoolYear")||5);
 const params=new URLSearchParams(location.search); const courseMode=params.get("course")==="1";
 const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
@@ -15,6 +17,7 @@ async function boot(){
   awards=await fetch("data/amc-awards.json").then(r=>r.json());
   const {data,error}=await supabase.from("exam_catalog").select("*").eq("active",true).order("year",{ascending:false});
   if(error)throw error;catalog=data||[];
+  await loadSittings();
   const open=await loadOpenSitting();
   if(open){await resumeSitting(open);return}
   const slot=Number(params.get("slot")||0);
@@ -24,17 +27,43 @@ async function boot(){
   }
   renderLibrary();
 }
+async function loadSittings(){
+  const {data,error}=await supabase.from("exam_sittings").select("*").eq("user_id",user.id).order("started_at",{ascending:false});
+  if(error)throw error;sittingsByExam=new Map((data||[]).map(row=>[row.exam_id,row]));
+}
+async function existingSitting(id){
+  const {data,error}=await supabase.from("exam_sittings").select("*").eq("user_id",user.id).eq("exam_id",id).maybeSingle();
+  if(error)throw error;if(data)sittingsByExam.set(id,data);return data;
+}
 function renderCourseExamIntro(exam){
-  const isAMC=exam.max_score===135;
-  app.innerHTML=`<section class="panel test-hero"><div class="eyebrow">CANONICAL SESSION ${exam.session_slot}</div><h1>${esc(exam.title)}</h1><p class="muted">${isAMC?"Full AMC-format rehearsal: 30 questions, 60 minutes, 135 marks.":"Original Rossmoyne-style selective-mathematics rehearsal: 23 questions, 100 marks. The 60-minute clock is a Summit One home-practice target, not a claim about the official Rossmoyne entrance-test duration."}</p>${mockIntroductionHTML(exam)}<div class="notice-box"><b>Before you start:</b> close notes and solution pages. The timer begins only when you press Start. Answers are autosaved where appropriate; numeric AMC answers require the explicit Save button.</div><div class="complete-row"><a class="ghost" href="./">Return to mission</a><button id="startCourseExam" class="primary cta">Start timed paper</button></div></section>`;
-  document.getElementById("startCourseExam").onclick=()=>{catalog=[exam];startExam(exam.id)};
+  if(!catalog.some(e=>e.id===exam.id))catalog.push(exam);
+  prepareExam(exam.id,true).catch(showExamError);
 }
+function showExamError(error){alert(error.message||"Could not open this paper. Please try again.")}
 async function loadOpenSitting(){
-  const {data}=await supabase.from("exam_sittings").select("*").eq("user_id",user.id).eq("completed",false).order("started_at",{ascending:false}).limit(1).maybeSingle();
-  return data;
+  return [...sittingsByExam.values()].find(row=>!row.completed)||null;
 }
-function examCard(exam){
-  return `<article class="panel test-card"><div class="eyebrow">${esc(exam.source_type.replaceAll("_"," "))}</div><h3>${esc(exam.title)}</h3><div class="test-meta"><span class="phase-chip">${esc(exam.division)}</span><span class="phase-chip">${exam.duration_minutes} min</span><span class="phase-chip">${exam.max_score} marks</span></div><button class="primary startExam" data-id="${esc(exam.id)}">Start paper</button></article>`;
+async function openSavedSitting(row){
+  if(!row.completed){await resumeSitting(row);return}
+  clearInterval(timerHandle);sitting=row;
+  const {data,error}=await supabase.from("exam_catalog").select("*").eq("id",row.exam_id).single();
+  if(error)throw error;activeExam=data;await finishExam(false);
+}
+function paperAction(exam){
+  const row=sittingsByExam.get(exam.id);
+  return `<button class="primary startExam" data-id="${esc(exam.id)}">${row?.completed?"Review locked paper":row?"Resume this attempt":"Prepare to start"}</button>${row?.completed?'<p class="paper-locked">Submitted · review only. This paper cannot be attempted again.</p>':""}`;
+}
+async function prepareExam(id,course=false){
+  const exam=catalog.find(x=>x.id===id);if(!exam)return;
+  const existing=await existingSitting(id);
+  if(existing){await openSavedSitting(existing);return}
+  document.body.classList.remove("exam-mode");
+  app.innerHTML=`<section class="panel test-hero exam-start-warning"><div class="eyebrow">BEFORE YOU START · ONE ATTEMPT ONLY</div><h1>${esc(exam.title)}</h1><p class="muted">${exam.question_count} questions · ${exam.duration_minutes} minutes · ${exam.max_score} marks</p>
+  <div class="notice-box"><h2>This is your only attempt at this paper</h2><p>Once you click <b>Start my only attempt</b>, this paper's timer begins. You cannot restart it or have another attempt.</p><p>The timer keeps running if you close the page. You can return to the <b>same attempt</b> while time remains.</p><p><b>Final submission locks your answers permanently.</b> When time runs out, your saved answers are submitted and locked automatically. You can review the paper, your answers and its available solutions afterwards at any time, but you cannot redo it.</p></div>
+  ${course?mockIntroductionHTML(exam):""}<p>Have your paper and pencil ready. Close notes and solution pages. Multiple-choice answers save when selected; integer answers count only after you press <b>Save</b>.</p><p class="muted">The timer has not started. A computer or tablet is best for a full exam sitting.</p><div class="complete-row"><button id="cancelStart" class="ghost">Not yet — go back</button><button id="confirmStart" class="primary cta">Start my only attempt</button></div></section>`;
+  document.getElementById("cancelStart").onclick=()=>{if(course)location.href="./";else renderLibrary()};
+  document.getElementById("confirmStart").onclick=()=>startExam(id);
+  window.scrollTo({top:0,behavior:"instant"});
 }
 function renderLibrary(){
   document.body.classList.remove("exam-mode");
@@ -42,45 +71,54 @@ function renderLibrary(){
   const official=amc.filter(exam=>exam.source_type==="authentic_amc_past_paper");
   const missing=Array.from({length:19},(_,i)=>2007+i).filter(y=>!official.some(e=>e.year===y));
   const mocks=amc.filter(exam=>exam.source_type!=="authentic_amc_past_paper");
-  const cards=list=>list.map(exam=>`<article class="panel test-card"><div class="eyebrow">${exam.source_type==="authentic_amc_past_paper"?"AUTHENTIC PAST PAPER":"SUMMIT ONE AUTHORED MOCK"}</div><h3>${esc(exam.title)}</h3><div class="test-meta"><span class="phase-chip">${esc(exam.division)}</span><span class="phase-chip">${exam.duration_minutes} min</span><span class="phase-chip">${exam.max_score} marks</span></div><p class="muted">${exam.year===2025&&exam.source_type==="authentic_amc_past_paper"?"All 30 worked explanations included. Answers independently checked; official answer key not supplied.":esc(exam.metadata?.solutions_note||"")}</p><button class="primary startExam" data-id="${esc(exam.id)}">Start paper</button></article>`).join("");
+  const cards=list=>list.map(exam=>`<article class="panel test-card"><div class="eyebrow">${exam.source_type==="authentic_amc_past_paper"?"AUTHENTIC PAST PAPER":"SUMMIT ONE AUTHORED MOCK"}</div><h3>${esc(exam.title)}</h3><div class="test-meta"><span class="phase-chip">${esc(exam.division)}</span><span class="phase-chip">${exam.duration_minutes} min</span><span class="phase-chip">${exam.max_score} marks</span></div><p class="muted">${exam.year===2025&&exam.source_type==="authentic_amc_past_paper"?"All 30 worked explanations included. Answers independently checked; official answer key not supplied.":esc(exam.metadata?.solutions_note||"")}</p>${paperAction(exam)}</article>`).join("");
   app.innerHTML=`<section class="panel test-hero"><div class="eyebrow">SEPARATE EXAM MODE</div><h1>AMC Test Centre</h1><p class="muted">Choose a complete paper only when you want a full exam sitting. Exam mode has no hints, no solution videos and no correctness feedback until the sitting is sealed.</p>
   <div class="notice-box"><b>AMC-format practice workflow:</b> 30 questions in 60 minutes; Questions 1–25 multiple choice and Questions 26–30 integer answer. Use the question menu to skip/backtrack. Integer answers count only after <b>Save</b>. Submitted answers are retained when time expires.</div>
   <h2 style="margin-top:24px">Authentic Upper Primary papers · 2007–2025</h2><p class="muted">${official.length} complete papers installed. ${missing.length?"Still to verify: "+missing.join(", ")+".":"All 19 years available."}</p>${missing.includes(2025)?`<div class="archive-gap"><b>2025: verification in progress</b><p>The genuine 2025 screenshots have been received. The paper will appear here after its questions and answers are checked.</p></div>`:""}<p class="muted">Full papers supplied by the family are installed here as protected authenticated assessments.</p>
   <div class="complete-row"><label class="answer-label" style="max-width:220px">Award cohort<select id="awardYear" class="np-speed"><option value="5" ${awardYear===5?"selected":""}>Year 5</option><option value="6" ${awardYear===6?"selected":""}>Year 6</option></select></label><span class="muted">Used when an official WA paper-year cutoff cannot be verified.</span></div>
   <div class="test-grid">${official.length?cards(official):`<article class="panel test-card"><div class="eyebrow">READY FOR IMPORT</div><h3>Past-paper engine is ready</h3><p class="muted">No full authentic past paper has been installed yet. The secure timer, navigation, grading and results engine is complete.</p><span class="type-chip">Awaiting first PDF</span></article>`}</div>
-  <h2 style="margin-top:30px">Saved sittings</h2><div id="savedSittings" class="history-list">Loading saved results…</div><h2 style="margin-top:30px">Summit One authored mocks</h2><p class="muted">Original 135-mark papers for repeated full-format practice. These are not official AMT papers.</p><div class="test-grid">${cards(mocks)}</div>
+  <h2 style="margin-top:30px">Saved sittings</h2><div id="savedSittings" class="history-list">Loading saved results…</div><h2 style="margin-top:30px">Summit One authored mocks</h2><p class="muted">Different original 135-mark papers for full-format practice. Each paper has one attempt. These are not official AMT papers.</p><div class="test-grid">${cards(mocks)}</div>
   <p class="footer-note">AMT determines official awards by year level and region, and raw-score cutoffs vary with each paper. Authentic papers use verified WA paper-year cutoffs when available. Otherwise the results page labels the displayed band as a WA practice estimate.</p></section>`;
   loadResultHistory().catch(e=>{const el=document.getElementById("savedSittings");if(el)el.textContent=e.message});
   const yearSelect=document.getElementById("awardYear"); if(yearSelect)yearSelect.onchange=()=>{awardYear=Number(yearSelect.value);localStorage.setItem("summitSchoolYear",String(awardYear))};
-  document.querySelectorAll(".startExam").forEach(b=>b.onclick=()=>startExam(b.dataset.id));
+  document.querySelectorAll(".startExam").forEach(b=>b.onclick=()=>prepareExam(b.dataset.id).catch(showExamError));
 }
 async function startExam(id){
-  activeExam=catalog.find(x=>x.id===id);if(!activeExam)return;
-  if(innerWidth<650){const message=activeExam.max_score===135?"The official AMC is not intended for a phone-sized screen. You can practise here, but an iPad or computer is better for realistic rehearsal. Continue?":"A larger screen is recommended for realistic selective-maths rehearsal. Continue on this phone?";if(!confirm(message))return}
-  const {data:q,error}=await supabase.from("exam_questions_student").select("*").eq("exam_id",id).order("question_number");
-  if(error)throw error;if((q||[]).length!==(activeExam.question_count||30)){alert("This paper is not complete yet.");return}
-  questions=q;responses={};typedInteger={};qIndex=0;
-  const start=new Date(),expires=new Date(start.getTime()+activeExam.duration_minutes*60000);
-  const {data:s,error:e}=await supabase.from("exam_sittings").insert({
-    user_id:user.id,exam_id:id,exam_year:activeExam.year,started_at:start.toISOString(),expires_at:expires.toISOString(),completed:false,max_score:activeExam.max_score,responses:{},integer_save_times:{},metadata:{title:activeExam.title,student_year:activeExam.source_type==="authentic_amc_past_paper"?awardYear:(activeExam.student_year||awardYear),course_slot:courseMode?(activeExam.session_slot||null):null,course_mode:courseMode}
-  }).select().single();
-  if(e)throw e;sitting=s;renderOverview();startTimer();
+  if(starting)return;starting=true;
+  const button=document.getElementById("confirmStart");if(button){button.disabled=true;button.textContent="Opening your attempt…"}
+  try{
+    activeExam=catalog.find(x=>x.id===id);if(!activeExam)return;
+    const existing=await existingSitting(id);
+    if(existing){await openSavedSitting(existing);return}
+    const {data:q,error}=await supabase.from("exam_questions_student").select("*").eq("exam_id",id).order("question_number");
+    if(error)throw error;if((q||[]).length!==(activeExam.question_count||30))throw new Error("This paper is not complete yet. Your attempt has not started.");
+    questions=q;responses={};typedInteger={};qIndex=0;
+    const start=new Date(),expires=new Date(start.getTime()+activeExam.duration_minutes*60000);
+    const {data:s,error:e}=await supabase.from("exam_sittings").insert({
+      user_id:user.id,exam_id:id,exam_year:activeExam.year,started_at:start.toISOString(),expires_at:expires.toISOString(),completed:false,max_score:activeExam.max_score,responses:{},integer_save_times:{},metadata:{title:activeExam.title,student_year:activeExam.source_type==="authentic_amc_past_paper"?awardYear:(activeExam.student_year||awardYear),course_slot:courseMode?(activeExam.session_slot||null):null,course_mode:courseMode}
+    }).select().single();
+    if(e){const concurrent=await existingSitting(id);if(concurrent){await openSavedSitting(concurrent);return}throw e}
+    sitting=s;sittingsByExam.set(id,s);renderOverview();startTimer();
+  }catch(e){showExamError(e)}finally{starting=false;if(button?.isConnected){button.disabled=false;button.textContent="Start my only attempt"}}
 }
 async function resumeSitting(s){
   const {data:exam}=await supabase.from("exam_catalog").select("*").eq("id",s.exam_id).single();activeExam=exam;
   const {data:q}=await supabase.from("exam_questions_student").select("*").eq("exam_id",s.exam_id).order("question_number");questions=q||[];
-  sitting=s;responses=s.responses||{};typedInteger={};qIndex=0;
+  sitting=s;sittingsByExam.set(s.exam_id,s);responses=s.responses||{};typedInteger={};qIndex=0;
   if(new Date(s.expires_at)<=new Date()){await finishExam(true);return}
   renderOverview();startTimer();
 }
+function updateTimer(){
+  const clock=examClock(sitting.expires_at);
+  document.querySelectorAll("[data-exam-countdown]").forEach(el=>{
+    el.textContent=clock.label;el.classList.toggle("timer-prominent",clock.prominent);el.classList.toggle("timer-urgent",clock.urgent);
+  });
+  return clock;
+}
 function startTimer(){
   clearInterval(timerHandle);
-  const tick=()=>{
-    const left=Math.max(0,new Date(sitting.expires_at).getTime()-Date.now());
-    const mm=String(Math.floor(left/60000)).padStart(2,"0"),ss=String(Math.floor((left%60000)/1000)).padStart(2,"0");
-    const el=document.getElementById("timer");if(el)el.textContent=mm+":"+ss;
-    if(left<=0){clearInterval(timerHandle);finishExam(true)}
-  };tick();timerHandle=setInterval(tick,500);
+  const tick=()=>{if(updateTimer().seconds===0){clearInterval(timerHandle);finishExam(true)}};
+  timerHandle=setInterval(tick,500);tick();
 }
 function wireQuestionZoom(){
  document.querySelectorAll('.exam-visual img').forEach(img=>{
@@ -94,9 +132,10 @@ function wireQuestionZoom(){
   };
  });
 }
-function timeRemaining(){
-  const seconds=Math.max(0,Math.ceil((new Date(sitting.expires_at).getTime()-Date.now())/1000));
-  return `${String(Math.floor(seconds/60)).padStart(2,"0")}:${String(seconds%60).padStart(2,"0")}`;
+function timeRemaining(){return examClock(sitting.expires_at).label}
+function countdownHTML(id,extra=""){
+  const clock=examClock(sitting.expires_at);
+  return `<b id="${id}" data-exam-countdown class="timer ${extra} ${clock.prominent?"timer-prominent":""} ${clock.urgent?"timer-urgent":""}" aria-live="off">${clock.label}</b>`;
 }
 function isAnswered(n){return responses[n]!==undefined&&responses[n]!==null&&responses[n]!==""}
 function examFrame(content,overview=false){
@@ -112,11 +151,15 @@ function examFrame(content,overview=false){
   const current=document.querySelector("#questionMenu .qnav .current"),sidebar=document.querySelector(".exam-sidebar");
   if(current&&innerWidth>760)sidebar.scrollTop=Math.max(0,current.offsetTop-sidebar.clientHeight/2);
 }
-function timerHTML(){return `<div class="time-box"><span>Time remaining</span><b id="timer" class="timer" aria-live="off">${timeRemaining()}</b></div>`}
+function timerHTML(){return `<div class="time-box"><span>Time remaining</span>${countdownHTML("timer")}</div>`}
 function renderOverview(ending=false){
-  const unsaved=Object.keys(typedInteger).filter(k=>String(typedInteger[k])!==String(responses[k]??""));
+  const {missing,unsaved}=answerGaps(questions,responses,typedInteger);
+  const questionLinks=numbers=>numbers.map(n=>`<button class="exam-text-link" data-q="${questions.findIndex(q=>q.question_number===n)}">Q${n}</button>`).join(", ");
   examFrame(`<div class="qhead"><h1>${ending?"End competition":esc(activeExam.title)}</h1>${timerHTML()}</div>
-  ${ending?`<section class="end-confirm" aria-labelledby="endPrompt"><h2 id="endPrompt">Are you certain you want to end your participation?</h2><p>You cannot change your answers after ending the competition.</p>${unsaved.length?`<p><b>Unsaved integer answers: ${unsaved.map(esc).join(", ")}.</b> Return to these questions and press Save if you want them marked.</p>`:""}<div class="confirm-actions"><button id="confirmFinish">Yes, end competition</button><button id="cancelFinish">No</button></div></section>`:`<p class="overview-help">The table lists all questions, their value and whether you have answered them. It does not show whether answers are correct.</p><button id="firstQuestion" class="exam-text-link">CLICK HERE TO GO TO FIRST QUESTION</button>`}
+  ${ending?`<section class="end-confirm" aria-labelledby="endPrompt"><h2 id="endPrompt">Ready to submit and lock your exam?</h2><p class="submission-countdown">You have ${countdownHTML("submitCountdown","submit-time")} left.</p><p>Have you given a response for every question and checked all your answers?</p>
+  ${missing.length?`<div id="missingAnswers" class="missing-answers"><b>${missing.length} unanswered ${missing.length===1?"question":"questions"}:</b> ${questionLinks(missing)}<p>These questions have no saved response and will receive no marks. Select a question above to return to it.</p></div>`:'<p id="allAnswered"><b>Every question has a saved response.</b></p>'}
+  ${unsaved.length?`<div id="unsavedAnswers" class="missing-answers"><b>Unsaved integer answers: ${unsaved.map(esc).join(", ")}.</b> ${questionLinks(unsaved)}<p>Return and press <b>Save</b> if you want the changed answer marked. Otherwise, only the previously saved answer counts.</p></div>`:""}
+  <p>Submitting now permanently locks this paper. You can review it afterwards at any time, but cannot change answers or attempt it again.</p><div class="confirm-actions"><button id="cancelFinish">Go back and check</button><button id="confirmFinish">Submit and lock exam</button></div></section>`:`<p class="overview-help">The table lists all questions, their value and whether you have answered them. It does not show whether answers are correct.</p><button id="firstQuestion" class="exam-text-link">CLICK HERE TO GO TO FIRST QUESTION</button>`}
   <p class="answer-count">${questions.filter(q=>isAnswered(q.question_number)).length} answered · ${questions.filter(q=>!isAnswered(q.question_number)).length} not answered</p>
   <table class="exam-summary"><thead><tr><th>Question</th><th>Value</th><th>Status</th></tr></thead><tbody>${questions.map((q,i)=>`<tr><td><button data-q="${i}" class="exam-text-link">Question ${q.question_number}</button></td><td>${q.marks}</td><td>${isAnswered(q.question_number)?"Answered":"Not answered"}</td></tr>`).join("")}</tbody></table>
   ${ending?"":'<button id="endParticipation" class="exam-text-link end-link">End participation</button>'}`,true);
@@ -167,7 +210,7 @@ async function finishExam(auto){
   if(finishing)return;finishing=true;clearInterval(timerHandle);
   await saveQueue.catch(()=>{});
   try{
-    if(!sitting.completed)await persistResponses();
+    if(!sitting.completed&&Date.now()<new Date(sitting.expires_at).getTime())await persistResponses();
     const {data:session,error:sessionError}=await supabase.auth.getSession();
     if(sessionError) throw sessionError;
     const token=session?.session?.access_token;
@@ -184,6 +227,7 @@ async function finishExam(auto){
     const result=await response.json();
     if(!response.ok) throw new Error(result.error||"Grading failed.");
     sitting={...sitting,completed:true,score:result.score,submitted_at:sitting.submitted_at||new Date().toISOString()};
+    sittingsByExam.set(sitting.exam_id,sitting);
     renderResults(result.score,result.rows,result.award,auto,result.max_score||135);
   }catch(e){
     alert(e.message||"Could not finish the paper.");
@@ -195,10 +239,10 @@ async function finishExam(auto){
   }finally{finishing=false}
 }
 async function loadResultHistory(){
- const {data,error}=await supabase.from("exam_sittings").select("id,exam_id,score,max_score,submitted_at,metadata").eq("user_id",user.id).eq("completed",true).order("submitted_at",{ascending:false}).limit(30);if(error)throw error;
+ const {data,error}=await supabase.from("exam_sittings").select("id,exam_id,score,max_score,submitted_at,metadata").eq("user_id",user.id).eq("completed",true).order("submitted_at",{ascending:false});if(error)throw error;
  const el=document.getElementById("savedSittings");if(!el)return;
  el.innerHTML=(data||[]).map(e=>`<div class="history-row"><span>${esc(e.metadata?.title||e.exam_id)} · ${e.score}/${e.max_score}</span><button class="ghost" data-result="${esc(e.id)}">Review saved paper</button></div>`).join('')||'<p class="muted">Completed papers will appear here.</p>';
- el.querySelectorAll('[data-result]').forEach(b=>b.onclick=async()=>{b.disabled=true;try{const {data:row,error}=await supabase.from("exam_sittings").select("*").eq("id",b.dataset.result).single();if(error)throw error;sitting=row;activeExam=catalog.find(e=>e.id===row.exam_id)||{title:row.metadata?.title,id:row.exam_id};await finishExam(false)}catch(e){alert(e.message);b.disabled=false}});
+ el.querySelectorAll('[data-result]').forEach(b=>b.onclick=async()=>{b.disabled=true;try{const {data:row,error}=await supabase.from("exam_sittings").select("*").eq("id",b.dataset.result).single();if(error)throw error;await openSavedSitting(row)}catch(e){alert(e.message);b.disabled=false}});
 }
 function solutionVideo(r){
   return activeExam?.id==="amc-up-2025"&&r.question_number===17?{url:"watch-amc-2025-q17.html",title:"Watch the number-pyramid solution · under 1 minute"}:null;
@@ -223,7 +267,7 @@ function renderResults(score,rows,award,auto,maxScore=135){
         : "This paper uses a verified award-cutoff table stored with the exam.")
     : "This selective-maths practice paper is reported as a raw score only; no official Rossmoyne award bands are invented.";
   const courseSlot=sitting?.metadata?.course_mode===true?Number(sitting?.metadata?.course_slot||0):0;
-  app.innerHTML=`<section class="panel result-hero"><div class="eyebrow">${auto?"TIME EXPIRED · ":""}PAPER COMPLETE</div><div class="score-big">${score}<span class="muted" style="font-size:.25em"> / ${maxScore}</span></div><div class="award-badge">${esc(award.label||"Practice paper complete")}</div><p class="estimate-note">${awardNote}</p></section>
+  app.innerHTML=`<section class="panel result-hero"><div class="eyebrow">${auto?"TIME EXPIRED · ":""}PAPER COMPLETE</div><div class="score-big">${score}<span class="muted" style="font-size:.25em"> / ${maxScore}</span></div><div class="award-badge">${esc(award.label||"Practice paper complete")}</div><p class="paper-locked">Submitted and locked · review available anytime · no further attempts</p><p class="estimate-note">${awardNote}</p></section>
   <section class="profile-grid" style="margin-top:18px"><div class="panel profile-stat"><b>${correctCount}</b><span>questions correct</span></div><div class="panel profile-stat"><b>${unanswered}</b><span>unanswered</span></div><div class="panel profile-stat"><b>${timeUsed}</b><span>time used</span></div><div class="panel profile-stat"><b>${Math.round(score/maxScore*100)}%</b><span>raw mark percentage</span></div></section>
   <section class="panel result-card"><h2>Paper sections</h2>${maxScore===135?`<div class="final-five-result"><div><span class="eyebrow">AMC FINAL FIVE</span><b>${finalFiveCorrect} / 5 correct</b></div><div><span class="muted">Q26–Q30 marks</span><b>${finalFiveEarned} / ${finalFiveMax}</b></div></div>`:""}<table class="result-table"><thead><tr><th>Section</th><th>Correct</th><th>Marks</th></tr></thead><tbody>${sectionStats.map(s=>`<tr><td>${esc(s.label)}</td><td>${s.correct} / ${s.count}</td><td>${s.earned} / ${s.max}</td></tr>`).join("")}</tbody></table></section>
   <section class="panel result-card"><h2>Question-by-question results</h2><table class="result-table"><thead><tr><th>Q</th><th>Your answer</th><th>Result</th><th>Marks</th><th>Learn</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${r.question_number}</td><td>${esc(r.response??"—")}</td><td class="${r.correct?"ok":"bad"}">${resultLabel(r)}</td><td>${r.earned} / ${r.marks}</td><td><button class="solution-link" data-solution="${r.question_number}">Show solution</button>${solutionVideo(r)?`<a class="solution-link" href="${solutionVideo(r).url}" target="_blank" rel="noopener">Watch video ↗</a>`:""}</td></tr>`).join("")}</tbody></table></section>

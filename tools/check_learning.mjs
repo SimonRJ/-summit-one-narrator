@@ -118,3 +118,12 @@ for(let visit=1;visit<=9;visit++){
  assert.equal(techniqueCards('SEQ-02',visit)[1].yes,String(n*2**3));
 }
 console.log('PASS: five balanced, deterministic A/B cards for every teaching/investigation session (336); no timed-exam insertion; wrong choices allow completion; no mastery credit.');
+
+const {examClock,answerGaps}=await import('../exam-rules.js');
+for(const [seconds,prominent,urgent] of [[181,false,false],[180,true,false],[61,true,false],[60,true,true],[1,true,true],[0,true,true]]){
+ const c=examClock(new Date(seconds*1000).toISOString(),0);assert.equal(c.seconds,seconds);assert.equal(c.prominent,prominent);assert.equal(c.urgent,urgent);
+}
+assert.equal(examClock(new Date(0).toISOString(),1000).label,'00:00');
+assert.equal(examClock(new Date(180001).toISOString(),0).label,'03:01');
+assert.deepEqual(answerGaps([{question_number:1},{question_number:2},{question_number:26},{question_number:27}],{1:'A',26:'0'},{26:'1',27:'2'}),{missing:[2,27],unsaved:[26,27]});
+console.log('PASS: countdown thresholds and missing/unsaved answer distinctions.');

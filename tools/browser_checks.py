@@ -8,7 +8,7 @@ const mapping=(await (await fetch('data/lesson-challenges.json')).json()).items;
 const problems=[{id:'A001',title:'Must never be selected',prompt:'A real exam fixture',source_type:'authentic_amc',category:'digits',difficulty:2},...mapping.map(m=>({id:m.id,title:'Original learning fixture',prompt:'What is 6 plus 6?',source_type:'original_authored',category:m.skill,difficulty:3}))];
 function query(table){let filters=[],payload=null,kind='read',single=false;
 const q={select(){return q},eq(k,v){filters.push([k,v]);return q},not(k,op,v){filters.push([k,v,'not']);return q},order(){return q},limit(){return q},maybeSingle(){single=true;return q},single(){single=true;return q},insert(v){payload=v;kind='insert';return q},update(v){payload=v;kind='update';return q},upsert(v){payload=v;kind='upsert';return q},then(resolve,reject){try{let rows=table==='content_problems_student'?problems:table==='session_records'?state.records:table==='problem_attempts'?state.attempts:table==='exam_sittings'?state.exams:table==='exam_catalog'?[{id:'amc-up-2025',year:2025,session_slot:16,title:'Fixture paper',max_score:135,duration_minutes:60,question_count:30,source_type:'authentic_amc_past_paper',active:true}]:table==='exam_questions_student'?Array.from({length:30},(_,i)=>({exam_id:'amc-up-2025',question_number:i+1,question_type:i<25?'multiple_choice':'integer',stem:'Fixture question '+(i+1),choices:['one','two','three','four','five'],marks:i<10?3:i<20?4:i<25?5:i-19})):[];
- if(kind!=='read'){if(state.fail)return resolve({error:{message:'Simulated connection failure'}});if(kind==='insert'){payload={id:'sitting1',...payload};rows.push(payload)}else{const found=rows.find(r=>filters.every(([k,v])=>r[k]===v));if(found)Object.assign(found,payload);payload=found||payload}return resolve({data:payload,error:null})}
+ if(kind!=='read'){if(state.fail)return resolve({error:{message:'Simulated connection failure'}});if(kind==='insert'){if(table==='exam_sittings'&&rows.some(r=>r.exam_id===payload.exam_id&&r.user_id===payload.user_id))return resolve({error:{code:'23505',message:'One attempt only'}});payload={id:'sitting1',...payload};rows.push(payload)}else{const found=rows.find(r=>filters.every(([k,v])=>r[k]===v));if(found)Object.assign(found,payload);payload=found||payload}return resolve({data:payload,error:null})}
  rows=rows.filter(r=>filters.every(([k,v,kind])=>k==='user_id'||(kind==='not'?r[k]!=v:r[k]===v)));resolve({data:single?rows[0]||null:rows,error:null})}catch(e){reject(e)}}};return q}
 export const supabase={from:query,auth:{getSession:async()=>({data:{session:{access_token:'fixture'}}})},functions:{invoke:async(name,{body})=>({data:name==='submit-problem-attempt'?{correct:true,independent_credit:!body.used_help&&!body.familiar_family}:{solution_text:'Six plus six is twelve.'},error:null})}};
 export async function currentUser(){return {id:'fixture-user'}};
@@ -96,7 +96,14 @@ async def main():
   await page.locator('[data-stage="4"]').click();await page.locator('#completeSession').click();await page.locator('#continue').wait_for()
   assert await page.evaluate("fixture.records[0].immutable===true && fixture.progress.completed_sessions===1")
   await page.goto('http://127.0.0.1:8765/tests.html');await page.locator('.startExam').first.click()
+  await page.locator('#confirmStart').wait_for()
+  assert await page.evaluate('fixture.exams.length===0')
+  assert 'only attempt' in await page.locator('.exam-start-warning').inner_text()
+  await page.screenshot(path=str(ROOT/'docs/exam-start-warning-mobile.png'),full_page=True)
+  await page.locator('#cancelStart').click();assert await page.evaluate('fixture.exams.length===0')
+  await page.locator('.startExam').first.click();await page.locator('#confirmStart').click()
   await page.locator('#firstQuestion').wait_for()
+  assert await page.evaluate('fixture.exams.length===1')
   assert await page.locator('.exam-summary tbody tr').count()==30
   assert '0 answered · 30 not answered' in await page.locator('.answer-count').inner_text()
   await page.locator('#firstQuestion').click();await page.locator('[data-choice="B"]').click()
@@ -127,12 +134,45 @@ async def main():
   assert '2 answered · 28 not answered' in await page.locator('.answer-count').inner_text()
   await page.locator('#endParticipation').click();await page.locator('#confirmFinish').wait_for()
   assert 'Unsaved integer answers: 26' in await page.locator('.end-confirm').inner_text()
+  assert '28 unanswered questions' in await page.locator('#missingAnswers').inner_text()
+  assert await page.locator('#missingAnswers [data-q="29"]').count()==1
+  assert await page.locator('#missingAnswers [data-q="25"]').count()==0
+  assert await page.locator('#unsavedAnswers [data-q="25"]').count()==1
+  assert 'Have you given a response for every question' in await page.locator('.end-confirm').inner_text()
+  normal_size=await page.locator('#timer').evaluate('e=>parseFloat(getComputedStyle(e).fontSize)')
+  await page.evaluate('fixture.exams[0].expires_at=new Date(Date.now()+180000).toISOString()')
+  await page.wait_for_function("document.querySelector('#timer').classList.contains('timer-prominent')")
+  assert await page.locator('#timer').evaluate('e=>parseFloat(getComputedStyle(e).fontSize)')>normal_size
+  assert 'timer-urgent' not in (await page.locator('#timer').get_attribute('class'))
+  assert await page.locator('#timer').inner_text()==await page.locator('#submitCountdown').inner_text()
+  await page.screenshot(path=str(ROOT/'docs/exam-final-three-minutes.png'),full_page=True)
+  await page.evaluate('fixture.exams[0].expires_at=new Date(Date.now()+59000).toISOString()')
+  await page.wait_for_function("document.querySelector('#timer').classList.contains('timer-urgent')")
+  assert await page.locator('#timer').evaluate('e=>getComputedStyle(e).color')=='rgb(180, 35, 24)'
+  assert await page.locator('#timer').inner_text()==await page.locator('#submitCountdown').inner_text()
+  await page.set_viewport_size({'width':390,'height':844})
+  await page.screenshot(path=str(ROOT/'docs/exam-final-minute-mobile.png'),full_page=True)
+  assert await page.evaluate('document.documentElement.scrollWidth<=innerWidth+1')
+  await page.set_viewport_size({'width':1280,'height':900})
+  await page.evaluate('fixture.exams[0].expires_at=new Date(Date.now()+3000000).toISOString()')
+  await page.wait_for_function("!document.querySelector('#timer').classList.contains('timer-prominent')")
+
   assert 'Correct' not in await page.locator('.exam-summary').inner_text()
   await page.screenshot(path=str(ROOT/'docs/exam-confirmation.png'),full_page=True)
   await page.locator('#cancelFinish').click();await page.locator('#firstQuestion').wait_for()
   assert await page.evaluate('fixture.exams[0].completed===false')
   rows=[{'question_number':n,'stem':'Fixture question '+str(n),'correct':n==1,'response':'A' if n==1 else '14' if n==26 else None,'correct_answer':'A' if n<=25 else '12','earned':3 if n==1 else 0,'marks':3 if n<=10 else 4 if n<=20 else 5 if n<=25 else n-20,'explanation':'A complete fixture explanation.' if n in [1,17] else None} for n in range(1,31)]
-  await context.route('**/functions/v1/grade-exam',lambda r:r.fulfill(content_type='application/json',body=json.dumps({'score':3,'max_score':135,'rows':rows,'award':{'label':'Practice estimate','estimated':True}})))
+  async def grade_fixture(route):
+   await route.request.frame.page.evaluate("fixture.exams[0].completed=true;fixture.exams[0].score=3;fixture.exams[0].submitted_at=new Date().toISOString()")
+   await route.fulfill(content_type='application/json',body=json.dumps({'score':3,'max_score':135,'rows':rows,'award':{'label':'Practice estimate','estimated':True}}))
+  await context.route('**/functions/v1/grade-exam',grade_fixture)
+  # A different tab resumes the same attempt without resetting its clock.
+  snapshot=await page.evaluate('fixture')
+  resumed=await context.new_page();await resumed.add_init_script('window.fixture='+json.dumps(snapshot))
+  await resumed.goto('http://127.0.0.1:8765/tests.html');await resumed.locator('#firstQuestion').wait_for()
+  assert await resumed.evaluate('fixture.exams.length')==1
+  assert await resumed.evaluate('fixture.exams[0].expires_at')==snapshot['exams'][0]['expires_at']
+  await resumed.close()
   await page.locator('#endParticipation').click();await page.locator('#confirmFinish').click()
   await page.locator('.score-big').wait_for()
   assert await page.locator('.question-review').count()==30
@@ -144,7 +184,25 @@ async def main():
   await page.evaluate('window.scrollTo(0,0)');await page.screenshot(path=str(ROOT/'docs/exam-results.png'),full_page=True)
   await page.set_viewport_size({'width':390,'height':844})
   assert await page.evaluate('document.documentElement.scrollWidth<=innerWidth+1')
+  await page.locator('#backTests').click();await page.get_by_role('button',name='Review locked paper').wait_for()
+  assert await page.locator('#confirmStart').count()==0
+  await page.get_by_role('button',name='Review locked paper').click();await page.locator('.score-big').wait_for()
+  assert await page.evaluate('fixture.exams.length')==1
+  # A reload still offers review only. A course deep link cannot start a second attempt.
+  sealed=await page.evaluate('fixture')
+  locked=await context.new_page();await locked.add_init_script('window.fixture='+json.dumps(sealed))
+  await locked.goto('http://127.0.0.1:8765/tests.html?course=1&slot=16');await locked.locator('.score-big').wait_for()
+  assert await locked.locator('#confirmStart').count()==0
+  assert await locked.evaluate('fixture.exams.length')==1
+  await locked.close()
+  # Expired attempts seal and remain reviewable, even when answer saves now fail.
+  expired=json.loads(json.dumps(snapshot));expired['exams'][0]['expires_at']='2000-01-01T00:00:00Z';expired['fail']=True
+  expired_page=await context.new_page();await expired_page.add_init_script('window.fixture='+json.dumps(expired))
+  await expired_page.goto('http://127.0.0.1:8765/tests.html');await expired_page.locator('.score-big').wait_for()
+  assert await expired_page.evaluate('fixture.exams.length===1 && fixture.exams[0].completed')
+  await expired_page.close()
   assert not errors,errors
+  print('PASS: one-attempt warning, cancel without consuming attempt, resume clock, permanent review, deep-link lock, automatic expiry, live submission checklist and final-minute timer emphasis.')
   print('PASS: lesson navigation and saved work; exam overview, question menu, Previous/Next, save rollback, Erase, explicit integer Save, unsaved drafts, final confirmation and result/solution/video links; responsive without browser errors.')
 
   # All session types get an opening, including investigation and timed rehearsal.
