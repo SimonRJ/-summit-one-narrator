@@ -1,4 +1,4 @@
-import {examClock,answerGaps} from './exam-rules.js?v=exam-lock-20261112';
+import {examClock,answerGaps} from './exam-rules.js?v=centres-20261112';
 
 if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));}
 import { supabase, currentUser } from "./supabase-client.js?v=auth-20261112";
@@ -25,8 +25,9 @@ async function boot(){
   renderLibrary();
 }
 async function loadSittings(){
-  const {data,error}=await supabase.from("exam_sittings").select("*").eq("user_id",user.id).order("started_at",{ascending:false});
-  if(error)throw error;allSittings=data||[];sittingsByExam=new Map();
+  allSittings=[];
+  for(let start=0;;start+=500){const {data,error}=await supabase.from('exam_sittings').select('*').eq('user_id',user.id).order('started_at',{ascending:false}).order('id').range(start,start+499);if(error)throw error;allSittings.push(...data);if(data.length<500)break;}
+  sittingsByExam=new Map();
   for(const row of allSittings)if(!sittingsByExam.has(row.exam_id))sittingsByExam.set(row.exam_id,row);
 }
 async function existingSitting(id){
@@ -97,8 +98,8 @@ async function startExam(id){
   }catch(e){showExamError(e)}finally{starting=false;if(button?.isConnected){button.disabled=false;button.textContent=activeExam?.repeatable?"Start this practice attempt":"Start my only attempt"}}
 }
 async function resumeSitting(s){
-  const {data:exam}=await supabase.from("exam_catalog").select("*").eq("id",s.exam_id).single();activeExam=exam;
-  const {data:q}=await supabase.from("exam_questions_student").select("*").eq("exam_id",s.exam_id).order("question_number");questions=q||[];
+  const {data:exam,error:examError}=await supabase.from("exam_catalog").select("*").eq("id",s.exam_id).single();if(examError)throw examError;activeExam=exam;
+  const {data:q,error:questionError}=await supabase.from("exam_questions_student").select("*").eq("exam_id",s.exam_id).order("question_number");if(questionError)throw questionError;questions=q||[];
   sitting=s;sittingsByExam.set(s.exam_id,s);responses=s.responses||{};typedInteger={};qIndex=0;
   if(new Date(s.expires_at)<=new Date()){await finishExam(true);return}
   renderOverview();startTimer();
@@ -232,9 +233,9 @@ async function finishExam(auto){
   }finally{finishing=false}
 }
 async function loadResultHistory(){
- const {data,error}=await supabase.from("exam_sittings").select("id,exam_id,score,max_score,submitted_at,metadata,attempt_number").eq("user_id",user.id).eq("completed",true).order("submitted_at",{ascending:false});if(error)throw error;
+ const data=allSittings;
  const el=document.getElementById("savedSittings");if(!el)return;
- el.innerHTML=(data||[]).filter(e=>centre==='rossmoyne'?e.max_score===100:centre==='amc'?e.exam_id.startsWith('amc-up-'):e.max_score===135&&!e.exam_id.startsWith('amc-up-')).map(e=>`<div class="history-row"><span>${esc(e.metadata?.title||e.exam_id)} · Attempt ${e.attempt_number||1} · ${e.score}/${e.max_score} · ${new Date(e.submitted_at).toLocaleDateString('en-AU')}</span><button class="ghost" data-result="${esc(e.id)}">Review saved paper</button></div>`).join('')||'<p class="muted">Completed papers will appear here.</p>';
+ el.innerHTML=(data||[]).filter(e=>centre==='rossmoyne'?e.max_score===100:centre==='amc'?e.exam_id.startsWith('amc-up-'):e.max_score===135&&!e.exam_id.startsWith('amc-up-')).map(e=>`<div class="history-row"><span>${esc(e.metadata?.title||e.exam_id)} · Attempt ${e.attempt_number||1} · ${e.completed?`${e.score}/${e.max_score} · ${new Date(e.submitted_at).toLocaleDateString('en-AU')}`:'Open attempt · resume to finish'}</span><button class="ghost" data-result="${esc(e.id)}">${e.completed?'Review saved paper':'Resume saved attempt'}</button></div>`).join('')||'<p class="muted">Completed papers will appear here.</p>';
  el.querySelectorAll('[data-result]').forEach(b=>b.onclick=async()=>{b.disabled=true;try{const {data:row,error}=await supabase.from("exam_sittings").select("*").eq("id",b.dataset.result).single();if(error)throw error;await openSavedSitting(row)}catch(e){alert(e.message);b.disabled=false}});
 }
 function solutionVideo(r){
@@ -264,7 +265,7 @@ function renderResults(score,rows,award,auto,maxScore=135){
   <section class="profile-grid" style="margin-top:18px"><div class="panel profile-stat"><b>${correctCount}</b><span>questions correct</span></div><div class="panel profile-stat"><b>${unanswered}</b><span>unanswered</span></div><div class="panel profile-stat"><b>${timeUsed}</b><span>time used</span></div><div class="panel profile-stat"><b>${Math.round(score/maxScore*100)}%</b><span>raw mark percentage</span></div></section>
   <section class="panel result-card"><h2>Paper sections</h2>${maxScore===135?`<div class="final-five-result"><div><span class="eyebrow">AMC FINAL FIVE</span><b>${finalFiveCorrect} / 5 correct</b></div><div><span class="muted">Q26–Q30 marks</span><b>${finalFiveEarned} / ${finalFiveMax}</b></div></div>`:""}<table class="result-table"><thead><tr><th>Section</th><th>Correct</th><th>Marks</th></tr></thead><tbody>${sectionStats.map(s=>`<tr><td>${esc(s.label)}</td><td>${s.correct} / ${s.count}</td><td>${s.earned} / ${s.max}</td></tr>`).join("")}</tbody></table></section>
   <section class="panel result-card"><h2>Question-by-question results</h2><table class="result-table"><thead><tr><th>Q</th><th>Your answer</th><th>Result</th><th>Marks</th><th>Learn</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${r.question_number}</td><td>${esc(r.response??"—")}</td><td class="${r.correct?"ok":"bad"}">${resultLabel(r)}</td><td>${r.earned} / ${r.marks}</td><td><button class="solution-link" data-solution="${r.question_number}">Show solution</button>${solutionVideo(r)?`<a class="solution-link" href="${solutionVideo(r).url}" target="_blank" rel="noopener">Watch video ↗</a>`:""}</td></tr>`).join("")}</tbody></table></section>
-  <section class="panel result-card"><h2>Turn the result into learning</h2><p>Your missed skills are saved to your repair queue. Identify what went wrong, work through a supported correction, then solve a fresh problem independently. A different problem returns after three more completed sessions.</p><a class="primary" href="index.html?view=repairs">Open my repair queue</a><h2>Review each problem</h2>${rows.map(r=>`<details id="solution-${r.question_number}" class="question-review"><summary>Question ${r.question_number} · ${resultLabel(r)} · ${r.earned}/${r.marks}</summary><p><b>Problem</b><br>${esc(r.stem)}</p>${r.image_ref||r.figure_svg?`<div class="exam-visual">${r.image_ref||r.figure_svg}</div>`:""}${!r.image_ref&&r.choices?.length?`<ol class="review-choices" type="A">${r.choices.map(c=>`<li>${esc(typeof c==='string'?c:c.text||'See diagram')}</li>`).join('')}</ol>`:""}<p><b>Your answer:</b> ${esc(r.response??"—")}<br><b>Correct answer:</b> ${esc(typeof r.correct_answer==="object"?JSON.stringify(r.correct_answer):r.correct_answer)}</p>${r.explanation?`<p class="math-copy"><b>Worked explanation</b><br>${esc(r.explanation)}</p>`:`<p class="muted">The source answer key is verified. A worked explanation for this question has not yet been added.</p>`}${solutionVideo(r)?`<a class="solution-video-link" href="${solutionVideo(r).url}" target="_blank" rel="noopener">▶ ${solutionVideo(r).title}</a>`:""}</details>`).join("")}
+  <section class="panel result-card"><h2>Turn the result into learning</h2><p>Your missed skills are saved to your repair queue. Identify what went wrong, work through a supported correction, then solve a fresh problem independently. A changed example returns after three more completed sessions.</p><a class="primary" href="index.html?view=repairs">Open my repair queue</a><h2>Review each problem</h2>${rows.map(r=>`<details id="solution-${r.question_number}" class="question-review"><summary>Question ${r.question_number} · ${resultLabel(r)} · ${r.earned}/${r.marks}</summary><p><b>Problem</b><br>${esc(r.stem)}</p>${r.image_ref||r.figure_svg?`<div class="exam-visual">${r.image_ref||r.figure_svg}</div>`:""}${!r.image_ref&&r.choices?.length?`<ol class="review-choices" type="A">${r.choices.map(c=>`<li>${typeof c==='string'?esc(c):`${c.visual_html||''}${esc(c.text||'')}`}</li>`).join('')}</ol>`:""}<p><b>Your answer:</b> ${esc(r.response??"—")}<br><b>Correct answer:</b> ${esc(typeof r.correct_answer==="object"?JSON.stringify(r.correct_answer):r.correct_answer)}</p>${r.explanation?`<p class="math-copy"><b>Worked explanation</b><br>${esc(r.explanation)}</p>`:`<p class="muted">The source answer key is verified. A worked explanation for this question has not yet been added.</p>`}${solutionVideo(r)?`<a class="solution-video-link" href="${solutionVideo(r).url}" target="_blank" rel="noopener">▶ ${solutionVideo(r).title}</a>`:""}</details>`).join("")}
   <div class="complete-row"><a class="secondary" href="./">Return to Summit One</a>${activeExam.repeatable?`<button id="retryPaper" class="secondary">Start another practice attempt</button>`:""}<button id="backTests" class="primary">Back to exam section</button></div></section>`;
   wireQuestionZoom();
   document.querySelectorAll("[data-solution]").forEach(button=>button.onclick=()=>{const detail=document.getElementById("solution-"+button.dataset.solution);detail.open=true;detail.scrollIntoView({behavior:"smooth",block:"start"});detail.querySelector("summary").focus()});

@@ -62,7 +62,7 @@ for(const s of sessions){
  }else if(s.type==='MAWA'){
   const item=investigations[(Math.floor(s.slot/7)-1)%20];
   html=investigationIntroHTML(s,item);assert(investigationWarmupHTML(item).includes('reasoning-steps'));
- }else{html=mockIntroductionHTML({max_score:s.type==='AMC MOCK'?135:100});assert(html.includes('timer has not started'));}
+ }else if(s.type==='MIXED'){html='<p>Success today: choose a method independently.</p>';}else{html=mockIntroductionHTML({max_score:s.type==='AMC MOCK'?135:100});assert(html.includes('timer has not started'));}
  assert(html.includes('Success today'));assert(!html.includes('undefined'));covered++;
 }
 assert.equal(covered,372);
@@ -95,7 +95,7 @@ const {techniqueCards,investigationCards,flashDeck}=await import('../flash-cards
 const {flashReviewed,flashKey}=await import('../flash-ui.js');
 let decks=0;
 for(const s of sessions){
- if(s.type==='AMC MOCK'||s.type==='ROSSMOYNE MOCK')continue;
+ if(s.type==='MIXED')continue;
  const inv=s.type==='MAWA',id=inv?investigations[(Math.floor(s.slot/7)-1)%20].id:skillFor(s,taxonomy);
  const visit=inv?1+Math.floor((Math.floor(s.slot/7)-1)/20):lessonPlan(s,sessions,taxonomy).visit;
  const cards=flashDeck(id,visit,s.slot,inv);assert.equal(cards.length,5);

@@ -5,7 +5,7 @@ name: Summit One release QA
 on:
   workflow_dispatch:
   push:
-    branches: [main, draft/teaching-audit-2026-11-11]
+    branches: [main, rebuild-exam-centres-20261112, draft/teaching-audit-2026-11-11]
     paths:
       - "*.js"
       - "*.html"
@@ -48,7 +48,7 @@ jobs:
           const slots=sessions.sessions.map(x=>x.slot);
           if(new Set(slots).size!==372||slots[0]!==1||slots.at(-1)!==372)fail("Session IDs invalid");
           const count=t=>sessions.sessions.filter(x=>x.type===t).length;
-          if(count("LESSON")!==283||count("MAWA")!==53||count("AMC MOCK")!==25||count("ROSSMOYNE MOCK")!==11)fail("Session type counts invalid");
+          if(count("LESSON")!==283||count("MAWA")!==53||count("MIXED")!==36)fail("Session type counts invalid");
           const expectedMawa=Array.from({length:53},(_,i)=>(i+1)*7);
           const gotMawa=sessions.sessions.filter(x=>x.type==="MAWA").map(x=>x.slot);
           if(JSON.stringify(expectedMawa)!==JSON.stringify(gotMawa))fail("MAWA cadence invalid");
@@ -61,6 +61,10 @@ jobs:
           if(thresholds[0]!==19||thresholds.at(-1)!==372)fail("Rank thresholds invalid");
           console.log("Canonical invariants passed.");
           NODE
+      - name: Learning behaviour checks
+        run: node tools/check_learning.mjs
+      - name: New practice checks
+        run: node tools/check_practice.mjs
       - name: Public-content safety
         run: |
           test ! -f data/challenges-amc-001-040.json
@@ -89,3 +93,14 @@ jobs:
           grep -q 'PROTECTED_VIDEO_BUCKET' postproduction/upload_protected_media.mjs
           echo "Post-production tooling syntax and media split checks passed."
 
+      - name: Install browser test dependencies
+        run: |
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium
+      - name: Desktop and mobile workflows
+        run: node tools/browser_check.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: summit-exam-centres-browser-review
+          path: qa-screenshots/

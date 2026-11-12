@@ -155,3 +155,7 @@ end;
 $$;
 revoke all on function public.seal_exam_result(uuid,uuid,boolean) from public,anon,authenticated;
 grant execute on function public.seal_exam_result(uuid,uuid,boolean) to service_role;
+
+-- Retire the old star-award action. Historical counters are inert archival data.
+drop function if exists public.increment_timed_star_correct(uuid,integer,integer,integer);
+revoke all on public.learning_repairs,public.investigation_reviews from anon;

@@ -1,6 +1,6 @@
-import {transferEvidenceHTML} from './original-learning.js?v=original-transfer-20261112';
-import {workedSteps} from './session-intros.js?v=flash-20261112';
-import {methods,exercise,checkAnswer,recallState,dueSkills} from './curriculum.js?v=original-transfer-20261112';
+import {transferEvidenceHTML} from './original-learning.js?v=centres-20261112';
+import {workedSteps} from './session-intros.js?v=centres-20261112';
+import {methods,exercise,checkAnswer,recallState,dueSkills} from './curriculum.js?v=centres-20261112';
 const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 export function lessonCard(id,plan){
  const m=methods[id];if(!m||!plan)return '';

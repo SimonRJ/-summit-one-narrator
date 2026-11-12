@@ -24,10 +24,10 @@ def build(bank,figures):
   expected=plain(q['answer']);stem=plain(q['stem']);explanation=plain(q['explanation'])
   figure=''
   if n in [6,21]:
-   filename='original_animal_grid.png' if n==6 else 'original_symbol_subtraction.png'
+   filename='original_animal_grid.webp' if n==6 else 'original_symbol_subtraction.webp'
    b64=base64.b64encode((Path(figures)/filename).read_bytes()).decode()
    alt='Animal symbol grid and row and column totals' if n==6 else 'Picture subtraction ABRA − BCBR = RCBB'
-   figure=f'<img src="data:image/png;base64,{b64}" alt="{alt}" style="max-width:100%;height:auto"/>'
+   figure=f'<img src="data:image/webp;base64,{b64}" alt="{alt}" style="max-width:100%;height:auto"/>'
   if n==5:
    stem=stem.replace('one cookie','one cupcake')
    explanation='The seven boxes hold 1+2+4+8+16+32+64=127 cupcakes. Add the three eaten to obtain 130. The source used “cookie” once; that typographical error is corrected in this transcription.'

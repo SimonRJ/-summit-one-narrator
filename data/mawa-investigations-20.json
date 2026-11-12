@@ -123,11 +123,11 @@
       "id": "M11",
       "title": "The five painted faces",
       "topic": "Three-dimensional counting",
-      "prompt": "A 3×4×5 block is made of unit cubes. The top and four vertical sides are painted; the bottom is not.\n\na) How many small cubes have paint on at least one face?\nb) How many have exactly three painted faces?\nc) How many have exactly two painted faces? Avoid double-counting.",
+      "prompt": "A block is 4 unit cubes wide, 5 deep and 3 high. The top and four vertical sides are painted; the bottom is not.\n\na) How many small cubes have paint on at least one face?\nb) How many have exactly three painted faces?\nc) How many have exactly two painted faces? Avoid double-counting.",
       "hint": "Count unpainted cubes first; then separate top-edge and vertical-edge cases.",
       "trap": "The bottom is not painted.",
       "solution": "Total 60. Unpainted=(3−1)(4−2)(5−2)=12, so painted=48. Exactly three painted faces: 4 top corners. Exactly two: 10 top-edge non-corners +8 vertical-edge cubes below top=18.",
-      "transfer_prompt": "A 3-by-3-by-4 block of cubes is painted only on its top and bottom. Count cubes with zero, one and two painted faces. Explain why the original five-face formula must not be reused.",
+      "transfer_prompt": "A block that is 3 cubes wide, 3 deep and 4 high is painted only on its top and bottom. Count cubes with zero, one and two painted faces. Explain why the original five-face formula must not be reused.",
       "transfer_solution": "There are 36 cubes. The top and bottom layers are distinct, with 9 cubes each, so 18 cubes have one painted face. The two middle layers contain 18 with none. No cube reaches both top and bottom, so none has two painted faces. The categories total 36."
     },
     {
