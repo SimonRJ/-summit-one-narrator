@@ -22,7 +22,7 @@ try{
   await page.route('**/tests.html?**',r=>r.fulfill({contentType:'text/html',body:'<h1>Exam destination fixture</h1>'}));
   let videoRequests=0;page.on('request',r=>{if(r.url().includes('AMCIntroduction.mp4'))videoRequests++});
   await page.goto('http://127.0.0.1:4181/welcome.html');await page.locator('#watchWelcome').waitFor();
-  assert.equal(await page.locator('#welcomeVideo').evaluate(v=>v.paused),true);assert(!/\breef\b/i.test(await page.locator('body').innerText()),'Introduction must not use a learner name');assert((await page.locator('video').getAttribute('src')).includes('AMCIntroduction.mp4'));assert((await page.locator('.transcript').innerText()).includes('sixty minutes'));assert.equal(videoRequests,0,'Welcome must not auto-download the video');
+  assert.equal(await page.locator('#welcomeVideo').evaluate(v=>v.paused),true);assert(!/\breef\b/i.test(await page.locator('body').innerText()),'Introduction must not use a learner name');assert((await page.locator('video').getAttribute('src')).includes('AMCIntroduction.mp4'));await page.getByText('Read the introduction',{exact:true}).click();assert((await page.locator('.transcript').innerText()).includes('sixty minutes'));await page.getByText('Read the introduction',{exact:true}).click();assert.equal(videoRequests,0,'Welcome must not auto-download the video');
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+2),false);
   await page.screenshot({path:`qa-screenshots/${mobile?'mobile':'desktop'}-amc-introduction.png`,fullPage:true});
   await page.locator('#watchWelcome').click();await page.waitForFunction(()=>document.querySelector('video').currentTime>.5);assert.equal(await page.locator('video').evaluate(v=>v.videoWidth),1920);
