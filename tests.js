@@ -142,6 +142,21 @@ async function prepareExam(id){
   <p class="muted">The timer has not started. A computer or tablet is best for a full sitting.</p><div class="complete-row"><button id="cancelStart" class="ghost">Not yet — go back</button><button id="confirmStart" class="primary cta">${startLabel}</button></div></section>`;
   document.getElementById('cancelStart').onclick=()=>renderLibrary();document.getElementById('confirmStart').onclick=()=>startExam(id);window.scrollTo({top:0,behavior:'instant'});
 }
+function practicePerformanceHTML(part){
+ const getExam=id=>catalog.find(e=>e.id===id);
+ const original=e=>e?.source_type==="summit_amc_split_original";
+ const rows=allSittings.filter(row=>row.completed&&row.attempt_number===1&&getExam(row.exam_id)?.metadata?.amc_part===part&&original(getExam(row.exam_id)));
+ const perfect=rows.filter(row=>row.score===row.max_score);
+ const avg=rows.length?Math.round(rows.reduce((n,row)=>n+(row.score||0)/row.max_score,0)*100/rows.length):null;
+ const fastest=perfect.length?Math.min(...perfect.map(sittingElapsed)):null;
+ const recent=rows[0];
+ const value=recent?((recent.score||0)+"/"+recent.max_score+" · "+formatElapsedSeconds(sittingElapsed(recent))):"No first sitting yet";
+ return `<section class="exam-performance" aria-label="First attempt results on new original papers">
+ <div class="exam-performance-card"><span class="eyebrow">NEW-QUESTION ACCURACY</span><strong>${avg===null?"—":avg+"%"}</strong><small>Average first-sitting accuracy across ${rows.length} original ${rows.length===1?"paper":"papers"}</small></div>
+ <div class="exam-performance-card"><span class="eyebrow">FASTEST FIRST-TRY PERFECT</span><strong>${fastest===null?"—":formatElapsedSeconds(fastest)}</strong><small>Only ${part==="speed"?"20/20":"10/10"} scores on unseen original sets count</small></div>
+ <div class="exam-performance-card"><span class="eyebrow">MOST RECENT ORIGINAL</span><strong class="exam-performance-recent">${value}</strong><small>First submissions only · no result from replaying a memorised set</small></div>
+ </section>`;
+}
 function renderLibrary(){
  document.body.classList.remove("exam-mode");theme();
  if(centre==="hub"){renderExamHub();return;}
@@ -158,6 +173,7 @@ function renderLibrary(){
  const isPart=centre==="speed"||centre==="depth";
  app.innerHTML=`<section class="panel test-hero"><div class="eyebrow">${centre==="rossmoyne"?"HONOURS MATHEMATICS":"SUMMIT ONE · EXAMS"}</div><h1>${titles[centre]}</h1><p class="muted">${introductions[centre]}</p><nav class="exam-centre-tabs" aria-label="Exam sections">${EXAM_SECTIONS.map(([id,label])=>`<a href="tests.html${id==="hub"?"":`?section=${id}`}" ${centre===id?'aria-current="page"':""}>${label}</a>`).join("")}</nav>${centre==="amc"?`<label class="year-select">School year for estimated award bands <select id="awardYear"><option value="5" ${awardYear===5?"selected":""}>Year 5</option><option value="6" ${awardYear===6?"selected":""}>Year 6</option></select></label>`:""}</section>
  ${isPart?`<section class="exam-benchmark-row"><div><span class="eyebrow">BENCHMARK</span><strong>${centre==="speed"?"20 / 20 correct":"5 / 5 multiple choice + 1 integer"}</strong></div><div><span class="eyebrow">TIME LIMIT</span><strong>${centre==="speed"?"20:00":"40:00"} · counting up</strong></div><div><span class="eyebrow">SCORING</span><strong>${centre==="speed"?"70 available marks":"65 available marks"}</strong></div></section>`:""}
+ ${isPart?practicePerformanceHTML(centre):""}
  <div class="test-grid">${papers.map(exam=>`<article class="panel test-card"><div class="eyebrow">${exam.metadata?.originality==="reused_from_existing_full_mock"?"EXISTING MOCK · SPLIT FAMILIARISATION":exam.source_type==="authentic_amc_past_paper"?"AUTHENTIC AMC PAST PAPER":exam.source_type==="summit_amc_split_original"?"NEW ORIGINAL · INDEPENDENTLY CHECKED":exam.metadata?.original_sample?"UPLOADED ORIGINAL SAMPLE · TRANSCRIBED":"SUMMIT ONE AUTHORED PRACTICE"}</div><h2>${esc(exam.title)}</h2><div class="test-meta"><span class="phase-chip">${exam.question_count} questions</span><span class="phase-chip">${exam.duration_minutes} min</span><span class="phase-chip">${exam.max_score} marks</span></div><p class="muted">${esc(exam.metadata?.card_summary||"Full written solutions available after submission.")}</p>${paperAction(exam)}</article>`).join("")}</div>
  <section class="panel result-card"><h2>Your ${isPart?centre==="speed"?"fluency":"challenge":"exam"} history</h2><p class="muted">Every completed attempt and elapsed time remains recorded. A review cannot change a submitted result.</p><div id="savedSittings" class="history-list"></div></section><p class="footer-note">Summit One is an independent study app. Authored mocks are not official AMT or Rossmoyne papers.</p>`;
  document.getElementById("awardYear")?.addEventListener("change",e=>{awardYear=Number(e.target.value);localStorage.setItem("summitSchoolYear",String(awardYear))});
