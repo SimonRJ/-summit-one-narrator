@@ -1,0 +1,73 @@
+name: Reef welcome video
+on:
+  push:
+    branches: [main]
+    paths: ['production/reef-welcome/**', '.github/workflows/reef-welcome.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: reef-welcome-production
+  cancel-in-progress: false
+jobs:
+  produce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install narration and rendering tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-dejavu-core
+          pip install pillow numpy faster-whisper
+          cd narration
+          npm install --no-fund --no-audit
+      - name: Create and align the welcome narration
+        run: |
+          cp production/amc2025-q17/synth.mjs narration/reef-welcome-synth.mjs
+          node narration/reef-welcome-synth.mjs production/reef-welcome/narration.json build/reef-welcome
+          python production/reef-welcome/align.py --audio build/reef-welcome/narration.wav --timing build/reef-welcome/timing.json --out build/reef-welcome
+      - name: Render and verify the personalised animation
+        run: |
+          python production/reef-welcome/render.py
+          ffmpeg -v error -y -i build/reef-welcome/visual.mp4 -i build/reef-welcome/narration.wav -map 0:v -map 1:a -c:v copy -c:a aac -b:a 160k -af apad -shortest -movflags +faststart build/reef-welcome/final.mp4
+          python production/reef-welcome/verify.py
+      - name: Preserve the completed welcome
+        run: |
+          mkdir -p media review
+          cp build/reef-welcome/final.mp4 media/ReefWelcome.mp4
+          cp build/reef-welcome/poster.jpg media/ReefWelcome-poster.jpg
+          cp build/reef-welcome/ReefWelcome.vtt media/ReefWelcome.vtt
+          cp build/reef-welcome/transcript.txt media/ReefWelcome-transcript.txt
+          cp build/reef-welcome/qa.json review/ReefWelcome-qa.json
+          cp build/reef-welcome/timing.json build/reef-welcome/words.json build/reef-welcome/alignment-qa.json production/reef-welcome/
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add media/ReefWelcome* review/ReefWelcome-qa.json production/reef-welcome/timing.json production/reef-welcome/words.json production/reef-welcome/alignment-qa.json
+          git commit -m 'Publish Reef’s personalised animated welcome'
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: reef-welcome-review
+          path: |
+            build/reef-welcome/final.mp4
+            build/reef-welcome/contact.jpg
+            build/reef-welcome/storyboard/
+            build/reef-welcome/qa.json
+            build/reef-welcome/words.json
+            build/reef-welcome/timing.json
+            build/reef-welcome/alignment-qa.json
+            build/reef-welcome/poster.jpg
+          compression-level: 0
+          retention-days: 14
