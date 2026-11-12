@@ -30,13 +30,7 @@ for voice in brief['voices']:
     report['voices'].append(entry);(ROOT/'manifest.json').write_text(json.dumps(report,indent=2));print(json.dumps(entry),flush=True)
     del wav;gc.collect()
 del model;gc.collect()
-# Independent speech recognition checks the actual output, not only the requested text.
-from faster_whisper import WhisperModel
-asr=WhisperModel('base.en',device='cpu',compute_type='int8',cpu_threads=2)
-for v in report['voices']:
-    segments,_=asr.transcribe(str(ROOT/v['file']),beam_size=5,language='en')
-    v['heard_text']=' '.join(s.text.strip() for s in segments)
-    print('HEARD',v['id'],v['heard_text'],flush=True)
-    assert all(k in v['heard_text'].lower() for k in ['summit','seven','pattern']),'Sample omitted key content'
-(ROOT/'manifest.json').write_text(json.dumps(report,indent=2))
+# Validate the completed output separately so number formatting cannot force a new generation.
+import sys
+subprocess.run([sys.executable,'production/voice-audition/verify.py'],check=True)
 print('Auditions complete. Accent preference requires listening review.',flush=True)
