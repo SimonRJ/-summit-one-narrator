@@ -29,7 +29,7 @@ $("signIn").onclick=async()=>{
     $("signIn").disabled=true;
     msg("Signing in…");
     await signIn();
-    location.replace(destination);
+    location.replace(destination === "./" ? "./welcome.html?from=login" : destination);
   }catch(e){
     msg(e.message || "Sign in failed.","error");
   }finally{
