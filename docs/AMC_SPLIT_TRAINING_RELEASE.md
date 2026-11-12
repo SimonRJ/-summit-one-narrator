@@ -38,14 +38,16 @@ On 13 November, **20 split familiarisation sets** were constructed using the 10 
 * Both parts were validated against live catalog counts, question counts, original question numbers, marks, answer types and populated explanations.
 * The older 25 retired AMC mocks include routine and repeated formats and **must not** be passed off as fresh elite-level material.
 
-## First original pilot sets (verified 13 November 2026)
+## Independently checked new split sets (verified 13 November 2026)
 
-Two additional **newly authored** sets are active, distinct from the reused familiarisation sets:
+Three distinct active original sets now supplement the twenty reused familiarisation sets:
 
-* **Original Fluency · Set 01** — Q1–20, 20 multiple-choice problems, 70 marks, 20-minute stopwatch, 3 original illustrative diagrams and complete worked explanations.
-* **Original Challenge · Set 01** — Q21–30, 5 multiple-choice and 5 numerical-answer problems, 65 marks, 40-minute stopwatch, with complete worked explanations.
-* The new 30 questions have individually verified correct answer keys, unique exact text relative to the previous library, valid mark weights, and independent mathematical checks including enumeration for the more difficult counting problems. The original bank remains server-side so the answer keys are not in public GitHub Pages assets.
-* The complete **active split library now has 11 fluency sets and 11 challenge sets (22 total): 10 reused familiarisation + 1 original pilot in each mode.** Additional original paper authoring is not yet complete.
+* **Original Fluency · Set 01 (pilot):** 20 original multiple-choice problems, 70 marks, 20 minutes; saved in protected database as `summit-amc-speed-original-pilot-01`.
+* **Original AMC Fluency 01:** a further 20 original multiple-choice problems, 70 marks, 20 minutes; `summit-amc-speed-original-01` (v2 after removing a structural duplicate corner-perimeter problem).
+* **Original AMC Challenge 01:** ten original difficult problems with 5 MC and 5 integer answers, 65 marks, 40 minutes; `summit-amc-depth-original-01`. Four newly drawn instructional *question* diagrams accompany these problems; detailed fully worked explanations and independent enumeration checks confirm the answer keys.
+* The **active split bank is 23 sets**: 12 fluency and 11 challenge. Of these, 20 reuse the 10 existing full mocks and 3 are new original sets containing 50 new questions altogether.
+* A previous exploratory challenge pilot, `summit-amc-depth-original-pilot-01`, was held back after calibration: it contains several patterns too easy for the final AMC positions, and its Catalan-path problem overlapped mathematically with the stronger independent challenge set. It remains in database history but is not active.
+* The count of original exam-quality papers requested by the parent is **not yet met**. Do not label reused familiarisation sets as new or count inactive pilots as complete.
 
 ## New original bank: editorial release specification
 
