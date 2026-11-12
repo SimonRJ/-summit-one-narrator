@@ -196,3 +196,12 @@ a.exam-hub-card:hover,a.exam-hub-card:focus-visible{transform:translateY(-2px);b
  .exam-mode .timer{font-size:16px}
  .test-grid{grid-template-columns:1fr}
 }
+
+
+/* AMC split training: assessment progress, not gamification. */
+.exam-performance{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:0 0 18px}
+.exam-performance-card{background:#192a3a;border:1px solid #456078;border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.exam-performance-card strong{font-size:clamp(1.55rem,3vw,2.1rem);font-weight:750;letter-spacing:-.04em;line-height:1.15;color:#e7f5fd;font-variant-numeric:tabular-nums}
+.exam-performance-card strong.exam-performance-recent{font-size:clamp(1.1rem,2.3vw,1.35rem)}
+.exam-performance-card small{color:#b7c9d7;font-size:.8rem;line-height:1.55}
+@media(max-width:760px){.exam-performance{grid-template-columns:1fr}}
