@@ -1,0 +1,25 @@
+{
+  "video_sha256": "b79fef7d41101231b22bed42a554b4165671f83e63a5e2675dca9bfbfd5ae025",
+  "model": "small.en",
+  "vad_filter": true,
+  "reviewed_scenes": [
+    {
+      "scene": 1,
+      "recognised_text": "Welcome to Summit 1. A huge number. A hidden pattern. A puzzling shape. Each is an invitation to think. Here you'll build the habits and methods to tackle unfamiliar Australian mathematics competition problems with confidence."
+    },
+    {
+      "scene": 4,
+      "recognised_text": "Marks rise through the paper, three each for the first ten, four for the next ten, then five each. The final five are worth six, seven, eight, nine, and ten marks. That's one hundred and thirty -five altogether."
+    },
+    {
+      "scene": 6,
+      "recognised_text": "Problems can involve number, fractions and ratios, algebra, geometry and measurement, statistics, probability and counting. You'll learn to notice the mathematical structure underneath the story and choose a method that fits."
+    },
+    {
+      "scene": 10,
+      "recognised_text": "Geometry rewards seeing structure. In a 3x4 grid, how many rectangles are there? Choose two of the four horizontal lines and two of the five vertical lines. Six choices x 10 gives 60 rectangles."
+    }
+  ],
+  "finding": "The independent recogniser matches the intended narration in the four passages flagged by base.en. The repeated words and unrelated tail text in the first recogniser output are not reproduced.",
+  "review_run": 43298935439
+}

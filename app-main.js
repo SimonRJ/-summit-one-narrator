@@ -166,7 +166,7 @@ function renderHome(){
       <article class="panel stat-card"><div class="eyebrow">CURRENT MILESTONE</div><div class="stat-value">${milestoneDone} / ${milestone.target}</div><div class="progress-track"><div class="progress-fill" style="width:${(milestoneDone/milestone.target*100).toFixed(1)}%"></div></div><div class="stat-label">${esc(milestone.label)}</div></article>
     </aside>
   </section>
-  <section class="panel learning-note"><h2>Today’s rhythm</h2><p>3–5 minutes meeting the idea and remembering · 10–15 minutes with worked examples and supported practice · 15–25 minutes applying and transferring · 5–10 minutes checking. Stop for a short break if concentration drops; unfinished work stays in this session.</p><button id="planQuick" class="secondary">Goals and readiness</button> <a class="secondary" href="welcome.html?from=dashboard">Watch Reef’s welcome</a></section>
+  <section class="panel learning-note"><h2>Today’s rhythm</h2><p>3–5 minutes meeting the idea and remembering · 10–15 minutes with worked examples and supported practice · 15–25 minutes applying and transferring · 5–10 minutes checking. Stop for a short break if concentration drops; unfinished work stays in this session.</p><button id="planQuick" class="secondary">Goals and readiness</button> <a class="secondary" href="welcome.html?from=dashboard">Watch the AMC introduction</a></section>
   <p class="footer-note">372 sessions: 283 technique lessons, 53 investigations and 36 untimed strategy workshops. All exams have their own tabs. Take an exam when ready; exam attempts do not count as completed lessons.</p>`;
   document.getElementById("continue").onclick=()=>done<372?startSession(s):renderProfile();
   document.getElementById("reviewQuick").onclick=()=>renderReview();

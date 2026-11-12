@@ -20,14 +20,14 @@ try{
   await page.route('https://esm.sh/**',r=>r.fulfill({contentType:'application/javascript',body:sdk}));
   await page.route('http://127.0.0.1:4181/',r=>r.fulfill({contentType:'text/html',body:'<h1>Learning destination fixture</h1>'}));
   await page.route('**/tests.html?**',r=>r.fulfill({contentType:'text/html',body:'<h1>Exam destination fixture</h1>'}));
-  let videoRequests=0;page.on('request',r=>{if(r.url().includes('ReefWelcome.mp4'))videoRequests++});
+  let videoRequests=0;page.on('request',r=>{if(r.url().includes('AMCIntroduction.mp4'))videoRequests++});
   await page.goto('http://127.0.0.1:4181/welcome.html');await page.locator('#watchWelcome').waitFor();
-  assert.equal(await page.locator('#welcomeVideo').evaluate(v=>v.paused),true);assert.equal(videoRequests,0,'Welcome must not auto-download the video');
+  assert.equal(await page.locator('#welcomeVideo').evaluate(v=>v.paused),true);assert(!/\breef\b/i.test(await page.locator('body').innerText()),'Introduction must not use a learner name');assert((await page.locator('video').getAttribute('src')).includes('AMCIntroduction.mp4'));assert((await page.locator('.transcript').innerText()).includes('sixty minutes'));assert.equal(videoRequests,0,'Welcome must not auto-download the video');
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+2),false);
-  await page.screenshot({path:`qa-screenshots/${mobile?'mobile':'desktop'}-reef-welcome.png`,fullPage:true});
+  await page.screenshot({path:`qa-screenshots/${mobile?'mobile':'desktop'}-amc-introduction.png`,fullPage:true});
   await page.locator('#watchWelcome').click();await page.waitForFunction(()=>document.querySelector('video').currentTime>.5);assert.equal(await page.locator('video').evaluate(v=>v.videoWidth),1920);
   await page.locator('#watchWelcome').click();assert.equal(await page.locator('video').evaluate(v=>v.paused),true);
-  await page.screenshot({path:`qa-screenshots/${mobile?'mobile':'desktop'}-reef-playing.png`,fullPage:true});
+  await page.screenshot({path:`qa-screenshots/${mobile?'mobile':'desktop'}-amc-introduction-playing.png`,fullPage:true});
   await page.locator('#watchWelcome').click();await page.waitForFunction(()=>!document.querySelector('video').paused);
   await page.locator('video').evaluate(v=>v.currentTime=v.duration-.3);await page.waitForFunction(()=>document.querySelector('video').ended);
   assert.equal(await page.locator('#skipWelcome').innerText(),'Start my next step');assert.equal(await page.locator('#watchWelcome').innerText(),'Watch again');
@@ -40,7 +40,7 @@ try{
   await page.evaluate(()=>sessionStorage.clear());await page.goto('http://127.0.0.1:4181/login.html?next=tests.html%3Fsection%3Drossmoyne');await page.locator('#loginName').fill('fixture');await page.locator('#password').fill('fixture-only');await page.locator('#signIn').click();await page.waitForURL('**/tests.html?section=rossmoyne');
   await page.goto('http://127.0.0.1:4181/welcome.html?from=dashboard');assert.equal(await page.locator('#skipWelcome').innerText(),'Back to my learning');
   const broken=await browser.newContext({viewport:mobile?{width:390,height:844}:{width:1440,height:1000},serviceWorkers:'block'}),bp=await broken.newPage();
-  await bp.route('**/media/ReefWelcome.mp4*',r=>r.abort());await bp.route('http://127.0.0.1:4181/',r=>r.fulfill({contentType:'text/html',body:'<h1>Learning destination fixture</h1>'}));
+  await bp.route('**/media/AMCIntroduction.mp4*',r=>r.abort());await bp.route('http://127.0.0.1:4181/',r=>r.fulfill({contentType:'text/html',body:'<h1>Learning destination fixture</h1>'}));
   await bp.goto('http://127.0.0.1:4181/welcome.html');await bp.locator('#watchWelcome').click();await bp.waitForFunction(()=>document.querySelector('#welcomeStatus').classList.contains('error'));assert(await bp.locator('#watchWelcome').isEnabled());await bp.locator('#skipWelcome').click();await bp.waitForURL('http://127.0.0.1:4181/');await broken.close();
   assert.deepEqual(errors,[]);await context.close();
  }

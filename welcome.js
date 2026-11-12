@@ -11,7 +11,7 @@ function say(message,error=false){status.textContent=message;status.classList.to
 watch.addEventListener('click',async()=>{
   if(!video.paused){video.pause();say('Paused. Take your time.');return}
   try{
-    watch.disabled=true;video.controls=true;say('Opening your welcome…');
+    watch.disabled=true;video.controls=true;say('Opening your AMC introduction…');
     if(video.error)video.load();
     if(video.ended)video.currentTime=0;
     await video.play();
@@ -21,11 +21,11 @@ watch.addEventListener('click',async()=>{
     say('The video could not start. Try again, open the MP4 below, or continue to learning.',true);
   }finally{watch.disabled=false}
 });
-video.addEventListener('play',()=>{watch.textContent='Pause welcome'});
+video.addEventListener('play',()=>{watch.textContent='Pause introduction'});
 video.addEventListener('pause',()=>{if(!video.ended)watch.textContent='Continue watching'});
 video.addEventListener('ended',()=>{
   watch.textContent='Watch again';skip.textContent='Start my next step';
-  say('Your next discovery starts here, Reef. Continue whenever you’re ready.');
+  say('Your next discovery starts here. Continue whenever you’re ready.');
 });
 video.addEventListener('error',()=>{
   watch.disabled=false;watch.textContent='Try video again';
@@ -35,7 +35,7 @@ skip.addEventListener('click',()=>video.pause());
 video.addEventListener('loadedmetadata',()=>{
   if(Number.isFinite(video.duration))document.querySelector('#videoDuration').textContent=`${Math.floor(video.duration/60)}:${String(Math.floor(video.duration%60)).padStart(2,'0')} · Full HD · Spoken captions`;
 });
-fetch('./review/ReefWelcome-qa.json?v=voice-c-3').then(r=>r.ok?r.json():null).then(q=>{
+fetch('./review/AMCIntroduction-qa.json?v=amc-intro-20261113').then(r=>r.ok?r.json():null).then(q=>{
   if(q?.duration_seconds)document.querySelector('#videoDuration').textContent=`${Math.floor(q.duration_seconds/60)}:${String(Math.floor(q.duration_seconds%60)).padStart(2,'0')} · Full HD · Spoken captions`;
 }).catch(()=>{});
 if('serviceWorker' in navigator)navigator.serviceWorker.register('./sw.js').catch(()=>{});
