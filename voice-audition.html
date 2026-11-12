@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#07111e"><meta name="robots" content="noindex,nofollow,noarchive">
+<title>Reef’s voice audition · Summit One</title><link rel="icon" href="icon.svg"><link rel="stylesheet" href="welcome.css?v=welcome-20261112">
+<style>
+.voice-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:12px 0 30px}.voice-card{border:1px solid #294358;border-radius:18px;padding:28px;background:linear-gradient(145deg,#122639,#0b1827);min-width:0}.voice-letter{display:grid;place-items:center;width:45px;height:45px;border:1px solid var(--cyan);border-radius:50%;color:var(--cyan);font-size:20px;margin-bottom:22px}.voice-card:nth-child(2) .voice-letter{border-color:var(--gold);color:var(--gold)}.voice-card h2{font-size:24px;letter-spacing:-.02em;margin:0 0 8px}.voice-card p{color:var(--muted);font-size:14px;margin:0 0 24px}.voice-card audio{display:block;width:100%;margin:0 0 18px}.voice-card .media-link{font-size:13px}.passage{border-left:2px solid var(--cyan);padding:2px 0 2px 22px;max-width:860px;color:#c4d2df;font-size:17px;line-height:1.8}.small-heading{font-size:14px;font-weight:600;color:var(--muted);margin:25px 0 14px}.comparison{margin-bottom:30px;font-size:14px;color:var(--muted)}audio:focus-visible{outline:3px solid var(--gold);outline-offset:5px}@media(max-width:650px){.voice-grid{grid-template-columns:1fr;gap:16px}.voice-card{padding:22px}.voice-card h2{font-size:22px}.passage{font-size:16px;padding-left:16px}}
+</style>
+</head>
+<body><div class="wrap">
+<header class="topbar"><a class="brand" href="./" aria-label="Summit One home"><svg viewBox="0 0 36 36" aria-hidden="true"><path d="M5 29 18 6 31 29Z" fill="none" stroke="#8bdaf0" stroke-width="2"/></svg>SUMMIT ONE</a><a class="quiet-link" href="welcome.html?revision=2">Current welcome</a></header>
+<main>
+<section class="intro"><p class="eyebrow">An Australian voice for Reef</p><h1>Same words. Two new voices.</h1><p class="lead">Two original male voices created with VoxCPM2, each prompted for a natural Australian accent. Listen for warmth, clarity, and how “MAWA” and “Rossmoyne” sound.</p></section>
+<div class="voice-grid">
+<section class="voice-card" aria-labelledby="voiceA"><div class="voice-letter" aria-hidden="true">A</div><h2 id="voiceA">Warm and calm</h2><p>A thoughtful, reassuring maths mentor.</p><audio controls preload="none" aria-label="Voice A: warm and calm"><source src="media/voice-audition/vox-australian-male-a.mp3" type="audio/mpeg">Use the audio link below to listen.</audio><a class="media-link" href="media/voice-audition/vox-australian-male-a.mp3">Open voice A directly</a></section>
+<section class="voice-card" aria-labelledby="voiceB"><div class="voice-letter" aria-hidden="true">B</div><h2 id="voiceB">Bright and encouraging</h2><p>A curious mentor with a little more energy.</p><audio controls preload="none" aria-label="Voice B: bright and encouraging"><source src="media/voice-audition/vox-australian-male-b.mp3" type="audio/mpeg">Use the audio link below to listen.</audio><a class="media-link" href="media/voice-audition/vox-australian-male-b.mp3">Open voice B directly</a></section>
+</div>
+<p class="comparison">Both samples use the same passage and target volume. <a href="welcome.html?revision=2">Compare with George in the current welcome.</a></p>
+<section class="notes" aria-labelledby="passageHeading"><h2 class="small-heading" id="passageHeading">The sample passage</h2><p class="passage">Hi Reef. Welcome to Summit One. In maths, a difficult-looking problem can hide a clever idea. What is the last digit of seven to the power of two thousand and twenty-seven? Let’s find the pattern. The AMC, MAWA and Rossmoyne reward careful thinking.</p><p class="footer">These are voice auditions. The current welcome and course videos remain available with their existing narration. Accent strength and naturalness are part of the listening comparison.</p><p class="footer">Original synthetic voice designs · <a href="https://github.com/OpenBMB/VoxCPM" target="_blank" rel="noopener">VoxCPM2 by OpenBMB</a> · No real speaker’s voice was cloned.</p></section>
+</main></div>
+<script>
+document.querySelectorAll('audio').forEach(player=>player.addEventListener('play',()=>document.querySelectorAll('audio').forEach(other=>{if(other!==player)other.pause()})));
+</script>
+</body></html>
