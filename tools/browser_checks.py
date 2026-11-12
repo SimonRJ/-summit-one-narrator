@@ -99,7 +99,7 @@ async def main():
   assert await page.evaluate('document.documentElement.scrollWidth<=innerWidth+1')
   await page.locator('[data-stage="4"]').click();await page.locator('#completeSession').click();await page.locator('#continue').wait_for()
   assert await page.evaluate("fixture.records[0].immutable===true && fixture.progress.completed_sessions===1")
-  await page.goto('http://127.0.0.1:8765/tests.html');await page.locator('.startExam').first.click()
+  await page.goto('http://127.0.0.1:8765/tests.html?section=amc');await page.locator('.startExam').first.click()
   await page.locator('#confirmStart').wait_for()
   assert await page.evaluate('fixture.exams.length===0')
   assert 'only attempt' in await page.locator('.exam-start-warning').inner_text()
@@ -173,7 +173,7 @@ async def main():
   # A different tab resumes the same attempt without resetting its clock.
   snapshot=await page.evaluate('fixture')
   resumed=await context.new_page();await resumed.add_init_script('window.fixture='+json.dumps(snapshot))
-  await resumed.goto('http://127.0.0.1:8765/tests.html');await resumed.locator('#firstQuestion').wait_for()
+  await resumed.goto('http://127.0.0.1:8765/tests.html?section=amc');await resumed.locator('#firstQuestion').wait_for()
   assert await resumed.evaluate('fixture.exams.length')==1
   assert await resumed.evaluate('fixture.exams[0].expires_at')==snapshot['exams'][0]['expires_at']
   await resumed.close()
@@ -195,14 +195,14 @@ async def main():
   # A reload still offers review only. A course deep link cannot start a second attempt.
   sealed=await page.evaluate('fixture')
   locked=await context.new_page();await locked.add_init_script('window.fixture='+json.dumps(sealed))
-  await locked.goto('http://127.0.0.1:8765/tests.html?course=1&slot=16');await locked.get_by_role('button',name='Review locked paper').click();await locked.locator('.score-big').wait_for()
+  await locked.goto('http://127.0.0.1:8765/tests.html?section=amc&course=1&slot=16');await locked.get_by_role('button',name='Review locked paper').click();await locked.locator('.score-big').wait_for()
   assert await locked.locator('#confirmStart').count()==0
   assert await locked.evaluate('fixture.exams.length')==1
   await locked.close()
   # Expired attempts seal and remain reviewable, even when answer saves now fail.
   expired=json.loads(json.dumps(snapshot));expired['exams'][0]['expires_at']='2000-01-01T00:00:00Z';expired['fail']=True
   expired_page=await context.new_page();await expired_page.add_init_script('window.fixture='+json.dumps(expired))
-  await expired_page.goto('http://127.0.0.1:8765/tests.html');await expired_page.locator('.score-big').wait_for()
+  await expired_page.goto('http://127.0.0.1:8765/tests.html?section=amc');await expired_page.locator('.score-big').wait_for()
   assert await expired_page.evaluate('fixture.exams.length===1 && fixture.exams[0].completed')
   await expired_page.close()
   assert not errors,errors
