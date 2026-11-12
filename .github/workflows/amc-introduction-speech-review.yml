@@ -1,0 +1,48 @@
+name: Independent AMC introduction speech review
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/amc-introduction-speech-review.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          repository: SimonRJ/-summit-one-narrator
+          run-id: 43293201298
+          pattern: amc-intro-segment-*
+          merge-multiple: true
+          path: speech
+      - name: Install independent speech recognition model
+        run: pip install faster-whisper soundfile
+      - name: Check passages flagged by the first recogniser
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from faster_whisper import WhisperModel
+          model=WhisperModel('small.en',device='cpu',compute_type='int8',cpu_threads=2)
+          reports=[]
+          for i in [0,3,5,9]:
+              segments,info=model.transcribe(f'speech/speech-{i:02d}.wav',language='en',beam_size=5,word_timestamps=True,condition_on_previous_text=False,vad_filter=True)
+              words=[{'text':w.word.strip(),'start':w.start,'end':w.end} for s in segments for w in s.words or []]
+              reports.append({'scene':i+1,'text':' '.join(w['text'] for w in words),'words':words})
+          Path('independent-speech-review.json').write_text(json.dumps({'model':'small.en','vad_filter':True,'scenes':reports},indent=2))
+          for r in reports:print(str(r['scene'])+': '+r['text'])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: amc-independent-speech-review
+          path: independent-speech-review.json
+          retention-days: 14
