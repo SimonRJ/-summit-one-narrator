@@ -1,5 +1,5 @@
 import {mountExamDiagnostics} from './exam-diagnostics.js?v=recognition-20261113';
-import {examClock,answerGaps} from './exam-rules.js?v=recognition-20261113';
+import {examClock,elapsedClock,answerGaps} from './exam-rules.js?v=split-20261113';
 
 if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));}
 import { supabase, currentUser } from "./supabase-client.js?v=auth-20261112";
@@ -88,9 +88,8 @@ function examMarkGuide(exam){
 function clockForDisplay(){
  const clock=examClock(sitting.expires_at);
  if(!activeExam?.metadata?.amc_part)return clock;
- const duration=activeExam.duration_minutes*60;
- const elapsed=Math.max(0,Math.min(duration,Math.floor((Date.now()-new Date(sitting.started_at).getTime())/1000)));
- return {...clock,label:formatElapsedSeconds(elapsed)};
+ const elapsed=elapsedClock(sitting.started_at,sitting.expires_at);
+ return {...clock,label:elapsed.label};
 }
 function reportSections(maxScore){
  if(activeExam?.metadata?.amc_part==="speed")return [[1,10,"Questions 1–10"],[11,20,"Questions 11–20"]];
@@ -239,7 +238,7 @@ function renderOverview(ending=false){
   const {missing,unsaved}=answerGaps(questions,responses,typedInteger);
   const questionLinks=numbers=>numbers.map(n=>`<button class="exam-text-link" data-q="${questions.findIndex(q=>q.question_number===n)}">Q${n}</button>`).join(", ");
   examFrame(`<div class="qhead"><h1>${ending?"End competition":esc(activeExam.title)}</h1>${timerHTML()}</div>
-  ${ending?`<section class="end-confirm" aria-labelledby="endPrompt"><h2 id="endPrompt">Ready to submit and lock your exam?</h2><p class="submission-countdown">You have ${countdownHTML("submitCountdown","submit-time")} left.</p><p>Have you given a response for every question and checked all your answers?</p>
+  ${ending?`<section class="end-confirm" aria-labelledby="endPrompt"><h2 id="endPrompt">Ready to submit and lock your exam?</h2><p class="submission-countdown">${activeExam?.metadata?.amc_part?"Elapsed time:":"You have"} ${countdownHTML("submitCountdown","submit-time")} ${activeExam?.metadata?.amc_part?"(the limit is "+activeExam.duration_minutes+":00).":"left."}</p><p>Have you given a response for every question and checked all your answers?</p>
   ${missing.length?`<div id="missingAnswers" class="missing-answers"><b>${missing.length} unanswered ${missing.length===1?"question":"questions"}:</b> ${questionLinks(missing)}<p>These questions have no saved response and will receive no marks. Select a question above to return to it.</p></div>`:'<p id="allAnswered"><b>Every question has a saved response.</b></p>'}
   ${unsaved.length?`<div id="unsavedAnswers" class="missing-answers"><b>Unsaved integer answers: ${unsaved.map(esc).join(", ")}.</b> ${questionLinks(unsaved)}<p>Return and press <b>Save</b> if you want the changed answer marked. Otherwise, only the previously saved answer counts.</p></div>`:""}
   <p>Submitting now permanently locks this attempt. ${activeExam.repeatable?"You may start a new practice attempt afterwards; this result remains saved.":"You can review it at any time, but cannot change answers or attempt this paper again."}</p><div class="confirm-actions"><button id="cancelFinish">Go back and check</button><button id="confirmFinish">Submit and lock exam</button></div></section>`:`<p class="overview-help">The table lists all questions, their value and whether you have answered them. It does not show whether answers are correct.</p><button id="firstQuestion" class="exam-text-link">CLICK HERE TO GO TO FIRST QUESTION</button>`}
