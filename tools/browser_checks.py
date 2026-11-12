@@ -44,6 +44,8 @@ async def main():
   await page.locator('[data-reason="clue"]').fill('The change preserves the remainder class.')
   await page.locator('[data-reason="plan"]').fill('I will represent the unknown by a multiple plus its remainder.')
   await page.locator('.method-hint').click()
+  await page.locator('.used-help').click()
+  assert await page.locator('.used-help').is_checked()
   await page.locator('.problem-card .answer-box:not(.working-box)').fill('12');await page.locator('.submit-answer').click();await page.locator('.submit-answer').wait_for(state='hidden')
   assert 'Solved with support' in await page.locator('.attempt-feedback').inner_text()
   await page.set_viewport_size({'width':390,'height':844});await page.screenshot(path=str(ROOT/'docs/original-transfer-mobile.png'),full_page=True)
@@ -62,6 +64,8 @@ async def main():
   await page.evaluate('window.scrollTo(0,0)');await page.screenshot(path=str(ROOT/'docs/teaching-desktop.png'),full_page=True)
   await page.set_viewport_size({'width':390,'height':844});await page.screenshot(path=str(ROOT/'docs/teaching-mobile.png'),full_page=True)
   assert await page.evaluate('document.documentElement.scrollWidth<=innerWidth+1')
+  await page.locator('[data-stage="4"]').click();await page.locator('#completeSession').click();await page.locator('#continue').wait_for()
+  assert await page.evaluate("fixture.records[0].immutable===true && fixture.progress.completed_sessions===1")
   await page.goto('http://127.0.0.1:8765/tests.html');await page.locator('.startExam').first.click()
   await page.locator('#firstQuestion').wait_for()
   assert await page.locator('.exam-summary tbody tr').count()==30

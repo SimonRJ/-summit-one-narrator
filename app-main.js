@@ -241,7 +241,7 @@ async function completeSpecialSession(s){
 function renderSession(s){
   app.innerHTML=`
   <section class="session-page">
-    <header class="panel session-header"><div class="eyebrow">SESSION ${s.slot} / 372 · ${esc(s.phase)}</div><h1>${esc(s.focus)}</h1><div><span class="type-chip">${esc(s.type)}</span></div></header>
+    <header class="panel session-header"><div class="eyebrow">SESSION ${s.slot} / 372 · ${esc(s.phase)}</div><h1>${esc(activeStage===3?"Choose a method for a new setting":s.focus)}</h1><div><span class="type-chip">${esc(s.type)}</span></div></header>
     <nav class="stage-nav" aria-label="Session stages">
       ${["Start","Discover","Try","Transfer","Check"].map((x,i)=>`<button data-stage="${i}" class="${i===activeStage?"active":""}">${i+1}. ${x}</button>`).join("")}
     </nav>
@@ -341,7 +341,7 @@ function renderChallenge(el,s,p,mode){
     mountCheck(prep,{id:sid,slot:s.slot,records:completedRecords,draft:sessionDraft,save:()=>saveDraft(s),label:'YOUR TURN · INDEPENDENT BASICS CHECK',seedOverride:(lessonPlan(s,course,taxonomy).visit+1)%7,onDone:unlock});
   }
   const bridge=document.createElement('div');bridge.className='challenge-bridge';
-  bridge.innerHTML=`<h3>${mode==='try'?'Next: apply the idea':familiar?'Transfer: practise a variation':'Transfer: choose your tools'}</h3><p>This is a challenge, not the first explanation. Read for the requested quantity, sketch or list what is known, and decide which tool fits. If today’s method does not fit on its own, combine it with an older one.</p><details><summary>A starting plan, without the answer</summary><ol><li>Restate the question in your own words.</li><li>Test a smaller case or draw the quantities.</li><li>Look for a connection to the worked examples. Explain why it applies before calculating.</li></ol></details>`;
+  bridge.innerHTML=`<h3>${mode==='try'?'Next: apply the idea':familiar?'Transfer: practise a variation':'Transfer: choose your tools'}</h3><p>Identify the requested quantity and the useful relationships. Your solution may combine more than one idea.</p><details><summary>A starting plan, without the answer</summary><ol><li>Restate the question in your own words.</li><li>Test a smaller case or draw the quantities.</li><li>Look for a connection to the worked examples. Explain why it applies before calculating.</li></ol></details>`;
   node.prepend(bridge);el.appendChild(node);
   const footer=document.createElement("div");footer.className="complete-row";footer.innerHTML=`<button class="ghost" id="prevStage">Back</button><button class="primary" id="nextStage">${mode==="try"?"Transfer":"Check"}</button>`;el.appendChild(footer);
   footer.querySelector("#prevStage").onclick=async()=>{await saveDraft(s);activeStage=mode==="try"?1:2;renderSession(s)};
