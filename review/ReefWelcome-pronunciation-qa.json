@@ -1,17 +1,8 @@
 {
-  "voice": "bm_george",
-  "entries": [
-    {
-      "segment": 2,
-      "word": "MAWA's",
-      "phonemes": "mˈɑːwəz",
-      "spoken_as": "one two-syllable word"
-    },
-    {
-      "segment": 6,
-      "word": "MAWA",
-      "phonemes": "mˈɑːwə",
-      "spoken_as": "one two-syllable word"
-    }
-  ]
+  "method": "MAWA supplied as the word Mawa, using approved voice C reference",
+  "voice": "VoxCPM2 \u2014 approved voice C",
+  "heard_segments": {
+    "2": "You have three exciting destinations, the Australian Mathematics Competition, Marwa's Problem Solving Program, and Rossmoyne's Honours Mathematics Program. Each opens a different door into maths.",
+    "6": "Marwa, the Mathematical Association of Western Australia, began in 1958. Its Problem -Solving program dates from 1992. It develops careful reasoning and clear explanations. You'll learn to ask why an idea works."
+  }
 }

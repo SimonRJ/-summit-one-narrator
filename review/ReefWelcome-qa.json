@@ -1,35 +1,29 @@
 {
-  "revision": "v2-male-challenge-20261112",
+  "revision": "v3-voice-c-20261112",
+  "old_narration_removed": true,
+  "audio_stream_count": 1,
+  "voice_reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
   "pronunciation": {
-    "voice": "bm_george",
-    "entries": [
-      {
-        "segment": 2,
-        "word": "MAWA's",
-        "phonemes": "m\u02c8\u0251\u02d0w\u0259z",
-        "spoken_as": "one two-syllable word"
-      },
-      {
-        "segment": 6,
-        "word": "MAWA",
-        "phonemes": "m\u02c8\u0251\u02d0w\u0259",
-        "spoken_as": "one two-syllable word"
-      }
-    ]
+    "method": "MAWA supplied as the word Mawa, using approved voice C reference",
+    "voice": "VoxCPM2 \u2014 approved voice C",
+    "heard_segments": {
+      "2": "You have three exciting destinations, the Australian Mathematics Competition, Marwa's Problem Solving Program, and Rossmoyne's Honours Mathematics Program. Each opens a different door into maths.",
+      "6": "Marwa, the Mathematical Association of Western Australia, began in 1958. Its Problem -Solving program dates from 1992. It develops careful reasoning and clear explanations. You'll learn to ask why an idea works."
+    }
   },
   "title": "Reef, your next discovery starts here",
-  "duration_seconds": 224.433333,
+  "duration_seconds": 199.6,
   "resolution": "1920x1080",
   "fps": "30/1",
-  "voice": "bm_george",
-  "speed": 0.88,
+  "voice": "VoxCPM2 \u2014 approved voice C",
+  "speed": 1.0,
   "scenes": 15,
-  "word_alignment_percent": 93.13,
+  "word_alignment_percent": 94.64,
   "caption_layers": 1,
   "mathematics_checked": true,
   "full_decode_passed": true,
-  "audio_rms": 0.0842,
+  "audio_rms": 0.1086,
   "script_words": 466,
   "sources": "production/reef-welcome/sources.json",
-  "file_bytes": 7418828
+  "file_bytes": 8725892
 }
