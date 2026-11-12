@@ -1,5 +1,5 @@
 // Curriculum mapping is explicit. Never fall back to a real paper or a loose topic match.
-export const LEARNING_VERSION='centres-20261112';
+export const LEARNING_VERSION='recognition-20261113';
 export function selectOriginalProblems(session,bank,manifest){
  if(session.type!=='LESSON')return [];
  const entries=manifest.filter(x=>x.session===session.slot);

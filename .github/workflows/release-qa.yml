@@ -5,7 +5,7 @@ name: Summit One release QA
 on:
   workflow_dispatch:
   push:
-    branches: [main, rebuild-exam-centres-20261112, draft/teaching-audit-2026-11-11]
+    branches: [recognition-coverage-20261113, main, rebuild-exam-centres-20261112, draft/teaching-audit-2026-11-11]
     paths:
       - "*.js"
       - "*.html"
@@ -65,6 +65,8 @@ jobs:
           NODE
       - name: Learning behaviour checks
         run: node tools/check_learning.mjs
+      - name: Recognition and coverage checks
+        run: node tools/check_recognition.mjs
       - name: New practice checks
         run: node tools/check_practice.mjs
       - name: Public-content safety

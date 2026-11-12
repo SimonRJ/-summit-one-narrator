@@ -1,0 +1,36 @@
+import {supabase} from './supabase-client.js?v=auth-20261112';
+import {profiles} from './recognition.js?v=recognition-20261113';
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+export const causes={
+ 'knowledge gap':['I did not know the underlying idea','Revisit the small worked example, explain its key step, then try a supported problem.'],
+ 'choosing a method':['I knew some tools but did not spot which fitted','Name the clue, compare two possible methods, then try a mixed problem without its method label.'],
+ 'choosing a model':['My diagram or equation did not match the problem','Label the quantities and units, then translate each condition into your diagram or equation.'],
+ 'incomplete counting':['I missed cases or counted something twice','Choose a case order. Explain why every outcome appears exactly once.'],
+ 'reading the question':['I misread a condition or the requested answer','Underline the requested quantity and words such as exactly, different, at least and remaining.'],
+ 'calculation':['My method fitted but the arithmetic slipped','Estimate first, redo the arithmetic separately and substitute the answer back.'],
+ 'checking':['I stopped without testing all the conditions','Check the boundary cases and every condition; use a second representation if possible.'],
+ 'time management':['I ran out of time or stayed too long on one problem','Practise a short mixed set with a move-on decision, then return to the skipped problem.']
+};
+export function diagnosticGroups(rows,dimension='topic'){
+ const groups=new Map();for(const r of rows){const id=r.metadata?.skill_id||r.category,p=profiles[id],m=r.metadata?.learning_map;const label=m?.[dimension]||p?.[dimension]||'Not mapped yet';const g=groups.get(label)||{label,total:0,correct:0,earned:0,marks:0};g.total++;g.correct+=r.correct?1:0;g.earned+=r.earned||0;g.marks+=r.marks||0;groups.set(label,g);}return [...groups.values()].sort((a,b)=>(b.marks-b.earned)-(a.marks-a.earned)||a.label.localeCompare(b.label));
+}
+function table(rows,dimension){return `<h3>${dimension==='topic'?'Mathematical areas':'Problem-solving methods'}</h3><div class="diagnostic-scroll"><table class="result-table"><thead><tr><th>${dimension==='topic'?'Area':'Method'}</th><th>Correct</th><th>Marks</th></tr></thead><tbody>${diagnosticGroups(rows,dimension).map(g=>`<tr><td>${esc(g.label)}</td><td>${g.correct}/${g.total}</td><td>${g.earned}/${g.marks}</td></tr>`).join('')}</tbody></table></div>`;}
+export async function mountExamDiagnostics(el,{rows,user,sitting,exam}){
+ el.innerHTML='<p role="status">Preparing your learning report…</p>';
+ // Fetch current mapping only after submission. Never change saved responses or scores.
+ try{const {data,error}=await supabase.rpc('get_exam_learning_map',{p_sitting_id:sitting.id});if(error)throw error;const map=new Map((data||[]).map(q=>[q.question_number,q]));rows=rows.map(r=>({...r,category:map.get(r.question_number)?.category||r.category,metadata:map.get(r.question_number)?.metadata||r.metadata}));}catch{/* Historical snapshots still carry their original mapping. */}
+ const missed=rows.filter(r=>!r.correct);
+ el.innerHTML=`<h2>Your learning report</h2><p>These are Summit One teaching categories, not official AMT topic statistics. A small number of questions cannot establish mastery of an entire topic.</p>${table(rows,'topic')}<details><summary>Explore results by method</summary>${table(rows,'strategy')}</details><h3>What caused the lost marks?</h3><p>A wrong answer cannot tell us why it happened. Choose the cause after reviewing your working. Your choice sets a specific next step; it does not change your exam score.</p><div class="diagnostic-causes" role="status"></div><div class="diagnostic-items"></div>`;
+ if(!missed.length){el.querySelector('.diagnostic-items').innerHTML='<p class="success-note">Every answer was correct. Explain one difficult solution without notes, then preserve a fresh paper for your next independent check.</p>';return;}
+ let saved=[];try{for(let start=0;;start+=500){const {data,error}=await supabase.from('learning_repairs').select('*').eq('user_id',user.id).eq('source_type','exam').order('id').range(start,start+499);if(error)throw error;saved.push(...(data||[]));if(!data||data.length<500)break;}}catch(err){el.querySelector('.diagnostic-causes').textContent='Saved reflections could not load: '+err.message;return;}
+ const renderCounts=()=>{const mine=saved.filter(x=>x.source_ref.startsWith(sitting.id+':'));const counts={};for(const r of mine)if(r.classification)counts[r.classification]=(counts[r.classification]||0)+1;el.querySelector('.diagnostic-causes').textContent=Object.entries(counts).map(([k,n])=>`${causes[k]?.[0]||k}: ${n}`).join(' · ')||'No causes recorded for this attempt yet.';};
+ renderCounts();
+ for(const r of missed){const id=r.metadata?.skill_id||r.category,p=profiles[id],ref=sitting.id+':'+r.question_number;const old=saved.find(x=>x.source_ref===ref&&x.skill_id===id);const card=document.createElement('details');card.className='diagnostic-question';card.innerHTML=`<summary>Question ${r.question_number} · ${esc(r.metadata?.learning_map?.strategy||p?.strategy||'Review the method')}</summary><label>What best explains this attempt?<select class="diagnostic-cause"><option value="">Choose after looking at your work</option>${Object.entries(causes).map(([k,[label]])=>`<option value="${k}" ${old?.classification===k?'selected':''}>${esc(label)}</option>`).join('')}</select></label><p class="diagnostic-action">${esc(causes[old?.classification]?.[1]||'')}</p><button class="secondary diagnostic-save" ${p?'':'disabled'}>Save next step</button> <a href="index.html?view=repairs&amp;repair=${encodeURIComponent(ref)}">Practise this idea</a><p class="diagnostic-status" role="status"></p>`;el.querySelector('.diagnostic-items').append(card);
+ const select=card.querySelector('select'),status=card.querySelector('.diagnostic-status');select.onchange=()=>{card.querySelector('.diagnostic-action').textContent=causes[select.value]?.[1]||'';};
+ card.querySelector('button').onclick=async ev=>{if(!causes[select.value]){status.textContent='Choose the cause first.';return;}ev.target.disabled=true;try{
+ // Insert only if absent: existing repair evidence and stage are preserved.
+ const {error:ie}=await supabase.from('learning_repairs').upsert({user_id:user.id,source_type:'exam',source_ref:ref,source_label:exam.title+' · Q'+r.question_number,skill_id:id,due_after_session:0},{onConflict:'user_id,source_type,source_ref,skill_id',ignoreDuplicates:true});if(ie)throw ie;
+ const {data,error}=await supabase.from('learning_repairs').update({classification:select.value,updated_at:new Date().toISOString()}).eq('user_id',user.id).eq('source_type','exam').eq('source_ref',ref).eq('skill_id',id).select('*');if(error)throw error;if(!data?.length)throw Error('Reflection was not saved. Please reload and try again.');saved=saved.filter(x=>!(x.source_ref===ref&&x.skill_id===id)).concat(data);renderCounts();status.textContent='Saved. Your repair progress and exam answers are unchanged.';
+ }catch(err){status.textContent='Could not save: '+err.message;}finally{ev.target.disabled=false;}};
+ }
+}

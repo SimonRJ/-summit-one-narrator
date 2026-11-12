@@ -1,4 +1,4 @@
-import {methods,checkAnswer} from './curriculum.js?v=centres-20261112';
+import {methods,checkAnswer} from './curriculum.js?v=recognition-20261113';
 export const escapeHTML=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const choose=(n,k)=>{let v=1;for(let i=1;i<=k;i++)v=v*(n-i+1)/i;return Math.round(v)};
 const fact=n=>n<2?1:n*fact(n-1);
@@ -74,9 +74,9 @@ export function bridgeHTML(id,visit=1){const q=practice(id,visit-1),e=escapeHTML
 export function mountPractice(el,{id,seed,key,draft,save,label='Choose your method',supported=false,onDone=()=>{}}){
  const q=practice(id,seed),old=draft.evidence[key],e=escapeHTML;
  let helped=old?.used_help||draft.evidence['help:'+key]===true;
- el.innerHTML=`<article class="mini-check"><div class="eyebrow">${e(label)}</div><p>${e(q.prompt)}</p>${q.figure}${supported?`<p><b>First step supplied:</b> ${e(q.steps[0])}</p>`:''}<form><label class="answer-label">Your method and why it fits<textarea class="answer-box method" rows="2">${e(old?.method||draft.working[key+':method']||'')}</textarea></label><label class="answer-label">Final answer<input class="answer-box response" value="${e(old?.response||draft.working[key+':answer']||'')}" autocomplete="off"></label><button class="primary">Record and check</button><button class="ghost hint" type="button">Show one step</button></form><div class="feedback" role="status"></div></article>`;
+ el.innerHTML=`<article class="mini-check"><div class="eyebrow">${e(label)}</div><p>${e(q.prompt)}</p>${supported?q.figure:''}${supported?`<p><b>First step supplied:</b> ${e(q.steps[0])}</p>`:''}<form><label class="answer-label">Your method and why it fits<textarea class="answer-box method" rows="2">${e(old?.method||draft.working[key+':method']||'')}</textarea></label><label class="answer-label">Final answer<input class="answer-box response" value="${e(old?.response||draft.working[key+':answer']||'')}" autocomplete="off"></label><button class="primary">Record and check</button><button class="ghost hint" type="button">Show one step</button></form><div class="feedback" role="status"></div></article>`;
  const form=el.querySelector('form'),feedback=el.querySelector('.feedback');
- const show=r=>{feedback.innerHTML=`<p><b>${r.correct?'Correct':'A useful correction'}</b> · ${r.used_help?'with support':'first response saved'}</p><ol>${q.steps.map(x=>`<li>${e(x)}</li>`).join('')}</ol><p><b>Watch for:</b> ${e(q.contrast)}</p>`;form.querySelectorAll('input,textarea,button').forEach(x=>x.disabled=true)};
+ const show=r=>{feedback.innerHTML=`<p><b>${r.correct?'Correct':'A useful correction'}</b> · ${r.used_help?'with support':'first response saved'}</p>${!supported?q.figure:""}<ol>${q.steps.map(x=>`<li>${e(x)}</li>`).join('')}</ol><p><b>Watch for:</b> ${e(q.contrast)}</p>`;form.querySelectorAll('input,textarea,button').forEach(x=>x.disabled=true)};
  if(old)show(old);
  form.querySelector('.method').oninput=x=>{draft.working[key+':method']=x.target.value};form.querySelector('.response').oninput=x=>{draft.working[key+':answer']=x.target.value};
  form.querySelector('.hint').onclick=async()=>{helped=true;draft.evidence['help:'+key]=true;feedback.textContent=q.hint;try{await save()}catch(err){feedback.textContent+=' Save failed: '+err.message}};

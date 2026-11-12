@@ -1,6 +1,7 @@
+import {causes} from './exam-diagnostics.js?v=recognition-20261113';
 import {supabase} from './supabase-client.js?v=auth-20261112';
-import {methods,exercise} from './curriculum.js?v=centres-20261112';
-import {practice,mountPractice,escapeHTML as esc} from './transfer-practice.js?v=centres-20261112';
+import {methods,exercise} from './curriculum.js?v=recognition-20261113';
+import {practice,mountPractice,escapeHTML as esc} from './transfer-practice.js?v=recognition-20261113';
 export async function allRows(makeQuery){const all=[];for(let start=0;;start+=500){const {data,error}=await makeQuery().range(start,start+499);if(error)throw error;all.push(...data);if(data.length<500)return all;}}
 export async function queueRepair({userId,sourceType,sourceRef,sourceLabel,skillId,done=0}){
  if(!methods[skillId])return;
@@ -20,14 +21,16 @@ export async function renderRepairs(el,{user,done,records=[]}){
  for(const row of [...active,...rows.filter(r=>r.stage===4)]){
   const card=document.createElement('details');card.className='review-detail';card.innerHTML=`<summary>${esc(row.source_label)} · ${row.stage===4?'repair cycle completed':row.stage===3&&done<row.due_after_session?`return after ${row.due_after_session-done} more sessions`:'ready'}</summary><div class="repair-content"></div>`;list.append(card);
   let loaded=false;card.ontoggle=()=>{if(card.open&&!loaded){loaded=true;renderRepair(card.querySelector('.repair-content'),row,{user,done,reload:()=>renderRepairs(el,{user,done})})}};
+  if(new URLSearchParams(location.search).get('repair')===row.source_ref){card.open=true;card.ontoggle();card.scrollIntoView({block:'start'});}
  }
 }
 function renderRepair(el,row,{user,done,reload}){
  const m=methods[row.skill_id];if(!m){el.textContent='This item needs a technique mapping before practice can be shown.';return}
  const save=async patch=>{const {data,error}=await supabase.from('learning_repairs').update({...patch,updated_at:new Date().toISOString()}).eq('id',row.id).eq('user_id',user.id).eq('updated_at',row.updated_at).select('id');if(error)throw error;if(!data?.length)throw Error('This repair changed on another device. Reopen it to load the latest step.');await reload()};
  el.innerHTML=`<p><b>The idea:</b> ${esc(m.idea)}</p><p><b>Common trap:</b> ${esc(m.trap)}</p>`;
+ if(row.classification&&causes[row.classification])el.insertAdjacentHTML('beforeend',`<p class="success-note"><b>Your next step:</b> ${esc(causes[row.classification][1])}</p>`);
  if(row.stage===0){
-  el.insertAdjacentHTML('beforeend',`<form class="repair-form"><label class="answer-label">Where did it go wrong?<select name="cause" required><option value="">Choose the main cause</option>${['reading the question','choosing a model','choosing a method','calculation','checking','time management'].map(x=>`<option>${x}</option>`).join('')}</select></label><label class="answer-label">Explain the correction in your own words<textarea name="correction" class="answer-box" required minlength="15" placeholder="I first… The missing clue was… Next time I will…"></textarea></label><button class="primary">Save correction and practise</button><p role="status"></p></form>`);
+  el.insertAdjacentHTML('beforeend',`<form class="repair-form"><label class="answer-label">Where did it go wrong?<select name="cause" required><option value="">Choose the main cause</option>${Object.entries(causes).map(([x,[label]])=>`<option value="${x}" ${row.classification===x?'selected':''}>${esc(x)}</option>`).join('')}</select></label><label class="answer-label">Explain the correction in your own words<textarea name="correction" class="answer-box" required minlength="15" placeholder="I first… The missing clue was… Next time I will…"></textarea></label><button class="primary">Save correction and practise</button><p role="status"></p></form>`);
   el.querySelector('form').onsubmit=async e=>{e.preventDefault();const f=e.currentTarget,b=f.querySelector('button');b.disabled=true;try{await save({classification:f.elements.cause.value,stage:1,evidence:{...row.evidence,correction:f.elements.correction.value}})}catch(err){f.querySelector('[role=status]').textContent=err.message;b.disabled=false}};return;
  }
  el.insertAdjacentHTML('beforeend',`<p><b>Your correction:</b> ${esc(row.evidence.correction)}</p>`);

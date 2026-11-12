@@ -1,9 +1,9 @@
-import {flashDeck,FLASH_VERSION} from './flash-cards.js?v=centres-20261112';
+import {flashDeck,FLASH_VERSION} from './flash-cards.js?v=recognition-20261113';
 const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 export const flashKey=id=>`flash:${FLASH_VERSION}:${id}`;
 export function flashReviewed(draft,id){const e=draft.evidence?.[flashKey(id)];return !!(e?.reviewed&&e.responses?.length===5);}
-export function mountFlashCards(el,{id,visit=1,slot,investigation=false,draft,save,onComplete=()=>{}}){
- const deck=flashDeck(id,visit,slot,investigation),key=flashKey(id);
+export function mountFlashCards(el,{id,visit=1,slot,investigation=false,deck:providedDeck=null,draft,save,onComplete=()=>{}}){
+ const deck=providedDeck||flashDeck(id,visit,slot,investigation),key=flashKey(id);
  const e=draft.evidence[key]||(draft.evidence[key]={kind:'recognition_practice',version:FLASH_VERSION,skill_id:investigation?null:id,investigation_id:investigation?id:null,visit,independent_credit:false,cursor:0,responses:[],reviewed:false});
  let busy=false,saveError='';
  const persist=async()=>{try{await save();saveError='';return true}catch(err){saveError='Your choices are kept on this device. Cloud save failed: '+err.message;return false}};

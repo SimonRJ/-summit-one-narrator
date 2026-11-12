@@ -1,3 +1,4 @@
+import {wordingCard} from './recognition.js?v=recognition-20261113';
 // Original, short decision practice. No exam questions, time score or mastery credit.
 // Each row: question, correct choice, plausible misconception, explanation.
 export function techniqueCards(id,visit=1){
@@ -411,12 +412,19 @@ export function investigationCards(id,visit=1){
  default:throw Error('Missing investigation flash cards: '+id);
  }
 }
-export const FLASH_VERSION='decision-cards-v1';
-export function flashDeck(id,visit,slot,investigation=false){
- const cards=investigation?investigationCards(id,visit):techniqueCards(id,visit);
+export const FLASH_VERSION='decision-cards-v2';
+export function flashDeck(id,visit,slot,investigation=false,providedCards=null){
+ const cards=providedCards|| (investigation?investigationCards(id,visit):techniqueCards(id,visit));
+ // Keep four method decisions and rotate a precise-reading contrast across visits.
+ cards[(visit+3)%5]=wordingCard(slot); 
  let h=2166136261;for(const c of `${id}:${visit}:${slot}`){h=Math.imul(h^c.charCodeAt(0),16777619)>>>0;}
  // Balanced answer positions with a deterministic shuffled order, stable after reload.
  const order=[0,1,2,3,4];for(let i=4;i>0;i--){h=(Math.imul(h,1664525)+1013904223)>>>0;const j=h%(i+1);[order[i],order[j]]=[order[j],order[i]];}
  const aPositions=new Set(order.slice(0,2+(slot%2)));
  return cards.map((c,i)=>({...c,id:`${FLASH_VERSION}:${id}:${visit}:${i}`,options:aPositions.has(i)?[c.yes,c.no]:[c.no,c.yes],answer:aPositions.has(i)?0:1}));
+}
+export function mixedFlashDeck(ids,slot){
+ if(!ids.length)throw Error('Mixed decisions need previously taught techniques.');
+ const cards=Array.from({length:5},(_,i)=>techniqueCards(ids[i%ids.length],1+Math.floor(slot/52))[(slot+i)%5]);
+ return flashDeck('MIXED',1,slot,false,cards);
 }

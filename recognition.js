@@ -1,0 +1,332 @@
+// Explicit method decisions; no authentic exam stems or answers.
+import {journeys} from './lesson-journeys.js?v=recognition-20261113';
+export const profiles = {
+  "DIG-01": {
+    "topic": "Number and calculation",
+    "strategy": "Decompose and compensate",
+    "avoid": "Changing each of several equal prices requires compensating once per item.",
+    "check": "Estimate first, then check the exact place values."
+  },
+  "DIG-02": {
+    "topic": "Digits and place value",
+    "strategy": "Restrict positions then count",
+    "avoid": "A PIN may allow a leading zero; a three-digit number cannot.",
+    "check": "Test zero, repeated digits and the last-digit condition separately."
+  },
+  "DIG-03": {
+    "topic": "Digits and place value",
+    "strategy": "Count contributions by position",
+    "avoid": "Counting labels containing a digit is different from counting copies of that digit.",
+    "check": "Check a repeated-digit label and both endpoints."
+  },
+  "DIG-04": {
+    "topic": "Digits and place value",
+    "strategy": "Use mirrored positions",
+    "avoid": "Repeated blocks such as ABAB need not be palindromes.",
+    "check": "Read the result backwards and check its length."
+  },
+  "DIG-05": {
+    "topic": "Digits and place value",
+    "strategy": "Use column constraints",
+    "avoid": "A letter in a digit position is not a multiplication sign.",
+    "check": "Substitute every digit and check all carries and distinctness conditions."
+  },
+  "DIV-01": {
+    "topic": "Factors and divisibility",
+    "strategy": "Factorise and organise divisors",
+    "avoid": "The number of divisors is different from their sum.",
+    "check": "List factor pairs for a smaller example, including 1 and the number."
+  },
+  "DIV-02": {
+    "topic": "Factors and divisibility",
+    "strategy": "Find a common period",
+    "avoid": "Different starting times need offsets as well as a common period.",
+    "check": "Check both schedules and show there is no earlier valid meeting."
+  },
+  "DIV-03": {
+    "topic": "Factors and divisibility",
+    "strategy": "Reduce to remainders",
+    "avoid": "Leftovers and spaces needed to finish a group are different quantities.",
+    "check": "Rebuild divisor \u00d7 quotient + remainder; the remainder is smaller than the divisor."
+  },
+  "DIV-04": {
+    "topic": "Factors and divisibility",
+    "strategy": "Track an invariant",
+    "avoid": "Passing an invariant test does not prove a target can be reached.",
+    "check": "Check the invariant for every legal move; construct a route when claiming possibility."
+  },
+  "DIV-05": {
+    "topic": "Patterns and cycles",
+    "strategy": "Reduce a position by a period",
+    "avoid": "A repeated value without a repeated state may not start a true cycle.",
+    "check": "Label the first position and test a position exactly divisible by the period."
+  },
+  "FRAC-01": {
+    "topic": "Fractions and ratios",
+    "strategy": "Track the changing whole",
+    "avoid": "A fraction of the remainder has a new base.",
+    "check": "Account for everything removed and everything remaining."
+  },
+  "FRAC-02": {
+    "topic": "Fractions and ratios",
+    "strategy": "Use equal parts",
+    "avoid": "A ratio gives relative parts, not the total number of items.",
+    "check": "Reconstruct both quantities and their total or difference."
+  },
+  "FRAC-03": {
+    "topic": "Fractions and ratios",
+    "strategy": "Use percentage multipliers",
+    "avoid": "Equal percentage increases and decreases do not cancel.",
+    "check": "Name the base of each percentage and check the direction of change."
+  },
+  "FRAC-04": {
+    "topic": "Fractions and ratios",
+    "strategy": "Weight quantities by their wholes",
+    "avoid": "Averaging fractions is unsafe when the group sizes differ.",
+    "check": "Find actual counts first; the combined fraction must use the combined whole."
+  },
+  "RATE-01": {
+    "topic": "Measurement and rates",
+    "strategy": "Use common units and count intervals",
+    "avoid": "Five events can have four gaps, unless the question includes a gap before the first.",
+    "check": "Draw the first and last event and label the units."
+  },
+  "RATE-02": {
+    "topic": "Measurement and rates",
+    "strategy": "Combine work rates",
+    "avoid": "Completion times cannot be added as if they were rates.",
+    "check": "Check the work completed in the proposed time."
+  },
+  "RATE-03": {
+    "topic": "Measurement and rates",
+    "strategy": "Model distance and time",
+    "avoid": "A mean of speeds is not usually the whole-journey average.",
+    "check": "Add all distances and all times, including stops."
+  },
+  "RATE-04": {
+    "topic": "Measurement and rates",
+    "strategy": "Track the changing gap",
+    "avoid": "Chasing in the same direction uses a speed difference.",
+    "check": "Check both travellers occupy the same position at the proposed time."
+  },
+  "ALG-01": {
+    "topic": "Algebra and relationships",
+    "strategy": "Model an unknown",
+    "avoid": "The unknown must describe one specific quantity with units.",
+    "check": "Substitute into the original story, not only the rearranged equation."
+  },
+  "ALG-02": {
+    "topic": "Algebra and relationships",
+    "strategy": "Use total and difference",
+    "avoid": "Halving the total alone ignores the extra part.",
+    "check": "Check both the sum and the gap."
+  },
+  "ALG-03": {
+    "topic": "Algebra and relationships",
+    "strategy": "Cancel shared contributions",
+    "avoid": "Subtract complete collections, including constants.",
+    "check": "Use your values to rebuild both collections."
+  },
+  "ALG-04": {
+    "topic": "Algebra and relationships",
+    "strategy": "Undo in reverse order",
+    "avoid": "Undoing operations in the original order generally fails.",
+    "check": "Run the original instructions forwards."
+  },
+  "ALG-05": {
+    "topic": "Algebra and relationships",
+    "strategy": "Track transfers and gaps",
+    "avoid": "A transfer changes both piles; adding from outside changes only one.",
+    "check": "Check the total stays fixed during a transfer and both final piles meet the condition."
+  },
+  "SEQ-01": {
+    "topic": "Patterns and cycles",
+    "strategy": "Count steps and pair terms",
+    "avoid": "A constant difference is needed for an arithmetic-sequence shortcut.",
+    "check": "Check the first, second and last terms and the number of gaps."
+  },
+  "SEQ-02": {
+    "topic": "Patterns and cycles",
+    "strategy": "Track multiplicative growth",
+    "avoid": "Repeated addition does not justify a doubling formula.",
+    "check": "Check the first few terms against the actual growth rule."
+  },
+  "SEQ-03": {
+    "topic": "Patterns and cycles",
+    "strategy": "Split by the last move",
+    "avoid": "A recurrence must cover all possible last moves without overlap.",
+    "check": "State starting cases and compare against a complete small list."
+  },
+  "SEQ-04": {
+    "topic": "Patterns and cycles",
+    "strategy": "Record the full state",
+    "avoid": "A repeated output alone may hide a different next move.",
+    "check": "Record every part needed to determine the next state."
+  },
+  "COUNT-01": {
+    "topic": "Counting and arrangements",
+    "strategy": "List systematically",
+    "avoid": "An unordered pair must not be counted again backwards.",
+    "check": "Name an ordering rule and explain why no case is missing."
+  },
+  "COUNT-02": {
+    "topic": "Counting and arrangements",
+    "strategy": "Multiply choices and remove overcount",
+    "avoid": "Dividing by a factorial fails when outcomes have different numbers of descriptions.",
+    "check": "Explain exactly how many times each outcome was counted."
+  },
+  "COUNT-03": {
+    "topic": "Counting and arrangements",
+    "strategy": "Use blocks and gaps",
+    "avoid": "A neighbouring block can have more than one internal order.",
+    "check": "Check the neighbours and the internal order separately."
+  },
+  "COUNT-04": {
+    "topic": "Counting and arrangements",
+    "strategy": "Count complements or overlap",
+    "avoid": "The unwanted cases must be removed exactly once.",
+    "check": "Draw the whole set, overlap and outside region."
+  },
+  "COUNT-05": {
+    "topic": "Counting and arrangements",
+    "strategy": "Count the same objects twice",
+    "avoid": "A shared vertex or handshake may contribute more than once.",
+    "check": "Explain each object's contribution to both totals."
+  },
+  "COUNT-06": {
+    "topic": "Counting and arrangements",
+    "strategy": "Split into exhaustive cases",
+    "avoid": "Cases that overlap or miss outcomes cannot be added safely.",
+    "check": "Give every possible outcome one and only one case."
+  },
+  "LOGIC-01": {
+    "topic": "Logic and constraints",
+    "strategy": "Test claims and contradictions",
+    "avoid": "The opposite of all is not none: one counterexample suffices.",
+    "check": "Check the truth of the entire statement in each case."
+  },
+  "LOGIC-02": {
+    "topic": "Logic and constraints",
+    "strategy": "Eliminate using every constraint",
+    "avoid": "Satisfying the first clue is not enough.",
+    "check": "Test every original condition, including distinctness and integer restrictions."
+  },
+  "LOGIC-03": {
+    "topic": "Logic and constraints",
+    "strategy": "Compare row and column totals",
+    "avoid": "Only compare totals that count the same entries.",
+    "check": "Mark which cells each total includes."
+  },
+  "LOGIC-04": {
+    "topic": "Logic and constraints",
+    "strategy": "Construct and prove uniqueness",
+    "avoid": "One working example does not prove uniqueness.",
+    "check": "Find a solution, then explain why all other cases fail."
+  },
+  "GEO-01": {
+    "topic": "Geometry and measurement",
+    "strategy": "Trace the exposed boundary",
+    "avoid": "Area and perimeter measure different things.",
+    "check": "Trace the outside once; remove shared interior edges twice from separate perimeters."
+  },
+  "GEO-02": {
+    "topic": "Geometry and measurement",
+    "strategy": "Decompose or subtract areas",
+    "avoid": "A sloping side is not a perpendicular height.",
+    "check": "Use another partition or subtract from the surrounding shape."
+  },
+  "GEO-03": {
+    "topic": "Geometry and measurement",
+    "strategy": "Use angle and shape facts",
+    "avoid": "An unscaled drawing is not a measurement.",
+    "check": "Name the geometric fact behind each angle or shape claim."
+  },
+  "GEO-04": {
+    "topic": "Geometry and measurement",
+    "strategy": "Track transformations and symmetry",
+    "avoid": "Matching outlines may hide different labels or colours.",
+    "check": "Track a labelled point, orientation and colours through the transformation."
+  },
+  "GEO-05": {
+    "topic": "Optimisation",
+    "strategy": "Prove a bound and attain it",
+    "avoid": "The best example found so far is not necessarily the best possible.",
+    "check": "Explain why nothing can beat the bound, then build a case that reaches it."
+  },
+  "SOLID-01": {
+    "topic": "Solids and spatial reasoning",
+    "strategy": "Count layers including hidden cubes",
+    "avoid": "Visible cubes are not necessarily all the cubes.",
+    "check": "Count by a second layer direction or subtract missing blocks from a full cuboid."
+  },
+  "SOLID-02": {
+    "topic": "Solids and spatial reasoning",
+    "strategy": "Classify exposed faces",
+    "avoid": "A hollow or partly painted solid does not follow the full-cube shortcut.",
+    "check": "Check which faces were painted and classify corners, edges and face interiors."
+  },
+  "SOLID-03": {
+    "topic": "Solids and spatial reasoning",
+    "strategy": "Track faces, nets and dimensions",
+    "avoid": "Volume counts cubes; surface area counts faces; edges count joins.",
+    "check": "Fold the net mentally and label opposite faces and matching lengths."
+  },
+  "SPATIAL-01": {
+    "topic": "Solids and spatial reasoning",
+    "strategy": "Count routes from predecessors",
+    "avoid": "Adding local route totals assumes the allowed last-step cases are disjoint.",
+    "check": "Check the starting count and every blocked point or forbidden direction."
+  },
+  "SPATIAL-02": {
+    "topic": "Solids and spatial reasoning",
+    "strategy": "Use coordinates and grid intervals",
+    "avoid": "Grid lines and grid cells have different counts.",
+    "check": "Label the origin, direction and endpoints before counting."
+  },
+  "SPATIAL-03": {
+    "topic": "Solids and spatial reasoning",
+    "strategy": "Use tiling constraints and colouring",
+    "avoid": "Matching area or colour counts is necessary but may not be sufficient.",
+    "check": "Test the invariant, then construct a tiling if claiming one exists."
+  },
+  "SPATIAL-04": {
+    "topic": "Solids and spatial reasoning",
+    "strategy": "Model connections as a network",
+    "avoid": "Visiting every vertex differs from using every edge.",
+    "check": "Track visited vertices or used edges according to the actual rule."
+  },
+  "DATA-01": {
+    "topic": "Data and probability",
+    "strategy": "Count equally likely outcomes",
+    "avoid": "Different totals need not be equally likely.",
+    "check": "List elementary outcomes and check probabilities sum to one."
+  },
+  "DATA-02": {
+    "topic": "Data and probability",
+    "strategy": "Recover totals from means",
+    "avoid": "Averaging two means requires equal group sizes.",
+    "check": "Rebuild the combined total and count."
+  },
+  "DATA-03": {
+    "topic": "Data and probability",
+    "strategy": "Read scales and representations",
+    "avoid": "Ticks need not count by one or start at zero.",
+    "check": "Read labels, units and tick intervals before comparing values."
+  }
+};
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+export function recognitionHTML(id){const p=profiles[id],j=journeys[id];if(!p||!j)throw Error('Missing recognition profile '+id);return `<section class="recognition-panel"><h3>How will I recognise it?</h3><p><b>The clue:</b> ${esc(j.when)}</p><p><b>Your tool:</b> ${esc(p.strategy)}.</p><div class="intro-grid"><div><h4>When to change your plan</h4><p>${esc(p.avoid)}</p></div><div><h4>A check that fits this method</h4><p>${esc(p.check)}</p></div></div><p><b>Before calculating:</b> Say what must be found, name the relationship that matters, and explain why this tool fits.</p></section>`;}
+export const wordingCards=[
+ ['A list runs from 14 through 23, inclusive. What does inclusive require?','Count both endpoints','Leave out the endpoints','Through and inclusive include the first and last item. Count gaps plus one.'],
+ ['A rule asks for at least two marked cells. Is a case with three marked cells allowed?','Yes','No','At least two means two or more. Exactly two would exclude three.'],
+ ['A rule says strictly less than 20. Is 20 allowed?','No','Yes','Strict inequalities exclude equality. Check the boundary before counting.'],
+ ['The same pair of children is chosen in the opposite order. Is it a new team?','No','Yes','A team is a set of people. Ordered roles would be a different question.'],
+ ['A colouring problem counts reflections as different. May you automatically halve your count?','No','Yes','Use the equivalence rule in the question. Even when reflections are identified, symmetric cases need care.'],
+ ['You found one arrangement with a total of 31. Have you proved that 31 is the largest possible?','No','Yes','An example proves attainability. A maximum also needs a bound that rules out anything larger.'],
+ ['A shape is shown on a sketch marked not to scale. Which evidence should you use?','Stated lengths and relationships','Lengths measured from the screen','A drawing communicates relationships; its apparent sizes are not extra givens.'],
+ ['After half is removed, a third of the remainder is removed. Which whole is used second?','The amount still present','The original amount','The word remainder changes the base. Draw the new whole before applying the fraction.'],
+ ['A question asks for different possible sums. Two arrangements have the same sum. Count that sum…','Once','Twice','The objects being counted are sums, not arrangements producing them.'],
+ ['A route may revisit towns but not roads. What must your record track?','Roads already used','Towns already visited only','The restriction is on edges. A town can appear again without breaking it.']
+].map(([q,yes,no,why],i)=>({q,yes,no,why,id:'wording-'+i}));
+export function wordingCard(slot){return wordingCards[((slot-1)%wordingCards.length+wordingCards.length)%wordingCards.length];}
+export function wordingHTML(slot){const c=wordingCard(slot);return `<details class="wording-focus"><summary>Read precisely · a small change can change the problem</summary><p>${esc(c.q)}</p><p><b>${esc(c.yes)}.</b> ${esc(c.why)}</p></details>`;}

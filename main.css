@@ -140,3 +140,6 @@ h1,h2,h3,p{margin-top:0}.hero-panel h1{font-size:clamp(2rem,6vw,4.2rem);line-hei
 
 /* Technique bridges, exam tabs and deliberate repair */
 .bridge-example svg,.mini-check svg{display:block;width:min(100%,520px);margin:18px auto;max-height:250px}.mini-check form{display:grid;gap:12px}.repair-form,.adult-review{display:grid;gap:14px;margin:18px 0}.repair-form select,.adult-review select,.adult-review input{width:100%;padding:12px;background:#101f31;color:#eef5ff;border:1px solid #64778f;border-radius:8px}.rubric-guide{margin:16px 0}.rubric-guide li{margin:7px 0}.topnav{flex-wrap:wrap}.quick-links{flex-wrap:wrap}.review-detail article{margin:16px 0}.bridge-example li{margin:12px 0}.stars{pointer-events:none}
+
+/* Recognition and diagnostic teaching */
+.recognition-panel{margin:22px 0;padding:20px;border-left:4px solid #8ed7e7;background:#122234;border-radius:12px}.recognition-panel h4{margin-bottom:6px}.wording-focus{margin:18px 0;padding:14px;border:1px solid #456078;border-radius:12px}.diagnostic-question{padding:18px 0;border-top:1px solid #354e64}.diagnostic-question select{display:block;width:100%;max-width:100%;margin:10px 0;padding:12px;background:#142438;color:#eef5ff;border:1px solid #59738a;border-radius:8px;white-space:normal}.diagnostic-scroll{overflow-x:auto}.diagnostic-action{color:#a7decf}.diagnostic-causes{margin:14px 0;line-height:1.8}

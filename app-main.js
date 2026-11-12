@@ -1,14 +1,16 @@
-import {bridgeHTML,mountPractice} from './transfer-practice.js?v=centres-20261112';
-import {allRows,queueLessonRepairs,renderRepairs,mountInvestigationReview,rubricHTML} from './learning-support.js?v=centres-20261112';
-import {mountFlashCards,flashReviewed} from './flash-ui.js?v=centres-20261112';
-import {selectOriginalProblems,familySeen,reasoningReady,applicationStatus,mountReasoning,originalFigure,LEARNING_VERSION} from './original-learning.js?v=centres-20261112';
-import {introductionHTML,lessonPlan,investigationIntroHTML,investigationWarmupHTML} from './session-intros.js?v=centres-20261112';
+import {mixedFlashDeck} from './flash-cards.js?v=recognition-20261113';
+import {wordingHTML} from './recognition.js?v=recognition-20261113';
+import {bridgeHTML,mountPractice} from './transfer-practice.js?v=recognition-20261113';
+import {allRows,queueLessonRepairs,renderRepairs,mountInvestigationReview,rubricHTML} from './learning-support.js?v=recognition-20261113';
+import {mountFlashCards,flashReviewed} from './flash-ui.js?v=recognition-20261113';
+import {selectOriginalProblems,familySeen,reasoningReady,applicationStatus,mountReasoning,originalFigure,LEARNING_VERSION} from './original-learning.js?v=recognition-20261113';
+import {introductionHTML,lessonPlan,investigationIntroHTML,investigationWarmupHTML} from './session-intros.js?v=recognition-20261113';
 
 if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));}
 import { supabase, loadProgress, saveProgress, signOut, currentUser, upsertSession } from "./supabase-client.js?v=auth-20261112";
 import { mountNarratedPlayer } from "./lesson-player.js";
-import {methods,skillFor,recallState} from "./curriculum.js?v=centres-20261112";
-import {lessonCard,mountCheck,mountRetrieval,readinessHTML} from "./learning-ui.js?v=centres-20261112";
+import {methods,skillFor,recallState} from "./curriculum.js?v=recognition-20261113";
+import {lessonCard,mountCheck,mountRetrieval,readinessHTML} from "./learning-ui.js?v=recognition-20261113";
 import { problemFigure } from "./problem-figures.js";
 
 const app=document.getElementById("app");
@@ -122,7 +124,7 @@ async function boot(){
   try{
     user=await currentUser();
     if(!user){location.href="login.html";return}
-    const [c,t,m,h,tax,ms,lm]=await Promise.all([fetch("data/sessions-372.json").then(r=>r.json()),fetch("data/teaching-72.json").then(r=>r.json()),fetch("data/mawa-investigations-20.json").then(r=>r.json()),fetch("data/rossmoyne-h23.json").then(r=>r.json()),fetch("data/taxonomy-52.json").then(r=>r.json()),fetch("data/milestones.json").then(r=>r.json()),fetch("data/lesson-challenges.json?v=centres-20261112").then(r=>r.json())]);
+    const [c,t,m,h,tax,ms,lm]=await Promise.all([fetch("data/sessions-372.json").then(r=>r.json()),fetch("data/teaching-72.json").then(r=>r.json()),fetch("data/mawa-investigations-20.json").then(r=>r.json()),fetch("data/rossmoyne-h23.json").then(r=>r.json()),fetch("data/taxonomy-52.json").then(r=>r.json()),fetch("data/milestones.json").then(r=>r.json()),fetch("data/lesson-challenges.json?v=recognition-20261113").then(r=>r.json())]);
     course=c.sessions; teaching=t.items; mawa=m.items; rossMap=h.items; taxonomy=tax; milestones=ms;lessonManifest=lm.items;
     const {data:problems,error}=await supabase.from("content_problems_student").select("id,source_type,title,source_label,category,difficulty,prompt,unit").eq("source_type","original_authored").order("id");
     if(error)throw error; problemIndex=problems||[];
@@ -408,10 +410,12 @@ function mountMixed(el,s,count){
  ids.forEach((id,i)=>mountPractice(el.querySelector(`[data-mixed="${i}"]`),{id,seed:s.slot+i*5,key:'mixed:'+i,draft:sessionDraft,save:()=>saveDraft(s),label:`MIXED QUESTION ${i+1}`}));
 }
 function renderWorkshop(s){
- app.innerHTML=`<section class="session-page panel stage"><div class="eyebrow">SESSION ${s.slot} · STRATEGY WORKSHOP</div><h1>Recognise, choose, explain</h1><p>Exam questions do not name the technique. Today, practise choosing among ideas you have already met. Notice the requested quantity, explain your first step, then calculate and check.</p><p class="muted">This is an untimed lesson, with hints and feedback. Full exam papers live in their own tabs.</p><div id="workshopQuestions"></div><label class="answer-label">Which clues helped you choose a method? What would make you choose a different method?<textarea id="workshopReflection" class="answer-box">${esc(sessionDraft.summary.takeaway||'')}</textarea></label><button id="completeWorkshop" class="primary">Complete and lock workshop</button></section>`;
+ app.innerHTML=`<section class="session-page panel stage"><div class="eyebrow">SESSION ${s.slot} · STRATEGY WORKSHOP</div><h1>Recognise, choose, explain</h1><p>Exam questions do not name the technique. Today, practise choosing among ideas you have already met. Notice the requested quantity, explain your first step, then calculate and check.</p><p class="muted">This is an untimed lesson, with hints and feedback. Full exam papers live in their own tabs.</p>${wordingHTML(s.slot)}<div id="workshopFlash"></div><div id="workshopQuestions"></div><label class="answer-label">Which clues helped you choose a method? What would make you choose a different method?<textarea id="workshopReflection" class="answer-box">${esc(sessionDraft.summary.takeaway||'')}</textarea></label><button id="completeWorkshop" class="primary">Complete and lock workshop</button></section>`;
+ const ids=sessionDraft.summary.mixed_skills||(sessionDraft.summary.mixed_skills=mixedSkills(s,4));
+ mountFlashCards(app.querySelector('#workshopFlash'),{id:'mixed-'+s.slot,slot:s.slot,deck:mixedFlashDeck(ids,s.slot),draft:sessionDraft,save:()=>saveDraft(s)});
  mountMixed(app.querySelector('#workshopQuestions'),s,4);
  app.querySelector('#workshopReflection').oninput=e=>sessionDraft.summary.takeaway=e.target.value;
- app.querySelector('#completeWorkshop').onclick=async e=>{if((sessionDraft.summary.mixed_skills||[]).some((id,i)=>!sessionDraft.evidence['mixed:'+i])||(sessionDraft.summary.takeaway||'').trim().length<15){alert('Attempt each question, read its feedback and write a short reflection.');return}e.target.disabled=true;try{sessionDraft.summary.type='MIXED';await completeSpecialSession(s)}catch(err){alert(err.message);e.target.disabled=false}};
+ app.querySelector('#completeWorkshop').onclick=async e=>{if(!flashReviewed(sessionDraft,'mixed-'+s.slot)){alert('Finish the five quick decisions and read the recap first.');return}if((sessionDraft.summary.mixed_skills||[]).some((id,i)=>!sessionDraft.evidence['mixed:'+i])||(sessionDraft.summary.takeaway||'').trim().length<15){alert('Attempt each question, read its feedback and write a short reflection.');return}e.target.disabled=true;try{sessionDraft.summary.type='MIXED';await completeSpecialSession(s)}catch(err){alert(err.message);e.target.disabled=false}};
 }
 async function renderReview(){
  activeView="review";await refreshEvidence();

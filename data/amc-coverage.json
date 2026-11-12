@@ -1,0 +1,603 @@
+{
+  "version": "recognition-20261113",
+  "years": [
+    2007,
+    2008,
+    2009,
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "papers": 19,
+  "questions": 570,
+  "basis": "Editorial classifications of all 570 authentic Upper Primary questions, including diagram-dependent questions. One primary topic per question; methods and supporting skills are recorded separately. These are not official AMT classifications, predictions or empirical difficulty ratings.",
+  "topics": [
+    {
+      "topic": "Algebra and relationships",
+      "questions": 54,
+      "bands": {
+        "Q21–25": 15,
+        "Q1–10": 16,
+        "Q11–20": 14,
+        "Q26–30": 9
+      },
+      "minimum_per_paper": 0,
+      "maximum_per_paper": 6
+    },
+    {
+      "topic": "Counting and arrangements",
+      "questions": 49,
+      "bands": {
+        "Q11–20": 15,
+        "Q26–30": 15,
+        "Q1–10": 10,
+        "Q21–25": 9
+      },
+      "minimum_per_paper": 0,
+      "maximum_per_paper": 5
+    },
+    {
+      "topic": "Data and probability",
+      "questions": 34,
+      "bands": {
+        "Q1–10": 21,
+        "Q21–25": 3,
+        "Q11–20": 10
+      },
+      "minimum_per_paper": 0,
+      "maximum_per_paper": 4
+    },
+    {
+      "topic": "Digits and place value",
+      "questions": 28,
+      "bands": {
+        "Q1–10": 5,
+        "Q21–25": 4,
+        "Q26–30": 13,
+        "Q11–20": 6
+      },
+      "minimum_per_paper": 0,
+      "maximum_per_paper": 4
+    },
+    {
+      "topic": "Factors and divisibility",
+      "questions": 33,
+      "bands": {
+        "Q11–20": 10,
+        "Q26–30": 9,
+        "Q1–10": 8,
+        "Q21–25": 6
+      },
+      "minimum_per_paper": 0,
+      "maximum_per_paper": 3
+    },
+    {
+      "topic": "Fractions and ratios",
+      "questions": 60,
+      "bands": {
+        "Q1–10": 29,
+        "Q11–20": 23,
+        "Q21–25": 7,
+        "Q26–30": 1
+      },
+      "minimum_per_paper": 0,
+      "maximum_per_paper": 6
+    },
+    {
+      "topic": "Geometry and measurement",
+      "questions": 94,
+      "bands": {
+        "Q11–20": 48,
+        "Q21–25": 15,
+        "Q26–30": 7,
+        "Q1–10": 24
+      },
+      "minimum_per_paper": 1,
+      "maximum_per_paper": 8
+    },
+    {
+      "topic": "Logic and constraints",
+      "questions": 41,
+      "bands": {
+        "Q11–20": 21,
+        "Q21–25": 7,
+        "Q1–10": 5,
+        "Q26–30": 8
+      },
+      "minimum_per_paper": 0,
+      "maximum_per_paper": 5
+    },
+    {
+      "topic": "Measurement and rates",
+      "questions": 39,
+      "bands": {
+        "Q1–10": 19,
+        "Q21–25": 4,
+        "Q11–20": 12,
+        "Q26–30": 4
+      },
+      "minimum_per_paper": 0,
+      "maximum_per_paper": 5
+    },
+    {
+      "topic": "Number and calculation",
+      "questions": 35,
+      "bands": {
+        "Q1–10": 32,
+        "Q21–25": 1,
+        "Q26–30": 1,
+        "Q11–20": 1
+      },
+      "minimum_per_paper": 0,
+      "maximum_per_paper": 3
+    },
+    {
+      "topic": "Optimisation",
+      "questions": 18,
+      "bands": {
+        "Q11–20": 5,
+        "Q21–25": 5,
+        "Q26–30": 8
+      },
+      "minimum_per_paper": 0,
+      "maximum_per_paper": 3
+    },
+    {
+      "topic": "Patterns and cycles",
+      "questions": 36,
+      "bands": {
+        "Q1–10": 6,
+        "Q11–20": 12,
+        "Q26–30": 12,
+        "Q21–25": 6
+      },
+      "minimum_per_paper": 0,
+      "maximum_per_paper": 5
+    },
+    {
+      "topic": "Solids and spatial reasoning",
+      "questions": 49,
+      "bands": {
+        "Q1–10": 15,
+        "Q11–20": 13,
+        "Q26–30": 8,
+        "Q21–25": 13
+      },
+      "minimum_per_paper": 1,
+      "maximum_per_paper": 5
+    }
+  ],
+  "skills": [
+    {
+      "id": "DIG-01",
+      "questions": 35,
+      "topic": "Number and calculation",
+      "strategy": "Decompose and compensate",
+      "avoid": "Changing each of several equal prices requires compensating once per item.",
+      "check": "Estimate first, then check the exact place values."
+    },
+    {
+      "id": "DIG-02",
+      "questions": 7,
+      "topic": "Digits and place value",
+      "strategy": "Restrict positions then count",
+      "avoid": "A PIN may allow a leading zero; a three-digit number cannot.",
+      "check": "Test zero, repeated digits and the last-digit condition separately."
+    },
+    {
+      "id": "DIG-03",
+      "questions": 7,
+      "topic": "Digits and place value",
+      "strategy": "Count contributions by position",
+      "avoid": "Counting labels containing a digit is different from counting copies of that digit.",
+      "check": "Check a repeated-digit label and both endpoints."
+    },
+    {
+      "id": "DIG-04",
+      "questions": 0,
+      "topic": "Digits and place value",
+      "strategy": "Use mirrored positions",
+      "avoid": "Repeated blocks such as ABAB need not be palindromes.",
+      "check": "Read the result backwards and check its length."
+    },
+    {
+      "id": "DIG-05",
+      "questions": 14,
+      "topic": "Digits and place value",
+      "strategy": "Use column constraints",
+      "avoid": "A letter in a digit position is not a multiplication sign.",
+      "check": "Substitute every digit and check all carries and distinctness conditions."
+    },
+    {
+      "id": "DIV-01",
+      "questions": 13,
+      "topic": "Factors and divisibility",
+      "strategy": "Factorise and organise divisors",
+      "avoid": "The number of divisors is different from their sum.",
+      "check": "List factor pairs for a smaller example, including 1 and the number."
+    },
+    {
+      "id": "DIV-02",
+      "questions": 4,
+      "topic": "Factors and divisibility",
+      "strategy": "Find a common period",
+      "avoid": "Different starting times need offsets as well as a common period.",
+      "check": "Check both schedules and show there is no earlier valid meeting."
+    },
+    {
+      "id": "DIV-03",
+      "questions": 10,
+      "topic": "Factors and divisibility",
+      "strategy": "Reduce to remainders",
+      "avoid": "Leftovers and spaces needed to finish a group are different quantities.",
+      "check": "Rebuild divisor × quotient + remainder; the remainder is smaller than the divisor."
+    },
+    {
+      "id": "DIV-04",
+      "questions": 6,
+      "topic": "Factors and divisibility",
+      "strategy": "Track an invariant",
+      "avoid": "Passing an invariant test does not prove a target can be reached.",
+      "check": "Check the invariant for every legal move; construct a route when claiming possibility."
+    },
+    {
+      "id": "DIV-05",
+      "questions": 9,
+      "topic": "Patterns and cycles",
+      "strategy": "Reduce a position by a period",
+      "avoid": "A repeated value without a repeated state may not start a true cycle.",
+      "check": "Label the first position and test a position exactly divisible by the period."
+    },
+    {
+      "id": "FRAC-01",
+      "questions": 32,
+      "topic": "Fractions and ratios",
+      "strategy": "Track the changing whole",
+      "avoid": "A fraction of the remainder has a new base.",
+      "check": "Account for everything removed and everything remaining."
+    },
+    {
+      "id": "FRAC-02",
+      "questions": 18,
+      "topic": "Fractions and ratios",
+      "strategy": "Use equal parts",
+      "avoid": "A ratio gives relative parts, not the total number of items.",
+      "check": "Reconstruct both quantities and their total or difference."
+    },
+    {
+      "id": "FRAC-03",
+      "questions": 6,
+      "topic": "Fractions and ratios",
+      "strategy": "Use percentage multipliers",
+      "avoid": "Equal percentage increases and decreases do not cancel.",
+      "check": "Name the base of each percentage and check the direction of change."
+    },
+    {
+      "id": "FRAC-04",
+      "questions": 4,
+      "topic": "Fractions and ratios",
+      "strategy": "Weight quantities by their wholes",
+      "avoid": "Averaging fractions is unsafe when the group sizes differ.",
+      "check": "Find actual counts first; the combined fraction must use the combined whole."
+    },
+    {
+      "id": "RATE-01",
+      "questions": 24,
+      "topic": "Measurement and rates",
+      "strategy": "Use common units and count intervals",
+      "avoid": "Five events can have four gaps, unless the question includes a gap before the first.",
+      "check": "Draw the first and last event and label the units."
+    },
+    {
+      "id": "RATE-02",
+      "questions": 6,
+      "topic": "Measurement and rates",
+      "strategy": "Combine work rates",
+      "avoid": "Completion times cannot be added as if they were rates.",
+      "check": "Check the work completed in the proposed time."
+    },
+    {
+      "id": "RATE-03",
+      "questions": 7,
+      "topic": "Measurement and rates",
+      "strategy": "Model distance and time",
+      "avoid": "A mean of speeds is not usually the whole-journey average.",
+      "check": "Add all distances and all times, including stops."
+    },
+    {
+      "id": "RATE-04",
+      "questions": 2,
+      "topic": "Measurement and rates",
+      "strategy": "Track the changing gap",
+      "avoid": "Chasing in the same direction uses a speed difference.",
+      "check": "Check both travellers occupy the same position at the proposed time."
+    },
+    {
+      "id": "ALG-01",
+      "questions": 19,
+      "topic": "Algebra and relationships",
+      "strategy": "Model an unknown",
+      "avoid": "The unknown must describe one specific quantity with units.",
+      "check": "Substitute into the original story, not only the rearranged equation."
+    },
+    {
+      "id": "ALG-02",
+      "questions": 4,
+      "topic": "Algebra and relationships",
+      "strategy": "Use total and difference",
+      "avoid": "Halving the total alone ignores the extra part.",
+      "check": "Check both the sum and the gap."
+    },
+    {
+      "id": "ALG-03",
+      "questions": 24,
+      "topic": "Algebra and relationships",
+      "strategy": "Cancel shared contributions",
+      "avoid": "Subtract complete collections, including constants.",
+      "check": "Use your values to rebuild both collections."
+    },
+    {
+      "id": "ALG-04",
+      "questions": 6,
+      "topic": "Algebra and relationships",
+      "strategy": "Undo in reverse order",
+      "avoid": "Undoing operations in the original order generally fails.",
+      "check": "Run the original instructions forwards."
+    },
+    {
+      "id": "ALG-05",
+      "questions": 1,
+      "topic": "Algebra and relationships",
+      "strategy": "Track transfers and gaps",
+      "avoid": "A transfer changes both piles; adding from outside changes only one.",
+      "check": "Check the total stays fixed during a transfer and both final piles meet the condition."
+    },
+    {
+      "id": "SEQ-01",
+      "questions": 15,
+      "topic": "Patterns and cycles",
+      "strategy": "Count steps and pair terms",
+      "avoid": "A constant difference is needed for an arithmetic-sequence shortcut.",
+      "check": "Check the first, second and last terms and the number of gaps."
+    },
+    {
+      "id": "SEQ-02",
+      "questions": 3,
+      "topic": "Patterns and cycles",
+      "strategy": "Track multiplicative growth",
+      "avoid": "Repeated addition does not justify a doubling formula.",
+      "check": "Check the first few terms against the actual growth rule."
+    },
+    {
+      "id": "SEQ-03",
+      "questions": 5,
+      "topic": "Patterns and cycles",
+      "strategy": "Split by the last move",
+      "avoid": "A recurrence must cover all possible last moves without overlap.",
+      "check": "State starting cases and compare against a complete small list."
+    },
+    {
+      "id": "SEQ-04",
+      "questions": 4,
+      "topic": "Patterns and cycles",
+      "strategy": "Record the full state",
+      "avoid": "A repeated output alone may hide a different next move.",
+      "check": "Record every part needed to determine the next state."
+    },
+    {
+      "id": "COUNT-01",
+      "questions": 6,
+      "topic": "Counting and arrangements",
+      "strategy": "List systematically",
+      "avoid": "An unordered pair must not be counted again backwards.",
+      "check": "Name an ordering rule and explain why no case is missing."
+    },
+    {
+      "id": "COUNT-02",
+      "questions": 5,
+      "topic": "Counting and arrangements",
+      "strategy": "Multiply choices and remove overcount",
+      "avoid": "Dividing by a factorial fails when outcomes have different numbers of descriptions.",
+      "check": "Explain exactly how many times each outcome was counted."
+    },
+    {
+      "id": "COUNT-03",
+      "questions": 1,
+      "topic": "Counting and arrangements",
+      "strategy": "Use blocks and gaps",
+      "avoid": "A neighbouring block can have more than one internal order.",
+      "check": "Check the neighbours and the internal order separately."
+    },
+    {
+      "id": "COUNT-04",
+      "questions": 4,
+      "topic": "Counting and arrangements",
+      "strategy": "Count complements or overlap",
+      "avoid": "The unwanted cases must be removed exactly once.",
+      "check": "Draw the whole set, overlap and outside region."
+    },
+    {
+      "id": "COUNT-05",
+      "questions": 10,
+      "topic": "Counting and arrangements",
+      "strategy": "Count the same objects twice",
+      "avoid": "A shared vertex or handshake may contribute more than once.",
+      "check": "Explain each object's contribution to both totals."
+    },
+    {
+      "id": "COUNT-06",
+      "questions": 23,
+      "topic": "Counting and arrangements",
+      "strategy": "Split into exhaustive cases",
+      "avoid": "Cases that overlap or miss outcomes cannot be added safely.",
+      "check": "Give every possible outcome one and only one case."
+    },
+    {
+      "id": "LOGIC-01",
+      "questions": 1,
+      "topic": "Logic and constraints",
+      "strategy": "Test claims and contradictions",
+      "avoid": "The opposite of all is not none: one counterexample suffices.",
+      "check": "Check the truth of the entire statement in each case."
+    },
+    {
+      "id": "LOGIC-02",
+      "questions": 31,
+      "topic": "Logic and constraints",
+      "strategy": "Eliminate using every constraint",
+      "avoid": "Satisfying the first clue is not enough.",
+      "check": "Test every original condition, including distinctness and integer restrictions."
+    },
+    {
+      "id": "LOGIC-03",
+      "questions": 9,
+      "topic": "Logic and constraints",
+      "strategy": "Compare row and column totals",
+      "avoid": "Only compare totals that count the same entries.",
+      "check": "Mark which cells each total includes."
+    },
+    {
+      "id": "LOGIC-04",
+      "questions": 0,
+      "topic": "Logic and constraints",
+      "strategy": "Construct and prove uniqueness",
+      "avoid": "One working example does not prove uniqueness.",
+      "check": "Find a solution, then explain why all other cases fail."
+    },
+    {
+      "id": "GEO-01",
+      "questions": 19,
+      "topic": "Geometry and measurement",
+      "strategy": "Trace the exposed boundary",
+      "avoid": "Area and perimeter measure different things.",
+      "check": "Trace the outside once; remove shared interior edges twice from separate perimeters."
+    },
+    {
+      "id": "GEO-02",
+      "questions": 39,
+      "topic": "Geometry and measurement",
+      "strategy": "Decompose or subtract areas",
+      "avoid": "A sloping side is not a perpendicular height.",
+      "check": "Use another partition or subtract from the surrounding shape."
+    },
+    {
+      "id": "GEO-03",
+      "questions": 8,
+      "topic": "Geometry and measurement",
+      "strategy": "Use angle and shape facts",
+      "avoid": "An unscaled drawing is not a measurement.",
+      "check": "Name the geometric fact behind each angle or shape claim."
+    },
+    {
+      "id": "GEO-04",
+      "questions": 28,
+      "topic": "Geometry and measurement",
+      "strategy": "Track transformations and symmetry",
+      "avoid": "Matching outlines may hide different labels or colours.",
+      "check": "Track a labelled point, orientation and colours through the transformation."
+    },
+    {
+      "id": "GEO-05",
+      "questions": 18,
+      "topic": "Optimisation",
+      "strategy": "Prove a bound and attain it",
+      "avoid": "The best example found so far is not necessarily the best possible.",
+      "check": "Explain why nothing can beat the bound, then build a case that reaches it."
+    },
+    {
+      "id": "SOLID-01",
+      "questions": 4,
+      "topic": "Solids and spatial reasoning",
+      "strategy": "Count layers including hidden cubes",
+      "avoid": "Visible cubes are not necessarily all the cubes.",
+      "check": "Count by a second layer direction or subtract missing blocks from a full cuboid."
+    },
+    {
+      "id": "SOLID-02",
+      "questions": 2,
+      "topic": "Solids and spatial reasoning",
+      "strategy": "Classify exposed faces",
+      "avoid": "A hollow or partly painted solid does not follow the full-cube shortcut.",
+      "check": "Check which faces were painted and classify corners, edges and face interiors."
+    },
+    {
+      "id": "SOLID-03",
+      "questions": 23,
+      "topic": "Solids and spatial reasoning",
+      "strategy": "Track faces, nets and dimensions",
+      "avoid": "Volume counts cubes; surface area counts faces; edges count joins.",
+      "check": "Fold the net mentally and label opposite faces and matching lengths."
+    },
+    {
+      "id": "SPATIAL-01",
+      "questions": 0,
+      "topic": "Solids and spatial reasoning",
+      "strategy": "Count routes from predecessors",
+      "avoid": "Adding local route totals assumes the allowed last-step cases are disjoint.",
+      "check": "Check the starting count and every blocked point or forbidden direction."
+    },
+    {
+      "id": "SPATIAL-02",
+      "questions": 9,
+      "topic": "Solids and spatial reasoning",
+      "strategy": "Use coordinates and grid intervals",
+      "avoid": "Grid lines and grid cells have different counts.",
+      "check": "Label the origin, direction and endpoints before counting."
+    },
+    {
+      "id": "SPATIAL-03",
+      "questions": 6,
+      "topic": "Solids and spatial reasoning",
+      "strategy": "Use tiling constraints and colouring",
+      "avoid": "Matching area or colour counts is necessary but may not be sufficient.",
+      "check": "Test the invariant, then construct a tiling if claiming one exists."
+    },
+    {
+      "id": "SPATIAL-04",
+      "questions": 5,
+      "topic": "Solids and spatial reasoning",
+      "strategy": "Model connections as a network",
+      "avoid": "Visiting every vertex differs from using every edge.",
+      "check": "Track visited vertices or used edges according to the actual rule."
+    },
+    {
+      "id": "DATA-01",
+      "questions": 8,
+      "topic": "Data and probability",
+      "strategy": "Count equally likely outcomes",
+      "avoid": "Different totals need not be equally likely.",
+      "check": "List elementary outcomes and check probabilities sum to one."
+    },
+    {
+      "id": "DATA-02",
+      "questions": 4,
+      "topic": "Data and probability",
+      "strategy": "Recover totals from means",
+      "avoid": "Averaging two means requires equal group sizes.",
+      "check": "Rebuild the combined total and count."
+    },
+    {
+      "id": "DATA-03",
+      "questions": 22,
+      "topic": "Data and probability",
+      "strategy": "Read scales and representations",
+      "avoid": "Ticks need not count by one or start at zero.",
+      "check": "Read labels, units and tick intervals before comparing values."
+    }
+  ],
+  "holdout_policy": "Authentic questions are confined to the test centre. Lessons and quick checks use original problems. Keep several unopened papers for later independent checks; topic labels and written solutions appear only in the submitted report.",
+  "limitations": "A topic can use several methods; editorial labels are not uniquely determined. Historical frequency does not predict 2027. Difficulty calibration is editorial until independent student attempt data are available."
+}
