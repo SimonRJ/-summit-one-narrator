@@ -77,40 +77,62 @@ def content(i,t):
             if k==1:
                 for dx,dy in [(0,-20),(-21,19),(21,19)]:dot(im,x+dx,320+dy,6,CYAN,a)
     elif i==2:
-        heading(im,'A long tradition of curious thinkers','Did you know?');trace(im,[(260,330),(1020,330)],anim(u,.4,1.7),CYAN,2)
-        for x,date,label,word in zip([260,640,1020],['1978','2002','You'],['First national AMC','Primary divisions join','The next chapter'],['nineteen','Primary','joining']):
-            a=anim(t,cue(i,word),.6);dot(im,x,330,7,GOLD,a);text(im,date,x,252,63,GOLD,'math',a);text(im,label,x,408,21,WHITE,a=a)
-        text(im,'Australian Mathematics Competition',640,533,22,DIM,a=anim(u,1))
+        heading(im,'A long tradition. A new generation.','Australian Mathematics Competition')
+        trace(im,[(260,330),(1020,330)],anim(u,.4,1.7),CYAN,2)
+        for x,date,label,word in zip([260,640,1020],['1978','20+ years','2027'],['First national AMC','Dedicated primary papers','Years 1–2 join'],['nineteen','Dedicated primary','twenty twenty-seven']):
+            a=anim(t,cue(i,word),.6);dot(im,x,330,7,GOLD,a);text(im,date,x,252,52,GOLD,'math',a);text(im,label,x,408,21,WHITE,a=a)
+        text(im,'Early Primary becomes a standard AMC division in 2027.',640,533,23,DIM,a=anim(t,cue(i,'Early Primary')))
     elif i==3:
-        heading(im,'Look beneath the story','The problem solver’s eye');a=anim(t,cue(i,'notice'),1.3);pts=[(360,280),(560,280),(360,460)];d=ImageDraw.Draw(im)
-        d.polygon([(x*S,y*S) for x,y in pts],fill=col(CYAN,.22));line(im,pts+[pts[0]],CYAN,3)
-        coords=[travel(p,q,a,35) for p,q in zip([(760,290),(960,470),(760,470)],[(560,280),(560,460),(360,460)])]
-        d.polygon([(round(x*S),round(y*S)) for x,y in coords],fill=col(GOLD,.2));line(im,coords+[coords[0]],GOLD,3)
-        text(im,'Different pieces',860,260,26,DIM,a=1-a);text(im,'One useful structure',825,370,33,GOLD,'math',a);text(im,'A good picture can reveal the next step.',640,551,24,WHITE,a=anim(u,1))
+        heading(im,'An enormous power. One hidden cycle.','A glimpse of number theory')
+        text(im,'What is the last digit?',640,218,31,WHITE,'math')
+        text(im,'7',570,340,112,CYAN,'math');text(im,'2027',652,272,37,CYAN,'math')
+        a=anim(t,cue(i,'enormous'),.8)
+        text(im,'7 × 7 × 7 × ··· × 7',640,470,36,WHITE,'math',a)
+        text(im,'2027 factors — but we only need the final digit.',640,533,24,DIM,a=a)
+        text(im,'Look for a repeating cycle.',640,589,27,GOLD,'math',anim(t,cue(i,'repeating pattern')))
     elif i==4:
-        heading(im,'A sum you can see','One small aha moment')
-        for j,(word,n) in enumerate([('One dot',1),('three',2),('five',3),('seven',4)]):
-            a=anim(t,cue(i,word),.95);cells=[(x,y) for y in range(n) for x in range(n) if x==n-1 or y==n-1]
-            for k,(x,y) in enumerate(cells):dot(im,*travel((175+k*34,530),(535+x*70,240+y*70),a,70),14,CYAN if j%2==0 else GOLD,anim(t,cue(i,word),.2))
-        a=anim(t,cue(i,'four-by-four'),.65);trace(im,[(500,205),(780,205),(780,485),(500,485),(500,205)],a,WHITE,1.4);text(im,'1 + 3 + 5 + 7',640,547,34,WHITE,'math');text(im,'4 × 4 = 16',1000,348,39,GOLD,'math',a)
+        heading(im,'A huge power becomes a small remainder','Cycles and remainders')
+        xs=[265,515,765,1015]
+        for j,(x,value,word) in enumerate(zip(xs,[7,9,3,1],['seven','nine','three','one'])):
+            a=anim(t,cue(i,word),.45);ring(im,x,290,52,CYAN,2,a);text(im,value,x,290,45,WHITE,'math',a);text(im,['1st','2nd','3rd','4th'][j],x,374,20,DIM,a=a)
+            if j:arrow(im,(xs[j-1]+60,290),(x-60,290),CYAN,a)
+        a=anim(t,cue(i,'cycle repeats'),.75);trace(im,[(1015,350),(1015,420),(265,420),(265,350)],a,CYAN,2)
+        text(im,'2027 = 4 × 506 + 3',640,492,40,WHITE,'math',anim(t,cue(i,'remainder three')))
+        q=anim(t,cue(i,'third position'),.6);ring(im,765,290,58,GOLD,3,q);text(im,'Last digit: 3',640,566,40,GOLD,'math',q)
     elif i==5:
-        heading(im,'MAWA · Problem Solving Program','Explore and explain');a=anim(t,cue(i,'nineteen'),.8);text(im,'1992',360,320,103,GOLD,'math',a);text(im,'The programme begins',360,421,20,DIM,a=a)
-        rect(im,880,345,360,250,c='#081c25',outline=CYAN);text(im,'WHY?',880,320,61,CYAN,'math');text(im,'Make your reasoning visible',880,413,18,WHITE,a=anim(t,cue(i,'Explaining')));text(im,'Mathematical Association of Western Australia',640,542,23,WHITE)
+        heading(im,'MAWA · A community of problem solvers','Mathematical Association of Western Australia')
+        for x,date,label,word in [(350,'1958','MAWA established','nineteen fifty-eight'),(930,'1992','Problem Solving Program begins','nineteen ninety-two')]:
+            a=anim(t,cue(i,word),.65);text(im,date,x,300,88,GOLD,'math',a);text(im,label,x,397,23,WHITE,a=a)
+        trace(im,[(490,320),(790,320)],anim(u,2,2),CYAN,2)
+        text(im,'Reason carefully. Explain clearly.',640,545,35,CYAN,'math',anim(t,cue(i,'careful reasoning')))
     elif i==6:
-        heading(im,'Notice. Test. Explain.','The investigation mindset')
-        for n,x,word in [(2,275,'patterns'),(3,640,'small cases'),(4,1005,'explanations')]:
-            a=anim(t,cue(i,word),.7)
-            for row in range(n):
-                for j in range(row+1):dot(im,x+(j-row/2)*35,270+row*35,9,CYAN if row<n-1 else GOLD,a)
-            text(im,['Notice a pattern','Test another case','Explain the rule'][n-2],x,453,22,WHITE,a=a)
-        text(im,'Does this always work?',640,550,34,GOLD,'math',anim(t,cue(i,'Does this always')))
+        heading(im,'Can 23 dominoes cover this board?','Colouring and impossibility')
+        text(im,'6 × 8 board · opposite corners removed',640,172,22,DIM)
+        colours=anim(t,cue(i,'Colour it'),.7);removed=anim(t,cue(i,'corners removed'),.7)
+        d=ImageDraw.Draw(im);left,top,cell=170,215,50
+        for row in range(6):
+            for column in range(8):
+                x,y=left+column*cell,top+row*cell
+                colour=CYAN if (row+column)%2==0 else GOLD
+                neutral=(46,52,58);target=col(colour,.8);fill=tuple(round(mix(a,b,colours)) for a,b in zip(neutral,target))
+                if (row,column) in [(0,0),(5,7)]:fill=tuple(round(v*(1-removed)) for v in fill)
+                d.rectangle([round(z*S) for z in (x+1,y+1,x+cell-1,y+cell-1)],fill=fill)
+                if (row,column) in [(0,0),(5,7)]:
+                    line(im,[(x+12,y+12),(x+cell-12,y+cell-12)],DIM,2,removed);line(im,[(x+cell-12,y+12),(x+12,y+cell-12)],DIM,2,removed)
+        a=anim(t,cue(i,'Each domino'),.7)
+        for j,colour in enumerate([CYAN,GOLD]):rect(im,900+j*68,305,68,68,c=colour,outline=WHITE,a=a,r=0)
+        text(im,'Every domino',934,235,24,WHITE,a=a);text(im,'1 blue + 1 gold',934,397,25,WHITE,'math',a)
+        text(im,'22 blue',285,555,28,CYAN,'math',anim(t,cue(i,'twenty-two blue')));text(im,'24 gold',475,555,28,GOLD,'math',anim(t,cue(i,'twenty-four gold')))
+        q=anim(t,cue(i,'Impossible'),.7);text(im,'Impossible',934,500,38,GOLD,'math',q);text(im,'The colours cannot balance.',934,555,21,DIM,a=q)
+        text(im,'One insight rules out every arrangement.',640,608,23,WHITE,a=q)
     elif i==7:
-        heading(im,'Rossmoyne · Honours Mathematics','Go beyond the familiar');cube(im,(360,365),u*.12,103);a=anim(t,cue(i,'Fermat Club'),.7)
-        text(im,'The Fermat Club',895,303,38,GOLD,'math',a);text(im,'Curiosity + collaboration',895,367,23,WHITE,a=a)
-        for j,x in enumerate([810,895,980]):
-            aa=anim(t,cue(i,'together')+j*.14,.6);ring(im,x,460,20,CYAN,2,aa)
-            if j:line(im,[(x-65,460),(x-20,460)],CYAN,2,aa)
-        text(im,'Explore mathematics beyond the usual curriculum.',640,558,23,DIM)
+        heading(im,'Rossmoyne · Honours Mathematics','A selective-entry specialist programme')
+        text(im,'Applicants in Year 6 · mathematics beyond the usual curriculum',640,177,20,DIM)
+        cube(im,(335,365),u*.12,104)
+        a=anim(t,cue(i,'Fermat Club'),.7);text(im,'The Fermat Club',910,280,37,GOLD,'math',a)
+        text(im,'Collaborative problem solving',910,365,22,WHITE,a=anim(t,cue(i,'collaborative')))
+        text(im,'AMC training camp',910,435,29,CYAN,'math',anim(t,cue(i,'training camp')))
+        text(im,'Think flexibly. Explain your ideas.',640,560,28,GOLD,'math',anim(t,cue(i,'think flexibly')))
     elif i==8:
         heading(im,'Build a toolkit that travels with you','Flexible thinking')
         for k,(x,label,word) in enumerate(zip([265,640,1015],['Draw a diagram','Work backwards','Break it into parts'],['Draw a diagram','Work backwards','Break a big'])):
@@ -124,17 +146,27 @@ def content(i,t):
                 for dx in [-75,0,75]:arrow(im,(x,320),(x+dx,365),CYAN,a);rect(im,x+dx,404,45,45,c='#071c25',a=a)
             text(im,label,x,490,24,WHITE,a=a)
     elif i==9:
-        heading(im,'Understand it. Try it. Make it yours.','Inside a lesson')
-        for k,(label,word) in enumerate([('Meet the idea','introduces'),('See it work','shows'),('Try it','try it')]):
-            x=300+340*k;a=anim(t,cue(i,word),.6);dot(im,x,245,6,GOLD,a);text(im,label,x,292,23,WHITE,a=a)
-            if k:line(im,[(x-334,245),(x-6,245)],CYAN,2,a)
-        a=anim(t,cue(i,'Quick choices'),.6);text(im,'2, 4, 6, …',640,385,42,CYAN,'math',a)
-        for x,s in [(495,'A   8'),(785,'B   9')]:rect(im,x,474,200,76,c='#071c25',outline=CYAN,a=a);text(im,s,x,474,30,WHITE,'math',a)
-        q=anim(t,cue(i,'before deeper'),.55);rect(im,495,474,200,76,c='#233321',outline=GOLD,a=q);text(im,'A   8',495,474,30,GOLD,'math',q);text(im,'Quick decisions → deeper reasoning',640,563,22,DIM,a=a)
+        heading(im,'Each gap grows by 2. What comes next?','A quick decision before a deeper challenge')
+        xs=[220,400,580,760,940];values=[2,6,12,20,30];words=['two','six','twelve','twenty','thirty']
+        for j,(x,v,w) in enumerate(zip(xs,values,words)):
+            a=anim(t,cue(i,w),.4);text(im,v,x,285,42,CYAN,'math',a)
+            if j:
+                q=anim(t,cue(i,'gaps'),.6);arrow(im,(xs[j-1]+35,345),(x-35,345),GOLD,q);text(im,'+'+str(2*j+2),x-90,395,24,GOLD,'math',q)
+        text(im,'?',1120,285,42,WHITE,'math',anim(t,cue(i,'what comes next')))
+        a=anim(t,cue(i,'what comes next'),.5)
+        for x,label in [(460,'A   42'),(820,'B   40')]:rect(im,x,493,220,75,c='#071c25',a=a);text(im,label,x,493,32,WHITE,'math',a)
+        q=anim(t,cue(i,'add twelve'),.5);arrow(im,(975,345),(1085,345),GOLD,q);text(im,'+12',1030,395,24,GOLD,'math',q)
+        q=anim(t,cue(i,'forty-two'),.5);rect(im,460,493,220,75,c='#233321',outline=GOLD,a=q);text(im,'A   42',460,493,32,GOLD,'math',q)
+        text(im,'Notice the structure, then choose the next step.',640,590,23,DIM,a=anim(t,cue(i,'deeper challenge')))
     elif i==10:
-        heading(im,'New story. A useful idea you recognise.','Transfer your learning');a=anim(t,cue(i,'numbers'),1.3)
-        for j in range(12):dot(im,*travel((340+(j%3)*65,245+(j//3)*65),(780+(j%6)*50,320+(j//6)*65),a,80),13,CYAN if j<6 else GOLD)
-        text(im,'4 groups of 3',415,548,28,WHITE,'math',1-a);text(im,'2 groups of 6',910,548,28,WHITE,'math',a);text(im,'12',640,232,57,GOLD,'math');text(im,'Regrouping keeps the total unchanged.',640,592,21,DIM,a=anim(u,1))
+        heading(im,'What changes? What stays the same?','The power of an invariant')
+        angle=anim(t,cue(i,'Rotate a domino'),1.6)*math.pi/2;center=(640,350);cell=95;d=ImageDraw.Draw(im)
+        for j,colour in enumerate([CYAN,GOLD]):
+            pts=[]
+            for x,y in [((j-1)*cell,-cell/2),(j*cell,-cell/2),(j*cell,cell/2),((j-1)*cell,cell/2)]:pts.append((round((center[0]+x*math.cos(angle)-y*math.sin(angle))*S),round((center[1]+x*math.sin(angle)+y*math.cos(angle))*S)))
+            d.polygon(pts,fill=col(colour,.8));d.line(pts+[pts[0]],fill=WHITE,width=3)
+        text(im,'1 blue + 1 gold',640,525,37,WHITE,'math',anim(t,cue(i,'still covers')))
+        text(im,'Position changes. Colour balance stays.',640,592,24,GOLD,a=anim(t,cue(i,'familiar idea')))
     elif i==11:
         heading(im,'Stuck? You have a next move.','Confidence grows through practice')
         for k,(x,title,word) in enumerate(zip([270,640,1010],['Try a small case','Make a sketch','Check a clue'],['smaller example','Make a sketch','Check a clue'])):

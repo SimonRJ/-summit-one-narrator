@@ -1,24 +1,44 @@
 {
   "id": "ReefWelcome",
   "title": "Reef, your next discovery starts here",
-  "voice": "af_heart",
+  "voice": "bm_george",
   "speed": 0.88,
-  "pause_seconds": [0.65, 0.65, 0.65, 0.5, 0.9, 0.65, 0.6, 0.65, 0.55, 0.6, 0.55, 0.75, 0.65, 0.75],
+  "pause_seconds": [
+    0.65,
+    0.65,
+    0.65,
+    0.5,
+    0.9,
+    0.65,
+    0.6,
+    0.65,
+    0.55,
+    0.6,
+    0.55,
+    0.75,
+    0.65,
+    0.75
+  ],
   "segments": [
     "Hi Reef. Welcome to Summit One. Get curious, discover clever ideas, and become a more confident problem solver. Your adventure starts with one small step.",
-    "You have three exciting destinations: the Australian Mathematics Competition, M A W A's Problem Solving Program, and Rossmoyne's Honours Mathematics programme. Each opens a different door into maths.",
-    "Did you know the AMC began in nineteen seventy-eight? Primary divisions joined in two thousand and two. You're joining a long tradition of curious thinkers.",
-    "A tricky-looking question can hide a wonderfully simple idea. You'll learn to look beneath the story and notice its mathematical structure.",
-    "Watch this. One dot. Add three, then five, then seven. A four-by-four square appears. Suddenly, a sum becomes a picture.",
-    "M A W A is the Mathematical Association of Western Australia. Its Problem Solving Program began in nineteen ninety-two. Explaining why something works matters here.",
-    "You'll investigate patterns, test small cases, and build convincing explanations. Asking, 'Does this always work?' is where a mathematician's adventure begins.",
-    "Rossmoyne's Honours programme explores maths beyond the usual curriculum. Did you know its students form the Fermat Club? They get together to solve problems and have fun.",
+    "You have three exciting destinations: the Australian Mathematics Competition, MAWA's Problem Solving Program, and Rossmoyne's Honours Mathematics programme. Each opens a different door into maths.",
+    "The national AMC began in nineteen seventy-eight. Dedicated primary papers have been running for over twenty years. And in twenty twenty-seven, Years One and Two join the standard competition through the new Early Primary division. The adventure keeps growing.",
+    "Here's a glimpse of the ideas you'll learn. What is the last digit of seven to the power of two thousand and twenty-seven? That enormous number hides a surprisingly short repeating pattern.",
+    "The last digits cycle through seven, nine, three, one. Every four powers, the cycle repeats. Two thousand and twenty-seven leaves remainder three when divided by four. So choose the third position: the last digit is three.",
+    "MAWA, the Mathematical Association of Western Australia, began in nineteen fifty-eight. Its Problem Solving Program dates from nineteen ninety-two. It develops careful reasoning and clear explanations. You'll learn to ask why an idea works.",
+    "Can twenty-three dominoes cover a six-by-eight board with opposite corners removed? Colour it like a chessboard. Each domino covers one blue and one gold square. But the board has twenty-two blue squares and twenty-four gold ones. Impossible! Colouring turns a puzzle into a proof.",
+    "Rossmoyne's Honours Mathematics is a selective-entry programme, with applicants in Year Six. Students explore beyond the usual curriculum. They're known as the Fermat Club, with collaborative problem solving and an AMC training camp. You can prepare to think flexibly and explain your ideas.",
     "You'll build number sense, visual thinking, and flexible reasoning. Draw a diagram. Work backwards. Break a big puzzle into smaller pieces.",
-    "Each lesson introduces an idea, shows how it works, then helps you try it. Quick choices warm up your thinking before deeper challenges.",
-    "Then you'll tackle unfamiliar problems. You'll practise recognising a useful method, even when the numbers and the story have changed.",
+    "Each lesson introduces an idea and shows how it works. Quick choices sharpen your thinking. For two, six, twelve, twenty, thirty, what comes next? The gaps grow by two: add twelve to get forty-two. Then tackle a deeper challenge.",
+    "You'll learn to recognise what stays unchanged. Rotate a domino: it still covers one of each colour. A familiar idea can unlock a completely different-looking problem.",
     "Getting stuck is part of the work. Try a smaller example. Make a sketch. Check a clue. Every careful attempt gives you something to learn.",
     "Practice papers let you rehearse: read carefully, choose a strategy, manage your time, and check your answers. Afterwards, use the worked solutions to improve.",
     "When exam day arrives, take a breath. Start with what you know. You can move on and return to a tough question. Aim high, one thoughtful step at a time.",
     "You don't need all the answers today, Reef. Bring your curiosity. Build your toolkit. Enjoy those aha moments. Your next discovery starts here."
-  ]
+  ],
+  "revision": "v2-male-challenge-20261112",
+  "pronunciation": {
+    "MAWA": "m\u02c8\u0251\u02d0w\u0259",
+    "MAWA\u2019s": "m\u02c8\u0251\u02d0w\u0259z"
+  }
 }

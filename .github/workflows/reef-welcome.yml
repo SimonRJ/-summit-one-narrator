@@ -32,7 +32,8 @@ jobs:
           npm install --no-fund --no-audit
       - name: Create and align the welcome narration
         run: |
-          cp production/amc2025-q17/synth.mjs narration/reef-welcome-synth.mjs
+          cp production/reef-welcome/synth.mjs narration/reef-welcome-synth.mjs
+          cp production/reef-welcome/kokoro-phonemize.mjs narration/kokoro-phonemize.mjs
           node narration/reef-welcome-synth.mjs production/reef-welcome/narration.json build/reef-welcome
           python production/reef-welcome/align.py --audio build/reef-welcome/narration.wav --timing build/reef-welcome/timing.json --out build/reef-welcome
       - name: Render and verify the personalised animation
@@ -48,11 +49,12 @@ jobs:
           cp build/reef-welcome/ReefWelcome.vtt media/ReefWelcome.vtt
           cp build/reef-welcome/transcript.txt media/ReefWelcome-transcript.txt
           cp build/reef-welcome/qa.json review/ReefWelcome-qa.json
+          cp build/reef-welcome/pronunciation-qa.json review/ReefWelcome-pronunciation-qa.json
           cp build/reef-welcome/timing.json build/reef-welcome/words.json build/reef-welcome/alignment-qa.json production/reef-welcome/
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add media/ReefWelcome* review/ReefWelcome-qa.json production/reef-welcome/timing.json production/reef-welcome/words.json production/reef-welcome/alignment-qa.json
-          git commit -m 'Publish Reef’s personalised animated welcome'
+          git add media/ReefWelcome* review/ReefWelcome-qa.json review/ReefWelcome-pronunciation-qa.json production/reef-welcome/timing.json production/reef-welcome/words.json production/reef-welcome/alignment-qa.json
+          git commit -m 'Publish Reef’s revised male-narrated welcome and harder examples'
           git fetch origin main
           git rebase origin/main
           git push origin HEAD:main
@@ -69,5 +71,9 @@ jobs:
             build/reef-welcome/timing.json
             build/reef-welcome/alignment-qa.json
             build/reef-welcome/poster.jpg
+            build/reef-welcome/pronunciation-qa.json
+            build/reef-welcome/heard-words.json
+            build/reef-welcome/speech-02.wav
+            build/reef-welcome/speech-06.wav
           compression-level: 0
           retention-days: 14
