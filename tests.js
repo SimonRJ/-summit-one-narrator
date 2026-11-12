@@ -318,7 +318,7 @@ async function finishExam(auto){
     if(Date.now()<new Date(sitting.expires_at).getTime())startTimer();
   }finally{finishing=false}
 }
-async function loadResultHistory(){
+async async function loadResultHistory(){
  const el=document.getElementById("savedSittings");if(!el)return;
  const sorted=allSittings.filter(e=>{
   if(centre==="hub")return true;
