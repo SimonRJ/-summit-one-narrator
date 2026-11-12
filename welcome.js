@@ -1,5 +1,7 @@
 // A welcome is optional. This page never writes learner evidence or starts an exam.
 const video=document.querySelector('#welcomeVideo');
+// Keep the poster clean until the learner chooses playback. Native controls stay available afterwards.
+video.controls=false;
 const watch=document.querySelector('#watchWelcome');
 const skip=document.querySelector('#skipWelcome');
 const status=document.querySelector('#welcomeStatus');
@@ -9,7 +11,7 @@ function say(message,error=false){status.textContent=message;status.classList.to
 watch.addEventListener('click',async()=>{
   if(!video.paused){video.pause();say('Paused. Take your time.');return}
   try{
-    watch.disabled=true;say('Opening your welcome…');
+    watch.disabled=true;video.controls=true;say('Opening your welcome…');
     if(video.error)video.load();
     if(video.ended)video.currentTime=0;
     await video.play();
