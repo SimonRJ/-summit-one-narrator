@@ -10,7 +10,7 @@ function query(table){let filters=[],payload=null,kind='read',single=false,span=
 const q={select(){return q},eq(k,v){filters.push([k,v]);return q},not(k,op,v){filters.push([k,v,'not']);return q},order(){return q},limit(n){span=[0,n-1];return q},range(a,b){span=[a,b];return q},maybeSingle(){single=true;return q},single(){single=true;return q},insert(v){payload=v;kind='insert';return q},update(v){payload=v;kind='update';return q},upsert(v){payload=v;kind='upsert';return q},then(resolve,reject){try{let rows=table==='content_problems_student'?problems:table==='session_records'?state.records:table==='problem_attempts'?state.attempts:table==='exam_sittings'?state.exams:table==='exam_catalog'?[{id:'amc-up-2025',year:2025,session_slot:16,title:'Fixture paper',max_score:135,duration_minutes:60,question_count:30,source_type:'authentic_amc_past_paper',active:true}]:table==='exam_questions_student'?Array.from({length:30},(_,i)=>({exam_id:'amc-up-2025',question_number:i+1,question_type:i<25?'multiple_choice':'integer',stem:'Fixture question '+(i+1),choices:['one','two','three','four','five'],marks:i<10?3:i<20?4:i<25?5:i-19})):[];
  if(kind!=='read'){if(state.fail)return resolve({error:{message:'Simulated connection failure'}});if(kind==='insert'){if(table==='exam_sittings'&&rows.some(r=>r.exam_id===payload.exam_id&&r.user_id===payload.user_id))return resolve({error:{code:'23505',message:'One attempt only'}});payload={id:'sitting1',...payload};rows.push(payload)}else{const found=rows.find(r=>filters.every(([k,v])=>r[k]===v));if(found)Object.assign(found,payload);payload=found||payload}return resolve({data:payload,error:null})}
  rows=rows.filter(r=>filters.every(([k,v,kind])=>k==='user_id'||(kind==='not'?r[k]!=v:r[k]===v)));if(span)rows=rows.slice(span[0],span[1]+1);resolve({data:single?rows[0]||null:rows,error:null})}catch(e){reject(e)}}};return q}
-export const supabase={from:query,rpc:async(name,{p_sitting_id,p_question,p_response})=>{if(state.fail)return {error:{message:'Simulated connection failure'}};const row=state.exams.find(r=>r.id===p_sitting_id);if(p_response===null)delete row.responses[p_question];else row.responses[p_question]=p_response;return {data:row,error:null}},auth:{getSession:async()=>({data:{session:{access_token:'fixture'}}})},functions:{invoke:async(name,{body})=>({data:name==='submit-problem-attempt'?{correct:true,independent_credit:!body.used_help&&!body.familiar_family}:{solution_text:'Six plus six is twelve.'},error:null})}};
+export const supabase={from:query,rpc:async(name,{p_sitting_id,p_question,p_response})=>{if(state.fail)return {error:{message:'Simulated connection failure'}};const row=state.exams.find(r=>r.id===p_sitting_id);if(name==='get_exam_learning_map')return {data:[],error:null};if(p_response===null)delete row.responses[p_question];else row.responses[p_question]=p_response;return {data:row,error:null}},auth:{getSession:async()=>({data:{session:{access_token:'fixture'}}})},functions:{invoke:async(name,{body})=>({data:name==='submit-problem-attempt'?{correct:true,independent_credit:!body.used_help&&!body.familiar_family}:{solution_text:'Six plus six is twelve.'},error:null})}};
 export async function currentUser(){return {id:'fixture-user'}};
 export async function loadProgress(){return state.progress};
 export async function saveProgress(p){Object.assign(state.progress,p);return state.progress};
@@ -33,7 +33,7 @@ async def main():
   await page.set_viewport_size({'width':390,'height':844})
   await page.locator('.flash-quiz').screenshot(path=str(ROOT/'docs/flash-card-mobile.png'))
   assert await page.evaluate('document.documentElement.scrollWidth<=innerWidth+1')
-  answer=await page.evaluate("import('./flash-cards.js?v=flash-20261112').then(m=>m.flashDeck('DIV-03',1,1)[0].answer)")
+  answer=await page.evaluate("import('./flash-cards.js?v=recognition-20261113').then(m=>m.flashDeck('DIV-03',1,1)[0].answer)")
   await page.evaluate('fixture.fail=true')
   await page.locator('.flash-option').nth(1-answer).click()
   await page.locator('.flash-retry').wait_for()
@@ -46,7 +46,7 @@ async def main():
   await page.locator('[data-stage="0"]').click();await page.locator('[data-stage="1"]').click()
   assert '2 / 5' in await page.locator('.flash-progress').inner_text()
   for i in range(1,5):
-   answer=await page.evaluate("import('./flash-cards.js?v=flash-20261112').then(m=>m.flashDeck('DIV-03',1,1)["+str(i)+"].answer)")
+   answer=await page.evaluate("import('./flash-cards.js?v=recognition-20261113').then(m=>m.flashDeck('DIV-03',1,1)["+str(i)+"].answer)")
    await page.locator('.flash-question').focus()
    await page.keyboard.press('a' if answer==0 else 'b')
    await page.locator('.flash-next').wait_for()
@@ -61,7 +61,7 @@ async def main():
   await page.locator('.mini-check input').fill('123');await page.locator('.mini-check button.primary').click();await page.locator('.check-feedback').get_by_text('Not quite yet',exact=False).wait_for()
   await page.locator('[data-stage="2"]').click();assert not await page.locator('.problem-card').is_visible()
   await page.locator('.mini-check .method').fill('Keep the remainder, square it, add four, then divide by seven.')
-  faded_answer=await page.evaluate("import('./transfer-practice.js?v=centres-20261112').then(m=>String(m.practice('DIV-03',9).value))")
+  faded_answer=await page.evaluate("import('./transfer-practice.js?v=recognition-20261113').then(m=>String(m.practice('DIV-03',9).value))")
   await page.locator('.mini-check .response').fill(faded_answer);await page.get_by_role('button',name='Record and check',exact=True).click()
   await page.locator('.mini-check .short-answer').fill('4');await page.get_by_role('button',name='Check my answer',exact=True).click();await page.locator('.problem-card').wait_for();await page.locator('.working-box').fill('My reasoning survives changing stages.')
   await page.locator('[data-stage="3"]').click();await page.locator('[data-stage="2"]').click()
@@ -180,8 +180,8 @@ async def main():
   await page.locator('#endParticipation').click();await page.locator('#confirmFinish').click()
   await page.locator('.score-big').wait_for()
   assert await page.locator('.question-review').count()==30
-  assert await page.locator('.result-table').nth(1).locator('tbody tr').count()==30
-  assert await page.locator('.result-table').nth(1).get_by_text('Not answered',exact=True).count()==28
+  assert await page.locator('section').filter(has=page.get_by_role('heading',name='Question-by-question results',exact=True)).locator('.result-table tbody tr').count()==30
+  assert await page.locator('section').filter(has=page.get_by_role('heading',name='Question-by-question results',exact=True)).get_by_text('Not answered',exact=True).count()==28
   await page.locator('[data-solution="17"]').click()
   assert await page.locator('#solution-17').get_attribute('open') is not None
   assert 'watch-amc-2025-q17.html' in await page.locator('#solution-17 .solution-video-link').get_attribute('href')
