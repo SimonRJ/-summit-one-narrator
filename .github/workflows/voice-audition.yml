@@ -1,0 +1,55 @@
+name: VoxCPM Australian male audition
+on:
+  push:
+    branches: [main]
+    paths: ['production/voice-audition/**', '.github/workflows/voice-audition.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: voxcpm-audition
+  cancel-in-progress: false
+jobs:
+  audition:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      HF_HUB_DISABLE_XET: '1'
+      TOKENIZERS_PARALLELISM: 'false'
+      OMP_NUM_THREADS: '4'
+      MKL_NUM_THREADS: '4'
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install CPU speech tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg libsndfile1
+          pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install 'transformers>=4.45,<5' 'huggingface-hub<1' einops pydantic soundfile librosa safetensors tqdm numpy scipy inflect addict argbind faster-whisper
+          pip install --no-deps 'git+https://github.com/OpenBMB/VoxCPM.git@300e4260b509066151d623dc9c0aa922cf82232b'
+      - name: Generate Australian male candidates
+        run: python production/voice-audition/generate.py
+      - name: Preserve audition files
+        run: |
+          mkdir -p media/voice-audition review
+          cp build/voice-audition/*.mp3 media/voice-audition/
+          cp build/voice-audition/manifest.json review/VoxCPM-audition.json
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add media/voice-audition/*.mp3 review/VoxCPM-audition.json
+          git commit -m 'Add original VoxCPM2 Australian male voice auditions'
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: voxcpm-australian-male-audition
+          path: build/voice-audition/
+          retention-days: 14
