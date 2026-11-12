@@ -1,0 +1,96 @@
+name: AMC introduction — new visuals and voice C
+on:
+  push:
+    branches: [main]
+    paths: ['production/amc-introduction/**', '.github/workflows/amc-introduction.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: amc-introduction
+  cancel-in-progress: false
+jobs:
+  speech:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        segment: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
+    env:
+      HF_HUB_DISABLE_XET: '1'
+      TOKENIZERS_PARALLELISM: 'false'
+      OMP_NUM_THREADS: '2'
+      MKL_NUM_THREADS: '2'
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install speech runtime
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg libsndfile1
+          pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install 'transformers>=4.45,<5' 'huggingface-hub<1' einops pydantic soundfile librosa safetensors tqdm numpy scipy inflect addict argbind
+          pip install --no-deps 'git+https://github.com/OpenBMB/VoxCPM.git@300e4260b509066151d623dc9c0aa922cf82232b'
+      - name: Narrate using approved voice C reference
+        run: python production/amc-introduction/synth.py --segment ${{ matrix.segment }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: amc-intro-segment-${{ matrix.segment }}
+          path: build/amc-introduction/speech-*.wav
+          retention-days: 14
+  render:
+    needs: speech
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: amc-intro-segment-*
+          merge-multiple: true
+          path: build/amc-introduction
+      - name: Install rendering tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-dejavu-core
+          pip install pillow numpy soundfile faster-whisper inflect
+      - name: Assemble and align new narration
+        run: |
+          python production/amc-introduction/synth.py
+          python production/amc-introduction/align.py --audio build/amc-introduction/narration.wav --timing build/amc-introduction/timing.json --out build/amc-introduction
+      - name: Render the new AMC storyboard to measured spoken cues
+        run: |
+          python production/amc-introduction/render.py
+          ffmpeg -v error -y -i build/amc-introduction/visual.mp4 -i build/amc-introduction/narration.wav -map 0:v:0 -map 1:a:0 -c:v copy -c:a aac -b:a 192k -af apad -shortest -movflags +faststart build/amc-introduction/final.mp4
+          python production/amc-introduction/verify.py
+      - name: Publish verified video assets
+        run: |
+          cp build/amc-introduction/final.mp4 media/AMCIntroduction.mp4
+          cp build/amc-introduction/AMCIntroduction.vtt media/AMCIntroduction.vtt
+          cp build/amc-introduction/poster.jpg media/AMCIntroduction-poster.jpg
+          cp build/amc-introduction/transcript.txt media/AMCIntroduction-transcript.txt
+          cp build/amc-introduction/qa.json review/AMCIntroduction-qa.json
+          cp build/amc-introduction/alignment-qa.json review/AMCIntroduction-alignment-qa.json
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add media/AMCIntroduction* review/AMCIntroduction*.json
+          git commit -m 'Render new AMC introduction with approved male voice C'
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: amc-introduction-review
+          path: build/amc-introduction/
+          retention-days: 14
