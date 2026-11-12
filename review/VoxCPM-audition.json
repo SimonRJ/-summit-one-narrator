@@ -1,0 +1,42 @@
+{
+  "model": "openbmb/VoxCPM2",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "code_revision": "300e4260b509066151d623dc9c0aa922cf82232b",
+  "mode": "original voice design",
+  "reference_audio": null,
+  "device": "cpu",
+  "sample_rate": 48000,
+  "text": "Hi Reef. Welcome to Summit One. In maths, a difficult-looking problem can hide a clever idea. What is the last digit of seven to the power of two thousand and twenty-seven? Let's find the pattern. The AMC, MAWA and Rossmoyne reward careful thinking.",
+  "voices": [
+    {
+      "id": "a",
+      "label": "Warm and calm",
+      "seed": 42,
+      "description": "An adult Australian man speaking natural General Australian English with an Australian accent. A warm, medium-low male voice. Friendly, thoughtful and encouraging, like a good maths teacher. Clear educational narration at an unhurried conversational pace, with natural pauses. Clean studio recording.",
+      "duration_seconds": 13.12,
+      "generation_seconds": 112.83,
+      "file": "vox-australian-male-a.mp3",
+      "peak": 0.0972,
+      "rms": 0.0121,
+      "heard_text": "Hi Reef, welcome to Summit One. In Maths, a difficult looking problem can hide a clever idea. What is the last digit of seven to the power of 2027? Let's find the pattern. The AMC, Marwa and Ross Moyne reward careful thinking.",
+      "script_word_coverage": 1.0,
+      "full_decode_passed": true
+    },
+    {
+      "id": "b",
+      "label": "Bright and encouraging",
+      "seed": 73,
+      "description": "An Australian male mathematics mentor in his thirties, speaking English with a relaxed General Australian accent. Clear, resonant male voice, lightly animated and warmly encouraging. Curious and confident, with natural expression and short pauses to let ideas land. Clean studio recording.",
+      "duration_seconds": 15.52,
+      "generation_seconds": 175.93,
+      "file": "vox-australian-male-b.mp3",
+      "peak": 0.7506,
+      "rms": 0.0922,
+      "heard_text": "Hi Reef, welcome to Summit One. In Maths, a difficult looking problem can hide a clever idea. What is the last digit of 7 to the power of 2027? Let's find the pattern. The AMC, Maua and Rossmoyne reward careful thinking.",
+      "script_word_coverage": 1.0,
+      "full_decode_passed": true
+    }
+  ],
+  "qa_status": "passed",
+  "verification_note": "ASR numerals are expanded to words; spelling variants of MAWA and Rossmoyne are normalised for matching. Accent naturalness requires listening review."
+}
