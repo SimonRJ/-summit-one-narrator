@@ -1,0 +1,83 @@
+{
+  "match_percent": 94.41,
+  "segments": [
+    {
+      "segment": 1,
+      "words": 25,
+      "matched": 25
+    },
+    {
+      "segment": 2,
+      "words": 28,
+      "matched": 25
+    },
+    {
+      "segment": 3,
+      "words": 25,
+      "matched": 19
+    },
+    {
+      "segment": 4,
+      "words": 21,
+      "matched": 20
+    },
+    {
+      "segment": 5,
+      "words": 20,
+      "matched": 19
+    },
+    {
+      "segment": 6,
+      "words": 25,
+      "matched": 22
+    },
+    {
+      "segment": 7,
+      "words": 21,
+      "matched": 21
+    },
+    {
+      "segment": 8,
+      "words": 27,
+      "matched": 24
+    },
+    {
+      "segment": 9,
+      "words": 21,
+      "matched": 21
+    },
+    {
+      "segment": 10,
+      "words": 23,
+      "matched": 23
+    },
+    {
+      "segment": 11,
+      "words": 20,
+      "matched": 18
+    },
+    {
+      "segment": 12,
+      "words": 25,
+      "matched": 25
+    },
+    {
+      "segment": 13,
+      "words": 24,
+      "matched": 23
+    },
+    {
+      "segment": 14,
+      "words": 30,
+      "matched": 30
+    },
+    {
+      "segment": 15,
+      "words": 23,
+      "matched": 23
+    }
+  ],
+  "words": 358,
+  "caption_layers": 1,
+  "method": "per-sentence audio alignment; unmatched words bounded by matched neighbours"
+}
