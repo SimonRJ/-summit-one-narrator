@@ -4,12 +4,13 @@ from playwright.async_api import async_playwright
 ROOT=Path(__file__).resolve().parents[1]
 MOCK=r'''
 const state=window.fixture=window.fixture||{records:[],attempts:[],exams:[],progress:{completed_sessions:0,current_session:1,xp:0,rank:0,state:{}},writes:[],fail:false};
-const problems=[{id:'TEST1',title:'A test problem',prompt:'What is 6 plus 6?',source_type:'original',category:'digits',difficulty:2},{id:'TEST2',title:'A transfer problem',prompt:'What is 3 times 4?',source_type:'original',category:'digits',difficulty:2}];
+const mapping=(await (await fetch('data/lesson-challenges.json')).json()).items;
+const problems=[{id:'A001',title:'Must never be selected',prompt:'A real exam fixture',source_type:'authentic_amc',category:'digits',difficulty:2},...mapping.map(m=>({id:m.id,title:'Original learning fixture',prompt:'What is 6 plus 6?',source_type:'original_authored',category:m.skill,difficulty:3}))];
 function query(table){let filters=[],payload=null,kind='read',single=false;
 const q={select(){return q},eq(k,v){filters.push([k,v]);return q},not(){return q},order(){return q},limit(){return q},maybeSingle(){single=true;return q},single(){single=true;return q},insert(v){payload=v;kind='insert';return q},update(v){payload=v;kind='update';return q},upsert(v){payload=v;kind='upsert';return q},then(resolve,reject){try{let rows=table==='content_problems_student'?problems:table==='session_records'?state.records:table==='problem_attempts'?state.attempts:table==='exam_sittings'?state.exams:table==='exam_catalog'?[{id:'amc-up-2025',year:2025,session_slot:16,title:'Fixture paper',max_score:135,duration_minutes:60,question_count:30,source_type:'authentic_amc_past_paper',active:true}]:table==='exam_questions_student'?Array.from({length:30},(_,i)=>({exam_id:'amc-up-2025',question_number:i+1,question_type:i<25?'multiple_choice':'integer',stem:'Fixture question '+(i+1),choices:['one','two','three','four','five'],marks:i<10?3:i<20?4:i<25?5:i-19})):[];
  if(kind!=='read'){if(state.fail)return resolve({error:{message:'Simulated connection failure'}});if(kind==='insert'){payload={id:'sitting1',...payload};rows.push(payload)}else{const found=rows.find(r=>filters.every(([k,v])=>r[k]===v));if(found)Object.assign(found,payload);payload=found||payload}return resolve({data:payload,error:null})}
  rows=rows.filter(r=>filters.every(([k,v])=>k==='user_id'||r[k]===v));resolve({data:single?rows[0]||null:rows,error:null})}catch(e){reject(e)}}};return q}
-export const supabase={from:query,auth:{getSession:async()=>({data:{session:{access_token:'fixture'}}})},functions:{invoke:async(name,{body})=>({data:name==='submit-problem-attempt'?{correct:true,independent_credit:true}:{solution_text:'Six plus six is twelve.'},error:null})}};
+export const supabase={from:query,auth:{getSession:async()=>({data:{session:{access_token:'fixture'}}})},functions:{invoke:async(name,{body})=>({data:name==='submit-problem-attempt'?{correct:true,independent_credit:!body.used_help&&!body.familiar_family}:{solution_text:'Six plus six is twelve.'},error:null})}};
 export async function currentUser(){return {id:'fixture-user'}};
 export async function loadProgress(){return state.progress};
 export async function saveProgress(p){Object.assign(state.progress,p);return state.progress};
@@ -32,7 +33,30 @@ async def main():
   await page.locator('[data-stage="2"]').click();assert not await page.locator('.problem-card').is_visible();await page.locator('.mini-check input').fill('4');await page.locator('.mini-check button.primary').click();await page.locator('.problem-card').wait_for();await page.locator('.working-box').fill('My reasoning survives changing stages.')
   await page.locator('[data-stage="3"]').click();await page.locator('[data-stage="2"]').click()
   assert await page.locator('.working-box').input_value()=='My reasoning survives changing stages.'
+  assert 'AMC ARCHIVE' not in await page.locator('.problem-meta').inner_text()
+  await page.locator('.problem-card .answer-box:not(.working-box)').fill('12');await page.locator('.submit-answer').click()
+  assert 'record the clue' in await page.locator('.attempt-feedback').inner_text()
+  await page.locator('[data-reason="clue"]').fill('The useful clue is a remainder.')
+  await page.locator('[data-reason="plan"]').fill('I will find the remainder and check the requested amount.')
+  await page.locator('.submit-answer').click();await page.locator('.submit-answer').wait_for(state='hidden')
+  assert await page.evaluate("fixture.records[0].summary.problems.every(id=>/^O/.test(id))")
+  await page.locator('[data-stage="3"]').click()
+  await page.locator('[data-reason="clue"]').fill('The change preserves the remainder class.')
+  await page.locator('[data-reason="plan"]').fill('I will represent the unknown by a multiple plus its remainder.')
+  await page.locator('.method-hint').click()
   await page.locator('.problem-card .answer-box:not(.working-box)').fill('12');await page.locator('.submit-answer').click();await page.locator('.submit-answer').wait_for(state='hidden')
+  assert 'Solved with support' in await page.locator('.attempt-feedback').inner_text()
+  await page.set_viewport_size({'width':390,'height':844});await page.screenshot(path=str(ROOT/'docs/original-transfer-mobile.png'),full_page=True)
+  assert await page.evaluate('document.documentElement.scrollWidth<=innerWidth+1')
+  await page.locator('[data-stage="4"]').click()
+  await page.locator('#takeaway').fill('Look for the structure, not just matching words.')
+  await page.locator('#watch').fill('Check the required quantity and all constraints.')
+  await page.locator('#completeSession').click()
+  assert await page.locator('#completeSession').count()==1
+  for field in await page.locator('[data-final-check]').all():await field.fill('I substituted the result into the original conditions and checked every part.')
+  await page.locator('#transferConfidence').select_option('practice')
+  await page.screenshot(path=str(ROOT/'docs/original-check-mobile.png'),full_page=True)
+  await page.set_viewport_size({'width':1280,'height':900})
   await page.locator('[data-stage="4"]').click();assert await page.locator('.mini-check').count()==0;await page.locator('[data-stage="1"]').click()
   assert await page.evaluate("Object.values(fixture.records[0].evidence).find(e=>e.kind==='guided').independent===false")
   await page.evaluate('window.scrollTo(0,0)');await page.screenshot(path=str(ROOT/'docs/teaching-desktop.png'),full_page=True)
@@ -102,6 +126,13 @@ async def main():
     await sp.locator('[data-stage="1"]').click();await sp.locator('.gentle-example').first.wait_for()
    else: await sp.locator('#startCourseExam').wait_for()
    await special.close()
+  legacy=await browser.new_context(service_workers='block')
+  await legacy.route('**/supabase-client.js*',lambda route:route.fulfill(content_type='application/javascript',body=MOCK))
+  await legacy.add_init_script("window.fixture={records:[{session_number:1,answers:{A001:{response:'old answer'}},working:{A001:'Preserve my old working'},evidence:{},summary:{problems:['A001']}}],attempts:[],exams:[],progress:{completed_sessions:0,xp:0,rank:0,state:{}},writes:[],fail:false}")
+  lp=await legacy.new_page();await lp.goto('http://127.0.0.1:8765/');await lp.locator('#continue').click();await lp.locator('.session-intro').wait_for()
+  assert await lp.evaluate("fixture.records[0].working.A001==='Preserve my old working' && fixture.records[0].summary.previous_problem_ids.includes('A001') && fixture.records[0].summary.problems.every(id=>id.startsWith('O'))")
+  await legacy.close()
+  print('PASS: original-only selection, clue/plan gate, support tracking, check/reflection gate and legacy draft work preservation.')
   # Exercise the REAL shared currentUser and login modules with a simulated SDK.
   auth_context=await browser.new_context(service_workers='block')
   sdk="""export function createClient(){return {auth:{

@@ -1,15 +1,17 @@
-import {introductionHTML,lessonPlan,investigationIntroHTML,investigationWarmupHTML} from './session-intros.js?v=journey-20261112';
+import {selectOriginalProblems,familySeen,reasoningReady,applicationStatus,mountReasoning,originalFigure,LEARNING_VERSION} from './original-learning.js?v=original-transfer-20261112';
+import {introductionHTML,lessonPlan,investigationIntroHTML,investigationWarmupHTML} from './session-intros.js?v=original-transfer-20261112';
 
 if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));}
 import { supabase, loadProgress, saveProgress, signOut, currentUser, upsertSession } from "./supabase-client.js?v=auth-20261112";
 import { mountNarratedPlayer } from "./lesson-player.js";
-import {methods,skillFor,recallState} from "./curriculum.js?v=journey-20261112";
-import {lessonCard,mountCheck,mountRetrieval,readinessHTML} from "./learning-ui.js?v=journey-20261112";
+import {methods,skillFor,recallState} from "./curriculum.js?v=original-transfer-20261112";
+import {lessonCard,mountCheck,mountRetrieval,readinessHTML} from "./learning-ui.js?v=original-transfer-20261112";
 import { problemFigure } from "./problem-figures.js";
 
 const app=document.getElementById("app");
 const problemTemplate=document.getElementById("problemTemplate");
 let course=[], teaching=[], mawa=[], rossMap=[], taxonomy=null, milestones=null, problemIndex=[], progress=null, user=null, activeView="home", activeStage=0;
+let lessonManifest=[];
 let currentProblems=[], currentMawa=null, sessionDraft={answers:{},working:{},evidence:{},summary:{}};
 let attemptedProblemIds=new Set();
 let completedRecords=[],attemptHistory=[],recentExams=[];
@@ -94,15 +96,7 @@ function currentRankLabel(){const r=currentRank();return r===0?"Cadet":`Rank ${r
 function problemKeywords(focus){
   return focus.toLowerCase().split(/[^a-z0-9]+/).filter(w=>w.length>4&&!["including","through","under","using","simple","reasoning"].includes(w));
 }
-function chooseProblems(session){
-  const id=skillFor(session,taxonomy),cat=id?.split("-")[0];
-  const categories={DIG:["digits","calculation"],DIV:["factors-multiples","patterns"],FRAC:["fractions-ratios"],RATE:["time","fractions-ratios"],ALG:["totals-differences","before-after"],SEQ:["patterns"],COUNT:["counting","shape-counting"],LOGIC:["logic"],GEO:["area-perimeter","symmetry"],SOLID:["solids"],SPATIAL:["shape-counting","counting"],DATA:["fractions-ratios","counting"]};
-  const words=problemKeywords(session.focus),last=attemptHistory.filter(x=>x.independent_credit!==null).slice(-8);
-  const success=last.filter(x=>x.independent_credit).length/Math.max(1,last.length);
-  const target=last.length>=4?(success>=.75?4:success<.4?2:3):(session.slot<25?2:3);
-  const ranked=problemIndex.map(p=>{const hay=(p.title+" "+p.prompt+" "+p.category).toLowerCase();return {...p,_score:(categories[cat]?.includes(p.category)?30:0)+words.reduce((n,w)=>n+(hay.includes(w)?2:0),0)-Math.abs(Number(p.difficulty||3)-target)*2,_used:attemptedProblemIds.has(p.id),_tie:hash(session.slot+"|"+p.id)}}).sort((a,b)=>(b._score-(b._used?8:0))-(a._score-(a._used?8:0))||a._tie-b._tie);
-  return ranked.slice(0,2).sort((a,b)=>Number(a.difficulty||3)-Number(b.difficulty||3));
-}
+function chooseProblems(session){return selectOriginalProblems(session,problemIndex,lessonManifest);}
 function teachingFor(session){
  const m=methods[skillFor(session,taxonomy)];
  return m?teaching.filter(t=>t.id===m.video):[];
@@ -124,9 +118,9 @@ async function boot(){
   try{
     user=await currentUser();
     if(!user){location.href="login.html";return}
-    const [c,t,m,h,tax,ms]=await Promise.all([fetch("data/sessions-372.json").then(r=>r.json()),fetch("data/teaching-72.json").then(r=>r.json()),fetch("data/mawa-investigations-20.json").then(r=>r.json()),fetch("data/rossmoyne-h23.json").then(r=>r.json()),fetch("data/taxonomy-52.json").then(r=>r.json()),fetch("data/milestones.json").then(r=>r.json())]);
-    course=c.sessions; teaching=t.items; mawa=m.items; rossMap=h.items; taxonomy=tax; milestones=ms;
-    const {data:problems,error}=await supabase.from("content_problems_student").select("id,source_type,title,source_label,category,difficulty,prompt,unit").order("id");
+    const [c,t,m,h,tax,ms,lm]=await Promise.all([fetch("data/sessions-372.json").then(r=>r.json()),fetch("data/teaching-72.json").then(r=>r.json()),fetch("data/mawa-investigations-20.json").then(r=>r.json()),fetch("data/rossmoyne-h23.json").then(r=>r.json()),fetch("data/taxonomy-52.json").then(r=>r.json()),fetch("data/milestones.json").then(r=>r.json()),fetch("data/lesson-challenges.json?v=original-transfer-20261112").then(r=>r.json())]);
+    course=c.sessions; teaching=t.items; mawa=m.items; rossMap=h.items; taxonomy=tax; milestones=ms;lessonManifest=lm.items;
+    const {data:problems,error}=await supabase.from("content_problems_student").select("id,source_type,title,source_label,category,difficulty,prompt,unit").eq("source_type","original_authored").order("id");
     if(error)throw error; problemIndex=problems||[];
     const {data:attemptRows,error:attemptError}=await supabase.from("problem_attempts").select("problem_id,independent_credit,is_correct,created_at").eq("user_id",user.id).not("answer_text","is",null).order("created_at");
     if(attemptError)throw attemptError; attemptHistory=attemptRows||[]; attemptedProblemIds=new Set(attemptHistory.map(x=>x.problem_id));
@@ -183,10 +177,11 @@ async function startSession(s){
   const local=JSON.parse(localStorage.getItem(draftKey(s))||'null');
   if(local?.draft&&(!existing?.updated_at||local.updated_at>existing.updated_at))sessionDraft=local.draft;
   editingSession=s;
-  const pinned=sessionDraft.summary.problems||Object.keys(sessionDraft.answers).filter(id=>problemIndex.some(p=>p.id===id));
-  currentProblems=pinned.map(id=>problemIndex.find(p=>p.id===id)).filter(Boolean);
-  for(const p of chooseProblems(s))if(currentProblems.length<2&&!currentProblems.some(x=>x.id===p.id))currentProblems.push(p);
-  sessionDraft.summary={...sessionDraft.summary,problems:currentProblems.map(p=>p.id),skill_id:skillFor(s,taxonomy),focus:s.focus,type:s.type,phase:s.phase};
+  const previous=sessionDraft.summary.problems||[];
+  currentProblems=chooseProblems(s);
+  // Preserve saved answers and working, including legacy drafts, but replace the active tasks.
+  const retired=previous.filter(id=>!currentProblems.some(p=>p.id===id));
+  sessionDraft.summary={...sessionDraft.summary,previous_problem_ids:[...new Set([...(sessionDraft.summary.previous_problem_ids||[]),...retired])],learning_version:LEARNING_VERSION,problems:currentProblems.map(p=>p.id),skill_id:skillFor(s,taxonomy),focus:s.focus,type:s.type,phase:s.phase};
   await saveDraft(s);
   if(s.type==="MAWA"){renderMawaSession(s);return}renderSession(s);
  }catch(e){alert("Could not open this session: "+e.message)}
@@ -222,14 +217,14 @@ function renderMawaSession(s){
     document.getElementById("recordMawa").onclick=async()=>{const v=document.getElementById("mawaBase").value.trim();if(v.length<20){alert("Record enough working to show the method, not only an answer.");return}sessionDraft.working.mawa_base=v;sessionDraft.evidence.mawa_base={status:"proof_evidence_unreviewed",recorded_at:new Date().toISOString()};await upsertSession({session_number:s.slot,session_key:`S${String(s.slot).padStart(3,"0")}`,answers:sessionDraft.answers,working:sessionDraft.working,evidence:sessionDraft.evidence,summary:sessionDraft.summary});const m=document.getElementById("mawaMsg");m.hidden=false;m.textContent="Work saved. Proof evidence remains unreviewed until you compare/check it."};
   }
   if(activeStage===3){
-    const ext=mawaExtension(s,item),saved=sessionDraft.working.mawa_extension||"";
+    const ext=(item.transfer_prompt||mawaExtension(s,item))+(Math.floor(s.slot/7)>20?" Then change a condition, predict the effect, and justify a general rule or counterexample.":""),saved=sessionDraft.working.mawa_extension||"";
     el.innerHTML=`<div class="stage-number">STAGE 4 · GENERALISE</div><h2>Transfer</h2><p class="muted">${esc(ext)}</p><label class="answer-label">Extension reasoning<textarea id="mawaExt" class="answer-box" rows="10">${esc(saved)}</textarea></label><button id="recordExt" class="primary">Record extension</button><div class="complete-row"><button id="backStage" class="ghost">Back</button><button id="nextStage" class="primary">Check</button></div>`;
     document.getElementById("mawaExt").oninput=e=>{sessionDraft.working.mawa_extension=e.target.value};
     document.getElementById("recordExt").onclick=async()=>{const v=document.getElementById("mawaExt").value.trim();if(v.length<20){alert("Give a mathematical reason, example, diagram description or proof step.");return}sessionDraft.working.mawa_extension=v;await upsertSession({session_number:s.slot,session_key:`S${String(s.slot).padStart(3,"0")}`,answers:sessionDraft.answers,working:sessionDraft.working,evidence:sessionDraft.evidence,summary:sessionDraft.summary});};
   }
   if(activeStage===4){
     const ready=(sessionDraft.working.mawa_base||"").trim().length>=20&&(sessionDraft.working.mawa_extension||"").trim().length>=20;
-    el.innerHTML=`<div class="stage-number">STAGE 5 · PROOF CHECK</div><h2>Check</h2><p class="muted">Score the evidence, not confidence. This is a practice rubric, not an official MAWA admissions score.</p><div class="problem-card"><details ${ready?"":"hidden"}><summary>Compare with model reasoning</summary><p class="solution-panel" style="display:block">${esc(item.solution)}</p><p class="muted"><b>Common trap:</b> ${esc(item.trap)}</p></details><div class="check-grid"><label class="answer-label">Result 0–3<input id="rResult" type="number" min="0" max="3" value="" required></label><label class="answer-label">Method 0–3<input id="rMethod" type="number" min="0" max="3" value="" required></label><label class="answer-label">Proof / completeness 0–3<input id="rProof" type="number" min="0" max="3" value="" required></label><label class="answer-label">Clarity 0–1<input id="rClarity" type="number" min="0" max="1" value="" required></label></div></div><div class="complete-row"><span class="muted">${ready?"Investigation and extension recorded.":"Record both the investigation and extension before completion."}</span><button id="completeMawa" class="primary" ${ready?"":"disabled"}>Complete and lock Session ${s.slot}</button></div>`;
+    el.innerHTML=`<div class="stage-number">STAGE 5 · PROOF CHECK</div><h2>Check</h2><p class="muted">Score the evidence, not confidence. This is a practice rubric, not an official MAWA admissions score.</p><div class="problem-card"><details ${ready?"":"hidden"}><summary>Compare with model reasoning</summary><p class="solution-panel" style="display:block">${esc(item.solution)}</p>${item.transfer_solution?`<h4>Check the new setting</h4><p class="math-copy">${esc(item.transfer_solution)}</p>`:""}<p class="muted"><b>Common trap:</b> ${esc(item.trap)}</p></details><div class="check-grid"><label class="answer-label">Result 0–3<input id="rResult" type="number" min="0" max="3" value="" required></label><label class="answer-label">Method 0–3<input id="rMethod" type="number" min="0" max="3" value="" required></label><label class="answer-label">Proof / completeness 0–3<input id="rProof" type="number" min="0" max="3" value="" required></label><label class="answer-label">Clarity 0–1<input id="rClarity" type="number" min="0" max="1" value="" required></label></div></div><div class="complete-row"><span class="muted">${ready?"Investigation and extension recorded.":"Record both the investigation and extension before completion."}</span><button id="completeMawa" class="primary" ${ready?"":"disabled"}>Complete and lock Session ${s.slot}</button></div>`;
     if(ready)document.getElementById("completeMawa").onclick=async()=>{if(!["rResult","rMethod","rProof","rClarity"].every(id=>{const x=document.getElementById(id);return x.value!==""&&x.checkValidity()})){alert("Enter each rubric score after comparing the reasoning.");return}const rubric={result:Number(document.getElementById("rResult").value),method:Number(document.getElementById("rMethod").value),proof:Number(document.getElementById("rProof").value),clarity:Number(document.getElementById("rClarity").value)};sessionDraft.summary={...sessionDraft.summary,review_status:"self_reviewed_not_independently_verified",focus:item.title,type:"MAWA",phase:s.phase,investigation_id:item.id,rubric,total:rubric.result+rubric.method+rubric.proof+rubric.clarity};const button=document.getElementById("completeMawa");button.disabled=true;try{await completeSpecialSession(s)}catch(e){alert("Could not finish saving: "+e.message);button.disabled=false}};
   }
   const next=document.getElementById("nextStage");if(next)next.onclick=async()=>{await saveDraft(s);activeStage=Math.min(4,activeStage+1);renderMawaSession(s)};
@@ -289,29 +284,33 @@ function renderChallenge(el,s,p,mode){
     el.querySelector('#prepareMethod').onclick=()=>{activeStage=!guided?1:2;renderSession(s)};return;
   }
   if(!p){el.innerHTML='<div class="empty">No challenge available.</div>';return}
-  el.innerHTML=`<div class="stage-number">STAGE ${mode==="try"?3:4} · ${mode==="try"?"INDEPENDENT ATTEMPT":"TRANSFER"}</div><h2>${mode==="try"?"Try":"Transfer"}</h2><p class="muted">${mode==="try"?"First check the method on a manageable question. Then open the stretch problem.":"Now use your tools in a less familiar setting. The problem may need more than today’s method."}</p>`;
+  el.innerHTML=`<div class="stage-number">STAGE ${mode==="try"?3:4} · ${mode==="try"?"INDEPENDENT ATTEMPT":"TRANSFER"}</div><h2>${mode==="try"?"Try":"Transfer"}</h2><p class="muted">${mode==="try"?"First check the method on a manageable question. Then open the stretch problem.":"Choose a method from the clues, before looking at a hint. Explain how this setting connects to an idea you know."}</p>`;
   const node=problemTemplate.content.firstElementChild.cloneNode(true);
-  node.querySelector(".problem-meta").textContent=`${p.source_type==="authentic_amc"?"AMC ARCHIVE":"ORIGINAL CHALLENGE"} · ${p.source_label||""}`;
+  node.querySelector(".problem-meta").textContent=`ORIGINAL LEARNING PROBLEM · ${mode==="try"?"APPLY THE IDEA":"CHOOSE YOUR METHOD"}`;
   node.querySelector(".problem-title").textContent=p.title||p.id;
-  const promptEl=node.querySelector(".problem-prompt"); promptEl.textContent=p.prompt; const figure=problemFigure(p.id); if(figure)promptEl.insertAdjacentHTML("beforebegin",figure);
+  const promptEl=node.querySelector(".problem-prompt"); promptEl.textContent=p.prompt; const figure=originalFigure(p)||problemFigure(p.id); if(figure)promptEl.insertAdjacentHTML("beforebegin",figure);
   const box=node.querySelector(".answer-box"),submit=node.querySelector(".submit-answer"),reveal=node.querySelector(".reveal-solution"),feedback=node.querySelector(".attempt-feedback"),solution=node.querySelector(".solution-panel");
+  const familiar=familySeen(completedRecords,p.learning.family);
+  const reason=mountReasoning(node,{p,draft:sessionDraft,save:()=>saveDraft(s),showHint:()=>methods[p.learning.skill].idea});
   const saved=sessionDraft.answers[p.id];
   const working=node.querySelector(".working-box");working.value=sessionDraft.working[p.id]||"";working.oninput=()=>{sessionDraft.working[p.id]=working.value};
   box.value=sessionDraft.working["draft-answer:"+p.id]||"";box.oninput=()=>{sessionDraft.working["draft-answer:"+p.id]=box.value};
-  if(saved){box.value=saved.response||"";box.disabled=true;submit.hidden=true;reveal.hidden=false;feedback.hidden=false;feedback.textContent=saved.correct===true?(saved.independent_credit?"Correct on a fresh independent attempt.":"Correct on a repeat/practice attempt."):saved.correct===false?"Attempt recorded. Compare your reasoning, then revisit the method.":"Attempt recorded. This problem needs reasoning rather than a simple exact-answer check."}
+  if(saved){box.value=saved.response||"";box.disabled=true;submit.hidden=true;reveal.hidden=false;feedback.hidden=false;feedback.textContent=applicationStatus(sessionDraft.evidence["application:"+p.id])+". Check the reasoning, not only the final answer."}
   submit.onclick=async()=>{
     const response=box.value.trim();if(!response){feedback.hidden=false;feedback.textContent="Write an answer or reasoning first.";return}
-    submit.disabled=true;feedback.hidden=false;feedback.textContent="Recording independent attempt…";
+    if(!['clue','plan'].every(k=>String(reason[k]||'').trim().length>=8)){feedback.hidden=false;feedback.textContent="Before submitting, record the clue you noticed and why your first step fits. Use the help button if you need a starting point.";return}
+    submit.disabled=true;feedback.hidden=false;feedback.textContent="Recording your attempt…";
     try{
-      const {data:graded,error:gradeError}=await supabase.functions.invoke("submit-problem-attempt",{body:{problem_id:p.id,session_number:s.slot,answer_text:response}});
+      const {data:graded,error:gradeError}=await supabase.functions.invoke("submit-problem-attempt",{body:{problem_id:p.id,session_number:s.slot,answer_text:response,used_help:reason.used_help===true,familiar_family:familiar}});
       if(gradeError)throw gradeError;
       if(graded?.error)throw new Error(graded.error);
       const correct=graded?.correct??null;
+      sessionDraft.evidence['application:'+p.id]={kind:'application',role:p.learning.role,skill_id:p.learning.skill,family:p.learning.family,problem_id:p.id,correct,used_help:reason.used_help===true,familiar_family:familiar,explanation_status:'saved_for_review_not_automatically_verified',recorded_at:new Date().toISOString()};
       attemptedProblemIds.add(p.id);
       attemptHistory.push({problem_id:p.id,is_correct:correct,independent_credit:graded?.independent_credit===true,created_at:new Date().toISOString()});
       sessionDraft.answers[p.id]={response,correct,independent_credit:graded?.independent_credit===true,attempted_at:new Date().toISOString()};
       await upsertSession({session_number:s.slot,session_key:`S${String(s.slot).padStart(3,"0")}`,answers:sessionDraft.answers,working:sessionDraft.working,evidence:sessionDraft.evidence,summary:sessionDraft.summary});
-      box.disabled=true;submit.hidden=true;reveal.hidden=false;feedback.textContent=correct===true?(graded?.independent_credit?"Correct on a fresh independent attempt.":"Correct — recorded as practice, since this problem has been seen before."):correct===false?"Attempt recorded. Now compare methods and find the exact point to improve.":"Attempt recorded. Compare the proof/reasoning rather than relying on exact text matching.";
+      box.disabled=true;submit.hidden=true;reveal.hidden=false;feedback.textContent=applicationStatus(sessionDraft.evidence["application:"+p.id])+". Now check your reasoning against the original conditions.";
     }catch(e){feedback.textContent=e.message;submit.disabled=false}
   };
   reveal.onclick=async()=>{
@@ -331,7 +330,8 @@ function renderChallenge(el,s,p,mode){
         cacheKey:p.id,
         onWatch:detail=>recordVideoEvidence(s.slot,p.id,"challenge_solution",detail)
       });
-      reveal.disabled=true;
+      sessionDraft.evidence['solution:'+p.id]={seen:true,recorded_at:new Date().toISOString()};
+      await saveDraft(s);reveal.disabled=true;
     }catch(e){solution.hidden=false;solution.textContent=e.message}
   };
   if(mode==='try'){
@@ -341,7 +341,7 @@ function renderChallenge(el,s,p,mode){
     mountCheck(prep,{id:sid,slot:s.slot,records:completedRecords,draft:sessionDraft,save:()=>saveDraft(s),label:'YOUR TURN · INDEPENDENT BASICS CHECK',seedOverride:(lessonPlan(s,course,taxonomy).visit+1)%7,onDone:unlock});
   }
   const bridge=document.createElement('div');bridge.className='challenge-bridge';
-  bridge.innerHTML=`<h3>${mode==='try'?'Next: stretch the idea':'Transfer: choose your tools'}</h3><p>This is a challenge, not the first explanation. Read for the requested quantity, sketch or list what is known, and decide which tool fits. If today’s method does not fit on its own, combine it with an older one.</p><details><summary>A starting plan, without the answer</summary><ol><li>Restate the question in your own words.</li><li>Test a smaller case or draw the quantities.</li><li>Look for a connection to the worked examples. Explain why it applies before calculating.</li></ol></details>`;
+  bridge.innerHTML=`<h3>${mode==='try'?'Next: apply the idea':familiar?'Transfer: practise a variation':'Transfer: choose your tools'}</h3><p>This is a challenge, not the first explanation. Read for the requested quantity, sketch or list what is known, and decide which tool fits. If today’s method does not fit on its own, combine it with an older one.</p><details><summary>A starting plan, without the answer</summary><ol><li>Restate the question in your own words.</li><li>Test a smaller case or draw the quantities.</li><li>Look for a connection to the worked examples. Explain why it applies before calculating.</li></ol></details>`;
   node.prepend(bridge);el.appendChild(node);
   const footer=document.createElement("div");footer.className="complete-row";footer.innerHTML=`<button class="ghost" id="prevStage">Back</button><button class="primary" id="nextStage">${mode==="try"?"Transfer":"Check"}</button>`;el.appendChild(footer);
   footer.querySelector("#prevStage").onclick=async()=>{await saveDraft(s);activeStage=mode==="try"?1:2;renderSession(s)};
@@ -353,12 +353,19 @@ function renderCheck(el,s){
   <p class="success-note">You have already checked the basic method before the challenges. Finish by explaining what you learnt, checking your reasoning and choosing a useful next step.</p><div class="check-grid"><label class="answer-label">What was the key idea?<textarea id="takeaway" class="answer-box" placeholder="I would use this when… because… The important step is…">${esc(sessionDraft.summary.takeaway||"")}</textarea></label>
   <label class="answer-label">What will you watch for next time?<textarea id="watch" class="answer-box" placeholder="A mistake I want to avoid is…">${esc(sessionDraft.summary.watch||"")}</textarea></label></div>
   <div class="complete-row"><span class="muted">${attempted}/2 challenge attempts recorded.</span><button id="completeSession" class="primary" ${attempted<2?"disabled":""}>Complete and lock Session ${s.slot}</button></div>`;
+  const checks=document.createElement('section');checks.className='transfer-checks';
+  checks.innerHTML=`<h3>Check, repair, then decide</h3>${currentProblems.map(p=>{const e=sessionDraft.evidence['reasoning:'+p.id]||{};return `<article class="check-status"><h4>${p.learning.role==='transfer'?'Transfer problem':'Practice problem'}</h4><p>${esc(applicationStatus(sessionDraft.evidence['application:'+p.id]))}</p><label class="answer-label">How did you check the result? If it was wrong, where did the reasoning change?<textarea class="reason-input" data-final-check="${p.id}" placeholder="I substituted back / listed the cases / used a different method…">${esc(e.check||'')}</textarea></label></article>`}).join('')}<label class="answer-label">How ready do you feel for another problem with this idea?<select id="transferConfidence" class="answer-box"><option value="">Choose after checking your work</option><option value="ready">Ready to try another independently</option><option value="practice">I need more practice</option><option value="explanation">I need the idea explained again</option></select></label><p class="muted">This is your reflection, not an automatic mastery award. Explanations are saved for you and a parent to review. Mistakes do not block progress once you have attempted, checked and reflected.</p>`;
+  el.querySelector('.complete-row').before(checks);
+  checks.querySelectorAll('[data-final-check]').forEach(input=>input.oninput=()=>{const key='reasoning:'+input.dataset.finalCheck;sessionDraft.evidence[key]||={};sessionDraft.evidence[key].check=input.value});
+  checks.querySelector('#transferConfidence').value=sessionDraft.summary.transfer_confidence||'';
+  checks.querySelector('#transferConfidence').onchange=e=>{sessionDraft.summary.transfer_confidence=e.target.value};
   const sid=skillFor(s,taxonomy);
   document.getElementById("takeaway").oninput=e=>{sessionDraft.summary.takeaway=e.target.value};
   document.getElementById("watch").oninput=e=>{sessionDraft.summary.watch=e.target.value};
   document.getElementById("completeSession").onclick=async()=>{
     if(sid&&!sessionDraft.evidence["retrieval:"+sid]){alert("Complete the independent basics check in Try first. Use a hint if needed.");return}
     if((sessionDraft.summary.retrieval_ids||[]).some(id=>!sessionDraft.evidence["retrieval:"+id])){alert("Finish the due Remember checks first.");return}
+    if(!currentProblems.every(p=>reasoningReady(sessionDraft,p.id))||!sessionDraft.summary.transfer_confidence){alert("Record a check or correction for each problem, then choose how ready you feel. A mistake is useful evidence; it does not prevent completion.");return}
     const take=document.getElementById("takeaway").value.trim(),watch=document.getElementById("watch").value.trim();
     if(!take||!watch){alert("Write both short reflections before completing the session.");return}
     clearTimeout(autosaveTimer);const btn=document.getElementById("completeSession");btn.disabled=true;btn.textContent="Locking session…";

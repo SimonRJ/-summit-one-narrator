@@ -124,3 +124,10 @@ h1,h2,h3,p{margin-top:0}.hero-panel h1{font-size:clamp(2rem,6vw,4.2rem);line-hei
 .mini-check{margin-bottom:24px}
 @media(max-width:600px){.intro-grid{grid-template-columns:1fr;gap:22px}.gentle-example{padding:18px}.session-intro h2{font-size:1.4rem}.reasoning-steps{padding-left:22px}}
 .method-card .worked-example h3{font-size:1.1rem;line-height:1.65;margin:12px 0 18px}
+/* Original-problem reasoning sequence. */
+.reasoning-record{margin:24px 0;padding:20px;border:1px solid var(--line,#30455b);border-radius:16px;background:rgba(125,209,233,.035)}
+.reason-input{display:block;width:100%;min-height:90px;margin-top:8px;padding:12px;border:1px solid #425469;border-radius:10px;background:#0b1624;color:inherit;font:inherit;resize:vertical;box-sizing:border-box}
+.support-choice{display:flex;gap:10px;align-items:flex-start;margin:18px 0;font-size:.94rem}.support-choice input{margin-top:4px;flex-shrink:0}
+.transfer-evidence{padding:20px 0}.check-status{border-left:3px solid var(--gold,#eed083);padding:12px 18px;margin:18px 0}.reasoning-status{margin:12px 0;color:var(--muted,#acb8c9)}
+
+.original-figure{max-width:440px;margin:22px auto}.original-figure svg{display:block;width:100%;height:auto}.original-figure figcaption{font-size:.85rem;line-height:1.5;color:var(--muted,#acb8c9);text-align:center}

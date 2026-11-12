@@ -1,5 +1,5 @@
-import {journeys,investigationOpeners} from './lesson-journeys.js?v=journey-20261112';
-import {skillFor,methods,exercise,capstoneSkills} from './curriculum.js?v=journey-20261112';
+import {journeys,investigationOpeners} from './lesson-journeys.js?v=original-transfer-20261112';
+import {skillFor,methods,exercise,capstoneSkills} from './curriculum.js?v=original-transfer-20261112';
 const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 export function lessonPlan(s,course,taxonomy){
  const id=skillFor(s,taxonomy),j=journeys[id];

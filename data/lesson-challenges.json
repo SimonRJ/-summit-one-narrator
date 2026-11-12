@@ -1,0 +1,5100 @@
+{
+  "version": "original-transfer-20261112",
+  "note": "Different numbers in a repeated family are practice, not evidence of a new structure.",
+  "items": [
+    {
+      "id": "O001T",
+      "session": 1,
+      "skill": "DIV-03",
+      "role": "try",
+      "family": "DIV-03:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O001X",
+      "session": 1,
+      "skill": "DIV-03",
+      "role": "transfer",
+      "family": "DIV-03:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O002T",
+      "session": 2,
+      "skill": "DIG-01",
+      "role": "try",
+      "family": "DIG-01:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O002X",
+      "session": 2,
+      "skill": "DIG-01",
+      "role": "transfer",
+      "family": "DIG-01:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O003T",
+      "session": 3,
+      "skill": "ALG-04",
+      "role": "try",
+      "family": "ALG-04:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O003X",
+      "session": 3,
+      "skill": "ALG-04",
+      "role": "transfer",
+      "family": "ALG-04:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O004T",
+      "session": 4,
+      "skill": "DIG-02",
+      "role": "try",
+      "family": "DIG-02:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O004X",
+      "session": 4,
+      "skill": "DIG-02",
+      "role": "transfer",
+      "family": "DIG-02:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O005T",
+      "session": 5,
+      "skill": "DIG-03",
+      "role": "try",
+      "family": "DIG-03:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O005X",
+      "session": 5,
+      "skill": "DIG-03",
+      "role": "transfer",
+      "family": "DIG-03:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O006T",
+      "session": 6,
+      "skill": "SOLID-01",
+      "role": "try",
+      "family": "SOLID-01:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O006X",
+      "session": 6,
+      "skill": "SOLID-01",
+      "role": "transfer",
+      "family": "SOLID-01:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O008T",
+      "session": 8,
+      "skill": "DIG-04",
+      "role": "try",
+      "family": "DIG-04:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O008X",
+      "session": 8,
+      "skill": "DIG-04",
+      "role": "transfer",
+      "family": "DIG-04:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O009T",
+      "session": 9,
+      "skill": "DIG-05",
+      "role": "try",
+      "family": "DIG-05:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O009X",
+      "session": 9,
+      "skill": "DIG-05",
+      "role": "transfer",
+      "family": "DIG-05:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O010T",
+      "session": 10,
+      "skill": "DIG-05",
+      "role": "try",
+      "family": "DIG-05:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O010X",
+      "session": 10,
+      "skill": "DIG-05",
+      "role": "transfer",
+      "family": "DIG-05:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O011T",
+      "session": 11,
+      "skill": "DIV-01",
+      "role": "try",
+      "family": "DIV-01:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O011X",
+      "session": 11,
+      "skill": "DIV-01",
+      "role": "transfer",
+      "family": "DIV-01:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O012T",
+      "session": 12,
+      "skill": "SEQ-03",
+      "role": "try",
+      "family": "SEQ-03:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O012X",
+      "session": 12,
+      "skill": "SEQ-03",
+      "role": "transfer",
+      "family": "SEQ-03:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O013T",
+      "session": 13,
+      "skill": "DIV-02",
+      "role": "try",
+      "family": "DIV-02:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O013X",
+      "session": 13,
+      "skill": "DIV-02",
+      "role": "transfer",
+      "family": "DIV-02:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O015T",
+      "session": 15,
+      "skill": "DIV-03",
+      "role": "try",
+      "family": "DIV-03:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O015X",
+      "session": 15,
+      "skill": "DIV-03",
+      "role": "transfer",
+      "family": "DIV-03:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O017T",
+      "session": 17,
+      "skill": "SPATIAL-02",
+      "role": "try",
+      "family": "SPATIAL-02:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O017X",
+      "session": 17,
+      "skill": "SPATIAL-02",
+      "role": "transfer",
+      "family": "SPATIAL-02:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O018T",
+      "session": 18,
+      "skill": "DIV-04",
+      "role": "try",
+      "family": "DIV-04:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O018X",
+      "session": 18,
+      "skill": "DIV-04",
+      "role": "transfer",
+      "family": "DIV-04:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O019T",
+      "session": 19,
+      "skill": "DIV-04",
+      "role": "try",
+      "family": "DIV-04:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O019X",
+      "session": 19,
+      "skill": "DIV-04",
+      "role": "transfer",
+      "family": "DIV-04:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O020T",
+      "session": 20,
+      "skill": "DIV-05",
+      "role": "try",
+      "family": "DIV-05:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O020X",
+      "session": 20,
+      "skill": "DIV-05",
+      "role": "transfer",
+      "family": "DIV-05:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O022T",
+      "session": 22,
+      "skill": "FRAC-01",
+      "role": "try",
+      "family": "FRAC-01:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O022X",
+      "session": 22,
+      "skill": "FRAC-01",
+      "role": "transfer",
+      "family": "FRAC-01:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O023T",
+      "session": 23,
+      "skill": "COUNT-03",
+      "role": "try",
+      "family": "COUNT-03:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O023X",
+      "session": 23,
+      "skill": "COUNT-03",
+      "role": "transfer",
+      "family": "COUNT-03:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O024T",
+      "session": 24,
+      "skill": "FRAC-02",
+      "role": "try",
+      "family": "FRAC-02:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O024X",
+      "session": 24,
+      "skill": "FRAC-02",
+      "role": "transfer",
+      "family": "FRAC-02:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O025T",
+      "session": 25,
+      "skill": "FRAC-03",
+      "role": "try",
+      "family": "FRAC-03:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O025X",
+      "session": 25,
+      "skill": "FRAC-03",
+      "role": "transfer",
+      "family": "FRAC-03:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O026T",
+      "session": 26,
+      "skill": "DATA-02",
+      "role": "try",
+      "family": "DATA-02:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O026X",
+      "session": 26,
+      "skill": "DATA-02",
+      "role": "transfer",
+      "family": "DATA-02:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O027T",
+      "session": 27,
+      "skill": "FRAC-04",
+      "role": "try",
+      "family": "FRAC-04:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O027X",
+      "session": 27,
+      "skill": "FRAC-04",
+      "role": "transfer",
+      "family": "FRAC-04:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O029T",
+      "session": 29,
+      "skill": "FRAC-03",
+      "role": "try",
+      "family": "FRAC-03:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O029X",
+      "session": 29,
+      "skill": "FRAC-03",
+      "role": "transfer",
+      "family": "FRAC-03:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O030T",
+      "session": 30,
+      "skill": "RATE-01",
+      "role": "try",
+      "family": "RATE-01:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O030X",
+      "session": 30,
+      "skill": "RATE-01",
+      "role": "transfer",
+      "family": "RATE-01:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O031T",
+      "session": 31,
+      "skill": "RATE-02",
+      "role": "try",
+      "family": "RATE-02:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O031X",
+      "session": 31,
+      "skill": "RATE-02",
+      "role": "transfer",
+      "family": "RATE-02:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O033T",
+      "session": 33,
+      "skill": "LOGIC-01",
+      "role": "try",
+      "family": "LOGIC-01:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O033X",
+      "session": 33,
+      "skill": "LOGIC-01",
+      "role": "transfer",
+      "family": "LOGIC-01:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O034T",
+      "session": 34,
+      "skill": "RATE-03",
+      "role": "try",
+      "family": "RATE-03:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O034X",
+      "session": 34,
+      "skill": "RATE-03",
+      "role": "transfer",
+      "family": "RATE-03:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O036T",
+      "session": 36,
+      "skill": "SPATIAL-03",
+      "role": "try",
+      "family": "SPATIAL-03:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O036X",
+      "session": 36,
+      "skill": "SPATIAL-03",
+      "role": "transfer",
+      "family": "SPATIAL-03:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O037T",
+      "session": 37,
+      "skill": "RATE-04",
+      "role": "try",
+      "family": "RATE-04:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O037X",
+      "session": 37,
+      "skill": "RATE-04",
+      "role": "transfer",
+      "family": "RATE-04:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O038T",
+      "session": 38,
+      "skill": "ALG-01",
+      "role": "try",
+      "family": "ALG-01:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O038X",
+      "session": 38,
+      "skill": "ALG-01",
+      "role": "transfer",
+      "family": "ALG-01:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O039T",
+      "session": 39,
+      "skill": "RATE-03",
+      "role": "try",
+      "family": "RATE-03:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O039X",
+      "session": 39,
+      "skill": "RATE-03",
+      "role": "transfer",
+      "family": "RATE-03:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O040T",
+      "session": 40,
+      "skill": "ALG-02",
+      "role": "try",
+      "family": "ALG-02:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O040X",
+      "session": 40,
+      "skill": "ALG-02",
+      "role": "transfer",
+      "family": "ALG-02:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O041T",
+      "session": 41,
+      "skill": "ALG-03",
+      "role": "try",
+      "family": "ALG-03:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O041X",
+      "session": 41,
+      "skill": "ALG-03",
+      "role": "transfer",
+      "family": "ALG-03:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O043T",
+      "session": 43,
+      "skill": "GEO-01",
+      "role": "try",
+      "family": "GEO-01:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O043X",
+      "session": 43,
+      "skill": "GEO-01",
+      "role": "transfer",
+      "family": "GEO-01:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O044T",
+      "session": 44,
+      "skill": "ALG-04",
+      "role": "try",
+      "family": "ALG-04:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O044X",
+      "session": 44,
+      "skill": "ALG-04",
+      "role": "transfer",
+      "family": "ALG-04:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O045T",
+      "session": 45,
+      "skill": "DATA-03",
+      "role": "try",
+      "family": "DATA-03:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O045X",
+      "session": 45,
+      "skill": "DATA-03",
+      "role": "transfer",
+      "family": "DATA-03:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O046T",
+      "session": 46,
+      "skill": "ALG-05",
+      "role": "try",
+      "family": "ALG-05:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O046X",
+      "session": 46,
+      "skill": "ALG-05",
+      "role": "transfer",
+      "family": "ALG-05:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O047T",
+      "session": 47,
+      "skill": "SEQ-01",
+      "role": "try",
+      "family": "SEQ-01:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O047X",
+      "session": 47,
+      "skill": "SEQ-01",
+      "role": "transfer",
+      "family": "SEQ-01:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O050T",
+      "session": 50,
+      "skill": "ALG-03",
+      "role": "try",
+      "family": "ALG-03:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O050X",
+      "session": 50,
+      "skill": "ALG-03",
+      "role": "transfer",
+      "family": "ALG-03:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O051T",
+      "session": 51,
+      "skill": "SEQ-02",
+      "role": "try",
+      "family": "SEQ-02:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O051X",
+      "session": 51,
+      "skill": "SEQ-02",
+      "role": "transfer",
+      "family": "SEQ-02:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O052T",
+      "session": 52,
+      "skill": "SEQ-03",
+      "role": "try",
+      "family": "SEQ-03:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O052X",
+      "session": 52,
+      "skill": "SEQ-03",
+      "role": "transfer",
+      "family": "SEQ-03:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O053T",
+      "session": 53,
+      "skill": "GEO-05",
+      "role": "try",
+      "family": "GEO-05:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O053X",
+      "session": 53,
+      "skill": "GEO-05",
+      "role": "transfer",
+      "family": "GEO-05:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O054T",
+      "session": 54,
+      "skill": "SEQ-04",
+      "role": "try",
+      "family": "SEQ-04:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O054X",
+      "session": 54,
+      "skill": "SEQ-04",
+      "role": "transfer",
+      "family": "SEQ-04:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O055T",
+      "session": 55,
+      "skill": "DIG-04",
+      "role": "try",
+      "family": "DIG-04:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O055X",
+      "session": 55,
+      "skill": "DIG-04",
+      "role": "transfer",
+      "family": "DIG-04:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O057T",
+      "session": 57,
+      "skill": "COUNT-01",
+      "role": "try",
+      "family": "COUNT-01:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O057X",
+      "session": 57,
+      "skill": "COUNT-01",
+      "role": "transfer",
+      "family": "COUNT-01:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O058T",
+      "session": 58,
+      "skill": "COUNT-02",
+      "role": "try",
+      "family": "COUNT-02:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O058X",
+      "session": 58,
+      "skill": "COUNT-02",
+      "role": "transfer",
+      "family": "COUNT-02:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O059T",
+      "session": 59,
+      "skill": "SEQ-02",
+      "role": "try",
+      "family": "SEQ-02:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O059X",
+      "session": 59,
+      "skill": "SEQ-02",
+      "role": "transfer",
+      "family": "SEQ-02:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O060T",
+      "session": 60,
+      "skill": "COUNT-03",
+      "role": "try",
+      "family": "COUNT-03:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O060X",
+      "session": 60,
+      "skill": "COUNT-03",
+      "role": "transfer",
+      "family": "COUNT-03:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O061T",
+      "session": 61,
+      "skill": "GEO-02",
+      "role": "try",
+      "family": "GEO-02:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O061X",
+      "session": 61,
+      "skill": "GEO-02",
+      "role": "transfer",
+      "family": "GEO-02:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O062T",
+      "session": 62,
+      "skill": "COUNT-04",
+      "role": "try",
+      "family": "COUNT-04:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O062X",
+      "session": 62,
+      "skill": "COUNT-04",
+      "role": "transfer",
+      "family": "COUNT-04:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O065T",
+      "session": 65,
+      "skill": "COUNT-05",
+      "role": "try",
+      "family": "COUNT-05:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O065X",
+      "session": 65,
+      "skill": "COUNT-05",
+      "role": "transfer",
+      "family": "COUNT-05:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O066T",
+      "session": 66,
+      "skill": "DIV-03",
+      "role": "try",
+      "family": "DIV-03:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O066X",
+      "session": 66,
+      "skill": "DIV-03",
+      "role": "transfer",
+      "family": "DIV-03:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O067T",
+      "session": 67,
+      "skill": "COUNT-06",
+      "role": "try",
+      "family": "COUNT-06:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O067X",
+      "session": 67,
+      "skill": "COUNT-06",
+      "role": "transfer",
+      "family": "COUNT-06:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O068T",
+      "session": 68,
+      "skill": "LOGIC-01",
+      "role": "try",
+      "family": "LOGIC-01:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O068X",
+      "session": 68,
+      "skill": "LOGIC-01",
+      "role": "transfer",
+      "family": "LOGIC-01:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O069T",
+      "session": 69,
+      "skill": "COUNT-02",
+      "role": "try",
+      "family": "COUNT-02:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O069X",
+      "session": 69,
+      "skill": "COUNT-02",
+      "role": "transfer",
+      "family": "COUNT-02:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O071T",
+      "session": 71,
+      "skill": "LOGIC-02",
+      "role": "try",
+      "family": "LOGIC-02:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O071X",
+      "session": 71,
+      "skill": "LOGIC-02",
+      "role": "transfer",
+      "family": "LOGIC-02:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O072T",
+      "session": 72,
+      "skill": "SOLID-01",
+      "role": "try",
+      "family": "SOLID-01:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O072X",
+      "session": 72,
+      "skill": "SOLID-01",
+      "role": "transfer",
+      "family": "SOLID-01:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O073T",
+      "session": 73,
+      "skill": "LOGIC-03",
+      "role": "try",
+      "family": "LOGIC-03:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O073X",
+      "session": 73,
+      "skill": "LOGIC-03",
+      "role": "transfer",
+      "family": "LOGIC-03:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O074T",
+      "session": 74,
+      "skill": "LOGIC-04",
+      "role": "try",
+      "family": "LOGIC-04:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O074X",
+      "session": 74,
+      "skill": "LOGIC-04",
+      "role": "transfer",
+      "family": "LOGIC-04:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O075T",
+      "session": 75,
+      "skill": "FRAC-02",
+      "role": "try",
+      "family": "FRAC-02:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O075X",
+      "session": 75,
+      "skill": "FRAC-02",
+      "role": "transfer",
+      "family": "FRAC-02:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O076T",
+      "session": 76,
+      "skill": "GEO-01",
+      "role": "try",
+      "family": "GEO-01:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O076X",
+      "session": 76,
+      "skill": "GEO-01",
+      "role": "transfer",
+      "family": "GEO-01:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O078T",
+      "session": 78,
+      "skill": "GEO-02",
+      "role": "try",
+      "family": "GEO-02:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O078X",
+      "session": 78,
+      "skill": "GEO-02",
+      "role": "transfer",
+      "family": "GEO-02:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O079T",
+      "session": 79,
+      "skill": "COUNT-06",
+      "role": "try",
+      "family": "COUNT-06:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O079X",
+      "session": 79,
+      "skill": "COUNT-06",
+      "role": "transfer",
+      "family": "COUNT-06:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O081T",
+      "session": 81,
+      "skill": "GEO-03",
+      "role": "try",
+      "family": "GEO-03:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O081X",
+      "session": 81,
+      "skill": "GEO-03",
+      "role": "transfer",
+      "family": "GEO-03:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O082T",
+      "session": 82,
+      "skill": "SPATIAL-02",
+      "role": "try",
+      "family": "SPATIAL-02:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O082X",
+      "session": 82,
+      "skill": "SPATIAL-02",
+      "role": "transfer",
+      "family": "SPATIAL-02:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O083T",
+      "session": 83,
+      "skill": "GEO-04",
+      "role": "try",
+      "family": "GEO-04:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O083X",
+      "session": 83,
+      "skill": "GEO-04",
+      "role": "transfer",
+      "family": "GEO-04:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O085T",
+      "session": 85,
+      "skill": "GEO-05",
+      "role": "try",
+      "family": "GEO-05:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O085X",
+      "session": 85,
+      "skill": "GEO-05",
+      "role": "transfer",
+      "family": "GEO-05:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O086T",
+      "session": 86,
+      "skill": "RATE-02",
+      "role": "try",
+      "family": "RATE-02:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O086X",
+      "session": 86,
+      "skill": "RATE-02",
+      "role": "transfer",
+      "family": "RATE-02:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O087T",
+      "session": 87,
+      "skill": "SOLID-01",
+      "role": "try",
+      "family": "SOLID-01:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O087X",
+      "session": 87,
+      "skill": "SOLID-01",
+      "role": "transfer",
+      "family": "SOLID-01:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O088T",
+      "session": 88,
+      "skill": "COUNT-03",
+      "role": "try",
+      "family": "COUNT-03:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O088X",
+      "session": 88,
+      "skill": "COUNT-03",
+      "role": "transfer",
+      "family": "COUNT-03:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O089T",
+      "session": 89,
+      "skill": "SOLID-02",
+      "role": "try",
+      "family": "SOLID-02:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O089X",
+      "session": 89,
+      "skill": "SOLID-02",
+      "role": "transfer",
+      "family": "SOLID-02:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O090T",
+      "session": 90,
+      "skill": "SOLID-03",
+      "role": "try",
+      "family": "SOLID-03:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O090X",
+      "session": 90,
+      "skill": "SOLID-03",
+      "role": "transfer",
+      "family": "SOLID-03:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O092T",
+      "session": 92,
+      "skill": "DATA-02",
+      "role": "try",
+      "family": "DATA-02:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O092X",
+      "session": 92,
+      "skill": "DATA-02",
+      "role": "transfer",
+      "family": "DATA-02:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O093T",
+      "session": 93,
+      "skill": "SPATIAL-01",
+      "role": "try",
+      "family": "SPATIAL-01:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O093X",
+      "session": 93,
+      "skill": "SPATIAL-01",
+      "role": "transfer",
+      "family": "SPATIAL-01:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O094T",
+      "session": 94,
+      "skill": "SPATIAL-02",
+      "role": "try",
+      "family": "SPATIAL-02:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O094X",
+      "session": 94,
+      "skill": "SPATIAL-02",
+      "role": "transfer",
+      "family": "SPATIAL-02:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O095T",
+      "session": 95,
+      "skill": "ALG-02",
+      "role": "try",
+      "family": "ALG-02:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O095X",
+      "session": 95,
+      "skill": "ALG-02",
+      "role": "transfer",
+      "family": "ALG-02:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O097T",
+      "session": 97,
+      "skill": "SPATIAL-03",
+      "role": "try",
+      "family": "SPATIAL-03:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O097X",
+      "session": 97,
+      "skill": "SPATIAL-03",
+      "role": "transfer",
+      "family": "SPATIAL-03:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O099T",
+      "session": 99,
+      "skill": "LOGIC-01",
+      "role": "try",
+      "family": "LOGIC-01:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O099X",
+      "session": 99,
+      "skill": "LOGIC-01",
+      "role": "transfer",
+      "family": "LOGIC-01:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O100T",
+      "session": 100,
+      "skill": "SPATIAL-04",
+      "role": "try",
+      "family": "SPATIAL-04:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O100X",
+      "session": 100,
+      "skill": "SPATIAL-04",
+      "role": "transfer",
+      "family": "SPATIAL-04:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O101T",
+      "session": 101,
+      "skill": "DATA-01",
+      "role": "try",
+      "family": "DATA-01:try",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O101X",
+      "session": 101,
+      "skill": "DATA-01",
+      "role": "transfer",
+      "family": "DATA-01:transfer",
+      "visit": 1,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O102T",
+      "session": 102,
+      "skill": "DIG-03",
+      "role": "try",
+      "family": "DIG-03:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O102X",
+      "session": 102,
+      "skill": "DIG-03",
+      "role": "transfer",
+      "family": "DIG-03:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O103T",
+      "session": 103,
+      "skill": "DATA-02",
+      "role": "try",
+      "family": "DATA-02:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O103X",
+      "session": 103,
+      "skill": "DATA-02",
+      "role": "transfer",
+      "family": "DATA-02:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O104T",
+      "session": 104,
+      "skill": "DATA-03",
+      "role": "try",
+      "family": "DATA-03:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O104X",
+      "session": 104,
+      "skill": "DATA-03",
+      "role": "transfer",
+      "family": "DATA-03:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O106T",
+      "session": 106,
+      "skill": "RATE-02",
+      "role": "try",
+      "family": "RATE-02:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O106X",
+      "session": 106,
+      "skill": "RATE-02",
+      "role": "transfer",
+      "family": "RATE-02:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O107T",
+      "session": 107,
+      "skill": "SEQ-04",
+      "role": "try",
+      "family": "SEQ-04:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O107X",
+      "session": 107,
+      "skill": "SEQ-04",
+      "role": "transfer",
+      "family": "SEQ-04:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O108T",
+      "session": 108,
+      "skill": "GEO-01",
+      "role": "try",
+      "family": "GEO-01:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O108X",
+      "session": 108,
+      "skill": "GEO-01",
+      "role": "transfer",
+      "family": "GEO-01:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O109T",
+      "session": 109,
+      "skill": "SPATIAL-04",
+      "role": "try",
+      "family": "SPATIAL-04:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O109X",
+      "session": 109,
+      "skill": "SPATIAL-04",
+      "role": "transfer",
+      "family": "SPATIAL-04:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O110T",
+      "session": 110,
+      "skill": "DIV-03",
+      "role": "try",
+      "family": "DIV-03:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O110X",
+      "session": 110,
+      "skill": "DIV-03",
+      "role": "transfer",
+      "family": "DIV-03:transfer",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O113T",
+      "session": 113,
+      "skill": "SOLID-02",
+      "role": "try",
+      "family": "SOLID-02:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O113X",
+      "session": 113,
+      "skill": "SOLID-02",
+      "role": "transfer",
+      "family": "SOLID-02:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O114T",
+      "session": 114,
+      "skill": "DIG-03",
+      "role": "try",
+      "family": "DIG-03:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O114X",
+      "session": 114,
+      "skill": "DIG-03",
+      "role": "transfer",
+      "family": "DIG-03:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O115T",
+      "session": 115,
+      "skill": "FRAC-04",
+      "role": "try",
+      "family": "FRAC-04:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O115X",
+      "session": 115,
+      "skill": "FRAC-04",
+      "role": "transfer",
+      "family": "FRAC-04:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O116T",
+      "session": 116,
+      "skill": "SEQ-02",
+      "role": "try",
+      "family": "SEQ-02:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O116X",
+      "session": 116,
+      "skill": "SEQ-02",
+      "role": "transfer",
+      "family": "SEQ-02:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O117T",
+      "session": 117,
+      "skill": "LOGIC-03",
+      "role": "try",
+      "family": "LOGIC-03:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O117X",
+      "session": 117,
+      "skill": "LOGIC-03",
+      "role": "transfer",
+      "family": "LOGIC-03:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O118T",
+      "session": 118,
+      "skill": "SPATIAL-02",
+      "role": "try",
+      "family": "SPATIAL-02:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O118X",
+      "session": 118,
+      "skill": "SPATIAL-02",
+      "role": "transfer",
+      "family": "SPATIAL-02:transfer",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O120T",
+      "session": 120,
+      "skill": "ALG-02",
+      "role": "try",
+      "family": "ALG-02:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O120X",
+      "session": 120,
+      "skill": "ALG-02",
+      "role": "transfer",
+      "family": "ALG-02:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O121T",
+      "session": 121,
+      "skill": "COUNT-04",
+      "role": "try",
+      "family": "COUNT-04:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O121X",
+      "session": 121,
+      "skill": "COUNT-04",
+      "role": "transfer",
+      "family": "COUNT-04:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O122T",
+      "session": 122,
+      "skill": "GEO-05",
+      "role": "try",
+      "family": "GEO-05:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O122X",
+      "session": 122,
+      "skill": "GEO-05",
+      "role": "transfer",
+      "family": "GEO-05:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O123T",
+      "session": 123,
+      "skill": "DIG-01",
+      "role": "try",
+      "family": "DIG-01:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O123X",
+      "session": 123,
+      "skill": "DIG-01",
+      "role": "transfer",
+      "family": "DIG-01:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O124T",
+      "session": 124,
+      "skill": "FRAC-02",
+      "role": "try",
+      "family": "FRAC-02:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O124X",
+      "session": 124,
+      "skill": "FRAC-02",
+      "role": "transfer",
+      "family": "FRAC-02:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O125T",
+      "session": 125,
+      "skill": "ALG-05",
+      "role": "try",
+      "family": "ALG-05:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O125X",
+      "session": 125,
+      "skill": "ALG-05",
+      "role": "transfer",
+      "family": "ALG-05:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O127T",
+      "session": 127,
+      "skill": "SPATIAL-03",
+      "role": "try",
+      "family": "SPATIAL-03:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O127X",
+      "session": 127,
+      "skill": "SPATIAL-03",
+      "role": "transfer",
+      "family": "SPATIAL-03:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O129T",
+      "session": 129,
+      "skill": "RATE-04",
+      "role": "try",
+      "family": "RATE-04:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O129X",
+      "session": 129,
+      "skill": "RATE-04",
+      "role": "transfer",
+      "family": "RATE-04:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O130T",
+      "session": 130,
+      "skill": "COUNT-02",
+      "role": "try",
+      "family": "COUNT-02:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O130X",
+      "session": 130,
+      "skill": "COUNT-02",
+      "role": "transfer",
+      "family": "COUNT-02:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O131T",
+      "session": 131,
+      "skill": "GEO-03",
+      "role": "try",
+      "family": "GEO-03:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O131X",
+      "session": 131,
+      "skill": "GEO-03",
+      "role": "transfer",
+      "family": "GEO-03:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O132T",
+      "session": 132,
+      "skill": "DATA-02",
+      "role": "try",
+      "family": "DATA-02:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O132X",
+      "session": 132,
+      "skill": "DATA-02",
+      "role": "transfer",
+      "family": "DATA-02:transfer",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O134T",
+      "session": 134,
+      "skill": "SEQ-01",
+      "role": "try",
+      "family": "SEQ-01:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O134X",
+      "session": 134,
+      "skill": "SEQ-01",
+      "role": "transfer",
+      "family": "SEQ-01:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O135T",
+      "session": 135,
+      "skill": "LOGIC-02",
+      "role": "try",
+      "family": "LOGIC-02:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O135X",
+      "session": 135,
+      "skill": "LOGIC-02",
+      "role": "transfer",
+      "family": "LOGIC-02:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O137T",
+      "session": 137,
+      "skill": "DIG-05",
+      "role": "try",
+      "family": "DIG-05:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O137X",
+      "session": 137,
+      "skill": "DIG-05",
+      "role": "transfer",
+      "family": "DIG-05:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O138T",
+      "session": 138,
+      "skill": "RATE-02",
+      "role": "try",
+      "family": "RATE-02:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O138X",
+      "session": 138,
+      "skill": "RATE-02",
+      "role": "transfer",
+      "family": "RATE-02:transfer",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O139T",
+      "session": 139,
+      "skill": "SEQ-04",
+      "role": "try",
+      "family": "SEQ-04:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O139X",
+      "session": 139,
+      "skill": "SEQ-04",
+      "role": "transfer",
+      "family": "SEQ-04:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O141T",
+      "session": 141,
+      "skill": "DATA-03",
+      "role": "try",
+      "family": "DATA-03:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O141X",
+      "session": 141,
+      "skill": "DATA-03",
+      "role": "transfer",
+      "family": "DATA-03:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O142T",
+      "session": 142,
+      "skill": "FRAC-01",
+      "role": "try",
+      "family": "FRAC-01:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O142X",
+      "session": 142,
+      "skill": "FRAC-01",
+      "role": "transfer",
+      "family": "FRAC-01:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O143T",
+      "session": 143,
+      "skill": "ALG-04",
+      "role": "try",
+      "family": "ALG-04:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O143X",
+      "session": 143,
+      "skill": "ALG-04",
+      "role": "transfer",
+      "family": "ALG-04:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O145T",
+      "session": 145,
+      "skill": "SOLID-02",
+      "role": "try",
+      "family": "SOLID-02:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O145X",
+      "session": 145,
+      "skill": "SOLID-02",
+      "role": "transfer",
+      "family": "SOLID-02:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O146T",
+      "session": 146,
+      "skill": "DIG-03",
+      "role": "try",
+      "family": "DIG-03:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O146X",
+      "session": 146,
+      "skill": "DIG-03",
+      "role": "transfer",
+      "family": "DIG-03:transfer",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O148T",
+      "session": 148,
+      "skill": "COUNT-01",
+      "role": "try",
+      "family": "COUNT-01:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O148X",
+      "session": 148,
+      "skill": "COUNT-01",
+      "role": "transfer",
+      "family": "COUNT-01:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O149T",
+      "session": 149,
+      "skill": "GEO-02",
+      "role": "try",
+      "family": "GEO-02:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O149X",
+      "session": 149,
+      "skill": "GEO-02",
+      "role": "transfer",
+      "family": "GEO-02:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O150T",
+      "session": 150,
+      "skill": "DATA-01",
+      "role": "try",
+      "family": "DATA-01:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O150X",
+      "session": 150,
+      "skill": "DATA-01",
+      "role": "transfer",
+      "family": "DATA-01:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O151T",
+      "session": 151,
+      "skill": "DIV-04",
+      "role": "try",
+      "family": "DIV-04:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O151X",
+      "session": 151,
+      "skill": "DIV-04",
+      "role": "transfer",
+      "family": "DIV-04:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O152T",
+      "session": 152,
+      "skill": "ALG-02",
+      "role": "try",
+      "family": "ALG-02:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O152X",
+      "session": 152,
+      "skill": "ALG-02",
+      "role": "transfer",
+      "family": "ALG-02:transfer",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O153T",
+      "session": 153,
+      "skill": "COUNT-04",
+      "role": "try",
+      "family": "COUNT-04:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O153X",
+      "session": 153,
+      "skill": "COUNT-04",
+      "role": "transfer",
+      "family": "COUNT-04:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O155T",
+      "session": 155,
+      "skill": "DIG-04",
+      "role": "try",
+      "family": "DIG-04:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O155X",
+      "session": 155,
+      "skill": "DIG-04",
+      "role": "transfer",
+      "family": "DIG-04:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O156T",
+      "session": 156,
+      "skill": "RATE-01",
+      "role": "try",
+      "family": "RATE-01:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O156X",
+      "session": 156,
+      "skill": "RATE-01",
+      "role": "transfer",
+      "family": "RATE-01:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O157T",
+      "session": 157,
+      "skill": "SEQ-03",
+      "role": "try",
+      "family": "SEQ-03:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O157X",
+      "session": 157,
+      "skill": "SEQ-03",
+      "role": "transfer",
+      "family": "SEQ-03:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O158T",
+      "session": 158,
+      "skill": "LOGIC-04",
+      "role": "try",
+      "family": "LOGIC-04:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O158X",
+      "session": 158,
+      "skill": "LOGIC-04",
+      "role": "transfer",
+      "family": "LOGIC-04:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O159T",
+      "session": 159,
+      "skill": "SPATIAL-03",
+      "role": "try",
+      "family": "SPATIAL-03:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O159X",
+      "session": 159,
+      "skill": "SPATIAL-03",
+      "role": "transfer",
+      "family": "SPATIAL-03:transfer",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O162T",
+      "session": 162,
+      "skill": "COUNT-05",
+      "role": "try",
+      "family": "COUNT-05:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O162X",
+      "session": 162,
+      "skill": "COUNT-05",
+      "role": "transfer",
+      "family": "COUNT-05:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O163T",
+      "session": 163,
+      "skill": "SOLID-01",
+      "role": "try",
+      "family": "SOLID-01:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O163X",
+      "session": 163,
+      "skill": "SOLID-01",
+      "role": "transfer",
+      "family": "SOLID-01:transfer",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O164T",
+      "session": 164,
+      "skill": "DIG-02",
+      "role": "try",
+      "family": "DIG-02:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O164X",
+      "session": 164,
+      "skill": "DIG-02",
+      "role": "transfer",
+      "family": "DIG-02:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O165T",
+      "session": 165,
+      "skill": "FRAC-03",
+      "role": "try",
+      "family": "FRAC-03:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O165X",
+      "session": 165,
+      "skill": "FRAC-03",
+      "role": "transfer",
+      "family": "FRAC-03:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O166T",
+      "session": 166,
+      "skill": "SEQ-01",
+      "role": "try",
+      "family": "SEQ-01:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O166X",
+      "session": 166,
+      "skill": "SEQ-01",
+      "role": "transfer",
+      "family": "SEQ-01:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O167T",
+      "session": 167,
+      "skill": "LOGIC-02",
+      "role": "try",
+      "family": "LOGIC-02:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O167X",
+      "session": 167,
+      "skill": "LOGIC-02",
+      "role": "transfer",
+      "family": "LOGIC-02:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O169T",
+      "session": 169,
+      "skill": "DIV-03",
+      "role": "try",
+      "family": "DIV-03:try",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O169X",
+      "session": 169,
+      "skill": "DIV-03",
+      "role": "transfer",
+      "family": "DIV-03:transfer",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O170T",
+      "session": 170,
+      "skill": "ALG-01",
+      "role": "try",
+      "family": "ALG-01:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O170X",
+      "session": 170,
+      "skill": "ALG-01",
+      "role": "transfer",
+      "family": "ALG-01:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O171T",
+      "session": 171,
+      "skill": "COUNT-03",
+      "role": "try",
+      "family": "COUNT-03:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O171X",
+      "session": 171,
+      "skill": "COUNT-03",
+      "role": "transfer",
+      "family": "COUNT-03:transfer",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O172T",
+      "session": 172,
+      "skill": "GEO-04",
+      "role": "try",
+      "family": "GEO-04:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O172X",
+      "session": 172,
+      "skill": "GEO-04",
+      "role": "transfer",
+      "family": "GEO-04:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O173T",
+      "session": 173,
+      "skill": "DATA-03",
+      "role": "try",
+      "family": "DATA-03:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O173X",
+      "session": 173,
+      "skill": "DATA-03",
+      "role": "transfer",
+      "family": "DATA-03:transfer",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O174T",
+      "session": 174,
+      "skill": "FRAC-01",
+      "role": "try",
+      "family": "FRAC-01:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O174X",
+      "session": 174,
+      "skill": "FRAC-01",
+      "role": "transfer",
+      "family": "FRAC-01:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O177T",
+      "session": 177,
+      "skill": "SPATIAL-02",
+      "role": "try",
+      "family": "SPATIAL-02:try",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O177X",
+      "session": 177,
+      "skill": "SPATIAL-02",
+      "role": "transfer",
+      "family": "SPATIAL-02:transfer",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O178T",
+      "session": 178,
+      "skill": "DIV-01",
+      "role": "try",
+      "family": "DIV-01:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O178X",
+      "session": 178,
+      "skill": "DIV-01",
+      "role": "transfer",
+      "family": "DIV-01:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O179T",
+      "session": 179,
+      "skill": "RATE-03",
+      "role": "try",
+      "family": "RATE-03:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O179X",
+      "session": 179,
+      "skill": "RATE-03",
+      "role": "transfer",
+      "family": "RATE-03:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O180T",
+      "session": 180,
+      "skill": "COUNT-01",
+      "role": "try",
+      "family": "COUNT-01:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O180X",
+      "session": 180,
+      "skill": "COUNT-01",
+      "role": "transfer",
+      "family": "COUNT-01:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O181T",
+      "session": 181,
+      "skill": "GEO-02",
+      "role": "try",
+      "family": "GEO-02:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O181X",
+      "session": 181,
+      "skill": "GEO-02",
+      "role": "transfer",
+      "family": "GEO-02:transfer",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O183T",
+      "session": 183,
+      "skill": "FRAC-02",
+      "role": "try",
+      "family": "FRAC-02:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O183X",
+      "session": 183,
+      "skill": "FRAC-02",
+      "role": "transfer",
+      "family": "FRAC-02:transfer",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O185T",
+      "session": 185,
+      "skill": "LOGIC-01",
+      "role": "try",
+      "family": "LOGIC-01:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O185X",
+      "session": 185,
+      "skill": "LOGIC-01",
+      "role": "transfer",
+      "family": "LOGIC-01:transfer",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O186T",
+      "session": 186,
+      "skill": "SOLID-03",
+      "role": "try",
+      "family": "SOLID-03:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O186X",
+      "session": 186,
+      "skill": "SOLID-03",
+      "role": "transfer",
+      "family": "SOLID-03:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O187T",
+      "session": 187,
+      "skill": "DIG-04",
+      "role": "try",
+      "family": "DIG-04:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O187X",
+      "session": 187,
+      "skill": "DIG-04",
+      "role": "transfer",
+      "family": "DIG-04:transfer",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O188T",
+      "session": 188,
+      "skill": "RATE-01",
+      "role": "try",
+      "family": "RATE-01:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O188X",
+      "session": 188,
+      "skill": "RATE-01",
+      "role": "transfer",
+      "family": "RATE-01:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O190T",
+      "session": 190,
+      "skill": "GEO-03",
+      "role": "try",
+      "family": "GEO-03:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O190X",
+      "session": 190,
+      "skill": "GEO-03",
+      "role": "transfer",
+      "family": "GEO-03:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O191T",
+      "session": 191,
+      "skill": "DATA-02",
+      "role": "try",
+      "family": "DATA-02:try",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O191X",
+      "session": 191,
+      "skill": "DATA-02",
+      "role": "transfer",
+      "family": "DATA-02:transfer",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O193T",
+      "session": 193,
+      "skill": "ALG-03",
+      "role": "try",
+      "family": "ALG-03:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O193X",
+      "session": 193,
+      "skill": "ALG-03",
+      "role": "transfer",
+      "family": "ALG-03:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O194T",
+      "session": 194,
+      "skill": "COUNT-05",
+      "role": "try",
+      "family": "COUNT-05:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O194X",
+      "session": 194,
+      "skill": "COUNT-05",
+      "role": "transfer",
+      "family": "COUNT-05:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O195T",
+      "session": 195,
+      "skill": "SOLID-01",
+      "role": "try",
+      "family": "SOLID-01:try",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O195X",
+      "session": 195,
+      "skill": "SOLID-01",
+      "role": "transfer",
+      "family": "SOLID-01:transfer",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O197T",
+      "session": 197,
+      "skill": "RATE-02",
+      "role": "try",
+      "family": "RATE-02:try",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O197X",
+      "session": 197,
+      "skill": "RATE-02",
+      "role": "transfer",
+      "family": "RATE-02:transfer",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O198T",
+      "session": 198,
+      "skill": "SEQ-04",
+      "role": "try",
+      "family": "SEQ-04:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O198X",
+      "session": 198,
+      "skill": "SEQ-04",
+      "role": "transfer",
+      "family": "SEQ-04:transfer",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O199T",
+      "session": 199,
+      "skill": "GEO-01",
+      "role": "try",
+      "family": "GEO-01:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O199X",
+      "session": 199,
+      "skill": "GEO-01",
+      "role": "transfer",
+      "family": "GEO-01:transfer",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O200T",
+      "session": 200,
+      "skill": "SPATIAL-04",
+      "role": "try",
+      "family": "SPATIAL-04:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O200X",
+      "session": 200,
+      "skill": "SPATIAL-04",
+      "role": "transfer",
+      "family": "SPATIAL-04:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O201T",
+      "session": 201,
+      "skill": "DIV-03",
+      "role": "try",
+      "family": "DIV-03:try",
+      "visit": 6,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O201X",
+      "session": 201,
+      "skill": "DIV-03",
+      "role": "transfer",
+      "family": "DIV-03:transfer",
+      "visit": 6,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O202T",
+      "session": 202,
+      "skill": "ALG-01",
+      "role": "try",
+      "family": "ALG-01:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O202X",
+      "session": 202,
+      "skill": "ALG-01",
+      "role": "transfer",
+      "family": "ALG-01:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O204T",
+      "session": 204,
+      "skill": "SOLID-02",
+      "role": "try",
+      "family": "SOLID-02:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O204X",
+      "session": 204,
+      "skill": "SOLID-02",
+      "role": "transfer",
+      "family": "SOLID-02:transfer",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O205T",
+      "session": 205,
+      "skill": "DIG-03",
+      "role": "try",
+      "family": "DIG-03:try",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O205X",
+      "session": 205,
+      "skill": "DIG-03",
+      "role": "transfer",
+      "family": "DIG-03:transfer",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O206T",
+      "session": 206,
+      "skill": "FRAC-04",
+      "role": "try",
+      "family": "FRAC-04:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O206X",
+      "session": 206,
+      "skill": "FRAC-04",
+      "role": "transfer",
+      "family": "FRAC-04:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O207T",
+      "session": 207,
+      "skill": "SEQ-02",
+      "role": "try",
+      "family": "SEQ-02:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O207X",
+      "session": 207,
+      "skill": "SEQ-02",
+      "role": "transfer",
+      "family": "SEQ-02:transfer",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O209T",
+      "session": 209,
+      "skill": "SPATIAL-02",
+      "role": "try",
+      "family": "SPATIAL-02:try",
+      "visit": 6,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O209X",
+      "session": 209,
+      "skill": "SPATIAL-02",
+      "role": "transfer",
+      "family": "SPATIAL-02:transfer",
+      "visit": 6,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O211T",
+      "session": 211,
+      "skill": "ALG-02",
+      "role": "try",
+      "family": "ALG-02:try",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O211X",
+      "session": 211,
+      "skill": "ALG-02",
+      "role": "transfer",
+      "family": "ALG-02:transfer",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O213T",
+      "session": 213,
+      "skill": "GEO-05",
+      "role": "try",
+      "family": "GEO-05:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O213X",
+      "session": 213,
+      "skill": "GEO-05",
+      "role": "transfer",
+      "family": "GEO-05:transfer",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O214T",
+      "session": 214,
+      "skill": "DIG-01",
+      "role": "try",
+      "family": "DIG-01:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O214X",
+      "session": 214,
+      "skill": "DIG-01",
+      "role": "transfer",
+      "family": "DIG-01:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O215T",
+      "session": 215,
+      "skill": "FRAC-02",
+      "role": "try",
+      "family": "FRAC-02:try",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O215X",
+      "session": 215,
+      "skill": "FRAC-02",
+      "role": "transfer",
+      "family": "FRAC-02:transfer",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O216T",
+      "session": 216,
+      "skill": "ALG-05",
+      "role": "try",
+      "family": "ALG-05:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O216X",
+      "session": 216,
+      "skill": "ALG-05",
+      "role": "transfer",
+      "family": "ALG-05:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O218T",
+      "session": 218,
+      "skill": "SPATIAL-03",
+      "role": "try",
+      "family": "SPATIAL-03:try",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O218X",
+      "session": 218,
+      "skill": "SPATIAL-03",
+      "role": "transfer",
+      "family": "SPATIAL-03:transfer",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O219T",
+      "session": 219,
+      "skill": "DIV-02",
+      "role": "try",
+      "family": "DIV-02:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O219X",
+      "session": 219,
+      "skill": "DIV-02",
+      "role": "transfer",
+      "family": "DIV-02:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O220T",
+      "session": 220,
+      "skill": "RATE-04",
+      "role": "try",
+      "family": "RATE-04:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O220X",
+      "session": 220,
+      "skill": "RATE-04",
+      "role": "transfer",
+      "family": "RATE-04:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O221T",
+      "session": 221,
+      "skill": "COUNT-02",
+      "role": "try",
+      "family": "COUNT-02:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O221X",
+      "session": 221,
+      "skill": "COUNT-02",
+      "role": "transfer",
+      "family": "COUNT-02:transfer",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O222T",
+      "session": 222,
+      "skill": "GEO-03",
+      "role": "try",
+      "family": "GEO-03:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O222X",
+      "session": 222,
+      "skill": "GEO-03",
+      "role": "transfer",
+      "family": "GEO-03:transfer",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O223T",
+      "session": 223,
+      "skill": "DATA-02",
+      "role": "try",
+      "family": "DATA-02:try",
+      "visit": 6,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O223X",
+      "session": 223,
+      "skill": "DATA-02",
+      "role": "transfer",
+      "family": "DATA-02:transfer",
+      "visit": 6,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O226T",
+      "session": 226,
+      "skill": "LOGIC-02",
+      "role": "try",
+      "family": "LOGIC-02:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O226X",
+      "session": 226,
+      "skill": "LOGIC-02",
+      "role": "transfer",
+      "family": "LOGIC-02:transfer",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O227T",
+      "session": 227,
+      "skill": "SPATIAL-01",
+      "role": "try",
+      "family": "SPATIAL-01:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O227X",
+      "session": 227,
+      "skill": "SPATIAL-01",
+      "role": "transfer",
+      "family": "SPATIAL-01:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O228T",
+      "session": 228,
+      "skill": "DIG-05",
+      "role": "try",
+      "family": "DIG-05:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O228X",
+      "session": 228,
+      "skill": "DIG-05",
+      "role": "transfer",
+      "family": "DIG-05:transfer",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O229T",
+      "session": 229,
+      "skill": "RATE-02",
+      "role": "try",
+      "family": "RATE-02:try",
+      "visit": 6,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O229X",
+      "session": 229,
+      "skill": "RATE-02",
+      "role": "transfer",
+      "family": "RATE-02:transfer",
+      "visit": 6,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O230T",
+      "session": 230,
+      "skill": "SEQ-04",
+      "role": "try",
+      "family": "SEQ-04:try",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O230X",
+      "session": 230,
+      "skill": "SEQ-04",
+      "role": "transfer",
+      "family": "SEQ-04:transfer",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O232T",
+      "session": 232,
+      "skill": "DATA-03",
+      "role": "try",
+      "family": "DATA-03:try",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O232X",
+      "session": 232,
+      "skill": "DATA-03",
+      "role": "transfer",
+      "family": "DATA-03:transfer",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O233T",
+      "session": 233,
+      "skill": "FRAC-01",
+      "role": "try",
+      "family": "FRAC-01:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O233X",
+      "session": 233,
+      "skill": "FRAC-01",
+      "role": "transfer",
+      "family": "FRAC-01:transfer",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O234T",
+      "session": 234,
+      "skill": "ALG-04",
+      "role": "try",
+      "family": "ALG-04:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O234X",
+      "session": 234,
+      "skill": "ALG-04",
+      "role": "transfer",
+      "family": "ALG-04:transfer",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O235T",
+      "session": 235,
+      "skill": "COUNT-06",
+      "role": "try",
+      "family": "COUNT-06:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O235X",
+      "session": 235,
+      "skill": "COUNT-06",
+      "role": "transfer",
+      "family": "COUNT-06:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O237T",
+      "session": 237,
+      "skill": "DIG-03",
+      "role": "try",
+      "family": "DIG-03:try",
+      "visit": 6,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O237X",
+      "session": 237,
+      "skill": "DIG-03",
+      "role": "transfer",
+      "family": "DIG-03:transfer",
+      "visit": 6,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O239T",
+      "session": 239,
+      "skill": "COUNT-01",
+      "role": "try",
+      "family": "COUNT-01:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O239X",
+      "session": 239,
+      "skill": "COUNT-01",
+      "role": "transfer",
+      "family": "COUNT-01:transfer",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O241T",
+      "session": 241,
+      "skill": "DATA-01",
+      "role": "try",
+      "family": "DATA-01:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O241X",
+      "session": 241,
+      "skill": "DATA-01",
+      "role": "transfer",
+      "family": "DATA-01:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O242T",
+      "session": 242,
+      "skill": "DIV-04",
+      "role": "try",
+      "family": "DIV-04:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O242X",
+      "session": 242,
+      "skill": "DIV-04",
+      "role": "transfer",
+      "family": "DIV-04:transfer",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O243T",
+      "session": 243,
+      "skill": "ALG-02",
+      "role": "try",
+      "family": "ALG-02:try",
+      "visit": 6,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O243X",
+      "session": 243,
+      "skill": "ALG-02",
+      "role": "transfer",
+      "family": "ALG-02:transfer",
+      "visit": 6,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O244T",
+      "session": 244,
+      "skill": "COUNT-04",
+      "role": "try",
+      "family": "COUNT-04:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O244X",
+      "session": 244,
+      "skill": "COUNT-04",
+      "role": "transfer",
+      "family": "COUNT-04:transfer",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O246T",
+      "session": 246,
+      "skill": "DIG-04",
+      "role": "try",
+      "family": "DIG-04:try",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O246X",
+      "session": 246,
+      "skill": "DIG-04",
+      "role": "transfer",
+      "family": "DIG-04:transfer",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O247T",
+      "session": 247,
+      "skill": "RATE-01",
+      "role": "try",
+      "family": "RATE-01:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O247X",
+      "session": 247,
+      "skill": "RATE-01",
+      "role": "transfer",
+      "family": "RATE-01:transfer",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O248T",
+      "session": 248,
+      "skill": "SEQ-03",
+      "role": "try",
+      "family": "SEQ-03:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O248X",
+      "session": 248,
+      "skill": "SEQ-03",
+      "role": "transfer",
+      "family": "SEQ-03:transfer",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O249T",
+      "session": 249,
+      "skill": "LOGIC-04",
+      "role": "try",
+      "family": "LOGIC-04:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O249X",
+      "session": 249,
+      "skill": "LOGIC-04",
+      "role": "transfer",
+      "family": "LOGIC-04:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O250T",
+      "session": 250,
+      "skill": "SPATIAL-03",
+      "role": "try",
+      "family": "SPATIAL-03:try",
+      "visit": 6,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O250X",
+      "session": 250,
+      "skill": "SPATIAL-03",
+      "role": "transfer",
+      "family": "SPATIAL-03:transfer",
+      "visit": 6,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O251T",
+      "session": 251,
+      "skill": "DIV-02",
+      "role": "try",
+      "family": "DIV-02:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O251X",
+      "session": 251,
+      "skill": "DIV-02",
+      "role": "transfer",
+      "family": "DIV-02:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O253T",
+      "session": 253,
+      "skill": "COUNT-05",
+      "role": "try",
+      "family": "COUNT-05:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O253X",
+      "session": 253,
+      "skill": "COUNT-05",
+      "role": "transfer",
+      "family": "COUNT-05:transfer",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O254T",
+      "session": 254,
+      "skill": "SOLID-01",
+      "role": "try",
+      "family": "SOLID-01:try",
+      "visit": 6,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O254X",
+      "session": 254,
+      "skill": "SOLID-01",
+      "role": "transfer",
+      "family": "SOLID-01:transfer",
+      "visit": 6,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O255T",
+      "session": 255,
+      "skill": "DIG-02",
+      "role": "try",
+      "family": "DIG-02:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O255X",
+      "session": 255,
+      "skill": "DIG-02",
+      "role": "transfer",
+      "family": "DIG-02:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O257T",
+      "session": 257,
+      "skill": "SEQ-01",
+      "role": "try",
+      "family": "SEQ-01:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O257X",
+      "session": 257,
+      "skill": "SEQ-01",
+      "role": "transfer",
+      "family": "SEQ-01:transfer",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O258T",
+      "session": 258,
+      "skill": "LOGIC-02",
+      "role": "try",
+      "family": "LOGIC-02:try",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O258X",
+      "session": 258,
+      "skill": "LOGIC-02",
+      "role": "transfer",
+      "family": "LOGIC-02:transfer",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O260T",
+      "session": 260,
+      "skill": "DIV-03",
+      "role": "try",
+      "family": "DIV-03:try",
+      "visit": 7,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O260X",
+      "session": 260,
+      "skill": "DIV-03",
+      "role": "transfer",
+      "family": "DIV-03:transfer",
+      "visit": 7,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O261T",
+      "session": 261,
+      "skill": "ALG-01",
+      "role": "try",
+      "family": "ALG-01:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O261X",
+      "session": 261,
+      "skill": "ALG-01",
+      "role": "transfer",
+      "family": "ALG-01:transfer",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O262T",
+      "session": 262,
+      "skill": "COUNT-03",
+      "role": "try",
+      "family": "COUNT-03:try",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O262X",
+      "session": 262,
+      "skill": "COUNT-03",
+      "role": "transfer",
+      "family": "COUNT-03:transfer",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O263T",
+      "session": 263,
+      "skill": "GEO-04",
+      "role": "try",
+      "family": "GEO-04:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O263X",
+      "session": 263,
+      "skill": "GEO-04",
+      "role": "transfer",
+      "family": "GEO-04:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O265T",
+      "session": 265,
+      "skill": "FRAC-01",
+      "role": "try",
+      "family": "FRAC-01:try",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O265X",
+      "session": 265,
+      "skill": "FRAC-01",
+      "role": "transfer",
+      "family": "FRAC-01:transfer",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O267T",
+      "session": 267,
+      "skill": "LOGIC-03",
+      "role": "try",
+      "family": "LOGIC-03:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O267X",
+      "session": 267,
+      "skill": "LOGIC-03",
+      "role": "transfer",
+      "family": "LOGIC-03:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O268T",
+      "session": 268,
+      "skill": "SPATIAL-02",
+      "role": "try",
+      "family": "SPATIAL-02:try",
+      "visit": 7,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O268X",
+      "session": 268,
+      "skill": "SPATIAL-02",
+      "role": "transfer",
+      "family": "SPATIAL-02:transfer",
+      "visit": 7,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O269T",
+      "session": 269,
+      "skill": "DIV-01",
+      "role": "try",
+      "family": "DIV-01:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O269X",
+      "session": 269,
+      "skill": "DIV-01",
+      "role": "transfer",
+      "family": "DIV-01:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O270T",
+      "session": 270,
+      "skill": "RATE-03",
+      "role": "try",
+      "family": "RATE-03:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O270X",
+      "session": 270,
+      "skill": "RATE-03",
+      "role": "transfer",
+      "family": "RATE-03:transfer",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O271T",
+      "session": 271,
+      "skill": "COUNT-01",
+      "role": "try",
+      "family": "COUNT-01:try",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O271X",
+      "session": 271,
+      "skill": "COUNT-01",
+      "role": "transfer",
+      "family": "COUNT-01:transfer",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O274T",
+      "session": 274,
+      "skill": "FRAC-02",
+      "role": "try",
+      "family": "FRAC-02:try",
+      "visit": 6,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O274X",
+      "session": 274,
+      "skill": "FRAC-02",
+      "role": "transfer",
+      "family": "FRAC-02:transfer",
+      "visit": 6,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O275T",
+      "session": 275,
+      "skill": "ALG-05",
+      "role": "try",
+      "family": "ALG-05:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O275X",
+      "session": 275,
+      "skill": "ALG-05",
+      "role": "transfer",
+      "family": "ALG-05:transfer",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O276T",
+      "session": 276,
+      "skill": "LOGIC-01",
+      "role": "try",
+      "family": "LOGIC-01:try",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O276X",
+      "session": 276,
+      "skill": "LOGIC-01",
+      "role": "transfer",
+      "family": "LOGIC-01:transfer",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O277T",
+      "session": 277,
+      "skill": "SOLID-03",
+      "role": "try",
+      "family": "SOLID-03:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O277X",
+      "session": 277,
+      "skill": "SOLID-03",
+      "role": "transfer",
+      "family": "SOLID-03:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O278T",
+      "session": 278,
+      "skill": "DIG-04",
+      "role": "try",
+      "family": "DIG-04:try",
+      "visit": 6,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O278X",
+      "session": 278,
+      "skill": "DIG-04",
+      "role": "transfer",
+      "family": "DIG-04:transfer",
+      "visit": 6,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O279T",
+      "session": 279,
+      "skill": "RATE-01",
+      "role": "try",
+      "family": "RATE-01:try",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O279X",
+      "session": 279,
+      "skill": "RATE-01",
+      "role": "transfer",
+      "family": "RATE-01:transfer",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O281T",
+      "session": 281,
+      "skill": "GEO-03",
+      "role": "try",
+      "family": "GEO-03:try",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O281X",
+      "session": 281,
+      "skill": "GEO-03",
+      "role": "transfer",
+      "family": "GEO-03:transfer",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O282T",
+      "session": 282,
+      "skill": "DATA-02",
+      "role": "try",
+      "family": "DATA-02:try",
+      "visit": 7,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O282X",
+      "session": 282,
+      "skill": "DATA-02",
+      "role": "transfer",
+      "family": "DATA-02:transfer",
+      "visit": 7,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O283T",
+      "session": 283,
+      "skill": "DIV-05",
+      "role": "try",
+      "family": "DIV-05:try",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O283X",
+      "session": 283,
+      "skill": "DIV-05",
+      "role": "transfer",
+      "family": "DIV-05:transfer",
+      "visit": 2,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O284T",
+      "session": 284,
+      "skill": "ALG-03",
+      "role": "try",
+      "family": "ALG-03:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O284X",
+      "session": 284,
+      "skill": "ALG-03",
+      "role": "transfer",
+      "family": "ALG-03:transfer",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O285T",
+      "session": 285,
+      "skill": "COUNT-05",
+      "role": "try",
+      "family": "COUNT-05:try",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O285X",
+      "session": 285,
+      "skill": "COUNT-05",
+      "role": "transfer",
+      "family": "COUNT-05:transfer",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O286T",
+      "session": 286,
+      "skill": "SOLID-01",
+      "role": "try",
+      "family": "SOLID-01:try",
+      "visit": 7,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O286X",
+      "session": 286,
+      "skill": "SOLID-01",
+      "role": "transfer",
+      "family": "SOLID-01:transfer",
+      "visit": 7,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O289T",
+      "session": 289,
+      "skill": "SEQ-04",
+      "role": "try",
+      "family": "SEQ-04:try",
+      "visit": 6,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O289X",
+      "session": 289,
+      "skill": "SEQ-04",
+      "role": "transfer",
+      "family": "SEQ-04:transfer",
+      "visit": 6,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O290T",
+      "session": 290,
+      "skill": "GEO-01",
+      "role": "try",
+      "family": "GEO-01:try",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O290X",
+      "session": 290,
+      "skill": "GEO-01",
+      "role": "transfer",
+      "family": "GEO-01:transfer",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O291T",
+      "session": 291,
+      "skill": "SPATIAL-04",
+      "role": "try",
+      "family": "SPATIAL-04:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O291X",
+      "session": 291,
+      "skill": "SPATIAL-04",
+      "role": "transfer",
+      "family": "SPATIAL-04:transfer",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O293T",
+      "session": 293,
+      "skill": "ALG-01",
+      "role": "try",
+      "family": "ALG-01:try",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O293X",
+      "session": 293,
+      "skill": "ALG-01",
+      "role": "transfer",
+      "family": "ALG-01:transfer",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O295T",
+      "session": 295,
+      "skill": "SOLID-02",
+      "role": "try",
+      "family": "SOLID-02:try",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O295X",
+      "session": 295,
+      "skill": "SOLID-02",
+      "role": "transfer",
+      "family": "SOLID-02:transfer",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O296T",
+      "session": 296,
+      "skill": "DIG-03",
+      "role": "try",
+      "family": "DIG-03:try",
+      "visit": 7,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O296X",
+      "session": 296,
+      "skill": "DIG-03",
+      "role": "transfer",
+      "family": "DIG-03:transfer",
+      "visit": 7,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O297T",
+      "session": 297,
+      "skill": "FRAC-04",
+      "role": "try",
+      "family": "FRAC-04:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O297X",
+      "session": 297,
+      "skill": "FRAC-04",
+      "role": "transfer",
+      "family": "FRAC-04:transfer",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O298T",
+      "session": 298,
+      "skill": "SEQ-02",
+      "role": "try",
+      "family": "SEQ-02:try",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O298X",
+      "session": 298,
+      "skill": "SEQ-02",
+      "role": "transfer",
+      "family": "SEQ-02:transfer",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O299T",
+      "session": 299,
+      "skill": "LOGIC-03",
+      "role": "try",
+      "family": "LOGIC-03:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O299X",
+      "session": 299,
+      "skill": "LOGIC-03",
+      "role": "transfer",
+      "family": "LOGIC-03:transfer",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O300T",
+      "session": 300,
+      "skill": "SPATIAL-02",
+      "role": "try",
+      "family": "SPATIAL-02:try",
+      "visit": 8,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O300X",
+      "session": 300,
+      "skill": "SPATIAL-02",
+      "role": "transfer",
+      "family": "SPATIAL-02:transfer",
+      "visit": 8,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O302T",
+      "session": 302,
+      "skill": "ALG-02",
+      "role": "try",
+      "family": "ALG-02:try",
+      "visit": 7,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O302X",
+      "session": 302,
+      "skill": "ALG-02",
+      "role": "transfer",
+      "family": "ALG-02:transfer",
+      "visit": 7,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O303T",
+      "session": 303,
+      "skill": "COUNT-04",
+      "role": "try",
+      "family": "COUNT-04:try",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O303X",
+      "session": 303,
+      "skill": "COUNT-04",
+      "role": "transfer",
+      "family": "COUNT-04:transfer",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O305T",
+      "session": 305,
+      "skill": "DIG-01",
+      "role": "try",
+      "family": "DIG-01:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O305X",
+      "session": 305,
+      "skill": "DIG-01",
+      "role": "transfer",
+      "family": "DIG-01:transfer",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O306T",
+      "session": 306,
+      "skill": "FRAC-02",
+      "role": "try",
+      "family": "FRAC-02:try",
+      "visit": 7,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O306X",
+      "session": 306,
+      "skill": "FRAC-02",
+      "role": "transfer",
+      "family": "FRAC-02:transfer",
+      "visit": 7,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O307T",
+      "session": 307,
+      "skill": "ALG-05",
+      "role": "try",
+      "family": "ALG-05:try",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O307X",
+      "session": 307,
+      "skill": "ALG-05",
+      "role": "transfer",
+      "family": "ALG-05:transfer",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O309T",
+      "session": 309,
+      "skill": "SPATIAL-03",
+      "role": "try",
+      "family": "SPATIAL-03:try",
+      "visit": 7,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O309X",
+      "session": 309,
+      "skill": "SPATIAL-03",
+      "role": "transfer",
+      "family": "SPATIAL-03:transfer",
+      "visit": 7,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O310T",
+      "session": 310,
+      "skill": "DIV-02",
+      "role": "try",
+      "family": "DIV-02:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O310X",
+      "session": 310,
+      "skill": "DIV-02",
+      "role": "transfer",
+      "family": "DIV-02:transfer",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O311T",
+      "session": 311,
+      "skill": "RATE-04",
+      "role": "try",
+      "family": "RATE-04:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O311X",
+      "session": 311,
+      "skill": "RATE-04",
+      "role": "transfer",
+      "family": "RATE-04:transfer",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O312T",
+      "session": 312,
+      "skill": "COUNT-02",
+      "role": "try",
+      "family": "COUNT-02:try",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O312X",
+      "session": 312,
+      "skill": "COUNT-02",
+      "role": "transfer",
+      "family": "COUNT-02:transfer",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O313T",
+      "session": 313,
+      "skill": "GEO-03",
+      "role": "try",
+      "family": "GEO-03:try",
+      "visit": 6,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O313X",
+      "session": 313,
+      "skill": "GEO-03",
+      "role": "transfer",
+      "family": "GEO-03:transfer",
+      "visit": 6,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O314T",
+      "session": 314,
+      "skill": "DATA-02",
+      "role": "try",
+      "family": "DATA-02:try",
+      "visit": 8,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O314X",
+      "session": 314,
+      "skill": "DATA-02",
+      "role": "transfer",
+      "family": "DATA-02:transfer",
+      "visit": 8,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O317T",
+      "session": 317,
+      "skill": "LOGIC-02",
+      "role": "try",
+      "family": "LOGIC-02:try",
+      "visit": 6,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O317X",
+      "session": 317,
+      "skill": "LOGIC-02",
+      "role": "transfer",
+      "family": "LOGIC-02:transfer",
+      "visit": 6,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O318T",
+      "session": 318,
+      "skill": "SPATIAL-01",
+      "role": "try",
+      "family": "SPATIAL-01:try",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O318X",
+      "session": 318,
+      "skill": "SPATIAL-01",
+      "role": "transfer",
+      "family": "SPATIAL-01:transfer",
+      "visit": 3,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O319T",
+      "session": 319,
+      "skill": "DIG-05",
+      "role": "try",
+      "family": "DIG-05:try",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O319X",
+      "session": 319,
+      "skill": "DIG-05",
+      "role": "transfer",
+      "family": "DIG-05:transfer",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O321T",
+      "session": 321,
+      "skill": "SEQ-04",
+      "role": "try",
+      "family": "SEQ-04:try",
+      "visit": 7,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O321X",
+      "session": 321,
+      "skill": "SEQ-04",
+      "role": "transfer",
+      "family": "SEQ-04:transfer",
+      "visit": 7,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O323T",
+      "session": 323,
+      "skill": "DATA-03",
+      "role": "try",
+      "family": "DATA-03:try",
+      "visit": 6,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O323X",
+      "session": 323,
+      "skill": "DATA-03",
+      "role": "transfer",
+      "family": "DATA-03:transfer",
+      "visit": 6,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O324T",
+      "session": 324,
+      "skill": "FRAC-01",
+      "role": "try",
+      "family": "FRAC-01:try",
+      "visit": 6,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O324X",
+      "session": 324,
+      "skill": "FRAC-01",
+      "role": "transfer",
+      "family": "FRAC-01:transfer",
+      "visit": 6,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O325T",
+      "session": 325,
+      "skill": "ALG-04",
+      "role": "try",
+      "family": "ALG-04:try",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O325X",
+      "session": 325,
+      "skill": "ALG-04",
+      "role": "transfer",
+      "family": "ALG-04:transfer",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O326T",
+      "session": 326,
+      "skill": "COUNT-06",
+      "role": "try",
+      "family": "COUNT-06:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O326X",
+      "session": 326,
+      "skill": "COUNT-06",
+      "role": "transfer",
+      "family": "COUNT-06:transfer",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O327T",
+      "session": 327,
+      "skill": "SOLID-02",
+      "role": "try",
+      "family": "SOLID-02:try",
+      "visit": 6,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O327X",
+      "session": 327,
+      "skill": "SOLID-02",
+      "role": "transfer",
+      "family": "SOLID-02:transfer",
+      "visit": 6,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O330T",
+      "session": 330,
+      "skill": "COUNT-01",
+      "role": "try",
+      "family": "COUNT-01:try",
+      "visit": 6,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O330X",
+      "session": 330,
+      "skill": "COUNT-01",
+      "role": "transfer",
+      "family": "COUNT-01:transfer",
+      "visit": 6,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O331T",
+      "session": 331,
+      "skill": "GEO-02",
+      "role": "try",
+      "family": "GEO-02:try",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O331X",
+      "session": 331,
+      "skill": "GEO-02",
+      "role": "transfer",
+      "family": "GEO-02:transfer",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O332T",
+      "session": 332,
+      "skill": "DATA-01",
+      "role": "try",
+      "family": "DATA-01:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O332X",
+      "session": 332,
+      "skill": "DATA-01",
+      "role": "transfer",
+      "family": "DATA-01:transfer",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O333T",
+      "session": 333,
+      "skill": "DIV-04",
+      "role": "try",
+      "family": "DIV-04:try",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O333X",
+      "session": 333,
+      "skill": "DIV-04",
+      "role": "transfer",
+      "family": "DIV-04:transfer",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O334T",
+      "session": 334,
+      "skill": "ALG-02",
+      "role": "try",
+      "family": "ALG-02:try",
+      "visit": 8,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O334X",
+      "session": 334,
+      "skill": "ALG-02",
+      "role": "transfer",
+      "family": "ALG-02:transfer",
+      "visit": 8,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O335T",
+      "session": 335,
+      "skill": "COUNT-04",
+      "role": "try",
+      "family": "COUNT-04:try",
+      "visit": 6,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O335X",
+      "session": 335,
+      "skill": "COUNT-04",
+      "role": "transfer",
+      "family": "COUNT-04:transfer",
+      "visit": 6,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O338T",
+      "session": 338,
+      "skill": "RATE-01",
+      "role": "try",
+      "family": "RATE-01:try",
+      "visit": 6,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O338X",
+      "session": 338,
+      "skill": "RATE-01",
+      "role": "transfer",
+      "family": "RATE-01:transfer",
+      "visit": 6,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O339T",
+      "session": 339,
+      "skill": "SEQ-03",
+      "role": "try",
+      "family": "SEQ-03:try",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O339X",
+      "session": 339,
+      "skill": "SEQ-03",
+      "role": "transfer",
+      "family": "SEQ-03:transfer",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O341T",
+      "session": 341,
+      "skill": "SPATIAL-03",
+      "role": "try",
+      "family": "SPATIAL-03:try",
+      "visit": 8,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O341X",
+      "session": 341,
+      "skill": "SPATIAL-03",
+      "role": "transfer",
+      "family": "SPATIAL-03:transfer",
+      "visit": 8,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O342T",
+      "session": 342,
+      "skill": "DIV-02",
+      "role": "try",
+      "family": "DIV-02:try",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O342X",
+      "session": 342,
+      "skill": "DIV-02",
+      "role": "transfer",
+      "family": "DIV-02:transfer",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O345T",
+      "session": 345,
+      "skill": "SOLID-01",
+      "role": "try",
+      "family": "SOLID-01:try",
+      "visit": 8,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O345X",
+      "session": 345,
+      "skill": "SOLID-01",
+      "role": "transfer",
+      "family": "SOLID-01:transfer",
+      "visit": 8,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O346T",
+      "session": 346,
+      "skill": "DIG-02",
+      "role": "try",
+      "family": "DIG-02:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O346X",
+      "session": 346,
+      "skill": "DIG-02",
+      "role": "transfer",
+      "family": "DIG-02:transfer",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O347T",
+      "session": 347,
+      "skill": "FRAC-03",
+      "role": "try",
+      "family": "FRAC-03:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O347X",
+      "session": 347,
+      "skill": "FRAC-03",
+      "role": "transfer",
+      "family": "FRAC-03:transfer",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O348T",
+      "session": 348,
+      "skill": "SEQ-01",
+      "role": "try",
+      "family": "SEQ-01:try",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O348X",
+      "session": 348,
+      "skill": "SEQ-01",
+      "role": "transfer",
+      "family": "SEQ-01:transfer",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O349T",
+      "session": 349,
+      "skill": "LOGIC-02",
+      "role": "try",
+      "family": "LOGIC-02:try",
+      "visit": 7,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O349X",
+      "session": 349,
+      "skill": "LOGIC-02",
+      "role": "transfer",
+      "family": "LOGIC-02:transfer",
+      "visit": 7,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O351T",
+      "session": 351,
+      "skill": "DIV-03",
+      "role": "try",
+      "family": "DIV-03:try",
+      "visit": 8,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O351X",
+      "session": 351,
+      "skill": "DIV-03",
+      "role": "transfer",
+      "family": "DIV-03:transfer",
+      "visit": 8,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O353T",
+      "session": 353,
+      "skill": "COUNT-03",
+      "role": "try",
+      "family": "COUNT-03:try",
+      "visit": 6,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O353X",
+      "session": 353,
+      "skill": "COUNT-03",
+      "role": "transfer",
+      "family": "COUNT-03:transfer",
+      "visit": 6,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O354T",
+      "session": 354,
+      "skill": "GEO-04",
+      "role": "try",
+      "family": "GEO-04:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O354X",
+      "session": 354,
+      "skill": "GEO-04",
+      "role": "transfer",
+      "family": "GEO-04:transfer",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O355T",
+      "session": 355,
+      "skill": "DATA-03",
+      "role": "try",
+      "family": "DATA-03:try",
+      "visit": 7,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O355X",
+      "session": 355,
+      "skill": "DATA-03",
+      "role": "transfer",
+      "family": "DATA-03:transfer",
+      "visit": 7,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O358T",
+      "session": 358,
+      "skill": "LOGIC-03",
+      "role": "try",
+      "family": "LOGIC-03:try",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O358X",
+      "session": 358,
+      "skill": "LOGIC-03",
+      "role": "transfer",
+      "family": "LOGIC-03:transfer",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O359T",
+      "session": 359,
+      "skill": "SPATIAL-02",
+      "role": "try",
+      "family": "SPATIAL-02:try",
+      "visit": 9,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O359X",
+      "session": 359,
+      "skill": "SPATIAL-02",
+      "role": "transfer",
+      "family": "SPATIAL-02:transfer",
+      "visit": 9,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O360T",
+      "session": 360,
+      "skill": "DIV-01",
+      "role": "try",
+      "family": "DIV-01:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O360X",
+      "session": 360,
+      "skill": "DIV-01",
+      "role": "transfer",
+      "family": "DIV-01:transfer",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O361T",
+      "session": 361,
+      "skill": "COUNT-06",
+      "role": "try",
+      "family": "COUNT-06:try",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O361X",
+      "session": 361,
+      "skill": "COUNT-06",
+      "role": "transfer",
+      "family": "COUNT-06:capstone:361",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O362T",
+      "session": 362,
+      "skill": "ALG-03",
+      "role": "try",
+      "family": "ALG-03:try",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O362X",
+      "session": 362,
+      "skill": "ALG-03",
+      "role": "transfer",
+      "family": "ALG-03:capstone:362",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O365T",
+      "session": 365,
+      "skill": "GEO-02",
+      "role": "try",
+      "family": "GEO-02:try",
+      "visit": 6,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O365X",
+      "session": 365,
+      "skill": "GEO-02",
+      "role": "transfer",
+      "family": "GEO-02:capstone:365",
+      "visit": 6,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O366T",
+      "session": 366,
+      "skill": "SPATIAL-01",
+      "role": "try",
+      "family": "SPATIAL-01:try",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O366X",
+      "session": 366,
+      "skill": "SPATIAL-01",
+      "role": "transfer",
+      "family": "SPATIAL-01:capstone:366",
+      "visit": 4,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O367T",
+      "session": 367,
+      "skill": "DIV-04",
+      "role": "try",
+      "family": "DIV-04:try",
+      "visit": 6,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O367X",
+      "session": 367,
+      "skill": "DIV-04",
+      "role": "transfer",
+      "family": "DIV-04:capstone:367",
+      "visit": 6,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O368T",
+      "session": 368,
+      "skill": "RATE-03",
+      "role": "try",
+      "family": "RATE-03:try",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O368X",
+      "session": 368,
+      "skill": "RATE-03",
+      "role": "transfer",
+      "family": "RATE-03:capstone:368",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O370T",
+      "session": 370,
+      "skill": "GEO-05",
+      "role": "try",
+      "family": "GEO-05:try",
+      "visit": 5,
+      "source_type": "original_authored"
+    },
+    {
+      "id": "O370X",
+      "session": 370,
+      "skill": "GEO-05",
+      "role": "transfer",
+      "family": "GEO-05:capstone:370",
+      "visit": 5,
+      "source_type": "original_authored"
+    }
+  ]
+}

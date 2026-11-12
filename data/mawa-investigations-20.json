@@ -16,7 +16,9 @@
       "prompt": "A three-digit number ABC means 100A+10B+C. Reverse its digits, then subtract the smaller number from the larger. Show reversed numbers and differences with three digit places, including a leading zero if needed.\n\na) Find the difference for 741, 502 and 811.\nb) Try three other starting numbers whose first and last digits differ. What do you notice about the middle digit of each three-digit answer?\nc) Show why the middle digit must always be 9. What happens if the first and last starting digits are equal?",
       "hint": "Compare what changes and what stays the same when only the middle starting digit changes.",
       "trap": "Examples are evidence, not proof for every number.",
-      "solution": "741−147=594; 502−205=297; 811−118=693. In general, (100A+10B+C)−(100C+10B+A)=99(A−C). The positive difference is 99d for d=1,…,9: 099,198,…,891, so the middle digit is 9. If A=C, the difference is 000."
+      "solution": "741−147=594; 502−205=297; 811−118=693. In general, (100A+10B+C)−(100C+10B+A)=99(A−C). The positive difference is 99d for d=1,…,9: 099,198,…,891, so the middle digit is 9. If A=C, the difference is 000.",
+      "transfer_prompt": "A two-digit whole number and its reversal differ by 27. Neither digit is zero. Find all possible starting numbers, and prove your list is complete.",
+      "transfer_solution": "For digits A and B, the difference is 9|A−B|. Thus the digits differ by 3. The unordered digit pairs are (1,4),(2,5),(3,6),(4,7),(5,8),(6,9). Both orders are allowed, giving 12 starting numbers. These are all the nonzero digit pairs with difference 3."
     },
     {
       "id": "M02",
@@ -25,7 +27,9 @@
       "prompt": "A square grows by adding the next odd-number strip. Another puzzle is to make cubes by adding consecutive odd numbers.\n\na) Find 1+3+5+…+31 without adding all sixteen terms.\nb) Explain why 13+15+17+19 is a perfect cube. Find five consecutive odd numbers whose sum is 125.\nc) For positive n, explain why the n consecutive odd numbers centred on n² total n³.",
       "hint": "Draw square dots for 1,4,9,16 and identify the new strip each time.",
       "trap": "The nth odd number is not the same as the sum of the first n odd numbers.",
-      "solution": "The first sixteen odd numbers sum to 16²=256. 13+15+17+19=64=4³. Five odd numbers centred on 25 are 21,23,25,27,29 and total 125. In general n consecutive odd numbers centred on n² have average n² and there are n terms, so total n³."
+      "solution": "The first sixteen odd numbers sum to 16²=256. 13+15+17+19=64=4³. Five odd numbers centred on 25 are 21,23,25,27,29 and total 125. In general n consecutive odd numbers centred on n² have average n² and there are n terms, so total n³.",
+      "transfer_prompt": "A square border surrounds a 7-by-7 square. The border is one small square wide. How many small squares are in the border? Give two counts, then explain the corresponding rule around an n-by-n square.",
+      "transfer_solution": "The outside square is 9 by 9, so the border has 81−49=32 squares. Alternatively count two rows of 9 and two sides of 7: 18+14=32. In general (n+2)²−n²=4n+4. The two side counts avoid counting corners twice."
     },
     {
       "id": "M03",
@@ -34,7 +38,9 @@
       "prompt": "Three lanterns flash at time 0. Red flashes every 4 seconds, blue every 6 seconds and green every 9 seconds.\n\na) At what first positive time do all three flash together?\nb) At 12 seconds, which flash?\nc) Replace green by an 8-second lantern. How does (a) change, and why is your time the first?",
       "hint": "List multiples, then use the least common multiple idea.",
       "trap": "Multiplying all periods gives a common time but not necessarily the first.",
-      "solution": "LCM(4,6,9)=36. At 12 seconds red and blue flash, not green. LCM(4,6,8)=24; it is the first because any simultaneous flash must be a common multiple and 24 is the least."
+      "solution": "LCM(4,6,9)=36. At 12 seconds red and blue flash, not green. LCM(4,6,8)=24; it is the first because any simultaneous flash must be a common multiple and 24 is the least.",
+      "transfer_prompt": "A signal begins at second 5 and repeats every 6 seconds. Another begins at second 9 and repeats every 8 seconds. Find their first shared flash, then the next one. Explain why the least common multiple is a gap rather than the first shared time.",
+      "transfer_solution": "The first list starts 5,11,17,23; the second 9,17,25. The first common time is 17 seconds. Both repeat together every lcm(6,8)=24 seconds, so the next is 41. Checking all earlier entries proves 17 is first."
     },
     {
       "id": "M04",
@@ -43,7 +49,9 @@
       "prompt": "Five different badges A,B,C,D,E are arranged in a line. C is not at either end. A and B are not adjacent.\n\na) How many arrangements satisfy both rules?\nb) Give a systematic method proving no valid arrangement was missed or repeated.\nc) Give one valid and one invalid arrangement and identify the broken rule.",
       "hint": "Count arrangements with C interior, then subtract those with A and B adjacent.",
       "trap": "Do not merge AB and BA; they are different orders.",
-      "solution": "With C in one of three interior positions there are 3×4!=72 arrangements. For each C position, exactly 8 have A and B adjacent, so 24 invalid. Valid=72−24=48."
+      "solution": "With C in one of three interior positions there are 3×4!=72 arrangements. For each C position, exactly 8 have A and B adjacent, so 24 invalid. Valid=72−24=48.",
+      "transfer_prompt": "Arrange five different robot parts P,Q,R,S,T. P and Q must be adjacent, and R must be first. How many arrangements work? Explain what changes if R is required to be between P and Q instead.",
+      "transfer_solution": "With R first, the PQ block and S and T are three objects: 3! choices, with 2 orders inside PQ, giving 12. If R must be between P and Q while P and Q are still adjacent, the rules conflict and no arrangement exists. If adjacency were removed, that would be a different problem."
     },
     {
       "id": "M05",
@@ -52,7 +60,9 @@
       "prompt": "There are five dots on one straight line and four on a parallel lower line. A triangle uses any three dots not all on the same line.\n\na) How many triangles can be made?\nb) Explain why every real triangle is counted exactly once.\nc) Generalise to m upper dots and n lower dots.",
       "hint": "Count two-top-one-bottom OR two-bottom-one-top.",
       "trap": "Three collinear dots do not form a triangle.",
-      "solution": "C(9,3)−C(5,3)−C(4,3)=84−10−4=70. General form C(m,2)n+C(n,2)m=mn(m+n−2)/2."
+      "solution": "C(9,3)−C(5,3)−C(4,3)=84−10−4=70. General form C(m,2)n+C(n,2)m=mn(m+n−2)/2.",
+      "transfer_prompt": "There are 3 points on one line and 6 on a parallel line. How many triangles use these points? What changes if one point on the six-point line is removed? Explain the change without recounting all triangles.",
+      "transfer_solution": "Original count: C(3,2)×6 + 3×C(6,2)=18+45=63. Removing one lower point destroys 3 triangles using two upper points and 3×5=15 using one upper and another lower point: 18 lost, leaving 45. Every destroyed triangle contains the removed point."
     },
     {
       "id": "M06",
@@ -61,7 +71,9 @@
       "prompt": "An explorer goes from S=(0,0) to T=(4,3) using only one-square Right or Up moves. F=(2,1) is blocked.\n\na) How many shortest paths exist without the block?\nb) How many shortest paths pass through F, and how many avoid it?\nc) Explain why multiplying routes to F by routes from F is legitimate; give an alternative check.",
       "hint": "Represent a shortest path as seven R/U symbols.",
       "trap": "Do not count longer detours when the problem asks for shortest paths.",
-      "solution": "All shortest paths: C(7,3)=35. To F: C(3,1)=3; F to T: C(4,2)=6; through F=18; avoid F=17. The product rule works because each pair of segments gives one unique path through F."
+      "solution": "All shortest paths: C(7,3)=35. To F: C(3,1)=3; F to T: C(4,2)=6; through F=18; avoid F=17. The product rule works because each pair of segments gives one unique path through F.",
+      "transfer_prompt": "Travel from (0,0) to (3,3) using Right or Up moves. You must pass through (1,2). Count the routes. Then explain how you could use that result to count routes avoiding (1,2).",
+      "transfer_solution": "To (1,2) there are 3 orders of RUU. From there to (3,3) there are 3 orders of RRU. Thus 9 routes pass through. There are C(6,3)=20 routes altogether, so 11 avoid the point. The passage decomposition is unique."
     },
     {
       "id": "M07",
@@ -70,7 +82,9 @@
       "prompt": "Five rays leave a point A and meet a baseline. Two more horizontal lines cross all five rays, parallel to the baseline.\n\na) Count all triangles in the drawing.\nb) Explain why every triangle contains A and cannot have two horizontal sides.\nc) Generalise to r rays and h horizontal levels including the baseline.",
       "hint": "For one horizontal level, choose a pair of rays.",
       "trap": "Non-neighbouring rays also create larger triangles.",
-      "solution": "Choose two of 5 rays and one of 3 horizontal levels: C(5,2)×3=30. General formula h·r(r−1)/2."
+      "solution": "Choose two of 5 rays and one of 3 horizontal levels: C(5,2)×3=30. General formula h·r(r−1)/2.",
+      "transfer_prompt": "Four rays leave one point and cross two parallel lines. A third parallel line is added, crossing all four rays. How many NEW triangles appear? Explain why an added line cannot create a triangle using two parallel sides.",
+      "transfer_solution": "A triangle must use two rays and one parallel level. The new line contributes C(4,2)=6 triangles. Two parallel sides cannot meet to enclose a triangle, so there are no additional cases."
     },
     {
       "id": "M08",
@@ -79,7 +93,9 @@
       "prompt": "A window consists of a rectangle 8r long and 2r high plus one semicircle of radius r outside each short side.\n\na) Find total height and width.\nb) Find exact area and perimeter.\nc) The smallest enclosing rectangle is 10r by 2r. Find the area inside it but outside the window.",
       "hint": "The two semicircles make one whole circle.",
       "trap": "Area and perimeter have different units and scale differently.",
-      "solution": "Height=2r, width=10r. Area=(16+π)r². Perimeter=(16+2π)r. Uncovered area=(4−π)r²."
+      "solution": "Height=2r, width=10r. Area=(16+π)r². Perimeter=(16+2π)r. Uncovered area=(4−π)r².",
+      "transfer_prompt": "A track boundary is formed from a rectangle 12 cm long and 6 cm wide with an outward semicircle at each short end. Find its area and perimeter. If all lengths double, explain the area and perimeter multipliers.",
+      "transfer_solution": "The two semicircles form a radius-3 circle. Area=72+9π cm²; perimeter=24+6π cm. Doubling lengths doubles every boundary length but multiplies each area by four."
     },
     {
       "id": "M09",
@@ -88,7 +104,9 @@
       "prompt": "A square has side 4r. A quarter-circle of radius 2r centred at the top-right corner is cut away.\n\na) Find exact remaining area.\nb) Find exact perimeter including the curved edge.\nc) Explain why area and perimeter formulas cannot be interchanged.",
       "hint": "Trace the outside boundary after the cut.",
       "trap": "The new curved edge must be added to the remaining straight boundary.",
-      "solution": "Remaining area=(16−π)r². Straight boundary left=12r; quarter-circle arc=πr; perimeter=(12+π)r."
+      "solution": "Remaining area=(16−π)r². Straight boundary left=12r; quarter-circle arc=πr; perimeter=(12+π)r.",
+      "transfer_prompt": "Cut a quarter-circle of radius 3 cm from one corner of an 8 cm square. Find the removed area and the new perimeter. Explain why removing material can change area and perimeter in different ways.",
+      "transfer_solution": "Removed area=9π/4 cm². The two 3-cm straight boundary pieces disappear and a quarter-circumference of length 3π/2 appears. New perimeter=32−6+3π/2=26+3π/2 cm. Area is lost; boundary depends on both deleted and new edges."
     },
     {
       "id": "M10",
@@ -97,7 +115,9 @@
       "prompt": "On a 3×3 board, four discs start at the middle squares of the four edges. A move slides one disc one square horizontally or vertically into an empty square. The goal is one disc in each corner.\n\na) Give a four-move solution.\nb) Prove fewer than four moves is impossible.\nc) Explain the difference between a construction and a proof of minimality.",
       "hint": "Count how many discs start on squares forbidden in the final position.",
       "trap": "A four-move construction alone does not prove optimality.",
-      "solution": "Move each edge-middle disc once to a neighbouring corner. At least four moves are necessary because all four discs start off-corner and every disc must move at least once. Construction+lower bound proves minimum 4."
+      "solution": "Move each edge-middle disc once to a neighbouring corner. At least four moves are necessary because all four discs start off-corner and every disc must move at least once. Construction+lower bound proves minimum 4.",
+      "transfer_prompt": "On a 3-by-3 board a single disc starts at the centre. It must reach the top-left corner, moving one square horizontally or vertically into an empty square. Prove the minimum number of moves and count the shortest routes.",
+      "transfer_solution": "At least one up and one left move are necessary, giving a lower bound of two. Up then left and left then up both work. Thus the minimum is two, with exactly two shortest routes. The bound and the construction establish different parts of the claim."
     },
     {
       "id": "M11",
@@ -106,7 +126,9 @@
       "prompt": "A 3×4×5 block is made of unit cubes. The top and four vertical sides are painted; the bottom is not.\n\na) How many small cubes have paint on at least one face?\nb) How many have exactly three painted faces?\nc) How many have exactly two painted faces? Avoid double-counting.",
       "hint": "Count unpainted cubes first; then separate top-edge and vertical-edge cases.",
       "trap": "The bottom is not painted.",
-      "solution": "Total 60. Unpainted=(3−1)(4−2)(5−2)=12, so painted=48. Exactly three painted faces: 4 top corners. Exactly two: 10 top-edge non-corners +8 vertical-edge cubes below top=18."
+      "solution": "Total 60. Unpainted=(3−1)(4−2)(5−2)=12, so painted=48. Exactly three painted faces: 4 top corners. Exactly two: 10 top-edge non-corners +8 vertical-edge cubes below top=18.",
+      "transfer_prompt": "A 3-by-3-by-4 block of cubes is painted only on its top and bottom. Count cubes with zero, one and two painted faces. Explain why the original five-face formula must not be reused.",
+      "transfer_solution": "There are 36 cubes. The top and bottom layers are distinct, with 9 cubes each, so 18 cubes have one painted face. The two middle layers contain 18 with none. No cube reaches both top and bottom, so none has two painted faces. The categories total 36."
     },
     {
       "id": "M12",
@@ -115,7 +137,9 @@
       "prompt": "Colour a 4×4 board like a chessboard. A domino covers two edge-adjacent squares.\n\na) Remove top-left and bottom-right. Can seven dominoes tile the rest? Prove it.\nb) Instead remove top-left and bottom-left. Can seven dominoes tile the rest? Give a construction.\nc) Explain why even area is not sufficient for tileability.",
       "hint": "Count the two colours after removing the squares.",
       "trap": "A failed drawing is not an impossibility proof.",
-      "solution": "In (a) the removed corners have the same colour, leaving a 6/8 colour imbalance; seven dominoes would need 7 of each, impossible. In (b) a tiling exists: one vertical domino in the two remaining cells of column 1 and two vertical dominoes in each of columns 2–4."
+      "solution": "In (a) the removed corners have the same colour, leaving a 6/8 colour imbalance; seven dominoes would need 7 of each, impossible. In (b) a tiling exists: one vertical domino in the two remaining cells of column 1 and two vertical dominoes in each of columns 2–4.",
+      "transfer_prompt": "A board has 3 rows and 6 columns. Remove the top-left and top-right squares. Can dominoes cover the rest? Give an explicit tiling or an obstruction, and explain whether an even area alone settles the question.",
+      "transfer_solution": "Yes. The remaining four squares in the top row take two horizontal dominoes. Each of the two full lower rows takes three more. Eight dominoes cover all 16 squares. Even area is necessary, but the construction is what proves this particular board can be tiled."
     },
     {
       "id": "M13",
@@ -124,7 +148,9 @@
       "prompt": "Different digits A,B,C are chosen from 1,2,3,4,5 with A+B=7 and B+C=5.\n\na) List all assignments satisfying these two clues.\nb) Add 2A+C=10. Which remains?\nc) Explain why the first two clues are insufficient but the third gives uniqueness.",
       "hint": "Choose B first, then A=7−B and C=5−B.",
       "trap": "Every clue must be checked, not just one equation.",
-      "solution": "Candidates are (3,4,1),(4,3,2),(5,2,3). Only (4,3,2) satisfies 2A+C=10."
+      "solution": "Candidates are (3,4,1),(4,3,2),(5,2,3). Only (4,3,2) satisfies 2A+C=10.",
+      "transfer_prompt": "Distinct positive digits A,B,C obey A+B=9 and B+C=7. First list the possibilities. Then add A+C=8 and determine whether the result is unique.",
+      "transfer_solution": "A=9−B and C=7−B, with B=1..6 and B not equal to A or C. All six B values give distinct digits because 9/2 and 7/2 are not integers. A+C=16−2B=8 forces B=4, A=5, C=3. The complete list or this equation proves uniqueness."
     },
     {
       "id": "M14",
@@ -133,7 +159,9 @@
       "prompt": "Place digits 1–9 once in a 3×3 square so every row, column and both long diagonals have the same total.\n\na) What must each line total?\nb) Give a working square and check all eight lines.\nc) Prove the centre must be 5 in every such square.",
       "hint": "Add 1+2+…+9 before placing any digit.",
       "trap": "Checking rows alone is not enough.",
-      "solution": "Digits total 45, so each row totals 15. Example 8 1 6 / 3 5 7 / 4 9 2. Adding middle row, middle column and two diagonals gives 60; outside digits count once, centre four times: 60=45+3c, so c=5."
+      "solution": "Digits total 45, so each row totals 15. Example 8 1 6 / 3 5 7 / 4 9 2. Adding middle row, middle column and two diagonals gives 60; outside digits count once, centre four times: 60=45+3c, so c=5.",
+      "transfer_prompt": "Take any 3-by-3 magic square using 1 to 9 once. Add 4 to every entry. Prove it is still a magic square. Find its new line sum and centre, and explain how to reverse the transformation.",
+      "transfer_solution": "Every line has three entries, so its sum increases by 12 from 15 to 27. The centre increases from 5 to 9. Subtracting 4 from every entry restores the original square. The proof works for every original magic square, not just one arrangement."
     },
     {
       "id": "M15",
@@ -142,7 +170,9 @@
       "prompt": "You have exactly six coins, each worth 1,2 or5 units.\n\na) Find all collections worth exactly 14.\nb) Prove there are no others.\nc) With exactly five coins of these denominations, can you make 24? Prove it.",
       "hint": "Start with the number of 5-unit coins.",
       "trap": "Different orders of the same coin counts are not different collections.",
-      "solution": "Let counts x,y,z satisfy x+y+z=6 and x+2y+5z=14, giving y+4z=8. z=1 gives (x,y,z)=(1,4,1); z=2 gives (4,0,2). For five coins, max is 25; replacing any 5 by a 2 drops to at most22, so 24 is impossible."
+      "solution": "Let counts x,y,z satisfy x+y+z=6 and x+2y+5z=14, giving y+4z=8. z=1 gives (x,y,z)=(1,4,1); z=2 gives (4,0,2). For five coins, max is 25; replacing any 5 by a 2 drops to at most22, so 24 is impossible.",
+      "transfer_prompt": "Exactly five tokens, each worth 1, 3 or 4 points, must total 13 points. Find every possible collection and prove there are no others.",
+      "transfer_solution": "Let a,b,c count 1-,3-,4-point tokens. Then a+b+c=5 and a+3b+4c=13, so 2b+3c=8. The nonnegative solutions are c=0,b=4,a=1 and c=2,b=1,a=2. Checking c=0,1,2 (larger c exceeds 8) is exhaustive."
     },
     {
       "id": "M16",
@@ -151,7 +181,9 @@
       "prompt": "Five islands A–E require degrees 3,2,2,1,2 respectively; at most one bridge joins any pair.\n\na) Draw a network meeting the requirements.\nb) How many bridges are required? Explain the double-count.\nc) If E needed degree 3 instead of2, prove no arrangement is possible.",
       "hint": "Start by connecting the island needing three bridges.",
       "trap": "The degree sum counts each bridge twice.",
-      "solution": "One construction: AB,AC,AD,BE,CE. Degree sum=10, so 5 bridges. If E had degree3, sum degrees=11, impossible because every ordinary graph has even total degree."
+      "solution": "One construction: AB,AC,AD,BE,CE. Degree sum=10, so 5 bridges. If E had degree3, sum degrees=11, impossible because every ordinary graph has even total degree.",
+      "transfer_prompt": "Four islands each need exactly two bridges, with at most one bridge per pair. Can the network be connected? Draw a construction and find the number of bridges. Would requiring one island to have three bridges and the others two be possible?",
+      "transfer_solution": "A four-island cycle is connected and gives degree two everywhere. The degree sum is 8, so there are 4 bridges. Changing one degree to three makes the total 9, impossible because every bridge contributes exactly two to the degree sum."
     },
     {
       "id": "M17",
@@ -160,7 +192,9 @@
       "prompt": "A queen attacks along row, column and diagonals.\n\na) Place four non-attacking queens on a 4×4 board.\nb) Why are five impossible on 4×4?\nc) Can three non-attacking queens fit on 3×3? Give a complete argument.",
       "hint": "For 3×3, a three-queen solution would use every row and every column exactly once.",
       "trap": "One failed layout is not proof all layouts fail.",
-      "solution": "Example 4×4 columns by rows: [2,4,1,3]. Five queens force two into one of four rows. On 3×3, any three queens correspond to one of 3!=6 column permutations; each has a diagonal attack, so at most two."
+      "solution": "Example 4×4 columns by rows: [2,4,1,3]. Five queens force two into one of four rows. On 3×3, any three queens correspond to one of 3!=6 column permutations; each has a diagonal attack, so at most two.",
+      "transfer_prompt": "On a 4-by-4 board, place one queen in each row at columns 3,1,4,2 respectively. Check every possible attack. Explain why checking rows and columns alone is insufficient.",
+      "transfer_solution": "Rows and columns are all different. For diagonals, compare row−column values (−2,1,−1,2) and row+column values (4,3,7,6); both lists have no repeats. Thus no two queens share a diagonal. Distinct rows and columns alone would still allow diagonal attacks."
     },
     {
       "id": "M18",
@@ -169,7 +203,9 @@
       "prompt": "You have 24 one-metre fence sections and must make a rectangle with positive whole-number side lengths, using all sections.\n\na) List all rectangles ignoring rotations.\nb) Which maximises area?\nc) Prove no allowed rectangle has larger area.",
       "hint": "Turn perimeter 24 into a+b=12.",
       "trap": "Equal perimeter does not mean equal area.",
-      "solution": "Pairs: (1,11),(2,10),(3,9),(4,8),(5,7),(6,6); areas 11,20,27,32,35,36. Write sides 6−d and6+d; area=36−d²≤36, so 6×6 is optimal."
+      "solution": "Pairs: (1,11),(2,10),(3,9),(4,8),(5,7),(6,6); areas 11,20,27,32,35,36. Write sides 6−d and6+d; area=36−d²≤36, so 6×6 is optimal.",
+      "transfer_prompt": "Use 24 metres of fence for three sides of a rectangular pen against a wall. Whole-number side lengths are required. Find the greatest area and prove it. Explain why the best shape is no longer a square.",
+      "transfer_solution": "If width is w, the length is 24−2w. Area=w(24−2w)=72−2(w−6)²≤72. Width 6 and length 12 attain 72 m². The unfenced wall changes the resource equation; a square is not the maximiser for this constraint."
     },
     {
       "id": "M19",
@@ -178,7 +214,9 @@
       "prompt": "A pile has 17 stones. Players alternate removing 1 or2; whoever takes the last stone wins.\n\na) Can the first player force a win? Give the opening.\nb) Give a response rule that works against either opponent move.\nc) If the pile begins with18, who can force a win?",
       "hint": "Test small piles and identify bad starting sizes.",
       "trap": "A strategy must work against both opponent responses.",
-      "solution": "From17 remove2, leaving15. Then complement the opponent to remove3 per pair (1↔2), returning to smaller multiples of3 until zero. From18 the second player uses this strategy."
+      "solution": "From17 remove2, leaving15. Then complement the opponent to remove3 per pair (1↔2), returning to smaller multiples of3 until zero. From18 the second player uses this strategy.",
+      "transfer_prompt": "A pile contains 22 stones. Players may take 1, 2 or 3 stones, and taking the last stone wins. Find a winning first move and a response strategy. What changes for 24 stones?",
+      "transfer_solution": "Leave a multiple of 4: from 22 take 2 to leave 20. If the opponent takes k, respond with 4−k. This is always 1,2 or3 and restores a multiple of 4 until taking the last stones. Starting at 24, the second player can use the same response strategy; the first cannot force a win against perfect play."
     },
     {
       "id": "M20",
@@ -187,7 +225,9 @@
       "prompt": "Old money used 1 pound=20 shillings and 1 shilling=12 pence.\n\na) Find £2/14/9 + £1/8/7.\nb) Check by converting both amounts to pence.\nc) Explain why decimal carrying would be wrong.",
       "hint": "Use separate pound, shilling and pence columns; start with pence.",
       "trap": "The carrying bases are 12 and20, not10 and10.",
-      "solution": "9+7=16 pence → carry1 shilling, leave4. 14+8+1=23 shillings → carry1 pound, leave3. Pounds=4, so £4/3/4. Pence check:657+343=1000; £4/3/4=1000."
+      "solution": "9+7=16 pence → carry1 shilling, leave4. 14+8+1=23 shillings → carry1 pound, leave3. Pounds=4, so £4/3/4. Pence check:657+343=1000; £4/3/4=1000.",
+      "transfer_prompt": "A robot clock uses 8 ticks per beat and 15 beats per cycle. Add 2 cycles 11 beats 6 ticks to 1 cycle 7 beats 5 ticks. Verify by converting everything to ticks.",
+      "transfer_solution": "Ticks: 6+5=11, giving 1 beat and 3 ticks. Beats: 11+7+1=19, giving 1 cycle and 4 beats. Cycles: 2+1+1=4. Result: 4 cycles 4 beats 3 ticks. In ticks, 334+181=515, and 4×120+4×8+3=515."
     }
   ]
 }

@@ -68,3 +68,25 @@ for(const s of sessions){
 assert.equal(covered,372);
 assert.equal(new Set(Object.values(journeys).map(j=>j.hook)).size,52);
 console.log('PASS: 372 tailored session openings; 52 technique starters; 20 investigation warm-ups; revisit purposes; rehearsal preparation.');
+
+const {selectOriginalProblems,familySeen,reasoningReady,applicationStatus}=await import('../original-learning.js');
+const manifest=JSON.parse(fs.readFileSync(new URL('../data/lesson-challenges.json',import.meta.url))).items;
+assert.equal(manifest.length,566);assert.equal(new Set(manifest.map(p=>p.id)).size,566);
+const fixtureBank=manifest.map(x=>({id:x.id,source_type:'original_authored',prompt:'Original fixture'}));
+for(const s of sessions){
+ const pair=selectOriginalProblems(s,fixtureBank,manifest);
+ if(s.type==='LESSON'){
+  assert.equal(pair.length,2);assert.equal(pair[0].learning.skill,skillFor(s,taxonomy));assert.equal(pair[1].learning.skill,skillFor(s,taxonomy));assert.notEqual(pair[0].learning.family,pair[1].learning.family);
+ }else assert.equal(pair.length,0);
+}
+assert.throws(()=>selectOriginalProblems(sessions[0],[{id:manifest[0].id,source_type:'authentic_amc'}],manifest),/Original lesson content/);
+assert.throws(()=>selectOriginalProblems(sessions[0],[],manifest),/Original lesson content/);
+assert(!familySeen([], 'x'));assert(familySeen([{evidence:{a:{kind:'application',family:'x'}}}], 'x'));
+assert(!reasoningReady({evidence:{}},'x'));
+assert(reasoningReady({evidence:{'reasoning:x':{clue:'The clue is a total.',plan:'Use an equation.',check:'Substitute into both conditions.'}}},'x'));
+assert.equal(applicationStatus({correct:true,used_help:true}),'Solved with support');
+assert.match(applicationStatus({correct:true,used_help:false,familiar_family:true}),/familiar pattern/);
+assert.equal(attempt.independentCredit(true,true,false,false),true);
+for(const args of [[true,true,true,false],[true,true,false,true],[true,false,false,false],[false,true,false,false]])assert.equal(attempt.independentCredit(...args),false);
+assert(investigations.every(x=>x.transfer_prompt.length>70&&x.transfer_solution.length>100));
+console.log('PASS: all 283 lesson pairs explicitly mapped; real papers and missing originals fail closed; familiar or supported work cannot earn new-transfer credit; 20 changed-situation investigations.');

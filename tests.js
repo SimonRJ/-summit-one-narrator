@@ -1,4 +1,4 @@
-import {mockIntroductionHTML} from './session-intros.js?v=journey-20261112';
+import {mockIntroductionHTML} from './session-intros.js?v=original-transfer-20261112';
 
 if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));}
 import { supabase, currentUser, loadProgress, saveProgress, upsertSession } from "./supabase-client.js?v=auth-20261112";

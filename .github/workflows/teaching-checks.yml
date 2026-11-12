@@ -2,7 +2,7 @@ name: Teaching behavior checks
 on:
   push:
     branches: [main, draft/teaching-audit-2026-11-11]
-    paths: ['*.js', '*.html', '*.css', 'data/**', 'tools/browser_checks.py', 'tools/check_learning.mjs', '.github/workflows/teaching-checks.yml']
+    paths: ['*.js', '*.html', '*.css', 'data/**', 'tools/browser_checks.py', 'tools/check_learning.mjs', 'tools/content/**', '.github/workflows/teaching-checks.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -18,6 +18,7 @@ jobs:
         with:
           python-version: '3.12'
       - run: node tools/check_learning.mjs
+      - run: python tools/content/check_original_lessons.py
       - run: pip install playwright==1.58.0
       - run: google-chrome --version
       - name: Browser behavior and responsive layout
