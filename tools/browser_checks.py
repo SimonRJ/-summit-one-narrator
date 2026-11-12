@@ -6,11 +6,11 @@ MOCK=r'''
 const state=window.fixture=window.fixture||{records:[],attempts:[],exams:[],progress:{completed_sessions:0,current_session:1,xp:0,rank:0,state:{}},writes:[],fail:false};
 const mapping=(await (await fetch('data/lesson-challenges.json')).json()).items;
 const problems=[{id:'A001',title:'Must never be selected',prompt:'A real exam fixture',source_type:'authentic_amc',category:'digits',difficulty:2},...mapping.map(m=>({id:m.id,title:'Original learning fixture',prompt:'What is 6 plus 6?',source_type:'original_authored',category:m.skill,difficulty:3}))];
-function query(table){let filters=[],payload=null,kind='read',single=false;
-const q={select(){return q},eq(k,v){filters.push([k,v]);return q},not(k,op,v){filters.push([k,v,'not']);return q},order(){return q},limit(){return q},maybeSingle(){single=true;return q},single(){single=true;return q},insert(v){payload=v;kind='insert';return q},update(v){payload=v;kind='update';return q},upsert(v){payload=v;kind='upsert';return q},then(resolve,reject){try{let rows=table==='content_problems_student'?problems:table==='session_records'?state.records:table==='problem_attempts'?state.attempts:table==='exam_sittings'?state.exams:table==='exam_catalog'?[{id:'amc-up-2025',year:2025,session_slot:16,title:'Fixture paper',max_score:135,duration_minutes:60,question_count:30,source_type:'authentic_amc_past_paper',active:true}]:table==='exam_questions_student'?Array.from({length:30},(_,i)=>({exam_id:'amc-up-2025',question_number:i+1,question_type:i<25?'multiple_choice':'integer',stem:'Fixture question '+(i+1),choices:['one','two','three','four','five'],marks:i<10?3:i<20?4:i<25?5:i-19})):[];
+function query(table){let filters=[],payload=null,kind='read',single=false,span=null;
+const q={select(){return q},eq(k,v){filters.push([k,v]);return q},not(k,op,v){filters.push([k,v,'not']);return q},order(){return q},limit(n){span=[0,n-1];return q},range(a,b){span=[a,b];return q},maybeSingle(){single=true;return q},single(){single=true;return q},insert(v){payload=v;kind='insert';return q},update(v){payload=v;kind='update';return q},upsert(v){payload=v;kind='upsert';return q},then(resolve,reject){try{let rows=table==='content_problems_student'?problems:table==='session_records'?state.records:table==='problem_attempts'?state.attempts:table==='exam_sittings'?state.exams:table==='exam_catalog'?[{id:'amc-up-2025',year:2025,session_slot:16,title:'Fixture paper',max_score:135,duration_minutes:60,question_count:30,source_type:'authentic_amc_past_paper',active:true}]:table==='exam_questions_student'?Array.from({length:30},(_,i)=>({exam_id:'amc-up-2025',question_number:i+1,question_type:i<25?'multiple_choice':'integer',stem:'Fixture question '+(i+1),choices:['one','two','three','four','five'],marks:i<10?3:i<20?4:i<25?5:i-19})):[];
  if(kind!=='read'){if(state.fail)return resolve({error:{message:'Simulated connection failure'}});if(kind==='insert'){if(table==='exam_sittings'&&rows.some(r=>r.exam_id===payload.exam_id&&r.user_id===payload.user_id))return resolve({error:{code:'23505',message:'One attempt only'}});payload={id:'sitting1',...payload};rows.push(payload)}else{const found=rows.find(r=>filters.every(([k,v])=>r[k]===v));if(found)Object.assign(found,payload);payload=found||payload}return resolve({data:payload,error:null})}
- rows=rows.filter(r=>filters.every(([k,v,kind])=>k==='user_id'||(kind==='not'?r[k]!=v:r[k]===v)));resolve({data:single?rows[0]||null:rows,error:null})}catch(e){reject(e)}}};return q}
-export const supabase={from:query,auth:{getSession:async()=>({data:{session:{access_token:'fixture'}}})},functions:{invoke:async(name,{body})=>({data:name==='submit-problem-attempt'?{correct:true,independent_credit:!body.used_help&&!body.familiar_family}:{solution_text:'Six plus six is twelve.'},error:null})}};
+ rows=rows.filter(r=>filters.every(([k,v,kind])=>k==='user_id'||(kind==='not'?r[k]!=v:r[k]===v)));if(span)rows=rows.slice(span[0],span[1]+1);resolve({data:single?rows[0]||null:rows,error:null})}catch(e){reject(e)}}};return q}
+export const supabase={from:query,rpc:async(name,{p_sitting_id,p_question,p_response})=>{if(state.fail)return {error:{message:'Simulated connection failure'}};const row=state.exams.find(r=>r.id===p_sitting_id);if(p_response===null)delete row.responses[p_question];else row.responses[p_question]=p_response;return {data:row,error:null}},auth:{getSession:async()=>({data:{session:{access_token:'fixture'}}})},functions:{invoke:async(name,{body})=>({data:name==='submit-problem-attempt'?{correct:true,independent_credit:!body.used_help&&!body.familiar_family}:{solution_text:'Six plus six is twelve.'},error:null})}};
 export async function currentUser(){return {id:'fixture-user'}};
 export async function loadProgress(){return state.progress};
 export async function saveProgress(p){Object.assign(state.progress,p);return state.progress};
@@ -59,7 +59,11 @@ async def main():
   await page.locator('.mini-check .hint').click();await page.wait_for_timeout(100)
   assert await page.evaluate("Object.values(fixture.records[0].evidence).includes(true)")
   await page.locator('.mini-check input').fill('123');await page.locator('.mini-check button.primary').click();await page.locator('.check-feedback').get_by_text('Not quite yet',exact=False).wait_for()
-  await page.locator('[data-stage="2"]').click();assert not await page.locator('.problem-card').is_visible();await page.locator('.mini-check input').fill('4');await page.locator('.mini-check button.primary').click();await page.locator('.problem-card').wait_for();await page.locator('.working-box').fill('My reasoning survives changing stages.')
+  await page.locator('[data-stage="2"]').click();assert not await page.locator('.problem-card').is_visible()
+  await page.locator('.mini-check .method').fill('Keep the remainder, square it, add four, then divide by seven.')
+  faded_answer=await page.evaluate("import('./transfer-practice.js?v=centres-20261112').then(m=>String(m.practice('DIV-03',9).value))")
+  await page.locator('.mini-check .response').fill(faded_answer);await page.get_by_role('button',name='Record and check',exact=True).click()
+  await page.locator('.mini-check .short-answer').fill('4');await page.get_by_role('button',name='Check my answer',exact=True).click();await page.locator('.problem-card').wait_for();await page.locator('.working-box').fill('My reasoning survives changing stages.')
   await page.locator('[data-stage="3"]').click();await page.locator('[data-stage="2"]').click()
   assert await page.locator('.working-box').input_value()=='My reasoning survives changing stages.'
   assert 'AMC ARCHIVE' not in await page.locator('.problem-meta').inner_text()
@@ -191,7 +195,7 @@ async def main():
   # A reload still offers review only. A course deep link cannot start a second attempt.
   sealed=await page.evaluate('fixture')
   locked=await context.new_page();await locked.add_init_script('window.fixture='+json.dumps(sealed))
-  await locked.goto('http://127.0.0.1:8765/tests.html?course=1&slot=16');await locked.locator('.score-big').wait_for()
+  await locked.goto('http://127.0.0.1:8765/tests.html?course=1&slot=16');await locked.get_by_role('button',name='Review locked paper').click();await locked.locator('.score-big').wait_for()
   assert await locked.locator('#confirmStart').count()==0
   assert await locked.evaluate('fixture.exams.length')==1
   await locked.close()
@@ -205,13 +209,13 @@ async def main():
   print('PASS: one-attempt warning, cancel without consuming attempt, resume clock, permanent review, deep-link lock, automatic expiry, live submission checklist and final-minute timer emphasis.')
   print('PASS: lesson navigation and saved work; exam overview, question menu, Previous/Next, save rollback, Erase, explicit integer Save, unsaved drafts, final confirmation and result/solution/video links; responsive without browser errors.')
 
-  # All session types get an opening, including investigation and timed rehearsal.
+  # All session types open correctly, including investigations and untimed workshops.
   for completed in [6,15,360]:
    special=await browser.new_context(viewport={'width':390,'height':844},service_workers='block')
    await special.route('**/supabase-client.js*',lambda route:route.fulfill(content_type='application/javascript',body=MOCK))
    await special.add_init_script("window.fixture={records:[],attempts:[],exams:[],progress:{completed_sessions:"+str(completed)+",xp:0,rank:0,state:{}},writes:[],fail:false}")
    sp=await special.new_page();await sp.goto('http://127.0.0.1:8765/');await sp.locator('#continue').click()
-   await sp.locator('.session-intro').wait_for()
+   if completed!=15:await sp.locator('.session-intro').wait_for()
    assert await sp.evaluate('document.documentElement.scrollWidth<=innerWidth+1')
    if completed in [6,360]:
     await sp.locator('[data-stage="1"]').click();await sp.locator('.gentle-example').first.wait_for()
@@ -221,7 +225,10 @@ async def main():
       await sp.locator('.flash-option').first.click();await sp.locator('.flash-next').click()
      await sp.locator('.flash-summary').wait_for()
      assert await sp.evaluate("Object.values(fixture.records[0].evidence).some(e=>e.investigation_id==='M01' && e.reviewed)")
-   else: await sp.locator('#confirmStart').wait_for()
+   else:
+    await sp.get_by_role('heading',name='Recognise, choose, explain').wait_for()
+    assert await sp.locator('#confirmStart').count()==0
+    assert 'untimed lesson' in await sp.locator('.session-page').inner_text()
    await special.close()
   legacy=await browser.new_context(service_workers='block')
   await legacy.route('**/supabase-client.js*',lambda route:route.fulfill(content_type='application/javascript',body=MOCK))
