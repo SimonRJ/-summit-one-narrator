@@ -35,7 +35,7 @@ skip.addEventListener('click',()=>video.pause());
 video.addEventListener('loadedmetadata',()=>{
   if(Number.isFinite(video.duration))document.querySelector('#videoDuration').textContent=`${Math.floor(video.duration/60)}:${String(Math.floor(video.duration%60)).padStart(2,'0')} · Full HD · Spoken captions`;
 });
-fetch('./review/ReefWelcome-qa.json').then(r=>r.ok?r.json():null).then(q=>{
+fetch('./review/ReefWelcome-qa.json?v=2').then(r=>r.ok?r.json():null).then(q=>{
   if(q?.duration_seconds)document.querySelector('#videoDuration').textContent=`${Math.floor(q.duration_seconds/60)}:${String(Math.floor(q.duration_seconds%60)).padStart(2,'0')} · Full HD · Spoken captions`;
 }).catch(()=>{});
 if('serviceWorker' in navigator)navigator.serviceWorker.register('./sw.js').catch(()=>{});
