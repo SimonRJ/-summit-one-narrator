@@ -38,6 +38,15 @@ On 13 November, **20 split familiarisation sets** were constructed using the 10 
 * Both parts were validated against live catalog counts, question counts, original question numbers, marks, answer types and populated explanations.
 * The older 25 retired AMC mocks include routine and repeated formats and **must not** be passed off as fresh elite-level material.
 
+## First original pilot sets (verified 13 November 2026)
+
+Two additional **newly authored** sets are active, distinct from the reused familiarisation sets:
+
+* **Original Fluency · Set 01** — Q1–20, 20 multiple-choice problems, 70 marks, 20-minute stopwatch, 3 original illustrative diagrams and complete worked explanations.
+* **Original Challenge · Set 01** — Q21–30, 5 multiple-choice and 5 numerical-answer problems, 65 marks, 40-minute stopwatch, with complete worked explanations.
+* The new 30 questions have individually verified correct answer keys, unique exact text relative to the previous library, valid mark weights, and independent mathematical checks including enumeration for the more difficult counting problems. The original bank remains server-side so the answer keys are not in public GitHub Pages assets.
+* The complete **active split library now has 11 fluency sets and 11 challenge sets (22 total): 10 reused familiarisation + 1 original pilot in each mode.** Additional original paper authoring is not yet complete.
+
 ## New original bank: editorial release specification
 
 The next content milestone is 20–50 **additional** genuinely new, independently verified papers, not 20–50 number substitutions or rearrangements. Target at least 30 independent Q1–20 fluency sets and at least 30 independent Q21–30 challenge sets, staged in small audited batches. Each new exam must remain hidden/inactive until it passes all checks.
