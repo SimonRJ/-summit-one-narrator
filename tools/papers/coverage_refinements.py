@@ -15,6 +15,8 @@ def apply_coverage(p):
   value=q['metadata']['expected_value']
   raw.append(item(q['stem'],value,q['explanation'],q['category'],[x for x in q['choices'] if x!=value] if q['choices'] else None,figure=q['figure_svg']))
  for slot,skill in {3:{28:'COUNT-04'},5:{28:'DIV-03'},8:{27:'SEQ-03'},10:{30:'COUNT-06'}}.get(index,{}).items():raw[slot-1]['category']=skill
+ if index==10:
+  raw[0]=item('Which number is closest to 49 × 21?',1000,'Estimate with 50×20=1000. The exact product is 49×(20+1)=980+49=1029. Its distances from 800, 900, 1000, 1100 and 1200 are 229, 129, 29, 71 and 171, so 1000 is closest.','DIG-01',[800,900,1100,1200],check=min([800,900,1000,1100,1200],key=lambda x:abs(x-49*21)))
  if index==2:
   triples=[(a,b,c) for a in range(1,24) for b in range(a,24) for c in range(b,24) if a+b+c==24 and a*b+a*c+b*c==176]
   raw[28]=item('A closed rectangular box has positive whole-number side lengths. The total length of its twelve edges is 96 cm, and its surface area is 352 cm². What is the greatest possible volume of the box, in cubic centimetres?',384,'Call the lengths a ≤ b ≤ c. The twelve edges give a+b+c=24, and the six faces give ab+ac+bc=176. The shortest side a is at most 8. For a=1 through 8, the required products bc are 153,132,113,96,81,68,57,48; the required sums b+c are 23,22,21,20,19,18,17,16. List the factor pairs of each product and keep only pairs with the required sum and b≥a. Only a=4,b=8,c=12 survives. (The pair 4,12 when a=8 is the same box, with sides out of order.) Its volume is 4×8×12=384. Check: the edge total is 4×24=96 and the surface area is 2×(32+48+96)=352.', 'GEO-05',check=max(a*b*c for a,b,c in triples),figure=cuboid('a','b','c'))
