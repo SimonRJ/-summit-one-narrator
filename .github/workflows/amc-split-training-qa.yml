@@ -1,0 +1,27 @@
+name: AMC split training QA
+on:
+  push:
+    branches: [main, feature/amc-split-training-20261113]
+  pull_request:
+    paths:
+      - "tests.js"
+      - "exam-rules.js"
+      - "tests.html"
+      - "index.html"
+      - "app-main.js"
+      - "exam.css"
+      - "main.css"
+      - "sw.js"
+      - "tools/check_split_training.mjs"
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Split exam and navigation regression
+        run: node --experimental-default-type=module tools/check_split_training.mjs
