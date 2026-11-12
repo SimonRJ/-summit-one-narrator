@@ -227,6 +227,7 @@ async def main():
      assert await sp.evaluate("Object.values(fixture.records[0].evidence).some(e=>e.investigation_id==='M01' && e.reviewed)")
    else:
     await sp.get_by_role('heading',name='Recognise, choose, explain').wait_for()
+    assert await sp.locator('#workshopQuestions .mini-check').count()==4
     assert await sp.locator('#confirmStart').count()==0
     assert 'untimed lesson' in await sp.locator('.session-page').inner_text()
    await special.close()

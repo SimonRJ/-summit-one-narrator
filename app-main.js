@@ -393,7 +393,11 @@ function renderCheck(el,s){
   };
 }
 function mixedSkills(s,count){
- const taught=[...new Set(completedRecords.filter(r=>r.session_number<s.slot).flatMap(r=>[r.summary?.skill_id,...(r.summary?.mixed_skills||[])]).filter(id=>methods[id]))];
+ const recorded=completedRecords.filter(r=>r.session_number<s.slot).flatMap(r=>[r.summary?.skill_id,...(r.summary?.mixed_skills||[])]);
+ // Older records may predate skill tags. Completed path positions still identify
+ // the methods already taught; never leave a workshop empty after an upgrade.
+ const priorLessons=course.filter(x=>x.type==='LESSON'&&x.slot<s.slot&&x.slot<=(progress.completed_sessions||0)).map(x=>skillFor(x,taxonomy));
+ const taught=[...new Set([...recorded,...priorLessons].filter(id=>methods[id]))];
  const candidates=taught.filter(id=>id!==skillFor(s,taxonomy));
  const ids=candidates.length?candidates:taught;
  return Array.from({length:Math.min(count,ids.length)},(_,i)=>ids[(s.slot*3+i*Math.max(1,Math.floor(ids.length/count)))%ids.length]).filter((x,i,a)=>a.indexOf(x)===i);
