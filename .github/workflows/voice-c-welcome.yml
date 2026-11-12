@@ -1,0 +1,96 @@
+name: Reef introduction with approved voice C
+on:
+  push:
+    branches: [main]
+    paths: ['production/voice-c-welcome/**', '.github/workflows/voice-c-welcome.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: voice-c-welcome
+  cancel-in-progress: false
+jobs:
+  speech:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        segment: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+    env:
+      HF_HUB_DISABLE_XET: '1'
+      TOKENIZERS_PARALLELISM: 'false'
+      OMP_NUM_THREADS: '2'
+      MKL_NUM_THREADS: '2'
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install speech runtime
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg libsndfile1
+          pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install 'transformers>=4.45,<5' 'huggingface-hub<1' einops pydantic soundfile librosa safetensors tqdm numpy scipy inflect addict argbind
+          pip install --no-deps 'git+https://github.com/OpenBMB/VoxCPM.git@300e4260b509066151d623dc9c0aa922cf82232b'
+      - name: Narrate using approved voice C reference
+        run: python production/voice-c-welcome/synth.py --segment ${{ matrix.segment }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: welcome-c-segment-${{ matrix.segment }}
+          path: build/reef-welcome/speech-*.wav
+          retention-days: 14
+  render:
+    needs: speech
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: welcome-c-segment-*
+          merge-multiple: true
+          path: build/reef-welcome
+      - name: Install rendering tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-dejavu-core
+          pip install pillow numpy soundfile faster-whisper
+      - name: Assemble and align new narration
+        run: |
+          python production/voice-c-welcome/synth.py
+          python production/reef-welcome/align.py --audio build/reef-welcome/narration.wav --timing build/reef-welcome/timing.json --out build/reef-welcome
+      - name: Render existing animation to the new spoken cues
+        run: |
+          python production/reef-welcome/render.py
+          ffmpeg -v error -y -i build/reef-welcome/visual.mp4 -i build/reef-welcome/narration.wav -map 0:v:0 -map 1:a:0 -c:v copy -c:a aac -b:a 192k -af apad -shortest -movflags +faststart build/reef-welcome/final.mp4
+          python production/voice-c-welcome/verify.py
+      - name: Publish verified video assets
+        run: |
+          cp build/reef-welcome/final.mp4 media/ReefWelcome.mp4
+          cp build/reef-welcome/ReefWelcome.vtt media/ReefWelcome.vtt
+          cp build/reef-welcome/poster.jpg media/ReefWelcome-poster.jpg
+          cp build/reef-welcome/transcript.txt media/ReefWelcome-transcript.txt
+          cp build/reef-welcome/qa.json review/ReefWelcome-qa.json
+          cp build/reef-welcome/pronunciation-qa.json review/ReefWelcome-pronunciation-qa.json
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add media/ReefWelcome* review/ReefWelcome-qa.json review/ReefWelcome-pronunciation-qa.json
+          git commit -m 'Replace Reef introduction narration with approved voice C only'
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: welcome-c-video-review
+          path: build/reef-welcome/
+          retention-days: 14
