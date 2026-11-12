@@ -147,7 +147,7 @@ function renderLibrary(){
  if(centre==="hub"){renderExamHub();return;}
  if(centre==="mawa"){renderMawaHub();return;}
  const papers=catalog.filter(e=>belongs(e)).sort((a,b)=>centre==="amc"?b.year-a.year:a.id.localeCompare(b.id));
- const titles={speed:"AMC Fluency · Q1–20",depth:"AMC Challenge · Q21–30",amc:"Real AMC past papers",practice:"Full AMC practice exams",rossmoyne:"Rossmoyne Honours Mathematics"};
+ const titles={speed:"AMC Fluency · Q1–20",depth:"AMC Challenge · Q21–30",amc:"Real AMC past papers",practice:"AMC practice exams",rossmoyne:"Rossmoyne Honours Mathematics"};
  const introductions={
    speed:"Twenty multiple-choice questions, 70 marks and a 20-minute limit. The timer counts up. Aim for 20/20; among perfect first attempts, a time below 20 minutes is excellent. These first ten familiarisation sets reuse questions from existing authored full mocks. New original sets must pass separate originality and solution checks before release.",
    depth:"Ten difficult questions: Q21–25 multiple choice; Q26–30 integer answer. The timer counts up to the 40-minute limit. Six correct—including all five multiple choice and one integer—is an excellent early benchmark. The first ten sets are transparently drawn from existing authored full mocks.",
