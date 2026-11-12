@@ -1,11 +1,12 @@
+import {mountFlashCards,flashReviewed} from './flash-ui.js?v=flash-20261112';
 import {selectOriginalProblems,familySeen,reasoningReady,applicationStatus,mountReasoning,originalFigure,LEARNING_VERSION} from './original-learning.js?v=original-transfer-20261112';
-import {introductionHTML,lessonPlan,investigationIntroHTML,investigationWarmupHTML} from './session-intros.js?v=original-transfer-20261112';
+import {introductionHTML,lessonPlan,investigationIntroHTML,investigationWarmupHTML} from './session-intros.js?v=flash-20261112';
 
 if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));}
 import { supabase, loadProgress, saveProgress, signOut, currentUser, upsertSession } from "./supabase-client.js?v=auth-20261112";
 import { mountNarratedPlayer } from "./lesson-player.js";
 import {methods,skillFor,recallState} from "./curriculum.js?v=original-transfer-20261112";
-import {lessonCard,mountCheck,mountRetrieval,readinessHTML} from "./learning-ui.js?v=original-transfer-20261112";
+import {lessonCard,mountCheck,mountRetrieval,readinessHTML} from "./learning-ui.js?v=flash-20261112";
 import { problemFigure } from "./problem-figures.js";
 
 const app=document.getElementById("app");
@@ -208,8 +209,9 @@ function renderMawaSession(s){
     el.innerHTML=`${investigationIntroHTML(s,item)}<div class="stage-number">NOW REMEMBER · A USEFUL HABIT</div><h2>Bring back an idea</h2><p class="muted">MAWA-style work rewards systematic thinking and clear justification, not speed alone.</p><div class="teaching-item"><h3>${prev?esc(prev.title):"Proof habit"}</h3><p class="math-copy">${prev?"Without reopening the old solution, write one sentence about what made the previous investigation complete.":"Write the difference between finding an example and proving a maximum, minimum or impossibility."}</p></div><div class="complete-row"><span></span><button id="nextStage" class="primary">Discover</button></div>`;
   }
   if(activeStage===1){
-    el.innerHTML=`<div class="stage-number">STAGE 2 · INVESTIGATION SETUP</div><h2>Discover</h2>${investigationWarmupHTML(item)}<h3>Now grow the investigation</h3><p class="muted">Read the problem slowly. Decide what evidence would count as a proof before calculating.</p><div class="problem-card"><div class="problem-meta">${esc(item.topic)}</div><h3 class="problem-title">${esc(item.title)}</h3><div class="problem-prompt math-copy">${esc(item.prompt)}</div><details style="margin-top:14px"><summary>First hint — use only if you are genuinely stuck</summary><p class="math-copy">${esc(item.hint)}</p></details></div><div class="complete-row"><span class="muted">Plan cases, a diagram, a table or an invariant.</span><button id="nextStage" class="primary">Try the investigation</button></div>`;
+    el.innerHTML=`<div class="stage-number">STAGE 2 · INVESTIGATION SETUP</div><h2>Discover</h2>${investigationWarmupHTML(item)}<div id="investigationCards"></div><h3>Now grow the investigation</h3><p class="muted">Read the problem slowly. Decide what evidence would count as a proof before calculating.</p><div class="problem-card"><div class="problem-meta">${esc(item.topic)}</div><h3 class="problem-title">${esc(item.title)}</h3><div class="problem-prompt math-copy">${esc(item.prompt)}</div><details style="margin-top:14px"><summary>First hint — use only if you are genuinely stuck</summary><p class="math-copy">${esc(item.hint)}</p></details></div><div class="complete-row"><span class="muted">Plan cases, a diagram, a table or an invariant.</span><button id="nextStage" class="primary">Try the investigation</button></div>`;
   }
+  if(activeStage===1)mountFlashCards(el.querySelector('#investigationCards'),{id:item.id,visit:1+Math.floor((Math.floor(s.slot/7)-1)/20),slot:s.slot,investigation:true,draft:sessionDraft,save:()=>saveDraft(s)});
   if(activeStage===2){
     const saved=sessionDraft.working.mawa_base||"";
     el.innerHTML=`<div class="stage-number">STAGE 3 · INDEPENDENT WORK</div><h2>Try</h2><p class="muted">Use paper, a notebook or this box. A correct number without justification is not complete evidence.</p><div class="problem-card"><div class="math-copy">${esc(item.prompt)}</div><label class="answer-label">Your organised reasoning<textarea id="mawaBase" class="answer-box" rows="12">${esc(saved)}</textarea></label><button id="recordMawa" class="primary">Record investigation work</button><div id="mawaMsg" class="attempt-feedback" hidden></div></div><div class="complete-row"><button id="backStage" class="ghost">Back</button><button id="nextStage" class="primary">Transfer</button></div>`;
@@ -227,7 +229,7 @@ function renderMawaSession(s){
     el.innerHTML=`<div class="stage-number">STAGE 5 · PROOF CHECK</div><h2>Check</h2><p class="muted">Score the evidence, not confidence. This is a practice rubric, not an official MAWA admissions score.</p><div class="problem-card"><details ${ready?"":"hidden"}><summary>Compare with model reasoning</summary><p class="solution-panel" style="display:block">${esc(item.solution)}</p>${item.transfer_solution?`<h4>Check the new setting</h4><p class="math-copy">${esc(item.transfer_solution)}</p>`:""}<p class="muted"><b>Common trap:</b> ${esc(item.trap)}</p></details><div class="check-grid"><label class="answer-label">Result 0–3<input id="rResult" type="number" min="0" max="3" value="" required></label><label class="answer-label">Method 0–3<input id="rMethod" type="number" min="0" max="3" value="" required></label><label class="answer-label">Proof / completeness 0–3<input id="rProof" type="number" min="0" max="3" value="" required></label><label class="answer-label">Clarity 0–1<input id="rClarity" type="number" min="0" max="1" value="" required></label></div></div><div class="complete-row"><span class="muted">${ready?"Investigation and extension recorded.":"Record both the investigation and extension before completion."}</span><button id="completeMawa" class="primary" ${ready?"":"disabled"}>Complete and lock Session ${s.slot}</button></div>`;
     if(ready)document.getElementById("completeMawa").onclick=async()=>{if(!["rResult","rMethod","rProof","rClarity"].every(id=>{const x=document.getElementById(id);return x.value!==""&&x.checkValidity()})){alert("Enter each rubric score after comparing the reasoning.");return}const rubric={result:Number(document.getElementById("rResult").value),method:Number(document.getElementById("rMethod").value),proof:Number(document.getElementById("rProof").value),clarity:Number(document.getElementById("rClarity").value)};sessionDraft.summary={...sessionDraft.summary,review_status:"self_reviewed_not_independently_verified",focus:item.title,type:"MAWA",phase:s.phase,investigation_id:item.id,rubric,total:rubric.result+rubric.method+rubric.proof+rubric.clarity};const button=document.getElementById("completeMawa");button.disabled=true;try{await completeSpecialSession(s)}catch(e){alert("Could not finish saving: "+e.message);button.disabled=false}};
   }
-  const next=document.getElementById("nextStage");if(next)next.onclick=async()=>{await saveDraft(s);activeStage=Math.min(4,activeStage+1);renderMawaSession(s)};
+  const next=document.getElementById("nextStage");if(next)next.onclick=async()=>{if(activeStage===1&&!flashReviewed(sessionDraft,item.id)){alert("Finish the five quick decisions and read the recap, then grow the investigation.");return}await saveDraft(s);activeStage=Math.min(4,activeStage+1);renderMawaSession(s)};
   const back=document.getElementById("backStage");if(back)back.onclick=async()=>{try{await saveDraft(s);activeStage=Math.max(0,activeStage-1);renderMawaSession(s)}catch(e){alert(e.message)}};
 }
 async function completeSpecialSession(s){
@@ -264,9 +266,13 @@ function renderRemember(el,s){
 function renderDiscover(el,s){
   const items=teachingFor(s);
   el.innerHTML=`<div class="stage-number">STAGE 2 · EXPLANATION</div><h2>Discover</h2><p class="muted">Read, sketch and listen. The goal is to see why the method works, not memorise a slogan.</p>
-  ${lessonCard(skillFor(s,taxonomy),lessonPlan(s,course,taxonomy))}<div id="guidedCheck"></div><details class="optional-lesson"><summary>Optional deeper connection · related video or reading</summary><div class="teaching-box">${items.map((t,i)=>`<article class="teaching-item"><div class="eyebrow">${esc(t.type==="worked_example"?"WORKED EXAMPLE":"CONCEPT")}</div><h3>${esc(t.title)}</h3><div class="lesson-player-slot" id="lessonPlayer${i}"></div><details><summary>Read explanation</summary><p class="math-copy">${esc(t.transcript)}</p>${t.extended_reading?`<h4>Further mathematical connections</h4><p class="math-copy">${esc(t.extended_reading)}</p>`:""}</details></article>`).join("")||'<p class="muted">Teaching explanation is being selected from the course library.</p>'}</div></details>
+  ${lessonCard(skillFor(s,taxonomy),lessonPlan(s,course,taxonomy))}<div id="quickCards"></div><div id="guidedCheck"><p class="muted">Work through the five quick decisions above, then try the supported problem.</p></div><details class="optional-lesson"><summary>Optional deeper connection · related video or reading</summary><div class="teaching-box">${items.map((t,i)=>`<article class="teaching-item"><div class="eyebrow">${esc(t.type==="worked_example"?"WORKED EXAMPLE":"CONCEPT")}</div><h3>${esc(t.title)}</h3><div class="lesson-player-slot" id="lessonPlayer${i}"></div><details><summary>Read explanation</summary><p class="math-copy">${esc(t.transcript)}</p>${t.extended_reading?`<h4>Further mathematical connections</h4><p class="math-copy">${esc(t.extended_reading)}</p>`:""}</details></article>`).join("")||'<p class="muted">Teaching explanation is being selected from the course library.</p>'}</div></details>
   <div class="complete-row"><span class="muted">Try the supported question first. A hint is part of learning.</span><button class="primary" id="nextStage">Try independently</button></div>`;
-  if(skillFor(s,taxonomy))mountCheck(el.querySelector("#guidedCheck"),{id:skillFor(s,taxonomy),slot:s.slot,records:completedRecords,draft:sessionDraft,kind:"guided",seedOverride:lessonPlan(s,course,taxonomy).visit%7,save:()=>saveDraft(s)});
+  let guidedMounted=false;
+  mountFlashCards(el.querySelector('#quickCards'),{id:skillFor(s,taxonomy),visit:lessonPlan(s,course,taxonomy).visit,slot:s.slot,draft:sessionDraft,save:()=>saveDraft(s),onComplete:()=>{
+    if(guidedMounted||!el.isConnected)return;guidedMounted=true;
+    mountCheck(el.querySelector("#guidedCheck"),{id:skillFor(s,taxonomy),slot:s.slot,records:completedRecords,draft:sessionDraft,kind:"guided",seedOverride:lessonPlan(s,course,taxonomy).visit%7,save:()=>saveDraft(s)});
+  }});
   items.forEach((t,i)=>mountNarratedPlayer(document.getElementById("lessonPlayer"+i),{
     title:t.title,
     transcript:t.transcript,
@@ -275,7 +281,7 @@ function renderDiscover(el,s){
     cacheKey:t.id,
     onWatch:detail=>recordVideoEvidence(s.slot,t.id,t.type,detail)
   }));
-  document.getElementById("nextStage").onclick=async()=>{try{if(!sessionDraft.evidence["guided:"+skillFor(s,taxonomy)]){alert("Try the supported question first. Use the hint or worked example if needed.");return}await saveDraft(s);activeStage=2;renderSession(s)}catch(e){alert(e.message)}};
+  document.getElementById("nextStage").onclick=async()=>{try{if(!flashReviewed(sessionDraft,skillFor(s,taxonomy))){alert("Finish the five quick decisions and read the recap first. Mistakes are part of the warm-up.");return}if(!sessionDraft.evidence["guided:"+skillFor(s,taxonomy)]){alert("Try the supported question first. Use the hint or worked example if needed.");return}await saveDraft(s);activeStage=2;renderSession(s)}catch(e){alert(e.message)}};
 }
 function renderChallenge(el,s,p,mode){
   const sid=skillFor(s,taxonomy), guided=sessionDraft.evidence['guided:'+sid], core=sessionDraft.evidence['retrieval:'+sid];

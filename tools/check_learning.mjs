@@ -90,3 +90,31 @@ assert.equal(attempt.independentCredit(true,true,false,false),true);
 for(const args of [[true,true,true,false],[true,true,false,true],[true,false,false,false],[false,true,false,false]])assert.equal(attempt.independentCredit(...args),false);
 assert(investigations.every(x=>x.transfer_prompt.length>70&&x.transfer_solution.length>100));
 console.log('PASS: all 283 lesson pairs explicitly mapped; real papers and missing originals fail closed; familiar or supported work cannot earn new-transfer credit; 20 changed-situation investigations.');
+
+const {techniqueCards,investigationCards,flashDeck}=await import('../flash-cards.js');
+const {flashReviewed,flashKey}=await import('../flash-ui.js');
+let decks=0;
+for(const s of sessions){
+ if(s.type==='AMC MOCK'||s.type==='ROSSMOYNE MOCK')continue;
+ const inv=s.type==='MAWA',id=inv?investigations[(Math.floor(s.slot/7)-1)%20].id:skillFor(s,taxonomy);
+ const visit=inv?1+Math.floor((Math.floor(s.slot/7)-1)/20):lessonPlan(s,sessions,taxonomy).visit;
+ const cards=flashDeck(id,visit,s.slot,inv);assert.equal(cards.length,5);
+ assert.equal(new Set(cards.map(c=>c.id)).size,5);
+ const a=cards.filter(c=>c.answer===0).length;assert(a===2||a===3);
+ for(const c of cards){assert(c.q.length>15&&c.why.length>20);assert.notEqual(c.yes,c.no);assert.equal(c.options[c.answer],c.yes);assert(!/undefined|NaN/.test(JSON.stringify(c)));}
+ assert.deepEqual(cards,flashDeck(id,visit,s.slot,inv));decks++;
+}
+assert.equal(decks,336);
+assert.throws(()=>techniqueCards('unknown'),/Missing/);assert.throws(()=>investigationCards('unknown'),/Missing/);
+assert(!flashReviewed({evidence:{}},'DIV-03'));
+assert(!flashReviewed({evidence:{[flashKey('DIV-03')]:{responses:Array(5).fill({}),reviewed:false}}},'DIV-03'));
+assert(flashReviewed({evidence:{[flashKey('DIV-03')]:{responses:Array(5).fill({correct:false}),reviewed:true}}},'DIV-03'));
+assert(!recallState([{session_number:1,evidence:{f:{kind:'recognition_practice',skill_id:'DIV-03',correct:true,independent_credit:false}}}],'DIV-03').retained);
+for(let visit=1;visit<=9;visit++){
+ const n=3+(visit-1)%7;
+ assert.equal(techniqueCards('DIG-03',visit)[1].yes,String(Array.from({length:10*n+10},(_,i)=>i).filter(i=>i>=10*n).length));
+ assert.equal(techniqueCards('RATE-01',visit)[0].yes,String(n+1));
+ assert.equal(techniqueCards('FRAC-01',visit)[1].yes,String((12*n/3)*2));
+ assert.equal(techniqueCards('SEQ-02',visit)[1].yes,String(n*2**3));
+}
+console.log('PASS: five balanced, deterministic A/B cards for every teaching/investigation session (336); no timed-exam insertion; wrong choices allow completion; no mastery credit.');

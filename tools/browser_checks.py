@@ -27,6 +27,35 @@ async def main():
   page.on('dialog',lambda d:d.accept())
   await page.goto('http://127.0.0.1:8765/');await page.locator('#continue').wait_for()
   await page.locator('#continue').click();await page.locator('.session-intro').wait_for();assert 'Why and when this helps' in await page.locator('.session-intro').inner_text();await page.set_viewport_size({'width':390,'height':844});await page.screenshot(path=str(ROOT/'docs/session-intro-mobile.png'),full_page=True);await page.set_viewport_size({'width':1280,'height':900});await page.locator('[data-stage="1"]').click();assert await page.locator('.worked-example').count()==2
+  # Five short decisions precede the existing supported/full problems.
+  assert await page.locator('.flash-option').count()==2
+  assert await page.locator('#guidedCheck .mini-check').count()==0
+  await page.set_viewport_size({'width':390,'height':844})
+  await page.locator('.flash-quiz').screenshot(path=str(ROOT/'docs/flash-card-mobile.png'))
+  assert await page.evaluate('document.documentElement.scrollWidth<=innerWidth+1')
+  answer=await page.evaluate("import('./flash-cards.js?v=flash-20261112').then(m=>m.flashDeck('DIV-03',1,1)[0].answer)")
+  await page.evaluate('fixture.fail=true')
+  await page.locator('.flash-option').nth(1-answer).click()
+  await page.locator('.flash-retry').wait_for()
+  assert await page.locator('.flash-next').is_disabled()
+  assert 'useful distinction' in await page.locator('.flash-feedback').inner_text()
+  await page.evaluate('fixture.fail=false');await page.locator('.flash-retry').click()
+  await page.locator('.flash-retry').wait_for(state='hidden')
+  await page.locator('.flash-next').click()
+  assert '2 / 5' in await page.locator('.flash-progress').inner_text()
+  await page.locator('[data-stage="0"]').click();await page.locator('[data-stage="1"]').click()
+  assert '2 / 5' in await page.locator('.flash-progress').inner_text()
+  for i in range(1,5):
+   answer=await page.evaluate("import('./flash-cards.js?v=flash-20261112').then(m=>m.flashDeck('DIV-03',1,1)["+str(i)+"].answer)")
+   await page.locator('.flash-question').focus()
+   await page.keyboard.press('a' if answer==0 else 'b')
+   await page.locator('.flash-next').wait_for()
+   await page.locator('.flash-next').click()
+  await page.locator('.flash-summary').wait_for()
+  assert '4 of 5' in await page.locator('.flash-summary').inner_text()
+  assert await page.evaluate("Object.values(fixture.records[0].evidence).some(e=>e.kind==='recognition_practice' && e.responses.length===5 && e.reviewed && e.independent_credit===false)")
+  await page.locator('.flash-quiz').screenshot(path=str(ROOT/'docs/flash-recap-mobile.png'))
+  await page.set_viewport_size({'width':1280,'height':900})
   await page.locator('.mini-check .hint').click();await page.wait_for_timeout(100)
   assert await page.evaluate("Object.values(fixture.records[0].evidence).includes(true)")
   await page.locator('.mini-check input').fill('123');await page.locator('.mini-check button.primary').click();await page.locator('.check-feedback').get_by_text('Not quite yet',exact=False).wait_for()
@@ -128,6 +157,12 @@ async def main():
    assert await sp.evaluate('document.documentElement.scrollWidth<=innerWidth+1')
    if completed in [6,360]:
     await sp.locator('[data-stage="1"]').click();await sp.locator('.gentle-example').first.wait_for()
+    assert await sp.locator('.flash-option').count()==2
+    if completed==6:
+     for _ in range(5):
+      await sp.locator('.flash-option').first.click();await sp.locator('.flash-next').click()
+     await sp.locator('.flash-summary').wait_for()
+     assert await sp.evaluate("Object.values(fixture.records[0].evidence).some(e=>e.investigation_id==='M01' && e.reviewed)")
    else: await sp.locator('#startCourseExam').wait_for()
    await special.close()
   legacy=await browser.new_context(service_workers='block')
