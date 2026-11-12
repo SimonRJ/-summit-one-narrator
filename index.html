@@ -5,23 +5,24 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#07111e">
   <meta name="robots" content="noindex,nofollow,noarchive">
-  <title>Summit One · The 135 Mission</title><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon.svg">
-  <link rel="stylesheet" href="main.css?v=recognition-20261113">
+  <title>Summit One · Learning</title><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon.svg">
+  <link rel="stylesheet" href="main.css?v=split-20261113">
 </head>
 <body>
   <div class="stars" aria-hidden="true"></div>
   <header class="topbar">
-    <a class="brand" href="./" aria-label="Summit One home"><span class="brand-mark">△</span><span><b>SUMMIT ONE</b><small>THE 135 MISSION</small></span></a>
-    <nav class="topnav" aria-label="Primary">
-      <button data-view="home" class="nav-btn active">Mission</button>
-      <a href="tests.html" class="nav-link">AMC papers</a><a href="tests.html?section=practice" class="nav-link">AMC practice</a><a href="tests.html?section=rossmoyne" class="nav-link">Rossmoyne</a><button data-view="repairs" class="nav-btn">Repairs</button>
-      <button data-view="roadmap" class="nav-btn">Goals</button>
-      <button data-view="review" class="nav-btn">Review</button>
+    <a class="brand" href="./" aria-label="Summit One home"><span class="brand-mark">△</span><span><b>SUMMIT ONE</b><small>MATHEMATICS TRAINING</small></span></a>
+    <nav class="topnav" aria-label="Primary navigation">
+      <button data-view="home" class="nav-btn active nav-major"><span class="nav-primary">Learning</span></button>
+      <a href="tests.html" class="nav-link nav-major"><span class="nav-primary">Exams</span></a>
+      <button data-view="review" class="nav-btn">Session review</button>
+      <button data-view="repairs" class="nav-btn">Repairs</button>
+      <button data-view="roadmap" class="nav-btn">Readiness</button>
       <button data-view="profile" class="nav-btn">Profile</button>
     </nav>
   </header>
   <main id="app" class="shell" aria-live="polite">
-    <section id="loading" class="panel hero-panel"><div class="eyebrow">SYNCING MISSION DATA</div><h1>Preparing Summit One…</h1><p class="muted">Loading your secure progress and the 372-session course.</p></section>
+    <section id="loading" class="panel hero-panel"><div class="eyebrow">LOADING YOUR LEARNING PATH</div><h1>Preparing Summit One…</h1><p class="muted">Loading your secure progress and the 372-session course.</p></section>
   </main>
   <template id="problemTemplate">
     <article class="problem-card"><div class="problem-meta"></div><h3 class="problem-title"></h3><div class="problem-prompt math-copy"></div>
@@ -31,6 +32,6 @@
       <div class="attempt-feedback" hidden></div><div class="solution-panel" hidden></div>
     </article>
   </template>
-  <script type="module" src="app-main.js?v=amc-intro-20261113"></script>
+  <script type="module" src="app-main.js?v=split-20261113"></script>
 </body>
 </html>
