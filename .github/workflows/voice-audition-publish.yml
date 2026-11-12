@@ -1,0 +1,56 @@
+name: Verify and publish existing VoxCPM auditions
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/voice-audition-publish.yml']
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: 'Run containing the completed audition artifact'
+        required: true
+        default: '43207360848'
+        type: string
+permissions:
+  contents: write
+  actions: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          name: voxcpm-australian-male-audition
+          run-id: ${{ inputs.run_id || '43207360848' }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: build/voice-audition
+      - name: Check the generated recordings
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg libsndfile1
+          pip install faster-whisper soundfile numpy
+          python production/voice-audition/verify.py
+      - name: Publish verified recordings
+        run: |
+          mkdir -p media/voice-audition review
+          cp build/voice-audition/*.mp3 media/voice-audition/
+          cp build/voice-audition/manifest.json review/VoxCPM-audition.json
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add media/voice-audition/*.mp3 review/VoxCPM-audition.json
+          git diff --cached --quiet && exit 0
+          git commit -m 'Publish verified original VoxCPM2 male voice auditions'
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: voxcpm-verified-audition
+          path: build/voice-audition/manifest.json
