@@ -12,12 +12,14 @@ watch.addEventListener('click',async()=>{
     watch.disabled=true;say('Opening your welcome…');
     if(video.error)video.load();
     if(video.ended)video.currentTime=0;
-    await video.play();say('You can pause, use full screen, or skip to learning at any time.');
+    await video.play();
+    video.scrollIntoView({block:'center',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});
+    say('You can pause, use full screen, or skip to learning at any time.');
   }catch{
     say('The video could not start. Try again, open the MP4 below, or continue to learning.',true);
   }finally{watch.disabled=false}
 });
-video.addEventListener('play',()=>{watch.textContent='Pause welcome';watch.dataset.playing='true'});
+video.addEventListener('play',()=>{watch.textContent='Pause welcome'});
 video.addEventListener('pause',()=>{if(!video.ended)watch.textContent='Continue watching'});
 video.addEventListener('ended',()=>{
   watch.textContent='Watch again';skip.textContent='Start my next step';

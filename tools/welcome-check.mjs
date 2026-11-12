@@ -39,7 +39,9 @@ try{
   await page.goto('http://127.0.0.1:4181/login.html');await page.waitForURL('http://127.0.0.1:4181/');
   await page.evaluate(()=>sessionStorage.clear());await page.goto('http://127.0.0.1:4181/login.html?next=tests.html%3Fsection%3Drossmoyne');await page.locator('#loginName').fill('fixture');await page.locator('#password').fill('fixture-only');await page.locator('#signIn').click();await page.waitForURL('**/tests.html?section=rossmoyne');
   await page.goto('http://127.0.0.1:4181/welcome.html?from=dashboard');assert.equal(await page.locator('#skipWelcome').innerText(),'Back to my learning');
-  await page.route('**/media/ReefWelcome.mp4*',r=>r.abort());await page.reload();await page.locator('#watchWelcome').click();await page.waitForFunction(()=>document.querySelector('#welcomeStatus').classList.contains('error'));await page.locator('#skipWelcome').click();await page.waitForURL('http://127.0.0.1:4181/');
+  const broken=await browser.newContext({viewport:mobile?{width:390,height:844}:{width:1440,height:1000},serviceWorkers:'block'}),bp=await broken.newPage();
+  await bp.route('**/media/ReefWelcome.mp4*',r=>r.abort());await bp.route('http://127.0.0.1:4181/',r=>r.fulfill({contentType:'text/html',body:'<h1>Learning destination fixture</h1>'}));
+  await bp.goto('http://127.0.0.1:4181/welcome.html');await bp.locator('#watchWelcome').click();await bp.waitForFunction(()=>document.querySelector('#welcomeStatus').classList.contains('error'));assert(await bp.locator('#watchWelcome').isEnabled());await bp.locator('#skipWelcome').click();await bp.waitForURL('http://127.0.0.1:4181/');await broken.close();
   assert.deepEqual(errors,[]);await context.close();
  }
  console.log('PASS: desktop/mobile welcome, no autoplay/download, real video decode/play/pause/replay, new login, existing session, exam return, optional skip, error fallback, no overflow or learner data writes.');
