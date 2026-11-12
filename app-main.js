@@ -136,7 +136,7 @@ async function boot(){
     // Recover a completed session if the separate progress write lost its connection.
     let contiguous=0;while(completedRecords.some(r=>r.session_number===contiguous+1))contiguous++;
     if(contiguous>(progress.completed_sessions||0))progress=await saveProgress({completed_sessions:contiguous,current_session:Math.min(372,contiguous+1),xp:contiguous*100,rank:earnedRankBySessions(contiguous),overall_percent:contiguous/372*100});
-    wireNav(); if(location.hash==="#repairs"||new URLSearchParams(location.search).get("view")==="repairs")await openRepairs();else renderHome();
+    wireNav(); const requestedView=new URLSearchParams(location.search).get("view");if(location.hash==="#repairs"||requestedView==="repairs")await openRepairs();else if(requestedView==="roadmap")await renderRoadmap();else if(requestedView==="review")await renderReview();else if(requestedView==="profile")await renderProfile();else renderHome();
   }catch(e){app.innerHTML='<section class="panel hero-panel"><h1>Unable to load Summit One</h1><p class="muted">'+esc(e.message)+'</p></section>'}
 }
 function wireNav(){
@@ -151,13 +151,13 @@ function renderHome(){
   app.innerHTML=`
   <section class="dashboard-grid">
     <article class="panel mission-card">
-      <div class="session-kicker">SESSION ${s.slot} / 372</div>
+      <div class="eyebrow learning-section-label">LEARNING · YOUR NEXT SESSION</div><div class="session-kicker">SESSION ${s.slot} / 372</div>
       <h1>${esc(s.focus)}</h1>
       <div><span class="type-chip">${esc(s.type)}</span><span class="phase-chip">${esc(s.phase)}</span></div>
       <p class="muted">Remember → Discover → Try → Transfer → Check. Work carefully; there is no calendar streak and no penalty for taking the time you need.</p>
       <button id="continue" class="primary cta">${done>=372?"Course complete":"Continue Session "+s.slot}</button>
       <div class="sync-line"><span class="dot"></span> Cloud progress: <span id="syncStatus">${syncStatusText()}</span></div>
-      <div class="quick-links"><a class="secondary" href="tests.html">AMC past papers</a><a class="secondary" href="tests.html?section=practice">AMC practice</a><a class="secondary" href="tests.html?section=rossmoyne">Rossmoyne honours</a><button id="reviewQuick" class="ghost">Review completed sessions</button></div>
+      <div class="quick-links"><a class="secondary exam-direct" href="tests.html">Explore all exams <span aria-hidden="true">↗</span></a><button id="reviewQuick" class="ghost">Review completed sessions</button></div>
     </article>
     <aside class="side-stack">
       <article class="panel stat-card"><div class="eyebrow">COURSE PROGRESS</div><div class="stat-value">${done} / 372</div><div class="progress-track"><div class="progress-fill" style="width:${overall().toFixed(2)}%"></div></div><div class="stat-label">${overall().toFixed(1)}% complete · ${esc(currentRankLabel())}</div></article>
@@ -166,8 +166,8 @@ function renderHome(){
       <article class="panel stat-card"><div class="eyebrow">CURRENT MILESTONE</div><div class="stat-value">${milestoneDone} / ${milestone.target}</div><div class="progress-track"><div class="progress-fill" style="width:${(milestoneDone/milestone.target*100).toFixed(1)}%"></div></div><div class="stat-label">${esc(milestone.label)}</div></article>
     </aside>
   </section>
-  <section class="panel learning-note"><h2>Today’s rhythm</h2><p>3–5 minutes meeting the idea and remembering · 10–15 minutes with worked examples and supported practice · 15–25 minutes applying and transferring · 5–10 minutes checking. Stop for a short break if concentration drops; unfinished work stays in this session.</p><button id="planQuick" class="secondary">Goals and readiness</button> <a class="secondary" href="welcome.html?from=dashboard">Watch the AMC introduction</a></section>
-  <p class="footer-note">372 sessions: 283 technique lessons, 53 investigations and 36 untimed strategy workshops. All exams have their own tabs. Take an exam when ready; exam attempts do not count as completed lessons.</p>`;
+  <section class="panel learning-note"><h2>How each session works</h2><p>3–5 minutes meeting the idea and remembering · 10–15 minutes with worked examples and supported practice · 15–25 minutes applying and transferring · 5–10 minutes checking. Stop for a short break if concentration drops; unfinished work stays in this session.</p><button id="planQuick" class="secondary">Goals and readiness</button> <a class="secondary" href="welcome.html?from=dashboard">Watch the AMC introduction</a></section>
+  <section class="panel learning-to-exams"><div><div class="eyebrow">READY TO MEASURE YOUR SKILL?</div><h2>Practice the exam, not just the technique.</h2><p>Two targeted AMC sessions separate speed from deeper problem solving: twenty questions in twenty minutes, then the final ten in forty. Full AMC papers, MAWA and Rossmoyne are in the same exam library.</p></div><div class="learning-to-exams-actions"><a class="primary" href="tests.html?section=speed">AMC Q1–20 <span aria-hidden="true">↗</span></a><a class="secondary" href="tests.html?section=depth">AMC Q21–30 <span aria-hidden="true">↗</span></a><a class="ghost" href="tests.html">All exams</a></div></section><p class="footer-note">372 sessions: 283 technique lessons, 53 investigations and 36 untimed strategy workshops. Exams remain separate from completed lessons.</p>`;
   document.getElementById("continue").onclick=()=>done<372?startSession(s):renderProfile();
   document.getElementById("reviewQuick").onclick=()=>renderReview();
   document.getElementById("planQuick").onclick=()=>renderRoadmap().catch(e=>alert(e.message));
