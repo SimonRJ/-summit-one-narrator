@@ -122,3 +122,5 @@
 
 /* Recognition and diagnostic teaching */
 .recognition-panel{margin:22px 0;padding:20px;border-left:4px solid #8ed7e7;background:#122234;border-radius:12px}.recognition-panel h4{margin-bottom:6px}.wording-focus{margin:18px 0;padding:14px;border:1px solid #456078;border-radius:12px}.diagnostic-question{padding:18px 0;border-top:1px solid #354e64}.diagnostic-question select{display:block;width:100%;max-width:100%;margin:10px 0;padding:12px;background:#142438;color:#eef5ff;border:1px solid #59738a;border-radius:8px;white-space:normal}.diagnostic-scroll{overflow-x:auto}.diagnostic-action{color:#a7decf}.diagnostic-causes{margin:14px 0;line-height:1.8}
+
+.result-card a.primary{display:inline-flex;margin:12px 0 22px}.diagnostic-detail-list>summary{cursor:pointer;padding:12px 0;font-weight:700}.diagnostic-detail-list{margin:16px 0}

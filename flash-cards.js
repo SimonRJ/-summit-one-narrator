@@ -416,7 +416,7 @@ export const FLASH_VERSION='decision-cards-v2';
 export function flashDeck(id,visit,slot,investigation=false,providedCards=null){
  const cards=providedCards|| (investigation?investigationCards(id,visit):techniqueCards(id,visit));
  // Keep four method decisions and rotate a precise-reading contrast across visits.
- cards[(visit+3)%5]=wordingCard(slot); 
+ cards[(visit+3)%5]=wordingCard(slot);
  let h=2166136261;for(const c of `${id}:${visit}:${slot}`){h=Math.imul(h^c.charCodeAt(0),16777619)>>>0;}
  // Balanced answer positions with a deterministic shuffled order, stable after reload.
  const order=[0,1,2,3,4];for(let i=4;i>0;i--){h=(Math.imul(h,1664525)+1013904223)>>>0;const j=h%(i+1);[order[i],order[j]]=[order[j],order[i]];}

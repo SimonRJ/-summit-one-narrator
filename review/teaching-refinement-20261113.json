@@ -1,0 +1,40 @@
+{
+  "version": "recognition-20261113",
+  "date": "2026-11-13",
+  "scope": "Seven accepted AMC teaching refinements",
+  "implemented": {
+    "authentic_question_maps": 570,
+    "authentic_years": [
+      2007,
+      2025
+    ],
+    "primary_skill_corrections": 51,
+    "recognition_profiles": 52,
+    "five_card_sessions": 372,
+    "original_lesson_problems_retained": 566,
+    "original_amc_mocks_revised": 10,
+    "original_amc_mock_questions": 300,
+    "diagnostic_causes": 8,
+    "delayed_repair_interval_completed_sessions": 3
+  },
+  "source_correction": {
+    "paper": "2024 AMC Upper Primary",
+    "source_file": "AMC 2024(1).pdf",
+    "sha256": "d547d1b7583b3c2c75cd925948fcfcaa25f061607646570690f03df2776a283b",
+    "changes": "Restored source question order, late-question quantities, answer keys and explanations. All three changed integer answers independently recomputed. Guarded against existing sittings."
+  },
+  "validation": {
+    "practice_variants": 2704,
+    "intro_sessions": 372,
+    "authentic_content_hash_after_source_correction": "37852f561e647e0f017a9200cc3e9c5c",
+    "map_update_preserved_authentic_content": true,
+    "database_access": "Owned submitted sittings only. Active, other-user and anonymous map access withheld; test transaction rolled back.",
+    "duplicate_check": "No full prompt matches to the authentic archive after normalising numbers among the 300 mocks or 566 lesson problems. This is not a claim that every mathematical structure is different.",
+    "browser": "Desktop 1440px and mobile 390px: exam submission, report, saved diagnosis without resetting repair history, repeat mock, Rossmoyne navigation, lesson bridge, delayed repair, adult review, coverage page and independent practice."
+  },
+  "limits": [
+    "Teaching labels and mock difficulty are editorial, not official AMT classifications or empirical equating.",
+    "Historical topic frequencies do not predict the 2027 paper.",
+    "Authentic item maps and solutions remain post-submission; public guide contains aggregates only."
+  ]
+}
