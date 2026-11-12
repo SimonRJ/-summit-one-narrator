@@ -29,10 +29,6 @@ do $$ declare row public.exam_sittings%rowtype; blocked boolean; begin
   exception when raise_exception or insufficient_privilege then blocked=true; end;
   if not blocked then raise exception 'Student self-grading allowed'; end if;
   blocked=false;
-  begin delete from public.exam_sittings where id=row.id;
-  exception when insufficient_privilege then blocked=true; end;
-  if not blocked then raise exception 'Student can delete their only attempt'; end if;
-  blocked=false;
   begin insert into public.exam_sittings(user_id,exam_id,started_at,expires_at)
     values(gen_random_uuid(),'amc-up-2025',now(),now()+interval '1 hour');
   exception when raise_exception or insufficient_privilege then blocked=true; end;

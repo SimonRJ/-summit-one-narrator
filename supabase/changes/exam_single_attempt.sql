@@ -1,22 +1,16 @@
--- One permanent sitting per pupil and paper. Existing sittings are retained.
-create unique index if not exists exam_sittings_one_attempt
-  on public.exam_sittings(user_id,exam_id);
-
+-- Additive protections: preserve existing data, grants, policies and triggers.
+create unique index if not exists exam_sittings_one_attempt on public.exam_sittings(user_id,exam_id);
 alter table public.exam_sittings enable row level security;
--- This older permissive ALL policy allowed any member to affect any sitting.
-drop policy if exists exams_member_only on public.exam_sittings;
-drop policy if exists exams_insert_own on public.exam_sittings;
-create policy exams_insert_own on public.exam_sittings for insert to authenticated
-  with check ((select auth.uid())=user_id and completed=false and score is null and submitted_at is null);
-drop policy if exists exams_update_own_open on public.exam_sittings;
-create policy exams_update_own_open on public.exam_sittings for update to authenticated
-  using ((select auth.uid())=user_id and completed=false and expires_at>now())
-  with check ((select auth.uid())=user_id and completed=false and score is null and submitted_at is null);
--- Keep exams_select_own: finished papers remain readable without an age limit.
-revoke all on public.exam_sittings from anon;
-revoke delete,truncate,references,trigger on public.exam_sittings from authenticated;
-
-create or replace function public.prevent_completed_exam_mutation()
+create policy exam_owner_guard on public.exam_sittings as restrictive for all to authenticated
+  using ((select auth.uid())=user_id) with check ((select auth.uid())=user_id);
+create policy exam_insert_guard on public.exam_sittings as restrictive for insert to authenticated
+  with check (completed=false and score is null and submitted_at is null);
+create policy exam_update_guard on public.exam_sittings as restrictive for update to authenticated
+  using (completed=false and expires_at>now())
+  with check (completed=false and score is null and submitted_at is null);
+create policy exam_delete_guard on public.exam_sittings as restrictive for delete to authenticated
+  using (false);
+create or replace function public.guard_exam_attempt()
 returns trigger language plpgsql security invoker set search_path='' as $$
 declare paper public.exam_catalog%rowtype;
 begin
@@ -51,7 +45,5 @@ begin
   return new;
 end;
 $$;
-drop trigger if exists trg_prevent_completed_exam_mutation on public.exam_sittings;
-create trigger trg_prevent_completed_exam_mutation before insert or update on public.exam_sittings
-for each row execute function public.prevent_completed_exam_mutation();
-revoke execute on function public.prevent_completed_exam_mutation() from public,anon,authenticated;
+create trigger exam_attempt_guard before insert or update on public.exam_sittings
+for each row execute function public.guard_exam_attempt();

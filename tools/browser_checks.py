@@ -221,7 +221,7 @@ async def main():
       await sp.locator('.flash-option').first.click();await sp.locator('.flash-next').click()
      await sp.locator('.flash-summary').wait_for()
      assert await sp.evaluate("Object.values(fixture.records[0].evidence).some(e=>e.investigation_id==='M01' && e.reviewed)")
-   else: await sp.locator('#startCourseExam').wait_for()
+   else: await sp.locator('#confirmStart').wait_for()
    await special.close()
   legacy=await browser.new_context(service_workers='block')
   await legacy.route('**/supabase-client.js*',lambda route:route.fulfill(content_type='application/javascript',body=MOCK))
