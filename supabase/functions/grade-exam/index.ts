@@ -21,11 +21,6 @@ function correctFor(q:any,response:any){
   const expected=typeof ans==="object"&&ans!==null?(ans.value ?? ans.answer ?? ""):ans;
   return /^\d{1,3}$/.test(String(response).trim())&&Number(response)===Number(expected);
 }
-function explicitStars(q:any){
-  const raw=q?.metadata?.stars ?? q?.metadata?.star_rating ?? q?.metadata?.difficulty_stars;
-  const n=Number(raw);
-  return [3,4,5].includes(n)?n:null;
-}
 function awardFor(score:number,exam:any,sitting:any){
   if(exam.max_score!==135) return {label:null,estimated:false};
   const sittingYear=Number(sitting?.metadata?.student_year||0);
@@ -58,51 +53,9 @@ Deno.serve(async(req)=>{
     const {sitting_id,auto_submitted=false}=await req.json();
     if(!sitting_id) return reply({error:"Missing sitting_id"},400);
     const admin=createClient(url,service,{auth:{persistSession:false,autoRefreshToken:false}});
-    const {data:sitting,error:se}=await admin.from("exam_sittings").select("*").eq("id",sitting_id).eq("user_id",u.user.id).single();
-    if(se||!sitting) return reply({error:"Sitting not found"},404);
-    const {data:exam,error:ee}=await admin.from("exam_catalog").select("*").eq("id",sitting.exam_id).single();
-    if(ee||!exam) throw ee||new Error("Exam missing");
-    const {data:questions,error:qe}=await admin.from("exam_questions").select("*").eq("exam_id",sitting.exam_id).order("question_number");
-    if(qe) throw qe;
-    if((questions||[]).length!==exam.question_count) return reply({error:"Exam question set is incomplete"},409);
-    const responses=sitting.responses||{};
-    let score=0;
-    const rows=(questions||[]).map((q:any)=>{
-      const response=responses[String(q.question_number)] ?? responses[q.question_number];
-      const ok=correctFor(q,response);
-      const earned=ok?q.marks:0; score+=earned;
-      const ans=typeof q.answer==="object"&&q.answer!==null?(q.answer.choice??q.answer.value??q.answer.answer??q.answer):q.answer;
-      return {
-        question_number:q.question_number,question_type:q.question_type,stem:q.stem,choices:q.choices,
-        response:response??null,correct:ok,earned,marks:q.marks,correct_answer:ans,
-        explanation:q.explanation,image_ref:q.image_ref,metadata:q.metadata,category:q.category,stars:explicitStars(q)
-      };
-    });
-    const award=awardFor(score,exam,sitting);
-    const starAdded={3:rows.filter((r:any)=>r.correct&&r.stars===3).length,4:rows.filter((r:any)=>r.correct&&r.stars===4).length,5:rows.filter((r:any)=>r.correct&&r.stars===5).length};
-    let starTotals:any=null;
-    const now=new Date().toISOString();
-    if(!sitting.completed){
-      const metadata={...(sitting.metadata||{}),auto_submitted:Boolean(auto_submitted),award:award.label,award_estimated:award.estimated,award_student_year:award.student_year,star_correct_added:starAdded};
-      const {data:sealed,error:up}=await admin.from("exam_sittings")
-        .update({score,submitted_at:now,completed:true,metadata})
-        .eq("id",sitting.id).eq("completed",false).select("id").maybeSingle();
-      if(up) throw up;
-      if(sealed && (starAdded[3]||starAdded[4]||starAdded[5])){
-        const {data:totals,error:te}=await admin.rpc("increment_timed_star_correct",{p_user:u.user.id,p3:starAdded[3],p4:starAdded[4],p5:starAdded[5]});
-        if(te) throw te;
-        const t=Array.isArray(totals)?totals[0]:totals;
-        if(t)starTotals={3:Number(t.star3_correct||0),4:Number(t.star4_correct||0),5:Number(t.star5_correct||0)};
-      }
-    }
-    const finalFive=rows.filter((r:any)=>r.question_number>=26&&r.question_number<=30);
-    const finalFiveSummary=exam.max_score===135?{
-      correct:finalFive.filter((r:any)=>r.correct).length,
-      count:finalFive.length,
-      earned:finalFive.reduce((s:number,r:any)=>s+r.earned,0),
-      max:finalFive.reduce((s:number,r:any)=>s+r.marks,0)
-    }:null;
-    return reply({ok:true,exam:{id:exam.id,title:exam.title,year:exam.year,division:exam.division,student_year:award.student_year,max_score:exam.max_score,source_type:exam.source_type},score,max_score:exam.max_score,award,rows,final_five:finalFiveSummary,star_correct_added:starAdded,star_totals:starTotals});
+    const {data:result,error}=await admin.rpc("seal_exam_result",{p_sitting_id:sitting_id,p_user_id:u.user.id,p_auto:Boolean(auto_submitted)});
+    if(error)throw error;
+    return reply(result);
   }catch(e){
     console.error(e);
     return reply({error:e?.message||"Grading failed"},500);
