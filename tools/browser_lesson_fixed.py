@@ -121,7 +121,7 @@ async def main():
   await page.wait_for_function("document.querySelectorAll('#summit-math-probe .math-inline[data-tex]').length >= 2")
   maths=await page.locator('#summit-math-probe .math-inline').evaluate_all(
    "(nodes)=>nodes.map(n=>({source:n.dataset.mathSource,tex:n.dataset.tex,rendered:!!n.querySelector('.katex')||n.classList.contains('math-fallback')}))")
-   assert all(m['rendered'] for m in maths) and any('frac' in m['tex'] for m in maths),maths
+  assert all(m['rendered'] for m in maths) and any('frac' in m['tex'] for m in maths),maths
   await page.locator('#summit-math-probe').evaluate('(node)=>node.remove()')
 
   assert await page.locator('#openingVideo').count()==1
