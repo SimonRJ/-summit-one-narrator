@@ -8,7 +8,7 @@ export function techniqueCards(id,visit=1){
  case 'DIG-01':return [
  c(`You need ${x} × 99. Which shortcut keeps the value unchanged?`,`${x} × 100 − ${x}`,`${x} × 100 − 1`,'Each of the groups gained one, so remove one for every group.'),
  c(`Find ${100*n-2} + 36 mentally. Which first move is valid?`,`${100*n} + 36 − 2`,`${100*n} + 36 + 2`,'Rounding the first number up adds two too many; compensate by subtracting.'),
- c('A machine adds 200 instead of 198 on each of 7 cycles. What must be corrected?','Subtract 14','Subtract 2','The error of two is repeated seven times.'),
+ c('A stopwatch runs 3 seconds fast on each of 8 laps. What correction is needed?','Subtract 24 seconds','Subtract 3 seconds','The repeated error totals 8 × 3 = 24 seconds.'),
  c(`For ${20*n} − 19, which is equivalent?`,`${20*n} − 20 + 1`,`${20*n} − 20 − 1`,'Subtracting twenty removes one too much; restore it.'),
  c('A receipt has a fixed $5 fee plus 8 items at $49. Which total fits?','8 × 50 − 8 + 5','8 × 50 − 1 + 5','Compensate for all eight prices, then add the separate fixed fee.')];
  case 'DIG-02':return [
