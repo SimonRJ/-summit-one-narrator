@@ -43,24 +43,41 @@ async def main():
   await page.locator('#continue').wait_for()
   assert await page.locator('.learning-focus .focus-session-card').count()==1
   assert await page.locator('.learning-note,.side-stack,.learning-to-exams,.quick-links').count()==0
-  assert (await page.locator('#navProgress').inner_text()).strip()=='0 / 372'
-  assert await page.evaluate("document.documentElement.scrollHeight<=innerHeight+4 && document.documentElement.scrollWidth<=innerWidth+4"), 'Learning home must fit on the iPhone without scrolling'
+  assert await page.evaluate("document.documentElement.scrollHeight<=innerHeight+4 && document.documentElement.scrollWidth<=innerWidth+4"), 'Learning home must fit on iPhone without scrolling'
+  assert await page.locator('.topnav,.nav-more').count()==0, 'No horizontal tabs or extra menu row'
   await page.screenshot(path=str(ROOT/'docs/focus-learning-home-iphone.png'))
-  await page.locator('[data-view="profile"]').click()
+  await page.locator('#menuToggle').click()
+  assert await page.locator('#courseMenu').evaluate('(node)=>node.open')
+  assert (await page.locator('#navProgress').inner_text()).strip()=='0 / 372'
+  await page.locator('#courseMenuContent [data-menu-screen="lessons"]').click()
+  assert await page.locator('[data-menu-group]').count()==13
+  await page.locator('[data-menu-group="DIV"]').click()
+  assert await page.locator('.course-menu-session').count()==24
+  assert await page.locator('.course-menu-session.is-current[data-menu-slot="1"]').count()==1
+  assert await page.locator('.course-menu-status.current').count()==1
+  assert await page.locator('.course-menu-session.is-completed').count()==0
+  assert await page.locator('.course-menu-session.is-locked').count()==23
+  slots=await page.locator('.course-menu-session .course-menu-number').all_text_contents()
+  assert [int(n) for n in slots]==sorted(int(n) for n in slots)
+  await page.screenshot(path=str(ROOT/'docs/lesson-menu-iphone.png'))
+  await page.locator('[data-menu-back="sections"]').click()
+  await page.locator('[data-menu-group="DIG"]').click()
+  assert await page.locator('.course-menu-session.is-locked').count()==26
+  assert await page.locator('[data-menu-slot="2"]').count()==0, 'Future lesson must stay locked'
+  await page.locator('#menuClose').click()
+  assert not await page.locator('#courseMenu').evaluate('(node)=>node.open')
+  await page.locator('#menuToggle').click()
+  await page.locator('#courseMenuContent [data-menu-action="profile"]').click()
   await page.get_by_role('heading',name='Summit progress').wait_for()
   assert await page.get_by_text('sessions remaining').count()==1
   await page.locator('.profile-upcoming summary').click()
   assert await page.get_by_text('Next strategy workshop').count()==1
-  assert await page.get_by_text('Next MAWA investigation').count()==1
-  await page.locator('[data-view="home"]').click()
-  await page.locator('#continue').wait_for()
-  await page.locator('#navMore summary').click()
-  await page.get_by_role('button',name='Completed sessions').click()
+  await page.locator('#menuToggle').click()
+  await page.locator('#courseMenuContent [data-menu-action="review"]').click()
   await page.get_by_role('heading',name='Completed sessions').wait_for()
-  assert not await page.locator('#navMore').evaluate('(node)=>node.open')
-  await page.locator('[data-view="home"]').click()
-  await page.locator('#continue').wait_for()
-  await page.locator('#continue').click()
+  assert not await page.locator('#courseMenu').evaluate('(node)=>node.open')
+  await page.locator('#menuToggle').click()
+  await page.locator('#courseMenuContent [data-menu-action="continue"]').click()
   await page.locator('.opening-film').wait_for()
   assert await page.locator('#openingVideo').count()==1
   assert 'S001-Intro.mp4' in await page.locator('#openingVideo').get_attribute('src')
@@ -137,7 +154,19 @@ async def main():
   await next_page()
   await page.locator('#continue').wait_for()
   assert await page.evaluate('fixture.records[0].immutable===true && fixture.progress.completed_sessions===1')
-  await page.locator('#continue').click()
+  await page.locator('#menuToggle').click()
+  assert (await page.locator('#navProgress').inner_text()).strip()=='1 / 372'
+  await page.locator('#courseMenuContent [data-menu-screen="lessons"]').click()
+  await page.locator('[data-menu-group="DIV"]').click()
+  completed=page.locator('.course-menu-session.is-completed[data-menu-slot="1"]')
+  assert await completed.count()==1, 'Finished lesson must get a green completion status'
+  assert (await completed.locator('.course-menu-status.completed').inner_text()).strip()=='✓'
+  completed_colour=await completed.locator('.course-menu-status.completed').evaluate('(el)=>getComputedStyle(el).color')
+  assert completed_colour!='rgb(255, 255, 255)',completed_colour
+  await completed.click()
+  await page.locator('.review-detail[data-review-session="1"][open]').wait_for()
+  await page.locator('#menuToggle').click()
+  await page.locator('#courseMenuContent [data-menu-action="continue"]').click()
   assert 'S002-Intro.mp4' in await page.locator('#openingVideo').get_attribute('src')
   await fits()
   await page.screenshot(path=str(ROOT/'docs/video-first-session-2-iphone.png'))
