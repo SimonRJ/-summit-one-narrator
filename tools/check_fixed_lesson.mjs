@@ -122,7 +122,7 @@ assert(html.includes('katex@0.16.47/dist/katex.min.css') && html.includes('katex
 assert(design.includes('IBM Plex Sans') && design.includes('STIX Two Math'));
 assert(brand.includes('M142 19 25 232 142 157Z'));
 assert(maths.includes('plainToTeX') && maths.includes('typesetMath'));
-assert(sw.includes('summit-mark.svg') && sw.includes('math-typography.js?v=identity-math-20261113'));
+assert(sw.includes('summit-mark.svg') && sw.includes('math-typography.js?v=identity-math-r2-20261113'));
 
 assert(app.includes('attempted_on_paper_unreviewed'));
 
