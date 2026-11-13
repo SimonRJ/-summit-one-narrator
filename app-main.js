@@ -538,6 +538,11 @@ async function renderProfile(){
   const done=progress.completed_sessions||0,currentXp=progress.xp??done*100;
   const nextRankSession=r>=20?null:Math.ceil(372*(r+1)/20);
   const nextRankXp=nextRankSession===null?0:Math.max(0,nextRankSession*100-currentXp);
+  const remaining=Math.max(0,372-done);
+  const nextPractice=course.find(item=>item.slot>done&&item.type==="MIXED");
+  const nextMawa=course.find(item=>item.slot>done&&item.type==="MAWA");
+  const milestone=done<152?{target:152,label:"2027 AMC readiness"}:done<176?{target:176,label:"MAWA application readiness"}:done<360?{target:360,label:"2028 AMC readiness"}:{target:372,label:"Rossmoyne capstone"};
+  const rankProgress=nextRankSession===null?"All ranks unlocked":nextRankXp+" XP to your next rank";
   const completed=completedRecords,exams=recentExams;
   const focusCounts=new Map();
   for(const row of completed||[]){
@@ -549,7 +554,22 @@ async function renderProfile(){
   }
   const covered=[...focusCounts.values()].filter(x=>x>0).length;
   app.innerHTML=`<section class="panel hero-panel"><div class="eyebrow">LEARNER PROFILE</div><h1>Summit progress</h1>
-  <div class="profile-grid"><div class="panel profile-stat"><b>${progress.completed_sessions||0}</b><span>sessions complete</span></div><div class="panel profile-stat"><b>${overall().toFixed(1)}%</b><span>course complete</span></div><div class="panel profile-stat"><b>${r===0?"Cadet":r}</b><span>${r===0?"starting rank":"current rank"}</span></div><div class="panel profile-stat"><b>${nextRankSession===null?"MAX":nextRankXp}</b><span>${nextRankSession===null?"all 20 ranks unlocked":"XP to Rank "+(r+1)}</span></div></div><p>${exams.length} completed exam attempts saved in your history.</p>
+  <div class="profile-grid">
+    <div class="panel profile-stat"><b>${done} / 372</b><span>sessions completed</span></div>
+    <div class="panel profile-stat"><b>${remaining}</b><span>sessions remaining</span></div>
+    <div class="panel profile-stat"><b>${overall().toFixed(1)}%</b><span>course completed</span></div>
+    <div class="panel profile-stat"><b>${r===0?"Cadet":r}</b><span>${r===0?"starting rank":"current rank"}</span></div>
+  </div>
+  <p class="muted profile-sync">Cloud progress: <span id="syncStatus">${esc(syncStatusText())}</span> · ${exams.length} completed timed assessments</p>
+  <details class="profile-upcoming">
+    <summary>Upcoming workshops, investigations and milestones</summary>
+    <div class="profile-upcoming-grid">
+      <div><span>Next strategy workshop</span><b>${nextPractice?`Session ${nextPractice.slot}`:"Complete"}</b><small>${nextPractice?`${nextPractice.slot-done} sessions away`:"All workshops completed"}</small></div>
+      <div><span>Next MAWA investigation</span><b>${nextMawa?`Session ${nextMawa.slot}`:"Complete"}</b><small>${nextMawa?`${nextMawa.slot-done} sessions away`:"All investigations completed"}</small></div>
+      <div><span>Current milestone</span><b>${Math.min(done,milestone.target)} / ${milestone.target}</b><small>${esc(milestone.label)}</small></div>
+      <div><span>Rank progress</span><b>${r>=20?"All 20 ranks":"Rank "+(r+1)+" next"}</b><small>${rankProgress}</small></div>
+    </div>
+  </details>
   <h2 style="margin-top:28px">Technique evidence map</h2><p class="muted">A check means the technique has appeared in a completed session. It does <b>not</b> automatically mean independent mastery; timed and transfer evidence remains separate.</p>
   <div class="technique-map">${(taxonomy?.categories||[]).map(cat=>`<article class="tech-category"><div class="eyebrow">${esc(cat.id)}</div><h3>${esc(cat.name)}</h3><div class="tech-list">${cat.subskills.map(sk=>{const n=focusCounts.get(sk.id)||0,recall=recallState(completedRecords,sk.id);return `<div class="tech ${n?"covered":""}"><span>${n?"✓":"○"}</span><div><b>${esc(sk.name)}</b><small>${esc(sk.id)} · ${recall.retained?"retained on delayed checks · ":""}${n?n+" completed-session exposure"+(n===1?"":"s"):"not yet completed"}</small></div></div>`}).join("")}</div></article>`).join("")}</div>
   <h2 style="margin-top:28px">Recent timed assessments</h2><div class="history-list">${(exams||[]).map(e=>`<div class="history-row"><div><b>${esc(e.metadata?.title||e.exam_id)}</b><small>${e.submitted_at?new Date(e.submitted_at).toLocaleDateString():""}</small></div><div class="history-score">${e.score??"—"} / ${e.max_score}</div><div class="history-award">${esc(e.metadata?.award||"")}</div></div>`).join("")||'<div class="empty">No timed assessments completed yet.</div>'}</div><h2 style="margin-top:28px">20 explorer ranks</h2><div class="rank-grid">${rankNames.map((n,i)=>`<div class="rank ${i+1>r?"locked":""}"><span class="rank-emblem" aria-hidden="true">${i+1}</span><div><span class="rnum">RANK ${i+1}</span><b>${esc(n)}</b><small class="muted">${Math.ceil(372*(i+1)/20)} sessions</small></div></div>`).join("")}</div>
