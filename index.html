@@ -11,22 +11,26 @@
 <body>
   <div class="stars" aria-hidden="true"></div>
   <header class="topbar">
-    <a class="brand" href="./" aria-label="Summit One home"><span class="brand-mark">△</span><span><b>SUMMIT ONE</b><small>MATHEMATICS TRAINING</small></span></a>
-    <nav class="topnav" aria-label="Main navigation">
-      <button data-view="home" class="nav-btn active nav-major" type="button">Learn</button>
-      <a href="tests.html" class="nav-link nav-major">Exams</a>
-      <button data-view="profile" class="nav-btn nav-major nav-stats" type="button" aria-label="View progress and profile"><span>Progress</span><span id="navProgress" class="nav-progress-value" aria-hidden="true">— / 372</span></button>
-      <details id="navMore" class="nav-more">
-        <summary aria-label="More navigation options">More <span aria-hidden="true">⌄</span></summary>
-        <div class="nav-more-panel">
-          <button data-view="review" class="nav-btn" type="button">Completed sessions</button>
-          <button data-view="repairs" class="nav-btn" type="button">Repairs & revision</button>
-          <button data-view="roadmap" class="nav-btn" type="button">Goals & readiness</button>
-          <a class="nav-link" href="welcome.html?from=dashboard">AMC introduction</a>
-        </div>
-      </details>
-    </nav>
+    <button id="menuToggle" class="menu-trigger" type="button" aria-controls="courseMenu" aria-haspopup="dialog" aria-expanded="false" aria-label="Open the main menu">
+      <span class="menu-trigger-icon" aria-hidden="true">☰</span><span>Menu</span>
+    </button>
+    <a class="brand" href="./" aria-label="Summit One Learning home"><span class="brand-mark">△</span><span><b>SUMMIT ONE</b><small>MATHEMATICS TRAINING</small></span></a>
   </header>
+  <dialog id="courseMenu" class="course-menu" aria-labelledby="courseMenuTitle">
+    <div class="course-menu-shell">
+      <header class="course-menu-head">
+        <div><div class="eyebrow">SUMMIT ONE</div><h2 id="courseMenuTitle">Menu</h2></div>
+        <button id="menuClose" type="button" class="menu-close" aria-label="Close menu">✕</button>
+      </header>
+      <div id="courseMenuContent" class="course-menu-content" aria-live="polite"></div>
+      <footer class="course-menu-footer">
+        <button type="button" class="course-menu-progress" data-menu-action="profile">
+          <span><b>Progress & profile</b><small>Your saved learning history</small></span>
+          <strong id="navProgress">— / 372</strong>
+        </button>
+      </footer>
+    </div>
+  </dialog>
   <main id="app" class="shell" aria-live="polite">
     <section id="loading" class="panel hero-panel"><div class="eyebrow">LOADING YOUR LEARNING PATH</div><h1>Preparing Summit One…</h1><p class="muted">Loading your secure progress and the 372-session course.</p></section>
   </main>
