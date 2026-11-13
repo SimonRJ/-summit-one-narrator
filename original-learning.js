@@ -98,6 +98,37 @@ export function originalFigure(p){
       <text x="${centre}" y="204" fill="#bbd0db" stroke="none" text-anchor="middle" font-size="10">as stated</text>
     </g>`;
   }).join('')+`<text x="180" y="243" font-size="11" fill="#bed5e0" text-anchor="middle" stroke="none">Schematic only · use the problem's given dimensions</text>`;
+ }else if(m.skill==='DATA-03'){
+  const count=m.visit+6;
+  if(m.role==='try'){
+    alt='Pictogram of full and half symbols for Monday and Tuesday bike repairs';
+    const monday=count,tuesday=count+2,space=248/(tuesday+1),radius=Math.min(7,space*.39);
+    const icon=(i,y,half=false)=>{
+      const cx=76+i*space;
+      return `<circle cx="${cx}" cy="${y}" r="${radius}" fill="${half?'#27465a':'#98d7e5'}" stroke="#78afbf" stroke-width="1.5"/>`+
+       (half?`<path d="M${cx},${y-radius} A${radius},${radius} 0 0 0 ${cx},${y+radius} Z" fill="#98d7e5"/>`:'');
+    };
+    body=`<text x="18" y="49" font-size="14" fill="#edf6ff" font-weight="600" stroke="none">Key: one full symbol = 6 bikes</text>
+      <text x="18" y="108" font-size="14" fill="#e9f4fa" stroke="none">Mon</text>
+      <text x="18" y="170" font-size="14" fill="#e9f4fa" stroke="none">Tue</text>`+
+      Array.from({length:monday},(_,i)=>icon(i,102)).join('')+
+      icon(monday,102,true)+
+      Array.from({length:tuesday},(_,i)=>icon(i,164)).join('')+
+      `<text x="180" y="226" font-size="12" text-anchor="middle" fill="#c2dce8" stroke="none">Half-symbol = half of one full symbol</text>`;
+  }else{
+    const start=5*count,scale=6,left=79,base=221,ya=base-8*scale,yb=base-13*scale;
+    alt='Bar chart with a nonzero vertical-axis baseline and two bars of given heights';
+    const tick=(n)=>`<g><path d="M${left-6} ${base-n*scale} H${left+244}" stroke="#30516a" stroke-width="1"/><text x="${left-9}" y="${base-n*scale+5}" font-size="12" text-anchor="end" fill="#d4e8f0" stroke="none">${start+n}</text></g>`;
+    body=tick(0)+tick(5)+tick(10)+tick(15)+
+      `<path d="M${left} 48 V${base} H328" fill="none" stroke="#b3d7e4" stroke-width="2"/>
+       <rect x="122" y="${ya}" width="64" height="${base-ya}" fill="#82bcd0" stroke="#a3e0f0"/>
+       <rect x="230" y="${yb}" width="64" height="${base-yb}" fill="#52a2bd" stroke="#a3e0f0"/>
+       <text x="154" y="${ya-11}" font-size="14" text-anchor="middle" fill="#dceff7" stroke="none">+8</text>
+       <text x="262" y="${yb-11}" font-size="14" text-anchor="middle" fill="#dceff7" stroke="none">+13</text>
+       <text x="154" y="242" font-size="14" text-anchor="middle" fill="#f0f7ff" stroke="none">A</text>
+       <text x="262" y="242" font-size="14" text-anchor="middle" fill="#f0f7ff" stroke="none">B</text>
+       <text x="180" y="263" font-size="11" text-anchor="middle" fill="#bdd5e1" stroke="none">Notice the axis begins at ${start}, not zero</text>`;
+  }
  }else return '';
  return `<figure class="original-figure"><svg viewBox="0 0 360 275" role="img" aria-label="${alt}" xmlns="http://www.w3.org/2000/svg">${body}</svg><figcaption>${alt}. Use the stated conditions, not measurements from the picture.</figcaption></figure>`;
 }
