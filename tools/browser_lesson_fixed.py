@@ -113,7 +113,7 @@ async def main():
   await page.locator('.opening-film').wait_for()
   # Check all fourteen 3D schematic diagrams on the actual iPhone viewport.
   diagram_report=await page.evaluate("""async()=>{
-    const {originalFigure}=await import('./original-learning.js?v=geometry-20261114');
+    const {originalFigure}=await import('./original-learning.js?v=geometry-r2-20261114');
     const stage=document.querySelector('.lesson-screen-stage');
     const results=[];
     for(const role of ['try','transfer'])for(const skill of ['SOLID-01','DATA-03'])for(let visit=(skill==='SOLID-01'?2:1);visit<=(skill==='SOLID-01'?8:7);visit++){

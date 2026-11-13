@@ -1,4 +1,4 @@
-import {transferEvidenceHTML} from './original-learning.js?v=geometry-20261114';
+import {transferEvidenceHTML} from './original-learning.js?v=geometry-r2-20261114';
 import {workedSteps} from './session-intros.js?v=recognition-20261113';
 import {methods,exercise,checkAnswer,recallState,dueSkills} from './curriculum.js?v=recognition-20261113';
 const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));

@@ -66,7 +66,7 @@ assert(css.includes('.lesson-screen-footer'));
 assert(css.includes('.opening-video-wrap'));
 assert(sw.includes('lesson-screenflow.js?v=advanced-20261113'));
 assert(sw.includes('lesson-pager.js?v=responsive-20261113'));
-assert(html.includes('app-main.js?v=deep-audit-20261114'));
+assert(html.includes('app-main.js?v=deep-audit-r2-20261114'));
 assert(html.includes('id="courseMenu"') && html.includes('id="menuToggle"'));
 assert(html.includes('id="menuClose"') && html.includes('id="courseMenuContent"'));
 assert(!html.includes('class="topnav"'), 'No horizontal tabs');
@@ -106,7 +106,7 @@ assert(!focusedHome.includes('side-stack') && !focusedHome.includes('learning-no
 assert(app.includes('profile-upcoming') && app.includes('sessions remaining'));
 assert(css.includes('body.home-focus{min-height:100dvh;height:100dvh;overflow:hidden'));
 assert(css.includes('.course-menu-session.is-completed') && css.includes('.focus-session-card'));
-assert(sw.includes('summit-one-deep-audit-20261114'));
+assert(sw.includes('summit-one-deep-audit-r2-20261114'));
 assert(!app.includes('node.scrollIntoView({behavior:\'smooth\',block:\'start\'});'));
 
 const loader=read('../boot-loader.js'),loaderCss=read('../boot-loader.css');
