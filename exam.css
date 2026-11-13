@@ -205,3 +205,21 @@ a.exam-hub-card:hover,a.exam-hub-card:focus-visible{transform:translateY(-2px);b
 .exam-performance-card strong.exam-performance-recent{font-size:clamp(1.1rem,2.3vw,1.35rem)}
 .exam-performance-card small{color:#b7c9d7;font-size:.8rem;line-height:1.55}
 @media(max-width:760px){.exam-performance{grid-template-columns:1fr}}
+
+
+/* Curated AMC Part A/B library and permanent review; no gamified decorations. */
+.amc-set-summary{margin:18px 0 10px;padding:20px 22px;border:1px solid #3f6076;border-radius:12px;background:#192c3e}
+.amc-set-summary h2{font-size:clamp(1.2rem,2.8vw,1.55rem);margin:0 0 6px;letter-spacing:-.02em}
+.amc-set-summary p{line-height:1.65;margin:0}
+.amc-pending-sets{margin:18px 0 24px;background:#142334;border:1px solid #32495c;border-radius:12px;padding:17px 20px}
+.amc-pending-sets summary{font-weight:700;cursor:pointer;color:#c1d5e3}
+.pending-set-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:9px;margin-top:16px}
+.pending-set{padding:12px 14px;border:1px solid #3a4a5c;background:#172536;border-radius:8px;display:grid;gap:3px;color:#cad4e0}
+.pending-set span{font-weight:700}
+.pending-set small{color:#97aabd;font-size:.77rem}
+.exam-lesson-links{border-top:1px solid #52677a;margin-top:16px;padding:15px 0 8px;display:grid;gap:10px}
+.exam-lesson-links>b{font-size:1.02rem}
+.exam-lesson-link-row{display:flex;flex-wrap:wrap;gap:9px}
+.exam-lesson-link-row a{flex:1 1 230px;text-align:center;line-height:1.45;min-height:48px}
+.exam-lesson-links .muted{font-size:.8rem}
+@media(max-width:560px){.amc-set-summary{padding:18px}.amc-pending-sets{padding:14px}.exam-lesson-link-row a{flex-basis:100%}}
