@@ -311,26 +311,44 @@ function renderMawaSession(s){
   const el=document.getElementById("stage"), item=currentMawa;
   if(activeStage===0){
     const prevSlot=s.slot-7,prev=prevSlot>=7?mawa[(Math.floor(prevSlot/7)-1)%mawa.length]:null;
-    el.innerHTML=`${investigationIntroHTML(s,item)}<div class="stage-number">NOW REMEMBER · A USEFUL HABIT</div><h2>Bring back an idea</h2><p class="muted">MAWA-style work rewards systematic thinking and clear justification, not speed alone.</p><div class="teaching-item"><h3>${prev?esc(prev.title):"Proof habit"}</h3><p class="math-copy">${prev?"Without reopening the old solution, write one sentence about what made the previous investigation complete.":"Write the difference between finding an example and proving a maximum, minimum or impossibility."}</p></div><div class="complete-row"><span></span><button id="nextStage" class="primary">Discover</button></div>`;
+    el.innerHTML=`${investigationIntroHTML(s,item)}<div class="stage-number">NOW REMEMBER · A USEFUL HABIT</div><h2>Bring back an idea</h2><p class="muted">Try small cases and build a mathematical solution in your notebook.</p><div class="teaching-item"><h3>${prev?esc(prev.title):"Proof habit"}</h3><p class="math-copy">${prev?"Try a smaller version of today’s problem before attempting the full challenge.":"Test a few examples and look for the most important condition."}</p></div><div class="complete-row"><span></span><button id="nextStage" class="primary">Discover</button></div>`;
   }
   if(activeStage===1){
     el.innerHTML=`<div class="stage-number">STAGE 2 · INVESTIGATION SETUP</div><h2>Discover</h2>${investigationWarmupHTML(item)}<div id="investigationCards"></div><h3>Now grow the investigation</h3><p class="muted">Read the problem slowly. Decide what evidence would count as a proof before calculating.</p><div class="problem-card"><div class="problem-meta">${esc(item.topic)}</div><h3 class="problem-title">${esc(item.title)}</h3><div class="problem-prompt math-copy">${esc(item.prompt)}</div><details style="margin-top:14px"><summary>First hint — use only if you are genuinely stuck</summary><p class="math-copy">${esc(item.hint)}</p></details></div><div class="complete-row"><span class="muted">Plan cases, a diagram, a table or an invariant.</span><button id="nextStage" class="primary">Try the investigation</button></div>`;
   }
   if(activeStage===1)mountFlashCards(el.querySelector('#investigationCards'),{id:item.id,visit:1+Math.floor((Math.floor(s.slot/7)-1)/20),slot:s.slot,investigation:true,draft:sessionDraft,save:()=>saveDraft(s)});
   if(activeStage===2){
-    const saved=sessionDraft.working.mawa_base||"";
-    el.innerHTML=`<div class="stage-number">STAGE 3 · INDEPENDENT WORK</div><h2>Try</h2><p class="muted">Use paper, a notebook or this box. A correct number without justification is not complete evidence.</p><div class="problem-card"><div class="math-copy">${esc(item.prompt)}</div><label class="answer-label">Your organised reasoning<textarea id="mawaBase" class="answer-box" rows="12">${esc(saved)}</textarea></label><button id="recordMawa" class="primary">Record investigation work</button><div id="mawaMsg" class="attempt-feedback" hidden></div></div><div class="complete-row"><button id="backStage" class="ghost">Back</button><button id="nextStage" class="primary">Transfer</button></div>`;
-    document.getElementById("mawaBase").oninput=e=>{sessionDraft.working.mawa_base=e.target.value};
-    document.getElementById("recordMawa").onclick=async()=>{const v=document.getElementById("mawaBase").value.trim();if(v.length<20){alert("Record enough working to show the method, not only an answer.");return}sessionDraft.working.mawa_base=v;sessionDraft.evidence.mawa_base={status:"proof_evidence_unreviewed",recorded_at:new Date().toISOString()};await upsertSession({session_number:s.slot,session_key:`S${String(s.slot).padStart(3,"0")}`,answers:sessionDraft.answers,working:sessionDraft.working,evidence:sessionDraft.evidence,summary:sessionDraft.summary});const m=document.getElementById("mawaMsg");m.hidden=false;m.textContent="Work saved. Proof evidence remains unreviewed until you compare/check it."};
+    const recorded=Boolean(sessionDraft.evidence.mawa_base?.status);
+    el.innerHTML=`<div class="stage-number">STAGE 3 · INDEPENDENT INVESTIGATION</div><h2>Solve the investigation</h2>
+      <p class="muted">Work on paper or in a maths notebook. Use a table, diagram, calculation or proof as needed. There is no written response to type into the app.</p>
+      <div class="problem-card"><div class="math-copy">${esc(item.prompt)}</div>
+      <details class="mawa-paper-hint"><summary>Show a hint if you are stuck</summary><p class="math-copy">${esc(item.hint)}</p></details>
+      <button id="recordMawa" class="primary" ${recorded?"disabled":""}>${recorded?"Attempt recorded":"I have attempted this problem on paper"}</button>
+      <div id="mawaMsg" class="attempt-feedback" ${recorded?"":"hidden"}>Notebook attempt recorded; check your mathematical work against the model in the last stage.</div></div>
+      <div class="complete-row"><button id="backStage" class="ghost">Back</button><button id="nextStage" class="primary">Transfer</button></div>`;
+    document.getElementById("recordMawa").onclick=async event=>{
+      event.target.disabled=true;
+      sessionDraft.evidence.mawa_base={status:"attempted_on_paper_unreviewed",recorded_at:new Date().toISOString()};
+      try{await saveDraft(s);const note=document.getElementById("mawaMsg");note.hidden=false;note.textContent="Notebook attempt saved. The proof has not been independently assessed."}
+      catch(error){event.target.disabled=false;alert("Could not save your attempt: "+error.message)}
+    };
   }
   if(activeStage===3){
-    const ext=(item.transfer_prompt||mawaExtension(s,item))+(Math.floor(s.slot/7)>20?" Then change a condition, predict the effect, and justify a general rule or counterexample.":""),saved=sessionDraft.working.mawa_extension||"";
-    el.innerHTML=`<div class="stage-number">STAGE 4 · GENERALISE</div><h2>Transfer</h2><p class="muted">${esc(ext)}</p><label class="answer-label">Extension reasoning<textarea id="mawaExt" class="answer-box" rows="10">${esc(saved)}</textarea></label><button id="recordExt" class="primary">Record extension</button><div class="complete-row"><button id="backStage" class="ghost">Back</button><button id="nextStage" class="primary">Check</button></div>`;
-    document.getElementById("mawaExt").oninput=e=>{sessionDraft.working.mawa_extension=e.target.value};
-    document.getElementById("recordExt").onclick=async()=>{const v=document.getElementById("mawaExt").value.trim();if(v.length<20){alert("Give a mathematical reason, example, diagram description or proof step.");return}sessionDraft.working.mawa_extension=v;await upsertSession({session_number:s.slot,session_key:`S${String(s.slot).padStart(3,"0")}`,answers:sessionDraft.answers,working:sessionDraft.working,evidence:sessionDraft.evidence,summary:sessionDraft.summary});};
+    const ext=(item.transfer_prompt||mawaExtension(s,item))+(Math.floor(s.slot/7)>20?" Then change a condition, predict the effect, and test a general rule or counterexample.":""),recorded=Boolean(sessionDraft.evidence.mawa_extension?.status);
+    el.innerHTML=`<div class="stage-number">STAGE 4 · TRANSFER TO A NEW CASE</div><h2>Solve the extension</h2>
+      <p class="muted">${esc(ext)}</p><p>Solve this new mathematical problem in your notebook. No typed explanation is needed.</p>
+      <button id="recordExt" class="primary" ${recorded?"disabled":""}>${recorded?"Extension attempt recorded":"I have attempted the extension on paper"}</button>
+      <div id="mawaExtMsg" class="attempt-feedback" ${recorded?"":"hidden"}>Extension attempted on paper.</div>
+      <div class="complete-row"><button id="backStage" class="ghost">Back</button><button id="nextStage" class="primary">Check</button></div>`;
+    document.getElementById("recordExt").onclick=async event=>{
+      event.target.disabled=true;
+      sessionDraft.evidence.mawa_extension={status:"attempted_on_paper_unreviewed",recorded_at:new Date().toISOString()};
+      try{await saveDraft(s);const note=document.getElementById("mawaExtMsg");note.hidden=false;note.textContent="Notebook extension saved."}
+      catch(error){event.target.disabled=false;alert("Could not save the extension attempt: "+error.message)}
+    };
   }
   if(activeStage===4){
-    const ready=(sessionDraft.working.mawa_base||"").trim().length>=20&&(sessionDraft.working.mawa_extension||"").trim().length>=20;
+    const ready=Boolean(sessionDraft.evidence.mawa_base?.status&&sessionDraft.evidence.mawa_extension?.status);
     el.innerHTML=`<div class="stage-number">STAGE 5 · PROOF CHECK</div><h2>Check</h2><p class="muted">Score the evidence, not confidence. This is a practice rubric, not an official MAWA admissions score.</p><div class="problem-card"><details ${ready?"":"hidden"}><summary>Compare with model reasoning</summary><p class="solution-panel" style="display:block">${esc(item.solution)}</p>${item.transfer_solution?`<h4>Check the new setting</h4><p class="math-copy">${esc(item.transfer_solution)}</p>`:""}<p class="muted"><b>Common trap:</b> ${esc(item.trap)}</p></details>${rubricHTML()}<div class="check-grid"><label class="answer-label">Result 0–3<input id="rResult" type="number" min="0" max="3" value="" required></label><label class="answer-label">Method 0–3<input id="rMethod" type="number" min="0" max="3" value="" required></label><label class="answer-label">Proof / completeness 0–3<input id="rProof" type="number" min="0" max="3" value="" required></label><label class="answer-label">Clarity 0–1<input id="rClarity" type="number" min="0" max="1" value="" required></label></div></div><div class="complete-row"><span class="muted">${ready?"Investigation and extension recorded.":"Record both the investigation and extension before completion."}</span><button id="completeMawa" class="primary" ${ready?"":"disabled"}>Complete and lock Session ${s.slot}</button></div>`;
     if(ready)document.getElementById("completeMawa").onclick=async()=>{if(!["rResult","rMethod","rProof","rClarity"].every(id=>{const x=document.getElementById(id);return x.value!==""&&x.checkValidity()})){alert("Enter each rubric score after comparing the reasoning.");return}const rubric={result:Number(document.getElementById("rResult").value),method:Number(document.getElementById("rMethod").value),proof:Number(document.getElementById("rProof").value),clarity:Number(document.getElementById("rClarity").value)};sessionDraft.summary={...sessionDraft.summary,review_status:"self_reviewed_not_independently_verified",focus:item.title,type:"MAWA",phase:s.phase,investigation_id:item.id,rubric,total:rubric.result+rubric.method+rubric.proof+rubric.clarity};const button=document.getElementById("completeMawa");button.disabled=true;try{await completeSpecialSession(s)}catch(e){alert("Could not finish saving: "+e.message);button.disabled=false}};
   }
@@ -585,12 +603,17 @@ function mountMixed(el,s,count){
  ids.forEach((id,i)=>mountPractice(el.querySelector(`[data-mixed="${i}"]`),{id,seed:s.slot+i*5,key:'mixed:'+i,draft:sessionDraft,save:()=>saveDraft(s),label:`MIXED QUESTION ${i+1}`}));
 }
 function renderWorkshop(s){
- app.innerHTML=`<section class="session-page panel stage"><div class="eyebrow">SESSION ${s.slot} · STRATEGY WORKSHOP</div><h1>Recognise, choose, explain</h1><p>Exam questions do not name the technique. Today, practise choosing among ideas you have already met. Notice the requested quantity, explain your first step, then calculate and check.</p><p class="muted">This is an untimed lesson, with hints and feedback. Full exam papers live in their own tabs.</p>${wordingHTML(s.slot)}<div id="workshopFlash"></div><div id="workshopQuestions"></div><label class="answer-label">Which clues helped you choose a method? What would make you choose a different method?<textarea id="workshopReflection" class="answer-box">${esc(sessionDraft.summary.takeaway||'')}</textarea></label><button id="completeWorkshop" class="primary">Complete and lock workshop</button></section>`;
- const ids=sessionDraft.summary.mixed_skills||(sessionDraft.summary.mixed_skills=mixedSkills(s,4));
+ app.innerHTML=`<section class="session-page panel stage"><div class="eyebrow">SESSION ${s.slot} · STRATEGY WORKSHOP</div><h1>Mixed problem solving</h1><p>Each question may need a different method. Work out your answer on paper, enter the final result, and study the solution after checking.</p><p class="muted">Six problems plus five quick decisions. No written explanations or reflections required.</p>${wordingHTML(s.slot)}<div id="workshopFlash"></div><div id="workshopQuestions"></div><button id="completeWorkshop" class="primary">Complete and lock workshop</button></section>`;
+ const ids=sessionDraft.summary.mixed_skills||(sessionDraft.summary.mixed_skills=mixedSkills(s,6));
  mountFlashCards(app.querySelector('#workshopFlash'),{id:'mixed-'+s.slot,slot:s.slot,deck:mixedFlashDeck(ids,s.slot),draft:sessionDraft,save:()=>saveDraft(s)});
- mountMixed(app.querySelector('#workshopQuestions'),s,4);
- app.querySelector('#workshopReflection').oninput=e=>sessionDraft.summary.takeaway=e.target.value;
- app.querySelector('#completeWorkshop').onclick=async e=>{if(!flashReviewed(sessionDraft,'mixed-'+s.slot)){alert('Finish the five quick decisions and read the recap first.');return}if((sessionDraft.summary.mixed_skills||[]).some((id,i)=>!sessionDraft.evidence['mixed:'+i])||(sessionDraft.summary.takeaway||'').trim().length<15){alert('Attempt each question, read its feedback and write a short reflection.');return}e.target.disabled=true;try{sessionDraft.summary.type='MIXED';await completeSpecialSession(s)}catch(err){alert(err.message);e.target.disabled=false}};
+ mountMixed(app.querySelector('#workshopQuestions'),s,6);
+ app.querySelector('#completeWorkshop').onclick=async event=>{
+  if(!flashReviewed(sessionDraft,'mixed-'+s.slot)){alert('Finish the five quick decisions first.');return}
+  if((sessionDraft.summary.mixed_skills||[]).some((id,i)=>!sessionDraft.evidence['mixed:'+i])){alert('Check your answer on each of the six problems first.');return}
+  event.target.disabled=true;
+  try{sessionDraft.summary.type='MIXED';await completeSpecialSession(s)}
+  catch(error){alert(error.message);event.target.disabled=false}
+ };
 }
 async function renderReview(){
  document.body.classList.remove("lesson-fullscreen","home-focus","lesson-video-review");
