@@ -151,7 +151,7 @@ async function navigateMenuView(view){
   await saveDraft(editingSession);
   editingSession=null;
  }
- document.body.classList.remove("lesson-fullscreen","home-focus");
+ document.body.classList.remove("lesson-fullscreen","home-focus","lesson-video-review");
  activeView=view;
  if(view==="home"){renderHome();return}
  if(view==="profile"){await renderProfile();return}
@@ -174,6 +174,43 @@ async function openCompletedFromMenu(slot){
  const details=app.querySelector('[data-review-session="'+slot+'"]');
  if(details){details.open=true;details.scrollIntoView({behavior:"auto",block:"start"})}
 }
+async function openLessonIntroductionFromMenu(slot){
+ const item=course.find(s=>s.slot===slot&&s.type==="LESSON");
+ const done=Number(progress?.completed_sessions)||0;
+ const isComplete=slot<=done;
+ const isCurrent=slot===courseSession()?.slot&&done<372;
+ if(!item||(!isComplete&&!isCurrent))throw new Error("This lesson is not available for review yet.");
+ if(editingSession){
+  await saveDraft(editingSession);
+  editingSession=null;
+ }
+ document.body.classList.remove("home-focus","lesson-fullscreen");
+ document.body.classList.add("lesson-video-review");
+ setLessonScreenTopbar();
+ activeView="lesson-intro-review";
+ const introId=item.slot===1?"S001":item.slot===2?"S002":null;
+ const teaching=teachingFor(item)[0]||null;
+ const media=introId?`<div class="lesson-replay-video"><video id="replayIntroVideo" controls playsinline preload="metadata" poster="media/${introId}-Intro-poster.jpg?v=cinema-20261113" src="media/${introId}-Intro.mp4?v=cinema-20261113" aria-label="${esc(item.focus)} · animated introduction"><track kind="captions" srclang="en" label="English captions" src="media/${introId}-Intro.vtt?v=cinema-20261113"></video></div>`:
+  teaching?`<div id="replayNarratedTeaching" class="lesson-replay-narration"></div>`:
+  '<p class="muted">An animated introduction has not yet been published for this lesson. The original lesson and written explanations remain available.</p>';
+ app.innerHTML=`<section class="panel lesson-replay-page" aria-label="Read-only lesson video review">
+   <div class="eyebrow">LESSON ${item.slot} · ${isComplete?"COMPLETED — REPLAY ONLY":"CURRENT — REVIEW"}</div>
+   <h1>${esc(item.focus)}</h1>
+   <p class="muted">${introId?"Replay the original easy, medium and hard worked examples.":teaching?"Review the available narrated concept teaching. A dedicated three-level introduction has not yet been published for this lesson.":"The video for this lesson is not yet published."}</p>
+   ${media}
+   <p class="lesson-replay-note">${isComplete?"Your original answers, score and completion status stay locked. Replaying this video cannot restart the lesson.":"This is an optional teaching review. Your current answers and lesson position remain saved."}</p>
+   <div class="lesson-replay-actions"><button type="button" id="replayBack" class="secondary">${isComplete?"Back to saved lesson":"Return to current lesson"}</button><button type="button" id="replayHome" class="ghost">Learning home</button></div>
+ </section>`;
+ if(!introId&&teaching){
+  mountNarratedPlayer(document.getElementById("replayNarratedTeaching"),{
+   title:teaching.title,transcript:teaching.transcript,audioUrl:teaching.audio_url,
+   videoUrl:finalVideoUrl(teaching.id),cacheKey:"read-only-lesson:"+item.slot
+   // Deliberately no onWatch callback and no session-record mutation.
+  });
+ }
+ document.getElementById("replayBack").onclick=async()=>{document.body.classList.remove("lesson-video-review");if(isComplete)await openCompletedFromMenu(slot);else await continueFromMenu()};
+ document.getElementById("replayHome").onclick=()=>{document.body.classList.remove("lesson-video-review");renderHome()};
+}
 function wireNav(){
  mainMenu=mountCourseMenu({
   navigation:courseNavigation,
@@ -181,6 +218,7 @@ function wireNav(){
   getCurrent:()=>courseSession(),
   onContinue:continueFromMenu,
   onCompleted:openCompletedFromMenu,
+  onIntroduction:openLessonIntroductionFromMenu,
   onView:navigateMenuView
  });
 }
@@ -204,7 +242,7 @@ function renderTechniqueRefresher(){
  videos.forEach((t,i)=>mountNarratedPlayer(document.getElementById("techniqueVideo"+i),{title:t.title,transcript:t.transcript,audioUrl:t.audio_url,videoUrl:finalVideoUrl(t.id),cacheKey:t.id}));
 }
 function renderHome(){
- document.body.classList.remove("lesson-fullscreen");
+ document.body.classList.remove("lesson-fullscreen","lesson-video-review");
  document.body.classList.add("home-focus");
  setLessonScreenTopbar();
  activeView="home";
@@ -336,10 +374,10 @@ function setLessonScreenTopbar(){
  document.body.style.setProperty("--lesson-topbar",Math.ceil(document.querySelector(".topbar")?.getBoundingClientRect().height||72)+"px");
 }
 window.addEventListener("resize",()=>{
- if(document.body.classList.contains("lesson-fullscreen")||document.body.classList.contains("home-focus"))setLessonScreenTopbar();
+ if(document.body.classList.contains("lesson-fullscreen")||document.body.classList.contains("home-focus")||document.body.classList.contains("lesson-video-review"))setLessonScreenTopbar();
 });
 function renderSession(s){
- document.body.classList.remove("home-focus");
+ document.body.classList.remove("home-focus","lesson-video-review");
  document.body.classList.add("lesson-fullscreen");
  setLessonScreenTopbar();
  const stages=["Video","Remember","Discover","Try","Transfer","Check"];
@@ -532,9 +570,10 @@ function renderWorkshop(s){
  app.querySelector('#completeWorkshop').onclick=async e=>{if(!flashReviewed(sessionDraft,'mixed-'+s.slot)){alert('Finish the five quick decisions and read the recap first.');return}if((sessionDraft.summary.mixed_skills||[]).some((id,i)=>!sessionDraft.evidence['mixed:'+i])||(sessionDraft.summary.takeaway||'').trim().length<15){alert('Attempt each question, read its feedback and write a short reflection.');return}e.target.disabled=true;try{sessionDraft.summary.type='MIXED';await completeSpecialSession(s)}catch(err){alert(err.message);e.target.disabled=false}};
 }
 async function renderReview(){
- document.body.classList.remove("lesson-fullscreen","home-focus");
+ document.body.classList.remove("lesson-fullscreen","home-focus","lesson-video-review");
  activeView="review";await refreshEvidence();
- app.innerHTML=`<section class="panel hero-panel"><div class="eyebrow">YOUR MATHEMATICAL NOTEBOOK</div><h1>Completed sessions</h1><p class="muted">The original answers and working are locked. Use a fresh session to show new learning.</p>${[...completedRecords].reverse().map(r=>`<details class="review-detail" data-review-session="${r.session_number}"><summary>Session ${r.session_number} · ${esc(r.summary?.focus||course[r.session_number-1]?.focus||'')} <span class="type-chip">LOCKED</span></summary><p><b>Key idea:</b> ${esc(r.summary?.takeaway||'—')}</p><p><b>Next time:</b> ${esc(r.summary?.watch||'—')}</p>${Object.entries(r.answers||{}).map(([id,a])=>`<article><h3>${esc(problemIndex.find(p=>p.id===id)?.title||id)}</h3><p class="math-copy">${esc(problemIndex.find(p=>p.id===id)?.prompt||'')}</p><p><b>Recorded answer:</b> ${esc(a?.response??a)}</p><p class="math-copy">${esc(r.working?.[id]||'')}</p><button class="ghost saved-solution" data-problem="${esc(id)}" data-session="${r.session_number}">Worked solution</button><div class="saved-solution-content"></div>${r.evidence?.['reasoning:'+id]?`<p><b>Recognition clue:</b> ${esc(r.evidence['reasoning:'+id].clue||'—')}</p><p><b>Plan:</b> ${esc(r.evidence['reasoning:'+id].plan||'—')}</p><p><b>Check or correction:</b> ${esc(r.evidence['reasoning:'+id].check||'—')}</p><p class="muted">${esc(applicationStatus(r.evidence?.['application:'+id]))} · explanation saved for review</p>`:''}</article>`).join('')}${Object.values(r.evidence||{}).filter(e=>e?.kind==='mixed_application').map(e=>`<article><h3>${esc(e.question_id)}</h3><p><b>Your method:</b> ${esc(e.method)}</p><p><b>Recorded answer:</b> ${esc(e.response)} · ${e.correct?'correct':'needs repair'}${e.used_help?' · supported':''}</p></article>`).join('')}${r.working?.mawa_base?`<div data-adult-review="${r.session_number}"></div><h3>Investigation</h3><p class="math-copy">${esc(r.working.mawa_base)}</p><h3>Extension</h3><p class="math-copy">${esc(r.working.mawa_extension||'')}</p>`:''}</details>`).join('')||'<p>No completed sessions yet.</p>'}</section>`;
+ app.innerHTML=`<section class="panel hero-panel"><div class="eyebrow">YOUR MATHEMATICAL NOTEBOOK</div><h1>Completed sessions</h1><p class="muted">The original answers and working are locked. Use a fresh session to show new learning.</p>${[...completedRecords].reverse().map(r=>`<details class="review-detail" data-review-session="${r.session_number}"><summary>Session ${r.session_number} · ${esc(r.summary?.focus||course[r.session_number-1]?.focus||'')} <span class="type-chip">LOCKED</span></summary>${course[r.session_number-1]?.type==="LESSON"?`<button type="button" class="secondary saved-intro" data-video-session="${r.session_number}">${[1,2].includes(r.session_number)?"Watch introduction video":"Review lesson teaching"}</button>`:""}<p><b>Key idea:</b> ${esc(r.summary?.takeaway||'—')}</p><p><b>Next time:</b> ${esc(r.summary?.watch||'—')}</p>${Object.entries(r.answers||{}).map(([id,a])=>`<article><h3>${esc(problemIndex.find(p=>p.id===id)?.title||id)}</h3><p class="math-copy">${esc(problemIndex.find(p=>p.id===id)?.prompt||'')}</p><p><b>Recorded answer:</b> ${esc(a?.response??a)}</p><p class="math-copy">${esc(r.working?.[id]||'')}</p><button class="ghost saved-solution" data-problem="${esc(id)}" data-session="${r.session_number}">Worked solution</button><div class="saved-solution-content"></div>${r.evidence?.['reasoning:'+id]?`<p><b>Recognition clue:</b> ${esc(r.evidence['reasoning:'+id].clue||'—')}</p><p><b>Plan:</b> ${esc(r.evidence['reasoning:'+id].plan||'—')}</p><p><b>Check or correction:</b> ${esc(r.evidence['reasoning:'+id].check||'—')}</p><p class="muted">${esc(applicationStatus(r.evidence?.['application:'+id]))} · explanation saved for review</p>`:''}</article>`).join('')}${Object.values(r.evidence||{}).filter(e=>e?.kind==='mixed_application').map(e=>`<article><h3>${esc(e.question_id)}</h3><p><b>Your method:</b> ${esc(e.method)}</p><p><b>Recorded answer:</b> ${esc(e.response)} · ${e.correct?'correct':'needs repair'}${e.used_help?' · supported':''}</p></article>`).join('')}${r.working?.mawa_base?`<div data-adult-review="${r.session_number}"></div><h3>Investigation</h3><p class="math-copy">${esc(r.working.mawa_base)}</p><h3>Extension</h3><p class="math-copy">${esc(r.working.mawa_extension||'')}</p>`:''}</details>`).join('')||'<p>No completed sessions yet.</p>'}</section>`;
+ app.querySelectorAll('.saved-intro').forEach(button=>button.onclick=()=>openLessonIntroductionFromMenu(Number(button.dataset.videoSession)).catch(error=>alert(error.message)));
  app.querySelectorAll('.saved-solution').forEach(button=>button.onclick=async()=>{button.disabled=true;const target=button.nextElementSibling;try{const {data,error}=await supabase.functions.invoke('get-problem-solution',{body:{problem_id:button.dataset.problem,session_number:Number(button.dataset.session)}});if(error||data?.error)throw error||new Error(data.error);target.className='math-copy';target.textContent=data.solution_text||data.spoken_script||'No written solution returned.'}catch(err){target.textContent=err.message;button.disabled=false}});
  app.querySelectorAll('[data-adult-review]').forEach(target=>{const details=target.closest('details');details.addEventListener('toggle',async()=>{if(!details.open||target.dataset.loaded)return;target.dataset.loaded='1';const record=completedRecords.find(r=>r.session_number===Number(target.dataset.adultReview)),item=mawa.find(x=>x.id===record.summary?.investigation_id)||mawa[(Math.floor(record.session_number/7)-1)%20];try{await mountInvestigationReview(target,{user,record,item})}catch(err){target.textContent=err.message;delete target.dataset.loaded}})});
 }
@@ -550,7 +589,7 @@ async function exportProgressBackup(){
   const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="Summit-One-progress-"+new Date().toISOString().slice(0,10)+".json";document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1000);
 }
 async function renderProfile(){
- document.body.classList.remove("lesson-fullscreen","home-focus");
+ document.body.classList.remove("lesson-fullscreen","home-focus","lesson-video-review");
   activeView="profile";await refreshEvidence();updateNavProgress();const r=currentRank();
   const done=progress.completed_sessions||0,currentXp=progress.xp??done*100;
   const nextRankSession=r>=20?null:Math.ceil(372*(r+1)/20);
