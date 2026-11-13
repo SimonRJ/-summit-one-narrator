@@ -263,6 +263,7 @@ def build(mapping,out):
             if k=='FRAC-01' and role=='transfer':q['check']='Send half of the original count, then one third of the remainder; all counts are whole numbers and the final remainder agrees.'
             if k=='ALG-05' and role=='try':q['check']='Subtract the transfer from the first count and add it to the second; check the stated final gap.'
             pid=f'O{s["slot"]:03}{"T" if role=="try" else "X"}'
+            visit=counts[k]
             # Every standard lesson problem accepts only the final answer.
             # The worked solution still teaches the mathematical reasoning.
             prompt=q['prompt']
