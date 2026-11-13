@@ -47,7 +47,7 @@ assert(css.includes('.lesson-screen-footer'));
 assert(css.includes('.opening-video-wrap'));
 assert(sw.includes('lesson-screenflow.js?v=cinema-20261113'));
 assert(sw.includes('lesson-pager.js?v=cinema-20261113'));
-assert(html.includes('app-main.js?v=focus-20261113'));
+assert(html.includes('app-main.js?v=menu-20261113'));
 assert(html.includes('id="navProgress"') && html.includes('id="navMore"'));
 assert(html.includes('data-view="profile"') && html.includes('data-view="review"'));
 const focusedHome=app.slice(app.indexOf('function renderHome(){'),app.indexOf('async function startSession(s){'));
@@ -56,6 +56,6 @@ assert(!focusedHome.includes('side-stack') && !focusedHome.includes('learning-no
 assert(app.includes('profile-upcoming') && app.includes('sessions remaining'));
 assert(css.includes('body.home-focus{min-height:100dvh;height:100dvh;overflow:hidden'));
 assert(css.includes('.nav-more-panel') && css.includes('.focus-session-card'));
-assert(sw.includes('summit-one-focus-home-20261113'));
+assert(sw.includes('summit-one-course-drawer-20261113'));
 assert(!app.includes('node.scrollIntoView({behavior:\'smooth\',block:\'start\'});'));
 console.log('PASS: two unique graduated video scripts, mathematical solutions, all stage screens, fixed viewport and protected learning data.');
