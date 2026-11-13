@@ -18,8 +18,16 @@ def family(k,n,role):
     # n=3..11 (visit+2); all tasks are authored here, not drawn from an exam bank.
     x=n+4
     if k=='DIG-01':
-        if role=='try': return task(f'A school bookshop sells packs of stickers for 99 cents each. A student buys {x} packs and a pencil costing 37 cents. What is the total cost in cents?',99*x+37,[f'Pretend each clip costs 100 cents: {100*x}.',f'Remove the {x} extra cents, then add 37: {99*x+37}.'],'Estimate using one dollar per clip; the answer should be a little above that estimate.','Several numbers are close to a convenient place-value boundary.')
-        return task(f'A meter should add 198 units for each of {x} complete cycles. It accidentally adds 200 per cycle. Its final display is {200*x+53}. What should the display be?',198*x+53,[f'The error is 2 per cycle, not 2 altogether: {2*x}.',f'Subtract it from the displayed total: {200*x+53} − {2*x} = {198*x+53}.'],f'The unchanged starting value is 53; 53 + {x} × 198 gives the same answer.','A repeated small error can be counted before doing a long calculation.')
+        if role=='try': return task(f'A school bookshop sells packs of stickers for 99 cents each. A student buys {x} packs and a pencil costing 37 cents. What is the total cost in cents?',99*x+37,[f'Pretend each sticker pack costs 100 cents: {100*x}.',f'Remove the {x} extra cents, then add 37: {99*x+37}.'],'Estimate using one dollar per sticker pack; the actual total is slightly greater because of the pencil.','Several numbers are close to a convenient place-value boundary.')
+        # Distinct concrete contexts; the consistent error is 2 items per batch.
+        contexts={
+            7:f'A warehouse already has 53 batteries in stock. It receives {x} boxes containing 198 batteries each. Its stock system mistakenly records 200 batteries per box, so the total on the screen is {200*x+53}. What should the correct stock total be?',
+            8:f'A ticket printer has already printed 53 tickets. It then prints {x} batches of 198 tickets. A faulty counter adds 200 tickets after each batch and ends at {200*x+53}. How many tickets were actually printed altogether?',
+            9:f"A game's scoreboard starts at 53 points. Over the next {x} rounds, a player earns 198 points per round, but the scoreboard mistakenly adds 200 points each time. Its final reading is {200*x+53}. What should the correct score be?",
+            10:f'A factory already has 53 finished parts recorded. It produces {x} new batches, each containing exactly 198 parts. The computer incorrectly records 200 parts per batch, so it displays {200*x+53} parts. How many finished parts should the computer show?'
+        }
+        story=contexts.get(x,f'A warehouse starts with 53 batteries. It receives {x} boxes with 198 batteries in each box, but its computer incorrectly adds 200 per box and displays {200*x+53}. What is the correct total?')
+        return task(story,198*x+53,[f'Each batch is overcounted by 200 − 198 = 2 items.',f'The total error is {x} × 2 = {2*x} items.',f'Correct the displayed total: {200*x+53} − {2*x} = {198*x+53}.'],f'Check against the starting 53: 53 + {x} × 198 = {198*x+53}.','A repeated small error can be corrected before doing long multiplication.')
     if k=='DIG-02':
         digits=sorted([0]+[((n+d)%9)+1 for d in [0,2,5,7]])
         if role=='try':
@@ -34,7 +42,9 @@ def family(k,n,role):
             val=sum(str(i).count(str(d)) for i in range(lo,hi+1))
             return task(f'A printer labels drawers {lo} through {hi}, inclusive. How many copies of the digit 2 does it print?',val,['Count the hundreds, tens and units columns separately.',f'The total number of copies is {val}; a label containing two 2s contributes twice.'],'Write the first and last labels and count each position independently.','We are counting printed digits, not labels that contain a digit.')
         start=100*x+87;end=start+26;val=sum(len(str(i)) for i in range(start,end+1))
-        return task(f'An odometer log writes every whole number from {start} through {end}, inclusive, once. How many digit characters are written altogether?',val,['There are end − start + 1 entries. Split the interval at any change in digit length.',f'Add the number of entries times their lengths: {val} digit characters.'],'Count the boundary entries on both sides of a power of ten exactly once.','A position-count problem can change when the number of digits changes.')
+        lengths={d:sum(len(str(i))==d for i in range(start,end+1)) for d in sorted(set(len(str(i)) for i in range(start,end+1)))}
+        breakdown=' + '.join(f'{count} × {d}' for d,count in lengths.items())
+        return task(f'A ticket printer prints every ticket number from {start} to {end}, including both endpoints. Each number is printed once. How many individual digits does the printer print altogether?',val,[f'Count the numbers including both endpoints: {end} − {start} + 1 = {end-start+1}.',f'Group the numbers by how many digits they contain; calculate {breakdown} = {val} printed digits.'],f'Check all ticket numbers from {start} through {end}, counting any change in number length only once.','The count is the total number of printed digits, not merely the number of tickets.')
     if k=='DIG-04':
         if role=='try':
             total=2*(n+3);vals=[1000*a+100*b+10*b+a for a in range(1,10) for b in range(10) if 2*(a+b)==total]
