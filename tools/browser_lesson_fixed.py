@@ -1,4 +1,4 @@
-"""Video-first one-viewport lesson regression on iPhone and desktop.
+"""Responsive one-viewport lesson regression on iPhone, iPad, laptop and desktop.
 Uses the trusted local mock from the older comprehensive browser test; no user secrets.
 """
 import ast,asyncio,shutil
@@ -18,12 +18,34 @@ async def main():
   async def fits():
    result=await page.evaluate("""() => {
     const stage=document.querySelector('.lesson-screen-stage');
+    const excess=stage?stage.scrollHeight-stage.clientHeight:999;
+    if(stage)stage.scrollTop=excess;
+    const canScroll=stage&&(excess<=5||stage.scrollTop>5);
+    if(stage)stage.scrollTop=0;
     return {body:getComputedStyle(document.body).overflow,windowScroll:document.documentElement.scrollHeight-innerHeight,
-       horizontal:document.documentElement.scrollWidth-innerWidth,stageOverflow:stage?stage.scrollHeight-stage.clientHeight:999};
+       horizontal:document.documentElement.scrollWidth-innerWidth,stageOverflow:excess,
+       stageOverflowY:stage?getComputedStyle(stage).overflowY:'missing',canScroll};
    }""")
    assert result['body']=='hidden',result
    assert result['windowScroll']<=4 and result['horizontal']<=4,result
-   assert result['stageOverflow']<=5,result
+   assert result['stageOverflowY'] in ('auto','scroll') and result['canScroll'],result
+  async def scroll_probe():
+   result=await page.evaluate("""() => {
+    const stage=document.querySelector('.lesson-screen-stage'),footer=document.querySelector('.lesson-screen-footer');
+    const probe=document.createElement('div');
+    probe.style.height=(stage.clientHeight+320)+'px';
+    probe.setAttribute('data-overflow-probe','');
+    stage.append(probe);
+    stage.scrollTop=stage.scrollHeight;
+    const scrollable=stage.scrollTop>100;
+    const box=footer.getBoundingClientRect();
+    const navVisible=box.top>=0&&box.bottom<=innerHeight+2;
+    const horizontal=document.documentElement.scrollWidth-innerWidth;
+    probe.remove();
+    stage.scrollTop=0;
+    return {scrollable,navVisible,horizontal};
+   }""")
+   assert result['scrollable'] and result['navVisible'] and result['horizontal']<=4,result
   async def next_page():
    await page.locator('[data-screen-next]').click();await page.wait_for_timeout(65)
   async def until_visible(selector,max_steps=18):
@@ -83,6 +105,7 @@ async def main():
   assert 'S001-Intro.mp4' in await page.locator('#openingVideo').get_attribute('src')
   assert 'Video' in await page.locator('.lesson-stage-track .here').inner_text()
   await fits()
+  await scroll_probe()  # Taller-than-screen lesson content must scroll; Back/Next stays fixed.
   await page.screenshot(path=str(ROOT/'docs/video-first-session-1-iphone.png'))
   await next_page()
   assert 'Remember' in await page.locator('.lesson-stage-track .here').inner_text()
@@ -100,7 +123,20 @@ async def main():
    await page.locator('.flash-next').click()
   await page.locator('.flash-summary').wait_for()
   await fits()
+  # New teaching cards start at the top even when the previous card was scrolled.
+  scrolled=await page.evaluate("""() => {
+    const stage=document.querySelector('.lesson-screen-stage');
+    const spacer=document.createElement('div');
+    spacer.dataset.scrollTest='yes';
+    spacer.style.height='1300px';
+    document.querySelector('.flash-quiz').append(spacer);
+    stage.scrollTop=stage.scrollHeight;
+    return stage.scrollTop;
+  }""")
+  assert scrolled>100,scrolled
   await next_page()
+  assert await page.locator('.lesson-screen-stage').evaluate('(stage)=>stage.scrollTop')==0
+  await page.evaluate("document.querySelector('[data-scroll-test]')?.remove()")
   await page.locator('#guidedCheck .mini-check').wait_for()
   await page.locator('#guidedCheck .short-answer').fill('123')
   await page.locator('#guidedCheck button.primary').click()
@@ -194,12 +230,20 @@ async def main():
   assert 'S002-Intro.mp4' in await page.locator('#openingVideo').get_attribute('src')
   await fits()
   await page.screenshot(path=str(ROOT/'docs/video-first-session-2-iphone.png'))
-  await page.set_viewport_size({'width':1280,'height':900})
-  await fits()
+  for viewport in [
+   {'width':820,'height':1180},  # iPad portrait
+   {'width':1024,'height':768},  # iPad landscape
+   {'width':1366,'height':768},  # Laptop
+   {'width':1920,'height':1080}, # Desktop
+   {'width':1280,'height':900}
+  ]:
+   await page.set_viewport_size(viewport)
+   await fits()
+   await scroll_probe()
   await page.screenshot(path=str(ROOT/'docs/video-first-session-2-desktop.png'))
   await page.locator('[data-screen-back]').click()
   await page.locator('#continue').wait_for()
   assert not errors,errors
   await browser.close()
- print('PASS: no-scroll lessons, six answer-only practice problems, read-only replay, and immutable completion.')
+ print('PASS: responsive scrolling lessons with fixed navigation, six answer-only practice problems, read-only replay, and immutable completion.')
 asyncio.run(main())
