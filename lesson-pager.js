@@ -1,7 +1,8 @@
 /** Fixed-screen navigation: preserve the lesson DOM and its saved answer handlers.
- *  Only one compact teaching card is displayed at a time. No scrolling is used to advance.
+ *  One card at a time; overflowing card contents scroll inside the lesson viewport.
+ *  Scrolling never changes screens: only Back/Next does.
  */
-export function mountLessonPager({pages,initial=0,footer,onBack,onNext,onChange}){
+export function mountLessonPager({pages,initial=0,footer,scrollContainer,onBack,onNext,onChange}){
  if(!Array.isArray(pages)||!pages.length)throw new Error("Lesson screen has no pages");
  const back=footer.querySelector("[data-screen-back]");
  const next=footer.querySelector("[data-screen-next]");
@@ -12,6 +13,8 @@ export function mountLessonPager({pages,initial=0,footer,onBack,onNext,onChange}
  function show(value){
   index=Math.max(0,Math.min(pages.length-1,value));
   pages[index].show(true);
+  // Start each teaching card at the top of its own scrollable area.
+  if(scrollContainer)scrollContainer.scrollTop=0;
   const p=pages[index];
   if(count)count.textContent=`${index+1} / ${pages.length}`;
   if(name)name.textContent=p.title||"Learning";
