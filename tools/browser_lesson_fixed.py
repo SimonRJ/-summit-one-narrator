@@ -201,15 +201,19 @@ async def main():
   assert await page.locator('.advanced-path input,.advanced-path textarea,.advanced-path form').count()==0
   assert 'not assessed' in (await page.locator('.advanced-path-disclaimer').inner_text()).lower()
   assert 'Where this maths can lead' in await page.locator('.lesson-screen-progress').inner_text()
-  assert await page.locator('.advanced-media').count()==1
-  assert await page.locator('.advanced-media').evaluate('(node)=>node.open')==False
   await fits()
   await scroll_probe()
   await page.screenshot(path=str(ROOT/'docs/advanced-connection-iphone.png'))
   await page.locator('.advanced-path-curiosity summary').click()
   assert await page.locator('.advanced-path-curiosity-body').is_visible()
-  await page.locator('.advanced-media > summary').click()
-  assert await page.locator('.advanced-media .lesson-player-slot').count()>=1
+  # Some lessons have public teaching media; others have the optional advanced
+  # reading only. Never display an empty media accordion.
+  if await page.locator('.advanced-media').count():
+   assert await page.locator('.advanced-media').evaluate('(node)=>node.open')==False
+   await page.locator('.advanced-media > summary').click()
+   assert await page.locator('.advanced-media .lesson-player-slot').count()>=1
+  else:
+   assert await page.locator('.advanced-path').count()==1
   await next_page()
   assert 'Try' in await page.locator('.lesson-stage-track .here').inner_text()
   # The partial example, six extra numerical problems and two original problems
