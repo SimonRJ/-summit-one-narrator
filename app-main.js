@@ -403,7 +403,7 @@ function renderSession(s){
  if(activeStage===2)renderChallenge(target,s,currentProblems[0],"try");
  if(activeStage===3)renderChallenge(target,s,currentProblems[1],"transfer");
  if(activeStage===4)renderCheck(target,s);
- const pages=learningScreens(target,activeStage,{draft:sessionDraft,skill:sid,problem:activeStage===2?currentProblems[0]:activeStage===3?currentProblems[1]:null,flashDone:()=>flashReviewed(sessionDraft,sid)});
+ const pages=learningScreens(target,activeStage,{draft:sessionDraft,skill:sid,problem:activeStage===2?currentProblems[0]:activeStage===3?currentProblems[1]:null,slot:s.slot,flashDone:()=>flashReviewed(sessionDraft,sid)});
  const footer=app.querySelector(".lesson-screen-footer");
  const persistLocation=index=>{
   activeLessonPanel=index;sessionDraft.summary.lesson_stage=activeStage;sessionDraft.summary.lesson_panel=index;
