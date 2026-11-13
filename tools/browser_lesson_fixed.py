@@ -67,6 +67,16 @@ async def main():
   assert await page.locator('.learning-note,.side-stack,.learning-to-exams,.quick-links').count()==0
   assert await page.evaluate("document.documentElement.scrollHeight<=innerHeight+4 && document.documentElement.scrollWidth<=innerWidth+4"), 'Learning home must fit on iPhone without scrolling'
   assert await page.locator('.topnav,.nav-more').count()==0, 'No horizontal tabs or extra menu row'
+  # Editorial typeface and the loading-screen summit emblem remain consistent.
+  branding=await page.evaluate("""() => ({
+    ui:getComputedStyle(document.body).fontFamily,
+    heading:getComputedStyle(document.querySelector('.focus-session-card h1')).fontFamily,
+    mark:document.querySelector('.topbar .brand-mark img')?.getAttribute('src'),
+    markWidth:document.querySelector('.topbar .brand-mark img')?.getBoundingClientRect().width
+  })""")
+  assert 'Source Sans 3' in branding['ui'] and 'Source Serif 4' in branding['heading'],branding
+  assert branding['mark']=='summit-mark.svg' and branding['markWidth']>=28,branding
+
   await page.screenshot(path=str(ROOT/'docs/focus-learning-home-iphone.png'))
   await page.locator('#menuToggle').click()
   assert await page.locator('#courseMenu').evaluate('(node)=>node.open')
@@ -101,6 +111,19 @@ async def main():
   await page.locator('#menuToggle').click()
   await page.locator('#courseMenuContent [data-menu-action="continue"]').click()
   await page.locator('.opening-film').wait_for()
+  # Confirm ordinary arithmetic becomes semantic TeX without changing saved data.
+  await page.locator('#stage').evaluate("""stage => {
+    const p=document.createElement('p');
+    p.id='summit-math-probe';p.className='math-copy';
+    p.textContent='3/4 + 1/2 = 5/4 and a² + b² = c²';
+    stage.append(p);
+  }""")
+  await page.wait_for_function("document.querySelectorAll('#summit-math-probe .math-inline[data-tex]').length >= 2")
+  maths=await page.locator('#summit-math-probe .math-inline').evaluate_all(
+   "(nodes)=>nodes.map(n=>({source:n.dataset.mathSource,tex:n.dataset.tex,rendered:!!n.querySelector('.katex')||n.classList.contains('math-fallback')}))")
+   assert all(m['rendered'] for m in maths) and any('frac' in m['tex'] for m in maths),maths
+  await page.locator('#summit-math-probe').evaluate('(node)=>node.remove()')
+
   assert await page.locator('#openingVideo').count()==1
   assert 'S001-Intro.mp4' in await page.locator('#openingVideo').get_attribute('src')
   assert 'Video' in await page.locator('.lesson-stage-track .here').inner_text()
