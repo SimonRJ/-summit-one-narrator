@@ -123,6 +123,35 @@ async def main():
    "(nodes)=>nodes.map(n=>({source:n.dataset.mathSource,tex:n.dataset.tex,rendered:!!n.querySelector('.katex')||n.classList.contains('math-fallback')}))")
   assert all(m['rendered'] for m in maths) and any('frac' in m['tex'] for m in maths),maths
   await page.locator('#summit-math-probe').evaluate('(node)=>node.remove()')
+  # Regression for the reported iPhone issue: inline equations must sit on
+  # the same baseline as the sentence, not float above it as scrollable inline-blocks.
+  await page.locator('#stage').evaluate("""stage => {
+    const p=document.createElement('p');
+    p.id='math-baseline-probe';p.className='math-copy';
+    p.textContent='Replace each 99 by 100 − 1.';
+    stage.append(p);
+  }""")
+  await page.locator('#math-baseline-probe .math-inline').wait_for()
+  await page.wait_for_timeout(120)
+  alignment=await page.locator('#math-baseline-probe').evaluate("""p => {
+    const math=p.querySelector('.math-inline'),style=getComputedStyle(math);
+    const before=p.firstChild,after=p.lastChild,first=document.createRange(),last=document.createRange();
+    first.selectNodeContents(before);last.selectNodeContents(after);
+    const left=first.getBoundingClientRect(),right=last.getBoundingClientRect();
+    const formula=math.getBoundingClientRect();
+    return {
+      display:style.display,overflowX:style.overflowX,verticalAlign:style.verticalAlign,
+      fontSize:style.fontSize,mathTop:formula.top,leftTop:left.top,rightTop:right.top,
+      punctuation:after.textContent,wrapped:Math.abs(left.top-right.top)>5,
+      mathSource:math.dataset.mathSource
+    };
+  }""")
+  assert alignment['display']=='inline' and alignment['overflowX']=='visible',alignment
+  assert alignment['verticalAlign']=='baseline',alignment
+  assert not alignment['wrapped'] and abs(alignment['mathTop']-alignment['leftTop'])<14,alignment
+  assert alignment['mathSource']=='100 − 1' and alignment['punctuation']=='.',alignment
+  await page.screenshot(path=str(ROOT/'docs/math-inline-baseline-iphone.png'))
+  await page.locator('#math-baseline-probe').evaluate('(node)=>node.remove()')
 
   assert await page.locator('#openingVideo').count()==1
   assert 'S001-Intro.mp4' in await page.locator('#openingVideo').get_attribute('src')
