@@ -17,7 +17,8 @@ const MATH_AREAS = [
 ].join(",");
 const SKIP_SELECTOR = [
   "script","style","noscript","textarea","input","select","option",
-  "svg","math","code","pre","samp","kbd","button","label","a",
+  "svg","math","code","pre","samp","kbd",
+  "button:not(.flash-option):not(.choice)","label","a",
   ".eyebrow",".stage-number",".session-kicker",".problem-meta",
   ".type-chip",".np-label",".flash-progress",".flash-top",
   ".lesson-screen-progress",".course-menu",".award-badge",
