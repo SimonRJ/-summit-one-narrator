@@ -2,7 +2,7 @@
  * The original assessment controls, video players, inputs, listeners, evidence and
  * protected problem responses remain mounted in the DOM. We only toggle visibility.
  */
-export function learningScreens(host,stage,{draft,skill,problem,flashDone}={}){
+export function learningScreens(host,stage,{draft,skill,problem,flashDone,slot}={}){
  const roots=[...host.children];
  const set=(node,visible)=>{if(node)node.style.display=visible?"":"none"};
  const showTop=(nodes)=>{const allow=new Set(nodes.filter(Boolean));for(const n of roots)set(n,allow.has(n))};
@@ -81,9 +81,9 @@ export function learningScreens(host,stage,{draft,skill,problem,flashDone}={}){
     },()=>{if(!draft?.evidence?.["mixed:"+i]){alert("Check your answer before continuing.");return false}return true}));
   }
   const drills=[...extra?.querySelectorAll("[data-extra-question]")||[]];
-  const mode=stage===2?"try":"transfer",slot=Number(draft?.summary?.slot)||null;
+  const mode=stage===2?"try":"transfer";
   for(let i=0;i<drills.length;i++){
-   const key="drill:"+mode+":"+(draft?.summary?.session_slot??problem?.learning?.session??slot)+":"+i;
+   const key="drill:"+mode+":"+slot+":"+i;
    pages.push(page((mode==="try"?"Practice problem ":"Transfer problem ")+(i+1),()=>{
     showTop([extra]);for(const child of [...extra.children])set(child,child===drills[i]);
    },()=>{if(!draft?.evidence?.[key]){alert("Check this problem's answer before continuing.");return false}return true}));
