@@ -67,6 +67,61 @@ for n in range(3,12):
     eq('SPATIAL-02',n,'transfer',(math.comb(x+1,2)-math.comb(x,2))*math.comb(4,2))
     tokens=['b']*x+['g']*3;eq('DATA-01',n,'try',F(sum(a=='g' and b=='g' for i,a in enumerate(tokens) for j,b in enumerate(tokens) if i!=j),len(tokens)*(len(tokens)-1)))
     eq('DATA-02',n,'transfer',F(sum([14]*x)-19+9,x))
+
+# Independent checks for previously untested original problem families.
+# Run all nine parameter visits (including later revisits beyond today's 283 sessions).
+for n in range(3,12):
+    x=n+4
+    digits=sorted([0]+[((n+d)%9)+1 for d in (0,2,5,7)])
+    eq('DIG-02',n,'try',len({100*a+10*b+c for a,b,c in permutations(digits,3) if a and c%2==0}))
+    digits=sorted(set([0,1,2,5,7,n%9]))
+    eq('DIG-02',n,'transfer',sum(a!=0 and a<c and 100*a+10*b+c>500 for a,b,c in permutations(digits,3)))
+    lo=100*n+20;hi=lo+39
+    eq('DIG-03',n,'try',sum(str(v).count('2') for v in range(lo,hi+1)))
+    lo=100*x+87
+    eq('DIG-03',n,'transfer',sum(len(str(v)) for v in range(lo,lo+27)))
+    total=2*(n+3)
+    eq('DIG-04',n,'try',sum((2*(a+b)==total) for a in range(1,10) for b in range(10)))
+    threshold=1000+137*n
+    eq('DIG-04',n,'transfer',next(v for v in range(threshold+1,10000) if str(v)==str(v)[::-1]))
+    a=n%5+4;b=n%4+2
+    eq('DIG-05',n,'try',a)
+    eq('DIG-05',n,'transfer',n%7+2)
+    eq('DIV-04',n,'try','no')
+    eq('DIV-04',n,'transfer','no')
+    eq('RATE-01',n,'try',F(6*x,18))
+    eq('RATE-01',n,'transfer',2*8)
+    total=2*n+9
+    eq('COUNT-01',n,'try',sum(1 for a in range(1,total) for b in range(a+1,total) if a+b==total and a%2==1))
+    total=n+12
+    eq('COUNT-01',n,'transfer',sum(1 for a in range(1,total) for b in range(a,total) for c in range(b,total) if a+b+c==total and c-a<=3))
+    eq('COUNT-05',n,'try',3*x)
+    eq('COUNT-05',n,'transfer',x)
+    eq('LOGIC-02',n,'try',(3*x+3)//3)
+    v=family('LOGIC-02',n,'transfer')['answer']
+    possible=[i for i in range(v-8,v+12) if i%4==1 and i%7==n%7]
+    assert possible==[v],(n,v,possible)
+    eq('LOGIC-03',n,'try',(x+5)+(2*x+3)+(x+8)-(x+4)-(x+9))
+    eq('LOGIC-03',n,'transfer',10*x-7*x+6)
+    eq('GEO-01',n,'try',2*((x)+(x+2)+4))
+    eq('GEO-01',n,'transfer',2*((x+6)+(x+2))+6)
+    eq('GEO-02',n,'try',(2*x)*9//2)
+    eq('GEO-02',n,'transfer',6*x//2)
+    a=30+n
+    eq('GEO-03',n,'try',(180-2*a)//2)
+    eq('GEO-03',n,'transfer',(110+n)-(35+n))
+    eq('SOLID-01',n,'try',x*5+(x-1)*4+(x-2)*3)
+    eq('SOLID-01',n,'transfer',x*6*4-x*1*2)
+    eq('SOLID-03',n,'try',4*x+2*3*x+2*4*3)
+    eq('SOLID-03',n,'transfer',6*x*x+2*x*x)
+    eq('SPATIAL-03',n,'try','no')
+    eq('SPATIAL-03',n,'transfer','no')
+    eq('SPATIAL-04',n,'try','yes')
+    eq('SPATIAL-04',n,'transfer','yes')
+    eq('DATA-03',n,'try',(x+2)*6-(x*6+3))
+    eq('DATA-03',n,'transfer',(5*x+8)+(5*x+13))
+print('PASS: independently verified all 52 technique families across nine supported parameter visits.')
+
 assert capstone(361)['answer']==sum((10*a+b)%3==0 for a,b in permutations(range(6),2) if a)
 assert capstone(366)['answer']==paths(4,3,[(1,1),(3,2)])
 assert capstone(370)['answer']==max(a*(17-a) for a in range(1,17))
