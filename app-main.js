@@ -136,11 +136,29 @@ async function boot(){
     // Recover a completed session if the separate progress write lost its connection.
     let contiguous=0;while(completedRecords.some(r=>r.session_number===contiguous+1))contiguous++;
     if(contiguous>(progress.completed_sessions||0))progress=await saveProgress({completed_sessions:contiguous,current_session:Math.min(372,contiguous+1),xp:contiguous*100,rank:earnedRankBySessions(contiguous),overall_percent:contiguous/372*100});
-    wireNav(); const requestedView=new URLSearchParams(location.search).get("view");if(location.hash==="#repairs"||requestedView==="repairs")await openRepairs();else if(requestedView==="roadmap")await renderRoadmap();else if(requestedView==="review")await renderReview();else if(requestedView==="profile")await renderProfile();else renderHome();
+    wireNav(); const requestedView=new URLSearchParams(location.search).get("view");if(location.hash==="#repairs"||requestedView==="repairs")await openRepairs();else if(requestedView==="roadmap")await renderRoadmap();else if(requestedView==="review")await renderReview();else if(requestedView==="profile")await renderProfile();else if(requestedView==="technique")renderTechniqueRefresher();else renderHome();
   }catch(e){app.innerHTML='<section class="panel hero-panel"><h1>Unable to load Summit One</h1><p class="muted">'+esc(e.message)+'</p></section>'}
 }
 function wireNav(){
   document.querySelectorAll("[data-view]").forEach(b=>b.onclick=async()=>{if(editingSession){try{await saveDraft(editingSession);editingSession=null}catch(e){alert("Please retry saving before leaving: "+e.message);return}}document.querySelectorAll(".nav-btn").forEach(x=>x.classList.remove("active"));b.classList.add("active");activeView=b.dataset.view;if(activeView==="repairs")openRepairs().catch(e=>alert(e.message));if(activeView==="home")renderHome();if(activeView==="review")renderReview();if(activeView==="profile")renderProfile();if(activeView==="roadmap")renderRoadmap().catch(e=>alert(e.message))})
+}
+function renderTechniqueRefresher(){
+ activeView="technique";
+ const p=new URLSearchParams(location.search);
+ const slot=Number(p.get("slot"));
+ const session=course.find(x=>x.slot===slot&&x.type==="LESSON");
+ const skill=String(p.get("skill")||"").replace(/^LOG-(\d{2})$/,"LOGIC-$1");
+ const valid=Object.values(taxonomy?.categories||[]).some(c=>(c.subskills||[]).some(x=>x.id===skill));
+ if(!session||!valid){app.innerHTML='<section class="panel hero-panel"><h1>Learning review unavailable</h1><p>This session reference could not be matched.</p><a class="secondary" href="./">Return to Learning</a></section>';return;}
+ const m=methods[skill]||{};
+ const videos=teachingFor(session).slice(0,2);
+ const previouslyCompleted=completedRecords.some(r=>r.session_number===slot);
+ app.innerHTML=`<section class="panel hero-panel technique-review"><div class="eyebrow">POST-EXAM LEARNING REVIEW · SESSION ${slot}</div><h1>${esc(session.focus)}</h1><p>Revisit the mathematical idea behind this problem, without using the original exam answer as a template.</p><p class="muted">${previouslyCompleted?"This session has previously been completed; your original records remain locked.":"This session lies in the learning pathway. Viewing this explanation does not skip ahead or mark it completed."}</p><div class="complete-row"><a class="ghost" href="tests.html">Back to Exams</a><a class="secondary" href="index.html?view=review">My completed-session notebook</a><a class="secondary" href="./">Continue the learning pathway</a></div></section>
+ <section class="panel learning-refresher"><div class="eyebrow">WHAT, WHY AND WHERE</div>${introductionHTML(session,course,taxonomy)}</section>
+ <section class="panel learning-refresher"><div class="eyebrow">THE RELEVANT TECHNIQUE</div>${lessonCard(skill,lessonPlan(session,course,taxonomy))}<h3>Key reasoning</h3><p class="math-copy">${esc(m.idea||"Represent the situation, identify the key constraint, and explain why your method covers every case.")}</p><h3>What to watch for</h3><p class="math-copy">${esc(m.trap||"Check the original conditions and validate your answer another way.")}</p></section>
+ <section class="panel learning-refresher"><h2>Related teaching and worked examples</h2><div class="technique-review-videos">${videos.map((t,i)=>`<article class="teaching-item"><h3>${esc(t.title)}</h3><div id="techniqueVideo${i}" class="lesson-player-slot"></div><details><summary>Read the full explanation</summary><p class="math-copy">${esc(t.transcript)}</p></details></article>`).join("")||'<p class="muted">The written technique above is available for this session.</p>'}</div></section>
+ <section class="panel learning-refresher"><h2>Transfer to a fresh problem</h2><p>In your notebook, write the clue that suggests this method, the mathematical argument, and a check that would catch a mistake. Then work on an unfamiliar problem in the next scheduled session.</p><a class="primary" href="./">Return to current session</a></section>`;
+ videos.forEach((t,i)=>mountNarratedPlayer(document.getElementById("techniqueVideo"+i),{title:t.title,transcript:t.transcript,audioUrl:t.audio_url,videoUrl:finalVideoUrl(t.id),cacheKey:t.id}));
 }
 function renderHome(){
   const s=courseSession(),done=progress.completed_sessions||0,amc=nextSlot("AMC MOCK"),mawa=nextSlot("MAWA");
