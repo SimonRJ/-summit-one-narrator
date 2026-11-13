@@ -192,7 +192,25 @@ async def main():
   await page.locator('#guidedCheck .mini-check').wait_for()
   await page.locator('#guidedCheck .short-answer').fill('123')
   await page.locator('#guidedCheck button.primary').click()
-  await next_page();await next_page()
+  await next_page()
+  # The optional advanced panel must teach something immediately — no empty
+  # accordion, new answer fields, progress write, or new advancement guard.
+  await page.locator('.advanced-path-header h3').wait_for()
+  assert 'remainder' in (await page.locator('.advanced-path-header h3').inner_text()).lower()
+  assert await page.locator('.advanced-solution-steps li').count()==3
+  assert await page.locator('.advanced-path input,.advanced-path textarea,.advanced-path form').count()==0
+  assert 'not assessed' in (await page.locator('.advanced-path-disclaimer').inner_text()).lower()
+  assert 'Where this maths can lead' in await page.locator('.lesson-screen-progress').inner_text()
+  assert await page.locator('.advanced-media').count()==1
+  assert await page.locator('.advanced-media').evaluate('(node)=>node.open')==False
+  await fits()
+  await scroll_probe()
+  await page.screenshot(path=str(ROOT/'docs/advanced-connection-iphone.png'))
+  await page.locator('.advanced-path-curiosity summary').click()
+  assert await page.locator('.advanced-path-curiosity-body').is_visible()
+  await page.locator('.advanced-media summary').click()
+  assert await page.locator('.advanced-media .lesson-player-slot').count()>=1
+  await next_page()
   assert 'Try' in await page.locator('.lesson-stage-track .here').inner_text()
   # The partial example, six extra numerical problems and two original problems
   # require only final answers; no clue/plan/working/reflection text fields exist.
