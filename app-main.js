@@ -595,7 +595,7 @@ function mixedSkills(s,count){
  const taught=[...new Set([...recorded,...priorLessons].filter(id=>methods[id]))];
  const candidates=taught.filter(id=>id!==skillFor(s,taxonomy));
  const ids=candidates.length?candidates:taught;
- return Array.from({length:Math.min(count,ids.length)},(_,i)=>ids[(s.slot*3+i*Math.max(1,Math.floor(ids.length/count)))%ids.length]).filter((x,i,a)=>a.indexOf(x)===i);
+ return Array.from({length:count},(_,i)=>ids[(s.slot*3+i*Math.max(1,Math.floor(ids.length/count)))%ids.length]); // Repeat a taught skill with new numbers if fewer distinct skills are available.
 }
 function mountMixed(el,s,count){
  const ids=sessionDraft.summary.mixed_skills||(sessionDraft.summary.mixed_skills=mixedSkills(s,count));
