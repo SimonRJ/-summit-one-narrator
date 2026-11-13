@@ -1,0 +1,139 @@
+/* Summit One design system · educational typography, shared identity, and mathematical notation.
+   UI: IBM Plex Sans. Mathematical fallback: STIX Two Math. Equations: TeX typesetting via KaTeX. */
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=STIX+Two+Math&display=swap");
+
+:root{
+  --summit-ui:"IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --summit-number:"IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+  --summit-math:"STIX Two Math","Cambria Math","Latin Modern Math",serif;
+  --radius:16px;
+  font-family:var(--summit-ui);
+  font-synthesis:none;
+}
+html{font-size:16px;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{font-family:var(--summit-ui);font-size:1rem;line-height:1.57;letter-spacing:0}
+body button, body input, body select, body textarea, body optgroup{
+  font-family:var(--summit-ui);letter-spacing:normal;
+}
+h1,h2,h3,h4,h5,h6, .brand, .sb-wordmark, .sm-wordmark{
+  font-family:var(--summit-ui);
+}
+h1,h2,h3,h4,h5,h6{
+  font-weight:600;
+  letter-spacing:-.025em;
+  line-height:1.22;
+  text-wrap:pretty;
+}
+p,li,.problem-prompt,.method-card,.solution-panel,.stem{
+  font-weight:400;
+  font-synthesis:none;
+}
+strong,b{font-weight:600}
+.eyebrow,.stage-number,.problem-meta,.problem-meta-label,
+.exam-hub-number,.np-label,.type-chip{
+  font-family:var(--summit-ui);
+  font-weight:600;
+  letter-spacing:.085em;
+}
+.eyebrow,.stage-number,.problem-meta{font-size:.71rem}
+.primary,.secondary,.ghost,.danger,.button,.menu-trigger,
+.course-menu-continue,.course-menu-back{
+  font-weight:600;
+  letter-spacing:0;
+}
+.panel{border-radius:var(--radius)}
+.problem-card,.worked-example,.method-card,.mini-check{border-radius:12px}
+.math-copy,.problem-prompt,.stem,.lesson-recall-brief p,
+.lesson-screen-stage .worked-example p{line-height:1.65}
+.math-copy{font-size:1rem}
+
+/* This exact faceted summit is drawn on the animated opening screen. */
+.brand .brand-mark{
+  display:grid;place-items:center;
+  width:40px;height:40px;min-width:40px;
+  padding:0;border:0;border-radius:0;background:none;
+  box-shadow:none;filter:none;
+}
+.brand .brand-mark img,.brand .brand-mark svg{
+  display:block;width:100%;height:100%;object-fit:contain;
+  filter:drop-shadow(0 1px 5px rgba(118,211,246,.14));
+}
+.brand b,.brand .summit-wordmark{
+  font-family:var(--summit-ui);font-size:.95rem;font-weight:600;
+  letter-spacing:.065em;white-space:nowrap;
+}
+.brand .summit-wordmark-one{color:#a7ddf4}
+.brand small{
+  font-family:var(--summit-ui);
+  font-size:.61rem;letter-spacing:.08em;font-weight:500;
+}
+.summit-inline-mark{
+  display:inline-block;width:25px;height:24px;object-fit:contain;
+  vertical-align:middle;margin-right:7px;
+}
+.course-menu-identity{
+  display:flex;align-items:center;gap:11px;min-width:0;
+}
+.course-menu-identity img{width:39px;height:39px;object-fit:contain;flex:0 0 auto}
+.course-menu-head h2{font-weight:600}
+.summit-auth-identity{
+  display:flex;align-items:center;gap:13px;margin:0 0 20px;
+}
+.summit-auth-identity img{width:60px;height:60px;object-fit:contain}
+.summit-auth-identity .summit-wordmark{
+  font-size:1.12rem;font-weight:600;letter-spacing:.065em;
+}
+.summit-auth-identity small{
+  display:block;font-size:.72rem;color:#aabed0;
+  font-weight:500;letter-spacing:.06em;
+}
+.summit-auth-identity .summit-wordmark-one{color:#a7ddf4}
+.timer,.time-box,.np-time,.lesson-screen-progress span,
+.nav-progress-value,.score-big,.stat-value{
+  font-family:var(--summit-number);
+  font-variant-numeric:tabular-nums;
+  font-feature-settings:"tnum" 1;
+}
+.score-big,.timer{font-weight:600}
+.exam-mode .brand .brand-mark,.rossmoyne-theme .brand .brand-mark{
+  border:0;background:transparent;color:inherit;
+}
+
+/* KaTeX's Latin Modern-derived glyphs provide true TeX mathematics:
+   exponents, fractions, operators, relations, spacing and accessible MathML. */
+.math-inline{
+  display:inline-block;
+  max-width:100%;
+  vertical-align:-.075em;
+  overflow-x:auto;
+  overflow-y:hidden;
+  font-family:var(--summit-math);
+  font-weight:400;
+  white-space:nowrap;
+  scrollbar-width:thin;
+  scrollbar-color:#4e6e80 transparent;
+}
+.math-inline .katex{font-size:1.06em;line-height:1.2}
+.math-inline .katex-html{white-space:nowrap}
+.math-inline.math-fallback{
+  font-family:var(--summit-math);
+  font-size:1.08em;
+}
+.math-display{
+  display:block;width:100%;margin:.7rem 0;
+  max-width:100%;overflow-x:auto;
+  text-align:center;
+}
+.math-display .katex-display{margin:.3rem 0}
+.math-copy .math-inline,
+.problem-prompt .math-inline,
+.stem .math-inline{color:inherit}
+.katex .base{min-width:0}
+@media(max-width:680px){
+  .brand .brand-mark{width:31px;height:31px;min-width:31px}
+  .brand b,.brand .summit-wordmark{font-size:.84rem;letter-spacing:.045em}
+  .brand small{font-size:.57rem}
+  .math-inline .katex{font-size:1em}
+  .summit-auth-identity img{width:52px;height:52px}
+}
+@media(prefers-reduced-motion:reduce){.math-inline{scroll-behavior:auto}}
