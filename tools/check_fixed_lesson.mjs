@@ -92,7 +92,7 @@ assert(!focusedHome.includes('side-stack') && !focusedHome.includes('learning-no
 assert(app.includes('profile-upcoming') && app.includes('sessions remaining'));
 assert(css.includes('body.home-focus{min-height:100dvh;height:100dvh;overflow:hidden'));
 assert(css.includes('.course-menu-session.is-completed') && css.includes('.focus-session-card'));
-assert(sw.includes('summit-one-identity-math-20261113'));
+assert(sw.includes('summit-one-identity-math-r2-20261113'));
 assert(!app.includes('node.scrollIntoView({behavior:\'smooth\',block:\'start\'});'));
 
 const loader=read('../boot-loader.js'),loaderCss=read('../boot-loader.css');
@@ -117,7 +117,7 @@ assert(!app.includes('id="workshopReflection"') && !app.includes('id="takeaway"'
 
 const design=read('../design-system.css'),maths=read('../math-typography.js'),brand=read('../summit-mark.svg');
 assert(html.includes('summit-mark.svg') && html.includes('design-system.css?v=identity-math-20261113'));
-assert(html.includes('math-typography.js?v=identity-math-20261113'));
+assert(html.includes('math-typography.js?v=identity-math-r2-20261113'));
 assert(html.includes('katex@0.16.47/dist/katex.min.css') && html.includes('katex@0.16.47/dist/katex.min.js'));
 assert(design.includes('IBM Plex Sans') && design.includes('STIX Two Math'));
 assert(brand.includes('M142 19 25 232 142 157Z'));
