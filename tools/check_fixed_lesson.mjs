@@ -134,6 +134,18 @@ for(const sk of allSkills){
  assert(html.includes('advanced-solution-steps') && html.includes('not assessed'));
  assert(!/<input|<textarea|<form|data-lesson-score|data-advanced-submit/i.test(html));
 }
+
+const {originalFigure}=await import('../original-learning.js');
+for(const role of ['try','transfer']){
+ for(let visit=2;visit<=8;visit++){
+   const fig=originalFigure({learning:{skill:'SOLID-01',role,visit,session:72}});
+   assert(fig.includes('<svg') && fig.includes('viewBox="0 0 360 275"'),{role,visit});
+   assert(fig.includes('Schematic only') && fig.includes('not to scale'),{role,visit});
+   assert(fig.includes('aria-label="Given unit-cube dimensions'),{role,visit});
+   assert(!fig.includes('Final answer:') && !fig.includes('Worked solution'),{role,visit});
+ }
+}
+
 assert(advancedConnectionHTML('DIG-01').includes('Difference of squares'));
 assert(advancedConnectionHTML('SPATIAL-03').includes('recursive tiling'));
 assert(advancedConnectionHTML('DIG-01',{visit:2}).includes('revisiting this technique'));
