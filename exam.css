@@ -12,7 +12,7 @@
 .exam-actions{display:flex;justify-content:space-between;gap:10px;margin-top:28px;flex-wrap:wrap}.finish-btn{margin-left:auto}
 .result-hero{text-align:center;padding:34px}.score-big{font-size:clamp(3.5rem,12vw,7rem);line-height:.9;font-weight:950}.award-badge{display:inline-block;margin:16px 0;padding:10px 16px;border-radius:999px;background:#17352c;color:#c9f7dd;border:1px solid #2f7459;font-weight:900}.estimate-note{font-size:.8rem;color:var(--muted);max-width:700px;margin:0 auto}
 .result-table{width:100%;border-collapse:collapse;margin-top:18px}.result-table th,.result-table td{padding:10px;border-bottom:1px solid #223b53;text-align:left}.result-table th{font-size:.72rem;color:var(--muted);text-transform:uppercase}.ok{color:var(--green);font-weight:900}.bad{color:var(--red);font-weight:900}
-.result-card{padding:22px;overflow:auto}.question-review{margin:12px 0;padding:16px;background:#091725;border:1px solid var(--line);border-radius:14px}.question-review summary{cursor:pointer;font-weight:800}.question-review p{margin:12px 0 0;line-height:1.6}
+.result-card{padding:22px;overflow:auto}.question-review{margin:12px 0;padding:16px;background:#091725;border:1px solid var(--line);border-radius:14px}.question-review summary{cursor:pointer;font-weight:800}.question-review p{margin:12px 0 0;line-height:1.65;white-space:pre-line;overflow-wrap:break-word}
 .notice-box{padding:16px;border:1px solid rgba(244,201,107,.35);background:rgba(244,201,107,.07);border-radius:14px;color:#f8e6ba}
 @media(max-width:760px){.exam-shell{grid-template-columns:1fr}.exam-sidebar{position:static;max-height:none}.qnav{grid-template-columns:repeat(10,1fr)}}
 @media(max-width:480px){.qnav{grid-template-columns:repeat(6,1fr)}.result-table{font-size:.85rem}}
