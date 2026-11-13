@@ -62,9 +62,9 @@ export function learningScreens(host,stage,{draft,skill,problem,flashDone}={}){
   const rGrid=reason?.querySelector(".check-grid"),rLabels=rGrid?[...rGrid.children]:[];
   const parts={
    intro:[...node.querySelectorAll(":scope > .problem-meta, :scope > .problem-title, :scope > .problem-prompt, :scope > .original-figure, :scope > .problem-figure, :scope > .challenge-bridge")],
-   thinking:[reason],
-   answer:[...node.querySelectorAll(":scope > .answer-label, :scope > .problem-actions, :scope > .attempt-feedback")],
-   review:[...node.querySelectorAll(":scope > .problem-actions, :scope > .attempt-feedback, :scope > .solution-panel")]
+   thinking:[...node.querySelectorAll(":scope > .problem-title, :scope > .problem-prompt"),reason],
+   answer:[...node.querySelectorAll(":scope > .problem-title, :scope > .problem-prompt, :scope > .answer-label, :scope > .problem-actions, :scope > .attempt-feedback")],
+   review:[...node.querySelectorAll(":scope > .problem-title, :scope > .problem-prompt, :scope > .problem-actions, :scope > .attempt-feedback, :scope > .solution-panel")]
   };
   const showProblem=(kind,label=0)=>{
    showTop([node]);
