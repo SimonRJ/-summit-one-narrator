@@ -40,6 +40,20 @@ for(let stage=-1;stage<=4;stage++){
  assert(screens.includes('stage==='+stage)||stage===-1&&screens.includes('stage===-1'), 'Missing stage '+stage);
 }
 for(const s of ['renderChallenge','renderCheck','submit-problem-attempt','get-problem-solution','upsertSession','rememberDraft'])assert(app.includes(s),'Missing protected learning feature '+s);
+
+// Protected solutions unlock for a submitted guided OR independent attempt.
+// Error responses must be translated and the solution button remain retryable.
+const protectedSolutionFn=read('../supabase/functions/get-problem-solution/index.ts');
+assert(protectedSolutionFn.includes('.in("evidence_level",["independent","guided"])'));
+assert(protectedSolutionFn.includes('.not("answer_text","is",null)'));
+assert(!protectedSolutionFn.includes('.eq("evidence_level","independent")'));
+assert(protectedSolutionFn.includes('scoped.auth.getUser') && protectedSolutionFn.includes('Make and record')===false);
+assert(app.includes('async function learningFunctionError'));
+assert(app.includes('await learningFunctionError(e,"solution")'));
+assert(app.includes('await learningFunctionError(e,"attempt")'));
+assert(app.includes('reveal.disabled=false; // Allow another attempt'));
+assert(!app.includes('solution.textContent=e.message'));
+
 assert(pager.includes('pages[index].show(true)'));
 assert(pager.includes('onChange?.(index,p)'));
 assert(pager.includes('scrollContainer.scrollTop=0'));
