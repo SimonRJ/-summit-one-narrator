@@ -14,11 +14,14 @@ import {lessonCard,mountCheck,mountRetrieval,readinessHTML} from "./learning-ui.
 import { problemFigure } from "./problem-figures.js";
 import {mountLessonPager} from "./lesson-pager.js?v=cinema-20261113";
 import {learningScreens} from "./lesson-screenflow.js?v=cinema-20261113";
+import {buildCourseNavigation} from "./course-menu.js?v=menu-20261113";
+import {mountCourseMenu} from "./course-menu-ui.js?v=menu-20261113";
 
 const app=document.getElementById("app");
 const problemTemplate=document.getElementById("problemTemplate");
 let course=[], teaching=[], mawa=[], rossMap=[], taxonomy=null, milestones=null, problemIndex=[], progress=null, user=null, activeView="home", activeStage=-1, activeLessonPanel=0, lessonPager=null;
 let lessonManifest=[];
+let courseNavigation=null,mainMenu=null;
 let currentProblems=[], currentMawa=null, sessionDraft={answers:{},working:{},evidence:{},summary:{}};
 let attemptedProblemIds=new Set();
 let completedRecords=[],attemptHistory=[],recentExams=[];
@@ -127,7 +130,7 @@ async function boot(){
     user=await currentUser();
     if(!user){location.href="login.html";return}
     const [c,t,m,h,tax,ms,lm]=await Promise.all([fetch("data/sessions-372.json").then(r=>r.json()),fetch("data/teaching-72.json").then(r=>r.json()),fetch("data/mawa-investigations-20.json").then(r=>r.json()),fetch("data/rossmoyne-h23.json").then(r=>r.json()),fetch("data/taxonomy-52.json").then(r=>r.json()),fetch("data/milestones.json").then(r=>r.json()),fetch("data/lesson-challenges.json?v=recognition-20261113").then(r=>r.json())]);
-    course=c.sessions; teaching=t.items; mawa=m.items; rossMap=h.items; taxonomy=tax; milestones=ms;lessonManifest=lm.items;
+    course=c.sessions; teaching=t.items; mawa=m.items; rossMap=h.items; taxonomy=tax; milestones=ms;lessonManifest=lm.items;courseNavigation=buildCourseNavigation(course,taxonomy);
     const {data:problems,error}=await supabase.from("content_problems_student").select("id,source_type,title,source_label,category,difficulty,prompt,unit").eq("source_type","original_authored").order("id");
     if(error)throw error; problemIndex=problems||[];
     attemptHistory=await allRows(()=>supabase.from('problem_attempts').select('problem_id,independent_credit,is_correct,created_at').eq('user_id',user.id).not('answer_text','is',null).order('created_at').order('id'));
@@ -141,34 +144,44 @@ async function boot(){
     wireNav();updateNavProgress(); const requestedView=new URLSearchParams(location.search).get("view");if(location.hash==="#repairs"||requestedView==="repairs")await openRepairs();else if(requestedView==="roadmap")await renderRoadmap();else if(requestedView==="review")await renderReview();else if(requestedView==="profile")await renderProfile();else if(requestedView==="technique")renderTechniqueRefresher();else renderHome();
   }catch(e){app.innerHTML='<section class="panel hero-panel"><h1>Unable to load Summit One</h1><p class="muted">'+esc(e.message)+'</p></section>'}
 }
-function updateNavProgress(){
- const completed=Math.max(0,Math.min(372,Number(progress?.completed_sessions)||0));
- const badge=document.getElementById("navProgress");
- if(!badge)return;
- badge.textContent=completed+" / 372";
- const button=badge.closest("button");
- if(button)button.setAttribute("aria-label",`Progress: ${completed} of 372 sessions complete, ${372-completed} remaining. View profile.`);
+
+function updateNavProgress(){mainMenu?.refreshProgress()}
+async function navigateMenuView(view){
+ if(editingSession){
+  await saveDraft(editingSession);
+  editingSession=null;
+ }
+ document.body.classList.remove("lesson-fullscreen","home-focus");
+ activeView=view;
+ if(view==="home"){renderHome();return}
+ if(view==="profile"){await renderProfile();return}
+ if(view==="review"){await renderReview();return}
+ if(view==="repairs"){await openRepairs();return}
+ if(view==="roadmap"){await renderRoadmap();return}
+ throw new Error("Unknown menu destination");
+}
+async function continueFromMenu(){
+ const done=Number(progress?.completed_sessions)||0;
+ if(done>=372){await navigateMenuView("profile");return}
+ const session=courseSession();
+ if(editingSession?.slot===session.slot)return;
+ if(editingSession){await saveDraft(editingSession);editingSession=null}
+ await startSession(session);
+}
+async function openCompletedFromMenu(slot){
+ if(!Number.isInteger(slot)||slot>(Number(progress?.completed_sessions)||0))throw new Error("This session has not been completed");
+ await navigateMenuView("review");
+ const details=app.querySelector('[data-review-session="'+slot+'"]');
+ if(details){details.open=true;details.scrollIntoView({behavior:"auto",block:"start"})}
 }
 function wireNav(){
- document.querySelectorAll("[data-view]").forEach(button=>button.onclick=async()=>{
-  if(editingSession){
-   try{await saveDraft(editingSession);editingSession=null}
-   catch(error){alert("Please retry saving before leaving: "+error.message);return}
-  }
-  document.body.classList.remove("lesson-fullscreen","home-focus");
-  document.getElementById("navMore")?.removeAttribute("open");
-  document.querySelectorAll(".nav-btn").forEach(item=>item.classList.remove("active"));
-  button.classList.add("active");
-  activeView=button.dataset.view;
-  if(activeView==="repairs")openRepairs().catch(error=>alert(error.message));
-  if(activeView==="home")renderHome();
-  if(activeView==="review")renderReview().catch(error=>alert(error.message));
-  if(activeView==="profile")renderProfile().catch(error=>alert(error.message));
-  if(activeView==="roadmap")renderRoadmap().catch(error=>alert(error.message));
- });
- document.addEventListener("pointerdown",event=>{
-  const menu=document.getElementById("navMore");
-  if(menu?.open&&!menu.contains(event.target))menu.removeAttribute("open");
+ mainMenu=mountCourseMenu({
+  navigation:courseNavigation,
+  getDone:()=>Number(progress?.completed_sessions)||0,
+  getCurrent:()=>courseSession(),
+  onContinue:continueFromMenu,
+  onCompleted:openCompletedFromMenu,
+  onView:navigateMenuView
  });
 }
 function renderTechniqueRefresher(){
@@ -518,7 +531,7 @@ function renderWorkshop(s){
 async function renderReview(){
  document.body.classList.remove("lesson-fullscreen","home-focus");
  activeView="review";await refreshEvidence();
- app.innerHTML=`<section class="panel hero-panel"><div class="eyebrow">YOUR MATHEMATICAL NOTEBOOK</div><h1>Completed sessions</h1><p class="muted">The original answers and working are locked. Use a fresh session to show new learning.</p>${[...completedRecords].reverse().map(r=>`<details class="review-detail"><summary>Session ${r.session_number} · ${esc(r.summary?.focus||course[r.session_number-1]?.focus||'')} <span class="type-chip">LOCKED</span></summary><p><b>Key idea:</b> ${esc(r.summary?.takeaway||'—')}</p><p><b>Next time:</b> ${esc(r.summary?.watch||'—')}</p>${Object.entries(r.answers||{}).map(([id,a])=>`<article><h3>${esc(problemIndex.find(p=>p.id===id)?.title||id)}</h3><p class="math-copy">${esc(problemIndex.find(p=>p.id===id)?.prompt||'')}</p><p><b>Recorded answer:</b> ${esc(a?.response??a)}</p><p class="math-copy">${esc(r.working?.[id]||'')}</p><button class="ghost saved-solution" data-problem="${esc(id)}" data-session="${r.session_number}">Worked solution</button><div class="saved-solution-content"></div>${r.evidence?.['reasoning:'+id]?`<p><b>Recognition clue:</b> ${esc(r.evidence['reasoning:'+id].clue||'—')}</p><p><b>Plan:</b> ${esc(r.evidence['reasoning:'+id].plan||'—')}</p><p><b>Check or correction:</b> ${esc(r.evidence['reasoning:'+id].check||'—')}</p><p class="muted">${esc(applicationStatus(r.evidence?.['application:'+id]))} · explanation saved for review</p>`:''}</article>`).join('')}${Object.values(r.evidence||{}).filter(e=>e?.kind==='mixed_application').map(e=>`<article><h3>${esc(e.question_id)}</h3><p><b>Your method:</b> ${esc(e.method)}</p><p><b>Recorded answer:</b> ${esc(e.response)} · ${e.correct?'correct':'needs repair'}${e.used_help?' · supported':''}</p></article>`).join('')}${r.working?.mawa_base?`<div data-adult-review="${r.session_number}"></div><h3>Investigation</h3><p class="math-copy">${esc(r.working.mawa_base)}</p><h3>Extension</h3><p class="math-copy">${esc(r.working.mawa_extension||'')}</p>`:''}</details>`).join('')||'<p>No completed sessions yet.</p>'}</section>`;
+ app.innerHTML=`<section class="panel hero-panel"><div class="eyebrow">YOUR MATHEMATICAL NOTEBOOK</div><h1>Completed sessions</h1><p class="muted">The original answers and working are locked. Use a fresh session to show new learning.</p>${[...completedRecords].reverse().map(r=>`<details class="review-detail" data-review-session="${r.session_number}"><summary>Session ${r.session_number} · ${esc(r.summary?.focus||course[r.session_number-1]?.focus||'')} <span class="type-chip">LOCKED</span></summary><p><b>Key idea:</b> ${esc(r.summary?.takeaway||'—')}</p><p><b>Next time:</b> ${esc(r.summary?.watch||'—')}</p>${Object.entries(r.answers||{}).map(([id,a])=>`<article><h3>${esc(problemIndex.find(p=>p.id===id)?.title||id)}</h3><p class="math-copy">${esc(problemIndex.find(p=>p.id===id)?.prompt||'')}</p><p><b>Recorded answer:</b> ${esc(a?.response??a)}</p><p class="math-copy">${esc(r.working?.[id]||'')}</p><button class="ghost saved-solution" data-problem="${esc(id)}" data-session="${r.session_number}">Worked solution</button><div class="saved-solution-content"></div>${r.evidence?.['reasoning:'+id]?`<p><b>Recognition clue:</b> ${esc(r.evidence['reasoning:'+id].clue||'—')}</p><p><b>Plan:</b> ${esc(r.evidence['reasoning:'+id].plan||'—')}</p><p><b>Check or correction:</b> ${esc(r.evidence['reasoning:'+id].check||'—')}</p><p class="muted">${esc(applicationStatus(r.evidence?.['application:'+id]))} · explanation saved for review</p>`:''}</article>`).join('')}${Object.values(r.evidence||{}).filter(e=>e?.kind==='mixed_application').map(e=>`<article><h3>${esc(e.question_id)}</h3><p><b>Your method:</b> ${esc(e.method)}</p><p><b>Recorded answer:</b> ${esc(e.response)} · ${e.correct?'correct':'needs repair'}${e.used_help?' · supported':''}</p></article>`).join('')}${r.working?.mawa_base?`<div data-adult-review="${r.session_number}"></div><h3>Investigation</h3><p class="math-copy">${esc(r.working.mawa_base)}</p><h3>Extension</h3><p class="math-copy">${esc(r.working.mawa_extension||'')}</p>`:''}</details>`).join('')||'<p>No completed sessions yet.</p>'}</section>`;
  app.querySelectorAll('.saved-solution').forEach(button=>button.onclick=async()=>{button.disabled=true;const target=button.nextElementSibling;try{const {data,error}=await supabase.functions.invoke('get-problem-solution',{body:{problem_id:button.dataset.problem,session_number:Number(button.dataset.session)}});if(error||data?.error)throw error||new Error(data.error);target.className='math-copy';target.textContent=data.solution_text||data.spoken_script||'No written solution returned.'}catch(err){target.textContent=err.message;button.disabled=false}});
  app.querySelectorAll('[data-adult-review]').forEach(target=>{const details=target.closest('details');details.addEventListener('toggle',async()=>{if(!details.open||target.dataset.loaded)return;target.dataset.loaded='1';const record=completedRecords.find(r=>r.session_number===Number(target.dataset.adultReview)),item=mawa.find(x=>x.id===record.summary?.investigation_id)||mawa[(Math.floor(record.session_number/7)-1)%20];try{await mountInvestigationReview(target,{user,record,item})}catch(err){target.textContent=err.message;delete target.dataset.loaded}})});
 }
