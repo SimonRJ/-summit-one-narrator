@@ -105,6 +105,27 @@ assert(loader.includes('Play sound') && loader.includes('prefers-reduced-motion'
 assert(loaderCss.includes('.sb-facet--left') && loaderCss.includes('.summit-mini'));
 assert(screens.includes('data-extra-question') && screens.includes('drill:'));
 assert(screens.includes('showTop([summary,foot])'));
+
+assert(app.includes('advancedConnectionHTML(skillFor(s,taxonomy)'));
+assert(screens.includes('Where this maths can lead'));
+const {advancedConnections,advancedConnectionHTML}=await import('../advanced-connections.js');
+const allSkills=JSON.parse(read('../data/taxonomy-52.json')).categories.flatMap(c=>c.subskills);
+assert.equal(Object.keys(advancedConnections).length,52,'One advanced connection per mathematical technique');
+assert.deepEqual(Object.keys(advancedConnections).sort(),allSkills.map(s=>s.id).sort(),'Technique-specific advanced enrichment');
+for(const sk of allSkills){
+ const item=advancedConnections[sk.id];
+ assert(item.title && item.bridge && item.problem && item.horizon && item.question && item.peek);
+ assert(Array.isArray(item.steps) && item.steps.length>=3);
+ const html=advancedConnectionHTML(sk.id);
+ assert(html.includes('advanced-solution-steps') && html.includes('not assessed'));
+ assert(!/<input|<textarea|<form|data-lesson-score|data-advanced-submit/i.test(html));
+}
+assert(advancedConnectionHTML('DIG-01').includes('Difference of squares'));
+assert(advancedConnectionHTML('SPATIAL-03').includes('recursive tiling'));
+assert(advancedConnectionHTML('DIG-01',{visit:2}).includes('revisiting this technique'));
+assert(!app.includes('Optional deeper connection · related video or reading'));
+assert(app.includes('Related teaching videos and further reading'));
+
 assert(!screens.includes('What clue tells you the method?'));
 assert(!screens.includes('Explain your plan'));
 assert(!practiceUI.includes('class="answer-box method"'));
