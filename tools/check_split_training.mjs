@@ -51,9 +51,9 @@ for(const [skill,entry] of Object.entries(map.skills)){
   assert(actual&&actual.focus===item.focus,"Incorrect lesson mapping "+skill+" @ "+item.slot);
  }
 }
-assert(index.includes("main.css?v=menu-20261113-v2"));
+assert(index.includes("main.css?v=lesson-replay-20261113"));
 assert(testsPage.includes("tests.js?v=curated-20261113"));
 assert(style.includes(".amc-pending-sets"));
-assert(worker.includes("summit-one-course-drawer-20261113-v2"));
+assert(worker.includes("summit-one-lesson-replay-20261113"));
 assert(worker.includes("skill-session-links.json"));
 console.log("PASS: curated AMC A/B split, 30-slot plans, one-attempt UI, 52 links and countdown boundaries.");

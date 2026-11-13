@@ -462,3 +462,41 @@ body.lesson-fullscreen>.shell,body.home-focus>.shell{
  flex:1 1 0!important;min-height:0!important;max-height:none!important;
  height:auto!important;margin:0 auto!important;overflow:hidden;
 }
+
+
+/* Safe video replay: an independent read-only media view, not an editable lesson. */
+.course-menu-session.is-completed,.course-menu-session.is-current{padding:4px 5px 4px 0}
+.course-menu-session-main{display:flex;align-items:center;flex:1 1 auto;gap:9px;min-width:0;min-height:54px;text-align:left;background:transparent;border:0;border-radius:8px;color:inherit;padding:7px 5px 7px 10px;cursor:pointer}
+.course-menu-session-main:focus-visible,.course-menu-watch:focus-visible,.course-menu-current-intro:focus-visible{outline:2px solid #a5e8ff;outline-offset:2px}
+.course-menu-session-main:hover{background:rgba(130,181,197,.08)}
+.course-menu-watch{display:grid;place-items:center;flex:0 0 auto;min-width:75px;min-height:37px;padding:7px 9px;margin-right:3px;border:1px solid #48758a;border-radius:8px;color:#b7dfe9;background:#20374b;font-size:.72rem;font-weight:750;white-space:nowrap}
+.course-menu-watch:hover{background:#2d4a60;color:#fff}
+.course-menu-session.is-completed .course-menu-watch{color:#bbe6d6;background:#1d3836;border-color:#45776a}
+.course-menu-session.is-completed .course-menu-watch:hover{background:#30574b}
+.course-menu-current-intro{width:100%;min-height:42px;background:transparent;border:1px solid #5c8194;border-radius:8px;color:#cde9f6;font-size:.84rem;font-weight:730}
+.course-menu-current-intro:hover{background:#304c60}
+.saved-intro{margin:10px 0 14px;min-height:44px;display:inline-flex;align-items:center;justify-content:center}
+body.lesson-video-review{display:flex;flex-direction:column;height:100dvh;max-height:100dvh;overflow:hidden}
+body.lesson-video-review>.topbar{flex:0 0 auto}
+body.lesson-video-review>.shell{flex:1 1 0;min-height:0;max-height:none;height:auto;width:min(1170px,100%);margin:0 auto;padding:clamp(10px,2vh,20px) clamp(11px,2vw,24px);overflow:hidden;display:grid}
+.lesson-replay-page{min-height:0;max-height:100%;display:grid;grid-template-rows:auto auto auto minmax(0,1fr) auto auto;align-content:stretch;gap:clamp(6px,1.4vh,12px);overflow:hidden;padding:clamp(12px,2.5vw,26px)}
+.lesson-replay-page h1{font-size:clamp(1.25rem,3vw,1.95rem);line-height:1.17;margin:0;letter-spacing:-.025em}
+.lesson-replay-page .muted{font-size:clamp(.76rem,1.5vw,.93rem);line-height:1.4;margin:0}
+.lesson-replay-video{display:grid;place-items:center;min-height:0;width:100%;height:100%;max-width:960px;aspect-ratio:16/9;margin:0 auto;border:1px solid #3e5e74;border-radius:11px;overflow:hidden;background:#050d17}
+.lesson-replay-video video{max-width:100%;max-height:100%;width:100%;height:100%;object-fit:contain}
+.lesson-replay-narration{min-height:0;max-height:100%;overflow:hidden}
+.lesson-replay-narration .narrated-player{height:100%;max-width:920px;margin:auto}
+.lesson-replay-narration .np-screen{max-height:35vh;overflow:hidden}
+.lesson-replay-note{font-size:clamp(.75rem,1.4vw,.9rem);line-height:1.38;margin:0;color:#b8cdd8}
+.lesson-replay-actions{display:flex;justify-content:flex-end;gap:10px;flex-wrap:wrap}
+.lesson-replay-actions button{min-height:44px}
+@media(max-width:600px){
+ .course-menu-watch{min-width:72px;padding:6px 7px;font-size:.7rem}
+ .course-menu-session-main{gap:6px}
+ .course-menu-session-main .course-menu-copy b{font-size:.86rem}
+ .lesson-replay-page{padding:12px;gap:8px}
+ .lesson-replay-page h1{font-size:1.26rem}
+ .lesson-replay-video{max-height:46vh}
+ .lesson-replay-actions{display:grid;grid-template-columns:1fr 1fr}
+ .lesson-replay-actions button{font-size:.85rem;padding:8px}
+}
