@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 284 266" role="img" aria-labelledby="summitTitle">
+  <title id="summitTitle">Summit One faceted summit emblem</title>
+  <defs>
+    <linearGradient id="summitLeft" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f1fbff"/><stop offset=".38" stop-color="#a8d7ec"/><stop offset="1" stop-color="#1b456b"/></linearGradient>
+    <linearGradient id="summitRight" x1=".2" y1="0" x2=".95" y2="1"><stop offset="0" stop-color="#d9f6ff"/><stop offset=".52" stop-color="#5aa3d6"/><stop offset="1" stop-color="#12304c"/></linearGradient>
+    <linearGradient id="summitBase" x1=".2" y1=".1" x2=".7" y2=".95"><stop offset="0" stop-color="#224e76"/><stop offset=".7" stop-color="#0c2a4a"/><stop offset="1" stop-color="#06172e"/></linearGradient>
+    <linearGradient id="summitEdge" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#effaff"/><stop offset="1" stop-color="#6acdf7"/></linearGradient>
+  </defs>
+  <path d="M142 19 25 232 142 157Z" fill="url(#summitLeft)"/>
+  <path d="M142 19 259 232 142 157Z" fill="url(#summitRight)"/>
+  <path d="M25 232 142 157 259 232Z" fill="url(#summitBase)"/>
+  <path d="M142 19 25 232 259 232Z M142 19 142 157 25 232 M142 157 259 232" stroke="url(#summitEdge)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+  <path d="M142 19 142 157" stroke="#f8fdff" stroke-width="1.3" opacity=".7"/>
+</svg>
