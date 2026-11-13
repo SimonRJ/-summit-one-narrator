@@ -6,7 +6,7 @@ import { supabase, currentUser } from "./supabase-client.js?v=auth-20261112";
 
 const app=document.getElementById("examApp");
 let user, catalog=[], awards, activeExam=null, questions=[], sitting=null, qIndex=0, responses={}, typedInteger={}, timerHandle=null, saveQueue=Promise.resolve(), finishing=false, saving=false, starting=false;
-let sittingsByExam=new Map(), allSittings=[], resultMeta={};
+let sittingsByExam=new Map(), allSittings=[], resultMeta={}, skillSessionLinks={skills:{}};
 let awardYear=Number(localStorage.getItem("summitSchoolYear")||5);
 const params=new URLSearchParams(location.search);
 const centre=["hub","speed","depth","amc","rossmoyne","mawa"].includes(params.get("section"))?params.get("section"):"hub";
@@ -32,6 +32,7 @@ const norm=s=>String(s??"").trim().toLowerCase().replace(/\s+/g,"").replace(/[.,
 async function boot(){
   user=await currentUser();if(!user){location.replace("login.html?next="+encodeURIComponent("tests.html"+location.search));return}
   awards=await fetch("data/amc-awards.json").then(r=>r.json());
+  skillSessionLinks=await fetch("data/skill-session-links.json?v=review-20261113").then(r=>r.ok?r.json():Promise.reject(new Error("Lesson map unavailable"))).catch(()=>({skills:{}}));
   const {data,error}=await supabase.from("exam_catalog").select("*").eq("active",true).order("year",{ascending:false});
   if(error)throw error;catalog=data||[];
   await loadSittings();
@@ -69,14 +70,9 @@ function sittingElapsed(row){
  return row.metadata?.time_used_seconds??Math.max(0,Math.round((new Date(row.submitted_at||row.expires_at).getTime()-new Date(row.started_at).getTime())/1000));
 }
 function paperAction(exam){
- const attempts=allSittings.filter(r=>r.exam_id===exam.id),open=attempts.find(r=>!r.completed),finished=attempts.filter(r=>r.completed);
- const best=finished.length?Math.max(...finished.map(r=>r.score)):null;
- const perfect=finished.filter(r=>r.score===exam.max_score);
- const bestPerfect=perfect.length?Math.min(...perfect.map(sittingElapsed)):null;
- const first=finished.at(-1);
- const label=open?`Resume attempt ${open.attempt_number}`:exam.repeatable?`Start attempt ${attempts.length+1}`:finished.length?"Review locked paper":"Prepare to start";
- const isSplit=Boolean(exam.metadata?.amc_part);
- return `<div class="paper-actions"><button class="primary startExam" data-id="${esc(exam.id)}">${label}</button>${exam.repeatable&&finished.length?`<button class="ghost" data-review="${esc(finished[0].id)}">Review latest</button>`:""}</div>${finished.length?`<p class="attempt-summary">${finished.length} completed · First ${first.score}/${exam.max_score} in ${formatElapsedSeconds(sittingElapsed(first))} · Best ${best}/${exam.max_score}${bestPerfect!==null?` · Fastest perfect ${formatElapsedSeconds(bestPerfect)}`:""}</p>`:""}<p class="paper-locked">${isSplit&&exam.metadata?.originality==="reused_from_existing_full_mock"?"Familiarisation: these questions also appear in an existing full mock. First-attempt scores are the fairest benchmark.":exam.repeatable?"Every attempt, score and elapsed time is saved.":finished.length?"Submitted · permanent review available.":"One attempt · permanent review after submission."}</p>`;
+ const attempts=allSittings.filter(r=>r.exam_id===exam.id),open=attempts.find(r=>!r.completed),done=attempts.find(r=>r.completed);
+ const label=open?"Resume timed attempt":done?"Review locked paper":"Prepare to start";
+ return `<div class="paper-actions"><button class="primary startExam" data-id="${esc(exam.id)}">${label}</button></div>${done?`<p class="attempt-summary">Submitted · ${done.score}/${exam.max_score} · ${formatElapsedSeconds(sittingElapsed(done))} · Written solutions and lesson links available.</p>`:""}<p class="paper-locked">${done?"View only. Your score, responses and elapsed time cannot change.":open?"This is your one running attempt; returning will not reset the timer.":"One scored attempt, followed by permanent worked-solution review."}</p>`;
 }
 function examMarkGuide(exam){
  if(exam.metadata?.amc_part==="speed")return "Q1–10: 3 marks each · Q11–20: 4 marks each · Maximum 70 marks. The timer counts up to 20:00.";
@@ -130,7 +126,7 @@ async function prepareExam(id){
   const exam=catalog.find(x=>x.id===id);if(!exam)return;
   const existing=await existingSitting(id);if(existing){await openSavedSitting(existing);return}
   document.body.classList.remove('exam-mode');theme(exam);
-  const startLabel=exam.repeatable?'Start this practice attempt':'Start my only attempt';
+  const startLabel="Start my only attempt";
   app.innerHTML=`<section class="panel test-hero exam-start-warning"><div class="eyebrow">${exam.max_score===100?'ROSSMOYNE HONOURS · ':''}BEFORE YOU START · ${exam.repeatable?'REPEATABLE PRACTICE':'ONE ATTEMPT ONLY'}</div><h1>${esc(exam.title)}</h1><p class="muted">${exam.question_count} questions · ${exam.duration_minutes} minutes · ${exam.max_score} marks</p>
   <div class="notice-box"><h2>${exam.repeatable?'A fresh attempt, with its own saved result':'This is your only attempt at this paper'}</h2><p>When you click <b>${startLabel}</b>, the timer begins and keeps running if you close the page. You can return to the same attempt while time remains.</p><p>Final submission permanently locks <b>this attempt</b>. At zero, saved answers are locked and submitted when connected. ${exam.repeatable?'You may start another attempt afterwards. All attempts, scores and reviews remain in your history.':'You cannot restart or redo this paper. Your completed review remains available afterwards.'}</p></div>
   <div class="exam-section-key">${esc(examMarkGuide(exam))}</div>
@@ -162,8 +158,8 @@ function renderLibrary(){
  const papers=catalog.filter(e=>belongs(e)).sort((a,b)=>centre==="amc"?b.year-a.year:(Number(b.source_type==="summit_amc_split_original")-Number(a.source_type==="summit_amc_split_original"))||a.id.localeCompare(b.id));
  const titles={speed:"AMC Practice · Part A (Q1–20)",depth:"AMC Practice · Part B (Q21–30)",amc:"Real AMC past papers",rossmoyne:"Rossmoyne Honours Mathematics"};
  const introductions={
-   speed:"Twenty multiple-choice questions, 70 marks and a 20-minute limit. The timer counts up. Aim for 20/20; among perfect first attempts, a time below 20 minutes is excellent. Ten familiarisation sets reuse existing authored full mocks, and one newly authored original set has separate checking. Select an original set for the strongest unseen-problem benchmark.",
-   depth:"Ten difficult questions: Q21–25 multiple choice; Q26–30 integer answer. The timer counts up to the 40-minute limit. Six correct—including all five multiple choice and one integer—is an excellent early benchmark. Ten familiarisation sets reuse existing full mocks; an additional newly authored challenge set has been checked independently and is labelled.",
+   speed:"Part A: 20 multiple-choice questions, 70 marks, 20-minute count-up. Aim for 20/20 on new problems. Each set allows one scored attempt, then locks permanently for study.",
+   depth:"Part B: Q21–25 multiple choice and Q26–30 integer answer (0–999). Ten questions, 65 marks, 40-minute count-up. Build from six correct toward ten; each set is one attempt only.",
    amc:"Authentic Upper Primary papers from 2007–2025, where available. Keep some unopened for later independent checks. Each authentic paper has one attempt and permanent written-solution review.",
    rossmoyne:"The uploaded original sample and nine authored practice papers, with the same four-section, 100-mark structure. Each paper has one attempt and a permanent review."
  };
