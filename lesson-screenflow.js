@@ -2,7 +2,7 @@
  * The original assessment controls, video players, inputs, listeners, evidence and
  * protected problem responses remain mounted in the DOM. We only toggle visibility.
  */
-export function learningScreens(host,stage,{draft,skill,problem}={}){
+export function learningScreens(host,stage,{draft,skill,problem,flashDone}={}){
  const roots=[...host.children];
  const set=(node,visible)=>{if(node)node.style.display=visible?"":"none"};
  const showTop=(nodes)=>{const allow=new Set(nodes.filter(Boolean));for(const n of roots)set(n,allow.has(n))};
@@ -47,7 +47,7 @@ export function learningScreens(host,stage,{draft,skill,problem}={}){
    if(trap)pages.push(page("Avoid a tempting mistake",()=>conceptMode("trap")));
   }
   if(bridge)pages.push(page("Connect the representations",()=>showTop([bridge])));
-  if(flash)pages.push(page("Five quick decisions",()=>showTop([flash]),()=>Boolean(draft?.evidence?.["flash:"+skill]?.reviewed)||Boolean(draft?.evidence?.["recognition:"+skill]?.reviewed)));
+  if(flash)pages.push(page("Five quick decisions",()=>showTop([flash]),()=>{if(flashDone&&!flashDone()){alert("Finish the five quick decisions and read the recap before continuing.");return false}return true}));
   if(guided)pages.push(page("Solve with support",()=>showTop([guided])));
   if(deeper)pages.push(page("Optional teaching video and notes",()=>showTop([deeper]),null,"Try independently"));
   return pages;
