@@ -40,6 +40,26 @@ async def main():
    print('SCREENFLOW DEBUG',debug,flush=True)
    raise AssertionError(f'Could not reach {selector}: '+await page.locator('.lesson-screen-progress').inner_text())
   await page.goto('http://127.0.0.1:8765/')
+  await page.locator('#continue').wait_for()
+  assert await page.locator('.learning-focus .focus-session-card').count()==1
+  assert await page.locator('.learning-note,.side-stack,.learning-to-exams,.quick-links').count()==0
+  assert (await page.locator('#navProgress').inner_text()).strip()=='0 / 372'
+  assert await page.evaluate("document.documentElement.scrollHeight<=innerHeight+4 && document.documentElement.scrollWidth<=innerWidth+4"), 'Learning home must fit on the iPhone without scrolling'
+  await page.screenshot(path=str(ROOT/'docs/focus-learning-home-iphone.png'))
+  await page.locator('[data-view="profile"]').click()
+  await page.get_by_role('heading',name='Summit progress').wait_for()
+  assert await page.get_by_text('sessions remaining').count()==1
+  await page.locator('.profile-upcoming summary').click()
+  assert await page.get_by_text('Next strategy workshop').count()==1
+  assert await page.get_by_text('Next MAWA investigation').count()==1
+  await page.locator('[data-view="home"]').click()
+  await page.locator('#continue').wait_for()
+  await page.locator('#navMore summary').click()
+  await page.get_by_role('button',name='Completed sessions').click()
+  await page.get_by_role('heading',name='Completed sessions').wait_for()
+  assert not await page.locator('#navMore').evaluate('(node)=>node.open')
+  await page.locator('[data-view="home"]').click()
+  await page.locator('#continue').wait_for()
   await page.locator('#continue').click()
   await page.locator('.opening-film').wait_for()
   assert await page.locator('#openingVideo').count()==1
