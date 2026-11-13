@@ -65,7 +65,7 @@ const unique=grouped.all.map(x=>x.slot);
 assert.equal(new Set(unique).size,372);
 assert(menuUI.includes('class="course-menu-status ${status}"'));
 assert(menuUI.includes('status==="completed"?"✓"'));
-assert(menuUI.includes('is-locked') && menuUI.includes('is-current') && menuUI.includes('is-completed'));
+assert(menuUI.includes('is-locked') && menuUI.includes('is-${status}') && menuUI.includes('status==="current"'));
 assert(menuUI.includes('onCompleted(slot)') && menuUI.includes('onContinue()'));
 assert(app.includes('buildCourseNavigation(course,taxonomy)'));
 assert(app.includes('mountCourseMenu(') && app.includes('data-review-session'));
