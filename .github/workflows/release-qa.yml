@@ -32,6 +32,8 @@ jobs:
       - name: JavaScript syntax
         run: |
           node --check app-main.js
+          node --check lesson-pager.js
+          node --check lesson-screenflow.js
           node --check tests.js
           node --check lesson-player.js
           node --check problem-figures.js
@@ -67,7 +69,9 @@ jobs:
           console.log("Canonical invariants passed.");
           NODE
       - name: Learning behaviour checks
-        run: node tools/check_learning.mjs
+        run: |
+          node tools/check_learning.mjs
+          node tools/check_fixed_lesson.mjs
       - name: Recognition and coverage checks
         run: node tools/check_recognition.mjs
       - name: New practice checks

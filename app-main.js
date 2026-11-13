@@ -12,10 +12,12 @@ import { mountNarratedPlayer } from "./lesson-player.js";
 import {methods,skillFor,recallState} from "./curriculum.js?v=recognition-20261113";
 import {lessonCard,mountCheck,mountRetrieval,readinessHTML} from "./learning-ui.js?v=recognition-20261113";
 import { problemFigure } from "./problem-figures.js";
+import {mountLessonPager} from "./lesson-pager.js?v=cinema-20261113";
+import {learningScreens} from "./lesson-screenflow.js?v=cinema-20261113";
 
 const app=document.getElementById("app");
 const problemTemplate=document.getElementById("problemTemplate");
-let course=[], teaching=[], mawa=[], rossMap=[], taxonomy=null, milestones=null, problemIndex=[], progress=null, user=null, activeView="home", activeStage=0;
+let course=[], teaching=[], mawa=[], rossMap=[], taxonomy=null, milestones=null, problemIndex=[], progress=null, user=null, activeView="home", activeStage=-1, activeLessonPanel=0, lessonPager=null;
 let lessonManifest=[];
 let currentProblems=[], currentMawa=null, sessionDraft={answers:{},working:{},evidence:{},summary:{}};
 let attemptedProblemIds=new Set();
@@ -140,7 +142,7 @@ async function boot(){
   }catch(e){app.innerHTML='<section class="panel hero-panel"><h1>Unable to load Summit One</h1><p class="muted">'+esc(e.message)+'</p></section>'}
 }
 function wireNav(){
-  document.querySelectorAll("[data-view]").forEach(b=>b.onclick=async()=>{if(editingSession){try{await saveDraft(editingSession);editingSession=null}catch(e){alert("Please retry saving before leaving: "+e.message);return}}document.querySelectorAll(".nav-btn").forEach(x=>x.classList.remove("active"));b.classList.add("active");activeView=b.dataset.view;if(activeView==="repairs")openRepairs().catch(e=>alert(e.message));if(activeView==="home")renderHome();if(activeView==="review")renderReview();if(activeView==="profile")renderProfile();if(activeView==="roadmap")renderRoadmap().catch(e=>alert(e.message))})
+  document.querySelectorAll("[data-view]").forEach(b=>b.onclick=async()=>{if(editingSession){try{await saveDraft(editingSession);editingSession=null}catch(e){alert("Please retry saving before leaving: "+e.message);return}}document.body.classList.remove("lesson-fullscreen");document.querySelectorAll(".nav-btn").forEach(x=>x.classList.remove("active"));b.classList.add("active");activeView=b.dataset.view;if(activeView==="repairs")openRepairs().catch(e=>alert(e.message));if(activeView==="home")renderHome();if(activeView==="review")renderReview();if(activeView==="profile")renderProfile();if(activeView==="roadmap")renderRoadmap().catch(e=>alert(e.message))})
 }
 function renderTechniqueRefresher(){
  activeView="technique";
@@ -161,6 +163,7 @@ function renderTechniqueRefresher(){
  videos.forEach((t,i)=>mountNarratedPlayer(document.getElementById("techniqueVideo"+i),{title:t.title,transcript:t.transcript,audioUrl:t.audio_url,videoUrl:finalVideoUrl(t.id),cacheKey:t.id}));
 }
 function renderHome(){
+  document.body.classList.remove("lesson-fullscreen");
   const s=courseSession(),done=progress.completed_sessions||0,amc=nextSlot("AMC MOCK"),mawa=nextSlot("MAWA");
   const nextPractice=course.find(x=>x.slot>done&&x.type==="MIXED");
   const practiceGap=nextPractice?nextPractice.slot-done:null;
@@ -199,6 +202,11 @@ async function startSession(s){
   sessionDraft={answers:existing?.answers||{},working:existing?.working||{},evidence:existing?.evidence||{},summary:existing?.summary||{}};
   const local=JSON.parse(localStorage.getItem(draftKey(s))||'null');
   if(local?.draft&&(!existing?.updated_at||local.updated_at>existing.updated_at))sessionDraft=local.draft;
+  if(s.type==="LESSON"){
+    const stage=Number(sessionDraft.summary.lesson_stage);
+    activeStage=Number.isInteger(stage)&&stage>=-1&&stage<=4?stage:-1;
+    activeLessonPanel=Math.max(0,Number(sessionDraft.summary.lesson_panel)||0);
+  }else{activeStage=0;activeLessonPanel=0;}
   editingSession=s;
   const previous=sessionDraft.summary.problems||[];
   currentProblems=chooseProblems(s);
@@ -262,25 +270,80 @@ async function completeSpecialSession(s){
   localStorage.removeItem(draftKey(s));editingSession=null;draftDirty=false;await refreshEvidence();renderHome();
 }
 
+function renderLessonOpening(el,s){
+ const id=s.slot===1?"S001":s.slot===2?"S002":null;
+ const p=lessonPlan(s,course,taxonomy);
+ const title=esc(s.focus);
+ const examples=id?'<p class="opening-levels"><span>Easy example</span><span>Medium example</span><span>Hard example</span></p>':'';
+ el.innerHTML=`<section class="opening-film" aria-label="Lesson introduction">
+   <div class="eyebrow">THE IDEA FIRST · A VISUAL EXPLANATION</div>
+   <h2>${title}</h2>
+   <p class="muted">Watch how a useful mathematical idea solves progressively harder problems. The problems in this introduction are teaching examples, not practice-test questions.</p>
+   ${id?`<div class="opening-video-wrap"><video id="openingVideo" controls playsinline preload="metadata" poster="media/${id}-Intro-poster.jpg?v=cinema-20261113" src="media/${id}-Intro.mp4?v=cinema-20261113" aria-label="${title} — fully worked animated introduction in three difficulty levels"><track kind="captions" srclang="en" label="English captions" src="media/${id}-Intro.vtt?v=cinema-20261113"></video></div>`:
+   `<div class="opening-concept-board"><div class="opening-concept-method">${esc(p.hook)}</div><div class="opening-concept-mark">${esc(skillFor(s,taxonomy))}</div><p>${esc(p.goal)}</p></div>`}
+   ${examples}
+   <div id="openingFallback" class="opening-fallback" ${id?"hidden":""}></div>
+   <p class="opening-coda">After watching, press <b>Next</b> and solve fresh problems using the same idea. Bring paper and a pencil.</p>
+ </section>`;
+ const mountFallback=()=>{
+  const host=el.querySelector("#openingFallback");
+  if(!host||host.dataset.mounted)return;
+  host.hidden=false;host.dataset.mounted="yes";
+  const t=teachingFor(s)[0];
+  if(t)mountNarratedPlayer(host,{title:t.title,transcript:t.transcript,audioUrl:t.audio_url,videoUrl:finalVideoUrl(t.id),cacheKey:"lesson-opening-"+s.slot,onWatch:d=>recordVideoEvidence(s.slot,t.id,"concept",d)});
+  else host.innerHTML='<p class="muted">The short written introduction is available in the next screen.</p>';
+ };
+ const video=el.querySelector("#openingVideo");
+ if(video){
+  video.addEventListener("error",()=>{video.hidden=true;mountFallback()});
+  let marked=false;
+  video.addEventListener("timeupdate",()=>{
+   if(marked||!video.duration||video.currentTime/video.duration<.8)return;
+   marked=true;recordVideoEvidence(s.slot,id+"-Intro","lesson_intro",{position_seconds:video.currentTime,duration_seconds:video.duration,completed_80_percent:true,media_mode:"finished_video"}).catch(()=>{});
+  });
+ }else mountFallback();
+}
+function setLessonScreenTopbar(){
+ document.body.style.setProperty("--lesson-topbar",Math.ceil(document.querySelector(".topbar")?.getBoundingClientRect().height||72)+"px");
+}
 function renderSession(s){
-  app.innerHTML=`
-  <section class="session-page">
-    <header class="panel session-header"><div class="eyebrow">SESSION ${s.slot} / 372 · ${esc(s.phase)}</div><h1>${esc(activeStage===3?"Choose a method for a new setting":s.focus)}</h1><div><span class="type-chip">${esc(s.type)}</span></div></header>
-    <nav class="stage-nav" aria-label="Session stages">
-      ${["Start","Discover","Try","Transfer","Check"].map((x,i)=>`<button data-stage="${i}" class="${i===activeStage?"active":""}">${i+1}. ${x}</button>`).join("")}
-    </nav>
-    <section id="stage" class="panel stage"></section>
-  </section>`;
-  document.querySelectorAll("[data-stage]").forEach(b=>b.onclick=async()=>{try{await saveDraft(s);activeStage=Number(b.dataset.stage);renderSession(s)}catch(e){alert("Your work is still here. Could not save: "+e.message)}});
-  const target=document.getElementById("stage");
-  if(activeStage===0)renderRemember(target,s);
-  if(activeStage===1)renderDiscover(target,s);
-  if(activeStage===2)renderChallenge(target,s,currentProblems[0],"try");
-  if(activeStage===3)renderChallenge(target,s,currentProblems[1],"transfer");
-  if(activeStage===4)renderCheck(target,s);
+ document.body.classList.add("lesson-fullscreen");
+ setLessonScreenTopbar();
+ const stages=["Video","Remember","Discover","Try","Transfer","Check"];
+ const stageIndex=activeStage+1;
+ app.innerHTML=`<section class="session-page lesson-screen-page" aria-label="Session ${s.slot} screen by screen">
+  <header class="panel lesson-screen-header"><div class="eyebrow">LEARNING SESSION ${s.slot} / 372 · ${esc(s.phase)}</div><h1>${esc(s.focus)}</h1></header>
+  <div class="lesson-stage-track" aria-label="Your current lesson stage">${stages.map((label,i)=>`<span class="${i===stageIndex?"here":i<stageIndex?"visited":""}">${i+1}. ${label}</span>`).join("")}</div>
+  <section id="stage" class="panel stage lesson-screen-stage"></section>
+  <footer class="lesson-screen-footer"><button type="button" class="ghost" data-screen-back>Back</button><div class="lesson-screen-progress"><strong data-screen-name>Learning</strong><span data-screen-count>1 / 1</span></div><button type="button" class="primary" data-screen-next>Next</button></footer>
+ </section>`;
+ const target=document.getElementById("stage"),sid=skillFor(s,taxonomy);
+ if(activeStage===-1)renderLessonOpening(target,s);
+ if(activeStage===0)renderRemember(target,s);
+ if(activeStage===1)renderDiscover(target,s);
+ if(activeStage===2)renderChallenge(target,s,currentProblems[0],"try");
+ if(activeStage===3)renderChallenge(target,s,currentProblems[1],"transfer");
+ if(activeStage===4)renderCheck(target,s);
+ const pages=learningScreens(target,activeStage,{draft:sessionDraft,skill:sid,problem:activeStage===2?currentProblems[0]:activeStage===3?currentProblems[1]:null,flashDone:()=>flashReviewed(sessionDraft,sid)});
+ const footer=app.querySelector(".lesson-screen-footer");
+ const persistLocation=index=>{
+  activeLessonPanel=index;sessionDraft.summary.lesson_stage=activeStage;sessionDraft.summary.lesson_panel=index;
+  rememberDraft();
+ };
+ const leaveNext=async()=>{
+  if(activeStage===-1){activeStage=0;activeLessonPanel=0;await saveDraft(s);renderSession(s);return}
+  if(activeStage===4){const finish=target.querySelector("#completeSession");if(finish&&!finish.disabled)finish.click();else alert("Complete both challenge attempts before locking this session.");return}
+  const next=target.querySelector("#nextStage");
+  if(next){activeLessonPanel=0;next.click();}
+ };
+ const leaveBack=async()=>{
+  if(activeStage===-1){await saveDraft(s);editingSession=null;document.body.classList.remove("lesson-fullscreen");renderHome();return}
+  activeStage-=1;activeLessonPanel=999;await saveDraft(s);renderSession(s);
+ };
+ lessonPager=mountLessonPager({pages,footer,initial:activeLessonPanel,onNext:leaveNext,onBack:leaveBack,onChange:persistLocation});
 }
 function renderRemember(el,s){
- el.innerHTML=`${introductionHTML(s,course,taxonomy)}<div class="stage-number">NOW REMEMBER · ABOUT 5 MINUTES</div><h2>Warm up what you know</h2><p class="muted">Start without notes. Getting stuck shows us what to revisit.</p><div id="retrievalChecks"></div><div class="complete-row"><span class="muted">Try the due checks before continuing.</span><button class="primary" id="nextStage">Discover</button></div>`;
+ const p=lessonPlan(s,course,taxonomy);el.innerHTML=`<div class="lesson-recall-brief"><div class="eyebrow">REMEMBER · NO TIMER</div><h2>Bring back one useful idea</h2><p>${esc(p.prerequisite)}</p><p class="muted">A short check strengthens your understanding. It does not change your exam score.</p></div><div id="retrievalChecks"></div><div class="complete-row"><span class="muted">Try any due recall checks before continuing.</span><button class="primary" id="nextStage">Discover</button></div>`;
  mountRetrieval(el.querySelector('#retrievalChecks'),{records:completedRecords,slot:s.slot,currentId:skillFor(s,taxonomy),draft:sessionDraft,save:()=>saveDraft(s)});
  document.getElementById('nextStage').onclick=async()=>{if((sessionDraft.summary.retrieval_ids||[]).some(id=>!sessionDraft.evidence['retrieval:'+id])){alert('Try each short revision check. Use a hint if needed.');return}await saveDraft(s);activeStage=1;renderSession(s)};
 }
@@ -288,7 +351,7 @@ function renderRemember(el,s){
 function renderDiscover(el,s){
   const items=teachingFor(s);
   el.innerHTML=`<div class="stage-number">STAGE 2 · EXPLANATION</div><h2>Discover</h2><p class="muted">Read, sketch and listen. The goal is to see why the method works, not memorise a slogan.</p>
-  ${lessonCard(skillFor(s,taxonomy),lessonPlan(s,course,taxonomy))}${bridgeHTML(skillFor(s,taxonomy),lessonPlan(s,course,taxonomy).visit)}<div id="quickCards"></div><div id="guidedCheck"><p class="muted">Work through the five quick decisions above, then try the supported problem.</p></div><details class="optional-lesson"><summary>Optional deeper connection · related video or reading</summary><div class="teaching-box">${items.map((t,i)=>`<article class="teaching-item"><div class="eyebrow">${esc(t.type==="worked_example"?"WORKED EXAMPLE":"CONCEPT")}</div><h3>${esc(t.title)}</h3><div class="lesson-player-slot" id="lessonPlayer${i}"></div><details><summary>Read explanation</summary><p class="math-copy">${esc(t.transcript)}</p>${t.extended_reading?`<h4>Further mathematical connections</h4><p class="math-copy">${esc(t.extended_reading)}</p>`:""}</details></article>`).join("")||'<p class="muted">Teaching explanation is being selected from the course library.</p>'}</div></details>
+  <section data-lesson-unit="concept">${lessonCard(skillFor(s,taxonomy),lessonPlan(s,course,taxonomy))}</section><section data-lesson-unit="bridge">${bridgeHTML(skillFor(s,taxonomy),lessonPlan(s,course,taxonomy).visit)}</section><section data-lesson-unit="flash"><div id="quickCards"></div></section><section data-lesson-unit="guided"><div id="guidedCheck"><p class="muted">Work through the five quick decisions above, then try the supported problem.</p></div></section><section data-lesson-unit="more"><details class="optional-lesson"><summary>Optional deeper connection · related video or reading</summary><div class="teaching-box">${items.map((t,i)=>`<article class="teaching-item"><div class="eyebrow">${esc(t.type==="worked_example"?"WORKED EXAMPLE":"CONCEPT")}</div><h3>${esc(t.title)}</h3><div class="lesson-player-slot" id="lessonPlayer${i}"></div><details><summary>Read explanation</summary><p class="math-copy">${esc(t.transcript)}</p>${t.extended_reading?`<h4>Further mathematical connections</h4><p class="math-copy">${esc(t.extended_reading)}</p>`:""}</details></article>`).join("")||'<p class="muted">Teaching explanation is being selected from the course library.</p>'}</div></details></section>
   <div class="complete-row"><span class="muted">Try the supported question first. A hint is part of learning.</span><button class="primary" id="nextStage">Try independently</button></div>`;
   let guidedMounted=false;
   mountFlashCards(el.querySelector('#quickCards'),{id:skillFor(s,taxonomy),visit:lessonPlan(s,course,taxonomy).visit,slot:s.slot,draft:sessionDraft,save:()=>saveDraft(s),onComplete:()=>{
@@ -313,7 +376,7 @@ function renderChallenge(el,s,p,mode){
   }
   if(!p){el.innerHTML='<div class="empty">No challenge available.</div>';return}
   el.innerHTML=`<div class="stage-number">STAGE ${mode==="try"?3:4} · ${mode==="try"?"INDEPENDENT ATTEMPT":"TRANSFER"}</div><h2>${mode==="try"?"Try":"Transfer"}</h2><p class="muted">${mode==="try"?"First check the method on a manageable question. Then open the stretch problem.":"Choose a method from the clues, before looking at a hint. Explain how this setting connects to an idea you know."}</p>`;
-  const node=problemTemplate.content.firstElementChild.cloneNode(true);
+  const node=problemTemplate.content.firstElementChild.cloneNode(true);node.classList.add('lesson-problem-unit');
   node.querySelector(".problem-meta").textContent=`ORIGINAL LEARNING PROBLEM · ${mode==="try"?"APPLY THE IDEA":"CHOOSE YOUR METHOD"}`;
   node.querySelector(".problem-title").textContent=p.title||p.id;
   const promptEl=node.querySelector(".problem-prompt"); promptEl.textContent=p.prompt; const figure=originalFigure(p)||problemFigure(p.id); if(figure)promptEl.insertAdjacentHTML("beforebegin",figure);
@@ -363,14 +426,14 @@ function renderChallenge(el,s,p,mode){
     }catch(e){solution.hidden=false;solution.textContent=e.message}
   };
   if(mode==='try'){
-    const fade=document.createElement('div');el.append(fade);
+    const fade=document.createElement('div');fade.className='lesson-fade-unit';el.append(fade);
     mountPractice(fade,{id:sid,seed:lessonPlan(s,course,taxonomy).visit+8,key:'faded:'+sid,draft:sessionDraft,save:()=>saveDraft(s),supported:true,label:'YOUR TURN · FINISH THE NEXT EXAMPLE'});
-    const prep=document.createElement('div');el.appendChild(prep);
+    const prep=document.createElement('div');prep.className='lesson-prep-unit';el.appendChild(prep);
     node.hidden=!core;
-    const unlock=e=>{node.hidden=false;node.scrollIntoView({behavior:'smooth',block:'start'});};
+    const unlock=e=>{node.hidden=false;const targetPage=lessonPager?.count?2:null;if(targetPage!==null)lessonPager.show(targetPage);};
     mountCheck(prep,{id:sid,slot:s.slot,records:completedRecords,draft:sessionDraft,save:()=>saveDraft(s),label:'YOUR TURN · INDEPENDENT BASICS CHECK',seedOverride:(lessonPlan(s,course,taxonomy).visit+1)%7,onDone:unlock});
   }
-  if(mode==='transfer'&&s.slot>=16){const mix=document.createElement('div');el.append(mix);mountMixed(mix,s,2);}
+  if(mode==='transfer'&&s.slot>=16){const mix=document.createElement('div');mix.className='lesson-mix-unit';el.append(mix);mountMixed(mix,s,2);}
   const bridge=document.createElement('div');bridge.className='challenge-bridge';
   bridge.innerHTML=`<h3>${mode==='try'?'Next: apply the idea':familiar?'Transfer: practise a variation':'Transfer: choose your tools'}</h3><p>Identify the requested quantity and the useful relationships. Your solution may combine more than one idea.</p><details><summary>A starting plan, without the answer</summary><ol><li>Restate the question in your own words.</li><li>Test a smaller case or draw the quantities.</li><li>Look for a connection to the worked examples. Explain why it applies before calculating.</li></ol></details>`;
   node.prepend(bridge);el.appendChild(node);
@@ -436,6 +499,7 @@ function renderWorkshop(s){
  app.querySelector('#completeWorkshop').onclick=async e=>{if(!flashReviewed(sessionDraft,'mixed-'+s.slot)){alert('Finish the five quick decisions and read the recap first.');return}if((sessionDraft.summary.mixed_skills||[]).some((id,i)=>!sessionDraft.evidence['mixed:'+i])||(sessionDraft.summary.takeaway||'').trim().length<15){alert('Attempt each question, read its feedback and write a short reflection.');return}e.target.disabled=true;try{sessionDraft.summary.type='MIXED';await completeSpecialSession(s)}catch(err){alert(err.message);e.target.disabled=false}};
 }
 async function renderReview(){
+ document.body.classList.remove("lesson-fullscreen");
  activeView="review";await refreshEvidence();
  app.innerHTML=`<section class="panel hero-panel"><div class="eyebrow">YOUR MATHEMATICAL NOTEBOOK</div><h1>Completed sessions</h1><p class="muted">The original answers and working are locked. Use a fresh session to show new learning.</p>${[...completedRecords].reverse().map(r=>`<details class="review-detail"><summary>Session ${r.session_number} · ${esc(r.summary?.focus||course[r.session_number-1]?.focus||'')} <span class="type-chip">LOCKED</span></summary><p><b>Key idea:</b> ${esc(r.summary?.takeaway||'—')}</p><p><b>Next time:</b> ${esc(r.summary?.watch||'—')}</p>${Object.entries(r.answers||{}).map(([id,a])=>`<article><h3>${esc(problemIndex.find(p=>p.id===id)?.title||id)}</h3><p class="math-copy">${esc(problemIndex.find(p=>p.id===id)?.prompt||'')}</p><p><b>Recorded answer:</b> ${esc(a?.response??a)}</p><p class="math-copy">${esc(r.working?.[id]||'')}</p><button class="ghost saved-solution" data-problem="${esc(id)}" data-session="${r.session_number}">Worked solution</button><div class="saved-solution-content"></div>${r.evidence?.['reasoning:'+id]?`<p><b>Recognition clue:</b> ${esc(r.evidence['reasoning:'+id].clue||'—')}</p><p><b>Plan:</b> ${esc(r.evidence['reasoning:'+id].plan||'—')}</p><p><b>Check or correction:</b> ${esc(r.evidence['reasoning:'+id].check||'—')}</p><p class="muted">${esc(applicationStatus(r.evidence?.['application:'+id]))} · explanation saved for review</p>`:''}</article>`).join('')}${Object.values(r.evidence||{}).filter(e=>e?.kind==='mixed_application').map(e=>`<article><h3>${esc(e.question_id)}</h3><p><b>Your method:</b> ${esc(e.method)}</p><p><b>Recorded answer:</b> ${esc(e.response)} · ${e.correct?'correct':'needs repair'}${e.used_help?' · supported':''}</p></article>`).join('')}${r.working?.mawa_base?`<div data-adult-review="${r.session_number}"></div><h3>Investigation</h3><p class="math-copy">${esc(r.working.mawa_base)}</p><h3>Extension</h3><p class="math-copy">${esc(r.working.mawa_extension||'')}</p>`:''}</details>`).join('')||'<p>No completed sessions yet.</p>'}</section>`;
  app.querySelectorAll('.saved-solution').forEach(button=>button.onclick=async()=>{button.disabled=true;const target=button.nextElementSibling;try{const {data,error}=await supabase.functions.invoke('get-problem-solution',{body:{problem_id:button.dataset.problem,session_number:Number(button.dataset.session)}});if(error||data?.error)throw error||new Error(data.error);target.className='math-copy';target.textContent=data.solution_text||data.spoken_script||'No written solution returned.'}catch(err){target.textContent=err.message;button.disabled=false}});
@@ -453,6 +517,7 @@ async function exportProgressBackup(){
   const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="Summit-One-progress-"+new Date().toISOString().slice(0,10)+".json";document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1000);
 }
 async function renderProfile(){
+ document.body.classList.remove("lesson-fullscreen");
   activeView="profile";await refreshEvidence();const r=currentRank();
   const done=progress.completed_sessions||0,currentXp=progress.xp??done*100;
   const nextRankSession=r>=20?null:Math.ceil(372*(r+1)/20);

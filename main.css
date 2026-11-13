@@ -235,3 +235,100 @@ a.primary,a.secondary,a.ghost{text-decoration:none;display:inline-flex;align-ite
 .technique-review .complete-row{display:flex;gap:10px;flex-wrap:wrap}
 .technique-review .complete-row a{min-height:45px}
 @media(max-width:600px){.technique-review .complete-row a{width:100%}.technique-review-videos{grid-template-columns:1fr}}
+
+
+/* Video-first fixed-screen lesson: no vertical page scrolling. */
+body.lesson-fullscreen{height:100dvh;overflow:hidden;overscroll-behavior:none}
+body.lesson-fullscreen .shell{width:min(1180px,100%);height:calc(100dvh - var(--lesson-topbar,72px));margin:0 auto;padding:8px 12px;overflow:hidden}
+.lesson-screen-page{height:100%;min-height:0;display:grid;grid-template-rows:auto auto minmax(0,1fr) auto;gap:7px}
+.lesson-screen-header{padding:11px 19px;border-radius:12px;box-shadow:none}
+.lesson-screen-header .eyebrow{font-size:.62rem}
+.lesson-screen-header h1{font-size:clamp(1.1rem,2.5vw,1.75rem);margin:4px 0 1px;letter-spacing:-.025em;line-height:1.18}
+.lesson-stage-track{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:4px}
+.lesson-stage-track span{border:1px solid #345169;border-radius:7px;color:#a6bdd0;padding:6px 3px;text-align:center;font-size:.69rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lesson-stage-track span.here{background:#b2dce9;border-color:#b2dce9;color:#122637;font-weight:800}
+.lesson-stage-track span.visited{border-color:#4b7384;color:#b9d5db}
+.lesson-screen-stage{display:block;overflow:hidden;min-height:0;height:100%;padding:clamp(10px,2vh,19px) clamp(12px,2vw,24px);box-shadow:none}
+.lesson-screen-stage>.stage-number,.lesson-screen-stage>h2,.lesson-screen-stage>.complete-row,.lesson-screen-stage>.muted,.lesson-screen-stage>.success-note{display:none}
+.lesson-screen-stage [data-lesson-unit],.lesson-screen-stage>.lesson-recall-brief,.lesson-screen-stage>#retrievalChecks,.lesson-screen-stage>.lesson-fade-unit,.lesson-screen-stage>.lesson-prep-unit,.lesson-screen-stage>.lesson-problem-unit{max-width:100%;max-height:100%;min-width:0}
+.lesson-recall-brief{height:100%;display:grid;place-content:center;gap:12px;text-align:center;max-width:850px;margin:auto}
+.lesson-recall-brief h2{font-size:clamp(1.55rem,3vw,2.25rem);margin:0}
+.lesson-recall-brief p{font-size:clamp(.93rem,1.9vw,1.15rem);line-height:1.55;margin:0}
+.lesson-screen-stage>.lesson-fade-unit,.lesson-screen-stage>.lesson-prep-unit{max-width:850px;margin:0 auto}
+.lesson-screen-stage .worked-example,.lesson-screen-stage .method-card{padding:clamp(12px,2vw,22px);max-width:930px;margin:0 auto;box-shadow:none;line-height:1.5}
+.lesson-screen-stage .worked-example h3,.lesson-screen-stage .method-card h3{font-size:clamp(1.05rem,2.2vw,1.45rem);margin:7px 0}
+.lesson-screen-stage .reasoning-steps{margin:7px 0;padding-left:23px}
+.lesson-screen-stage .reasoning-steps li{margin-bottom:8px;line-height:1.5}
+.lesson-screen-stage .mini-check,.lesson-screen-stage .flash-quiz{max-width:850px;margin:0 auto;padding:clamp(12px,2vw,21px);border-radius:12px}
+.lesson-screen-stage .flash-question{font-size:clamp(1.05rem,2.6vw,1.43rem);margin:8px 0}
+.lesson-screen-stage .flash-option{padding:10px;min-height:44px}
+.lesson-screen-stage .flash-intro,.lesson-screen-stage .flash-note{font-size:.8rem;line-height:1.38;margin:6px 0}
+.lesson-screen-stage .flash-feedback{padding:8px 10px}
+.lesson-screen-stage .problem-card{display:block;overflow:hidden;max-height:100%;max-width:960px;margin:auto;padding:clamp(10px,2vw,20px);border-radius:12px}
+.lesson-screen-stage .problem-prompt{font-size:clamp(.95rem,1.9vw,1.12rem);line-height:1.55}
+.lesson-screen-stage .problem-title{font-size:clamp(1.05rem,2.3vw,1.43rem);margin:5px 0}
+.lesson-screen-stage .original-figure{max-width:570px;margin:7px auto}
+.lesson-screen-stage .original-figure svg{max-height:min(24vh,205px);width:auto;max-width:100%}
+.lesson-screen-stage .original-figure figcaption{font-size:.75rem;line-height:1.32}
+.lesson-screen-stage .reasoning-record{border:0;background:transparent;padding:6px;max-width:850px;margin:auto}
+.lesson-screen-stage .reasoning-record h3{font-size:1.15rem;margin:0 0 7px}
+.lesson-screen-stage .reasoning-record .check-grid,.lesson-screen-stage .check-grid{display:grid;grid-template-columns:1fr}
+.lesson-screen-stage .reasoning-record textarea{min-height:65px;height:clamp(80px,14vh,128px)}
+.lesson-screen-stage .answer-box,.lesson-screen-stage .reason-input{min-height:50px;max-height:18vh;font-size:1rem;padding:9px 11px}
+.lesson-screen-stage .working-box{height:clamp(72px,12vh,118px)}
+.lesson-screen-stage .solution-panel{max-height:46vh;overflow:hidden}
+.lesson-screen-stage .check-status{max-width:830px;margin:auto}
+.lesson-screen-stage .check-status .reason-input{height:clamp(90px,17vh,140px)}
+.lesson-screen-stage .transfer-checks{max-width:850px;margin:auto}
+.lesson-screen-stage .check-grid textarea{height:clamp(110px,24vh,185px)}
+.opening-film{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center}
+.opening-film h2{font-size:clamp(1.25rem,3vw,1.95rem);line-height:1.15;margin:0}
+.opening-film>.muted{max-width:840px;font-size:clamp(.8rem,1.6vw,1rem);line-height:1.35;margin:0}
+.opening-video-wrap{width:min(100%,940px);max-height:56%;aspect-ratio:16/9;display:grid;place-items:center;border:1px solid #44657c;border-radius:12px;overflow:hidden;background:#020914}
+.opening-video-wrap video{width:100%;height:100%;object-fit:contain;display:block;background:#030a14}
+.opening-video-wrap video[hidden]{display:none}
+.opening-levels{display:flex;gap:9px;justify-content:center;flex-wrap:wrap;margin:0}
+.opening-levels span{font-size:.76rem;font-weight:650;border:1px solid #426078;border-radius:7px;padding:4px 12px;background:#152638}
+.opening-coda{font-size:clamp(.78rem,1.65vw,.94rem);color:#c1d3e0;max-width:780px;margin:0;line-height:1.4}
+.opening-fallback{width:min(100%,790px)}
+.opening-fallback[hidden]{display:none}
+.opening-concept-board{display:grid;align-content:center;justify-items:center;gap:14px;max-width:860px;width:100%;height:42%;padding:18px;border:1px solid #416c85;border-radius:14px;background:radial-gradient(circle,#1a3a54,#0b1a2c 75%)}
+.opening-concept-method{font-size:clamp(1.25rem,2.9vw,2.1rem);color:#ecf6fb;font-weight:750}
+.opening-concept-mark{display:grid;place-items:center;width:70px;height:70px;border-radius:50%;border:2px solid #79cde5;color:#e3f7fa;font-weight:800;animation:lesson-emerge 2.8s ease-in-out infinite alternate}
+.opening-concept-board p{color:#bfd7e5;margin:0;font-size:.92rem}
+@keyframes lesson-emerge{from{transform:rotateY(-12deg) scale(.96)}to{transform:rotateY(12deg) scale(1.04)}}
+.lesson-screen-footer{display:grid;grid-template-columns:minmax(84px,184px) minmax(0,1fr) minmax(84px,184px);gap:10px;align-items:center;min-height:60px;padding:7px 12px;border:1px solid #456079;background:#192a3d;border-radius:12px}
+.lesson-screen-footer button{min-height:44px}
+.lesson-screen-progress{display:grid;place-items:center;gap:2px;min-width:0}
+.lesson-screen-progress strong{font-size:clamp(.83rem,1.7vw,1.03rem);max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lesson-screen-progress span{font-size:.73rem;color:#abc3d7;font-variant-numeric:tabular-nums}
+@media(max-width:680px){
+ body.lesson-fullscreen .topbar{padding:9px 10px}
+ body.lesson-fullscreen .brand small{display:none}
+ body.lesson-fullscreen .topnav .nav-btn:not([data-view="home"]),body.lesson-fullscreen .topnav .nav-link:not(.nav-major){display:none}
+ body.lesson-fullscreen .shell{padding:5px 7px 7px}
+ .lesson-screen-page{gap:5px}
+ .lesson-screen-header{padding:8px 11px}
+ .lesson-screen-header h1{font-size:1.04rem}
+ .lesson-stage-track span{font-size:.56rem;padding:5px 1px}
+ .lesson-screen-stage{padding:9px 10px}
+ .lesson-screen-stage .worked-example,.lesson-screen-stage .method-card,.lesson-screen-stage .problem-card{padding:10px 12px}
+ .lesson-screen-stage .method-card p,.lesson-screen-stage .worked-example p{font-size:.88rem;line-height:1.43}
+ .lesson-screen-stage .mini-check,.lesson-screen-stage .flash-quiz{padding:10px 12px}
+ .lesson-screen-stage .flash-note{display:none}
+ .lesson-screen-stage .reasoning-record{padding:5px}
+ .lesson-screen-stage .reasoning-record textarea{height:75px}
+ .lesson-screen-stage .original-figure svg{max-height:23vh}
+ .opening-video-wrap{max-height:49%}
+ .opening-film>.muted{font-size:.77rem}
+ .lesson-screen-footer{min-height:56px;grid-template-columns:83px minmax(0,1fr) 91px;padding:5px}
+ .lesson-screen-footer button{font-size:.87rem;padding:7px}
+ .lesson-screen-progress strong{font-size:.8rem}
+}
+@media(max-height:700px){
+ .lesson-screen-stage{padding:7px 9px}
+ .lesson-stage-track span{padding:3px 1px}
+ .opening-video-wrap{max-height:45%}
+ .lesson-screen-footer{min-height:51px}
+}
+@media(prefers-reduced-motion:reduce){.opening-concept-mark{animation:none}}
