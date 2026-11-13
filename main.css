@@ -395,3 +395,61 @@ body.home-focus .shell{width:min(1050px,100%);height:calc(100dvh - var(--lesson-
 
 /* Keep the Progress tab accessible even inside video-first fullscreen lessons. */
 @media(max-width:680px){body.lesson-fullscreen .topnav>.nav-stats{display:inline-flex!important}}
+
+
+/* Chronological maths course navigator: one menu button, not a row of tabs. */
+.topbar{display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:flex-start!important;gap:12px!important;padding:10px clamp(12px,3vw,26px)!important;min-height:59px}
+.topbar .brand{flex:0 1 auto;min-width:0}
+.menu-trigger{display:inline-flex;align-items:center;justify-content:center;gap:8px;flex:0 0 auto;min-width:93px;min-height:44px;padding:8px 12px;border-radius:10px;color:#eaf3fa;background:#203449;border:1px solid #4c6981;font-size:.9rem;font-weight:750}
+.menu-trigger:hover,.menu-trigger[aria-expanded="true"]{background:#2b475c;color:#fff}
+.menu-trigger-icon{font-size:1.2rem;line-height:1;transform:translateY(-1px)}
+dialog.course-menu{position:fixed;inset:0 auto 0 0;margin:0;padding:0;box-sizing:border-box;width:min(405px,94vw);height:100dvh;max-width:94vw;max-height:100dvh;color:#f1f7fc;background:#111d2d;border:0;border-right:1px solid #49647c;border-radius:0 14px 14px 0;box-shadow:22px 0 50px rgba(0,0,0,.37)}
+dialog.course-menu:not([open]){display:none}
+dialog.course-menu::backdrop{background:rgba(1,7,15,.72);backdrop-filter:blur(2px)}
+.course-menu-shell{height:100%;height:100dvh;min-height:0;display:grid;grid-template-rows:auto minmax(0,1fr) auto;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.course-menu-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:20px 18px 13px;border-bottom:1px solid #2d4256}
+.course-menu-head h2{font-size:1.42rem;line-height:1.15;letter-spacing:-.022em;margin:5px 0 0}
+.course-menu-head .eyebrow{font-size:.62rem}
+.menu-close{display:grid;place-items:center;width:42px;height:42px;border-radius:10px;border:1px solid #50677b;background:#24394c;color:#e6f6ff;font-size:1.1rem}
+.course-menu-content{min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:12px 12px 22px;scrollbar-width:thin;scrollbar-color:#56778d #152336}
+.course-menu-current{display:grid;gap:10px;margin:2px 2px 14px;padding:15px 13px;border:1px solid #46647a;border-radius:12px;background:#1b3042}
+.course-menu-current>b{line-height:1.5;font-size:.98rem}
+.course-menu-current .eyebrow{font-size:.62rem}
+.course-menu-continue{background:#a3daee;border:0;border-radius:8px;color:#102332;font-size:.9rem;font-weight:800;min-height:44px;padding:10px 14px;width:100%}
+.course-menu-divider{margin:13px 6px;border-top:1px solid #344b60}
+.course-menu-row{width:100%;min-height:64px;display:flex;align-items:center;gap:11px;min-width:0;text-align:left;padding:12px 11px;margin:0 0 5px;background:transparent;border:1px solid transparent;border-radius:9px;color:#e5eff6;text-decoration:none;font-size:.91rem}
+button.course-menu-row{cursor:pointer}
+button.course-menu-row:hover,a.course-menu-row:hover{background:#21384a;border-color:#42657a}
+.course-menu-copy{display:grid;min-width:0;flex:1;gap:3px}
+.course-menu-copy b{font-size:.93rem;line-height:1.27;overflow-wrap:anywhere;font-weight:680}
+.course-menu-copy small{font-size:.75rem;line-height:1.4;color:#a5b9c9;overflow-wrap:anywhere}
+.course-menu-chevron{font-size:1.6rem;color:#a9d6e7;line-height:1;margin-left:auto}
+.course-menu-back{width:100%;padding:10px 11px;margin:1px 0 13px;text-align:left;min-height:43px;background:#1d3347;border:1px solid #446178;border-radius:9px;color:#cceafa;font-size:.87rem;font-weight:720}
+.course-menu-explainer{color:#b0c1d1;line-height:1.5;font-size:.79rem;padding:3px 8px 13px;margin:0}
+.course-menu-session-list{display:grid;gap:4px}
+.course-menu-session{min-height:63px;padding:10px;gap:10px;margin:0}
+.course-menu-number{flex:0 0 39px;text-align:center;font-variant-numeric:tabular-nums;font-size:.8rem;color:#aac0d0;font-weight:750}
+.course-menu-status{width:23px;height:23px;display:grid;place-items:center;flex:0 0 23px;border-radius:50%;border:1px solid transparent;font-size:.85rem;font-weight:800}
+.course-menu-status.completed{background:#264f46;border-color:#548d7e;color:#afe8d2}
+.course-menu-session.is-completed{background:#162a2a;color:#b8d8ce;border-color:#29473f}
+.course-menu-session.is-completed .course-menu-copy b{font-weight:640;color:#b8d8ce}
+.course-menu-session.is-completed .course-menu-number{color:#7bad9e}
+.course-menu-session.is-completed:hover{background:#1c3734;border-color:#578777}
+.course-menu-session.is-current{background:#1c374c;border-color:#4e94b9;color:#f2fbff}
+.course-menu-session.is-current .course-menu-copy b{font-weight:780;color:#f0fbff}
+.course-menu-session.is-current .course-menu-number{color:#9cdaf0}
+.course-menu-status.current{color:#132938;background:#9bdaed;border-color:#9bdaed;font-size:.69rem}
+.course-menu-session.is-locked{background:#151f2c;border-color:#202f40;opacity:.61;cursor:default}
+.course-menu-session.is-locked .course-menu-copy b{font-weight:550;color:#a8b8c5}
+.course-menu-status.locked{color:#8099ad;border-color:#496072}
+.course-menu-legend{display:inline}
+.legend-complete{color:#9fe0c5;font-weight:680}
+.legend-current{color:#a8e7fa;font-weight:680}
+.course-menu-footer{padding:12px;border-top:1px solid #30485e;background:#142436}
+.course-menu-progress{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:left;padding:12px 14px;border:1px solid #425e75;border-radius:10px;background:#203649;color:#eaf4fa;min-height:59px}
+.course-menu-progress span{display:grid;gap:4px}
+.course-menu-progress b{font-size:.92rem}
+.course-menu-progress small{font-size:.73rem;color:#b6c9d8}
+.course-menu-progress strong{flex:0 0 auto;white-space:nowrap;color:#b8e4ef;font-variant-numeric:tabular-nums;font-size:.9rem}
+.course-menu button:focus-visible,.course-menu a:focus-visible,.menu-trigger:focus-visible{outline:2px solid #a5e8ff;outline-offset:2px}
+@media(max-width:520px){.topbar{gap:10px!important;padding:8px 11px!important;min-height:56px}.menu-trigger{min-height:42px;min-width:83px;padding:7px 9px;font-size:.84rem}.topbar .brand small{display:none}.topbar .brand b{font-size:.8rem}.topbar .brand-mark{width:30px;height:30px;font-size:17px}dialog.course-menu{width:min(390px,96vw);max-width:96vw}.course-menu-head{padding:16px 15px 11px}.course-menu-content{padding:10px 10px 19px}}
