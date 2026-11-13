@@ -335,6 +335,9 @@ function renderLessonOpening(el,s){
 function setLessonScreenTopbar(){
  document.body.style.setProperty("--lesson-topbar",Math.ceil(document.querySelector(".topbar")?.getBoundingClientRect().height||72)+"px");
 }
+window.addEventListener("resize",()=>{
+ if(document.body.classList.contains("lesson-fullscreen")||document.body.classList.contains("home-focus"))setLessonScreenTopbar();
+});
 function renderSession(s){
  document.body.classList.remove("home-focus");
  document.body.classList.add("lesson-fullscreen");
