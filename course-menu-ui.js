@@ -1,5 +1,5 @@
 /** Vertical course navigation: green checks mean completed and reviewable. */
-export function mountCourseMenu({navigation,getDone,getCurrent,onContinue,onCompleted,onView}){
+export function mountCourseMenu({navigation,getDone,getCurrent,onContinue,onCompleted,onIntroduction,onView}){
   const dialog=document.getElementById("courseMenu");
   const toggle=document.getElementById("menuToggle");
   const close=document.getElementById("menuClose");
@@ -27,10 +27,13 @@ export function mountCourseMenu({navigation,getDone,getCurrent,onContinue,onComp
     const status=statusOf(item),number=String(item.slot).padStart(3,"0");
     const label=`Session ${number}. ${item.focus}. ${status==="completed"?"Completed, open saved review":status==="current"?"Current, continue":"Not yet available"}.`;
     const marker=status==="completed"?"✓":status==="current"?"▶":"○";
-    const detail=status==="completed"?"Completed · View your work":status==="current"?"Continue this session":"Upcoming · Follows the course path";
+    const detail=status==="completed"?"Completed · View saved working":status==="current"?"Continue this session":"Upcoming · Follows the course path";
     const inner=`<span class="course-menu-number">${number}</span><span class="course-menu-copy"><b>${escape(item.focus)}</b><small>${escape(detail)}</small></span><span class="course-menu-status ${status}" aria-hidden="true">${marker}</span>`;
     if(status==="locked")return `<div class="course-menu-row course-menu-session is-locked" aria-label="${escape(label)}">${inner}</div>`;
-    return `<button type="button" class="course-menu-row course-menu-session is-${status}" data-menu-slot="${item.slot}" aria-label="${escape(label)}">${inner}</button>`;
+    const availableIntro=item.type==="LESSON";
+    const publishedFilm=item.slot===1||item.slot===2;
+    const watch=availableIntro?`<button type="button" class="course-menu-watch" data-menu-intro-slot="${item.slot}" aria-label="${escape(publishedFilm?"Watch introduction video for session "+number:"Review teaching for session "+number)}" title="${publishedFilm?"Watch introduction":"Review teaching"}">${publishedFilm?"Watch intro":"Teaching"}</button>`:"";
+    return `<div class="course-menu-row course-menu-session is-${status}" data-menu-slot="${item.slot}"><button type="button" class="course-menu-session-main" aria-label="${escape(label)}">${inner}</button>${watch}</div>`;
   }
   function groups(){
     if(state.section==="lessons")return navigation.topics;
@@ -43,7 +46,7 @@ export function mountCourseMenu({navigation,getDone,getCurrent,onContinue,onComp
     if(state.level==="root"){
       title.textContent="Menu";
       const current=getCurrent();
-      content.innerHTML=`<section class="course-menu-current"><span class="eyebrow">CURRENT LEARNING</span><b>${done>=372?"All 372 sessions completed":`Session ${current?.slot??"—"} · ${escape(current?.focus||"")}`}</b><button type="button" class="course-menu-continue" data-menu-action="continue">${done>=372?"See progress":"Continue lesson"}</button></section>
+      content.innerHTML=`<section class="course-menu-current"><span class="eyebrow">CURRENT LEARNING</span><b>${done>=372?"All 372 sessions completed":`Session ${current?.slot??"—"} · ${escape(current?.focus||"")}`}</b><button type="button" class="course-menu-continue" data-menu-action="continue">${done>=372?"See progress":"Continue lesson"}</button>${done<372&&current?.type==="LESSON"?`<button type="button" class="course-menu-current-intro" data-menu-intro-slot="${current.slot}">Watch lesson introduction</button>`:""}</section>
         <div class="course-menu-divider" role="separator"></div>
         ${btn("lessons","Lessons",`${navigation.totals.lessons} technique lessons · ${navigation.topics.length} maths categories`)}
         ${btn("mawa","MAWA investigations",`${navigation.totals.mawa} investigations`)}
@@ -99,6 +102,7 @@ export function mountCourseMenu({navigation,getDone,getCurrent,onContinue,onComp
     const screen=event.target.closest("[data-menu-screen]");
     const back=event.target.closest("[data-menu-back]");
     const actionButton=event.target.closest("[data-menu-action]");
+    const introduction=event.target.closest("[data-menu-intro-slot]");
     const session=event.target.closest("[data-menu-slot]");
     if(back){
       state=back.dataset.menuBack==="root"?{level:"root",section:null,group:null}:{level:"sections",section:state.section,group:null};
@@ -106,6 +110,15 @@ export function mountCourseMenu({navigation,getDone,getCurrent,onContinue,onComp
     }
     if(screen){state={level:"sections",section:screen.dataset.menuScreen,group:null};redraw();return}
     if(group){state={level:"group",section:state.section,group:group.dataset.menuGroup};redraw();return}
+    if(introduction){
+      const slot=Number(introduction.dataset.menuIntroSlot);
+      const item=navigation.all.find(x=>x.slot===slot);
+      if(!item||item.type!=="LESSON"||statusOf(item)==="locked")return;
+      hide();
+      try{await onIntroduction(slot)}
+      catch(error){alert(error.message)}
+      return;
+    }
     if(session){
       const slot=Number(session.dataset.menuSlot);
       const item=navigation.all.find(x=>x.slot===slot);
