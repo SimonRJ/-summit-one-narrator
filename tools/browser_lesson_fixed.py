@@ -163,8 +163,27 @@ async def main():
   assert (await completed.locator('.course-menu-status.completed').inner_text()).strip()=='✓'
   completed_colour=await completed.locator('.course-menu-status.completed').evaluate('(el)=>getComputedStyle(el).color')
   assert completed_colour!='rgb(255, 255, 255)',completed_colour
-  await completed.click()
+  # Completed lesson has both a saved-work entry and a direct video replay action.
+  assert await completed.locator('[data-menu-intro-slot="1"]').count()==1
+  snapshot=await page.evaluate("""() => ({writes:fixture.writes.length,done:fixture.progress.completed_sessions,
+    answer:fixture.records[0].answers,working:fixture.records[0].working,immutable:fixture.records[0].immutable})""")
+  await completed.locator('[data-menu-intro-slot="1"]').click()
+  await page.locator('#replayIntroVideo').wait_for()
+  assert await page.locator('#replayIntroVideo').get_attribute('controls') is not None
+  assert 'media/S001-Intro.mp4' in await page.locator('#replayIntroVideo').get_attribute('src')
+  assert await page.locator('.lesson-replay-note').get_by_text('cannot restart',exact=False).count()==1
+  assert await page.locator('[data-screen-next],.submit-answer').count()==0
+  await page.wait_for_timeout(200)
+  now=await page.evaluate("""() => ({writes:fixture.writes.length,done:fixture.progress.completed_sessions,
+    answer:fixture.records[0].answers,working:fixture.records[0].working,immutable:fixture.records[0].immutable})""")
+  assert now==snapshot,('Video replay must be completely read-only',snapshot,now)
+  await page.screenshot(path=str(ROOT/'docs/completed-lesson-intro-iphone.png'))
+  await page.locator('#replayBack').click()
   await page.locator('.review-detail[data-review-session="1"][open]').wait_for()
+  assert await page.locator('.saved-intro[data-video-session="1"]').count()==1
+  await page.locator('.saved-intro[data-video-session="1"]').click()
+  await page.locator('#replayIntroVideo').wait_for()
+  await page.locator('#replayHome').click()
   await page.locator('#menuToggle').click()
   await page.locator('#courseMenuContent [data-menu-action="continue"]').click()
   assert 'S002-Intro.mp4' in await page.locator('#openingVideo').get_attribute('src')
