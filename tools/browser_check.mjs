@@ -22,7 +22,7 @@ try{
   await page.goto('http://127.0.0.1:4173/tests.html?section=depth');await page.getByRole('heading',{name:'AMC Practice · Part B (Q21–30)',exact:true}).waitFor();
   await page.getByRole('button',{name:'Prepare to start',exact:true}).click();await page.getByRole('button',{name:'Start my only attempt',exact:true}).click();await page.getByRole('button',{name:'CLICK HERE TO GO TO FIRST QUESTION'}).click();await page.locator('[data-choice="B"]').click();
  await page.screenshot({path:`qa-screenshots/${prefix}-amc-question.png`,fullPage:true});
-  if(mobile)await page.locator('#menuToggle').click();await page.locator('#questionMenu [data-q="26"]').click();await page.locator('#integerInput').fill('12');await page.locator('#saveInteger').click();
+  if(mobile)await page.locator('#menuToggle').click();await page.locator('#questionMenu [data-q="5"]').click();await page.locator('#integerInput').fill('12');await page.locator('#saveInteger').click();
   if(mobile)await page.locator('#menuToggle').click();await page.locator('#finish').click();await page.locator('#missingAnswers').waitFor();assert.match(await page.locator('#missingAnswers').innerText(),/8 unanswered/);
  await page.screenshot({path:`qa-screenshots/${prefix}-submit-warning.png`,fullPage:true});await page.locator('#confirmFinish').click();await page.getByRole('heading',{name:'Question-by-question results'}).waitFor();await page.locator('[data-solution="26"]').click();await page.locator('#solution-26[open]').waitFor();await page.screenshot({path:`qa-screenshots/${prefix}-exam-review.png`,fullPage:true});
  // Preserve an existing repair's independent evidence while saving a diagnosis.
