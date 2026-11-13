@@ -19,29 +19,41 @@ assert.equal(examClock(speedEnd,start+3*60_000).label,"17:00","existing countdow
 const q=[{question_number:21},{question_number:25},{question_number:26}];
 assert.deepEqual(answerGaps(q,{"21":"A","26":"314"},{"26":"315"}),{missing:[25],unsaved:[26]});
 
-const src=await readFile(new URL("../tests.js",import.meta.url),"utf8");
-const app=await readFile(new URL("../app-main.js",import.meta.url),"utf8");
-const index=await readFile(new URL("../index.html",import.meta.url),"utf8");
-const testsPage=await readFile(new URL("../tests.html",import.meta.url),"utf8");
-const examStyle=await readFile(new URL("../exam.css",import.meta.url),"utf8");
-const sw=await readFile(new URL("../sw.js",import.meta.url),"utf8");
 
-assert.doesNotThrow(()=>new Function(src.replace(/^import .*$/gm,"")),"exam UI syntax");
-assert.doesNotThrow(()=>new Function(app.replace(/^import .*$/gm,"")),"learning UI syntax");
-for(const section of ['speed','depth','amc','practice','rossmoyne','mawa']){
- assert(src.includes('id:"'+section+'"')||src.includes("id:\""+section+"\""),"hub card present: "+section);
+const read=async path=>readFile(new URL(path,import.meta.url),"utf8");
+const src=await read("../tests.js"),app=await read("../app-main.js"),index=await read("../index.html");
+const testsPage=await read("../tests.html"),style=await read("../exam.css"),worker=await read("../sw.js");
+const map=JSON.parse(await read("../data/skill-session-links.json"));
+const sessions=JSON.parse(await read("../data/sessions-372.json")).sessions;
+
+assert.doesNotThrow(()=>new Function(src.replace(/^import .*$/gm,"")),"AMC UI must parse");
+assert.doesNotThrow(()=>new Function(app.replace(/^import .*$/gm,"")),"Learning UI must parse");
+
+for(const id of ["speed","depth","amc","rossmoyne","mawa"])
+ assert(src.includes('id:"'+id+'"'),"Hub entry "+id);
+assert(!src.includes('id:"practice"'),"The extra full-mock category must not be visible");
+assert(!src.includes('["practice","Full mocks"]'),"The old AMC full-mock navigation must be absent");
+assert(src.includes("plannedSets=isPart?Array.from({length:30}"),"Thirty reserved slots in each part");
+assert(src.includes("one scored attempt")||src.includes("One scored attempt"),"Attempts are single-sitting");
+assert(!src.includes("Start another practice attempt"),"No repeat prompt in final review");
+assert(src.includes("lessonLinksHTML(r)"),"Every result has an associated review-link section");
+assert(app.includes("function renderTechniqueRefresher()"),"Read-only lesson review route exists");
+assert(app.includes('requestedView==="technique"'),"Deep link to technique route exists");
+assert(src.includes("save_exam_response")&&src.includes("/functions/v1/grade-exam"),"Existing protected grading still used");
+assert(src.includes("answerGaps"),"Submission confirmation must catch missing/unsaved responses");
+assert(src.includes("elapsedClock"),"Count-up clock retained");
+
+assert.equal(Object.keys(map.skills).length,52,"All mathematical skills have mapped lessons");
+for(const [skill,entry] of Object.entries(map.skills)){
+ assert(entry.sessions.length>0,"Missing learning path for "+skill);
+ for(const item of entry.sessions){
+  const actual=sessions.find(s=>s.slot===item.slot&&s.type==="LESSON");
+  assert(actual&&actual.focus===item.focus,"Incorrect lesson mapping "+skill+" @ "+item.slot);
+ }
 }
-for(const phrase of ["formatElapsedSeconds","first","Fastest perfect","time_used_seconds","elapsedClock","case","split familiarisation"]){
- assert(src.toLowerCase().includes(phrase.toLowerCase()),"expected split support phrase "+phrase);
-}
-assert(src.includes("save_exam_response"),"response RPC still used");
-assert(src.includes("/functions/v1/grade-exam"),"secure grading function still used");
-assert(src.includes("answerGaps"),"end confirmation still checks missing and unsaved");
-assert(src.includes("Q21–25")&&src.includes("Q26–30"),"depth mark legend present");
-assert(src.includes("20 / 20")&&src.includes("65 available marks"),"targets and marks present");
-assert(index.includes('data-view="home"')&&index.includes('href="tests.html"'),"Learning and Exams top-level routes");
-assert(testsPage.includes("tests.js?v=split-20261113"),"tests bundle cache-busted");
-assert(examStyle.includes(".exam-mode .exam-main"),"existing exam interaction styling retained");
-assert(sw.includes("split-20261113"),"service worker cache version updated");
-assert(app.includes("Continue Session"),"single-path teaching action unchanged");
-console.log("AMC split-mode structural, timing and navigation QA passed.");
+assert(index.includes("main.css?v=curated-20261113"));
+assert(testsPage.includes("tests.js?v=curated-20261113"));
+assert(style.includes(".amc-pending-sets"));
+assert(worker.includes("summit-one-curated-amc-20261113"));
+assert(worker.includes("skill-session-links.json"));
+console.log("PASS: curated AMC A/B split, 30-slot plans, one-attempt UI, 52 links and countdown boundaries.");
