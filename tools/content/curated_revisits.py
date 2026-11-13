@@ -7,7 +7,7 @@ Each replacement independently checks its answer against the original key.
 from fractions import Fraction
 
 def curate(skill, role, visit, original):
-    if visit <= 1 or skill not in ('DIV-03','ALG-04','DATA-02'): return original
+    if visit <= 1 or skill not in ('DIV-03','ALG-04','DATA-02','DIG-03'): return original
     a=Fraction(str(original['answer']))
     x=visit+6
     def q(title,prompt,steps,check,insight,result):
@@ -235,4 +235,92 @@ def curate(skill, role, visit, original):
              f'There are still {x} values, so the corrected mean is {corrected} ÷ {x} = {result}.'],
             f'The number of observations does not change. The total changes by {actual-recorded}.',
             'Correct the total first; do not change the divisor when one value is replaced.',result)
+
+    if skill=='DIG-03' and role=='try':
+        if visit==2:
+            return q('Count numbers containing a digit',
+                'From 19 to 63 inclusive, how many whole numbers contain the digit 2 at least once?',
+                ['The ten numbers 20 to 29 all contain a 2.',
+                 'Four more numbers, 32, 42, 52 and 62, also contain a 2. The total is 10 + 4 = 14.'],
+                '22 is one number despite containing two copies of the digit 2.',
+                'Counting numbers that contain a digit differs from counting individual occurrences of that digit.',14)
+        if visit==3:
+            return q('Which numbers repeat a digit?',
+                'How many whole numbers from 1 to 112 inclusive have at least one digit appearing twice or more?',
+                ['The two-digit numbers that repeat a digit are 11, 22, 33, 44, 55, 66, 77, 88 and 99: nine numbers.',
+                 'From 100 to 112, the repeated-digit numbers are 100, 101, 110, 111 and 112: five more. The answer is 14.'],
+                'The number 111 qualifies once, not three times, because the objects counted are whole numbers.',
+                'Keep a complete list of cases and avoid counting one number several times.',14)
+        if visit==4:
+            return q('Count the characters in a sequence of labels',
+                'A small exhibition labels its displays with every whole number from 4 to 13. How many printed digits are used altogether?',
+                ['There are six one-digit labels from 4 to 9, using 6 digits.',
+                 'There are four two-digit labels from 10 to 13, using 8 digits. Total 6 + 8 = 14.'],
+                'There are ten displays, but the number of printed digits is 14.',
+                'Count each label according to its length rather than treating all numbers as the same size.',14)
+        if visit==5:
+            return q('Count every appearance of the number seven',
+                'A ticket roll is numbered from 70 to 109 inclusive. How many times is the digit 7 printed?',
+                ['The tens position contributes a 7 in every number from 70 to 79, for 10 occurrences.',
+                 'The units position contributes another at 77, 87, 97 and 107. Total 10 + 4 = 14.'],
+                'The ticket 77 contributes two occurrences, one from each digit position.',
+                'When counting occurrences, different positions contribute separately.',14)
+        if visit==6:
+            return q('Count a repeated units digit',
+                'A scoreboard lists all whole numbers from 10 to 49 inclusive. How many copies of the digit 1 appear in those numbers?',
+                ['The tens position contributes 10 copies of 1 in the numbers 10 through 19.',
+                 'The units position contributes 1 at 11, 21, 31 and 41. So the total is 14.'],
+                '11 contributes two copies because both of its digits are 1.',
+                'Separate contributions by digit position before combining them.',14)
+        if visit==7:
+            return q('Count labels containing at least one three',
+                'A museum labels its cases with consecutive numbers from 29 to 73. How many labels contain the digit 3 at least once?',
+                ['The ten labels 30 through 39 contain a 3 in the tens place.',
+                 'The labels 43, 53, 63 and 73 also contain 3. This gives 10 + 4 = 14 labels.'],
+                'The label 33 is counted once because this question counts labels, not printed copies of the digit.',
+                'The phrase at least once changes the mathematical object being counted.',14)
+
+    if skill=='DIG-03' and role=='transfer':
+        if visit==2:
+            return q('Digits across the one-digit boundary',
+                'A library prints shelf labels 9, 10, 11, and every consecutive integer through 49. How many individual digit characters does it print?',
+                ['The label 9 has one digit.',
+                 'The forty labels from 10 through 49 each have two digits: 40 × 2 = 80. Total 1 + 80 = 81.'],
+                'There are 41 labels but 81 digits, because one label has a different length.',
+                'A change from one-digit to two-digit labels changes the number of characters per label.',81)
+        if visit==3:
+            return q('Count digits on inclusive numbered cards',
+                'Cards are numbered consecutively from 7 to 55, including both ends. How many digits are printed on all the cards?',
+                ['The three cards 7, 8 and 9 need one digit each.',
+                 'The forty-six cards from 10 to 55 need two digits each. Total 3 + 46 × 2 = 95.'],
+                '55 − 10 + 1 = 46 includes both ends of the two-digit range.',
+                'Always split across a change in number length and count endpoints explicitly.',95)
+        if visit==4:
+            return q('Digit characters in a numbered strip',
+                'A strip prints every integer from 6 through 61, in order. How many individual digits appear on the strip?',
+                ['Four labels, 6 to 9, each use one digit.',
+                 'The remaining fifty-two labels, 10 to 61, each use two. The total is 4 + 52 × 2 = 108.'],
+                '61 − 10 + 1 = 52, so no endpoint is omitted.',
+                'Count lengths of individual labels, not only the number of labels.',108)
+        if visit==5:
+            return q('A page-number printing budget',
+                'A booklet prints the page numbers from 2 through 59. How many digit characters are needed to print all those page numbers?',
+                ['The eight page numbers 2 to 9 are one digit each.',
+                 'The fifty page numbers 10 to 59 are two digits each. Total 8 + 50 × 2 = 108.'],
+                'Fifty-eight pages are numbered, but many numbers need two characters.',
+                'A digit-counting budget depends on the number of numerals at each length.',108)
+        if visit==6:
+            return q('Two sizes of membership labels',
+                'A club prints 20 different three-digit badges and 12 different four-digit badges. Leading zeroes are printed wherever needed. How many digit characters are used in total?',
+                ['The twenty three-digit badges require 20 × 3 = 60 characters.',
+                 'The twelve four-digit badges require 12 × 4 = 48 more. Together they require 108 characters.'],
+                '60 + 48 = 108, independently of the individual numbers printed on the badges.',
+                'When label length is specified, multiply quantity by digits per label before adding.',108)
+        if visit==7:
+            return q('A mixed batch of number plates',
+                'A workshop prints 30 three-digit identification labels and 9 two-digit labels. How many digits will be printed across all 39 labels?',
+                ['Thirty labels of length 3 use 30 × 3 = 90 digit characters.',
+                 'Nine labels of length 2 use 9 × 2 = 18 more. The combined total is 108.'],
+                '90 + 18 = 108 digits even though there are only 39 separate labels.',
+                'The requested count is printed digits, not the number of identification labels.',108)
     return original
