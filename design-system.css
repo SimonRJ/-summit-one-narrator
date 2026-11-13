@@ -194,3 +194,20 @@ body .brand .brand-mark img{filter:none}
  body :is(.math-copy,.problem-prompt,.stem,.solution-panel,.worked-example li,.method-card p){font-size:.98rem}
  .math-display .katex{font-size:1.03em}
 }
+
+/* Guard compact stage labels against accidental mathematical typography.
+   Preserve the current Source Sans/Serif family throughout the app. */
+.lesson-screen-stage .mini-check .eyebrow,
+.lesson-screen-stage .flash-top .eyebrow,
+.lesson-screen-stage .worked-example .eyebrow,
+.lesson-screen-stage .method-card .eyebrow{
+  display:block;
+  max-width:100%;
+  font-family:var(--summit-ui);
+  font-style:normal;
+  font-weight:600;
+  line-height:1.4;
+  letter-spacing:.07em;
+  white-space:normal;
+  overflow-wrap:normal;
+}
