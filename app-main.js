@@ -3,14 +3,14 @@ import {wordingHTML} from './recognition.js?v=recognition-20261113';
 import {bridgeHTML,mountPractice} from './transfer-practice.js?v=content-audit-20261113';
 import {allRows,queueLessonRepairs,renderRepairs,mountInvestigationReview,rubricHTML} from './learning-support.js?v=cinematic-practice-20261113';
 import {mountFlashCards,flashReviewed} from './flash-ui.js?v=content-audit-20261113';
-import {selectOriginalProblems,familySeen,reasoningReady,applicationStatus,mountReasoning,originalFigure,LEARNING_VERSION} from './original-learning.js?v=cinematic-practice-20261113';
+import {selectOriginalProblems,familySeen,reasoningReady,applicationStatus,mountReasoning,originalFigure,LEARNING_VERSION} from './original-learning.js?v=geometry-20261114';
 import {introductionHTML,lessonPlan,investigationIntroHTML,investigationWarmupHTML} from './session-intros.js?v=recognition-20261113';
 
 if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));}
 import { supabase, loadProgress, saveProgress, signOut, currentUser, upsertSession } from "./supabase-client.js?v=auth-20261112";
 import { mountNarratedPlayer } from "./lesson-player.js";
 import {methods,skillFor,recallState} from "./curriculum.js?v=recognition-20261113";
-import {lessonCard,mountCheck,mountRetrieval,readinessHTML} from "./learning-ui.js?v=recognition-20261113";
+import {lessonCard,mountCheck,mountRetrieval,readinessHTML} from "./learning-ui.js?v=geometry-20261114";
 import {advancedConnectionHTML} from "./advanced-connections.js?v=adv-enrichment-20261113";
 import { problemFigure } from "./problem-figures.js";
 import {mountLessonPager} from "./lesson-pager.js?v=responsive-20261113";
