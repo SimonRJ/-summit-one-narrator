@@ -343,7 +343,7 @@ function renderSession(s){
  lessonPager=mountLessonPager({pages,footer,initial:activeLessonPanel,onNext:leaveNext,onBack:leaveBack,onChange:persistLocation});
 }
 function renderRemember(el,s){
- el.innerHTML=`${introductionHTML(s,course,taxonomy)}<div class="stage-number">NOW REMEMBER · ABOUT 5 MINUTES</div><h2>Warm up what you know</h2><p class="muted">Start without notes. Getting stuck shows us what to revisit.</p><div id="retrievalChecks"></div><div class="complete-row"><span class="muted">Try the due checks before continuing.</span><button class="primary" id="nextStage">Discover</button></div>`;
+ const p=lessonPlan(s,course,taxonomy);el.innerHTML=`<div class="lesson-recall-brief"><div class="eyebrow">REMEMBER · NO TIMER</div><h2>Bring back one useful idea</h2><p>${esc(p.prerequisite)}</p><p class="muted">A short check strengthens your understanding. It does not change your exam score.</p></div><div id="retrievalChecks"></div><div class="complete-row"><span class="muted">Try any due recall checks before continuing.</span><button class="primary" id="nextStage">Discover</button></div>`;
  mountRetrieval(el.querySelector('#retrievalChecks'),{records:completedRecords,slot:s.slot,currentId:skillFor(s,taxonomy),draft:sessionDraft,save:()=>saveDraft(s)});
  document.getElementById('nextStage').onclick=async()=>{if((sessionDraft.summary.retrieval_ids||[]).some(id=>!sessionDraft.evidence['retrieval:'+id])){alert('Try each short revision check. Use a hint if needed.');return}await saveDraft(s);activeStage=1;renderSession(s)};
 }
@@ -351,7 +351,7 @@ function renderRemember(el,s){
 function renderDiscover(el,s){
   const items=teachingFor(s);
   el.innerHTML=`<div class="stage-number">STAGE 2 · EXPLANATION</div><h2>Discover</h2><p class="muted">Read, sketch and listen. The goal is to see why the method works, not memorise a slogan.</p>
-  ${lessonCard(skillFor(s,taxonomy),lessonPlan(s,course,taxonomy))}${bridgeHTML(skillFor(s,taxonomy),lessonPlan(s,course,taxonomy).visit)}<div id="quickCards"></div><div id="guidedCheck"><p class="muted">Work through the five quick decisions above, then try the supported problem.</p></div><details class="optional-lesson"><summary>Optional deeper connection · related video or reading</summary><div class="teaching-box">${items.map((t,i)=>`<article class="teaching-item"><div class="eyebrow">${esc(t.type==="worked_example"?"WORKED EXAMPLE":"CONCEPT")}</div><h3>${esc(t.title)}</h3><div class="lesson-player-slot" id="lessonPlayer${i}"></div><details><summary>Read explanation</summary><p class="math-copy">${esc(t.transcript)}</p>${t.extended_reading?`<h4>Further mathematical connections</h4><p class="math-copy">${esc(t.extended_reading)}</p>`:""}</details></article>`).join("")||'<p class="muted">Teaching explanation is being selected from the course library.</p>'}</div></details>
+  <section data-lesson-unit="concept">${lessonCard(skillFor(s,taxonomy),lessonPlan(s,course,taxonomy))}</section><section data-lesson-unit="bridge">${bridgeHTML(skillFor(s,taxonomy),lessonPlan(s,course,taxonomy).visit)}</section><section data-lesson-unit="flash"><div id="quickCards"></div></section><section data-lesson-unit="guided"><div id="guidedCheck"><p class="muted">Work through the five quick decisions above, then try the supported problem.</p></div></section><section data-lesson-unit="more"><details class="optional-lesson"><summary>Optional deeper connection · related video or reading</summary><div class="teaching-box">${items.map((t,i)=>`<article class="teaching-item"><div class="eyebrow">${esc(t.type==="worked_example"?"WORKED EXAMPLE":"CONCEPT")}</div><h3>${esc(t.title)}</h3><div class="lesson-player-slot" id="lessonPlayer${i}"></div><details><summary>Read explanation</summary><p class="math-copy">${esc(t.transcript)}</p>${t.extended_reading?`<h4>Further mathematical connections</h4><p class="math-copy">${esc(t.extended_reading)}</p>`:""}</details></article>`).join("")||'<p class="muted">Teaching explanation is being selected from the course library.</p>'}</div></details></section>
   <div class="complete-row"><span class="muted">Try the supported question first. A hint is part of learning.</span><button class="primary" id="nextStage">Try independently</button></div>`;
   let guidedMounted=false;
   mountFlashCards(el.querySelector('#quickCards'),{id:skillFor(s,taxonomy),visit:lessonPlan(s,course,taxonomy).visit,slot:s.slot,draft:sessionDraft,save:()=>saveDraft(s),onComplete:()=>{
@@ -376,7 +376,7 @@ function renderChallenge(el,s,p,mode){
   }
   if(!p){el.innerHTML='<div class="empty">No challenge available.</div>';return}
   el.innerHTML=`<div class="stage-number">STAGE ${mode==="try"?3:4} · ${mode==="try"?"INDEPENDENT ATTEMPT":"TRANSFER"}</div><h2>${mode==="try"?"Try":"Transfer"}</h2><p class="muted">${mode==="try"?"First check the method on a manageable question. Then open the stretch problem.":"Choose a method from the clues, before looking at a hint. Explain how this setting connects to an idea you know."}</p>`;
-  const node=problemTemplate.content.firstElementChild.cloneNode(true);
+  const node=problemTemplate.content.firstElementChild.cloneNode(true);node.classList.add('lesson-problem-unit');
   node.querySelector(".problem-meta").textContent=`ORIGINAL LEARNING PROBLEM · ${mode==="try"?"APPLY THE IDEA":"CHOOSE YOUR METHOD"}`;
   node.querySelector(".problem-title").textContent=p.title||p.id;
   const promptEl=node.querySelector(".problem-prompt"); promptEl.textContent=p.prompt; const figure=originalFigure(p)||problemFigure(p.id); if(figure)promptEl.insertAdjacentHTML("beforebegin",figure);
@@ -426,14 +426,14 @@ function renderChallenge(el,s,p,mode){
     }catch(e){solution.hidden=false;solution.textContent=e.message}
   };
   if(mode==='try'){
-    const fade=document.createElement('div');el.append(fade);
+    const fade=document.createElement('div');fade.className='lesson-fade-unit';el.append(fade);
     mountPractice(fade,{id:sid,seed:lessonPlan(s,course,taxonomy).visit+8,key:'faded:'+sid,draft:sessionDraft,save:()=>saveDraft(s),supported:true,label:'YOUR TURN · FINISH THE NEXT EXAMPLE'});
-    const prep=document.createElement('div');el.appendChild(prep);
+    const prep=document.createElement('div');prep.className='lesson-prep-unit';el.appendChild(prep);
     node.hidden=!core;
-    const unlock=e=>{node.hidden=false;node.scrollIntoView({behavior:'smooth',block:'start'});};
+    const unlock=e=>{node.hidden=false;const targetPage=lessonPager?.count?2:null;if(targetPage!==null)lessonPager.show(targetPage);};
     mountCheck(prep,{id:sid,slot:s.slot,records:completedRecords,draft:sessionDraft,save:()=>saveDraft(s),label:'YOUR TURN · INDEPENDENT BASICS CHECK',seedOverride:(lessonPlan(s,course,taxonomy).visit+1)%7,onDone:unlock});
   }
-  if(mode==='transfer'&&s.slot>=16){const mix=document.createElement('div');el.append(mix);mountMixed(mix,s,2);}
+  if(mode==='transfer'&&s.slot>=16){const mix=document.createElement('div');mix.className='lesson-mix-unit';el.append(mix);mountMixed(mix,s,2);}
   const bridge=document.createElement('div');bridge.className='challenge-bridge';
   bridge.innerHTML=`<h3>${mode==='try'?'Next: apply the idea':familiar?'Transfer: practise a variation':'Transfer: choose your tools'}</h3><p>Identify the requested quantity and the useful relationships. Your solution may combine more than one idea.</p><details><summary>A starting plan, without the answer</summary><ol><li>Restate the question in your own words.</li><li>Test a smaller case or draw the quantities.</li><li>Look for a connection to the worked examples. Explain why it applies before calculating.</li></ol></details>`;
   node.prepend(bridge);el.appendChild(node);
