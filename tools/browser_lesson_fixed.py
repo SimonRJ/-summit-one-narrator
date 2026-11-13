@@ -30,6 +30,14 @@ async def main():
    for _ in range(max_steps):
     if await page.locator(selector).first.is_visible():return
     await next_page()
+   debug=await page.evaluate("""() => ({
+      stage:document.querySelector('.lesson-stage-track .here')?.textContent,
+      root:[...document.querySelector('#stage').children].map(e=>({tag:e.tagName,cls:e.className,unit:e.getAttribute('data-lesson-unit'),style:e.style.display})),
+      flash:document.querySelector('.flash-quiz')?.outerHTML.slice(0,300),
+      flashStyle:document.querySelector('.flash-quiz')&&getComputedStyle(document.querySelector('.flash-quiz')).display,
+      quick:document.querySelector('#quickCards')?.innerHTML.slice(0,260)
+   })""")
+   print('SCREENFLOW DEBUG',debug,flush=True)
    raise AssertionError(f'Could not reach {selector}: '+await page.locator('.lesson-screen-progress').inner_text())
   await page.goto('http://127.0.0.1:8765/')
   await page.locator('#continue').click()
