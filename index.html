@@ -6,21 +6,31 @@
   <meta name="theme-color" content="#07111e">
   <meta name="robots" content="noindex,nofollow,noarchive">
   <title>Summit One · Learning</title><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon.svg">
-  <link rel="stylesheet" href="main.css?v=cinema-20261113">
+  <link rel="stylesheet" href="main.css?v=menu-20261113">
 </head>
 <body>
   <div class="stars" aria-hidden="true"></div>
   <header class="topbar">
-    <a class="brand" href="./" aria-label="Summit One home"><span class="brand-mark">△</span><span><b>SUMMIT ONE</b><small>MATHEMATICS TRAINING</small></span></a>
-    <nav class="topnav" aria-label="Primary navigation">
-      <button data-view="home" class="nav-btn active nav-major"><span class="nav-primary">Learning</span></button>
-      <a href="tests.html" class="nav-link nav-major"><span class="nav-primary">Exams</span></a>
-      <button data-view="review" class="nav-btn">Session review</button>
-      <button data-view="repairs" class="nav-btn">Repairs</button>
-      <button data-view="roadmap" class="nav-btn">Readiness</button>
-      <button data-view="profile" class="nav-btn">Profile</button>
-    </nav>
+    <button id="menuToggle" class="menu-trigger" type="button" aria-controls="courseMenu" aria-haspopup="dialog" aria-expanded="false" aria-label="Open the main menu">
+      <span class="menu-trigger-icon" aria-hidden="true">☰</span><span>Menu</span>
+    </button>
+    <a class="brand" href="./" aria-label="Summit One Learning home"><span class="brand-mark">△</span><span><b>SUMMIT ONE</b><small>MATHEMATICS TRAINING</small></span></a>
   </header>
+  <dialog id="courseMenu" class="course-menu" aria-labelledby="courseMenuTitle">
+    <div class="course-menu-shell">
+      <header class="course-menu-head">
+        <div><div class="eyebrow">SUMMIT ONE</div><h2 id="courseMenuTitle">Menu</h2></div>
+        <button id="menuClose" type="button" class="menu-close" aria-label="Close menu">✕</button>
+      </header>
+      <div id="courseMenuContent" class="course-menu-content" aria-live="polite"></div>
+      <footer class="course-menu-footer">
+        <button type="button" class="course-menu-progress" data-menu-action="profile">
+          <span><b>Progress & profile</b><small>Your saved learning history</small></span>
+          <strong id="navProgress">— / 372</strong>
+        </button>
+      </footer>
+    </div>
+  </dialog>
   <main id="app" class="shell" aria-live="polite">
     <section id="loading" class="panel hero-panel"><div class="eyebrow">LOADING YOUR LEARNING PATH</div><h1>Preparing Summit One…</h1><p class="muted">Loading your secure progress and the 372-session course.</p></section>
   </main>
@@ -32,6 +42,6 @@
       <div class="attempt-feedback" hidden></div><div class="solution-panel" hidden></div>
     </article>
   </template>
-  <script type="module" src="app-main.js?v=cinema-20261113"></script>
+  <script type="module" src="app-main.js?v=menu-20261113"></script>
 </body>
 </html>

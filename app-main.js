@@ -14,11 +14,14 @@ import {lessonCard,mountCheck,mountRetrieval,readinessHTML} from "./learning-ui.
 import { problemFigure } from "./problem-figures.js";
 import {mountLessonPager} from "./lesson-pager.js?v=cinema-20261113";
 import {learningScreens} from "./lesson-screenflow.js?v=cinema-20261113";
+import {buildCourseNavigation} from "./course-menu.js?v=menu-20261113";
+import {mountCourseMenu} from "./course-menu-ui.js?v=menu-20261113";
 
 const app=document.getElementById("app");
 const problemTemplate=document.getElementById("problemTemplate");
 let course=[], teaching=[], mawa=[], rossMap=[], taxonomy=null, milestones=null, problemIndex=[], progress=null, user=null, activeView="home", activeStage=-1, activeLessonPanel=0, lessonPager=null;
 let lessonManifest=[];
+let courseNavigation=null,mainMenu=null;
 let currentProblems=[], currentMawa=null, sessionDraft={answers:{},working:{},evidence:{},summary:{}};
 let attemptedProblemIds=new Set();
 let completedRecords=[],attemptHistory=[],recentExams=[];
@@ -120,14 +123,14 @@ async function refreshEvidence(){
  allRows(()=>supabase.from('exam_sittings').select('id,exam_id,score,max_score,submitted_at,metadata').eq('user_id',user.id).eq('completed',true).order('submitted_at',{ascending:false}).order('id'))]);
  completedRecords=records.map(r=>({...r,summary:{...r.summary,skill_id:r.summary?.skill_id||skillFor(course[r.session_number-1]||{},taxonomy)}}));recentExams=exams;
 }
-async function openRepairs(){await refreshEvidence();await renderRepairs(app,{user,done:progress.completed_sessions||0,records:completedRecords});}
-async function renderRoadmap(){await refreshEvidence();app.innerHTML=readinessHTML({records:completedRecords,taxonomy,progress,milestones,exams:recentExams});}
+async function openRepairs(){document.body.classList.remove("home-focus");await refreshEvidence();await renderRepairs(app,{user,done:progress.completed_sessions||0,records:completedRecords});}
+async function renderRoadmap(){document.body.classList.remove("home-focus");await refreshEvidence();app.innerHTML=readinessHTML({records:completedRecords,taxonomy,progress,milestones,exams:recentExams});}
 async function boot(){
   try{
     user=await currentUser();
     if(!user){location.href="login.html";return}
     const [c,t,m,h,tax,ms,lm]=await Promise.all([fetch("data/sessions-372.json").then(r=>r.json()),fetch("data/teaching-72.json").then(r=>r.json()),fetch("data/mawa-investigations-20.json").then(r=>r.json()),fetch("data/rossmoyne-h23.json").then(r=>r.json()),fetch("data/taxonomy-52.json").then(r=>r.json()),fetch("data/milestones.json").then(r=>r.json()),fetch("data/lesson-challenges.json?v=recognition-20261113").then(r=>r.json())]);
-    course=c.sessions; teaching=t.items; mawa=m.items; rossMap=h.items; taxonomy=tax; milestones=ms;lessonManifest=lm.items;
+    course=c.sessions; teaching=t.items; mawa=m.items; rossMap=h.items; taxonomy=tax; milestones=ms;lessonManifest=lm.items;courseNavigation=buildCourseNavigation(course,taxonomy);
     const {data:problems,error}=await supabase.from("content_problems_student").select("id,source_type,title,source_label,category,difficulty,prompt,unit").eq("source_type","original_authored").order("id");
     if(error)throw error; problemIndex=problems||[];
     attemptHistory=await allRows(()=>supabase.from('problem_attempts').select('problem_id,independent_credit,is_correct,created_at').eq('user_id',user.id).not('answer_text','is',null).order('created_at').order('id'));
@@ -138,13 +141,51 @@ async function boot(){
     // Recover a completed session if the separate progress write lost its connection.
     let contiguous=0;while(completedRecords.some(r=>r.session_number===contiguous+1))contiguous++;
     if(contiguous>(progress.completed_sessions||0))progress=await saveProgress({completed_sessions:contiguous,current_session:Math.min(372,contiguous+1),xp:contiguous*100,rank:earnedRankBySessions(contiguous),overall_percent:contiguous/372*100});
-    wireNav(); const requestedView=new URLSearchParams(location.search).get("view");if(location.hash==="#repairs"||requestedView==="repairs")await openRepairs();else if(requestedView==="roadmap")await renderRoadmap();else if(requestedView==="review")await renderReview();else if(requestedView==="profile")await renderProfile();else if(requestedView==="technique")renderTechniqueRefresher();else renderHome();
+    wireNav();updateNavProgress(); const requestedView=new URLSearchParams(location.search).get("view");if(location.hash==="#repairs"||requestedView==="repairs")await openRepairs();else if(requestedView==="roadmap")await renderRoadmap();else if(requestedView==="review")await renderReview();else if(requestedView==="profile")await renderProfile();else if(requestedView==="technique")renderTechniqueRefresher();else renderHome();
   }catch(e){app.innerHTML='<section class="panel hero-panel"><h1>Unable to load Summit One</h1><p class="muted">'+esc(e.message)+'</p></section>'}
 }
+
+function updateNavProgress(){mainMenu?.refreshProgress()}
+async function navigateMenuView(view){
+ if(editingSession){
+  await saveDraft(editingSession);
+  editingSession=null;
+ }
+ document.body.classList.remove("lesson-fullscreen","home-focus");
+ activeView=view;
+ if(view==="home"){renderHome();return}
+ if(view==="profile"){await renderProfile();return}
+ if(view==="review"){await renderReview();return}
+ if(view==="repairs"){await openRepairs();return}
+ if(view==="roadmap"){await renderRoadmap();return}
+ throw new Error("Unknown menu destination");
+}
+async function continueFromMenu(){
+ const done=Number(progress?.completed_sessions)||0;
+ if(done>=372){await navigateMenuView("profile");return}
+ const session=courseSession();
+ if(editingSession?.slot===session.slot)return;
+ if(editingSession){await saveDraft(editingSession);editingSession=null}
+ await startSession(session);
+}
+async function openCompletedFromMenu(slot){
+ if(!Number.isInteger(slot)||slot>(Number(progress?.completed_sessions)||0))throw new Error("This session has not been completed");
+ await navigateMenuView("review");
+ const details=app.querySelector('[data-review-session="'+slot+'"]');
+ if(details){details.open=true;details.scrollIntoView({behavior:"auto",block:"start"})}
+}
 function wireNav(){
-  document.querySelectorAll("[data-view]").forEach(b=>b.onclick=async()=>{if(editingSession){try{await saveDraft(editingSession);editingSession=null}catch(e){alert("Please retry saving before leaving: "+e.message);return}}document.body.classList.remove("lesson-fullscreen");document.querySelectorAll(".nav-btn").forEach(x=>x.classList.remove("active"));b.classList.add("active");activeView=b.dataset.view;if(activeView==="repairs")openRepairs().catch(e=>alert(e.message));if(activeView==="home")renderHome();if(activeView==="review")renderReview();if(activeView==="profile")renderProfile();if(activeView==="roadmap")renderRoadmap().catch(e=>alert(e.message))})
+ mainMenu=mountCourseMenu({
+  navigation:courseNavigation,
+  getDone:()=>Number(progress?.completed_sessions)||0,
+  getCurrent:()=>courseSession(),
+  onContinue:continueFromMenu,
+  onCompleted:openCompletedFromMenu,
+  onView:navigateMenuView
+ });
 }
 function renderTechniqueRefresher(){
+ document.body.classList.remove("home-focus");
  activeView="technique";
  const p=new URLSearchParams(location.search);
  const slot=Number(p.get("slot"));
@@ -163,37 +204,25 @@ function renderTechniqueRefresher(){
  videos.forEach((t,i)=>mountNarratedPlayer(document.getElementById("techniqueVideo"+i),{title:t.title,transcript:t.transcript,audioUrl:t.audio_url,videoUrl:finalVideoUrl(t.id),cacheKey:t.id}));
 }
 function renderHome(){
-  document.body.classList.remove("lesson-fullscreen");
-  const s=courseSession(),done=progress.completed_sessions||0,amc=nextSlot("AMC MOCK"),mawa=nextSlot("MAWA");
-  const nextPractice=course.find(x=>x.slot>done&&x.type==="MIXED");
-  const practiceGap=nextPractice?nextPractice.slot-done:null;
-  const milestone=done<152?{target:152,label:"2027 AMC readiness"}:done<176?{target:176,label:"MAWA application readiness"}:done<360?{target:360,label:"2028 AMC readiness"}:{target:372,label:"Rossmoyne capstone"};
-  const milestoneDone=Math.min(done,milestone.target);
-  app.innerHTML=`
-  <section class="dashboard-grid">
-    <article class="panel mission-card">
-      <div class="eyebrow learning-section-label">LEARNING · YOUR NEXT SESSION</div><div class="session-kicker">SESSION ${s.slot} / 372</div>
-      <h1>${esc(s.focus)}</h1>
-      <div><span class="type-chip">${esc(s.type)}</span><span class="phase-chip">${esc(s.phase)}</span></div>
-      <p class="muted">Remember → Discover → Try → Transfer → Check. Work carefully; there is no calendar streak and no penalty for taking the time you need.</p>
-      <button id="continue" class="primary cta">${done>=372?"Course complete":"Continue Session "+s.slot}</button>
-      <div class="sync-line"><span class="dot"></span> Cloud progress: <span id="syncStatus">${syncStatusText()}</span></div>
-      <div class="quick-links"><a class="secondary exam-direct" href="tests.html">Explore all exams <span aria-hidden="true">↗</span></a><button id="reviewQuick" class="ghost">Review completed sessions</button></div>
-    </article>
-    <aside class="side-stack">
-      <article class="panel stat-card"><div class="eyebrow">COURSE PROGRESS</div><div class="stat-value">${done} / 372</div><div class="progress-track"><div class="progress-fill" style="width:${overall().toFixed(2)}%"></div></div><div class="stat-label">${overall().toFixed(1)}% complete · ${esc(currentRankLabel())}</div></article>
-      <article class="panel stat-card"><div class="eyebrow">NEXT STRATEGY WORKSHOP</div><div class="stat-value">${practiceGap??"—"}</div><div class="stat-label">${nextPractice?`${esc(nextPractice.type)} · Session ${nextPractice.slot}`:"All strategy workshops complete"}</div></article>
-      <article class="panel stat-card"><div class="eyebrow">NEXT MAWA INVESTIGATION</div><div class="stat-value">${mawa??"—"}</div><div class="stat-label">${mawa===1?"Next session":mawa===null?"All scheduled investigations complete":mawa+" completed sessions away"}</div></article>
-      <article class="panel stat-card"><div class="eyebrow">CURRENT MILESTONE</div><div class="stat-value">${milestoneDone} / ${milestone.target}</div><div class="progress-track"><div class="progress-fill" style="width:${(milestoneDone/milestone.target*100).toFixed(1)}%"></div></div><div class="stat-label">${esc(milestone.label)}</div></article>
-    </aside>
-  </section>
-  <section class="panel learning-note"><h2>How each session works</h2><p>3–5 minutes meeting the idea and remembering · 10–15 minutes with worked examples and supported practice · 15–25 minutes applying and transferring · 5–10 minutes checking. Stop for a short break if concentration drops; unfinished work stays in this session.</p><button id="planQuick" class="secondary">Goals and readiness</button> <a class="secondary" href="welcome.html?from=dashboard">Watch the AMC introduction</a></section>
-  <section class="panel learning-to-exams"><div><div class="eyebrow">READY TO MEASURE YOUR SKILL?</div><h2>Practice the exam, not just the technique.</h2><p>Two targeted AMC sessions separate speed from deeper problem solving: twenty questions in twenty minutes, then the final ten in forty. Full AMC papers, MAWA and Rossmoyne are in the same exam library.</p></div><div class="learning-to-exams-actions"><a class="primary" href="tests.html?section=speed">AMC Q1–20 <span aria-hidden="true">↗</span></a><a class="secondary" href="tests.html?section=depth">AMC Q21–30 <span aria-hidden="true">↗</span></a><a class="ghost" href="tests.html">All exams</a></div></section><p class="footer-note">372 sessions: 283 technique lessons, 53 investigations and 36 untimed strategy workshops. Exams remain separate from completed lessons.</p>`;
-  document.getElementById("continue").onclick=()=>done<372?startSession(s):renderProfile();
-  document.getElementById("reviewQuick").onclick=()=>renderReview();
-  document.getElementById("planQuick").onclick=()=>renderRoadmap().catch(e=>alert(e.message));
+ document.body.classList.remove("lesson-fullscreen");
+ document.body.classList.add("home-focus");
+ setLessonScreenTopbar();
+ activeView="home";
+ updateNavProgress();
+ const session=courseSession(),done=Number(progress?.completed_sessions)||0,finished=done>=372;
+ app.innerHTML=`<section class="learning-focus" aria-label="Continue mathematics learning">
+   <article class="panel focus-session-card">
+     <div class="eyebrow">YOUR LEARNING PATH</div>
+     <span class="session-kicker">${finished?"ALL SESSIONS COMPLETE":`SESSION ${session.slot}`}</span>
+     <h1>${finished?"Course completed":esc(session.focus)}</h1>
+     <p class="muted">${finished?"Review your progress and completed work.":"Continue with the next part of your lesson."}</p>
+     <button id="continue" type="button" class="primary cta">${finished?"View progress":`Continue Session ${session.slot}`}</button>
+   </article>
+ </section>`;
+ document.getElementById("continue").onclick=()=>finished?renderProfile():startSession(session);
 }
 async function startSession(s){
+ document.body.classList.remove("home-focus");
  try{
   await refreshEvidence();
   activeStage=0;currentMawa=s.type==="MAWA"?mawa[(Math.floor(s.slot/7)-1)%mawa.length]:null;
@@ -306,7 +335,11 @@ function renderLessonOpening(el,s){
 function setLessonScreenTopbar(){
  document.body.style.setProperty("--lesson-topbar",Math.ceil(document.querySelector(".topbar")?.getBoundingClientRect().height||72)+"px");
 }
+window.addEventListener("resize",()=>{
+ if(document.body.classList.contains("lesson-fullscreen")||document.body.classList.contains("home-focus"))setLessonScreenTopbar();
+});
 function renderSession(s){
+ document.body.classList.remove("home-focus");
  document.body.classList.add("lesson-fullscreen");
  setLessonScreenTopbar();
  const stages=["Video","Remember","Discover","Try","Transfer","Check"];
@@ -499,9 +532,9 @@ function renderWorkshop(s){
  app.querySelector('#completeWorkshop').onclick=async e=>{if(!flashReviewed(sessionDraft,'mixed-'+s.slot)){alert('Finish the five quick decisions and read the recap first.');return}if((sessionDraft.summary.mixed_skills||[]).some((id,i)=>!sessionDraft.evidence['mixed:'+i])||(sessionDraft.summary.takeaway||'').trim().length<15){alert('Attempt each question, read its feedback and write a short reflection.');return}e.target.disabled=true;try{sessionDraft.summary.type='MIXED';await completeSpecialSession(s)}catch(err){alert(err.message);e.target.disabled=false}};
 }
 async function renderReview(){
- document.body.classList.remove("lesson-fullscreen");
+ document.body.classList.remove("lesson-fullscreen","home-focus");
  activeView="review";await refreshEvidence();
- app.innerHTML=`<section class="panel hero-panel"><div class="eyebrow">YOUR MATHEMATICAL NOTEBOOK</div><h1>Completed sessions</h1><p class="muted">The original answers and working are locked. Use a fresh session to show new learning.</p>${[...completedRecords].reverse().map(r=>`<details class="review-detail"><summary>Session ${r.session_number} · ${esc(r.summary?.focus||course[r.session_number-1]?.focus||'')} <span class="type-chip">LOCKED</span></summary><p><b>Key idea:</b> ${esc(r.summary?.takeaway||'—')}</p><p><b>Next time:</b> ${esc(r.summary?.watch||'—')}</p>${Object.entries(r.answers||{}).map(([id,a])=>`<article><h3>${esc(problemIndex.find(p=>p.id===id)?.title||id)}</h3><p class="math-copy">${esc(problemIndex.find(p=>p.id===id)?.prompt||'')}</p><p><b>Recorded answer:</b> ${esc(a?.response??a)}</p><p class="math-copy">${esc(r.working?.[id]||'')}</p><button class="ghost saved-solution" data-problem="${esc(id)}" data-session="${r.session_number}">Worked solution</button><div class="saved-solution-content"></div>${r.evidence?.['reasoning:'+id]?`<p><b>Recognition clue:</b> ${esc(r.evidence['reasoning:'+id].clue||'—')}</p><p><b>Plan:</b> ${esc(r.evidence['reasoning:'+id].plan||'—')}</p><p><b>Check or correction:</b> ${esc(r.evidence['reasoning:'+id].check||'—')}</p><p class="muted">${esc(applicationStatus(r.evidence?.['application:'+id]))} · explanation saved for review</p>`:''}</article>`).join('')}${Object.values(r.evidence||{}).filter(e=>e?.kind==='mixed_application').map(e=>`<article><h3>${esc(e.question_id)}</h3><p><b>Your method:</b> ${esc(e.method)}</p><p><b>Recorded answer:</b> ${esc(e.response)} · ${e.correct?'correct':'needs repair'}${e.used_help?' · supported':''}</p></article>`).join('')}${r.working?.mawa_base?`<div data-adult-review="${r.session_number}"></div><h3>Investigation</h3><p class="math-copy">${esc(r.working.mawa_base)}</p><h3>Extension</h3><p class="math-copy">${esc(r.working.mawa_extension||'')}</p>`:''}</details>`).join('')||'<p>No completed sessions yet.</p>'}</section>`;
+ app.innerHTML=`<section class="panel hero-panel"><div class="eyebrow">YOUR MATHEMATICAL NOTEBOOK</div><h1>Completed sessions</h1><p class="muted">The original answers and working are locked. Use a fresh session to show new learning.</p>${[...completedRecords].reverse().map(r=>`<details class="review-detail" data-review-session="${r.session_number}"><summary>Session ${r.session_number} · ${esc(r.summary?.focus||course[r.session_number-1]?.focus||'')} <span class="type-chip">LOCKED</span></summary><p><b>Key idea:</b> ${esc(r.summary?.takeaway||'—')}</p><p><b>Next time:</b> ${esc(r.summary?.watch||'—')}</p>${Object.entries(r.answers||{}).map(([id,a])=>`<article><h3>${esc(problemIndex.find(p=>p.id===id)?.title||id)}</h3><p class="math-copy">${esc(problemIndex.find(p=>p.id===id)?.prompt||'')}</p><p><b>Recorded answer:</b> ${esc(a?.response??a)}</p><p class="math-copy">${esc(r.working?.[id]||'')}</p><button class="ghost saved-solution" data-problem="${esc(id)}" data-session="${r.session_number}">Worked solution</button><div class="saved-solution-content"></div>${r.evidence?.['reasoning:'+id]?`<p><b>Recognition clue:</b> ${esc(r.evidence['reasoning:'+id].clue||'—')}</p><p><b>Plan:</b> ${esc(r.evidence['reasoning:'+id].plan||'—')}</p><p><b>Check or correction:</b> ${esc(r.evidence['reasoning:'+id].check||'—')}</p><p class="muted">${esc(applicationStatus(r.evidence?.['application:'+id]))} · explanation saved for review</p>`:''}</article>`).join('')}${Object.values(r.evidence||{}).filter(e=>e?.kind==='mixed_application').map(e=>`<article><h3>${esc(e.question_id)}</h3><p><b>Your method:</b> ${esc(e.method)}</p><p><b>Recorded answer:</b> ${esc(e.response)} · ${e.correct?'correct':'needs repair'}${e.used_help?' · supported':''}</p></article>`).join('')}${r.working?.mawa_base?`<div data-adult-review="${r.session_number}"></div><h3>Investigation</h3><p class="math-copy">${esc(r.working.mawa_base)}</p><h3>Extension</h3><p class="math-copy">${esc(r.working.mawa_extension||'')}</p>`:''}</details>`).join('')||'<p>No completed sessions yet.</p>'}</section>`;
  app.querySelectorAll('.saved-solution').forEach(button=>button.onclick=async()=>{button.disabled=true;const target=button.nextElementSibling;try{const {data,error}=await supabase.functions.invoke('get-problem-solution',{body:{problem_id:button.dataset.problem,session_number:Number(button.dataset.session)}});if(error||data?.error)throw error||new Error(data.error);target.className='math-copy';target.textContent=data.solution_text||data.spoken_script||'No written solution returned.'}catch(err){target.textContent=err.message;button.disabled=false}});
  app.querySelectorAll('[data-adult-review]').forEach(target=>{const details=target.closest('details');details.addEventListener('toggle',async()=>{if(!details.open||target.dataset.loaded)return;target.dataset.loaded='1';const record=completedRecords.find(r=>r.session_number===Number(target.dataset.adultReview)),item=mawa.find(x=>x.id===record.summary?.investigation_id)||mawa[(Math.floor(record.session_number/7)-1)%20];try{await mountInvestigationReview(target,{user,record,item})}catch(err){target.textContent=err.message;delete target.dataset.loaded}})});
 }
@@ -517,11 +550,16 @@ async function exportProgressBackup(){
   const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="Summit-One-progress-"+new Date().toISOString().slice(0,10)+".json";document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1000);
 }
 async function renderProfile(){
- document.body.classList.remove("lesson-fullscreen");
-  activeView="profile";await refreshEvidence();const r=currentRank();
+ document.body.classList.remove("lesson-fullscreen","home-focus");
+  activeView="profile";await refreshEvidence();updateNavProgress();const r=currentRank();
   const done=progress.completed_sessions||0,currentXp=progress.xp??done*100;
   const nextRankSession=r>=20?null:Math.ceil(372*(r+1)/20);
   const nextRankXp=nextRankSession===null?0:Math.max(0,nextRankSession*100-currentXp);
+  const remaining=Math.max(0,372-done);
+  const nextPractice=course.find(item=>item.slot>done&&item.type==="MIXED");
+  const nextMawa=course.find(item=>item.slot>done&&item.type==="MAWA");
+  const milestone=done<152?{target:152,label:"2027 AMC readiness"}:done<176?{target:176,label:"MAWA application readiness"}:done<360?{target:360,label:"2028 AMC readiness"}:{target:372,label:"Rossmoyne capstone"};
+  const rankProgress=nextRankSession===null?"All ranks unlocked":nextRankXp+" XP to your next rank";
   const completed=completedRecords,exams=recentExams;
   const focusCounts=new Map();
   for(const row of completed||[]){
@@ -533,7 +571,22 @@ async function renderProfile(){
   }
   const covered=[...focusCounts.values()].filter(x=>x>0).length;
   app.innerHTML=`<section class="panel hero-panel"><div class="eyebrow">LEARNER PROFILE</div><h1>Summit progress</h1>
-  <div class="profile-grid"><div class="panel profile-stat"><b>${progress.completed_sessions||0}</b><span>sessions complete</span></div><div class="panel profile-stat"><b>${overall().toFixed(1)}%</b><span>course complete</span></div><div class="panel profile-stat"><b>${r===0?"Cadet":r}</b><span>${r===0?"starting rank":"current rank"}</span></div><div class="panel profile-stat"><b>${nextRankSession===null?"MAX":nextRankXp}</b><span>${nextRankSession===null?"all 20 ranks unlocked":"XP to Rank "+(r+1)}</span></div></div><p>${exams.length} completed exam attempts saved in your history.</p>
+  <div class="profile-grid">
+    <div class="panel profile-stat"><b>${done} / 372</b><span>sessions completed</span></div>
+    <div class="panel profile-stat"><b>${remaining}</b><span>sessions remaining</span></div>
+    <div class="panel profile-stat"><b>${overall().toFixed(1)}%</b><span>course completed</span></div>
+    <div class="panel profile-stat"><b>${r===0?"Cadet":r}</b><span>${r===0?"starting rank":"current rank"}</span></div>
+  </div>
+  <p class="muted profile-sync">Cloud progress: <span id="syncStatus">${esc(syncStatusText())}</span> · ${exams.length} completed timed assessments</p>
+  <details class="profile-upcoming">
+    <summary>Upcoming workshops, investigations and milestones</summary>
+    <div class="profile-upcoming-grid">
+      <div><span>Next strategy workshop</span><b>${nextPractice?`Session ${nextPractice.slot}`:"Complete"}</b><small>${nextPractice?`${nextPractice.slot-done} sessions away`:"All workshops completed"}</small></div>
+      <div><span>Next MAWA investigation</span><b>${nextMawa?`Session ${nextMawa.slot}`:"Complete"}</b><small>${nextMawa?`${nextMawa.slot-done} sessions away`:"All investigations completed"}</small></div>
+      <div><span>Current milestone</span><b>${Math.min(done,milestone.target)} / ${milestone.target}</b><small>${esc(milestone.label)}</small></div>
+      <div><span>Rank progress</span><b>${r>=20?"All 20 ranks":"Rank "+(r+1)+" next"}</b><small>${rankProgress}</small></div>
+    </div>
+  </details>
   <h2 style="margin-top:28px">Technique evidence map</h2><p class="muted">A check means the technique has appeared in a completed session. It does <b>not</b> automatically mean independent mastery; timed and transfer evidence remains separate.</p>
   <div class="technique-map">${(taxonomy?.categories||[]).map(cat=>`<article class="tech-category"><div class="eyebrow">${esc(cat.id)}</div><h3>${esc(cat.name)}</h3><div class="tech-list">${cat.subskills.map(sk=>{const n=focusCounts.get(sk.id)||0,recall=recallState(completedRecords,sk.id);return `<div class="tech ${n?"covered":""}"><span>${n?"✓":"○"}</span><div><b>${esc(sk.name)}</b><small>${esc(sk.id)} · ${recall.retained?"retained on delayed checks · ":""}${n?n+" completed-session exposure"+(n===1?"":"s"):"not yet completed"}</small></div></div>`}).join("")}</div></article>`).join("")}</div>
   <h2 style="margin-top:28px">Recent timed assessments</h2><div class="history-list">${(exams||[]).map(e=>`<div class="history-row"><div><b>${esc(e.metadata?.title||e.exam_id)}</b><small>${e.submitted_at?new Date(e.submitted_at).toLocaleDateString():""}</small></div><div class="history-score">${e.score??"—"} / ${e.max_score}</div><div class="history-award">${esc(e.metadata?.award||"")}</div></div>`).join("")||'<div class="empty">No timed assessments completed yet.</div>'}</div><h2 style="margin-top:28px">20 explorer ranks</h2><div class="rank-grid">${rankNames.map((n,i)=>`<div class="rank ${i+1>r?"locked":""}"><span class="rank-emblem" aria-hidden="true">${i+1}</span><div><span class="rnum">RANK ${i+1}</span><b>${esc(n)}</b><small class="muted">${Math.ceil(372*(i+1)/20)} sessions</small></div></div>`).join("")}</div>
