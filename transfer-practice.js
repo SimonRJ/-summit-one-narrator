@@ -10,7 +10,20 @@ export function practice(id,seed=0){
  let prompt,value,steps,figure='';
  const q=(p,v,...s)=>{prompt=p;value=v;steps=s};
  switch(id){
- case 'DIG-01':q(`A shop packs ${n} boxes of 99 pencils. How many pencils are packed?`,99*n,`Replace each 99 by 100 − 1.`,`${n} × 100 = ${100*n}; subtract ${n} extras.`,`Exactly ${99*n} pencils; this is close to ${100*n}.`);break;
+ case 'DIG-01':{
+  // Four contexts rather than copies of the same packaging problem.
+  const contexts=[
+   [`A theatre has ${n} rows with 99 seats in each row. How many seats are there altogether?`,'seats'],
+   [`A printer produces 99 postcards on each of ${n} sheets. How many postcards are printed?`,'postcards'],
+   [`A bookshop makes ${n} bundles containing 99 bookmarks each. How many bookmarks are there?`,'bookmarks'],
+   [`During a fundraiser, ${n} classes each sell exactly 99 tickets. How many tickets are sold?`,'tickets']
+  ];
+  const [promptText,units]=contexts[Math.abs(seed)%contexts.length];
+  q(promptText,99*n,`Replace 99 by 100 − 1 to make the calculation easier.`,
+    `${n} × 100 = ${100*n}; subtract the extra item counted in each of the ${n} groups.`,
+    `The exact total is ${99*n} ${units}, which is ${n} below ${100*n}.`);
+  break;
+ }
  case 'DIG-02':q(`A three-digit code uses different digits from 0 to ${k+2}. It must begin with an even nonzero digit. How many codes work?`,Math.floor((k+2)/2)*(k+2)*(k+1),`Choose an even nonzero first digit: ${Math.floor((k+2)/2)} choices.`,`After that, ${k+2} digits remain, including zero; then ${k+1}.`,`Multiply the successive choice counts.`);break;
  case 'DIG-03':q(`The page numbers ${100*n} to ${100*n+99} are printed. Count only the digit 7 in the final two places. How many copies occur?`,20,`Hold the earlier digits fixed and list the final two places from 00 to 99.`,`The tens place is 7 ten times; the units place is 7 ten times.`,`77 contributes twice because we count copies, not pages: 10 + 10 = 20.`);break;
  case 'DIG-04':q(`A four-digit palindrome uses digits 0 to ${k+3}. How many such numbers are possible?`,(k+3)*(k+4),`Write its shape as ABBA. A cannot be zero.`,`Choose A in ${k+3} ways and B in ${k+4} ways.`,`The last two digits are then forced; multiply only the first two choice counts.`);break;
@@ -70,7 +83,7 @@ export function practice(id,seed=0){
  if(!figure&&id==='FRAC-01')figure=svg(label(220,40,`${18*n} g originally`)+`<rect x="40" y="55" width="360" height="25" fill="#c3dfdb"/><rect x="40" y="90" width="240" height="25" fill="#85bdb5"/>`+label(220,145,'After eating one third, this remaining amount is the new whole.'),'Original amount and two-thirds remaining; the second fraction acts on the remainder');
  return {id,seed,prompt,value,steps,reason:steps.join(' '),hint:steps[0],contrast:methods[id].trap,figure};
 }
-export function bridgeHTML(id,visit=1){const q=practice(id,visit-1),e=escapeHTML;return `<article class="method-card bridge-example"><div class="eyebrow">BRIDGE · ADD ONE NEW IDEA</div><h3>${e(q.prompt)}</h3>${q.figure}<ol>${q.steps.map(s=>`<li>${e(s)}</li>`).join('')}</ol><p><b>Where the method changes:</b> ${e(q.contrast)}</p><p>Explain why that warning matters in this example before opening the next step.</p></article>`;}
+export function bridgeHTML(id,visit=1){const q=practice(id,visit-1),e=escapeHTML;return `<article class="method-card bridge-example"><div class="eyebrow">BRIDGE · ADD ONE NEW IDEA</div><h3>${e(q.prompt)}</h3>${q.figure}<ol>${q.steps.map(s=>`<li>${e(s)}</li>`).join('')}</ol><p><b>Where the method changes:</b> ${e(q.contrast)}</p><p>Notice which condition makes this method appropriate, then continue when ready.</p></article>`;}
 export function mountPractice(el,{id,seed,key,draft,save,label='Solve the problem',supported=false,onDone=()=>{}}){
  const q=practice(id,seed),old=draft.evidence[key],e=escapeHTML;
  let helped=old?.used_help||draft.evidence['help:'+key]===true;
