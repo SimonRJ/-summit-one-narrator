@@ -1,0 +1,73 @@
+name: Publish first verified video-first lesson film
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/lesson-s001-render.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: summit-lesson-s001-independent-render
+  cancel-in-progress: false
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 58
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: 43355057830
+          pattern: lesson-speech-S001-*
+          merge-multiple: true
+          path: build/lesson-intros/S001
+      - name: Check all nine finished synthetic narration scenes
+        run: |
+          test "$(find build/lesson-intros/S001 -name 'speech-*.wav' | wc -l)" -eq 9
+          ls -lh build/lesson-intros/S001/speech-*.wav
+      - name: Install mathematical HD renderer and word aligner
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-dejavu-core
+          pip install pillow numpy soundfile faster-whisper inflect
+      - name: Assemble and align completed approved voice C
+        run: |
+          python production/lesson-intros/synth.py --lesson S001
+          python production/amc-introduction/align.py --audio build/lesson-intros/S001/narration.wav --timing build/lesson-intros/S001/timing.json --out build/lesson-intros/S001
+          cp build/lesson-intros/S001/AMCIntroduction.vtt build/lesson-intros/S001/S001.vtt
+      - name: Render original fully synchronized mathematics
+        run: |
+          python production/lesson-intros/render.py --lesson S001
+          ffmpeg -v error -y -i build/lesson-intros/S001/visual.mp4 -i build/lesson-intros/S001/narration.wav -map 0:v:0 -map 1:a:0 -c:v copy -c:a aac -b:a 192k -af apad -shortest -movflags +faststart build/lesson-intros/S001/final.mp4
+          python production/lesson-intros/verify.py --lesson S001
+      - name: Publish finished Session One film to GitHub Pages
+        run: |
+          mkdir -p media review
+          cp build/lesson-intros/S001/final.mp4 media/S001-Intro.mp4
+          cp build/lesson-intros/S001/poster.jpg media/S001-Intro-poster.jpg
+          cp build/lesson-intros/S001/S001.vtt media/S001-Intro.vtt
+          cp build/lesson-intros/S001/transcript.txt media/S001-Intro-transcript.txt
+          cp build/lesson-intros/S001/qa.json review/S001-Intro-qa.json
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add media/S001-Intro* review/S001-Intro-qa.json
+          git commit -m 'Publish audited lesson one original video with approved voice C'
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: S001-verified-opening-film
+          path: |
+            build/lesson-intros/S001/qa.json
+            build/lesson-intros/S001/alignment-qa.json
+            build/lesson-intros/S001/poster.jpg
+          retention-days: 14
