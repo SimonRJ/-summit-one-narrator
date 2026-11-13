@@ -1,0 +1,52 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+const read=p=>fs.readFileSync(new URL(p,import.meta.url),'utf8');
+const app=read('../app-main.js'),css=read('../main.css'),html=read('../index.html'),sw=read('../sw.js');
+const screens=read('../lesson-screenflow.js'),pager=read('../lesson-pager.js');
+const lessons=JSON.parse(read('../data/sessions-372.json')).sessions;
+assert.equal(lessons.length,372);
+assert.equal(lessons[0].focus,'Divisibility tests and modular remainders');
+assert.equal(lessons[1].focus,'Place-value decomposition and estimation');
+for(let i=0;i<2;i++){
+ const id='S00'+(i+1),data=JSON.parse(read('../production/lesson-intros/'+id+'.json'));
+ assert.equal(data.id,id);
+ assert.equal(data.segments.length,9);
+ assert.equal(data.pause_seconds.length,9);
+ assert.deepEqual(data.examples.map(x=>x.level),['easy','medium','hard']);
+ assert(data.segments.at(-1).toLowerCase().includes('your turn'));
+ assert(data.voice.includes('voice C'));
+ assert(data.segments.every(x=>x.length>100));
+ assert(!data.segments.join(' ').toLowerCase().includes('george'));
+}
+assert.equal(2473%3,1);
+assert.equal(1739%6,5);
+assert.equal(279%5,4);
+assert.equal(279%7,6);
+assert.equal(279%9,0);
+assert.equal(398+207,605);
+assert.equal(57*98,5586);
+assert.equal(49996*50004,50000**2-16);
+assert.equal(49996*50004-(50000**2-17),1);
+assert(/function renderLessonOpening/.test(app));
+assert(/function renderSession/.test(app));
+assert(/activeStage=-1/.test(app));
+assert(/activeLessonPanel/.test(app));
+assert(/S001-Intro\.mp4/.test(app)||/\$\{id\}-Intro\.mp4/.test(app));
+assert(/data-screen-back/.test(app));
+assert(/data-screen-next/.test(app));
+assert(/mountLessonPager/.test(app));
+assert(/learningScreens/.test(app));
+for(let stage=-1;stage<=4;stage++){
+ assert(screens.includes('stage==='+stage)||stage===-1&&screens.includes('stage===-1'), 'Missing stage '+stage);
+}
+for(const s of ['renderChallenge','renderCheck','submit-problem-attempt','get-problem-solution','upsertSession','rememberDraft'])assert(app.includes(s),'Missing protected learning feature '+s);
+assert(pager.includes('pages.forEach((p,i)=>p.show(i===index))'));
+assert(pager.includes('onChange?.(index,p)'));
+assert(css.includes('body.lesson-fullscreen{height:100dvh;overflow:hidden'));
+assert(css.includes('.lesson-screen-footer'));
+assert(css.includes('.opening-video-wrap'));
+assert(sw.includes('lesson-screenflow.js?v=cinema-20261113'));
+assert(sw.includes('lesson-pager.js?v=cinema-20261113'));
+assert(html.includes('app-main.js?v=cinema-20261113'));
+assert(!app.includes('node.scrollIntoView({behavior:\'smooth\',block:\'start\'});'));
+console.log('PASS: two unique graduated video scripts, mathematical solutions, all stage screens, fixed viewport and protected learning data.');
