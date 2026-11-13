@@ -6,23 +6,22 @@ import { supabase, currentUser } from "./supabase-client.js?v=auth-20261112";
 
 const app=document.getElementById("examApp");
 let user, catalog=[], awards, activeExam=null, questions=[], sitting=null, qIndex=0, responses={}, typedInteger={}, timerHandle=null, saveQueue=Promise.resolve(), finishing=false, saving=false, starting=false;
-let sittingsByExam=new Map(), allSittings=[], resultMeta={};
+let sittingsByExam=new Map(), allSittings=[], resultMeta={}, skillSessionLinks={skills:{}};
 let awardYear=Number(localStorage.getItem("summitSchoolYear")||5);
 const params=new URLSearchParams(location.search);
-const centre=["hub","speed","depth","amc","practice","rossmoyne","mawa"].includes(params.get("section"))?params.get("section"):"hub";
-const EXAM_SECTIONS=[["hub","All exams"],["speed","Q1–20"],["depth","Q21–30"],["practice","Full mocks"],["amc","Past papers"],["mawa","MAWA"],["rossmoyne","Rossmoyne"]];
+const centre=["hub","speed","depth","amc","rossmoyne","mawa"].includes(params.get("section"))?params.get("section"):"hub";
+const EXAM_SECTIONS=[["hub","All exams"],["speed","Part A · Q1–20"],["depth","Part B · Q21–30"],["amc","Past papers"],["mawa","MAWA"],["rossmoyne","Rossmoyne"]];
 function belongs(exam,section=centre){
  const part=exam.metadata?.amc_part;
  if(section==="speed")return part==="speed";
  if(section==="depth")return part==="depth";
  if(section==="rossmoyne")return exam.max_score===100;
- if(section==="practice")return exam.max_score===135&&exam.source_type!=="authentic_amc_past_paper";
- if(section==="amc")return exam.source_type==="authentic_amc_past_paper";
+  if(section==="amc")return exam.source_type==="authentic_amc_past_paper";
  return false;
 }
 function theme(exam=null){
  const section=exam?.metadata?.amc_part|| (exam?.max_score===100?"rossmoyne":centre);
- const label={hub:"EXAMS",speed:"AMC FLUENCY",depth:"AMC CHALLENGE",practice:"AMC FULL MOCKS",amc:"AMC PAST PAPERS",rossmoyne:"HONOURS MATHEMATICS",mawa:"MAWA INVESTIGATIONS"}[section]||"EXAMS";
+ const label={hub:"EXAMS",speed:"AMC FLUENCY",depth:"AMC CHALLENGE",amc:"AMC PAST PAPERS",rossmoyne:"HONOURS MATHEMATICS",mawa:"MAWA INVESTIGATIONS"}[section]||"EXAMS";
  document.body.classList.toggle("rossmoyne-theme",section==="rossmoyne");
  document.body.classList.toggle("split-training",section==="speed"||section==="depth");
  document.querySelector(".brand small").textContent=label;
@@ -33,6 +32,7 @@ const norm=s=>String(s??"").trim().toLowerCase().replace(/\s+/g,"").replace(/[.,
 async function boot(){
   user=await currentUser();if(!user){location.replace("login.html?next="+encodeURIComponent("tests.html"+location.search));return}
   awards=await fetch("data/amc-awards.json").then(r=>r.json());
+  skillSessionLinks=await fetch("data/skill-session-links.json?v=review-20261113").then(r=>r.ok?r.json():Promise.reject(new Error("Lesson map unavailable"))).catch(()=>({skills:{}}));
   const {data,error}=await supabase.from("exam_catalog").select("*").eq("active",true).order("year",{ascending:false});
   if(error)throw error;catalog=data||[];
   await loadSittings();
@@ -70,14 +70,9 @@ function sittingElapsed(row){
  return row.metadata?.time_used_seconds??Math.max(0,Math.round((new Date(row.submitted_at||row.expires_at).getTime()-new Date(row.started_at).getTime())/1000));
 }
 function paperAction(exam){
- const attempts=allSittings.filter(r=>r.exam_id===exam.id),open=attempts.find(r=>!r.completed),finished=attempts.filter(r=>r.completed);
- const best=finished.length?Math.max(...finished.map(r=>r.score)):null;
- const perfect=finished.filter(r=>r.score===exam.max_score);
- const bestPerfect=perfect.length?Math.min(...perfect.map(sittingElapsed)):null;
- const first=finished.at(-1);
- const label=open?`Resume attempt ${open.attempt_number}`:exam.repeatable?`Start attempt ${attempts.length+1}`:finished.length?"Review locked paper":"Prepare to start";
- const isSplit=Boolean(exam.metadata?.amc_part);
- return `<div class="paper-actions"><button class="primary startExam" data-id="${esc(exam.id)}">${label}</button>${exam.repeatable&&finished.length?`<button class="ghost" data-review="${esc(finished[0].id)}">Review latest</button>`:""}</div>${finished.length?`<p class="attempt-summary">${finished.length} completed · First ${first.score}/${exam.max_score} in ${formatElapsedSeconds(sittingElapsed(first))} · Best ${best}/${exam.max_score}${bestPerfect!==null?` · Fastest perfect ${formatElapsedSeconds(bestPerfect)}`:""}</p>`:""}<p class="paper-locked">${isSplit&&exam.metadata?.originality==="reused_from_existing_full_mock"?"Familiarisation: these questions also appear in an existing full mock. First-attempt scores are the fairest benchmark.":exam.repeatable?"Every attempt, score and elapsed time is saved.":finished.length?"Submitted · permanent review available.":"One attempt · permanent review after submission."}</p>`;
+ const attempts=allSittings.filter(r=>r.exam_id===exam.id),open=attempts.find(r=>!r.completed),done=attempts.find(r=>r.completed);
+ const label=open?"Resume timed attempt":done?"Review locked paper":"Prepare to start";
+ return `<div class="paper-actions"><button class="primary startExam" data-id="${esc(exam.id)}">${label}</button></div>${done?`<p class="attempt-summary">Submitted · ${done.score}/${exam.max_score} · ${formatElapsedSeconds(sittingElapsed(done))} · Written solutions and lesson links available.</p>`:""}<p class="paper-locked">${done?"View only. Your score, responses and elapsed time cannot change.":open?"This is your one running attempt; returning will not reset the timer.":"One scored attempt, followed by permanent worked-solution review."}</p>`;
 }
 function examMarkGuide(exam){
  if(exam.metadata?.amc_part==="speed")return "Q1–10: 3 marks each · Q11–20: 4 marks each · Maximum 70 marks. The timer counts up to 20:00.";
@@ -111,12 +106,11 @@ function renderExamHub(){
  const count=id=>catalog.filter(e=>belongs(e,id)).length;
  const last=allSittings.filter(r=>r.completed).slice(0,5);
  const cards=[
-  {id:"speed",num:"01",title:"AMC · Fluency",tag:"Q1–20",time:"20-minute limit",summary:"Twenty multiple-choice questions. Aim for 20 correct, then improve the time. Clock counts up from zero.",count:count("speed"),target:"20 / 20 · 70 marks",featured:true},
-  {id:"depth",num:"02",title:"AMC · Challenge",tag:"Q21–30",time:"40-minute limit",summary:"Five multiple-choice and five integer-answer problems. An excellent first benchmark is all five choices plus one integer.",count:count("depth"),target:"First benchmark · 6 / 10",featured:true},
-  {id:"practice",num:"03",title:"Full AMC mocks",tag:"Q1–30",time:"60 minutes",summary:"Original authored full-length papers. Combine pace and deeper reasoning under complete competition conditions.",count:count("practice"),target:"135 marks"},
-  {id:"amc",num:"04",title:"Real AMC papers",tag:"Upper Primary",time:"60 minutes",summary:"Authentic historical papers. One sitting per paper; reserve some for unseen progress checks.",count:count("amc"),target:"Official-format questions"},
-  {id:"rossmoyne",num:"05",title:"Rossmoyne Honours",tag:"School entry",time:"Practice setting",summary:"Four-section specialist mathematics practice papers with written solutions and a permanent record.",count:count("rossmoyne"),target:"100 marks"},
-  {id:"mawa",num:"06",title:"MAWA investigations",tag:"Mathematical reasoning",time:"Work at your own pace",summary:"Structured investigations and proofs. Every seventh learning session includes one; these are not timed AMC-style tests.",count:null,target:"53 scheduled investigations"}
+  {id:"speed",num:"01",title:"AMC practice · Part A",tag:"Q1–20",time:"20-minute limit",summary:"Twenty multiple-choice questions. Aim for 20 correct, then improve the time. Clock counts up from zero.",count:count("speed"),target:"20 / 20 · 70 marks",featured:true},
+  {id:"depth",num:"02",title:"AMC practice · Part B",tag:"Q21–30",time:"40-minute limit",summary:"Five multiple-choice and five integer-answer problems. An excellent first benchmark is all five choices plus one integer.",count:count("depth"),target:"First benchmark · 6 / 10",featured:true},
+  {id:"amc",num:"03",title:"Real AMC papers",tag:"Upper Primary",time:"60 minutes",summary:"Authentic historical papers. One sitting per paper; reserve some for unseen progress checks.",count:count("amc"),target:"Official-format questions"},
+  {id:"rossmoyne",num:"04",title:"Rossmoyne Honours",tag:"School entry",time:"Practice setting",summary:"Four-section specialist mathematics practice papers with written solutions and a permanent record.",count:count("rossmoyne"),target:"100 marks"},
+  {id:"mawa",num:"05",title:"MAWA investigations",tag:"Mathematical reasoning",time:"Work at your own pace",summary:"Structured investigations and proofs. Every seventh learning session includes one; these are not timed AMC-style tests.",count:null,target:"53 scheduled investigations"}
  ];
  app.innerHTML=`<section class="panel exam-hub-intro"><div class="eyebrow">SUMMIT ONE · ASSESSMENT AND PRACTICE</div><h1>Exams</h1><p>Practise accuracy, speed and unfamiliar problem solving separately—then test the complete skill in full-length exams. Your score and time history remains attached to every sitting.</p><div class="exam-hub-metrics"><span>${allSittings.filter(x=>x.completed).length} completed sittings</span><span>Progress saved to your account</span><span>Full reports after submission</span></div></section>
  <section class="exam-hub-heading"><div><h2>Choose a training mode</h2><p class="muted">The first two modes isolate the skills needed for an efficient AMC sitting.</p></div></section>
@@ -132,7 +126,7 @@ async function prepareExam(id){
   const exam=catalog.find(x=>x.id===id);if(!exam)return;
   const existing=await existingSitting(id);if(existing){await openSavedSitting(existing);return}
   document.body.classList.remove('exam-mode');theme(exam);
-  const startLabel=exam.repeatable?'Start this practice attempt':'Start my only attempt';
+  const startLabel="Start my only attempt";
   app.innerHTML=`<section class="panel test-hero exam-start-warning"><div class="eyebrow">${exam.max_score===100?'ROSSMOYNE HONOURS · ':''}BEFORE YOU START · ${exam.repeatable?'REPEATABLE PRACTICE':'ONE ATTEMPT ONLY'}</div><h1>${esc(exam.title)}</h1><p class="muted">${exam.question_count} questions · ${exam.duration_minutes} minutes · ${exam.max_score} marks</p>
   <div class="notice-box"><h2>${exam.repeatable?'A fresh attempt, with its own saved result':'This is your only attempt at this paper'}</h2><p>When you click <b>${startLabel}</b>, the timer begins and keeps running if you close the page. You can return to the same attempt while time remains.</p><p>Final submission permanently locks <b>this attempt</b>. At zero, saved answers are locked and submitted when connected. ${exam.repeatable?'You may start another attempt afterwards. All attempts, scores and reviews remain in your history.':'You cannot restart or redo this paper. Your completed review remains available afterwards.'}</p></div>
   <div class="exam-section-key">${esc(examMarkGuide(exam))}</div>
@@ -161,20 +155,24 @@ function renderLibrary(){
  document.body.classList.remove("exam-mode");theme();
  if(centre==="hub"){renderExamHub();return;}
  if(centre==="mawa"){renderMawaHub();return;}
- const papers=catalog.filter(e=>belongs(e)).sort((a,b)=>centre==="amc"?b.year-a.year:(Number(b.source_type==="summit_amc_split_original")-Number(a.source_type==="summit_amc_split_original"))||a.id.localeCompare(b.id));
- const titles={speed:"AMC Fluency · Q1–20",depth:"AMC Challenge · Q21–30",amc:"Real AMC past papers",practice:"AMC practice exams",rossmoyne:"Rossmoyne Honours Mathematics"};
+ const papers=catalog.filter(e=>belongs(e)).sort((a,b)=>centre==="amc"?b.year-a.year:(Number(a.metadata?.plan_index||99)-Number(b.metadata?.plan_index||99))||a.id.localeCompare(b.id));
+ const titles={speed:"AMC Practice · Part A (Q1–20)",depth:"AMC Practice · Part B (Q21–30)",amc:"Real AMC past papers",rossmoyne:"Rossmoyne Honours Mathematics"};
  const introductions={
-   speed:"Twenty multiple-choice questions, 70 marks and a 20-minute limit. The timer counts up. Aim for 20/20; among perfect first attempts, a time below 20 minutes is excellent. Ten familiarisation sets reuse existing authored full mocks, and one newly authored original set has separate checking. Select an original set for the strongest unseen-problem benchmark.",
-   depth:"Ten difficult questions: Q21–25 multiple choice; Q26–30 integer answer. The timer counts up to the 40-minute limit. Six correct—including all five multiple choice and one integer—is an excellent early benchmark. Ten familiarisation sets reuse existing full mocks; an additional newly authored challenge set has been checked independently and is labelled.",
+   speed:"Part A: 20 multiple-choice questions, 70 marks, 20-minute count-up. Aim for 20/20 on new problems. Each set allows one scored attempt, then locks permanently for study.",
+   depth:"Part B: Q21–25 multiple choice and Q26–30 integer answer (0–999). Ten questions, 65 marks, 40-minute count-up. Build from six correct toward ten; each set is one attempt only.",
    amc:"Authentic Upper Primary papers from 2007–2025, where available. Keep some unopened for later independent checks. Each authentic paper has one attempt and permanent written-solution review.",
-   practice:"Ten original full-length 30-question papers. These combine the easier twenty with the final ten, so they are the most faithful rehearsal of a complete sitting.",
    rossmoyne:"The uploaded original sample and nine authored practice papers, with the same four-section, 100-mark structure. Each paper has one attempt and a permanent review."
  };
  const isPart=centre==="speed"||centre==="depth";
+ const plannedSets=isPart?Array.from({length:30},(_,i)=>i+1):[];
+ const availableIndices=new Set(papers.map(x=>Number(x.metadata?.plan_index)).filter(Number.isInteger));
+ const pendingSets=plannedSets.filter(i=>!availableIndices.has(i));
  app.innerHTML=`<section class="panel test-hero"><div class="eyebrow">${centre==="rossmoyne"?"HONOURS MATHEMATICS":"SUMMIT ONE · EXAMS"}</div><h1>${titles[centre]}</h1><p class="muted">${introductions[centre]}</p><nav class="exam-centre-tabs" aria-label="Exam sections">${EXAM_SECTIONS.map(([id,label])=>`<a href="tests.html${id==="hub"?"":`?section=${id}`}" ${centre===id?'aria-current="page"':""}>${label}</a>`).join("")}</nav>${centre==="amc"?`<label class="year-select">School year for estimated award bands <select id="awardYear"><option value="5" ${awardYear===5?"selected":""}>Year 5</option><option value="6" ${awardYear===6?"selected":""}>Year 6</option></select></label>`:""}</section>
  ${isPart?`<section class="exam-benchmark-row"><div><span class="eyebrow">BENCHMARK</span><strong>${centre==="speed"?"20 / 20 correct":"5 / 5 multiple choice + 1 integer"}</strong></div><div><span class="eyebrow">TIME LIMIT</span><strong>${centre==="speed"?"20:00":"40:00"} · counting up</strong></div><div><span class="eyebrow">SCORING</span><strong>${centre==="speed"?"70 available marks":"65 available marks"}</strong></div></section>`:""}
  ${isPart?practicePerformanceHTML(centre):""}
+ ${isPart?`<section class="amc-set-summary"><h2>${papers.length} of 30 reviewed sets available</h2><p class="muted">Only original AMC-style papers with independently checked answers and worked explanations become available. The remaining ${pendingSets.length} sets are still being authored and reviewed; they cannot be started.</p></section>`:""}
  <div class="test-grid">${papers.map(exam=>`<article class="panel test-card"><div class="eyebrow">${exam.metadata?.originality==="reused_from_existing_full_mock"?"EXISTING MOCK · SPLIT FAMILIARISATION":exam.source_type==="authentic_amc_past_paper"?"AUTHENTIC AMC PAST PAPER":exam.source_type==="summit_amc_split_original"?"NEW ORIGINAL · INDEPENDENTLY CHECKED":exam.metadata?.original_sample?"UPLOADED ORIGINAL SAMPLE · TRANSCRIBED":"SUMMIT ONE AUTHORED PRACTICE"}</div><h2>${esc(exam.title)}</h2><div class="test-meta"><span class="phase-chip">${exam.question_count} questions</span><span class="phase-chip">${exam.duration_minutes} min</span><span class="phase-chip">${exam.max_score} marks</span></div><p class="muted">${esc(exam.metadata?.card_summary||"Full written solutions available after submission.")}</p>${paperAction(exam)}</article>`).join("")}</div>
+ ${isPart&&pendingSets.length?`<details class="amc-pending-sets"><summary>${pendingSets.length} original sets still in question review</summary><div class="pending-set-grid">${pendingSets.map(n=>`<div class="pending-set"><span>Set ${String(n).padStart(2,"0")}</span><small>Not yet released</small></div>`).join("")}</div></details>`:""}
  <section class="panel result-card"><h2>Your ${isPart?centre==="speed"?"fluency":"challenge":"exam"} history</h2><p class="muted">Every completed attempt and elapsed time remains recorded. A review cannot change a submitted result.</p><div id="savedSittings" class="history-list"></div></section><p class="footer-note">Summit One is an independent study app. Authored mocks are not official AMT or Rossmoyne papers.</p>`;
  document.getElementById("awardYear")?.addEventListener("change",e=>{awardYear=Number(e.target.value);localStorage.setItem("summitSchoolYear",String(awardYear))});
  document.querySelectorAll(".startExam").forEach(b=>b.onclick=()=>prepareExam(b.dataset.id).catch(showExamError));
@@ -344,6 +342,12 @@ async function loadResultHistory(){
  el.innerHTML=sorted.slice(0,centre==="hub"?30:150).map(e=>`<div class="history-row"><span>${esc(e.metadata?.title||e.exam_id)} · Attempt ${e.attempt_number||1} · ${e.completed?`${e.score}/${e.max_score} · ${formatElapsedSeconds(sittingElapsed(e))} · ${new Date(e.submitted_at).toLocaleDateString("en-AU")}`:"Open attempt · resume to finish"}</span><button class="ghost" data-result="${esc(e.id)}">${e.completed?"Review":"Resume"}</button></div>`).join("")||'<p class="muted">No sittings recorded here yet.</p>';
  el.querySelectorAll("[data-result]").forEach(b=>b.onclick=async()=>{b.disabled=true;try{const {data:row,error}=await supabase.from("exam_sittings").select("*").eq("id",b.dataset.result).single();if(error)throw error;await openSavedSitting(row)}catch(e){alert(e.message);b.disabled=false}});
 }
+function lessonLinksHTML(r){
+ const skill=String(r.metadata?.skill_id||r.category||"").replace(/^LOG-(\d{2})$/,"LOGIC-$1");
+ const entry=skillSessionLinks?.skills?.[skill];
+ if(!entry||!Array.isArray(entry.sessions)||!entry.sessions.length)return '<p class="muted">No exact lesson link has been verified for this problem yet.</p>';
+ return `<section class="exam-lesson-links"><div class="eyebrow">REVISIT THE MATHEMATICS</div><b>${esc(entry.skill_name)}</b><div class="exam-lesson-link-row">${entry.sessions.slice(0,3).map(x=>`<a class="secondary" href="index.html?view=technique&amp;skill=${encodeURIComponent(skill)}&amp;slot=${x.slot}">Learning session ${x.slot} · ${esc(x.focus)}</a>`).join("")}</div><p class="muted">These review links do not unlock or complete learning sessions.</p></section>`;
+}
 function solutionVideo(r){
   return activeExam?.id==="amc-up-2025"&&r.question_number===17?{url:"watch-amc-2025-q17.html",title:"Watch the number-pyramid solution · under 1 minute"}:null;
 }
@@ -371,15 +375,15 @@ function renderResults(score,rows,award,auto,maxScore=135){
   <section class="profile-grid" style="margin-top:18px"><div class="panel profile-stat"><b>${correctCount}</b><span>questions correct</span></div><div class="panel profile-stat"><b>${unanswered}</b><span>unanswered</span></div><div class="panel profile-stat"><b>${timeUsed}</b><span>time used</span></div><div class="panel profile-stat"><b>${Math.round(score/maxScore*100)}%</b><span>raw mark percentage</span></div></section>
   <section class="panel result-card"><h2>Paper sections</h2>${(maxScore===135||activeExam?.metadata?.amc_part==="depth")?`<div class="final-five-result"><div><span class="eyebrow">AMC FINAL FIVE</span><b>${finalFiveCorrect} / 5 correct</b></div><div><span class="muted">Q26–Q30 marks</span><b>${finalFiveEarned} / ${finalFiveMax}</b></div></div>`:""}<table class="result-table"><thead><tr><th>Section</th><th>Correct</th><th>Marks</th></tr></thead><tbody>${sectionStats.map(s=>`<tr><td>${esc(s.label)}</td><td>${s.correct} / ${s.count}</td><td>${s.earned} / ${s.max}</td></tr>`).join("")}</tbody></table></section>
   <section class="panel result-card" id="examDiagnostics"></section><section class="panel result-card"><h2>Question-by-question results</h2><table class="result-table"><thead><tr><th>Q</th><th>Your answer</th><th>Result</th><th>Marks</th><th>Learn</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${r.question_number}</td><td>${esc(r.response??"—")}</td><td class="${r.correct?"ok":"bad"}">${resultLabel(r)}</td><td>${r.earned} / ${r.marks}</td><td><button class="solution-link" data-solution="${r.question_number}">Show solution</button>${solutionVideo(r)?`<a class="solution-link" href="${solutionVideo(r).url}" target="_blank" rel="noopener">Watch video ↗</a>`:""}</td></tr>`).join("")}</tbody></table></section>
-  <section class="panel result-card"><h2>Turn the result into learning</h2><p>Your missed skills are saved to your repair queue. Identify what went wrong, work through a supported correction, then solve a fresh problem independently. A changed example returns after three more completed sessions.</p><a class="primary" href="index.html?view=repairs">Open my repair queue</a><h2>Review each problem</h2>${rows.map(r=>`<details id="solution-${r.question_number}" class="question-review"><summary>Question ${r.question_number} · ${resultLabel(r)} · ${r.earned}/${r.marks}</summary><p><b>Problem</b><br>${esc(r.stem)}</p>${r.image_ref||r.figure_svg?`<div class="exam-visual">${r.image_ref||r.figure_svg}</div>`:""}${!r.image_ref&&r.choices?.length?`<ol class="review-choices" type="A">${r.choices.map(c=>`<li>${typeof c==='string'?esc(c):`${c.visual_html||''}${esc(c.text||'')}`}</li>`).join('')}</ol>`:""}<p><b>Your answer:</b> ${esc(r.response??"—")}<br><b>Correct answer:</b> ${esc(typeof r.correct_answer==="object"?JSON.stringify(r.correct_answer):r.correct_answer)}</p>${r.explanation?`<p class="math-copy"><b>Worked explanation</b><br>${esc(r.explanation)}</p>`:`<p class="muted">The source answer key is verified. A worked explanation for this question has not yet been added.</p>`}${solutionVideo(r)?`<a class="solution-video-link" href="${solutionVideo(r).url}" target="_blank" rel="noopener">▶ ${solutionVideo(r).title}</a>`:""}</details>`).join("")}
-  <div class="complete-row"><a class="secondary" href="./">Return to Summit One</a>${activeExam.repeatable?`<button id="retryPaper" class="secondary">Start another practice attempt</button>`:""}<button id="backTests" class="primary">Back to exam section</button></div></section>`;
+  <section class="panel result-card"><h2>Turn the result into learning</h2><p>Your missed skills are saved to your repair queue. Identify what went wrong, work through a supported correction, then solve a fresh problem independently. A changed example returns after three more completed sessions.</p><a class="primary" href="index.html?view=repairs">Open my repair queue</a><h2>Review every problem and its linked lessons</h2>${rows.map(r=>`<details id="solution-${r.question_number}" class="question-review"><summary>Question ${r.question_number} · ${resultLabel(r)} · ${r.earned}/${r.marks}</summary><p><b>Problem</b><br>${esc(r.stem)}</p>${r.image_ref||r.figure_svg?`<div class="exam-visual">${r.image_ref||r.figure_svg}</div>`:""}${!r.image_ref&&r.choices?.length?`<ol class="review-choices" type="A">${r.choices.map(c=>`<li>${typeof c==='string'?esc(c):`${c.visual_html||''}${esc(c.text||'')}`}</li>`).join('')}</ol>`:""}<p><b>Your answer:</b> ${esc(r.response??"—")}<br><b>Correct answer:</b> ${esc(typeof r.correct_answer==="object"?JSON.stringify(r.correct_answer):r.correct_answer)}</p>${r.explanation?`<p class="math-copy"><b>Worked explanation</b><br>${esc(r.explanation)}</p>`:`<p class="muted">The source answer key is verified. A worked explanation for this question has not yet been added.</p>`}${lessonLinksHTML(r)}${solutionVideo(r)?`<a class="solution-video-link" href="${solutionVideo(r).url}" target="_blank" rel="noopener">▶ ${solutionVideo(r).title}</a>`:""}</details>`).join("")}
+  <div class="complete-row"><a class="secondary" href="./">Return to Summit One</a><button id="backTests" class="primary">Back to exam section</button></div></section>`;
   const diagnosticsEl=document.getElementById("examDiagnostics");
   mountExamDiagnostics(diagnosticsEl,{rows,user,sitting,exam:activeExam}).catch(e=>{diagnosticsEl.textContent="Learning report unavailable: "+e.message});
   wireQuestionZoom();
   document.querySelectorAll("[data-solution]").forEach(button=>button.onclick=()=>{const detail=document.getElementById("solution-"+button.dataset.solution);detail.open=true;detail.scrollIntoView({behavior:"smooth",block:"start"});detail.querySelector("summary").focus()});
   const back=document.getElementById("backTests");
   if(back)back.onclick=()=>{sitting=null;activeExam=null;questions=[];responses={};renderLibrary()};
-  const retry=document.getElementById('retryPaper');if(retry)retry.onclick=()=>prepareExam(activeExam.id).catch(showExamError);
+
 
 }
 boot().catch(e=>{app.innerHTML='<section class="panel hero-panel"><h1>Test Centre error</h1><p class="muted">'+esc(e.message)+'</p></section>'});
