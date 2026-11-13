@@ -1,10 +1,11 @@
 /* Summit One design system · educational typography, shared identity, and mathematical notation.
-   UI: IBM Plex Sans. Mathematical fallback: STIX Two Math. Equations: TeX typesetting via KaTeX. */
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=STIX+Two+Math&display=swap");
+   UI: Source Sans 3. Editorial headings: Source Serif 4. Equations: TeX via KaTeX. */
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500;600&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Source+Serif+4:wght@400;500;600&family=STIX+Two+Math&display=swap");
 
 :root{
-  --summit-ui:"IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
-  --summit-number:"IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+  --summit-ui:"Source Sans 3","Helvetica Neue",Arial,sans-serif;
+  --summit-editorial:"Source Serif 4","Iowan Old Style",Georgia,serif;
+  --summit-number:"Source Code Pro","SFMono-Regular",Consolas,monospace;
   --summit-math:"STIX Two Math","Cambria Math","Latin Modern Math",serif;
   --radius:16px;
   font-family:var(--summit-ui);
@@ -144,3 +145,52 @@ body .summit-boot,body .summit-mini{font-family:var(--summit-ui)}
 .summit-mini .sm-mark img{display:block;width:100%;height:100%;object-fit:contain}
 .summit-boot .sb-wordmark{font-weight:600;letter-spacing:.09em}
 .summit-mini .sm-wordmark{font-weight:600;letter-spacing:.11em}
+
+
+/* 2026-11-13 · Designed to read like a polished mathematics textbook,
+   not a collection of all-caps, ultra-heavy dashboard cards. */
+body:not(.exam-mode) :is(.hero-panel h1,.mission-card h1,.focus-session-card h1,.lesson-screen-header h1,.session-header h1,.session-intro h2,.roadmap h1){
+  font-family:var(--summit-editorial);
+  font-weight:500;
+  font-style:normal;
+  font-optical-sizing:auto;
+  letter-spacing:-.024em;
+  line-height:1.17;
+}
+body:not(.exam-mode) :is(.problem-title,.worked-example h3,.method-card h3,.gentle-example h3){
+  font-family:var(--summit-editorial);
+  font-style:normal;
+  font-weight:500;
+  letter-spacing:-.016em;
+  line-height:1.33;
+}
+body :is(.eyebrow,.stage-number,.session-kicker,.problem-meta,.np-label,.type-chip){
+  font-weight:600;
+  letter-spacing:.07em;
+}
+body :is(.panel,.problem-card,.mini-check,.method-card,.worked-example,.teaching-item){
+  box-shadow:none;
+}
+body :is(.primary,.secondary,.ghost,.danger,.menu-trigger,.course-menu-continue,.course-menu-back){
+  font-weight:600;
+}
+body :is(.math-copy,.problem-prompt,.stem,.solution-panel,.worked-example li,.method-card p){
+  font-size:clamp(.98rem,1.25vw,1.075rem);
+  line-height:1.62;
+  letter-spacing:0;
+}
+body .answer-box{font-family:var(--summit-ui);font-variant-numeric:tabular-nums}
+body .brand .brand-mark{border:0;background:none;box-shadow:none}
+body .brand .brand-mark img{filter:none}
+.summit-boot .sb-controls button{font-family:var(--summit-ui)}
+.summit-boot .sb-math{font-family:var(--summit-math);font-style:italic}
+.summit-boot .sb-status,.summit-boot .sb-subtitle,.summit-mini .sm-caption{font-family:var(--summit-ui)}
+.math-inline .katex{font-size:1.08em}
+.math-inline .katex .mord{font-weight:400}
+.math-display .katex{font-size:1.13em}
+.math-display .katex-display{white-space:nowrap}
+@media(max-width:700px){
+ body:not(.exam-mode) :is(.lesson-screen-header h1,.problem-title,.worked-example h3,.method-card h3){font-size:clamp(1.1rem,4.6vw,1.5rem)}
+ body :is(.math-copy,.problem-prompt,.stem,.solution-panel,.worked-example li,.method-card p){font-size:.98rem}
+ .math-display .katex{font-size:1.03em}
+}
