@@ -122,7 +122,23 @@ assert(html.includes('katex@0.16.47/dist/katex.min.css') && html.includes('katex
 assert(design.includes('Source Sans 3') && design.includes('Source Serif 4') && design.includes('STIX Two Math'));
 assert(brand.includes('M142 19 25 232 142 157Z'));
 assert(maths.includes('plainToTeX') && maths.includes('typesetMath'));
-const {plainToTeX}=await import('../math-typography.js');
+const {plainToTeX,findMathExpressions}=await import('../math-typography.js');
+const expressions=s=>findMathExpressions(s).map(x=>x.formula);
+for(const label of [
+ 'TRANSFER · PROBLEM 1 OF 3',
+ 'PRACTICE · PROBLEM 2 OF 3',
+ 'YOUR TURN · FINISH THE NEXT EXAMPLE',
+ 'BRIDGE · ADD ONE NEW IDEA',
+ 'LEARNING SESSION 2 / 372 · FOUNDATIONS',
+ '6 / 6',
+ '10:30'
+])assert.deepEqual(expressions(label),[],'UI label incorrectly typeset: '+label);
+assert.deepEqual(expressions('3/4 + 1/2 = 5/4'),['3/4 + 1/2 = 5/4']);
+assert.deepEqual(expressions('a² + b² = c²'),['a² + b² = c²']);
+assert.deepEqual(expressions('49 + 26 = 75'),['49 + 26 = 75']);
+assert.deepEqual(expressions('N=qd+r'),['N=qd+r']);
+assert(expressions('LCM(4,6,9)=36').includes('LCM(4,6,9)=36'));
+assert(!maths.includes('"button","label"'),'Choice-button maths should remain eligible for typesetting');
 assert.equal(plainToTeX('a² + b² = c²'), 'a^{2} + b^{2} = c^{2}');
 assert.equal(plainToTeX('3/4'), String.raw`\frac{3}{4}`);
 assert.equal(plainToTeX('a/b'), String.raw`\frac{a}{b}`);
