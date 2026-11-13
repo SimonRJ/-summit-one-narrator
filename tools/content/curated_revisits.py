@@ -7,7 +7,7 @@ Each replacement independently checks its answer against the original key.
 from fractions import Fraction
 
 def curate(skill, role, visit, original):
-    if visit <= 1 or skill not in ('DIV-03','ALG-04','DATA-02','DIG-03'): return original
+    if visit <= 1 or skill not in ('DIV-03','ALG-04','DATA-02','DIG-03','SOLID-01'): return original
     a=Fraction(str(original['answer']))
     x=visit+6
     def q(title,prompt,steps,check,insight,result):
@@ -323,4 +323,108 @@ def curate(skill, role, visit, original):
                  'Nine labels of length 2 use 9 × 2 = 18 more. The combined total is 108.'],
                 '90 + 18 = 108 digits even though there are only 39 separate labels.',
                 'The requested count is printed digits, not the number of identification labels.',108)
+
+    if skill=='SOLID-01' and role=='try':
+        v=x
+        if visit==2:
+            return q('Remove a corner notch from a cuboid',
+                f'A solid cuboid contains {v} × 3 × 4 unit cubes. A 5 × 2 × 1 rectangular piece is removed from one corner. How many unit cubes remain?',
+                [f'The complete solid contains {v} × 3 × 4 = {12*v} cubes.',
+                 f'The removed piece contains 5 × 2 × 1 = 10 cubes, leaving {12*v}-10 = {12*v-10}.'],
+                'The rectangular piece fits inside the original dimensions and the missing cubes are counted once.',
+                'A difference of volumes is more reliable than counting the visible faces.',12*v-10)
+        if visit==3:
+            return q('Count cubes in an attached arm',
+                f'A model joins a {v} × 2 × 5 cuboid to a separate {v-5} × 2 × 1 cuboid along a face, without overlap. How many unit cubes make up the model?',
+                [f'The larger component contains {10*v} cubes.',
+                 f'The attached arm has {v-5} × 2 × 1 = {2*(v-5)} cubes. Together that is {10*v+2*(v-5)}.'],
+                'Every cube belongs to exactly one component because the pieces touch but do not overlap.',
+                'Count disjoint three-dimensional components and add their volumes.',12*v-10)
+        if visit==4:
+            return q('A tower with one incomplete shelf',
+                f'A display has {v} shelves of unit cubes. Every shelf except the last has exactly 12 cubes, while the last has only 2. How many unit cubes are in the display?',
+                [f'There are {v-1} complete shelves containing {12*(v-1)} cubes.',
+                 f'The incomplete shelf adds 2, giving {12*(v-1)} + 2 = {12*v-10}.'],
+                'Multiplying all shelves by 12 would count ten cubes that are not actually present.',
+                'Handle an exceptional layer separately instead of pretending every layer is complete.',12*v-10)
+        if visit==5:
+            return q('A ten-cube groove in a solid wall',
+                f'A solid block is {v} cubes long, 4 cubes wide and 3 cubes high. A straight run of 10 cubes along one outer edge is removed. How many unit cubes remain?',
+                [f'Before removing any cubes there are {v} × 4 × 3 = {12*v}.',
+                 f'Ten distinct cubes are taken away from one edge. The remaining count is {12*v} − 10 = {12*v-10}.'],
+                'The length is at least 10, so the specified run fits completely along the block.',
+                'A run removed from a solid affects its total volume even when the remaining object is irregular.',12*v-10)
+        if visit==6:
+            return q('Two missing bars from a long block',
+                f'A cuboid contains {v} × 2 × 6 unit cubes. Two separate, non-overlapping bars, each 5 cubes long and one cube thick, are removed. How many unit cubes remain?',
+                [f'Originally the block contains {v} × 2 × 6 = {12*v} cubes.',
+                 f'Each bar contains 5 cubes, so two bars remove 10. The remainder is {12*v-10}.'],
+                'The bars fit and do not overlap; otherwise subtracting ten would overcount missing cubes.',
+                'Disjoint missing pieces can be counted independently and subtracted from the whole.',12*v-10)
+        if visit==7:
+            return q('Three rectangular pieces build one model',
+                f'A model uses three separate solid pieces with dimensions {v} × 1 × 3, {v} × 1 × 4, and {v-2} × 1 × 5 unit cubes. They are joined without overlapping. How many unit cubes are used?',
+                [f'The first two pieces contain 3 × {v} = {3*v} and 4 × {v} = {4*v} cubes.',
+                 f'The third contains 5 × {v-2} = {5*(v-2)} cubes. Together: {3*v}+{4*v}+{5*(v-2)} = {12*v-10}.'],
+                'All three pieces are disjoint before joining, so no cube is counted twice.',
+                'The total of several different rectangular solids can be simplified using the distributive law.',12*v-10)
+        if visit==8:
+            return q('A mosaic with one shortened row',
+                f'A mosaic is built from 12 rows, each designed to hold {v} unit cubes. Ten positions in the final row are deliberately left empty. How many cubes are present?',
+                [f'Twelve full rows would contain 12 × {v} = {12*v} cubes.',
+                 f'The ten unfilled positions reduce the count to {12*v}-10 = {12*v-10}.'],
+                'The incomplete last row is still counted once; its ten empty positions must not be counted as cubes.',
+                'A repeated shape with a known exception is counted by subtracting the missing pieces.',12*v-10)
+
+    if skill=='SOLID-01' and role=='transfer':
+        v=x
+        if visit==2:
+            return q('Remove the top layer of a block',
+                f'A solid array of unit cubes is {v} long, 11 wide and 3 high. The entire top layer is removed. How many cubes are left?',
+                [f'The complete array has {v} × 11 × 3 = {33*v} cubes.',
+                 f'The removed top layer has {v} × 11 = {11*v} cubes. The remaining two layers contain {22*v}.'],
+                'The number remaining also equals 2 × 11 × '+str(v)+' = '+str(22*v)+'.',
+                'Removing a whole layer is different from removing a narrow tunnel.',22*v)
+        if visit==3:
+            return q('Two cuboids joined edge to edge',
+                f'A model is assembled from two non-overlapping cuboids of dimensions {v} × 3 × 4 and {v} × 2 × 5 unit cubes. What is the combined number of unit cubes?',
+                [f'The first cuboid has {v} × 3 × 4 = {12*v} cubes.',
+                 f'The second has {v} × 2 × 5 = {10*v} cubes. Together there are {12*v}+{10*v} = {22*v}.'],
+                'The touching faces are not extra cubes, and no interiors overlap.',
+                'Joining solids along a face does not change the number of cubes in either piece.',22*v)
+        if visit==4:
+            return q('A full-length groove along a corner',
+                f'A block is {v} cubes long, 6 wide and 4 high. A groove 1 cube wide and 2 cubes deep is cut along its entire length at a corner. How many unit cubes remain?',
+                [f'The original block contains {v} × 6 × 4 = {24*v} cubes.',
+                 f'The groove removes {v} × 1 × 2 = {2*v} cubes. The remainder is {24*v}-{2*v} = {22*v}.'],
+                'The cut runs along an outside corner; it removes a fixed 1-by-2 cross-section at every position.',
+                'Multiply the cross-section area by the length to find a volume removed.',22*v)
+        if visit==5:
+            return q('A trench carved across every layer',
+                f'A large block is {v} cubes long, 5 wide and 5 high. A straight 3-by-1 channel runs its full length. How many unit cubes remain after the channel is removed?',
+                [f'The original solid contains {v} × 5 × 5 = {25*v} cubes.',
+                 f'The channel removes 3 × 1 × {v} = {3*v} cubes. The remainder is {25*v}-{3*v} = {22*v}.'],
+                'Every cross-section of the block loses three of its twenty-five cubes.',
+                'Count the volume removed from repeated cross-sections rather than trying to count hidden faces.',22*v)
+        if visit==6:
+            return q('A repeating layer with two gaps',
+                f'A tower has {v} identical layers. Each layer is a 4-by-6 arrangement of cubes with two different corner positions empty. How many unit cubes make up the complete tower?',
+                [f'A full layer would have 4 × 6 = 24 cubes, but two corner positions are missing.',
+                 f'Each actual layer has 22 cubes. With {v} such layers, the total is 22 × {v} = {22*v}.'],
+                'Each layer has the same two missing positions, so the stack never fills those gaps.',
+                'An invariant cross-section can be multiplied by the number of layers.',22*v)
+        if visit==7:
+            return q('Two vertical towers with different bases',
+                f'Two solid towers are each {v} cubes high. Their rectangular bases are 5-by-2 and 3-by-4 unit squares. They do not overlap. How many unit cubes are in both towers?',
+                [f'The first base contains 5 × 2 = 10 cubes per layer, making {10*v} cubes.',
+                 f'The second base has 3 × 4 = 12 cubes per layer, making {12*v}. Together there are {22*v}.'],
+                'The towers have equal height but different base areas, and neither overlaps the other.',
+                'A solid volume is base area multiplied by height; add the distinct volumes.',22*v)
+        if visit==8:
+            return q('An array with an attached square patch',
+                f'A model has {v} separate rows. Each row contains a 3-by-6 unit-cube rectangle and a separate 2-by-2 square patch of cubes, without overlap. How many unit cubes are used?',
+                [f'Each row contains 3 × 6 + 2 × 2 = 18 + 4 = 22 unit cubes.',
+                 f'With {v} identical rows, the model contains 22 × {v} = {22*v} cubes.'],
+                'The two shapes within one row do not overlap, so both contribute their full counts.',
+                'Breaking a solid into repeated non-overlapping units is a direct alternative to subtraction.',22*v)
     return original
