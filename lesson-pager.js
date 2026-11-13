@@ -11,7 +11,7 @@ export function mountLessonPager({pages,initial=0,footer,onBack,onNext,onChange}
  let busy=false;
  function show(value){
   index=Math.max(0,Math.min(pages.length-1,value));
-  pages.forEach((p,i)=>p.show(i===index));
+  pages[index].show(true);
   const p=pages[index];
   if(count)count.textContent=`${index+1} / ${pages.length}`;
   if(name)name.textContent=p.title||"Learning";
