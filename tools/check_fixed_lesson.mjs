@@ -145,6 +145,15 @@ for(const role of ['try','transfer']){
    assert(!fig.includes('Final answer:') && !fig.includes('Worked solution'),{role,visit});
  }
 }
+for(const role of ['try','transfer']){
+ for(let visit=1;visit<=7;visit++){
+   const fig=originalFigure({learning:{skill:'DATA-03',role,visit,session:45}});
+   assert(fig.includes('<svg') && fig.includes('viewBox="0 0 360 275"'),{role,visit});
+   assert(fig.includes(role==='try'?'one full symbol = 6 bikes':'axis begins at'),{role,visit});
+   assert(!fig.includes('Final answer:') && !fig.includes('Worked solution'),{role,visit});
+ }
+}
+
 
 assert(advancedConnectionHTML('DIG-01').includes('Difference of squares'));
 assert(advancedConnectionHTML('SPATIAL-03').includes('recursive tiling'));
