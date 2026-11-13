@@ -111,6 +111,7 @@ jobs:
       - name: Desktop and mobile workflows
         run: |
           python tools/papers/build_all.py /tmp/summit-papers
+          python tools/papers/audit_generated_papers.py /tmp/summit-papers
           node tools/browser_check.mjs
           node tools/welcome-check.mjs
       - uses: actions/upload-artifact@v4
