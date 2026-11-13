@@ -52,7 +52,7 @@ for(const [skill,entry] of Object.entries(map.skills)){
  }
 }
 assert(index.includes("main.css?v=cinematic-practice-20261113"));
-assert(testsPage.includes("tests.js?v=curated-20261113"));
+assert(testsPage.includes("tests.js?v=cinematic-practice-20261113"));
 assert(style.includes(".amc-pending-sets"));
 assert(worker.includes("summit-one-cinematic-practice-20261113"));
 assert(worker.includes("skill-session-links.json"));
