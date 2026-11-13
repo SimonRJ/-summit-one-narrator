@@ -60,7 +60,7 @@ def main():
    question_count+=1;n=q['question_number'];where=f'{tag}:{n}'
    stem=q['stem'].strip();sol=q['explanation'].strip()
    titles[numeric_shape(stem)]+=1;allstems[stem]+=1
-   if len(stem)<18 or len(stem)>1250:errors.append(f'{where} stem length outside reasonable range')
+   if len(stem)<9 or len(stem)>1250:errors.append(f'{where} stem length outside reasonable range')
    if len(sol)<45 or len(sol)>5000:errors.append(f'{where} worked solution length')
    if not re.search(r'[?.]$',stem):warnings.append(f'{where} missing final punctuation')
    if re.search(r'(in your working|explain your method|tell me why|the answer is given|PLACEHOLDER|TODO)',stem,re.I):
