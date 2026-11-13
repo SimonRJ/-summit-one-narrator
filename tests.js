@@ -280,7 +280,13 @@ function renderAnswer(q){
   const area=document.getElementById("answerArea"),saved=responses[q.question_number];
   if(q.question_type==="multiple_choice"){
     const choices=Array.isArray(q.choices)?q.choices:[];
-    area.innerHTML='<div class="choices">'+choices.map((c,i)=>`<button class="choice ${saved===String.fromCharCode(65+i)?"selected":""}" data-choice="${String.fromCharCode(65+i)}" aria-pressed="${saved===String.fromCharCode(65+i)}"><span class="choice-letter">${String.fromCharCode(65+i)}</span><span class="choice-content">${typeof c==="string"?esc(c):`${c.visual_html||""}${c.text?`<span>${esc(c.text)}</span>`:""}`}</span></button>`).join("")+'</div>';
+    // Official source scans already show the five options. Render an accessible
+    // answer-letter strip rather than duplicating generic "Option A" labels.
+    const sourceScan=activeExam?.source_type==="authentic_amc_past_paper"
+      && typeof q.image_ref==="string" && q.image_ref.includes("source-question")
+      && choices.length===5 && choices.every((v,i)=>v===`Option ${String.fromCharCode(65+i)}`);
+
+    area.innerHTML='<div class="choices ${sourceScan?"source-choice-strip":""}">'+choices.map((c,i)=>`<button class="choice ${saved===String.fromCharCode(65+i)?"selected":""}" data-choice="${String.fromCharCode(65+i)}" ${sourceScan?`aria-label="Choose option ${String.fromCharCode(65+i)}"`:""} aria-pressed="${saved===String.fromCharCode(65+i)}"><span class="choice-letter">${String.fromCharCode(65+i)}</span>${sourceScan?"":`<span class="choice-content">${typeof c==="string"?esc(c):`${c.visual_html||""}${c.text?`<span>${esc(c.text)}</span>`:""}`}</span>`}</button>`).join("")+'</div>';
     area.querySelectorAll("[data-choice]").forEach(b=>b.onclick=async()=>{if(!canAnswer())return;saving=true;const previous=responses[q.question_number];responses[q.question_number]=b.dataset.choice;area.querySelectorAll("button").forEach(x=>x.disabled=true);try{await persistResponses(false,q.question_number);renderExam()}catch(e){if(previous===undefined)delete responses[q.question_number];else responses[q.question_number]=previous;renderExam();alert("Answer not saved: "+e.message)}finally{saving=false}});
   }else{
     const typed=typedInteger[q.question_number]??(saved??"");
