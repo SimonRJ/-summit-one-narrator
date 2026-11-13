@@ -1,0 +1,934 @@
+{
+  "version": "20261113-reviewed-v1",
+  "purpose": "Review-only links from post-exam reports to the specific 372-session mathematics curriculum. Never awards completion.",
+  "skills": {
+    "DIG-01": {
+      "skill_name": "Place-value decomposition and estimation",
+      "category_name": "Number sense, place value and digit puzzles",
+      "sessions": [
+        {
+          "slot": 2,
+          "focus": "Place-value decomposition and estimation"
+        },
+        {
+          "slot": 123,
+          "focus": "Place-value decomposition and estimation"
+        },
+        {
+          "slot": 214,
+          "focus": "Place-value decomposition and estimation"
+        }
+      ]
+    },
+    "DIG-02": {
+      "skill_name": "Digits, zero and positional constraints",
+      "category_name": "Number sense, place value and digit puzzles",
+      "sessions": [
+        {
+          "slot": 4,
+          "focus": "Digits, zero and positional constraints"
+        },
+        {
+          "slot": 164,
+          "focus": "Digits, zero and positional constraints"
+        },
+        {
+          "slot": 255,
+          "focus": "Digits, zero and positional constraints"
+        }
+      ]
+    },
+    "DIG-03": {
+      "skill_name": "Digit sums and counting digits in ranges",
+      "category_name": "Number sense, place value and digit puzzles",
+      "sessions": [
+        {
+          "slot": 5,
+          "focus": "Digit sums and counting digits in ranges"
+        },
+        {
+          "slot": 102,
+          "focus": "Digit sums and counting digits in ranges"
+        },
+        {
+          "slot": 114,
+          "focus": "Digit sums and counting digits in ranges"
+        }
+      ]
+    },
+    "DIG-04": {
+      "skill_name": "Repeated digits, palindromes and repunits",
+      "category_name": "Number sense, place value and digit puzzles",
+      "sessions": [
+        {
+          "slot": 8,
+          "focus": "Repeated digits, palindromes and repunits"
+        },
+        {
+          "slot": 55,
+          "focus": "Repeated digits, palindromes and repunits"
+        },
+        {
+          "slot": 155,
+          "focus": "Repeated digits, palindromes and repunits"
+        }
+      ]
+    },
+    "DIG-05": {
+      "skill_name": "Cryptarithms and symbol-to-digit arithmetic",
+      "category_name": "Number sense, place value and digit puzzles",
+      "sessions": [
+        {
+          "slot": 9,
+          "focus": "Cryptarithms and symbol-to-digit arithmetic"
+        },
+        {
+          "slot": 10,
+          "focus": "Cryptarithms and symbol-to-digit arithmetic"
+        },
+        {
+          "slot": 137,
+          "focus": "Cryptarithms and symbol-to-digit arithmetic"
+        }
+      ]
+    },
+    "DIV-01": {
+      "skill_name": "Primes, factors and factorisation",
+      "category_name": "Factors, divisibility, remainders and cycles",
+      "sessions": [
+        {
+          "slot": 11,
+          "focus": "Primes, factors and factorisation"
+        },
+        {
+          "slot": 178,
+          "focus": "Primes, factors and factorisation"
+        },
+        {
+          "slot": 269,
+          "focus": "Primes, factors and factorisation"
+        }
+      ]
+    },
+    "DIV-02": {
+      "skill_name": "Multiples, HCF and LCM",
+      "category_name": "Factors, divisibility, remainders and cycles",
+      "sessions": [
+        {
+          "slot": 13,
+          "focus": "Multiples, HCF and LCM"
+        }
+      ]
+    },
+    "DIV-03": {
+      "skill_name": "Divisibility tests and modular remainders",
+      "category_name": "Factors, divisibility, remainders and cycles",
+      "sessions": [
+        {
+          "slot": 1,
+          "focus": "Divisibility tests and modular remainders"
+        },
+        {
+          "slot": 15,
+          "focus": "Divisibility tests and modular remainders"
+        },
+        {
+          "slot": 66,
+          "focus": "Divisibility tests and modular remainders"
+        }
+      ]
+    },
+    "DIV-04": {
+      "skill_name": "Parity and odd/even structure",
+      "category_name": "Factors, divisibility, remainders and cycles",
+      "sessions": [
+        {
+          "slot": 18,
+          "focus": "Parity and odd/even structure"
+        },
+        {
+          "slot": 19,
+          "focus": "Parity and odd/even structure"
+        },
+        {
+          "slot": 151,
+          "focus": "Parity and odd/even structure"
+        }
+      ]
+    },
+    "DIV-05": {
+      "skill_name": "Last-digit, clock and repeating-cycle reasoning",
+      "category_name": "Factors, divisibility, remainders and cycles",
+      "sessions": [
+        {
+          "slot": 20,
+          "focus": "Last-digit, clock and repeating-cycle reasoning"
+        },
+        {
+          "slot": 283,
+          "focus": "Last-digit, clock and repeating-cycle reasoning"
+        },
+        {
+          "slot": 5,
+          "focus": "Digit sums and counting digits in ranges"
+        }
+      ]
+    },
+    "FRAC-01": {
+      "skill_name": "Parts and wholes, including remaining fractions",
+      "category_name": "Fractions, ratios, proportion and percentage",
+      "sessions": [
+        {
+          "slot": 22,
+          "focus": "Parts and wholes, including remaining fractions"
+        },
+        {
+          "slot": 142,
+          "focus": "Parts and wholes, including remaining fractions"
+        },
+        {
+          "slot": 174,
+          "focus": "Parts and wholes, including remaining fractions"
+        }
+      ]
+    },
+    "FRAC-02": {
+      "skill_name": "Ratio and scale factors",
+      "category_name": "Fractions, ratios, proportion and percentage",
+      "sessions": [
+        {
+          "slot": 24,
+          "focus": "Ratio and scale factors"
+        },
+        {
+          "slot": 75,
+          "focus": "Ratio and scale factors"
+        },
+        {
+          "slot": 124,
+          "focus": "Ratio and scale factors"
+        }
+      ]
+    },
+    "FRAC-03": {
+      "skill_name": "Fractions, percentages and proportional comparisons",
+      "category_name": "Fractions, ratios, proportion and percentage",
+      "sessions": [
+        {
+          "slot": 25,
+          "focus": "Fractions, percentages and proportional comparisons"
+        },
+        {
+          "slot": 29,
+          "focus": "Fractions, percentages and proportional comparisons"
+        },
+        {
+          "slot": 165,
+          "focus": "Fractions, percentages and proportional comparisons"
+        }
+      ]
+    },
+    "FRAC-04": {
+      "skill_name": "Grouped fractions and weighted totals",
+      "category_name": "Fractions, ratios, proportion and percentage",
+      "sessions": [
+        {
+          "slot": 27,
+          "focus": "Grouped fractions and weighted totals"
+        },
+        {
+          "slot": 115,
+          "focus": "Grouped fractions and weighted totals"
+        },
+        {
+          "slot": 206,
+          "focus": "Grouped fractions and weighted totals"
+        }
+      ]
+    },
+    "RATE-01": {
+      "skill_name": "Unit conversion and repeated-event rates",
+      "category_name": "Rates, time, work and motion",
+      "sessions": [
+        {
+          "slot": 30,
+          "focus": "Unit conversion and repeated-event rates"
+        },
+        {
+          "slot": 156,
+          "focus": "Unit conversion and repeated-event rates"
+        },
+        {
+          "slot": 188,
+          "focus": "Unit conversion and repeated-event rates"
+        }
+      ]
+    },
+    "RATE-02": {
+      "skill_name": "Combined work rates",
+      "category_name": "Rates, time, work and motion",
+      "sessions": [
+        {
+          "slot": 31,
+          "focus": "Combined work rates"
+        },
+        {
+          "slot": 86,
+          "focus": "Combined work rates"
+        },
+        {
+          "slot": 106,
+          "focus": "Combined work rates"
+        }
+      ]
+    },
+    "RATE-03": {
+      "skill_name": "Distance–speed–time reasoning",
+      "category_name": "Rates, time, work and motion",
+      "sessions": [
+        {
+          "slot": 34,
+          "focus": "Distance–speed–time reasoning"
+        },
+        {
+          "slot": 39,
+          "focus": "Distance–speed–time reasoning"
+        },
+        {
+          "slot": 179,
+          "focus": "Distance–speed–time reasoning"
+        }
+      ]
+    },
+    "RATE-04": {
+      "skill_name": "Relative speeds, timed movement and meetings",
+      "category_name": "Rates, time, work and motion",
+      "sessions": [
+        {
+          "slot": 37,
+          "focus": "Relative speeds, timed movement and meetings"
+        },
+        {
+          "slot": 129,
+          "focus": "Relative speeds, timed movement and meetings"
+        },
+        {
+          "slot": 220,
+          "focus": "Relative speeds, timed movement and meetings"
+        }
+      ]
+    },
+    "ALG-01": {
+      "skill_name": "One- and two-variable word equations",
+      "category_name": "Algebra, balancing and unknown quantities",
+      "sessions": [
+        {
+          "slot": 38,
+          "focus": "One- and two-variable word equations"
+        },
+        {
+          "slot": 170,
+          "focus": "One- and two-variable word equations"
+        },
+        {
+          "slot": 202,
+          "focus": "One- and two-variable word equations"
+        }
+      ]
+    },
+    "ALG-02": {
+      "skill_name": "Simultaneous and total-sum constraints",
+      "category_name": "Algebra, balancing and unknown quantities",
+      "sessions": [
+        {
+          "slot": 40,
+          "focus": "Simultaneous and total-sum constraints"
+        },
+        {
+          "slot": 95,
+          "focus": "Simultaneous and total-sum constraints"
+        },
+        {
+          "slot": 120,
+          "focus": "Simultaneous and total-sum constraints"
+        }
+      ]
+    },
+    "ALG-03": {
+      "skill_name": "Eliminating an unknown by differences",
+      "category_name": "Algebra, balancing and unknown quantities",
+      "sessions": [
+        {
+          "slot": 41,
+          "focus": "Eliminating an unknown by differences"
+        },
+        {
+          "slot": 50,
+          "focus": "Eliminating an unknown by differences"
+        },
+        {
+          "slot": 193,
+          "focus": "Eliminating an unknown by differences"
+        }
+      ]
+    },
+    "ALG-04": {
+      "skill_name": "Working backwards through operations",
+      "category_name": "Algebra, balancing and unknown quantities",
+      "sessions": [
+        {
+          "slot": 3,
+          "focus": "Working backwards through operations"
+        },
+        {
+          "slot": 44,
+          "focus": "Working backwards through operations"
+        },
+        {
+          "slot": 143,
+          "focus": "Working backwards through operations"
+        }
+      ]
+    },
+    "ALG-05": {
+      "skill_name": "Winner margins, shared totals and linear rules",
+      "category_name": "Algebra, balancing and unknown quantities",
+      "sessions": [
+        {
+          "slot": 46,
+          "focus": "Winner margins, shared totals and linear rules"
+        },
+        {
+          "slot": 125,
+          "focus": "Winner margins, shared totals and linear rules"
+        },
+        {
+          "slot": 216,
+          "focus": "Winner margins, shared totals and linear rules"
+        }
+      ]
+    },
+    "SEQ-01": {
+      "skill_name": "Arithmetic sequences and fixed increments",
+      "category_name": "Sequences, patterns and recurrence",
+      "sessions": [
+        {
+          "slot": 47,
+          "focus": "Arithmetic sequences and fixed increments"
+        },
+        {
+          "slot": 134,
+          "focus": "Arithmetic sequences and fixed increments"
+        },
+        {
+          "slot": 166,
+          "focus": "Arithmetic sequences and fixed increments"
+        }
+      ]
+    },
+    "SEQ-02": {
+      "skill_name": "Doubling, geometric growth and finite sums",
+      "category_name": "Sequences, patterns and recurrence",
+      "sessions": [
+        {
+          "slot": 51,
+          "focus": "Doubling, geometric growth and finite sums"
+        },
+        {
+          "slot": 59,
+          "focus": "Doubling, geometric growth and finite sums"
+        },
+        {
+          "slot": 116,
+          "focus": "Doubling, geometric growth and finite sums"
+        }
+      ]
+    },
+    "SEQ-03": {
+      "skill_name": "Recurrence relations, steps and branching",
+      "category_name": "Sequences, patterns and recurrence",
+      "sessions": [
+        {
+          "slot": 12,
+          "focus": "Recurrence relations, steps and branching"
+        },
+        {
+          "slot": 52,
+          "focus": "Recurrence relations, steps and branching"
+        },
+        {
+          "slot": 157,
+          "focus": "Recurrence relations, steps and branching"
+        }
+      ]
+    },
+    "SEQ-04": {
+      "skill_name": "Repeating transformations and finite-state patterns",
+      "category_name": "Sequences, patterns and recurrence",
+      "sessions": [
+        {
+          "slot": 54,
+          "focus": "Repeating transformations and finite-state patterns"
+        },
+        {
+          "slot": 107,
+          "focus": "Repeating transformations and finite-state patterns"
+        },
+        {
+          "slot": 139,
+          "focus": "Repeating transformations and finite-state patterns"
+        }
+      ]
+    },
+    "COUNT-01": {
+      "skill_name": "Systematic enumeration without missing cases",
+      "category_name": "Counting, arrangements and combinations",
+      "sessions": [
+        {
+          "slot": 57,
+          "focus": "Systematic enumeration without missing cases"
+        },
+        {
+          "slot": 148,
+          "focus": "Systematic enumeration without missing cases"
+        },
+        {
+          "slot": 180,
+          "focus": "Systematic enumeration without missing cases"
+        }
+      ]
+    },
+    "COUNT-02": {
+      "skill_name": "Multiplication principle and combinations",
+      "category_name": "Counting, arrangements and combinations",
+      "sessions": [
+        {
+          "slot": 58,
+          "focus": "Multiplication principle and combinations"
+        },
+        {
+          "slot": 69,
+          "focus": "Multiplication principle and combinations"
+        },
+        {
+          "slot": 130,
+          "focus": "Multiplication principle and combinations"
+        }
+      ]
+    },
+    "COUNT-03": {
+      "skill_name": "Restricted arrangements and neighbour rules",
+      "category_name": "Counting, arrangements and combinations",
+      "sessions": [
+        {
+          "slot": 23,
+          "focus": "Restricted arrangements and neighbour rules"
+        },
+        {
+          "slot": 60,
+          "focus": "Restricted arrangements and neighbour rules"
+        },
+        {
+          "slot": 88,
+          "focus": "Restricted arrangements and neighbour rules"
+        }
+      ]
+    },
+    "COUNT-04": {
+      "skill_name": "Complement counting and inclusion–exclusion",
+      "category_name": "Counting, arrangements and combinations",
+      "sessions": [
+        {
+          "slot": 62,
+          "focus": "Complement counting and inclusion–exclusion"
+        },
+        {
+          "slot": 121,
+          "focus": "Complement counting and inclusion–exclusion"
+        },
+        {
+          "slot": 153,
+          "focus": "Complement counting and inclusion–exclusion"
+        }
+      ]
+    },
+    "COUNT-05": {
+      "skill_name": "Double-counting and shared objects",
+      "category_name": "Counting, arrangements and combinations",
+      "sessions": [
+        {
+          "slot": 65,
+          "focus": "Double-counting and shared objects"
+        },
+        {
+          "slot": 162,
+          "focus": "Double-counting and shared objects"
+        },
+        {
+          "slot": 194,
+          "focus": "Double-counting and shared objects"
+        }
+      ]
+    },
+    "COUNT-06": {
+      "skill_name": "Partitioning into non-overlapping cases",
+      "category_name": "Counting, arrangements and combinations",
+      "sessions": [
+        {
+          "slot": 67,
+          "focus": "Partitioning into non-overlapping cases"
+        },
+        {
+          "slot": 79,
+          "focus": "Partitioning into non-overlapping cases"
+        },
+        {
+          "slot": 235,
+          "focus": "Partitioning into non-overlapping cases"
+        }
+      ]
+    },
+    "LOGIC-01": {
+      "skill_name": "Truth-tellers, liars and contradiction",
+      "category_name": "Logic, deduction and constraints",
+      "sessions": [
+        {
+          "slot": 33,
+          "focus": "Truth-tellers, liars and contradiction"
+        },
+        {
+          "slot": 68,
+          "focus": "Truth-tellers, liars and contradiction"
+        },
+        {
+          "slot": 99,
+          "focus": "Truth-tellers, liars and contradiction"
+        }
+      ]
+    },
+    "LOGIC-02": {
+      "skill_name": "Constraint elimination and logical deduction",
+      "category_name": "Logic, deduction and constraints",
+      "sessions": [
+        {
+          "slot": 71,
+          "focus": "Constraint elimination and logical deduction"
+        },
+        {
+          "slot": 135,
+          "focus": "Constraint elimination and logical deduction"
+        },
+        {
+          "slot": 167,
+          "focus": "Constraint elimination and logical deduction"
+        }
+      ]
+    },
+    "LOGIC-03": {
+      "skill_name": "Magic grids, symbolic rules and consistency",
+      "category_name": "Logic, deduction and constraints",
+      "sessions": [
+        {
+          "slot": 73,
+          "focus": "Magic grids, symbolic rules and consistency"
+        },
+        {
+          "slot": 117,
+          "focus": "Magic grids, symbolic rules and consistency"
+        },
+        {
+          "slot": 267,
+          "focus": "Magic grids, symbolic rules and consistency"
+        }
+      ]
+    },
+    "LOGIC-04": {
+      "skill_name": "Proving all cases and unique solutions",
+      "category_name": "Logic, deduction and constraints",
+      "sessions": [
+        {
+          "slot": 74,
+          "focus": "Proving all cases and unique solutions"
+        },
+        {
+          "slot": 158,
+          "focus": "Proving all cases and unique solutions"
+        },
+        {
+          "slot": 249,
+          "focus": "Proving all cases and unique solutions"
+        }
+      ]
+    },
+    "GEO-01": {
+      "skill_name": "Perimeter, shared edges and boundary effects",
+      "category_name": "2D geometry and measurement",
+      "sessions": [
+        {
+          "slot": 43,
+          "focus": "Perimeter, shared edges and boundary effects"
+        },
+        {
+          "slot": 76,
+          "focus": "Perimeter, shared edges and boundary effects"
+        },
+        {
+          "slot": 108,
+          "focus": "Perimeter, shared edges and boundary effects"
+        }
+      ]
+    },
+    "GEO-02": {
+      "skill_name": "Area decomposition and shaded complements",
+      "category_name": "2D geometry and measurement",
+      "sessions": [
+        {
+          "slot": 61,
+          "focus": "Area decomposition and shaded complements"
+        },
+        {
+          "slot": 78,
+          "focus": "Area decomposition and shaded complements"
+        },
+        {
+          "slot": 149,
+          "focus": "Area decomposition and shaded complements"
+        }
+      ]
+    },
+    "GEO-03": {
+      "skill_name": "Angle and polygon reasoning",
+      "category_name": "2D geometry and measurement",
+      "sessions": [
+        {
+          "slot": 81,
+          "focus": "Angle and polygon reasoning"
+        },
+        {
+          "slot": 131,
+          "focus": "Angle and polygon reasoning"
+        },
+        {
+          "slot": 190,
+          "focus": "Angle and polygon reasoning"
+        }
+      ]
+    },
+    "GEO-04": {
+      "skill_name": "Symmetry, transformations and tessellation",
+      "category_name": "2D geometry and measurement",
+      "sessions": [
+        {
+          "slot": 83,
+          "focus": "Symmetry, transformations and tessellation"
+        },
+        {
+          "slot": 172,
+          "focus": "Symmetry, transformations and tessellation"
+        },
+        {
+          "slot": 263,
+          "focus": "Symmetry, transformations and tessellation"
+        }
+      ]
+    },
+    "GEO-05": {
+      "skill_name": "Optimising areas and lengths under constraints",
+      "category_name": "2D geometry and measurement",
+      "sessions": [
+        {
+          "slot": 53,
+          "focus": "Optimising areas and lengths under constraints"
+        },
+        {
+          "slot": 85,
+          "focus": "Optimising areas and lengths under constraints"
+        },
+        {
+          "slot": 122,
+          "focus": "Optimising areas and lengths under constraints"
+        }
+      ]
+    },
+    "SOLID-01": {
+      "skill_name": "Unit-cube counting and layered solids",
+      "category_name": "3D geometry and solids",
+      "sessions": [
+        {
+          "slot": 6,
+          "focus": "Unit-cube counting and layered solids"
+        },
+        {
+          "slot": 72,
+          "focus": "Unit-cube counting and layered solids"
+        },
+        {
+          "slot": 87,
+          "focus": "Unit-cube counting and layered solids"
+        }
+      ]
+    },
+    "SOLID-02": {
+      "skill_name": "Painted faces, boundary and hidden cubes",
+      "category_name": "3D geometry and solids",
+      "sessions": [
+        {
+          "slot": 89,
+          "focus": "Painted faces, boundary and hidden cubes"
+        },
+        {
+          "slot": 113,
+          "focus": "Painted faces, boundary and hidden cubes"
+        },
+        {
+          "slot": 145,
+          "focus": "Painted faces, boundary and hidden cubes"
+        }
+      ]
+    },
+    "SOLID-03": {
+      "skill_name": "Nets, surface area, volume and 3D views",
+      "category_name": "3D geometry and solids",
+      "sessions": [
+        {
+          "slot": 90,
+          "focus": "Nets, surface area, volume and 3D views"
+        },
+        {
+          "slot": 186,
+          "focus": "Nets, surface area, volume and 3D views"
+        },
+        {
+          "slot": 277,
+          "focus": "Nets, surface area, volume and 3D views"
+        }
+      ]
+    },
+    "SPATIAL-01": {
+      "skill_name": "Counting paths by dynamic totals",
+      "category_name": "Grids, routes and spatial patterns",
+      "sessions": [
+        {
+          "slot": 93,
+          "focus": "Counting paths by dynamic totals"
+        },
+        {
+          "slot": 227,
+          "focus": "Counting paths by dynamic totals"
+        },
+        {
+          "slot": 318,
+          "focus": "Counting paths by dynamic totals"
+        }
+      ]
+    },
+    "SPATIAL-02": {
+      "skill_name": "Grid lines, crossings and coordinates",
+      "category_name": "Grids, routes and spatial patterns",
+      "sessions": [
+        {
+          "slot": 17,
+          "focus": "Grid lines, crossings and coordinates"
+        },
+        {
+          "slot": 82,
+          "focus": "Grid lines, crossings and coordinates"
+        },
+        {
+          "slot": 94,
+          "focus": "Grid lines, crossings and coordinates"
+        }
+      ]
+    },
+    "SPATIAL-03": {
+      "skill_name": "Polyominoes, tiling and shape assembly",
+      "category_name": "Grids, routes and spatial patterns",
+      "sessions": [
+        {
+          "slot": 36,
+          "focus": "Polyominoes, tiling and shape assembly"
+        },
+        {
+          "slot": 97,
+          "focus": "Polyominoes, tiling and shape assembly"
+        },
+        {
+          "slot": 127,
+          "focus": "Polyominoes, tiling and shape assembly"
+        }
+      ]
+    },
+    "SPATIAL-04": {
+      "skill_name": "Restricted routes and spatial adjacency",
+      "category_name": "Grids, routes and spatial patterns",
+      "sessions": [
+        {
+          "slot": 100,
+          "focus": "Restricted routes and spatial adjacency"
+        },
+        {
+          "slot": 109,
+          "focus": "Restricted routes and spatial adjacency"
+        },
+        {
+          "slot": 200,
+          "focus": "Restricted routes and spatial adjacency"
+        }
+      ]
+    },
+    "DATA-01": {
+      "skill_name": "Elementary probability and favourable outcomes",
+      "category_name": "Probability, statistics and data",
+      "sessions": [
+        {
+          "slot": 101,
+          "focus": "Elementary probability and favourable outcomes"
+        },
+        {
+          "slot": 150,
+          "focus": "Elementary probability and favourable outcomes"
+        },
+        {
+          "slot": 241,
+          "focus": "Elementary probability and favourable outcomes"
+        }
+      ]
+    },
+    "DATA-02": {
+      "skill_name": "Averages, weighted means and simple distributions",
+      "category_name": "Probability, statistics and data",
+      "sessions": [
+        {
+          "slot": 26,
+          "focus": "Averages, weighted means and simple distributions"
+        },
+        {
+          "slot": 92,
+          "focus": "Averages, weighted means and simple distributions"
+        },
+        {
+          "slot": 103,
+          "focus": "Averages, weighted means and simple distributions"
+        }
+      ]
+    },
+    "DATA-03": {
+      "skill_name": "Reading and reasoning from graphs/tables",
+      "category_name": "Probability, statistics and data",
+      "sessions": [
+        {
+          "slot": 45,
+          "focus": "Reading and reasoning from graphs/tables"
+        },
+        {
+          "slot": 104,
+          "focus": "Reading and reasoning from graphs/tables"
+        },
+        {
+          "slot": 141,
+          "focus": "Reading and reasoning from graphs/tables"
+        }
+      ]
+    }
+  }
+}
