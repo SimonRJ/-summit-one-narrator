@@ -211,7 +211,7 @@ async def main():
   if await page.locator('.advanced-media').count():
    assert await page.locator('.advanced-media').evaluate('(node)=>node.open')==False
    await page.locator('.advanced-media > summary').click()
-   assert await page.locator('.advanced-media .lesson-player-slot').count()>=1
+   assert await page.locator('.advanced-media .narrated-player').count()>=1
   else:
    assert await page.locator('.advanced-path').count()==1
   await next_page()
