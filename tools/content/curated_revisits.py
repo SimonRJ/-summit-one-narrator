@@ -7,7 +7,7 @@ Each replacement independently checks its answer against the original key.
 from fractions import Fraction
 
 def curate(skill, role, visit, original):
-    if visit <= 1 or skill not in ('DIV-03','ALG-04'): return original
+    if visit <= 1 or skill not in ('DIV-03','ALG-04','DATA-02'): return original
     a=Fraction(str(original['answer']))
     x=visit+6
     def q(title,prompt,steps,check,insight,result):
@@ -187,4 +187,52 @@ def curate(skill, role, visit, original):
                  f'Add back 2 to recover the original number {v}.'],
                 f'({v} − 2) × 3 ÷ 2 = {y}, and {v} is even as required.',
                 'A divisibility condition can confirm the order of operations was respected.',v)
+
+    if skill=='DATA-02' and role=='try':
+        # Revisit problems use new individual observations, not repeated team means.
+        m={2:13,3:11,4:10,5:14,6:15,7:16,8:9}[visit]
+        p,t={2:(15,17),3:(21,22),4:(24,26),5:(11,12),
+             6:(6,8),7:(1,2),8:(30,34)}[visit]
+        last=12*x+60-m*x-p-t
+        assert last>0
+        result=Fraction(m*x+p+t+last,x+3)
+        contexts={
+          2:('Update a class average',f'A class of {x} students has an average test score of {m} points. Three more students join with scores {p}, {t} and {last}. What is the average for all {x+3} students? Give an exact fraction if necessary.'),
+          3:('A chess season with three new games',f'Across {x} chess matches a player averages {m} points per game. The next three matches give {p}, {t} and {last} points. What is the average per match over all {x+3} matches? Give an exact fraction if needed.'),
+          4:('Add new observations to a data set',f'A survey has {x} readings with mean {m}. Three further readings are {p}, {t} and {last}. What is the mean of the expanded data set? Give an exact fraction if needed.'),
+          5:('A laboratory reports three more results',f'A laboratory collects {x} measurements with mean {m}. It then records {p}, {t} and {last}. Find the new mean of all {x+3} measurements as an exact fraction. What value do you get?'),
+          6:('Three additional results change the mean',f'The mean of {x} quiz results is {m}. The final three students score {p}, {t} and {last}. What is the mean of all {x+3} results? Give an exact fraction if needed.'),
+          7:('Very low scores join a data set',f'A set of {x} scores has mean {m}. Three further scores are {p}, {t} and {last}. What is the mean when the scores are combined? Give an exact fraction if needed.'),
+          8:('A tournament average after bonus rounds',f'An athlete earns a mean of {m} points over {x} rounds. In three bonus rounds the athlete earns {p}, {t} and {last}. What is the mean points per round over all {x+3} rounds? Give an exact fraction if needed.')
+        }
+        title,prompt=contexts[visit]
+        return q(title,prompt,
+            [f'The original {x} observations total {x} × {m} = {x*m}.',
+             f'The three new observations contribute {p} + {t} + {last} = {p+t+last}. All {x+3} observations sum to {12*x+60}.',
+             f'Divide the combined total by the number of observations: ({12*x+60}) ÷ {x+3} = {result}.'],
+            f'The new total is {x*m}+{p+t+last}={12*x+60}, and the denominator is {x+3}, not {x}.',
+            'Averages must be combined through their totals and their numbers of observations.',result)
+
+    if skill=='DATA-02' and role=='transfer':
+        recorded_mean={2:13,3:12,4:15,5:13,6:12,7:15,8:13}[visit]
+        recorded={2:20,3:10,4:30,5:20,6:10,7:30,8:20}[visit]
+        actual= x+10 if visit in (2,5,8) else (2*x if visit in (3,6) else 20-x)
+        corrected=recorded_mean*x-recorded+actual
+        result=Fraction(corrected,x)
+        contexts={
+          2:('Repair an incorrect science average',f'The mean of {x} science measurements is reported as {recorded_mean}. One reading was entered as {recorded} but should have been {actual}. What is the corrected mean? Give an exact fraction if needed.'),
+          3:('Correct a running-club data entry',f'A running club calculates a mean time of {recorded_mean} minutes from {x} recorded times. One time was entered as {recorded} minutes instead of {actual} minutes. What is the corrected mean time? Give an exact fraction if needed.'),
+          4:('Find the true average temperature',f'The mean of {x} daily temperatures is reported as {recorded_mean} degrees. A faulty sensor logged {recorded} degrees on one day, but the actual temperature was {actual} degrees. What is the corrected mean? Give an exact fraction if needed.'),
+          5:('Correct one missing mark on a score sheet',f'After {x} quiz scores were recorded, the mean was {recorded_mean}. One score marked {recorded} should have been {actual}. What is the corrected mean? Give an exact fraction if needed.'),
+          6:('An incorrect assembly count',f'The mean number of parts assembled in {x} sessions was entered as {recorded_mean}. One session was recorded as {recorded} parts rather than the actual {actual}. What should the mean be? Give an exact fraction if needed.'),
+          7:('Spot a faulty weather observation',f'A weather station reports an average of {recorded_mean} degrees from {x} days. One temperature of {recorded} degrees should have been {actual} degrees. What is the corrected average? Give an exact fraction if needed.'),
+          8:('Fix the club tournament average',f'A club records {x} tournament scores with mean {recorded_mean}. An entry of {recorded} points is corrected to {actual} points. What is the new average score? Give an exact fraction if needed.')
+        }
+        title,prompt=contexts[visit]
+        return q(title,prompt,
+            [f'The recorded total is {x} × {recorded_mean} = {x*recorded_mean}.',
+             f'Replace the incorrect {recorded} with {actual}. The total becomes {x*recorded_mean} − {recorded} + {actual} = {corrected}.',
+             f'There are still {x} values, so the corrected mean is {corrected} ÷ {x} = {result}.'],
+            f'The number of observations does not change. The total changes by {actual-recorded}.',
+            'Correct the total first; do not change the divisor when one value is replaced.',result)
     return original
