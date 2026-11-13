@@ -6,6 +6,7 @@ Run: python tools/content/build_original_lessons.py SESSION_MAP OUTPUT_DIR
 import json, math, itertools, sys
 from pathlib import Path
 from fractions import Fraction
+from curated_revisits import curate
 C=math.comb
 
 def ordinal(n):
@@ -260,6 +261,8 @@ def build(mapping,out):
             # Discrete fractional-transfer stories require an even scale.
             nn=2*n if (k=='FRAC-01' and role=='transfer') or (k=='ALG-05' and role=='try') else n
             q=(capstone(s['slot']) if role=='transfer' else None) or family(k,nn,role)
+            if not (role=='transfer' and capstone(s['slot'])):
+                q=curate(k,role,counts[k],q)
             if k=='FRAC-01' and role=='transfer':q['check']='Send half of the original count, then one third of the remainder; all counts are whole numbers and the final remainder agrees.'
             if k=='ALG-05' and role=='try':q['check']='Subtract the transfer from the first count and add it to the second; check the stated final gap.'
             pid=f'O{s["slot"]:03}{"T" if role=="try" else "X"}'
@@ -268,7 +271,7 @@ def build(mapping,out):
             # The worked solution still teaches the mathematical reasoning.
             prompt=q['prompt']
             bespoke_titles={"O001T":"Packing bolts into boxes","O002T":"Stationery shop: total cost","O002X":"The warehouse stock-counter error","O003T":"Reverse a number machine","O003X":"Pocket money, worked backwards","O004T":"Even numbers from five digits","O005X":"Counting printed ticket digits","O009T":"A missing digit in two-digit addition","O010T":"Recover the missing units digit","O123X":"Correct the ticket-printer total","O214X":"A scoreboard that adds too much","O305X":"Repair a factory's production count"}
-            title=bespoke_titles.get(pid, title_map[k][0 if role=='try' else 1])
+            title=q.get('title') or bespoke_titles.get(pid, title_map[k][0 if role=='try' else 1])
             rows.append(dict(id=pid,source_type='original_authored',title=title,source_label='Summit One original learning problem',category=k,difficulty=3 if role=='try' else 4,prompt=prompt,answer=q['answer'],unit='',solution_text=q['clue']+'\n\n'+'\n\n'.join(q['steps'])+'\n\n'+q['check']+'\n\nFinal answer: '+str(q['answer']),spoken_script='',rights='original_authored_for_summit_one'))
             manifest.append(dict(id=pid,session=s['slot'],skill=k,role=role,family=k+(':capstone:'+str(s['slot']) if role=='transfer' and capstone(s['slot']) else ':'+role),visit=visit,source_type='original_authored'))
     out.mkdir(parents=True,exist_ok=True)
