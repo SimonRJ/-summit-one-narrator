@@ -124,7 +124,9 @@ assert(advancedConnectionHTML('DIG-01').includes('Difference of squares'));
 assert(advancedConnectionHTML('SPATIAL-03').includes('recursive tiling'));
 assert(advancedConnectionHTML('DIG-01',{visit:2}).includes('revisiting this technique'));
 assert(!app.includes('Optional deeper connection · related video or reading'));
-assert(app.includes('Related teaching videos and further reading'));
+assert(!app.includes('Related teaching videos and further reading'));
+assert(!app.includes('advanced-media'));
+assert(app.includes('function renderLessonOpening') && app.includes('replayIntroVideo'), 'Core teaching and video replay must remain');
 
 assert(!screens.includes('What clue tells you the method?'));
 assert(!screens.includes('Explain your plan'));
