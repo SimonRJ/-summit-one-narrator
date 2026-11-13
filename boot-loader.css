@@ -106,3 +106,7 @@
  .sb-facet,.sb-wordmark,.sb-subtitle,.sb-status,.sb-progress-line{opacity:1;clip-path:none;transform:none}
  .sb-grid{opacity:.18}
 }
+
+
+.summit-boot .sb-first-frame{display:grid;place-items:center;width:130px;height:130px;border-radius:50%;border:1px solid rgba(131,207,243,.3);color:#a2e5fb;font-size:5rem;line-height:1;text-shadow:0 0 23px #3aafed;animation:sb-pre-glow 1.6s infinite alternate ease-in-out}
+@keyframes sb-pre-glow{to{opacity:.6;transform:scale(.96)}}
