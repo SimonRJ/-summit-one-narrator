@@ -68,6 +68,17 @@ def check_problems(rows,mapping):
             errors.append(f"{pid} source-code placeholder in solution")
         if "<svg" in text and "</svg>" not in text:errors.append(f"{pid} unclosed diagram markup")
         templates[(skill,role)].append(numeric_skeleton(text))
+
+    # A curated problem may revisit the *technique*, but no two problems in
+    # these five reauthored families may share the same number-stripped stem.
+    for skill in ("DIV-03","ALG-04","DIG-03","DATA-02","SOLID-01"):
+        forms=[numeric_skeleton(r["prompt"]) for r in rows if r["category"]==skill]
+        if len(forms)!=len(set(forms)):
+            errors.append(f"{skill} still contains repeated number-normalised question setups")
+        names=[r["title"] for r in rows if r["category"]==skill]
+        if len(names)!=len(set(names)):
+            errors.append(f"{skill} still contains generic or duplicated problem titles")
+
     assert counts["T"]==283 and counts["X"]==283,counts
     for (skill,role),variants in templates.items():
         if len(variants)>2 and len(set(variants))==1:
