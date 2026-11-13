@@ -8,10 +8,10 @@ const MATH_AREAS = [
   ".flash-question",".flash-options",".flash-feedback",".flash-summary",
   ".mini-check",".worked-example",".method-card",".reasoning-steps",
   ".bridge-example",".session-intro",".lesson-recall-brief",
-  /* Progress counters such as 6 / 6 are not equations. */".lesson-fade-unit",".lesson-prep-unit",
+  ".lesson-fade-unit",".lesson-prep-unit",
   ".lesson-mix-unit",".lesson-extra-unit",".lesson-problem-unit",
   ".solution-panel",".question-review",".exam-visual",".exam-section-key",
-  ".np-transcript",".transcript",".problem-card","[data-tex]","[data-math]"
+  ".np-transcript",".transcript",".problem-card","[data-math-tex]"
 ].join(",");
 const SKIP_SELECTOR = [
   "script","style","noscript","textarea","input","select","option",
@@ -20,7 +20,9 @@ const SKIP_SELECTOR = [
   "[data-math-skip]"
 ].join(",");
 const ATOM = "(?:(?:LCM|GCD|HCF|lcm|gcd|C)\\([^)]{1,24}\\)|\\d+(?:\\.\\d+)?[A-Za-z]?(?:\\([^)]{1,35}\\))?|[A-Za-zπθφ]{1,5}(?:\\([^)]{1,35}\\))?|\\([^)]{1,45}\\)|…)(?:\\^\\{?[\\w]+\\}?|[⁰¹²³⁴⁵⁶⁷⁸⁹]|!)?";
-const OPERATOR = "(?:\\s*(?:[+=×÷−/<>≤≥≠≈·:])\\s*|\\s+-\\s+)";
+// A spaced slash often means progress ("6 / 6"), not a fraction.
+// Times such as 10:30 are handled by an explicit contextual guard below.
+const OPERATOR = "(?:\\s*(?:[+=×÷−<>≤≥≠≈·])\\s*|/|:|\\s+-\\s+)";
 const EXPRESSION = new RegExp(
   ATOM + "(?:" + OPERATOR + ATOM + ")+|(?:\\d+|[A-Za-zπθφ]{1,3})(?:\\^\\{?[\\w]+\\}?|[⁰¹²³⁴⁵⁶⁷⁸⁹])+|\\d+!",
   "gu"
@@ -37,9 +39,12 @@ export function plainToTeX(expression){
     .replace(/(?:GCD|gcd|HCF)(?=\()/g, "\\operatorname{gcd}")
     .replace(/\bC(?=\()/g, "\\mathrm{C}")
     .replace(/(\d+)\/(\d+)(?![\d/])/g,(_,n,d)=>"\\frac{"+n+"}{"+d+"}")
+    .replace(/\b([a-z])\/([a-z])\b/g,(_,n,d)=>"\\frac{"+n+"}{"+d+"}")
     .replace(/×/g,"\\times ").replace(/÷/g,"\\div ")
     .replace(/·/g,"\\cdot ").replace(/−/g,"-")
     .replace(/≤/g,"\\leq ").replace(/≥/g,"\\geq ")
+    .replace(/∑/g,"\\sum ").replace(/∞/g,"\\infty ")
+    .replace(/±/g,"\\pm ").replace(/∈/g,"\\in ")
     .replace(/≠/g,"\\ne ").replace(/≈/g,"\\approx ")
     .replace(/…/g,"\\cdots ").replace(/π/g,"\\pi ")
     .replace(/θ/g,"\\theta ").replace(/φ/g,"\\varphi ");
@@ -69,8 +74,10 @@ function appendPlainMath(fragment,text){
   let i=0,match,changed=false;
   while((match=EXPRESSION.exec(text))){
     const formula=match[0];
-    // Avoid interpreting a clock time like 10:30 as a ratio.
-    if(/^\d{1,2}:\d{2}$/.test(formula)&&Number(formula.split(":")[1])>12)continue;
+    // Ratios are usually unspaced. Do not convert clock times or progress counters.
+    if(/^\d{1,2}:\d{2}$/.test(formula))continue;
+    if(/^\d+\s*\/\s*\d+$/.test(formula)&&/\s\/\s/.test(formula))continue;
+    if(/^\d{4}[-/]\d{1,2}[-/]\d{1,2}$/.test(formula))continue;
     if(match.index>i)fragment.append(document.createTextNode(text.slice(i,match.index)));
     fragment.append(createMath(plainToTeX(formula),formula));
     i=match.index+formula.length;
@@ -102,6 +109,16 @@ function replaceText(node){
 }
 export function typesetMath(root=document){
   if(!root?.querySelectorAll||typeof document==="undefined")return;
+  // Intentional notation takes precedence over the conservative prose recogniser.
+  for(const explicit of root.querySelectorAll("[data-math-tex]")){
+    if(explicit.dataset.mathRendered==="yes")continue;
+    const tex=explicit.dataset.mathTex;
+    const original=explicit.textContent||tex;
+    explicit.dataset.mathRendered="yes";
+    explicit.setAttribute("aria-label",original);
+    explicit.textContent=original;
+    renderMath(explicit,tex,explicit.hasAttribute("data-math-display"));
+  }
   const found=root.querySelectorAll(MATH_AREAS);
   const done=new Set();
   for(const area of found){
