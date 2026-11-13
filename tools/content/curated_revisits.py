@@ -91,7 +91,7 @@ def curate(skill, role, visit, original):
                 'Use congruences to simplify an entire family of unknown numbers.',2)
         if visit==5:
             return q('Multiply two neighbouring expressions',
-                'A positive integer N has remainder 4 on division by 7. Find the remainder of (N−1)(N+1)+2 upon division by 7.',
+                'A positive integer N has remainder 4 on division by 7. What remainder does (N−1)(N+1)+2 leave upon division by 7?',
                 ['Replace N by remainder 4: the product is congruent to 3 × 5 + 2.',
                  'That is 17, which leaves remainder 3 when divided by 7.'],
                 'Expanding gives N²+1; using N=4 gives 17 as a quick independent check.',
