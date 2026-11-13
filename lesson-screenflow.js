@@ -49,7 +49,7 @@ export function learningScreens(host,stage,{draft,skill,problem,flashDone,slot}=
   if(bridge)pages.push(page("Connect the representations",()=>showTop([bridge])));
   if(flash)pages.push(page("Five quick decisions",()=>showTop([flash]),()=>{if(flashDone&&!flashDone()){alert("Finish the five quick decisions and read the recap before continuing.");return false}return true}));
   if(guided)pages.push(page("Solve with support",()=>showTop([guided])));
-  if(deeper)pages.push(page("Optional teaching video and notes",()=>showTop([deeper]),null,"Try independently"));
+  if(deeper)pages.push(page("Where this maths can lead",()=>showTop([deeper]),null,"Try independently"));
   return pages;
  }
  if(stage===2||stage===3){
