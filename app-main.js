@@ -193,6 +193,7 @@ function renderTechniqueRefresher(){
 function renderHome(){
  document.body.classList.remove("lesson-fullscreen");
  document.body.classList.add("home-focus");
+ setLessonScreenTopbar();
  activeView="home";
  updateNavProgress();
  const session=courseSession(),done=Number(progress?.completed_sessions)||0,finished=done>=372;
