@@ -50,9 +50,9 @@ assert(css.includes('.lesson-screen-stage .problem-card,'));
 assert(css.includes('body.lesson-fullscreen{height:100dvh;overflow:hidden'));
 assert(css.includes('.lesson-screen-footer'));
 assert(css.includes('.opening-video-wrap'));
-assert(sw.includes('lesson-screenflow.js?v=cinematic-practice-20261113'));
+assert(sw.includes('lesson-screenflow.js?v=advanced-20261113'));
 assert(sw.includes('lesson-pager.js?v=responsive-20261113'));
-assert(html.includes('app-main.js?v=responsive-20261113'));
+assert(html.includes('app-main.js?v=advanced-20261113'));
 assert(html.includes('id="courseMenu"') && html.includes('id="menuToggle"'));
 assert(html.includes('id="menuClose"') && html.includes('id="courseMenuContent"'));
 assert(!html.includes('class="topnav"'), 'No horizontal tabs');
@@ -92,7 +92,7 @@ assert(!focusedHome.includes('side-stack') && !focusedHome.includes('learning-no
 assert(app.includes('profile-upcoming') && app.includes('sessions remaining'));
 assert(css.includes('body.home-focus{min-height:100dvh;height:100dvh;overflow:hidden'));
 assert(css.includes('.course-menu-session.is-completed') && css.includes('.focus-session-card'));
-assert(sw.includes('summit-one-math-baseline-20261113'));
+assert(sw.includes('summit-one-advanced-20261113'));
 assert(!app.includes('node.scrollIntoView({behavior:\'smooth\',block:\'start\'});'));
 
 const loader=read('../boot-loader.js'),loaderCss=read('../boot-loader.css');
@@ -137,8 +137,8 @@ assert(app.includes('modeKeys.every(key=>sessionDraft.evidence[key])'));
 assert(!app.includes('id="workshopReflection"') && !app.includes('id="takeaway"'));
 
 const design=read('../design-system.css'),maths=read('../math-typography.js'),brand=read('../summit-mark.svg');
-assert(html.includes('summit-mark.svg') && html.includes('design-system.css?v=math-baseline-20261113'));
-assert(html.includes('math-typography.js?v=math-label-fix-20261113'));
+assert(html.includes('summit-mark.svg') && html.includes('design-system.css?v=advanced-20261113'));
+assert(html.includes('math-typography.js?v=advanced-20261113'));
 assert(html.includes('katex@0.16.47/dist/katex.min.css') && html.includes('katex@0.16.47/dist/katex.min.js'));
 assert(design.includes('Source Sans 3') && design.includes('Source Serif 4') && design.includes('STIX Two Math'));
 assert(design.includes('inline equations must share the text baseline') || design.includes('Inline maths must share the text baseline'));
@@ -172,7 +172,8 @@ assert(maths.includes('data-math-tex') && maths.includes('math-fallback'));
 
 assert.equal(plainToTeX('2^3 × 5²').replace(/\s{2,}/g,' '), String.raw`2^3 \times 5^{2}`);
 assert.equal(plainToTeX('N=qd+r, 0≤r<d'), String.raw`N=qd+r, 0\leq r<d`);
-assert(sw.includes('summit-mark.svg') && sw.includes('math-typography.js?v=math-label-fix-20261113'));
+assert(sw.includes('summit-mark.svg') && sw.includes('math-typography.js?v=advanced-20261113'));
+for(const path of ['advanced-number.js','advanced-counting.js','advanced-geometry.js','advanced-connections.js'])assert(sw.includes(path),'Missing offline advanced content '+path);
 
 assert(app.includes('attempted_on_paper_unreviewed'));
 
