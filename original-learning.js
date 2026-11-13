@@ -61,6 +61,43 @@ export function originalFigure(p){
   for(let i=0;i<=a;i++){const [u,v]=pt(i,0),[,w]=pt(i,b);body+=`<path d="M${u},${v}V${w}" stroke="#38566e"/>`;}
   for(let j=0;j<=b;j++){const [u,v]=pt(0,j),[w]=pt(a,j);body+=`<path d="M${u},${v}H${w}" stroke="#38566e"/>`;}
   for(const [i,j,label,color] of [[0,0,'S (0,0)','#91dcbd'],[a,b,`T (${a},${b})`,'#91dcbd'],[1,1,m.role==='try'?'via (1,1)':'blocked','#f3bc7c'],...(cap?[[3,2,'blocked','#f3bc7c']]:[])]){const [u,v]=pt(i,j);body+=`<circle cx="${u}" cy="${v}" r="5" fill="${color}"/><text x="${u}" y="${v+23}" text-anchor="middle" fill="#f0f4fb" font-size="13">${label}</text>`;}
+ }else if(m.skill==='SOLID-01' && m.visit>1){
+  const long=m.visit+6;
+  // Each card labels an actual given dimension or layer count. Neither an
+  // inferred result nor an answer value is drawn. The illustration is schematic.
+  const options=m.role==='try'?{
+    2:[['FULL BLOCK',`${long} × 3 × 4`],['REMOVED PIECE','5 × 2 × 1']],
+    3:[['LARGE CUBOID',`${long} × 2 × 5`],['ATTACHED ARM',`${long-5} × 2 × 1`]],
+    4:[['COMPLETE SHELVES',`${long-1} shelves of 12`],['FINAL SHELF','2 cubes']],
+    5:[['FULL BLOCK',`${long} × 4 × 3`],['REMOVED EDGE','10 cubes']],
+    6:[['FULL BLOCK',`${long} × 2 × 6`],['TWO BARS','5 cubes each']],
+    7:[['FIRST',`${long} × 1 × 3`],['SECOND',`${long} × 1 × 4`],['THIRD',`${long-2} × 1 × 5`]],
+    8:[['FULL ROWS','12 rows'],['EACH ROW',`${long} positions`],['EMPTY','10 positions']]
+  }[m.visit]:{
+    2:[['COMPLETE BLOCK',`${long} × 11 × 3`],['REMOVE','top layer']],
+    3:[['FIRST CUBOID',`${long} × 3 × 4`],['SECOND CUBOID',`${long} × 2 × 5`]],
+    4:[['FULL BLOCK',`${long} × 6 × 4`],['GROOVE',`${long} × 1 × 2`]],
+    5:[['FULL BLOCK',`${long} × 5 × 5`],['CHANNEL',`${long} × 3 × 1`]],
+    6:[['ONE LAYER','4 × 6 grid'],['EMPTY CORNERS','2 per layer'],['LAYERS',`${long}`]],
+    7:[['FIRST TOWER','5 × 2 base'],['SECOND TOWER','3 × 4 base'],['HEIGHT',`${long} cubes`]],
+    8:[['MAIN SECTION','3 × 6 cubes'],['PATCH','2 × 2 cubes'],['ROWS',`${long}`]]
+  }[m.visit];
+  if(!options)return '';
+  alt='Given unit-cube dimensions in separate schematic cards, not to scale';
+  const gap=8,width=(324-gap*(options.length-1))/options.length;
+  body=options.map(([name,measure],i)=>{
+    const left=18+i*(width+gap),centre=left+width/2;
+    const labelSize=options.length===3?10:12;
+    return `<g>
+      <rect x="${left}" y="46" rx="9" width="${width}" height="178" fill="#122b41" stroke="#41647a" stroke-width="1.5"/>
+      <path d="M${centre-40} 108 l20 -18 h60 l-20 18 z" fill="#a7dbe8" stroke="#82b6c6" stroke-width="1"/>
+      <path d="M${centre-40} 108 h60 v38 h-60 z" fill="#5aacc1" stroke="#82b6c6" stroke-width="1"/>
+      <path d="M${centre+20} 108 l20 -18 v38 l-20 18 z" fill="#37788e" stroke="#82b6c6" stroke-width="1"/>
+      <text x="${centre}" y="65" fill="#edf7ff" stroke="none" text-anchor="middle" font-size="${labelSize}" font-weight="600">${name}</text>
+      <text x="${centre}" y="185" fill="#f2f8fc" stroke="none" text-anchor="middle" font-size="${options.length===3?13:16}">${measure}</text>
+      <text x="${centre}" y="204" fill="#bbd0db" stroke="none" text-anchor="middle" font-size="10">as stated</text>
+    </g>`;
+  }).join('')+`<text x="180" y="243" font-size="11" fill="#bed5e0" text-anchor="middle" stroke="none">Schematic only · use the problem's given dimensions</text>`;
  }else return '';
  return `<figure class="original-figure"><svg viewBox="0 0 360 275" role="img" aria-label="${alt}" xmlns="http://www.w3.org/2000/svg">${body}</svg><figcaption>${alt}. Use the stated conditions, not measurements from the picture.</figcaption></figure>`;
 }
