@@ -83,7 +83,8 @@ assert.throws(()=>selectOriginalProblems(sessions[0],[{id:manifest[0].id,source_
 assert.throws(()=>selectOriginalProblems(sessions[0],[],manifest),/Original lesson content/);
 assert(!familySeen([], 'x'));assert(familySeen([{evidence:{a:{kind:'application',family:'x'}}}], 'x'));
 assert(!reasoningReady({evidence:{}},'x'));
-assert(reasoningReady({evidence:{'reasoning:x':{clue:'The clue is a total.',plan:'Use an equation.',check:'Substitute into both conditions.'}}},'x'));
+assert(!reasoningReady({evidence:{'reasoning:x':{clue:'The clue is a total.',plan:'Use an equation.',check:'Substitute into both conditions.'}}},'x'));
+assert(reasoningReady({answers:{x:{response:'12'}},evidence:{}},'x'));
 assert.equal(applicationStatus({correct:true,used_help:true}),'Solved with support');
 assert.match(applicationStatus({correct:true,used_help:false,familiar_family:true}),/familiar pattern/);
 assert.equal(attempt.independentCredit(true,true,false,false),true);

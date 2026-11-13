@@ -41,7 +41,7 @@ $("password").addEventListener("keydown",e=>{
   if(e.key==="Enter") $("signIn").click();
 });
 
-redirectIfSignedIn();
+redirectIfSignedIn().finally(()=>window.SummitLoader?.ready());
 
 if("serviceWorker" in navigator){navigator.serviceWorker.register("./sw.js").catch(()=>{});}
 

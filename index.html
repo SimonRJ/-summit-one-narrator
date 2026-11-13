@@ -4,11 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#07111e">
+  <link rel="stylesheet" href="boot-loader.css?v=cinematic-20261113">
+  <script defer src="boot-loader.js?v=cinematic-20261113"></script>
   <meta name="robots" content="noindex,nofollow,noarchive">
   <title>Summit One · Learning</title><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon.svg">
-  <link rel="stylesheet" href="main.css?v=lesson-replay-20261113">
+  <link rel="stylesheet" href="main.css?v=cinematic-practice-20261113">
 </head>
 <body>
+  <div id="summitBoot" class="summit-boot" data-mode="main" role="status" aria-label="Summit One loading" aria-live="polite"><span class="sb-first-frame" aria-hidden="true">△</span></div>
   <div class="stars" aria-hidden="true"></div>
   <header class="topbar">
     <button id="menuToggle" class="menu-trigger" type="button" aria-controls="courseMenu" aria-haspopup="dialog" aria-expanded="false" aria-label="Open the main menu">
@@ -36,12 +39,11 @@
   </main>
   <template id="problemTemplate">
     <article class="problem-card"><div class="problem-meta"></div><h3 class="problem-title"></h3><div class="problem-prompt math-copy"></div>
-      <label class="answer-label">Final answer only<textarea class="answer-box" rows="2" placeholder="Enter one final number, fraction or requested answer."></textarea></label>
-      <label class="answer-label">Working and explanation<textarea class="answer-box working-box" rows="5" placeholder="Explain your method here, or note that your full working is in your notebook."></textarea></label>
+      <label class="answer-label">Final answer<input class="answer-box final-answer-input" inputmode="text" autocomplete="off" placeholder="Enter your final answer"></label>
       <div class="problem-actions"><button class="primary submit-answer">Record attempt</button><button class="ghost reveal-solution" hidden>Compare with solution</button></div>
       <div class="attempt-feedback" hidden></div><div class="solution-panel" hidden></div>
     </article>
   </template>
-  <script type="module" src="app-main.js?v=lesson-replay-20261113"></script>
+  <script type="module" src="app-main.js?v=cinematic-practice-20261113"></script>
 </body>
 </html>

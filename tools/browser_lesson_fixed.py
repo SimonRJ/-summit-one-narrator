@@ -106,49 +106,54 @@ async def main():
   await page.locator('#guidedCheck button.primary').click()
   await next_page();await next_page()
   assert 'Try' in await page.locator('.lesson-stage-track .here').inner_text()
-  await page.locator('.lesson-fade-unit .method').fill('Keep the remainder, check it, then explain every step clearly.')
+  # The partial example, six extra numerical problems and two original problems
+  # require only final answers; no clue/plan/working/reflection text fields exist.
+  assert await page.locator('.lesson-fade-unit .method').count()==0
   val=await page.evaluate("import('./transfer-practice.js?v=recognition-20261113').then(m=>String(m.practice('DIV-03',9).value))")
   await page.locator('.lesson-fade-unit .response').fill(val)
-  await page.locator('.lesson-fade-unit').get_by_role('button',name='Record and check').click()
+  await page.locator('.lesson-fade-unit').get_by_role('button',name='Check answer').click()
   await next_page()
   await page.locator('.lesson-prep-unit .short-answer').fill('4')
   await page.locator('.lesson-prep-unit button.primary').click()
-  await page.locator('.lesson-problem-unit .problem-prompt').wait_for(state='visible')
-  assert 'Read your new problem' in await page.locator('.lesson-screen-progress').inner_text()
   await next_page()
-  await page.locator('[data-reason="clue"]').fill('This problem uses a remainder to capture the repeating structure.')
-  await next_page()
-  await page.locator('[data-reason="plan"]').fill('I will calculate a remainder and check the original question.')
-  await next_page()
-  await page.locator('.lesson-problem-unit .working-box').fill('I wrote clear mathematical working in my notebook.')
-  await page.locator('.lesson-problem-unit .answer-box:not(.working-box)').fill('12')
+  for k in range(3):
+   input_sel=f'.lesson-extra-unit [data-extra-question="{k}"] .response'
+   await until_visible(input_sel)
+   seed=12+k
+   answer=await page.evaluate(f"import('./transfer-practice.js?v=recognition-20261113').then(m=>String(m.practice('DIV-03',{seed}).value))")
+   await page.locator(input_sel).fill(answer)
+   await page.locator(f'.lesson-extra-unit [data-extra-question="{k}"]').get_by_role('button',name='Check answer').click()
+   await next_page()
+  await until_visible('.lesson-problem-unit .final-answer-input')
+  assert await page.locator('[data-reason="clue"],[data-reason="plan"],.working-box').count()==0
+  await page.locator('.lesson-problem-unit .final-answer-input').fill('12')
   await page.locator('.lesson-problem-unit .submit-answer').click()
   await page.locator('.lesson-problem-unit .submit-answer').wait_for(state='hidden')
   await fits()
   await page.locator('[data-screen-back]').click()
   await page.locator('[data-screen-next]').click()
-  assert await page.locator('.lesson-problem-unit .answer-box:not(.working-box)').input_value()=='12'
+  assert await page.locator('.lesson-problem-unit .final-answer-input').input_value()=='12'
   await next_page()
   await next_page()
   assert 'Transfer' in await page.locator('.lesson-stage-track .here').inner_text()
-  await next_page()
-  await page.locator('[data-reason="clue"]').fill('The change is governed by the same remainder structure.')
-  await next_page()
-  await page.locator('[data-reason="plan"]').fill('I will use a quotient and remainder, then substitute.')
-  await next_page()
-  await page.locator('.lesson-problem-unit .answer-box:not(.working-box)').fill('12')
+  for k in range(3):
+   input_sel=f'.lesson-extra-unit [data-extra-question="{k}"] .response'
+   await until_visible(input_sel)
+   seed=15+k
+   answer=await page.evaluate(f"import('./transfer-practice.js?v=recognition-20261113').then(m=>String(m.practice('DIV-03',{seed}).value))")
+   await page.locator(input_sel).fill(answer)
+   await page.locator(f'.lesson-extra-unit [data-extra-question="{k}"]').get_by_role('button',name='Check answer').click()
+   await next_page()
+  await until_visible('.lesson-problem-unit .final-answer-input')
+  await page.locator('.lesson-problem-unit .final-answer-input').fill('12')
   await page.locator('.lesson-problem-unit .submit-answer').click()
   await page.locator('.lesson-problem-unit .submit-answer').wait_for(state='hidden')
   await next_page()
   await next_page()
   assert 'Check' in await page.locator('.lesson-stage-track .here').inner_text()
-  await page.locator('#takeaway').fill('The invariant is the remainder, not the total quotient.')
-  await next_page();await page.locator('#watch').fill('Check each original condition at the end.')
-  await next_page()
-  for k in range(2):
-   await page.locator('[data-final-check]').nth(k).fill('I substituted back and checked all the possible cases.')
-   await next_page()
-  await page.locator('#transferConfidence').select_option('practice')
+  assert await page.locator('#takeaway,#watch,[data-final-check],#transferConfidence').count()==0
+  assert await page.locator('.lesson-check-summary').count()==1
+  assert '6 / 6' in await page.locator('.lesson-check-summary').inner_text()
   await fits()
   await page.screenshot(path=str(ROOT/'docs/lesson-final-iphone.png'))
   await next_page()
@@ -196,5 +201,5 @@ async def main():
   await page.locator('#continue').wait_for()
   assert not errors,errors
   await browser.close()
- print('PASS: no-scroll video-first lessons 1 & 2, single-screen Back/Next, saved answers, flash practice, and course completion.')
+ print('PASS: no-scroll lessons, six answer-only practice problems, read-only replay, and immutable completion.')
 asyncio.run(main())

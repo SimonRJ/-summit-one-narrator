@@ -11,7 +11,8 @@ export function selectOriginalProblems(session,bank,manifest){
  });
 }
 export function familySeen(records,family){return records.some(r=>Object.values(r.evidence||{}).some(e=>e?.kind==='application'&&e.family===family));}
-export function reasoningReady(draft,id){const e=draft.evidence['reasoning:'+id];return !!(e&&['clue','plan','check'].every(k=>String(e[k]||'').trim().length>=8));}
+/** An actual submitted answer, rather than a typed explanation, gates review. */
+export function reasoningReady(draft,id){return Boolean(draft?.answers?.[id]?.response)}
 export function applicationStatus(e){
  if(!e)return 'Not attempted';
  if(e.correct!==true)return 'Needs another try';
@@ -19,21 +20,31 @@ export function applicationStatus(e){
  return e.familiar_family?'Solved independently · familiar pattern':'Solved independently · first try in this setting';
 }
 const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+/** Keep optional help and honest independence recording, with no required typing. */
 export function mountReasoning(node,{p,draft,save,showHint}){
- const key='reasoning:'+p.id,e=draft.evidence[key]||{clue:'',plan:'',check:'',used_help:false};draft.evidence[key]=e;
- const panel=document.createElement('section');panel.className='reasoning-record';
- panel.innerHTML=`<h3>Make your thinking visible</h3><p class="muted">Before calculating, name the clue and choose your first step. A sentence or a labelled sketch in your notebook is enough.</p><div class="check-grid"><label class="answer-label">What kind of problem is this? Which clue tells you?<textarea class="reason-input" data-reason="clue" rows="2" placeholder="The important relationship is…">${esc(e.clue)}</textarea></label><label class="answer-label">What must you find, and why does your plan fit?<textarea class="reason-input" data-reason="plan" rows="2" placeholder="I need to find… I will… because…">${esc(e.plan)}</textarea></label></div><label class="support-choice"><input type="checkbox" class="used-help" ${e.used_help?'checked':''}> I used notes, a hint or someone’s help before answering</label><button type="button" class="ghost method-hint">Help me choose a method</button><p class="method-hint-text" role="status"></p>`;
+ const key='reasoning:'+p.id,e=draft.evidence[key]||{used_help:false};
+ draft.evidence[key]=e;
+ const panel=document.createElement('section');panel.className='reasoning-record reasoning-help-only';
+ panel.innerHTML=`<p class="muted">Solve this problem on paper, then enter only your final answer. Use a hint if you need one.</p><div class="reasoning-help-actions"><button type="button" class="ghost method-hint">Show a starting hint</button><label class="support-choice"><input type="checkbox" class="used-help" ${e.used_help?'checked':''}> I used a hint or help</label></div><p class="method-hint-text" role="status"></p>`;
  node.querySelector('.problem-prompt').after(panel);
- panel.querySelectorAll('[data-reason]').forEach(input=>input.oninput=()=>{e[input.dataset.reason]=input.value});
- panel.querySelector('.used-help').onchange=async event=>{e.used_help=event.target.checked||e.hint_opened===true;event.target.checked=e.used_help;if(e.hint_opened)panel.querySelector('.method-hint-text').textContent=showHint()+" This attempt is recorded with support because a hint was opened.";try{await save()}catch(err){panel.querySelector('.method-hint-text').textContent='Kept on this device; cloud save failed: '+err.message}};
- panel.querySelector('.method-hint').onclick=async()=>{e.hint_opened=true;e.used_help=true;panel.querySelector('.used-help').checked=true;panel.querySelector('.method-hint-text').textContent=showHint();try{await save()}catch(err){panel.querySelector('.method-hint-text').textContent+=' Cloud save failed: '+err.message}};
+ panel.querySelector('.used-help').onchange=async event=>{
+  e.used_help=event.target.checked||e.hint_opened===true;
+  event.target.checked=e.used_help;
+  try{await save()}catch(err){panel.querySelector('.method-hint-text').textContent='Cloud save failed: '+err.message}
+ };
+ panel.querySelector('.method-hint').onclick=async()=>{
+  e.hint_opened=true;e.used_help=true;
+  panel.querySelector('.used-help').checked=true;
+  panel.querySelector('.method-hint-text').textContent=showHint();
+  try{await save()}catch(err){panel.querySelector('.method-hint-text').textContent+=' Hint could not sync: '+err.message}
+ };
  return e;
 }
 export function transferEvidenceHTML(records){
  const ev=records.flatMap(r=>Object.values(r.evidence||{})).filter(e=>e?.kind==='application'&&e.role==='transfer');
  const first=new Set(ev.filter(e=>e.correct===true&&!e.used_help&&!e.familiar_family).map(e=>e.family));
  const support=ev.filter(e=>e.correct===true&&e.used_help).length;
- return `<section class="transfer-evidence"><h2>Applying ideas in other settings</h2><p><b>${first.size}</b> different transfer patterns solved correctly on a first unassisted attempt. <b>${support}</b> transfer attempts solved with support.</p><p class="muted">A new set of numbers in a familiar pattern counts as practice. Written explanations and checks are saved for review; a correct final answer does not automatically verify a proof or guarantee exam readiness. Mixed mocks and fresh past papers give additional evidence.</p></section>`;
+ return `<section class="transfer-evidence"><h2>Applying ideas in other settings</h2><p><b>${first.size}</b> different transfer patterns solved correctly on a first unassisted attempt. <b>${support}</b> transfer attempts solved with support.</p><p class="muted">A new set of numbers in a familiar pattern counts as practice. Worked solutions remain available after attempts; a correct answer alone does not guarantee readiness for unfamiliar problems. Mixed mocks and fresh past papers give additional evidence.</p></section>`;
 }
 
 export function originalFigure(p){

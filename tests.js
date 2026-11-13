@@ -123,6 +123,8 @@ function renderMawaHub(){
  <section class="exam-hub-grid"><article class="panel exam-hub-card"><div class="eyebrow">IN THE LEARNING PATHWAY</div><h2>Every seven completed sessions</h2><p>There are 53 investigation slots built into the 372-session course, drawing on twenty detailed investigation themes. Work, reasoning and adult rubric feedback remain part of the learner's saved session record.</p><p>Continue your current session; the next MAWA investigation appears automatically at the correct point in the pathway.</p><a class="primary" href="./">Continue Learning</a></article><article class="panel exam-hub-card"><div class="eyebrow">WHAT COUNTS AS SUCCESS</div><h2>Explain and prove</h2><p>Define the problem clearly, test cases systematically, develop a convincing method, and justify the conclusion. The initial focus is independent reasoning rather than speed.</p><a class="secondary" href="index.html?view=roadmap">View the mathematics roadmap</a></article></section>`;
 }
 async function prepareExam(id){
+  const token=window.SummitLoader?.beginSmall("Opening exam information");
+  try{
   const exam=catalog.find(x=>x.id===id);if(!exam)return;
   const existing=await existingSitting(id);if(existing){await openSavedSitting(existing);return}
   document.body.classList.remove('exam-mode');theme(exam);
@@ -135,6 +137,7 @@ async function prepareExam(id){
   ${exam.repeatable?'<p class="muted">Repeat scores show improvement on this paper. Your first attempt is recorded separately because later attempts may benefit from memory.</p>':''}
   <p class="muted">The timer has not started. A computer or tablet is best for a full sitting.</p><div class="complete-row"><button id="cancelStart" class="ghost">Not yet — go back</button><button id="confirmStart" class="primary cta">${startLabel}</button></div></section>`;
   document.getElementById('cancelStart').onclick=()=>renderLibrary();document.getElementById('confirmStart').onclick=()=>startExam(id);window.scrollTo({top:0,behavior:'instant'});
+  }finally{window.SummitLoader?.endSmall(token)}
 }
 function practicePerformanceHTML(part){
  const getExam=id=>catalog.find(e=>e.id===id);
@@ -181,6 +184,7 @@ function renderLibrary(){
 }
 async function startExam(id){
   if(starting)return;starting=true;
+  const loadToken=window.SummitLoader?.beginSmall("Preparing exam paper");
   const button=document.getElementById("confirmStart");if(button){button.disabled=true;button.textContent="Opening your attempt…"}
   try{
     activeExam=catalog.find(x=>x.id===id);if(!activeExam)return;
@@ -195,7 +199,7 @@ async function startExam(id){
     }).select().single();
     if(e){const concurrent=await existingSitting(id);if(concurrent){await openSavedSitting(concurrent);return}throw e}
     sitting=s;sittingsByExam.set(id,s);renderOverview();startTimer();
-  }catch(e){showExamError(e)}finally{starting=false;if(button?.isConnected){button.disabled=false;button.textContent=activeExam?.repeatable?"Start this practice attempt":"Start my only attempt"}}
+  }catch(e){showExamError(e)}finally{starting=false;window.SummitLoader?.endSmall(loadToken);if(button?.isConnected){button.disabled=false;button.textContent=activeExam?.repeatable?"Start this practice attempt":"Start my only attempt"}}
 }
 async function resumeSitting(s){
   const {data:exam,error:examError}=await supabase.from("exam_catalog").select("*").eq("id",s.exam_id).single();if(examError)throw examError;activeExam=exam;
@@ -386,5 +390,5 @@ function renderResults(score,rows,award,auto,maxScore=135){
 
 
 }
-boot().catch(e=>{app.innerHTML='<section class="panel hero-panel"><h1>Test Centre error</h1><p class="muted">'+esc(e.message)+'</p></section>'});
+boot().catch(e=>{app.innerHTML='<section class="panel hero-panel"><h1>Test Centre error</h1><p class="muted">'+esc(e.message)+'</p></section>'}).finally(()=>window.SummitLoader?.ready());
 

@@ -71,14 +71,27 @@ export function practice(id,seed=0){
  return {id,seed,prompt,value,steps,reason:steps.join(' '),hint:steps[0],contrast:methods[id].trap,figure};
 }
 export function bridgeHTML(id,visit=1){const q=practice(id,visit-1),e=escapeHTML;return `<article class="method-card bridge-example"><div class="eyebrow">BRIDGE · ADD ONE NEW IDEA</div><h3>${e(q.prompt)}</h3>${q.figure}<ol>${q.steps.map(s=>`<li>${e(s)}</li>`).join('')}</ol><p><b>Where the method changes:</b> ${e(q.contrast)}</p><p>Explain why that warning matters in this example before opening the next step.</p></article>`;}
-export function mountPractice(el,{id,seed,key,draft,save,label='Choose your method',supported=false,onDone=()=>{}}){
+export function mountPractice(el,{id,seed,key,draft,save,label='Solve the problem',supported=false,onDone=()=>{}}){
  const q=practice(id,seed),old=draft.evidence[key],e=escapeHTML;
  let helped=old?.used_help||draft.evidence['help:'+key]===true;
- el.innerHTML=`<article class="mini-check"><div class="eyebrow">${e(label)}</div><p>${e(q.prompt)}</p>${supported?q.figure:''}${supported?`<p><b>First step supplied:</b> ${e(q.steps[0])}</p>`:''}<form><label class="answer-label">Your method and why it fits<textarea class="answer-box method" rows="2">${e(old?.method||draft.working[key+':method']||'')}</textarea></label><label class="answer-label">Final answer<input class="answer-box response" value="${e(old?.response||draft.working[key+':answer']||'')}" autocomplete="off"></label><button class="primary">Record and check</button><button class="ghost hint" type="button">Show one step</button></form><div class="feedback" role="status"></div></article>`;
+ el.innerHTML=`<article class="mini-check"><div class="eyebrow">${e(label)}</div><p>${e(q.prompt)}</p>${supported?q.figure:''}${supported?`<p><b>First step supplied:</b> ${e(q.steps[0])}</p>`:''}<form><label class="answer-label">Final answer<input class="answer-box response" value="${e(old?.response||draft.working[key+':answer']||'')}" autocomplete="off" inputmode="text" placeholder="Enter your answer"></label><div class="problem-actions"><button class="primary">Check answer</button><button class="ghost hint" type="button">Show one step</button></div></form><div class="feedback" role="status"></div></article>`;
  const form=el.querySelector('form'),feedback=el.querySelector('.feedback');
- const show=r=>{feedback.innerHTML=`<p><b>${r.correct?'Correct':'A useful correction'}</b> · ${r.used_help?'with support':'first response saved'}</p>${!supported?q.figure:""}<ol>${q.steps.map(x=>`<li>${e(x)}</li>`).join('')}</ol><p><b>Watch for:</b> ${e(q.contrast)}</p>`;form.querySelectorAll('input,textarea,button').forEach(x=>x.disabled=true)};
+ const show=r=>{
+  feedback.innerHTML=`<p><b>${r.correct?'Correct':'Not quite — here is the solution'}</b> · ${r.used_help?'with support':'first response saved'}</p>${!supported?q.figure:""}<ol>${q.steps.map(x=>`<li>${e(x)}</li>`).join('')}</ol><p><b>Watch for:</b> ${e(q.contrast)}</p>`;
+  form.querySelectorAll('input,button').forEach(x=>x.disabled=true)
+ };
  if(old)show(old);
- form.querySelector('.method').oninput=x=>{draft.working[key+':method']=x.target.value};form.querySelector('.response').oninput=x=>{draft.working[key+':answer']=x.target.value};
- form.querySelector('.hint').onclick=async()=>{helped=true;draft.evidence['help:'+key]=true;feedback.textContent=q.hint;try{await save()}catch(err){feedback.textContent+=' Save failed: '+err.message}};
- form.onsubmit=async event=>{event.preventDefault();const response=form.querySelector('.response').value.trim(),method=form.querySelector('.method').value.trim();if(!response||method.length<8){feedback.textContent='Give a final answer and a short reason for your method.';return}const r={kind:'mixed_application',skill_id:id,question_id:q.prompt,seed,response,method,correct:checkAnswer(q.value,response),used_help:helped||supported,recorded_at:new Date().toISOString()};draft.evidence[key]=r;form.querySelectorAll('button').forEach(x=>x.disabled=true);try{await save();show(r);await onDone(r)}catch(err){delete draft.evidence[key];form.querySelectorAll('button').forEach(x=>x.disabled=false);feedback.textContent='Could not save: '+err.message}};
+ form.querySelector('.response').oninput=x=>{draft.working[key+':answer']=x.target.value};
+ form.querySelector('.hint').onclick=async()=>{
+  helped=true;draft.evidence['help:'+key]=true;feedback.textContent=q.hint;
+  try{await save()}catch(err){feedback.textContent+=' Save failed: '+err.message}
+ };
+ form.onsubmit=async event=>{
+  event.preventDefault();const response=form.querySelector('.response').value.trim();
+  if(!response){feedback.textContent='Enter your final answer before checking.';return}
+  const r={kind:'mixed_application',skill_id:id,question_id:q.prompt,seed,response,method:'',correct:checkAnswer(q.value,response),used_help:helped||supported,recorded_at:new Date().toISOString()};
+  draft.evidence[key]=r;form.querySelectorAll('button').forEach(x=>x.disabled=true);
+  try{await save();show(r);await onDone(r)}
+  catch(err){delete draft.evidence[key];form.querySelectorAll('button').forEach(x=>x.disabled=false);feedback.textContent='Could not save: '+err.message}
+ };
 }

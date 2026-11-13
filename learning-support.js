@@ -16,7 +16,7 @@ export async function renderRepairs(el,{user,done,records=[]}){
  for(const r of records)await queueLessonRepairs(user.id,r.session_number,r,done);
  const rows=await allRows(()=>supabase.from('learning_repairs').select('*').eq('user_id',user.id).order('created_at'));
  const active=rows.filter(r=>r.stage<4),ready=active.filter(r=>r.stage!==3||done>=r.due_after_session);
- el.innerHTML=`<section class="panel hero-panel"><div class="eyebrow">TURN A MISTAKE INTO A TOOL</div><h1>Repair and remember</h1><p>Identify the cause → explain the correction → use the method with support → try changed values independently → check again after three more completed sessions.</p><p>${ready.length} ready now · ${active.length-ready.length} waiting for a delayed check · ${rows.length-active.length} repair cycles completed.</p><p class="muted">A repaired technique is progress, not a promise of an exam score. These checks use familiar methods with changed values; unfamiliar full papers provide separate evidence.</p><div id="repairList"></div></section>`;
+ el.innerHTML=`<section class="panel hero-panel"><div class="eyebrow">TURN A MISTAKE INTO A TOOL</div><h1>Repair and remember</h1><p>Choose the main difficulty → solve with support → solve changed values independently → repeat the check after three more completed sessions.</p><p>${ready.length} ready now · ${active.length-ready.length} waiting for a delayed check · ${rows.length-active.length} repair cycles completed.</p><p class="muted">A repaired technique is progress, not a promise of an exam score. These checks use familiar methods with changed values; unfamiliar full papers provide separate evidence.</p><div id="repairList"></div></section>`;
  const list=el.querySelector('#repairList');if(!rows.length){list.innerHTML='<p>No saved repairs yet. Mistakes from lessons and new exam submissions will appear here.</p>';return}
  for(const row of [...active,...rows.filter(r=>r.stage===4)]){
   const card=document.createElement('details');card.className='review-detail';card.innerHTML=`<summary>${esc(row.source_label)} · ${row.stage===4?'repair cycle completed':row.stage===3&&done<row.due_after_session?`return after ${row.due_after_session-done} more sessions`:'ready'}</summary><div class="repair-content"></div>`;list.append(card);
@@ -30,10 +30,21 @@ function renderRepair(el,row,{user,done,reload}){
  el.innerHTML=`<p><b>The idea:</b> ${esc(m.idea)}</p><p><b>Common trap:</b> ${esc(m.trap)}</p>`;
  if(row.classification&&causes[row.classification])el.insertAdjacentHTML('beforeend',`<p class="success-note"><b>Your next step:</b> ${esc(causes[row.classification][1])}</p>`);
  if(row.stage===0){
-  el.insertAdjacentHTML('beforeend',`<form class="repair-form"><label class="answer-label">Where did it go wrong?<select name="cause" required><option value="">Choose the main cause</option>${Object.entries(causes).map(([x,[label]])=>`<option value="${x}" ${row.classification===x?'selected':''}>${esc(x)}</option>`).join('')}</select></label><label class="answer-label">Explain the correction in your own words<textarea name="correction" class="answer-box" required minlength="15" placeholder="I first… The missing clue was… Next time I will…"></textarea></label><button class="primary">Save correction and practise</button><p role="status"></p></form>`);
-  el.querySelector('form').onsubmit=async e=>{e.preventDefault();const f=e.currentTarget,b=f.querySelector('button');b.disabled=true;try{await save({classification:f.elements.cause.value,stage:1,evidence:{...row.evidence,correction:f.elements.correction.value}})}catch(err){f.querySelector('[role=status]').textContent=err.message;b.disabled=false}};return;
+  el.insertAdjacentHTML('beforeend',`<form class="repair-form"><label class="answer-label">Where did you get stuck?<select name="cause" required><option value="">Choose the main difficulty</option>${Object.entries(causes).map(([x,[label]])=>`<option value="${x}" ${row.classification===x?'selected':''}>${esc(x)}</option>`).join('')}</select></label><button class="primary">Start practice</button><p role="status"></p></form>`);
+  el.querySelector('form').onsubmit=async event=>{
+   event.preventDefault();
+   const form=event.currentTarget,button=form.querySelector('button');
+   const classification=form.elements.cause.value;
+   if(!causes[classification])return;
+   button.disabled=true;
+   try{await save({classification,stage:1,evidence:{...row.evidence,correction:causes[classification][1],correction_source:'suggested_by_app'}})}
+   catch(error){form.querySelector('[role=status]').textContent=error.message;button.disabled=false}
+  };
+  return;
  }
- el.insertAdjacentHTML('beforeend',`<p><b>Your correction:</b> ${esc(row.evidence.correction)}</p>`);
+ if(row.evidence.correction){
+  el.insertAdjacentHTML('beforeend',`<p><b>${row.evidence.correction_source==='suggested_by_app'?'Suggested starting method':'Saved correction'}:</b> ${esc(row.evidence.correction)}</p>`);
+ }
  if(row.stage===4){el.insertAdjacentHTML('beforeend','<p class="success-note">Supported correction, an independent changed example and a delayed check are recorded. Keep testing the idea in unfamiliar problems.</p>');return}
  if(row.stage===3&&done<row.due_after_session){el.insertAdjacentHTML('beforeend',`<p>Continue learning. This check unlocks after ${row.due_after_session-done} more completed sessions; calendar days do not matter.</p>`);return}
  const history=row.evidence.history||[],seed=(hash(row.id)%52)+history.length+row.stage*7,q=practice(row.skill_id,seed);
