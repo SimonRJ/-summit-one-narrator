@@ -1,8 +1,8 @@
-import {mixedFlashDeck} from './flash-cards.js?v=recognition-20261113';
+import {mixedFlashDeck} from './flash-cards.js?v=content-audit-20261113';
 import {wordingHTML} from './recognition.js?v=recognition-20261113';
-import {bridgeHTML,mountPractice} from './transfer-practice.js?v=cinematic-practice-20261113';
+import {bridgeHTML,mountPractice} from './transfer-practice.js?v=content-audit-20261113';
 import {allRows,queueLessonRepairs,renderRepairs,mountInvestigationReview,rubricHTML} from './learning-support.js?v=cinematic-practice-20261113';
-import {mountFlashCards,flashReviewed} from './flash-ui.js?v=recognition-20261113';
+import {mountFlashCards,flashReviewed} from './flash-ui.js?v=content-audit-20261113';
 import {selectOriginalProblems,familySeen,reasoningReady,applicationStatus,mountReasoning,originalFigure,LEARNING_VERSION} from './original-learning.js?v=cinematic-practice-20261113';
 import {introductionHTML,lessonPlan,investigationIntroHTML,investigationWarmupHTML} from './session-intros.js?v=recognition-20261113';
 

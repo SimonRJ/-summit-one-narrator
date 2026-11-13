@@ -1,4 +1,4 @@
-import {flashDeck,FLASH_VERSION} from './flash-cards.js?v=recognition-20261113';
+import {flashDeck,FLASH_VERSION} from './flash-cards.js?v=content-audit-20261113';
 const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 export const flashKey=id=>`flash:${FLASH_VERSION}:${id}`;
 export function flashReviewed(draft,id){const e=draft.evidence?.[flashKey(id)];return !!(e?.reviewed&&e.responses?.length===5);}
