@@ -392,3 +392,6 @@ body.home-focus .shell{width:min(1050px,100%);height:calc(100dvh - var(--lesson-
  .focus-session-card h1{font-size:1.75rem}
  .focus-session-card .cta{min-height:51px}
 }
+
+/* Keep the Progress tab accessible even inside video-first fullscreen lessons. */
+@media(max-width:680px){body.lesson-fullscreen .topnav>.nav-stats{display:inline-flex!important}}
