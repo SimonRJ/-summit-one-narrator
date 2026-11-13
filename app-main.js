@@ -12,10 +12,12 @@ import { mountNarratedPlayer } from "./lesson-player.js";
 import {methods,skillFor,recallState} from "./curriculum.js?v=recognition-20261113";
 import {lessonCard,mountCheck,mountRetrieval,readinessHTML} from "./learning-ui.js?v=recognition-20261113";
 import { problemFigure } from "./problem-figures.js";
+import {mountLessonPager} from "./lesson-pager.js?v=cinema-20261113";
+import {learningScreens} from "./lesson-screenflow.js?v=cinema-20261113";
 
 const app=document.getElementById("app");
 const problemTemplate=document.getElementById("problemTemplate");
-let course=[], teaching=[], mawa=[], rossMap=[], taxonomy=null, milestones=null, problemIndex=[], progress=null, user=null, activeView="home", activeStage=0;
+let course=[], teaching=[], mawa=[], rossMap=[], taxonomy=null, milestones=null, problemIndex=[], progress=null, user=null, activeView="home", activeStage=-1, activeLessonPanel=0, lessonPager=null;
 let lessonManifest=[];
 let currentProblems=[], currentMawa=null, sessionDraft={answers:{},working:{},evidence:{},summary:{}};
 let attemptedProblemIds=new Set();
@@ -161,6 +163,7 @@ function renderTechniqueRefresher(){
  videos.forEach((t,i)=>mountNarratedPlayer(document.getElementById("techniqueVideo"+i),{title:t.title,transcript:t.transcript,audioUrl:t.audio_url,videoUrl:finalVideoUrl(t.id),cacheKey:t.id}));
 }
 function renderHome(){
+  document.body.classList.remove("lesson-fullscreen");
   const s=courseSession(),done=progress.completed_sessions||0,amc=nextSlot("AMC MOCK"),mawa=nextSlot("MAWA");
   const nextPractice=course.find(x=>x.slot>done&&x.type==="MIXED");
   const practiceGap=nextPractice?nextPractice.slot-done:null;
@@ -199,6 +202,11 @@ async function startSession(s){
   sessionDraft={answers:existing?.answers||{},working:existing?.working||{},evidence:existing?.evidence||{},summary:existing?.summary||{}};
   const local=JSON.parse(localStorage.getItem(draftKey(s))||'null');
   if(local?.draft&&(!existing?.updated_at||local.updated_at>existing.updated_at))sessionDraft=local.draft;
+  if(s.type==="LESSON"){
+    const stage=Number(sessionDraft.summary.lesson_stage);
+    activeStage=Number.isInteger(stage)&&stage>=-1&&stage<=4?stage:-1;
+    activeLessonPanel=Math.max(0,Number(sessionDraft.summary.lesson_panel)||0);
+  }else{activeStage=0;activeLessonPanel=0;}
   editingSession=s;
   const previous=sessionDraft.summary.problems||[];
   currentProblems=chooseProblems(s);
