@@ -22,6 +22,7 @@ jobs:
           python-version: '3.12'
       - run: node tools/check_learning.mjs
       - run: python tools/content/check_original_lessons.py
+      - run: python tools/content/audit_all_lessons.py
       - run: pip install playwright==1.58.0
       - run: google-chrome --version
       - name: Browser behavior and responsive layout
