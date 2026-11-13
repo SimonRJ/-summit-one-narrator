@@ -40,6 +40,25 @@ window.addEventListener('beforeunload',e=>{if(draftDirty){e.preventDefault();e.r
 
 
 const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
+
+/* Report protected Supabase Function failures in plain language.
+ * This does not affect server-side solution/attempt access checks. */
+async function learningFunctionError(error,kind="solution"){
+ const response=error?.context, status=response?.status;
+ let detail="";
+ try{
+  const body=typeof response?.clone==="function"?await response.clone().json():typeof response?.json==="function"?await response.json():null;
+  if(body&&typeof body.error==="string")detail=body.error;
+ }catch{}
+ console.warn("Protected learning request failed", {action:kind,status:status||null,code:error?.name||"unknown",reason:detail||error?.message||"unknown"});
+ if(status===401)return "Your sign-in has expired. Sign in again, then reopen this lesson.";
+ if(status===403)return detail||(kind==="solution"?"Submit your final answer before opening the worked solution. Using a hint is allowed.":"You are not authorised to record this attempt.");
+ if(status===404)return kind==="solution"?"This worked solution is unavailable. Please reopen the lesson.":"This problem is unavailable. Please reopen the lesson.";
+ if(status===429)return "The service is busy. Please try again in a moment.";
+ if(kind==="solution")return "The worked solution could not be loaded. Your submitted answer remains saved. Tap Compare with solution to retry.";
+ return "Your attempt could not be sent. Your typed answer is still here; check your connection and try again.";
+}
+
 const pct=n=>Math.max(0,Math.min(100,Number(n)||0));
 const hash=s=>{let h=2166136261;for(const c of String(s)){h^=c.charCodeAt(0);h=Math.imul(h,16777619)}return h>>>0};
 const normalize=s=>String(s??"").toLowerCase().replace(/\s+/g,"").replace(/[×·]/g,"*").replace(/[²]/g,"^2").replace(/[³]/g,"^3").replace(/[.,;:]$/g,"");
@@ -489,9 +508,10 @@ function renderChallenge(el,s,p,mode){
       sessionDraft.answers[p.id]={response,correct,independent_credit:graded?.independent_credit===true,attempted_at:new Date().toISOString()};
       await upsertSession({session_number:s.slot,session_key:`S${String(s.slot).padStart(3,"0")}`,answers:sessionDraft.answers,working:sessionDraft.working,evidence:sessionDraft.evidence,summary:sessionDraft.summary});
       box.disabled=true;submit.hidden=true;reveal.hidden=false;feedback.textContent=applicationStatus(sessionDraft.evidence["application:"+p.id])+". Open the worked solution to learn the method.";
-    }catch(e){feedback.textContent=e.message;submit.disabled=false}
+    }catch(e){feedback.textContent=await learningFunctionError(e,"attempt");submit.disabled=false}
   };
   reveal.onclick=async()=>{
+    reveal.disabled=true;
     try{
       const {data:d,error:solutionError}=await supabase.functions.invoke("get-problem-solution",{body:{problem_id:p.id,session_number:s.slot}});
       if(solutionError)throw solutionError;
@@ -509,8 +529,12 @@ function renderChallenge(el,s,p,mode){
         onWatch:detail=>recordVideoEvidence(s.slot,p.id,"challenge_solution",detail)
       });
       sessionDraft.evidence['solution:'+p.id]={seen:true,recorded_at:new Date().toISOString()};
-      await saveDraft(s);reveal.disabled=true;
-    }catch(e){solution.hidden=false;solution.textContent=e.message}
+      try{await saveDraft(s)}catch(syncError){console.warn("Solution viewed; local lesson sync pending",syncError)}
+    }catch(e){
+      solution.hidden=false;
+      solution.textContent=await learningFunctionError(e,"solution");
+      reveal.disabled=false; // Allow another attempt when the service recovers.
+    }
   };
   if(mode==='try'){
     const fade=document.createElement('div');fade.className='lesson-fade-unit';el.append(fade);
