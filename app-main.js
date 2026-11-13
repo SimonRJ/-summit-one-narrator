@@ -456,6 +456,7 @@ function renderDiscover(el,s){
     if(guidedMounted||!el.isConnected)return;guidedMounted=true;
     mountCheck(el.querySelector("#guidedCheck"),{id:skillFor(s,taxonomy),slot:s.slot,records:completedRecords,draft:sessionDraft,kind:"guided",seedOverride:lessonPlan(s,course,taxonomy).visit%7,save:()=>saveDraft(s)});
   }});
+  if(!items.length)el.querySelector(".advanced-media")?.remove();
   items.forEach((t,i)=>mountNarratedPlayer(document.getElementById("lessonPlayer"+i),{
     title:t.title,
     transcript:t.transcript,
