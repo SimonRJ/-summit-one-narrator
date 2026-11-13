@@ -1,9 +1,9 @@
 import {mixedFlashDeck} from './flash-cards.js?v=recognition-20261113';
 import {wordingHTML} from './recognition.js?v=recognition-20261113';
-import {bridgeHTML,mountPractice} from './transfer-practice.js?v=recognition-20261113';
+import {bridgeHTML,mountPractice} from './transfer-practice.js?v=cinematic-practice-20261113';
 import {allRows,queueLessonRepairs,renderRepairs,mountInvestigationReview,rubricHTML} from './learning-support.js?v=recognition-20261113';
 import {mountFlashCards,flashReviewed} from './flash-ui.js?v=recognition-20261113';
-import {selectOriginalProblems,familySeen,reasoningReady,applicationStatus,mountReasoning,originalFigure,LEARNING_VERSION} from './original-learning.js?v=recognition-20261113';
+import {selectOriginalProblems,familySeen,reasoningReady,applicationStatus,mountReasoning,originalFigure,LEARNING_VERSION} from './original-learning.js?v=cinematic-practice-20261113';
 import {introductionHTML,lessonPlan,investigationIntroHTML,investigationWarmupHTML} from './session-intros.js?v=recognition-20261113';
 
 if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));}
@@ -13,7 +13,7 @@ import {methods,skillFor,recallState} from "./curriculum.js?v=recognition-202611
 import {lessonCard,mountCheck,mountRetrieval,readinessHTML} from "./learning-ui.js?v=recognition-20261113";
 import { problemFigure } from "./problem-figures.js";
 import {mountLessonPager} from "./lesson-pager.js?v=cinema-20261113";
-import {learningScreens} from "./lesson-screenflow.js?v=cinema-20261113";
+import {learningScreens} from "./lesson-screenflow.js?v=cinematic-practice-20261113";
 import {buildCourseNavigation} from "./course-menu.js?v=menu-20261113";
 import {mountCourseMenu} from "./course-menu-ui.js?v=lesson-replay-20261113";
 
