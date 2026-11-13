@@ -102,15 +102,23 @@ strong,b{font-weight:600}
 
 /* KaTeX's Latin Modern-derived glyphs provide true TeX mathematics:
    exponents, fractions, operators, relations, spacing and accessible MathML. */
-.math-inline{
-  display:inline-block;
-  max-width:100%;
-  vertical-align:-.075em;
-  overflow-x:auto;
-  overflow-y:hidden;
+/* Inline maths must share the text baseline. A scrollable inline-block
+   loses its natural baseline and lifts the equation above the sentence. */
+.math-inline:not(.math-display){
+  display:inline;
+  vertical-align:baseline;
+  overflow:visible;
+  max-width:none;
   font-family:var(--summit-math);
   font-weight:400;
   white-space:nowrap;
+}
+.math-inline.math-display{
+  display:block;
+  width:100%;
+  max-width:100%;
+  overflow-x:auto;
+  overflow-y:hidden;
   scrollbar-width:thin;
   scrollbar-color:#4e6e80 transparent;
 }
@@ -118,7 +126,8 @@ strong,b{font-weight:600}
 .math-inline .katex-html{white-space:nowrap}
 .math-inline.math-fallback{
   font-family:var(--summit-math);
-  font-size:1.08em;
+  font-size:1em;
+  line-height:inherit;
 }
 .math-display{
   display:block;width:100%;margin:.7rem 0;
@@ -185,7 +194,7 @@ body .brand .brand-mark img{filter:none}
 .summit-boot .sb-controls button{font-family:var(--summit-ui)}
 .summit-boot .sb-math{font-family:var(--summit-math);font-style:italic}
 .summit-boot .sb-status,.summit-boot .sb-subtitle,.summit-mini .sm-caption{font-family:var(--summit-ui)}
-.math-inline .katex{font-size:1.08em}
+.math-inline:not(.math-display) .katex{font-size:1em;line-height:inherit}
 .math-inline .katex .mord{font-weight:400}
 .math-display .katex{font-size:1.13em}
 .math-display .katex-display{white-space:nowrap}
