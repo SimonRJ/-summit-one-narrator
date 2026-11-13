@@ -1,0 +1,167 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:02.100
+Welcome to Divisibility and Remainders.
+
+00:00:02.660 --> 00:00:05.500
+Some Australian Mathematics Competition problems look as if
+
+00:00:05.500 --> 00:00:06.800
+they need hundreds of calculations.
+
+00:00:07.900 --> 00:00:08.680
+Often they do not.
+
+00:00:09.180 --> 00:00:12.260
+The useful idea is to keep only what matters after dividing:
+
+00:00:12.260 --> 00:00:15.560
+the remainder. Let's see it in an easy problem, a medium
+
+00:00:15.560 --> 00:00:17.180
+problem, and a hard one.
+
+00:00:18.240 --> 00:00:21.740
+Easy problem. Is two thousand, four hundred and seventy-three
+
+00:00:21.740 --> 00:00:23.060
+divisible by three?
+
+00:00:23.720 --> 00:00:25.020
+You could divide the whole number.
+
+00:00:25.500 --> 00:00:26.740
+Instead, look at its digits.
+
+00:00:27.460 --> 00:00:29.840
+Why should adding the digits tell us anything about
+
+00:00:29.840 --> 00:00:30.480
+divisibility?
+
+00:00:31.580 --> 00:00:35.100
+Every ten, hundred or thousand leaves remainder one when
+
+00:00:35.100 --> 00:00:36.180
+divided by three.
+
+00:00:36.800 --> 00:00:39.320
+So the digit sum has the same remainder as the original
+
+00:00:39.320 --> 00:00:43.640
+number. Two plus four plus seven plus three equals sixteen.
+
+00:00:44.340 --> 00:00:45.860
+Sixteen leaves remainder one.
+
+00:00:46.420 --> 00:00:48.220
+The number is not divisible by three.
+
+00:00:49.490 --> 00:00:53.450
+Medium problem. A display repeats six symbols in this order:
+
+00:00:53.790 --> 00:00:58.570
+triangle, square, circle, star, diamond, hexagon.
+
+00:00:58.850 --> 00:01:02.357
+Which symbol is at position one thousand, seven hundred and
+
+00:01:02.357 --> 00:01:05.610
+thirty-nine? Never try drawing thousands of symbols.
+
+00:01:06.030 --> 00:01:08.770
+Draw one cycle and give each position a number.
+
+00:01:09.810 --> 00:01:14.690
+One thousand, seven hundred and thirty-nine equals six times
+
+00:01:14.690 --> 00:01:16.550
+two hundred and eighty-nine, plus five.
+
+00:01:17.090 --> 00:01:20.090
+There are two hundred and eighty-nine complete cycles, with
+
+00:01:20.090 --> 00:01:21.650
+five positions left over.
+
+00:01:22.170 --> 00:01:23.530
+The fifth symbol is the diamond.
+
+00:01:24.170 --> 00:01:27.510
+A remainder of zero would mean the last, or sixth, symbol.
+
+00:01:28.780 --> 00:01:32.960
+Hard problem. Find the smallest three-digit whole number that
+
+00:01:32.960 --> 00:01:36.300
+leaves remainder four when divided by five, leaves remainder
+
+00:01:36.300 --> 00:01:39.540
+six when divided by seven, and is divisible by nine.
+
+00:01:40.220 --> 00:01:42.920
+Three conditions look difficult until you notice the pattern:
+
+00:01:43.540 --> 00:01:45.820
+both remainders are one less than the divisor.
+
+00:01:46.910 --> 00:01:48.210
+Call the number N.
+
+00:01:48.670 --> 00:01:51.770
+Then N plus one must be a multiple of both five
+
+00:01:51.770 --> 00:01:55.870
+and seven, so N plus one is thirty-five times a whole
+
+00:01:55.870 --> 00:02:00.290
+number k. This gives N equals thirty-five k minus one.
+
+00:02:00.690 --> 00:02:03.750
+We have replaced two conditions with one useful expression.
+
+00:02:04.940 --> 00:02:07.200
+We also need N divisible by nine.
+
+00:02:07.680 --> 00:02:11.000
+So thirty-five k must leave remainder one when divided by
+
+00:02:11.000 --> 00:02:15.040
+nine. Thirty-five leaves remainder eight, which is the same as
+
+00:02:15.040 --> 00:02:17.920
+minus one. Thus k leaves remainder eight.
+
+00:02:18.240 --> 00:02:21.745
+The smallest positive choice is eight, giving N equals two
+
+00:02:21.745 --> 00:02:22.420
+hundred and seventy-nine.
+
+00:02:23.540 --> 00:02:26.920
+Check: the remainders are four and six, and its digits sum
+
+00:02:26.920 --> 00:02:27.460
+to eighteen.
+
+00:02:28.930 --> 00:02:33.230
+Notice the three levels: a digit sum, a repeating cycle, and
+
+00:02:33.230 --> 00:02:35.230
+a number satisfying several restrictions.
+
+00:02:36.190 --> 00:02:39.330
+The same tool connects them: simplify to a remainder without
+
+00:02:39.330 --> 00:02:40.810
+losing the original conditions.
+
+00:02:41.650 --> 00:02:42.470
+Now take your turn.
+
+00:02:42.850 --> 00:02:46.250
+Start the lesson problems, explain the key step, and check
+
+00:02:46.250 --> 00:02:46.990
+each result.
+

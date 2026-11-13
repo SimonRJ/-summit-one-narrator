@@ -1,0 +1,19 @@
+Divisibility tests and modular remainders
+
+Welcome to Divisibility and Remainders. Some Australian Mathematics Competition problems look as if they need hundreds of calculations. Often they do not. The useful idea is to keep only what matters after dividing: the remainder. Let's see it in an easy problem, a medium problem, and a hard one.
+
+Easy problem. Is two thousand, four hundred and seventy-three divisible by three? You could divide the whole number. Instead, look at its digits. Why should adding the digits tell us anything about divisibility?
+
+Every ten, hundred or thousand leaves remainder one when divided by three. So the digit sum has the same remainder as the original number. Two plus four plus seven plus three equals sixteen. Sixteen leaves remainder one. The number is not divisible by three.
+
+Medium problem. A display repeats six symbols in this order: triangle, square, circle, star, diamond, hexagon. Which symbol is at position one thousand, seven hundred and thirty-nine? Never try drawing thousands of symbols. Draw one cycle and give each position a number.
+
+One thousand, seven hundred and thirty-nine equals six times two hundred and eighty-nine, plus five. There are two hundred and eighty-nine complete cycles, with five positions left over. The fifth symbol is the diamond. A remainder of zero would mean the last, or sixth, symbol.
+
+Hard problem. Find the smallest three-digit whole number that leaves remainder four when divided by five, leaves remainder six when divided by seven, and is divisible by nine. Three conditions look difficult until you notice the pattern: both remainders are one less than the divisor.
+
+Call the number N. Then N plus one must be a multiple of both five and seven, so N plus one is thirty-five times a whole number k. This gives N equals thirty-five k minus one. We have replaced two conditions with one useful expression.
+
+We also need N divisible by nine. So thirty-five k must leave remainder one when divided by nine. Thirty-five leaves remainder eight, which is the same as minus one. Thus k leaves remainder eight. The smallest positive choice is eight, giving N equals two hundred and seventy-nine. Check: the remainders are four and six, and its digits sum to eighteen.
+
+Notice the three levels: a digit sum, a repeating cycle, and a number satisfying several restrictions. The same tool connects them: simplify to a remainder without losing the original conditions. Now take your turn. Start the lesson problems, explain the key step, and check each result.
