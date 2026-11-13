@@ -195,6 +195,21 @@ async def main():
   await next_page()
   await next_page()
   assert 'Transfer' in await page.locator('.lesson-stage-track .here').inner_text()
+  # Regression for iPhone screenshot: the blue transfer heading must stay ordinary
+  # Source Sans text, not be transformed into overlapping italic TeX glyphs.
+  await until_visible('.lesson-extra-unit [data-extra-question="0"] .eyebrow')
+  await page.wait_for_timeout(150)
+  heading=await page.locator('.lesson-extra-unit [data-extra-question="0"] .eyebrow').evaluate("""el=>({
+    text:el.textContent.trim(),
+    mathNodes:el.querySelectorAll('.katex,.math-inline').length,
+    italic:getComputedStyle(el).fontStyle,
+    family:getComputedStyle(el).fontFamily,
+    width:el.clientWidth,scrollWidth:el.scrollWidth
+  })""")
+  assert heading['text']=='TRANSFER · PROBLEM 1 OF 3',heading
+  assert heading['mathNodes']==0 and heading['italic']=='normal',heading
+  assert 'Source Sans 3' in heading['family'] and heading['scrollWidth']<=heading['width']+2,heading
+  await page.screenshot(path=str(ROOT/'docs/transfer-label-iphone.png'))
   for k in range(3):
    input_sel=f'.lesson-extra-unit [data-extra-question="{k}"] .response'
    await until_visible(input_sel)
