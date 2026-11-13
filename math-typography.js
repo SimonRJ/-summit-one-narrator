@@ -8,7 +8,7 @@ const MATH_AREAS = [
   ".flash-question",".flash-options",".flash-feedback",".flash-summary",
   ".mini-check",".worked-example",".method-card",".reasoning-steps",
   ".bridge-example",".session-intro",".lesson-recall-brief",
-  ".lesson-check-summary",".lesson-fade-unit",".lesson-prep-unit",
+  /* Progress counters such as 6 / 6 are not equations. */".lesson-fade-unit",".lesson-prep-unit",
   ".lesson-mix-unit",".lesson-extra-unit",".lesson-problem-unit",
   ".solution-panel",".question-review",".exam-visual",".exam-section-key",
   ".np-transcript",".transcript",".problem-card","[data-tex]","[data-math]"
