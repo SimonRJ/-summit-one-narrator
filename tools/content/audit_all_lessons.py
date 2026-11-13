@@ -42,7 +42,9 @@ def check_problems(rows,mapping):
         if pid in ids:errors.append(f"{pid} duplicate ID")
         ids.add(pid)
         if int(pid[1:4]) not in mapping_slots:errors.append(f"{pid} missing canonical lesson")
-        if not text.strip().endswith("?"):errors.append(f"{pid} question does not end in a clear ask")
+        if not text.strip().endswith(("?", ".")):errors.append(f"{pid} question lacks final punctuation")
+        if not text.strip().endswith("?") and not re.search(r"(Answer yes or no|Give an exact fraction|Give an exact value|State your answer)[.]$",text,re.I):
+            warnings.append(f"{pid} uses a statement rather than a direct question")
         if text in seen:errors.append(f"{pid} exact duplicate question")
         seen.add(text)
         if text.count("?")>2: warnings.append(f"{pid} too many question marks")
