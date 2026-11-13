@@ -24,6 +24,10 @@ jobs:
           run-id: 43355057830
           github-token: ${{ github.token }}
           path: build/lesson-intros/S002
+      - name: Install video inspection tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg
       - name: Verify approved voice and finished video before publishing
         run: |
           python - <<'PY'
