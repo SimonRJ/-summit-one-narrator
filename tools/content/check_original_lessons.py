@@ -70,4 +70,24 @@ for n in range(3,12):
 assert capstone(361)['answer']==sum((10*a+b)%3==0 for a,b in permutations(range(6),2) if a)
 assert capstone(366)['answer']==paths(4,3,[(1,1),(3,2)])
 assert capstone(370)['answer']==max(a*(17-a) for a in range(1,17))
+
+# Content/editorial invariants: every standard lesson grades the final answer
+# without prompting students to type an essay or justify their method.
+import inspect
+from build_original_lessons import build
+assert 'In your working:' not in inspect.getsource(build)
+assert 'Transfer reflection:' not in inspect.getsource(build)
+for method in ('DIG-01','DIG-02','DIG-03','DIG-05','DIV-03','ALG-04','SEQ-04'):
+    for n in range(3,12):
+        for role in ('try','transfer'):
+            problem=family(method,n,role)
+            prompt=problem['prompt']
+            assert 'In your working' not in prompt,(method,n,role)
+            assert 'A meter should add' not in prompt,(method,n,role)
+            assert 'A robot spends' not in prompt,(method,n,role)
+            assert prompt.strip().endswith('?'),(method,n,role,prompt)
+for slot in (367,370):
+    assert 'Prove' not in capstone(slot)['prompt']
+print('PASS: original problem contexts are concrete, question-only, and answer-first.')
+
 print('PASS: independent enumeration, rational arithmetic, route DP, geometric bounds, probability and capstone checks across all nine supported visits.')
