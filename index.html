@@ -9,20 +9,29 @@
   <meta name="robots" content="noindex,nofollow,noarchive">
   <title>Summit One · Learning</title><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon.svg">
   <link rel="stylesheet" href="main.css?v=responsive-20261113">
+
+  <!-- Summit One editorial identity and genuine TeX mathematics -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.47/dist/katex.min.css">
+  <link rel="stylesheet" href="design-system.css?v=identity-math-20261113">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.47/dist/katex.min.js"></script>
+  <script type="module" src="math-typography.js?v=identity-math-20261113"></script>
 </head>
 <body>
-  <div id="summitBoot" class="summit-boot" data-mode="main" role="status" aria-label="Summit One loading" aria-live="polite"><span class="sb-first-frame" aria-hidden="true">△</span></div>
+  <div id="summitBoot" class="summit-boot" data-mode="main" role="status" aria-label="Summit One loading" aria-live="polite"><span class="sb-first-frame" aria-hidden="true"><img src="summit-mark.svg" alt="" width="104" height="104"></span></div>
   <div class="stars" aria-hidden="true"></div>
   <header class="topbar">
     <button id="menuToggle" class="menu-trigger" type="button" aria-controls="courseMenu" aria-haspopup="dialog" aria-expanded="false" aria-label="Open the main menu">
       <span class="menu-trigger-icon" aria-hidden="true">☰</span><span>Menu</span>
     </button>
-    <a class="brand" href="./" aria-label="Summit One Learning home"><span class="brand-mark">△</span><span><b>SUMMIT ONE</b><small>MATHEMATICS TRAINING</small></span></a>
+    <a class="brand" href="./" aria-label="Summit One Learning home"><span class="brand-mark"><img src="summit-mark.svg" alt="" width="40" height="40"></span><span><b>SUMMIT <span class="summit-wordmark-one">ONE</span></b><small>MATHEMATICS TRAINING</small></span></a>
   </header>
   <dialog id="courseMenu" class="course-menu" aria-labelledby="courseMenuTitle">
     <div class="course-menu-shell">
       <header class="course-menu-head">
-        <div><div class="eyebrow">SUMMIT ONE</div><h2 id="courseMenuTitle">Menu</h2></div>
+        <div class="course-menu-identity"><img src="summit-mark.svg" alt="" width="39" height="39"><div><div class="eyebrow">SUMMIT ONE</div><h2 id="courseMenuTitle">Menu</h2></div></div>
         <button id="menuClose" type="button" class="menu-close" aria-label="Close menu">✕</button>
       </header>
       <div id="courseMenuContent" class="course-menu-content" aria-live="polite"></div>
