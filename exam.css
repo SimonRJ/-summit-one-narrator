@@ -223,3 +223,29 @@ a.exam-hub-card:hover,a.exam-hub-card:focus-visible{transform:translateY(-2px);b
 .exam-lesson-link-row a{flex:1 1 230px;text-align:center;line-height:1.45;min-height:48px}
 .exam-lesson-links .muted{font-size:.8rem}
 @media(max-width:560px){.amc-set-summary{padding:18px}.amc-pending-sets{padding:14px}.exam-lesson-link-row a{flex-basis:100%}}
+
+/* Authentic scanned AMC questions already contain the original five options.
+   Keep one clear A–E response strip, not five duplicated "Option A" labels. */
+.exam-mode .choices.source-choice-strip{
+  display:flex;flex-wrap:wrap;justify-content:center;
+  gap:clamp(8px,2.2vw,14px);
+  margin:18px 0 12px;
+}
+.exam-mode .source-choice-strip .choice{
+  display:grid;place-items:center;
+  flex:0 1 auto;min-width:clamp(48px,12vw,68px);
+  min-height:52px;
+  padding:10px 12px;
+  border-radius:8px;
+}
+.exam-mode .source-choice-strip .choice-letter{
+  display:grid;place-items:center;
+  font-size:1.06rem;
+  font-weight:700;
+  min-width:30px;height:30px;
+  border:0;background:transparent;
+}
+@media(max-width:390px){
+ .exam-mode .choices.source-choice-strip{gap:7px}
+ .exam-mode .source-choice-strip .choice{min-width:47px;padding:8px}
+}
