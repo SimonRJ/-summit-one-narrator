@@ -252,6 +252,7 @@ def capstone(slot):
     return tasks.get(slot)
 
 def build(mapping,out):
+    title_map=json.loads(Path(__file__).with_name('lesson_problem_titles.json').read_text())['titles']
     counts={};rows=[];manifest=[]
     for s in mapping:
         k=s['skill'];counts[k]=counts.get(k,0)+1;n=counts[k]+2
@@ -265,17 +266,8 @@ def build(mapping,out):
             # Every standard lesson problem accepts only the final answer.
             # The worked solution still teaches the mathematical reasoning.
             prompt=q['prompt']
-            titles={
-                ('DIG-01','try'):'Stationery shop: total cost',
-                ('DIG-01','transfer'):'Correct the running total',
-                ('DIV-03','try'):'Packing bolts into boxes',
-                ('ALG-04','try'):'Reverse a number machine',
-                ('ALG-04','transfer'):'Pocket money, worked backwards',
-                ('DIG-02','try'):'Even numbers from five digits',
-                ('DIG-03','transfer'):'Counting printed ticket digits',
-                ('DIG-05','try'):'Recover the missing units digit'
-            }
-            title=titles.get((k,role), 'Practice problem' if role=='try' else 'Transfer challenge')
+            bespoke_titles={"O001T":"Packing bolts into boxes","O002T":"Stationery shop: total cost","O002X":"The warehouse stock-counter error","O003T":"Reverse a number machine","O003X":"Pocket money, worked backwards","O004T":"Even numbers from five digits","O005X":"Counting printed ticket digits","O009T":"A missing digit in two-digit addition","O010T":"Recover the missing units digit","O123X":"Correct the ticket-printer total","O214X":"A scoreboard that adds too much","O305X":"Repair a factory's production count"}
+            title=bespoke_titles.get(pid, title_map[k][0 if role=='try' else 1])
             rows.append(dict(id=pid,source_type='original_authored',title=title,source_label='Summit One original learning problem',category=k,difficulty=3 if role=='try' else 4,prompt=prompt,answer=q['answer'],unit='',solution_text=q['clue']+'\n\n'+'\n\n'.join(q['steps'])+'\n\n'+q['check']+'\n\nFinal answer: '+str(q['answer']),spoken_script='',rights='original_authored_for_summit_one'))
             manifest.append(dict(id=pid,session=s['slot'],skill=k,role=role,family=k+(':capstone:'+str(s['slot']) if role=='transfer' and capstone(s['slot']) else ':'+role),visit=visit,source_type='original_authored'))
     out.mkdir(parents=True,exist_ok=True)
