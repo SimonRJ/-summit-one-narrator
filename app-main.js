@@ -447,24 +447,14 @@ function renderRemember(el,s){
 }
 
 function renderDiscover(el,s){
-  const items=teachingFor(s);
   el.innerHTML=`<div class="stage-number">STAGE 2 · EXPLANATION</div><h2>Discover</h2><p class="muted">Read, sketch and listen. The goal is to see why the method works, not memorise a slogan.</p>
-  <section data-lesson-unit="concept">${lessonCard(skillFor(s,taxonomy),lessonPlan(s,course,taxonomy))}</section><section data-lesson-unit="bridge">${bridgeHTML(skillFor(s,taxonomy),lessonPlan(s,course,taxonomy).visit)}</section><section data-lesson-unit="flash"><div id="quickCards"></div></section><section data-lesson-unit="guided"><div id="guidedCheck"><p class="muted">Work through the five quick decisions above, then try the supported problem.</p></div></section><section data-lesson-unit="more" aria-label="Where this mathematics can lead">${advancedConnectionHTML(skillFor(s,taxonomy),{visit:lessonPlan(s,course,taxonomy).visit})}<details class="advanced-media"><summary>Related teaching videos and further reading</summary><div class="teaching-box">${items.map((t,i)=>`<article class="teaching-item"><div class="eyebrow">${esc(t.type==="worked_example"?"WORKED EXAMPLE":"CONCEPT")}</div><h3>${esc(t.title)}</h3><div class="lesson-player-slot" id="lessonPlayer${i}"></div><details><summary>Read explanation</summary><p class="math-copy">${esc(t.transcript)}</p>${t.extended_reading?`<h4>Further mathematical connections</h4><p class="math-copy">${esc(t.extended_reading)}</p>`:""}</details></article>`).join("")||'<p class="muted">Teaching explanation is being selected from the course library.</p>'}</div></details></section>
+  <section data-lesson-unit="concept">${lessonCard(skillFor(s,taxonomy),lessonPlan(s,course,taxonomy))}</section><section data-lesson-unit="bridge">${bridgeHTML(skillFor(s,taxonomy),lessonPlan(s,course,taxonomy).visit)}</section><section data-lesson-unit="flash"><div id="quickCards"></div></section><section data-lesson-unit="guided"><div id="guidedCheck"><p class="muted">Work through the five quick decisions above, then try the supported problem.</p></div></section><section data-lesson-unit="more" aria-label="Where this mathematics can lead">${advancedConnectionHTML(skillFor(s,taxonomy),{visit:lessonPlan(s,course,taxonomy).visit})}</section>
   <div class="complete-row"><span class="muted">Try the supported question first. A hint is part of learning.</span><button class="primary" id="nextStage">Try independently</button></div>`;
   let guidedMounted=false;
   mountFlashCards(el.querySelector('#quickCards'),{id:skillFor(s,taxonomy),visit:lessonPlan(s,course,taxonomy).visit,slot:s.slot,draft:sessionDraft,save:()=>saveDraft(s),onComplete:()=>{
     if(guidedMounted||!el.isConnected)return;guidedMounted=true;
     mountCheck(el.querySelector("#guidedCheck"),{id:skillFor(s,taxonomy),slot:s.slot,records:completedRecords,draft:sessionDraft,kind:"guided",seedOverride:lessonPlan(s,course,taxonomy).visit%7,save:()=>saveDraft(s)});
   }});
-  if(!items.length)el.querySelector(".advanced-media")?.remove();
-  items.forEach((t,i)=>mountNarratedPlayer(document.getElementById("lessonPlayer"+i),{
-    title:t.title,
-    transcript:t.transcript,
-    audioUrl:t.audio_url,
-    videoUrl:finalVideoUrl(t.id),
-    cacheKey:t.id,
-    onWatch:detail=>recordVideoEvidence(s.slot,t.id,t.type,detail)
-  }));
   document.getElementById("nextStage").onclick=async()=>{try{if(!flashReviewed(sessionDraft,skillFor(s,taxonomy))){alert("Finish the five quick decisions and read the recap first. Mistakes are part of the warm-up.");return}if(!sessionDraft.evidence["guided:"+skillFor(s,taxonomy)]){alert("Try the supported question first. Use the hint or worked example if needed.");return}await saveDraft(s);activeStage=2;renderSession(s)}catch(e){alert(e.message)}};
 }
 function renderChallenge(el,s,p,mode){
