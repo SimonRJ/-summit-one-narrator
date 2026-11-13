@@ -540,3 +540,65 @@ body.lesson-video-review>.shell{flex:1 1 0;min-height:0;max-height:none;height:a
  .lesson-result-line{font-size:.73rem}
  .lesson-result-line strong{font-size:.72rem}
 }
+
+
+/* 2026-11-13 responsive lessons: preserve fixed navigation, scroll content only when needed. */
+.lesson-screen-stage{
+ overflow-y:auto;
+ overflow-x:hidden;
+ overscroll-behavior-y:contain;
+ -webkit-overflow-scrolling:touch;
+ scrollbar-width:thin;
+ scrollbar-color:#5b8098 transparent;
+ scroll-padding-block:12px 20px;
+}
+.lesson-screen-stage [data-lesson-unit],
+.lesson-screen-stage>.lesson-recall-brief,
+.lesson-screen-stage>#retrievalChecks,
+.lesson-screen-stage>.lesson-fade-unit,
+.lesson-screen-stage>.lesson-prep-unit,
+.lesson-screen-stage>.lesson-problem-unit{
+ max-height:none;
+}
+.lesson-screen-stage .problem-card,
+.lesson-screen-stage .solution-panel{
+ max-height:none;
+ overflow:visible;
+}
+.lesson-screen-stage .opening-film,
+.lesson-screen-stage .lesson-recall-brief{
+ height:auto;
+ min-height:100%;
+}
+.lesson-screen-stage .opening-video-wrap{
+ width:min(100%,940px,74dvh);
+ max-height:none;
+}
+.lesson-screen-stage .opening-concept-board{
+ height:auto;
+ min-height:170px;
+}
+.lesson-screen-stage img,
+.lesson-screen-stage video,
+.lesson-screen-stage svg,
+.lesson-screen-stage canvas{
+ max-width:100%;
+}
+.lesson-screen-stage .problem-title,
+.lesson-screen-stage .problem-prompt,
+.lesson-screen-stage .math-copy,
+.lesson-screen-stage .method-card,
+.lesson-screen-stage .lesson-check-summary{
+ overflow-wrap:anywhere;
+}
+@media(max-width:680px){
+ .lesson-screen-stage{
+  padding-bottom:max(16px, env(safe-area-inset-bottom, 0px));
+ }
+ .lesson-screen-stage .opening-film{
+  justify-content:center;
+ }
+ .lesson-screen-stage .opening-video-wrap{
+  width:min(100%,74dvh);
+ }
+}
