@@ -101,7 +101,7 @@ export function originalFigure(p){
  }else if(m.skill==='DATA-03'){
   const count=m.visit+6;
   if(m.role==='try'){
-    alt='Pictogram of full and half symbols for Monday and Tuesday bike repairs';
+    alt=`Pictogram: Monday ${count} full symbols plus one half-symbol; Tuesday ${count+2} full symbols; one full symbol represents six bicycles`;
     const monday=count,tuesday=count+2,space=248/(tuesday+1),radius=Math.min(7,space*.39);
     const icon=(i,y,half=false)=>{
       const cx=76+i*space;
@@ -117,7 +117,7 @@ export function originalFigure(p){
       `<text x="180" y="226" font-size="12" text-anchor="middle" fill="#c2dce8" stroke="none">Half-symbol = half of one full symbol</text>`;
   }else{
     const start=5*count,scale=6,left=79,base=221,ya=base-8*scale,yb=base-13*scale;
-    alt='Bar chart with a nonzero vertical-axis baseline and two bars of given heights';
+    alt=`Bar chart with the vertical axis starting at ${start} instead of zero, bar A rising 8 units and bar B rising 13 units above that baseline`;
     const tick=(n)=>`<g><path d="M${left-6} ${base-n*scale} H${left+244}" stroke="#30516a" stroke-width="1"/><text x="${left-9}" y="${base-n*scale+5}" font-size="12" text-anchor="end" fill="#d4e8f0" stroke="none">${start+n}</text></g>`;
     body=tick(0)+tick(5)+tick(10)+tick(15)+
       `<path d="M${left} 48 V${base} H328" fill="none" stroke="#b3d7e4" stroke-width="2"/>
