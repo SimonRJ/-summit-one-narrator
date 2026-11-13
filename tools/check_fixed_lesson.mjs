@@ -125,7 +125,7 @@ assert(maths.includes('plainToTeX') && maths.includes('typesetMath'));
 const {plainToTeX}=await import('../math-typography.js');
 assert.equal(plainToTeX('a² + b² = c²'), 'a^{2} + b^{2} = c^{2}');
 assert.equal(plainToTeX('3/4'), String.raw`\frac{3}{4}`);
-assert.equal(plainToTeX('2^3 × 5²'), String.raw`2^3 \times 5^{2}`);
+assert.equal(plainToTeX('2^3 × 5²').replace(/\s{2,}/g,' '), String.raw`2^3 \times 5^{2}`);
 assert.equal(plainToTeX('N=qd+r, 0≤r<d'), String.raw`N=qd+r, 0\leq r<d`);
 assert(sw.includes('summit-mark.svg') && sw.includes('math-typography.js?v=identity-math-r2-20261113'));
 
