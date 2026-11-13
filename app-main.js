@@ -534,6 +534,7 @@ function renderChallenge(el,s,p,mode){
   footer.querySelector("#nextStage").onclick=async()=>{await saveDraft(s);activeStage=mode==="try"?3:4;renderSession(s)};
 }
 function renderCheck(el,s){
+  const sid=skillFor(s,taxonomy);
   const attempted=currentProblems.filter(p=>sessionDraft.answers[p?.id]).length;
   const modeKeys=['try','transfer'].flatMap(mode=>[0,1,2].map(i=>'drill:'+mode+':'+s.slot+':'+i));
   const drilled=modeKeys.filter(key=>Boolean(sessionDraft.evidence[key])).length;
