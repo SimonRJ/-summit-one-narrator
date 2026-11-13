@@ -208,7 +208,7 @@ async def main():
   await page.screenshot(path=str(ROOT/'docs/advanced-connection-iphone.png'))
   await page.locator('.advanced-path-curiosity summary').click()
   assert await page.locator('.advanced-path-curiosity-body').is_visible()
-  await page.locator('.advanced-media summary').click()
+  await page.locator('.advanced-media > summary').click()
   assert await page.locator('.advanced-media .lesson-player-slot').count()>=1
   await next_page()
   assert 'Try' in await page.locator('.lesson-stage-track .here').inner_text()
