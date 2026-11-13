@@ -13,7 +13,7 @@ const MATH_AREAS = [
   ".lesson-fade-unit",".lesson-prep-unit",".lesson-mix-unit",
   ".lesson-extra-unit",".lesson-problem-unit",".solution-panel",
   ".question-review",".exam-visual",".exam-section-key",
-  ".np-transcript",".transcript",".problem-card","[data-math-tex]"
+  ".np-transcript",".transcript",".problem-card",".advanced-path","[data-math-tex]"
 ].join(",");
 const SKIP_SELECTOR = [
   "script","style","noscript","textarea","input","select","option",
