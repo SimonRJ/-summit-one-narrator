@@ -111,6 +111,31 @@ async def main():
   await page.locator('#menuToggle').click()
   await page.locator('#courseMenuContent [data-menu-action="continue"]').click()
   await page.locator('.opening-film').wait_for()
+  # Check all fourteen 3D schematic diagrams on the actual iPhone viewport.
+  diagram_report=await page.evaluate("""async()=>{
+    const {originalFigure}=await import('./original-learning.js?v=geometry-20261114');
+    const stage=document.querySelector('.lesson-screen-stage');
+    const results=[];
+    for(const role of ['try','transfer'])for(let visit=2;visit<=8;visit++){
+      const root=document.createElement('div');
+      root.className='geometry-qa-fixture';
+      root.innerHTML=originalFigure({learning:{skill:'SOLID-01',role,visit}});
+      stage.append(root);
+      const svg=root.querySelector('svg'),box=svg.getBoundingClientRect();
+      const vb=svg.viewBox.baseVal;
+      const labels=[...svg.querySelectorAll('text')].map(t=>t.getBBox());
+      results.push({role,visit,svgWidth:box.width,stageWidth:stage.clientWidth,
+        viewBox:[vb.width,vb.height],
+        invalidLabels:labels.filter(b=>b.x < -1 || b.y < -1 || b.x+b.width > vb.width+1 || b.y+b.height > vb.height+1).length});
+      root.remove();
+    }
+    return results;
+  }""")
+  assert len(diagram_report)==14,diagram_report
+  assert all(d['svgWidth']>160 and d['svgWidth']<=d['stageWidth']+2
+             and d['viewBox']==[360,275] and d['invalidLabels']==0
+             for d in diagram_report),diagram_report
+
   # Confirm ordinary arithmetic becomes semantic TeX without changing saved data.
   await page.locator('#stage').evaluate("""stage => {
     const p=document.createElement('p');
