@@ -7,7 +7,7 @@ Each replacement independently checks its answer against the original key.
 from fractions import Fraction
 
 def curate(skill, role, visit, original):
-    if visit <= 1 or skill not in ('DIV-03',): return original
+    if visit <= 1 or skill not in ('DIV-03','ALG-04'): return original
     a=Fraction(str(original['answer']))
     x=visit+6
     def q(title,prompt,steps,check,insight,result):
@@ -117,4 +117,74 @@ def curate(skill, role, visit, original):
                  'Then 5²+2=27. Dividing by 7 leaves remainder 6.'],
                 '27=7 × 3+6, which is between 0 and 6 as required for a remainder.',
                 'First change the number, then square it, and finally reduce the result.',6)
+
+    if skill=='ALG-04' and role=='try':
+        v=int(a)
+        if visit==2:
+            y=(5*v-12)//4
+            return q('Reverse three arithmetic operations',
+                f'A number is multiplied by 5, then 12 is subtracted, and the result is divided by 4. The final output is {y}. What was the number?',
+                [f'Reverse dividing by 4: {y} × 4 = {4*y}.',
+                 f'Add back 12, then divide by 5: ({4*y}+12) ÷ 5 = {v}.'],
+                f'The original sequence gives (5 × {v} − 12) ÷ 4 = {y}.',
+                'Inverting the operations in reverse order prevents incorrect shortcuts.',v)
+        if visit==3:
+            y=2*(v-3)+7
+            return q('Work backwards through a rule',
+                f'A machine subtracts 3 from a number, doubles the result, then adds 7. Its output is {y}. What number went in?',
+                [f'Remove the final 7: {y} − 7 = {y-7}.',
+                 f'Undo doubling and subtracting 3: {y-7} ÷ 2 + 3 = {v}.'],
+                f'({v} − 3) × 2 + 7 = {y}, confirming the input.',
+                'Each step must be undone in the opposite order from which it was performed.',v)
+        if visit==4:
+            y=(v-18)**2
+            return q('An inverse square with a condition',
+                f'A number greater than 18 is reduced by 18 and then squared. The result is {y}. What was the original number?',
+                [f'The squared difference is {y}, so the difference has magnitude {int(y**0.5)}.',
+                 f'Because the starting number is greater than 18, use the positive difference: 18 + {int(y**0.5)} = {v}.'],
+                f'({v} − 18)² = {y}; the extra condition removes the other square-root possibility.',
+                'Squaring loses the sign, so a constraint is sometimes necessary for a unique inverse.',v)
+        if visit==5:
+            y=3*(2*v+3)-5
+            return q('Undo a four-operation machine',
+                f'A machine doubles a number, adds 3, multiplies the result by 3, then subtracts 5. Its display reads {y}. What was the input?',
+                [f'Add 5 to the display and divide by 3: ({y} + 5) ÷ 3 = {2*v+3}.',
+                 f'Subtract 3 and divide by 2: ({2*v+3} − 3) ÷ 2 = {v}.'],
+                f'Starting with {v} produces {y} when the four operations are followed in order.',
+                'Working backwards through several operations is an early form of solving a composed equation.',v)
+
+    if skill=='ALG-04' and role=='transfer':
+        v=int(a)
+        if visit==2:
+            y=(v-4)//2+1
+            return q('Recover the original donation',
+                f'A charity has some tokens. It gives away 4, puts half of those remaining in a box, then puts one more token in the box. The box contains {y} tokens. How many tokens did the charity start with?',
+                [f'The box had {y-1} before the extra token was added.',
+                 f'This was half of {2*(y-1)} remaining tokens. Adding back the 4 donated tokens gives {v}.'],
+                f'({v} − 4) ÷ 2 + 1 = {y}.',
+                'The final extra token is not part of the half that was boxed.',v)
+        if visit==3:
+            y=4*(v+3)-9
+            return q('Find an input hidden in fourfold growth',
+                f'An integer is increased by 3, multiplied by 4, and then reduced by 9. The result is {y}. What was the integer?',
+                [f'Undo subtracting 9: {y} + 9 = {y+9}.',
+                 f'Divide by 4 and subtract 3: {y+9} ÷ 4 − 3 = {v}.'],
+                f'({v}+3) × 4 − 9 = {y}.',
+                'Group operations carefully: the addition occurs before multiplication.',v)
+        if visit==4:
+            y=(2*v-7)//3
+            return q('An unknown number behind an exact division',
+                f'A number is doubled. Seven is subtracted, and the result is split into three equal whole-number parts. Each part is {y}. What was the original number?',
+                [f'Three equal parts total 3 × {y} = {3*y}.',
+                 f'Add 7 and halve: ({3*y} + 7) ÷ 2 = {v}.'],
+                f'2 × {v} − 7 = {3*y}, which divides exactly into three parts.',
+                'The equal-parts condition and subtraction order both matter.',v)
+        if visit==5:
+            y=3*(v-2)//2
+            return q('Undo a scaled sequence',
+                f'An unknown even number is reduced by 2, multiplied by 3, and then halved. Its final value is {y}. What was the starting number?',
+                [f'Double the output and divide by 3: 2 × {y} ÷ 3 = {v-2}.',
+                 f'Add back 2 to recover the original number {v}.'],
+                f'({v} − 2) × 3 ÷ 2 = {y}, and {v} is even as required.',
+                'A divisibility condition can confirm the order of operations was respected.',v)
     return original
