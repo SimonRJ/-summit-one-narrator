@@ -141,10 +141,25 @@ def family(k,n,role):
         t=12*n+7;val=(t%3)+1
         return task(f'A digital display shows 1 at time 0, then changes to 2 after one second and 3 after two seconds. It repeats this cycle of 1, 2, 3. What number will it show at time {t} seconds?',val,['The display returns to 1 after every three seconds.',f'{t} = 3 × {t//3} + {t%3}. With {t%3} second(s) into the next cycle, it shows {val}.'],f'After {t//3} complete cycles, check the remaining {t%3} second(s) in the sequence 1, 2, 3.','Track the remainder after division by three; no extra moving parts are needed.')
     if k=='COUNT-01':
-        total=2*n+9;vals=[(a,b) for a in range(1,total) for b in range(a+1,total) if a+b==total and a%2==1]
-        if role=='try':return task(f'Two different positive whole numbers add to {total}. The smaller one must be odd. How many pairs are possible if order does not matter?',len(vals),[f'The smaller number is below {total}/2; list just the odd candidates.',f'Each fixes its partner. The pairs are {vals}, so there are {len(vals)}.'],'Listing only the smaller member prevents reversed duplicates.','Organise the cases with a unique representative for each pair.')
-        total=n+12;vals=[(a,b,c) for a in range(1,total) for b in range(a,total) for c in range(b,total) if a+b+c==total and c-a<=3]
-        return task(f'Three positive whole-number lengths add to {total}. Their largest and smallest differ by at most 3. How many triples are possible, ignoring order?',len(vals),['Write the lengths a ≤ b ≤ c. Try the smallest length, then b, with c determined by the total.',f'Keep only c ≥ b and c−a ≤ 3. The complete list is {vals}; count {len(vals)}.'],'Recover each triple from its sorted order; there are no permutations to count again.','An ordering convention makes an exhaustive list manageable.')
+        total=2*n+9
+        vals=[(a,b) for a in range(1,total) for b in range(a+1,total) if a+b==total and a%2==1]
+        if role=='try':
+            pairs=', '.join(f'{a} and {b}' for a,b in vals)
+            return task(
+                f'Two different positive whole numbers add to {total}. The smaller one must be odd. How many pairs are possible if order does not matter?',len(vals),
+                [f'The smaller number must be odd and less than half of {total}.',
+                 f'The valid pairs are {pairs}. There are {len(vals)} in total.'],
+                'Each pair has one odd smaller member; reversing the order does not create a new pair.',
+                'Restrict the smaller number first so that every pair appears exactly once.')
+        total=n+12
+        triples=[(a,b,c) for a in range(1,total) for b in range(a,total) for c in range(b,total) if a+b+c==total and c-a<=3]
+        named=', '.join(f'({a}, {b}, {c})' for a,b,c in triples)
+        return task(
+            f'Three positive whole-number lengths add to {total}. Their largest and smallest differ by at most 3. How many triples are possible, ignoring order?',len(triples),
+            ['Write the lengths in increasing order: smallest ≤ middle ≤ largest. This avoids counting rearrangements twice.',
+             f'The complete list, shown in that order, is {named}. There are {len(triples)} triples.'],
+            'Every listed triple has the required sum and maximum gap, and the ordering rule prevents duplicates.',
+            'Use an ordered representation to count triples without overcounting permutations.')
     if k=='COUNT-02':
         if role=='try':return task(f'From {x} pupils, a captain and a different deputy are chosen. A two-person support team is then chosen from the remaining pupils, with no roles inside that team. How many selections are possible?',x*(x-1)*C(x-2,2),[f'The two named roles have {x} × {x-1} choices.',f'The support pair has C({x-2},2)={C(x-2,2)} choices. Multiply to get {x*(x-1)*C(x-2,2)}.'],'Swap captain and deputy and the selection changes; swapping support members does not.','Some choices have roles while others are unordered.')
         return task(f'A menu has {x} savoury dishes and 3 desserts. A meal chooses two different savoury dishes with no serving order, and one dessert. How many meals are possible?',3*C(x,2),[f'The savoury pair has {x}×{x-1}/2={C(x,2)} choices.',f'Each pair can take any of 3 desserts, giving {3*C(x,2)} meals.'],'Pair order is ignored, but dessert choice still creates a new meal.','Multiply independent choices after removing duplicate orderings.')
