@@ -39,8 +39,7 @@
   </main>
   <template id="problemTemplate">
     <article class="problem-card"><div class="problem-meta"></div><h3 class="problem-title"></h3><div class="problem-prompt math-copy"></div>
-      <label class="answer-label">Final answer only<textarea class="answer-box" rows="2" placeholder="Enter one final number, fraction or requested answer."></textarea></label>
-      <label class="answer-label">Working and explanation<textarea class="answer-box working-box" rows="5" placeholder="Explain your method here, or note that your full working is in your notebook."></textarea></label>
+      <label class="answer-label">Final answer<input class="answer-box final-answer-input" inputmode="text" autocomplete="off" placeholder="Enter your final answer"></label>
       <div class="problem-actions"><button class="primary submit-answer">Record attempt</button><button class="ghost reveal-solution" hidden>Compare with solution</button></div>
       <div class="attempt-feedback" hidden></div><div class="solution-panel" hidden></div>
     </article>
