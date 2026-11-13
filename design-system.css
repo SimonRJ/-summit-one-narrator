@@ -220,3 +220,165 @@ body .brand .brand-mark img{filter:none}
   white-space:normal;
   overflow-wrap:normal;
 }
+
+/* Voluntary mathematics look-ahead: substantial content within a single
+   scrollable lesson screen, never a required assessment or a blank accordion. */
+.lesson-screen-stage [data-lesson-unit="more"]{
+  max-width:940px;
+  margin:0 auto;
+  min-width:0;
+  padding-bottom:12px;
+}
+.advanced-path{
+  display:grid;
+  align-content:start;
+  gap:13px;
+  min-width:0;
+  max-width:940px;
+  color:var(--text);
+}
+.advanced-path-header{
+  padding:clamp(15px,2.4vw,22px) clamp(15px,3vw,26px);
+  border:1px solid #44657b;
+  border-radius:13px;
+  background:linear-gradient(120deg,#172e40,#101d2f);
+}
+.advanced-path-header .eyebrow{margin-bottom:9px}
+.advanced-path-header h3{
+  margin:0 0 10px;
+  font-family:var(--summit-editorial);
+  font-size:clamp(1.35rem,2.6vw,1.9rem);
+  font-weight:500;
+  line-height:1.2;
+  letter-spacing:-.02em;
+  text-wrap:pretty;
+}
+.advanced-path-disclaimer{
+  margin:0;
+  color:#acc5d4;
+  font-size:.83rem;
+  line-height:1.5;
+}
+.advanced-path section{
+  min-width:0;
+  border-radius:12px;
+  border:1px solid #344f63;
+  background:#132236;
+  padding:clamp(16px,2.4vw,23px);
+}
+.advanced-path h4{
+  margin:0 0 9px;
+  font-family:var(--summit-ui);
+  font-size:clamp(1rem,1.7vw,1.11rem);
+  font-weight:650;
+  line-height:1.35;
+}
+.advanced-path p{
+  line-height:1.62;
+  font-size:clamp(.94rem,1.38vw,1.035rem);
+  margin:0;
+}
+.advanced-path .advanced-path-example{
+  border-left:3px solid #7bc7e1;
+}
+.advanced-path-example>.eyebrow{
+  margin:0 0 8px;
+  font-size:.71rem;
+}
+.advanced-path-example h4{
+  font-family:var(--summit-editorial);
+  font-weight:500;
+  font-size:clamp(1.1rem,2.1vw,1.36rem);
+  line-height:1.42;
+  margin:0 0 17px;
+}
+.advanced-solution-steps{
+  list-style:none;
+  display:grid;
+  gap:11px;
+  padding:0;
+  margin:0;
+}
+.advanced-solution-steps li{
+  display:grid;
+  grid-template-columns:25px minmax(0,1fr);
+  align-items:start;
+  gap:11px;
+  line-height:1.56;
+  min-width:0;
+  font-size:clamp(.94rem,1.38vw,1.035rem);
+}
+.advanced-step-number{
+  display:grid;
+  place-items:center;
+  width:25px;
+  height:25px;
+  border-radius:7px;
+  background:#214051;
+  color:#aee1ee;
+  font-size:.8rem;
+  font-weight:700;
+  font-family:var(--summit-number);
+}
+.advanced-step-text{min-width:0;overflow-wrap:break-word}
+.advanced-path-context{
+  margin-top:10px!important;
+  font-size:.78rem!important;
+  color:#aec2cf;
+}
+.advanced-path-curiosity,.advanced-media{
+  border:1px solid #3f596d;
+  border-radius:12px;
+  background:#17283b;
+  padding:0;
+  min-width:0;
+}
+.advanced-path-curiosity>summary,.advanced-media>summary{
+  display:block;
+  list-style:none;
+  cursor:pointer;
+  padding:15px 18px;
+  font-family:var(--summit-ui);
+  font-weight:600;
+  font-size:.94rem;
+  color:#dcebf4;
+}
+.advanced-path-curiosity>summary::-webkit-details-marker,
+.advanced-media>summary::-webkit-details-marker{display:none}
+.advanced-path-curiosity>summary::before,.advanced-media>summary::before{
+  content:"+";
+  color:#9dd5e8;
+  font-weight:600;
+  padding-right:10px;
+}
+.advanced-path-curiosity[open]>summary::before,
+.advanced-media[open]>summary::before{content:"−"}
+.advanced-path-curiosity-body{padding:0 18px 18px;display:grid;gap:10px}
+.advanced-path-curiosity-body p{font-size:.94rem}
+.advanced-path-footnote{
+  color:#b3c6d4;
+  font-size:.8rem!important;
+  line-height:1.48!important;
+  padding:0 5px;
+}
+.advanced-media{max-width:940px;margin:13px auto 2px}
+.advanced-media .teaching-box{
+  padding:0 13px 14px;
+  min-width:0;
+}
+.advanced-media .teaching-item{min-width:0}
+.advanced-path .math-inline:not(.math-display) .katex{
+  font-size:1em;
+  line-height:inherit;
+}
+@media(max-width:680px){
+ .advanced-path{gap:9px}
+ .advanced-path section{padding:15px}
+ .advanced-path-header{padding:15px}
+ .advanced-path-header h3{font-size:1.38rem}
+ .advanced-path-example h4{font-size:1.17rem}
+ .advanced-solution-steps{gap:13px}
+ .advanced-solution-steps li{grid-template-columns:23px minmax(0,1fr);gap:9px}
+ .advanced-step-number{width:23px;height:23px}
+ .advanced-path-curiosity>summary,.advanced-media>summary{padding:15px}
+}
