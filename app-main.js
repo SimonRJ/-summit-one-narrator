@@ -15,7 +15,7 @@ import { problemFigure } from "./problem-figures.js";
 import {mountLessonPager} from "./lesson-pager.js?v=cinema-20261113";
 import {learningScreens} from "./lesson-screenflow.js?v=cinema-20261113";
 import {buildCourseNavigation} from "./course-menu.js?v=menu-20261113";
-import {mountCourseMenu} from "./course-menu-ui.js?v=menu-20261113";
+import {mountCourseMenu} from "./course-menu-ui.js?v=lesson-replay-20261113";
 
 const app=document.getElementById("app");
 const problemTemplate=document.getElementById("problemTemplate");
