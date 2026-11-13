@@ -137,3 +137,10 @@ strong,b{font-weight:600}
   .summit-auth-identity img{width:52px;height:52px}
 }
 @media(prefers-reduced-motion:reduce){.math-inline{scroll-behavior:auto}}
+
+/* Brand appears before the animation engine mounts and in transition loading. */
+body .summit-boot,body .summit-mini{font-family:var(--summit-ui)}
+.summit-boot .sb-first-frame img{width:104px;height:104px;object-fit:contain}
+.summit-mini .sm-mark img{display:block;width:100%;height:100%;object-fit:contain}
+.summit-boot .sb-wordmark{font-weight:600;letter-spacing:.09em}
+.summit-mini .sm-wordmark{font-weight:600;letter-spacing:.11em}
