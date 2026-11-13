@@ -1,0 +1,61 @@
+name: Publish second verified video-first lesson film
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/publish-second-lesson.yml']
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: write
+concurrency:
+  group: summit-second-lesson-publication
+  cancel-in-progress: false
+jobs:
+  publish-s002:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/download-artifact@v4
+        with:
+          name: lesson-finished-S002
+          run-id: 43355057830
+          github-token: ${{ github.token }}
+          path: build/lesson-intros/S002
+      - name: Verify approved voice and finished video before publishing
+        run: |
+          python - <<'PY'
+          import json,subprocess,hashlib
+          from pathlib import Path
+          b=Path('build/lesson-intros/S002')
+          data=json.loads((b/'qa.json').read_text())
+          assert data['id']=='S002'
+          assert data['voice']=='VoxCPM2 — approved voice C'
+          assert data['mathematics_verified'] and data['full_video_decode_passed']
+          assert data['example_levels']==['easy','medium','hard']
+          assert data['old_audio_used'] is False
+          assert hashlib.sha256((b/'final.mp4').read_bytes()).hexdigest()==data['sha256']
+          assert (b/'S002.vtt').read_text().startswith('WEBVTT')
+          probe=json.loads(subprocess.check_output(['ffprobe','-v','error','-show_streams','-of','json',str(b/'final.mp4')]))
+          v=next(x for x in probe['streams'] if x['codec_type']=='video')
+          a=next(x for x in probe['streams'] if x['codec_type']=='audio')
+          assert (v['width'],v['height'])==(1920,1080) and v['codec_name']=='h264' and a['codec_name']=='aac'
+          print('Verified complete second lesson film:',data['duration_seconds'],'seconds')
+          PY
+      - name: Publish only S002 assets, preserving existing S001 publication
+        run: |
+          cp build/lesson-intros/S002/final.mp4 media/S002-Intro.mp4
+          cp build/lesson-intros/S002/poster.jpg media/S002-Intro-poster.jpg
+          cp build/lesson-intros/S002/S002.vtt media/S002-Intro.vtt
+          cp build/lesson-intros/S002/transcript.txt media/S002-Intro-transcript.txt
+          cp build/lesson-intros/S002/qa.json review/S002-Intro-qa.json
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add media/S002-Intro* review/S002-Intro-qa.json
+          git diff --cached --quiet && exit 0
+          git commit -m 'Publish verified voice C video for learning session 2'
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
