@@ -2,7 +2,7 @@ name: Teaching behavior checks
 on:
   pull_request:
     branches: [main]
-    paths: ['*.js', '*.html', '*.css', 'data/**', 'tools/browser_checks.py', 'tools/check_learning.mjs', '.github/workflows/teaching-checks.yml']
+    paths: ['*.js', '*.html', '*.css', 'data/**', 'tools/browser_lesson_fixed.py', 'tools/check_learning.mjs', '.github/workflows/teaching-checks.yml']
   push:
     branches: [recognition-coverage-20261113, main, rebuild-exam-centres-20261112, draft/teaching-audit-2026-11-11]
     paths: ['*.js', '*.html', '*.css', 'data/**', 'tools/browser_checks.py', 'tools/check_learning.mjs', 'tools/content/**', '.github/workflows/teaching-checks.yml']
@@ -27,7 +27,7 @@ jobs:
       - name: Browser behavior and responsive layout
         run: |
           python -m http.server 8765 > /tmp/server.log 2>&1 &
-          python tools/browser_checks.py
+          python tools/browser_lesson_fixed.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:
