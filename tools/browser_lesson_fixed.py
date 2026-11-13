@@ -206,14 +206,10 @@ async def main():
   await page.screenshot(path=str(ROOT/'docs/advanced-connection-iphone.png'))
   await page.locator('.advanced-path-curiosity summary').click()
   assert await page.locator('.advanced-path-curiosity-body').is_visible()
-  # Some lessons have public teaching media; others have the optional advanced
-  # reading only. Never display an empty media accordion.
-  if await page.locator('.advanced-media').count():
-   assert await page.locator('.advanced-media').evaluate('(node)=>node.open')==False
-   await page.locator('.advanced-media > summary').click()
-   assert await page.locator('.advanced-media .narrated-player').count()>=1
-  else:
-   assert await page.locator('.advanced-path').count()==1
+  # The enrichment screen intentionally contains no video or further-reading
+  # accordion; opening and completed-lesson video replay remain elsewhere.
+  assert await page.locator('.advanced-media,.advanced-path .lesson-player-slot').count()==0
+  assert await page.locator('.advanced-path-header h3').is_visible()
   await next_page()
   assert 'Try' in await page.locator('.lesson-stage-track .here').inner_text()
   # The partial example, six extra numerical problems and two original problems
