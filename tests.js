@@ -9,20 +9,19 @@ let user, catalog=[], awards, activeExam=null, questions=[], sitting=null, qInde
 let sittingsByExam=new Map(), allSittings=[], resultMeta={};
 let awardYear=Number(localStorage.getItem("summitSchoolYear")||5);
 const params=new URLSearchParams(location.search);
-const centre=["hub","speed","depth","amc","practice","rossmoyne","mawa"].includes(params.get("section"))?params.get("section"):"hub";
-const EXAM_SECTIONS=[["hub","All exams"],["speed","Q1–20"],["depth","Q21–30"],["practice","Full mocks"],["amc","Past papers"],["mawa","MAWA"],["rossmoyne","Rossmoyne"]];
+const centre=["hub","speed","depth","amc","rossmoyne","mawa"].includes(params.get("section"))?params.get("section"):"hub";
+const EXAM_SECTIONS=[["hub","All exams"],["speed","Part A · Q1–20"],["depth","Part B · Q21–30"],["amc","Past papers"],["mawa","MAWA"],["rossmoyne","Rossmoyne"]];
 function belongs(exam,section=centre){
  const part=exam.metadata?.amc_part;
  if(section==="speed")return part==="speed";
  if(section==="depth")return part==="depth";
  if(section==="rossmoyne")return exam.max_score===100;
- if(section==="practice")return exam.max_score===135&&exam.source_type!=="authentic_amc_past_paper";
- if(section==="amc")return exam.source_type==="authentic_amc_past_paper";
+  if(section==="amc")return exam.source_type==="authentic_amc_past_paper";
  return false;
 }
 function theme(exam=null){
  const section=exam?.metadata?.amc_part|| (exam?.max_score===100?"rossmoyne":centre);
- const label={hub:"EXAMS",speed:"AMC FLUENCY",depth:"AMC CHALLENGE",practice:"AMC FULL MOCKS",amc:"AMC PAST PAPERS",rossmoyne:"HONOURS MATHEMATICS",mawa:"MAWA INVESTIGATIONS"}[section]||"EXAMS";
+ const label={hub:"EXAMS",speed:"AMC FLUENCY",depth:"AMC CHALLENGE",amc:"AMC PAST PAPERS",rossmoyne:"HONOURS MATHEMATICS",mawa:"MAWA INVESTIGATIONS"}[section]||"EXAMS";
  document.body.classList.toggle("rossmoyne-theme",section==="rossmoyne");
  document.body.classList.toggle("split-training",section==="speed"||section==="depth");
  document.querySelector(".brand small").textContent=label;
@@ -111,12 +110,11 @@ function renderExamHub(){
  const count=id=>catalog.filter(e=>belongs(e,id)).length;
  const last=allSittings.filter(r=>r.completed).slice(0,5);
  const cards=[
-  {id:"speed",num:"01",title:"AMC · Fluency",tag:"Q1–20",time:"20-minute limit",summary:"Twenty multiple-choice questions. Aim for 20 correct, then improve the time. Clock counts up from zero.",count:count("speed"),target:"20 / 20 · 70 marks",featured:true},
-  {id:"depth",num:"02",title:"AMC · Challenge",tag:"Q21–30",time:"40-minute limit",summary:"Five multiple-choice and five integer-answer problems. An excellent first benchmark is all five choices plus one integer.",count:count("depth"),target:"First benchmark · 6 / 10",featured:true},
-  {id:"practice",num:"03",title:"Full AMC mocks",tag:"Q1–30",time:"60 minutes",summary:"Original authored full-length papers. Combine pace and deeper reasoning under complete competition conditions.",count:count("practice"),target:"135 marks"},
-  {id:"amc",num:"04",title:"Real AMC papers",tag:"Upper Primary",time:"60 minutes",summary:"Authentic historical papers. One sitting per paper; reserve some for unseen progress checks.",count:count("amc"),target:"Official-format questions"},
-  {id:"rossmoyne",num:"05",title:"Rossmoyne Honours",tag:"School entry",time:"Practice setting",summary:"Four-section specialist mathematics practice papers with written solutions and a permanent record.",count:count("rossmoyne"),target:"100 marks"},
-  {id:"mawa",num:"06",title:"MAWA investigations",tag:"Mathematical reasoning",time:"Work at your own pace",summary:"Structured investigations and proofs. Every seventh learning session includes one; these are not timed AMC-style tests.",count:null,target:"53 scheduled investigations"}
+  {id:"speed",num:"01",title:"AMC practice · Part A",tag:"Q1–20",time:"20-minute limit",summary:"Twenty multiple-choice questions. Aim for 20 correct, then improve the time. Clock counts up from zero.",count:count("speed"),target:"20 / 20 · 70 marks",featured:true},
+  {id:"depth",num:"02",title:"AMC practice · Part B",tag:"Q21–30",time:"40-minute limit",summary:"Five multiple-choice and five integer-answer problems. An excellent first benchmark is all five choices plus one integer.",count:count("depth"),target:"First benchmark · 6 / 10",featured:true},
+  {id:"amc",num:"03",title:"Real AMC papers",tag:"Upper Primary",time:"60 minutes",summary:"Authentic historical papers. One sitting per paper; reserve some for unseen progress checks.",count:count("amc"),target:"Official-format questions"},
+  {id:"rossmoyne",num:"04",title:"Rossmoyne Honours",tag:"School entry",time:"Practice setting",summary:"Four-section specialist mathematics practice papers with written solutions and a permanent record.",count:count("rossmoyne"),target:"100 marks"},
+  {id:"mawa",num:"05",title:"MAWA investigations",tag:"Mathematical reasoning",time:"Work at your own pace",summary:"Structured investigations and proofs. Every seventh learning session includes one; these are not timed AMC-style tests.",count:null,target:"53 scheduled investigations"}
  ];
  app.innerHTML=`<section class="panel exam-hub-intro"><div class="eyebrow">SUMMIT ONE · ASSESSMENT AND PRACTICE</div><h1>Exams</h1><p>Practise accuracy, speed and unfamiliar problem solving separately—then test the complete skill in full-length exams. Your score and time history remains attached to every sitting.</p><div class="exam-hub-metrics"><span>${allSittings.filter(x=>x.completed).length} completed sittings</span><span>Progress saved to your account</span><span>Full reports after submission</span></div></section>
  <section class="exam-hub-heading"><div><h2>Choose a training mode</h2><p class="muted">The first two modes isolate the skills needed for an efficient AMC sitting.</p></div></section>
@@ -162,12 +160,11 @@ function renderLibrary(){
  if(centre==="hub"){renderExamHub();return;}
  if(centre==="mawa"){renderMawaHub();return;}
  const papers=catalog.filter(e=>belongs(e)).sort((a,b)=>centre==="amc"?b.year-a.year:(Number(b.source_type==="summit_amc_split_original")-Number(a.source_type==="summit_amc_split_original"))||a.id.localeCompare(b.id));
- const titles={speed:"AMC Fluency · Q1–20",depth:"AMC Challenge · Q21–30",amc:"Real AMC past papers",practice:"AMC practice exams",rossmoyne:"Rossmoyne Honours Mathematics"};
+ const titles={speed:"AMC Practice · Part A (Q1–20)",depth:"AMC Practice · Part B (Q21–30)",amc:"Real AMC past papers",rossmoyne:"Rossmoyne Honours Mathematics"};
  const introductions={
    speed:"Twenty multiple-choice questions, 70 marks and a 20-minute limit. The timer counts up. Aim for 20/20; among perfect first attempts, a time below 20 minutes is excellent. Ten familiarisation sets reuse existing authored full mocks, and one newly authored original set has separate checking. Select an original set for the strongest unseen-problem benchmark.",
    depth:"Ten difficult questions: Q21–25 multiple choice; Q26–30 integer answer. The timer counts up to the 40-minute limit. Six correct—including all five multiple choice and one integer—is an excellent early benchmark. Ten familiarisation sets reuse existing full mocks; an additional newly authored challenge set has been checked independently and is labelled.",
    amc:"Authentic Upper Primary papers from 2007–2025, where available. Keep some unopened for later independent checks. Each authentic paper has one attempt and permanent written-solution review.",
-   practice:"Ten original full-length 30-question papers. These combine the easier twenty with the final ten, so they are the most faithful rehearsal of a complete sitting.",
    rossmoyne:"The uploaded original sample and nine authored practice papers, with the same four-section, 100-mark structure. Each paper has one attempt and a permanent review."
  };
  const isPart=centre==="speed"||centre==="depth";
