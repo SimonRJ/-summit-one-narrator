@@ -92,13 +92,13 @@ assert(!focusedHome.includes('side-stack') && !focusedHome.includes('learning-no
 assert(app.includes('profile-upcoming') && app.includes('sessions remaining'));
 assert(css.includes('body.home-focus{min-height:100dvh;height:100dvh;overflow:hidden'));
 assert(css.includes('.course-menu-session.is-completed') && css.includes('.focus-session-card'));
-assert(sw.includes('summit-one-responsive-20261113'));
+assert(sw.includes('summit-one-identity-math-20261113'));
 assert(!app.includes('node.scrollIntoView({behavior:\'smooth\',block:\'start\'});'));
 
 const loader=read('../boot-loader.js'),loaderCss=read('../boot-loader.css');
 const practiceUI=read('../transfer-practice.js'),originalLearning=read('../original-learning.js');
 assert(html.includes('id="summitBoot"') && html.includes('data-mode="main"'));
-assert(html.includes('boot-loader.js?v=cinematic-20261113'));
+assert(html.includes('boot-loader.js?v=identity-math-20261113'));
 assert(sw.includes('boot-loader.css?v=cinematic-20261113'));
 assert(loader.includes('SummitLoader={ready,beginSmall,endSmall,withSmallLoading'));
 assert(loader.includes('Play sound') && loader.includes('prefers-reduced-motion'));
@@ -114,6 +114,16 @@ assert(!html.includes('working-box') && html.includes('class="answer-box final-a
 assert(app.includes("for(let i=0;i<3;i++)") && app.includes("'drill:'+mode+':'+s.slot+':'+i"));
 assert(app.includes('modeKeys.every(key=>sessionDraft.evidence[key])'));
 assert(!app.includes('id="workshopReflection"') && !app.includes('id="takeaway"'));
+
+const design=read('../design-system.css'),maths=read('../math-typography.js'),brand=read('../summit-mark.svg');
+assert(html.includes('summit-mark.svg') && html.includes('design-system.css?v=identity-math-20261113'));
+assert(html.includes('math-typography.js?v=identity-math-20261113'));
+assert(html.includes('katex@0.16.47/dist/katex.min.css') && html.includes('katex@0.16.47/dist/katex.min.js'));
+assert(design.includes('IBM Plex Sans') && design.includes('STIX Two Math'));
+assert(brand.includes('M142 19 25 232 142 157Z'));
+assert(maths.includes('plainToTeX') && maths.includes('typesetMath'));
+assert(sw.includes('summit-mark.svg') && sw.includes('math-typography.js?v=identity-math-20261113'));
+
 assert(app.includes('attempted_on_paper_unreviewed'));
 
 console.log('PASS: two unique graduated video scripts, mathematical solutions, all stage screens, fixed viewport and protected learning data.');
