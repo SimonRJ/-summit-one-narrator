@@ -12,7 +12,7 @@ def curate(skill, role, visit, original):
     x=visit+6
     def q(title,prompt,steps,check,insight,result):
         assert Fraction(str(result))==a,(skill,role,visit,result,original['answer'])
-        assert prompt.endswith('?'),(skill,role,visit,prompt)
+        assert prompt.endswith(('?','.')) and '?' in prompt,(skill,role,visit,prompt)
         return dict(title=title,prompt=prompt,answer=original['answer'],steps=steps,check=check,clue=insight)
 
     if skill=='DIV-03' and role=='try':
@@ -200,7 +200,7 @@ def curate(skill, role, visit, original):
           2:('Update a class average',f'A class of {x} students has an average test score of {m} points. Three more students join with scores {p}, {t} and {last}. What is the average for all {x+3} students? Give an exact fraction if necessary.'),
           3:('A chess season with three new games',f'Across {x} chess matches a player averages {m} points per game. The next three matches give {p}, {t} and {last} points. What is the average per match over all {x+3} matches? Give an exact fraction if needed.'),
           4:('Add new observations to a data set',f'A survey has {x} readings with mean {m}. Three further readings are {p}, {t} and {last}. What is the mean of the expanded data set? Give an exact fraction if needed.'),
-          5:('A laboratory reports three more results',f'A laboratory collects {x} measurements with mean {m}. It then records {p}, {t} and {last}. Find the new mean of all {x+3} measurements as an exact fraction. What value do you get?'),
+          5:('A laboratory reports three more results',f'A laboratory collects {x} measurements with mean {m}. It then records {p}, {t} and {last}. What is the new mean of all {x+3} measurements, expressed as an exact fraction if necessary?'),
           6:('Three additional results change the mean',f'The mean of {x} quiz results is {m}. The final three students score {p}, {t} and {last}. What is the mean of all {x+3} results? Give an exact fraction if needed.'),
           7:('Very low scores join a data set',f'A set of {x} scores has mean {m}. Three further scores are {p}, {t} and {last}. What is the mean when the scores are combined? Give an exact fraction if needed.'),
           8:('A tournament average after bonus rounds',f'An athlete earns a mean of {m} points over {x} rounds. In three bonus rounds the athlete earns {p}, {t} and {last}. What is the mean points per round over all {x+3} rounds? Give an exact fraction if needed.')
