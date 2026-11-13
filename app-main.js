@@ -147,6 +147,8 @@ async function boot(){
 
 function updateNavProgress(){mainMenu?.refreshProgress()}
 async function navigateMenuView(view){
+ const loadToken=window.SummitLoader?.beginSmall("Opening "+({home:"Learning",profile:"Progress",review:"Completed sessions",repairs:"Repairs",roadmap:"Readiness"}[view]||"section"));
+ try{
  if(editingSession){
   await saveDraft(editingSession);
   editingSession=null;
@@ -159,6 +161,7 @@ async function navigateMenuView(view){
  if(view==="repairs"){await openRepairs();return}
  if(view==="roadmap"){await renderRoadmap();return}
  throw new Error("Unknown menu destination");
+ }finally{window.SummitLoader?.endSmall(loadToken)}
 }
 async function continueFromMenu(){
  const done=Number(progress?.completed_sessions)||0;
@@ -175,6 +178,8 @@ async function openCompletedFromMenu(slot){
  if(details){details.open=true;details.scrollIntoView({behavior:"auto",block:"start"})}
 }
 async function openLessonIntroductionFromMenu(slot){
+ const loadToken=window.SummitLoader?.beginSmall("Preparing lesson video");
+ try{
  const item=course.find(s=>s.slot===slot&&s.type==="LESSON");
  const done=Number(progress?.completed_sessions)||0;
  const isComplete=slot<=done;
@@ -210,6 +215,7 @@ async function openLessonIntroductionFromMenu(slot){
  }
  document.getElementById("replayBack").onclick=async()=>{document.body.classList.remove("lesson-video-review");if(isComplete)await openCompletedFromMenu(slot);else await continueFromMenu()};
  document.getElementById("replayHome").onclick=()=>{document.body.classList.remove("lesson-video-review");renderHome()};
+ }finally{window.SummitLoader?.endSmall(loadToken)}
 }
 function wireNav(){
  mainMenu=mountCourseMenu({
@@ -261,6 +267,7 @@ function renderHome(){
 }
 async function startSession(s){
  document.body.classList.remove("home-focus");
+ const loadToken=window.SummitLoader?.beginSmall("Opening Session "+s.slot);
  try{
   await refreshEvidence();
   activeStage=0;currentMawa=s.type==="MAWA"?mawa[(Math.floor(s.slot/7)-1)%mawa.length]:null;
@@ -283,6 +290,7 @@ async function startSession(s){
   await saveDraft(s);
   if(s.type==="MAWA"){renderMawaSession(s);return}if(s.type==="MIXED"){renderWorkshop(s);return}renderSession(s);
  }catch(e){alert("Could not open this session: "+e.message)}
+ finally{window.SummitLoader?.endSmall(loadToken)}
 }
 
 function mawaExtension(s,item){
@@ -634,5 +642,5 @@ async function renderProfile(){
   document.getElementById("exportProgress").onclick=async()=>{const b=document.getElementById("exportProgress");b.disabled=true;try{await exportProgressBackup()}catch(e){alert(e.message)}finally{b.disabled=false}};
   document.getElementById("logout").onclick=async()=>{await signOut();location.href="login.html"};
 }
-boot();
+boot().finally(()=>window.SummitLoader?.ready());
 
