@@ -453,3 +453,12 @@ button.course-menu-row:hover,a.course-menu-row:hover{background:#21384a;border-c
 .course-menu-progress strong{flex:0 0 auto;white-space:nowrap;color:#b8e4ef;font-variant-numeric:tabular-nums;font-size:.9rem}
 .course-menu button:focus-visible,.course-menu a:focus-visible,.menu-trigger:focus-visible{outline:2px solid #a5e8ff;outline-offset:2px}
 @media(max-width:520px){.topbar{gap:10px!important;padding:8px 11px!important;min-height:56px}.menu-trigger{min-height:42px;min-width:83px;padding:7px 9px;font-size:.84rem}.topbar .brand small{display:none}.topbar .brand b{font-size:.8rem}.topbar .brand-mark{width:30px;height:30px;font-size:17px}dialog.course-menu{width:min(390px,96vw);max-width:96vw}.course-menu-head{padding:16px 15px 11px}.course-menu-content{padding:10px 10px 19px}}
+
+
+/* Stable flex viewport: avoid stale measured-header differences after rotation or resize. */
+body.lesson-fullscreen,body.home-focus{display:flex;flex-direction:column;height:100dvh;min-height:0;max-height:100dvh;overflow:hidden}
+body.lesson-fullscreen>.topbar,body.home-focus>.topbar{flex:0 0 auto}
+body.lesson-fullscreen>.shell,body.home-focus>.shell{
+ flex:1 1 0!important;min-height:0!important;max-height:none!important;
+ height:auto!important;margin:0 auto!important;overflow:hidden;
+}
