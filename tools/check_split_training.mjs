@@ -51,7 +51,7 @@ for(const [skill,entry] of Object.entries(map.skills)){
   assert(actual&&actual.focus===item.focus,"Incorrect lesson mapping "+skill+" @ "+item.slot);
  }
 }
-assert(index.includes("main.css?v=cinema-20261113"));
+assert(index.includes("main.css?v=focus-20261113"));
 assert(testsPage.includes("tests.js?v=curated-20261113"));
 assert(style.includes(".amc-pending-sets"));
 assert(worker.includes("summit-one-video-first-20261113"));
