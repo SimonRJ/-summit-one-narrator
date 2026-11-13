@@ -270,22 +270,77 @@ async function completeSpecialSession(s){
   localStorage.removeItem(draftKey(s));editingSession=null;draftDirty=false;await refreshEvidence();renderHome();
 }
 
+function renderLessonOpening(el,s){
+ const id=s.slot===1?"S001":s.slot===2?"S002":null;
+ const p=lessonPlan(s,course,taxonomy);
+ const title=esc(s.focus);
+ const examples=id?'<p class="opening-levels"><span>Easy example</span><span>Medium example</span><span>Hard example</span></p>':'';
+ el.innerHTML=`<section class="opening-film" aria-label="Lesson introduction">
+   <div class="eyebrow">THE IDEA FIRST · A VISUAL EXPLANATION</div>
+   <h2>${title}</h2>
+   <p class="muted">Watch how a useful mathematical idea solves progressively harder problems. The problems in this introduction are teaching examples, not practice-test questions.</p>
+   ${id?`<div class="opening-video-wrap"><video id="openingVideo" controls playsinline preload="metadata" poster="media/${id}-Intro-poster.jpg?v=cinema-20261113" src="media/${id}-Intro.mp4?v=cinema-20261113" aria-label="${title} — fully worked animated introduction in three difficulty levels"><track kind="captions" srclang="en" label="English captions" src="media/${id}-Intro.vtt?v=cinema-20261113"></video></div>`:
+   `<div class="opening-concept-board"><div class="opening-concept-method">${esc(p.hook)}</div><div class="opening-concept-mark">${esc(skillFor(s,taxonomy))}</div><p>${esc(p.goal)}</p></div>`}
+   ${examples}
+   <div id="openingFallback" class="opening-fallback" ${id?"hidden":""}></div>
+   <p class="opening-coda">After watching, press <b>Next</b> and solve fresh problems using the same idea. Bring paper and a pencil.</p>
+ </section>`;
+ const mountFallback=()=>{
+  const host=el.querySelector("#openingFallback");
+  if(!host||host.dataset.mounted)return;
+  host.hidden=false;host.dataset.mounted="yes";
+  const t=teachingFor(s)[0];
+  if(t)mountNarratedPlayer(host,{title:t.title,transcript:t.transcript,audioUrl:t.audio_url,videoUrl:finalVideoUrl(t.id),cacheKey:"lesson-opening-"+s.slot,onWatch:d=>recordVideoEvidence(s.slot,t.id,"concept",d)});
+  else host.innerHTML='<p class="muted">The short written introduction is available in the next screen.</p>';
+ };
+ const video=el.querySelector("#openingVideo");
+ if(video){
+  video.addEventListener("error",()=>{video.hidden=true;mountFallback()});
+  let marked=false;
+  video.addEventListener("timeupdate",()=>{
+   if(marked||!video.duration||video.currentTime/video.duration<.8)return;
+   marked=true;recordVideoEvidence(s.slot,id+"-Intro","lesson_intro",{position_seconds:video.currentTime,duration_seconds:video.duration,completed_80_percent:true,media_mode:"finished_video"}).catch(()=>{});
+  });
+ }else mountFallback();
+}
+function setLessonScreenTopbar(){
+ document.body.style.setProperty("--lesson-topbar",Math.ceil(document.querySelector(".topbar")?.getBoundingClientRect().height||72)+"px");
+}
 function renderSession(s){
-  app.innerHTML=`
-  <section class="session-page">
-    <header class="panel session-header"><div class="eyebrow">SESSION ${s.slot} / 372 · ${esc(s.phase)}</div><h1>${esc(activeStage===3?"Choose a method for a new setting":s.focus)}</h1><div><span class="type-chip">${esc(s.type)}</span></div></header>
-    <nav class="stage-nav" aria-label="Session stages">
-      ${["Start","Discover","Try","Transfer","Check"].map((x,i)=>`<button data-stage="${i}" class="${i===activeStage?"active":""}">${i+1}. ${x}</button>`).join("")}
-    </nav>
-    <section id="stage" class="panel stage"></section>
-  </section>`;
-  document.querySelectorAll("[data-stage]").forEach(b=>b.onclick=async()=>{try{await saveDraft(s);activeStage=Number(b.dataset.stage);renderSession(s)}catch(e){alert("Your work is still here. Could not save: "+e.message)}});
-  const target=document.getElementById("stage");
-  if(activeStage===0)renderRemember(target,s);
-  if(activeStage===1)renderDiscover(target,s);
-  if(activeStage===2)renderChallenge(target,s,currentProblems[0],"try");
-  if(activeStage===3)renderChallenge(target,s,currentProblems[1],"transfer");
-  if(activeStage===4)renderCheck(target,s);
+ document.body.classList.add("lesson-fullscreen");
+ setLessonScreenTopbar();
+ const stages=["Video","Remember","Discover","Try","Transfer","Check"];
+ const stageIndex=activeStage+1;
+ app.innerHTML=`<section class="session-page lesson-screen-page" aria-label="Session ${s.slot} screen by screen">
+  <header class="panel lesson-screen-header"><div class="eyebrow">LEARNING SESSION ${s.slot} / 372 · ${esc(s.phase)}</div><h1>${esc(s.focus)}</h1></header>
+  <div class="lesson-stage-track" aria-label="Your current lesson stage">${stages.map((label,i)=>`<span class="${i===stageIndex?"here":i<stageIndex?"visited":""}">${i+1}. ${label}</span>`).join("")}</div>
+  <section id="stage" class="panel stage lesson-screen-stage"></section>
+  <footer class="lesson-screen-footer"><button type="button" class="ghost" data-screen-back>Back</button><div class="lesson-screen-progress"><strong data-screen-name>Learning</strong><span data-screen-count>1 / 1</span></div><button type="button" class="primary" data-screen-next>Next</button></footer>
+ </section>`;
+ const target=document.getElementById("stage"),sid=skillFor(s,taxonomy);
+ if(activeStage===-1)renderLessonOpening(target,s);
+ if(activeStage===0)renderRemember(target,s);
+ if(activeStage===1)renderDiscover(target,s);
+ if(activeStage===2)renderChallenge(target,s,currentProblems[0],"try");
+ if(activeStage===3)renderChallenge(target,s,currentProblems[1],"transfer");
+ if(activeStage===4)renderCheck(target,s);
+ const pages=learningScreens(target,activeStage,{draft:sessionDraft,skill:sid,problem:activeStage===2?currentProblems[0]:activeStage===3?currentProblems[1]:null,flashDone:()=>flashReviewed(sessionDraft,sid)});
+ const footer=app.querySelector(".lesson-screen-footer");
+ const persistLocation=index=>{
+  activeLessonPanel=index;sessionDraft.summary.lesson_stage=activeStage;sessionDraft.summary.lesson_panel=index;
+  rememberDraft();
+ };
+ const leaveNext=async()=>{
+  if(activeStage===-1){activeStage=0;activeLessonPanel=0;await saveDraft(s);renderSession(s);return}
+  if(activeStage===4){const finish=target.querySelector("#completeSession");if(finish&&!finish.disabled)finish.click();else alert("Complete both challenge attempts before locking this session.");return}
+  const next=target.querySelector("#nextStage");
+  if(next){activeLessonPanel=0;next.click();}
+ };
+ const leaveBack=async()=>{
+  if(activeStage===-1){await saveDraft(s);editingSession=null;document.body.classList.remove("lesson-fullscreen");renderHome();return}
+  activeStage-=1;activeLessonPanel=999;await saveDraft(s);renderSession(s);
+ };
+ lessonPager=mountLessonPager({pages,footer,initial:activeLessonPanel,onNext:leaveNext,onBack:leaveBack,onChange:persistLocation});
 }
 function renderRemember(el,s){
  el.innerHTML=`${introductionHTML(s,course,taxonomy)}<div class="stage-number">NOW REMEMBER · ABOUT 5 MINUTES</div><h2>Warm up what you know</h2><p class="muted">Start without notes. Getting stuck shows us what to revisit.</p><div id="retrievalChecks"></div><div class="complete-row"><span class="muted">Try the due checks before continuing.</span><button class="primary" id="nextStage">Discover</button></div>`;
