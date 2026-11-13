@@ -47,6 +47,6 @@ assert(css.includes('.lesson-screen-footer'));
 assert(css.includes('.opening-video-wrap'));
 assert(sw.includes('lesson-screenflow.js?v=cinema-20261113'));
 assert(sw.includes('lesson-pager.js?v=cinema-20261113'));
-assert(html.includes('app-main.js?v=cinema-20261113'));
+assert(html.includes('app-main.js?v=focus-20261113'));
 assert(!app.includes('node.scrollIntoView({behavior:\'smooth\',block:\'start\'});'));
 console.log('PASS: two unique graduated video scripts, mathematical solutions, all stage screens, fixed viewport and protected learning data.');
