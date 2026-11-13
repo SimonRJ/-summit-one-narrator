@@ -155,7 +155,7 @@ function renderLibrary(){
  document.body.classList.remove("exam-mode");theme();
  if(centre==="hub"){renderExamHub();return;}
  if(centre==="mawa"){renderMawaHub();return;}
- const papers=catalog.filter(e=>belongs(e)).sort((a,b)=>centre==="amc"?b.year-a.year:(Number(b.source_type==="summit_amc_split_original")-Number(a.source_type==="summit_amc_split_original"))||a.id.localeCompare(b.id));
+ const papers=catalog.filter(e=>belongs(e)).sort((a,b)=>centre==="amc"?b.year-a.year:(Number(a.metadata?.plan_index||99)-Number(b.metadata?.plan_index||99))||a.id.localeCompare(b.id));
  const titles={speed:"AMC Practice · Part A (Q1–20)",depth:"AMC Practice · Part B (Q21–30)",amc:"Real AMC past papers",rossmoyne:"Rossmoyne Honours Mathematics"};
  const introductions={
    speed:"Part A: 20 multiple-choice questions, 70 marks, 20-minute count-up. Aim for 20/20 on new problems. Each set allows one scored attempt, then locks permanently for study.",
@@ -164,10 +164,15 @@ function renderLibrary(){
    rossmoyne:"The uploaded original sample and nine authored practice papers, with the same four-section, 100-mark structure. Each paper has one attempt and a permanent review."
  };
  const isPart=centre==="speed"||centre==="depth";
+ const plannedSets=isPart?Array.from({length:30},(_,i)=>i+1):[];
+ const availableIndices=new Set(papers.map(x=>Number(x.metadata?.plan_index)).filter(Number.isInteger));
+ const pendingSets=plannedSets.filter(i=>!availableIndices.has(i));
  app.innerHTML=`<section class="panel test-hero"><div class="eyebrow">${centre==="rossmoyne"?"HONOURS MATHEMATICS":"SUMMIT ONE · EXAMS"}</div><h1>${titles[centre]}</h1><p class="muted">${introductions[centre]}</p><nav class="exam-centre-tabs" aria-label="Exam sections">${EXAM_SECTIONS.map(([id,label])=>`<a href="tests.html${id==="hub"?"":`?section=${id}`}" ${centre===id?'aria-current="page"':""}>${label}</a>`).join("")}</nav>${centre==="amc"?`<label class="year-select">School year for estimated award bands <select id="awardYear"><option value="5" ${awardYear===5?"selected":""}>Year 5</option><option value="6" ${awardYear===6?"selected":""}>Year 6</option></select></label>`:""}</section>
  ${isPart?`<section class="exam-benchmark-row"><div><span class="eyebrow">BENCHMARK</span><strong>${centre==="speed"?"20 / 20 correct":"5 / 5 multiple choice + 1 integer"}</strong></div><div><span class="eyebrow">TIME LIMIT</span><strong>${centre==="speed"?"20:00":"40:00"} · counting up</strong></div><div><span class="eyebrow">SCORING</span><strong>${centre==="speed"?"70 available marks":"65 available marks"}</strong></div></section>`:""}
  ${isPart?practicePerformanceHTML(centre):""}
+ ${isPart?`<section class="amc-set-summary"><h2>${papers.length} of 30 reviewed sets available</h2><p class="muted">Only original AMC-style papers with independently checked answers and worked explanations become available. The remaining ${pendingSets.length} sets are still being authored and reviewed; they cannot be started.</p></section>`:""}
  <div class="test-grid">${papers.map(exam=>`<article class="panel test-card"><div class="eyebrow">${exam.metadata?.originality==="reused_from_existing_full_mock"?"EXISTING MOCK · SPLIT FAMILIARISATION":exam.source_type==="authentic_amc_past_paper"?"AUTHENTIC AMC PAST PAPER":exam.source_type==="summit_amc_split_original"?"NEW ORIGINAL · INDEPENDENTLY CHECKED":exam.metadata?.original_sample?"UPLOADED ORIGINAL SAMPLE · TRANSCRIBED":"SUMMIT ONE AUTHORED PRACTICE"}</div><h2>${esc(exam.title)}</h2><div class="test-meta"><span class="phase-chip">${exam.question_count} questions</span><span class="phase-chip">${exam.duration_minutes} min</span><span class="phase-chip">${exam.max_score} marks</span></div><p class="muted">${esc(exam.metadata?.card_summary||"Full written solutions available after submission.")}</p>${paperAction(exam)}</article>`).join("")}</div>
+ ${isPart&&pendingSets.length?`<details class="amc-pending-sets"><summary>${pendingSets.length} original sets still in question review</summary><div class="pending-set-grid">${pendingSets.map(n=>`<div class="pending-set"><span>Set ${String(n).padStart(2,"0")}</span><small>Not yet released</small></div>`).join("")}</div></details>`:""}
  <section class="panel result-card"><h2>Your ${isPart?centre==="speed"?"fluency":"challenge":"exam"} history</h2><p class="muted">Every completed attempt and elapsed time remains recorded. A review cannot change a submitted result.</p><div id="savedSittings" class="history-list"></div></section><p class="footer-note">Summit One is an independent study app. Authored mocks are not official AMT or Rossmoyne papers.</p>`;
  document.getElementById("awardYear")?.addEventListener("change",e=>{awardYear=Number(e.target.value);localStorage.setItem("summitSchoolYear",String(awardYear))});
  document.querySelectorAll(".startExam").forEach(b=>b.onclick=()=>prepareExam(b.dataset.id).catch(showExamError));
