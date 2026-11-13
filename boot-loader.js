@@ -39,12 +39,7 @@
       <path class="sb-gem-outline" d="M142 19 25 232 259 232Z M142 19 142 157 25 232 M142 157 259 232" stroke="url(#sbEdge)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
       <path d="M142 19 142 157" stroke="#f8fdff" stroke-width="1.3" opacity=".7"/>
     </svg>`;
-  const logoTiny=`<svg viewBox="0 0 70 70" aria-hidden="true" focusable="false">
-      <path d="M35 5 63 59H7Z" fill="#0c253e" stroke="#76dafe" stroke-width="1.8"/>
-      <path d="M35 5 7 59 35 42Z" fill="#9bcde5"/>
-      <path d="M35 5 63 59 35 42Z" fill="#4c96bc"/>
-      <path d="M7 59 35 42 63 59Z" fill="#133c59"/>
-    </svg>`;
+  const logoTiny='<img src="summit-mark.svg" width="70" height="70" alt="" decoding="async">';
   root.innerHTML=`
     <div class="sb-aura sb-aura-one" aria-hidden="true"></div>
     <div class="sb-aura sb-aura-two" aria-hidden="true"></div>
