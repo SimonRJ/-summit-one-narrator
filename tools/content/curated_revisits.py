@@ -7,7 +7,7 @@ Each replacement independently checks its answer against the original key.
 from fractions import Fraction
 
 def curate(skill, role, visit, original):
-    if visit <= 1: return original
+    if visit <= 1 or skill not in ('DIV-03',): return original
     a=Fraction(str(original['answer']))
     x=visit+6
     def q(title,prompt,steps,check,insight,result):
