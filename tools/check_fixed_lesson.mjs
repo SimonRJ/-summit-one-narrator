@@ -40,7 +40,7 @@ for(let stage=-1;stage<=4;stage++){
  assert(screens.includes('stage==='+stage)||stage===-1&&screens.includes('stage===-1'), 'Missing stage '+stage);
 }
 for(const s of ['renderChallenge','renderCheck','submit-problem-attempt','get-problem-solution','upsertSession','rememberDraft'])assert(app.includes(s),'Missing protected learning feature '+s);
-assert(pager.includes('pages.forEach((p,i)=>p.show(i===index))'));
+assert(pager.includes('pages[index].show(true)'));
 assert(pager.includes('onChange?.(index,p)'));
 assert(css.includes('body.lesson-fullscreen{height:100dvh;overflow:hidden'));
 assert(css.includes('.lesson-screen-footer'));
