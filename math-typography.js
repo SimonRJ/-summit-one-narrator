@@ -3,30 +3,53 @@
  * visible arithmetic expressions become semantic TeX through KaTeX.
  * Inputs, saved answers, question text and DOM event handlers are untouched.
  */
+// Only lesson/prose surfaces are scanned; visual labels and controls are excluded.
+// Important: "TRANSFER · PROBLEM 1 OF 3" is interface text, not an equation.
 const MATH_AREAS = [
   ".math-copy",".problem-prompt",".stem",".choice-content",
   ".flash-question",".flash-options",".flash-feedback",".flash-summary",
   ".mini-check",".worked-example",".method-card",".reasoning-steps",
   ".bridge-example",".session-intro",".lesson-recall-brief",
-  ".lesson-fade-unit",".lesson-prep-unit",
-  ".lesson-mix-unit",".lesson-extra-unit",".lesson-problem-unit",
-  ".solution-panel",".question-review",".exam-visual",".exam-section-key",
+  ".lesson-fade-unit",".lesson-prep-unit",".lesson-mix-unit",
+  ".lesson-extra-unit",".lesson-problem-unit",".solution-panel",
+  ".question-review",".exam-visual",".exam-section-key",
   ".np-transcript",".transcript",".problem-card","[data-math-tex]"
 ].join(",");
 const SKIP_SELECTOR = [
   "script","style","noscript","textarea","input","select","option",
-  "svg","math","code","pre","samp","kbd",
+  "svg","math","code","pre","samp","kbd","button","label","a",
+  ".eyebrow",".stage-number",".session-kicker",".problem-meta",
+  ".type-chip",".np-label",".flash-progress",".flash-top",
+  ".lesson-screen-progress",".course-menu",".award-badge",
   ".math-inline",".katex",".math-display","[contenteditable]",
   "[data-math-skip]"
 ].join(",");
-const ATOM = "(?:(?:LCM|GCD|HCF|lcm|gcd|C)\\([^)]{1,24}\\)|\\d+(?:\\.\\d+)?[A-Za-z]?(?:\\([^)]{1,35}\\))?|[A-Za-zπθφ]{1,5}(?:\\([^)]{1,35}\\))?|\\([^)]{1,45}\\)|…)(?:\\^\\{?[\\w]+\\}?|[⁰¹²³⁴⁵⁶⁷⁸⁹]|!)?";
-// A spaced slash often means progress ("6 / 6"), not a fraction.
-// Times such as 10:30 are handled by an explicit contextual guard below.
-const OPERATOR = "(?:\\s*(?:[+=×÷−<>≤≥≠≈·])\\s*|/|:|\\s+-\\s+)";
-const EXPRESSION = new RegExp(
-  ATOM + "(?:" + OPERATOR + ATOM + ")+|(?:\\d+|[A-Za-zπθφ]{1,3})(?:\\^\\{?[\\w]+\\}?|[⁰¹²³⁴⁵⁶⁷⁸⁹])+|\\d+!",
+// Conservative recognition: a full mathematical token must be bounded by
+// whitespace/punctuation. Never match fragments inside English words.
+const ATOM = "(?:(?:LCM|GCD|HCF|lcm|gcd|C)\\([^)]{1,24}\\)|\\([^)]{1,45}\\)|\\d+(?:\\.\\d+)?[A-Za-z]?|[A-Za-zπθφ]{1,3}|…)(?:\\^\\{?[\\w]+\\}?|[⁰¹²³⁴⁵⁶⁷⁸⁹]|!)?";
+const OPERATOR = "(?:\\s*(?:[+=×÷−<>≤≥≠≈]|\\s-\\s)\\s*)";
+const AUTO_MATH = new RegExp(
+  "(?<![\\p{L}\\p{N}_])(?:"+
+    ATOM+"(?:"+OPERATOR+ATOM+")+"+
+    "|(?:\\d+(?:\\.\\d+)?|[A-Za-zπθφ]{1,2})(?:\\^\\{?[\\w]+\\}?|[⁰¹²³⁴⁵⁶⁷⁸⁹])+"+
+    "|(?:\\d+|[a-z])/(?:\\d+|[a-z])"+
+    "|\\d+:\\d+"+
+    "|\\d+!"+
+  ")(?![\\p{L}\\p{N}_])",
   "gu"
 );
+export function findMathExpressions(text){
+  const matches=[];
+  for(const match of String(text).matchAll(AUTO_MATH)){
+    const formula=match[0];
+    // A clock, a course progress count or a date is not mathematics.
+    if(/^\d{1,2}:\d{2}$/.test(formula))continue;
+    if(/^\d+\s*\/\s*\d+$/.test(formula)&&/\s\/\s/.test(formula))continue;
+    if(/^\d{4}[-/]\d{1,2}[-/]\d{1,2}$/.test(formula))continue;
+    matches.push({index:match.index,formula});
+  }
+  return matches;
+}
 const DELIMITERS = /\\\[([\s\S]*?)\\\]|\\\(([\s\S]*?)\\\)|\$\$([\s\S]*?)\$\$/g;
 const SUPERSCRIPTS = {"⁰":"0","¹":"1","²":"2","³":"3","⁴":"4","⁵":"5","⁶":"6","⁷":"7","⁸":"8","⁹":"9"};
 const RENDER_OPTIONS = {throwOnError:true,strict:"ignore",trust:false,output:"htmlAndMathml"};
@@ -70,17 +93,11 @@ function createMath(tex,original,display=false){
   return span;
 }
 function appendPlainMath(fragment,text){
-  EXPRESSION.lastIndex=0;
-  let i=0,match,changed=false;
-  while((match=EXPRESSION.exec(text))){
-    const formula=match[0];
-    // Ratios are usually unspaced. Do not convert clock times or progress counters.
-    if(/^\d{1,2}:\d{2}$/.test(formula))continue;
-    if(/^\d+\s*\/\s*\d+$/.test(formula)&&/\s\/\s/.test(formula))continue;
-    if(/^\d{4}[-/]\d{1,2}[-/]\d{1,2}$/.test(formula))continue;
-    if(match.index>i)fragment.append(document.createTextNode(text.slice(i,match.index)));
+  let i=0,changed=false;
+  for(const {index,formula} of findMathExpressions(text)){
+    if(index>i)fragment.append(document.createTextNode(text.slice(i,index)));
     fragment.append(createMath(plainToTeX(formula),formula));
-    i=match.index+formula.length;
+    i=index+formula.length;
     changed=true;
   }
   if(i<text.length)fragment.append(document.createTextNode(text.slice(i)));
