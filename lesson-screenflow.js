@@ -54,66 +54,50 @@ export function learningScreens(host,stage,{draft,skill,problem,flashDone}={}){
  }
  if(stage===2||stage===3){
   const fade=get(".lesson-fade-unit"),prep=get(".lesson-prep-unit"),mix=get(".lesson-mix-unit");
-  const node=get(".lesson-problem-unit");
-  if(!node)return [page("Choose the next method",()=>showTop(roots))];
-  const nested=[...node.children];
-  const reason=node.querySelector(".reasoning-record");
-  const rChildren=reason?[...reason.children]:[];
-  const rGrid=reason?.querySelector(".check-grid"),rLabels=rGrid?[...rGrid.children]:[];
-  const parts={
+  const extra=get(".lesson-extra-unit"),node=get(".lesson-problem-unit");
+  if(!node)return [page("Choose the next problem",()=>showTop(roots))];
+  const nested=[...node.children],problemId=problem?.id;
+  const pieces={
    intro:[...node.querySelectorAll(":scope > .problem-meta, :scope > .problem-title, :scope > .problem-prompt, :scope > .original-figure, :scope > .problem-figure, :scope > .challenge-bridge")],
-   thinking:[...node.querySelectorAll(":scope > .problem-title, :scope > .problem-prompt"),reason],
-   answer:[...node.querySelectorAll(":scope > .problem-title, :scope > .problem-prompt, :scope > .answer-label, :scope > .problem-actions, :scope > .attempt-feedback")],
+   answer:[...node.querySelectorAll(":scope > .problem-title, :scope > .problem-prompt, :scope > .original-figure, :scope > .problem-figure, :scope > .reasoning-help-only, :scope > .answer-label, :scope > .problem-actions, :scope > .attempt-feedback")],
    review:[...node.querySelectorAll(":scope > .problem-title, :scope > .problem-prompt, :scope > .problem-actions, :scope > .attempt-feedback, :scope > .solution-panel")]
   };
-  const showProblem=(kind,label=0)=>{
+  const showProblem=type=>{
    showTop([node]);
-   const setParts=new Set(parts[kind]||[]);
-   for(const part of nested)set(part,setParts.has(part));
-   if(reason){
-    for(const child of rChildren)set(child,kind==="thinking"&&(label===0?child===rGrid||child.tagName==="H3"||child.tagName==="P":child===rGrid||child.classList.contains("support-choice")||child.classList.contains("method-hint")||child.classList.contains("method-hint-text")));
-    rLabels.forEach((el,i)=>set(el,kind==="thinking"&&i===label));
-   }
+   const showing=new Set(pieces[type]);
+   for(const part of nested)set(part,showing.has(part));
   };
-  const pages=[],pId=problem?.id;
-  if(fade)pages.push(page("Finish a worked example",()=>showTop([fade]),()=>{
-   if(!draft?.evidence?.["faded:"+skill]){alert("Complete the partly worked example before moving on.");return false}return true;
+  const pages=[];
+  if(fade)pages.push(page("Finish the worked example",()=>showTop([fade]),()=>{
+   if(!draft?.evidence?.["faded:"+skill]){alert("Answer the partially worked example before moving on.");return false}return true;
   }));
   if(prep)pages.push(page("Independent basics check",()=>showTop([prep]),()=>{
-   if(!draft?.evidence?.["retrieval:"+skill]){alert("Record the independent basics check before opening the new problem.");return false}return true;
+   if(!draft?.evidence?.["retrieval:"+skill]){alert("Check your independent basics answer first.");return false}return true;
   }));
-  if(mix)pages.push(page("Choose between two methods",()=>showTop([mix])));
-  pages.push(page("Read your new problem",()=>showProblem("intro")));
-  if(reason){
-   pages.push(page("What clue tells you the method?",()=>showProblem("thinking",0)));
-   pages.push(page("Explain your plan",()=>showProblem("thinking",1)));
+  const mixed=[...mix?.querySelectorAll("[data-mixed]")||[]];
+  for(let i=0;i<mixed.length;i++){
+    pages.push(page("Mixed-method problem "+(i+1),()=>{
+      showTop([mix]);for(const child of [...mix.children])set(child,child===mixed[i]);
+    },()=>{if(!draft?.evidence?.["mixed:"+i]){alert("Check your answer before continuing.");return false}return true}));
   }
-  pages.push(page("Work out and submit your answer",()=>showProblem("answer"),()=>{
-   if(!pId||!draft?.answers?.[pId]){alert("Record your first attempt before moving to the solution review. Your draft remains saved.");return false}return true;
+  const drills=[...extra?.querySelectorAll("[data-extra-question]")||[]];
+  const mode=stage===2?"try":"transfer",slot=Number(draft?.summary?.slot)||null;
+  for(let i=0;i<drills.length;i++){
+   const key="drill:"+mode+":"+(draft?.summary?.session_slot??problem?.learning?.session??slot)+":"+i;
+   pages.push(page((mode==="try"?"Practice problem ":"Transfer problem ")+(i+1),()=>{
+    showTop([extra]);for(const child of [...extra.children])set(child,child===drills[i]);
+   },()=>{if(!draft?.evidence?.[key]){alert("Check this problem's answer before continuing.");return false}return true}));
+  }
+  pages.push(page("Read the original challenge",()=>showProblem("intro")));
+  pages.push(page("Solve and enter your final answer",()=>showProblem("answer"),()=>{
+   if(!problemId||!draft?.answers?.[problemId]){alert("Submit a final answer before opening the solution.");return false}return true;
   }));
-  pages.push(page("Compare your reasoning with the solution",()=>showProblem("review"),null,stage===2?"Transfer":"Check"));
+  pages.push(page("Study the worked solution",()=>showProblem("review"),null,stage===2?"Transfer":"Check"));
   return pages;
  }
  if(stage===4){
-  const grid=get(".check-grid"),checks=get(".transfer-checks"),foot=get(".complete-row");
-  const take=get("#takeaway")?.closest("label"),watch=get("#watch")?.closest("label");
-  const checkItems=checks?[...checks.querySelectorAll(".check-status")]:[];
-  const conf=get("#transferConfidence")?.closest("label");
-  const gridChildren=grid?[...grid.children]:[],checkChildren=checks?[...checks.children]:[];
-  const showGrid=which=>{
-   showTop([grid]);gridChildren.forEach(n=>set(n,n===which));
-  };
-  const showCheck=which=>{
-   showTop([checks]);checkChildren.forEach(n=>set(n,n===which));
-  };
-  const pages=[];
-  if(take)pages.push(page("The key idea you discovered",()=>showGrid(take)));
-  if(watch)pages.push(page("What to watch for next time",()=>showGrid(watch)));
-  for(let i=0;i<checkItems.length;i++)pages.push(page("Check problem "+(i+1),()=>showCheck(checkItems[i])));
-  pages.push(page("Decide your next learning step",()=>{
-   showTop([checks,foot]);checkChildren.forEach(n=>set(n,n===conf||n.classList.contains("muted")));
-  },null,"Complete and lock session"));
-  return pages;
+   const summary=get(".lesson-check-summary"),foot=get(".complete-row");
+   return [page("See your problem-solving results",()=>showTop([summary,foot]),null,"Complete and lock session")];
  }
  return [page("Learning",()=>showTop(roots))];
 }
