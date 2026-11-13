@@ -26,7 +26,7 @@ const SKIP_SELECTOR = [
 ].join(",");
 // Conservative recognition: a full mathematical token must be bounded by
 // whitespace/punctuation. Never match fragments inside English words.
-const ATOM = "(?:(?:LCM|GCD|HCF|lcm|gcd|C)\\([^)]{1,24}\\)|\\([^)]{1,45}\\)|\\d+(?:\\.\\d+)?[A-Za-z]?|[A-Za-zπθφ]{1,3}|…)(?:\\^\\{?[\\w]+\\}?|[⁰¹²³⁴⁵⁶⁷⁸⁹]|!)?";
+const ATOM = "(?:(?:LCM|GCD|HCF|lcm|gcd|C)\\([^)]{1,24}\\)|\\([^)]{1,45}\\)|\\d+/\\d+|\\d+:\\d+|\\d+(?:\\.\\d+)?[A-Za-z]?|[A-Za-zπθφ]{1,3}|…)(?:\\^\\{?[\\w]+\\}?|[⁰¹²³⁴⁵⁶⁷⁸⁹]|!)?";
 const OPERATOR = "(?:\\s*(?:[+=×÷−<>≤≥≠≈]|\\s-\\s)\\s*)";
 const AUTO_MATH = new RegExp(
   "(?<![\\p{L}\\p{N}_])(?:"+
