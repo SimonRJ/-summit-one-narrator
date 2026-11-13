@@ -1,0 +1,152 @@
+name: Two fixed-screen lesson-opening films · approved voice C
+on:
+  pull_request:
+    paths: ['production/lesson-intros/**', '.github/workflows/lesson-intro-videos.yml']
+  push:
+    branches: [main]
+    paths: ['production/lesson-intros/**', '.github/workflows/lesson-intro-videos.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: summit-lesson-opening-films
+  cancel-in-progress: false
+jobs:
+  scripts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate two original scripts and renderer
+        run: |
+          python -m py_compile production/lesson-intros/synth.py production/lesson-intros/render.py production/lesson-intros/verify.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          for id in ['S001','S002']:
+              doc=json.loads((Path('production/lesson-intros')/(id+'.json')).read_text())
+              assert len(doc['segments'])==len(doc['pause_seconds'])==9
+              assert len(doc['examples'])==3
+              assert [v['level'] for v in doc['examples']]==['easy','medium','hard']
+              assert all(20<=len(s.split())<=73 for s in doc['segments'])
+              assert doc['voice']=='VoxCPM2 — approved voice C'
+          assert 2473%3==1 and 1739%6==5 and 279%5==4 and 279%7==6 and 279%9==0
+          assert 398+207==605 and 57*98==5586 and 49996*50004-(50000**2-17)==1
+          print('Two unique three-level lesson scripts and renderer syntax verified')
+          PY
+  speech:
+    if: github.event_name != 'pull_request'
+    needs: scripts
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        lesson: [S001, S002]
+        segment: [0,1,2,3,4,5,6,7,8]
+    env:
+      HF_HUB_DISABLE_XET: '1'
+      TOKENIZERS_PARALLELISM: 'false'
+      OMP_NUM_THREADS: '2'
+      MKL_NUM_THREADS: '2'
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install VoxCPM2 approved-voice runtime
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg libsndfile1
+          pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install 'transformers>=4.45,<5' 'huggingface-hub<1' einops pydantic soundfile librosa safetensors tqdm numpy scipy inflect addict argbind
+          pip install --no-deps 'git+https://github.com/OpenBMB/VoxCPM.git@300e4260b509066151d623dc9c0aa922cf82232b'
+      - name: Record one short sentence-aligned narration scene
+        run: python production/lesson-intros/synth.py --lesson ${{ matrix.lesson }} --segment ${{ matrix.segment }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lesson-speech-${{ matrix.lesson }}-${{ matrix.segment }}
+          path: build/lesson-intros/${{ matrix.lesson }}/speech-*.wav
+          retention-days: 7
+  render:
+    if: github.event_name != 'pull_request'
+    needs: speech
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    strategy:
+      fail-fast: false
+      matrix:
+        lesson: [S001,S002]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: lesson-speech-${{ matrix.lesson }}-*
+          merge-multiple: true
+          path: build/lesson-intros/${{ matrix.lesson }}
+      - name: Install full-HD film and word-alignment runtime
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-dejavu-core
+          pip install pillow numpy soundfile faster-whisper inflect
+      - name: Assemble voice C and align spoken captions
+        run: |
+          python production/lesson-intros/synth.py --lesson ${{ matrix.lesson }}
+          python production/amc-introduction/align.py --audio build/lesson-intros/${{ matrix.lesson }}/narration.wav --timing build/lesson-intros/${{ matrix.lesson }}/timing.json --out build/lesson-intros/${{ matrix.lesson }}
+          cp build/lesson-intros/${{ matrix.lesson }}/AMCIntroduction.vtt build/lesson-intros/${{ matrix.lesson }}/${{ matrix.lesson }}.vtt
+      - name: Render progressive mathematics and mux approved narration
+        run: |
+          python production/lesson-intros/render.py --lesson ${{ matrix.lesson }}
+          ffmpeg -v error -y -i build/lesson-intros/${{ matrix.lesson }}/visual.mp4 -i build/lesson-intros/${{ matrix.lesson }}/narration.wav -map 0:v:0 -map 1:a:0 -c:v copy -c:a aac -b:a 192k -af apad -shortest -movflags +faststart build/lesson-intros/${{ matrix.lesson }}/final.mp4
+          python production/lesson-intros/verify.py --lesson ${{ matrix.lesson }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lesson-finished-${{ matrix.lesson }}
+          path: |
+            build/lesson-intros/${{ matrix.lesson }}/final.mp4
+            build/lesson-intros/${{ matrix.lesson }}/poster.jpg
+            build/lesson-intros/${{ matrix.lesson }}/${{ matrix.lesson }}.vtt
+            build/lesson-intros/${{ matrix.lesson }}/qa.json
+            build/lesson-intros/${{ matrix.lesson }}/transcript.txt
+          retention-days: 14
+  publish:
+    if: github.event_name != 'pull_request'
+    needs: render
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/download-artifact@v4
+        with:
+          name: lesson-finished-S001
+          path: build/lesson-intros/S001
+      - uses: actions/download-artifact@v4
+        with:
+          name: lesson-finished-S002
+          path: build/lesson-intros/S002
+      - name: Publish two reviewed HTTPS Pages movie masters
+        run: |
+          mkdir -p media review
+          for id in S001 S002; do
+            cp build/lesson-intros/$id/final.mp4 media/$id-Intro.mp4
+            cp build/lesson-intros/$id/poster.jpg media/$id-Intro-poster.jpg
+            cp build/lesson-intros/$id/$id.vtt media/$id-Intro.vtt
+            cp build/lesson-intros/$id/transcript.txt media/$id-Intro-transcript.txt
+            cp build/lesson-intros/$id/qa.json review/$id-Intro-qa.json
+          done
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add media/S001-Intro* media/S002-Intro* review/S001-Intro-qa.json review/S002-Intro-qa.json
+          git commit -m 'Publish two original 3-level lesson films with approved voice C'
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
