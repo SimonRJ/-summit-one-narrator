@@ -54,6 +54,6 @@ for(const [skill,entry] of Object.entries(map.skills)){
 assert(index.includes("main.css?v=responsive-20261113"));
 assert(testsPage.includes("tests.js?v=cinematic-practice-20261113"));
 assert(style.includes(".amc-pending-sets"));
-assert(worker.includes("summit-one-math-label-fix-20261113"));
+assert(worker.includes("summit-one-math-baseline-20261113"));
 assert(worker.includes("skill-session-links.json"));
 console.log("PASS: curated AMC A/B split, 30-slot plans, one-attempt UI, 52 links and countdown boundaries.");

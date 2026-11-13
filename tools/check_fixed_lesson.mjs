@@ -92,7 +92,7 @@ assert(!focusedHome.includes('side-stack') && !focusedHome.includes('learning-no
 assert(app.includes('profile-upcoming') && app.includes('sessions remaining'));
 assert(css.includes('body.home-focus{min-height:100dvh;height:100dvh;overflow:hidden'));
 assert(css.includes('.course-menu-session.is-completed') && css.includes('.focus-session-card'));
-assert(sw.includes('summit-one-math-label-fix-20261113'));
+assert(sw.includes('summit-one-math-baseline-20261113'));
 assert(!app.includes('node.scrollIntoView({behavior:\'smooth\',block:\'start\'});'));
 
 const loader=read('../boot-loader.js'),loaderCss=read('../boot-loader.css');
@@ -116,10 +116,14 @@ assert(app.includes('modeKeys.every(key=>sessionDraft.evidence[key])'));
 assert(!app.includes('id="workshopReflection"') && !app.includes('id="takeaway"'));
 
 const design=read('../design-system.css'),maths=read('../math-typography.js'),brand=read('../summit-mark.svg');
-assert(html.includes('summit-mark.svg') && html.includes('design-system.css?v=math-label-fix-20261113'));
+assert(html.includes('summit-mark.svg') && html.includes('design-system.css?v=math-baseline-20261113'));
 assert(html.includes('math-typography.js?v=math-label-fix-20261113'));
 assert(html.includes('katex@0.16.47/dist/katex.min.css') && html.includes('katex@0.16.47/dist/katex.min.js'));
 assert(design.includes('Source Sans 3') && design.includes('Source Serif 4') && design.includes('STIX Two Math'));
+assert(design.includes('inline equations must share the text baseline') || design.includes('Inline maths must share the text baseline'));
+assert(design.includes('display:inline;') && design.includes('vertical-align:baseline;') && design.includes('overflow:visible;'));
+assert(!design.includes('vertical-align:-.075em;'));
+
 assert(brand.includes('M142 19 25 232 142 157Z'));
 assert(maths.includes('plainToTeX') && maths.includes('typesetMath'));
 const {plainToTeX,findMathExpressions}=await import('../math-typography.js');
