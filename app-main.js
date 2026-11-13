@@ -12,7 +12,7 @@ import { mountNarratedPlayer } from "./lesson-player.js";
 import {methods,skillFor,recallState} from "./curriculum.js?v=recognition-20261113";
 import {lessonCard,mountCheck,mountRetrieval,readinessHTML} from "./learning-ui.js?v=recognition-20261113";
 import { problemFigure } from "./problem-figures.js";
-import {mountLessonPager} from "./lesson-pager.js?v=cinema-20261113";
+import {mountLessonPager} from "./lesson-pager.js?v=responsive-20261113";
 import {learningScreens} from "./lesson-screenflow.js?v=cinematic-practice-20261113";
 import {buildCourseNavigation} from "./course-menu.js?v=menu-20261113";
 import {mountCourseMenu} from "./course-menu-ui.js?v=lesson-replay-20261113";
@@ -437,7 +437,7 @@ function renderSession(s){
   if(activeStage===-1){await saveDraft(s);editingSession=null;document.body.classList.remove("lesson-fullscreen");renderHome();return}
   activeStage-=1;activeLessonPanel=999;await saveDraft(s);renderSession(s);
  };
- lessonPager=mountLessonPager({pages,footer,initial:activeLessonPanel,onNext:leaveNext,onBack:leaveBack,onChange:persistLocation});
+ lessonPager=mountLessonPager({pages,footer,scrollContainer:target,initial:activeLessonPanel,onNext:leaveNext,onBack:leaveBack,onChange:persistLocation});
 }
 function renderRemember(el,s){
  const p=lessonPlan(s,course,taxonomy);el.innerHTML=`<div class="lesson-recall-brief"><div class="eyebrow">REMEMBER · NO TIMER</div><h2>Bring back one useful idea</h2><p>${esc(p.prerequisite)}</p><p class="muted">A short check strengthens your understanding. It does not change your exam score.</p></div><div id="retrievalChecks"></div><div class="complete-row"><span class="muted">Try any due recall checks before continuing.</span><button class="primary" id="nextStage">Discover</button></div>`;
