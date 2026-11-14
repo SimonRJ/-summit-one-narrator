@@ -54,7 +54,7 @@ All 30 spatial rows matched the generator after the live update. The 60 rows fro
 
 ## Data-reading batch
 
-Twelve DATA-03 revisits use four bar charts and eight semantic tables. Their answer checks and iPhone-width fixture checks passed. This section records repository verification. The live release is confirmed separately.
+Twelve DATA-03 revisits use four bar charts and eight semantic tables. Their answer checks and iPhone-width fixture checks passed. All 12 live rows matched the generator after the update. Pages published the chart and table assets, and the authentic AMC fingerprints matched before and after.
 
 ## Videos
 
@@ -88,4 +88,4 @@ All of the above passed on 14 November 2026.
 4. Original AMC Part A and Part B content is far short of the planned volume.
 5. Rossmoyne papers, MAWA investigations, the 52 advanced-connection pages, the interface and the Supabase security rules were not audited in this session.
 6. 70 teaching videos exist only as scripts.
-7. Student, parent, database, deployment and QA guides are not yet written.
+7. The student and parent guides are available. Dedicated database, deployment and QA guides remain pending.

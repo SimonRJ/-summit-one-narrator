@@ -32,7 +32,7 @@ The per-problem register for the 566 standard lesson problems is [content-audit-
 
 **Problem IDs.** O104T O104X O141T O141X O173T O173X O232T O232X O323T O323X O355T O355X.
 
-**Verification.** Independent recomputation checks all 12 answers. The lesson browser verifies that each display fits at 320 and 390 CSS pixels and that older stems never show a mismatched display.
+**Verification.** Independent recomputation checks all 12 answers. The lesson browser verifies that each display fits at 320 and 390 CSS pixels and that older stems never show a mismatched display. The live database matches the 12 generated rows. All authentic AMC fingerprints and the seven recorded attempts matched before and after the update.
 
 ### Spatial batch: 14 November 2026
 
