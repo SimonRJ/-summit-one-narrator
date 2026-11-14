@@ -1,0 +1,193 @@
+[
+  {
+    "id": "O026T",
+    "title": "Find the class average from two groups",
+    "band": "11–20",
+    "prompt": "A team of 7 pupils averages 12 points and a team of 3 pupils averages 20. What is the average score of all ten pupils? Give an exact fraction or decimal."
+  },
+  {
+    "id": "O026X",
+    "title": "Correct one reading, keep the sample",
+    "band": "21–25",
+    "prompt": "The mean of seven measurements is 14. A reading recorded as 19 should have been 9. What is the corrected mean? Give an exact fraction."
+  },
+  {
+    "id": "O045T",
+    "title": "Read the repair pictogram",
+    "band": "11–20",
+    "prompt": "A bicycle repair chart has seven full symbols and one half-symbol for Monday, and nine full symbols for Tuesday. A full symbol represents six bicycles. How many more bicycles were repaired on Tuesday?",
+    "diagram": {
+      "type": "pictogram",
+      "rows": [
+        [
+          "Mon",
+          7,
+          true
+        ],
+        [
+          "Tue",
+          9,
+          false
+        ]
+      ],
+      "caption": "One full symbol represents six bicycles. Monday has seven and a half symbols and Tuesday has nine."
+    }
+  },
+  {
+    "id": "O045X",
+    "title": "Two bars share a nonzero baseline",
+    "band": "21–25",
+    "prompt": "A bar chart begins at 35 units. Bar A rises 8 units above this baseline, and Bar B rises 13 units above it. What is the sum of the two values shown?",
+    "diagram": {
+      "type": "data",
+      "kind": "bars",
+      "labels": [
+        "A",
+        "B"
+      ],
+      "values": [
+        43,
+        48
+      ],
+      "ticks": [
+        35,
+        40,
+        45,
+        50
+      ],
+      "caption": "The vertical scale begins at 35. Bar A rises 8 units and Bar B rises 13 units above it."
+    }
+  },
+  {
+    "id": "O092T",
+    "title": "A new score changes the mean",
+    "band": "11–20",
+    "prompt": "Four children have an average score of 11. A fifth child joins, and the five children have an average score of 12. What was the fifth child's score?"
+  },
+  {
+    "id": "O092X",
+    "title": "The corrected scoreboard",
+    "band": "21–25",
+    "prompt": "Five scores average 15. Two were recorded incorrectly: 12 should be 8, and 17 should be 21. What is the corrected average?"
+  },
+  {
+    "id": "O101T",
+    "title": "Both counters are gold",
+    "band": "11–20",
+    "prompt": "A bag contains seven blue and three gold counters. Two are drawn at random without replacement. What is the probability that both are gold? Give an exact fraction."
+  },
+  {
+    "id": "O101X",
+    "title": "Keep only the possible numbers",
+    "band": "21–25",
+    "prompt": "A whole number from 1 to 42 is chosen at random, with all numbers equally likely. You are told it is divisible by 3. What is the probability it is even? Give an exact fraction."
+  },
+  {
+    "id": "O103T",
+    "title": "Two team averages",
+    "band": "11–20",
+    "prompt": "Three members of a team average 16 points and five others average 8. What is the average for the whole eight-person team?"
+  },
+  {
+    "id": "O103X",
+    "title": "The missing value is the average",
+    "band": "21–25",
+    "prompt": "A teacher removes one score from a list of six scores averaging 13. The remaining five still average 13. What score was removed?"
+  },
+  {
+    "id": "O132T",
+    "title": "The mean of equally spaced values",
+    "band": "11–20",
+    "prompt": "Five whole numbers in increasing order are equally spaced. The smallest is 7 and the largest is 31. What is their mean?"
+  },
+  {
+    "id": "O132X",
+    "title": "An omitted group of scores",
+    "band": "21–25",
+    "prompt": "Six pupils average 12 points. Two of the pupils average 18 points. What is the average score of the other four pupils?"
+  },
+  {
+    "id": "O150T",
+    "title": "The first marble is set aside",
+    "band": "11–20",
+    "prompt": "A bag contains 3 gold and 2 silver counters. One counter is drawn at random and set aside unseen. One is then drawn from the four that remain. What is the probability that the second counter is silver? Give an exact fraction."
+  },
+  {
+    "id": "O150X",
+    "title": "Hidden information about two dice",
+    "band": "21–25",
+    "prompt": "Two fair six-sided dice, one red and one blue, are rolled. You are told that their sum is 9. What is the probability that the red die is greater than 4? Give an exact fraction."
+  },
+  {
+    "id": "O191T",
+    "title": "Keep the sum and spread the scores",
+    "band": "11–20",
+    "prompt": "Four test scores are 8, 10, 13 and 17. Two points are moved from the highest score to the lowest. What is the mean of the four new scores?"
+  },
+  {
+    "id": "O191X",
+    "title": "One result remains in both lists",
+    "band": "21–25",
+    "prompt": "One list of three scores has mean 14. A second list of three scores has mean 10. Exactly one recorded score appears in both lists. After one copy of that score is removed, the five remaining scores have mean 12. What is the shared score?"
+  },
+  {
+    "id": "O223T",
+    "title": "Four jump heights in order",
+    "band": "21–25",
+    "prompt": "Four scores have a mean of 15. Their smallest is 8 and their greatest is 21. What is the sum of the two remaining scores?"
+  },
+  {
+    "id": "O223X",
+    "title": "One number is twice a mean",
+    "band": "26–30",
+    "prompt": "Four positive whole numbers average 18. A fifth number is added. The new number is twice the average of all five numbers. What is the new number?"
+  },
+  {
+    "id": "O241T",
+    "title": "The larger of two cards",
+    "band": "11–20",
+    "prompt": "Cards numbered 1 to 5 are shuffled and two are drawn without replacement. What is the probability that the larger number is 4? Give an exact fraction."
+  },
+  {
+    "id": "O241X",
+    "title": "Match the colour after a replacement",
+    "band": "21–25",
+    "prompt": "A bag contains 2 red and 3 blue beads. One is drawn at random, replaced, and the bag is mixed again. A second bead is then drawn. What is the probability the two colours match? Give an exact fraction."
+  },
+  {
+    "id": "O282T",
+    "title": "Remove the two outside readings",
+    "band": "21–25",
+    "prompt": "Five temperatures, in degrees Celsius, are 11, 15, 18, 21 and 25. Remove the lowest and the highest. How much does the mean change, in degrees Celsius? Enter the size of the change."
+  },
+  {
+    "id": "O282X",
+    "title": "The middle one is not the mean",
+    "band": "21–25",
+    "prompt": "Five different positive whole numbers have mean 12. In increasing order their middle number is 10. Their smallest number is 4, and their largest is 23. What is the sum of the two numbers not yet given?"
+  },
+  {
+    "id": "O314T",
+    "title": "Put the entries into the right class",
+    "band": "21–25",
+    "prompt": "Nine entries have a mean of 20. The first three average 14, and the last three average 26. What is the mean of the three middle entries?"
+  },
+  {
+    "id": "O314X",
+    "title": "The mean before the scale changed",
+    "band": "21–25",
+    "prompt": "Five lengths were recorded in centimetres. Someone doubled all five records and added 3 to each, giving a new mean of 27. One of the original lengths was 4 centimetres. What is the mean of the other four original lengths, in centimetres?"
+  },
+  {
+    "id": "O332T",
+    "title": "More information after a coin toss",
+    "band": "21–25",
+    "prompt": "Three fair coins are tossed. You learn that at least one of them shows heads. What is the probability that exactly two show heads? Give an exact fraction."
+  },
+  {
+    "id": "O332X",
+    "title": "An even sum and an odd product",
+    "band": "26–30",
+    "prompt": "Cards numbered 1 through 7 are shuffled. Two are drawn without replacement. What is the probability that their sum is even and their product is odd? Give an exact fraction."
+  }
+]

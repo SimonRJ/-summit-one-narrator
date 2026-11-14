@@ -1,0 +1,194 @@
+[
+  {
+    "id": "O012T",
+    "title": "Signals with space between them",
+    "band": "11–20",
+    "prompt": "Five lamps stand in a line. Each is on or off and neighbouring lamps cannot both be on. How many different settings are possible, including all off?"
+  },
+  {
+    "id": "O012X",
+    "title": "Jump to the exact landing",
+    "band": "21–25",
+    "prompt": "A frog crosses 7 metres in jumps of either 1 metre or 3 metres. How many different sequences of jumps reach the far end exactly?"
+  },
+  {
+    "id": "O047T",
+    "title": "Pair the first and last rows",
+    "band": "11–20",
+    "prompt": "A display has seven lights in its first row and three more in each next row. How many lights are in its first eight rows altogether?"
+  },
+  {
+    "id": "O047X",
+    "title": "Find the missing staircase stage",
+    "band": "21–25",
+    "prompt": "A staircase pattern uses 7 blocks in its first stage, 11 in its second, and 4 extra blocks in each later stage. Which numbered stage uses 31 blocks?"
+  },
+  {
+    "id": "O051T",
+    "title": "Keep track of the five doublings",
+    "band": "11–20",
+    "prompt": "Seven cells are present at the start. The number of cells doubles at the end of each hour. How many are there just after the fifth doubling?"
+  },
+  {
+    "id": "O051X",
+    "title": "The running total crosses the target",
+    "band": "21–25",
+    "prompt": "A game awards 7 points in round 1. Each later round awards twice the points of the previous round. After which round does the running total first exceed 441?"
+  },
+  {
+    "id": "O052T",
+    "title": "Walk with a closing square",
+    "band": "11–20",
+    "prompt": "A five-square strip can be tiled with tiles of lengths 1 and 2. Two tilings differ if their tile boundaries differ. How many tilings use exactly one tile of length 2?"
+  },
+  {
+    "id": "O052X",
+    "title": "Two of the same jump",
+    "band": "21–25",
+    "prompt": "A frog covers 9 metres using four jumps, each 1, 2 or 3 metres long. Exactly two jumps are 3 metres. How many different ordered sequences of jumps work?"
+  },
+  {
+    "id": "O054T",
+    "title": "Net distance through a repeat",
+    "band": "11–20",
+    "prompt": "A token on a square grid repeats four moves: right, right, up, left. Each move is one edge. Starting at (0,0), how far to the right of the start is it after 23 moves?"
+  },
+  {
+    "id": "O054X",
+    "title": "Which number returns each second?",
+    "band": "21–25",
+    "prompt": "A display shows 1 at time zero, 2 after one second and 3 after two seconds. It then keeps repeating 1, 2, 3, with one change each second. What does it show after 43 seconds?"
+  },
+  {
+    "id": "O059T",
+    "title": "Three folds, then the cut",
+    "band": "11–20",
+    "prompt": "A paper strip is folded exactly in half three times, making a stack of equal layers. A punch makes one hole through all layers, away from any fold. How many holes are there when the strip is opened?"
+  },
+  {
+    "id": "O059X",
+    "title": "The last doubling that fits",
+    "band": "21–25",
+    "prompt": "A strip is cut in two equal pieces. Each piece is cut in two again, and so on. Before any cutting it is 96 cm long. After how many rounds of cutting will every piece first be shorter than 5 cm?"
+  },
+  {
+    "id": "O116T",
+    "title": "A doubled pattern with a reset",
+    "band": "11–20",
+    "prompt": "A game starts with 3 points. Each round doubles the current points and then awards one extra point. How many points are there after three rounds?"
+  },
+  {
+    "id": "O116X",
+    "title": "Two growing stacks cross",
+    "band": "21–25",
+    "prompt": "A pile begins with 4 counters and doubles at the end of each day. A second pile begins with 19 and gains 7 at the end of each day. On which day does the first pile first have more counters than the second?"
+  },
+  {
+    "id": "O134T",
+    "title": "Two rows on the same shelf",
+    "band": "11–20",
+    "prompt": "A shelf holds 5 tins on the first row and 4 more tins on each successive row. What is the difference between the number on the fifth row and the number on the second row?"
+  },
+  {
+    "id": "O134X",
+    "title": "Find both missing rows",
+    "band": "21–25",
+    "prompt": "Seven rows have equally increasing numbers of chairs. The third row has 18 chairs and the sixth row has 30. How many chairs are in all seven rows?"
+  },
+  {
+    "id": "O157T",
+    "title": "Either one or two hops from the start",
+    "band": "11–20",
+    "prompt": "A frog climbs six steps by hopping up either one step or two at a time. The first hop must be two steps. How many possible sequences reach step six exactly?"
+  },
+  {
+    "id": "O157X",
+    "title": "A blocked square along the path",
+    "band": "21–25",
+    "prompt": "A game token moves from square 0 to square 7 by jumping 1 or 2 squares forwards. Square 4 is blocked and may be jumped over. How many ways reach square 7 without landing on square 4?"
+  },
+  {
+    "id": "O166T",
+    "title": "A three-day average",
+    "band": "11–20",
+    "prompt": "A walker increases her distance by the same number of kilometres each day. On three successive days she walks a total of 27 kilometres. On the first of those days she walks 6 kilometres. How far does she walk on the third day?"
+  },
+  {
+    "id": "O166X",
+    "title": "Two displays pass the same number",
+    "band": "21–25",
+    "prompt": "Display A starts at 7 and adds 5 at each step. Display B starts at 30 and adds 3 at each step. Both make one step at a time, together. After how many steps is A first greater than B?"
+  },
+  {
+    "id": "O207T",
+    "title": "One share splits into thirds",
+    "band": "21–25",
+    "prompt": "At the first step one card is replaced with three cards. At every later step each existing card is replaced by three new cards. How many more cards are there after the fourth step than after the second?"
+  },
+  {
+    "id": "O207X",
+    "title": "Savings grow from the same base",
+    "band": "21–25",
+    "prompt": "Lena adds $12 each week to $24. Ari doubles a separate amount each week. After three weeks, both have the same amount. How much does Ari have at the end of the fifth week, in dollars?"
+  },
+  {
+    "id": "O248T",
+    "title": "Words that end in a repeated letter",
+    "band": "21–25",
+    "prompt": "A four-letter code uses only A and B. Consecutive As are forbidden. How many codes end in BB?"
+  },
+  {
+    "id": "O248X",
+    "title": "One long tile has a special place",
+    "band": "26–30",
+    "prompt": "A strip of 8 squares is tiled by tiles of lengths 1 and 2. Exactly two length-2 tiles are used, and at least two unit tiles must lie between them. How many tilings work?"
+  },
+  {
+    "id": "O257T",
+    "title": "Join strips at one end",
+    "band": "21–25",
+    "prompt": "Each rectangular panel is 3 metres long. When panels are joined in a row, each new panel overlaps the previous one by 1 metre. How many panels make a row 19 metres long?"
+  },
+  {
+    "id": "O257X",
+    "title": "The sum of the second half",
+    "band": "21–25",
+    "prompt": "Twelve rows have equally increasing numbers of dots. The first six rows contain 87 dots altogether. The number of dots increases by 3 in each next row. How many dots are in all twelve rows?"
+  },
+  {
+    "id": "O298T",
+    "title": "A game with doubling prizes",
+    "band": "21–25",
+    "prompt": "A game awards 3 points on round 1. Each later round awards double the previous round. How many points are awarded in all from rounds 3 through 6 inclusive?"
+  },
+  {
+    "id": "O298X",
+    "title": "Which plate gets the largest share?",
+    "band": "26–30",
+    "prompt": "Five piles contain whole numbers of stones. Each pile after the first has double the previous one. Moving 11 stones from the largest pile into the smallest makes the largest pile exactly five times the new smallest. How many stones were in the original largest pile?"
+  },
+  {
+    "id": "O339T",
+    "title": "Ways to reach a fixed landing",
+    "band": "21–25",
+    "prompt": "A frog may jump 2 or 3 steps at a time. It must go from step 0 to step 12 and must land on step 6. How many ordered sequences work?"
+  },
+  {
+    "id": "O339X",
+    "title": "At most one double step between triples",
+    "band": "26–30",
+    "prompt": "A token reaches space 11 from space 0 using jumps of 2 or 3 spaces. Two jumps of 3 may not come one after the other. How many different jump sequences work?"
+  },
+  {
+    "id": "O348T",
+    "title": "The first sum above a threshold",
+    "band": "21–25",
+    "prompt": "A staircase display uses 4 lights on its first step, 7 on its second, and 3 more on each following step. What is the smallest number of steps needed to use more than 100 lights altogether?"
+  },
+  {
+    "id": "O348X",
+    "title": "Sum every other term",
+    "band": "21–25",
+    "prompt": "A list has 15 positive terms. It starts at 2, and each next term increases by 4. What is the sum of the terms in positions 1, 3, 5, 7, 9, 11, 13 and 15?"
+  }
+]

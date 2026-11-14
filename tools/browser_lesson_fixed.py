@@ -1,7 +1,7 @@
 """Responsive one-viewport lesson regression on iPhone, iPad, laptop and desktop.
 Uses the trusted local mock from the older comprehensive browser test; no user secrets.
 """
-import ast,asyncio,shutil
+import ast,asyncio,os,shutil
 from pathlib import Path
 from playwright.async_api import async_playwright
 ROOT=Path(__file__).resolve().parents[1]
@@ -111,32 +111,8 @@ async def main():
   await page.locator('#menuToggle').click()
   await page.locator('#courseMenuContent [data-menu-action="continue"]').click()
   await page.locator('.opening-film').wait_for()
-  # Check all fourteen 3D schematic diagrams on the actual iPhone viewport.
-  diagram_report=await page.evaluate("""async()=>{
-    const {originalFigure}=await import('./original-learning.js?v=data-audit-20261114');
-    const stage=document.querySelector('.lesson-screen-stage');
-    const results=[];
-    for(const role of ['try','transfer'])for(const skill of ['SOLID-01','DATA-03'])for(let visit=(skill==='SOLID-01'?2:1);visit<=(skill==='SOLID-01'?8:7);visit++){
-      const root=document.createElement('div');
-      root.className='geometry-qa-fixture';
-      root.innerHTML=originalFigure({learning:{skill,role,visit}});
-      stage.append(root);
-      const svg=root.querySelector('svg'),box=svg.getBoundingClientRect();
-      const vb=svg.viewBox.baseVal;
-      const labels=[...svg.querySelectorAll('text')].map(t=>t.getBBox());
-      results.push({skill,role,visit,svgWidth:box.width,stageWidth:stage.clientWidth,
-        viewBox:[vb.width,vb.height],
-        invalidLabels:labels.filter(b=>b.x < -1 || b.y < -1 || b.x+b.width > vb.width+1 || b.y+b.height > vb.height+1).length});
-      root.remove();
-    }
-    return results;
-  }""")
-  assert len(diagram_report)==28,diagram_report
-  assert all(d['svgWidth']>160 and d['svgWidth']<=d['stageWidth']+2
-             and d['viewBox']==[360,275] and d['invalidLabels']==0
-             for d in diagram_report),diagram_report
-
-  # Use the authored stems and the published manifest on both narrow iPhone widths.
+  # Public CI exercises every prompt and figure. Private release QA also renders each worked solution.
+  private_source=os.environ.get('SUMMIT_ONE_LESSON_SOLUTIONS')
   import json
   import subprocess
   import tempfile
@@ -144,61 +120,87 @@ async def main():
    subprocess.run(['python', '-c',
     'import sys; from pathlib import Path; sys.path.insert(0, "tools/content"); '
     'from audit_all_lessons import map_course; from build_original_lessons import build; '
-    'build(map_course(), Path(sys.argv[1]))', tmp], cwd=ROOT, check=True)
-   authored=json.loads((Path(tmp)/'original-problems.json').read_text())
-   stems={r['id']:r['prompt'] for r in authored}
+    'build(map_course(), Path(sys.argv[1]), public_only=(sys.argv[2]=="public"))',
+    tmp, 'private' if private_source else 'public'], cwd=ROOT, check=True)
+   filename='original-problems.json' if private_source else 'lesson-prompts.json'
+   authored=json.loads((Path(tmp)/filename).read_text())
+  layout_rows=[{key:r.get(key,'') for key in ('id','title','prompt','solution_text')} for r in authored]
   for width in (320,390):
    await page.set_viewport_size({'width':width,'height':844})
-   spatial=await page.evaluate("""async stems=>{
-    const {originalFigure}=await import('./original-learning.js?v=data-audit-20261114');
-    const entries=(await (await fetch('data/lesson-challenges.json')).json()).items.filter(m=>m.spatialDiagram);
+   report=await page.evaluate("""async rows=>{
+    const {originalFigure}=await import('./original-learning.js?v=upper-primary-audit-20261114');
+    const {typesetMath}=await import('./math-typography.js?v=advanced-20261113');
+    const {items}=await (await fetch('data/lesson-challenges.json')).json();
+    const entries=new Map(items.map(m=>[m.id,m]));
     const stage=document.querySelector('.lesson-screen-stage');
-    return entries.map(learning=>{
-      const card=document.createElement('article');
-      card.className='problem-card';
-      card.innerHTML=originalFigure({prompt:stems[learning.id],learning});
-      stage.append(card);
-      const svg=card.querySelector('svg'),labels=[...svg.querySelectorAll('text')];
-      const width=svg.getBoundingClientRect().width,view=svg.viewBox.baseVal;
-      const bounds=labels.map(t=>t.getBBox());
-      const clipped=bounds.some(b=>b.x<0||b.y<0||b.x+b.width>view.width||b.y+b.height>view.height);
-      const overlap=bounds.some((a,i)=>bounds.slice(i+1).some(b=>a.x<b.x+b.width&&a.x+a.width>b.x&&a.y<b.y+b.height&&a.y+a.height>b.y));
-      const textPx=width/view.width*Math.min(...labels.map(t=>Number(t.getAttribute('font-size'))));
-      const stale=originalFigure({prompt:'An earlier question.',learning});
-      card.remove();
-      return {id:learning.id,width,clipped,overlap,textPx,stale};
-    });
-   }""", stems)
-   assert len(spatial)==29,spatial
-   assert all(d['width']>=185 and d['textPx']>=11 and not d['clipped'] and not d['overlap']
-              and not d['stale'] for d in spatial),spatial
-   displays=await page.evaluate("""async stems=>{
-    const {originalFigure}=await import('./original-learning.js?v=data-audit-20261114');
-    const entries=(await (await fetch('data/lesson-challenges.json')).json()).items.filter(m=>m.dataDisplay);
-    const stage=document.querySelector('.lesson-screen-stage');
-    return entries.map(learning=>{
-      const card=document.createElement('article');
-      card.className='problem-card';
-      card.innerHTML=originalFigure({prompt:stems[learning.id],learning});
-      stage.append(card);
-      const display=card.querySelector('table,svg');
-      const fits=display.getBoundingClientRect().width<=card.clientWidth && card.scrollWidth<=card.clientWidth+1;
-      const text=[...display.querySelectorAll('text')].map(el=>el.getBBox());
-      const overlaps=text.some((a,i)=>text.slice(i+1).some(b=>a.x<b.x+b.width&&a.x+a.width>b.x&&a.y<b.y+b.height&&a.y+a.height>b.y));
-      const stale=originalFigure({prompt:'An earlier question.',learning});
-      const kind=display.localName;
-      card.remove();
-      return {id:learning.id,fits,overlaps,stale,kind};
-    });
-   }""",stems)
-   assert len(displays)==12 and sum(d['kind']=='svg' for d in displays)==4,displays
-   assert all(d['fits'] and not d['overlaps'] and not d['stale'] for d in displays),displays
+    const template=document.querySelector('#problemTemplate').content.firstElementChild;
+    const card=template.cloneNode(true);
+    const title=card.querySelector('.problem-title');
+    const prompt=card.querySelector('.problem-prompt');
+    const solution=card.querySelector('.solution-panel');
+    const worked=document.createElement('p');
+    worked.className='math-copy';
+    solution.append(worked);
+    solution.hidden=false;
+    stage.append(card);
+    const errors=[],counts={cards:0,figures:0,tables:0};
+    for(const row of rows){
+      const learning=entries.get(row.id);
+      if(!learning){errors.push([row.id,'missing manifest entry']);continue;}
+      title.textContent=row.title;
+      prompt.textContent=row.prompt;
+      worked.textContent=row.solution_text;
+      solution.hidden=!row.solution_text;
+      const html=originalFigure({...row,learning});
+      const expectsFigure=Boolean(learning.spatialDiagram||learning.dataDisplay||
+        learning.geometryDiagram||learning.cuboidDiagram||learning.pictogram);
+      prompt.insertAdjacentHTML('beforebegin',html);
+      typesetMath(card);
+      counts.cards++;
+      for(const el of [card,title,prompt,solution,worked]){
+        if(el.scrollWidth>el.clientWidth+2)errors.push([row.id,'horizontal overflow',el.className,el.scrollWidth-el.clientWidth]);
+      }
+      const figure=card.querySelector('[data-lesson-figure]');
+      if(Boolean(figure)!==expectsFigure)errors.push([row.id,'missing figure']);
+      if(figure){
+        counts.figures++;
+        const stale=originalFigure({prompt:'An earlier question.',learning});
+        const display=figure.querySelector('table,svg');
+        if(stale||display.clientWidth>card.clientWidth||figure.scrollWidth>figure.clientWidth+2)
+          errors.push([row.id,'figure overflow or mismatched stem']);
+        if(display.localName==='svg'){
+          const labels=[...display.querySelectorAll('text')];
+          const width=display.getBoundingClientRect().width,view=display.viewBox.baseVal;
+          const bounds=labels.map(t=>t.getBBox());
+          const boxFits=b=>b.x>=0&&b.y>=0&&b.x+b.width<=view.width+1&&b.y+b.height<=view.height+1;
+          const overlaps=(a,b)=>a.x+1<b.x+b.width&&a.x+a.width>b.x+1&&a.y+1<b.y+b.height&&a.y+a.height>b.y+1;
+          for(const [index,box] of bounds.entries()){
+            const font=Number.parseFloat(getComputedStyle(labels[index]).fontSize);
+            if(!boxFits(box)||bounds.slice(index+1).some(other=>overlaps(box,other)))
+              errors.push([row.id,'clipped or overlapping label',labels[index].textContent]);
+            if(width/view.width*font < 11)errors.push([row.id,'small diagram label',labels[index].textContent,width/view.width*font]);
+          }
+          if(width<180)errors.push([row.id,'narrow diagram',width]);
+        }else{
+          counts.tables++;
+        }
+        figure.remove();
+      }
+    }
+    card.remove();
+    return {errors,counts};
+   }""",layout_rows)
+   counts=report['counts']
+   assert counts['cards']==566 and counts['figures']>=100 and counts['tables']>=8,counts
+   assert not report['errors'],(width,report['errors'])
+   scope='prompts and worked solutions' if private_source else 'prompts'
+   print(f"Lesson layouts at {width}px: {counts['cards']} {scope}; {counts['figures']} figures and displays",flush=True)
   await page.set_viewport_size({'width':390,'height':844})
   # Run one spatial question through the real lesson screen and solution reveal.
-  authored_mock=MOCK.replace("function query(table)", "const authored="+json.dumps(authored)+";"+
+  authored_mock=MOCK.replace("function query(table)", "const authored="+json.dumps(layout_rows)+";"+
    "for(const row of problems)Object.assign(row,authored.find(a=>a.id===row.id));function query(table)")
   authored_mock=authored_mock.replace("{solution_text:'Six plus six is twelve.'}",
-   "{solution_text:authored.find(a=>a.id===body.problem_id)?.solution_text}")
+   "{solution_text:authored.find(a=>a.id===body.problem_id)?.solution_text||'Fixture worked solution. Final answer: 42'}")
   spatial_ctx=await browser.new_context(viewport={'width':390,'height':844},service_workers='block')
   await spatial_ctx.add_init_script("""window.fixture={records:[{session_number:94,answers:{},working:{},
    evidence:{'guided:SPATIAL-02':{},'retrieval:SPATIAL-02':{}},summary:{lesson_stage:3,lesson_panel:5}}],

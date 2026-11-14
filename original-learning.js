@@ -55,7 +55,7 @@ function matchesStem(prompt, diagram) {
 
 function spatialFigure(p, diagram) {
  if (!matchesStem(p.prompt, diagram)) return '';
- const {cells, description, gap, crease} = diagram;
+ const {cells, description, gap, crease, hideLabels} = diagram;
  const widths = diagram.widths || Array(cells[0].length).fill(1);
  const heights = diagram.heights || Array(cells.length).fill(1);
  const sum = values => values.reduce((total, value) => total + value, 0);
@@ -73,9 +73,9 @@ function spatialFigure(p, diagram) {
   return `<rect x="${x[c]}" y="${y[r]}" width="${widths[c]*unit}" height="${heights[r]*unit}" fill="${fills[cell]}" stroke="#233e56" stroke-width="1.3"/>` +
    (cell === 'X' ? `<circle cx="${cx}" cy="${cy}" r="4" fill="#253748"/>` : '');
  })).join('');
- const columns = widths.map((w, c) => label((x[c]+x[c+1])/2, 20,
+ const columns = hideLabels ? '' : widths.map((w, c) => label((x[c]+x[c+1])/2, 20,
   diagram.widths ? w : String.fromCharCode(65+c))).join('');
- const rows = heights.map((h, r) => label(x[0]-16, (y[r]+y[r+1])/2+5,
+ const rows = hideLabels ? '' : heights.map((h, r) => label(x[0]-16, (y[r]+y[r+1])/2+5,
   diagram.heights ? h : r+1)).join('');
  let markings = '';
  if (gap) {
@@ -110,90 +110,79 @@ function dataDisplay(p, display) {
  return `<figure class="original-figure original-data" data-lesson-figure><svg viewBox="0 0 276 169" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="#edf6ff" font-size="15">${tickMarks}${bars}<path d="M${left} 28V${base}H${right}" fill="none" stroke="#edf6ff" stroke-width="1.4"/></svg><figcaption>${esc(caption)}</figcaption></figure>`;
 }
 
+function drawGeometry(diagram) {
+ const {lines, labels = [], fills = [], points = [], openPoints = [], closed = [], circles = []} = diagram;
+ const coordinates = vertices => vertices.map(point => point.join(',')).join(' ');
+ return fills.map(vertices => `<polygon points="${coordinates(vertices)}" fill="#326e82"/>`).join('') +
+  circles.map(([x,y,r]) => `<circle cx="${x}" cy="${y}" r="${r}" fill="none" stroke="#9ecddd" stroke-width="1.6"/>`).join('') +
+  lines.map(vertices => `<polyline points="${coordinates(vertices)}" fill="none" stroke="#9ecddd" stroke-width="1.6" stroke-linejoin="round"/>`).join('') +
+  closed.map(vertices => `<polyline points="${coordinates(vertices)}" fill="none" stroke="#f4b583" stroke-width="2.7" stroke-dasharray="4 3"/>`).join('') +
+  points.map(([x,y]) => `<circle cx="${x}" cy="${y}" r="3.1" fill="#a8e4d3"/>`).join('') +
+  openPoints.map(([x,y]) => `<circle cx="${x}" cy="${y}" r="3.8" fill="#0b1b2c" stroke="#f4b583" stroke-width="2"/>`).join('') +
+  labels.map(([x,y,label]) => `<text x="${x}" y="${y}" text-anchor="middle">${esc(label)}</text>`).join('');
+}
+
+function drawCuboid(diagram) {
+ const [length, width, height] = diagram.dimensions;
+ const [lengthLabel,widthLabel,heightLabel]=diagram.labels;
+ const scale = Math.min(22, 166 / (length + width * .65), 117 / (height + width * .4));
+ const project = ([x,y,z]) => [46 + scale * (x + .65*y), 145 - scale * (z + .4*y)];
+ const path = (vertices, fill = 'none', stroke = '#6b9cb5', strokeWidth = 1) =>
+  `<polyline points="${vertices.map(v => project(v).join(',')).join(' ')}" fill="${fill}" stroke="${stroke}" stroke-width="${strokeWidth}" stroke-linejoin="round"/>`;
+ const colour = (face, shade) => diagram.faceColours?.[face] ?? (diagram.faces?.includes(face) ? '#4e8998' : shade);
+ const front = [[0,0,0],[length,0,0],[length,0,height],[0,0,height],[0,0,0]];
+ const right = [[length,0,0],[length,width,0],[length,width,height],[length,0,height],[length,0,0]];
+ const top = [[0,0,height],[length,0,height],[length,width,height],[0,width,height],[0,0,height]];
+ let body = path(front,colour('front','#1d394e')) + path(right,colour('right','#183146')) + path(top,colour('top',diagram.openTop?'#0d1d2c':'#27475f'));
+ const addLine = (start,end) => { body += path([start,end]); };
+ for(let x=1;lengthLabel!=='?'&&x<length;x++){
+  addLine([x,0,0],[x,0,height]);
+  if(!diagram.openTop)addLine([x,0,height],[x,width,height]);
+ }
+ for(let y=1;widthLabel!=='?'&&y<width;y++){
+  addLine([length,y,0],[length,y,height]);
+  if(!diagram.openTop)addLine([0,y,height],[length,y,height]);
+ }
+ for(let z=1;heightLabel!=='?'&&z<height;z++){
+  addLine([0,0,z],[length,0,z]);
+  addLine([length,0,z],[length,width,z]);
+ }
+ if(diagram.cutAt != null){
+  const x=diagram.cutAt;
+  body += path([[x,0,0],[x,0,height],[x,width,height]],'none','#f4b583',2.6);
+ }
+ if(diagram.markTop){
+  const [x,y]=project([length/2,width/2,height]);
+  const opening=diagram.markTop==='opening';
+  body += `<circle cx="${x}" cy="${y}" r="4.2" fill="${opening?'#0b1b2c':'#fab958'}" stroke="${opening?'#f4b583':'#203549'}" stroke-width="1.3"/>`;
+ }
+ const label = (point,dx,dy,value) => {
+  const [x,y]=project(point);
+  return `<text x="${x+dx}" y="${y+dy}" text-anchor="middle">${esc(value)}</text>`;
+ };
+ return body + label([length/2,0,0],0,19,lengthLabel) + label([length,width/2,0],13,14,widthLabel) + label([0,0,height/2],-14,5,heightLabel);
+}
+
+function drawPictogram(diagram) {
+ return diagram.rows.map(([label,count,half],row) => {
+  const y = 39+47*row;
+  const symbols = Array.from({length:count+(half?1:0)},(_,i) => {
+   const x = 61+21*i;
+   if(i<count)return `<circle cx="${x}" cy="${y}" r="7" fill="#96d9df"/>`;
+   return `<circle cx="${x}" cy="${y}" r="7" fill="none" stroke="#96d9df"/><path d="M${x} ${y-7}a7 7 0 0 0 0 14z" fill="#96d9df"/>`;
+  }).join('');
+  return `<text x="12" y="${y+5}">${esc(label)}</text>${symbols}`;
+ }).join('');
+}
+
 export function originalFigure(p){
- const m=p.learning;if(!m)return '';
+ const m=p.learning;
+ if(!m)return '';
  if(m.spatialDiagram)return spatialFigure(p,m.spatialDiagram);
  if(m.dataDisplay)return dataDisplay(p,m.dataDisplay);
- const n=m.visit+2,x=n+4;let body='',alt='';
- if(m.skill==='GEO-04'){
-  const N=2*x,points=Array.from({length:N},(_,i)=>[180+105*Math.cos(2*Math.PI*i/N-Math.PI/2),135+105*Math.sin(2*Math.PI*i/N-Math.PI/2)]);
-  alt=m.role==='try'?'Regular polygon with alternating blue and gold vertices':'Regular polygon with two adjacent red vertices and all other vertices blue';
-  body=`<polygon points="${points.map(v=>v.join(',')).join(' ')}" fill="#102033" stroke="#92cfe5" stroke-width="2"/>`+points.map(([a,b],i)=>`<circle cx="${a}" cy="${b}" r="7" fill="${m.role==='try'?(i%2?'#edc557':'#74baff'):(i<2?'#f0787b':'#74baff')}" stroke="#0a1422" stroke-width="2"/>`).join('');
- }else if(m.skill==='SPATIAL-01'){
-  const cap=m.session===366&&m.role==='transfer',a=cap?4:n%4+3,b=cap?3:2,scale=Math.min(46,280/a),left=(360-a*scale)/2,top=50;
-  alt='Coordinate grid showing the start, finish and '+(m.role==='try'?'required waypoint':'blocked points');
-  const pt=(i,j)=>[left+i*scale,top+(b-j)*scale];
-  for(let i=0;i<=a;i++){const [u,v]=pt(i,0),[,w]=pt(i,b);body+=`<path d="M${u},${v}V${w}" stroke="#38566e"/>`;}
-  for(let j=0;j<=b;j++){const [u,v]=pt(0,j),[w]=pt(a,j);body+=`<path d="M${u},${v}H${w}" stroke="#38566e"/>`;}
-  for(const [i,j,label,color] of [[0,0,'S (0,0)','#91dcbd'],[a,b,`T (${a},${b})`,'#91dcbd'],[1,1,m.role==='try'?'via (1,1)':'blocked','#f3bc7c'],...(cap?[[3,2,'blocked','#f3bc7c']]:[])]){const [u,v]=pt(i,j);body+=`<circle cx="${u}" cy="${v}" r="5" fill="${color}"/><text x="${u}" y="${v+23}" text-anchor="middle" fill="#f0f4fb" font-size="13">${label}</text>`;}
- }else if(m.skill==='SOLID-01' && m.visit>1){
-  const long=m.visit+6;
-  // Each card labels an actual given dimension or layer count. Neither an
-  // inferred result nor an answer value is drawn. The illustration is schematic.
-  const options=m.role==='try'?{
-    2:[['FULL BLOCK',`${long} × 3 × 4`],['REMOVED PIECE','5 × 2 × 1']],
-    3:[['LARGE CUBOID',`${long} × 2 × 5`],['ATTACHED ARM',`${long-5} × 2 × 1`]],
-    4:[['COMPLETE SHELVES',`${long-1} shelves of 12`],['FINAL SHELF','2 cubes']],
-    5:[['FULL BLOCK',`${long} × 4 × 3`],['REMOVED EDGE','10 cubes']],
-    6:[['FULL BLOCK',`${long} × 2 × 6`],['TWO BARS','5 cubes each']],
-    7:[['FIRST',`${long} × 1 × 3`],['SECOND',`${long} × 1 × 4`],['THIRD',`${long-2} × 1 × 5`]],
-    8:[['FULL ROWS','12 rows'],['EACH ROW',`${long} positions`],['EMPTY','10 positions']]
-  }[m.visit]:{
-    2:[['COMPLETE BLOCK',`${long} × 11 × 3`],['REMOVE','top layer']],
-    3:[['FIRST CUBOID',`${long} × 3 × 4`],['SECOND CUBOID',`${long} × 2 × 5`]],
-    4:[['FULL BLOCK',`${long} × 6 × 4`],['GROOVE',`${long} × 1 × 2`]],
-    5:[['FULL BLOCK',`${long} × 5 × 5`],['CHANNEL',`${long} × 3 × 1`]],
-    6:[['ONE LAYER','4 × 6 grid'],['EMPTY CORNERS','2 per layer'],['LAYERS',`${long}`]],
-    7:[['FIRST TOWER','5 × 2 base'],['SECOND TOWER','3 × 4 base'],['HEIGHT',`${long} cubes`]],
-    8:[['MAIN SECTION','3 × 6 cubes'],['PATCH','2 × 2 cubes'],['ROWS',`${long}`]]
-  }[m.visit];
-  if(!options)return '';
-  alt='Given unit-cube dimensions in separate schematic cards, not to scale';
-  const gap=8,width=(324-gap*(options.length-1))/options.length;
-  body=options.map(([name,measure],i)=>{
-    const left=18+i*(width+gap),centre=left+width/2;
-    const labelSize=options.length===3?10:12;
-    return `<g>
-      <rect x="${left}" y="46" rx="9" width="${width}" height="178" fill="#122b41" stroke="#41647a" stroke-width="1.5"/>
-      <path d="M${centre-40} 108 l20 -18 h60 l-20 18 z" fill="#a7dbe8" stroke="#82b6c6" stroke-width="1"/>
-      <path d="M${centre-40} 108 h60 v38 h-60 z" fill="#5aacc1" stroke="#82b6c6" stroke-width="1"/>
-      <path d="M${centre+20} 108 l20 -18 v38 l-20 18 z" fill="#37788e" stroke="#82b6c6" stroke-width="1"/>
-      <text x="${centre}" y="65" fill="#edf7ff" stroke="none" text-anchor="middle" font-size="${labelSize}" font-weight="600">${name}</text>
-      <text x="${centre}" y="185" fill="#f2f8fc" stroke="none" text-anchor="middle" font-size="${options.length===3?13:16}">${measure}</text>
-      <text x="${centre}" y="204" fill="#bbd0db" stroke="none" text-anchor="middle" font-size="10">as stated</text>
-    </g>`;
-  }).join('')+`<text x="180" y="243" font-size="11" fill="#bed5e0" text-anchor="middle" stroke="none">Schematic only · use the problem's given dimensions</text>`;
- }else if(m.skill==='DATA-03'){
-  const count=m.visit+6;
-  if(m.role==='try'){
-    alt=`Pictogram: Monday ${count} full symbols plus one half-symbol; Tuesday ${count+2} full symbols; one full symbol represents six bicycles`;
-    const monday=count,tuesday=count+2,space=248/(tuesday+1),radius=Math.min(7,space*.39);
-    const icon=(i,y,half=false)=>{
-      const cx=76+i*space;
-      return `<circle cx="${cx}" cy="${y}" r="${radius}" fill="${half?'#27465a':'#98d7e5'}" stroke="#78afbf" stroke-width="1.5"/>`+
-       (half?`<path d="M${cx},${y-radius} A${radius},${radius} 0 0 0 ${cx},${y+radius} Z" fill="#98d7e5"/>`:'');
-    };
-    body=`<text x="18" y="49" font-size="14" fill="#edf6ff" font-weight="600" stroke="none">Key: one full symbol = 6 bikes</text>
-      <text x="18" y="108" font-size="14" fill="#e9f4fa" stroke="none">Mon</text>
-      <text x="18" y="170" font-size="14" fill="#e9f4fa" stroke="none">Tue</text>`+
-      Array.from({length:monday},(_,i)=>icon(i,102)).join('')+
-      icon(monday,102,true)+
-      Array.from({length:tuesday},(_,i)=>icon(i,164)).join('')+
-      `<text x="180" y="226" font-size="12" text-anchor="middle" fill="#c2dce8" stroke="none">Half-symbol = half of one full symbol</text>`;
-  }else{
-    const start=5*count,scale=6,left=79,base=221,ya=base-8*scale,yb=base-13*scale;
-    alt=`Bar chart with the vertical axis starting at ${start} instead of zero, bar A rising 8 units and bar B rising 13 units above that baseline`;
-    const tick=(n)=>`<g><path d="M${left-6} ${base-n*scale} H${left+244}" stroke="#30516a" stroke-width="1"/><text x="${left-9}" y="${base-n*scale+5}" font-size="12" text-anchor="end" fill="#d4e8f0" stroke="none">${start+n}</text></g>`;
-    body=tick(0)+tick(5)+tick(10)+tick(15)+
-      `<path d="M${left} 48 V${base} H328" fill="none" stroke="#b3d7e4" stroke-width="2"/>
-       <rect x="122" y="${ya}" width="64" height="${base-ya}" fill="#82bcd0" stroke="#a3e0f0"/>
-       <rect x="230" y="${yb}" width="64" height="${base-yb}" fill="#52a2bd" stroke="#a3e0f0"/>
-       <text x="154" y="${ya-11}" font-size="14" text-anchor="middle" fill="#dceff7" stroke="none">+8</text>
-       <text x="262" y="${yb-11}" font-size="14" text-anchor="middle" fill="#dceff7" stroke="none">+13</text>
-       <text x="154" y="242" font-size="14" text-anchor="middle" fill="#f0f7ff" stroke="none">A</text>
-       <text x="262" y="242" font-size="14" text-anchor="middle" fill="#f0f7ff" stroke="none">B</text>
-       <text x="180" y="263" font-size="11" text-anchor="middle" fill="#bdd5e1" stroke="none">Notice the axis begins at ${start}, not zero</text>`;
-  }
- }else return '';
- return `<figure class="original-figure"><svg viewBox="0 0 360 275" role="img" aria-label="${alt}" xmlns="http://www.w3.org/2000/svg">${body}</svg><figcaption>${alt}. Use the stated conditions, not measurements from the picture.</figcaption></figure>`;
+ const diagram=m.geometryDiagram || m.cuboidDiagram || m.pictogram;
+ if(!diagram || !matchesStem(p.prompt,diagram))return '';
+ const body=m.geometryDiagram ? drawGeometry(diagram) : m.cuboidDiagram ? drawCuboid(diagram) : drawPictogram(diagram);
+ const height=m.pictogram?115:184;
+ return `<figure class="original-figure" data-lesson-figure><svg viewBox="0 0 276 ${height}" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="#edf6ff" font-size="15">${body}</svg><figcaption>${esc(diagram.caption)}</figcaption></figure>`;
 }

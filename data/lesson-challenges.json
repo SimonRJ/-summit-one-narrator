@@ -1,6 +1,6 @@
 {
-  "version": "original-transfer-20261112",
-  "note": "Different numbers in a repeated family are practice, not evidence of a new structure.",
+  "version": "upper-primary-audit-20261114",
+  "note": "Two original questions per lesson. Technique families remain the basis of saved transfer evidence.",
   "items": [
     {
       "id": "O001T",
@@ -108,7 +108,22 @@
       "role": "transfer",
       "family": "SOLID-01:transfer",
       "visit": 1,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "cuboidDiagram": {
+        "dimensions": [
+          7,
+          6,
+          4
+        ],
+        "caption": "Full block before the one-by-two tunnel is cut.",
+        "labels": [
+          7,
+          6,
+          4
+        ],
+        "faces": [],
+        "stemSignature": 2109564972
+      }
     },
     {
       "id": "O008T",
@@ -513,7 +528,17 @@
       "role": "try",
       "family": "SPATIAL-03:try",
       "visit": 1,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "spatialDiagram": {
+        "cells": [
+          "... ......",
+          "... ......",
+          "...       "
+        ],
+        "description": "A 3-by-3 tray and a separate 2-by-6 tray.",
+        "hideLabels": true,
+        "stemSignature": 2667238070
+      }
     },
     {
       "id": "O036X",
@@ -522,7 +547,16 @@
       "role": "transfer",
       "family": "SPATIAL-03:transfer",
       "visit": 1,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "spatialDiagram": {
+        "cells": [
+          " .d.d.d.d.d.d.",
+          ".d.d.d.d.d.d. "
+        ],
+        "description": "The top-left and bottom-right cells are missing.",
+        "hideLabels": true,
+        "stemSignature": 620557541
+      }
     },
     {
       "id": "O037T",
@@ -621,7 +655,75 @@
       "role": "try",
       "family": "GEO-01:try",
       "visit": 1,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "geometryDiagram": {
+        "lines": [
+          [
+            [
+              32,
+              100
+            ],
+            [
+              149,
+              100
+            ],
+            [
+              149,
+              87
+            ],
+            [
+              227,
+              87
+            ],
+            [
+              227,
+              139
+            ],
+            [
+              32,
+              139
+            ],
+            [
+              32,
+              100
+            ]
+          ],
+          [
+            [
+              149,
+              100
+            ],
+            [
+              149,
+              139
+            ]
+          ]
+        ],
+        "caption": "A 9-by-3 strip shares its full short edge with the 6-by-4 rectangle.",
+        "labels": [
+          [
+            87,
+            94,
+            "9 cm"
+          ],
+          [
+            24,
+            123,
+            "3"
+          ],
+          [
+            188,
+            81,
+            "6 cm"
+          ],
+          [
+            237,
+            112,
+            "4"
+          ]
+        ],
+        "stemSignature": 2284383144
+      }
     },
     {
       "id": "O043X",
@@ -630,7 +732,73 @@
       "role": "transfer",
       "family": "GEO-01:transfer",
       "visit": 1,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "geometryDiagram": {
+        "lines": [
+          [
+            [
+              43,
+              42
+            ],
+            [
+              111,
+              42
+            ],
+            [
+              111,
+              78
+            ],
+            [
+              137,
+              78
+            ],
+            [
+              137,
+              42
+            ],
+            [
+              225,
+              42
+            ],
+            [
+              225,
+              150
+            ],
+            [
+              43,
+              150
+            ],
+            [
+              43,
+              42
+            ]
+          ]
+        ],
+        "caption": "The notch has a 2 cm opening and is 3 cm deep.",
+        "labels": [
+          [
+            134,
+            166,
+            "13 cm"
+          ],
+          [
+            235,
+            101,
+            "9"
+          ],
+          [
+            123,
+            34,
+            "2"
+          ],
+          [
+            151,
+            67,
+            "3"
+          ]
+        ],
+        "stemSignature": 993260996
+      }
     },
     {
       "id": "O044T",
@@ -657,7 +825,23 @@
       "role": "try",
       "family": "DATA-03:try",
       "visit": 1,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "pictogram": {
+        "rows": [
+          [
+            "Mon",
+            7,
+            true
+          ],
+          [
+            "Tue",
+            9,
+            false
+          ]
+        ],
+        "caption": "One full symbol represents six bicycles. Monday has seven and a half symbols and Tuesday has nine.",
+        "stemSignature": 1177904459
+      }
     },
     {
       "id": "O045X",
@@ -666,7 +850,26 @@
       "role": "transfer",
       "family": "DATA-03:transfer",
       "visit": 1,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "dataDisplay": {
+        "kind": "bars",
+        "labels": [
+          "A",
+          "B"
+        ],
+        "values": [
+          43,
+          48
+        ],
+        "ticks": [
+          35,
+          40,
+          45,
+          50
+        ],
+        "caption": "The vertical scale begins at 35. Bar A rises 8 units and Bar B rises 13 units above it.",
+        "stemSignature": 2113974947
+      }
     },
     {
       "id": "O046T",
@@ -891,7 +1094,61 @@
       "role": "try",
       "family": "GEO-02:try",
       "visit": 1,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "geometryDiagram": {
+        "lines": [
+          [
+            [
+              57,
+              38
+            ],
+            [
+              225,
+              38
+            ],
+            [
+              225,
+              146
+            ],
+            [
+              57,
+              146
+            ],
+            [
+              57,
+              38
+            ]
+          ],
+          [
+            [
+              57,
+              146
+            ],
+            [
+              121,
+              38
+            ],
+            [
+              225,
+              146
+            ]
+          ]
+        ],
+        "caption": "The triangle uses the whole bottom edge, with its tip on the top edge.",
+        "labels": [
+          [
+            142,
+            166,
+            "14 cm"
+          ],
+          [
+            43,
+            96,
+            "9"
+          ]
+        ],
+        "stemSignature": 2819523638
+      }
     },
     {
       "id": "O061X",
@@ -900,7 +1157,45 @@
       "role": "transfer",
       "family": "GEO-02:transfer",
       "visit": 1,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "geometryDiagram": {
+        "lines": [
+          [
+            [
+              57,
+              145
+            ],
+            [
+              112,
+              33
+            ],
+            [
+              225,
+              145
+            ],
+            [
+              57,
+              145
+            ]
+          ],
+          [
+            [
+              57,
+              145
+            ],
+            [
+              101,
+              89
+            ],
+            [
+              225,
+              145
+            ]
+          ]
+        ],
+        "caption": "The two triangles have a common base. The inner one has half the outer height.",
+        "stemSignature": 1842766600
+      }
     },
     {
       "id": "O062T",
@@ -1035,7 +1330,18 @@
       "role": "try",
       "family": "SOLID-01:try",
       "visit": 2,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "spatialDiagram": {
+        "cells": [
+          " ...",
+          "....",
+          "....",
+          "...."
+        ],
+        "description": "Top view. Each of the three layers has the same missing corner.",
+        "hideLabels": true,
+        "stemSignature": 911066255
+      }
     },
     {
       "id": "O072X",
@@ -1107,7 +1413,65 @@
       "role": "try",
       "family": "GEO-01:try",
       "visit": 2,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "geometryDiagram": {
+        "lines": [
+          [
+            [
+              49,
+              39
+            ],
+            [
+              145,
+              39
+            ],
+            [
+              145,
+              75
+            ],
+            [
+              205,
+              75
+            ],
+            [
+              205,
+              135
+            ],
+            [
+              49,
+              135
+            ],
+            [
+              49,
+              39
+            ]
+          ]
+        ],
+        "caption": "The top-right corner is removed.",
+        "labels": [
+          [
+            128,
+            153,
+            "12 cm"
+          ],
+          [
+            35,
+            92,
+            "8"
+          ],
+          [
+            173,
+            69,
+            "5 cm"
+          ],
+          [
+            134,
+            62,
+            "3"
+          ]
+        ],
+        "stemSignature": 660155097
+      }
     },
     {
       "id": "O076X",
@@ -1125,7 +1489,73 @@
       "role": "try",
       "family": "GEO-02:try",
       "visit": 2,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "geometryDiagram": {
+        "lines": [
+          [
+            [
+              66,
+              29
+            ],
+            [
+              218,
+              29
+            ],
+            [
+              218,
+              145
+            ],
+            [
+              66,
+              145
+            ],
+            [
+              66,
+              29
+            ]
+          ],
+          [
+            [
+              66,
+              145
+            ],
+            [
+              218,
+              29
+            ]
+          ],
+          [
+            [
+              66,
+              29
+            ],
+            [
+              142,
+              87
+            ]
+          ]
+        ],
+        "caption": "One half of the rectangle is cut from its right-angle corner to the diagonal midpoint.",
+        "labels": [
+          [
+            142,
+            167,
+            "8 cm"
+          ],
+          [
+            51,
+            88,
+            "7"
+          ]
+        ],
+        "points": [
+          [
+            142,
+            87
+          ]
+        ],
+        "stemSignature": 2443509286
+      }
     },
     {
       "id": "O078X",
@@ -1134,7 +1564,52 @@
       "role": "transfer",
       "family": "GEO-02:transfer",
       "visit": 2,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "geometryDiagram": {
+        "lines": [
+          [
+            [
+              53,
+              145
+            ],
+            [
+              135,
+              28
+            ],
+            [
+              222,
+              145
+            ],
+            [
+              53,
+              145
+            ]
+          ],
+          [
+            [
+              53,
+              145
+            ],
+            [
+              109,
+              85
+            ],
+            [
+              222,
+              145
+            ]
+          ]
+        ],
+        "caption": "The triangles share a 12 cm base and have different heights.",
+        "labels": [
+          [
+            139,
+            164,
+            "12 cm"
+          ]
+        ],
+        "stemSignature": 4168886271
+      }
     },
     {
       "id": "O079T",
@@ -1161,7 +1636,58 @@
       "role": "try",
       "family": "GEO-03:try",
       "visit": 1,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "geometryDiagram": {
+        "lines": [
+          [
+            [
+              58,
+              141
+            ],
+            [
+              138,
+              29
+            ],
+            [
+              218,
+              141
+            ],
+            [
+              58,
+              141
+            ]
+          ],
+          [
+            [
+              93,
+              84
+            ],
+            [
+              105,
+              92
+            ]
+          ],
+          [
+            [
+              171,
+              92
+            ],
+            [
+              183,
+              84
+            ]
+          ]
+        ],
+        "caption": "The sloping sides are equal. The angle between them is 66 degrees.",
+        "labels": [
+          [
+            138,
+            64,
+            "66\u00b0"
+          ]
+        ],
+        "stemSignature": 3007020763
+      }
     },
     {
       "id": "O081X",
@@ -1170,7 +1696,53 @@
       "role": "transfer",
       "family": "GEO-03:transfer",
       "visit": 1,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "geometryDiagram": {
+        "lines": [
+          [
+            [
+              31,
+              142
+            ],
+            [
+              215,
+              142
+            ]
+          ],
+          [
+            [
+              60,
+              142
+            ],
+            [
+              156,
+              67
+            ],
+            [
+              188,
+              142
+            ],
+            [
+              60,
+              142
+            ]
+          ]
+        ],
+        "caption": "The bottom-right exterior angle is 113 degrees; the bottom-left angle is 38 degrees.",
+        "labels": [
+          [
+            104,
+            135,
+            "38\u00b0"
+          ],
+          [
+            205,
+            131,
+            "113\u00b0"
+          ]
+        ],
+        "stemSignature": 1266175439
+      }
     },
     {
       "id": "O082T",
@@ -1220,7 +1792,205 @@
       "role": "try",
       "family": "GEO-04:try",
       "visit": 1,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "geometryDiagram": {
+        "lines": [
+          [
+            [
+              138.0,
+              25.0
+            ],
+            [
+              164.5,
+              31.0
+            ],
+            [
+              185.7,
+              48.0
+            ],
+            [
+              197.5,
+              72.4
+            ],
+            [
+              197.5,
+              99.6
+            ],
+            [
+              185.7,
+              124.0
+            ],
+            [
+              164.5,
+              141.0
+            ],
+            [
+              138.0,
+              147.0
+            ],
+            [
+              111.5,
+              141.0
+            ],
+            [
+              90.3,
+              124.0
+            ],
+            [
+              78.5,
+              99.6
+            ],
+            [
+              78.5,
+              72.4
+            ],
+            [
+              90.3,
+              48.0
+            ],
+            [
+              111.5,
+              31.0
+            ],
+            [
+              138.0,
+              25.0
+            ]
+          ]
+        ],
+        "caption": "B means blue and G means gold. The colours alternate around the polygon.",
+        "labels": [
+          [
+            138.0,
+            20,
+            "B"
+          ],
+          [
+            171.0,
+            21.5,
+            "G"
+          ],
+          [
+            197.4,
+            42.6,
+            "B"
+          ],
+          [
+            212.1,
+            73.1,
+            "G"
+          ],
+          [
+            212.1,
+            106.9,
+            "B"
+          ],
+          [
+            197.4,
+            137.4,
+            "G"
+          ],
+          [
+            171.0,
+            158.5,
+            "B"
+          ],
+          [
+            138.0,
+            166.0,
+            "G"
+          ],
+          [
+            105.0,
+            158.5,
+            "B"
+          ],
+          [
+            78.6,
+            137.4,
+            "G"
+          ],
+          [
+            63.9,
+            106.9,
+            "B"
+          ],
+          [
+            63.9,
+            73.1,
+            "G"
+          ],
+          [
+            78.6,
+            42.6,
+            "B"
+          ],
+          [
+            105.0,
+            21.5,
+            "G"
+          ]
+        ],
+        "points": [
+          [
+            138.0,
+            25.0
+          ],
+          [
+            164.5,
+            31.0
+          ],
+          [
+            185.7,
+            48.0
+          ],
+          [
+            197.5,
+            72.4
+          ],
+          [
+            197.5,
+            99.6
+          ],
+          [
+            185.7,
+            124.0
+          ],
+          [
+            164.5,
+            141.0
+          ],
+          [
+            138.0,
+            147.0
+          ],
+          [
+            111.5,
+            141.0
+          ],
+          [
+            90.3,
+            124.0
+          ],
+          [
+            78.5,
+            99.6
+          ],
+          [
+            78.5,
+            72.4
+          ],
+          [
+            90.3,
+            48.0
+          ],
+          [
+            111.5,
+            31.0
+          ]
+        ],
+        "stemSignature": 613342091
+      }
     },
     {
       "id": "O083X",
@@ -1229,7 +1999,205 @@
       "role": "transfer",
       "family": "GEO-04:transfer",
       "visit": 1,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "geometryDiagram": {
+        "lines": [
+          [
+            [
+              138.0,
+              25.0
+            ],
+            [
+              164.5,
+              31.0
+            ],
+            [
+              185.7,
+              48.0
+            ],
+            [
+              197.5,
+              72.4
+            ],
+            [
+              197.5,
+              99.6
+            ],
+            [
+              185.7,
+              124.0
+            ],
+            [
+              164.5,
+              141.0
+            ],
+            [
+              138.0,
+              147.0
+            ],
+            [
+              111.5,
+              141.0
+            ],
+            [
+              90.3,
+              124.0
+            ],
+            [
+              78.5,
+              99.6
+            ],
+            [
+              78.5,
+              72.4
+            ],
+            [
+              90.3,
+              48.0
+            ],
+            [
+              111.5,
+              31.0
+            ],
+            [
+              138.0,
+              25.0
+            ]
+          ]
+        ],
+        "caption": "R means red and B means blue. Only two adjacent vertices are red.",
+        "labels": [
+          [
+            138.0,
+            20,
+            "R"
+          ],
+          [
+            171.0,
+            21.5,
+            "R"
+          ],
+          [
+            197.4,
+            42.6,
+            "B"
+          ],
+          [
+            212.1,
+            73.1,
+            "B"
+          ],
+          [
+            212.1,
+            106.9,
+            "B"
+          ],
+          [
+            197.4,
+            137.4,
+            "B"
+          ],
+          [
+            171.0,
+            158.5,
+            "B"
+          ],
+          [
+            138.0,
+            166.0,
+            "B"
+          ],
+          [
+            105.0,
+            158.5,
+            "B"
+          ],
+          [
+            78.6,
+            137.4,
+            "B"
+          ],
+          [
+            63.9,
+            106.9,
+            "B"
+          ],
+          [
+            63.9,
+            73.1,
+            "B"
+          ],
+          [
+            78.6,
+            42.6,
+            "B"
+          ],
+          [
+            105.0,
+            21.5,
+            "B"
+          ]
+        ],
+        "points": [
+          [
+            138.0,
+            25.0
+          ],
+          [
+            164.5,
+            31.0
+          ],
+          [
+            185.7,
+            48.0
+          ],
+          [
+            197.5,
+            72.4
+          ],
+          [
+            197.5,
+            99.6
+          ],
+          [
+            185.7,
+            124.0
+          ],
+          [
+            164.5,
+            141.0
+          ],
+          [
+            138.0,
+            147.0
+          ],
+          [
+            111.5,
+            141.0
+          ],
+          [
+            90.3,
+            124.0
+          ],
+          [
+            78.5,
+            99.6
+          ],
+          [
+            78.5,
+            72.4
+          ],
+          [
+            90.3,
+            48.0
+          ],
+          [
+            111.5,
+            31.0
+          ]
+        ],
+        "stemSignature": 2693871245
+      }
     },
     {
       "id": "O085T",
@@ -1283,7 +2251,19 @@
       "role": "transfer",
       "family": "SOLID-01:transfer",
       "visit": 3,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "spatialDiagram": {
+        "cells": [
+          "..d..",
+          "..d..",
+          "ddddd",
+          "..d..",
+          "..d.."
+        ],
+        "description": "Plan of the middle layer. The dark cells mark the two tunnels.",
+        "hideLabels": true,
+        "stemSignature": 1493579408
+      }
     },
     {
       "id": "O088T",
@@ -1310,7 +2290,26 @@
       "role": "try",
       "family": "SOLID-02:try",
       "visit": 1,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "cuboidDiagram": {
+        "dimensions": [
+          5,
+          6,
+          7
+        ],
+        "caption": "All outside faces are painted, including the hidden faces.",
+        "labels": [
+          5,
+          6,
+          7
+        ],
+        "faces": [
+          "front",
+          "right",
+          "top"
+        ],
+        "stemSignature": 3996392033
+      }
     },
     {
       "id": "O089X",
@@ -1319,7 +2318,24 @@
       "role": "transfer",
       "family": "SOLID-02:transfer",
       "visit": 1,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "cuboidDiagram": {
+        "dimensions": [
+          6,
+          5,
+          7
+        ],
+        "caption": "Only the top and the hidden bottom are painted.",
+        "labels": [
+          6,
+          5,
+          7
+        ],
+        "faces": [
+          "top"
+        ],
+        "stemSignature": 556180960
+      }
     },
     {
       "id": "O090T",
@@ -1328,7 +2344,23 @@
       "role": "try",
       "family": "SOLID-03:try",
       "visit": 1,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "cuboidDiagram": {
+        "dimensions": [
+          7,
+          4,
+          3
+        ],
+        "caption": "The box has a base and four walls. Its top is open.",
+        "labels": [
+          7,
+          4,
+          3
+        ],
+        "faces": [],
+        "openTop": true,
+        "stemSignature": 3223685937
+      }
     },
     {
       "id": "O090X",
@@ -1337,7 +2369,23 @@
       "role": "transfer",
       "family": "SOLID-03:transfer",
       "visit": 1,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "cuboidDiagram": {
+        "dimensions": [
+          7,
+          7,
+          7
+        ],
+        "caption": "A cube with a cut parallel to one face.",
+        "labels": [
+          7,
+          7,
+          7
+        ],
+        "faces": [],
+        "cutAt": 3.5,
+        "stemSignature": 1736063393
+      }
     },
     {
       "id": "O092T",
@@ -1364,7 +2412,139 @@
       "role": "try",
       "family": "SPATIAL-01:try",
       "visit": 1,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "geometryDiagram": {
+        "lines": [
+          [
+            [
+              36.0,
+              119.0
+            ],
+            [
+              36.0,
+              51.0
+            ]
+          ],
+          [
+            [
+              70.0,
+              119.0
+            ],
+            [
+              70.0,
+              51.0
+            ]
+          ],
+          [
+            [
+              104.0,
+              119.0
+            ],
+            [
+              104.0,
+              51.0
+            ]
+          ],
+          [
+            [
+              138.0,
+              119.0
+            ],
+            [
+              138.0,
+              51.0
+            ]
+          ],
+          [
+            [
+              172.0,
+              119.0
+            ],
+            [
+              172.0,
+              51.0
+            ]
+          ],
+          [
+            [
+              206.0,
+              119.0
+            ],
+            [
+              206.0,
+              51.0
+            ]
+          ],
+          [
+            [
+              240.0,
+              119.0
+            ],
+            [
+              240.0,
+              51.0
+            ]
+          ],
+          [
+            [
+              36.0,
+              119.0
+            ],
+            [
+              240.0,
+              119.0
+            ]
+          ],
+          [
+            [
+              36.0,
+              85.0
+            ],
+            [
+              240.0,
+              85.0
+            ]
+          ],
+          [
+            [
+              36.0,
+              51.0
+            ],
+            [
+              240.0,
+              51.0
+            ]
+          ]
+        ],
+        "caption": "The marked crossing is (1,1).",
+        "labels": [
+          [
+            22.0,
+            136.0,
+            "Start"
+          ],
+          [
+            254.0,
+            44.0,
+            "End"
+          ]
+        ],
+        "points": [
+          [
+            36.0,
+            119.0
+          ],
+          [
+            240.0,
+            51.0
+          ],
+          [
+            70.0,
+            85.0
+          ]
+        ],
+        "stemSignature": 2714087043
+      }
     },
     {
       "id": "O093X",
@@ -1373,7 +2553,147 @@
       "role": "transfer",
       "family": "SPATIAL-01:transfer",
       "visit": 1,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "geometryDiagram": {
+        "lines": [
+          [
+            [
+              70.0,
+              119.0
+            ],
+            [
+              70.0,
+              51.0
+            ]
+          ],
+          [
+            [
+              104.0,
+              119.0
+            ],
+            [
+              104.0,
+              51.0
+            ]
+          ],
+          [
+            [
+              138.0,
+              119.0
+            ],
+            [
+              138.0,
+              51.0
+            ]
+          ],
+          [
+            [
+              172.0,
+              119.0
+            ],
+            [
+              172.0,
+              51.0
+            ]
+          ],
+          [
+            [
+              206.0,
+              119.0
+            ],
+            [
+              206.0,
+              51.0
+            ]
+          ],
+          [
+            [
+              70.0,
+              119.0
+            ],
+            [
+              206.0,
+              119.0
+            ]
+          ],
+          [
+            [
+              70.0,
+              85.0
+            ],
+            [
+              206.0,
+              85.0
+            ]
+          ],
+          [
+            [
+              70.0,
+              51.0
+            ],
+            [
+              206.0,
+              51.0
+            ]
+          ]
+        ],
+        "caption": "The two closed edges are on the vertical line x = 2, from the bottom through the top.",
+        "labels": [
+          [
+            56.0,
+            136.0,
+            "Start"
+          ],
+          [
+            220.0,
+            44.0,
+            "End"
+          ]
+        ],
+        "points": [
+          [
+            70.0,
+            119.0
+          ],
+          [
+            206.0,
+            51.0
+          ]
+        ],
+        "openPoints": [
+          [
+            138.0,
+            102.0
+          ],
+          [
+            138.0,
+            68.0
+          ]
+        ],
+        "closed": [
+          [
+            [
+              138,
+              119
+            ],
+            [
+              138,
+              85
+            ]
+          ],
+          [
+            [
+              138,
+              85
+            ],
+            [
+              138,
+              51
+            ]
+          ]
+        ],
+        "stemSignature": 749969458
+      }
     },
     {
       "id": "O094T",
@@ -1629,7 +2949,7 @@
             8
           ]
         ],
-        "caption": "Symbols in each club’s record.",
+        "caption": "Symbols in each club\u2019s record.",
         "stemSignature": 1661048857
       }
     },
@@ -1676,7 +2996,88 @@
       "role": "try",
       "family": "GEO-01:try",
       "visit": 3,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "geometryDiagram": {
+        "lines": [
+          [
+            [
+              40,
+              131
+            ],
+            [
+              40,
+              95
+            ],
+            [
+              76,
+              95
+            ],
+            [
+              76,
+              83
+            ],
+            [
+              124,
+              83
+            ],
+            [
+              124,
+              71
+            ],
+            [
+              184,
+              71
+            ],
+            [
+              184,
+              131
+            ],
+            [
+              40,
+              131
+            ]
+          ],
+          [
+            [
+              76,
+              95
+            ],
+            [
+              76,
+              131
+            ]
+          ],
+          [
+            [
+              124,
+              83
+            ],
+            [
+              124,
+              131
+            ]
+          ]
+        ],
+        "caption": "Three squares have their bottom edges aligned.",
+        "labels": [
+          [
+            58,
+            152,
+            "3 cm"
+          ],
+          [
+            100,
+            152,
+            "4 cm"
+          ],
+          [
+            154,
+            152,
+            "5 cm"
+          ]
+        ],
+        "stemSignature": 579816643
+      }
     },
     {
       "id": "O108X",
@@ -1685,7 +3086,89 @@
       "role": "transfer",
       "family": "GEO-01:transfer",
       "visit": 3,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "geometryDiagram": {
+        "lines": [
+          [
+            [
+              37,
+              38
+            ],
+            [
+              65,
+              38
+            ],
+            [
+              65,
+              74
+            ],
+            [
+              93,
+              74
+            ],
+            [
+              93,
+              38
+            ],
+            [
+              233,
+              38
+            ],
+            [
+              233,
+              146
+            ],
+            [
+              177,
+              146
+            ],
+            [
+              177,
+              98
+            ],
+            [
+              149,
+              98
+            ],
+            [
+              149,
+              146
+            ],
+            [
+              37,
+              146
+            ],
+            [
+              37,
+              38
+            ]
+          ]
+        ],
+        "caption": "Two rectangular notches have equal openings and different depths.",
+        "labels": [
+          [
+            127,
+            31,
+            "14 cm"
+          ],
+          [
+            245,
+            97,
+            "9"
+          ],
+          [
+            79,
+            91,
+            "2"
+          ],
+          [
+            163,
+            92,
+            "2"
+          ]
+        ],
+        "stemSignature": 1872359903
+      }
     },
     {
       "id": "O109T",
@@ -1730,7 +3213,25 @@
       "role": "try",
       "family": "SOLID-02:try",
       "visit": 2,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "cuboidDiagram": {
+        "dimensions": [
+          4,
+          5,
+          6
+        ],
+        "caption": "The front and top are the only painted faces.",
+        "labels": [
+          4,
+          5,
+          6
+        ],
+        "faces": [
+          "front",
+          "top"
+        ],
+        "stemSignature": 3733856087
+      }
     },
     {
       "id": "O113X",
@@ -1739,7 +3240,27 @@
       "role": "transfer",
       "family": "SOLID-02:transfer",
       "visit": 2,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "cuboidDiagram": {
+        "dimensions": [
+          6,
+          4,
+          3
+        ],
+        "caption": "The 6-cube length is cut in half. The new faces are each 4 by 3.",
+        "labels": [
+          6,
+          4,
+          3
+        ],
+        "faces": [
+          "front",
+          "right",
+          "top"
+        ],
+        "cutAt": 3,
+        "stemSignature": 2437843491
+      }
     },
     {
       "id": "O114T",
@@ -2048,7 +3569,51 @@
       "role": "try",
       "family": "GEO-03:try",
       "visit": 2,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "geometryDiagram": {
+        "lines": [
+          [
+            [
+              72,
+              40
+            ],
+            [
+              72,
+              133
+            ],
+            [
+              214,
+              133
+            ]
+          ],
+          [
+            [
+              72,
+              133
+            ],
+            [
+              180,
+              67
+            ]
+          ],
+          [
+            [
+              72,
+              118
+            ],
+            [
+              87,
+              118
+            ],
+            [
+              87,
+              133
+            ]
+          ]
+        ],
+        "caption": "A ray divides the right angle into two parts.",
+        "stemSignature": 2756374593
+      }
     },
     {
       "id": "O131X",
@@ -2057,7 +3622,65 @@
       "role": "transfer",
       "family": "GEO-03:transfer",
       "visit": 2,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "geometryDiagram": {
+        "lines": [
+          [
+            [
+              138,
+              87
+            ],
+            [
+              138.0,
+              21.0
+            ]
+          ],
+          [
+            [
+              138,
+              87
+            ],
+            [
+              193.97,
+              52.03
+            ]
+          ],
+          [
+            [
+              138,
+              87
+            ],
+            [
+              173.95,
+              142.35
+            ]
+          ],
+          [
+            [
+              138,
+              87
+            ],
+            [
+              75.6,
+              65.51
+            ]
+          ]
+        ],
+        "caption": "Four angles meet about a point. The diagram is schematic.",
+        "labels": [
+          [
+            161.27,
+            50.02,
+            "58\u00b0"
+          ],
+          [
+            182.91,
+            101.96,
+            "89\u00b0"
+          ]
+        ],
+        "stemSignature": 696964810
+      }
     },
     {
       "id": "O132T",
@@ -2281,7 +3904,26 @@
       "role": "try",
       "family": "SOLID-02:try",
       "visit": 3,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "cuboidDiagram": {
+        "dimensions": [
+          4,
+          5,
+          6
+        ],
+        "caption": "The whole cuboid is painted on the outside.",
+        "labels": [
+          4,
+          5,
+          6
+        ],
+        "faces": [
+          "front",
+          "right",
+          "top"
+        ],
+        "stemSignature": 3449124125
+      }
     },
     {
       "id": "O145X",
@@ -2290,7 +3932,26 @@
       "role": "transfer",
       "family": "SOLID-02:transfer",
       "visit": 3,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "cuboidDiagram": {
+        "dimensions": [
+          7,
+          4,
+          5
+        ],
+        "caption": "The unknown dimension is the length. The drawing is schematic.",
+        "labels": [
+          "?",
+          4,
+          5
+        ],
+        "faces": [
+          "front",
+          "right",
+          "top"
+        ],
+        "stemSignature": 3613839857
+      }
     },
     {
       "id": "O146T",
@@ -2335,7 +3996,47 @@
       "role": "try",
       "family": "GEO-02:try",
       "visit": 3,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "geometryDiagram": {
+        "lines": [
+          [
+            [
+              50,
+              146
+            ],
+            [
+              106,
+              34
+            ],
+            [
+              226,
+              146
+            ],
+            [
+              50,
+              146
+            ]
+          ],
+          [
+            [
+              106,
+              34
+            ],
+            [
+              109,
+              146
+            ]
+          ]
+        ],
+        "caption": "The line meets the base one-third of the way across.",
+        "points": [
+          [
+            109,
+            146
+          ]
+        ],
+        "stemSignature": 3060837862
+      }
     },
     {
       "id": "O149X",
@@ -2344,7 +4045,75 @@
       "role": "transfer",
       "family": "GEO-02:transfer",
       "visit": 3,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "geometryDiagram": {
+        "lines": [
+          [
+            [
+              46,
+              33
+            ],
+            [
+              226,
+              33
+            ],
+            [
+              226,
+              153
+            ],
+            [
+              46,
+              153
+            ],
+            [
+              46,
+              33
+            ]
+          ],
+          [
+            [
+              46,
+              33
+            ],
+            [
+              136,
+              153
+            ],
+            [
+              226,
+              123
+            ],
+            [
+              46,
+              33
+            ]
+          ]
+        ],
+        "caption": "The triangle joins the top-left corner, the midpoint of the bottom and the marked point on the right.",
+        "labels": [
+          [
+            136,
+            171,
+            "12 cm"
+          ],
+          [
+            34,
+            96,
+            "8"
+          ]
+        ],
+        "points": [
+          [
+            136,
+            153
+          ],
+          [
+            226,
+            123
+          ]
+        ],
+        "stemSignature": 3515114853
+      }
     },
     {
       "id": "O150T",
@@ -2702,7 +4471,97 @@
       "role": "try",
       "family": "GEO-04:try",
       "visit": 2,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "geometryDiagram": {
+        "lines": [
+          [
+            [
+              138.0,
+              25.0
+            ],
+            [
+              181.1,
+              42.9
+            ],
+            [
+              199.0,
+              86.0
+            ],
+            [
+              181.1,
+              129.1
+            ],
+            [
+              138.0,
+              147.0
+            ],
+            [
+              94.9,
+              129.1
+            ],
+            [
+              77.0,
+              86.0
+            ],
+            [
+              94.9,
+              42.9
+            ],
+            [
+              138.0,
+              25.0
+            ]
+          ]
+        ],
+        "caption": "The two marks are on opposite corners.",
+        "labels": [
+          [
+            138.0,
+            20,
+            "\u00d7"
+          ],
+          [
+            138.0,
+            166.0,
+            "\u00d7"
+          ]
+        ],
+        "points": [
+          [
+            138.0,
+            25.0
+          ],
+          [
+            181.1,
+            42.9
+          ],
+          [
+            199.0,
+            86.0
+          ],
+          [
+            181.1,
+            129.1
+          ],
+          [
+            138.0,
+            147.0
+          ],
+          [
+            94.9,
+            129.1
+          ],
+          [
+            77.0,
+            86.0
+          ],
+          [
+            94.9,
+            42.9
+          ]
+        ],
+        "stemSignature": 3154526667
+      }
     },
     {
       "id": "O172X",
@@ -2711,7 +4570,75 @@
       "role": "transfer",
       "family": "GEO-04:transfer",
       "visit": 2,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "geometryDiagram": {
+        "lines": [
+          [
+            [
+              138.0,
+              25.0
+            ],
+            [
+              199.0,
+              86.0
+            ],
+            [
+              138.0,
+              147.0
+            ],
+            [
+              77.0,
+              86.0
+            ],
+            [
+              138.0,
+              25.0
+            ]
+          ]
+        ],
+        "caption": "The colours in clockwise order are red, blue, blue and red.",
+        "labels": [
+          [
+            138.0,
+            20,
+            "R"
+          ],
+          [
+            214.0,
+            90.0,
+            "B"
+          ],
+          [
+            138.0,
+            166.0,
+            "B"
+          ],
+          [
+            62.0,
+            90.0,
+            "R"
+          ]
+        ],
+        "points": [
+          [
+            138.0,
+            25.0
+          ],
+          [
+            199.0,
+            86.0
+          ],
+          [
+            138.0,
+            147.0
+          ],
+          [
+            77.0,
+            86.0
+          ]
+        ],
+        "stemSignature": 1361329967
+      }
     },
     {
       "id": "O173T",
@@ -2903,7 +4830,68 @@
       "role": "try",
       "family": "GEO-02:try",
       "visit": 4,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "geometryDiagram": {
+        "lines": [
+          [
+            [
+              42,
+              145
+            ],
+            [
+              113,
+              34
+            ],
+            [
+              234,
+              145
+            ],
+            [
+              42,
+              145
+            ]
+          ],
+          [
+            [
+              113,
+              34
+            ],
+            [
+              74,
+              145
+            ]
+          ],
+          [
+            [
+              113,
+              34
+            ],
+            [
+              122,
+              145
+            ]
+          ]
+        ],
+        "caption": "The three small triangles use the same height.",
+        "labels": [
+          [
+            57,
+            165,
+            "2 cm"
+          ],
+          [
+            97,
+            165,
+            "3 cm"
+          ],
+          [
+            175,
+            165,
+            "7 cm"
+          ]
+        ],
+        "stemSignature": 2996086470
+      }
     },
     {
       "id": "O181X",
@@ -2912,7 +4900,51 @@
       "role": "transfer",
       "family": "GEO-02:transfer",
       "visit": 4,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "geometryDiagram": {
+        "lines": [
+          [
+            [
+              52,
+              144
+            ],
+            [
+              123,
+              28
+            ],
+            [
+              225,
+              144
+            ],
+            [
+              52,
+              144
+            ]
+          ],
+          [
+            [
+              87.5,
+              86
+            ],
+            [
+              174,
+              86
+            ]
+          ]
+        ],
+        "caption": "A segment joins the midpoints of two sides.",
+        "points": [
+          [
+            87.5,
+            86
+          ],
+          [
+            174,
+            86
+          ]
+        ],
+        "stemSignature": 3409951167
+      }
     },
     {
       "id": "O183T",
@@ -3020,7 +5052,68 @@
       "role": "transfer",
       "family": "GEO-03:transfer",
       "visit": 3,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "geometryDiagram": {
+        "lines": [
+          [
+            [
+              138,
+              86
+            ],
+            [
+              138,
+              145
+            ]
+          ],
+          [
+            [
+              138,
+              86
+            ],
+            [
+              184,
+              98
+            ]
+          ]
+        ],
+        "caption": "A clock at 3:30. The minute hand points to 6, and the hour hand is halfway between 3 and 4.",
+        "labels": [
+          [
+            138,
+            16,
+            "12"
+          ],
+          [
+            212,
+            91,
+            "3"
+          ],
+          [
+            138,
+            167,
+            "6"
+          ],
+          [
+            62,
+            91,
+            "9"
+          ]
+        ],
+        "circles": [
+          [
+            138,
+            86,
+            64
+          ]
+        ],
+        "points": [
+          [
+            138,
+            86
+          ]
+        ],
+        "stemSignature": 2786047966
+      }
     },
     {
       "id": "O191T",
@@ -3092,7 +5185,18 @@
       "role": "transfer",
       "family": "SOLID-01:transfer",
       "visit": 5,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "spatialDiagram": {
+        "cells": [
+          "......",
+          "......",
+          "....  ",
+          "....  "
+        ],
+        "description": "Plan of one layer, with the shorter rows aligned at the left.",
+        "hideLabels": true,
+        "stemSignature": 1187851217
+      }
     },
     {
       "id": "O197T",
@@ -3137,7 +5241,84 @@
       "role": "try",
       "family": "GEO-01:try",
       "visit": 4,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "geometryDiagram": {
+        "lines": [
+          [
+            [
+              72,
+              40
+            ],
+            [
+              99,
+              40
+            ],
+            [
+              99,
+              13
+            ],
+            [
+              177,
+              13
+            ],
+            [
+              177,
+              40
+            ],
+            [
+              204,
+              40
+            ],
+            [
+              204,
+              116
+            ],
+            [
+              177,
+              116
+            ],
+            [
+              177,
+              143
+            ],
+            [
+              99,
+              143
+            ],
+            [
+              99,
+              116
+            ],
+            [
+              72,
+              116
+            ],
+            [
+              72,
+              40
+            ]
+          ]
+        ],
+        "caption": "A square is clipped at each corner.",
+        "labels": [
+          [
+            138,
+            161,
+            "10 cm"
+          ],
+          [
+            215,
+            31,
+            "2"
+          ],
+          [
+            62,
+            130,
+            "2"
+          ]
+        ],
+        "stemSignature": 2481815709
+      }
     },
     {
       "id": "O199X",
@@ -3209,7 +5390,25 @@
       "role": "try",
       "family": "SOLID-02:try",
       "visit": 4,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "cuboidDiagram": {
+        "dimensions": [
+          5,
+          4,
+          2
+        ],
+        "caption": "Four vertical faces are painted. The top and bottom are bare.",
+        "labels": [
+          5,
+          4,
+          2
+        ],
+        "faces": [
+          "front",
+          "right"
+        ],
+        "stemSignature": 2169245336
+      }
     },
     {
       "id": "O204X",
@@ -3218,7 +5417,27 @@
       "role": "transfer",
       "family": "SOLID-02:transfer",
       "visit": 4,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "cuboidDiagram": {
+        "dimensions": [
+          5,
+          5,
+          5
+        ],
+        "caption": "The tunnel enters at the centre of the top face and leaves through the bottom.",
+        "labels": [
+          5,
+          5,
+          5
+        ],
+        "faces": [
+          "front",
+          "right",
+          "top"
+        ],
+        "markTop": "opening",
+        "stemSignature": 1862488965
+      }
     },
     {
       "id": "O205T",
@@ -3517,7 +5736,45 @@
       "role": "try",
       "family": "GEO-03:try",
       "visit": 4,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "geometryDiagram": {
+        "lines": [
+          [
+            [
+              68,
+              144
+            ],
+            [
+              68,
+              39
+            ],
+            [
+              206,
+              144
+            ],
+            [
+              68,
+              144
+            ]
+          ],
+          [
+            [
+              68,
+              129
+            ],
+            [
+              83,
+              129
+            ],
+            [
+              83,
+              144
+            ]
+          ]
+        ],
+        "caption": "The two acute angles have a difference of 14 degrees.",
+        "stemSignature": 2704954299
+      }
     },
     {
       "id": "O222X",
@@ -3526,7 +5783,49 @@
       "role": "transfer",
       "family": "GEO-03:transfer",
       "visit": 4,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "geometryDiagram": {
+        "lines": [
+          [
+            [
+              29,
+              145
+            ],
+            [
+              246,
+              145
+            ]
+          ],
+          [
+            [
+              65,
+              145
+            ],
+            [
+              131,
+              29
+            ],
+            [
+              211,
+              145
+            ]
+          ]
+        ],
+        "caption": "The two exterior angles along the base are given.",
+        "labels": [
+          [
+            45,
+            131,
+            "132\u00b0"
+          ],
+          [
+            230,
+            131,
+            "114\u00b0"
+          ]
+        ],
+        "stemSignature": 3747056669
+      }
     },
     {
       "id": "O223T",
@@ -3571,7 +5870,115 @@
       "role": "try",
       "family": "SPATIAL-01:try",
       "visit": 2,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "geometryDiagram": {
+        "lines": [
+          [
+            [
+              70.0,
+              119.0
+            ],
+            [
+              70.0,
+              51.0
+            ]
+          ],
+          [
+            [
+              104.0,
+              119.0
+            ],
+            [
+              104.0,
+              51.0
+            ]
+          ],
+          [
+            [
+              138.0,
+              119.0
+            ],
+            [
+              138.0,
+              51.0
+            ]
+          ],
+          [
+            [
+              172.0,
+              119.0
+            ],
+            [
+              172.0,
+              51.0
+            ]
+          ],
+          [
+            [
+              206.0,
+              119.0
+            ],
+            [
+              206.0,
+              51.0
+            ]
+          ],
+          [
+            [
+              70.0,
+              119.0
+            ],
+            [
+              206.0,
+              119.0
+            ]
+          ],
+          [
+            [
+              70.0,
+              85.0
+            ],
+            [
+              206.0,
+              85.0
+            ]
+          ],
+          [
+            [
+              70.0,
+              51.0
+            ],
+            [
+              206.0,
+              51.0
+            ]
+          ]
+        ],
+        "caption": "Start at the lower left. The first move upwards must be at the left edge.",
+        "labels": [
+          [
+            56.0,
+            136.0,
+            "Start"
+          ],
+          [
+            220.0,
+            44.0,
+            "End"
+          ]
+        ],
+        "points": [
+          [
+            70.0,
+            119.0
+          ],
+          [
+            206.0,
+            51.0
+          ]
+        ],
+        "stemSignature": 2869848350
+      }
     },
     {
       "id": "O227X",
@@ -3580,7 +5987,133 @@
       "role": "transfer",
       "family": "SPATIAL-01:transfer",
       "visit": 2,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "geometryDiagram": {
+        "lines": [
+          [
+            [
+              70.0,
+              136.0
+            ],
+            [
+              70.0,
+              34.0
+            ]
+          ],
+          [
+            [
+              104.0,
+              136.0
+            ],
+            [
+              104.0,
+              34.0
+            ]
+          ],
+          [
+            [
+              138.0,
+              136.0
+            ],
+            [
+              138.0,
+              34.0
+            ]
+          ],
+          [
+            [
+              172.0,
+              136.0
+            ],
+            [
+              172.0,
+              34.0
+            ]
+          ],
+          [
+            [
+              206.0,
+              136.0
+            ],
+            [
+              206.0,
+              34.0
+            ]
+          ],
+          [
+            [
+              70.0,
+              136.0
+            ],
+            [
+              206.0,
+              136.0
+            ]
+          ],
+          [
+            [
+              70.0,
+              102.0
+            ],
+            [
+              206.0,
+              102.0
+            ]
+          ],
+          [
+            [
+              70.0,
+              68.0
+            ],
+            [
+              206.0,
+              68.0
+            ]
+          ],
+          [
+            [
+              70.0,
+              34.0
+            ],
+            [
+              206.0,
+              34.0
+            ]
+          ]
+        ],
+        "caption": "Exactly one of the two marked crossings must be visited.",
+        "labels": [
+          [
+            56.0,
+            153.0,
+            "Start"
+          ],
+          [
+            220.0,
+            27.0,
+            "End"
+          ]
+        ],
+        "points": [
+          [
+            70.0,
+            136.0
+          ],
+          [
+            206.0,
+            34.0
+          ],
+          [
+            104.0,
+            68.0
+          ],
+          [
+            172.0,
+            102.0
+          ]
+        ],
+        "stemSignature": 3465200922
+      }
     },
     {
       "id": "O228T",
@@ -4151,7 +6684,91 @@
       "role": "try",
       "family": "GEO-04:try",
       "visit": 3,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "geometryDiagram": {
+        "lines": [
+          [
+            [
+              138.0,
+              25.0
+            ],
+            [
+              190.8,
+              55.5
+            ],
+            [
+              190.8,
+              116.5
+            ],
+            [
+              138.0,
+              147.0
+            ],
+            [
+              85.2,
+              116.5
+            ],
+            [
+              85.2,
+              55.5
+            ],
+            [
+              138.0,
+              25.0
+            ]
+          ]
+        ],
+        "caption": "Stars are two opposite corners. Dots are the next corners clockwise from the stars.",
+        "labels": [
+          [
+            138.0,
+            20,
+            "\u2605"
+          ],
+          [
+            203.8,
+            52.0,
+            "\u2022"
+          ],
+          [
+            138.0,
+            166.0,
+            "\u2605"
+          ],
+          [
+            72.2,
+            128.0,
+            "\u2022"
+          ]
+        ],
+        "points": [
+          [
+            138.0,
+            25.0
+          ],
+          [
+            190.8,
+            55.5
+          ],
+          [
+            190.8,
+            116.5
+          ],
+          [
+            138.0,
+            147.0
+          ],
+          [
+            85.2,
+            116.5
+          ],
+          [
+            85.2,
+            55.5
+          ]
+        ],
+        "stemSignature": 3989311585
+      }
     },
     {
       "id": "O263X",
@@ -4160,7 +6777,16 @@
       "role": "transfer",
       "family": "GEO-04:transfer",
       "visit": 3,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "spatialDiagram": {
+        "cells": [
+          ".#.",
+          "..#",
+          "..."
+        ],
+        "description": "The top and right edge-centre cells are shaded.",
+        "stemSignature": 2156103656
+      }
     },
     {
       "id": "O265T",
@@ -4354,7 +6980,22 @@
       "role": "try",
       "family": "SOLID-03:try",
       "visit": 3,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "cuboidDiagram": {
+        "dimensions": [
+          9,
+          6,
+          5
+        ],
+        "caption": "The cut is parallel to the visible right face, which measures 6 cm by 5 cm.",
+        "labels": [
+          9,
+          6,
+          5
+        ],
+        "cutAt": 4,
+        "stemSignature": 1696629478
+      }
     },
     {
       "id": "O277X",
@@ -4408,7 +7049,51 @@
       "role": "try",
       "family": "GEO-03:try",
       "visit": 5,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "geometryDiagram": {
+        "lines": [
+          [
+            [
+              48,
+              140
+            ],
+            [
+              138,
+              66
+            ],
+            [
+              228,
+              140
+            ],
+            [
+              48,
+              140
+            ]
+          ],
+          [
+            [
+              90,
+              98
+            ],
+            [
+              98,
+              108
+            ]
+          ],
+          [
+            [
+              178,
+              108
+            ],
+            [
+              186,
+              98
+            ]
+          ]
+        ],
+        "caption": "The two smaller angles are equal.",
+        "stemSignature": 3216785603
+      }
     },
     {
       "id": "O281X",
@@ -4417,7 +7102,31 @@
       "role": "transfer",
       "family": "GEO-03:transfer",
       "visit": 5,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "geometryDiagram": {
+        "lines": [
+          [
+            [
+              54,
+              142
+            ],
+            [
+              157,
+              34
+            ],
+            [
+              222,
+              142
+            ],
+            [
+              54,
+              142
+            ]
+          ]
+        ],
+        "caption": "The triangle is schematic. Compare the angles using the conditions in the question.",
+        "stemSignature": 900469269
+      }
     },
     {
       "id": "O282T",
@@ -4534,7 +7243,69 @@
       "role": "try",
       "family": "GEO-01:try",
       "visit": 5,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "geometryDiagram": {
+        "lines": [
+          [
+            [
+              69,
+              21
+            ],
+            [
+              207,
+              21
+            ],
+            [
+              207,
+              153
+            ],
+            [
+              69,
+              153
+            ],
+            [
+              69,
+              21
+            ]
+          ],
+          [
+            [
+              116,
+              65
+            ],
+            [
+              160,
+              65
+            ],
+            [
+              160,
+              109
+            ],
+            [
+              116,
+              109
+            ],
+            [
+              116,
+              65
+            ]
+          ]
+        ],
+        "caption": "The small square is a hole.",
+        "labels": [
+          [
+            138,
+            168,
+            "13 cm"
+          ],
+          [
+            138,
+            60,
+            "4 cm"
+          ]
+        ],
+        "stemSignature": 3276893940
+      }
     },
     {
       "id": "O290X",
@@ -4543,7 +7314,67 @@
       "role": "transfer",
       "family": "GEO-01:transfer",
       "visit": 5,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "geometryDiagram": {
+        "lines": [
+          [
+            [
+              52,
+              24
+            ],
+            [
+              222,
+              24
+            ],
+            [
+              222,
+              150
+            ],
+            [
+              52,
+              150
+            ],
+            [
+              52,
+              24
+            ]
+          ],
+          [
+            [
+              112,
+              24
+            ],
+            [
+              112,
+              150
+            ]
+          ],
+          [
+            [
+              163,
+              24
+            ],
+            [
+              163,
+              150
+            ]
+          ]
+        ],
+        "caption": "The middle rectangle has a perimeter of 34 cm. The drawing is schematic.",
+        "labels": [
+          [
+            138,
+            169,
+            "15 cm"
+          ],
+          [
+            36,
+            95,
+            "12"
+          ]
+        ],
+        "stemSignature": 3533258155
+      }
     },
     {
       "id": "O291T",
@@ -4588,7 +7419,24 @@
       "role": "try",
       "family": "SOLID-02:try",
       "visit": 5,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "cuboidDiagram": {
+        "dimensions": [
+          3,
+          4,
+          5
+        ],
+        "caption": "Only the top and bottom 3-by-4 faces carry paint.",
+        "labels": [
+          3,
+          4,
+          5
+        ],
+        "faces": [
+          "top"
+        ],
+        "stemSignature": 3187800625
+      }
     },
     {
       "id": "O295X",
@@ -4597,7 +7445,26 @@
       "role": "transfer",
       "family": "SOLID-02:transfer",
       "visit": 5,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "cuboidDiagram": {
+        "dimensions": [
+          5,
+          3,
+          3
+        ],
+        "caption": "The short edges have length 3. The drawing leaves the long edges unmarked.",
+        "labels": [
+          "?",
+          3,
+          3
+        ],
+        "faces": [
+          "front",
+          "right",
+          "top"
+        ],
+        "stemSignature": 2323459817
+      }
     },
     {
       "id": "O296T",
@@ -4904,7 +7771,33 @@
       "role": "try",
       "family": "GEO-03:try",
       "visit": 6,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "geometryDiagram": {
+        "lines": [
+          [
+            [
+              62,
+              115
+            ],
+            [
+              214,
+              67
+            ]
+          ],
+          [
+            [
+              61,
+              68
+            ],
+            [
+              214,
+              116
+            ]
+          ]
+        ],
+        "caption": "The smaller and larger angles on either side of the crossing are adjacent.",
+        "stemSignature": 1701608883
+      }
     },
     {
       "id": "O313X",
@@ -4913,7 +7806,79 @@
       "role": "transfer",
       "family": "GEO-03:transfer",
       "visit": 6,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "geometryDiagram": {
+        "lines": [
+          [
+            [
+              48,
+              145
+            ],
+            [
+              109.65,
+              24
+            ],
+            [
+              230.65,
+              145
+            ],
+            [
+              48,
+              145
+            ]
+          ],
+          [
+            [
+              109.65,
+              24
+            ],
+            [
+              128.81,
+              145
+            ]
+          ],
+          [
+            [
+              125.91,
+              40.26
+            ],
+            [
+              123.17,
+              42.61
+            ],
+            [
+              120.09,
+              44.49
+            ],
+            [
+              116.76,
+              45.87
+            ],
+            [
+              113.25,
+              46.72
+            ],
+            [
+              109.65,
+              47.0
+            ],
+            [
+              106.05,
+              46.72
+            ],
+            [
+              102.54,
+              45.87
+            ],
+            [
+              99.21,
+              44.49
+            ]
+          ]
+        ],
+        "caption": "The dividing line bisects the 72-degree angle. The angles at the ends of the base differ by 18 degrees.",
+        "stemSignature": 3201553398
+      }
     },
     {
       "id": "O314T",
@@ -4958,7 +7923,115 @@
       "role": "try",
       "family": "SPATIAL-01:try",
       "visit": 3,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "geometryDiagram": {
+        "lines": [
+          [
+            [
+              70.0,
+              119.0
+            ],
+            [
+              70.0,
+              51.0
+            ]
+          ],
+          [
+            [
+              104.0,
+              119.0
+            ],
+            [
+              104.0,
+              51.0
+            ]
+          ],
+          [
+            [
+              138.0,
+              119.0
+            ],
+            [
+              138.0,
+              51.0
+            ]
+          ],
+          [
+            [
+              172.0,
+              119.0
+            ],
+            [
+              172.0,
+              51.0
+            ]
+          ],
+          [
+            [
+              206.0,
+              119.0
+            ],
+            [
+              206.0,
+              51.0
+            ]
+          ],
+          [
+            [
+              70.0,
+              119.0
+            ],
+            [
+              206.0,
+              119.0
+            ]
+          ],
+          [
+            [
+              70.0,
+              85.0
+            ],
+            [
+              206.0,
+              85.0
+            ]
+          ],
+          [
+            [
+              70.0,
+              51.0
+            ],
+            [
+              206.0,
+              51.0
+            ]
+          ]
+        ],
+        "caption": "The grid is four edges wide and two edges high.",
+        "labels": [
+          [
+            56.0,
+            136.0,
+            "Start"
+          ],
+          [
+            220.0,
+            44.0,
+            "End"
+          ]
+        ],
+        "points": [
+          [
+            70.0,
+            119.0
+          ],
+          [
+            206.0,
+            51.0
+          ]
+        ],
+        "stemSignature": 467540164
+      }
     },
     {
       "id": "O318X",
@@ -4967,7 +8040,135 @@
       "role": "transfer",
       "family": "SPATIAL-01:transfer",
       "visit": 3,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "geometryDiagram": {
+        "lines": [
+          [
+            [
+              72.0,
+              151.0
+            ],
+            [
+              72.0,
+              19.0
+            ]
+          ],
+          [
+            [
+              105.0,
+              151.0
+            ],
+            [
+              105.0,
+              19.0
+            ]
+          ],
+          [
+            [
+              138.0,
+              151.0
+            ],
+            [
+              138.0,
+              19.0
+            ]
+          ],
+          [
+            [
+              171.0,
+              151.0
+            ],
+            [
+              171.0,
+              19.0
+            ]
+          ],
+          [
+            [
+              204.0,
+              151.0
+            ],
+            [
+              204.0,
+              19.0
+            ]
+          ],
+          [
+            [
+              72.0,
+              151.0
+            ],
+            [
+              204.0,
+              151.0
+            ]
+          ],
+          [
+            [
+              72.0,
+              118.0
+            ],
+            [
+              204.0,
+              118.0
+            ]
+          ],
+          [
+            [
+              72.0,
+              85.0
+            ],
+            [
+              204.0,
+              85.0
+            ]
+          ],
+          [
+            [
+              72.0,
+              52.0
+            ],
+            [
+              204.0,
+              52.0
+            ]
+          ],
+          [
+            [
+              72.0,
+              19.0
+            ],
+            [
+              204.0,
+              19.0
+            ]
+          ]
+        ],
+        "caption": "The grid is four blocks wide and four blocks high.",
+        "labels": [
+          [
+            58.0,
+            168.0,
+            "Start"
+          ],
+          [
+            218.0,
+            22,
+            "End"
+          ]
+        ],
+        "points": [
+          [
+            72.0,
+            151.0
+          ],
+          [
+            204.0,
+            19.0
+          ]
+        ],
+        "stemSignature": 3824267158
+      }
     },
     {
       "id": "O319T",
@@ -5135,7 +8336,26 @@
       "role": "try",
       "family": "SOLID-02:try",
       "visit": 6,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "cuboidDiagram": {
+        "dimensions": [
+          6,
+          5,
+          4
+        ],
+        "caption": "The full block before its unpainted centre is removed.",
+        "labels": [
+          6,
+          5,
+          4
+        ],
+        "faces": [
+          "front",
+          "right",
+          "top"
+        ],
+        "stemSignature": 1663203648
+      }
     },
     {
       "id": "O327X",
@@ -5144,7 +8364,31 @@
       "role": "transfer",
       "family": "SOLID-02:transfer",
       "visit": 6,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "cuboidDiagram": {
+        "dimensions": [
+          5,
+          5,
+          5
+        ],
+        "caption": "The vertical sides are blue. The top and bottom are red.",
+        "labels": [
+          5,
+          5,
+          5
+        ],
+        "faces": [
+          "front",
+          "right",
+          "top"
+        ],
+        "faceColours": {
+          "front": "#4679ad",
+          "right": "#315e94",
+          "top": "#a95562"
+        },
+        "stemSignature": 2020177911
+      }
     },
     {
       "id": "O330T",
@@ -5171,7 +8415,51 @@
       "role": "try",
       "family": "GEO-02:try",
       "visit": 5,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "geometryDiagram": {
+        "lines": [
+          [
+            [
+              51,
+              148
+            ],
+            [
+              227,
+              148
+            ]
+          ],
+          [
+            [
+              51,
+              148
+            ],
+            [
+              122,
+              79
+            ],
+            [
+              227,
+              148
+            ]
+          ],
+          [
+            [
+              51,
+              148
+            ],
+            [
+              122,
+              27
+            ],
+            [
+              227,
+              148
+            ]
+          ]
+        ],
+        "caption": "The triangles have the same base; the upper tip is 3 cm higher.",
+        "stemSignature": 3316617969
+      }
     },
     {
       "id": "O331X",
@@ -5180,7 +8468,51 @@
       "role": "transfer",
       "family": "GEO-02:transfer",
       "visit": 5,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "geometryDiagram": {
+        "lines": [
+          [
+            [
+              52,
+              145
+            ],
+            [
+              226,
+              145
+            ]
+          ],
+          [
+            [
+              52,
+              145
+            ],
+            [
+              111,
+              35
+            ],
+            [
+              226,
+              145
+            ]
+          ],
+          [
+            [
+              52,
+              145
+            ],
+            [
+              111,
+              83
+            ],
+            [
+              226,
+              145
+            ]
+          ]
+        ],
+        "caption": "The upper vertex moves straight down, while the base stays fixed.",
+        "stemSignature": 260392673
+      }
     },
     {
       "id": "O332T",
@@ -5216,7 +8548,16 @@
       "role": "transfer",
       "family": "DIV-04:transfer",
       "visit": 5,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "spatialDiagram": {
+        "cells": [
+          "...",
+          "...",
+          "..."
+        ],
+        "description": "Nine coins start heads up.",
+        "stemSignature": 2264318461
+      }
     },
     {
       "id": "O334T",
@@ -5485,7 +8826,179 @@
       "role": "try",
       "family": "GEO-04:try",
       "visit": 4,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "geometryDiagram": {
+        "lines": [
+          [
+            [
+              138.0,
+              25.0
+            ],
+            [
+              168.5,
+              33.2
+            ],
+            [
+              190.8,
+              55.5
+            ],
+            [
+              199.0,
+              86.0
+            ],
+            [
+              190.8,
+              116.5
+            ],
+            [
+              168.5,
+              138.8
+            ],
+            [
+              138.0,
+              147.0
+            ],
+            [
+              107.5,
+              138.8
+            ],
+            [
+              85.2,
+              116.5
+            ],
+            [
+              77.0,
+              86.0
+            ],
+            [
+              85.2,
+              55.5
+            ],
+            [
+              107.5,
+              33.2
+            ],
+            [
+              138.0,
+              25.0
+            ]
+          ]
+        ],
+        "caption": "R is red, W is white and B is blue, in a repeating order.",
+        "labels": [
+          [
+            138.0,
+            20,
+            "R"
+          ],
+          [
+            176.0,
+            24.2,
+            "W"
+          ],
+          [
+            203.8,
+            52.0,
+            "B"
+          ],
+          [
+            214.0,
+            90.0,
+            "R"
+          ],
+          [
+            203.8,
+            128.0,
+            "W"
+          ],
+          [
+            176.0,
+            155.8,
+            "B"
+          ],
+          [
+            138.0,
+            166.0,
+            "R"
+          ],
+          [
+            100.0,
+            155.8,
+            "W"
+          ],
+          [
+            72.2,
+            128.0,
+            "B"
+          ],
+          [
+            62.0,
+            90.0,
+            "R"
+          ],
+          [
+            72.2,
+            52.0,
+            "W"
+          ],
+          [
+            100.0,
+            24.2,
+            "B"
+          ]
+        ],
+        "points": [
+          [
+            138.0,
+            25.0
+          ],
+          [
+            168.5,
+            33.2
+          ],
+          [
+            190.8,
+            55.5
+          ],
+          [
+            199.0,
+            86.0
+          ],
+          [
+            190.8,
+            116.5
+          ],
+          [
+            168.5,
+            138.8
+          ],
+          [
+            138.0,
+            147.0
+          ],
+          [
+            107.5,
+            138.8
+          ],
+          [
+            85.2,
+            116.5
+          ],
+          [
+            77.0,
+            86.0
+          ],
+          [
+            85.2,
+            55.5
+          ],
+          [
+            107.5,
+            33.2
+          ]
+        ],
+        "stemSignature": 2038874681
+      }
     },
     {
       "id": "O354X",
@@ -5494,7 +9007,99 @@
       "role": "transfer",
       "family": "GEO-04:transfer",
       "visit": 4,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "geometryDiagram": {
+        "lines": [
+          [
+            [
+              138.0,
+              25.0
+            ],
+            [
+              181.1,
+              42.9
+            ],
+            [
+              199.0,
+              86.0
+            ],
+            [
+              181.1,
+              129.1
+            ],
+            [
+              138.0,
+              147.0
+            ],
+            [
+              94.9,
+              129.1
+            ],
+            [
+              77.0,
+              86.0
+            ],
+            [
+              94.9,
+              42.9
+            ],
+            [
+              138.0,
+              25.0
+            ]
+          ]
+        ],
+        "caption": "Solid dots mark light corners and rings mark dark corners. The star is at the top, and the dot is two positions clockwise.",
+        "labels": [
+          [
+            138.0,
+            20,
+            "\u2605"
+          ],
+          [
+            214.0,
+            90.0,
+            "\u2022"
+          ]
+        ],
+        "points": [
+          [
+            138.0,
+            25.0
+          ],
+          [
+            199.0,
+            86.0
+          ],
+          [
+            138.0,
+            147.0
+          ],
+          [
+            77.0,
+            86.0
+          ]
+        ],
+        "openPoints": [
+          [
+            181.1,
+            42.9
+          ],
+          [
+            181.1,
+            129.1
+          ],
+          [
+            94.9,
+            129.1
+          ],
+          [
+            94.9,
+            42.9
+          ]
+        ],
+        "stemSignature": 81015472
+      }
     },
     {
       "id": "O355T",
@@ -5661,7 +9266,117 @@
       "role": "try",
       "family": "GEO-02:try",
       "visit": 6,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "geometryDiagram": {
+        "lines": [
+          [
+            [
+              42,
+              142
+            ],
+            [
+              207,
+              142
+            ],
+            [
+              239,
+              40
+            ],
+            [
+              74,
+              40
+            ],
+            [
+              42,
+              142
+            ]
+          ],
+          [
+            [
+              74,
+              40
+            ],
+            [
+              97,
+              142
+            ]
+          ],
+          [
+            [
+              74,
+              40
+            ],
+            [
+              223,
+              91
+            ]
+          ]
+        ],
+        "fills": [
+          [
+            [
+              74,
+              40
+            ],
+            [
+              97,
+              142
+            ],
+            [
+              207,
+              142
+            ],
+            [
+              223,
+              91
+            ]
+          ]
+        ],
+        "points": [
+          [
+            97,
+            142
+          ],
+          [
+            223,
+            91
+          ]
+        ],
+        "labels": [
+          [
+            34,
+            156,
+            "A"
+          ],
+          [
+            211,
+            157,
+            "B"
+          ],
+          [
+            247,
+            37,
+            "C"
+          ],
+          [
+            66,
+            33,
+            "D"
+          ],
+          [
+            97,
+            162,
+            "P"
+          ],
+          [
+            237,
+            95,
+            "Q"
+          ]
+        ],
+        "caption": "The shaded part is DPBQ. P lies on AB, and Q lies on BC.",
+        "stemSignature": 2146964721
+      }
     },
     {
       "id": "O365X",
@@ -5670,7 +9385,78 @@
       "role": "transfer",
       "family": "GEO-02:capstone:365",
       "visit": 6,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "geometryDiagram": {
+        "lines": [
+          [
+            [
+              42,
+              32
+            ],
+            [
+              232,
+              32
+            ],
+            [
+              232,
+              146
+            ],
+            [
+              42,
+              146
+            ],
+            [
+              42,
+              32
+            ]
+          ],
+          [
+            [
+              42,
+              146
+            ],
+            [
+              232,
+              108
+            ]
+          ]
+        ],
+        "caption": "The path ends 6 m above the bottom-right corner.",
+        "labels": [
+          [
+            137,
+            166,
+            "30 m"
+          ],
+          [
+            25,
+            91,
+            "18"
+          ],
+          [
+            245,
+            130,
+            "6"
+          ]
+        ],
+        "fills": [
+          [
+            [
+              42,
+              146
+            ],
+            [
+              232,
+              146
+            ],
+            [
+              232,
+              108
+            ]
+          ]
+        ],
+        "stemSignature": 2791034576
+      }
     },
     {
       "id": "O366T",
@@ -5679,7 +9465,125 @@
       "role": "try",
       "family": "SPATIAL-01:try",
       "visit": 4,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "geometryDiagram": {
+        "lines": [
+          [
+            [
+              53.0,
+              119.0
+            ],
+            [
+              53.0,
+              51.0
+            ]
+          ],
+          [
+            [
+              87.0,
+              119.0
+            ],
+            [
+              87.0,
+              51.0
+            ]
+          ],
+          [
+            [
+              121.0,
+              119.0
+            ],
+            [
+              121.0,
+              51.0
+            ]
+          ],
+          [
+            [
+              155.0,
+              119.0
+            ],
+            [
+              155.0,
+              51.0
+            ]
+          ],
+          [
+            [
+              189.0,
+              119.0
+            ],
+            [
+              189.0,
+              51.0
+            ]
+          ],
+          [
+            [
+              223.0,
+              119.0
+            ],
+            [
+              223.0,
+              51.0
+            ]
+          ],
+          [
+            [
+              53.0,
+              119.0
+            ],
+            [
+              223.0,
+              119.0
+            ]
+          ],
+          [
+            [
+              53.0,
+              85.0
+            ],
+            [
+              223.0,
+              85.0
+            ]
+          ],
+          [
+            [
+              53.0,
+              51.0
+            ],
+            [
+              223.0,
+              51.0
+            ]
+          ]
+        ],
+        "caption": "The grid is five edges wide and two edges high.",
+        "labels": [
+          [
+            39.0,
+            136.0,
+            "Start"
+          ],
+          [
+            237.0,
+            44.0,
+            "End"
+          ]
+        ],
+        "points": [
+          [
+            53.0,
+            119.0
+          ],
+          [
+            223.0,
+            51.0
+          ]
+        ],
+        "stemSignature": 1214717439
+      }
     },
     {
       "id": "O366X",
@@ -5688,7 +9592,135 @@
       "role": "transfer",
       "family": "SPATIAL-01:capstone:366",
       "visit": 4,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "geometryDiagram": {
+        "lines": [
+          [
+            [
+              70.0,
+              136.0
+            ],
+            [
+              70.0,
+              34.0
+            ]
+          ],
+          [
+            [
+              104.0,
+              136.0
+            ],
+            [
+              104.0,
+              34.0
+            ]
+          ],
+          [
+            [
+              138.0,
+              136.0
+            ],
+            [
+              138.0,
+              34.0
+            ]
+          ],
+          [
+            [
+              172.0,
+              136.0
+            ],
+            [
+              172.0,
+              34.0
+            ]
+          ],
+          [
+            [
+              206.0,
+              136.0
+            ],
+            [
+              206.0,
+              34.0
+            ]
+          ],
+          [
+            [
+              70.0,
+              136.0
+            ],
+            [
+              206.0,
+              136.0
+            ]
+          ],
+          [
+            [
+              70.0,
+              102.0
+            ],
+            [
+              206.0,
+              102.0
+            ]
+          ],
+          [
+            [
+              70.0,
+              68.0
+            ],
+            [
+              206.0,
+              68.0
+            ]
+          ],
+          [
+            [
+              70.0,
+              34.0
+            ],
+            [
+              206.0,
+              34.0
+            ]
+          ]
+        ],
+        "caption": "Crossings (1,1) and (3,2) are closed.",
+        "labels": [
+          [
+            56.0,
+            153.0,
+            "Start"
+          ],
+          [
+            220.0,
+            27.0,
+            "End"
+          ]
+        ],
+        "points": [
+          [
+            70.0,
+            136.0
+          ],
+          [
+            206.0,
+            34.0
+          ]
+        ],
+        "openPoints": [
+          [
+            104.0,
+            102.0
+          ],
+          [
+            172.0,
+            68.0
+          ]
+        ],
+        "stemSignature": 455960379
+      }
     },
     {
       "id": "O367T",
@@ -5706,7 +9738,16 @@
       "role": "transfer",
       "family": "DIV-04:capstone:367",
       "visit": 6,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "spatialDiagram": {
+        "cells": [
+          "...",
+          "...",
+          "..."
+        ],
+        "description": "Nine lamps start off. The target is just the four corners.",
+        "stemSignature": 2215785509
+      }
     },
     {
       "id": "O368T",

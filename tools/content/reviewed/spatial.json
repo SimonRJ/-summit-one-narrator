@@ -1,0 +1,1129 @@
+[
+  {
+    "id": "O017T",
+    "title": "Hold one side of the grid fixed",
+    "band": "11–20",
+    "prompt": "A rectangular grid has seven full vertical lines and four full horizontal lines. How many rectangles along those lines have the leftmost vertical line as one of their sides?"
+  },
+  {
+    "id": "O017X",
+    "title": "What the extra grid line adds",
+    "band": "21–25",
+    "prompt": "A grid has seven full vertical and four full horizontal lines. A new full vertical line is drawn between two existing ones. How many rectangles along grid lines become possible that were not possible before?"
+  },
+  {
+    "id": "O036T",
+    "title": "One square left on a split board",
+    "band": "11–20",
+    "prompt": "Two separate trays hold squares in 3-by-3 and 2-by-6 rectangles. Dominoes each cover two squares sharing an edge, and cannot cross between trays. What is the fewest squares that must be left uncovered?",
+    "diagram": {
+      "type": "board",
+      "cells": [
+        "... ......",
+        "... ......",
+        "...       "
+      ],
+      "description": "A 3-by-3 tray and a separate 2-by-6 tray.",
+      "hideLabels": true
+    }
+  },
+  {
+    "id": "O036X",
+    "title": "The two missing colours",
+    "band": "21–25",
+    "prompt": "A checkerboard has two rows and fourteen columns. Its top-left and bottom-right squares are removed. Can the remaining board be covered exactly by dominoes, each covering two squares that share an edge? Answer yes or no.",
+    "diagram": {
+      "type": "board",
+      "cells": [
+        " .d.d.d.d.d.d.",
+        ".d.d.d.d.d.d. "
+      ],
+      "description": "The top-left and bottom-right cells are missing.",
+      "hideLabels": true
+    }
+  },
+  {
+    "id": "O093T",
+    "title": "A stop on the way across the grid",
+    "band": "11–20",
+    "prompt": "A route from (0,0) to (6,2) follows the grid, moving one unit right or up each time. It must visit (1,1). How many routes are there?",
+    "diagram": {
+      "type": "geometry",
+      "lines": [
+        [
+          [
+            36.0,
+            119.0
+          ],
+          [
+            36.0,
+            51.0
+          ]
+        ],
+        [
+          [
+            70.0,
+            119.0
+          ],
+          [
+            70.0,
+            51.0
+          ]
+        ],
+        [
+          [
+            104.0,
+            119.0
+          ],
+          [
+            104.0,
+            51.0
+          ]
+        ],
+        [
+          [
+            138.0,
+            119.0
+          ],
+          [
+            138.0,
+            51.0
+          ]
+        ],
+        [
+          [
+            172.0,
+            119.0
+          ],
+          [
+            172.0,
+            51.0
+          ]
+        ],
+        [
+          [
+            206.0,
+            119.0
+          ],
+          [
+            206.0,
+            51.0
+          ]
+        ],
+        [
+          [
+            240.0,
+            119.0
+          ],
+          [
+            240.0,
+            51.0
+          ]
+        ],
+        [
+          [
+            36.0,
+            119.0
+          ],
+          [
+            240.0,
+            119.0
+          ]
+        ],
+        [
+          [
+            36.0,
+            85.0
+          ],
+          [
+            240.0,
+            85.0
+          ]
+        ],
+        [
+          [
+            36.0,
+            51.0
+          ],
+          [
+            240.0,
+            51.0
+          ]
+        ]
+      ],
+      "caption": "The marked crossing is (1,1).",
+      "labels": [
+        [
+          22.0,
+          136.0,
+          "Start"
+        ],
+        [
+          254.0,
+          44.0,
+          "End"
+        ]
+      ],
+      "points": [
+        [
+          36.0,
+          119.0
+        ],
+        [
+          240.0,
+          51.0
+        ],
+        [
+          70.0,
+          85.0
+        ]
+      ]
+    }
+  },
+  {
+    "id": "O093X",
+    "title": "Avoid the two edges through the middle",
+    "band": "21–25",
+    "prompt": "A route from (0,0) to (4,2) uses only unit moves right or up. The edges from (2,0) to (2,1) and from (2,1) to (2,2) are both closed, but all three endpoints are open. How many routes are still possible?",
+    "diagram": {
+      "type": "geometry",
+      "lines": [
+        [
+          [
+            70.0,
+            119.0
+          ],
+          [
+            70.0,
+            51.0
+          ]
+        ],
+        [
+          [
+            104.0,
+            119.0
+          ],
+          [
+            104.0,
+            51.0
+          ]
+        ],
+        [
+          [
+            138.0,
+            119.0
+          ],
+          [
+            138.0,
+            51.0
+          ]
+        ],
+        [
+          [
+            172.0,
+            119.0
+          ],
+          [
+            172.0,
+            51.0
+          ]
+        ],
+        [
+          [
+            206.0,
+            119.0
+          ],
+          [
+            206.0,
+            51.0
+          ]
+        ],
+        [
+          [
+            70.0,
+            119.0
+          ],
+          [
+            206.0,
+            119.0
+          ]
+        ],
+        [
+          [
+            70.0,
+            85.0
+          ],
+          [
+            206.0,
+            85.0
+          ]
+        ],
+        [
+          [
+            70.0,
+            51.0
+          ],
+          [
+            206.0,
+            51.0
+          ]
+        ]
+      ],
+      "caption": "The two closed edges are on the vertical line x = 2, from the bottom through the top.",
+      "labels": [
+        [
+          56.0,
+          136.0,
+          "Start"
+        ],
+        [
+          220.0,
+          44.0,
+          "End"
+        ]
+      ],
+      "points": [
+        [
+          70.0,
+          119.0
+        ],
+        [
+          206.0,
+          51.0
+        ]
+      ],
+      "openPoints": [
+        [
+          138.0,
+          102.0
+        ],
+        [
+          138.0,
+          68.0
+        ]
+      ],
+      "closed": [
+        [
+          [
+            138,
+            119
+          ],
+          [
+            138,
+            85
+          ]
+        ],
+        [
+          [
+            138,
+            85
+          ],
+          [
+            138,
+            51
+          ]
+        ]
+      ]
+    }
+  },
+  {
+    "id": "O100T",
+    "title": "Start and finish at different islands",
+    "band": "11–20",
+    "prompt": "Seven islands A through G form a ring in alphabetical order, with bridges between neighbours and between G and A. An extra bridge joins A to D. Can you cross each bridge once in a single walk, ending at a different island from where you started? Answer yes or no."
+  },
+  {
+    "id": "O100X",
+    "title": "The two loops share just one point",
+    "band": "21–25",
+    "prompt": "A track has a seven-edge loop and an eight-edge loop. The loops share exactly one vertex and no edges. Can a single walk cross each edge once and finish where it began? Answer yes or no."
+  },
+  {
+    "id": "O109T",
+    "title": "A route using each bridge once",
+    "band": "11–20",
+    "prompt": "Islands A, B, C and D are joined by bridges AB, BC, CD, DA and AC. You want to cross every bridge exactly once. If you begin at A, at which island must you finish? Enter the letter."
+  },
+  {
+    "id": "O109X",
+    "title": "One bridge to close a walk",
+    "band": "21–25",
+    "prompt": "An island network has bridges AB, BC, CD and DA, forming a loop. A new island E has only one bridge, EA. How many more bridges must be built so that a closed walk can cross every bridge exactly once? A second bridge may connect the same two islands."
+  },
+  {
+    "id": "O200T",
+    "title": "Which room should start?",
+    "band": "21–25",
+    "prompt": "A museum has passages AB, BC, CA, CD and DE. A visitor wants to use every passage exactly once and end in room E. In which room must the visitor start? Enter the letter."
+  },
+  {
+    "id": "O200X",
+    "title": "Two parts meet at one spot",
+    "band": "26–30",
+    "prompt": "A network has a triangle A–B–C–A and a square A–D–E–F–A, sharing only A. Starting at A, you trace every edge exactly once and return to A. How many different sequences of vertices can you trace?"
+  },
+  {
+    "id": "O227T",
+    "title": "Up before the first right turn",
+    "band": "11–20",
+    "prompt": "A robot starts at the bottom-left corner of a 4-by-2 grid of square cells and travels along grid lines to the top-right corner. It may move only right or up, one edge at a time. It must make its first upward move at the left edge. How many routes are possible?",
+    "diagram": {
+      "type": "geometry",
+      "lines": [
+        [
+          [
+            70.0,
+            119.0
+          ],
+          [
+            70.0,
+            51.0
+          ]
+        ],
+        [
+          [
+            104.0,
+            119.0
+          ],
+          [
+            104.0,
+            51.0
+          ]
+        ],
+        [
+          [
+            138.0,
+            119.0
+          ],
+          [
+            138.0,
+            51.0
+          ]
+        ],
+        [
+          [
+            172.0,
+            119.0
+          ],
+          [
+            172.0,
+            51.0
+          ]
+        ],
+        [
+          [
+            206.0,
+            119.0
+          ],
+          [
+            206.0,
+            51.0
+          ]
+        ],
+        [
+          [
+            70.0,
+            119.0
+          ],
+          [
+            206.0,
+            119.0
+          ]
+        ],
+        [
+          [
+            70.0,
+            85.0
+          ],
+          [
+            206.0,
+            85.0
+          ]
+        ],
+        [
+          [
+            70.0,
+            51.0
+          ],
+          [
+            206.0,
+            51.0
+          ]
+        ]
+      ],
+      "caption": "Start at the lower left. The first move upwards must be at the left edge.",
+      "labels": [
+        [
+          56.0,
+          136.0,
+          "Start"
+        ],
+        [
+          220.0,
+          44.0,
+          "End"
+        ]
+      ],
+      "points": [
+        [
+          70.0,
+          119.0
+        ],
+        [
+          206.0,
+          51.0
+        ]
+      ]
+    }
+  },
+  {
+    "id": "O227X",
+    "title": "Exactly one marked crossing",
+    "band": "21–25",
+    "prompt": "On a grid of four columns and three rows of unit squares, a route goes from the bottom-left corner (0,0) to the top-right corner (4,3), moving only right or up along the edges. It must visit exactly one of the crossings (1,2) and (3,1). How many routes work?",
+    "diagram": {
+      "type": "geometry",
+      "lines": [
+        [
+          [
+            70.0,
+            136.0
+          ],
+          [
+            70.0,
+            34.0
+          ]
+        ],
+        [
+          [
+            104.0,
+            136.0
+          ],
+          [
+            104.0,
+            34.0
+          ]
+        ],
+        [
+          [
+            138.0,
+            136.0
+          ],
+          [
+            138.0,
+            34.0
+          ]
+        ],
+        [
+          [
+            172.0,
+            136.0
+          ],
+          [
+            172.0,
+            34.0
+          ]
+        ],
+        [
+          [
+            206.0,
+            136.0
+          ],
+          [
+            206.0,
+            34.0
+          ]
+        ],
+        [
+          [
+            70.0,
+            136.0
+          ],
+          [
+            206.0,
+            136.0
+          ]
+        ],
+        [
+          [
+            70.0,
+            102.0
+          ],
+          [
+            206.0,
+            102.0
+          ]
+        ],
+        [
+          [
+            70.0,
+            68.0
+          ],
+          [
+            206.0,
+            68.0
+          ]
+        ],
+        [
+          [
+            70.0,
+            34.0
+          ],
+          [
+            206.0,
+            34.0
+          ]
+        ]
+      ],
+      "caption": "Exactly one of the two marked crossings must be visited.",
+      "labels": [
+        [
+          56.0,
+          153.0,
+          "Start"
+        ],
+        [
+          220.0,
+          27.0,
+          "End"
+        ]
+      ],
+      "points": [
+        [
+          70.0,
+          136.0
+        ],
+        [
+          206.0,
+          34.0
+        ],
+        [
+          104.0,
+          68.0
+        ],
+        [
+          172.0,
+          102.0
+        ]
+      ]
+    }
+  },
+  {
+    "id": "O291T",
+    "title": "One bridge must go",
+    "band": "21–25",
+    "prompt": "Four islands A, B, C and D are joined by the five bridges AB, BC, CD, DA and BD. Exactly one bridge is removed. How many choices of bridge let you cross all remaining bridges exactly once and finish where you started?"
+  },
+  {
+    "id": "O291X",
+    "title": "The shared edge between two triangles",
+    "band": "26–30",
+    "prompt": "The bridges between four islands are AB, BC, CA, BD and DA. A walk must start at A, finish at B and cross every bridge exactly once. How many different sequences of islands can the walk follow?"
+  },
+  {
+    "id": "O318T",
+    "title": "Two vertical steps must be separated",
+    "band": "21–25",
+    "prompt": "A path from (0,0) to (4,2) uses only steps one unit right or one unit up. Its two upward steps cannot come one after the other. How many paths work?",
+    "diagram": {
+      "type": "geometry",
+      "lines": [
+        [
+          [
+            70.0,
+            119.0
+          ],
+          [
+            70.0,
+            51.0
+          ]
+        ],
+        [
+          [
+            104.0,
+            119.0
+          ],
+          [
+            104.0,
+            51.0
+          ]
+        ],
+        [
+          [
+            138.0,
+            119.0
+          ],
+          [
+            138.0,
+            51.0
+          ]
+        ],
+        [
+          [
+            172.0,
+            119.0
+          ],
+          [
+            172.0,
+            51.0
+          ]
+        ],
+        [
+          [
+            206.0,
+            119.0
+          ],
+          [
+            206.0,
+            51.0
+          ]
+        ],
+        [
+          [
+            70.0,
+            119.0
+          ],
+          [
+            206.0,
+            119.0
+          ]
+        ],
+        [
+          [
+            70.0,
+            85.0
+          ],
+          [
+            206.0,
+            85.0
+          ]
+        ],
+        [
+          [
+            70.0,
+            51.0
+          ],
+          [
+            206.0,
+            51.0
+          ]
+        ]
+      ],
+      "caption": "The grid is four edges wide and two edges high.",
+      "labels": [
+        [
+          56.0,
+          136.0,
+          "Start"
+        ],
+        [
+          220.0,
+          44.0,
+          "End"
+        ]
+      ],
+      "points": [
+        [
+          70.0,
+          119.0
+        ],
+        [
+          206.0,
+          51.0
+        ]
+      ]
+    }
+  },
+  {
+    "id": "O318X",
+    "title": "A short route with an early turn",
+    "band": "21–25",
+    "prompt": "A square street map has four blocks across and four blocks up. A shortest route from the south-west corner to the north-east corner starts by going east. It turns exactly three times and makes its first turn after one block. How many such routes are possible?",
+    "diagram": {
+      "type": "geometry",
+      "lines": [
+        [
+          [
+            72.0,
+            151.0
+          ],
+          [
+            72.0,
+            19.0
+          ]
+        ],
+        [
+          [
+            105.0,
+            151.0
+          ],
+          [
+            105.0,
+            19.0
+          ]
+        ],
+        [
+          [
+            138.0,
+            151.0
+          ],
+          [
+            138.0,
+            19.0
+          ]
+        ],
+        [
+          [
+            171.0,
+            151.0
+          ],
+          [
+            171.0,
+            19.0
+          ]
+        ],
+        [
+          [
+            204.0,
+            151.0
+          ],
+          [
+            204.0,
+            19.0
+          ]
+        ],
+        [
+          [
+            72.0,
+            151.0
+          ],
+          [
+            204.0,
+            151.0
+          ]
+        ],
+        [
+          [
+            72.0,
+            118.0
+          ],
+          [
+            204.0,
+            118.0
+          ]
+        ],
+        [
+          [
+            72.0,
+            85.0
+          ],
+          [
+            204.0,
+            85.0
+          ]
+        ],
+        [
+          [
+            72.0,
+            52.0
+          ],
+          [
+            204.0,
+            52.0
+          ]
+        ],
+        [
+          [
+            72.0,
+            19.0
+          ],
+          [
+            204.0,
+            19.0
+          ]
+        ]
+      ],
+      "caption": "The grid is four blocks wide and four blocks high.",
+      "labels": [
+        [
+          58.0,
+          168.0,
+          "Start"
+        ],
+        [
+          218.0,
+          22,
+          "End"
+        ]
+      ],
+      "points": [
+        [
+          72.0,
+          151.0
+        ],
+        [
+          204.0,
+          19.0
+        ]
+      ]
+    }
+  },
+  {
+    "id": "O366T",
+    "title": "Three turns in four runs",
+    "band": "21–25",
+    "prompt": "On a grid, a shortest route from (0,0) to (5,2) uses only unit moves right or up. It starts with an upward move and changes direction exactly three times. How many such routes are possible?",
+    "diagram": {
+      "type": "geometry",
+      "lines": [
+        [
+          [
+            53.0,
+            119.0
+          ],
+          [
+            53.0,
+            51.0
+          ]
+        ],
+        [
+          [
+            87.0,
+            119.0
+          ],
+          [
+            87.0,
+            51.0
+          ]
+        ],
+        [
+          [
+            121.0,
+            119.0
+          ],
+          [
+            121.0,
+            51.0
+          ]
+        ],
+        [
+          [
+            155.0,
+            119.0
+          ],
+          [
+            155.0,
+            51.0
+          ]
+        ],
+        [
+          [
+            189.0,
+            119.0
+          ],
+          [
+            189.0,
+            51.0
+          ]
+        ],
+        [
+          [
+            223.0,
+            119.0
+          ],
+          [
+            223.0,
+            51.0
+          ]
+        ],
+        [
+          [
+            53.0,
+            119.0
+          ],
+          [
+            223.0,
+            119.0
+          ]
+        ],
+        [
+          [
+            53.0,
+            85.0
+          ],
+          [
+            223.0,
+            85.0
+          ]
+        ],
+        [
+          [
+            53.0,
+            51.0
+          ],
+          [
+            223.0,
+            51.0
+          ]
+        ]
+      ],
+      "caption": "The grid is five edges wide and two edges high.",
+      "labels": [
+        [
+          39.0,
+          136.0,
+          "Start"
+        ],
+        [
+          237.0,
+          44.0,
+          "End"
+        ]
+      ],
+      "points": [
+        [
+          53.0,
+          119.0
+        ],
+        [
+          223.0,
+          51.0
+        ]
+      ]
+    }
+  },
+  {
+    "id": "O366X",
+    "title": "Avoid both closed crossings",
+    "band": "26–30",
+    "prompt": "A route from (0,0) to (4,3) follows grid edges one unit right or up. Two crossings, (1,1) and (3,2), are closed. How many routes avoid both crossings?",
+    "diagram": {
+      "type": "geometry",
+      "lines": [
+        [
+          [
+            70.0,
+            136.0
+          ],
+          [
+            70.0,
+            34.0
+          ]
+        ],
+        [
+          [
+            104.0,
+            136.0
+          ],
+          [
+            104.0,
+            34.0
+          ]
+        ],
+        [
+          [
+            138.0,
+            136.0
+          ],
+          [
+            138.0,
+            34.0
+          ]
+        ],
+        [
+          [
+            172.0,
+            136.0
+          ],
+          [
+            172.0,
+            34.0
+          ]
+        ],
+        [
+          [
+            206.0,
+            136.0
+          ],
+          [
+            206.0,
+            34.0
+          ]
+        ],
+        [
+          [
+            70.0,
+            136.0
+          ],
+          [
+            206.0,
+            136.0
+          ]
+        ],
+        [
+          [
+            70.0,
+            102.0
+          ],
+          [
+            206.0,
+            102.0
+          ]
+        ],
+        [
+          [
+            70.0,
+            68.0
+          ],
+          [
+            206.0,
+            68.0
+          ]
+        ],
+        [
+          [
+            70.0,
+            34.0
+          ],
+          [
+            206.0,
+            34.0
+          ]
+        ]
+      ],
+      "caption": "Crossings (1,1) and (3,2) are closed.",
+      "labels": [
+        [
+          56.0,
+          153.0,
+          "Start"
+        ],
+        [
+          220.0,
+          27.0,
+          "End"
+        ]
+      ],
+      "points": [
+        [
+          70.0,
+          136.0
+        ],
+        [
+          206.0,
+          34.0
+        ]
+      ],
+      "openPoints": [
+        [
+          104.0,
+          102.0
+        ],
+        [
+          172.0,
+          68.0
+        ]
+      ]
+    }
+  }
+]

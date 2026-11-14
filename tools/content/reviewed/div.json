@@ -1,0 +1,320 @@
+[
+  {
+    "id": "O001T",
+    "title": "Packing bolts into boxes",
+    "prompt": "A warehouse packs 53 bolts into boxes that each hold exactly 7 bolts. After filling as many boxes as possible, how many additional bolts are needed to fill the final, partly filled box?",
+    "band": "1–10"
+  },
+  {
+    "id": "O001X",
+    "title": "A square with a given remainder",
+    "prompt": "A whole number N leaves remainder 3 when divided by 7. What remainder does N × N + 4 leave when divided by 7?",
+    "band": "21–25"
+  },
+  {
+    "id": "O011T",
+    "title": "Factor pairs without the endpoints",
+    "band": "11–20",
+    "prompt": "Sixty square tiles are put into a rectangle. The number of rows and the number in each row must both be more than 1. How many different numbers of rows are possible?"
+  },
+  {
+    "id": "O011X",
+    "title": "Three sizes of carton",
+    "band": "21–25",
+    "prompt": "A shed has 72 identical jars. There are three available carton sizes, holding 8, 9 and 12 jars. What is the largest number of each size of carton that can be filled if the number of full cartons is the same for all three sizes and some jars may be left over?"
+  },
+  {
+    "id": "O013T",
+    "title": "The number of shared chimes",
+    "band": "11–20",
+    "prompt": "Two clocks chime together at 9:00 am. One then chimes every 14 minutes and the other every 21 minutes. How many times do they chime together after 9:00 am and up to and including 11:06 am?"
+  },
+  {
+    "id": "O013X",
+    "title": "Find the first return after a meeting",
+    "band": "21–25",
+    "prompt": "One lamp flashes at seconds 3, 9, 15 and every 6 seconds thereafter. A second flashes at seconds 7, 15 and every 8 seconds thereafter. At what second do they next flash together after second 15?"
+  },
+  {
+    "id": "O015T",
+    "title": "Complete the craft packs",
+    "band": "11–20",
+    "prompt": "A teacher has 118 beads. She wants some complete packs of 8 and exactly 3 loose beads. What is the smallest number of beads she can add?"
+  },
+  {
+    "id": "O015X",
+    "title": "Leftovers with either scoop",
+    "band": "21–25",
+    "prompt": "A jar has between 50 and 90 marbles. Packing them in scoops of 6 leaves 2. Packing them in scoops of 7 also leaves 2. How many marbles are in the jar?"
+  },
+  {
+    "id": "O018T",
+    "title": "Seven moves cannot reverse the lamps",
+    "band": "11–20",
+    "prompt": "Six lamps are blue. In one move, exactly three different lamps change colour, blue to gold or gold to blue. After seven moves, can all the lamps be blue again? Answer yes or no."
+  },
+  {
+    "id": "O018X",
+    "title": "A counter never sees some numbers",
+    "band": "21–25",
+    "prompt": "A counter starts at 22. In one move it can add 6 or subtract 9. Can it ever show 44? Answer yes or no."
+  },
+  {
+    "id": "O019T",
+    "title": "The jump does not change the remainder",
+    "band": "11–20",
+    "prompt": "A marker starts on 9. Every move either adds 8 or subtracts 12. Can it ever land on 27? Answer yes or no."
+  },
+  {
+    "id": "O019X",
+    "title": "Pairs of turned cups",
+    "band": "21–25",
+    "prompt": "Nine cups start upside down. In one move you turn over exactly two different cups. Is it possible to finish with exactly five cups upright? Answer yes or no."
+  },
+  {
+    "id": "O020T",
+    "title": "The units digit after an addition",
+    "band": "11–20",
+    "prompt": "What is the units digit of 3 raised to the power 15, plus 2?"
+  },
+  {
+    "id": "O020X",
+    "title": "The first power to meet the target",
+    "band": "21–25",
+    "prompt": "What is the smallest positive whole number n for which 7 raised to the power n and 3 raised to the power n have the same last digit?"
+  },
+  {
+    "id": "O066T",
+    "title": "Numbered lockers",
+    "band": "11–20",
+    "prompt": "Lockers are numbered from 1 to 58. Every seventh locker, starting with locker 4, has a blue sticker. What is the number of the last locker with a blue sticker?"
+  },
+  {
+    "id": "O066X",
+    "title": "Chip labels in a ring",
+    "band": "21–25",
+    "prompt": "Eleven positions on a ring are labelled 0 to 10 in clockwise order. A chip starts at 0 and jumps 4 positions clockwise each time, counting the next position as 1. How many jumps does it take to land on 0 for the second time after leaving it?"
+  },
+  {
+    "id": "O110T",
+    "title": "The vendor's two bundles",
+    "band": "11–20",
+    "prompt": "A vendor has 86 flowers. After making as many bunches of 7 as possible, she gives the loose flowers to a customer. She then receives 25 more flowers and makes more bunches of 7. How many flowers are loose now?"
+  },
+  {
+    "id": "O110X",
+    "title": "The missing day strip",
+    "band": "21–25",
+    "prompt": "The first day of a 31-day month was a Sunday. A printed calendar covers all 31 dates in rows of seven, with Sunday first and Saturday last. How many of its Fridays have even date numbers?"
+  },
+  {
+    "id": "O151T",
+    "title": "The total keeps an odd part",
+    "band": "11–20",
+    "prompt": "Six cards show 1, 3, 5, 6, 8 and 9. In each move two cards are replaced by one card showing their sum. After five moves, is the number on the last card odd? Answer yes or no."
+  },
+  {
+    "id": "O151X",
+    "title": "Two changes on the scale",
+    "band": "21–25",
+    "prompt": "A counter starts at 30. A legal move either adds 9 or subtracts 6. What is the smallest number greater than 40 that it can reach?"
+  },
+  {
+    "id": "O169T",
+    "title": "Two labels per box",
+    "band": "11–20",
+    "prompt": "A machine prints the labels 1 through 95, then puts labels numbered 1 and 2 in the first box, 3 and 4 in the next, and so on. Labels that are multiples of 10 are faulty. How many boxes receive two good labels?"
+  },
+  {
+    "id": "O169X",
+    "title": "Stickers by the dozen",
+    "band": "21–25",
+    "prompt": "A roll has at least 100 and fewer than 160 stickers. Packs of 12 leave 5 stickers. Packs of 9 leave 2. Of the totals that fit both facts, what is the largest?"
+  },
+  {
+    "id": "O178T",
+    "title": "Make two kinds of rectangle",
+    "band": "11–20",
+    "prompt": "A display contains 87 tiles. You want to add the fewest tiles possible so that the total makes a rectangle with 6 rows and also makes a rectangle with 8 rows. How many tiles must you add?"
+  },
+  {
+    "id": "O178X",
+    "title": "A pack with exactly six choices",
+    "band": "21–25",
+    "prompt": "A shop packs an unknown number of biscuits. It can arrange them in exactly six different positive whole-number row widths, including 1 and the full number. The number of biscuits is a multiple of 9 and lies between 20 and 50. How many biscuits are there?"
+  },
+  {
+    "id": "O201T",
+    "title": "Seating on the last shuttle",
+    "band": "11–20",
+    "prompt": "A school takes 90 people on identical shuttles with 12 seats. The last shuttle carries the same number of people as its number of empty seats. The school then sends 5 people home before boarding. If it fills one shuttle at a time, how many people ride in the last shuttle?"
+  },
+  {
+    "id": "O201X",
+    "title": "Which boxes stay half full?",
+    "band": "21–25",
+    "prompt": "There are 97 one-centimetre tiles. A box holds 8 tiles. After 97 tiles are packed one box at a time, 34 more arrive. How many full boxes in the final packing contain tiles from both deliveries?"
+  },
+  {
+    "id": "O219T",
+    "title": "Only one sprinkler",
+    "band": "11–20",
+    "prompt": "Both sprinklers water a bed at 8 am. One comes on every 8 minutes and the other every 12 minutes. In the next hour, including 9 am and excluding 8 am, at how many times is exactly one sprinkler on at its start time?"
+  },
+  {
+    "id": "O219X",
+    "title": "The next service day shared",
+    "band": "21–25",
+    "prompt": "Two market stalls restock at the start of day 1. One restocks every 4 days. The other waits 3 days after day 1 for its first later restock and then restocks every 5 days. What is the first day after day 1 when they both restock?"
+  },
+  {
+    "id": "O242T",
+    "title": "The checkerboard retains its colour count",
+    "band": "11–20",
+    "prompt": "A 4-by-5 checkerboard has 10 light and 10 dark cells. Two light cells are covered with stickers. What is the greatest number of dominoes that could fit on the remaining cells without overlapping, for some choice of the two sticker cells?"
+  },
+  {
+    "id": "O242X",
+    "title": "More than one kind of step",
+    "band": "26–30",
+    "prompt": "Two numbers on a board are 14 and 28. In each move, add 3 to one number and subtract 5 from the other. After exactly seven moves, can the two numbers be equal? Answer yes or no."
+  },
+  {
+    "id": "O251T",
+    "title": "A chime fits an hour",
+    "band": "11–20",
+    "prompt": "A bell rings at noon and at equal intervals after that. It rings exactly 7 more times by 1 pm, with the seventh at 12:56. How many minutes are there between consecutive rings?"
+  },
+  {
+    "id": "O251X",
+    "title": "When all three lamps meet",
+    "band": "21–25",
+    "prompt": "A blue lamp flashes every 6 seconds, a red one every 10 seconds and a green one every 15 seconds. Blue and red flash together at time 0. Green first flashes at 10 seconds and then regularly. Do all three ever flash together? Answer yes or no."
+  },
+  {
+    "id": "O260T",
+    "title": "A roll cut in stages",
+    "band": "11–20",
+    "prompt": "Mia has 83 cm of ribbon. She cuts off 14 cm for a bow and uses all she can of the rest to make 6-cm tags. How many centimetres are left?"
+  },
+  {
+    "id": "O260X",
+    "title": "A square with a given leftover",
+    "band": "26–30",
+    "prompt": "How many whole numbers from 1 to 100 have a square that leaves remainder 4 when divided by 15?"
+  },
+  {
+    "id": "O269T",
+    "title": "A common packet size",
+    "band": "11–20",
+    "prompt": "Sixty red beads and 84 yellow beads are packed separately. Every packet holds the same number of beads and there are none left over. What is the smallest total number of packets?"
+  },
+  {
+    "id": "O269X",
+    "title": "A rectangle whose sides are both prime",
+    "band": "21–25",
+    "prompt": "A box holds between 30 and 70 tiles. The tiles can be laid in a rectangle whose two side lengths are different prime numbers. The tile count is a multiple of 11. How many tile counts are possible?"
+  },
+  {
+    "id": "O283T",
+    "title": "A product hides its final digit",
+    "band": "21–25",
+    "prompt": "What is the last digit of the product of all the odd whole numbers from 1 to 19?"
+  },
+  {
+    "id": "O283X",
+    "title": "One digit repeats in two powers",
+    "band": "26–30",
+    "prompt": "How many whole numbers n from 1 to 100 have the same units digit in 2 to the power n and 8 to the power n?"
+  },
+  {
+    "id": "O310T",
+    "title": "Count the missing chimes",
+    "band": "11–20",
+    "prompt": "A shop is open for 90 minutes. A clock chimes every 6 minutes after it opens. A separate announcement is made every 10 minutes after opening. A chime is still made when an announcement happens, but it cannot be heard. Including the events at closing time, how many chimes can be heard?"
+  },
+  {
+    "id": "O310X",
+    "title": "Same-minute deliveries",
+    "band": "21–25",
+    "prompt": "One delivery visits at minutes 4, 11, 18 and so on. The other visits at minutes 1, 10, 19 and so on. How many visits occur in the same minute before minute 150?"
+  },
+  {
+    "id": "O333T",
+    "title": "The two buckets move together",
+    "band": "21–25",
+    "prompt": "One bucket has 18 balls and the other has 30. A move sends exactly 4 balls from either bucket to the other. What is the smallest possible difference between their ball counts?"
+  },
+  {
+    "id": "O333X",
+    "title": "A colour check on an edge flip",
+    "band": "26–30",
+    "prompt": "Nine coins form a 3-by-3 array and start heads up. A move flips the three coins in one row or the three coins in one column. Can a sequence of moves leave exactly the centre coin tails up? Answer yes or no.",
+    "diagram": {
+      "type": "board",
+      "cells": [
+        "...",
+        "...",
+        "..."
+      ],
+      "description": "Nine coins start heads up."
+    }
+  },
+  {
+    "id": "O342T",
+    "title": "A pair of missing records",
+    "band": "21–25",
+    "prompt": "A blue machine makes a mark every 5 seconds and a red one every 7 seconds. Both make marks at time zero. In the next 70 seconds, including time 70 but excluding zero, how many distinct times are marked?"
+  },
+  {
+    "id": "O342X",
+    "title": "The unknown rhythm",
+    "band": "26–30",
+    "prompt": "Two lamps begin together. One flashes every 12 seconds. The other flashes every N seconds, where N is a whole number between 12 and 30. Their first later simultaneous flash is at 60 seconds. What is the sum of all possible values of N?"
+  },
+  {
+    "id": "O351T",
+    "title": "The next three-digit marker",
+    "band": "11–20",
+    "prompt": "A walking trail has signposts at 5 km, 13 km, 21 km and so on. At what distance, in kilometres, is the first signpost with a three-digit distance?"
+  },
+  {
+    "id": "O351X",
+    "title": "Match the remainder again",
+    "band": "26–30",
+    "prompt": "For how many whole numbers from 1 to 200, inclusive, do the number and its square have the same remainder when divided by 12?"
+  },
+  {
+    "id": "O360T",
+    "title": "The greatest possible square",
+    "band": "11–20",
+    "prompt": "Mila has 150 square tiles and may remove some of them. She uses all the tiles that remain to make the largest possible square. How many tiles does she remove?"
+  },
+  {
+    "id": "O360X",
+    "title": "Exactly one packing width is one digit",
+    "band": "21–25",
+    "prompt": "A rectangle made from 90 tiles has two different whole-number side lengths, both greater than 1. How many such rectangles have exactly one side length less than 10? Treat a turn of the rectangle as the same shape."
+  },
+  {
+    "id": "O367T",
+    "title": "Ways to make a total with odd tiles",
+    "band": "21–25",
+    "prompt": "Tiles worth 3, 5, 7 and 9 points can be used at most once each. How many different subsets have a positive even total?"
+  },
+  {
+    "id": "O367X",
+    "title": "Four movable lamps form the whole target",
+    "band": "21–25",
+    "prompt": "Nine lamps form a 3-by-3 square and start off. A move changes the state of the four lamps in a 2-by-2 square. Can the four outside corner lamps be made to glow with all the other lamps off? Answer yes or no.",
+    "diagram": {
+      "type": "board",
+      "cells": [
+        "...",
+        "...",
+        "..."
+      ],
+      "description": "Nine lamps start off. The target is just the four corners."
+    }
+  }
+]

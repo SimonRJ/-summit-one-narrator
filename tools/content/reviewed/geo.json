@@ -1,0 +1,2970 @@
+[
+  {
+    "id": "O043T",
+    "title": "Two unequal strips",
+    "band": "11–20",
+    "prompt": "A 9 cm by 3 cm strip and a 6 cm by 4 cm rectangle are joined along one full 3 cm edge of the strip. The rectangles have no other contact or overlap. What is the outside perimeter in centimetres?",
+    "diagram": {
+      "type": "geometry",
+      "lines": [
+        [
+          [
+            32,
+            100
+          ],
+          [
+            149,
+            100
+          ],
+          [
+            149,
+            87
+          ],
+          [
+            227,
+            87
+          ],
+          [
+            227,
+            139
+          ],
+          [
+            32,
+            139
+          ],
+          [
+            32,
+            100
+          ]
+        ],
+        [
+          [
+            149,
+            100
+          ],
+          [
+            149,
+            139
+          ]
+        ]
+      ],
+      "caption": "A 9-by-3 strip shares its full short edge with the 6-by-4 rectangle.",
+      "labels": [
+        [
+          87,
+          94,
+          "9 cm"
+        ],
+        [
+          24,
+          123,
+          "3"
+        ],
+        [
+          188,
+          81,
+          "6 cm"
+        ],
+        [
+          237,
+          112,
+          "4"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "O043X",
+    "title": "Perimeter round a notch",
+    "band": "21–25",
+    "prompt": "A 13 cm by 9 cm card has a rectangular notch cut into the middle of a long side. The opening is 2 cm wide and the notch is 3 cm deep. What is the remaining card's perimeter, in centimetres?",
+    "diagram": {
+      "type": "geometry",
+      "lines": [
+        [
+          [
+            43,
+            42
+          ],
+          [
+            111,
+            42
+          ],
+          [
+            111,
+            78
+          ],
+          [
+            137,
+            78
+          ],
+          [
+            137,
+            42
+          ],
+          [
+            225,
+            42
+          ],
+          [
+            225,
+            150
+          ],
+          [
+            43,
+            150
+          ],
+          [
+            43,
+            42
+          ]
+        ]
+      ],
+      "caption": "The notch has a 2 cm opening and is 3 cm deep.",
+      "labels": [
+        [
+          134,
+          166,
+          "13 cm"
+        ],
+        [
+          235,
+          101,
+          "9"
+        ],
+        [
+          123,
+          34,
+          "2"
+        ],
+        [
+          151,
+          67,
+          "3"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "O053T",
+    "title": "Three sides of a pen",
+    "band": "11–20",
+    "prompt": "A rectangular pen is built against a straight wall. Only the other three sides are fenced, using 28 metres in total. The lengths are positive whole numbers. What is the greatest possible area in square metres?"
+  },
+  {
+    "id": "O053X",
+    "title": "The short boundary around 195 tiles",
+    "band": "21–25",
+    "prompt": "Exactly 195 unit squares form a rectangle. What is the smallest possible perimeter, in unit lengths?"
+  },
+  {
+    "id": "O061T",
+    "title": "A triangle reaches the other side",
+    "band": "11–20",
+    "prompt": "A 14 cm by 9 cm rectangle contains a triangle whose base is the rectangle's full 14 cm bottom edge. Its third vertex lies on the top edge. What area is outside the triangle, in square centimetres?",
+    "diagram": {
+      "type": "geometry",
+      "lines": [
+        [
+          [
+            57,
+            38
+          ],
+          [
+            225,
+            38
+          ],
+          [
+            225,
+            146
+          ],
+          [
+            57,
+            146
+          ],
+          [
+            57,
+            38
+          ]
+        ],
+        [
+          [
+            57,
+            146
+          ],
+          [
+            121,
+            38
+          ],
+          [
+            225,
+            146
+          ]
+        ]
+      ],
+      "caption": "The triangle uses the whole bottom edge, with its tip on the top edge.",
+      "labels": [
+        [
+          142,
+          166,
+          "14 cm"
+        ],
+        [
+          43,
+          96,
+          "9"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "O061X",
+    "title": "One height is half of the other",
+    "band": "21–25",
+    "prompt": "A triangle has area 42 square centimetres. A smaller triangle lies inside it, sharing the full base and having half the original height. What area lies inside the larger triangle but outside the smaller, in square centimetres?",
+    "diagram": {
+      "type": "geometry",
+      "lines": [
+        [
+          [
+            57,
+            145
+          ],
+          [
+            112,
+            33
+          ],
+          [
+            225,
+            145
+          ],
+          [
+            57,
+            145
+          ]
+        ],
+        [
+          [
+            57,
+            145
+          ],
+          [
+            101,
+            89
+          ],
+          [
+            225,
+            145
+          ]
+        ]
+      ],
+      "caption": "The two triangles have a common base. The inner one has half the outer height."
+    }
+  },
+  {
+    "id": "O076T",
+    "title": "The missing edge of an L",
+    "band": "11–20",
+    "prompt": "An L-shaped piece is made by cutting a rectangle from the top-right corner of a 12 cm by 8 cm card. The missing rectangle is 5 cm wide and 3 cm high. What is the perimeter of the remaining piece, in centimetres?",
+    "diagram": {
+      "type": "geometry",
+      "lines": [
+        [
+          [
+            49,
+            39
+          ],
+          [
+            145,
+            39
+          ],
+          [
+            145,
+            75
+          ],
+          [
+            205,
+            75
+          ],
+          [
+            205,
+            135
+          ],
+          [
+            49,
+            135
+          ],
+          [
+            49,
+            39
+          ]
+        ]
+      ],
+      "caption": "The top-right corner is removed.",
+      "labels": [
+        [
+          128,
+          153,
+          "12 cm"
+        ],
+        [
+          35,
+          92,
+          "8"
+        ],
+        [
+          173,
+          69,
+          "5 cm"
+        ],
+        [
+          134,
+          62,
+          "3"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "O076X",
+    "title": "Tiles touching around a hole",
+    "band": "21–25",
+    "prompt": "Eight unit squares form the border of a 3-by-3 grid. A ninth square is attached outside the frame along exactly one full side. What is the sum of the outside perimeter and the perimeter of the hole, in unit lengths?"
+  },
+  {
+    "id": "O078T",
+    "title": "A diagonal through a new rectangle",
+    "band": "11–20",
+    "prompt": "A rectangle is 8 cm wide and 7 cm high. A diagonal cuts it into two triangles. One triangle is cut in half by joining its right-angle corner to the midpoint of the diagonal. What is the area of either smaller triangle, in square centimetres?",
+    "diagram": {
+      "type": "geometry",
+      "lines": [
+        [
+          [
+            66,
+            29
+          ],
+          [
+            218,
+            29
+          ],
+          [
+            218,
+            145
+          ],
+          [
+            66,
+            145
+          ],
+          [
+            66,
+            29
+          ]
+        ],
+        [
+          [
+            66,
+            145
+          ],
+          [
+            218,
+            29
+          ]
+        ],
+        [
+          [
+            66,
+            29
+          ],
+          [
+            142,
+            87
+          ]
+        ]
+      ],
+      "caption": "One half of the rectangle is cut from its right-angle corner to the diagonal midpoint.",
+      "labels": [
+        [
+          142,
+          167,
+          "8 cm"
+        ],
+        [
+          51,
+          88,
+          "7"
+        ]
+      ],
+      "points": [
+        [
+          142,
+          87
+        ]
+      ]
+    }
+  },
+  {
+    "id": "O078X",
+    "title": "Recover the short height",
+    "band": "21–25",
+    "prompt": "Two triangles share the same 12 cm base. Their heights differ by 5 cm and their areas add to 102 square centimetres. What is the smaller height, in centimetres?",
+    "diagram": {
+      "type": "geometry",
+      "lines": [
+        [
+          [
+            53,
+            145
+          ],
+          [
+            135,
+            28
+          ],
+          [
+            222,
+            145
+          ],
+          [
+            53,
+            145
+          ]
+        ],
+        [
+          [
+            53,
+            145
+          ],
+          [
+            109,
+            85
+          ],
+          [
+            222,
+            145
+          ]
+        ]
+      ],
+      "caption": "The triangles share a 12 cm base and have different heights.",
+      "labels": [
+        [
+          139,
+          164,
+          "12 cm"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "O081T",
+    "title": "Two matching angles",
+    "band": "11–20",
+    "prompt": "An isosceles triangle has an angle of 66 degrees at the vertex where the two equal sides meet. What is the size of either other angle, in degrees?",
+    "diagram": {
+      "type": "geometry",
+      "lines": [
+        [
+          [
+            58,
+            141
+          ],
+          [
+            138,
+            29
+          ],
+          [
+            218,
+            141
+          ],
+          [
+            58,
+            141
+          ]
+        ],
+        [
+          [
+            93,
+            84
+          ],
+          [
+            105,
+            92
+          ]
+        ],
+        [
+          [
+            171,
+            92
+          ],
+          [
+            183,
+            84
+          ]
+        ]
+      ],
+      "caption": "The sloping sides are equal. The angle between them is 66 degrees.",
+      "labels": [
+        [
+          138,
+          64,
+          "66°"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "O081X",
+    "title": "One angle outside the triangle",
+    "band": "21–25",
+    "prompt": "Extending one side of a triangle makes an outside angle of 113 degrees at a vertex. One of the two interior angles at the other vertices is 38 degrees. How large is the third interior angle, in degrees?",
+    "diagram": {
+      "type": "geometry",
+      "lines": [
+        [
+          [
+            31,
+            142
+          ],
+          [
+            215,
+            142
+          ]
+        ],
+        [
+          [
+            60,
+            142
+          ],
+          [
+            156,
+            67
+          ],
+          [
+            188,
+            142
+          ],
+          [
+            60,
+            142
+          ]
+        ]
+      ],
+      "caption": "The bottom-right exterior angle is 113 degrees; the bottom-left angle is 38 degrees.",
+      "labels": [
+        [
+          104,
+          135,
+          "38°"
+        ],
+        [
+          205,
+          131,
+          "113°"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "O083T",
+    "title": "Turn the alternating colours",
+    "band": "11–20",
+    "prompt": "The fourteen vertices of a regular polygon are coloured alternately blue and gold. How many rotations less than a full turn preserve every vertex colour and the outline, counting zero as a rotation?",
+    "diagram": {
+      "type": "geometry",
+      "lines": [
+        [
+          [
+            138.0,
+            25.0
+          ],
+          [
+            164.5,
+            31.0
+          ],
+          [
+            185.7,
+            48.0
+          ],
+          [
+            197.5,
+            72.4
+          ],
+          [
+            197.5,
+            99.6
+          ],
+          [
+            185.7,
+            124.0
+          ],
+          [
+            164.5,
+            141.0
+          ],
+          [
+            138.0,
+            147.0
+          ],
+          [
+            111.5,
+            141.0
+          ],
+          [
+            90.3,
+            124.0
+          ],
+          [
+            78.5,
+            99.6
+          ],
+          [
+            78.5,
+            72.4
+          ],
+          [
+            90.3,
+            48.0
+          ],
+          [
+            111.5,
+            31.0
+          ],
+          [
+            138.0,
+            25.0
+          ]
+        ]
+      ],
+      "caption": "B means blue and G means gold. The colours alternate around the polygon.",
+      "labels": [
+        [
+          138.0,
+          20,
+          "B"
+        ],
+        [
+          171.0,
+          21.5,
+          "G"
+        ],
+        [
+          197.4,
+          42.6,
+          "B"
+        ],
+        [
+          212.1,
+          73.1,
+          "G"
+        ],
+        [
+          212.1,
+          106.9,
+          "B"
+        ],
+        [
+          197.4,
+          137.4,
+          "G"
+        ],
+        [
+          171.0,
+          158.5,
+          "B"
+        ],
+        [
+          138.0,
+          166.0,
+          "G"
+        ],
+        [
+          105.0,
+          158.5,
+          "B"
+        ],
+        [
+          78.6,
+          137.4,
+          "G"
+        ],
+        [
+          63.9,
+          106.9,
+          "B"
+        ],
+        [
+          63.9,
+          73.1,
+          "G"
+        ],
+        [
+          78.6,
+          42.6,
+          "B"
+        ],
+        [
+          105.0,
+          21.5,
+          "G"
+        ]
+      ],
+      "points": [
+        [
+          138.0,
+          25.0
+        ],
+        [
+          164.5,
+          31.0
+        ],
+        [
+          185.7,
+          48.0
+        ],
+        [
+          197.5,
+          72.4
+        ],
+        [
+          197.5,
+          99.6
+        ],
+        [
+          185.7,
+          124.0
+        ],
+        [
+          164.5,
+          141.0
+        ],
+        [
+          138.0,
+          147.0
+        ],
+        [
+          111.5,
+          141.0
+        ],
+        [
+          90.3,
+          124.0
+        ],
+        [
+          78.5,
+          99.6
+        ],
+        [
+          78.5,
+          72.4
+        ],
+        [
+          90.3,
+          48.0
+        ],
+        [
+          111.5,
+          31.0
+        ]
+      ]
+    }
+  },
+  {
+    "id": "O083X",
+    "title": "A single line keeps both red vertices",
+    "band": "21–25",
+    "prompt": "In a regular fourteen-sided polygon, two adjacent vertices are red and every other vertex is blue. How many reflection lines preserve this colouring and the outline?",
+    "diagram": {
+      "type": "geometry",
+      "lines": [
+        [
+          [
+            138.0,
+            25.0
+          ],
+          [
+            164.5,
+            31.0
+          ],
+          [
+            185.7,
+            48.0
+          ],
+          [
+            197.5,
+            72.4
+          ],
+          [
+            197.5,
+            99.6
+          ],
+          [
+            185.7,
+            124.0
+          ],
+          [
+            164.5,
+            141.0
+          ],
+          [
+            138.0,
+            147.0
+          ],
+          [
+            111.5,
+            141.0
+          ],
+          [
+            90.3,
+            124.0
+          ],
+          [
+            78.5,
+            99.6
+          ],
+          [
+            78.5,
+            72.4
+          ],
+          [
+            90.3,
+            48.0
+          ],
+          [
+            111.5,
+            31.0
+          ],
+          [
+            138.0,
+            25.0
+          ]
+        ]
+      ],
+      "caption": "R means red and B means blue. Only two adjacent vertices are red.",
+      "labels": [
+        [
+          138.0,
+          20,
+          "R"
+        ],
+        [
+          171.0,
+          21.5,
+          "R"
+        ],
+        [
+          197.4,
+          42.6,
+          "B"
+        ],
+        [
+          212.1,
+          73.1,
+          "B"
+        ],
+        [
+          212.1,
+          106.9,
+          "B"
+        ],
+        [
+          197.4,
+          137.4,
+          "B"
+        ],
+        [
+          171.0,
+          158.5,
+          "B"
+        ],
+        [
+          138.0,
+          166.0,
+          "B"
+        ],
+        [
+          105.0,
+          158.5,
+          "B"
+        ],
+        [
+          78.6,
+          137.4,
+          "B"
+        ],
+        [
+          63.9,
+          106.9,
+          "B"
+        ],
+        [
+          63.9,
+          73.1,
+          "B"
+        ],
+        [
+          78.6,
+          42.6,
+          "B"
+        ],
+        [
+          105.0,
+          21.5,
+          "B"
+        ]
+      ],
+      "points": [
+        [
+          138.0,
+          25.0
+        ],
+        [
+          164.5,
+          31.0
+        ],
+        [
+          185.7,
+          48.0
+        ],
+        [
+          197.5,
+          72.4
+        ],
+        [
+          197.5,
+          99.6
+        ],
+        [
+          185.7,
+          124.0
+        ],
+        [
+          164.5,
+          141.0
+        ],
+        [
+          138.0,
+          147.0
+        ],
+        [
+          111.5,
+          141.0
+        ],
+        [
+          90.3,
+          124.0
+        ],
+        [
+          78.5,
+          99.6
+        ],
+        [
+          78.5,
+          72.4
+        ],
+        [
+          90.3,
+          48.0
+        ],
+        [
+          111.5,
+          31.0
+        ]
+      ]
+    }
+  },
+  {
+    "id": "O085T",
+    "title": "A gap on one side of the fence",
+    "band": "11–20",
+    "prompt": "A rectangular pen must have positive whole-number side lengths. Its boundary uses 22 metres of fence and a 2-metre gate. The gate counts as part of the boundary. What is the greatest possible area, in square metres?"
+  },
+  {
+    "id": "O085X",
+    "title": "Fencing with one long side open",
+    "band": "21–25",
+    "prompt": "Exactly 96 unit squares form a rectangle with an even shorter side of length at least 4. One of its longer sides is left open and the other three sides are fenced. What is the least possible length of fence, in unit lengths?"
+  },
+  {
+    "id": "O108T",
+    "title": "Each join has both a cost and a benefit",
+    "band": "11–20",
+    "prompt": "Three squares with sides 3 cm, 4 cm and 5 cm are placed in a straight row, with their bottoms level. Each square touches the next along as much of a side as possible. What is the perimeter of the resulting step shape, in centimetres?",
+    "diagram": {
+      "type": "geometry",
+      "lines": [
+        [
+          [
+            40,
+            131
+          ],
+          [
+            40,
+            95
+          ],
+          [
+            76,
+            95
+          ],
+          [
+            76,
+            83
+          ],
+          [
+            124,
+            83
+          ],
+          [
+            124,
+            71
+          ],
+          [
+            184,
+            71
+          ],
+          [
+            184,
+            131
+          ],
+          [
+            40,
+            131
+          ]
+        ],
+        [
+          [
+            76,
+            95
+          ],
+          [
+            76,
+            131
+          ]
+        ],
+        [
+          [
+            124,
+            83
+          ],
+          [
+            124,
+            131
+          ]
+        ]
+      ],
+      "caption": "Three squares have their bottom edges aligned.",
+      "labels": [
+        [
+          58,
+          152,
+          "3 cm"
+        ],
+        [
+          100,
+          152,
+          "4 cm"
+        ],
+        [
+          154,
+          152,
+          "5 cm"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "O108X",
+    "title": "Slits along both sides",
+    "band": "21–25",
+    "prompt": "A card is a 14 cm by 9 cm rectangle. Two rectangular notches are cut, one into each long edge, without meeting. Each starts with a 2 cm opening. The notches have depths 3 cm and 4 cm. What is the new perimeter, in centimetres?",
+    "diagram": {
+      "type": "geometry",
+      "lines": [
+        [
+          [
+            37,
+            38
+          ],
+          [
+            65,
+            38
+          ],
+          [
+            65,
+            74
+          ],
+          [
+            93,
+            74
+          ],
+          [
+            93,
+            38
+          ],
+          [
+            233,
+            38
+          ],
+          [
+            233,
+            146
+          ],
+          [
+            177,
+            146
+          ],
+          [
+            177,
+            98
+          ],
+          [
+            149,
+            98
+          ],
+          [
+            149,
+            146
+          ],
+          [
+            37,
+            146
+          ],
+          [
+            37,
+            38
+          ]
+        ]
+      ],
+      "caption": "Two rectangular notches have equal openings and different depths.",
+      "labels": [
+        [
+          127,
+          31,
+          "14 cm"
+        ],
+        [
+          245,
+          97,
+          "9"
+        ],
+        [
+          79,
+          91,
+          "2"
+        ],
+        [
+          163,
+          92,
+          "2"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "O122T",
+    "title": "A strip that divides a rectangle",
+    "band": "11–20",
+    "prompt": "A rectangle's sides are positive whole numbers and its perimeter is 30 cm. A straight cut parallel to a shorter side separates off a 2 cm wide strip. What is the greatest possible area of that strip, in square centimetres?"
+  },
+  {
+    "id": "O122X",
+    "title": "Give up a little perimeter",
+    "band": "21–25",
+    "prompt": "A rectangle has perimeter 36 cm and positive whole-number sides. Its longer side is at least twice its shorter side. What is its largest possible area in square centimetres?"
+  },
+  {
+    "id": "O131T",
+    "title": "Find the right angle's other part",
+    "band": "11–20",
+    "prompt": "A ray divides a right angle into two angles. The smaller one is 18 degrees less than the larger. How many degrees are in the smaller angle?",
+    "diagram": {
+      "type": "geometry",
+      "lines": [
+        [
+          [
+            72,
+            40
+          ],
+          [
+            72,
+            133
+          ],
+          [
+            214,
+            133
+          ]
+        ],
+        [
+          [
+            72,
+            133
+          ],
+          [
+            180,
+            67
+          ]
+        ],
+        [
+          [
+            72,
+            118
+          ],
+          [
+            87,
+            118
+          ],
+          [
+            87,
+            133
+          ]
+        ]
+      ],
+      "caption": "A ray divides the right angle into two parts."
+    }
+  },
+  {
+    "id": "O131X",
+    "title": "Two turns around a point",
+    "band": "21–25",
+    "prompt": "Four angles meet about a point. Three are 58 degrees, 89 degrees and double the fourth angle. How many degrees are in the smallest of the four angles?",
+    "diagram": {
+      "type": "geometry",
+      "lines": [
+        [
+          [
+            138,
+            87
+          ],
+          [
+            138.0,
+            21.0
+          ]
+        ],
+        [
+          [
+            138,
+            87
+          ],
+          [
+            193.97,
+            52.03
+          ]
+        ],
+        [
+          [
+            138,
+            87
+          ],
+          [
+            173.95,
+            142.35
+          ]
+        ],
+        [
+          [
+            138,
+            87
+          ],
+          [
+            75.6,
+            65.51
+          ]
+        ]
+      ],
+      "caption": "Four angles meet about a point. The diagram is schematic.",
+      "labels": [
+        [
+          161.27,
+          50.02,
+          "58°"
+        ],
+        [
+          182.91,
+          101.96,
+          "89°"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "O149T",
+    "title": "A line through a third of the base",
+    "band": "11–20",
+    "prompt": "A triangle has area 54 square centimetres. A point one-third of the way along its base is joined to the opposite vertex. What is the area of the larger of the two pieces, in square centimetres?",
+    "diagram": {
+      "type": "geometry",
+      "lines": [
+        [
+          [
+            50,
+            146
+          ],
+          [
+            106,
+            34
+          ],
+          [
+            226,
+            146
+          ],
+          [
+            50,
+            146
+          ]
+        ],
+        [
+          [
+            106,
+            34
+          ],
+          [
+            109,
+            146
+          ]
+        ]
+      ],
+      "caption": "The line meets the base one-third of the way across.",
+      "points": [
+        [
+          109,
+          146
+        ]
+      ]
+    }
+  },
+  {
+    "id": "O149X",
+    "title": "One triangle across two strips",
+    "band": "21–25",
+    "prompt": "A rectangle is 12 cm wide and 8 cm high. Mark the midpoint of its bottom edge and a point one-quarter of the way up its right edge, measured from the bottom-right corner. Join these two points to the top-left corner, and to each other. What is the area of the resulting triangle, in square centimetres?",
+    "diagram": {
+      "type": "geometry",
+      "lines": [
+        [
+          [
+            46,
+            33
+          ],
+          [
+            226,
+            33
+          ],
+          [
+            226,
+            153
+          ],
+          [
+            46,
+            153
+          ],
+          [
+            46,
+            33
+          ]
+        ],
+        [
+          [
+            46,
+            33
+          ],
+          [
+            136,
+            153
+          ],
+          [
+            226,
+            123
+          ],
+          [
+            46,
+            33
+          ]
+        ]
+      ],
+      "caption": "The triangle joins the top-left corner, the midpoint of the bottom and the marked point on the right.",
+      "labels": [
+        [
+          136,
+          171,
+          "12 cm"
+        ],
+        [
+          34,
+          96,
+          "8"
+        ]
+      ],
+      "points": [
+        [
+          136,
+          153
+        ],
+        [
+          226,
+          123
+        ]
+      ]
+    }
+  },
+  {
+    "id": "O172T",
+    "title": "Two opposite points in colour",
+    "band": "11–20",
+    "prompt": "Two opposite corners of a regular octagon are marked. How many rotations of less than a full turn, including zero, carry the set of marked corners onto itself and the octagon onto itself?",
+    "diagram": {
+      "type": "geometry",
+      "lines": [
+        [
+          [
+            138.0,
+            25.0
+          ],
+          [
+            181.1,
+            42.9
+          ],
+          [
+            199.0,
+            86.0
+          ],
+          [
+            181.1,
+            129.1
+          ],
+          [
+            138.0,
+            147.0
+          ],
+          [
+            94.9,
+            129.1
+          ],
+          [
+            77.0,
+            86.0
+          ],
+          [
+            94.9,
+            42.9
+          ],
+          [
+            138.0,
+            25.0
+          ]
+        ]
+      ],
+      "caption": "The two marks are on opposite corners.",
+      "labels": [
+        [
+          138.0,
+          20,
+          "×"
+        ],
+        [
+          138.0,
+          166.0,
+          "×"
+        ]
+      ],
+      "points": [
+        [
+          138.0,
+          25.0
+        ],
+        [
+          181.1,
+          42.9
+        ],
+        [
+          199.0,
+          86.0
+        ],
+        [
+          181.1,
+          129.1
+        ],
+        [
+          138.0,
+          147.0
+        ],
+        [
+          94.9,
+          129.1
+        ],
+        [
+          77.0,
+          86.0
+        ],
+        [
+          94.9,
+          42.9
+        ]
+      ]
+    }
+  },
+  {
+    "id": "O172X",
+    "title": "Symmetry with two colours",
+    "band": "21–25",
+    "prompt": "The corners of a square are coloured clockwise red, blue, blue, red. How many lines of reflection leave both the square and the colours unchanged?",
+    "diagram": {
+      "type": "geometry",
+      "lines": [
+        [
+          [
+            138.0,
+            25.0
+          ],
+          [
+            199.0,
+            86.0
+          ],
+          [
+            138.0,
+            147.0
+          ],
+          [
+            77.0,
+            86.0
+          ],
+          [
+            138.0,
+            25.0
+          ]
+        ]
+      ],
+      "caption": "The colours in clockwise order are red, blue, blue and red.",
+      "labels": [
+        [
+          138.0,
+          20,
+          "R"
+        ],
+        [
+          214.0,
+          90.0,
+          "B"
+        ],
+        [
+          138.0,
+          166.0,
+          "B"
+        ],
+        [
+          62.0,
+          90.0,
+          "R"
+        ]
+      ],
+      "points": [
+        [
+          138.0,
+          25.0
+        ],
+        [
+          199.0,
+          86.0
+        ],
+        [
+          138.0,
+          147.0
+        ],
+        [
+          77.0,
+          86.0
+        ]
+      ]
+    }
+  },
+  {
+    "id": "O181T",
+    "title": "A strip of triangles",
+    "band": "11–20",
+    "prompt": "A triangle has area 72 square centimetres. Its base is divided into three parts of lengths 2 cm, 3 cm and 7 cm. Each division point is joined to the top vertex. What is the area of the middle triangle, in square centimetres?",
+    "diagram": {
+      "type": "geometry",
+      "lines": [
+        [
+          [
+            42,
+            145
+          ],
+          [
+            113,
+            34
+          ],
+          [
+            234,
+            145
+          ],
+          [
+            42,
+            145
+          ]
+        ],
+        [
+          [
+            113,
+            34
+          ],
+          [
+            74,
+            145
+          ]
+        ],
+        [
+          [
+            113,
+            34
+          ],
+          [
+            122,
+            145
+          ]
+        ]
+      ],
+      "caption": "The three small triangles use the same height.",
+      "labels": [
+        [
+          57,
+          165,
+          "2 cm"
+        ],
+        [
+          97,
+          165,
+          "3 cm"
+        ],
+        [
+          175,
+          165,
+          "7 cm"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "O181X",
+    "title": "A triangle corner cut off",
+    "band": "21–25",
+    "prompt": "A triangular garden has area 64 square metres. A straight path joins the midpoints of two of its sides. It cuts off the corner where those sides meet. What area of the garden is outside the corner triangle, in square metres?",
+    "diagram": {
+      "type": "geometry",
+      "lines": [
+        [
+          [
+            52,
+            144
+          ],
+          [
+            123,
+            28
+          ],
+          [
+            225,
+            144
+          ],
+          [
+            52,
+            144
+          ]
+        ],
+        [
+          [
+            87.5,
+            86
+          ],
+          [
+            174,
+            86
+          ]
+        ]
+      ],
+      "caption": "A segment joins the midpoints of two sides.",
+      "points": [
+        [
+          87.5,
+          86
+        ],
+        [
+          174,
+          86
+        ]
+      ]
+    }
+  },
+  {
+    "id": "O190T",
+    "title": "An exact half-turn",
+    "band": "11–20",
+    "prompt": "A pointer turns clockwise 47 degrees, anticlockwise 28 degrees, and then clockwise again. It finishes pointing in the opposite direction from the start. What is the smallest possible number of degrees in the final turn?"
+  },
+  {
+    "id": "O190X",
+    "title": "The clock's hour hand moves",
+    "band": "21–25",
+    "prompt": "At 3:30 on a clock, what is the smaller angle between the minute hand and the hour hand, in degrees?",
+    "diagram": {
+      "type": "geometry",
+      "lines": [
+        [
+          [
+            138,
+            86
+          ],
+          [
+            138,
+            145
+          ]
+        ],
+        [
+          [
+            138,
+            86
+          ],
+          [
+            184,
+            98
+          ]
+        ]
+      ],
+      "caption": "A clock at 3:30. The minute hand points to 6, and the hour hand is halfway between 3 and 4.",
+      "labels": [
+        [
+          138,
+          16,
+          "12"
+        ],
+        [
+          212,
+          91,
+          "3"
+        ],
+        [
+          138,
+          167,
+          "6"
+        ],
+        [
+          62,
+          91,
+          "9"
+        ]
+      ],
+      "circles": [
+        [
+          138,
+          86,
+          64
+        ]
+      ],
+      "points": [
+        [
+          138,
+          86
+        ]
+      ]
+    }
+  },
+  {
+    "id": "O199T",
+    "title": "Cut four corners",
+    "band": "11–20",
+    "prompt": "A square card has side length 10 cm. A 2 cm by 2 cm square is removed from each corner. What is the perimeter of the remaining card, in centimetres?",
+    "diagram": {
+      "type": "geometry",
+      "lines": [
+        [
+          [
+            72,
+            40
+          ],
+          [
+            99,
+            40
+          ],
+          [
+            99,
+            13
+          ],
+          [
+            177,
+            13
+          ],
+          [
+            177,
+            40
+          ],
+          [
+            204,
+            40
+          ],
+          [
+            204,
+            116
+          ],
+          [
+            177,
+            116
+          ],
+          [
+            177,
+            143
+          ],
+          [
+            99,
+            143
+          ],
+          [
+            99,
+            116
+          ],
+          [
+            72,
+            116
+          ],
+          [
+            72,
+            40
+          ]
+        ]
+      ],
+      "caption": "A square is clipped at each corner.",
+      "labels": [
+        [
+          138,
+          161,
+          "10 cm"
+        ],
+        [
+          215,
+          31,
+          "2"
+        ],
+        [
+          62,
+          130,
+          "2"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "O199X",
+    "title": "Find the edge that disappeared",
+    "band": "21–25",
+    "prompt": "A 7 cm by 5 cm rectangle and a 4 cm by 3 cm rectangle are joined, with no overlap. The joined part is one straight segment and the resulting outer perimeter is 34 cm. How long is the join in centimetres?"
+  },
+  {
+    "id": "O213T",
+    "title": "Largest square in the border",
+    "band": "21–25",
+    "prompt": "A rectangle of 45 unit squares has whole-number sides. Its shorter side is longer than 1. What is the side length of the largest square that could fit inside any such rectangle with its sides parallel to the rectangle's sides?"
+  },
+  {
+    "id": "O213X",
+    "title": "Two pens share a fence",
+    "band": "26–30",
+    "prompt": "A farmer uses 35 metres of fencing to enclose a rectangle and divide it into two equal pens with one straight fence parallel to the shorter side. The outside side lengths are positive whole numbers, and a square is allowed. What is the largest combined area, in square metres?"
+  },
+  {
+    "id": "O222T",
+    "title": "Triangle inside a right corner",
+    "band": "11–20",
+    "prompt": "The two acute angles of a right-angled triangle differ by 14 degrees. What is the larger of them, in degrees?",
+    "diagram": {
+      "type": "geometry",
+      "lines": [
+        [
+          [
+            68,
+            144
+          ],
+          [
+            68,
+            39
+          ],
+          [
+            206,
+            144
+          ],
+          [
+            68,
+            144
+          ]
+        ],
+        [
+          [
+            68,
+            129
+          ],
+          [
+            83,
+            129
+          ],
+          [
+            83,
+            144
+          ]
+        ]
+      ],
+      "caption": "The two acute angles have a difference of 14 degrees."
+    }
+  },
+  {
+    "id": "O222X",
+    "title": "Two exterior angles",
+    "band": "21–25",
+    "prompt": "At two vertices of a triangle, the exterior angles formed by extending a side are 132 degrees and 114 degrees. What is the exterior angle at the third vertex, in degrees?",
+    "diagram": {
+      "type": "geometry",
+      "lines": [
+        [
+          [
+            29,
+            145
+          ],
+          [
+            246,
+            145
+          ]
+        ],
+        [
+          [
+            65,
+            145
+          ],
+          [
+            131,
+            29
+          ],
+          [
+            211,
+            145
+          ]
+        ]
+      ],
+      "caption": "The two exterior angles along the base are given.",
+      "labels": [
+        [
+          45,
+          131,
+          "132°"
+        ],
+        [
+          230,
+          131,
+          "114°"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "O263T",
+    "title": "Stars and dots on a hexagon",
+    "band": "11–20",
+    "prompt": "Corners of a regular hexagon are numbered 0 to 5 around its edge. Corners 0 and 3 have stars, and corners 1 and 4 have dots. The other two corners are blank. How many rotations less than a full turn, including zero, preserve every marking?",
+    "diagram": {
+      "type": "geometry",
+      "lines": [
+        [
+          [
+            138.0,
+            25.0
+          ],
+          [
+            190.8,
+            55.5
+          ],
+          [
+            190.8,
+            116.5
+          ],
+          [
+            138.0,
+            147.0
+          ],
+          [
+            85.2,
+            116.5
+          ],
+          [
+            85.2,
+            55.5
+          ],
+          [
+            138.0,
+            25.0
+          ]
+        ]
+      ],
+      "caption": "Stars are two opposite corners. Dots are the next corners clockwise from the stars.",
+      "labels": [
+        [
+          138.0,
+          20,
+          "★"
+        ],
+        [
+          203.8,
+          52.0,
+          "•"
+        ],
+        [
+          138.0,
+          166.0,
+          "★"
+        ],
+        [
+          72.2,
+          128.0,
+          "•"
+        ]
+      ],
+      "points": [
+        [
+          138.0,
+          25.0
+        ],
+        [
+          190.8,
+          55.5
+        ],
+        [
+          190.8,
+          116.5
+        ],
+        [
+          138.0,
+          147.0
+        ],
+        [
+          85.2,
+          116.5
+        ],
+        [
+          85.2,
+          55.5
+        ]
+      ]
+    }
+  },
+  {
+    "id": "O263X",
+    "title": "Turn or reflect a strip",
+    "band": "21–25",
+    "prompt": "A square tray is divided into nine equal cells. Its centre and its four corner cells are blank. In its four edge-centre cells, the top and right are shaded and the bottom and left are blank. How many of the four reflection lines of the square preserve this shading?",
+    "diagram": {
+      "type": "board",
+      "cells": [
+        ".#.",
+        "..#",
+        "..."
+      ],
+      "description": "The top and right edge-centre cells are shaded."
+    }
+  },
+  {
+    "id": "O281T",
+    "title": "Angles in a triangular arch",
+    "band": "11–20",
+    "prompt": "The largest angle of a triangle is 36 degrees greater than each of the two smaller angles. How many degrees are in the largest angle?",
+    "diagram": {
+      "type": "geometry",
+      "lines": [
+        [
+          [
+            48,
+            140
+          ],
+          [
+            138,
+            66
+          ],
+          [
+            228,
+            140
+          ],
+          [
+            48,
+            140
+          ]
+        ],
+        [
+          [
+            90,
+            98
+          ],
+          [
+            98,
+            108
+          ]
+        ],
+        [
+          [
+            178,
+            108
+          ],
+          [
+            186,
+            98
+          ]
+        ]
+      ],
+      "caption": "The two smaller angles are equal."
+    }
+  },
+  {
+    "id": "O281X",
+    "title": "A triangle of folded ribbon",
+    "band": "21–25",
+    "prompt": "The three angles of a triangle are whole numbers of degrees. Its largest angle is three times its smallest, and the third angle is 16 degrees smaller than the largest. What is the smallest angle, in degrees?",
+    "diagram": {
+      "type": "geometry",
+      "lines": [
+        [
+          [
+            54,
+            142
+          ],
+          [
+            157,
+            34
+          ],
+          [
+            222,
+            142
+          ],
+          [
+            54,
+            142
+          ]
+        ]
+      ],
+      "caption": "The triangle is schematic. Compare the angles using the conditions in the question."
+    }
+  },
+  {
+    "id": "O290T",
+    "title": "A square hole in a square card",
+    "band": "11–20",
+    "prompt": "A square piece of paper has side length 13 cm. A square with side length 4 cm is cut from its centre. How long are all its boundary edges combined, in centimetres?",
+    "diagram": {
+      "type": "geometry",
+      "lines": [
+        [
+          [
+            69,
+            21
+          ],
+          [
+            207,
+            21
+          ],
+          [
+            207,
+            153
+          ],
+          [
+            69,
+            153
+          ],
+          [
+            69,
+            21
+          ]
+        ],
+        [
+          [
+            116,
+            65
+          ],
+          [
+            160,
+            65
+          ],
+          [
+            160,
+            109
+          ],
+          [
+            116,
+            109
+          ],
+          [
+            116,
+            65
+          ]
+        ]
+      ],
+      "caption": "The small square is a hole.",
+      "labels": [
+        [
+          138,
+          168,
+          "13 cm"
+        ],
+        [
+          138,
+          60,
+          "4 cm"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "O290X",
+    "title": "Split without guessing the cuts",
+    "band": "21–25",
+    "prompt": "A 15 cm by 12 cm rectangle is cut into three rectangles. Two straight cuts run for 12 cm from the top to the bottom. The two outside rectangles have equal perimeters. The middle rectangle has perimeter 34 cm. What is the width of either outside rectangle, in centimetres?",
+    "diagram": {
+      "type": "geometry",
+      "lines": [
+        [
+          [
+            52,
+            24
+          ],
+          [
+            222,
+            24
+          ],
+          [
+            222,
+            150
+          ],
+          [
+            52,
+            150
+          ],
+          [
+            52,
+            24
+          ]
+        ],
+        [
+          [
+            112,
+            24
+          ],
+          [
+            112,
+            150
+          ]
+        ],
+        [
+          [
+            163,
+            24
+          ],
+          [
+            163,
+            150
+          ]
+        ]
+      ],
+      "caption": "The middle rectangle has a perimeter of 34 cm. The drawing is schematic.",
+      "labels": [
+        [
+          138,
+          169,
+          "15 cm"
+        ],
+        [
+          36,
+          95,
+          "12"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "O313T",
+    "title": "From two sides of a straight line",
+    "band": "21–25",
+    "prompt": "Two straight lines cross. The larger angle is five times the smaller angle. How many degrees are in the smaller angle?",
+    "diagram": {
+      "type": "geometry",
+      "lines": [
+        [
+          [
+            62,
+            115
+          ],
+          [
+            214,
+            67
+          ]
+        ],
+        [
+          [
+            61,
+            68
+          ],
+          [
+            214,
+            116
+          ]
+        ]
+      ],
+      "caption": "The smaller and larger angles on either side of the crossing are adjacent."
+    }
+  },
+  {
+    "id": "O313X",
+    "title": "Angles at both ends of a fold",
+    "band": "26–30",
+    "prompt": "A triangle has one angle of 72 degrees. A line from that vertex divides the 72-degree angle equally and meets the opposite side. Of the two angles at the original ends of that side, the left angle is 18 degrees larger than the right angle. What is the smaller angle made by the dividing line and the opposite side, in degrees?",
+    "diagram": {
+      "type": "geometry",
+      "lines": [
+        [
+          [
+            48,
+            145
+          ],
+          [
+            109.65,
+            24
+          ],
+          [
+            230.65,
+            145
+          ],
+          [
+            48,
+            145
+          ]
+        ],
+        [
+          [
+            109.65,
+            24
+          ],
+          [
+            128.81,
+            145
+          ]
+        ],
+        [
+          [
+            125.91,
+            40.26
+          ],
+          [
+            123.17,
+            42.61
+          ],
+          [
+            120.09,
+            44.49
+          ],
+          [
+            116.76,
+            45.87
+          ],
+          [
+            113.25,
+            46.72
+          ],
+          [
+            109.65,
+            47.0
+          ],
+          [
+            106.05,
+            46.72
+          ],
+          [
+            102.54,
+            45.87
+          ],
+          [
+            99.21,
+            44.49
+          ]
+        ]
+      ],
+      "caption": "The dividing line bisects the 72-degree angle. The angles at the ends of the base differ by 18 degrees."
+    }
+  },
+  {
+    "id": "O331T",
+    "title": "The point on the higher line",
+    "band": "21–25",
+    "prompt": "Two triangles share a horizontal base. The first has height 4 cm and area 26 square centimetres. The second vertex is 3 cm higher than the first. What is the difference between their areas, in square centimetres? Give an exact fraction if needed.",
+    "diagram": {
+      "type": "geometry",
+      "lines": [
+        [
+          [
+            51,
+            148
+          ],
+          [
+            227,
+            148
+          ]
+        ],
+        [
+          [
+            51,
+            148
+          ],
+          [
+            122,
+            79
+          ],
+          [
+            227,
+            148
+          ]
+        ],
+        [
+          [
+            51,
+            148
+          ],
+          [
+            122,
+            27
+          ],
+          [
+            227,
+            148
+          ]
+        ]
+      ],
+      "caption": "The triangles have the same base; the upper tip is 3 cm higher."
+    }
+  },
+  {
+    "id": "O331X",
+    "title": "Area after one vertex moves",
+    "band": "21–25",
+    "prompt": "A triangle has a fixed horizontal base and area 42 square centimetres. Its top vertex moves vertically downward by 3 cm and stays above the base. The new area is 24 square centimetres. How long is the base, in centimetres?",
+    "diagram": {
+      "type": "geometry",
+      "lines": [
+        [
+          [
+            52,
+            145
+          ],
+          [
+            226,
+            145
+          ]
+        ],
+        [
+          [
+            52,
+            145
+          ],
+          [
+            111,
+            35
+          ],
+          [
+            226,
+            145
+          ]
+        ],
+        [
+          [
+            52,
+            145
+          ],
+          [
+            111,
+            83
+          ],
+          [
+            226,
+            145
+          ]
+        ]
+      ],
+      "caption": "The upper vertex moves straight down, while the base stays fixed."
+    }
+  },
+  {
+    "id": "O354T",
+    "title": "How many points get the same colour?",
+    "band": "21–25",
+    "prompt": "A regular dodecagon has 12 corners. It is coloured red, white and blue in that order around its edge, repeating. How many rotations less than a full turn, including zero, preserve every colour?",
+    "diagram": {
+      "type": "geometry",
+      "lines": [
+        [
+          [
+            138.0,
+            25.0
+          ],
+          [
+            168.5,
+            33.2
+          ],
+          [
+            190.8,
+            55.5
+          ],
+          [
+            199.0,
+            86.0
+          ],
+          [
+            190.8,
+            116.5
+          ],
+          [
+            168.5,
+            138.8
+          ],
+          [
+            138.0,
+            147.0
+          ],
+          [
+            107.5,
+            138.8
+          ],
+          [
+            85.2,
+            116.5
+          ],
+          [
+            77.0,
+            86.0
+          ],
+          [
+            85.2,
+            55.5
+          ],
+          [
+            107.5,
+            33.2
+          ],
+          [
+            138.0,
+            25.0
+          ]
+        ]
+      ],
+      "caption": "R is red, W is white and B is blue, in a repeating order.",
+      "labels": [
+        [
+          138.0,
+          20,
+          "R"
+        ],
+        [
+          176.0,
+          24.2,
+          "W"
+        ],
+        [
+          203.8,
+          52.0,
+          "B"
+        ],
+        [
+          214.0,
+          90.0,
+          "R"
+        ],
+        [
+          203.8,
+          128.0,
+          "W"
+        ],
+        [
+          176.0,
+          155.8,
+          "B"
+        ],
+        [
+          138.0,
+          166.0,
+          "R"
+        ],
+        [
+          100.0,
+          155.8,
+          "W"
+        ],
+        [
+          72.2,
+          128.0,
+          "B"
+        ],
+        [
+          62.0,
+          90.0,
+          "R"
+        ],
+        [
+          72.2,
+          52.0,
+          "W"
+        ],
+        [
+          100.0,
+          24.2,
+          "B"
+        ]
+      ],
+      "points": [
+        [
+          138.0,
+          25.0
+        ],
+        [
+          168.5,
+          33.2
+        ],
+        [
+          190.8,
+          55.5
+        ],
+        [
+          199.0,
+          86.0
+        ],
+        [
+          190.8,
+          116.5
+        ],
+        [
+          168.5,
+          138.8
+        ],
+        [
+          138.0,
+          147.0
+        ],
+        [
+          107.5,
+          138.8
+        ],
+        [
+          85.2,
+          116.5
+        ],
+        [
+          77.0,
+          86.0
+        ],
+        [
+          85.2,
+          55.5
+        ],
+        [
+          107.5,
+          33.2
+        ]
+      ]
+    }
+  },
+  {
+    "id": "O354X",
+    "title": "A sticker makes the old symmetry disappear",
+    "band": "21–25",
+    "prompt": "A regular octagon has alternating dark and light corners. One light corner receives a star and the corner two steps clockwise from it receives a dot. How many non-identity symmetries of the octagon preserve both colours and both individual marks? A symmetry may be a rotation or reflection.",
+    "diagram": {
+      "type": "geometry",
+      "lines": [
+        [
+          [
+            138.0,
+            25.0
+          ],
+          [
+            181.1,
+            42.9
+          ],
+          [
+            199.0,
+            86.0
+          ],
+          [
+            181.1,
+            129.1
+          ],
+          [
+            138.0,
+            147.0
+          ],
+          [
+            94.9,
+            129.1
+          ],
+          [
+            77.0,
+            86.0
+          ],
+          [
+            94.9,
+            42.9
+          ],
+          [
+            138.0,
+            25.0
+          ]
+        ]
+      ],
+      "caption": "Solid dots mark light corners and rings mark dark corners. The star is at the top, and the dot is two positions clockwise.",
+      "labels": [
+        [
+          138.0,
+          20,
+          "★"
+        ],
+        [
+          214.0,
+          90.0,
+          "•"
+        ]
+      ],
+      "points": [
+        [
+          138.0,
+          25.0
+        ],
+        [
+          199.0,
+          86.0
+        ],
+        [
+          138.0,
+          147.0
+        ],
+        [
+          77.0,
+          86.0
+        ]
+      ],
+      "openPoints": [
+        [
+          181.1,
+          42.9
+        ],
+        [
+          181.1,
+          129.1
+        ],
+        [
+          94.9,
+          129.1
+        ],
+        [
+          94.9,
+          42.9
+        ]
+      ]
+    }
+  },
+  {
+    "id": "O365T",
+    "title": "Two lines from a corner",
+    "band": "21–25",
+    "prompt": "ABCD is a parallelogram of area 60 square centimetres. P is one third of the way from A to B, and Q is halfway from B to C. Lines from D to P and from D to Q split the parallelogram into three parts. What is the area of the middle part DPBQ, in square centimetres?",
+    "diagram": {
+      "type": "geometry",
+      "lines": [
+        [
+          [
+            42,
+            142
+          ],
+          [
+            207,
+            142
+          ],
+          [
+            239,
+            40
+          ],
+          [
+            74,
+            40
+          ],
+          [
+            42,
+            142
+          ]
+        ],
+        [
+          [
+            74,
+            40
+          ],
+          [
+            97,
+            142
+          ]
+        ],
+        [
+          [
+            74,
+            40
+          ],
+          [
+            223,
+            91
+          ]
+        ]
+      ],
+      "fills": [
+        [
+          [
+            74,
+            40
+          ],
+          [
+            97,
+            142
+          ],
+          [
+            207,
+            142
+          ],
+          [
+            223,
+            91
+          ]
+        ]
+      ],
+      "points": [
+        [
+          97,
+          142
+        ],
+        [
+          223,
+          91
+        ]
+      ],
+      "labels": [
+        [
+          34,
+          156,
+          "A"
+        ],
+        [
+          211,
+          157,
+          "B"
+        ],
+        [
+          247,
+          37,
+          "C"
+        ],
+        [
+          66,
+          33,
+          "D"
+        ],
+        [
+          97,
+          162,
+          "P"
+        ],
+        [
+          237,
+          95,
+          "Q"
+        ]
+      ],
+      "caption": "The shaded part is DPBQ. P lies on AB, and Q lies on BC."
+    }
+  },
+  {
+    "id": "O365X",
+    "title": "One midpoint divides an uneven garden",
+    "band": "21–25",
+    "prompt": "A rectangular garden is 30 m wide and 18 m long. A straight path joins the bottom-left corner to a point on the right edge 6 m from the bottom-right corner. What fraction of the garden lies below the path? Give an exact fraction.",
+    "diagram": {
+      "type": "geometry",
+      "lines": [
+        [
+          [
+            42,
+            32
+          ],
+          [
+            232,
+            32
+          ],
+          [
+            232,
+            146
+          ],
+          [
+            42,
+            146
+          ],
+          [
+            42,
+            32
+          ]
+        ],
+        [
+          [
+            42,
+            146
+          ],
+          [
+            232,
+            108
+          ]
+        ]
+      ],
+      "caption": "The path ends 6 m above the bottom-right corner.",
+      "labels": [
+        [
+          137,
+          166,
+          "30 m"
+        ],
+        [
+          25,
+          91,
+          "18"
+        ],
+        [
+          245,
+          130,
+          "6"
+        ]
+      ],
+      "fills": [
+        [
+          [
+            42,
+            146
+          ],
+          [
+            232,
+            146
+          ],
+          [
+            232,
+            108
+          ]
+        ]
+      ]
+    }
+  },
+  {
+    "id": "O370T",
+    "title": "More area after a change",
+    "band": "21–25",
+    "prompt": "A rectangular poster has positive whole-number side lengths and perimeter 40 cm. Moving 2 cm from its longer side length to its shorter side length increases its area by 12 square centimetres. What was the length of its original shorter side, in centimetres?"
+  },
+  {
+    "id": "O370X",
+    "title": "Find the fourth side using a square",
+    "band": "26–30",
+    "prompt": "A square and a rectangle have the same perimeter, 36 cm. The rectangle has positive whole-number sides. Its area is 16 square centimetres less than the square’s. How long is the rectangle’s shorter side, in centimetres?"
+  }
+]
