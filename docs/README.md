@@ -4,6 +4,8 @@
 
 | Document | Covers |
 |---|---|
+| [STUDENT_GUIDE.md](STUDENT_GUIDE.md) | Sign-in, lessons, practice and review on iPhone. |
+| [PARENT_GUIDE.md](PARENT_GUIDE.md) | Pace, evidence, exam practice and review. |
 | [CHATGPT_CONTINUATION.md](CHATGPT_CONTINUATION.md) | Verified checkpoint, release checks and next audit families. |
 | [CURRENT_STATUS.md](CURRENT_STATUS.md) | Verified counts, what is released, what the tests prove, known limitations. Updated 14 November 2026. |
 | [AUTHENTIC_AMC_FREEZE.md](AUTHENTIC_AMC_FREEZE.md) | What is frozen, its fingerprint, and how to prove it is unchanged. |
@@ -30,4 +32,4 @@ These record what was true or planned on their dates. Do not quote their numbers
 
 ## Not yet written
 
-Student guide, parent guide, database and Supabase reference, deployment and rollback guide, diagram standards, and a dedicated QA guide. Until they exist, the README and CURRENT_STATUS.md carry the essentials.
+Database and Supabase reference, deployment and rollback guide, diagram standards, and a dedicated QA guide. Until they exist, the README and CURRENT_STATUS.md carry the essentials.
