@@ -165,8 +165,8 @@ V: A robot on a grid with rule "may not turn back"; an arrow showing its last mo
 N: In the same way, if a robot may not reverse its last move, its position alone is not the state. You must also remember which way it just moved. Remember enough to know what can happen next, and no more.
 [RECAP]
 V: Lines: "State: what decides the next step", "Find the first repeat of a state", "Use the remainder inside the cycle".
-N: Decide what the state is. Find where a state first repeats. Then use a remainder to locate the position in the cycle. Notebook challenge: start with seven; repeatedly triple and keep the last digit. What is the thirtieth number?
-TRY: Start with 7; repeatedly triple and keep the last digit. What is the 30th number?
+N: Decide what the state is. Find where a state first repeats. Then use a remainder to locate the position in the cycle. Notebook challenge: start with seven as the first number. To get each next number, triple the current one and keep only the last digit. What is the thirtieth number?
+TRY: The first number is 7. Triple each number and keep only its last digit to get the next. What is the 30th number?
 ANS: 7, 1, 3, 9 repeats; 30 = 4 x 7 + 2, so the 30th is 1.
 
 @@ T10.3

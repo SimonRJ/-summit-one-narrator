@@ -4,10 +4,10 @@
  "chapter": "Build patterns from reasons, not guesses",
  "type": "concept",
  "status": "script_ready_not_recorded",
- "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "voice": "Voice C (VoxCPM2), natural speed (see docs/VIDEO_PRODUCTION.md)",
  "goal": "Decide what a repeating process must remember: its state.",
- "narration_words": 282,
- "estimated_minutes": 1.9,
+ "narration_words": 294,
+ "estimated_minutes": 2.0,
  "scenes": [
   {
    "n": 1,
@@ -55,9 +55,9 @@
    "n": 8,
    "stage": "RECAP",
    "visual": "Lines: \"State: what decides the next step\", \"Find the first repeat of a state\", \"Use the remainder inside the cycle\".",
-   "narration": "Decide what the state is. Find where a state first repeats. Then use a remainder to locate the position in the cycle. Notebook challenge: start with seven; repeatedly triple and keep the last digit. What is the thirtieth number?"
+   "narration": "Decide what the state is. Find where a state first repeats. Then use a remainder to locate the position in the cycle. Notebook challenge: start with seven as the first number. To get each next number, triple the current one and keep only the last digit. What is the thirtieth number?"
   }
  ],
- "notebook_exercise": "Start with 7; repeatedly triple and keep the last digit. What is the 30th number?",
+ "notebook_exercise": "The first number is 7. Triple each number and keep only its last digit to get the next. What is the 30th number?",
  "notebook_answer": "7, 1, 3, 9 repeats; 30 = 4 x 7 + 2, so the 30th is 1."
 }

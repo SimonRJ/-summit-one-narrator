@@ -89,7 +89,7 @@ def main():
                 rows.append(f'| {vid} | {i["title"]} | {i["type"]} | not yet scripted | | |'); continue
             s = scripts[vid]
             doc = dict(id=vid, title=i['title'], chapter=i['chapter'], type=i['type'], status='script_ready_not_recorded',
-                       voice='af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)', goal=s['goal'],
+                       voice='Voice C (VoxCPM2), natural speed (see docs/VIDEO_PRODUCTION.md)', goal=s['goal'],
                        narration_words=s['narration_words'], estimated_minutes=s['estimated_minutes'],
                        scenes=[dict(n=k, **c) for k, c in enumerate(s['scenes'], 1)],
                        notebook_exercise=s['exercise'], notebook_answer=s['exercise_answer'])

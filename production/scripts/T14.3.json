@@ -4,10 +4,10 @@
  "chapter": "Turn routes and schedules into networks",
  "type": "concept",
  "status": "script_ready_not_recorded",
- "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "voice": "Voice C (VoxCPM2), natural speed (see docs/VIDEO_PRODUCTION.md)",
  "goal": "Turn a timetable problem into a network and find the fewest time slots.",
- "narration_words": 303,
- "estimated_minutes": 2.0,
+ "narration_words": 313,
+ "estimated_minutes": 2.1,
  "scenes": [
   {
    "n": 1,
@@ -55,9 +55,9 @@
    "n": 8,
    "stage": "RECAP",
    "visual": "Lines: \"People are dots, meetings are lines\", \"A slot: lines sharing no dot\", \"Find a limit, then build the timetable\".",
-   "narration": "Draw people as dots and meetings as lines. A slot is a set of lines sharing no dot. Find a limit, then build a timetable that reaches it. Notebook challenge: six players each play every other player once, with three games per round. What is the fewest rounds?"
+   "narration": "Draw people as dots and meetings as lines. A slot is a set of lines sharing no dot. Find a limit, then build a timetable that reaches it. Notebook challenge: six players each play every other player once, with at most three games per round and no player playing twice in a round. What is the fewest rounds?"
   }
  ],
- "notebook_exercise": "Six players each play every other once; at most 3 games per round. Fewest rounds?",
- "notebook_answer": "15 games / 3 = 5 rounds (and it can be done)."
+ "notebook_exercise": "Six players each play every other player once. A round has at most 3 games and no player plays twice in a round. What is the fewest rounds?",
+ "notebook_answer": "There are 15 games, so at least 5 rounds. One schedule is AF, BE, CD; BF, AC, DE; CF, BD, AE; DF, CE, AB; EF, AD, BC."
 }
