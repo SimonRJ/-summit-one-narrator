@@ -1,0 +1,51 @@
+{
+ "id": "T10.E",
+ "title": "Build patterns from reasons, not guesses",
+ "chapter": "Build patterns from reasons, not guesses",
+ "type": "worked_example",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Worked example: explain how a square of dots grows.",
+ "narration_words": 183,
+ "estimated_minutes": 1.2,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "PUZZLE",
+   "visual": "A 3 by 3 square of dots beside a 4 by 4 square of dots. Question: \"How many dots were added? What is the rule?\"",
+   "narration": "A square of dots grows from three rows of three to four rows of four. How many dots are added? And what is the rule for growing any square to the next one?"
+  },
+  {
+   "n": 2,
+   "stage": "DEVELOP",
+   "visual": "The 3 by 3 block stays one colour. A new bottom row of 4 dots appears in a second colour.",
+   "narration": "Keep the nine original dots. Add a new bottom row. The new row belongs to the bigger square, so it has four dots."
+  },
+  {
+   "n": 3,
+   "stage": "DEVELOP",
+   "visual": "A new right-hand column appears in a third colour: 3 dots above the corner. The corner dot already belongs to the bottom row.",
+   "narration": "Now add the new right-hand column. Its bottom dot is already there, as part of the new row. So only three more dots are needed."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "Count: 4 and 3 make 7. 9 and 7 make 16.",
+   "narration": "Four plus three is seven dots added. Nine plus seven is sixteen, which is four times four."
+  },
+  {
+   "n": 5,
+   "stage": "VARIATION",
+   "visual": "A general n by n block with an L-shaped border: a row of n plus one, and a column of n. Label \"two n plus one\".",
+   "narration": "The same picture works for any size. To grow a square of side n, add a row of n plus one dots and a column of n dots. That is two n plus one dots. So from ten by ten to eleven by eleven you add twenty-one dots."
+  },
+  {
+   "n": 6,
+   "stage": "RECAP",
+   "visual": "Squares 1, 4, 9, 16, 25 with gaps 3, 5, 7, 9 between them. Notebook prompt.",
+   "narration": "That is why the gaps between square numbers are the odd numbers: three, five, seven, nine. Rebuild this argument, then answer: how many dots are added when a twenty by twenty square grows to twenty-one by twenty-one?"
+  }
+ ],
+ "notebook_exercise": "How many dots are added when a 20 by 20 square grows to 21 by 21?",
+ "notebook_answer": "2 x 20 + 1 = 41."
+}

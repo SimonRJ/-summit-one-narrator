@@ -1,0 +1,63 @@
+{
+ "id": "T14.1",
+ "title": "Translate the movement rules exactly",
+ "chapter": "Turn routes and schedules into networks",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Count routes by following exactly the moves the rules allow.",
+ "narration_words": 292,
+ "estimated_minutes": 1.9,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "A small map of dots joined by one-way arrows from S on the left to T on the right. One route is traced, then another.",
+   "narration": "A route problem is defined by its rules: which points are joined, and which directions are allowed. Before counting anything, read those rules exactly. Two lines that cross in a drawing are not a junction unless the problem says so."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "A tangled attempt to trace every route by finger; then small numbers appearing calmly on each dot.",
+   "narration": "Tracing every route by hand is slow and you lose track. There is a method that counts all routes at once, by writing one number on each point."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "A 2 by 2 block of streets: a grid of 3 by 3 corners, S at bottom-left, T at top-right. Rule card: \"move only right or up\". Question: \"How many routes?\"",
+   "narration": "A walker goes from the bottom-left corner to the top-right corner of a two by two block of streets, moving only right or up. How many different routes are there? Pause and think about how you could arrive at each corner."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "Every corner along the bottom row and left column gets a 1.",
+   "narration": "Write on each corner the number of ways to reach it. Along the bottom row and up the left side there is only one way: straight along. Write one on each."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "Remaining corners fill in: the middle gets 2 (1 from the left, 1 from below); the next two get 3 each; the top-right gets 6. Arrows show each sum.",
+   "narration": "To reach any other corner, your last step came either from the left or from below. So its number is the sum of those two neighbours. The middle corner gets one plus one: two. The next corners get three. The final corner gets three plus three: six routes."
+  },
+  {
+   "n": 6,
+   "stage": "VARIATION",
+   "visual": "The centre corner is blocked with a barrier and labelled 0. The numbers recalculate: the final corner now shows 2.",
+   "narration": "The method copes with obstacles. If the centre corner is closed, write zero there and carry on adding. Now only two routes remain: all the way round one side or the other."
+  },
+  {
+   "n": 7,
+   "stage": "VARIATION",
+   "visual": "A diagram with two paths drawn crossing like a bridge over a road; a card \"no junction here\".",
+   "narration": "Always check what counts as a connection. If one path crosses over another on a bridge, you cannot turn there. Only the connections the rules give you are real."
+  },
+  {
+   "n": 8,
+   "stage": "RECAP",
+   "visual": "Lines: \"Read the allowed moves exactly\", \"Number of ways in = sum of the ways into its feeders\", \"Blocked point: write 0\".",
+   "narration": "Read the rules exactly. Label each point with the number of ways to reach it, adding the points that lead into it. A blocked point gets zero. Notebook challenge: how many right-and-up routes cross a block of streets three wide and two high?"
+  }
+ ],
+ "notebook_exercise": "How many right-and-up routes cross a grid of streets 3 blocks wide and 2 blocks high?",
+ "notebook_answer": "Filling in the corners gives 10."
+}

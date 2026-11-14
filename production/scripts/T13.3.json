@@ -1,0 +1,63 @@
+{
+ "id": "T13.3",
+ "title": "Count hidden pieces through layers and boundaries",
+ "chapter": "Measure the region or solid that matters",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Count cubes in a solid by layers, including the ones you cannot see.",
+ "narration_words": 304,
+ "estimated_minutes": 2.0,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "A drawing of a block made from small cubes, seen from one corner. The block separates into horizontal layers that float apart.",
+   "narration": "A drawing of a solid only shows some of its cubes. The rest are hidden behind or underneath. To count them all, slice the solid into layers. Count one layer, then count the layers."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "A tally of \"cubes I can see\" with a warning mark; beside it the layers neatly separated.",
+   "narration": "Counting the cubes you can see always gives too few. Counting layer by layer is reliable, and it also answers questions about which cubes are on the outside."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "A solid block 4 cubes long, 3 wide and 2 high. Question: \"How many small cubes?\"",
+   "narration": "A solid block is four cubes long, three cubes wide and two cubes high. How many small cubes does it contain? Pause and picture one layer."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "The top layer lifts off, showing a 4 by 3 grid: 12 cubes. The bottom layer is identical. 2 layers of 12 give 24.",
+   "narration": "One layer is four by three, which is twelve cubes. There are two layers, so the block contains twenty-four cubes. Half of them are in the bottom layer, mostly hidden in the drawing."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "A 3 by 3 by 3 cube dipped in paint. It separates into three layers. In the middle layer, the centre cube is unpainted and glows.",
+   "narration": "Now a harder question. A three by three by three cube is painted all over, then cut into twenty-seven small cubes. How many have no paint at all? Only a cube that touches no outside face. Peel off the outer layer in every direction, and a single cube is left in the very centre. The answer is one."
+  },
+  {
+   "n": 6,
+   "stage": "DEVELOP",
+   "visual": "The 27 cubes sorted into four groups: 8 corners (three painted faces), 12 edge cubes (two faces), 6 face centres (one face), 1 centre (none). Sum 27.",
+   "narration": "You can sort all twenty-seven. Eight corner cubes have three painted faces. Twelve cubes along the edges have two. Six in the middle of each face have one. One in the centre has none. Eight, twelve, six and one make twenty-seven, so nothing is missing."
+  },
+  {
+   "n": 7,
+   "stage": "VARIATION",
+   "visual": "A staircase solid: layers of 3 by 3, 2 by 2 and 1 by 1 cubes stacked in a corner. Layer counts 9, 4, 1.",
+   "narration": "Layers also handle uneven solids. A corner staircase has nine cubes on the bottom layer, four on the next and one on top: fourteen altogether. Count each layer as it really is."
+  },
+  {
+   "n": 8,
+   "stage": "RECAP",
+   "visual": "Lines: \"Slice into layers\", \"Count hidden cubes too\", \"Check that the groups add to the total\".",
+   "narration": "Slice the solid into layers. Include the hidden cubes. If you sort the cubes into types, check that the types add up to the total. Notebook challenge: a four by four by four cube is painted and cut into small cubes. How many small cubes have no paint?"
+  }
+ ],
+ "notebook_exercise": "A 4 by 4 by 4 cube is painted and cut into unit cubes. How many have no paint?",
+ "notebook_answer": "The inner 2 by 2 by 2 block: 8."
+}

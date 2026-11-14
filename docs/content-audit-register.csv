@@ -1,0 +1,567 @@
+id,session,technique,role,visit,difficulty,content_fingerprint,assurance_level,verification_method,same_structure_elsewhere,individually_reviewed,has_recorded_attempts,diagram,status
+O001T,1,DIV-03,try,1,3,9c1d487b2d,family_check,generator family recomputed (check_original_lessons.py),0,not individually reviewed,yes - frozen,none (text only),Correct by family check; awaiting individual review
+O001X,1,DIV-03,transfer,1,4,7e52fcd6e4,family_check,generator family recomputed (check_original_lessons.py),0,not individually reviewed,yes - frozen,none (text only),Correct by family check; awaiting individual review
+O002T,2,DIG-01,try,1,3,8be4c96728,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,yes - frozen,none (text only),Repetitive and requires redesign
+O002X,2,DIG-01,transfer,1,4,50c9d1fa35,family_check,generator family recomputed (check_original_lessons.py),0,not individually reviewed,yes - frozen,none (text only),Correct by family check; awaiting individual review
+O003T,3,ALG-04,try,1,3,340e953a83,family_check,generator family recomputed (check_original_lessons.py),0,not individually reviewed,no,none (text only),Correct by family check; awaiting individual review
+O003X,3,ALG-04,transfer,1,4,9b6b3176bc,family_check,generator family recomputed (check_original_lessons.py),0,not individually reviewed,no,none (text only),Correct by family check; awaiting individual review
+O004T,4,DIG-02,try,1,3,09680b2548,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O004X,4,DIG-02,transfer,1,4,b63ed518d0,family_check,generator family recomputed (check_original_lessons.py),2,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O005T,5,DIG-03,try,1,3,c1a038d2df,family_check,generator family recomputed (check_original_lessons.py),0,not individually reviewed,no,none (text only),Correct by family check; awaiting individual review
+O005X,5,DIG-03,transfer,1,4,1ffad8c90b,family_check,generator family recomputed (check_original_lessons.py),0,not individually reviewed,no,none (text only),Correct by family check; awaiting individual review
+O006T,6,SOLID-01,try,1,3,d23698d560,family_check,generator family recomputed (check_original_lessons.py),0,not individually reviewed,no,none (text only),Correct by family check; awaiting individual review
+O006X,6,SOLID-01,transfer,1,4,74d7500e0e,family_check,generator family recomputed (check_original_lessons.py),0,not individually reviewed,no,none (text only),Correct by family check; awaiting individual review
+O008T,8,DIG-04,try,1,3,03a8c46d92,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O008X,8,DIG-04,transfer,1,4,8705cc0cea,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O009T,9,DIG-05,try,1,3,d5608d4ca4,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O009X,9,DIG-05,transfer,1,4,a29c7f84e4,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O010T,10,DIG-05,try,2,3,1c98bc0d0d,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O010X,10,DIG-05,transfer,2,4,3390ba574e,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O011T,11,DIV-01,try,1,3,75914536aa,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O011X,11,DIV-01,transfer,1,4,0ba65e8b66,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O012T,12,SEQ-03,try,1,3,20526ae14d,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O012X,12,SEQ-03,transfer,1,4,8f3e179c98,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O013T,13,DIV-02,try,1,3,63d231992d,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O013X,13,DIV-02,transfer,1,4,8fa4ee7868,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O015T,15,DIV-03,try,2,3,f3bbc71014,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O015X,15,DIV-03,transfer,2,4,48a9906d30,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O017T,17,SPATIAL-02,try,1,3,ccb09a1008,family_check,generator family recomputed (check_original_lessons.py),8,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O017X,17,SPATIAL-02,transfer,1,4,a92d21a0c7,family_check,generator family recomputed (check_original_lessons.py),8,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O018T,18,DIV-04,try,1,3,45ad122c74,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O018X,18,DIV-04,transfer,1,4,291a8a4e9b,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O019T,19,DIV-04,try,2,3,eb396796ef,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O019X,19,DIV-04,transfer,2,4,8a6be7f30c,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O020T,20,DIV-05,try,1,3,0b10a91fc9,family_check,generator family recomputed (check_original_lessons.py),1,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O020X,20,DIV-05,transfer,1,4,20daeb8184,family_check,generator family recomputed (check_original_lessons.py),1,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O022T,22,FRAC-01,try,1,3,8bbd418a0d,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O022X,22,FRAC-01,transfer,1,4,7a41cf105f,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O023T,23,COUNT-03,try,1,3,cb377336e3,family_check,generator family recomputed (check_original_lessons.py),2,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O023X,23,COUNT-03,transfer,1,4,d0e701a8e0,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O024T,24,FRAC-02,try,1,3,b66df585d8,family_check,generator family recomputed (check_original_lessons.py),0,not individually reviewed,no,none (text only),Correct by family check; awaiting individual review
+O024X,24,FRAC-02,transfer,1,4,46d9ff5308,family_check,generator family recomputed (check_original_lessons.py),0,not individually reviewed,no,none (text only),Correct by family check; awaiting individual review
+O025T,25,FRAC-03,try,1,3,47933992a8,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O025X,25,FRAC-03,transfer,1,4,6820f690db,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O026T,26,DATA-02,try,1,3,ed7953a022,family_check,generator family recomputed (check_original_lessons.py),0,not individually reviewed,no,none (text only),Correct by family check; awaiting individual review
+O026X,26,DATA-02,transfer,1,4,c37574afd4,family_check,generator family recomputed (check_original_lessons.py),0,not individually reviewed,no,none (text only),Correct by family check; awaiting individual review
+O027T,27,FRAC-04,try,1,3,1faf09752a,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O027X,27,FRAC-04,transfer,1,4,b579735a90,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O029T,29,FRAC-03,try,2,3,0ac1c60779,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O029X,29,FRAC-03,transfer,2,4,9dae3826d5,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O030T,30,RATE-01,try,1,3,213db8315f,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O030X,30,RATE-01,transfer,1,4,da5d2322a1,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O031T,31,RATE-02,try,1,3,f89b83ab41,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O031X,31,RATE-02,transfer,1,4,cfb1088097,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O033T,33,LOGIC-01,try,1,3,33bfef6b55,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O033X,33,LOGIC-01,transfer,1,4,5b725d9e44,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O034T,34,RATE-03,try,1,3,c97f70c397,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O034X,34,RATE-03,transfer,1,4,436f618e9b,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O036T,36,SPATIAL-03,try,1,3,892819fe31,family_check,generator family recomputed (check_original_lessons.py),7,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O036X,36,SPATIAL-03,transfer,1,4,dc4eebca47,family_check,generator family recomputed (check_original_lessons.py),7,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O037T,37,RATE-04,try,1,3,8c5867e719,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O037X,37,RATE-04,transfer,1,4,1db544dbd3,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O038T,38,ALG-01,try,1,3,3483544fb0,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O038X,38,ALG-01,transfer,1,4,0abccfd91a,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O039T,39,RATE-03,try,2,3,53ff963d57,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O039X,39,RATE-03,transfer,2,4,3f690d2164,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O040T,40,ALG-02,try,1,3,2f17289a61,family_check,generator family recomputed (check_original_lessons.py),0,not individually reviewed,no,none (text only),Correct by family check; awaiting individual review
+O040X,40,ALG-02,transfer,1,4,eaca12c1d1,family_check,generator family recomputed (check_original_lessons.py),0,not individually reviewed,no,none (text only),Correct by family check; awaiting individual review
+O041T,41,ALG-03,try,1,3,8ebb24b087,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O041X,41,ALG-03,transfer,1,4,2c6194bee9,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O043T,43,GEO-01,try,1,3,71d2d5185d,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O043X,43,GEO-01,transfer,1,4,06f1cb2b48,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O044T,44,ALG-04,try,2,3,5d09166fc2,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O044X,44,ALG-04,transfer,2,4,7988be627d,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O045T,45,DATA-03,try,1,3,d0a52ac201,family_check,generator family recomputed (check_original_lessons.py),6,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O045X,45,DATA-03,transfer,1,4,a01c3f624b,family_check,generator family recomputed (check_original_lessons.py),6,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O046T,46,ALG-05,try,1,3,2f6e18d670,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O046X,46,ALG-05,transfer,1,4,53e0b752ab,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O047T,47,SEQ-01,try,1,3,c22d032341,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O047X,47,SEQ-01,transfer,1,4,269704d91c,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O050T,50,ALG-03,try,2,3,8c754c79c0,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O050X,50,ALG-03,transfer,2,4,fac55b7065,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O051T,51,SEQ-02,try,1,3,8c52a8993f,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O051X,51,SEQ-02,transfer,1,4,f051a585e7,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O052T,52,SEQ-03,try,2,3,43f66401ba,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O052X,52,SEQ-03,transfer,2,4,cf47ed7e54,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O053T,53,GEO-05,try,1,3,1d7ae83cf5,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O053X,53,GEO-05,transfer,1,4,b57ce5ad17,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O054T,54,SEQ-04,try,1,3,f196ddc7ec,family_check,generator family recomputed (check_original_lessons.py),0,not individually reviewed,no,none (text only),Correct by family check; awaiting individual review
+O054X,54,SEQ-04,transfer,1,4,2a5c9c8053,family_check,generator family recomputed (check_original_lessons.py),0,not individually reviewed,no,none (text only),Correct by family check; awaiting individual review
+O055T,55,DIG-04,try,2,3,e2c6a604a7,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O055X,55,DIG-04,transfer,2,4,981e5b38f2,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O057T,57,COUNT-01,try,1,3,0e884ccbd0,family_check,generator family recomputed (check_original_lessons.py),0,not individually reviewed,no,none (text only),Correct by family check; awaiting individual review
+O057X,57,COUNT-01,transfer,1,4,ceec66d6e1,family_check,generator family recomputed (check_original_lessons.py),0,not individually reviewed,no,none (text only),Correct by family check; awaiting individual review
+O058T,58,COUNT-02,try,1,3,78189c67ab,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O058X,58,COUNT-02,transfer,1,4,b4d2d55230,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O059T,59,SEQ-02,try,2,3,de01d952e1,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O059X,59,SEQ-02,transfer,2,4,d0b1bb2bf9,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O060T,60,COUNT-03,try,2,3,36e74fe657,family_check,generator family recomputed (check_original_lessons.py),2,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O060X,60,COUNT-03,transfer,2,4,57bae2b239,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O061T,61,GEO-02,try,1,3,d16d5fceeb,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O061X,61,GEO-02,transfer,1,4,68f1dbba39,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O062T,62,COUNT-04,try,1,3,9b4a434ec6,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O062X,62,COUNT-04,transfer,1,4,1faf0ea00d,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O065T,65,COUNT-05,try,1,3,42bf587d3e,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O065X,65,COUNT-05,transfer,1,4,f4c28b4bff,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O066T,66,DIV-03,try,3,3,da33492dd5,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O066X,66,DIV-03,transfer,3,4,24875f5735,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O067T,67,COUNT-06,try,1,3,32389f7070,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O067X,67,COUNT-06,transfer,1,4,eec4df7a52,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O068T,68,LOGIC-01,try,2,3,710c08dd8e,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O068X,68,LOGIC-01,transfer,2,4,c259b05ca7,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O069T,69,COUNT-02,try,2,3,024eab0269,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O069X,69,COUNT-02,transfer,2,4,51e400f9bb,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O071T,71,LOGIC-02,try,1,3,9778f12354,family_check,generator family recomputed (check_original_lessons.py),0,not individually reviewed,no,none (text only),Correct by family check; awaiting individual review
+O071X,71,LOGIC-02,transfer,1,4,2d2202d951,family_check,generator family recomputed (check_original_lessons.py),0,not individually reviewed,no,none (text only),Correct by family check; awaiting individual review
+O072T,72,SOLID-01,try,2,3,4504891581,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O072X,72,SOLID-01,transfer,2,4,8f9641e368,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O073T,73,LOGIC-03,try,1,3,cac81386df,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O073X,73,LOGIC-03,transfer,1,4,7bc1e0e4b4,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O074T,74,LOGIC-04,try,1,3,524e09fadb,family_check,generator family recomputed (check_original_lessons.py),2,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O074X,74,LOGIC-04,transfer,1,4,a428801a8c,family_check,generator family recomputed (check_original_lessons.py),2,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O075T,75,FRAC-02,try,2,3,7bea7606f7,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O075X,75,FRAC-02,transfer,2,4,0e4dd108d6,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O076T,76,GEO-01,try,2,3,763111ffaa,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O076X,76,GEO-01,transfer,2,4,a1a4727896,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O078T,78,GEO-02,try,2,3,42d626709b,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O078X,78,GEO-02,transfer,2,4,563ecf866b,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O079T,79,COUNT-06,try,2,3,8efb9b808e,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O079X,79,COUNT-06,transfer,2,4,41da27f5f9,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O081T,81,GEO-03,try,1,3,94c9c0c87b,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O081X,81,GEO-03,transfer,1,4,a638155ad1,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O082T,82,SPATIAL-02,try,2,3,c060fd87a3,family_check,generator family recomputed (check_original_lessons.py),8,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O082X,82,SPATIAL-02,transfer,2,4,15bb0d74d6,family_check,generator family recomputed (check_original_lessons.py),8,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O083T,83,GEO-04,try,1,3,237eb6ce92,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O083X,83,GEO-04,transfer,1,4,546d942e4b,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O085T,85,GEO-05,try,2,3,992b21dbc6,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O085X,85,GEO-05,transfer,2,4,bcaecd2ecd,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O086T,86,RATE-02,try,2,3,59c2f195a4,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O086X,86,RATE-02,transfer,2,4,7ba488f391,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O087T,87,SOLID-01,try,3,3,e3cd1f55ce,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O087X,87,SOLID-01,transfer,3,4,0bf69f1aff,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O088T,88,COUNT-03,try,3,3,754950dc5a,family_check,generator family recomputed (check_original_lessons.py),2,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O088X,88,COUNT-03,transfer,3,4,1790d0dc38,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O089T,89,SOLID-02,try,1,3,576193c1c0,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O089X,89,SOLID-02,transfer,1,4,2095501588,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O090T,90,SOLID-03,try,1,3,64c7b93e0d,family_check,generator family recomputed (check_original_lessons.py),2,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O090X,90,SOLID-03,transfer,1,4,c5a76668fc,family_check,generator family recomputed (check_original_lessons.py),2,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O092T,92,DATA-02,try,2,3,e5b8485f5d,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O092X,92,DATA-02,transfer,2,4,8a40770eb4,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O093T,93,SPATIAL-01,try,1,3,8efa96a836,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O093X,93,SPATIAL-01,transfer,1,4,7933d53d02,family_check,generator family recomputed (check_original_lessons.py),2,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O094T,94,SPATIAL-02,try,3,3,42f130e97b,family_check,generator family recomputed (check_original_lessons.py),8,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O094X,94,SPATIAL-02,transfer,3,4,f9c56cbf8d,family_check,generator family recomputed (check_original_lessons.py),8,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O095T,95,ALG-02,try,2,3,faa80d0e95,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O095X,95,ALG-02,transfer,2,4,69d1db31ed,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O097T,97,SPATIAL-03,try,2,3,709495837e,family_check,generator family recomputed (check_original_lessons.py),7,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O097X,97,SPATIAL-03,transfer,2,4,4a525f16e4,family_check,generator family recomputed (check_original_lessons.py),7,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O099T,99,LOGIC-01,try,3,3,04bfa75efa,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O099X,99,LOGIC-01,transfer,3,4,ec515e9c8f,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O100T,100,SPATIAL-04,try,1,3,ca32e3ce3d,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O100X,100,SPATIAL-04,transfer,1,4,8c8e2f78f4,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O101T,101,DATA-01,try,1,3,7463211de4,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O101X,101,DATA-01,transfer,1,4,10ff5c7ac1,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O102T,102,DIG-03,try,2,3,b28a9ff0ab,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O102X,102,DIG-03,transfer,2,4,2c8b92052b,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O103T,103,DATA-02,try,3,3,ee310c4496,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O103X,103,DATA-02,transfer,3,4,e055d991e6,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O104T,104,DATA-03,try,2,3,c7541d1090,family_check,generator family recomputed (check_original_lessons.py),6,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O104X,104,DATA-03,transfer,2,4,61899e6fd9,family_check,generator family recomputed (check_original_lessons.py),6,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O106T,106,RATE-02,try,3,3,b0869fe55d,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O106X,106,RATE-02,transfer,3,4,9d2287a06a,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O107T,107,SEQ-04,try,2,3,f53ede38f9,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O107X,107,SEQ-04,transfer,2,4,21090a5d64,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O108T,108,GEO-01,try,3,3,6b5193285a,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O108X,108,GEO-01,transfer,3,4,2a5220039e,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O109T,109,SPATIAL-04,try,2,3,8e63b55a86,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O109X,109,SPATIAL-04,transfer,2,4,7d022d7c0b,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O110T,110,DIV-03,try,4,3,463a1ac180,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O110X,110,DIV-03,transfer,4,4,1238da968e,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O113T,113,SOLID-02,try,2,3,c1db52f4a2,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O113X,113,SOLID-02,transfer,2,4,b4d0024ed8,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O114T,114,DIG-03,try,3,3,d5c7475edd,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O114X,114,DIG-03,transfer,3,4,c24278c291,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O115T,115,FRAC-04,try,2,3,1e0d4a9325,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O115X,115,FRAC-04,transfer,2,4,036ec83feb,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O116T,116,SEQ-02,try,3,3,a190a35141,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O116X,116,SEQ-02,transfer,3,4,4b4c1807e5,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O117T,117,LOGIC-03,try,2,3,4bbab068c6,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O117X,117,LOGIC-03,transfer,2,4,89cef7bb0b,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O118T,118,SPATIAL-02,try,4,3,5d854371a9,family_check,generator family recomputed (check_original_lessons.py),8,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O118X,118,SPATIAL-02,transfer,4,4,c672a0689f,family_check,generator family recomputed (check_original_lessons.py),8,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O120T,120,ALG-02,try,3,3,ed4bb2a685,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O120X,120,ALG-02,transfer,3,4,8799074594,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O121T,121,COUNT-04,try,2,3,28a3623c69,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O121X,121,COUNT-04,transfer,2,4,8f6669afa9,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O122T,122,GEO-05,try,3,3,6935f58de6,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O122X,122,GEO-05,transfer,3,4,d0059ea4f6,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O123T,123,DIG-01,try,2,3,e5630007af,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O123X,123,DIG-01,transfer,2,4,2bce57d609,family_check,generator family recomputed (check_original_lessons.py),0,not individually reviewed,no,none (text only),Correct by family check; awaiting individual review
+O124T,124,FRAC-02,try,3,3,e312abaac4,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O124X,124,FRAC-02,transfer,3,4,ffe7031f71,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O125T,125,ALG-05,try,2,3,162a26ef2f,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O125X,125,ALG-05,transfer,2,4,679f033925,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O127T,127,SPATIAL-03,try,3,3,cc2eee3ed0,family_check,generator family recomputed (check_original_lessons.py),7,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O127X,127,SPATIAL-03,transfer,3,4,ca9480e95c,family_check,generator family recomputed (check_original_lessons.py),7,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O129T,129,RATE-04,try,2,3,fb6d9bb257,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O129X,129,RATE-04,transfer,2,4,d8818224fa,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O130T,130,COUNT-02,try,3,3,783efc89f7,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O130X,130,COUNT-02,transfer,3,4,705d4a9d2c,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O131T,131,GEO-03,try,2,3,ee68e85610,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O131X,131,GEO-03,transfer,2,4,933dc9f25d,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O132T,132,DATA-02,try,4,3,fabace9657,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O132X,132,DATA-02,transfer,4,4,9bfdad01a9,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O134T,134,SEQ-01,try,2,3,f7f085002f,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O134X,134,SEQ-01,transfer,2,4,c4d8e2f63a,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O135T,135,LOGIC-02,try,2,3,900c0d04b4,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O135X,135,LOGIC-02,transfer,2,4,f0536ec79c,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O137T,137,DIG-05,try,3,3,dbedf67dca,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O137X,137,DIG-05,transfer,3,4,b24bf741e5,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O138T,138,RATE-02,try,4,3,48af3b55c0,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O138X,138,RATE-02,transfer,4,4,30f259420a,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O139T,139,SEQ-04,try,3,3,eacaaf0e89,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O139X,139,SEQ-04,transfer,3,4,6dcf4bf223,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O141T,141,DATA-03,try,3,3,94f3714516,family_check,generator family recomputed (check_original_lessons.py),6,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O141X,141,DATA-03,transfer,3,4,ff4db3fbc3,family_check,generator family recomputed (check_original_lessons.py),6,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O142T,142,FRAC-01,try,2,3,c3089a6f24,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O142X,142,FRAC-01,transfer,2,4,4e366c7ed7,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O143T,143,ALG-04,try,3,3,44b751f08d,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O143X,143,ALG-04,transfer,3,4,706acb49b2,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O145T,145,SOLID-02,try,3,3,88a6c29953,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O145X,145,SOLID-02,transfer,3,4,af76564a00,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O146T,146,DIG-03,try,4,3,bff9ae4937,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O146X,146,DIG-03,transfer,4,4,146a15ae19,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O148T,148,COUNT-01,try,2,3,882f50b505,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O148X,148,COUNT-01,transfer,2,4,0a32c085ec,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O149T,149,GEO-02,try,3,3,ffb0e0a112,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O149X,149,GEO-02,transfer,3,4,1d9ab47dfd,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O150T,150,DATA-01,try,2,3,ae0a3d1436,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O150X,150,DATA-01,transfer,2,4,17a2c80460,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O151T,151,DIV-04,try,3,3,0728ae8c8a,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O151X,151,DIV-04,transfer,3,4,4106aacef3,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O152T,152,ALG-02,try,4,3,65954f93c4,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O152X,152,ALG-02,transfer,4,4,c2b39fbbb1,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O153T,153,COUNT-04,try,3,3,3fc6ad3ef4,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O153X,153,COUNT-04,transfer,3,4,8e2affc7d7,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O155T,155,DIG-04,try,3,3,267ae7abc9,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O155X,155,DIG-04,transfer,3,4,ba963bd682,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O156T,156,RATE-01,try,2,3,04bb3ad40a,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O156X,156,RATE-01,transfer,2,4,28f98b212e,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O157T,157,SEQ-03,try,3,3,c2a1d71f48,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O157X,157,SEQ-03,transfer,3,4,18f8676882,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O158T,158,LOGIC-04,try,2,3,e949f31826,family_check,generator family recomputed (check_original_lessons.py),2,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O158X,158,LOGIC-04,transfer,2,4,feea3803d3,family_check,generator family recomputed (check_original_lessons.py),2,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O159T,159,SPATIAL-03,try,4,3,9a7b38286e,family_check,generator family recomputed (check_original_lessons.py),7,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O159X,159,SPATIAL-03,transfer,4,4,76f69f955e,family_check,generator family recomputed (check_original_lessons.py),7,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O162T,162,COUNT-05,try,2,3,922a855373,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O162X,162,COUNT-05,transfer,2,4,d7c8dbaf67,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O163T,163,SOLID-01,try,4,3,ff2b0e647a,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O163X,163,SOLID-01,transfer,4,4,e3abb7ac7f,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O164T,164,DIG-02,try,2,3,4fa4f74d91,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O164X,164,DIG-02,transfer,2,4,fe77c98d3e,family_check,generator family recomputed (check_original_lessons.py),2,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O165T,165,FRAC-03,try,3,3,7009464bf8,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O165X,165,FRAC-03,transfer,3,4,a297465dd9,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O166T,166,SEQ-01,try,3,3,475e4ba6fb,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O166X,166,SEQ-01,transfer,3,4,fb73cbfd96,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O167T,167,LOGIC-02,try,3,3,c5bd7cc03f,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O167X,167,LOGIC-02,transfer,3,4,1ff01480b8,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O169T,169,DIV-03,try,5,3,d74dd3badd,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O169X,169,DIV-03,transfer,5,4,de68259762,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O170T,170,ALG-01,try,2,3,dd193bf1d9,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O170X,170,ALG-01,transfer,2,4,20c3d5ad16,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O171T,171,COUNT-03,try,4,3,c0826ae7d1,family_check,generator family recomputed (check_original_lessons.py),2,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O171X,171,COUNT-03,transfer,4,4,31196f6dd4,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O172T,172,GEO-04,try,2,3,8358d1880b,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O172X,172,GEO-04,transfer,2,4,55c2b7ef34,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O173T,173,DATA-03,try,4,3,50d3b30502,family_check,generator family recomputed (check_original_lessons.py),6,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O173X,173,DATA-03,transfer,4,4,052594c913,family_check,generator family recomputed (check_original_lessons.py),6,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O174T,174,FRAC-01,try,3,3,ff1c20361f,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O174X,174,FRAC-01,transfer,3,4,447e0f008c,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O177T,177,SPATIAL-02,try,5,3,340ebbf32d,family_check,generator family recomputed (check_original_lessons.py),8,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O177X,177,SPATIAL-02,transfer,5,4,b8ac6b8a92,family_check,generator family recomputed (check_original_lessons.py),8,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O178T,178,DIV-01,try,2,3,387515e758,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O178X,178,DIV-01,transfer,2,4,51e6a63f6e,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O179T,179,RATE-03,try,3,3,c45995569e,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O179X,179,RATE-03,transfer,3,4,c6719f4142,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O180T,180,COUNT-01,try,3,3,2871e54f42,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O180X,180,COUNT-01,transfer,3,4,3aaaa94086,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O181T,181,GEO-02,try,4,3,14c77c1c70,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O181X,181,GEO-02,transfer,4,4,f7d49ecb78,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O183T,183,FRAC-02,try,4,3,6634369d0c,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O183X,183,FRAC-02,transfer,4,4,c191497b78,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O185T,185,LOGIC-01,try,4,3,581117c00e,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O185X,185,LOGIC-01,transfer,4,4,108a7d6f4f,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O186T,186,SOLID-03,try,2,3,317c6a04b2,family_check,generator family recomputed (check_original_lessons.py),2,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O186X,186,SOLID-03,transfer,2,4,2f824d4f6c,family_check,generator family recomputed (check_original_lessons.py),2,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O187T,187,DIG-04,try,4,3,9ee325a33c,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O187X,187,DIG-04,transfer,4,4,04d03d27f5,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O188T,188,RATE-01,try,3,3,3d94542212,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O188X,188,RATE-01,transfer,3,4,90c3bbeba3,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O190T,190,GEO-03,try,3,3,d1e440c2f5,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O190X,190,GEO-03,transfer,3,4,7d96b9eb7f,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O191T,191,DATA-02,try,5,3,a431af3674,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O191X,191,DATA-02,transfer,5,4,4a7711156e,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O193T,193,ALG-03,try,3,3,5eb60ab780,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O193X,193,ALG-03,transfer,3,4,dc0cc383af,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O194T,194,COUNT-05,try,3,3,a9051e23ee,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O194X,194,COUNT-05,transfer,3,4,2238cf49ac,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O195T,195,SOLID-01,try,5,3,d9f9da144c,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O195X,195,SOLID-01,transfer,5,4,25c259fd9c,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O197T,197,RATE-02,try,5,3,8ab1224a34,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O197X,197,RATE-02,transfer,5,4,cdfbc03995,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O198T,198,SEQ-04,try,4,3,8fd841c451,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O198X,198,SEQ-04,transfer,4,4,72b43afce2,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O199T,199,GEO-01,try,4,3,0cf2af96fe,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O199X,199,GEO-01,transfer,4,4,4a64c83f20,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O200T,200,SPATIAL-04,try,3,3,d999810d78,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O200X,200,SPATIAL-04,transfer,3,4,b9455df176,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O201T,201,DIV-03,try,6,3,0899663b1e,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O201X,201,DIV-03,transfer,6,4,1d527564a5,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O202T,202,ALG-01,try,3,3,d9f944dd37,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O202X,202,ALG-01,transfer,3,4,bed84b2760,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O204T,204,SOLID-02,try,4,3,adeeeef8bb,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O204X,204,SOLID-02,transfer,4,4,796ee14ea9,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O205T,205,DIG-03,try,5,3,31882f77c8,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O205X,205,DIG-03,transfer,5,4,65047ff188,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O206T,206,FRAC-04,try,3,3,2c5966396a,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O206X,206,FRAC-04,transfer,3,4,4bb058dadf,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O207T,207,SEQ-02,try,4,3,c06d01c065,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O207X,207,SEQ-02,transfer,4,4,3fa10945c5,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O209T,209,SPATIAL-02,try,6,3,90910e0f4e,family_check,generator family recomputed (check_original_lessons.py),8,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O209X,209,SPATIAL-02,transfer,6,4,c4f31f66c9,family_check,generator family recomputed (check_original_lessons.py),8,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O211T,211,ALG-02,try,5,3,17604cde68,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O211X,211,ALG-02,transfer,5,4,80a6bec608,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O213T,213,GEO-05,try,4,3,023a973619,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O213X,213,GEO-05,transfer,4,4,3efa666390,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O214T,214,DIG-01,try,3,3,f842ba9a44,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O214X,214,DIG-01,transfer,3,4,c846e9fe05,family_check,generator family recomputed (check_original_lessons.py),0,not individually reviewed,no,none (text only),Correct by family check; awaiting individual review
+O215T,215,FRAC-02,try,5,3,5747c4e6ee,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O215X,215,FRAC-02,transfer,5,4,7cb26389b7,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O216T,216,ALG-05,try,3,3,4737833889,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O216X,216,ALG-05,transfer,3,4,278ffe6682,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O218T,218,SPATIAL-03,try,5,3,33a3fb7b76,family_check,generator family recomputed (check_original_lessons.py),7,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O218X,218,SPATIAL-03,transfer,5,4,169195131e,family_check,generator family recomputed (check_original_lessons.py),7,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O219T,219,DIV-02,try,2,3,584dfb77e1,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O219X,219,DIV-02,transfer,2,4,10e1b7d113,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O220T,220,RATE-04,try,3,3,24e386ec55,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O220X,220,RATE-04,transfer,3,4,a451645929,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O221T,221,COUNT-02,try,4,3,9ea8555ed9,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O221X,221,COUNT-02,transfer,4,4,847a682864,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O222T,222,GEO-03,try,4,3,1e7c551e8f,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O222X,222,GEO-03,transfer,4,4,275197b624,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O223T,223,DATA-02,try,6,3,24fa28d85b,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O223X,223,DATA-02,transfer,6,4,8004de4f8b,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O226T,226,LOGIC-02,try,4,3,d801d3d194,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O226X,226,LOGIC-02,transfer,4,4,3c947be8c5,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O227T,227,SPATIAL-01,try,2,3,a6fddbb6b1,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O227X,227,SPATIAL-01,transfer,2,4,423b4df74d,family_check,generator family recomputed (check_original_lessons.py),2,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O228T,228,DIG-05,try,4,3,5e255f70f4,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O228X,228,DIG-05,transfer,4,4,a3cdb50b8f,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O229T,229,RATE-02,try,6,3,f6510a6518,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O229X,229,RATE-02,transfer,6,4,a4698defca,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O230T,230,SEQ-04,try,5,3,df9a1b2d95,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O230X,230,SEQ-04,transfer,5,4,6a420dfed0,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O232T,232,DATA-03,try,5,3,d4302f9f65,family_check,generator family recomputed (check_original_lessons.py),6,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O232X,232,DATA-03,transfer,5,4,458ea5ee64,family_check,generator family recomputed (check_original_lessons.py),6,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O233T,233,FRAC-01,try,4,3,696780e887,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O233X,233,FRAC-01,transfer,4,4,0b2f07372c,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O234T,234,ALG-04,try,4,3,d9dedf85af,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O234X,234,ALG-04,transfer,4,4,7988621277,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O235T,235,COUNT-06,try,3,3,5b4c3bdd25,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O235X,235,COUNT-06,transfer,3,4,7c1d12ba31,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O237T,237,DIG-03,try,6,3,928a2326c7,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O237X,237,DIG-03,transfer,6,4,c1f0601bfe,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O239T,239,COUNT-01,try,4,3,da482c9f55,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O239X,239,COUNT-01,transfer,4,4,aaedb88964,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O241T,241,DATA-01,try,3,3,ce874027ec,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O241X,241,DATA-01,transfer,3,4,128fac3300,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O242T,242,DIV-04,try,4,3,58b0af9631,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O242X,242,DIV-04,transfer,4,4,42439870dc,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O243T,243,ALG-02,try,6,3,9ce81d1caa,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O243X,243,ALG-02,transfer,6,4,4e614353bd,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O244T,244,COUNT-04,try,4,3,4bd1b0d153,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O244X,244,COUNT-04,transfer,4,4,167c0659ba,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O246T,246,DIG-04,try,5,3,3b98d74812,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O246X,246,DIG-04,transfer,5,4,1cac0f871b,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O247T,247,RATE-01,try,4,3,7d280d4b25,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O247X,247,RATE-01,transfer,4,4,1975a70e6c,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O248T,248,SEQ-03,try,4,3,8ed7c9a9cc,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O248X,248,SEQ-03,transfer,4,4,1a0108a1f4,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O249T,249,LOGIC-04,try,3,3,3413944e2a,family_check,generator family recomputed (check_original_lessons.py),2,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O249X,249,LOGIC-04,transfer,3,4,65c08337e0,family_check,generator family recomputed (check_original_lessons.py),2,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O250T,250,SPATIAL-03,try,6,3,eceebd8594,family_check,generator family recomputed (check_original_lessons.py),7,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O250X,250,SPATIAL-03,transfer,6,4,ef43b98d90,family_check,generator family recomputed (check_original_lessons.py),7,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O251T,251,DIV-02,try,3,3,f7a481cf97,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O251X,251,DIV-02,transfer,3,4,118c275b20,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O253T,253,COUNT-05,try,4,3,9402657c50,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O253X,253,COUNT-05,transfer,4,4,cff546647a,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O254T,254,SOLID-01,try,6,3,6cad839ada,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O254X,254,SOLID-01,transfer,6,4,0eec3f33a4,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O255T,255,DIG-02,try,3,3,de74940416,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O255X,255,DIG-02,transfer,3,4,b32651a09f,family_check,generator family recomputed (check_original_lessons.py),0,not individually reviewed,no,none (text only),Correct by family check; awaiting individual review
+O257T,257,SEQ-01,try,4,3,dab20bce97,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O257X,257,SEQ-01,transfer,4,4,0736cddd95,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O258T,258,LOGIC-02,try,5,3,913224c27a,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O258X,258,LOGIC-02,transfer,5,4,0e8c95246a,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O260T,260,DIV-03,try,7,3,287486f88b,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O260X,260,DIV-03,transfer,7,4,d32713e3e1,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O261T,261,ALG-01,try,4,3,f672e3a731,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O261X,261,ALG-01,transfer,4,4,0a75f385a0,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O262T,262,COUNT-03,try,5,3,ac26a3abab,family_check,generator family recomputed (check_original_lessons.py),2,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O262X,262,COUNT-03,transfer,5,4,5f134dbf43,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O263T,263,GEO-04,try,3,3,82b7065edb,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O263X,263,GEO-04,transfer,3,4,57478a4ba6,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O265T,265,FRAC-01,try,5,3,edfc4de449,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O265X,265,FRAC-01,transfer,5,4,a5a67f71d3,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O267T,267,LOGIC-03,try,3,3,0c0b8e2103,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O267X,267,LOGIC-03,transfer,3,4,47fdf781e8,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O268T,268,SPATIAL-02,try,7,3,deba510a52,family_check,generator family recomputed (check_original_lessons.py),8,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O268X,268,SPATIAL-02,transfer,7,4,0188f900a8,family_check,generator family recomputed (check_original_lessons.py),8,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O269T,269,DIV-01,try,3,3,589a662877,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O269X,269,DIV-01,transfer,3,4,46f83d88f5,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O270T,270,RATE-03,try,4,3,8700ef9b1c,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O270X,270,RATE-03,transfer,4,4,372722f81b,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O271T,271,COUNT-01,try,5,3,fde4875acd,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O271X,271,COUNT-01,transfer,5,4,5b5c598d8d,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O274T,274,FRAC-02,try,6,3,cefc15ab65,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O274X,274,FRAC-02,transfer,6,4,b32b3bf301,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O275T,275,ALG-05,try,4,3,1241a2b072,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O275X,275,ALG-05,transfer,4,4,a76198d840,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O276T,276,LOGIC-01,try,5,3,ad3a50a1f5,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O276X,276,LOGIC-01,transfer,5,4,08dab422de,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O277T,277,SOLID-03,try,3,3,5cba9bbd6e,family_check,generator family recomputed (check_original_lessons.py),2,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O277X,277,SOLID-03,transfer,3,4,4d931ea940,family_check,generator family recomputed (check_original_lessons.py),2,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O278T,278,DIG-04,try,6,3,3495f70525,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O278X,278,DIG-04,transfer,6,4,5a9862a909,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O279T,279,RATE-01,try,5,3,abe301de05,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O279X,279,RATE-01,transfer,5,4,dd767dc536,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O281T,281,GEO-03,try,5,3,e8fda8358c,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O281X,281,GEO-03,transfer,5,4,2260fbb14c,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O282T,282,DATA-02,try,7,3,16f8b143e1,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O282X,282,DATA-02,transfer,7,4,509a54f0c8,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O283T,283,DIV-05,try,2,3,d16a4e0ad6,family_check,generator family recomputed (check_original_lessons.py),1,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O283X,283,DIV-05,transfer,2,4,7a0c840a59,family_check,generator family recomputed (check_original_lessons.py),1,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O284T,284,ALG-03,try,4,3,e343657c9f,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O284X,284,ALG-03,transfer,4,4,ad7263a9cf,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O285T,285,COUNT-05,try,5,3,f286673d35,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O285X,285,COUNT-05,transfer,5,4,caa89f7d48,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O286T,286,SOLID-01,try,7,3,c3eba0c344,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O286X,286,SOLID-01,transfer,7,4,67352e89c8,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O289T,289,SEQ-04,try,6,3,b10f17b7fc,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O289X,289,SEQ-04,transfer,6,4,5312914da3,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O290T,290,GEO-01,try,5,3,b61532099e,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O290X,290,GEO-01,transfer,5,4,54675c20e5,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O291T,291,SPATIAL-04,try,4,3,88d2c38c0a,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O291X,291,SPATIAL-04,transfer,4,4,69daa2b76b,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O293T,293,ALG-01,try,5,3,9df9b25b52,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O293X,293,ALG-01,transfer,5,4,62aece39d3,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O295T,295,SOLID-02,try,5,3,08bcb2e810,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O295X,295,SOLID-02,transfer,5,4,dc36df59ec,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O296T,296,DIG-03,try,7,3,b8e82bb42f,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O296X,296,DIG-03,transfer,7,4,d7ac674b73,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O297T,297,FRAC-04,try,4,3,43ca4d26a9,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O297X,297,FRAC-04,transfer,4,4,577139b635,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O298T,298,SEQ-02,try,5,3,d2072bb7a8,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O298X,298,SEQ-02,transfer,5,4,d5fc9eaf25,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O299T,299,LOGIC-03,try,4,3,41831eed04,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O299X,299,LOGIC-03,transfer,4,4,aa083b8e5c,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O300T,300,SPATIAL-02,try,8,3,4f08ccfd03,family_check,generator family recomputed (check_original_lessons.py),8,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O300X,300,SPATIAL-02,transfer,8,4,b65cbbc101,family_check,generator family recomputed (check_original_lessons.py),8,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O302T,302,ALG-02,try,7,3,42ab4e37d9,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O302X,302,ALG-02,transfer,7,4,3203b1bacf,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O303T,303,COUNT-04,try,5,3,62370b768e,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O303X,303,COUNT-04,transfer,5,4,4b37db8033,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O305T,305,DIG-01,try,4,3,ee1ab2aea6,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O305X,305,DIG-01,transfer,4,4,77d634b128,family_check,generator family recomputed (check_original_lessons.py),0,not individually reviewed,no,none (text only),Correct by family check; awaiting individual review
+O306T,306,FRAC-02,try,7,3,e62ae5b5b1,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O306X,306,FRAC-02,transfer,7,4,363b2ec16b,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O307T,307,ALG-05,try,5,3,a3e28622be,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O307X,307,ALG-05,transfer,5,4,dd78fe3cdc,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O309T,309,SPATIAL-03,try,7,3,fa2ad8eaec,family_check,generator family recomputed (check_original_lessons.py),7,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O309X,309,SPATIAL-03,transfer,7,4,aab7fa5773,family_check,generator family recomputed (check_original_lessons.py),7,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O310T,310,DIV-02,try,4,3,51294252e7,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O310X,310,DIV-02,transfer,4,4,9f44e5f127,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O311T,311,RATE-04,try,4,3,f0ce800434,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O311X,311,RATE-04,transfer,4,4,073bb471d0,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O312T,312,COUNT-02,try,5,3,9d2961e450,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O312X,312,COUNT-02,transfer,5,4,1a6f726a50,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O313T,313,GEO-03,try,6,3,862a9ec40b,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O313X,313,GEO-03,transfer,6,4,600eb4f412,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O314T,314,DATA-02,try,8,3,26851572f7,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O314X,314,DATA-02,transfer,8,4,cc693d4c42,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O317T,317,LOGIC-02,try,6,3,560256fe4d,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O317X,317,LOGIC-02,transfer,6,4,b0abbf1d97,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O318T,318,SPATIAL-01,try,3,3,2006cb9d15,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O318X,318,SPATIAL-01,transfer,3,4,10953561b9,family_check,generator family recomputed (check_original_lessons.py),2,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O319T,319,DIG-05,try,5,3,8a96bf7592,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O319X,319,DIG-05,transfer,5,4,072ca04f90,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O321T,321,SEQ-04,try,7,3,19355be9da,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O321X,321,SEQ-04,transfer,7,4,fb2065c5a3,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O323T,323,DATA-03,try,6,3,60a7b3c98f,family_check,generator family recomputed (check_original_lessons.py),6,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O323X,323,DATA-03,transfer,6,4,e1d48463ef,family_check,generator family recomputed (check_original_lessons.py),6,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O324T,324,FRAC-01,try,6,3,944e98327e,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O324X,324,FRAC-01,transfer,6,4,19db14b7cb,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O325T,325,ALG-04,try,5,3,df128b5fc8,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O325X,325,ALG-04,transfer,5,4,78a0f6ec4b,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O326T,326,COUNT-06,try,4,3,50eab8901e,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O326X,326,COUNT-06,transfer,4,4,067985d772,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O327T,327,SOLID-02,try,6,3,10f45c8cb7,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O327X,327,SOLID-02,transfer,6,4,ed4f676a52,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O330T,330,COUNT-01,try,6,3,5d7caeb753,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O330X,330,COUNT-01,transfer,6,4,4137efeeb0,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O331T,331,GEO-02,try,5,3,10beb7d54d,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O331X,331,GEO-02,transfer,5,4,7858b649da,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O332T,332,DATA-01,try,4,3,7b329b9564,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O332X,332,DATA-01,transfer,4,4,e4dce8bf19,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O333T,333,DIV-04,try,5,3,e980176bc3,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O333X,333,DIV-04,transfer,5,4,d2806dfec5,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O334T,334,ALG-02,try,8,3,01b0657d99,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O334X,334,ALG-02,transfer,8,4,4616571344,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O335T,335,COUNT-04,try,6,3,2fd4315e03,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O335X,335,COUNT-04,transfer,6,4,a80c3fd170,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O338T,338,RATE-01,try,6,3,26dbd5f95c,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O338X,338,RATE-01,transfer,6,4,a86cdbdd70,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O339T,339,SEQ-03,try,5,3,d5edb67162,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O339X,339,SEQ-03,transfer,5,4,d0fb5aa655,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O341T,341,SPATIAL-03,try,8,3,d17f48747a,family_check,generator family recomputed (check_original_lessons.py),7,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O341X,341,SPATIAL-03,transfer,8,4,d098fb9836,family_check,generator family recomputed (check_original_lessons.py),7,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O342T,342,DIV-02,try,5,3,dc4bcbe709,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O342X,342,DIV-02,transfer,5,4,418849f0ad,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O345T,345,SOLID-01,try,8,3,1910bcc9fd,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O345X,345,SOLID-01,transfer,8,4,a17ca326a8,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O346T,346,DIG-02,try,4,3,7d4a4d38a8,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O346X,346,DIG-02,transfer,4,4,e67d135e42,family_check,generator family recomputed (check_original_lessons.py),2,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O347T,347,FRAC-03,try,4,3,22b2ed112a,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O347X,347,FRAC-03,transfer,4,4,487a28a08d,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O348T,348,SEQ-01,try,5,3,6833c90de3,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O348X,348,SEQ-01,transfer,5,4,3a1ab19faf,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O349T,349,LOGIC-02,try,7,3,c68dfe084f,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O349X,349,LOGIC-02,transfer,7,4,3670d37e07,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
+O351T,351,DIV-03,try,8,3,50fc7d7be7,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O351X,351,DIV-03,transfer,8,4,29f7b295cb,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
+O353T,353,COUNT-03,try,6,3,fe8667ce45,family_check,generator family recomputed (check_original_lessons.py),2,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O353X,353,COUNT-03,transfer,6,4,265ca72568,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O354T,354,GEO-04,try,4,3,ecbfe129e1,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O354X,354,GEO-04,transfer,4,4,fa5b4f63ef,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O355T,355,DATA-03,try,7,3,2e26e25be7,family_check,generator family recomputed (check_original_lessons.py),6,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O355X,355,DATA-03,transfer,7,4,dbea46b3bc,family_check,generator family recomputed (check_original_lessons.py),6,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O358T,358,LOGIC-03,try,5,3,4b2efeed22,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O358X,358,LOGIC-03,transfer,5,4,1d34b7ec32,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O359T,359,SPATIAL-02,try,9,3,9c3053eb28,family_check,generator family recomputed (check_original_lessons.py),8,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O359X,359,SPATIAL-02,transfer,9,4,85e02a8ed2,family_check,generator family recomputed (check_original_lessons.py),8,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O360T,360,DIV-01,try,4,3,8937c58d84,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O360X,360,DIV-01,transfer,4,4,c3d93ce2b1,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O361T,361,COUNT-06,try,5,3,a296e6735d,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O361X,361,COUNT-06,transfer,5,4,c742e1c668,family_check,generator family recomputed (check_original_lessons.py),0,not individually reviewed,no,none (text only),Correct by family check; awaiting individual review
+O362T,362,ALG-03,try,5,3,3f4379893a,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O362X,362,ALG-03,transfer,5,4,4db77495c2,family_check,generator family recomputed (check_original_lessons.py),0,not individually reviewed,no,none (text only),Correct by family check; awaiting individual review
+O365T,365,GEO-02,try,6,3,0a6a841d3c,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O365X,365,GEO-02,transfer,6,4,63ff995341,family_check,generator family recomputed (check_original_lessons.py),0,not individually reviewed,no,none (text only),Correct by family check; awaiting individual review
+O366T,366,SPATIAL-01,try,4,3,0dd1883f8a,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O366X,366,SPATIAL-01,transfer,4,4,83c8bc4403,family_check,generator family recomputed (check_original_lessons.py),0,not individually reviewed,no,none (text only),Correct by family check; awaiting individual review
+O367T,367,DIV-04,try,6,3,0ed7b75712,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O367X,367,DIV-04,transfer,6,4,0d060c22fd,family_check,generator family recomputed (check_original_lessons.py),0,not individually reviewed,no,none (text only),Correct by family check; awaiting individual review
+O368T,368,RATE-03,try,5,3,28ed046487,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O368X,368,RATE-03,transfer,5,4,1c1bfe4f12,family_check,generator family recomputed (check_original_lessons.py),0,not individually reviewed,no,none (text only),Correct by family check; awaiting individual review
+O370T,370,GEO-05,try,5,3,37594dca11,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
+O370X,370,GEO-05,transfer,5,4,a01357fd72,family_check,generator family recomputed (check_original_lessons.py),0,not individually reviewed,no,none (text only),Correct by family check; awaiting individual review

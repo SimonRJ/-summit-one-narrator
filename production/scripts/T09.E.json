@@ -1,0 +1,51 @@
+{
+ "id": "T09.E",
+ "title": "Make fractions, decimals and algebra agree",
+ "chapter": "Make fractions, decimals and algebra agree",
+ "type": "worked_example",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Worked example: equal trays, each with a pouch and loose counters.",
+ "narration_words": 182,
+ "estimated_minutes": 1.2,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "PUZZLE",
+   "visual": "Three identical trays. Each holds one pouch and 2 loose counters. Total label: 21 counters. Question: \"How many counters are in each pouch?\"",
+   "narration": "Three identical trays each hold one pouch and two loose counters. Every pouch holds the same number of counters. Altogether the trays contain twenty-one counters. How many counters are in each pouch?"
+  },
+  {
+   "n": 2,
+   "stage": "DEVELOP",
+   "visual": "A bar of length 21 splits into three equal parts labelled 7.",
+   "narration": "The three trays are identical, so they share the twenty-one counters equally. Twenty-one divided by three is seven. Each tray holds seven counters."
+  },
+  {
+   "n": 3,
+   "stage": "DEVELOP",
+   "visual": "One tray's bar of 7 splits into a pouch part and 2 loose counters. The pouch part is labelled 5.",
+   "narration": "In one tray, two of the seven counters are loose. The rest are in the pouch. Seven minus two is five. Each pouch holds five counters."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "Equation form appears beside the bars: 3 lots of (pouch and 2) is 21; pouch and 2 is 7; pouch is 5.",
+   "narration": "In symbols: three lots of a pouch plus two equals twenty-one. So a pouch plus two equals seven, and a pouch equals five. The bars and the equation tell the same story."
+  },
+  {
+   "n": 5,
+   "stage": "VARIATION",
+   "visual": "A second route: remove the 6 loose counters first, leaving 15 for three pouches.",
+   "narration": "There is a second route. Take away all six loose counters first. Fifteen counters remain, shared by three pouches: five each. Two different orders, the same answer, which is a good check."
+  },
+  {
+   "n": 6,
+   "stage": "RECAP",
+   "visual": "Line: \"share first, or remove the extras first\". Notebook prompt.",
+   "narration": "You can share first, or remove the extras first. Rebuild both routes, then try this: four identical bags each hold one box and three loose marbles, making forty marbles altogether. How many marbles are in each box?"
+  }
+ ],
+ "notebook_exercise": "Four bags each hold one box and 3 loose marbles; 40 marbles altogether. How many in each box?",
+ "notebook_answer": "40 / 4 = 10 per bag; 10 - 3 = 7 per box."
+}

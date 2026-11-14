@@ -1,0 +1,63 @@
+{
+ "id": "T14.2",
+ "title": "Use future obligations to reject tempting moves",
+ "chapter": "Turn routes and schedules into networks",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Reject a move now if it makes the rest of the route impossible.",
+ "narration_words": 338,
+ "estimated_minutes": 2.3,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "A path through a small network visiting each dot once; one tempting move leaves a dot stranded, which turns grey.",
+   "narration": "Some routes must visit every place exactly once. A move can be perfectly legal now and still ruin the route later, by cutting off a place you still need to visit. Good solvers look ahead at what each move leaves behind."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "A long failed attempt being erased, beside a short early check that stops it.",
+   "narration": "Without looking ahead you find out about a mistake only at the very end. Checking what remains after each move catches dead ends early and saves most of the work."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "A 3 by 3 grid of dots joined to their horizontal and vertical neighbours. A token at the top-left. Rule card: \"visit every dot exactly once\". Question: \"Can the path start at the top-left and end at the centre?\"",
+   "narration": "A token moves on a three by three grid of dots, stepping to a neighbour up, down, left or right. It must visit every dot exactly once. Starting in a corner, can it finish in the centre? Pause and try to trace it."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "A spiral path from the top-left: along the top, down the right, along the bottom, up the left to the middle-left dot, then into the centre. Nine dots visited.",
+   "narration": "A spiral works. Go along the top, down the right side, along the bottom, up the left, and step into the centre. Every dot is visited once, and the path ends in the centre."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "The grid coloured like a chessboard: corners and centre dark (5 dots), edge-middles light (4 dots). A path alternates dark, light, dark.",
+   "narration": "Now ask a harder question: can a path start in the middle of a side? Colour the dots like a chessboard. The corners and the centre are dark: five dots. The middles of the sides are light: four dots. Every step changes colour."
+  },
+  {
+   "n": 6,
+   "stage": "DEVELOP",
+   "visual": "A sequence of nine boxes alternating colours: starting light gives light, dark, light, dark... needing five light dots. Only four exist. A cross.",
+   "narration": "A path through nine dots that starts on a light dot would visit light, dark, light, dark, and so on: five light dots and four dark. But there are only four light dots. So no such path exists. One simple count rules out every attempt at once."
+  },
+  {
+   "n": 7,
+   "stage": "VARIATION",
+   "visual": "A network with a dot that has only one connection. A card: \"a dead-end dot must be the start or the finish\".",
+   "narration": "Here is another look-ahead rule. A dot with only one connection can only be the first or the last dot of the route, because you cannot pass through it. If there are three such dots, no route can visit them all."
+  },
+  {
+   "n": 8,
+   "stage": "RECAP",
+   "visual": "Lines: \"After each move, check what is cut off\", \"Dead ends must be endpoints\", \"Colouring can prove a route impossible\".",
+   "narration": "After each move, check that everything unvisited can still be reached. Dead ends must be endpoints. And colouring can prove impossibility. Notebook challenge: on a grid of dots with two rows and three columns, can a path visiting every dot once start at one end of the top row and finish at the other end of the top row?"
+  }
+ ],
+ "notebook_exercise": "On a grid of dots with 2 rows and 3 columns, can a path visiting every dot once go from one end of the top row to the other end of the top row?",
+ "notebook_answer": "No. Those two corners have the same chessboard colour, but a path through 6 dots must start and finish on different colours."
+}

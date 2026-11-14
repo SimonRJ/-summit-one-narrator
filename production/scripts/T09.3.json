@@ -1,0 +1,69 @@
+{
+ "id": "T09.3",
+ "title": "Transform equations without losing conditions",
+ "chapter": "Make fractions, decimals and algebra agree",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Change an equation only in ways that keep both sides balanced.",
+ "narration_words": 268,
+ "estimated_minutes": 1.8,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "A balance scale level, with a pouch and 3 counters on the left and 10 counters on the right. Three counters are removed from each side; it stays level.",
+   "narration": "An equation is a balance. Whatever you do to one side, do to the other, and it stays level. Take three from both sides, or halve both sides, and the balance still holds. That is all that solving an equation is."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "A scale tipping after something is done to one side only.",
+   "narration": "Guessing works for small numbers. Balancing works every time, and it shows your reasoning, which is how you avoid losing track in longer problems."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "Left pan: two pouches and 5 counters. Right pan: one pouch and 12 counters. Question: \"How many counters are in a pouch?\"",
+   "narration": "Two pouches and five counters balance one pouch and twelve counters. Every pouch holds the same number. How many counters are in a pouch? Pause and think about what you could remove from both sides."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "One pouch lifts off each pan. Left: one pouch and 5 counters. Right: 12 counters.",
+   "narration": "Remove one pouch from each side. The balance holds. Now one pouch and five counters balance twelve counters."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "Five counters lift off each pan. Left: one pouch. Right: 7 counters. The pouch opens to show 7.",
+   "narration": "Remove five counters from each side. One pouch balances seven counters. Each pouch holds seven."
+  },
+  {
+   "n": 6,
+   "stage": "DEVELOP",
+   "visual": "Original pans with pouches opened: left 7, 7 and 5 makes 19; right 7 and 12 makes 19.",
+   "narration": "Check in the original. Two sevens and five make nineteen. One seven and twelve make nineteen. Both sides agree."
+  },
+  {
+   "n": 7,
+   "stage": "VARIATION",
+   "visual": "A recipe line: \"half a number, plus 3, is 11\". Subtract 3 from both sides, then double both sides: 16.",
+   "narration": "With fractions, clear them by multiplying both sides. Half a number plus three is eleven. Take three from both sides: half the number is eight. Double both sides: the number is sixteen."
+  },
+  {
+   "n": 8,
+   "stage": "VARIATION",
+   "visual": "Statement: \"x times x equals 5 times x\". A tempting \"divide by x\" gives 5 only; the solution 0 appears separately with a highlight.",
+   "narration": "One caution. Never divide both sides by something that might be zero. If a number times itself equals five times the number, dividing by the number gives five. But zero also works, because zero times zero equals five times zero. Dividing threw that answer away."
+  },
+  {
+   "n": 9,
+   "stage": "RECAP",
+   "visual": "Lines: \"Do the same to both sides\", \"Undo operations in a sensible order\", \"Check in the original\".",
+   "narration": "Do the same to both sides. Undo one operation at a time. Check your answer in the original equation. Notebook challenge: three pouches and four counters balance one pouch and eighteen counters. How many counters are in each pouch?"
+  }
+ ],
+ "notebook_exercise": "Three pouches and 4 counters balance one pouch and 18 counters. How many per pouch?",
+ "notebook_answer": "Two pouches balance 14 counters, so 7 each."
+}

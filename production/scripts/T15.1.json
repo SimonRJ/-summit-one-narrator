@@ -1,0 +1,63 @@
+{
+ "id": "T15.1",
+ "title": "Define sameness before counting",
+ "chapter": "Use symmetry without losing or repeating cases",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Decide which arrangements count as \"the same\" before counting them.",
+ "narration_words": 306,
+ "estimated_minutes": 2.0,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "A square tile with one corner coloured. It turns a quarter turn four times, showing four pictures. A card asks: \"four tiles, or one?\"",
+   "narration": "Take a square tile with one corner coloured. Turn it, and the coloured corner moves. Is that a new tile, or the same tile seen from another side? The answer depends on the rules of the question. You must decide what counts as the same before you count."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "Two different totals for one problem, each with a rule card under it: \"fixed in place\" and \"free to turn\".",
+   "narration": "The same problem can have two correct-looking answers, one for objects fixed in place and one for objects that can be turned. Reading which is intended is half the work."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "A 2 by 2 square made of four small squares. Rule: \"exactly one small square is shaded\". Question: \"How many different patterns?\"",
+   "narration": "A square is divided into four smaller squares, and exactly one of them is shaded. How many different patterns are there? Pause and decide whether the square is fixed to the page, or free to be turned."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "Four patterns in a row, one for each shaded position, with a label \"fixed on the page: 4\".",
+   "narration": "If the square is fixed on the page, like a window in a wall, there are four patterns: top-left, top-right, bottom-left, bottom-right."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "The four patterns rotate into one another and stack into a single tile. Label \"free to turn: 1\".",
+   "narration": "If the square is a loose tile that can be turned, all four are the same tile. A quarter turn carries each pattern to the next. There is only one pattern."
+  },
+  {
+   "n": 6,
+   "stage": "VARIATION",
+   "visual": "Two small squares shaded. Six fixed patterns appear, then group under turning into two piles: four \"side by side\" patterns and two \"diagonal\" patterns.",
+   "narration": "Now shade two of the four squares. Fixed on the page there are six patterns. Free to turn, they fall into just two kinds: the two shaded squares are side by side, or they are diagonal. Turning can never change one kind into the other."
+  },
+  {
+   "n": 7,
+   "stage": "VARIATION",
+   "visual": "A tile with an asymmetric mark and its mirror image side by side; rotating one never matches the other. A flip arrow turns one into the other.",
+   "narration": "Turning over is different from turning round. A flat tile can be rotated on the table, but its mirror image only appears if you are allowed to flip it over. Unless the question allows flipping, a shape and its mirror image are different."
+  },
+  {
+   "n": 8,
+   "stage": "RECAP",
+   "visual": "Lines: \"Fixed, turnable, or flippable?\", \"Same means: one can be moved onto the other by an allowed move\".",
+   "narration": "Ask whether objects are fixed, can be turned, or can also be flipped. Two arrangements are the same only if an allowed move takes one to the other. Notebook challenge: three of the four small squares are shaded. How many patterns are there if the square is free to turn?"
+  }
+ ],
+ "notebook_exercise": "A 2 by 2 square has three of its four small squares shaded. How many patterns, if it is free to turn?",
+ "notebook_answer": "1 (it is the same as choosing the single unshaded square)."
+}

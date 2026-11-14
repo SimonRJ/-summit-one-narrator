@@ -1,0 +1,57 @@
+{
+ "id": "T03.2",
+ "title": "Separate the first coincidence from the repeat period",
+ "chapter": "Remainders turn long lists into short systems",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Find when two repeating events first coincide, and how often after that.",
+ "narration_words": 295,
+ "estimated_minutes": 2.0,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "Two rows of lights. The top flashes every 4 beats, the bottom every 6. Vertical lines mark when both flash.",
+   "narration": "Two things repeat at different speeds. A light flashes every four seconds. Another flashes every six. When do they flash together? There are two separate questions here: when is the first time, and how long between repeats."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "The numbers 4 and 6 with a tempting \"x = 24\" crossed lightly; \"12\" appears instead.",
+   "narration": "A common mistake is to multiply the two periods. Four times six is twenty-four, and they do flash together then, but it is not the first time. Another mistake is to forget that the two events may not start together."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "Timeline from 0 to 30. Both lights flash at 0. Question: \"When do they next flash together?\"",
+   "narration": "Both lights flash at time zero. One repeats every four seconds and the other every six. When do they next flash together? Pause and list some flash times."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "Top row marks at 4, 8, 12, 16, 20, 24. Bottom row at 6, 12, 18, 24. The marks at 12 and 24 join with vertical lines.",
+   "narration": "The first light flashes at four, eight, twelve, sixteen. The second at six, twelve, eighteen. They meet at twelve. Twelve is the smallest number that both four and six divide into. It is called the lowest common multiple. After that, they meet every twelve seconds."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "Same timeline, but the bottom light now starts at 2: marks at 2, 8, 14, 20, 26. Top row unchanged. Join at 8 and 20.",
+   "narration": "Now change the start. The first light still flashes at zero, four, eight. The second starts at time two and flashes every six: two, eight, fourteen, twenty. Their first meeting is at eight, not twelve. But the gap between meetings is still twelve: eight, then twenty."
+  },
+  {
+   "n": 6,
+   "stage": "VARIATION",
+   "visual": "Third version: top at 0, 4, 8...; bottom starting at 1: 1, 7, 13, 19, 25. No joins. Labels \"even\" and \"odd\".",
+   "narration": "Sometimes they never meet. Suppose the second light starts at time one. The first light flashes only at even times. The second flashes at one, seven, thirteen, all odd times. An even time can never equal an odd time, so they never coincide. A quick odd-and-even check can save a long search."
+  },
+  {
+   "n": 7,
+   "stage": "RECAP",
+   "visual": "Lines: \"First meeting: depends on the starts\", \"Gap between meetings: lowest common multiple\".",
+   "narration": "The lowest common multiple gives the gap between meetings. The starting positions decide the first meeting, and whether there is one at all. Notebook challenge: one bus leaves every eight minutes and another every twelve minutes. Both leave at nine o'clock. When do they next leave together?"
+  }
+ ],
+ "notebook_exercise": "Buses leave every 8 minutes and every 12 minutes, both at 9:00. When do they next leave together?",
+ "notebook_answer": "The lowest common multiple of 8 and 12 is 24, so at 9:24."
+}

@@ -1,0 +1,51 @@
+{
+ "id": "T05.E",
+ "title": "Count outcomes once, using complete cases",
+ "chapter": "Count outcomes once, using complete cases",
+ "type": "worked_example",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Worked example: a restriction that affects only one branch.",
+ "narration_words": 167,
+ "estimated_minutes": 1.1,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "PUZZLE",
+   "visual": "Two sandwich tiles, \"cheese\" and \"bean\". Three fruit tiles, \"apple\", \"pear\", \"plum\". Rule: \"cheese may not go with plum\". Question: \"How many different lunches?\"",
+   "narration": "A lunch has one sandwich, cheese or bean, and one fruit, apple, pear or plum. Cheese may not be paired with plum. How many different lunches are possible?"
+  },
+  {
+   "n": 2,
+   "stage": "DEVELOP",
+   "visual": "A tree begins with two branches: cheese and bean.",
+   "narration": "The restriction only mentions cheese, so split by sandwich. A lunch has exactly one sandwich, so these two cases cannot overlap."
+  },
+  {
+   "n": 3,
+   "stage": "DEVELOP",
+   "visual": "The cheese branch grows two leaves: apple, pear. A faded third leaf \"plum\" is struck out.",
+   "narration": "With cheese, plum is not allowed, so the allowed fruits are apple and pear. That is two lunches: cheese with apple, and cheese with pear."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "The bean branch grows three leaves: apple, pear, plum. Leaf count 2 and 3 combine to 5.",
+   "narration": "With bean, all three fruits are allowed. That is three lunches. Add the cases: two plus three is five."
+  },
+  {
+   "n": 5,
+   "stage": "VARIATION",
+   "visual": "A two by three grid of all six pairs, with the single cell \"cheese and plum\" crossed out.",
+   "narration": "Check another way. Without the rule there would be two times three, six lunches. Exactly one of them, cheese with plum, is forbidden. Six minus one is five. Two methods agree."
+  },
+  {
+   "n": 6,
+   "stage": "RECAP",
+   "visual": "Line: \"unequal branches: add, do not multiply\". Notebook prompt.",
+   "narration": "When branches have different sizes, add them rather than multiplying. Rebuild the tree yourself, then try this: there are three shirts and four pairs of shorts, but the red shirt cannot be worn with the two orange pairs. How many outfits are possible?"
+  }
+ ],
+ "notebook_exercise": "3 shirts and 4 pairs of shorts; the red shirt cannot go with the 2 orange pairs. How many outfits?",
+ "notebook_answer": "12 - 2 = 10."
+}

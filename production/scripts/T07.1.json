@@ -1,0 +1,63 @@
+{
+ "id": "T07.1",
+ "title": "Find a resource that every arrangement uses",
+ "chapter": "Prove a limit, then build an example",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Prove a maximum by finding something limited that every arrangement must use.",
+ "narration_words": 305,
+ "estimated_minutes": 2.0,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "A row of eight empty cells. Counters wait above. Rule text: \"no two counters in neighbouring cells\".",
+   "narration": "When a question asks for the largest possible number, trying examples is not enough. You need a reason why nobody could ever do better. That reason usually comes from something limited that every arrangement has to use."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "An arrangement with four counters, and a thought bubble \"could five fit?\".",
+   "narration": "Finding a good arrangement shows what is possible. It does not show that it is the best. Without a proof of the limit, there is always the worry that a cleverer arrangement exists."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "Eight cells numbered 1 to 8. Question: \"What is the largest number of counters, with no two neighbours?\"",
+   "narration": "Counters are placed in a row of eight cells, at most one per cell. No two counters may be in neighbouring cells. What is the largest number of counters that can be placed? Pause and try to find both an arrangement and a reason."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "The cells group into four coloured pairs: (1,2), (3,4), (5,6), (7,8). A counter in each pair's left cell.",
+   "narration": "Split the row into four pairs of neighbouring cells. Each pair can hold at most one counter, because two counters in a pair would be neighbours. Four pairs means at most four counters. That is the limit."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "Counters sit in cells 1, 3, 5, 7. Neighbour gaps are checked one by one with small ticks.",
+   "narration": "Now reach the limit. Put counters in cells one, three, five and seven. No two are neighbours. So four is possible, and more than four is impossible. The largest number is four."
+  },
+  {
+   "n": 6,
+   "stage": "VARIATION",
+   "visual": "A row of nine cells. Pairs (1,2), (3,4), (5,6), (7,8) and a single cell 9. Counters at 1, 3, 5, 7, 9.",
+   "narration": "With nine cells, there are four pairs and one cell left over. Each pair holds at most one counter and the extra cell holds at most one: at most five. And cells one, three, five, seven and nine achieve it."
+  },
+  {
+   "n": 7,
+   "stage": "VARIATION",
+   "visual": "Text: \"smallest number\" with eight cells and a new rule \"every empty cell must be next to a counter\". Groups of three cells, each with a counter in the middle.",
+   "narration": "For a smallest-number question, turn the idea around: ask what every arrangement must cover. If every empty cell must be next to a counter, each counter can look after at most three cells, itself and its two neighbours. Eight cells need at least three counters."
+  },
+  {
+   "n": 8,
+   "stage": "RECAP",
+   "visual": "Lines: \"Find the limited resource\", \"Prove the limit\", \"Show an arrangement that reaches it\".",
+   "narration": "Find what is limited. Use it to prove a limit. Then show an arrangement that reaches the limit. Notebook challenge: what is the largest number of counters in a row of eleven cells with no two neighbours?"
+  }
+ ],
+ "notebook_exercise": "Largest number of counters in a row of 11 cells with no two in neighbouring cells?",
+ "notebook_answer": "6 (five pairs plus one single cell; cells 1, 3, 5, 7, 9, 11)."
+}

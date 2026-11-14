@@ -1,0 +1,57 @@
+{
+ "id": "T01.1",
+ "title": "Give every quantity a job",
+ "chapter": "Read the question into a useful model",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Attach a meaning and a unit to every number before calculating.",
+ "narration_words": 299,
+ "estimated_minutes": 2.0,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "Matte dark stage. Three plain number tiles 4, 3, 2 float with no labels. One by one a small tag slides under each: \"packets\", \"counters in each packet\", \"loose counters\".",
+   "narration": "Every number in a maths question has a job. One number might count packets, another might count what is inside each packet, and another might count loose items. Before you calculate anything, give each number a label that says what it counts, and what unit it is measured in."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "Two worked lines side by side. Left: 4 + 3 + 2 = 9, greyed, with a small cross. Right: the same tiles with their tags. Tags pulse gently.",
+   "narration": "Why bother? Because most wrong answers in competitions are not arithmetic slips. They are correct calculations of the wrong thing. If you add packets to counters, the sum looks tidy, but it means nothing. Labels stop that mistake before it starts."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "Four ceramic packets appear, each with three counters visible through a window, plus two loose counters. Question text: \"How many counters altogether?\" Hold two seconds.",
+   "narration": "Here is a small puzzle. Mia has four packets. Each packet holds three counters. She also has two loose counters. How many counters does she have altogether? Pause and decide what each number is doing."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "The four packets open; their counters slide out into four rows of three. Equation builds: 4 packets x 3 counters per packet = 12 counters.",
+   "narration": "The four counts packets, and the three counts counters in each packet. Packets times counters per packet gives counters. Four times three is twelve counters."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "The two loose counters join the twelve. Equation: 12 counters + 2 counters = 14 counters. The word \"counters\" lines up vertically in both terms.",
+   "narration": "The two is already a number of counters, so it can be added directly. Twelve counters plus two counters is fourteen counters. Notice we only added things with the same label."
+  },
+  {
+   "n": 6,
+   "stage": "VARIATION",
+   "visual": "New strip of page numbers 95 to 105. The digit 9 highlights wherever it appears. Two counters at the side: \"numbers containing a 9\" and \"9s written\".",
+   "narration": "Now a different trap. Pages are numbered from ninety-five to one hundred and five. How many times is the digit nine written? Five page numbers contain a nine: ninety-five to ninety-nine. But ninety-nine contains it twice. So the digit nine is written six times. \"Numbers containing a nine\" and \"nines written\" are different jobs, and the question tells you which one it wants."
+  },
+  {
+   "n": 7,
+   "stage": "RECAP",
+   "visual": "Three short lines appear in turn: \"Read the request\", \"Label every number\", \"Only combine matching labels\".",
+   "narration": "So here is the method. Read what the answer must describe. Give every number a label and a unit. Then only add or compare quantities whose labels match. In your notebook, try this one: a shelf holds six boxes, each box holds eight pencils, and five pencils are broken. How many pencils are not broken?"
+  }
+ ],
+ "notebook_exercise": "A shelf holds 6 boxes, each with 8 pencils; 5 pencils are broken. How many pencils are not broken?",
+ "notebook_answer": "6 x 8 = 48 pencils; 48 - 5 = 43 pencils."
+}

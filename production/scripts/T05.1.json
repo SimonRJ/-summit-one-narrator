@@ -1,0 +1,63 @@
+{
+ "id": "T05.1",
+ "title": "Decide whether order belongs to the outcome",
+ "chapter": "Count outcomes once, using complete cases",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Decide whether swapping two chosen objects makes a new outcome.",
+ "narration_words": 299,
+ "estimated_minutes": 2.0,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "Three ceramic counters A, B, C. Two podium places \"1st\" and \"2nd\" on the left; a plain tray labelled \"team of 2\" on the right.",
+   "narration": "Before counting anything, ask one question: does order matter? Choosing a winner and a runner-up is different from choosing a team of two. On the podium, swapping the two people changes the result. In a team, swapping them changes nothing."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "Two answers, 6 and 3, hover over the same three counters with a question mark between them.",
+   "narration": "Getting this wrong doubles your answer, or halves it. It is one of the most common counting mistakes, and the cure is to decide about order before you start multiplying."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "Counters A, B, C. Question one: \"How many ways to fill 1st and 2nd?\" Question two: \"How many teams of two?\"",
+   "narration": "Three runners, Ava, Ben and Cal, are in a race. In how many ways can first and second place be filled? And how many different pairs of them could form a team? Pause and try both."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "Six ordered pairs appear in two columns: AB, AC, BA, BC, CA, CB. Count 3 times 2.",
+   "narration": "For the podium, there are three choices for first place, then two remaining choices for second. Three times two is six ordered results."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "The six ordered pairs slide together in twos: AB with BA, AC with CA, BC with CB. Three merged tiles remain.",
+   "narration": "For a team, Ava then Ben is the same team as Ben then Ava. The six ordered results merge in pairs, leaving three teams. We divide by two because each team was counted in two orders."
+  },
+  {
+   "n": 6,
+   "stage": "VARIATION",
+   "visual": "Five counters. A row of three places gives 5, 4, 3. Then groups of six orderings collapse into one tile each; ten tiles remain.",
+   "narration": "Now choose three people from five. In order, that is five times four times three, which is sixty. As an unordered group, each set of three people can be arranged in six orders, so sixty divided by six gives ten groups. The number you divide by is the number of ways to arrange the chosen objects."
+  },
+  {
+   "n": 7,
+   "stage": "VARIATION",
+   "visual": "A team of three with role badges \"captain\", \"scorer\", \"timekeeper\" appearing on the counters.",
+   "narration": "Read the wording carefully. If the three chosen people get different jobs, such as captain, scorer and timekeeper, then order matters again and the answer is sixty."
+  },
+  {
+   "n": 8,
+   "stage": "RECAP",
+   "visual": "Lines: \"Different roles or places: order matters\", \"Just a group: divide by the arrangements\".",
+   "narration": "If positions or roles differ, count in order. If only membership matters, divide by the number of arrangements of the chosen group. Notebook challenge: from six players, how many ways are there to choose a captain and a vice-captain? And how many ways to choose two players to carry the equipment?"
+  }
+ ],
+ "notebook_exercise": "From 6 players: how many ways to choose a captain and vice-captain? How many ways to choose 2 equipment carriers?",
+ "notebook_answer": "6 x 5 = 30 with roles; 30 / 2 = 15 as an unordered pair."
+}

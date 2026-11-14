@@ -1,0 +1,69 @@
+{
+ "id": "T11.2",
+ "title": "Use information that survives rearrangement",
+ "chapter": "Make every digit obey both its jobs",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Use digit sums to find remainders on division by 9 and by 3.",
+ "narration_words": 285,
+ "estimated_minutes": 1.9,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "A ten-rod splits into a block of 9 and 1 extra cube. A hundred-square splits into 99 and 1 extra.",
+   "narration": "Ten is one more than nine. A hundred is one more than ninety-nine. A thousand is one more than nine hundred and ninety-nine. Every place value is one more than a multiple of nine. That is why digit sums work."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "A huge number with a quick digit-sum bubble beside it.",
+   "narration": "This gives a test for multiples of nine, and of three, that takes seconds, even for enormous numbers. It also survives when digits are rearranged."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "The number 4725. Question: \"Is it a multiple of 9?\"",
+   "narration": "Is four thousand seven hundred and twenty-five a multiple of nine? Pause and add its digits."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "4725 breaks into 4 thousands, 7 hundreds, 2 tens, 5 units. Each place-value block sheds its \"multiple of 9\" part, leaving one cube per unit of digit: 4, 7, 2 and 5 cubes.",
+   "narration": "Each thousand leaves one over after removing nines. So four thousands leave four. Seven hundreds leave seven. Two tens leave two. The five units stay. What is left over is exactly the digit sum."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "The cubes gather: 4, 7, 2, 5 make 18. 18 forms two groups of 9. A tick.",
+   "narration": "Four plus seven plus two plus five is eighteen. Eighteen is a multiple of nine, so the number is too. In general, a number and its digit sum leave the same remainder when divided by nine."
+  },
+  {
+   "n": 6,
+   "stage": "VARIATION",
+   "visual": "The number 583: digits sum to 16; 16 leaves 7 after removing 9. Label \"remainder 7\".",
+   "narration": "The digit sum gives the remainder, not just a yes or no. Five hundred and eighty-three has digit sum sixteen. Sixteen is seven more than nine. So five hundred and eighty-three leaves remainder seven when divided by nine."
+  },
+  {
+   "n": 7,
+   "stage": "VARIATION",
+   "visual": "Digit cards 1, 2, 6 shuffling into 126, 216, 612, 621. Sum 9 stays fixed above them.",
+   "narration": "Rearranging digits does not change their sum. So every arrangement of the digits one, two and six is a multiple of nine. And since nine is a multiple of three, the same digit-sum test works for three."
+  },
+  {
+   "n": 8,
+   "stage": "VARIATION",
+   "visual": "A missing-digit card: 5 _ 8 with digit sum 13 plus the blank; the blank fills with 5 to make 18.",
+   "narration": "It solves missing digits too. Five, blank, eight is a multiple of nine. The known digits add to thirteen, so the blank must be five, making eighteen."
+  },
+  {
+   "n": 9,
+   "stage": "RECAP",
+   "visual": "Lines: \"Digit sum and number: same remainder on division by 9\", \"Works for 3 as well\", \"Rearranging digits keeps it\".",
+   "narration": "A number and its digit sum have the same remainder on division by nine, and on division by three. Notebook challenge: what digit makes seven, three, blank, four a multiple of nine?"
+  }
+ ],
+ "notebook_exercise": "What digit makes 73_4 a multiple of 9?",
+ "notebook_answer": "7 + 3 + 4 = 14; the digit is 4, making 18."
+}

@@ -1,0 +1,63 @@
+{
+ "id": "T12.3",
+ "title": "Use coordinates or extra lines to make a proof visible",
+ "chapter": "Use angle relationships and exact geometric facts",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Add one helpful line, or use a grid, to make a hidden relationship visible.",
+ "narration_words": 315,
+ "estimated_minutes": 2.1,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "Two parallel lines with a bent path between them. Nothing links the bend to either line until a third parallel line fades in through the bend.",
+   "narration": "Sometimes a diagram does not contain the line you need. You are allowed to add one. A good extra line connects what you know to what you want. A bad one just adds clutter, so add a line only when you can say what it is for."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "A cluttered diagram with many random lines beside a clean one with a single added line.",
+   "narration": "Many geometry problems are one well-chosen line away from being easy. Learning which lines tend to help is a real skill: a parallel line, a height, or a line that makes a triangle with equal sides."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "Two horizontal parallel lines. A zigzag: from a point on the top line a segment goes down to a bend, then on to the bottom line. The angle between the top line and the first segment is 35 degrees; between the bottom line and the second segment, 45 degrees. The angle at the bend has a question mark.",
+   "narration": "A path goes from one of two parallel lines to a bend, and then to the other line. It makes thirty-five degrees with the top line and forty-five degrees with the bottom line. What is the angle at the bend? Pause and think about what line you could add."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "A dashed line appears through the bend, parallel to both lines. It splits the bend angle into an upper and a lower part.",
+   "narration": "Draw a line through the bend, parallel to the other two. It splits the bend angle into two parts."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "The 35 degree angle slides along the first segment to become the upper part: alternate angles. The 45 slides to become the lower part. Sum 80.",
+   "narration": "The upper part matches the thirty-five degree angle, because of the parallel lines. The lower part matches the forty-five. So the angle at the bend is thirty-five plus forty-five: eighty degrees."
+  },
+  {
+   "n": 6,
+   "stage": "VARIATION",
+   "visual": "A square grid. A tilted square has corners at grid points, each side going 3 across and 1 up. A surrounding 4 by 4 square is drawn, with four right triangles in the corners.",
+   "narration": "A grid is another way to make things visible. Here is a tilted square whose sides each go three across and one up. What is its area? Surround it with a four by four square, area sixteen. The four corner triangles each have area one and a half, six altogether. Sixteen minus six is ten. The tilted square has area ten."
+  },
+  {
+   "n": 7,
+   "stage": "VARIATION",
+   "visual": "A triangle with a height dropped from the top to the base, splitting it into two right-angled triangles.",
+   "narration": "The most common helpful line of all is a height. Dropping a perpendicular splits an awkward triangle into two right-angled ones, which are much easier to work with."
+  },
+  {
+   "n": 8,
+   "stage": "RECAP",
+   "visual": "Lines: \"Add a line only with a purpose\", \"Parallels move angles; heights make right angles\", \"A grid makes lengths and areas exact\".",
+   "narration": "Add a line only when you can say why. Parallel lines carry angles; heights create right angles; a grid makes areas exact. Notebook challenge: on a grid, a tilted square has sides that each go two across and one up. What is its area?"
+  }
+ ],
+ "notebook_exercise": "On a grid, a tilted square has sides going 2 across and 1 up. What is its area?",
+ "notebook_answer": "Surrounding 3 by 3 square (9) minus four triangles of area 1: 5."
+}

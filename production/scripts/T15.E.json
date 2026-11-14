@@ -1,0 +1,51 @@
+{
+ "id": "T15.E",
+ "title": "Use symmetry without losing or repeating cases",
+ "chapter": "Use symmetry without losing or repeating cases",
+ "type": "worked_example",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Worked example: why half of all subsets have an even number of members.",
+ "narration_words": 188,
+ "estimated_minutes": 1.3,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "PUZZLE",
+   "visual": "Three labelled counters A, B, C. Text: \"Choose any group of them, including none.\" Question: \"How many groups have an even number of members?\"",
+   "narration": "From three objects, A, B and C, choose any group, including the empty group with nothing in it. Explain why exactly half of the groups have an even number of members."
+  },
+  {
+   "n": 2,
+   "stage": "DEVELOP",
+   "visual": "Each counter gets a switch \"in / out\". 2 times 2 times 2 gives 8 groups. All eight are listed.",
+   "narration": "Each object is either in the group or out of it. Two choices, three times over, gives eight groups."
+  },
+  {
+   "n": 3,
+   "stage": "DEVELOP",
+   "visual": "The eight groups arranged in four pairs, each pair differing only by whether A is in.",
+   "narration": "Pair each group with the group you get by changing A: put A in if it is out, and take A out if it is in. The empty group pairs with the group containing only A. The group B, C pairs with the group A, B, C."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "Sizes shown on each card. Within every pair, sizes differ by one: 0 with 1, 1 with 2, 1 with 2, 2 with 3.",
+   "narration": "Changing A changes the size of the group by exactly one. So each pair has one group of even size and one of odd size. Four pairs give four even groups and four odd groups."
+  },
+  {
+   "n": 5,
+   "stage": "VARIATION",
+   "visual": "The four even groups listed: the empty group, AB, AC, BC.",
+   "narration": "Check by listing. The even groups are the empty group, A with B, A with C, and B with C. That is four, exactly half of eight."
+  },
+  {
+   "n": 6,
+   "stage": "RECAP",
+   "visual": "Line: \"toggle one member to pair even with odd\". Notebook prompt.",
+   "narration": "Toggling one member pairs every even group with an odd one. Rebuild this argument, then say how many groups chosen from five objects have an odd number of members."
+  }
+ ],
+ "notebook_exercise": "How many groups chosen from 5 objects have an odd number of members?",
+ "notebook_answer": "Half of 32: 16."
+}

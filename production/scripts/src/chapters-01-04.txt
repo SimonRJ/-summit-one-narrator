@@ -1,0 +1,363 @@
+@@ T01.1
+GOAL: Attach a meaning and a unit to every number before calculating.
+[INSIGHT]
+V: Matte dark stage. Three plain number tiles 4, 3, 2 float with no labels. One by one a small tag slides under each: "packets", "counters in each packet", "loose counters".
+N: Every number in a maths question has a job. One number might count packets, another might count what is inside each packet, and another might count loose items. Before you calculate anything, give each number a label that says what it counts, and what unit it is measured in.
+[WHY]
+V: Two worked lines side by side. Left: 4 + 3 + 2 = 9, greyed, with a small cross. Right: the same tiles with their tags. Tags pulse gently.
+N: Why bother? Because most wrong answers in competitions are not arithmetic slips. They are correct calculations of the wrong thing. If you add packets to counters, the sum looks tidy, but it means nothing. Labels stop that mistake before it starts.
+[PUZZLE]
+V: Four ceramic packets appear, each with three counters visible through a window, plus two loose counters. Question text: "How many counters altogether?" Hold two seconds.
+N: Here is a small puzzle. Mia has four packets. Each packet holds three counters. She also has two loose counters. How many counters does she have altogether? Pause and decide what each number is doing.
+[DEVELOP]
+V: The four packets open; their counters slide out into four rows of three. Equation builds: 4 packets x 3 counters per packet = 12 counters.
+N: The four counts packets, and the three counts counters in each packet. Packets times counters per packet gives counters. Four times three is twelve counters.
+[DEVELOP]
+V: The two loose counters join the twelve. Equation: 12 counters + 2 counters = 14 counters. The word "counters" lines up vertically in both terms.
+N: The two is already a number of counters, so it can be added directly. Twelve counters plus two counters is fourteen counters. Notice we only added things with the same label.
+[VARIATION]
+V: New strip of page numbers 95 to 105. The digit 9 highlights wherever it appears. Two counters at the side: "numbers containing a 9" and "9s written".
+N: Now a different trap. Pages are numbered from ninety-five to one hundred and five. How many times is the digit nine written? Five page numbers contain a nine: ninety-five to ninety-nine. But ninety-nine contains it twice. So the digit nine is written six times. "Numbers containing a nine" and "nines written" are different jobs, and the question tells you which one it wants.
+[RECAP]
+V: Three short lines appear in turn: "Read the request", "Label every number", "Only combine matching labels".
+N: So here is the method. Read what the answer must describe. Give every number a label and a unit. Then only add or compare quantities whose labels match. In your notebook, try this one: a shelf holds six boxes, each box holds eight pencils, and five pencils are broken. How many pencils are not broken?
+TRY: A shelf holds 6 boxes, each with 8 pencils; 5 pencils are broken. How many pencils are not broken?
+ANS: 6 x 8 = 48 pencils; 48 - 5 = 43 pencils.
+
+@@ T01.2
+GOAL: Choose a line, table, drawing or equation that makes the hidden relationship visible.
+[INSIGHT]
+V: A single sentence of text dissolves into four small icons: a number line, a table, a sketch, an equation.
+N: The same problem can be drawn in different ways, and some drawings make the answer almost obvious. A good representation shows the relationship you need. The four you will use most are a line, a table, a sketch and an equation.
+[WHY]
+V: A cluttered paragraph of words on the left; on the right a clean number line with marks. The line brightens.
+N: Words hide structure. In a sentence, it is hard to see whether you are counting posts or the gaps between posts. On a line, you can point to each one. Choosing the right picture often saves more time than any calculation trick.
+[PUZZLE]
+V: Number line from 0 to 30 with marks every 5: posts at 0, 5, 10, 15, 20, 25, 30. Question: "How many posts? How many gaps?"
+N: A straight fence is thirty metres long. There is a post at each end and a post every five metres. How many posts are there? Pause and picture the fence.
+[DEVELOP]
+V: The six gaps light up one at a time with a small counter 1 to 6. Then the seven posts light up with a counter 1 to 7.
+N: Thirty divided by five is six. But six of what? Six is the number of gaps. Every gap has a post at its right-hand end, and there is one extra post at the very start. So there are seven posts. The line shows why the answer is one more than the division.
+[DEVELOP]
+V: The fence bends into a closed ring of 30 metres with posts every 5. The start and end posts merge into one. Counter shows 6 posts, 6 gaps.
+N: Change the picture and the rule changes. If the same thirty metres of fence goes round a garden in a closed loop, the first and last posts are the same post. Now there are six gaps and six posts.
+[VARIATION]
+V: A queue of faceless figures. One is highlighted. Labels: "9th from the front", "6th from the back". Figures in front counted 8, behind counted 5.
+N: A line also untangles queues. Sam is ninth from the front and sixth from the back. How many people are in the queue? Eight people stand in front of Sam and five behind. Eight plus five plus Sam makes fourteen. Adding nine and six would count Sam twice.
+[VARIATION]
+V: A two-column table: "item", "price", with units in the headings. Then a small rectangle sketch with only stated lengths marked.
+N: Use a table when several categories must be compared, and put the same kind of quantity in each column. Use a sketch when touching sides or a boundary matters, and mark only facts you were given, never guessed lengths.
+[RECAP]
+V: The four icons return with one word each: order, compare, shape, balance.
+N: A line for order and gaps. A table for comparing. A sketch for shapes. An equation for a balance between totals. Notebook challenge: trees are planted every four metres along a forty-metre path, including both ends. How many trees are there?
+TRY: Trees every 4 m along a 40 m path, including both ends. How many trees?
+ANS: 40 / 4 = 10 gaps, so 11 trees.
+
+@@ T01.3
+GOAL: Predict the type and size of an answer, then test it against every condition.
+[INSIGHT]
+V: A finished answer "7.5 people" sits in a box. A soft red outline appears round it. Then "8 people" replaces it with a calm outline.
+N: An answer is not finished when the calculation ends. It is finished when it has been checked against the story. Your model of the problem tells you what kind of answer is even possible, and that is a powerful check.
+[WHY]
+V: Three quick cards: "a count must be whole", "a probability is between 0 and 1", "an area is in square units".
+N: A number of people must be whole. A probability must lie between zero and one. An area is measured in square units. If your answer breaks one of these, something earlier went wrong, and you have caught it for free.
+[PUZZLE]
+V: Buses drawn as rounded blocks holding 40 seats each; 130 small dots waiting. Question: "How many buses are needed?"
+N: One hundred and thirty students are going on a trip. Each bus holds forty students. How many buses are needed? Pause and predict roughly what the answer should be before calculating.
+[DEVELOP]
+V: Dots flow into buses: 40, 40, 40, and 10 left over standing outside. The division 130 / 40 = 3 remainder 10 appears.
+N: One hundred and thirty divided by forty is three, with ten students left over. Three buses carry one hundred and twenty. The remaining ten still need a seat, so the answer is four buses. The division was correct, but the story decides what to do with the remainder.
+[DEVELOP]
+V: Checklist ticks: "whole number? yes", "enough seats? 160 >= 130", "one fewer fails? 120 < 130".
+N: Now check. Four is a whole number. Four buses hold one hundred and sixty, which is enough. And three buses would not be enough, so four is the smallest answer that works. That last check proves we did not overshoot.
+[VARIATION]
+V: Same numbers, new question text: "How many buses are completely full?" The three full buses glow; the fourth, part full, dims.
+N: Keep the numbers and change the request. How many buses are completely full, if each bus is filled before the next one is used? Now the answer is three. The same calculation, a different question, a different answer. Always reread the request at the end.
+[RECAP]
+V: Three lines: "Predict", "Substitute back", "Reread the request".
+N: Predict the type and rough size of the answer. Put your answer back into every condition. Then reread what was asked. Notebook challenge: eggs are packed in boxes of twelve. How many boxes are needed to pack one hundred eggs, and how many eggs are in the last box?
+TRY: Eggs are packed in boxes of 12. How many boxes for 100 eggs, and how many eggs in the last box?
+ANS: 100 = 12 x 8 + 4, so 9 boxes, with 4 eggs in the last box.
+
+@@ T01.E
+GOAL: Worked example: positions on a ruler are not lengths.
+[PUZZLE]
+V: A ruler from 0 to 12 cm. A ribbon lies from the 2 cm mark to the 9 cm mark. Question: "How long is the ribbon?"
+N: Let us work one example carefully. A ribbon starts at the two centimetre mark of a ruler and ends at the nine centimetre mark. How long is the ribbon? Pause and decide what is being counted.
+[DEVELOP]
+V: The labels 2 and 9 lift off the ruler with tags "position", "position".
+N: The numbers two and nine are positions measured from zero. Neither of them is the length of the ribbon. We need the distance between the two positions.
+[DEVELOP]
+V: The seven one-centimetre gaps under the ribbon light up in turn, numbered 1 to 7.
+N: Count the gaps the ribbon covers: two to three, three to four, and so on up to eight to nine. That is seven gaps, each one centimetre long. The ribbon is seven centimetres long.
+[DEVELOP]
+V: Equation 9 - 2 = 7 cm appears. Above it, the eight marks from 2 to 9 flash briefly with a small "8 marks" note, then fade.
+N: Subtraction gives the same result: nine minus two is seven. Notice there are eight numbered marks from two to nine. Counting marks gives eight, which is the classic mistake. Length counts gaps, not marks.
+[VARIATION]
+V: The ribbon slides to start at 0 and end at 7. Same length bracket stays.
+N: Here is a check. Slide the ribbon so it starts at zero. It now ends at seven. Sliding does not change its length, so seven centimetres makes sense.
+[RECAP]
+V: Line: "length = end position - start position". Then the notebook prompt.
+N: Length is the end position minus the start position. Now cover this solution and rebuild it yourself. Then try this: a film starts at seven fifteen and ends at nine oh five. How many minutes long is it?
+TRY: A film starts at 7:15 and ends at 9:05. How many minutes long is it?
+ANS: 45 + 60 + 5 = 110 minutes.
+
+@@ T02.3
+GOAL: Compare two orders of the same operations using a general starting value.
+[INSIGHT]
+V: Two machines in a row: "+5" then "x2". They swap places and the output number changes.
+N: Putting on socks then shoes is not the same as shoes then socks. Many maths operations are like that. Changing the order can change the result. Today you will learn how to compare two orders for every starting number at once.
+[WHY]
+V: A table of test values 1, 2, 3 with outputs for both orders; a question mark hangs over "all numbers?".
+N: You could test a few starting numbers, but tests only tell you about the numbers you tried. Using a letter for the start tells you about all of them, and it shows exactly how big the difference is.
+[PUZZLE]
+V: Order A: add 5, then double. Order B: double, then add 5. Start value shown as a covered box x. Question: "Which is bigger, and by how much?"
+N: Start with any number. Order A adds five, then doubles. Order B doubles, then adds five. Which order gives the bigger result, and by how much? Pause and try it with a starting number of your own.
+[DEVELOP]
+V: A bar of length x with a block of 5 attached; the whole bar is copied twice. Label: 2x + 10.
+N: Call the start x. Order A makes x plus five, then doubles everything, including the five. That gives two x plus ten.
+[DEVELOP]
+V: A bar x copied twice, then a single block of 5 attached. Label: 2x + 5. The two results stack; the shared 2x parts fade, leaving one block of 5.
+N: Order B doubles x first, giving two x, and then adds just one five. That gives two x plus five. Both results contain two x. Order A has one extra five. So order A is always bigger by exactly five, whatever number you start with.
+[VARIATION]
+V: Same machines with the doubling replaced by "x(-2)". Outputs: -2x - 10 and -2x + 5. A small flip arrow shows the comparison reversing.
+N: Be careful with negative multipliers. If the second machine multiplies by negative two, order A gives negative two x minus ten, and order B gives negative two x plus five. Now order B is bigger, by fifteen. Multiplying by a negative number reverses which side is larger.
+[VARIATION]
+V: Two machines "+3" and "+7" swap with no change; two machines "x2" and "x5" swap with no change. A tick on each.
+N: Some pairs never care about order. Two additions can be swapped. Two multiplications can be swapped. The interesting cases mix adding with multiplying.
+[RECAP]
+V: Lines: "Use x for the start", "Simplify both orders", "Subtract to compare".
+N: Use a letter for the start. Write both orders as expressions. Subtract them to see which is larger and by how much. Notebook challenge: compare "subtract four, then multiply by three" with "multiply by three, then subtract four".
+TRY: Compare "subtract 4 then multiply by 3" with "multiply by 3 then subtract 4".
+ANS: 3(x - 4) = 3x - 12 and 3x - 4; the second is always larger by 8.
+
+@@ T02.E
+GOAL: Worked example: why one order always wins by the same amount.
+[PUZZLE]
+V: Rule A: add 3, then multiply by 4. Rule B: multiply by 4, then add 3. A covered start box. Question: "Which output is larger, and by how much?"
+N: Here is a worked example. Start with any whole number. Rule A adds three and then multiplies by four. Rule B multiplies by four and then adds three. Which output is larger, and by how much?
+[DEVELOP]
+V: A bar x with a gold block of 3. Four copies stack: four bars and four gold blocks. Label 4x + 12.
+N: Rule A makes four copies of the whole amount x plus three. That is four copies of x and four copies of three: four x plus twelve.
+[DEVELOP]
+V: Four copies of bar x, then a single gold block of 3. Label 4x + 3.
+N: Rule B makes four copies of x, and then adds only one three: four x plus three.
+[DEVELOP]
+V: The two stacks side by side. Matching bars fade out in pairs. Three gold blocks of 3 remain on Rule A's side. Label: difference 9.
+N: Both outputs contain the same four copies of x. Rule A has three extra threes. Three times three is nine. Rule A is always larger by nine.
+[VARIATION]
+V: Start box opens to show 0: outputs 12 and 3. Then 10: outputs 52 and 43.
+N: Check with numbers. Starting from zero, the outputs are twelve and three. Starting from ten, they are fifty-two and forty-three. The difference is nine both times, exactly as the bars predicted.
+[RECAP]
+V: Line: "extra = (multiplier - 1) x amount added". Notebook prompt.
+N: The amount added gets multiplied in one rule and not in the other. That is the whole difference. Rebuild this argument in your notebook, then predict the gap between "add two then multiply by six" and "multiply by six then add two".
+TRY: Find the gap between "add 2 then multiply by 6" and "multiply by 6 then add 2".
+ANS: 6x + 12 and 6x + 2; the gap is always 10.
+
+@@ T03.1
+GOAL: Read "remainder r on division by d" as: the number is r more than a multiple of d.
+[INSIGHT]
+V: Seventeen counters fall into groups of five: three full groups and two left over. Label: 17 = 3 x 5 + 2.
+N: When you divide and something is left over, that leftover is called the remainder. Seventeen counters make three full groups of five, with two left over. So seventeen is two more than a multiple of five. That sentence is what a remainder really says.
+[WHY]
+V: A long row of numbers shrinks into five coloured columns labelled 0, 1, 2, 3, 4.
+N: Remainders are useful because they shrink huge lists. There are endlessly many whole numbers, but when dividing by five there are only five possible remainders: zero, one, two, three and four. Hard questions about big numbers become small questions about remainders.
+[PUZZLE]
+V: A repeating row of beads: red, blue, green, yellow, red, blue... Position numbers underneath. Question: "What colour is bead 50?"
+N: Beads repeat in the order red, blue, green, yellow. What colour is the fiftieth bead? Pause and think about how remainders could help.
+[DEVELOP]
+V: The row folds into four columns under red, blue, green, yellow. Bead numbers 1, 5, 9 stack under red; 4, 8, 12 under yellow.
+N: The pattern has length four, so divide by four. Fifty is four times twelve, plus two. After twelve complete cycles, two more beads are used. The second bead in the cycle is blue. Bead fifty is blue.
+[DEVELOP]
+V: Bead 48 highlights under yellow with "remainder 0".
+N: Watch what happens for bead forty-eight. Forty-eight divided by four leaves remainder zero. That does not mean "no bead". It means a whole number of cycles has just finished, so it is the last colour, yellow.
+[VARIATION]
+V: Two numbers 23 and 38 on a line with a bracket of length 15 between them, split into three fives.
+N: Here is a second use. Twenty-three and thirty-eight both leave remainder three when divided by five. Their difference is fifteen, a multiple of five. That always happens: two numbers have the same remainder exactly when their difference is a multiple of the divisor.
+[VARIATION]
+V: Candidate list 3, 8, 13, 18, 23, 28 with those leaving remainder 1 on division by 3 circled: 13, 28.
+N: You can also combine conditions. Which number under thirty leaves remainder three when divided by five, and remainder one when divided by three? List the first kind: three, eight, thirteen, eighteen, twenty-three, twenty-eight. Test each for the second condition. Thirteen works, and so does twenty-eight.
+[RECAP]
+V: Lines: "N = groups x d + r", "r is from 0 to d - 1", "same remainder means difference is a multiple".
+N: A remainder says how far a number is past a multiple. It is always smaller than the divisor. Notebook challenge: today is Tuesday. What day of the week will it be one hundred days from now?
+TRY: Today is Tuesday. What day will it be 100 days from now?
+ANS: 100 = 7 x 14 + 2, so two days after Tuesday: Thursday.
+
+@@ T03.2
+GOAL: Find when two repeating events first coincide, and how often after that.
+[INSIGHT]
+V: Two rows of lights. The top flashes every 4 beats, the bottom every 6. Vertical lines mark when both flash.
+N: Two things repeat at different speeds. A light flashes every four seconds. Another flashes every six. When do they flash together? There are two separate questions here: when is the first time, and how long between repeats.
+[WHY]
+V: The numbers 4 and 6 with a tempting "x = 24" crossed lightly; "12" appears instead.
+N: A common mistake is to multiply the two periods. Four times six is twenty-four, and they do flash together then, but it is not the first time. Another mistake is to forget that the two events may not start together.
+[PUZZLE]
+V: Timeline from 0 to 30. Both lights flash at 0. Question: "When do they next flash together?"
+N: Both lights flash at time zero. One repeats every four seconds and the other every six. When do they next flash together? Pause and list some flash times.
+[DEVELOP]
+V: Top row marks at 4, 8, 12, 16, 20, 24. Bottom row at 6, 12, 18, 24. The marks at 12 and 24 join with vertical lines.
+N: The first light flashes at four, eight, twelve, sixteen. The second at six, twelve, eighteen. They meet at twelve. Twelve is the smallest number that both four and six divide into. It is called the lowest common multiple. After that, they meet every twelve seconds.
+[DEVELOP]
+V: Same timeline, but the bottom light now starts at 2: marks at 2, 8, 14, 20, 26. Top row unchanged. Join at 8 and 20.
+N: Now change the start. The first light still flashes at zero, four, eight. The second starts at time two and flashes every six: two, eight, fourteen, twenty. Their first meeting is at eight, not twelve. But the gap between meetings is still twelve: eight, then twenty.
+[VARIATION]
+V: Third version: top at 0, 4, 8...; bottom starting at 1: 1, 7, 13, 19, 25. No joins. Labels "even" and "odd".
+N: Sometimes they never meet. Suppose the second light starts at time one. The first light flashes only at even times. The second flashes at one, seven, thirteen, all odd times. An even time can never equal an odd time, so they never coincide. A quick odd-and-even check can save a long search.
+[RECAP]
+V: Lines: "First meeting: depends on the starts", "Gap between meetings: lowest common multiple".
+N: The lowest common multiple gives the gap between meetings. The starting positions decide the first meeting, and whether there is one at all. Notebook challenge: one bus leaves every eight minutes and another every twelve minutes. Both leave at nine o'clock. When do they next leave together?
+TRY: Buses leave every 8 minutes and every 12 minutes, both at 9:00. When do they next leave together?
+ANS: The lowest common multiple of 8 and 12 is 24, so at 9:24.
+
+@@ T03.3
+GOAL: Use the pigeonhole principle: more objects than boxes forces a shared box.
+[INSIGHT]
+V: Three open boxes. Four counters drop in one by one; the fourth must land on an occupied box, which glows.
+N: Put four counters into three boxes. However you do it, some box ends up with at least two. This simple idea is called the pigeonhole principle, and it can prove that something must happen, even when you cannot say where.
+[WHY]
+V: A cloud of "all possible choices" with a single line through it reading "guaranteed".
+N: Many competition questions ask for a guarantee: what is the smallest number that makes something certain? You cannot check every possibility. The pigeonhole principle handles them all at once. The skill is choosing the right boxes.
+[PUZZLE]
+V: A drawer silhouette with socks in red, blue, green and black. Question: "How many socks must you take to be sure of a matching pair?"
+N: A drawer has many socks in four colours. You take socks out without looking. How many must you take to be certain of having two of the same colour? Pause and think about the unluckiest possible draw.
+[DEVELOP]
+V: Four boxes labelled by colour. Four socks land one per box. A fifth sock hovers, then drops onto one of them.
+N: Make one box for each colour. The unluckiest start is one sock of each colour: four socks, no pair. The fifth sock must share a box with another. So five socks guarantee a pair, and four do not. Notice both halves: five is enough, and four can fail.
+[DEVELOP]
+V: Boxes relabelled "remainder 0", "remainder 1", "remainder 2". Four numbers 2, 6, 10, 13 drop in; 10 and 13 share a box. Label 13 - 10 = 3.
+N: Boxes do not have to be colours. Take any four whole numbers. Sort them by their remainder when divided by three. There are only three remainders, so two of the numbers share one. Their difference is then a multiple of three. That is guaranteed for every choice of four numbers.
+[VARIATION]
+V: Numbers 1 to 10 arranged as five pairs that add to 11: (1,10), (2,9), (3,8), (4,7), (5,6). Six chosen numbers must fill some pair.
+N: Here is a cleverer choice of boxes. Choose six numbers from one to ten. Two of them must add to eleven. Why? Group the numbers into five pairs that each add to eleven. Six numbers in five pairs means some pair is chosen completely.
+[RECAP]
+V: Lines: "Choose the boxes", "Count objects and boxes", "Show the smaller number can fail".
+N: Decide what the boxes are. Check there are more objects than boxes. Then show that one fewer object is not enough. Notebook challenge: how many people must be in a room to be sure that two of them have birthdays in the same month?
+TRY: How many people guarantee two with birthdays in the same month?
+ANS: 13. Twelve people could all have different months.
+
+@@ T03.E
+GOAL: Worked example: any four whole numbers contain two whose difference is a multiple of 3.
+[PUZZLE]
+V: Four blank cards. Claim text: "Any four different whole numbers include two whose difference is a multiple of 3." Question: "Why must this be true?"
+N: Here is a claim to prove. Choose any four different whole numbers. Two of them will always have a difference that is a multiple of three. Why must that be true?
+[DEVELOP]
+V: Three boxes labelled 0, 1, 2. Text: "remainder on division by 3".
+N: When any whole number is divided by three, the remainder is zero, one or two. Use those three remainders as three boxes.
+[DEVELOP]
+V: Four cards drop towards three boxes; one box receives two cards.
+N: Four numbers go into three boxes, so at least two numbers land in the same box. They have the same remainder.
+[DEVELOP]
+V: Two numbers written as "3a + r" and "3b + r". Subtracting: the r's cancel, leaving 3(a - b).
+N: Write those two numbers as three a plus r and three b plus r. When you subtract, the remainders cancel, leaving three times a minus b. That is a multiple of three.
+[VARIATION]
+V: Example cards 2, 6, 10, 13 sort into boxes: 6 in box 0; 10 and 13 in box 1; 2 in box 2. Then cards 1, 2, 3 shown as a set of three with all different boxes.
+N: Test it. Take two, six, ten and thirteen. Ten and thirteen both have remainder one, and their difference is three. Could three numbers be enough? No: one, two and three all have different remainders, and no difference is a multiple of three. So four is the smallest number that guarantees it.
+[RECAP]
+V: Line: "same remainder gives a difference that is a multiple". Notebook prompt.
+N: The boxes proved the claim for every choice at once. Rebuild the proof, then answer this: how many whole numbers must you choose to be sure that two of them differ by a multiple of ten?
+TRY: How many whole numbers guarantee two that differ by a multiple of 10?
+ANS: 11, since there are 10 possible last digits.
+
+@@ T04.1
+GOAL: Break a number into primes, and know when to stop searching for factors.
+[INSIGHT]
+V: The number 60 as a block that splits: 6 x 10, then 2 x 3 x 2 x 5. The primes settle as small coloured tiles 2, 2, 3, 5.
+N: Every whole number bigger than one is built by multiplying prime numbers. A prime is a number with exactly two factors, one and itself, like two, three, five and seven. Sixty is two times two times three times five. Those primes are the building blocks of sixty.
+[WHY]
+V: The same 60 split a different way, 4 x 15, ending in the same tiles 2, 2, 3, 5.
+N: However you split a number, you end with the same primes. That makes the prime factorisation a kind of fingerprint. Questions about factors, squares, and common multiples all become questions about these tiles.
+[PUZZLE]
+V: The number 91 with a question: "prime or not?" Small test tiles 2, 3, 5, 7 wait beside it.
+N: Is ninety-one a prime number? Pause and decide how you would test it, and when you could stop.
+[DEVELOP]
+V: Tests: 91 is odd (2 fails); digit sum 10 (3 fails); does not end in 0 or 5 (5 fails); 7 x 13 = 91 succeeds. 91 splits into tiles 7 and 13.
+N: Test small primes in order. Ninety-one is odd, so two fails. Its digits add to ten, so three fails. It does not end in zero or five. But seven times thirteen is ninety-one. So ninety-one is not prime.
+[DEVELOP]
+V: A square of side 10 with area 100; text "if both factors were bigger than 10, the product would be bigger than 100". Then 97 with tests 2, 3, 5, 7 all failing.
+N: When can you stop testing? If a number splits into two factors, they cannot both be larger than its square root. So you only need to test primes up to the square root. For ninety-seven, the square root is just under ten, so test two, three, five and seven. All fail, so ninety-seven is prime.
+[VARIATION]
+V: Three covered cards multiply to 66. 66 splits into tiles 2, 3, 11. Each tile slides onto a different card.
+N: Factorising can crack puzzles. Three different whole numbers bigger than one multiply to sixty-six. What are they? Sixty-six is two times three times eleven, and that is three primes. The only way to share them among three numbers bigger than one is one prime each: two, three and eleven.
+[RECAP]
+V: Lines: "Split until every piece is prime", "Test primes up to the square root", "1 is not prime".
+N: Split a number until every piece is prime. To test for a prime, try primes up to the square root. And remember that one is not a prime. Notebook challenge: write eighty-four as a product of primes.
+TRY: Write 84 as a product of primes.
+ANS: 84 = 2 x 2 x 3 x 7.
+
+@@ T04.2
+GOAL: Count the factors of a number by choosing how many of each prime to use.
+[INSIGHT]
+V: The number 12 with its six factors 1, 2, 3, 4, 6, 12 appearing in a ring.
+N: Twelve has six factors: one, two, three, four, six and twelve. For small numbers you can list them. For large numbers you need a method that counts them without listing. That method comes from prime factors.
+[WHY]
+V: The number 360 with a long list of factors scrolling past; a counter ticks up to 24.
+N: Three hundred and sixty has twenty-four factors. Listing them is slow and it is easy to miss one. Counting choices is fast and cannot miss.
+[PUZZLE]
+V: 12 = 2 x 2 x 3 as tiles. A grid with columns "use zero 2s, one 2, two 2s" and rows "use zero 3s, one 3". Empty cells. Question: "What goes in each cell?"
+N: Twelve is two times two times three. A factor of twelve is made from some of those tiles. Pause and work out how many different selections are possible.
+[DEVELOP]
+V: The grid fills: top row 1, 2, 4; bottom row 3, 6, 12. Each cell shows the tiles used.
+N: For the twos, you may use none, one or two of them: three choices. For the three, you may use it or not: two choices. Three times two is six selections, and each makes a different factor. Using no tiles at all gives the factor one. Using them all gives twelve itself.
+[DEVELOP]
+V: 72 = 2 x 2 x 2 x 3 x 3. Choice counters: "2s: 0 to 3, four choices", "3s: 0 to 2, three choices". Result 4 x 3 = 12.
+N: Try seventy-two. It is two cubed times three squared. There are four choices for how many twos, from zero to three, and three choices for how many threes. Four times three is twelve factors. The rule is: add one to each power, then multiply.
+[VARIATION]
+V: Factors of 36 pair up: 1 with 36, 2 with 18, 3 with 12, 4 with 9, and 6 alone in the centre.
+N: Here is a neat consequence. Factors come in pairs that multiply to the number. For thirty-six: one and thirty-six, two and eighteen, three and twelve, four and nine. But six pairs with itself. That lonely middle factor only happens for square numbers. So square numbers are exactly the numbers with an odd number of factors.
+[RECAP]
+V: Lines: "Factorise into primes", "Add 1 to each power", "Multiply".
+N: Factorise, add one to each power, and multiply. Notebook challenge: how many factors does two hundred have?
+TRY: How many factors does 200 have?
+ANS: 200 = 2^3 x 5^2, so (3 + 1)(2 + 1) = 12 factors.
+
+@@ T04.3
+GOAL: Use prime copies to find highest common factors, lowest common multiples and squares.
+[INSIGHT]
+V: Two rows of prime tiles: 12 as 2, 2, 3 and 18 as 2, 3, 3. Tiles that both rows share glow.
+N: Write two numbers as rows of prime tiles and you can see what they share. Twelve is two, two, three. Eighteen is two, three, three. Comparing the rows, one prime at a time, answers several kinds of question.
+[WHY]
+V: Three question cards: "largest shared factor?", "smallest shared multiple?", "is it a square?".
+N: Highest common factor, lowest common multiple, and perfect squares look like three different topics. They are really one idea: counting how many copies of each prime you have.
+[PUZZLE]
+V: The two rows for 12 and 18 with a blank row beneath labelled "shared" and another labelled "covers both".
+N: What is the largest number that divides both twelve and eighteen? And what is the smallest number that both divide into? Pause and use the tiles.
+[DEVELOP]
+V: Shared row fills with one 2 and one 3: label 6.
+N: A common factor can only use tiles that both numbers have. Both have one two, and both have one three. So the highest common factor is two times three, which is six. For each prime, take the smaller count.
+[DEVELOP]
+V: "Covers both" row fills with 2, 2, 3, 3: label 36.
+N: A common multiple needs enough tiles to cover each number. Twelve needs two twos. Eighteen needs two threes. So the lowest common multiple is two times two times three times three, which is thirty-six. For each prime, take the larger count.
+[VARIATION]
+V: 12 x 18 = 216 and 6 x 36 = 216 appear together.
+N: Notice that six times thirty-six equals twelve times eighteen. For two numbers, the highest common factor times the lowest common multiple always equals their product, because between them they use every tile exactly once.
+[VARIATION]
+V: 36 as tiles 2, 2, 3, 3 pairing off into two equal groups 2, 3 and 2, 3. Then 48 as 2, 2, 2, 2, 3 with the 3 left unpaired; one extra 3 slides in.
+N: Squares are about pairs. Thirty-six splits into two identical groups, so it is a square. Forty-eight is four twos and a three. The three has no partner, so forty-eight is not a square. Multiplying by three fixes that: one hundred and forty-four is twelve squared. A number is a square exactly when every prime appears an even number of times.
+[RECAP]
+V: Lines: "Common factor: smaller count", "Common multiple: larger count", "Square: every count even".
+N: Smaller counts for the highest common factor. Larger counts for the lowest common multiple. Even counts for a square. Notebook challenge: find the highest common factor and lowest common multiple of twenty and thirty.
+TRY: Find the highest common factor and lowest common multiple of 20 and 30.
+ANS: 20 = 2 x 2 x 5 and 30 = 2 x 3 x 5: HCF 10, LCM 60.
+
+@@ T04.E
+GOAL: Worked example: the smallest multiplier that turns 90 into a perfect square.
+[PUZZLE]
+V: The number 90 beside an empty multiplier box and a target labelled "a perfect square". Question: "What is the smallest whole number to put in the box?"
+N: What is the smallest whole number you can multiply ninety by to make a perfect square? Pause and think about what a square looks like in prime tiles.
+[DEVELOP]
+V: 90 splits into blue tiles 2, 3, 3, 5. The two 3s move together as a pair; 2 and 5 stand alone.
+N: Factorise ninety: two times three times three times five. A square needs every prime in pairs. The threes already form a pair. The two and the five are each alone.
+[DEVELOP]
+V: Gold tiles 2 and 5 slide in beside their partners. Multiplier box shows 10.
+N: Give each lonely prime a partner. We need one more two and one more five. Two times five is ten, so multiply by ten.
+[DEVELOP]
+V: All tiles split into two identical groups 2, 3, 5 and 2, 3, 5. Label 900 = 30 x 30.
+N: Ninety times ten is nine hundred. Its tiles split into two identical groups of two, three, five, and two times three times five is thirty. So nine hundred is thirty squared.
+[VARIATION]
+V: Trial multipliers 2 and 5 shown failing: with only an extra 2, the 5 is still alone; with only an extra 5, the 2 is still alone.
+N: Could a smaller multiplier work? Any multiplier that works must supply a two and a five, so it must be a multiple of ten. Nothing smaller than ten can do that. Ten is the smallest.
+[RECAP]
+V: Line: "pair every prime". Notebook prompt.
+N: To make a square, pair every prime. Rebuild this solution, then find the smallest whole number that multiplies sixty to make a perfect square.
+TRY: Find the smallest whole number that multiplies 60 to make a perfect square.
+ANS: 60 = 2 x 2 x 3 x 5, so multiply by 3 x 5 = 15, giving 900.

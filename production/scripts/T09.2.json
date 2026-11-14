@@ -1,0 +1,63 @@
+{
+ "id": "T09.2",
+ "title": "Read decimal places as divisibility conditions",
+ "chapter": "Make fractions, decimals and algebra agree",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Connect decimals to fractions with tens, and predict when a decimal stops.",
+ "narration_words": 273,
+ "estimated_minutes": 1.8,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "The decimal 0.375 slides apart into 375 over 1000. Then 1000 splits into three 2s and three 5s.",
+   "narration": "A decimal that stops is just a fraction whose bottom number is ten, a hundred, a thousand, and so on. Nought point three seven five is three hundred and seventy-five thousandths. And every power of ten is built from twos and fives only."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "Fractions one third, one quarter, one sixth, one eighth; two light up as \"stops\", two as \"goes on forever\".",
+   "narration": "That one fact tells you which fractions make decimals that stop, and which go on forever, without doing any long division."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "The fraction 3 over 40 with a blank decimal. Question: \"Does it stop? What is it?\"",
+   "narration": "Does three fortieths give a decimal that stops? And what is it? Pause and factorise forty."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "40 as tiles 2, 2, 2, 5. Two extra 5 tiles slide in to pair with the unpaired 2s, making three 10s. The top is multiplied by 25 as well: 75 over 1000.",
+   "narration": "Forty is two times two times two times five. To make a power of ten, every two needs a five. There are three twos and one five, so supply two more fives. Multiply top and bottom by twenty-five. Three fortieths becomes seventy-five thousandths: nought point nought seven five."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "The fraction 1 over 6 with tiles 2 and 3. The 3 tile has no partner and glows red. Long division shows 0.1666 continuing.",
+   "narration": "Now try one sixth. Six is two times three. No amount of multiplying by twos and fives can turn that three into part of a power of ten. So one sixth never stops: nought point one six six six, forever."
+  },
+  {
+   "n": 6,
+   "stage": "VARIATION",
+   "visual": "6 over 15 simplifies to 2 over 5, then to 0.4.",
+   "narration": "One warning: simplify first. Six fifteenths has a three in the bottom, but it cancels. Six fifteenths is two fifths, which is nought point four. Only the simplified fraction tells the truth."
+  },
+  {
+   "n": 7,
+   "stage": "VARIATION",
+   "visual": "0.25 times 100 becomes 25. Then 0.25 times 4 becomes 1.",
+   "narration": "Decimals also hide divisibility. Nought point two five is a quarter, so multiplying by four gives a whole number. A decimal with two places always becomes whole when multiplied by one hundred, and sometimes by something smaller."
+  },
+  {
+   "n": 8,
+   "stage": "RECAP",
+   "visual": "Lines: \"Simplify the fraction\", \"Bottom has only 2s and 5s: the decimal stops\", \"Any other prime: it repeats forever\".",
+   "narration": "Simplify the fraction. If the bottom is built only from twos and fives, the decimal stops. If any other prime remains, it repeats forever. Notebook challenge: which of these stop: seven twentieths, five twelfths, nine seventy-fifths?"
+  }
+ ],
+ "notebook_exercise": "Which stop as decimals: 7/20, 5/12, 9/75?",
+ "notebook_answer": "7/20 = 0.35 stops; 5/12 does not (factor 3); 9/75 = 3/25 = 0.12 stops."
+}

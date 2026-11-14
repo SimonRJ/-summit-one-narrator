@@ -1,0 +1,63 @@
+{
+ "id": "T14.3",
+ "title": "Read a schedule as groups of nonconflicting edges",
+ "chapter": "Turn routes and schedules into networks",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Turn a timetable problem into a network and find the fewest time slots.",
+ "narration_words": 303,
+ "estimated_minutes": 2.0,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "Faceless figures as dots; required meetings drawn as lines between them. Lines are coloured so that no dot has two lines of the same colour; each colour is a time slot.",
+   "narration": "A timetable can be drawn as a network. Each person is a dot, and each meeting that must happen is a line between two dots. Meetings in the same time slot must not share a person. So a time slot is a set of lines with no dot in common."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "A messy handwritten timetable with clashes circled, beside the clean coloured network.",
+   "narration": "Drawing it this way turns \"avoid clashes\" into something you can see. It also gives quick lower limits on the number of slots, before you build anything."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "Four dots A, B, C, D with every pair joined: six lines. Rule card: \"each person plays at most one game per round\". Question: \"What is the fewest rounds?\"",
+   "narration": "Four players each play one game against every other player. A player can play at most one game per round. What is the smallest number of rounds needed? Pause and count the games."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "The six lines counted. Each round can use at most two lines (four players, two per game). 6 divided by 2 gives 3.",
+   "narration": "There are six games. A round uses each player at most once, so it holds at most two games. Six divided by two is three. At least three rounds are needed."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "Round one colours A-B and C-D; round two A-C and B-D; round three A-D and B-C. Every line coloured, no clashes.",
+   "narration": "Can three be reached? Round one: A plays B, and C plays D. Round two: A plays C, and B plays D. Round three: A plays D, and B plays C. All six games are played. Three rounds is the answer."
+  },
+  {
+   "n": 6,
+   "stage": "VARIATION",
+   "visual": "Five dots with every pair joined: ten lines. Each round holds at most two games, with one player resting. 10 divided by 2 gives 5.",
+   "narration": "With five players there are ten games. In any round one player must rest, so again at most two games fit. Ten divided by two is five rounds, even though each player only plays four games."
+  },
+  {
+   "n": 7,
+   "stage": "VARIATION",
+   "visual": "A single dot with three lines leaving it; label \"needs at least 3 slots\".",
+   "narration": "There is a second kind of limit. A person who is in three meetings needs at least three slots, whatever everyone else is doing. Use whichever limit is stronger, and then show a timetable that reaches it."
+  },
+  {
+   "n": 8,
+   "stage": "RECAP",
+   "visual": "Lines: \"People are dots, meetings are lines\", \"A slot: lines sharing no dot\", \"Find a limit, then build the timetable\".",
+   "narration": "Draw people as dots and meetings as lines. A slot is a set of lines sharing no dot. Find a limit, then build a timetable that reaches it. Notebook challenge: six players each play every other player once, with three games per round. What is the fewest rounds?"
+  }
+ ],
+ "notebook_exercise": "Six players each play every other once; at most 3 games per round. Fewest rounds?",
+ "notebook_answer": "15 games / 3 = 5 rounds (and it can be done)."
+}

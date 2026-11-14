@@ -1,0 +1,51 @@
+{
+ "id": "T03.E",
+ "title": "Remainders turn long lists into short systems",
+ "chapter": "Remainders turn long lists into short systems",
+ "type": "worked_example",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Worked example: any four whole numbers contain two whose difference is a multiple of 3.",
+ "narration_words": 193,
+ "estimated_minutes": 1.3,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "PUZZLE",
+   "visual": "Four blank cards. Claim text: \"Any four different whole numbers include two whose difference is a multiple of 3.\" Question: \"Why must this be true?\"",
+   "narration": "Here is a claim to prove. Choose any four different whole numbers. Two of them will always have a difference that is a multiple of three. Why must that be true?"
+  },
+  {
+   "n": 2,
+   "stage": "DEVELOP",
+   "visual": "Three boxes labelled 0, 1, 2. Text: \"remainder on division by 3\".",
+   "narration": "When any whole number is divided by three, the remainder is zero, one or two. Use those three remainders as three boxes."
+  },
+  {
+   "n": 3,
+   "stage": "DEVELOP",
+   "visual": "Four cards drop towards three boxes; one box receives two cards.",
+   "narration": "Four numbers go into three boxes, so at least two numbers land in the same box. They have the same remainder."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "Two numbers written as \"3a + r\" and \"3b + r\". Subtracting: the r's cancel, leaving 3(a - b).",
+   "narration": "Write those two numbers as three a plus r and three b plus r. When you subtract, the remainders cancel, leaving three times a minus b. That is a multiple of three."
+  },
+  {
+   "n": 5,
+   "stage": "VARIATION",
+   "visual": "Example cards 2, 6, 10, 13 sort into boxes: 6 in box 0; 10 and 13 in box 1; 2 in box 2. Then cards 1, 2, 3 shown as a set of three with all different boxes.",
+   "narration": "Test it. Take two, six, ten and thirteen. Ten and thirteen both have remainder one, and their difference is three. Could three numbers be enough? No: one, two and three all have different remainders, and no difference is a multiple of three. So four is the smallest number that guarantees it."
+  },
+  {
+   "n": 6,
+   "stage": "RECAP",
+   "visual": "Line: \"same remainder gives a difference that is a multiple\". Notebook prompt.",
+   "narration": "The boxes proved the claim for every choice at once. Rebuild the proof, then answer this: how many whole numbers must you choose to be sure that two of them differ by a multiple of ten?"
+  }
+ ],
+ "notebook_exercise": "How many whole numbers guarantee two that differ by a multiple of 10?",
+ "notebook_answer": "11, since there are 10 possible last digits."
+}

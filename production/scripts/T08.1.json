@@ -1,0 +1,57 @@
+{
+ "id": "T08.1",
+ "title": "Build an honest sample space",
+ "chapter": "Let the experiment determine the probability",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "List equally likely outcomes honestly before finding a probability.",
+ "narration_words": 271,
+ "estimated_minutes": 1.8,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "A bag with two red counters and one blue. Labels R1, R2, B1 appear on the counters.",
+   "narration": "A probability compares favourable outcomes with all outcomes, but only if the outcomes are equally likely. A bag holds two red counters and one blue. There are two colours, but red is not a one in two chance. There are three counters, each equally likely, and two of them are red."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "\"red or blue: 1 out of 2\" crossed lightly. \"3 counters: 2 red\" highlighted.",
+   "narration": "Counting names instead of real outcomes is the most common probability mistake. The fix is to list outcomes that genuinely are equally likely, then count."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "Two coins. Question: \"What is the chance of exactly one head?\" Three tempting labels: \"two heads\", \"one head\", \"no heads\".",
+   "narration": "Two fair coins are tossed. What is the probability of getting exactly one head? Someone says there are three results, two heads, one head or no heads, so the answer is one third. Pause and decide whether that is right."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "A 2 by 2 grid: first coin H or T down the side, second coin H or T across. Cells HH, HT, TH, TT.",
+   "narration": "Give the coins names: first coin and second coin. Now there are four outcomes: head head, head tail, tail head, and tail tail. These four are equally likely."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "Cells HT and TH glow. Fraction two out of four simplifies to one half.",
+   "narration": "Exactly one head happens in two of the four: head tail, and tail head. So the probability is two out of four, which is one half, not one third. The three results in the earlier list were not equally likely."
+  },
+  {
+   "n": 6,
+   "stage": "VARIATION",
+   "visual": "A 6 by 6 grid of two dice. Cells with total 7 highlighted along a diagonal: six cells. Cells with total 2: one cell.",
+   "narration": "Two dice work the same way. There are thirty-six equally likely pairs. A total of seven comes from six of them, so its probability is six out of thirty-six, one sixth. A total of two comes from only one pair. The totals are not equally likely, but the pairs are."
+  },
+  {
+   "n": 7,
+   "stage": "RECAP",
+   "visual": "Lines: \"Label the objects\", \"List equally likely outcomes\", \"Favourable out of total\".",
+   "narration": "Label the objects so each outcome is visible. Check the outcomes are equally likely. Then count favourable out of total. Notebook challenge: two dice are rolled. What is the probability that the two numbers are the same?"
+  }
+ ],
+ "notebook_exercise": "Two dice are rolled. What is the probability that both show the same number?",
+ "notebook_answer": "6 out of 36 = 1/6."
+}

@@ -1,0 +1,51 @@
+{
+ "id": "T04.E",
+ "title": "Use prime factors as the building blocks",
+ "chapter": "Use prime factors as the building blocks",
+ "type": "worked_example",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Worked example: the smallest multiplier that turns 90 into a perfect square.",
+ "narration_words": 172,
+ "estimated_minutes": 1.1,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "PUZZLE",
+   "visual": "The number 90 beside an empty multiplier box and a target labelled \"a perfect square\". Question: \"What is the smallest whole number to put in the box?\"",
+   "narration": "What is the smallest whole number you can multiply ninety by to make a perfect square? Pause and think about what a square looks like in prime tiles."
+  },
+  {
+   "n": 2,
+   "stage": "DEVELOP",
+   "visual": "90 splits into blue tiles 2, 3, 3, 5. The two 3s move together as a pair; 2 and 5 stand alone.",
+   "narration": "Factorise ninety: two times three times three times five. A square needs every prime in pairs. The threes already form a pair. The two and the five are each alone."
+  },
+  {
+   "n": 3,
+   "stage": "DEVELOP",
+   "visual": "Gold tiles 2 and 5 slide in beside their partners. Multiplier box shows 10.",
+   "narration": "Give each lonely prime a partner. We need one more two and one more five. Two times five is ten, so multiply by ten."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "All tiles split into two identical groups 2, 3, 5 and 2, 3, 5. Label 900 = 30 x 30.",
+   "narration": "Ninety times ten is nine hundred. Its tiles split into two identical groups of two, three, five, and two times three times five is thirty. So nine hundred is thirty squared."
+  },
+  {
+   "n": 5,
+   "stage": "VARIATION",
+   "visual": "Trial multipliers 2 and 5 shown failing: with only an extra 2, the 5 is still alone; with only an extra 5, the 2 is still alone.",
+   "narration": "Could a smaller multiplier work? Any multiplier that works must supply a two and a five, so it must be a multiple of ten. Nothing smaller than ten can do that. Ten is the smallest."
+  },
+  {
+   "n": 6,
+   "stage": "RECAP",
+   "visual": "Line: \"pair every prime\". Notebook prompt.",
+   "narration": "To make a square, pair every prime. Rebuild this solution, then find the smallest whole number that multiplies sixty to make a perfect square."
+  }
+ ],
+ "notebook_exercise": "Find the smallest whole number that multiplies 60 to make a perfect square.",
+ "notebook_answer": "60 = 2 x 2 x 3 x 5, so multiply by 3 x 5 = 15, giving 900."
+}

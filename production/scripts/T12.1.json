@@ -1,0 +1,63 @@
+{
+ "id": "T12.1",
+ "title": "Build an angle chain from dependable facts",
+ "chapter": "Use angle relationships and exact geometric facts",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Find an unknown angle by linking dependable angle facts in a chain.",
+ "narration_words": 324,
+ "estimated_minutes": 2.2,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "A straight line with a ray rising from it; the two angles are marked and a half-turn arc sweeps 180 degrees. Then two crossing lines with opposite angles glowing in matching colours.",
+   "narration": "Angle problems are solved by chains. You know one angle, a fact gives you the next, another fact gives the one after. The facts are few: a straight line makes one hundred and eighty degrees, a full turn makes three hundred and sixty, and angles opposite each other where two lines cross are equal."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "A diagram with \"not to scale\" in the corner and a protractor fading out.",
+   "narration": "Competition diagrams are not drawn to scale, so measuring is useless. What works is knowing a small set of facts and applying them one link at a time, saying which fact you used."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "Two parallel lines crossed by a slanted line. One angle at the top crossing is marked 65 degrees. An angle at the lower crossing, on the opposite side, is marked with a question mark.",
+   "narration": "Two parallel lines are crossed by a third line. One angle at the top is sixty-five degrees. Find the marked angle at the bottom. Pause and trace how the top crossing relates to the bottom one."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "The top crossing slides down along the slanted line onto the bottom crossing, landing exactly on it. Matching angles glow: label \"corresponding angles\".",
+   "narration": "Because the lines are parallel, the top crossing is an exact copy of the bottom one. Slide it down and it fits. So the angle in the matching position at the bottom is also sixty-five degrees. These are called corresponding angles."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "At the bottom crossing, the 65 degree angle and the marked angle sit side by side on the straight line. 180 minus 65 gives 115.",
+   "narration": "The angle we want sits next to that sixty-five on a straight line. Together they make one hundred and eighty. So the marked angle is one hundred and fifteen degrees. Two facts, two links, and the chain is complete."
+  },
+  {
+   "n": 6,
+   "stage": "VARIATION",
+   "visual": "A triangle with a line drawn through its top corner parallel to the base. The two base angles slide up to sit beside the top angle, forming a straight line.",
+   "narration": "The same parallel-line fact proves something famous. Draw a line through the top of a triangle, parallel to the base. The two base angles reappear beside the top angle, and the three sit together on a straight line. So the angles in any triangle add up to one hundred and eighty degrees."
+  },
+  {
+   "n": 7,
+   "stage": "VARIATION",
+   "visual": "An isosceles triangle with equal sides ticked and top angle 40. The base angles fill in as 70 and 70.",
+   "narration": "Add one more link for equal sides. In a triangle with two equal sides, the angles opposite them are equal. If the top angle is forty, the other two share one hundred and forty equally: seventy each."
+  },
+  {
+   "n": 8,
+   "stage": "RECAP",
+   "visual": "Lines: \"Straight line 180, full turn 360\", \"Parallel lines copy angles\", \"Triangle 180; equal sides give equal angles\".",
+   "narration": "Build a chain. Name the fact for each link. Notebook challenge: a triangle has two equal sides, and one of its two equal angles is fifty-five degrees. What is the third angle?"
+  }
+ ],
+ "notebook_exercise": "An isosceles triangle has equal angles of 55 degrees. Find the third angle.",
+ "notebook_answer": "180 - 55 - 55 = 70 degrees."
+}

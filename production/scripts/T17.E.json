@@ -1,0 +1,51 @@
+{
+ "id": "T17.E",
+ "title": "Write proofs that leave no hidden cases",
+ "chapter": "Write proofs that leave no hidden cases",
+ "type": "worked_example",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Worked example: prove that a number times the next number is always even.",
+ "narration_words": 210,
+ "estimated_minutes": 1.4,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "PUZZLE",
+   "visual": "Claim card: \"n times (n plus 1) is always even.\" A few products below: 3 times 4 is 12, 6 times 7 is 42. Question: \"How can we be sure for every n?\"",
+   "narration": "Prove that any whole number multiplied by the next whole number gives an even result. Three times four is twelve. Six times seven is forty-two. Checking examples is a good start, but the proof must cover numbers we have not checked."
+  },
+  {
+   "n": 2,
+   "stage": "DEVELOP",
+   "visual": "A number line with whole numbers alternately coloured even and odd. Any two neighbours are highlighted: one of each colour.",
+   "narration": "Whole numbers alternate: even, odd, even, odd. So of any two neighbouring numbers, exactly one is even. There are two cases: the first number is even, or the first number is odd."
+  },
+  {
+   "n": 3,
+   "stage": "DEVELOP",
+   "visual": "Case one: the first number drawn as two equal rows; multiplying by anything keeps two equal rows.",
+   "narration": "If the first number is even, it is two lots of something. Multiply it by the next number and the result is still two lots of something. So the product is even."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "Case two: the first number is odd, so the next number is drawn as two equal rows; the product again has two equal rows.",
+   "narration": "If the first number is odd, then the next number is even. It is two lots of something, so again the product is two lots of something. The product is even."
+  },
+  {
+   "n": 5,
+   "stage": "VARIATION",
+   "visual": "A rectangle of dots n wide and n plus 1 tall, split along a staircase diagonal into two identical triangles of dots.",
+   "narration": "A picture confirms it. Arrange the product as a rectangle of dots. It splits into two identical staircases. Two identical halves means the total is even, and each half is one plus two plus three, up to the first number."
+  },
+  {
+   "n": 6,
+   "stage": "RECAP",
+   "visual": "Line: \"two cases, no others, and each gives an even product\". Notebook prompt.",
+   "narration": "The two cases cover every whole number, and each gives an even product. Rebuild the proof, then explain why the product of three whole numbers in a row is always a multiple of three."
+  }
+ ],
+ "notebook_exercise": "Explain why the product of three consecutive whole numbers is always a multiple of 3.",
+ "notebook_answer": "Among any three consecutive numbers exactly one is a multiple of 3, so the product is too."
+}

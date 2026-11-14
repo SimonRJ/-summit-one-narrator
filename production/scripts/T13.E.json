@@ -1,0 +1,51 @@
+{
+ "id": "T13.E",
+ "title": "Measure the region or solid that matters",
+ "chapter": "Measure the region or solid that matters",
+ "type": "worked_example",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Worked example: two cuts of the same size with different effects on perimeter.",
+ "narration_words": 184,
+ "estimated_minutes": 1.2,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "PUZZLE",
+   "visual": "Two 6 by 4 rectangles. From the first, a 1 by 1 square is removed at a corner. From the second, a 1 by 1 square is removed from the middle of a long side. Question: \"What are the two new perimeters?\"",
+   "narration": "Start with two rectangles, each six centimetres by four. Cut a one centimetre square from a corner of the first, and a one centimetre square from the middle of an edge of the second. What are the two new perimeters?"
+  },
+  {
+   "n": 2,
+   "stage": "DEVELOP",
+   "visual": "An original rectangle outline with 6, 4, 6, 4 marked. Total 20.",
+   "narration": "Each original rectangle has perimeter six plus four plus six plus four: twenty centimetres."
+  },
+  {
+   "n": 3,
+   "stage": "DEVELOP",
+   "visual": "Corner cut: two removed boundary segments shown dashed, two new segments shown in colour. Count: minus 2, plus 2. Perimeter 20.",
+   "narration": "The corner cut removes two one-centimetre pieces of the old boundary, and exposes two new one-centimetre pieces. The change is zero. The perimeter is still twenty centimetres."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "Edge cut: one removed segment dashed, three new segments in colour. Count: minus 1, plus 3. Perimeter 22.",
+   "narration": "The cut in the middle of an edge removes only one piece of old boundary, but exposes three new pieces. The change is plus two. The perimeter is twenty-two centimetres."
+  },
+  {
+   "n": 5,
+   "stage": "VARIATION",
+   "visual": "Both shapes with their areas: 24 minus 1 gives 23 for each.",
+   "narration": "Both shapes have lost the same area. Each has area twenty-three square centimetres. Yet their perimeters differ. The area removed does not decide the change in perimeter; the position of the cut does."
+  },
+  {
+   "n": 6,
+   "stage": "RECAP",
+   "visual": "Line: \"new perimeter = old perimeter - removed boundary + new boundary\". Notebook prompt.",
+   "narration": "New perimeter equals old perimeter, minus the boundary removed, plus the boundary created. Rebuild this, then find the perimeter when a two by one rectangle is cut from the middle of an edge, with its long side along the edge."
+  }
+ ],
+ "notebook_exercise": "From a 6 by 4 rectangle, a 2 by 1 rectangle is cut from the middle of an edge, its long side along the edge. New perimeter?",
+ "notebook_answer": "Remove 2, add 1 + 2 + 1 = 4: 20 + 2 = 22 cm."
+}

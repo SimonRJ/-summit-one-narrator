@@ -1,0 +1,63 @@
+{
+ "id": "T17.3",
+ "title": "Connect finite checks to general conclusions",
+ "chapter": "Write proofs that leave no hidden cases",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Know when checking cases is a complete proof, and how to extend a check for ever.",
+ "narration_words": 328,
+ "estimated_minutes": 2.2,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "A small set of cases, each ticked in turn until none remain. Then an endless row of cases with an arrow passing a tick from each to the next.",
+   "narration": "Checking cases can be a complete proof, if there are only finitely many and you check them all. For endlessly many cases, checking is never enough on its own. But a check plus a rule that passes the result along can cover them all."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "A list of ticked cases with a gap in the middle that was skipped.",
+   "narration": "The danger with case checking is a missing case. A proof by cases must show that the cases cover everything, with nothing left outside."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "Stamps of value 3 and 5. A number line from 1 to 20. Question: \"Which totals can be made? Which cannot?\"",
+   "narration": "You have plenty of three-cent and five-cent stamps. Which totals can you make exactly? Pause and test the totals from one to twelve."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "Number line marks: 3, 5, 6, 8, 9, 10, 11, 12 ticked with their stamp combinations; 1, 2, 4, 7 crossed.",
+   "narration": "Three and five work. Six is two threes. Eight is three and five. Nine is three threes. Ten is two fives. Eleven is five and two threes. Twelve is four threes. But one, two, four and seven cannot be made."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "The three consecutive totals 8, 9, 10 highlighted. An arrow \"add a 3\" carries each one three places along: 11, 12, 13, then 14, 15, 16.",
+   "narration": "Now the key step. Eight, nine and ten can all be made. Add a three-cent stamp to each and you get eleven, twelve and thirteen. Add another and you get fourteen, fifteen and sixteen. Three totals in a row, plus the ability to add three, reach every total from eight onwards."
+  },
+  {
+   "n": 6,
+   "stage": "DEVELOP",
+   "visual": "Everything from 8 onward turns green. The crossed 7 remains as the largest total that cannot be made.",
+   "narration": "So every total of eight or more is possible. That is endlessly many cases, proved by checking three and giving one rule. And seven is the largest total that cannot be made, which we know because the totals below eight were checked one by one."
+  },
+  {
+   "n": 7,
+   "stage": "VARIATION",
+   "visual": "A finite claim card: \"No two-digit square ends in 7.\" The ten units digits of squares listed: 0, 1, 4, 9, 6, 5, 6, 9, 4, 1.",
+   "narration": "A finite check can prove a never. Does any square number end in seven? The last digit of a square depends only on the last digit of the number. Check the ten digits: their squares end in zero, one, four, nine, six, five, six, nine, four and one. Seven never appears. Ten checks cover every whole number."
+  },
+  {
+   "n": 8,
+   "stage": "RECAP",
+   "visual": "Lines: \"Finite: check every case, and show nothing is left out\", \"Endless: check a starting block and give a rule that carries it on\".",
+   "narration": "For finitely many cases, check them all and show nothing is left out. For endlessly many, check a starting block and give a rule that carries the result forward. Notebook challenge: with four-cent and five-cent stamps, what is the largest total you cannot make?"
+  }
+ ],
+ "notebook_exercise": "With 4-cent and 5-cent stamps, what is the largest total that cannot be made?",
+ "notebook_answer": "11. (12, 13, 14, 15 can be made, and adding 4s reaches everything beyond.)"
+}

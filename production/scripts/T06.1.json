@@ -1,0 +1,63 @@
+{
+ "id": "T06.1",
+ "title": "Count incidences before counting objects",
+ "chapter": "Count the same structure from two directions",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Count the same set of meetings in two ways to find a hidden number.",
+ "narration_words": 254,
+ "estimated_minutes": 1.7,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "Four people as dots. Lines are drawn between some pairs as handshakes. Each line has two ends, each end glowing at a dot.",
+   "narration": "Every handshake has two hands in it. That small fact is surprisingly powerful. If each person reports how many hands they shook, and you add up the reports, every handshake has been counted twice, once by each person."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "A crowded network; beside it a simple sum of reports and \"divide by 2\".",
+   "narration": "Counting something in two different ways gives you an equation for free. It lets you count lines by counting ends, or faces by counting edges, without drawing the whole picture."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "Six dots in a ring, no lines yet. Text: \"Everyone shakes hands with everyone else.\" Question: \"How many handshakes?\"",
+   "narration": "Six people meet, and everyone shakes hands once with everyone else. How many handshakes take place? Pause and think about what each person would report."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "One dot sends five lines to the others. A report \"5\" appears by each of the six dots. Sum 30.",
+   "narration": "Each person shakes hands with the five others, so each person reports five. Six reports of five add to thirty."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "A single line is highlighted, with a \"1\" at each end. The total 30 halves to 15 as all fifteen lines are drawn.",
+   "narration": "But each handshake was reported by both of the people in it. So thirty counts every handshake twice. Thirty divided by two is fifteen handshakes."
+  },
+  {
+   "n": 6,
+   "stage": "VARIATION",
+   "visual": "Seven dots. Text: \"Could each person shake hands with exactly three others?\" Reports 3 x 7 = 21, with \"odd\" flashing.",
+   "narration": "The same idea can prove something is impossible. Can seven people each shake hands with exactly three others? The reports would add to twenty-one. But the total of the reports is always twice the number of handshakes, so it must be even. Twenty-one is odd. It cannot be done."
+  },
+  {
+   "n": 7,
+   "stage": "VARIATION",
+   "visual": "A cube. Each of 6 faces reports 4 edges: 24. Each edge glows where two faces meet: 24 / 2 = 12.",
+   "narration": "It works for solids too. A cube has six faces, and each face has four edges: twenty-four reports. Every edge belongs to two faces, so there are twelve edges."
+  },
+  {
+   "n": 8,
+   "stage": "RECAP",
+   "visual": "Lines: \"Add up the reports\", \"Ask how many times each thing was reported\", \"Divide\".",
+   "narration": "Let each object report what it touches. Add the reports. Then divide by how many times each item was reported. Notebook challenge: in a tournament, eight teams each play every other team once. How many games are played?"
+  }
+ ],
+ "notebook_exercise": "Eight teams each play every other team once. How many games?",
+ "notebook_answer": "8 x 7 / 2 = 28."
+}

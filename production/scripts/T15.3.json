@@ -1,0 +1,69 @@
+{
+ "id": "T15.3",
+ "title": "Pair objects or classify their local structure",
+ "chapter": "Use symmetry without losing or repeating cases",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Count quickly by pairing every object with a partner.",
+ "narration_words": 324,
+ "estimated_minutes": 2.2,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "A crowd of cards. Each card slides next to exactly one partner until the whole crowd is arranged in neat pairs.",
+   "narration": "If you can match every object with exactly one partner of the opposite type, then exactly half the objects are of each type. A good pairing lets you count without listing anything."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "A long list with half of it highlighted, replaced by a single instruction \"pair them up\".",
+   "narration": "Pairing arguments are short and they are proofs. They explain why the answer is half, instead of just noticing it in a few examples."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "Three switches. Text: \"Each switch is on or off: 8 settings.\" Question: \"How many settings have an even number of switches on?\"",
+   "narration": "Three light switches can each be on or off, giving eight settings. In how many of them is an even number of switches on? Zero counts as even. Pause and try to predict the answer."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "The eight settings in two rows. Each setting in the top row is joined to the one below it by flipping the first switch.",
+   "narration": "Pair each setting with the one you get by flipping the first switch. Flip it again and you return, so the settings really are in pairs. No setting is its own partner, because flipping always changes something."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "In each pair, one member is tagged \"even\", the other \"odd\". Four pairs: 4 even, 4 odd.",
+   "narration": "Flipping one switch changes the number of switches that are on by exactly one. So in each pair, one setting has an even number on and the other has an odd number. Four pairs, so four settings are even and four are odd."
+  },
+  {
+   "n": 6,
+   "stage": "VARIATION",
+   "visual": "Ten switches: a counter shows 1024 settings, splitting into 512 and 512.",
+   "narration": "The same argument works for any number of switches. With ten switches there are one thousand and twenty-four settings, and exactly half, five hundred and twelve, have an even number on. No listing needed."
+  },
+  {
+   "n": 7,
+   "stage": "VARIATION",
+   "visual": "Numbers 1 to 100. Pairs 1 with 100, 2 with 99, down to 50 with 51. Each pair sums to 101. Total 50 times 101.",
+   "narration": "Pairing also adds. To add the numbers from one to one hundred, pair one with one hundred, two with ninety-nine, and so on. There are fifty pairs, each adding to one hundred and one. The total is five thousand and fifty."
+  },
+  {
+   "n": 8,
+   "stage": "VARIATION",
+   "visual": "A warning card: factors of 36 pair as 1 with 36, 2 with 18, 3 with 12, 4 with 9, and 6 stands alone.",
+   "narration": "Always check that nothing is left without a partner, or paired with itself. The factors of thirty-six pair up to multiply to thirty-six, except six, which pairs with itself. That is why thirty-six has an odd number of factors."
+  },
+  {
+   "n": 9,
+   "stage": "RECAP",
+   "visual": "Lines: \"Find a pairing rule\", \"Check: no one is their own partner\", \"Half are of each type\".",
+   "narration": "Find a rule that pairs every object with a different partner. Check that no object is its own partner. Then half are of each type. Notebook challenge: what is the sum of the whole numbers from one to forty?"
+  }
+ ],
+ "notebook_exercise": "What is the sum of the whole numbers from 1 to 40?",
+ "notebook_answer": "20 pairs each adding to 41: 820."
+}

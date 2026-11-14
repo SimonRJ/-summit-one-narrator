@@ -1,0 +1,442 @@
+@@ T15.1
+GOAL: Decide which arrangements count as "the same" before counting them.
+[INSIGHT]
+V: A square tile with one corner coloured. It turns a quarter turn four times, showing four pictures. A card asks: "four tiles, or one?"
+N: Take a square tile with one corner coloured. Turn it, and the coloured corner moves. Is that a new tile, or the same tile seen from another side? The answer depends on the rules of the question. You must decide what counts as the same before you count.
+[WHY]
+V: Two different totals for one problem, each with a rule card under it: "fixed in place" and "free to turn".
+N: The same problem can have two correct-looking answers, one for objects fixed in place and one for objects that can be turned. Reading which is intended is half the work.
+[PUZZLE]
+V: A 2 by 2 square made of four small squares. Rule: "exactly one small square is shaded". Question: "How many different patterns?"
+N: A square is divided into four smaller squares, and exactly one of them is shaded. How many different patterns are there? Pause and decide whether the square is fixed to the page, or free to be turned.
+[DEVELOP]
+V: Four patterns in a row, one for each shaded position, with a label "fixed on the page: 4".
+N: If the square is fixed on the page, like a window in a wall, there are four patterns: top-left, top-right, bottom-left, bottom-right.
+[DEVELOP]
+V: The four patterns rotate into one another and stack into a single tile. Label "free to turn: 1".
+N: If the square is a loose tile that can be turned, all four are the same tile. A quarter turn carries each pattern to the next. There is only one pattern.
+[VARIATION]
+V: Two small squares shaded. Six fixed patterns appear, then group under turning into two piles: four "side by side" patterns and two "diagonal" patterns.
+N: Now shade two of the four squares. Fixed on the page there are six patterns. Free to turn, they fall into just two kinds: the two shaded squares are side by side, or they are diagonal. Turning can never change one kind into the other.
+[VARIATION]
+V: A tile with an asymmetric mark and its mirror image side by side; rotating one never matches the other. A flip arrow turns one into the other.
+N: Turning over is different from turning round. A flat tile can be rotated on the table, but its mirror image only appears if you are allowed to flip it over. Unless the question allows flipping, a shape and its mirror image are different.
+[RECAP]
+V: Lines: "Fixed, turnable, or flippable?", "Same means: one can be moved onto the other by an allowed move".
+N: Ask whether objects are fixed, can be turned, or can also be flipped. Two arrangements are the same only if an allowed move takes one to the other. Notebook challenge: three of the four small squares are shaded. How many patterns are there if the square is free to turn?
+TRY: A 2 by 2 square has three of its four small squares shaded. How many patterns, if it is free to turn?
+ANS: 1 (it is the same as choosing the single unshaded square).
+
+@@ T15.2
+GOAL: Know when dividing by the number of rotations works, and when it fails.
+[INSIGHT]
+V: Three marked squares each turned through four positions. The first looks the same every time (1 appearance), the second shows 2 appearances, the third shows 4.
+N: Turn a square four times and you might expect four different pictures. But a pattern with its own symmetry repeats sooner. A completely symmetrical pattern looks the same after every turn. So you cannot always divide by four.
+[WHY]
+V: A calculation "16 divided by 4 is 4" with a warning mark; the true answer 6 beside it.
+N: Dividing a total by the number of turns is tempting and often wrong. It only works when every pattern has been counted the same number of times.
+[PUZZLE]
+V: A 2 by 2 square. Each small square is black or white. Text: "16 colourings when fixed on the page." Question: "How many when the square is free to turn?"
+N: Each of the four small squares in a two by two tile is black or white. Fixed on the page there are sixteen colourings. How many different tiles are there if the tile is free to turn? Pause, and resist dividing sixteen by four.
+[DEVELOP]
+V: The sixteen colourings laid out, then sorted by number of black squares: 0 black (1), 1 black (4), 2 black (6), 3 black (4), 4 black (1).
+N: Sort the sixteen by how many squares are black. None black: one colouring. One black: four. Two black: six. Three black: four. All black: one.
+[DEVELOP]
+V: Each group collapses under turning: 1 becomes 1 tile; the 4 become 1 tile; the 6 become 2 tiles (4 side-by-side, 2 diagonal); the 4 become 1; the 1 becomes 1. Total 6.
+N: Now turn them. No black is one tile. The four with one black square are all the same tile. The six with two black squares make two tiles: four are side by side, and two are diagonal. Three black gives one tile, and all black gives one. That is six tiles altogether.
+[DEVELOP]
+V: Group sizes displayed: 1, 4, 4, 2, 4, 1 adding to 16. The sizes 1 and 2 are highlighted.
+N: Look at the group sizes: one, four, four, two, four and one. They are not all four. The symmetrical tiles were counted fewer times, which is exactly why sixteen divided by four gives the wrong answer.
+[VARIATION]
+V: Five different beads threaded on a ring: 120 line orders collapse in groups of exactly 5 under turning. 120 divided by 5 gives 24.
+N: When does dividing work? When no arrangement has any symmetry of its own. Seat five different people round a table. There are one hundred and twenty orders in a line, and every circular seating appears in exactly five of them. One hundred and twenty divided by five is twenty-four.
+[RECAP]
+V: Lines: "Divide only if every case is repeated equally", "Otherwise sort into groups and count the groups".
+N: Divide only when every arrangement is repeated the same number of times. Otherwise, sort the arrangements into groups and count the groups. Notebook challenge: in how many ways can four different people sit round a circular table, if turning the whole table does not count as different?
+TRY: In how many ways can 4 different people sit round a circular table, if rotations count as the same?
+ANS: 24 / 4 = 6.
+
+@@ T15.3
+GOAL: Count quickly by pairing every object with a partner.
+[INSIGHT]
+V: A crowd of cards. Each card slides next to exactly one partner until the whole crowd is arranged in neat pairs.
+N: If you can match every object with exactly one partner of the opposite type, then exactly half the objects are of each type. A good pairing lets you count without listing anything.
+[WHY]
+V: A long list with half of it highlighted, replaced by a single instruction "pair them up".
+N: Pairing arguments are short and they are proofs. They explain why the answer is half, instead of just noticing it in a few examples.
+[PUZZLE]
+V: Three switches. Text: "Each switch is on or off: 8 settings." Question: "How many settings have an even number of switches on?"
+N: Three light switches can each be on or off, giving eight settings. In how many of them is an even number of switches on? Zero counts as even. Pause and try to predict the answer.
+[DEVELOP]
+V: The eight settings in two rows. Each setting in the top row is joined to the one below it by flipping the first switch.
+N: Pair each setting with the one you get by flipping the first switch. Flip it again and you return, so the settings really are in pairs. No setting is its own partner, because flipping always changes something.
+[DEVELOP]
+V: In each pair, one member is tagged "even", the other "odd". Four pairs: 4 even, 4 odd.
+N: Flipping one switch changes the number of switches that are on by exactly one. So in each pair, one setting has an even number on and the other has an odd number. Four pairs, so four settings are even and four are odd.
+[VARIATION]
+V: Ten switches: a counter shows 1024 settings, splitting into 512 and 512.
+N: The same argument works for any number of switches. With ten switches there are one thousand and twenty-four settings, and exactly half, five hundred and twelve, have an even number on. No listing needed.
+[VARIATION]
+V: Numbers 1 to 100. Pairs 1 with 100, 2 with 99, down to 50 with 51. Each pair sums to 101. Total 50 times 101.
+N: Pairing also adds. To add the numbers from one to one hundred, pair one with one hundred, two with ninety-nine, and so on. There are fifty pairs, each adding to one hundred and one. The total is five thousand and fifty.
+[VARIATION]
+V: A warning card: factors of 36 pair as 1 with 36, 2 with 18, 3 with 12, 4 with 9, and 6 stands alone.
+N: Always check that nothing is left without a partner, or paired with itself. The factors of thirty-six pair up to multiply to thirty-six, except six, which pairs with itself. That is why thirty-six has an odd number of factors.
+[RECAP]
+V: Lines: "Find a pairing rule", "Check: no one is their own partner", "Half are of each type".
+N: Find a rule that pairs every object with a different partner. Check that no object is its own partner. Then half are of each type. Notebook challenge: what is the sum of the whole numbers from one to forty?
+TRY: What is the sum of the whole numbers from 1 to 40?
+ANS: 20 pairs each adding to 41: 820.
+
+@@ T15.E
+GOAL: Worked example: why half of all subsets have an even number of members.
+[PUZZLE]
+V: Three labelled counters A, B, C. Text: "Choose any group of them, including none." Question: "How many groups have an even number of members?"
+N: From three objects, A, B and C, choose any group, including the empty group with nothing in it. Explain why exactly half of the groups have an even number of members.
+[DEVELOP]
+V: Each counter gets a switch "in / out". 2 times 2 times 2 gives 8 groups. All eight are listed.
+N: Each object is either in the group or out of it. Two choices, three times over, gives eight groups.
+[DEVELOP]
+V: The eight groups arranged in four pairs, each pair differing only by whether A is in.
+N: Pair each group with the group you get by changing A: put A in if it is out, and take A out if it is in. The empty group pairs with the group containing only A. The group B, C pairs with the group A, B, C.
+[DEVELOP]
+V: Sizes shown on each card. Within every pair, sizes differ by one: 0 with 1, 1 with 2, 1 with 2, 2 with 3.
+N: Changing A changes the size of the group by exactly one. So each pair has one group of even size and one of odd size. Four pairs give four even groups and four odd groups.
+[VARIATION]
+V: The four even groups listed: the empty group, AB, AC, BC.
+N: Check by listing. The even groups are the empty group, A with B, A with C, and B with C. That is four, exactly half of eight.
+[RECAP]
+V: Line: "toggle one member to pair even with odd". Notebook prompt.
+N: Toggling one member pairs every even group with an odd one. Rebuild this argument, then say how many groups chosen from five objects have an odd number of members.
+TRY: How many groups chosen from 5 objects have an odd number of members?
+ANS: Half of 32: 16.
+
+@@ T16.1
+GOAL: Treat a ratio as a number of equal parts, and find the size of one part.
+[INSIGHT]
+V: A bar split into 5 equal blocks: 3 one colour, 2 another. A label under one block: "one part".
+N: A ratio of three to two means three equal parts of one thing for every two equal parts of another. The numbers three and two are not the amounts. They count parts. Find the size of one part, and everything else follows.
+[WHY]
+V: A recipe card, a map scale and a paint mixture.
+N: Ratios run through recipes, maps, mixtures and sharing problems. Nearly all of them are solved by the same step: work out what one part is worth.
+[PUZZLE]
+V: The bar of 3 and 2 parts with a total label of 40. Question: "How much is each share?"
+N: Forty stickers are shared between Ana and Ben in the ratio three to two. How many does each get? Pause and count the parts.
+[DEVELOP]
+V: Five parts under a bracket of 40. One part fills in as 8. Ana's three parts show 24; Ben's two show 16.
+N: There are three plus two parts: five altogether. Forty stickers in five equal parts is eight per part. Ana gets three parts, twenty-four. Ben gets two parts, sixteen.
+[DEVELOP]
+V: New information on the same bar: instead of a total, a bracket shows "Ana has 9 more than Ben" spanning the one extra part.
+N: The given fact is not always the total. Suppose instead you are told that Ana has nine more than Ben. Ana has one more part than Ben, so one part is nine. Then Ana has twenty-seven and Ben has eighteen.
+[VARIATION]
+V: Two ratio bars: A to B as 2 to 3, and B to C as 4 to 5. B's parts are recut so both show 12: A 8, B 12, C 15.
+N: To join two ratios, make the shared quantity match. If A to B is two to three, and B to C is four to five, rewrite both so that B is twelve parts. Then A to B to C is eight to twelve to fifteen.
+[VARIATION]
+V: A bar of 3 and 2 parts labelled "3 fifths" and "2 fifths".
+N: Ratios and fractions are two views of one picture. In the ratio three to two, the first share is three fifths of the whole, not three halves and not two thirds.
+[RECAP]
+V: Lines: "Count the parts", "Use the given fact to find one part", "Multiply to get each amount".
+N: Count the parts. Use what you are told, a total, a difference or one share, to find one part. Then multiply. Notebook challenge: red and blue beads are in the ratio five to three, and there are sixteen more red than blue. How many beads are there altogether?
+TRY: Red and blue beads are in the ratio 5 : 3, with 16 more red than blue. How many beads altogether?
+ANS: 2 parts = 16, so 1 part = 8; 8 parts = 64 beads.
+
+@@ T16.2
+GOAL: Turn "takes so long" into "does so much each minute", and add rates.
+[INSIGHT]
+V: A tank filling from one tap, with marks showing the fraction filled each minute.
+N: If a tap fills a tank in ten minutes, then each minute it fills one tenth of the tank. Turning a time into an amount per minute is the key move. Amounts per minute can be added together. Times cannot.
+[WHY]
+V: A tempting "6 and 3 make 9 minutes?" crossed lightly; "must be less than 3" beside it.
+N: When two taps run together, the job gets faster, not slower. Adding the times, or averaging them, gives nonsense. Adding the rates gives the right answer every time.
+[PUZZLE]
+V: Two taps over one tank. Labels: "alone: 6 minutes", "alone: 3 minutes". Question: "How long together?"
+N: One tap fills a tank in six minutes. Another fills it in three minutes. How long do they take together? Pause and work out what each tap does in one minute.
+[DEVELOP]
+V: The tank drawn with 6 equal slices. In one minute the first tap fills 1 slice; the second fills 2 slices. Together 3 slices per minute.
+N: Picture the tank in six equal slices. In one minute, the slow tap fills one slice. The fast tap fills the whole tank in three minutes, so it fills two slices a minute. Together they fill three slices a minute.
+[DEVELOP]
+V: Six slices fill in two steps of three. Label "2 minutes".
+N: Six slices at three slices a minute takes two minutes. Together the taps take two minutes, which is less than either alone, as it should be.
+[VARIATION]
+V: A tank with a tap filling 3 slices a minute and a drain removing 1 slice a minute, on a 12-slice tank. Net 2 per minute: 6 minutes.
+N: Rates can also work against each other. A tap fills a tank in four minutes, while a leak would empty it in twelve. In a tank of twelve slices, the tap adds three slices a minute and the leak removes one. The net gain is two slices a minute, so the tank fills in six minutes.
+[VARIATION]
+V: Two figures walking towards each other along a 100 metre line, one at 6 metres a second and one at 4. The gap closes at 10 a second.
+N: Moving objects follow the same rule. Two runners start one hundred metres apart and run towards each other, at six metres per second and four metres per second. The gap closes at ten metres per second. They meet after ten seconds.
+[RECAP]
+V: Lines: "Time for the job gives amount per minute", "Add rates that help; subtract rates that hinder", "Total job divided by the combined rate".
+N: Convert each time to an amount per minute. Add rates that help and subtract rates that hinder. Divide the job by the combined rate. Notebook challenge: one painter paints a fence in four hours, another in twelve hours. How long do they take together?
+TRY: One painter takes 4 hours, another 12 hours. How long together?
+ANS: 3/12 + 1/12 = 4/12 per hour, so 3 hours.
+
+@@ T16.3
+GOAL: Turn an average back into a total before doing anything else.
+[INSIGHT]
+V: Five stacks of counters of different heights are levelled until all are the same height. That common height is labelled "mean".
+N: The mean is what everyone would have if the total were shared equally. So a mean always hides a total: the mean multiplied by the number of items. Whenever a question mentions an average, recover the total first.
+[WHY]
+V: Two class averages with a tempting "average the averages" crossed lightly.
+N: Averages cannot simply be averaged, and they cannot be adjusted without knowing how many items there are. Totals can always be added and subtracted safely.
+[PUZZLE]
+V: Four test-score cards with mean 7, and a fifth card face down. Text: "With the fifth score, the mean is 8." Question: "What is the fifth score?"
+N: Four scores have a mean of seven. A fifth score is added and the mean becomes eight. What is the fifth score? Pause and find the totals.
+[DEVELOP]
+V: Four stacks levelled at 7: total 28. Five stacks levelled at 8: total 40.
+N: Four scores with mean seven total twenty-eight. Five scores with mean eight total forty.
+[DEVELOP]
+V: The difference 40 minus 28 fills the fifth card: 12.
+N: The fifth score supplies the difference: forty minus twenty-eight is twelve. Notice it is much more than eight. One new score has to lift every existing score up by one, as well as reaching eight itself.
+[VARIATION]
+V: Two groups: 2 people with mean 6, and 3 people with mean 10. Totals 12 and 30; combined 42 over 5 people gives 8.4.
+N: Combining groups works the same way. Two people average six and three people average ten. The totals are twelve and thirty, forty-two for five people. The combined mean is eight point four, not eight. It leans towards the larger group.
+[VARIATION]
+V: A sorted list 2, 3, 5, 9, 31 with the middle value 5 circled as "median"; mean shown as 10.
+N: The mean is not the only average. The median is the middle value when the list is in order. For two, three, five, nine and thirty-one, the median is five, while the mean is ten. One very large value pulls the mean up but leaves the median alone.
+[RECAP]
+V: Lines: "Total = mean times number of items", "Work with totals", "Median = middle value in order".
+N: The total is the mean times the number of items. Do your reasoning with totals. And the median is the middle value. Notebook challenge: the mean of six numbers is nine. One number is removed and the mean of the rest is eight. Which number was removed?
+TRY: The mean of 6 numbers is 9. One is removed and the mean of the rest is 8. Which number was removed?
+ANS: 54 - 40 = 14.
+
+@@ T16.E
+GOAL: Worked example: why you cannot average two averages.
+[PUZZLE]
+V: Two learners scoring 6 each and three learners scoring 10 each, as dots above a number line. Question: "What is the mean score of all five?"
+N: Two learners each score six points, and three learners each score ten points. What is the mean score for all five learners?
+[DEVELOP]
+V: First group: 2 lots of 6 make 12. Second group: 3 lots of 10 make 30.
+N: Find the totals. The first group scores two times six: twelve points. The second group scores three times ten: thirty points.
+[DEVELOP]
+V: 12 and 30 combine to 42, shared among 5 dots: 8.4 each.
+N: Together that is forty-two points for five learners. Forty-two divided by five is eight point four. The mean score is eight point four.
+[DEVELOP]
+V: The tempting answer 8, halfway between 6 and 10, marked on the line; the true mean 8.4 sits closer to 10 where there are three dots.
+N: Why not simply eight, halfway between six and ten? Because the groups are different sizes. Three learners sit at ten and only two at six, so the balance point is pulled towards ten.
+[VARIATION]
+V: The groups change to 2 at 6 and 2 at 10; the mean moves to exactly 8.
+N: If the groups were the same size, two learners at six and two at ten, the mean would be exactly eight. Averaging the averages only works when the groups are equal in size.
+[RECAP]
+V: Line: "combine totals, then divide by everyone". Notebook prompt.
+N: Combine the totals, then divide by the total number of people. Rebuild this, then find the mean score when four learners score five each and one learner scores ten.
+TRY: Four learners score 5 each and one learner scores 10. What is the mean?
+ANS: (20 + 10) / 5 = 6.
+
+@@ T17.1
+GOAL: Match the kind of evidence to the kind of claim.
+[INSIGHT]
+V: Three claim cards: "it can happen", "it always happens", "it never happens". Under the first, a single example; under the others, a question mark.
+N: Different claims need different amounts of evidence. To show something can happen, one example is enough. To show something always happens, or never happens, examples are not enough, however many you collect. You need a reason that covers every case.
+[WHY]
+V: A pattern of ticks ending in a single cross far along the row.
+N: Patterns can hold for a long time and then break. Knowing what a claim actually requires stops you from trusting a pattern too far, and tells you when your solution is really complete.
+[PUZZLE]
+V: Claim card: "The sum of two odd numbers is always even." Examples 3 and 5, 7 and 9, 11 and 1 beneath, each with a tick. Question: "Is that a proof?"
+N: Here is a claim: the sum of two odd numbers is always even. Three and five make eight. Seven and nine make sixteen. Eleven and one make twelve. Is that a proof? Pause and decide.
+[DEVELOP]
+V: The examples dim. An odd number is drawn as pairs of counters with one left over. Two such numbers are placed side by side.
+N: Three examples are not a proof, because there are endlessly many odd numbers. Here is a reason instead. Any odd number is a collection of pairs with one left over.
+[DEVELOP]
+V: The two leftover counters slide together to make a new pair. Everything is now in pairs.
+N: Put two odd numbers together. Their two leftover counters make one more pair. Now everything is in pairs, so the total is even. This works for every pair of odd numbers at once.
+[VARIATION]
+V: Claim card: "All odd numbers greater than 1 are prime." 3, 5, 7 ticked; 9 shown as 3 by 3 with a cross.
+N: To show a claim is false, one example that breaks it is enough. Someone claims that every odd number bigger than one is prime. Three, five and seven fit. But nine is three times three. One counterexample and the claim is finished.
+[VARIATION]
+V: Two cards: "necessary" with "a multiple of 6 must be even", and "not sufficient" with "14 is even but not a multiple of 6".
+N: One more distinction. A condition can be needed without being enough. Every multiple of six is even, so being even is needed. But fourteen is even and is not a multiple of six, so being even is not enough.
+[RECAP]
+V: Lines: "Can happen: one example", "Always or never: a reason for every case", "False: one counterexample".
+N: One example shows something can happen. A reason covering every case shows it always does. One counterexample shows a claim is false. Notebook challenge: is it true that the sum of three odd numbers is always odd? Give a reason, not just examples.
+TRY: Is the sum of three odd numbers always odd? Give a reason.
+ANS: Yes: two of the three leftover ones make a pair, leaving exactly one leftover, so the total is odd.
+
+@@ T17.2
+GOAL: Disprove with a legal counterexample; prove impossibility by contradiction.
+[INSIGHT]
+V: A statement with a small chip knocked out of it by a single card labelled "counterexample".
+N: There are two sharp tools for testing a claim. A counterexample is one case that breaks a claim about everything. A contradiction is the opposite kind of tool: you suppose something could happen, follow the consequences, and reach nonsense.
+[WHY]
+V: Two cards: "this is false, here is why" and "this is impossible, here is why".
+N: Competitions often ask whether something is possible. If it is, show it. If it is not, you need an argument, and contradiction is the standard way to build one.
+[PUZZLE]
+V: Claim card: "Multiplying always makes a number bigger." Example: 5 times 3 is 15, with a tick. Question: "True or false?"
+N: A student says: multiplying always makes a number bigger. Five times three is fifteen, which is bigger than five. Is the claim true? Pause and hunt for a case that breaks it.
+[DEVELOP]
+V: 6 times one half is 3; 6 times 1 is 6; 6 times 0 is 0. Each marked as a counterexample.
+N: Six times one half is three, which is smaller. Six times one is still six. Six times zero is zero. Any one of these is a counterexample, so the claim is false.
+[DEVELOP]
+V: The claim rewritten: "Multiplying a positive number by a number greater than 1 makes it bigger."
+N: A counterexample must obey the claim's own conditions. If the claim were about multiplying a positive number by a number greater than one, then a half and zero would not be allowed, and the repaired claim would be true. Failed claims often become true once the conditions are stated properly.
+[VARIATION]
+V: Nine coins all heads up. Rule card: "each move flips exactly two coins". Goal card: "all tails". A counter "heads showing: 9" changes by 2, 0 or minus 2.
+N: Now a contradiction. Nine coins all show heads. Each move flips exactly two coins. Can all nine show tails? Suppose it could be done. Each move changes the number of heads by two, or not at all. So the number of heads stays odd for ever.
+[VARIATION]
+V: The counter runs 9, 7, 9, 5, 7... never reaching 0. A cross on the goal card.
+N: It starts at nine, which is odd. All tails would mean zero heads, which is even. An odd number can never become zero this way. Our supposition has led to something impossible, so the task cannot be done.
+[RECAP]
+V: Lines: "Counterexample: one legal case that breaks the claim", "Contradiction: suppose it works, reach an impossibility".
+N: A counterexample is one allowed case that breaks a claim. A contradiction supposes something is possible and shows that leads to nonsense. Notebook challenge: seven cups stand upright. Each move turns over exactly two cups. Can all seven end upside down?
+TRY: Seven cups are upright; each move turns over exactly two. Can all seven end upside down?
+ANS: No: the number of upright cups stays odd, and 0 is even.
+
+@@ T17.3
+GOAL: Know when checking cases is a complete proof, and how to extend a check for ever.
+[INSIGHT]
+V: A small set of cases, each ticked in turn until none remain. Then an endless row of cases with an arrow passing a tick from each to the next.
+N: Checking cases can be a complete proof, if there are only finitely many and you check them all. For endlessly many cases, checking is never enough on its own. But a check plus a rule that passes the result along can cover them all.
+[WHY]
+V: A list of ticked cases with a gap in the middle that was skipped.
+N: The danger with case checking is a missing case. A proof by cases must show that the cases cover everything, with nothing left outside.
+[PUZZLE]
+V: Stamps of value 3 and 5. A number line from 1 to 20. Question: "Which totals can be made? Which cannot?"
+N: You have plenty of three-cent and five-cent stamps. Which totals can you make exactly? Pause and test the totals from one to twelve.
+[DEVELOP]
+V: Number line marks: 3, 5, 6, 8, 9, 10, 11, 12 ticked with their stamp combinations; 1, 2, 4, 7 crossed.
+N: Three and five work. Six is two threes. Eight is three and five. Nine is three threes. Ten is two fives. Eleven is five and two threes. Twelve is four threes. But one, two, four and seven cannot be made.
+[DEVELOP]
+V: The three consecutive totals 8, 9, 10 highlighted. An arrow "add a 3" carries each one three places along: 11, 12, 13, then 14, 15, 16.
+N: Now the key step. Eight, nine and ten can all be made. Add a three-cent stamp to each and you get eleven, twelve and thirteen. Add another and you get fourteen, fifteen and sixteen. Three totals in a row, plus the ability to add three, reach every total from eight onwards.
+[DEVELOP]
+V: Everything from 8 onward turns green. The crossed 7 remains as the largest total that cannot be made.
+N: So every total of eight or more is possible. That is endlessly many cases, proved by checking three and giving one rule. And seven is the largest total that cannot be made, which we know because the totals below eight were checked one by one.
+[VARIATION]
+V: A finite claim card: "No two-digit square ends in 7." The ten units digits of squares listed: 0, 1, 4, 9, 6, 5, 6, 9, 4, 1.
+N: A finite check can prove a never. Does any square number end in seven? The last digit of a square depends only on the last digit of the number. Check the ten digits: their squares end in zero, one, four, nine, six, five, six, nine, four and one. Seven never appears. Ten checks cover every whole number.
+[RECAP]
+V: Lines: "Finite: check every case, and show nothing is left out", "Endless: check a starting block and give a rule that carries it on".
+N: For finitely many cases, check them all and show nothing is left out. For endlessly many, check a starting block and give a rule that carries the result forward. Notebook challenge: with four-cent and five-cent stamps, what is the largest total you cannot make?
+TRY: With 4-cent and 5-cent stamps, what is the largest total that cannot be made?
+ANS: 11. (12, 13, 14, 15 can be made, and adding 4s reaches everything beyond.)
+
+@@ T17.E
+GOAL: Worked example: prove that a number times the next number is always even.
+[PUZZLE]
+V: Claim card: "n times (n plus 1) is always even." A few products below: 3 times 4 is 12, 6 times 7 is 42. Question: "How can we be sure for every n?"
+N: Prove that any whole number multiplied by the next whole number gives an even result. Three times four is twelve. Six times seven is forty-two. Checking examples is a good start, but the proof must cover numbers we have not checked.
+[DEVELOP]
+V: A number line with whole numbers alternately coloured even and odd. Any two neighbours are highlighted: one of each colour.
+N: Whole numbers alternate: even, odd, even, odd. So of any two neighbouring numbers, exactly one is even. There are two cases: the first number is even, or the first number is odd.
+[DEVELOP]
+V: Case one: the first number drawn as two equal rows; multiplying by anything keeps two equal rows.
+N: If the first number is even, it is two lots of something. Multiply it by the next number and the result is still two lots of something. So the product is even.
+[DEVELOP]
+V: Case two: the first number is odd, so the next number is drawn as two equal rows; the product again has two equal rows.
+N: If the first number is odd, then the next number is even. It is two lots of something, so again the product is two lots of something. The product is even.
+[VARIATION]
+V: A rectangle of dots n wide and n plus 1 tall, split along a staircase diagonal into two identical triangles of dots.
+N: A picture confirms it. Arrange the product as a rectangle of dots. It splits into two identical staircases. Two identical halves means the total is even, and each half is one plus two plus three, up to the first number.
+[RECAP]
+V: Line: "two cases, no others, and each gives an even product". Notebook prompt.
+N: The two cases cover every whole number, and each gives an even product. Rebuild the proof, then explain why the product of three whole numbers in a row is always a multiple of three.
+TRY: Explain why the product of three consecutive whole numbers is always a multiple of 3.
+ANS: Among any three consecutive numbers exactly one is a multiple of 3, so the product is too.
+
+@@ T18.1
+GOAL: Begin a problem with its tightest restriction.
+[INSIGHT]
+V: A wide cloud of possibilities; one strong condition slices it down to a short list; weaker conditions then pick from the list.
+N: Most problems have several conditions, and they are not equally powerful. One of them usually cuts the possibilities down to a handful. Start with that one, and the others become quick checks.
+[WHY]
+V: Two solvers: one wading through a long list, the other holding a short one.
+N: Starting with a weak condition leaves you searching through hundreds of cases. Starting with the strongest can leave three or four. Choosing where to begin is a strategy decision worth ten seconds of thought.
+[PUZZLE]
+V: Clue cards: "a two-digit number", "its digits add to 10", "it is a square number". Question: "What is the number?"
+N: A two-digit number is a perfect square, and its digits add to ten. What is it? Pause and decide which clue to use first.
+[DEVELOP]
+V: "Digits add to 10" produces nine numbers: 19, 28, 37, 46, 55, 64, 73, 82, 91. "Square number" produces six: 16, 25, 36, 49, 64, 81. The shorter list glows.
+N: The digit-sum clue allows nine numbers. The square clue allows only six: sixteen, twenty-five, thirty-six, forty-nine, sixty-four and eighty-one. Start with the squares.
+[DEVELOP]
+V: Digit sums written under the six squares: 7, 7, 9, 13, 10, 9. The 64 lights up.
+N: Add the digits of each: seven, seven, nine, thirteen, ten, nine. Only sixty-four has digits adding to ten. The answer is sixty-four.
+[VARIATION]
+V: A rectangle with area 24 and whole-number sides: pairs 1 by 24, 2 by 12, 3 by 8, 4 by 6. A second clue "perimeter 20" selects 4 by 6.
+N: A product is another strong restriction. A rectangle has whole-number sides, area twenty-four and perimeter twenty. The area allows only four shapes: one by twenty-four, two by twelve, three by eight, and four by six. Their perimeters are fifty, twenty-eight, twenty-two and twenty. It is four by six.
+[VARIATION]
+V: Hint cards: "a product suggests factors", "a fixed total suggests sharing parts", "a repeating process suggests a cycle", "order suggests a line".
+N: Certain features point to certain tools. A product suggests factors. A fixed total suggests parts. A repeating process suggests a cycle. An order suggests a line. These are suggestions to try, not guarantees.
+[RECAP]
+V: Lines: "List the conditions", "Start with the one that allows fewest cases", "Use the rest as checks".
+N: List the conditions. Start with the one that leaves the fewest possibilities. Use the rest as checks. Notebook challenge: a number between fifty and one hundred is a multiple of thirteen and is odd. What could it be?
+TRY: A number between 50 and 100 is an odd multiple of 13. What could it be?
+ANS: Multiples of 13 in range: 52, 65, 78, 91. The odd ones are 65 and 91.
+
+@@ T18.2
+GOAL: Keep a clear trail while solving, and check with a different method.
+[INSIGHT]
+V: A page of scattered calculations beside a page with three labelled lines: "known", "cases done", "next".
+N: Good working leaves a trail. If you write what you have established, which cases you have finished, and what you will do next, you can pause, return, or find a mistake without starting again.
+[WHY]
+V: A clock with time running; a half-finished solution being picked up again smoothly.
+N: Under time pressure, people lose marks by repeating work or by trusting an answer they never checked. A clear trail and one independent check prevent both.
+[PUZZLE]
+V: A 5 by 5 grid of unit squares with its border squares shaded. Question: "How many squares are on the border?"
+N: A five by five grid of small squares has all the squares along its border shaded. How many squares are shaded? Pause and find the answer in one way, then in a second, different way.
+[DEVELOP]
+V: Method one: the whole 5 by 5 grid (25) with the inner 3 by 3 block (9) lifted out. 25 minus 9 gives 16.
+N: First method: take away the inside. The whole grid has twenty-five squares. The unshaded inner block is three by three: nine squares. Twenty-five minus nine is sixteen.
+[DEVELOP]
+V: Method two: four strips of 4 squares each, arranged pinwheel-fashion round the border so that they do not overlap. 4 times 4 gives 16.
+N: Second method: split the border into four strips of four squares, each strip starting at a corner and stopping one short of the next. Four times four is sixteen. The two methods agree.
+[VARIATION]
+V: A tempting wrong method: four sides of 5 gives 20, with each corner square flashing as counted twice. 20 minus 4 gives 16.
+N: A common error is to say four sides of five squares: twenty. That counts each corner twice. Subtract the four corners and you get sixteen again. A second method is valuable precisely because it would have caught that mistake.
+[VARIATION]
+V: A working page with the three labelled lines filled in for a longer problem; one case ticked, one marked "to do".
+N: For longer problems, label your cases as you go, and tick each one when it is finished. If you must leave a problem, write one line saying what to do next. Your future self will thank you.
+[RECAP]
+V: Lines: "Write what is known and what is next", "Tick off finished cases", "Check with a different method".
+N: Record what you know and what comes next. Tick off finished cases. Then check the answer by a method that could not make the same mistake. Notebook challenge: find the number of border squares of a seven by seven grid in two different ways.
+TRY: Find the number of border squares of a 7 by 7 grid in two different ways.
+ANS: 49 - 25 = 24, and 4 strips of 6 = 24.
+
+@@ T18.3
+GOAL: Use multiple-choice options sensibly, and always answer the question that was asked.
+[INSIGHT]
+V: A question with five answer options A to E. Two options fade out after a quick test; three remain.
+N: In a multiple-choice question, the options are information. You can test them, or rule some out, without solving the whole problem. But an option that merely looks familiar is not evidence. Every choice still has to be checked against the question.
+[WHY]
+V: A tempting option matching an intermediate result, with a warning mark.
+N: Question setters include options that match common mistakes, and options that match a step along the way. Using the options well, and rereading what was asked, protects you from both.
+[PUZZLE]
+V: Question: "Which of these is a multiple of 4 and of 9?" Options: A 54, B 64, C 72, D 81, E 90.
+N: Which of these numbers is a multiple of both four and nine: fifty-four, sixty-four, seventy-two, eighty-one or ninety? Pause and think about the quickest way to rule options out.
+[DEVELOP]
+V: The odd option 81 fades. Then 54 and 90 fade after halving gives an odd number. 64 and 72 remain.
+N: A multiple of four is even, so eighty-one goes. Half of fifty-four is twenty-seven, which is odd, so fifty-four is not a multiple of four. The same happens with ninety. That leaves sixty-four and seventy-two.
+[DEVELOP]
+V: Digit sums: 64 gives 10, 72 gives 9. 72 glows.
+N: For nine, add the digits. Sixty-four gives ten, so it is not a multiple of nine. Seventy-two gives nine, so it is. The answer is seventy-two, option C. Two quick tests replaced any long division.
+[VARIATION]
+V: A problem: "A book costs 12 dollars, a pen costs 3 dollars less. What do 2 pens cost?" Options include 9 and 18. The 9 flashes with "price of one pen".
+N: Now the other trap. A book costs twelve dollars and a pen costs three dollars less. What do two pens cost? One pen costs nine dollars, and nine is among the options. But the question asks for two pens: eighteen. Always reread the request before choosing.
+[VARIATION]
+V: An equation puzzle with options; each option is substituted in turn until one fits.
+N: When an equation is hard to solve directly, try the options in it. Substituting is slower than a neat method, but it is reliable, and starting with the middle-sized option tells you whether to go up or down.
+[RECAP]
+V: Lines: "Rule out options with quick tests", "Do not pick a number just because it appeared", "Reread what was asked".
+N: Rule options out with quick tests. Do not choose a number just because it appeared in your working. Reread what was asked before you answer. Notebook challenge: which of forty-five, sixty, seventy-five and ninety is a multiple of both four and five?
+TRY: Which of 45, 60, 75 and 90 is a multiple of both 4 and 5?
+ANS: 60.
+
+@@ T18.E
+GOAL: Worked example: organise a count, then check it a second way.
+[PUZZLE]
+V: Number cards 1 to 6. Text: "Choose two different numbers. Order does not matter." Question: "How many choices have a sum of at least 9?"
+N: Choose two different numbers from one, two, three, four, five and six. The order does not matter. How many choices have a sum of at least nine?
+[DEVELOP]
+V: A rule card: "call the larger number b". Columns for b equal to 6, 5, 4.
+N: To avoid counting any pair twice, always name the larger number first. Then organise the count by the larger number.
+[DEVELOP]
+V: Under b equal to 6: partners 3, 4, 5 (sums 9, 10, 11). Under b equal to 5: partner 4 (sum 9). Under b equal to 4: no partner is large enough.
+N: If the larger number is six, the smaller must be at least three: three, four or five. That is three pairs. If the larger number is five, the smaller must be four: one pair. If the larger is four, the best sum is four plus three, which is only seven. No pairs.
+[DEVELOP]
+V: Total: 3 and 1 make 4. The four pairs listed: 3 and 6, 4 and 6, 5 and 6, 4 and 5.
+N: Three plus one is four. The pairs are three and six, four and six, five and six, and four and five.
+[VARIATION]
+V: A second count by sum: sum 9 from two pairs (3 and 6, 4 and 5); sum 10 from one (4 and 6); sum 11 from one (5 and 6). Total 4.
+N: Check a different way, by the sum. Nine comes from three and six, or four and five. Ten comes from four and six. Eleven comes from five and six. Two plus one plus one is four. Notice that "at least nine" includes nine itself.
+[RECAP]
+V: Line: "fix an order, sort into cases, check another way". Notebook prompt.
+N: Fix an order so nothing is counted twice, sort into cases, then check another way. Rebuild this, then count the pairs from one to six whose sum is at most five.
+TRY: How many pairs of different numbers from 1 to 6 have a sum of at most 5?
+ANS: 1+2, 1+3, 1+4, 2+3: 4 pairs.

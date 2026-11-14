@@ -1,0 +1,63 @@
+{
+ "id": "T01.2",
+ "title": "Choose a representation that exposes the relationship",
+ "chapter": "Read the question into a useful model",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Choose a line, table, drawing or equation that makes the hidden relationship visible.",
+ "narration_words": 332,
+ "estimated_minutes": 2.2,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "A single sentence of text dissolves into four small icons: a number line, a table, a sketch, an equation.",
+   "narration": "The same problem can be drawn in different ways, and some drawings make the answer almost obvious. A good representation shows the relationship you need. The four you will use most are a line, a table, a sketch and an equation."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "A cluttered paragraph of words on the left; on the right a clean number line with marks. The line brightens.",
+   "narration": "Words hide structure. In a sentence, it is hard to see whether you are counting posts or the gaps between posts. On a line, you can point to each one. Choosing the right picture often saves more time than any calculation trick."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "Number line from 0 to 30 with marks every 5: posts at 0, 5, 10, 15, 20, 25, 30. Question: \"How many posts? How many gaps?\"",
+   "narration": "A straight fence is thirty metres long. There is a post at each end and a post every five metres. How many posts are there? Pause and picture the fence."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "The six gaps light up one at a time with a small counter 1 to 6. Then the seven posts light up with a counter 1 to 7.",
+   "narration": "Thirty divided by five is six. But six of what? Six is the number of gaps. Every gap has a post at its right-hand end, and there is one extra post at the very start. So there are seven posts. The line shows why the answer is one more than the division."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "The fence bends into a closed ring of 30 metres with posts every 5. The start and end posts merge into one. Counter shows 6 posts, 6 gaps.",
+   "narration": "Change the picture and the rule changes. If the same thirty metres of fence goes round a garden in a closed loop, the first and last posts are the same post. Now there are six gaps and six posts."
+  },
+  {
+   "n": 6,
+   "stage": "VARIATION",
+   "visual": "A queue of faceless figures. One is highlighted. Labels: \"9th from the front\", \"6th from the back\". Figures in front counted 8, behind counted 5.",
+   "narration": "A line also untangles queues. Sam is ninth from the front and sixth from the back. How many people are in the queue? Eight people stand in front of Sam and five behind. Eight plus five plus Sam makes fourteen. Adding nine and six would count Sam twice."
+  },
+  {
+   "n": 7,
+   "stage": "VARIATION",
+   "visual": "A two-column table: \"item\", \"price\", with units in the headings. Then a small rectangle sketch with only stated lengths marked.",
+   "narration": "Use a table when several categories must be compared, and put the same kind of quantity in each column. Use a sketch when touching sides or a boundary matters, and mark only facts you were given, never guessed lengths."
+  },
+  {
+   "n": 8,
+   "stage": "RECAP",
+   "visual": "The four icons return with one word each: order, compare, shape, balance.",
+   "narration": "A line for order and gaps. A table for comparing. A sketch for shapes. An equation for a balance between totals. Notebook challenge: trees are planted every four metres along a forty-metre path, including both ends. How many trees are there?"
+  }
+ ],
+ "notebook_exercise": "Trees every 4 m along a 40 m path, including both ends. How many trees?",
+ "notebook_answer": "40 / 4 = 10 gaps, so 11 trees."
+}

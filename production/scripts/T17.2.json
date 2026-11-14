@@ -1,0 +1,63 @@
+{
+ "id": "T17.2",
+ "title": "Use counterexamples and contradictions carefully",
+ "chapter": "Write proofs that leave no hidden cases",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Disprove with a legal counterexample; prove impossibility by contradiction.",
+ "narration_words": 307,
+ "estimated_minutes": 2.0,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "A statement with a small chip knocked out of it by a single card labelled \"counterexample\".",
+   "narration": "There are two sharp tools for testing a claim. A counterexample is one case that breaks a claim about everything. A contradiction is the opposite kind of tool: you suppose something could happen, follow the consequences, and reach nonsense."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "Two cards: \"this is false, here is why\" and \"this is impossible, here is why\".",
+   "narration": "Competitions often ask whether something is possible. If it is, show it. If it is not, you need an argument, and contradiction is the standard way to build one."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "Claim card: \"Multiplying always makes a number bigger.\" Example: 5 times 3 is 15, with a tick. Question: \"True or false?\"",
+   "narration": "A student says: multiplying always makes a number bigger. Five times three is fifteen, which is bigger than five. Is the claim true? Pause and hunt for a case that breaks it."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "6 times one half is 3; 6 times 1 is 6; 6 times 0 is 0. Each marked as a counterexample.",
+   "narration": "Six times one half is three, which is smaller. Six times one is still six. Six times zero is zero. Any one of these is a counterexample, so the claim is false."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "The claim rewritten: \"Multiplying a positive number by a number greater than 1 makes it bigger.\"",
+   "narration": "A counterexample must obey the claim's own conditions. If the claim were about multiplying a positive number by a number greater than one, then a half and zero would not be allowed, and the repaired claim would be true. Failed claims often become true once the conditions are stated properly."
+  },
+  {
+   "n": 6,
+   "stage": "VARIATION",
+   "visual": "Nine coins all heads up. Rule card: \"each move flips exactly two coins\". Goal card: \"all tails\". A counter \"heads showing: 9\" changes by 2, 0 or minus 2.",
+   "narration": "Now a contradiction. Nine coins all show heads. Each move flips exactly two coins. Can all nine show tails? Suppose it could be done. Each move changes the number of heads by two, or not at all. So the number of heads stays odd for ever."
+  },
+  {
+   "n": 7,
+   "stage": "VARIATION",
+   "visual": "The counter runs 9, 7, 9, 5, 7... never reaching 0. A cross on the goal card.",
+   "narration": "It starts at nine, which is odd. All tails would mean zero heads, which is even. An odd number can never become zero this way. Our supposition has led to something impossible, so the task cannot be done."
+  },
+  {
+   "n": 8,
+   "stage": "RECAP",
+   "visual": "Lines: \"Counterexample: one legal case that breaks the claim\", \"Contradiction: suppose it works, reach an impossibility\".",
+   "narration": "A counterexample is one allowed case that breaks a claim. A contradiction supposes something is possible and shows that leads to nonsense. Notebook challenge: seven cups stand upright. Each move turns over exactly two cups. Can all seven end upside down?"
+  }
+ ],
+ "notebook_exercise": "Seven cups are upright; each move turns over exactly two. Can all seven end upside down?",
+ "notebook_answer": "No: the number of upright cups stays odd, and 0 is even."
+}

@@ -1,0 +1,63 @@
+{
+ "id": "T04.3",
+ "title": "Track prime copies through several conditions",
+ "chapter": "Use prime factors as the building blocks",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Use prime copies to find highest common factors, lowest common multiples and squares.",
+ "narration_words": 300,
+ "estimated_minutes": 2.0,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "Two rows of prime tiles: 12 as 2, 2, 3 and 18 as 2, 3, 3. Tiles that both rows share glow.",
+   "narration": "Write two numbers as rows of prime tiles and you can see what they share. Twelve is two, two, three. Eighteen is two, three, three. Comparing the rows, one prime at a time, answers several kinds of question."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "Three question cards: \"largest shared factor?\", \"smallest shared multiple?\", \"is it a square?\".",
+   "narration": "Highest common factor, lowest common multiple, and perfect squares look like three different topics. They are really one idea: counting how many copies of each prime you have."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "The two rows for 12 and 18 with a blank row beneath labelled \"shared\" and another labelled \"covers both\".",
+   "narration": "What is the largest number that divides both twelve and eighteen? And what is the smallest number that both divide into? Pause and use the tiles."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "Shared row fills with one 2 and one 3: label 6.",
+   "narration": "A common factor can only use tiles that both numbers have. Both have one two, and both have one three. So the highest common factor is two times three, which is six. For each prime, take the smaller count."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "\"Covers both\" row fills with 2, 2, 3, 3: label 36.",
+   "narration": "A common multiple needs enough tiles to cover each number. Twelve needs two twos. Eighteen needs two threes. So the lowest common multiple is two times two times three times three, which is thirty-six. For each prime, take the larger count."
+  },
+  {
+   "n": 6,
+   "stage": "VARIATION",
+   "visual": "12 x 18 = 216 and 6 x 36 = 216 appear together.",
+   "narration": "Notice that six times thirty-six equals twelve times eighteen. For two numbers, the highest common factor times the lowest common multiple always equals their product, because between them they use every tile exactly once."
+  },
+  {
+   "n": 7,
+   "stage": "VARIATION",
+   "visual": "36 as tiles 2, 2, 3, 3 pairing off into two equal groups 2, 3 and 2, 3. Then 48 as 2, 2, 2, 2, 3 with the 3 left unpaired; one extra 3 slides in.",
+   "narration": "Squares are about pairs. Thirty-six splits into two identical groups, so it is a square. Forty-eight is four twos and a three. The three has no partner, so forty-eight is not a square. Multiplying by three fixes that: one hundred and forty-four is twelve squared. A number is a square exactly when every prime appears an even number of times."
+  },
+  {
+   "n": 8,
+   "stage": "RECAP",
+   "visual": "Lines: \"Common factor: smaller count\", \"Common multiple: larger count\", \"Square: every count even\".",
+   "narration": "Smaller counts for the highest common factor. Larger counts for the lowest common multiple. Even counts for a square. Notebook challenge: find the highest common factor and lowest common multiple of twenty and thirty."
+  }
+ ],
+ "notebook_exercise": "Find the highest common factor and lowest common multiple of 20 and 30.",
+ "notebook_answer": "20 = 2 x 2 x 5 and 30 = 2 x 3 x 5: HCF 10, LCM 60."
+}

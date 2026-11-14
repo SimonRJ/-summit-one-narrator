@@ -1,0 +1,57 @@
+{
+ "id": "T06.3",
+ "title": "Turn contribution limits into a sharp bound",
+ "chapter": "Count the same structure from two directions",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Turn \"each group uses up some of a limited supply\" into a maximum, then reach it.",
+ "narration_words": 303,
+ "estimated_minutes": 2.0,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "A jar of 12 tokens. Each \"group\" card takes 3 tokens. After four cards the jar is empty.",
+   "narration": "If every group uses up some of a limited supply, the supply limits how many groups you can have. Twelve tokens, three per group, means at most four groups. You know that before making a single group."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "Two words appear: \"at most\" and \"can be reached\", with a gap between them.",
+   "narration": "This gives the first half of a \"largest possible\" answer: a ceiling. The second half is showing that the ceiling can actually be reached. A complete solution needs both."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "Five dots labelled A to E. Text: \"Each day, students work in pairs. No pair may ever work together twice.\" Question: \"What is the largest number of days?\"",
+   "narration": "Five students are in a club. Each day, two pairs work together and one student rests. No two students may be partners more than once. What is the largest number of days this can continue? Pause and decide what is being used up."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "All ten possible pairs listed as lines between the five dots. A counter: \"10 pairs available\". Each day removes 2 lines.",
+   "narration": "The supply is pairs of students. Five students form ten different pairs. Each day uses two new pairs. So there can be at most five days."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "A five-day schedule fills in: Day 1 AB, CD (E rests); Day 2 AC, BE (D rests); Day 3 AD, CE (B rests); Day 4 AE, BD (C rests); Day 5 BC, DE (A rests). Each used line fades from the pair list until none remain.",
+   "narration": "Can five days really be done? Here is a schedule. Day one: A with B, C with D. Day two: A with C, B with E. Day three: A with D, C with E. Day four: A with E, B with D. Day five: B with C, D with E. All ten pairs appear exactly once."
+  },
+  {
+   "n": 6,
+   "stage": "VARIATION",
+   "visual": "The same five dots with rule changed: \"groups of three; no pair together twice\". Each group uses 3 pairs; 10 / 3 gives at most 3. A search shows only 2 groups fit.",
+   "narration": "Be careful: a ceiling is not always reachable. If the students work in groups of three, each group uses three pairs. Ten pairs would allow at most three groups. But try it: after A, B, C and A, D, E, every further group of three would repeat a pair. Only two groups are possible. The bound said three, the truth is two."
+  },
+  {
+   "n": 7,
+   "stage": "RECAP",
+   "visual": "Lines: \"Find what is used up\", \"Divide to get a ceiling\", \"Build an example, or show the ceiling fails\".",
+   "narration": "Find the limited supply. Divide to get a ceiling. Then either build an example that reaches it, or explain why it cannot be reached. Notebook challenge: six students play chess, one game per pair at most. Each day three games are played. What is the largest possible number of days?"
+  }
+ ],
+ "notebook_exercise": "Six students; each day 3 games; no pair plays twice. Largest number of days?",
+ "notebook_answer": "15 pairs / 3 per day = 5 days, and a round-robin schedule achieves it."
+}

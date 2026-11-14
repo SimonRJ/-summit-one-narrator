@@ -1,0 +1,51 @@
+{
+ "id": "T16.E",
+ "title": "Keep ratios, rates and averages precise",
+ "chapter": "Keep ratios, rates and averages precise",
+ "type": "worked_example",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Worked example: why you cannot average two averages.",
+ "narration_words": 161,
+ "estimated_minutes": 1.1,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "PUZZLE",
+   "visual": "Two learners scoring 6 each and three learners scoring 10 each, as dots above a number line. Question: \"What is the mean score of all five?\"",
+   "narration": "Two learners each score six points, and three learners each score ten points. What is the mean score for all five learners?"
+  },
+  {
+   "n": 2,
+   "stage": "DEVELOP",
+   "visual": "First group: 2 lots of 6 make 12. Second group: 3 lots of 10 make 30.",
+   "narration": "Find the totals. The first group scores two times six: twelve points. The second group scores three times ten: thirty points."
+  },
+  {
+   "n": 3,
+   "stage": "DEVELOP",
+   "visual": "12 and 30 combine to 42, shared among 5 dots: 8.4 each.",
+   "narration": "Together that is forty-two points for five learners. Forty-two divided by five is eight point four. The mean score is eight point four."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "The tempting answer 8, halfway between 6 and 10, marked on the line; the true mean 8.4 sits closer to 10 where there are three dots.",
+   "narration": "Why not simply eight, halfway between six and ten? Because the groups are different sizes. Three learners sit at ten and only two at six, so the balance point is pulled towards ten."
+  },
+  {
+   "n": 5,
+   "stage": "VARIATION",
+   "visual": "The groups change to 2 at 6 and 2 at 10; the mean moves to exactly 8.",
+   "narration": "If the groups were the same size, two learners at six and two at ten, the mean would be exactly eight. Averaging the averages only works when the groups are equal in size."
+  },
+  {
+   "n": 6,
+   "stage": "RECAP",
+   "visual": "Line: \"combine totals, then divide by everyone\". Notebook prompt.",
+   "narration": "Combine the totals, then divide by the total number of people. Rebuild this, then find the mean score when four learners score five each and one learner scores ten."
+  }
+ ],
+ "notebook_exercise": "Four learners score 5 each and one learner scores 10. What is the mean?",
+ "notebook_answer": "(20 + 10) / 5 = 6."
+}

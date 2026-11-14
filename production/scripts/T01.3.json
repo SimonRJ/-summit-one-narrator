@@ -1,0 +1,57 @@
+{
+ "id": "T01.3",
+ "title": "Use the model to check the answer",
+ "chapter": "Read the question into a useful model",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Predict the type and size of an answer, then test it against every condition.",
+ "narration_words": 293,
+ "estimated_minutes": 2.0,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "A finished answer \"7.5 people\" sits in a box. A soft red outline appears round it. Then \"8 people\" replaces it with a calm outline.",
+   "narration": "An answer is not finished when the calculation ends. It is finished when it has been checked against the story. Your model of the problem tells you what kind of answer is even possible, and that is a powerful check."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "Three quick cards: \"a count must be whole\", \"a probability is between 0 and 1\", \"an area is in square units\".",
+   "narration": "A number of people must be whole. A probability must lie between zero and one. An area is measured in square units. If your answer breaks one of these, something earlier went wrong, and you have caught it for free."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "Buses drawn as rounded blocks holding 40 seats each; 130 small dots waiting. Question: \"How many buses are needed?\"",
+   "narration": "One hundred and thirty students are going on a trip. Each bus holds forty students. How many buses are needed? Pause and predict roughly what the answer should be before calculating."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "Dots flow into buses: 40, 40, 40, and 10 left over standing outside. The division 130 / 40 = 3 remainder 10 appears.",
+   "narration": "One hundred and thirty divided by forty is three, with ten students left over. Three buses carry one hundred and twenty. The remaining ten still need a seat, so the answer is four buses. The division was correct, but the story decides what to do with the remainder."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "Checklist ticks: \"whole number? yes\", \"enough seats? 160 >= 130\", \"one fewer fails? 120 < 130\".",
+   "narration": "Now check. Four is a whole number. Four buses hold one hundred and sixty, which is enough. And three buses would not be enough, so four is the smallest answer that works. That last check proves we did not overshoot."
+  },
+  {
+   "n": 6,
+   "stage": "VARIATION",
+   "visual": "Same numbers, new question text: \"How many buses are completely full?\" The three full buses glow; the fourth, part full, dims.",
+   "narration": "Keep the numbers and change the request. How many buses are completely full, if each bus is filled before the next one is used? Now the answer is three. The same calculation, a different question, a different answer. Always reread the request at the end."
+  },
+  {
+   "n": 7,
+   "stage": "RECAP",
+   "visual": "Three lines: \"Predict\", \"Substitute back\", \"Reread the request\".",
+   "narration": "Predict the type and rough size of the answer. Put your answer back into every condition. Then reread what was asked. Notebook challenge: eggs are packed in boxes of twelve. How many boxes are needed to pack one hundred eggs, and how many eggs are in the last box?"
+  }
+ ],
+ "notebook_exercise": "Eggs are packed in boxes of 12. How many boxes for 100 eggs, and how many eggs in the last box?",
+ "notebook_answer": "100 = 12 x 8 + 4, so 9 boxes, with 4 eggs in the last box."
+}

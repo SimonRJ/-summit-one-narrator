@@ -1,0 +1,57 @@
+{
+ "id": "T03.3",
+ "title": "Build guarantees with the pigeonhole principle",
+ "chapter": "Remainders turn long lists into short systems",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Use the pigeonhole principle: more objects than boxes forces a shared box.",
+ "narration_words": 299,
+ "estimated_minutes": 2.0,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "Three open boxes. Four counters drop in one by one; the fourth must land on an occupied box, which glows.",
+   "narration": "Put four counters into three boxes. However you do it, some box ends up with at least two. This simple idea is called the pigeonhole principle, and it can prove that something must happen, even when you cannot say where."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "A cloud of \"all possible choices\" with a single line through it reading \"guaranteed\".",
+   "narration": "Many competition questions ask for a guarantee: what is the smallest number that makes something certain? You cannot check every possibility. The pigeonhole principle handles them all at once. The skill is choosing the right boxes."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "A drawer silhouette with socks in red, blue, green and black. Question: \"How many socks must you take to be sure of a matching pair?\"",
+   "narration": "A drawer has many socks in four colours. You take socks out without looking. How many must you take to be certain of having two of the same colour? Pause and think about the unluckiest possible draw."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "Four boxes labelled by colour. Four socks land one per box. A fifth sock hovers, then drops onto one of them.",
+   "narration": "Make one box for each colour. The unluckiest start is one sock of each colour: four socks, no pair. The fifth sock must share a box with another. So five socks guarantee a pair, and four do not. Notice both halves: five is enough, and four can fail."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "Boxes relabelled \"remainder 0\", \"remainder 1\", \"remainder 2\". Four numbers 2, 6, 10, 13 drop in; 10 and 13 share a box. Label 13 - 10 = 3.",
+   "narration": "Boxes do not have to be colours. Take any four whole numbers. Sort them by their remainder when divided by three. There are only three remainders, so two of the numbers share one. Their difference is then a multiple of three. That is guaranteed for every choice of four numbers."
+  },
+  {
+   "n": 6,
+   "stage": "VARIATION",
+   "visual": "Numbers 1 to 10 arranged as five pairs that add to 11: (1,10), (2,9), (3,8), (4,7), (5,6). Six chosen numbers must fill some pair.",
+   "narration": "Here is a cleverer choice of boxes. Choose six numbers from one to ten. Two of them must add to eleven. Why? Group the numbers into five pairs that each add to eleven. Six numbers in five pairs means some pair is chosen completely."
+  },
+  {
+   "n": 7,
+   "stage": "RECAP",
+   "visual": "Lines: \"Choose the boxes\", \"Count objects and boxes\", \"Show the smaller number can fail\".",
+   "narration": "Decide what the boxes are. Check there are more objects than boxes. Then show that one fewer object is not enough. Notebook challenge: how many people must be in a room to be sure that two of them have birthdays in the same month?"
+  }
+ ],
+ "notebook_exercise": "How many people guarantee two with birthdays in the same month?",
+ "notebook_answer": "13. Twelve people could all have different months."
+}

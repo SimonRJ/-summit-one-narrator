@@ -1,0 +1,63 @@
+{
+ "id": "T03.1",
+ "title": "Read a remainder as a precise statement",
+ "chapter": "Remainders turn long lists into short systems",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Read \"remainder r on division by d\" as: the number is r more than a multiple of d.",
+ "narration_words": 305,
+ "estimated_minutes": 2.0,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "Seventeen counters fall into groups of five: three full groups and two left over. Label: 17 = 3 x 5 + 2.",
+   "narration": "When you divide and something is left over, that leftover is called the remainder. Seventeen counters make three full groups of five, with two left over. So seventeen is two more than a multiple of five. That sentence is what a remainder really says."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "A long row of numbers shrinks into five coloured columns labelled 0, 1, 2, 3, 4.",
+   "narration": "Remainders are useful because they shrink huge lists. There are endlessly many whole numbers, but when dividing by five there are only five possible remainders: zero, one, two, three and four. Hard questions about big numbers become small questions about remainders."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "A repeating row of beads: red, blue, green, yellow, red, blue... Position numbers underneath. Question: \"What colour is bead 50?\"",
+   "narration": "Beads repeat in the order red, blue, green, yellow. What colour is the fiftieth bead? Pause and think about how remainders could help."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "The row folds into four columns under red, blue, green, yellow. Bead numbers 1, 5, 9 stack under red; 4, 8, 12 under yellow.",
+   "narration": "The pattern has length four, so divide by four. Fifty is four times twelve, plus two. After twelve complete cycles, two more beads are used. The second bead in the cycle is blue. Bead fifty is blue."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "Bead 48 highlights under yellow with \"remainder 0\".",
+   "narration": "Watch what happens for bead forty-eight. Forty-eight divided by four leaves remainder zero. That does not mean \"no bead\". It means a whole number of cycles has just finished, so it is the last colour, yellow."
+  },
+  {
+   "n": 6,
+   "stage": "VARIATION",
+   "visual": "Two numbers 23 and 38 on a line with a bracket of length 15 between them, split into three fives.",
+   "narration": "Here is a second use. Twenty-three and thirty-eight both leave remainder three when divided by five. Their difference is fifteen, a multiple of five. That always happens: two numbers have the same remainder exactly when their difference is a multiple of the divisor."
+  },
+  {
+   "n": 7,
+   "stage": "VARIATION",
+   "visual": "Candidate list 3, 8, 13, 18, 23, 28 with those leaving remainder 1 on division by 3 circled: 13, 28.",
+   "narration": "You can also combine conditions. Which number under thirty leaves remainder three when divided by five, and remainder one when divided by three? List the first kind: three, eight, thirteen, eighteen, twenty-three, twenty-eight. Test each for the second condition. Thirteen works, and so does twenty-eight."
+  },
+  {
+   "n": 8,
+   "stage": "RECAP",
+   "visual": "Lines: \"N = groups x d + r\", \"r is from 0 to d - 1\", \"same remainder means difference is a multiple\".",
+   "narration": "A remainder says how far a number is past a multiple. It is always smaller than the divisor. Notebook challenge: today is Tuesday. What day of the week will it be one hundred days from now?"
+  }
+ ],
+ "notebook_exercise": "Today is Tuesday. What day will it be 100 days from now?",
+ "notebook_answer": "100 = 7 x 14 + 2, so two days after Tuesday: Thursday."
+}

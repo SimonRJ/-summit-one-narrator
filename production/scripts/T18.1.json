@@ -1,0 +1,63 @@
+{
+ "id": "T18.1",
+ "title": "Start with the structure that limits the choices",
+ "chapter": "Choose a strategy, then learn from the decision",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Begin a problem with its tightest restriction.",
+ "narration_words": 254,
+ "estimated_minutes": 1.7,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "A wide cloud of possibilities; one strong condition slices it down to a short list; weaker conditions then pick from the list.",
+   "narration": "Most problems have several conditions, and they are not equally powerful. One of them usually cuts the possibilities down to a handful. Start with that one, and the others become quick checks."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "Two solvers: one wading through a long list, the other holding a short one.",
+   "narration": "Starting with a weak condition leaves you searching through hundreds of cases. Starting with the strongest can leave three or four. Choosing where to begin is a strategy decision worth ten seconds of thought."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "Clue cards: \"a two-digit number\", \"its digits add to 10\", \"it is a square number\". Question: \"What is the number?\"",
+   "narration": "A two-digit number is a perfect square, and its digits add to ten. What is it? Pause and decide which clue to use first."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "\"Digits add to 10\" produces nine numbers: 19, 28, 37, 46, 55, 64, 73, 82, 91. \"Square number\" produces six: 16, 25, 36, 49, 64, 81. The shorter list glows.",
+   "narration": "The digit-sum clue allows nine numbers. The square clue allows only six: sixteen, twenty-five, thirty-six, forty-nine, sixty-four and eighty-one. Start with the squares."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "Digit sums written under the six squares: 7, 7, 9, 13, 10, 9. The 64 lights up.",
+   "narration": "Add the digits of each: seven, seven, nine, thirteen, ten, nine. Only sixty-four has digits adding to ten. The answer is sixty-four."
+  },
+  {
+   "n": 6,
+   "stage": "VARIATION",
+   "visual": "A rectangle with area 24 and whole-number sides: pairs 1 by 24, 2 by 12, 3 by 8, 4 by 6. A second clue \"perimeter 20\" selects 4 by 6.",
+   "narration": "A product is another strong restriction. A rectangle has whole-number sides, area twenty-four and perimeter twenty. The area allows only four shapes: one by twenty-four, two by twelve, three by eight, and four by six. Their perimeters are fifty, twenty-eight, twenty-two and twenty. It is four by six."
+  },
+  {
+   "n": 7,
+   "stage": "VARIATION",
+   "visual": "Hint cards: \"a product suggests factors\", \"a fixed total suggests sharing parts\", \"a repeating process suggests a cycle\", \"order suggests a line\".",
+   "narration": "Certain features point to certain tools. A product suggests factors. A fixed total suggests parts. A repeating process suggests a cycle. An order suggests a line. These are suggestions to try, not guarantees."
+  },
+  {
+   "n": 8,
+   "stage": "RECAP",
+   "visual": "Lines: \"List the conditions\", \"Start with the one that allows fewest cases\", \"Use the rest as checks\".",
+   "narration": "List the conditions. Start with the one that leaves the fewest possibilities. Use the rest as checks. Notebook challenge: a number between fifty and one hundred is a multiple of thirteen and is odd. What could it be?"
+  }
+ ],
+ "notebook_exercise": "A number between 50 and 100 is an odd multiple of 13. What could it be?",
+ "notebook_answer": "Multiples of 13 in range: 52, 65, 78, 91. The odd ones are 65 and 91."
+}

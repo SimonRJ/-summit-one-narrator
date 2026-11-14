@@ -1,0 +1,51 @@
+{
+ "id": "T07.E",
+ "title": "Prove a limit, then build an example",
+ "chapter": "Prove a limit, then build an example",
+ "type": "worked_example",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Worked example: two different limits, and why the tighter one decides.",
+ "narration_words": 197,
+ "estimated_minutes": 1.3,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "PUZZLE",
+   "visual": "Seven red counters and four blue counters. Trays with four spaces. Rules: \"a tray holds at most 4 counters\", \"at most 2 red per tray\". Question: \"What is the smallest number of trays?\"",
+   "narration": "Pack seven red counters and four blue counters into trays. A tray holds at most four counters, and at most two of them may be red. What is the smallest number of trays needed?"
+  },
+  {
+   "n": 2,
+   "stage": "DEVELOP",
+   "visual": "All 11 counters in a line; trays of 4 are marked off: 4, 4, 3. Label \"at least 3\".",
+   "narration": "There are eleven counters. Each tray holds at most four, so two trays are not enough. At least three trays are needed. But that is only a first limit."
+  },
+  {
+   "n": 3,
+   "stage": "DEVELOP",
+   "visual": "Only the 7 red counters, with red capacity 2 per tray: three trays hold 6 reds; one red is left over. Label \"at least 4\".",
+   "narration": "Now look at the red counters alone. Each tray takes at most two reds. Three trays could hold only six reds, and there are seven. So at least four trays are needed. This limit is stronger."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "Four trays fill: R R B B; R R B; R R B; R. Empty spaces shown as hollow circles.",
+   "narration": "Can four trays work? Fill them like this: two reds and two blues; two reds and one blue; two reds and one blue; and one red. All eleven counters are packed and every rule is obeyed."
+  },
+  {
+   "n": 5,
+   "stage": "VARIATION",
+   "visual": "A tick against \"4 trays\". A crossed-out \"3 trays\" with the red capacity 6 highlighted.",
+   "narration": "So four trays are enough, and three are not. The answer is four. Notice that some spaces are left empty. That is fine: the red rule, not the total space, decided the answer."
+  },
+  {
+   "n": 6,
+   "stage": "RECAP",
+   "visual": "Line: \"test every rule for a limit; the strongest one decides\". Notebook prompt.",
+   "narration": "When there are several rules, find the limit each one gives. The strongest limit decides. Rebuild this argument, then try it with nine red counters and three blue counters."
+  }
+ ],
+ "notebook_exercise": "Same rules with 9 red and 3 blue counters. Smallest number of trays?",
+ "notebook_answer": "Reds need at least 5 trays (4 trays hold 8); 5 trays work, so 5."
+}

@@ -1,0 +1,63 @@
+{
+ "id": "T10.1",
+ "title": "Build a recurrence from a reversible step",
+ "chapter": "Build patterns from reasons, not guesses",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Count large cases by building them from smaller cases.",
+ "narration_words": 280,
+ "estimated_minutes": 1.9,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "A strip of 4 cells. Tiles of length 1 and length 2 wait. One tiling is placed, then removed.",
+   "narration": "Some counting problems are too big to list, but they grow in a regular way. If you can explain how each case is built from smaller ones, you can climb to any size. That building rule is called a recurrence."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "A long list of tilings for a strip of 10 scrolling past, then replaced by a short row of numbers.",
+   "narration": "A strip of ten cells can be tiled in eighty-nine ways. Nobody wants to list those. A recurrence gets the answer with nine small additions."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "Strips of length 1, 2, 3, 4 with all their tilings: 1, 2, 3 and 5. Question: \"How many for length 5?\"",
+   "narration": "A strip is covered using tiles of length one and tiles of length two. A strip of length one can be tiled in one way, length two in two ways, length three in three ways, length four in five ways. How many ways are there for length five? Pause and look at how a tiling ends."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "A strip of 5. The last tile is highlighted: either a single (leaving a strip of 4) or a double (leaving a strip of 3).",
+   "narration": "Look at the last tile. Either it is a single, and the rest is a tiling of length four. Or it is a double, and the rest is a tiling of length three. Every tiling ends in exactly one of these two ways."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "The 5 tilings of length 4 each gain a single; the 3 tilings of length 3 each gain a double. Count 5 and 3 make 8.",
+   "narration": "So the number for length five is the number for length four plus the number for length three. Five plus three is eight."
+  },
+  {
+   "n": 6,
+   "stage": "DEVELOP",
+   "visual": "The row 1, 2, 3, 5, 8, 13, 21, 34, 55, 89 builds one number at a time, each from the two before.",
+   "narration": "Keep going. Eight plus five is thirteen. Then twenty-one, thirty-four, fifty-five, eighty-nine. Each number is the sum of the two before it."
+  },
+  {
+   "n": 7,
+   "stage": "VARIATION",
+   "visual": "A staircase of 6 steps with a figure taking one or two steps at a time; the same number row appears beneath: 1, 2, 3, 5, 8, 13.",
+   "narration": "The same rule appears in disguise. Climbing stairs one or two steps at a time is the same problem: the last move is a single step or a double. Six stairs can be climbed in thirteen ways."
+  },
+  {
+   "n": 8,
+   "stage": "RECAP",
+   "visual": "Lines: \"Sort by the last move\", \"Each group is a smaller case\", \"Add the groups\".",
+   "narration": "Sort the possibilities by their last move. Each group matches a smaller case. Add the groups. Notebook challenge: how many ways are there to tile a strip of length seven with singles and doubles?"
+  }
+ ],
+ "notebook_exercise": "How many ways to tile a strip of length 7 with tiles of length 1 and 2?",
+ "notebook_answer": "1, 2, 3, 5, 8, 13, 21: there are 21."
+}

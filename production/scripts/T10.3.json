@@ -1,0 +1,63 @@
+{
+ "id": "T10.3",
+ "title": "Classify game positions by their legal moves",
+ "chapter": "Build patterns from reasons, not guesses",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Label positions in a game as winning or losing, starting from the end.",
+ "narration_words": 303,
+ "estimated_minutes": 2.0,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "A small pile of counters between two faceless players. Labels \"W\" and \"L\" hover over pile sizes on a number line.",
+   "narration": "In many two-player games, you can work out who should win before the game starts. Label each position as winning or losing for the player about to move, beginning with the smallest positions and working up."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "A branching mess of possible games; then a clean number line with W and L labels.",
+   "narration": "Playing out every possible game is hopeless. Labelling positions needs only a little work for each one, and it tells you the best move as well as the winner."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "Ten counters. Rule card: \"Take 1 or 2 counters. Whoever takes the last counter wins.\" Question: \"Should you go first or second?\"",
+   "narration": "Two players take turns removing one or two counters from a pile of ten. Whoever takes the last counter wins. Would you rather go first or second? Pause and think about very small piles."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "Number line 1 to 10. 1 and 2 get W (take them all). 3 gets L: arrows from 3 go to 2 and 1, both W.",
+   "narration": "With one or two counters, you take them all and win. Those are winning positions. With three, whatever you take, you leave one or two, and your opponent wins. Three is a losing position."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "4 and 5 get W with arrows to 3. 6 gets L. Pattern W W L repeats to 10: 9 is L, 10 is W.",
+   "narration": "The rule is: a position is winning if some move leads to a losing position, and losing if every move leads to a winning position. From four or five you can move to three, so they are winning. Six is losing. The losing positions are the multiples of three: three, six and nine."
+  },
+  {
+   "n": 6,
+   "stage": "DEVELOP",
+   "visual": "From 10 an arrow to 9. Then pairs of moves: opponent takes 1, you take 2; opponent takes 2, you take 1, always landing on 6, 3, 0.",
+   "narration": "Ten is not a multiple of three, so go first and take one, leaving nine. After that, whatever your opponent takes, you take the amount that makes three altogether. You always leave a multiple of three, and you take the last counter."
+  },
+  {
+   "n": 7,
+   "stage": "VARIATION",
+   "visual": "Rule card changes: \"Take 1, 2 or 3.\" Number line relabelled with L at 4, 8.",
+   "narration": "Change the rule to taking one, two or three, and the losing positions become the multiples of four. The method is the same: label from the bottom."
+  },
+  {
+   "n": 8,
+   "stage": "RECAP",
+   "visual": "Lines: \"Winning: some move reaches a losing position\", \"Losing: every move reaches a winning position\", \"Label from the smallest case\".",
+   "narration": "A position is winning if you can move to a losing one. It is losing if every move goes to a winning one. Start labelling from the end. Notebook challenge: with the take one or two rule and a pile of fourteen, what should the first player take?"
+  }
+ ],
+ "notebook_exercise": "Take 1 or 2; last counter wins; pile of 14. What should the first player take?",
+ "notebook_answer": "Take 2, leaving 12, a multiple of 3."
+}

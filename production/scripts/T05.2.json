@@ -1,0 +1,63 @@
+{
+ "id": "T05.2",
+ "title": "Split by the restriction that changes the choices",
+ "chapter": "Count outcomes once, using complete cases",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Split a count into cases using the restriction that changes the number of choices.",
+ "narration_words": 276,
+ "estimated_minutes": 1.8,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "A tangled set of outcomes separates into three clean trays with no overlap.",
+   "narration": "Some counting problems are too awkward to do in one go. The trick is to split them into cases. Good cases have two properties: no outcome belongs to two cases, and every outcome belongs to one."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "A product 4 x 4 x 3 with a warning mark, next to two smaller tidy products.",
+   "narration": "Multiplying choices only works when the number of choices does not depend on what you chose earlier. When a restriction changes the choices, a single multiplication breaks. Splitting at the restriction repairs it."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "Digit tiles 0, 1, 2, 3, 4. Three empty places. Question: \"How many even three-digit numbers with no repeated digit?\"",
+   "narration": "Using the digits zero, one, two, three and four, with no digit repeated, how many even three-digit numbers can be made? Pause and think about which place causes the trouble."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "The last place highlights with options 0, 2, 4. The 0 option separates from 2 and 4.",
+   "narration": "The number must be even, so the last digit is zero, two or four. But zero is special, because a number cannot start with zero. So split by the last digit: either it is zero, or it is two or four."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "Case 1: last digit 0; first place 4 choices, middle 3 choices: 12. Case 2: last digit 2 or 4; first place 3 choices (not 0, not the last digit), middle 3 choices: 2 x 3 x 3 = 18.",
+   "narration": "If the last digit is zero, the first digit has four choices and the middle has three: twelve numbers. If the last digit is two or four, the first digit cannot be zero or the last digit, leaving three choices, and the middle has three. That is two times three times three: eighteen numbers."
+  },
+  {
+   "n": 6,
+   "stage": "DEVELOP",
+   "visual": "The two trays combine: 12 and 18 make 30.",
+   "narration": "The cases cannot overlap, because a number has only one last digit. Add them: twelve plus eighteen is thirty."
+  },
+  {
+   "n": 7,
+   "stage": "VARIATION",
+   "visual": "Two switches, each on or off: four outcomes in a grid. The outcome \"on, on\" is crossed out. Three remain.",
+   "narration": "Sometimes it is quicker to count what is forbidden. Two switches have four settings altogether. If \"both on\" is not allowed, subtract that one, leaving three. Counting everything and subtracting the unwanted part is called using the complement."
+  },
+  {
+   "n": 8,
+   "stage": "RECAP",
+   "visual": "Lines: \"Split at the restriction\", \"Multiply inside a case\", \"Add separate cases\".",
+   "narration": "Split at the feature that changes the choices. Multiply within a case. Add the cases. Notebook challenge: how many two-digit numbers have two different digits?"
+  }
+ ],
+ "notebook_exercise": "How many two-digit numbers have two different digits?",
+ "notebook_answer": "90 two-digit numbers minus 9 with equal digits (11, 22, ..., 99) = 81."
+}

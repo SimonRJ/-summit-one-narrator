@@ -1,0 +1,63 @@
+{
+ "id": "T16.3",
+ "title": "Recover totals and interpret averages",
+ "chapter": "Keep ratios, rates and averages precise",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Turn an average back into a total before doing anything else.",
+ "narration_words": 275,
+ "estimated_minutes": 1.8,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "Five stacks of counters of different heights are levelled until all are the same height. That common height is labelled \"mean\".",
+   "narration": "The mean is what everyone would have if the total were shared equally. So a mean always hides a total: the mean multiplied by the number of items. Whenever a question mentions an average, recover the total first."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "Two class averages with a tempting \"average the averages\" crossed lightly.",
+   "narration": "Averages cannot simply be averaged, and they cannot be adjusted without knowing how many items there are. Totals can always be added and subtracted safely."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "Four test-score cards with mean 7, and a fifth card face down. Text: \"With the fifth score, the mean is 8.\" Question: \"What is the fifth score?\"",
+   "narration": "Four scores have a mean of seven. A fifth score is added and the mean becomes eight. What is the fifth score? Pause and find the totals."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "Four stacks levelled at 7: total 28. Five stacks levelled at 8: total 40.",
+   "narration": "Four scores with mean seven total twenty-eight. Five scores with mean eight total forty."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "The difference 40 minus 28 fills the fifth card: 12.",
+   "narration": "The fifth score supplies the difference: forty minus twenty-eight is twelve. Notice it is much more than eight. One new score has to lift every existing score up by one, as well as reaching eight itself."
+  },
+  {
+   "n": 6,
+   "stage": "VARIATION",
+   "visual": "Two groups: 2 people with mean 6, and 3 people with mean 10. Totals 12 and 30; combined 42 over 5 people gives 8.4.",
+   "narration": "Combining groups works the same way. Two people average six and three people average ten. The totals are twelve and thirty, forty-two for five people. The combined mean is eight point four, not eight. It leans towards the larger group."
+  },
+  {
+   "n": 7,
+   "stage": "VARIATION",
+   "visual": "A sorted list 2, 3, 5, 9, 31 with the middle value 5 circled as \"median\"; mean shown as 10.",
+   "narration": "The mean is not the only average. The median is the middle value when the list is in order. For two, three, five, nine and thirty-one, the median is five, while the mean is ten. One very large value pulls the mean up but leaves the median alone."
+  },
+  {
+   "n": 8,
+   "stage": "RECAP",
+   "visual": "Lines: \"Total = mean times number of items\", \"Work with totals\", \"Median = middle value in order\".",
+   "narration": "The total is the mean times the number of items. Do your reasoning with totals. And the median is the middle value. Notebook challenge: the mean of six numbers is nine. One number is removed and the mean of the rest is eight. Which number was removed?"
+  }
+ ],
+ "notebook_exercise": "The mean of 6 numbers is 9. One is removed and the mean of the rest is 8. Which number was removed?",
+ "notebook_answer": "54 - 40 = 14."
+}

@@ -1,0 +1,63 @@
+{
+ "id": "T09.1",
+ "title": "Keep the whole visible",
+ "chapter": "Make fractions, decimals and algebra agree",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Name the whole before using any fraction or percentage.",
+ "narration_words": 305,
+ "estimated_minutes": 2.0,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "A chocolate bar of 12 squares. \"One half\" shades 6 squares. Then \"one half of what is left\" shades 3 of the remaining 6.",
+   "narration": "A fraction always means a fraction of something. Half of a whole bar is six squares. Half of what is left is only three squares. Same fraction, different whole, different amount. Before using any fraction, say what it is a fraction of."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "Two price tags: \"up 10 percent\" then \"down 10 percent\", with a tempting \"back to the start?\" and a question mark.",
+   "narration": "This matters most when things change in stages. A second fraction or percentage usually applies to the new amount, not the original. Forgetting that is the classic trap."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "A jar of 40 marbles. Text: \"Ali takes one quarter. Then Bea takes one third of what remains.\" Question: \"How many are left?\"",
+   "narration": "A jar holds forty marbles. Ali takes one quarter of them. Then Bea takes one third of what remains. How many marbles are left? Pause and name the whole for each fraction."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "40 marbles in four equal groups of 10; one group leaves. 30 remain.",
+   "narration": "Ali's quarter is a quarter of forty, which is ten. Thirty marbles remain."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "The 30 regroup into three groups of 10; one group leaves. 20 remain. A faded wrong path shows \"one third of 40\" crossed out.",
+   "narration": "Bea's third is a third of thirty, not of forty. That is ten more. Twenty marbles are left. If you had taken a third of the original forty, you would have got an answer that is not even a whole number, a sign that the wrong whole was used."
+  },
+  {
+   "n": 6,
+   "stage": "VARIATION",
+   "visual": "A rectangle of 4 columns by 3 rows. Three columns shade one colour; two rows of that shaded part shade a second colour. Overlap: 6 of 12 cells.",
+   "narration": "A grid shows a fraction of a fraction. Shade three of four columns: three quarters. Then take two of the three rows of that part: two thirds of three quarters. The overlap is six cells out of twelve, which is one half. To find a fraction of a fraction, multiply."
+  },
+  {
+   "n": 7,
+   "stage": "VARIATION",
+   "visual": "A price bar of 100. It grows to 110, then shrinks by one tenth of 110, which is 11, to 99.",
+   "narration": "Now the price trap. A one hundred dollar item goes up by ten percent, to one hundred and ten. Then it goes down by ten percent. Ten percent of one hundred and ten is eleven, so the price becomes ninety-nine. The two changes do not cancel, because they are percentages of different wholes."
+  },
+  {
+   "n": 8,
+   "stage": "RECAP",
+   "visual": "Lines: \"Fraction of what?\", \"Update the whole after each step\", \"Fraction of a fraction: multiply\".",
+   "narration": "Always ask: fraction of what? Update the whole after each step. Notebook challenge: a tank is full. One fifth is used on Monday, and one quarter of the remainder on Tuesday. What fraction of the tank is left?"
+  }
+ ],
+ "notebook_exercise": "A full tank: one fifth is used, then one quarter of the remainder. What fraction is left?",
+ "notebook_answer": "4/5 remains, then 3/4 of that: 3/5 of the tank."
+}

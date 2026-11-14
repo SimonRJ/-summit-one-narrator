@@ -1,0 +1,51 @@
+{
+ "id": "T08.E",
+ "title": "Let the experiment determine the probability",
+ "chapter": "Let the experiment determine the probability",
+ "type": "worked_example",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Worked example: \"at least one head\" shrinks the comparison group.",
+ "narration_words": 162,
+ "estimated_minutes": 1.1,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "PUZZLE",
+   "visual": "Two coins. Card: \"At least one coin shows heads.\" Question: \"What is the chance both are heads?\"",
+   "narration": "Two fair coins are tossed. You are told that at least one of them shows heads. What is the probability that both show heads?"
+  },
+  {
+   "n": 2,
+   "stage": "DEVELOP",
+   "visual": "Grid of four outcomes: HH, HT, TH, TT, each marked one quarter.",
+   "narration": "Name the coins first and second. There are four equally likely outcomes: head head, head tail, tail head, tail tail."
+  },
+  {
+   "n": 3,
+   "stage": "DEVELOP",
+   "visual": "TT is crossed out. HH, HT, TH remain and brighten.",
+   "narration": "\"At least one head\" rules out tail tail. Three outcomes survive: head head, head tail and tail head. They are still equally likely."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "HH glows among the three. Fraction: one out of three.",
+   "narration": "Only one of the three survivors has two heads. The probability is one out of three."
+  },
+  {
+   "n": 5,
+   "stage": "VARIATION",
+   "visual": "New card: \"The FIRST coin shows heads.\" Now only HH and HT remain; HH glows. Fraction: one out of two.",
+   "narration": "Compare a slightly different piece of information. Suppose you are told the first coin shows heads. Now only head head and head tail survive, and the probability of two heads is one half. The exact wording of the information matters."
+  },
+  {
+   "n": 6,
+   "stage": "RECAP",
+   "visual": "Line: \"the surviving outcomes are the new total\". Notebook prompt.",
+   "narration": "Information removes outcomes, and the survivors become the new total. Rebuild this example, then try: two coins are tossed and you are told they do not show the same face. What is the probability the first coin is heads?"
+  }
+ ],
+ "notebook_exercise": "Two coins are tossed; you are told they show different faces. Probability the first is heads?",
+ "notebook_answer": "Survivors HT, TH; one of two: 1/2."
+}

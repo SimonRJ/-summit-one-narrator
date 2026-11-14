@@ -1,0 +1,329 @@
+@@ T12.1
+GOAL: Find an unknown angle by linking dependable angle facts in a chain.
+[INSIGHT]
+V: A straight line with a ray rising from it; the two angles are marked and a half-turn arc sweeps 180 degrees. Then two crossing lines with opposite angles glowing in matching colours.
+N: Angle problems are solved by chains. You know one angle, a fact gives you the next, another fact gives the one after. The facts are few: a straight line makes one hundred and eighty degrees, a full turn makes three hundred and sixty, and angles opposite each other where two lines cross are equal.
+[WHY]
+V: A diagram with "not to scale" in the corner and a protractor fading out.
+N: Competition diagrams are not drawn to scale, so measuring is useless. What works is knowing a small set of facts and applying them one link at a time, saying which fact you used.
+[PUZZLE]
+V: Two parallel lines crossed by a slanted line. One angle at the top crossing is marked 65 degrees. An angle at the lower crossing, on the opposite side, is marked with a question mark.
+N: Two parallel lines are crossed by a third line. One angle at the top is sixty-five degrees. Find the marked angle at the bottom. Pause and trace how the top crossing relates to the bottom one.
+[DEVELOP]
+V: The top crossing slides down along the slanted line onto the bottom crossing, landing exactly on it. Matching angles glow: label "corresponding angles".
+N: Because the lines are parallel, the top crossing is an exact copy of the bottom one. Slide it down and it fits. So the angle in the matching position at the bottom is also sixty-five degrees. These are called corresponding angles.
+[DEVELOP]
+V: At the bottom crossing, the 65 degree angle and the marked angle sit side by side on the straight line. 180 minus 65 gives 115.
+N: The angle we want sits next to that sixty-five on a straight line. Together they make one hundred and eighty. So the marked angle is one hundred and fifteen degrees. Two facts, two links, and the chain is complete.
+[VARIATION]
+V: A triangle with a line drawn through its top corner parallel to the base. The two base angles slide up to sit beside the top angle, forming a straight line.
+N: The same parallel-line fact proves something famous. Draw a line through the top of a triangle, parallel to the base. The two base angles reappear beside the top angle, and the three sit together on a straight line. So the angles in any triangle add up to one hundred and eighty degrees.
+[VARIATION]
+V: An isosceles triangle with equal sides ticked and top angle 40. The base angles fill in as 70 and 70.
+N: Add one more link for equal sides. In a triangle with two equal sides, the angles opposite them are equal. If the top angle is forty, the other two share one hundred and forty equally: seventy each.
+[RECAP]
+V: Lines: "Straight line 180, full turn 360", "Parallel lines copy angles", "Triangle 180; equal sides give equal angles".
+N: Build a chain. Name the fact for each link. Notebook challenge: a triangle has two equal sides, and one of its two equal angles is fifty-five degrees. What is the third angle?
+TRY: An isosceles triangle has equal angles of 55 degrees. Find the third angle.
+ANS: 180 - 55 - 55 = 70 degrees.
+
+@@ T12.2
+GOAL: Use equal spacing on a circle, and the link between an angle at the centre and one on the circle.
+[INSIGHT]
+V: A circle with 12 equally spaced points like a clock face. Spokes from the centre show 12 equal angles of 30 degrees.
+N: Put twelve points equally spaced round a circle, like the hours on a clock. From the centre, the full turn of three hundred and sixty degrees is shared into twelve equal angles of thirty degrees. Counting gaps between points tells you an angle at the centre.
+[WHY]
+V: Clock hands, a wheel with spokes, a regular polygon inside a circle.
+N: Clock problems, wheels and regular shapes all use this idea. And there is a second fact, about angles drawn from a point on the circle itself, that unlocks many harder problems.
+[PUZZLE]
+V: The clock circle. Points at 12 and 4 are joined to the centre. Question: "What is the angle at the centre?"
+N: On the clock circle, join the centre to the point at twelve and to the point at four. What angle is made at the centre? Pause and count carefully.
+[DEVELOP]
+V: The four gaps from 12 to 4 light up one by one. 4 times 30 gives 120. A faint "5 points" label appears and is crossed.
+N: From twelve to four there are four gaps. Four times thirty is one hundred and twenty degrees. Count the gaps, not the points. There are five points from twelve to four, but only four gaps.
+[DEVELOP]
+V: A new point at 8 on the far side of the circle. Lines from 8 to 12 and from 8 to 4 form an angle at the edge. The centre angle 120 and the edge angle sit over the same arc. Edge angle labelled 60.
+N: Now stand at a point on the circle instead, at eight, and look at the same arc from twelve to four. The angle you see is exactly half the angle at the centre: sixty degrees. An angle on the circle is half the angle at the centre standing on the same arc.
+[DEVELOP]
+V: The radius from the centre to 8 is drawn, splitting the picture into two isosceles triangles with equal radii ticked. Base angles are marked equal.
+N: Why half? Draw the radius to your viewing point. It makes two triangles, each with two equal sides, because all radii are equal. Their equal angles, added up, show that the centre angle is twice the angle at the edge.
+[VARIATION]
+V: The arc is a semicircle from 12 to 6: centre angle 180. A point at 3 sees it with angle 90.
+N: A special case is worth remembering. If the arc is exactly half the circle, the angle at the centre is one hundred and eighty, so the angle on the circle is ninety. Any triangle drawn with a diameter as one side, and its third corner on the circle, has a right angle.
+[RECAP]
+V: Lines: "Equal spacing: 360 shared equally", "Count gaps, not points", "Angle on the circle is half the angle at the centre".
+N: Share three hundred and sixty among the gaps. Count gaps, not points. The angle on the circle is half the angle at the centre. Notebook challenge: on the clock circle, what is the angle at the centre between the points at two and seven?
+TRY: On a clock circle, what is the angle at the centre between the points at 2 and 7?
+ANS: 5 gaps x 30 = 150 degrees.
+
+@@ T12.3
+GOAL: Add one helpful line, or use a grid, to make a hidden relationship visible.
+[INSIGHT]
+V: Two parallel lines with a bent path between them. Nothing links the bend to either line until a third parallel line fades in through the bend.
+N: Sometimes a diagram does not contain the line you need. You are allowed to add one. A good extra line connects what you know to what you want. A bad one just adds clutter, so add a line only when you can say what it is for.
+[WHY]
+V: A cluttered diagram with many random lines beside a clean one with a single added line.
+N: Many geometry problems are one well-chosen line away from being easy. Learning which lines tend to help is a real skill: a parallel line, a height, or a line that makes a triangle with equal sides.
+[PUZZLE]
+V: Two horizontal parallel lines. A zigzag: from a point on the top line a segment goes down to a bend, then on to the bottom line. The angle between the top line and the first segment is 35 degrees; between the bottom line and the second segment, 45 degrees. The angle at the bend has a question mark.
+N: A path goes from one of two parallel lines to a bend, and then to the other line. It makes thirty-five degrees with the top line and forty-five degrees with the bottom line. What is the angle at the bend? Pause and think about what line you could add.
+[DEVELOP]
+V: A dashed line appears through the bend, parallel to both lines. It splits the bend angle into an upper and a lower part.
+N: Draw a line through the bend, parallel to the other two. It splits the bend angle into two parts.
+[DEVELOP]
+V: The 35 degree angle slides along the first segment to become the upper part: alternate angles. The 45 slides to become the lower part. Sum 80.
+N: The upper part matches the thirty-five degree angle, because of the parallel lines. The lower part matches the forty-five. So the angle at the bend is thirty-five plus forty-five: eighty degrees.
+[VARIATION]
+V: A square grid. A tilted square has corners at grid points, each side going 3 across and 1 up. A surrounding 4 by 4 square is drawn, with four right triangles in the corners.
+N: A grid is another way to make things visible. Here is a tilted square whose sides each go three across and one up. What is its area? Surround it with a four by four square, area sixteen. The four corner triangles each have area one and a half, six altogether. Sixteen minus six is ten. The tilted square has area ten.
+[VARIATION]
+V: A triangle with a height dropped from the top to the base, splitting it into two right-angled triangles.
+N: The most common helpful line of all is a height. Dropping a perpendicular splits an awkward triangle into two right-angled ones, which are much easier to work with.
+[RECAP]
+V: Lines: "Add a line only with a purpose", "Parallels move angles; heights make right angles", "A grid makes lengths and areas exact".
+N: Add a line only when you can say why. Parallel lines carry angles; heights create right angles; a grid makes areas exact. Notebook challenge: on a grid, a tilted square has sides that each go two across and one up. What is its area?
+TRY: On a grid, a tilted square has sides going 2 across and 1 up. What is its area?
+ANS: Surrounding 3 by 3 square (9) minus four triangles of area 1: 5.
+
+@@ T12.E
+GOAL: Worked example: the angle outside a triangle.
+[PUZZLE]
+V: Triangle ABC with angle A marked 48 and angle B marked 67. Side BC is extended past C to a point D. The angle ACD has a question mark.
+N: Triangle A B C has an angle of forty-eight degrees at A and sixty-seven degrees at B. The side B C is extended beyond C to a point D. Find the angle A C D, the angle outside the triangle.
+[DEVELOP]
+V: Inside the triangle the angle at C fills in: 180 minus 48 minus 67 gives 65.
+N: First find the angle inside the triangle at C. The three angles total one hundred and eighty. One hundred and eighty minus forty-eight minus sixty-seven is sixty-five degrees.
+[DEVELOP]
+V: The line B C D highlighted as straight. Inside angle 65 and outside angle share it. 180 minus 65 gives 115.
+N: B, C and D lie on a straight line. The inside angle and the outside angle at C together make one hundred and eighty. So the outside angle is one hundred and eighty minus sixty-five: one hundred and fifteen degrees.
+[DEVELOP]
+V: The angles 48 and 67 lift from A and B and slide into the outside angle, filling it exactly. 48 and 67 make 115.
+N: Notice that forty-eight plus sixty-seven is also one hundred and fifteen. That is no accident. The outside angle of a triangle always equals the sum of the two inside angles furthest from it.
+[VARIATION]
+V: The top corner A slides sideways, changing angles A and B to 60 and 55. The outside angle stays 115.
+N: Check with a different triangle. If the far angles were sixty and fifty-five, the inside angle at C would be sixty-five again, and the outside angle one hundred and fifteen. The shortcut and the long method agree.
+[RECAP]
+V: Line: "outside angle equals the sum of the two far inside angles". Notebook prompt.
+N: The outside angle equals the sum of the two far inside angles. Rebuild this argument, then find the outside angle when the far angles are thirty-five and eighty degrees.
+TRY: A triangle's two far interior angles are 35 and 80 degrees. Find the exterior angle.
+ANS: 35 + 80 = 115 degrees.
+
+@@ T13.1
+GOAL: Find areas using a base with its perpendicular height, and by subtracting simpler regions.
+[INSIGHT]
+V: A triangle. A second identical copy rotates and joins it to make a parallelogram, which then shears into a rectangle of the same base and height.
+N: Two identical triangles fit together to make a parallelogram, and a parallelogram has the same area as a rectangle with the same base and height. So a triangle's area is half its base times its height. The height must be measured straight up from the base, at a right angle.
+[WHY]
+V: A triangle with its slanted side highlighted and crossed, then the perpendicular height highlighted and ticked.
+N: The most common error is using a slanted side as the height. The second most common is trying to measure an awkward shape directly, when it would be far easier to subtract simple shapes from a rectangle.
+[PUZZLE]
+V: A base of length 8. Three triangles on that base with top corners at different points along a line parallel to the base, 5 above it. Question: "Which triangle has the largest area?"
+N: Three triangles share a base of eight centimetres. Their top corners lie at different places along a line parallel to the base, five centimetres above it. Which triangle has the largest area? Pause and think about the height of each.
+[DEVELOP]
+V: A perpendicular height of 5 is drawn for each triangle, one falling outside the leaning triangle. Each area reads 20.
+N: Every one of them has height five, because the top corners are all five centimetres above the base. Half of eight times five is twenty. All three have the same area: twenty square centimetres. Sliding the top corner along a parallel line changes the shape, but not the area.
+[DEVELOP]
+V: A 6 by 4 rectangle with a slanted triangle inside whose corners are on the rectangle's sides at awkward positions: corners at bottom-left, at a point on the right side 3 up, and at a point on the top 2 from the left. Three right-angled triangles fill the space outside it.
+N: Now an awkward triangle inside a six by four rectangle. Its sides are all slanted. Do not attack it directly. The rectangle has area twenty-four. Around the triangle are three right-angled triangles, with areas nine, four and two.
+[DEVELOP]
+V: The three outer triangles lift away with their areas: 9, 4, 2. Remaining area 24 minus 15 gives 9.
+N: Those three take up fifteen. Twenty-four minus fifteen leaves nine. The awkward triangle has area nine square centimetres. Subtracting the surroundings is called using the complement.
+[VARIATION]
+V: A rectangle with one diagonal. The two halves are identical. Then a point anywhere on the top side joined to the two bottom corners: the triangle is still half the rectangle.
+N: One more useful fact. Join any point on the top edge of a rectangle to both bottom corners. The triangle has the rectangle's base and the rectangle's height, so it is always exactly half the rectangle, wherever the point is.
+[RECAP]
+V: Lines: "Half base times perpendicular height", "Same base and height: same area", "Awkward shape: subtract from a rectangle".
+N: Half base times perpendicular height. Triangles with the same base and height have the same area. For awkward shapes, subtract from a rectangle. Notebook challenge: a triangle has base ten centimetres and area thirty-five square centimetres. What is its height?
+TRY: A triangle has base 10 cm and area 35 square cm. Find its height.
+ANS: Half of 10 times height is 35, so the height is 7 cm.
+
+@@ T13.2
+GOAL: Tell apart changes to a boundary and changes of scale.
+[INSIGHT]
+V: A rectangle. A square bite is taken from a corner: the outline's length does not change. Then a bite from the middle of a side: the outline gets longer.
+N: Cutting a piece out of a shape always reduces its area. But the perimeter might stay the same, or even grow. Area and perimeter respond to changes in completely different ways.
+[WHY]
+V: Two shapes with equal area and very different perimeters side by side.
+N: Questions often ask about perimeter after a cut, or area after an enlargement. Each needs its own reasoning, and mixing them up is a common mistake.
+[PUZZLE]
+V: A 5 by 3 rectangle with a 1 by 1 square removed from a corner. Question: "What is the new perimeter?"
+N: A five by three rectangle has a one by one square cut from a corner. What is its perimeter now? Pause and compare the old boundary with the new.
+[DEVELOP]
+V: The original outline: perimeter 16. At the cut corner, two outer segments of length 1 are removed and two inner segments of length 1 appear; the inner segments slide outward to sit where the old ones were.
+N: The original perimeter is sixteen. The cut removes two short pieces of boundary, each of length one. But it exposes two new pieces, also each of length one. The perimeter is still sixteen. The new edges can be slid out to replace the old ones exactly.
+[DEVELOP]
+V: A fresh 5 by 3 rectangle with a 1 by 1 notch cut from the middle of a long side. One segment of length 1 is removed; three segments of length 1 appear. Perimeter 18.
+N: Now cut the same square from the middle of a side instead. One piece of length one is removed, but three new pieces appear. The perimeter rises by two, to eighteen. Same area removed, different effect on the boundary.
+[VARIATION]
+V: A 2 by 3 rectangle beside a copy with every length doubled: 4 by 6. Perimeters 10 and 20. The large one is tiled by four copies of the small one: areas 6 and 24.
+N: Scaling is a different kind of change. Double every length of a two by three rectangle and you get four by six. The perimeter doubles, from ten to twenty. But the area becomes four times as big, from six to twenty-four, because both the length and the width were doubled.
+[VARIATION]
+V: A unit cube beside a cube of side 2 made from 8 unit cubes; then a cube of side 3 made from 27.
+N: For solids, three directions are scaled. Doubling every length of a cube makes its volume eight times as large. Tripling makes it twenty-seven times as large.
+[RECAP]
+V: Lines: "Cuts: compare removed and new boundary", "Scale by k: lengths times k, areas times k squared, volumes times k cubed".
+N: For a cut, compare the boundary removed with the boundary created. For scaling by a factor, lengths multiply by the factor, areas by its square, and volumes by its cube. Notebook challenge: a photograph is enlarged so that every length is three times as long. How many times as large is its area?
+TRY: Every length of a photograph is tripled. How many times as large is its area?
+ANS: 3 x 3 = 9 times.
+
+@@ T13.3
+GOAL: Count cubes in a solid by layers, including the ones you cannot see.
+[INSIGHT]
+V: A drawing of a block made from small cubes, seen from one corner. The block separates into horizontal layers that float apart.
+N: A drawing of a solid only shows some of its cubes. The rest are hidden behind or underneath. To count them all, slice the solid into layers. Count one layer, then count the layers.
+[WHY]
+V: A tally of "cubes I can see" with a warning mark; beside it the layers neatly separated.
+N: Counting the cubes you can see always gives too few. Counting layer by layer is reliable, and it also answers questions about which cubes are on the outside.
+[PUZZLE]
+V: A solid block 4 cubes long, 3 wide and 2 high. Question: "How many small cubes?"
+N: A solid block is four cubes long, three cubes wide and two cubes high. How many small cubes does it contain? Pause and picture one layer.
+[DEVELOP]
+V: The top layer lifts off, showing a 4 by 3 grid: 12 cubes. The bottom layer is identical. 2 layers of 12 give 24.
+N: One layer is four by three, which is twelve cubes. There are two layers, so the block contains twenty-four cubes. Half of them are in the bottom layer, mostly hidden in the drawing.
+[DEVELOP]
+V: A 3 by 3 by 3 cube dipped in paint. It separates into three layers. In the middle layer, the centre cube is unpainted and glows.
+N: Now a harder question. A three by three by three cube is painted all over, then cut into twenty-seven small cubes. How many have no paint at all? Only a cube that touches no outside face. Peel off the outer layer in every direction, and a single cube is left in the very centre. The answer is one.
+[DEVELOP]
+V: The 27 cubes sorted into four groups: 8 corners (three painted faces), 12 edge cubes (two faces), 6 face centres (one face), 1 centre (none). Sum 27.
+N: You can sort all twenty-seven. Eight corner cubes have three painted faces. Twelve cubes along the edges have two. Six in the middle of each face have one. One in the centre has none. Eight, twelve, six and one make twenty-seven, so nothing is missing.
+[VARIATION]
+V: A staircase solid: layers of 3 by 3, 2 by 2 and 1 by 1 cubes stacked in a corner. Layer counts 9, 4, 1.
+N: Layers also handle uneven solids. A corner staircase has nine cubes on the bottom layer, four on the next and one on top: fourteen altogether. Count each layer as it really is.
+[RECAP]
+V: Lines: "Slice into layers", "Count hidden cubes too", "Check that the groups add to the total".
+N: Slice the solid into layers. Include the hidden cubes. If you sort the cubes into types, check that the types add up to the total. Notebook challenge: a four by four by four cube is painted and cut into small cubes. How many small cubes have no paint?
+TRY: A 4 by 4 by 4 cube is painted and cut into unit cubes. How many have no paint?
+ANS: The inner 2 by 2 by 2 block: 8.
+
+@@ T13.E
+GOAL: Worked example: two cuts of the same size with different effects on perimeter.
+[PUZZLE]
+V: Two 6 by 4 rectangles. From the first, a 1 by 1 square is removed at a corner. From the second, a 1 by 1 square is removed from the middle of a long side. Question: "What are the two new perimeters?"
+N: Start with two rectangles, each six centimetres by four. Cut a one centimetre square from a corner of the first, and a one centimetre square from the middle of an edge of the second. What are the two new perimeters?
+[DEVELOP]
+V: An original rectangle outline with 6, 4, 6, 4 marked. Total 20.
+N: Each original rectangle has perimeter six plus four plus six plus four: twenty centimetres.
+[DEVELOP]
+V: Corner cut: two removed boundary segments shown dashed, two new segments shown in colour. Count: minus 2, plus 2. Perimeter 20.
+N: The corner cut removes two one-centimetre pieces of the old boundary, and exposes two new one-centimetre pieces. The change is zero. The perimeter is still twenty centimetres.
+[DEVELOP]
+V: Edge cut: one removed segment dashed, three new segments in colour. Count: minus 1, plus 3. Perimeter 22.
+N: The cut in the middle of an edge removes only one piece of old boundary, but exposes three new pieces. The change is plus two. The perimeter is twenty-two centimetres.
+[VARIATION]
+V: Both shapes with their areas: 24 minus 1 gives 23 for each.
+N: Both shapes have lost the same area. Each has area twenty-three square centimetres. Yet their perimeters differ. The area removed does not decide the change in perimeter; the position of the cut does.
+[RECAP]
+V: Line: "new perimeter = old perimeter - removed boundary + new boundary". Notebook prompt.
+N: New perimeter equals old perimeter, minus the boundary removed, plus the boundary created. Rebuild this, then find the perimeter when a two by one rectangle is cut from the middle of an edge, with its long side along the edge.
+TRY: From a 6 by 4 rectangle, a 2 by 1 rectangle is cut from the middle of an edge, its long side along the edge. New perimeter?
+ANS: Remove 2, add 1 + 2 + 1 = 4: 20 + 2 = 22 cm.
+
+@@ T14.1
+GOAL: Count routes by following exactly the moves the rules allow.
+[INSIGHT]
+V: A small map of dots joined by one-way arrows from S on the left to T on the right. One route is traced, then another.
+N: A route problem is defined by its rules: which points are joined, and which directions are allowed. Before counting anything, read those rules exactly. Two lines that cross in a drawing are not a junction unless the problem says so.
+[WHY]
+V: A tangled attempt to trace every route by finger; then small numbers appearing calmly on each dot.
+N: Tracing every route by hand is slow and you lose track. There is a method that counts all routes at once, by writing one number on each point.
+[PUZZLE]
+V: A 2 by 2 block of streets: a grid of 3 by 3 corners, S at bottom-left, T at top-right. Rule card: "move only right or up". Question: "How many routes?"
+N: A walker goes from the bottom-left corner to the top-right corner of a two by two block of streets, moving only right or up. How many different routes are there? Pause and think about how you could arrive at each corner.
+[DEVELOP]
+V: Every corner along the bottom row and left column gets a 1.
+N: Write on each corner the number of ways to reach it. Along the bottom row and up the left side there is only one way: straight along. Write one on each.
+[DEVELOP]
+V: Remaining corners fill in: the middle gets 2 (1 from the left, 1 from below); the next two get 3 each; the top-right gets 6. Arrows show each sum.
+N: To reach any other corner, your last step came either from the left or from below. So its number is the sum of those two neighbours. The middle corner gets one plus one: two. The next corners get three. The final corner gets three plus three: six routes.
+[VARIATION]
+V: The centre corner is blocked with a barrier and labelled 0. The numbers recalculate: the final corner now shows 2.
+N: The method copes with obstacles. If the centre corner is closed, write zero there and carry on adding. Now only two routes remain: all the way round one side or the other.
+[VARIATION]
+V: A diagram with two paths drawn crossing like a bridge over a road; a card "no junction here".
+N: Always check what counts as a connection. If one path crosses over another on a bridge, you cannot turn there. Only the connections the rules give you are real.
+[RECAP]
+V: Lines: "Read the allowed moves exactly", "Number of ways in = sum of the ways into its feeders", "Blocked point: write 0".
+N: Read the rules exactly. Label each point with the number of ways to reach it, adding the points that lead into it. A blocked point gets zero. Notebook challenge: how many right-and-up routes cross a block of streets three wide and two high?
+TRY: How many right-and-up routes cross a grid of streets 3 blocks wide and 2 blocks high?
+ANS: Filling in the corners gives 10.
+
+@@ T14.2
+GOAL: Reject a move now if it makes the rest of the route impossible.
+[INSIGHT]
+V: A path through a small network visiting each dot once; one tempting move leaves a dot stranded, which turns grey.
+N: Some routes must visit every place exactly once. A move can be perfectly legal now and still ruin the route later, by cutting off a place you still need to visit. Good solvers look ahead at what each move leaves behind.
+[WHY]
+V: A long failed attempt being erased, beside a short early check that stops it.
+N: Without looking ahead you find out about a mistake only at the very end. Checking what remains after each move catches dead ends early and saves most of the work.
+[PUZZLE]
+V: A 3 by 3 grid of dots joined to their horizontal and vertical neighbours. A token at the top-left. Rule card: "visit every dot exactly once". Question: "Can the path start at the top-left and end at the centre?"
+N: A token moves on a three by three grid of dots, stepping to a neighbour up, down, left or right. It must visit every dot exactly once. Starting in a corner, can it finish in the centre? Pause and try to trace it.
+[DEVELOP]
+V: A spiral path from the top-left: along the top, down the right, along the bottom, up the left to the middle-left dot, then into the centre. Nine dots visited.
+N: A spiral works. Go along the top, down the right side, along the bottom, up the left, and step into the centre. Every dot is visited once, and the path ends in the centre.
+[DEVELOP]
+V: The grid coloured like a chessboard: corners and centre dark (5 dots), edge-middles light (4 dots). A path alternates dark, light, dark.
+N: Now ask a harder question: can a path start in the middle of a side? Colour the dots like a chessboard. The corners and the centre are dark: five dots. The middles of the sides are light: four dots. Every step changes colour.
+[DEVELOP]
+V: A sequence of nine boxes alternating colours: starting light gives light, dark, light, dark... needing five light dots. Only four exist. A cross.
+N: A path through nine dots that starts on a light dot would visit light, dark, light, dark, and so on: five light dots and four dark. But there are only four light dots. So no such path exists. One simple count rules out every attempt at once.
+[VARIATION]
+V: A network with a dot that has only one connection. A card: "a dead-end dot must be the start or the finish".
+N: Here is another look-ahead rule. A dot with only one connection can only be the first or the last dot of the route, because you cannot pass through it. If there are three such dots, no route can visit them all.
+[RECAP]
+V: Lines: "After each move, check what is cut off", "Dead ends must be endpoints", "Colouring can prove a route impossible".
+N: After each move, check that everything unvisited can still be reached. Dead ends must be endpoints. And colouring can prove impossibility. Notebook challenge: on a grid of dots with two rows and three columns, can a path visiting every dot once start at one end of the top row and finish at the other end of the top row?
+TRY: On a grid of dots with 2 rows and 3 columns, can a path visiting every dot once go from one end of the top row to the other end of the top row?
+ANS: No. Those two corners have the same chessboard colour, but a path through 6 dots must start and finish on different colours.
+
+@@ T14.3
+GOAL: Turn a timetable problem into a network and find the fewest time slots.
+[INSIGHT]
+V: Faceless figures as dots; required meetings drawn as lines between them. Lines are coloured so that no dot has two lines of the same colour; each colour is a time slot.
+N: A timetable can be drawn as a network. Each person is a dot, and each meeting that must happen is a line between two dots. Meetings in the same time slot must not share a person. So a time slot is a set of lines with no dot in common.
+[WHY]
+V: A messy handwritten timetable with clashes circled, beside the clean coloured network.
+N: Drawing it this way turns "avoid clashes" into something you can see. It also gives quick lower limits on the number of slots, before you build anything.
+[PUZZLE]
+V: Four dots A, B, C, D with every pair joined: six lines. Rule card: "each person plays at most one game per round". Question: "What is the fewest rounds?"
+N: Four players each play one game against every other player. A player can play at most one game per round. What is the smallest number of rounds needed? Pause and count the games.
+[DEVELOP]
+V: The six lines counted. Each round can use at most two lines (four players, two per game). 6 divided by 2 gives 3.
+N: There are six games. A round uses each player at most once, so it holds at most two games. Six divided by two is three. At least three rounds are needed.
+[DEVELOP]
+V: Round one colours A-B and C-D; round two A-C and B-D; round three A-D and B-C. Every line coloured, no clashes.
+N: Can three be reached? Round one: A plays B, and C plays D. Round two: A plays C, and B plays D. Round three: A plays D, and B plays C. All six games are played. Three rounds is the answer.
+[VARIATION]
+V: Five dots with every pair joined: ten lines. Each round holds at most two games, with one player resting. 10 divided by 2 gives 5.
+N: With five players there are ten games. In any round one player must rest, so again at most two games fit. Ten divided by two is five rounds, even though each player only plays four games.
+[VARIATION]
+V: A single dot with three lines leaving it; label "needs at least 3 slots".
+N: There is a second kind of limit. A person who is in three meetings needs at least three slots, whatever everyone else is doing. Use whichever limit is stronger, and then show a timetable that reaches it.
+[RECAP]
+V: Lines: "People are dots, meetings are lines", "A slot: lines sharing no dot", "Find a limit, then build the timetable".
+N: Draw people as dots and meetings as lines. A slot is a set of lines sharing no dot. Find a limit, then build a timetable that reaches it. Notebook challenge: six players each play every other player once, with three games per round. What is the fewest rounds?
+TRY: Six players each play every other once; at most 3 games per round. Fewest rounds?
+ANS: 15 games / 3 = 5 rounds (and it can be done).
+
+@@ T14.E
+GOAL: Worked example: schedule only the meetings that are required.
+[PUZZLE]
+V: Five dots A, B, C, D, E with lines AB, AC, AD, BE, CE. Rule card: "each pupil attends at most one meeting per slot". Question: "What is the smallest number of slots?"
+N: Five pupils, A, B, C, D and E, need only these meetings: A with B, A with C, A with D, B with E, and C with E. A pupil can attend at most one meeting in a time slot. What is the smallest number of slots?
+[DEVELOP]
+V: Dot A highlighted with its three lines. Label "A needs 3 different slots".
+N: Pupil A is in three meetings. Those three cannot share a slot. So at least three slots are needed.
+[DEVELOP]
+V: Slot 1 colours A-B and C-E. Slot 2 colours A-C and B-E. Slot 3 colours A-D.
+N: Now try to manage with three. Slot one: A meets B, and C meets E. Slot two: A meets C, and B meets E. Slot three: A meets D.
+[DEVELOP]
+V: Each slot checked in turn: no pupil appears twice within a slot. All five lines are coloured.
+N: Check each slot. In slot one, the pupils are A, B, C and E, each once. In slot two, the same four, each once. In slot three, only A and D. All five meetings are scheduled with no clashes.
+[VARIATION]
+V: Total meetings 5; a tempting "5 divided by 2 is 2 and a half, so 3" shown as a second, agreeing limit.
+N: A second limit agrees. There are five meetings, and a slot holds at most two of them, since five pupils cannot form three pairs. Five meetings need at least three slots. Both limits say three, and three works.
+[RECAP]
+V: Line: "busiest person gives a limit; then build and check". Notebook prompt.
+N: The busiest person gives a limit. Then build a timetable and check every slot. Rebuild this, then decide how many slots are needed if a sixth meeting, D with E, is added.
+TRY: Add the meeting DE to the list AB, AC, AD, BE, CE. How many slots are needed now?
+ANS: Still 3. For example: AB with DE, then AC with BE, then AD with CE.

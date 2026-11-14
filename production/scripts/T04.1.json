@@ -1,0 +1,57 @@
+{
+ "id": "T04.1",
+ "title": "Factor with a purpose",
+ "chapter": "Use prime factors as the building blocks",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Break a number into primes, and know when to stop searching for factors.",
+ "narration_words": 277,
+ "estimated_minutes": 1.8,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "The number 60 as a block that splits: 6 x 10, then 2 x 3 x 2 x 5. The primes settle as small coloured tiles 2, 2, 3, 5.",
+   "narration": "Every whole number bigger than one is built by multiplying prime numbers. A prime is a number with exactly two factors, one and itself, like two, three, five and seven. Sixty is two times two times three times five. Those primes are the building blocks of sixty."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "The same 60 split a different way, 4 x 15, ending in the same tiles 2, 2, 3, 5.",
+   "narration": "However you split a number, you end with the same primes. That makes the prime factorisation a kind of fingerprint. Questions about factors, squares, and common multiples all become questions about these tiles."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "The number 91 with a question: \"prime or not?\" Small test tiles 2, 3, 5, 7 wait beside it.",
+   "narration": "Is ninety-one a prime number? Pause and decide how you would test it, and when you could stop."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "Tests: 91 is odd (2 fails); digit sum 10 (3 fails); does not end in 0 or 5 (5 fails); 7 x 13 = 91 succeeds. 91 splits into tiles 7 and 13.",
+   "narration": "Test small primes in order. Ninety-one is odd, so two fails. Its digits add to ten, so three fails. It does not end in zero or five. But seven times thirteen is ninety-one. So ninety-one is not prime."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "A square of side 10 with area 100; text \"if both factors were bigger than 10, the product would be bigger than 100\". Then 97 with tests 2, 3, 5, 7 all failing.",
+   "narration": "When can you stop testing? If a number splits into two factors, they cannot both be larger than its square root. So you only need to test primes up to the square root. For ninety-seven, the square root is just under ten, so test two, three, five and seven. All fail, so ninety-seven is prime."
+  },
+  {
+   "n": 6,
+   "stage": "VARIATION",
+   "visual": "Three covered cards multiply to 66. 66 splits into tiles 2, 3, 11. Each tile slides onto a different card.",
+   "narration": "Factorising can crack puzzles. Three different whole numbers bigger than one multiply to sixty-six. What are they? Sixty-six is two times three times eleven, and that is three primes. The only way to share them among three numbers bigger than one is one prime each: two, three and eleven."
+  },
+  {
+   "n": 7,
+   "stage": "RECAP",
+   "visual": "Lines: \"Split until every piece is prime\", \"Test primes up to the square root\", \"1 is not prime\".",
+   "narration": "Split a number until every piece is prime. To test for a prime, try primes up to the square root. And remember that one is not a prime. Notebook challenge: write eighty-four as a product of primes."
+  }
+ ],
+ "notebook_exercise": "Write 84 as a product of primes.",
+ "notebook_answer": "84 = 2 x 2 x 3 x 7."
+}

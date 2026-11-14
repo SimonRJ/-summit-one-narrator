@@ -1,0 +1,63 @@
+{
+ "id": "T07.3",
+ "title": "Make equality conditions guide the construction",
+ "chapter": "Prove a limit, then build an example",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Use the places where a bound is tight to design the arrangement that reaches it.",
+ "narration_words": 288,
+ "estimated_minutes": 1.9,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "A bound line \"at most 4\" above an empty stage. Arrows from the proof point at spots where the arrangement must be \"full\".",
+   "narration": "A proof of a limit is also a set of instructions. To reach the limit exactly, nothing in the proof may be wasted. Looking at where the proof is tight tells you how the best arrangement must be built."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "Two attempts: one found by random trial after many discarded sketches, one built directly from the bound.",
+   "narration": "Searching for the best arrangement by trial can take a long time. Letting the proof guide you is faster, and it shows whether the limit can be reached at all."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "A 4 by 4 board. Domino-shaped pieces. Rule: \"each row and each column contains at most 2 counters\". Question: \"What is the largest number of counters?\"",
+   "narration": "Counters are placed on a four by four board, at most one per square. Each row may contain at most two counters, and each column at most two. What is the largest number of counters? Pause and find the limit first."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "Four rows, each with capacity 2. Counter: 4 x 2 = 8.",
+   "narration": "There are four rows, and each holds at most two counters. So there are at most eight counters. That is the limit."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "Text: \"to reach 8, every row must be full\". A first attempt fills rows 1 and 2 in columns 1 and 2, overloading those columns; it is rejected.",
+   "narration": "To reach eight, every row must be completely full, with exactly two counters. And the counters must be spread so that no column gets more than two. Putting them all in the first two columns would break the column rule."
+  },
+  {
+   "n": 6,
+   "stage": "DEVELOP",
+   "visual": "A working arrangement: rows 1 and 2 use columns 1 and 2; rows 3 and 4 use columns 3 and 4. Column totals show 2, 2, 2, 2.",
+   "narration": "So share the columns. Rows one and two use columns one and two. Rows three and four use columns three and four. Every row has two, and every column has two. Eight is reached."
+  },
+  {
+   "n": 7,
+   "stage": "VARIATION",
+   "visual": "A checklist beside the arrangement: \"rows: 2, 2, 2, 2\", \"columns: 2, 2, 2, 2\", \"one counter per square\".",
+   "narration": "Always check the finished arrangement against every rule, not only the total. An arrangement can have the right number and still break a rule somewhere. Here every row, every column and every square passes."
+  },
+  {
+   "n": 8,
+   "stage": "RECAP",
+   "visual": "Lines: \"Prove the limit\", \"Ask what must be full to reach it\", \"Build, then check every rule\".",
+   "narration": "Prove the limit. Ask what must be full to reach it. Build the arrangement, then check every rule. Notebook challenge: on a three by three board with at most one counter per row and per column, what is the largest number of counters, and where could they go?"
+  }
+ ],
+ "notebook_exercise": "3 by 3 board, at most one counter in each row and each column. Largest number, and an arrangement?",
+ "notebook_answer": "3, for example along a diagonal."
+}

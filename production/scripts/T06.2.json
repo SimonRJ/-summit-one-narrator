@@ -1,0 +1,63 @@
+{
+ "id": "T06.2",
+ "title": "Give each component its contribution",
+ "chapter": "Count the same structure from two directions",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Add several measurements so that each unknown appears equally often.",
+ "narration_words": 268,
+ "estimated_minutes": 1.8,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "Three sealed boxes a, b, c on a balance in pairs. Three pair readings appear.",
+   "narration": "Sometimes you cannot measure things one at a time. You only know totals of pairs. The useful trick is to add all the measurements and ask how many times each unknown has been counted."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "Three equations stacked; beside them one combined line.",
+   "narration": "This replaces trial and error with one clean step. Instead of guessing the three values, you find their total first, and everything else follows by subtraction."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "Readings: a and b together 10; b and c together 14; a and c together 12. Question: \"What is each box worth?\"",
+   "narration": "Three boxes are weighed in pairs. The first and second weigh ten kilograms together. The second and third weigh fourteen. The first and third weigh twelve. How heavy is each box? Pause and try adding all three readings."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "A table with rows a, b, c and columns for the three weighings. Ticks show each box appears in exactly two columns. Sum of readings 36.",
+   "narration": "Add the three readings: ten plus fourteen plus twelve is thirty-six. Look at the table. Each box was on the scales exactly twice. So thirty-six is twice the total weight, and the three boxes weigh eighteen kilograms altogether."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "Total 18 with each pair reading subtracted in turn: 18 - 14 = 4, 18 - 12 = 6, 18 - 10 = 8.",
+   "narration": "Now subtract. The second and third weigh fourteen, so the first weighs eighteen minus fourteen, which is four. In the same way the second weighs six and the third weighs eight."
+  },
+  {
+   "n": 6,
+   "stage": "DEVELOP",
+   "visual": "Check ticks: 4 and 6 make 10; 6 and 8 make 14; 4 and 8 make 12.",
+   "narration": "Check every reading. Four and six make ten. Six and eight make fourteen. Four and eight make twelve."
+  },
+  {
+   "n": 7,
+   "stage": "VARIATION",
+   "visual": "A triangle with circles at the corners and at the middle of each side; each side has a \"side total\". Corner circles glow twice when side totals are added.",
+   "narration": "Watch for unequal counting. In a triangle puzzle where each side has a total, the corner numbers lie on two sides, but the middle numbers lie on only one. Adding the three side totals counts corners twice and middles once. You must keep track of that difference, not ignore it."
+  },
+  {
+   "n": 8,
+   "stage": "RECAP",
+   "visual": "Lines: \"Add the measurements\", \"Count how often each unknown appears\", \"Subtract to isolate\".",
+   "narration": "Add the measurements. Count how often each unknown appears. Then subtract to separate them. Notebook challenge: three numbers are added in pairs to give seventeen, twenty and twenty-three. What are the three numbers?"
+  }
+ ],
+ "notebook_exercise": "Three numbers added in pairs give 17, 20 and 23. Find them.",
+ "notebook_answer": "Total (17 + 20 + 23) / 2 = 30; the numbers are 7, 10 and 13."
+}

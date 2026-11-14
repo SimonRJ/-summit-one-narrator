@@ -1,0 +1,63 @@
+{
+ "id": "T07.2",
+ "title": "Explain why a promising choice is best",
+ "chapter": "Prove a limit, then build an example",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Explain why balanced parts give the largest product, and handle restrictions.",
+ "narration_words": 283,
+ "estimated_minutes": 1.9,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "A loop of string of fixed length forms a long thin rectangle, then morphs steadily into a square. An area counter rises as it becomes more balanced.",
+   "narration": "Take a fixed length of fence and make a rectangle. A long thin rectangle encloses very little. As the sides become more equal, the area grows. Balanced parts give bigger products."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "A list of trial rectangles with a tick on the largest and a question \"why?\".",
+   "narration": "You could discover this by trying examples. But in a competition you need to know it is always true, and what to do when perfect balance is not allowed."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "Text: \"Two whole numbers add to 12.\" A row of pairs waits. Question: \"What is the largest possible product?\"",
+   "narration": "Two positive whole numbers add to twelve. What is the largest their product can be? Pause and try a few pairs."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "Pairs with products: 1 and 11 give 11; 2 and 10 give 20; 3 and 9 give 27; 4 and 8 give 32; 5 and 7 give 35; 6 and 6 give 36. A bar chart rises to the middle.",
+   "narration": "One and eleven give eleven. Two and ten give twenty. Three and nine, twenty-seven. Four and eight, thirty-two. Five and seven, thirty-five. Six and six give thirty-six. The product climbs as the numbers get closer."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "A 6 by 6 square. A strip of width d is cut from one side and attached to the other, forming a (6 - d) by (6 + d) rectangle with a small d by d corner square left over, shaded.",
+   "narration": "Here is why. Write the two numbers as six minus d and six plus d. Start with a six by six square. Move a strip from one side to the other. The pieces no longer fit: a small square of side d is missing. So the product is thirty-six minus d squared. The further from balance, the more you lose."
+  },
+  {
+   "n": 6,
+   "stage": "VARIATION",
+   "visual": "Rule added: \"the two numbers must be different\". The 6 and 6 pair greys out; 5 and 7 glows with 35.",
+   "narration": "Now add a restriction: the two numbers must be different. Six and six is no longer allowed. Choose the most balanced pair that is allowed, five and seven, giving thirty-five."
+  },
+  {
+   "n": 7,
+   "stage": "VARIATION",
+   "visual": "12 split into three parts 4, 4, 4 with product 64, compared with 6, 6 at 36 and 3, 3, 3, 3 at 81.",
+   "narration": "The same idea works with more parts. Splitting twelve into four, four and four gives sixty-four. Splitting into four threes gives eighty-one, which is the best of all for twelve. Equal parts win, and threes are especially good."
+  },
+  {
+   "n": 8,
+   "stage": "RECAP",
+   "visual": "Lines: \"Fixed sum: balance for the biggest product\", \"If balance is forbidden, get as close as allowed\".",
+   "narration": "With a fixed total, balanced parts give the largest product. When a rule forbids perfect balance, get as close as the rule allows. Notebook challenge: a rectangle with whole-number sides has perimeter twenty-two. What is its largest possible area?"
+  }
+ ],
+ "notebook_exercise": "A rectangle with whole-number sides has perimeter 22. Largest possible area?",
+ "notebook_answer": "Sides add to 11; 5 and 6 give area 30."
+}

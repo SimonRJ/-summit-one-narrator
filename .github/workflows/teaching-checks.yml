@@ -2,10 +2,10 @@ name: Teaching behavior checks
 on:
   pull_request:
     branches: [main]
-    paths: ['*.js', '*.html', '*.css', 'data/**', 'tools/browser_lesson_fixed.py', 'tools/check_learning.mjs', '.github/workflows/teaching-checks.yml']
+    paths: ['*.js', '*.html', '*.css', 'data/**', 'tools/browser_lesson_fixed.py', 'tools/check_learning.mjs', 'tools/content/**', 'tools/video/**', 'production/scripts/**', '.github/workflows/teaching-checks.yml']
   push:
     branches: [recognition-coverage-20261113, main, rebuild-exam-centres-20261112, draft/teaching-audit-2026-11-11]
-    paths: ['*.js', '*.html', '*.css', 'data/**', 'tools/browser_checks.py', 'tools/browser_lesson_fixed.py', 'tools/check_learning.mjs', 'tools/content/**', '.github/workflows/teaching-checks.yml']
+    paths: ['*.js', '*.html', '*.css', 'data/**', 'tools/browser_checks.py', 'tools/browser_lesson_fixed.py', 'tools/check_learning.mjs', 'tools/content/**', 'tools/video/**', 'production/scripts/**', '.github/workflows/teaching-checks.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -23,6 +23,8 @@ jobs:
       - run: node tools/check_learning.mjs
       - run: python tools/content/check_original_lessons.py
       - run: python tools/content/audit_all_lessons.py
+      - run: python tools/content/check_curated_batch2.py
+      - run: python tools/video/build_scripts.py --check
       - run: pip install playwright==1.58.0
       - run: google-chrome --version
       - name: Browser behavior and responsive layout

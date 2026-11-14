@@ -1,0 +1,51 @@
+{
+ "id": "T11.E",
+ "title": "Make every digit obey both its jobs",
+ "chapter": "Make every digit obey both its jobs",
+ "type": "worked_example",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Worked example: what each carry means in column addition.",
+ "narration_words": 166,
+ "estimated_minutes": 1.1,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "PUZZLE",
+   "visual": "58 and 67 written in columns with an empty answer line. Question: \"What does each carry mean?\"",
+   "narration": "Add fifty-eight and sixty-seven, and explain what each carry really means."
+  },
+  {
+   "n": 2,
+   "stage": "DEVELOP",
+   "visual": "Units column: 8 cubes and 7 cubes make 15. Ten of them snap into a rod that slides to the tens column. 5 cubes remain.",
+   "narration": "In the units column, eight plus seven is fifteen units. Ten of those units make one ten. Carry that ten to the next column, and five units remain."
+  },
+  {
+   "n": 3,
+   "stage": "DEVELOP",
+   "visual": "Tens column: 5 rods, 6 rods and the carried rod make 12 rods. Ten rods snap into a hundred-square that slides left. 2 rods remain.",
+   "narration": "In the tens column there are five tens, six tens, and the carried ten: twelve tens. Ten of those tens make one hundred. Carry it, and two tens remain."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "Answer assembles: 1 hundred-square, 2 rods, 5 cubes: 125.",
+   "narration": "The answer is one hundred, two tens and five units: one hundred and twenty-five. Neither starting number has a hundreds digit. The hundreds digit in the answer exists only because of the second carry."
+  },
+  {
+   "n": 5,
+   "stage": "VARIATION",
+   "visual": "Estimate bubble: 60 and 70 make 130. Then a check by parts: 50 and 60 make 110; 8 and 7 make 15; total 125.",
+   "narration": "Check two ways. Roughly, sixty plus seventy is one hundred and thirty, which is close. Exactly, fifty plus sixty is one hundred and ten, eight plus seven is fifteen, and together they make one hundred and twenty-five."
+  },
+  {
+   "n": 6,
+   "stage": "RECAP",
+   "visual": "Line: \"a carry is ten of one place traded for one of the next\". Notebook prompt.",
+   "narration": "A carry is ten of one place traded for one of the next place. Rebuild this explanation, then add seventy-six and eighty-nine, saying what each carry means."
+  }
+ ],
+ "notebook_exercise": "Add 76 and 89, explaining each carry.",
+ "notebook_answer": "6 + 9 = 15 units (carry one ten); 7 + 8 + 1 = 16 tens (carry one hundred); total 165."
+}

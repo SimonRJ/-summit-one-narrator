@@ -1,0 +1,63 @@
+{
+ "id": "T10.2",
+ "title": "Remember enough information, but no more",
+ "chapter": "Build patterns from reasons, not guesses",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Decide what a repeating process must remember: its state.",
+ "narration_words": 282,
+ "estimated_minutes": 1.9,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "A token moving round a small loop of labelled states. When it lands on a state it has visited before, the path ahead copies the path already taken.",
+   "narration": "In a step-by-step process, the state is everything you need to know to work out what happens next. Once the same state appears twice, the process must repeat from there. Finding the state is the key to long-run questions."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "A question \"what is the 1000th term?\" over a long row; the row folds into a short loop.",
+   "narration": "Questions about the hundredth or thousandth step look impossible. But if the states repeat in a short cycle, you only need the position inside the cycle."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "A rule card: \"double the number; keep only the last digit\". Start 3. Row begins 3, 6, 2, 4, 8, 6. Question: \"What is the 50th number?\"",
+   "narration": "Start with three. Each time, double the number and keep only its last digit. The list begins three, six, two, four, eight, six. What is the fiftieth number? Pause and look for a repeat."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "The row continues 3, 6, 2, 4, 8, 6, 2, 4, 8. The block 6, 2, 4, 8 is bracketed; the first 3 stands alone outside the loop.",
+   "narration": "After the first number, the list repeats six, two, four, eight. Notice that three itself never comes back. The cycle starts at the second number, not the first."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "Positions 2 to 50 counted: 49 numbers. 49 divided by 4 gives 12 remainder 1. First of the block glows: 6.",
+   "narration": "From the second number to the fiftieth there are forty-nine numbers. Forty-nine is twelve complete cycles and one more. So the fiftieth number is the first in the cycle: six."
+  },
+  {
+   "n": 6,
+   "stage": "VARIATION",
+   "visual": "A list where each term is the last digit of the sum of the two before: 1, 1, 2, 3, 5, 8, 3, 1, 4. A single 1 is highlighted in two places with different followers.",
+   "narration": "Sometimes one number is not enough to be the state. If each number is the last digit of the sum of the previous two, then seeing a one does not tell you what comes next. You need the last two numbers. The state is a pair."
+  },
+  {
+   "n": 7,
+   "stage": "VARIATION",
+   "visual": "A robot on a grid with rule \"may not turn back\"; an arrow showing its last move is attached to the robot as part of its state.",
+   "narration": "In the same way, if a robot may not reverse its last move, its position alone is not the state. You must also remember which way it just moved. Remember enough to know what can happen next, and no more."
+  },
+  {
+   "n": 8,
+   "stage": "RECAP",
+   "visual": "Lines: \"State: what decides the next step\", \"Find the first repeat of a state\", \"Use the remainder inside the cycle\".",
+   "narration": "Decide what the state is. Find where a state first repeats. Then use a remainder to locate the position in the cycle. Notebook challenge: start with seven; repeatedly triple and keep the last digit. What is the thirtieth number?"
+  }
+ ],
+ "notebook_exercise": "Start with 7; repeatedly triple and keep the last digit. What is the 30th number?",
+ "notebook_answer": "7, 1, 3, 9 repeats; 30 = 4 x 7 + 2, so the 30th is 1."
+}

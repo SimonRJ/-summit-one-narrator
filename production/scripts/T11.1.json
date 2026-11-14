@@ -1,0 +1,69 @@
+{
+ "id": "T11.1",
+ "title": "Translate position into value",
+ "chapter": "Make every digit obey both its jobs",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Write a number in terms of its digits so that place value can be used.",
+ "narration_words": 266,
+ "estimated_minutes": 1.8,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "The number 42 as four long ten-rods and two unit cubes. The digits swap; it rebuilds as two rods and four cubes: 24.",
+   "narration": "The digit four in forty-two is worth forty, because of where it stands. Swap the digits and the same four is worth only four. A digit's position multiplies its value, and writing that down turns digit puzzles into simple algebra."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "A puzzle card with letters for digits, and a tangle of guesses; then one tidy expression.",
+   "narration": "Digit puzzles look like guessing games. But if you write a two-digit number as ten times its first digit plus its second, most of the guessing disappears."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "A two-digit number card \"A B\" and its reverse \"B A\". Text: \"The reverse is 27 bigger.\" Question: \"What can you say about the digits?\"",
+   "narration": "A two-digit number is reversed, and the new number is twenty-seven bigger. What can you say about its digits? Pause and write both numbers using place value."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "\"A B\" unfolds into A rods and B cubes: ten A plus B. \"B A\" unfolds into B rods and A cubes: ten B plus A.",
+   "narration": "Call the tens digit A and the units digit B. The number is ten A plus B. The reverse is ten B plus A."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "Subtracting: nine B minus nine A. Label \"nine times the difference of the digits\". 27 divided by 9 is 3.",
+   "narration": "Subtract. The difference is nine B minus nine A, which is nine times the gap between the digits. Twenty-seven is nine times three. So the units digit is three more than the tens digit."
+  },
+  {
+   "n": 6,
+   "stage": "DEVELOP",
+   "visual": "The list 14, 25, 36, 47, 58, 69 with their reverses; each gap shows 27.",
+   "narration": "That gives fourteen, twenty-five, thirty-six, forty-seven, fifty-eight and sixty-nine. Check one: fifty-two minus twenty-five is twenty-seven."
+  },
+  {
+   "n": 7,
+   "stage": "VARIATION",
+   "visual": "Sum instead of difference: ten A plus B added to ten B plus A makes eleven A plus eleven B. Example 47 and 74 make 121.",
+   "narration": "Adding a number to its reverse gives eleven A plus eleven B: eleven times the digit sum. Forty-seven plus seventy-four is one hundred and twenty-one, which is eleven times eleven."
+  },
+  {
+   "n": 8,
+   "stage": "VARIATION",
+   "visual": "A reminder card: \"A is from 1 to 9. B is from 0 to 9.\"",
+   "narration": "Remember that a digit is not just any number. The first digit runs from one to nine, and the others from zero to nine. Those limits often finish a puzzle."
+  },
+  {
+   "n": 9,
+   "stage": "RECAP",
+   "visual": "Lines: \"Two-digit number: ten A plus B\", \"Reverse and subtract: nine times the digit gap\", \"Reverse and add: eleven times the digit sum\".",
+   "narration": "Write numbers using place value. Reversing and subtracting gives a multiple of nine. Reversing and adding gives a multiple of eleven. Notebook challenge: a two-digit number is four times the sum of its digits. Find all such numbers."
+  }
+ ],
+ "notebook_exercise": "A two-digit number equals 4 times the sum of its digits. Find all such numbers.",
+ "notebook_answer": "10A + B = 4A + 4B gives B = 2A: 12, 24, 36, 48."
+}

@@ -1,0 +1,433 @@
+@@ T05.1
+GOAL: Decide whether swapping two chosen objects makes a new outcome.
+[INSIGHT]
+V: Three ceramic counters A, B, C. Two podium places "1st" and "2nd" on the left; a plain tray labelled "team of 2" on the right.
+N: Before counting anything, ask one question: does order matter? Choosing a winner and a runner-up is different from choosing a team of two. On the podium, swapping the two people changes the result. In a team, swapping them changes nothing.
+[WHY]
+V: Two answers, 6 and 3, hover over the same three counters with a question mark between them.
+N: Getting this wrong doubles your answer, or halves it. It is one of the most common counting mistakes, and the cure is to decide about order before you start multiplying.
+[PUZZLE]
+V: Counters A, B, C. Question one: "How many ways to fill 1st and 2nd?" Question two: "How many teams of two?"
+N: Three runners, Ava, Ben and Cal, are in a race. In how many ways can first and second place be filled? And how many different pairs of them could form a team? Pause and try both.
+[DEVELOP]
+V: Six ordered pairs appear in two columns: AB, AC, BA, BC, CA, CB. Count 3 times 2.
+N: For the podium, there are three choices for first place, then two remaining choices for second. Three times two is six ordered results.
+[DEVELOP]
+V: The six ordered pairs slide together in twos: AB with BA, AC with CA, BC with CB. Three merged tiles remain.
+N: For a team, Ava then Ben is the same team as Ben then Ava. The six ordered results merge in pairs, leaving three teams. We divide by two because each team was counted in two orders.
+[VARIATION]
+V: Five counters. A row of three places gives 5, 4, 3. Then groups of six orderings collapse into one tile each; ten tiles remain.
+N: Now choose three people from five. In order, that is five times four times three, which is sixty. As an unordered group, each set of three people can be arranged in six orders, so sixty divided by six gives ten groups. The number you divide by is the number of ways to arrange the chosen objects.
+[VARIATION]
+V: A team of three with role badges "captain", "scorer", "timekeeper" appearing on the counters.
+N: Read the wording carefully. If the three chosen people get different jobs, such as captain, scorer and timekeeper, then order matters again and the answer is sixty.
+[RECAP]
+V: Lines: "Different roles or places: order matters", "Just a group: divide by the arrangements".
+N: If positions or roles differ, count in order. If only membership matters, divide by the number of arrangements of the chosen group. Notebook challenge: from six players, how many ways are there to choose a captain and a vice-captain? And how many ways to choose two players to carry the equipment?
+TRY: From 6 players: how many ways to choose a captain and vice-captain? How many ways to choose 2 equipment carriers?
+ANS: 6 x 5 = 30 with roles; 30 / 2 = 15 as an unordered pair.
+
+@@ T05.2
+GOAL: Split a count into cases using the restriction that changes the number of choices.
+[INSIGHT]
+V: A tangled set of outcomes separates into three clean trays with no overlap.
+N: Some counting problems are too awkward to do in one go. The trick is to split them into cases. Good cases have two properties: no outcome belongs to two cases, and every outcome belongs to one.
+[WHY]
+V: A product 4 x 4 x 3 with a warning mark, next to two smaller tidy products.
+N: Multiplying choices only works when the number of choices does not depend on what you chose earlier. When a restriction changes the choices, a single multiplication breaks. Splitting at the restriction repairs it.
+[PUZZLE]
+V: Digit tiles 0, 1, 2, 3, 4. Three empty places. Question: "How many even three-digit numbers with no repeated digit?"
+N: Using the digits zero, one, two, three and four, with no digit repeated, how many even three-digit numbers can be made? Pause and think about which place causes the trouble.
+[DEVELOP]
+V: The last place highlights with options 0, 2, 4. The 0 option separates from 2 and 4.
+N: The number must be even, so the last digit is zero, two or four. But zero is special, because a number cannot start with zero. So split by the last digit: either it is zero, or it is two or four.
+[DEVELOP]
+V: Case 1: last digit 0; first place 4 choices, middle 3 choices: 12. Case 2: last digit 2 or 4; first place 3 choices (not 0, not the last digit), middle 3 choices: 2 x 3 x 3 = 18.
+N: If the last digit is zero, the first digit has four choices and the middle has three: twelve numbers. If the last digit is two or four, the first digit cannot be zero or the last digit, leaving three choices, and the middle has three. That is two times three times three: eighteen numbers.
+[DEVELOP]
+V: The two trays combine: 12 and 18 make 30.
+N: The cases cannot overlap, because a number has only one last digit. Add them: twelve plus eighteen is thirty.
+[VARIATION]
+V: Two switches, each on or off: four outcomes in a grid. The outcome "on, on" is crossed out. Three remain.
+N: Sometimes it is quicker to count what is forbidden. Two switches have four settings altogether. If "both on" is not allowed, subtract that one, leaving three. Counting everything and subtracting the unwanted part is called using the complement.
+[RECAP]
+V: Lines: "Split at the restriction", "Multiply inside a case", "Add separate cases".
+N: Split at the feature that changes the choices. Multiply within a case. Add the cases. Notebook challenge: how many two-digit numbers have two different digits?
+TRY: How many two-digit numbers have two different digits?
+ANS: 90 two-digit numbers minus 9 with equal digits (11, 22, ..., 99) = 81.
+
+@@ T05.3
+GOAL: Check a counting method by giving every outcome exactly one address.
+[INSIGHT]
+V: A wall of pigeonhole letterboxes. Each outcome card flies to exactly one box; no box gets two cards, no card is left over.
+N: A counting method is correct when every outcome has exactly one address. From the outcome you can tell which choices made it, and every set of choices makes a real outcome. If both are true, nothing is missed and nothing is counted twice.
+[WHY]
+V: Two outcome cards arriving at the same box, flashing; then a card with no box.
+N: Double counting and missed cases are invisible if you only look at the final number. Checking the addresses is the way to trust a count without redoing it.
+[PUZZLE]
+V: Five seats in a row. Counters: three girls G and two boys B. Rule text: "the two boys must not sit next to each other".
+N: Three girls and two boys sit in a row of five seats. The two boys must not sit next to each other. In how many ways can they be seated? Pause and look for a way to build every legal row exactly once.
+[DEVELOP]
+V: The three girls are placed first in a row with four gaps marked: before, between, between, after. Count 3 x 2 x 1 = 6.
+N: Seat the girls first. Three girls can be arranged in six orders. Around them are four gaps: one at each end and two between.
+[DEVELOP]
+V: The two boys drop into two different gaps: first boy 4 choices, second boy 3 choices. Total 6 x 12 = 72.
+N: Put each boy into a different gap. The first boy has four gaps to choose from, and the second has three. That is twelve ways, so there are six times twelve, seventy-two seatings.
+[DEVELOP]
+V: A finished row, for example G B G G B, is run backwards: remove the boys, read the girls' order, read which gaps were used.
+N: Now check the addresses. Take any legal row. Remove the boys and you see the girls' order. Look where the boys were and you see which gaps they used. So each legal row comes from exactly one set of choices. The count is complete and has no repeats.
+[VARIATION]
+V: All 120 arrangements, with 48 "boys together" arrangements shaded: a glued BB block gives 4 x 3 x 2 x 1 = 24, times 2.
+N: A second method confirms it. Five people can sit in one hundred and twenty ways. Glue the boys together as one block: four objects in twenty-four orders, times two for the boys swapping. That is forty-eight unwanted rows. One hundred and twenty minus forty-eight is seventy-two.
+[RECAP]
+V: Lines: "Can I rebuild the choices from the outcome?", "Does every choice give a legal outcome?".
+N: Ask two questions of any counting method. Can I recover the choices from the outcome? And does every choice give a legal outcome? Notebook challenge: in how many ways can four different books stand on a shelf if two particular books must not be next to each other?
+TRY: Four different books on a shelf; two particular books must not be adjacent. How many arrangements?
+ANS: 24 total minus 12 with them together = 12.
+
+@@ T05.E
+GOAL: Worked example: a restriction that affects only one branch.
+[PUZZLE]
+V: Two sandwich tiles, "cheese" and "bean". Three fruit tiles, "apple", "pear", "plum". Rule: "cheese may not go with plum". Question: "How many different lunches?"
+N: A lunch has one sandwich, cheese or bean, and one fruit, apple, pear or plum. Cheese may not be paired with plum. How many different lunches are possible?
+[DEVELOP]
+V: A tree begins with two branches: cheese and bean.
+N: The restriction only mentions cheese, so split by sandwich. A lunch has exactly one sandwich, so these two cases cannot overlap.
+[DEVELOP]
+V: The cheese branch grows two leaves: apple, pear. A faded third leaf "plum" is struck out.
+N: With cheese, plum is not allowed, so the allowed fruits are apple and pear. That is two lunches: cheese with apple, and cheese with pear.
+[DEVELOP]
+V: The bean branch grows three leaves: apple, pear, plum. Leaf count 2 and 3 combine to 5.
+N: With bean, all three fruits are allowed. That is three lunches. Add the cases: two plus three is five.
+[VARIATION]
+V: A two by three grid of all six pairs, with the single cell "cheese and plum" crossed out.
+N: Check another way. Without the rule there would be two times three, six lunches. Exactly one of them, cheese with plum, is forbidden. Six minus one is five. Two methods agree.
+[RECAP]
+V: Line: "unequal branches: add, do not multiply". Notebook prompt.
+N: When branches have different sizes, add them rather than multiplying. Rebuild the tree yourself, then try this: there are three shirts and four pairs of shorts, but the red shirt cannot be worn with the two orange pairs. How many outfits are possible?
+TRY: 3 shirts and 4 pairs of shorts; the red shirt cannot go with the 2 orange pairs. How many outfits?
+ANS: 12 - 2 = 10.
+
+@@ T06.1
+GOAL: Count the same set of meetings in two ways to find a hidden number.
+[INSIGHT]
+V: Four people as dots. Lines are drawn between some pairs as handshakes. Each line has two ends, each end glowing at a dot.
+N: Every handshake has two hands in it. That small fact is surprisingly powerful. If each person reports how many hands they shook, and you add up the reports, every handshake has been counted twice, once by each person.
+[WHY]
+V: A crowded network; beside it a simple sum of reports and "divide by 2".
+N: Counting something in two different ways gives you an equation for free. It lets you count lines by counting ends, or faces by counting edges, without drawing the whole picture.
+[PUZZLE]
+V: Six dots in a ring, no lines yet. Text: "Everyone shakes hands with everyone else." Question: "How many handshakes?"
+N: Six people meet, and everyone shakes hands once with everyone else. How many handshakes take place? Pause and think about what each person would report.
+[DEVELOP]
+V: One dot sends five lines to the others. A report "5" appears by each of the six dots. Sum 30.
+N: Each person shakes hands with the five others, so each person reports five. Six reports of five add to thirty.
+[DEVELOP]
+V: A single line is highlighted, with a "1" at each end. The total 30 halves to 15 as all fifteen lines are drawn.
+N: But each handshake was reported by both of the people in it. So thirty counts every handshake twice. Thirty divided by two is fifteen handshakes.
+[VARIATION]
+V: Seven dots. Text: "Could each person shake hands with exactly three others?" Reports 3 x 7 = 21, with "odd" flashing.
+N: The same idea can prove something is impossible. Can seven people each shake hands with exactly three others? The reports would add to twenty-one. But the total of the reports is always twice the number of handshakes, so it must be even. Twenty-one is odd. It cannot be done.
+[VARIATION]
+V: A cube. Each of 6 faces reports 4 edges: 24. Each edge glows where two faces meet: 24 / 2 = 12.
+N: It works for solids too. A cube has six faces, and each face has four edges: twenty-four reports. Every edge belongs to two faces, so there are twelve edges.
+[RECAP]
+V: Lines: "Add up the reports", "Ask how many times each thing was reported", "Divide".
+N: Let each object report what it touches. Add the reports. Then divide by how many times each item was reported. Notebook challenge: in a tournament, eight teams each play every other team once. How many games are played?
+TRY: Eight teams each play every other team once. How many games?
+ANS: 8 x 7 / 2 = 28.
+
+@@ T06.2
+GOAL: Add several measurements so that each unknown appears equally often.
+[INSIGHT]
+V: Three sealed boxes a, b, c on a balance in pairs. Three pair readings appear.
+N: Sometimes you cannot measure things one at a time. You only know totals of pairs. The useful trick is to add all the measurements and ask how many times each unknown has been counted.
+[WHY]
+V: Three equations stacked; beside them one combined line.
+N: This replaces trial and error with one clean step. Instead of guessing the three values, you find their total first, and everything else follows by subtraction.
+[PUZZLE]
+V: Readings: a and b together 10; b and c together 14; a and c together 12. Question: "What is each box worth?"
+N: Three boxes are weighed in pairs. The first and second weigh ten kilograms together. The second and third weigh fourteen. The first and third weigh twelve. How heavy is each box? Pause and try adding all three readings.
+[DEVELOP]
+V: A table with rows a, b, c and columns for the three weighings. Ticks show each box appears in exactly two columns. Sum of readings 36.
+N: Add the three readings: ten plus fourteen plus twelve is thirty-six. Look at the table. Each box was on the scales exactly twice. So thirty-six is twice the total weight, and the three boxes weigh eighteen kilograms altogether.
+[DEVELOP]
+V: Total 18 with each pair reading subtracted in turn: 18 - 14 = 4, 18 - 12 = 6, 18 - 10 = 8.
+N: Now subtract. The second and third weigh fourteen, so the first weighs eighteen minus fourteen, which is four. In the same way the second weighs six and the third weighs eight.
+[DEVELOP]
+V: Check ticks: 4 and 6 make 10; 6 and 8 make 14; 4 and 8 make 12.
+N: Check every reading. Four and six make ten. Six and eight make fourteen. Four and eight make twelve.
+[VARIATION]
+V: A triangle with circles at the corners and at the middle of each side; each side has a "side total". Corner circles glow twice when side totals are added.
+N: Watch for unequal counting. In a triangle puzzle where each side has a total, the corner numbers lie on two sides, but the middle numbers lie on only one. Adding the three side totals counts corners twice and middles once. You must keep track of that difference, not ignore it.
+[RECAP]
+V: Lines: "Add the measurements", "Count how often each unknown appears", "Subtract to isolate".
+N: Add the measurements. Count how often each unknown appears. Then subtract to separate them. Notebook challenge: three numbers are added in pairs to give seventeen, twenty and twenty-three. What are the three numbers?
+TRY: Three numbers added in pairs give 17, 20 and 23. Find them.
+ANS: Total (17 + 20 + 23) / 2 = 30; the numbers are 7, 10 and 13.
+
+@@ T06.3
+GOAL: Turn "each group uses up some of a limited supply" into a maximum, then reach it.
+[INSIGHT]
+V: A jar of 12 tokens. Each "group" card takes 3 tokens. After four cards the jar is empty.
+N: If every group uses up some of a limited supply, the supply limits how many groups you can have. Twelve tokens, three per group, means at most four groups. You know that before making a single group.
+[WHY]
+V: Two words appear: "at most" and "can be reached", with a gap between them.
+N: This gives the first half of a "largest possible" answer: a ceiling. The second half is showing that the ceiling can actually be reached. A complete solution needs both.
+[PUZZLE]
+V: Five dots labelled A to E. Text: "Each day, students work in pairs. No pair may ever work together twice." Question: "What is the largest number of days?"
+N: Five students are in a club. Each day, two pairs work together and one student rests. No two students may be partners more than once. What is the largest number of days this can continue? Pause and decide what is being used up.
+[DEVELOP]
+V: All ten possible pairs listed as lines between the five dots. A counter: "10 pairs available". Each day removes 2 lines.
+N: The supply is pairs of students. Five students form ten different pairs. Each day uses two new pairs. So there can be at most five days.
+[DEVELOP]
+V: A five-day schedule fills in: Day 1 AB, CD (E rests); Day 2 AC, BE (D rests); Day 3 AD, CE (B rests); Day 4 AE, BD (C rests); Day 5 BC, DE (A rests). Each used line fades from the pair list until none remain.
+N: Can five days really be done? Here is a schedule. Day one: A with B, C with D. Day two: A with C, B with E. Day three: A with D, C with E. Day four: A with E, B with D. Day five: B with C, D with E. All ten pairs appear exactly once.
+[VARIATION]
+V: The same five dots with rule changed: "groups of three; no pair together twice". Each group uses 3 pairs; 10 / 3 gives at most 3. A search shows only 2 groups fit.
+N: Be careful: a ceiling is not always reachable. If the students work in groups of three, each group uses three pairs. Ten pairs would allow at most three groups. But try it: after A, B, C and A, D, E, every further group of three would repeat a pair. Only two groups are possible. The bound said three, the truth is two.
+[RECAP]
+V: Lines: "Find what is used up", "Divide to get a ceiling", "Build an example, or show the ceiling fails".
+N: Find the limited supply. Divide to get a ceiling. Then either build an example that reaches it, or explain why it cannot be reached. Notebook challenge: six students play chess, one game per pair at most. Each day three games are played. What is the largest possible number of days?
+TRY: Six students; each day 3 games; no pair plays twice. Largest number of days?
+ANS: 15 pairs / 3 per day = 5 days, and a round-robin schedule achieves it.
+
+@@ T06.E
+GOAL: Worked example: find a perimeter by removing edges that were counted twice.
+[PUZZLE]
+V: Four separate unit square tiles. They slide together into a 2 by 2 square. Question: "What is the outside perimeter?"
+N: Four square tiles, each with side one, are pushed together to make a two by two square. What is the perimeter of the large square? We will find it by counting tile edges.
+[DEVELOP]
+V: Each separate tile shows 4 edges. Counter: 4 tiles x 4 edges = 16.
+N: Separately, each tile has four edges. Four tiles report sixteen edges altogether.
+[DEVELOP]
+V: In the joined square, the four inner edges are drawn as dashed lines: two on the vertical middle line, two on the horizontal.
+N: When the tiles are joined, some edges end up inside. There are four inside joins: two along the vertical middle line and two along the horizontal middle line.
+[DEVELOP]
+V: At each join, two reports (one from each neighbouring tile) lift away. Counter: 16 - 8 = 8.
+N: Each inside join was reported by both tiles beside it. So remove two reports for each of the four joins. Sixteen minus eight is eight. The perimeter is eight.
+[VARIATION]
+V: The outer square with side length 2 marked; 4 x 2 = 8. Then the four tiles rearranged into a 1 by 4 row: 3 joins, 16 - 6 = 10.
+N: Check directly: the big square has side two, and four times two is eight. Now rearrange the tiles in a single row. There are only three joins, so the perimeter is sixteen minus six, which is ten. Fewer joins means a longer perimeter.
+[RECAP]
+V: Line: "perimeter = all tile edges minus 2 for each join". Notebook prompt.
+N: The outside perimeter is the total of all tile edges, minus two for every join. Rebuild this argument, then find the perimeter of six unit squares arranged in a two by three rectangle.
+TRY: Find the perimeter of six unit squares arranged in a 2 by 3 rectangle, using joins.
+ANS: 24 edges, 7 joins: 24 - 14 = 10.
+
+@@ T07.1
+GOAL: Prove a maximum by finding something limited that every arrangement must use.
+[INSIGHT]
+V: A row of eight empty cells. Counters wait above. Rule text: "no two counters in neighbouring cells".
+N: When a question asks for the largest possible number, trying examples is not enough. You need a reason why nobody could ever do better. That reason usually comes from something limited that every arrangement has to use.
+[WHY]
+V: An arrangement with four counters, and a thought bubble "could five fit?".
+N: Finding a good arrangement shows what is possible. It does not show that it is the best. Without a proof of the limit, there is always the worry that a cleverer arrangement exists.
+[PUZZLE]
+V: Eight cells numbered 1 to 8. Question: "What is the largest number of counters, with no two neighbours?"
+N: Counters are placed in a row of eight cells, at most one per cell. No two counters may be in neighbouring cells. What is the largest number of counters that can be placed? Pause and try to find both an arrangement and a reason.
+[DEVELOP]
+V: The cells group into four coloured pairs: (1,2), (3,4), (5,6), (7,8). A counter in each pair's left cell.
+N: Split the row into four pairs of neighbouring cells. Each pair can hold at most one counter, because two counters in a pair would be neighbours. Four pairs means at most four counters. That is the limit.
+[DEVELOP]
+V: Counters sit in cells 1, 3, 5, 7. Neighbour gaps are checked one by one with small ticks.
+N: Now reach the limit. Put counters in cells one, three, five and seven. No two are neighbours. So four is possible, and more than four is impossible. The largest number is four.
+[VARIATION]
+V: A row of nine cells. Pairs (1,2), (3,4), (5,6), (7,8) and a single cell 9. Counters at 1, 3, 5, 7, 9.
+N: With nine cells, there are four pairs and one cell left over. Each pair holds at most one counter and the extra cell holds at most one: at most five. And cells one, three, five, seven and nine achieve it.
+[VARIATION]
+V: Text: "smallest number" with eight cells and a new rule "every empty cell must be next to a counter". Groups of three cells, each with a counter in the middle.
+N: For a smallest-number question, turn the idea around: ask what every arrangement must cover. If every empty cell must be next to a counter, each counter can look after at most three cells, itself and its two neighbours. Eight cells need at least three counters.
+[RECAP]
+V: Lines: "Find the limited resource", "Prove the limit", "Show an arrangement that reaches it".
+N: Find what is limited. Use it to prove a limit. Then show an arrangement that reaches the limit. Notebook challenge: what is the largest number of counters in a row of eleven cells with no two neighbours?
+TRY: Largest number of counters in a row of 11 cells with no two in neighbouring cells?
+ANS: 6 (five pairs plus one single cell; cells 1, 3, 5, 7, 9, 11).
+
+@@ T07.2
+GOAL: Explain why balanced parts give the largest product, and handle restrictions.
+[INSIGHT]
+V: A loop of string of fixed length forms a long thin rectangle, then morphs steadily into a square. An area counter rises as it becomes more balanced.
+N: Take a fixed length of fence and make a rectangle. A long thin rectangle encloses very little. As the sides become more equal, the area grows. Balanced parts give bigger products.
+[WHY]
+V: A list of trial rectangles with a tick on the largest and a question "why?".
+N: You could discover this by trying examples. But in a competition you need to know it is always true, and what to do when perfect balance is not allowed.
+[PUZZLE]
+V: Text: "Two whole numbers add to 12." A row of pairs waits. Question: "What is the largest possible product?"
+N: Two positive whole numbers add to twelve. What is the largest their product can be? Pause and try a few pairs.
+[DEVELOP]
+V: Pairs with products: 1 and 11 give 11; 2 and 10 give 20; 3 and 9 give 27; 4 and 8 give 32; 5 and 7 give 35; 6 and 6 give 36. A bar chart rises to the middle.
+N: One and eleven give eleven. Two and ten give twenty. Three and nine, twenty-seven. Four and eight, thirty-two. Five and seven, thirty-five. Six and six give thirty-six. The product climbs as the numbers get closer.
+[DEVELOP]
+V: A 6 by 6 square. A strip of width d is cut from one side and attached to the other, forming a (6 - d) by (6 + d) rectangle with a small d by d corner square left over, shaded.
+N: Here is why. Write the two numbers as six minus d and six plus d. Start with a six by six square. Move a strip from one side to the other. The pieces no longer fit: a small square of side d is missing. So the product is thirty-six minus d squared. The further from balance, the more you lose.
+[VARIATION]
+V: Rule added: "the two numbers must be different". The 6 and 6 pair greys out; 5 and 7 glows with 35.
+N: Now add a restriction: the two numbers must be different. Six and six is no longer allowed. Choose the most balanced pair that is allowed, five and seven, giving thirty-five.
+[VARIATION]
+V: 12 split into three parts 4, 4, 4 with product 64, compared with 6, 6 at 36 and 3, 3, 3, 3 at 81.
+N: The same idea works with more parts. Splitting twelve into four, four and four gives sixty-four. Splitting into four threes gives eighty-one, which is the best of all for twelve. Equal parts win, and threes are especially good.
+[RECAP]
+V: Lines: "Fixed sum: balance for the biggest product", "If balance is forbidden, get as close as allowed".
+N: With a fixed total, balanced parts give the largest product. When a rule forbids perfect balance, get as close as the rule allows. Notebook challenge: a rectangle with whole-number sides has perimeter twenty-two. What is its largest possible area?
+TRY: A rectangle with whole-number sides has perimeter 22. Largest possible area?
+ANS: Sides add to 11; 5 and 6 give area 30.
+
+@@ T07.3
+GOAL: Use the places where a bound is tight to design the arrangement that reaches it.
+[INSIGHT]
+V: A bound line "at most 4" above an empty stage. Arrows from the proof point at spots where the arrangement must be "full".
+N: A proof of a limit is also a set of instructions. To reach the limit exactly, nothing in the proof may be wasted. Looking at where the proof is tight tells you how the best arrangement must be built.
+[WHY]
+V: Two attempts: one found by random trial after many discarded sketches, one built directly from the bound.
+N: Searching for the best arrangement by trial can take a long time. Letting the proof guide you is faster, and it shows whether the limit can be reached at all.
+[PUZZLE]
+V: A 4 by 4 board. Domino-shaped pieces. Rule: "each row and each column contains at most 2 counters". Question: "What is the largest number of counters?"
+N: Counters are placed on a four by four board, at most one per square. Each row may contain at most two counters, and each column at most two. What is the largest number of counters? Pause and find the limit first.
+[DEVELOP]
+V: Four rows, each with capacity 2. Counter: 4 x 2 = 8.
+N: There are four rows, and each holds at most two counters. So there are at most eight counters. That is the limit.
+[DEVELOP]
+V: Text: "to reach 8, every row must be full". A first attempt fills rows 1 and 2 in columns 1 and 2, overloading those columns; it is rejected.
+N: To reach eight, every row must be completely full, with exactly two counters. And the counters must be spread so that no column gets more than two. Putting them all in the first two columns would break the column rule.
+[DEVELOP]
+V: A working arrangement: rows 1 and 2 use columns 1 and 2; rows 3 and 4 use columns 3 and 4. Column totals show 2, 2, 2, 2.
+N: So share the columns. Rows one and two use columns one and two. Rows three and four use columns three and four. Every row has two, and every column has two. Eight is reached.
+[VARIATION]
+V: A checklist beside the arrangement: "rows: 2, 2, 2, 2", "columns: 2, 2, 2, 2", "one counter per square".
+N: Always check the finished arrangement against every rule, not only the total. An arrangement can have the right number and still break a rule somewhere. Here every row, every column and every square passes.
+[RECAP]
+V: Lines: "Prove the limit", "Ask what must be full to reach it", "Build, then check every rule".
+N: Prove the limit. Ask what must be full to reach it. Build the arrangement, then check every rule. Notebook challenge: on a three by three board with at most one counter per row and per column, what is the largest number of counters, and where could they go?
+TRY: 3 by 3 board, at most one counter in each row and each column. Largest number, and an arrangement?
+ANS: 3, for example along a diagonal.
+
+@@ T07.E
+GOAL: Worked example: two different limits, and why the tighter one decides.
+[PUZZLE]
+V: Seven red counters and four blue counters. Trays with four spaces. Rules: "a tray holds at most 4 counters", "at most 2 red per tray". Question: "What is the smallest number of trays?"
+N: Pack seven red counters and four blue counters into trays. A tray holds at most four counters, and at most two of them may be red. What is the smallest number of trays needed?
+[DEVELOP]
+V: All 11 counters in a line; trays of 4 are marked off: 4, 4, 3. Label "at least 3".
+N: There are eleven counters. Each tray holds at most four, so two trays are not enough. At least three trays are needed. But that is only a first limit.
+[DEVELOP]
+V: Only the 7 red counters, with red capacity 2 per tray: three trays hold 6 reds; one red is left over. Label "at least 4".
+N: Now look at the red counters alone. Each tray takes at most two reds. Three trays could hold only six reds, and there are seven. So at least four trays are needed. This limit is stronger.
+[DEVELOP]
+V: Four trays fill: R R B B; R R B; R R B; R. Empty spaces shown as hollow circles.
+N: Can four trays work? Fill them like this: two reds and two blues; two reds and one blue; two reds and one blue; and one red. All eleven counters are packed and every rule is obeyed.
+[VARIATION]
+V: A tick against "4 trays". A crossed-out "3 trays" with the red capacity 6 highlighted.
+N: So four trays are enough, and three are not. The answer is four. Notice that some spaces are left empty. That is fine: the red rule, not the total space, decided the answer.
+[RECAP]
+V: Line: "test every rule for a limit; the strongest one decides". Notebook prompt.
+N: When there are several rules, find the limit each one gives. The strongest limit decides. Rebuild this argument, then try it with nine red counters and three blue counters.
+TRY: Same rules with 9 red and 3 blue counters. Smallest number of trays?
+ANS: Reds need at least 5 trays (4 trays hold 8); 5 trays work, so 5.
+
+@@ T08.1
+GOAL: List equally likely outcomes honestly before finding a probability.
+[INSIGHT]
+V: A bag with two red counters and one blue. Labels R1, R2, B1 appear on the counters.
+N: A probability compares favourable outcomes with all outcomes, but only if the outcomes are equally likely. A bag holds two red counters and one blue. There are two colours, but red is not a one in two chance. There are three counters, each equally likely, and two of them are red.
+[WHY]
+V: "red or blue: 1 out of 2" crossed lightly. "3 counters: 2 red" highlighted.
+N: Counting names instead of real outcomes is the most common probability mistake. The fix is to list outcomes that genuinely are equally likely, then count.
+[PUZZLE]
+V: Two coins. Question: "What is the chance of exactly one head?" Three tempting labels: "two heads", "one head", "no heads".
+N: Two fair coins are tossed. What is the probability of getting exactly one head? Someone says there are three results, two heads, one head or no heads, so the answer is one third. Pause and decide whether that is right.
+[DEVELOP]
+V: A 2 by 2 grid: first coin H or T down the side, second coin H or T across. Cells HH, HT, TH, TT.
+N: Give the coins names: first coin and second coin. Now there are four outcomes: head head, head tail, tail head, and tail tail. These four are equally likely.
+[DEVELOP]
+V: Cells HT and TH glow. Fraction two out of four simplifies to one half.
+N: Exactly one head happens in two of the four: head tail, and tail head. So the probability is two out of four, which is one half, not one third. The three results in the earlier list were not equally likely.
+[VARIATION]
+V: A 6 by 6 grid of two dice. Cells with total 7 highlighted along a diagonal: six cells. Cells with total 2: one cell.
+N: Two dice work the same way. There are thirty-six equally likely pairs. A total of seven comes from six of them, so its probability is six out of thirty-six, one sixth. A total of two comes from only one pair. The totals are not equally likely, but the pairs are.
+[RECAP]
+V: Lines: "Label the objects", "List equally likely outcomes", "Favourable out of total".
+N: Label the objects so each outcome is visible. Check the outcomes are equally likely. Then count favourable out of total. Notebook challenge: two dice are rolled. What is the probability that the two numbers are the same?
+TRY: Two dice are rolled. What is the probability that both show the same number?
+ANS: 6 out of 36 = 1/6.
+
+@@ T08.2
+GOAL: Follow a probability tree when the first choice changes the second.
+[INSIGHT]
+V: A bag of 2 red and 2 blue counters. One counter is drawn and set aside; the bag visibly has 3 left.
+N: When you take something out and do not put it back, the situation changes. The second draw is from a different bag. To keep track, follow each possible route step by step.
+[WHY]
+V: A wrong calculation "one half times one half" greyed, beside an updating bag.
+N: Using the original bag for both draws is a common error. Updating after each step is what makes the answer right.
+[PUZZLE]
+V: The bag with 2 red, 2 blue. Question: "Two counters are drawn without replacement. What is the chance both are red?"
+N: A bag holds two red counters and two blue counters. Two counters are drawn, one after the other, without putting the first back. What is the probability that both are red? Pause and think about the bag after the first draw.
+[DEVELOP]
+V: A tree's first branch: red with "2 out of 4", blue with "2 out of 4".
+N: On the first draw, two of the four counters are red. The chance of red is two out of four, which is one half.
+[DEVELOP]
+V: After the red branch the bag shows 1 red, 2 blue. Second branch: red "1 out of 3". The route red-red is traced: one half of one third is one sixth.
+N: If the first was red, the bag now has one red and two blue. The chance of red again is one out of three. Along one route, multiply: one half times one third is one sixth. So the probability of two reds is one sixth.
+[DEVELOP]
+V: The full tree with four routes: RR one sixth, RB one third, BR one third, BB one sixth. Total bar fills to 1.
+N: Complete the tree. Red then blue is one half times two thirds, one third. Blue then red is also one third. Blue then blue is one sixth. The four routes add to one, which is a good check.
+[VARIATION]
+V: Routes RB and BR glow together, summing to two thirds.
+N: What is the chance of one of each colour? That happens on two different routes: red then blue, or blue then red. Different routes are added: one third plus one third is two thirds.
+[RECAP]
+V: Lines: "Update after each step", "Multiply along a route", "Add different routes".
+N: Update the situation after each step. Multiply along a route. Add separate routes. Notebook challenge: a bag has three red counters and one blue. Two are drawn without replacement. What is the probability both are red?
+TRY: A bag has 3 red and 1 blue. Two are drawn without replacement. Probability both red?
+ANS: 3/4 x 2/3 = 1/2.
+
+@@ T08.3
+GOAL: When given information, cross out impossible outcomes and recount.
+[INSIGHT]
+V: A grid of outcomes. A card "you are told..." slides in and several cells are crossed out. The remaining cells brighten.
+N: New information changes a probability. When you are told something about the result, cross out every outcome that no longer fits. What is left is your new, smaller world, and you count inside it.
+[WHY]
+V: A fraction with its bottom number changing from the full count to the surviving count.
+N: The usual mistake is to keep the old total on the bottom of the fraction. After information arrives, the total is the number of outcomes that survive.
+[PUZZLE]
+V: One die. Card: "You are told the number rolled is even." Question: "What is the chance it is bigger than 3?"
+N: A fair die is rolled. You are told the result is even. What is the probability that it is greater than three? Pause and cross out what cannot have happened.
+[DEVELOP]
+V: Six faces 1 to 6. Faces 1, 3, 5 are crossed out. Faces 2, 4, 6 remain.
+N: The die shows one to six. "Even" removes one, three and five. Three outcomes survive: two, four and six. They are still equally likely.
+[DEVELOP]
+V: Among 2, 4, 6 the faces 4 and 6 glow. Fraction: two out of three.
+N: Of those three, the numbers greater than three are four and six. So the probability is two out of three. Without the information it would have been three out of six, one half. The information changed the answer.
+[VARIATION]
+V: The 6 by 6 dice grid. Card: "the total is 8". Five cells remain: (2,6), (3,5), (4,4), (5,3), (6,2). The cell (4,4) glows.
+N: Try two dice. You are told the total is eight. Five pairs survive: two and six, three and five, four and four, five and three, six and two. What is the chance that both dice show the same number? Only four and four works: one out of five.
+[VARIATION]
+V: Note card: "equally likely before, equally likely after".
+N: Crossing out works because outcomes that were equally likely before the information are still equally likely afterwards. If the outcomes are not equally likely, you compare their probabilities rather than just counting them.
+[RECAP]
+V: Lines: "Cross out what the information rules out", "Count favourable among the survivors".
+N: Cross out what the information rules out. Then count favourable outcomes among the survivors. Notebook challenge: a die is rolled and you are told the number is greater than two. What is the probability that it is odd?
+TRY: A die is rolled; you are told the number is greater than 2. Probability it is odd?
+ANS: Survivors 3, 4, 5, 6; odd are 3 and 5; 2/4 = 1/2.
+
+@@ T08.E
+GOAL: Worked example: "at least one head" shrinks the comparison group.
+[PUZZLE]
+V: Two coins. Card: "At least one coin shows heads." Question: "What is the chance both are heads?"
+N: Two fair coins are tossed. You are told that at least one of them shows heads. What is the probability that both show heads?
+[DEVELOP]
+V: Grid of four outcomes: HH, HT, TH, TT, each marked one quarter.
+N: Name the coins first and second. There are four equally likely outcomes: head head, head tail, tail head, tail tail.
+[DEVELOP]
+V: TT is crossed out. HH, HT, TH remain and brighten.
+N: "At least one head" rules out tail tail. Three outcomes survive: head head, head tail and tail head. They are still equally likely.
+[DEVELOP]
+V: HH glows among the three. Fraction: one out of three.
+N: Only one of the three survivors has two heads. The probability is one out of three.
+[VARIATION]
+V: New card: "The FIRST coin shows heads." Now only HH and HT remain; HH glows. Fraction: one out of two.
+N: Compare a slightly different piece of information. Suppose you are told the first coin shows heads. Now only head head and head tail survive, and the probability of two heads is one half. The exact wording of the information matters.
+[RECAP]
+V: Line: "the surviving outcomes are the new total". Notebook prompt.
+N: Information removes outcomes, and the survivors become the new total. Rebuild this example, then try: two coins are tossed and you are told they do not show the same face. What is the probability the first coin is heads?
+TRY: Two coins are tossed; you are told they show different faces. Probability the first is heads?
+ANS: Survivors HT, TH; one of two: 1/2.

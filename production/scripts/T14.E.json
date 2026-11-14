@@ -1,0 +1,51 @@
+{
+ "id": "T14.E",
+ "title": "Turn routes and schedules into networks",
+ "chapter": "Turn routes and schedules into networks",
+ "type": "worked_example",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Worked example: schedule only the meetings that are required.",
+ "narration_words": 204,
+ "estimated_minutes": 1.4,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "PUZZLE",
+   "visual": "Five dots A, B, C, D, E with lines AB, AC, AD, BE, CE. Rule card: \"each pupil attends at most one meeting per slot\". Question: \"What is the smallest number of slots?\"",
+   "narration": "Five pupils, A, B, C, D and E, need only these meetings: A with B, A with C, A with D, B with E, and C with E. A pupil can attend at most one meeting in a time slot. What is the smallest number of slots?"
+  },
+  {
+   "n": 2,
+   "stage": "DEVELOP",
+   "visual": "Dot A highlighted with its three lines. Label \"A needs 3 different slots\".",
+   "narration": "Pupil A is in three meetings. Those three cannot share a slot. So at least three slots are needed."
+  },
+  {
+   "n": 3,
+   "stage": "DEVELOP",
+   "visual": "Slot 1 colours A-B and C-E. Slot 2 colours A-C and B-E. Slot 3 colours A-D.",
+   "narration": "Now try to manage with three. Slot one: A meets B, and C meets E. Slot two: A meets C, and B meets E. Slot three: A meets D."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "Each slot checked in turn: no pupil appears twice within a slot. All five lines are coloured.",
+   "narration": "Check each slot. In slot one, the pupils are A, B, C and E, each once. In slot two, the same four, each once. In slot three, only A and D. All five meetings are scheduled with no clashes."
+  },
+  {
+   "n": 5,
+   "stage": "VARIATION",
+   "visual": "Total meetings 5; a tempting \"5 divided by 2 is 2 and a half, so 3\" shown as a second, agreeing limit.",
+   "narration": "A second limit agrees. There are five meetings, and a slot holds at most two of them, since five pupils cannot form three pairs. Five meetings need at least three slots. Both limits say three, and three works."
+  },
+  {
+   "n": 6,
+   "stage": "RECAP",
+   "visual": "Line: \"busiest person gives a limit; then build and check\". Notebook prompt.",
+   "narration": "The busiest person gives a limit. Then build a timetable and check every slot. Rebuild this, then decide how many slots are needed if a sixth meeting, D with E, is added."
+  }
+ ],
+ "notebook_exercise": "Add the meeting DE to the list AB, AC, AD, BE, CE. How many slots are needed now?",
+ "notebook_answer": "Still 3. For example: AB with DE, then AC with BE, then AD with CE."
+}

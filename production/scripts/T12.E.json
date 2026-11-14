@@ -1,0 +1,51 @@
+{
+ "id": "T12.E",
+ "title": "Use angle relationships and exact geometric facts",
+ "chapter": "Use angle relationships and exact geometric facts",
+ "type": "worked_example",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Worked example: the angle outside a triangle.",
+ "narration_words": 207,
+ "estimated_minutes": 1.4,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "PUZZLE",
+   "visual": "Triangle ABC with angle A marked 48 and angle B marked 67. Side BC is extended past C to a point D. The angle ACD has a question mark.",
+   "narration": "Triangle A B C has an angle of forty-eight degrees at A and sixty-seven degrees at B. The side B C is extended beyond C to a point D. Find the angle A C D, the angle outside the triangle."
+  },
+  {
+   "n": 2,
+   "stage": "DEVELOP",
+   "visual": "Inside the triangle the angle at C fills in: 180 minus 48 minus 67 gives 65.",
+   "narration": "First find the angle inside the triangle at C. The three angles total one hundred and eighty. One hundred and eighty minus forty-eight minus sixty-seven is sixty-five degrees."
+  },
+  {
+   "n": 3,
+   "stage": "DEVELOP",
+   "visual": "The line B C D highlighted as straight. Inside angle 65 and outside angle share it. 180 minus 65 gives 115.",
+   "narration": "B, C and D lie on a straight line. The inside angle and the outside angle at C together make one hundred and eighty. So the outside angle is one hundred and eighty minus sixty-five: one hundred and fifteen degrees."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "The angles 48 and 67 lift from A and B and slide into the outside angle, filling it exactly. 48 and 67 make 115.",
+   "narration": "Notice that forty-eight plus sixty-seven is also one hundred and fifteen. That is no accident. The outside angle of a triangle always equals the sum of the two inside angles furthest from it."
+  },
+  {
+   "n": 5,
+   "stage": "VARIATION",
+   "visual": "The top corner A slides sideways, changing angles A and B to 60 and 55. The outside angle stays 115.",
+   "narration": "Check with a different triangle. If the far angles were sixty and fifty-five, the inside angle at C would be sixty-five again, and the outside angle one hundred and fifteen. The shortcut and the long method agree."
+  },
+  {
+   "n": 6,
+   "stage": "RECAP",
+   "visual": "Line: \"outside angle equals the sum of the two far inside angles\". Notebook prompt.",
+   "narration": "The outside angle equals the sum of the two far inside angles. Rebuild this argument, then find the outside angle when the far angles are thirty-five and eighty degrees."
+  }
+ ],
+ "notebook_exercise": "A triangle's two far interior angles are 35 and 80 degrees. Find the exterior angle.",
+ "notebook_answer": "35 + 80 = 115 degrees."
+}

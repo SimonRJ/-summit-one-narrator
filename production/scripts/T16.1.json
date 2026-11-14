@@ -1,0 +1,63 @@
+{
+ "id": "T16.1",
+ "title": "Turn a ratio into equal parts",
+ "chapter": "Keep ratios, rates and averages precise",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Treat a ratio as a number of equal parts, and find the size of one part.",
+ "narration_words": 284,
+ "estimated_minutes": 1.9,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "A bar split into 5 equal blocks: 3 one colour, 2 another. A label under one block: \"one part\".",
+   "narration": "A ratio of three to two means three equal parts of one thing for every two equal parts of another. The numbers three and two are not the amounts. They count parts. Find the size of one part, and everything else follows."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "A recipe card, a map scale and a paint mixture.",
+   "narration": "Ratios run through recipes, maps, mixtures and sharing problems. Nearly all of them are solved by the same step: work out what one part is worth."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "The bar of 3 and 2 parts with a total label of 40. Question: \"How much is each share?\"",
+   "narration": "Forty stickers are shared between Ana and Ben in the ratio three to two. How many does each get? Pause and count the parts."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "Five parts under a bracket of 40. One part fills in as 8. Ana's three parts show 24; Ben's two show 16.",
+   "narration": "There are three plus two parts: five altogether. Forty stickers in five equal parts is eight per part. Ana gets three parts, twenty-four. Ben gets two parts, sixteen."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "New information on the same bar: instead of a total, a bracket shows \"Ana has 9 more than Ben\" spanning the one extra part.",
+   "narration": "The given fact is not always the total. Suppose instead you are told that Ana has nine more than Ben. Ana has one more part than Ben, so one part is nine. Then Ana has twenty-seven and Ben has eighteen."
+  },
+  {
+   "n": 6,
+   "stage": "VARIATION",
+   "visual": "Two ratio bars: A to B as 2 to 3, and B to C as 4 to 5. B's parts are recut so both show 12: A 8, B 12, C 15.",
+   "narration": "To join two ratios, make the shared quantity match. If A to B is two to three, and B to C is four to five, rewrite both so that B is twelve parts. Then A to B to C is eight to twelve to fifteen."
+  },
+  {
+   "n": 7,
+   "stage": "VARIATION",
+   "visual": "A bar of 3 and 2 parts labelled \"3 fifths\" and \"2 fifths\".",
+   "narration": "Ratios and fractions are two views of one picture. In the ratio three to two, the first share is three fifths of the whole, not three halves and not two thirds."
+  },
+  {
+   "n": 8,
+   "stage": "RECAP",
+   "visual": "Lines: \"Count the parts\", \"Use the given fact to find one part\", \"Multiply to get each amount\".",
+   "narration": "Count the parts. Use what you are told, a total, a difference or one share, to find one part. Then multiply. Notebook challenge: red and blue beads are in the ratio five to three, and there are sixteen more red than blue. How many beads are there altogether?"
+  }
+ ],
+ "notebook_exercise": "Red and blue beads are in the ratio 5 : 3, with 16 more red than blue. How many beads altogether?",
+ "notebook_answer": "2 parts = 16, so 1 part = 8; 8 parts = 64 beads."
+}

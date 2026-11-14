@@ -1,0 +1,51 @@
+{
+ "id": "T02.E",
+ "title": "Follow what changes and what stays fixed",
+ "chapter": "Follow what changes and what stays fixed",
+ "type": "worked_example",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Worked example: why one order always wins by the same amount.",
+ "narration_words": 180,
+ "estimated_minutes": 1.2,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "PUZZLE",
+   "visual": "Rule A: add 3, then multiply by 4. Rule B: multiply by 4, then add 3. A covered start box. Question: \"Which output is larger, and by how much?\"",
+   "narration": "Here is a worked example. Start with any whole number. Rule A adds three and then multiplies by four. Rule B multiplies by four and then adds three. Which output is larger, and by how much?"
+  },
+  {
+   "n": 2,
+   "stage": "DEVELOP",
+   "visual": "A bar x with a gold block of 3. Four copies stack: four bars and four gold blocks. Label 4x + 12.",
+   "narration": "Rule A makes four copies of the whole amount x plus three. That is four copies of x and four copies of three: four x plus twelve."
+  },
+  {
+   "n": 3,
+   "stage": "DEVELOP",
+   "visual": "Four copies of bar x, then a single gold block of 3. Label 4x + 3.",
+   "narration": "Rule B makes four copies of x, and then adds only one three: four x plus three."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "The two stacks side by side. Matching bars fade out in pairs. Three gold blocks of 3 remain on Rule A's side. Label: difference 9.",
+   "narration": "Both outputs contain the same four copies of x. Rule A has three extra threes. Three times three is nine. Rule A is always larger by nine."
+  },
+  {
+   "n": 5,
+   "stage": "VARIATION",
+   "visual": "Start box opens to show 0: outputs 12 and 3. Then 10: outputs 52 and 43.",
+   "narration": "Check with numbers. Starting from zero, the outputs are twelve and three. Starting from ten, they are fifty-two and forty-three. The difference is nine both times, exactly as the bars predicted."
+  },
+  {
+   "n": 6,
+   "stage": "RECAP",
+   "visual": "Line: \"extra = (multiplier - 1) x amount added\". Notebook prompt.",
+   "narration": "The amount added gets multiplied in one rule and not in the other. That is the whole difference. Rebuild this argument in your notebook, then predict the gap between \"add two then multiply by six\" and \"multiply by six then add two\"."
+  }
+ ],
+ "notebook_exercise": "Find the gap between \"add 2 then multiply by 6\" and \"multiply by 6 then add 2\".",
+ "notebook_answer": "6x + 12 and 6x + 2; the gap is always 10."
+}

@@ -1,0 +1,63 @@
+{
+ "id": "T02.3",
+ "title": "Compare different orders of the same operations",
+ "chapter": "Follow what changes and what stays fixed",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Compare two orders of the same operations using a general starting value.",
+ "narration_words": 291,
+ "estimated_minutes": 1.9,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "Two machines in a row: \"+5\" then \"x2\". They swap places and the output number changes.",
+   "narration": "Putting on socks then shoes is not the same as shoes then socks. Many maths operations are like that. Changing the order can change the result. Today you will learn how to compare two orders for every starting number at once."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "A table of test values 1, 2, 3 with outputs for both orders; a question mark hangs over \"all numbers?\".",
+   "narration": "You could test a few starting numbers, but tests only tell you about the numbers you tried. Using a letter for the start tells you about all of them, and it shows exactly how big the difference is."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "Order A: add 5, then double. Order B: double, then add 5. Start value shown as a covered box x. Question: \"Which is bigger, and by how much?\"",
+   "narration": "Start with any number. Order A adds five, then doubles. Order B doubles, then adds five. Which order gives the bigger result, and by how much? Pause and try it with a starting number of your own."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "A bar of length x with a block of 5 attached; the whole bar is copied twice. Label: 2x + 10.",
+   "narration": "Call the start x. Order A makes x plus five, then doubles everything, including the five. That gives two x plus ten."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "A bar x copied twice, then a single block of 5 attached. Label: 2x + 5. The two results stack; the shared 2x parts fade, leaving one block of 5.",
+   "narration": "Order B doubles x first, giving two x, and then adds just one five. That gives two x plus five. Both results contain two x. Order A has one extra five. So order A is always bigger by exactly five, whatever number you start with."
+  },
+  {
+   "n": 6,
+   "stage": "VARIATION",
+   "visual": "Same machines with the doubling replaced by \"x(-2)\". Outputs: -2x - 10 and -2x + 5. A small flip arrow shows the comparison reversing.",
+   "narration": "Be careful with negative multipliers. If the second machine multiplies by negative two, order A gives negative two x minus ten, and order B gives negative two x plus five. Now order B is bigger, by fifteen. Multiplying by a negative number reverses which side is larger."
+  },
+  {
+   "n": 7,
+   "stage": "VARIATION",
+   "visual": "Two machines \"+3\" and \"+7\" swap with no change; two machines \"x2\" and \"x5\" swap with no change. A tick on each.",
+   "narration": "Some pairs never care about order. Two additions can be swapped. Two multiplications can be swapped. The interesting cases mix adding with multiplying."
+  },
+  {
+   "n": 8,
+   "stage": "RECAP",
+   "visual": "Lines: \"Use x for the start\", \"Simplify both orders\", \"Subtract to compare\".",
+   "narration": "Use a letter for the start. Write both orders as expressions. Subtract them to see which is larger and by how much. Notebook challenge: compare \"subtract four, then multiply by three\" with \"multiply by three, then subtract four\"."
+  }
+ ],
+ "notebook_exercise": "Compare \"subtract 4 then multiply by 3\" with \"multiply by 3 then subtract 4\".",
+ "notebook_answer": "3(x - 4) = 3x - 12 and 3x - 4; the second is always larger by 8."
+}

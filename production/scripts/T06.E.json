@@ -1,0 +1,51 @@
+{
+ "id": "T06.E",
+ "title": "Count the same structure from two directions",
+ "chapter": "Count the same structure from two directions",
+ "type": "worked_example",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Worked example: find a perimeter by removing edges that were counted twice.",
+ "narration_words": 178,
+ "estimated_minutes": 1.2,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "PUZZLE",
+   "visual": "Four separate unit square tiles. They slide together into a 2 by 2 square. Question: \"What is the outside perimeter?\"",
+   "narration": "Four square tiles, each with side one, are pushed together to make a two by two square. What is the perimeter of the large square? We will find it by counting tile edges."
+  },
+  {
+   "n": 2,
+   "stage": "DEVELOP",
+   "visual": "Each separate tile shows 4 edges. Counter: 4 tiles x 4 edges = 16.",
+   "narration": "Separately, each tile has four edges. Four tiles report sixteen edges altogether."
+  },
+  {
+   "n": 3,
+   "stage": "DEVELOP",
+   "visual": "In the joined square, the four inner edges are drawn as dashed lines: two on the vertical middle line, two on the horizontal.",
+   "narration": "When the tiles are joined, some edges end up inside. There are four inside joins: two along the vertical middle line and two along the horizontal middle line."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "At each join, two reports (one from each neighbouring tile) lift away. Counter: 16 - 8 = 8.",
+   "narration": "Each inside join was reported by both tiles beside it. So remove two reports for each of the four joins. Sixteen minus eight is eight. The perimeter is eight."
+  },
+  {
+   "n": 5,
+   "stage": "VARIATION",
+   "visual": "The outer square with side length 2 marked; 4 x 2 = 8. Then the four tiles rearranged into a 1 by 4 row: 3 joins, 16 - 6 = 10.",
+   "narration": "Check directly: the big square has side two, and four times two is eight. Now rearrange the tiles in a single row. There are only three joins, so the perimeter is sixteen minus six, which is ten. Fewer joins means a longer perimeter."
+  },
+  {
+   "n": 6,
+   "stage": "RECAP",
+   "visual": "Line: \"perimeter = all tile edges minus 2 for each join\". Notebook prompt.",
+   "narration": "The outside perimeter is the total of all tile edges, minus two for every join. Rebuild this argument, then find the perimeter of six unit squares arranged in a two by three rectangle."
+  }
+ ],
+ "notebook_exercise": "Find the perimeter of six unit squares arranged in a 2 by 3 rectangle, using joins.",
+ "notebook_answer": "24 edges, 7 joins: 24 - 14 = 10."
+}

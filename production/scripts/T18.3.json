@@ -1,0 +1,63 @@
+{
+ "id": "T18.3",
+ "title": "Use answer information, then check independently",
+ "chapter": "Choose a strategy, then learn from the decision",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Use multiple-choice options sensibly, and always answer the question that was asked.",
+ "narration_words": 296,
+ "estimated_minutes": 2.0,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "A question with five answer options A to E. Two options fade out after a quick test; three remain.",
+   "narration": "In a multiple-choice question, the options are information. You can test them, or rule some out, without solving the whole problem. But an option that merely looks familiar is not evidence. Every choice still has to be checked against the question."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "A tempting option matching an intermediate result, with a warning mark.",
+   "narration": "Question setters include options that match common mistakes, and options that match a step along the way. Using the options well, and rereading what was asked, protects you from both."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "Question: \"Which of these is a multiple of 4 and of 9?\" Options: A 54, B 64, C 72, D 81, E 90.",
+   "narration": "Which of these numbers is a multiple of both four and nine: fifty-four, sixty-four, seventy-two, eighty-one or ninety? Pause and think about the quickest way to rule options out."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "The odd option 81 fades. Then 54 and 90 fade after halving gives an odd number. 64 and 72 remain.",
+   "narration": "A multiple of four is even, so eighty-one goes. Half of fifty-four is twenty-seven, which is odd, so fifty-four is not a multiple of four. The same happens with ninety. That leaves sixty-four and seventy-two."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "Digit sums: 64 gives 10, 72 gives 9. 72 glows.",
+   "narration": "For nine, add the digits. Sixty-four gives ten, so it is not a multiple of nine. Seventy-two gives nine, so it is. The answer is seventy-two, option C. Two quick tests replaced any long division."
+  },
+  {
+   "n": 6,
+   "stage": "VARIATION",
+   "visual": "A problem: \"A book costs 12 dollars, a pen costs 3 dollars less. What do 2 pens cost?\" Options include 9 and 18. The 9 flashes with \"price of one pen\".",
+   "narration": "Now the other trap. A book costs twelve dollars and a pen costs three dollars less. What do two pens cost? One pen costs nine dollars, and nine is among the options. But the question asks for two pens: eighteen. Always reread the request before choosing."
+  },
+  {
+   "n": 7,
+   "stage": "VARIATION",
+   "visual": "An equation puzzle with options; each option is substituted in turn until one fits.",
+   "narration": "When an equation is hard to solve directly, try the options in it. Substituting is slower than a neat method, but it is reliable, and starting with the middle-sized option tells you whether to go up or down."
+  },
+  {
+   "n": 8,
+   "stage": "RECAP",
+   "visual": "Lines: \"Rule out options with quick tests\", \"Do not pick a number just because it appeared\", \"Reread what was asked\".",
+   "narration": "Rule options out with quick tests. Do not choose a number just because it appeared in your working. Reread what was asked before you answer. Notebook challenge: which of forty-five, sixty, seventy-five and ninety is a multiple of both four and five?"
+  }
+ ],
+ "notebook_exercise": "Which of 45, 60, 75 and 90 is a multiple of both 4 and 5?",
+ "notebook_answer": "60."
+}

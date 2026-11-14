@@ -1,0 +1,63 @@
+{
+ "id": "T18.2",
+ "title": "Manage a complete attempt and an independent check",
+ "chapter": "Choose a strategy, then learn from the decision",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Keep a clear trail while solving, and check with a different method.",
+ "narration_words": 275,
+ "estimated_minutes": 1.8,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "A page of scattered calculations beside a page with three labelled lines: \"known\", \"cases done\", \"next\".",
+   "narration": "Good working leaves a trail. If you write what you have established, which cases you have finished, and what you will do next, you can pause, return, or find a mistake without starting again."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "A clock with time running; a half-finished solution being picked up again smoothly.",
+   "narration": "Under time pressure, people lose marks by repeating work or by trusting an answer they never checked. A clear trail and one independent check prevent both."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "A 5 by 5 grid of unit squares with its border squares shaded. Question: \"How many squares are on the border?\"",
+   "narration": "A five by five grid of small squares has all the squares along its border shaded. How many squares are shaded? Pause and find the answer in one way, then in a second, different way."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "Method one: the whole 5 by 5 grid (25) with the inner 3 by 3 block (9) lifted out. 25 minus 9 gives 16.",
+   "narration": "First method: take away the inside. The whole grid has twenty-five squares. The unshaded inner block is three by three: nine squares. Twenty-five minus nine is sixteen."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "Method two: four strips of 4 squares each, arranged pinwheel-fashion round the border so that they do not overlap. 4 times 4 gives 16.",
+   "narration": "Second method: split the border into four strips of four squares, each strip starting at a corner and stopping one short of the next. Four times four is sixteen. The two methods agree."
+  },
+  {
+   "n": 6,
+   "stage": "VARIATION",
+   "visual": "A tempting wrong method: four sides of 5 gives 20, with each corner square flashing as counted twice. 20 minus 4 gives 16.",
+   "narration": "A common error is to say four sides of five squares: twenty. That counts each corner twice. Subtract the four corners and you get sixteen again. A second method is valuable precisely because it would have caught that mistake."
+  },
+  {
+   "n": 7,
+   "stage": "VARIATION",
+   "visual": "A working page with the three labelled lines filled in for a longer problem; one case ticked, one marked \"to do\".",
+   "narration": "For longer problems, label your cases as you go, and tick each one when it is finished. If you must leave a problem, write one line saying what to do next. Your future self will thank you."
+  },
+  {
+   "n": 8,
+   "stage": "RECAP",
+   "visual": "Lines: \"Write what is known and what is next\", \"Tick off finished cases\", \"Check with a different method\".",
+   "narration": "Record what you know and what comes next. Tick off finished cases. Then check the answer by a method that could not make the same mistake. Notebook challenge: find the number of border squares of a seven by seven grid in two different ways."
+  }
+ ],
+ "notebook_exercise": "Find the number of border squares of a 7 by 7 grid in two different ways.",
+ "notebook_answer": "49 - 25 = 24, and 4 strips of 6 = 24."
+}

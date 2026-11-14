@@ -1,0 +1,63 @@
+{
+ "id": "T13.2",
+ "title": "Separate boundary change from scale change",
+ "chapter": "Measure the region or solid that matters",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Tell apart changes to a boundary and changes of scale.",
+ "narration_words": 300,
+ "estimated_minutes": 2.0,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "A rectangle. A square bite is taken from a corner: the outline's length does not change. Then a bite from the middle of a side: the outline gets longer.",
+   "narration": "Cutting a piece out of a shape always reduces its area. But the perimeter might stay the same, or even grow. Area and perimeter respond to changes in completely different ways."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "Two shapes with equal area and very different perimeters side by side.",
+   "narration": "Questions often ask about perimeter after a cut, or area after an enlargement. Each needs its own reasoning, and mixing them up is a common mistake."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "A 5 by 3 rectangle with a 1 by 1 square removed from a corner. Question: \"What is the new perimeter?\"",
+   "narration": "A five by three rectangle has a one by one square cut from a corner. What is its perimeter now? Pause and compare the old boundary with the new."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "The original outline: perimeter 16. At the cut corner, two outer segments of length 1 are removed and two inner segments of length 1 appear; the inner segments slide outward to sit where the old ones were.",
+   "narration": "The original perimeter is sixteen. The cut removes two short pieces of boundary, each of length one. But it exposes two new pieces, also each of length one. The perimeter is still sixteen. The new edges can be slid out to replace the old ones exactly."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "A fresh 5 by 3 rectangle with a 1 by 1 notch cut from the middle of a long side. One segment of length 1 is removed; three segments of length 1 appear. Perimeter 18.",
+   "narration": "Now cut the same square from the middle of a side instead. One piece of length one is removed, but three new pieces appear. The perimeter rises by two, to eighteen. Same area removed, different effect on the boundary."
+  },
+  {
+   "n": 6,
+   "stage": "VARIATION",
+   "visual": "A 2 by 3 rectangle beside a copy with every length doubled: 4 by 6. Perimeters 10 and 20. The large one is tiled by four copies of the small one: areas 6 and 24.",
+   "narration": "Scaling is a different kind of change. Double every length of a two by three rectangle and you get four by six. The perimeter doubles, from ten to twenty. But the area becomes four times as big, from six to twenty-four, because both the length and the width were doubled."
+  },
+  {
+   "n": 7,
+   "stage": "VARIATION",
+   "visual": "A unit cube beside a cube of side 2 made from 8 unit cubes; then a cube of side 3 made from 27.",
+   "narration": "For solids, three directions are scaled. Doubling every length of a cube makes its volume eight times as large. Tripling makes it twenty-seven times as large."
+  },
+  {
+   "n": 8,
+   "stage": "RECAP",
+   "visual": "Lines: \"Cuts: compare removed and new boundary\", \"Scale by k: lengths times k, areas times k squared, volumes times k cubed\".",
+   "narration": "For a cut, compare the boundary removed with the boundary created. For scaling by a factor, lengths multiply by the factor, areas by its square, and volumes by its cube. Notebook challenge: a photograph is enlarged so that every length is three times as long. How many times as large is its area?"
+  }
+ ],
+ "notebook_exercise": "Every length of a photograph is tripled. How many times as large is its area?",
+ "notebook_answer": "3 x 3 = 9 times."
+}

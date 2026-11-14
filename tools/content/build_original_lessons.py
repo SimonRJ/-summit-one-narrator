@@ -7,6 +7,7 @@ import json, math, itertools, sys
 from pathlib import Path
 from fractions import Fraction
 from curated_revisits import curate
+from curated_batch2 import curate2
 C=math.comb
 
 def ordinal(n):
@@ -278,6 +279,7 @@ def build(mapping,out):
             q=(capstone(s['slot']) if role=='transfer' else None) or family(k,nn,role)
             if not (role=='transfer' and capstone(s['slot'])):
                 q=curate(k,role,counts[k],q)
+                q=curate2(k,role,counts[k],q)
             if k=='FRAC-01' and role=='transfer':q['check']='Send half of the original count, then one third of the remainder; all counts are whole numbers and the final remainder agrees.'
             if k=='ALG-05' and role=='try':q['check']='Subtract the transfer from the first count and add it to the second; check the stated final gap.'
             pid=f'O{s["slot"]:03}{"T" if role=="try" else "X"}'

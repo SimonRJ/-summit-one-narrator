@@ -1,0 +1,51 @@
+{
+ "id": "T18.E",
+ "title": "Choose a strategy, then learn from the decision",
+ "chapter": "Choose a strategy, then learn from the decision",
+ "type": "worked_example",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Worked example: organise a count, then check it a second way.",
+ "narration_words": 195,
+ "estimated_minutes": 1.3,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "PUZZLE",
+   "visual": "Number cards 1 to 6. Text: \"Choose two different numbers. Order does not matter.\" Question: \"How many choices have a sum of at least 9?\"",
+   "narration": "Choose two different numbers from one, two, three, four, five and six. The order does not matter. How many choices have a sum of at least nine?"
+  },
+  {
+   "n": 2,
+   "stage": "DEVELOP",
+   "visual": "A rule card: \"call the larger number b\". Columns for b equal to 6, 5, 4.",
+   "narration": "To avoid counting any pair twice, always name the larger number first. Then organise the count by the larger number."
+  },
+  {
+   "n": 3,
+   "stage": "DEVELOP",
+   "visual": "Under b equal to 6: partners 3, 4, 5 (sums 9, 10, 11). Under b equal to 5: partner 4 (sum 9). Under b equal to 4: no partner is large enough.",
+   "narration": "If the larger number is six, the smaller must be at least three: three, four or five. That is three pairs. If the larger number is five, the smaller must be four: one pair. If the larger is four, the best sum is four plus three, which is only seven. No pairs."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "Total: 3 and 1 make 4. The four pairs listed: 3 and 6, 4 and 6, 5 and 6, 4 and 5.",
+   "narration": "Three plus one is four. The pairs are three and six, four and six, five and six, and four and five."
+  },
+  {
+   "n": 5,
+   "stage": "VARIATION",
+   "visual": "A second count by sum: sum 9 from two pairs (3 and 6, 4 and 5); sum 10 from one (4 and 6); sum 11 from one (5 and 6). Total 4.",
+   "narration": "Check a different way, by the sum. Nine comes from three and six, or four and five. Ten comes from four and six. Eleven comes from five and six. Two plus one plus one is four. Notice that \"at least nine\" includes nine itself."
+  },
+  {
+   "n": 6,
+   "stage": "RECAP",
+   "visual": "Line: \"fix an order, sort into cases, check another way\". Notebook prompt.",
+   "narration": "Fix an order so nothing is counted twice, sort into cases, then check another way. Rebuild this, then count the pairs from one to six whose sum is at most five."
+  }
+ ],
+ "notebook_exercise": "How many pairs of different numbers from 1 to 6 have a sum of at most 5?",
+ "notebook_answer": "1+2, 1+3, 1+4, 2+3: 4 pairs."
+}

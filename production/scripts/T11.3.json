@@ -1,0 +1,63 @@
+{
+ "id": "T11.3",
+ "title": "Organise counts, inventories and next-number",
+ "chapter": "Make every digit obey both its jobs",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Count digits place by place, and know whether you are counting numbers or occurrences.",
+ "narration_words": 254,
+ "estimated_minutes": 1.7,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "A strip of numbers 1 to 30. All the 2s light up, including both digits of 22.",
+   "narration": "\"How many numbers contain a two?\" and \"How many twos are written?\" are different questions. Twenty-two is one number, but it contains two twos. Decide which you are counting, then count one place at a time."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "A messy tally with a repeated number counted wrongly; beside it two neat columns \"units place\" and \"tens place\".",
+   "narration": "Counting straight through a long list is slow and error-prone. Counting each place separately is quick, and repeated digits take care of themselves."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "Numbers 1 to 100 in a ten by ten grid. Question: \"How many times is the digit 7 written?\"",
+   "narration": "All the whole numbers from one to one hundred are written out. How many times is the digit seven written? Pause and think about the units place first."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "The column 7, 17, 27, up to 97 lights up: ten cells. Label \"units place: 10\".",
+   "narration": "In the units place, seven appears once in every ten numbers: seven, seventeen, twenty-seven, up to ninety-seven. That is ten times."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "The row 70 to 79 lights up: ten cells. Label \"tens place: 10\". The cell 77 glows in both colours. Total 20.",
+   "narration": "In the tens place, seven appears in seventy to seventy-nine: ten times. Altogether the digit seven is written twenty times. Seventy-seven was counted once in each place, which is correct, because it has two sevens."
+  },
+  {
+   "n": 6,
+   "stage": "VARIATION",
+   "visual": "Same grid; the lit cells are counted as cells: 19. Label \"numbers containing a 7\".",
+   "narration": "Now the other question: how many numbers contain a seven? The column has ten numbers and the row has ten, but seventy-seven is in both. Ten plus ten minus one is nineteen."
+  },
+  {
+   "n": 7,
+   "stage": "VARIATION",
+   "visual": "Page numbers 1 to 9 use 9 digits; 10 to 99 use 180 digits; a counter totals 189.",
+   "narration": "A related skill is counting all the digits. Numbering pages one to ninety-nine uses nine digits for the single-digit pages, and two digits each for the ninety pages from ten to ninety-nine. That is nine plus one hundred and eighty: one hundred and eighty-nine digits."
+  },
+  {
+   "n": 8,
+   "stage": "RECAP",
+   "visual": "Lines: \"Numbers or occurrences?\", \"Count each place separately\", \"For numbers, do not double count overlaps\".",
+   "narration": "Decide whether you are counting numbers or occurrences. Count each place separately. For numbers, remove any overlap. Notebook challenge: how many times is the digit three written in the numbers from one to fifty?"
+  }
+ ],
+ "notebook_exercise": "How many times is the digit 3 written in the numbers from 1 to 50?",
+ "notebook_answer": "Units: 3, 13, 23, 33, 43 (5 times); tens: 30 to 39 (10 times); total 15."
+}

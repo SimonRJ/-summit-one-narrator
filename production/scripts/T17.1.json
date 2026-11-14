@@ -1,0 +1,63 @@
+{
+ "id": "T17.1",
+ "title": "Match the strength of the proof to the claim",
+ "chapter": "Write proofs that leave no hidden cases",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Match the kind of evidence to the kind of claim.",
+ "narration_words": 295,
+ "estimated_minutes": 2.0,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "Three claim cards: \"it can happen\", \"it always happens\", \"it never happens\". Under the first, a single example; under the others, a question mark.",
+   "narration": "Different claims need different amounts of evidence. To show something can happen, one example is enough. To show something always happens, or never happens, examples are not enough, however many you collect. You need a reason that covers every case."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "A pattern of ticks ending in a single cross far along the row.",
+   "narration": "Patterns can hold for a long time and then break. Knowing what a claim actually requires stops you from trusting a pattern too far, and tells you when your solution is really complete."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "Claim card: \"The sum of two odd numbers is always even.\" Examples 3 and 5, 7 and 9, 11 and 1 beneath, each with a tick. Question: \"Is that a proof?\"",
+   "narration": "Here is a claim: the sum of two odd numbers is always even. Three and five make eight. Seven and nine make sixteen. Eleven and one make twelve. Is that a proof? Pause and decide."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "The examples dim. An odd number is drawn as pairs of counters with one left over. Two such numbers are placed side by side.",
+   "narration": "Three examples are not a proof, because there are endlessly many odd numbers. Here is a reason instead. Any odd number is a collection of pairs with one left over."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "The two leftover counters slide together to make a new pair. Everything is now in pairs.",
+   "narration": "Put two odd numbers together. Their two leftover counters make one more pair. Now everything is in pairs, so the total is even. This works for every pair of odd numbers at once."
+  },
+  {
+   "n": 6,
+   "stage": "VARIATION",
+   "visual": "Claim card: \"All odd numbers greater than 1 are prime.\" 3, 5, 7 ticked; 9 shown as 3 by 3 with a cross.",
+   "narration": "To show a claim is false, one example that breaks it is enough. Someone claims that every odd number bigger than one is prime. Three, five and seven fit. But nine is three times three. One counterexample and the claim is finished."
+  },
+  {
+   "n": 7,
+   "stage": "VARIATION",
+   "visual": "Two cards: \"necessary\" with \"a multiple of 6 must be even\", and \"not sufficient\" with \"14 is even but not a multiple of 6\".",
+   "narration": "One more distinction. A condition can be needed without being enough. Every multiple of six is even, so being even is needed. But fourteen is even and is not a multiple of six, so being even is not enough."
+  },
+  {
+   "n": 8,
+   "stage": "RECAP",
+   "visual": "Lines: \"Can happen: one example\", \"Always or never: a reason for every case\", \"False: one counterexample\".",
+   "narration": "One example shows something can happen. A reason covering every case shows it always does. One counterexample shows a claim is false. Notebook challenge: is it true that the sum of three odd numbers is always odd? Give a reason, not just examples."
+  }
+ ],
+ "notebook_exercise": "Is the sum of three odd numbers always odd? Give a reason.",
+ "notebook_answer": "Yes: two of the three leftover ones make a pair, leaving exactly one leftover, so the total is odd."
+}

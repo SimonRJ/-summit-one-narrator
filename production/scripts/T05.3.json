@@ -1,0 +1,63 @@
+{
+ "id": "T05.3",
+ "title": "Prove that the classification is reversible",
+ "chapter": "Count outcomes once, using complete cases",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Check a counting method by giving every outcome exactly one address.",
+ "narration_words": 313,
+ "estimated_minutes": 2.1,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "A wall of pigeonhole letterboxes. Each outcome card flies to exactly one box; no box gets two cards, no card is left over.",
+   "narration": "A counting method is correct when every outcome has exactly one address. From the outcome you can tell which choices made it, and every set of choices makes a real outcome. If both are true, nothing is missed and nothing is counted twice."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "Two outcome cards arriving at the same box, flashing; then a card with no box.",
+   "narration": "Double counting and missed cases are invisible if you only look at the final number. Checking the addresses is the way to trust a count without redoing it."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "Five seats in a row. Counters: three girls G and two boys B. Rule text: \"the two boys must not sit next to each other\".",
+   "narration": "Three girls and two boys sit in a row of five seats. The two boys must not sit next to each other. In how many ways can they be seated? Pause and look for a way to build every legal row exactly once."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "The three girls are placed first in a row with four gaps marked: before, between, between, after. Count 3 x 2 x 1 = 6.",
+   "narration": "Seat the girls first. Three girls can be arranged in six orders. Around them are four gaps: one at each end and two between."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "The two boys drop into two different gaps: first boy 4 choices, second boy 3 choices. Total 6 x 12 = 72.",
+   "narration": "Put each boy into a different gap. The first boy has four gaps to choose from, and the second has three. That is twelve ways, so there are six times twelve, seventy-two seatings."
+  },
+  {
+   "n": 6,
+   "stage": "DEVELOP",
+   "visual": "A finished row, for example G B G G B, is run backwards: remove the boys, read the girls' order, read which gaps were used.",
+   "narration": "Now check the addresses. Take any legal row. Remove the boys and you see the girls' order. Look where the boys were and you see which gaps they used. So each legal row comes from exactly one set of choices. The count is complete and has no repeats."
+  },
+  {
+   "n": 7,
+   "stage": "VARIATION",
+   "visual": "All 120 arrangements, with 48 \"boys together\" arrangements shaded: a glued BB block gives 4 x 3 x 2 x 1 = 24, times 2.",
+   "narration": "A second method confirms it. Five people can sit in one hundred and twenty ways. Glue the boys together as one block: four objects in twenty-four orders, times two for the boys swapping. That is forty-eight unwanted rows. One hundred and twenty minus forty-eight is seventy-two."
+  },
+  {
+   "n": 8,
+   "stage": "RECAP",
+   "visual": "Lines: \"Can I rebuild the choices from the outcome?\", \"Does every choice give a legal outcome?\".",
+   "narration": "Ask two questions of any counting method. Can I recover the choices from the outcome? And does every choice give a legal outcome? Notebook challenge: in how many ways can four different books stand on a shelf if two particular books must not be next to each other?"
+  }
+ ],
+ "notebook_exercise": "Four different books on a shelf; two particular books must not be adjacent. How many arrangements?",
+ "notebook_answer": "24 total minus 12 with them together = 12."
+}

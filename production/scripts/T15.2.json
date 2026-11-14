@@ -1,0 +1,63 @@
+{
+ "id": "T15.2",
+ "title": "Do not divide by a symmetry count blindly",
+ "chapter": "Use symmetry without losing or repeating cases",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Know when dividing by the number of rotations works, and when it fails.",
+ "narration_words": 318,
+ "estimated_minutes": 2.1,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "Three marked squares each turned through four positions. The first looks the same every time (1 appearance), the second shows 2 appearances, the third shows 4.",
+   "narration": "Turn a square four times and you might expect four different pictures. But a pattern with its own symmetry repeats sooner. A completely symmetrical pattern looks the same after every turn. So you cannot always divide by four."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "A calculation \"16 divided by 4 is 4\" with a warning mark; the true answer 6 beside it.",
+   "narration": "Dividing a total by the number of turns is tempting and often wrong. It only works when every pattern has been counted the same number of times."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "A 2 by 2 square. Each small square is black or white. Text: \"16 colourings when fixed on the page.\" Question: \"How many when the square is free to turn?\"",
+   "narration": "Each of the four small squares in a two by two tile is black or white. Fixed on the page there are sixteen colourings. How many different tiles are there if the tile is free to turn? Pause, and resist dividing sixteen by four."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "The sixteen colourings laid out, then sorted by number of black squares: 0 black (1), 1 black (4), 2 black (6), 3 black (4), 4 black (1).",
+   "narration": "Sort the sixteen by how many squares are black. None black: one colouring. One black: four. Two black: six. Three black: four. All black: one."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "Each group collapses under turning: 1 becomes 1 tile; the 4 become 1 tile; the 6 become 2 tiles (4 side-by-side, 2 diagonal); the 4 become 1; the 1 becomes 1. Total 6.",
+   "narration": "Now turn them. No black is one tile. The four with one black square are all the same tile. The six with two black squares make two tiles: four are side by side, and two are diagonal. Three black gives one tile, and all black gives one. That is six tiles altogether."
+  },
+  {
+   "n": 6,
+   "stage": "DEVELOP",
+   "visual": "Group sizes displayed: 1, 4, 4, 2, 4, 1 adding to 16. The sizes 1 and 2 are highlighted.",
+   "narration": "Look at the group sizes: one, four, four, two, four and one. They are not all four. The symmetrical tiles were counted fewer times, which is exactly why sixteen divided by four gives the wrong answer."
+  },
+  {
+   "n": 7,
+   "stage": "VARIATION",
+   "visual": "Five different beads threaded on a ring: 120 line orders collapse in groups of exactly 5 under turning. 120 divided by 5 gives 24.",
+   "narration": "When does dividing work? When no arrangement has any symmetry of its own. Seat five different people round a table. There are one hundred and twenty orders in a line, and every circular seating appears in exactly five of them. One hundred and twenty divided by five is twenty-four."
+  },
+  {
+   "n": 8,
+   "stage": "RECAP",
+   "visual": "Lines: \"Divide only if every case is repeated equally\", \"Otherwise sort into groups and count the groups\".",
+   "narration": "Divide only when every arrangement is repeated the same number of times. Otherwise, sort the arrangements into groups and count the groups. Notebook challenge: in how many ways can four different people sit round a circular table, if turning the whole table does not count as different?"
+  }
+ ],
+ "notebook_exercise": "In how many ways can 4 different people sit round a circular table, if rotations count as the same?",
+ "notebook_answer": "24 / 4 = 6."
+}

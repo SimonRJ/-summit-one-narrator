@@ -1,0 +1,63 @@
+{
+ "id": "T16.2",
+ "title": "Convert time descriptions into rates",
+ "chapter": "Keep ratios, rates and averages precise",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Turn \"takes so long\" into \"does so much each minute\", and add rates.",
+ "narration_words": 306,
+ "estimated_minutes": 2.0,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "A tank filling from one tap, with marks showing the fraction filled each minute.",
+   "narration": "If a tap fills a tank in ten minutes, then each minute it fills one tenth of the tank. Turning a time into an amount per minute is the key move. Amounts per minute can be added together. Times cannot."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "A tempting \"6 and 3 make 9 minutes?\" crossed lightly; \"must be less than 3\" beside it.",
+   "narration": "When two taps run together, the job gets faster, not slower. Adding the times, or averaging them, gives nonsense. Adding the rates gives the right answer every time."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "Two taps over one tank. Labels: \"alone: 6 minutes\", \"alone: 3 minutes\". Question: \"How long together?\"",
+   "narration": "One tap fills a tank in six minutes. Another fills it in three minutes. How long do they take together? Pause and work out what each tap does in one minute."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "The tank drawn with 6 equal slices. In one minute the first tap fills 1 slice; the second fills 2 slices. Together 3 slices per minute.",
+   "narration": "Picture the tank in six equal slices. In one minute, the slow tap fills one slice. The fast tap fills the whole tank in three minutes, so it fills two slices a minute. Together they fill three slices a minute."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "Six slices fill in two steps of three. Label \"2 minutes\".",
+   "narration": "Six slices at three slices a minute takes two minutes. Together the taps take two minutes, which is less than either alone, as it should be."
+  },
+  {
+   "n": 6,
+   "stage": "VARIATION",
+   "visual": "A tank with a tap filling 3 slices a minute and a drain removing 1 slice a minute, on a 12-slice tank. Net 2 per minute: 6 minutes.",
+   "narration": "Rates can also work against each other. A tap fills a tank in four minutes, while a leak would empty it in twelve. In a tank of twelve slices, the tap adds three slices a minute and the leak removes one. The net gain is two slices a minute, so the tank fills in six minutes."
+  },
+  {
+   "n": 7,
+   "stage": "VARIATION",
+   "visual": "Two figures walking towards each other along a 100 metre line, one at 6 metres a second and one at 4. The gap closes at 10 a second.",
+   "narration": "Moving objects follow the same rule. Two runners start one hundred metres apart and run towards each other, at six metres per second and four metres per second. The gap closes at ten metres per second. They meet after ten seconds."
+  },
+  {
+   "n": 8,
+   "stage": "RECAP",
+   "visual": "Lines: \"Time for the job gives amount per minute\", \"Add rates that help; subtract rates that hinder\", \"Total job divided by the combined rate\".",
+   "narration": "Convert each time to an amount per minute. Add rates that help and subtract rates that hinder. Divide the job by the combined rate. Notebook challenge: one painter paints a fence in four hours, another in twelve hours. How long do they take together?"
+  }
+ ],
+ "notebook_exercise": "One painter takes 4 hours, another 12 hours. How long together?",
+ "notebook_answer": "3/12 + 1/12 = 4/12 per hour, so 3 hours."
+}

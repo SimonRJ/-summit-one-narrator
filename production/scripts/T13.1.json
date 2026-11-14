@@ -1,0 +1,63 @@
+{
+ "id": "T13.1",
+ "title": "Use bases, heights and complementary regions",
+ "chapter": "Measure the region or solid that matters",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Find areas using a base with its perpendicular height, and by subtracting simpler regions.",
+ "narration_words": 320,
+ "estimated_minutes": 2.1,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "A triangle. A second identical copy rotates and joins it to make a parallelogram, which then shears into a rectangle of the same base and height.",
+   "narration": "Two identical triangles fit together to make a parallelogram, and a parallelogram has the same area as a rectangle with the same base and height. So a triangle's area is half its base times its height. The height must be measured straight up from the base, at a right angle."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "A triangle with its slanted side highlighted and crossed, then the perpendicular height highlighted and ticked.",
+   "narration": "The most common error is using a slanted side as the height. The second most common is trying to measure an awkward shape directly, when it would be far easier to subtract simple shapes from a rectangle."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "A base of length 8. Three triangles on that base with top corners at different points along a line parallel to the base, 5 above it. Question: \"Which triangle has the largest area?\"",
+   "narration": "Three triangles share a base of eight centimetres. Their top corners lie at different places along a line parallel to the base, five centimetres above it. Which triangle has the largest area? Pause and think about the height of each."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "A perpendicular height of 5 is drawn for each triangle, one falling outside the leaning triangle. Each area reads 20.",
+   "narration": "Every one of them has height five, because the top corners are all five centimetres above the base. Half of eight times five is twenty. All three have the same area: twenty square centimetres. Sliding the top corner along a parallel line changes the shape, but not the area."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "A 6 by 4 rectangle with a slanted triangle inside whose corners are on the rectangle's sides at awkward positions: corners at bottom-left, at a point on the right side 3 up, and at a point on the top 2 from the left. Three right-angled triangles fill the space outside it.",
+   "narration": "Now an awkward triangle inside a six by four rectangle. Its sides are all slanted. Do not attack it directly. The rectangle has area twenty-four. Around the triangle are three right-angled triangles, with areas nine, four and two."
+  },
+  {
+   "n": 6,
+   "stage": "DEVELOP",
+   "visual": "The three outer triangles lift away with their areas: 9, 4, 2. Remaining area 24 minus 15 gives 9.",
+   "narration": "Those three take up fifteen. Twenty-four minus fifteen leaves nine. The awkward triangle has area nine square centimetres. Subtracting the surroundings is called using the complement."
+  },
+  {
+   "n": 7,
+   "stage": "VARIATION",
+   "visual": "A rectangle with one diagonal. The two halves are identical. Then a point anywhere on the top side joined to the two bottom corners: the triangle is still half the rectangle.",
+   "narration": "One more useful fact. Join any point on the top edge of a rectangle to both bottom corners. The triangle has the rectangle's base and the rectangle's height, so it is always exactly half the rectangle, wherever the point is."
+  },
+  {
+   "n": 8,
+   "stage": "RECAP",
+   "visual": "Lines: \"Half base times perpendicular height\", \"Same base and height: same area\", \"Awkward shape: subtract from a rectangle\".",
+   "narration": "Half base times perpendicular height. Triangles with the same base and height have the same area. For awkward shapes, subtract from a rectangle. Notebook challenge: a triangle has base ten centimetres and area thirty-five square centimetres. What is its height?"
+  }
+ ],
+ "notebook_exercise": "A triangle has base 10 cm and area 35 square cm. Find its height.",
+ "notebook_answer": "Half of 10 times height is 35, so the height is 7 cm."
+}

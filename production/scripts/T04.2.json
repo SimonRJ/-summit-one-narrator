@@ -1,0 +1,57 @@
+{
+ "id": "T04.2",
+ "title": "Count divisors by making independent choices",
+ "chapter": "Use prime factors as the building blocks",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Count the factors of a number by choosing how many of each prime to use.",
+ "narration_words": 257,
+ "estimated_minutes": 1.7,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "The number 12 with its six factors 1, 2, 3, 4, 6, 12 appearing in a ring.",
+   "narration": "Twelve has six factors: one, two, three, four, six and twelve. For small numbers you can list them. For large numbers you need a method that counts them without listing. That method comes from prime factors."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "The number 360 with a long list of factors scrolling past; a counter ticks up to 24.",
+   "narration": "Three hundred and sixty has twenty-four factors. Listing them is slow and it is easy to miss one. Counting choices is fast and cannot miss."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "12 = 2 x 2 x 3 as tiles. A grid with columns \"use zero 2s, one 2, two 2s\" and rows \"use zero 3s, one 3\". Empty cells. Question: \"What goes in each cell?\"",
+   "narration": "Twelve is two times two times three. A factor of twelve is made from some of those tiles. Pause and work out how many different selections are possible."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "The grid fills: top row 1, 2, 4; bottom row 3, 6, 12. Each cell shows the tiles used.",
+   "narration": "For the twos, you may use none, one or two of them: three choices. For the three, you may use it or not: two choices. Three times two is six selections, and each makes a different factor. Using no tiles at all gives the factor one. Using them all gives twelve itself."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "72 = 2 x 2 x 2 x 3 x 3. Choice counters: \"2s: 0 to 3, four choices\", \"3s: 0 to 2, three choices\". Result 4 x 3 = 12.",
+   "narration": "Try seventy-two. It is two cubed times three squared. There are four choices for how many twos, from zero to three, and three choices for how many threes. Four times three is twelve factors. The rule is: add one to each power, then multiply."
+  },
+  {
+   "n": 6,
+   "stage": "VARIATION",
+   "visual": "Factors of 36 pair up: 1 with 36, 2 with 18, 3 with 12, 4 with 9, and 6 alone in the centre.",
+   "narration": "Here is a neat consequence. Factors come in pairs that multiply to the number. For thirty-six: one and thirty-six, two and eighteen, three and twelve, four and nine. But six pairs with itself. That lonely middle factor only happens for square numbers. So square numbers are exactly the numbers with an odd number of factors."
+  },
+  {
+   "n": 7,
+   "stage": "RECAP",
+   "visual": "Lines: \"Factorise into primes\", \"Add 1 to each power\", \"Multiply\".",
+   "narration": "Factorise, add one to each power, and multiply. Notebook challenge: how many factors does two hundred have?"
+  }
+ ],
+ "notebook_exercise": "How many factors does 200 have?",
+ "notebook_answer": "200 = 2^3 x 5^2, so (3 + 1)(2 + 1) = 12 factors."
+}

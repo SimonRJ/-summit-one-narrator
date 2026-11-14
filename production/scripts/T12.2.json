@@ -1,0 +1,63 @@
+{
+ "id": "T12.2",
+ "title": "Connect angles on a circle to the arcs they see",
+ "chapter": "Use angle relationships and exact geometric facts",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Use equal spacing on a circle, and the link between an angle at the centre and one on the circle.",
+ "narration_words": 329,
+ "estimated_minutes": 2.2,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "A circle with 12 equally spaced points like a clock face. Spokes from the centre show 12 equal angles of 30 degrees.",
+   "narration": "Put twelve points equally spaced round a circle, like the hours on a clock. From the centre, the full turn of three hundred and sixty degrees is shared into twelve equal angles of thirty degrees. Counting gaps between points tells you an angle at the centre."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "Clock hands, a wheel with spokes, a regular polygon inside a circle.",
+   "narration": "Clock problems, wheels and regular shapes all use this idea. And there is a second fact, about angles drawn from a point on the circle itself, that unlocks many harder problems."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "The clock circle. Points at 12 and 4 are joined to the centre. Question: \"What is the angle at the centre?\"",
+   "narration": "On the clock circle, join the centre to the point at twelve and to the point at four. What angle is made at the centre? Pause and count carefully."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "The four gaps from 12 to 4 light up one by one. 4 times 30 gives 120. A faint \"5 points\" label appears and is crossed.",
+   "narration": "From twelve to four there are four gaps. Four times thirty is one hundred and twenty degrees. Count the gaps, not the points. There are five points from twelve to four, but only four gaps."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "A new point at 8 on the far side of the circle. Lines from 8 to 12 and from 8 to 4 form an angle at the edge. The centre angle 120 and the edge angle sit over the same arc. Edge angle labelled 60.",
+   "narration": "Now stand at a point on the circle instead, at eight, and look at the same arc from twelve to four. The angle you see is exactly half the angle at the centre: sixty degrees. An angle on the circle is half the angle at the centre standing on the same arc."
+  },
+  {
+   "n": 6,
+   "stage": "DEVELOP",
+   "visual": "The radius from the centre to 8 is drawn, splitting the picture into two isosceles triangles with equal radii ticked. Base angles are marked equal.",
+   "narration": "Why half? Draw the radius to your viewing point. It makes two triangles, each with two equal sides, because all radii are equal. Their equal angles, added up, show that the centre angle is twice the angle at the edge."
+  },
+  {
+   "n": 7,
+   "stage": "VARIATION",
+   "visual": "The arc is a semicircle from 12 to 6: centre angle 180. A point at 3 sees it with angle 90.",
+   "narration": "A special case is worth remembering. If the arc is exactly half the circle, the angle at the centre is one hundred and eighty, so the angle on the circle is ninety. Any triangle drawn with a diameter as one side, and its third corner on the circle, has a right angle."
+  },
+  {
+   "n": 8,
+   "stage": "RECAP",
+   "visual": "Lines: \"Equal spacing: 360 shared equally\", \"Count gaps, not points\", \"Angle on the circle is half the angle at the centre\".",
+   "narration": "Share three hundred and sixty among the gaps. Count gaps, not points. The angle on the circle is half the angle at the centre. Notebook challenge: on the clock circle, what is the angle at the centre between the points at two and seven?"
+  }
+ ],
+ "notebook_exercise": "On a clock circle, what is the angle at the centre between the points at 2 and 7?",
+ "notebook_answer": "5 gaps x 30 = 150 degrees."
+}

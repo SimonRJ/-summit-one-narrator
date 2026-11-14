@@ -1,0 +1,63 @@
+{
+ "id": "T08.2",
+ "title": "Track how one choice changes the next",
+ "chapter": "Let the experiment determine the probability",
+ "type": "concept",
+ "status": "script_ready_not_recorded",
+ "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "goal": "Follow a probability tree when the first choice changes the second.",
+ "narration_words": 271,
+ "estimated_minutes": 1.8,
+ "scenes": [
+  {
+   "n": 1,
+   "stage": "INSIGHT",
+   "visual": "A bag of 2 red and 2 blue counters. One counter is drawn and set aside; the bag visibly has 3 left.",
+   "narration": "When you take something out and do not put it back, the situation changes. The second draw is from a different bag. To keep track, follow each possible route step by step."
+  },
+  {
+   "n": 2,
+   "stage": "WHY",
+   "visual": "A wrong calculation \"one half times one half\" greyed, beside an updating bag.",
+   "narration": "Using the original bag for both draws is a common error. Updating after each step is what makes the answer right."
+  },
+  {
+   "n": 3,
+   "stage": "PUZZLE",
+   "visual": "The bag with 2 red, 2 blue. Question: \"Two counters are drawn without replacement. What is the chance both are red?\"",
+   "narration": "A bag holds two red counters and two blue counters. Two counters are drawn, one after the other, without putting the first back. What is the probability that both are red? Pause and think about the bag after the first draw."
+  },
+  {
+   "n": 4,
+   "stage": "DEVELOP",
+   "visual": "A tree's first branch: red with \"2 out of 4\", blue with \"2 out of 4\".",
+   "narration": "On the first draw, two of the four counters are red. The chance of red is two out of four, which is one half."
+  },
+  {
+   "n": 5,
+   "stage": "DEVELOP",
+   "visual": "After the red branch the bag shows 1 red, 2 blue. Second branch: red \"1 out of 3\". The route red-red is traced: one half of one third is one sixth.",
+   "narration": "If the first was red, the bag now has one red and two blue. The chance of red again is one out of three. Along one route, multiply: one half times one third is one sixth. So the probability of two reds is one sixth."
+  },
+  {
+   "n": 6,
+   "stage": "DEVELOP",
+   "visual": "The full tree with four routes: RR one sixth, RB one third, BR one third, BB one sixth. Total bar fills to 1.",
+   "narration": "Complete the tree. Red then blue is one half times two thirds, one third. Blue then red is also one third. Blue then blue is one sixth. The four routes add to one, which is a good check."
+  },
+  {
+   "n": 7,
+   "stage": "VARIATION",
+   "visual": "Routes RB and BR glow together, summing to two thirds.",
+   "narration": "What is the chance of one of each colour? That happens on two different routes: red then blue, or blue then red. Different routes are added: one third plus one third is two thirds."
+  },
+  {
+   "n": 8,
+   "stage": "RECAP",
+   "visual": "Lines: \"Update after each step\", \"Multiply along a route\", \"Add different routes\".",
+   "narration": "Update the situation after each step. Multiply along a route. Add separate routes. Notebook challenge: a bag has three red counters and one blue. Two are drawn without replacement. What is the probability both are red?"
+  }
+ ],
+ "notebook_exercise": "A bag has 3 red and 1 blue. Two are drawn without replacement. Probability both red?",
+ "notebook_answer": "3/4 x 2/3 = 1/2."
+}
