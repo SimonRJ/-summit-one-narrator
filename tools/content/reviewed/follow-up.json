@@ -1,0 +1,76 @@
+[
+  {
+    "id": "O120X",
+    "title": "Two sticker collections change",
+    "prompt": "Mira and Leo each start with the same number of sheets of stickers. Each sheet holds 8 stickers. Mira receives 5 more full sheets. Leo uses 2 stickers from every one of his sheets. Mira now has three times as many stickers as Leo. How many stickers did they have altogether at the beginning?",
+    "band": "21–25"
+  },
+  {
+    "id": "O139T",
+    "title": "A pointer jumping round a dial",
+    "prompt": "A dial has 12 positions numbered 0 to 11 in order round a circle. A pointer starts at 0 and jumps 5 positions clockwise every second. At which position is it after 2026 seconds?",
+    "band": "11–20"
+  },
+  {
+    "id": "O167T",
+    "title": "Which number was taken away?",
+    "prompt": "Four cards show the numbers 18, 22, 27 and 34. One card is taken away. The difference between the largest and smallest numbers still on the table is 12. What number is on the card that was taken away?",
+    "band": "11–20"
+  },
+  {
+    "id": "O209T",
+    "title": "Squares on an uneven grid",
+    "prompt": "The four column widths of a grid are 1, 2, 1 and 3 cm from left to right. Its three row heights are 1, 2 and 1 cm from top to bottom. How many squares of all sizes have all four sides along the grid lines?",
+    "band": "26–30",
+    "diagram": {
+      "cells": [
+        "....",
+        "....",
+        "...."
+      ],
+      "description": "Column widths 1, 2, 1 and 3 cm. Row heights 1, 2 and 1 cm.",
+      "widths": [
+        1,
+        2,
+        1,
+        3
+      ],
+      "heights": [
+        1,
+        2,
+        1
+      ],
+      "type": "board"
+    }
+  },
+  {
+    "id": "O226T",
+    "title": "Four short films",
+    "prompt": "Four films are shown one after another: Bugs, Clouds, Rivers and Stars. Both Bugs and Rivers are shown before Clouds. Clouds is shown before Stars. Exactly one film is shown between Bugs and Stars. Which film is shown second?",
+    "band": "11–20"
+  },
+  {
+    "id": "O243X",
+    "title": "A jar of two kinds of coins",
+    "prompt": "A jar contains only 10-cent and 50-cent coins, worth $9.60 in total. There are 6 more 10-cent coins than 50-cent coins. How many coins are in the jar?",
+    "band": "21–25"
+  },
+  {
+    "id": "O302X",
+    "title": "Two ways to pack the bread",
+    "prompt": "A bakery can pack all of its loaves into 4 full crates and 3 full boxes, or into 2 full crates and 8 full boxes. Every crate holds the same number of loaves, and every box holds the same number of loaves. One full crate and one full box hold 21 loaves altogether. How many loaves does the bakery pack?",
+    "band": "21–25"
+  },
+  {
+    "id": "O321X",
+    "title": "Growing jumps round seven stations",
+    "prompt": "Seven stations numbered 0 to 6 are equally spaced round a circular track. A robot starts at station 0. Its 1st move advances 1 station, its 2nd move advances 2 stations, its 3rd move advances 3 stations, and so on. At which station is the robot after its 100th move?",
+    "band": "26–30"
+  },
+  {
+    "id": "O334T",
+    "title": "Buttons in the four drawers",
+    "prompt": "Four drawers are numbered 1 to 4. Drawers 1 and 2 hold 22 buttons altogether. Drawers 2 and 3 hold 27 altogether, and drawers 3 and 4 hold 24 altogether. Drawer 3 holds twice as many buttons as drawer 1. How many buttons are in drawer 4?",
+    "band": "21–25"
+  }
+]

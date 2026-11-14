@@ -66,7 +66,7 @@ assert(css.includes('.lesson-screen-footer'));
 assert(css.includes('.opening-video-wrap'));
 assert(sw.includes('lesson-screenflow.js?v=data-audit-20261114'));
 assert(sw.includes('lesson-pager.js?v=responsive-20261113'));
-assert(html.includes('app-main.js?v=data-audit-20261114'));
+assert(html.includes('app-main.js?v=upper-primary-audit-20261114'));
 assert(html.includes('id="courseMenu"') && html.includes('id="menuToggle"'));
 assert(html.includes('id="menuClose"') && html.includes('id="courseMenuContent"'));
 assert(!html.includes('class="topnav"'), 'No horizontal tabs');
@@ -106,7 +106,7 @@ assert(!focusedHome.includes('side-stack') && !focusedHome.includes('learning-no
 assert(app.includes('profile-upcoming') && app.includes('sessions remaining'));
 assert(css.includes('body.home-focus{min-height:100dvh;height:100dvh;overflow:hidden'));
 assert(css.includes('.course-menu-session.is-completed') && css.includes('.focus-session-card'));
-assert(sw.includes('summit-one-data-audit-20261114'));
+assert(sw.includes('summit-one-upper-primary-audit-20261114'));
 assert(!app.includes('node.scrollIntoView({behavior:\'smooth\',block:\'start\'});'));
 
 const loader=read('../boot-loader.js'),loaderCss=read('../boot-loader.css');
@@ -136,25 +136,11 @@ for(const sk of allSkills){
 }
 
 const {originalFigure}=await import('../original-learning.js');
-for(const role of ['try','transfer']){
- for(let visit=2;visit<=8;visit++){
-   const fig=originalFigure({learning:{skill:'SOLID-01',role,visit,session:72}});
-   assert(fig.includes('<svg') && fig.includes('viewBox="0 0 360 275"'),{role,visit});
-   assert(fig.includes('Schematic only') && fig.includes('not to scale'),{role,visit});
-   assert(fig.includes('aria-label="Given unit-cube dimensions'),{role,visit});
-   assert(!fig.includes('Final answer:') && !fig.includes('Worked solution'),{role,visit});
- }
+const manifest=JSON.parse(read('../data/lesson-challenges.json')).items;
+assert.equal(originalFigure({learning:{skill:'SOLID-01',role:'try'}}),'');
+for(const learning of manifest){
+ assert.equal(originalFigure({prompt:'An earlier version of this lesson.',learning}),'');
 }
-for(const role of ['try','transfer']){
- for(let visit=1;visit<=7;visit++){
-   const fig=originalFigure({learning:{skill:'DATA-03',role,visit,session:45}});
-   assert(fig.includes('<svg') && fig.includes('viewBox="0 0 360 275"'),{role,visit});
-   assert(fig.includes(role==='try'?'one full symbol = 6 bikes':'axis begins at'),{role,visit});
-   assert(!fig.includes('Final answer:') && !fig.includes('Worked solution'),{role,visit});
- }
-}
-
-
 assert(advancedConnectionHTML('DIG-01').includes('Difference of squares'));
 assert(advancedConnectionHTML('SPATIAL-03').includes('recursive tiling'));
 assert(advancedConnectionHTML('DIG-01',{visit:2}).includes('revisiting this technique'));

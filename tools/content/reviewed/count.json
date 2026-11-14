@@ -1,0 +1,338 @@
+[
+  {
+    "id": "O023T",
+    "title": "Keep two magnets apart",
+    "band": "11–20",
+    "prompt": "Five different magnets, A through E, are arranged in a row. How many arrangements keep A and B from being neighbours?"
+  },
+  {
+    "id": "O023X",
+    "title": "Only one black seat beside a white one",
+    "band": "21–25",
+    "prompt": "Five seats in a row are empty. Two identical black cushions and one white cushion are placed on different seats. The black cushions cannot be neighbours and the white cushion must be next to exactly one of them. How many arrangements work?"
+  },
+  {
+    "id": "O057T",
+    "title": "Pairs with an odd smaller number",
+    "band": "11–20",
+    "prompt": "Two different positive whole numbers add to 15. How many unordered pairs have an odd smaller number?"
+  },
+  {
+    "id": "O057X",
+    "title": "Three lengths packed close together",
+    "band": "21–25",
+    "prompt": "Three positive whole numbers add to 15. The greatest is at most three more than the least. How many unordered triples satisfy this, allowing repeated numbers?"
+  },
+  {
+    "id": "O058T",
+    "title": "Two officers and a pair",
+    "band": "11–20",
+    "prompt": "Seven pupils choose a captain, a different deputy, and two other pupils to be helpers. The helpers have the same role. How many selections are possible?"
+  },
+  {
+    "id": "O058X",
+    "title": "Two savouries and a shared dessert",
+    "band": "21–25",
+    "prompt": "A menu offers seven savoury dishes and three desserts. A meal contains two different savoury dishes in any order and one dessert. One specified dessert can only be chosen if the soup is one of the savoury dishes. How many meals are possible?"
+  },
+  {
+    "id": "O060T",
+    "title": "Two guests choose separate seats",
+    "band": "11–20",
+    "prompt": "Eight seats in a row are numbered from 1 to 8. Tess chooses an end seat. Ravi chooses a seat that is neither at an end nor next to Tess. How many ordered choices are possible?"
+  },
+  {
+    "id": "O060X",
+    "title": "Two books between the bookends",
+    "band": "21–25",
+    "prompt": "Five different books and two identical bookends are put in a row. Exactly two books must lie between the bookends. How many arrangements are possible?"
+  },
+  {
+    "id": "O062T",
+    "title": "Neither exhibition",
+    "band": "11–20",
+    "prompt": "There are 42 visitors at a museum. Twenty-one see the robot display, 14 see the telescope display and 7 see both. How many visitors see neither display?"
+  },
+  {
+    "id": "O062X",
+    "title": "Multiples that belong to only one list",
+    "band": "21–25",
+    "prompt": "How many whole numbers from 1 to 42, including both ends, are divisible by exactly one of 2 and 3?"
+  },
+  {
+    "id": "O065T",
+    "title": "Count both ends of the links",
+    "band": "11–20",
+    "prompt": "Fourteen stations are joined by tracks. Every track joins two distinct stations. Each station is joined directly to exactly three different stations, with one track for each such connection. How many tracks are there?"
+  },
+  {
+    "id": "O065X",
+    "title": "Count the workshop seats",
+    "band": "21–25",
+    "prompt": "A club has 21 members. Each member attends exactly two of its workshops and each workshop has exactly six members attending. How many workshops are there?"
+  },
+  {
+    "id": "O067T",
+    "title": "A code with one special position",
+    "band": "11–20",
+    "prompt": "A code has two digits, both from 1 to 7. Exactly one of the digits is 1. How many different codes fit?"
+  },
+  {
+    "id": "O067X",
+    "title": "Two matching digits, in the right order",
+    "band": "21–25",
+    "prompt": "A three-digit number uses only the digits 1 through 5. Exactly two digits match. The number is greater than 400. How many such numbers are there?"
+  },
+  {
+    "id": "O069T",
+    "title": "Choose one leader, then a pair",
+    "band": "11–20",
+    "prompt": "There are five swimmers and three runners. A three-person team consists of one swimmer as captain and two different runners. How many teams can be chosen?"
+  },
+  {
+    "id": "O069X",
+    "title": "Who gets to open the debate?",
+    "band": "21–25",
+    "prompt": "A debate has a first speaker, a second speaker and a reserve. They must be different people chosen from four year-five pupils and two year-six pupils. Exactly one of the three must be in year six, and that pupil cannot speak first. How many assignments are possible?"
+  },
+  {
+    "id": "O079T",
+    "title": "Only one of three places",
+    "band": "11–20",
+    "prompt": "A three-symbol badge uses only circles and squares. Exactly one symbol is a square. The other two symbols are circles, but each of those circles may be either red or blue. How many badges are possible?"
+  },
+  {
+    "id": "O079X",
+    "title": "Use one 3, and end high",
+    "band": "21–25",
+    "prompt": "A four-digit PIN uses only 1, 2, 3 and 4, and digits may repeat. Exactly one digit is 3, and the final digit is greater than 2. How many PINs fit?"
+  },
+  {
+    "id": "O088T",
+    "title": "Nothing beside the centre card",
+    "band": "11–20",
+    "prompt": "Five cards labelled A, B, C, D and E are laid in a row. Card C is in the middle. Neither A nor B may touch C. How many arrangements are possible?"
+  },
+  {
+    "id": "O088X",
+    "title": "Separate the beads in a loop",
+    "band": "21–25",
+    "prompt": "Six numbered places form a ring. Two are filled with identical red beads and the others are left empty. How many choices of positions keep the red beads from being neighbours? The first and last places are neighbours."
+  },
+  {
+    "id": "O121T",
+    "title": "The two after-school activities",
+    "band": "11–20",
+    "prompt": "Of 35 pupils, 20 join chess and 18 join gardening. Six join neither. How many join both?"
+  },
+  {
+    "id": "O121X",
+    "title": "Two stamps, one entry",
+    "band": "21–25",
+    "prompt": "Cards numbered 1 to 60 are stamped on the left if the number is divisible by 4 and on the right if it is divisible by 6. How many cards have neither stamp?"
+  },
+  {
+    "id": "O130T",
+    "title": "Two toppings, with one essential",
+    "band": "11–20",
+    "prompt": "A shop offers six toppings. A customer chooses two different toppings in no particular order. Exactly one of chocolate and strawberry must be chosen. How many choices are there?"
+  },
+  {
+    "id": "O130X",
+    "title": "The same team can be listed two ways",
+    "band": "21–25",
+    "prompt": "From seven players, two are chosen as co-captains with equal roles, and a different player is chosen as referee. How many selections are possible if at least one co-captain is one of two players named Ana and Kim?"
+  },
+  {
+    "id": "O153T",
+    "title": "Only the visitors with one stamp",
+    "band": "11–20",
+    "prompt": "Among 40 visitors, 23 choose the museum and 19 choose the aquarium. Everyone chooses at least one. How many visitors choose exactly one?"
+  },
+  {
+    "id": "O153X",
+    "title": "Three clubs have the same shared member",
+    "band": "26–30",
+    "prompt": "Twenty-eight pupils attend at least one of art, choir and chess. There are 12 in art, 11 in choir and 10 in chess. Exactly 1 pupil attends all three. How many attend exactly two clubs?"
+  },
+  {
+    "id": "O162T",
+    "title": "The nine ribbon bows",
+    "band": "11–20",
+    "prompt": "A florist has 9 bows with two ends each and 4 tassels with one end each. Each clip connects two ends. She uses all the ends, with no end in more than one clip. How many clips does she use?"
+  },
+  {
+    "id": "O162X",
+    "title": "The six tables",
+    "band": "21–25",
+    "prompt": "At a games day, 24 pupils each play at exactly 3 different tables. Each of the six tables has the same total number of pupils over the day. How many pupils play at each table?"
+  },
+  {
+    "id": "O171T",
+    "title": "Three empty chairs between friends",
+    "band": "11–20",
+    "prompt": "Two friends sit in different chairs in a row of nine. Exactly three chairs must lie between them. How many choices of the two chairs are possible? Ignore which friend sits where."
+  },
+  {
+    "id": "O171X",
+    "title": "Green blocks at both ends",
+    "band": "11–20",
+    "prompt": "Arrange three identical green blocks and four identical white blocks in a row. Both ends are green, and no two green blocks touch. How many arrangements are possible?"
+  },
+  {
+    "id": "O194T",
+    "title": "Some joins are hidden",
+    "band": "11–20",
+    "prompt": "Six square tiles are arranged as a solid rectangle of 2 rows and 3 columns. How many entire tile edges are shared by a pair of tiles?"
+  },
+  {
+    "id": "O194X",
+    "title": "The teams that shook hands",
+    "band": "26–30",
+    "prompt": "Two teams of six stand in two lines. Each player shakes hands with exactly three different players on the other team. Afterwards two players from each team leave. There were exactly three handshakes between two players who both left. How many handshakes were between players who all stayed?"
+  },
+  {
+    "id": "O221T",
+    "title": "Home or away matters",
+    "band": "11–20",
+    "prompt": "Four clubs play once against each of the others. Before the season, each pair's home club is chosen independently. How many different home-club assignments are possible?"
+  },
+  {
+    "id": "O221X",
+    "title": "A draw from three card piles",
+    "band": "21–25",
+    "prompt": "Three piles each contain one card marked 1, one marked 2, one marked 3 and one marked 4. Pick one card from each pile. The three numbers add to 7. How many picks have exactly two cards with the same number?"
+  },
+  {
+    "id": "O235T",
+    "title": "Start with or finish with a zero",
+    "band": "21–25",
+    "prompt": "A four-character code uses only 0, 1 and 2. Leading zero is allowed. Exactly one of the first and last characters is 0. The middle two characters may be anything. How many codes are possible?"
+  },
+  {
+    "id": "O235X",
+    "title": "Celia’s two groups of cards",
+    "band": "21–25",
+    "prompt": "Celia places the cards 1, 2, 3, 4, 5 and 6 in a row, using each card once. The first three numbers add to 10, and the middle number of those three is the largest of the three. The final three numbers are in increasing order. How many rows can Celia make?"
+  },
+  {
+    "id": "O244T",
+    "title": "At least one of three symbols",
+    "band": "21–25",
+    "prompt": "The integers 1 to 60 are marked if they are divisible by 2, 3 or 5. How many integers are unmarked?"
+  },
+  {
+    "id": "O244X",
+    "title": "A lower bound on shared names",
+    "band": "21–25",
+    "prompt": "One list of 17 pupils and another of 19 pupils are drawn from a class of 30. At least three pupils appear on neither list. What is the smallest possible number that appear on both lists?"
+  },
+  {
+    "id": "O253T",
+    "title": "Two straps on each bag",
+    "band": "11–20",
+    "prompt": "There are 7 bags and 5 hooks. Each bag hangs from a pair of different hooks. Four hooks each hold exactly 3 bags. How many bags hang from the last hook?"
+  },
+  {
+    "id": "O253X",
+    "title": "What the shared edges tell us",
+    "band": "26–30",
+    "prompt": "Ten unit cubes are glued into one connected model. Exactly eleven pairs of cubes share a full face. All exposed faces are painted. How many unit faces receive paint?"
+  },
+  {
+    "id": "O262T",
+    "title": "Adjacent or at opposite ends",
+    "band": "21–25",
+    "prompt": "Five letters A, B, C, D and E are arranged in a row. A and B must either be neighbours or occupy the two ends. How many arrangements are possible?"
+  },
+  {
+    "id": "O262X",
+    "title": "The missing seat in the middle",
+    "band": "26–30",
+    "prompt": "Three identical black counters are placed in a row of eight cells. No two counters touch and cell 4 is already blocked. How many placements are possible?"
+  },
+  {
+    "id": "O285T",
+    "title": "A competition with one missed game",
+    "band": "21–25",
+    "prompt": "Eight players were going to play one game against each other player. Exactly one player withdrew after playing just three of the seven scheduled games. All games between the other players went ahead. How many games were played?"
+  },
+  {
+    "id": "O285X",
+    "title": "One student changes tables",
+    "band": "11–20",
+    "prompt": "Eighteen club members each choose two different activity tables from a list of four. Each of the first three tables gets nine names. One student originally chose two of those tables and now changes one choice to the fourth. How many names are now on the fourth table’s list?"
+  },
+  {
+    "id": "O303T",
+    "title": "Two membership cards with an exception",
+    "band": "21–25",
+    "prompt": "Forty students each choose at least one of music and sport. Fifteen choose both. There are 5 more students in music only than in sport only. How many choose sport only?"
+  },
+  {
+    "id": "O303X",
+    "title": "A whole digit marks a membership",
+    "band": "21–25",
+    "prompt": "The numbers 1 to 120 are printed. Put a square around each multiple of 5 and a circle around each number whose written digits contain a 5. How many numbers get both marks?"
+  },
+  {
+    "id": "O312T",
+    "title": "Assign names to the same pair",
+    "band": "21–25",
+    "prompt": "A class chooses two of six children. The child whose name comes first alphabetically gives the speech and the other holds the poster. How many assignments are possible?"
+  },
+  {
+    "id": "O312X",
+    "title": "A photograph with two places at the ends",
+    "band": "26–30",
+    "prompt": "Seven different runners are available for a four-person photo. Its two end positions are reserved for two of three finalists. Its middle positions are filled by two of the other four runners. How many photographs are possible if a reversed line is counted as the same photograph?"
+  },
+  {
+    "id": "O326T",
+    "title": "Which switch is on?",
+    "band": "11–20",
+    "prompt": "Four switches are labelled 1, 2, 3 and 4. Exactly one of switches 1 and 2 is on, and exactly one of switches 3 and 4 is on. How many settings have the two on-switch labels adding to an odd number?"
+  },
+  {
+    "id": "O326X",
+    "title": "Exactly two even digits",
+    "band": "26–30",
+    "prompt": "The numbers 100 to 399 are written down. How many have exactly two even digits and all three digits different? The digit 0 counts as even."
+  },
+  {
+    "id": "O335T",
+    "title": "One book, two possible readers",
+    "band": "21–25",
+    "prompt": "Of 34 library books, 22 were read by Aria and 18 by Fin. Of the books Fin read, 8 were also read by Aria. How many books were read by exactly one of them?"
+  },
+  {
+    "id": "O335X",
+    "title": "The survey of two overlapping years",
+    "band": "21–25",
+    "prompt": "In a survey of 50 children, 24 like comics and 28 like puzzles. Exactly 13 children like neither. The teacher then asks 5 new children who all like comics but do not like puzzles. How many of the 55 children like both comics and puzzles?"
+  },
+  {
+    "id": "O353T",
+    "title": "No two of three badges may touch",
+    "band": "21–25",
+    "prompt": "Seven numbered squares lie in a row. Three identical gold badges are placed in different squares, with at least one empty square between consecutive badges. How many placements are possible?"
+  },
+  {
+    "id": "O353X",
+    "title": "Different colours in a window",
+    "band": "26–30",
+    "prompt": "Five flags in a row are to be coloured using red, blue and gold. Neighbours must have different colours. The first flag is red, and exactly two flags are gold. How many colourings are possible?"
+  },
+  {
+    "id": "O361T",
+    "title": "A product ending in zero",
+    "band": "21–25",
+    "prompt": "Two different numbers are chosen from 1, 2, 3, 4, 5 and 6. Their product must end in 0. How many unordered choices are possible?"
+  },
+  {
+    "id": "O361X",
+    "title": "Divisible numbers from six cards",
+    "band": "21–25",
+    "prompt": "Six cards are marked 0, 1, 2, 3, 4 and 5. Two different cards are used to make a two-digit number. How many possible numbers are divisible by 3?"
+  }
+]

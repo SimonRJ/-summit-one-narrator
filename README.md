@@ -10,7 +10,7 @@ Summit One is an independent family project. It is not affiliated with or endors
 
 | Area | What the learner gets | Status |
 |---|---|---|
-| Lessons | 283 teaching sessions on 52 techniques: Remember, Discover, Try, Transfer, Check. Two protected original problems per lesson (566 in total). | Deployed |
+| Lessons | 283 teaching sessions on 52 techniques: Remember, Discover, Try, Transfer, Check. Two original problems per lesson (566 in total), with an individually checked answer and worked solution for each. | Deployed |
 | Investigations | 53 visits to 20 MAWA-style investigation themes. | Deployed |
 | Original AMC practice | Part A (questions 1–20, speed and accuracy) and Part B (questions 21–30, deeper problems). | Partially complete: 4 active split papers, 60 questions |
 | Rossmoyne practice | Original Rossmoyne-style papers over 23 problem families. | Partially complete: 9 active papers, 207 questions |
@@ -18,14 +18,14 @@ Summit One is an independent family project. It is not affiliated with or endors
 | Teaching videos | 72 concept and worked-example videos planned. | 2 finished; 70 have scripts only |
 | Optional advanced maths | "Where this maths can lead" pages for the 52 techniques; not assessed. | Deployed |
 
-Exact, dated numbers are in [docs/CURRENT_STATUS.md](docs/CURRENT_STATUS.md). That file, not this table, is the source of truth.
+Exact, dated numbers are in [docs/CURRENT_STATUS.md](docs/CURRENT_STATUS.md).
 
 ## How it is built
 
 - **Front end:** plain HTML, CSS and JavaScript modules served by GitHub Pages from the `main` branch. No build step. Entry points are `index.html` (course), `login.html`, `welcome.html`, `coverage.html` and `tests.html`.
 - **Typography:** Source Sans 3 for interface text, Source Serif 4 for selected headings, KaTeX for mathematics. These are settled; do not change them.
 - **Back end:** one Supabase project (Postgres, Auth, Storage, Edge Functions). The browser holds only the publishable key in `supabase-client.js`.
-- **Protected content:** answers and worked solutions live only in the database. They are never in this repository or in any file served by Pages. Three Edge Functions mediate access: `submit-problem-attempt` (grades an answer and records the attempt), `get-problem-solution` (returns a solution only after a recorded attempt) and `grade-exam`.
+- **Lesson answers and worked solutions** are served to the app by Supabase Edge Functions. `submit-problem-attempt` grades and records the answer, and `get-problem-solution` releases the worked solution after an attempt. The full-bank solution source is private. Earlier public authoring scripts contain examples and historical answer keys.
 - **Offline shell:** `sw.js` caches static assets under a versioned cache name. Bump the cache name and the `?v=` query strings when shipping front-end changes.
 - **Media:** finished public videos sit in `media/`; protected solution videos belong in private Supabase Storage.
 
@@ -46,7 +46,7 @@ More detail: [docs/PLATFORM_ARCHITECTURE.md](docs/PLATFORM_ARCHITECTURE.md).
 | Content | Source of truth | Reaches the learner via |
 |---|---|---|
 | Course map, techniques, investigations | `data/*.json` (public, answer-free) | fetched by `app-main.js` |
-| 566 lesson problems | `tools/content/build_original_lessons.py` with `curated_revisits.py`, `curated_batch2.py`, `curated_spatial.py` and `curated_data.py` | rows in `content_problems`, released through Edge Functions |
+| 566 lesson problems | `tools/content/build_original_lessons.py`, the public authoring prompts and diagrams, and the private solution source described in [the continuation](docs/CHATGPT_CONTINUATION.md) | rows in `content_problems`, released through Edge Functions |
 | Original mock papers | `tools/papers/*.py` | rows in `exam_catalog` and `exam_questions` |
 | Authentic AMC papers | database only; frozen | exam centre |
 | Teaching-video scripts | `production/scripts/src/*.txt` | built to `production/scripts/*.json`; not yet recorded |
@@ -76,11 +76,12 @@ python tools/content/check_curated_batch2.py      # recomputes 60 reauthored pro
 python tools/content/check_curated_spatial.py      # enumerates 30 spatial answers and checks the diagram manifest
 python tools/content/check_curated_data.py         # recomputes 12 chart and table problems
 python tools/content/audit_all_lessons.py         # structure, wording and repetition audit of all 566
+python tools/content/check_reviewed_lessons.py    # per-problem calculations and the diagram manifest
 python tools/papers/build_all.py /tmp/summit-papers && python tools/papers/audit_generated_papers.py /tmp/summit-papers
 python tools/video/build_scripts.py --check       # validates the 70 video scripts
 ```
 
-What each test does and does not prove is set out in [docs/CURRENT_STATUS.md](docs/CURRENT_STATUS.md#what-the-tests-prove). Passing structural checks is not the same as every problem having been individually solved and read.
+See [current status](docs/CURRENT_STATUS.md#verification-commands) for check coverage and the private-source commands.
 
 ## Deployment
 
@@ -89,7 +90,7 @@ Merging to `main` publishes the site through GitHub Pages. GitHub Actions run `T
 ## Rules for contributors
 
 1. Never modify the authentic AMC subsystem: its questions, images, answer keys, timers, interface or stored sittings.
-2. Never commit answers, solutions or secrets to this repository.
+2. Keep live answer exports, full worked-solution sources and credentials in the private workspace.
 3. Never change a problem that a learner has already attempted. Add a new version instead.
 4. Change original content in the generator and the database together, and add an independent check for every new answer.
 5. State status precisely: implemented, tested, deployed, partially complete, planned or blocked.

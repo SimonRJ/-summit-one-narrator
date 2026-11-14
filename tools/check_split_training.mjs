@@ -55,6 +55,6 @@ assert(index.includes("main.css?v=data-audit-20261114"));
 assert(testsPage.includes("tests.js?v=amc-clean-20261113"));
 assert(src.includes('source-choice-strip') && src.includes('sourceScan='));
 assert(style.includes(".amc-pending-sets"));
-assert(worker.includes("summit-one-data-audit-20261114"));
+assert(worker.includes("summit-one-upper-primary-audit-20261114"));
 assert(worker.includes("skill-session-links.json"));
 console.log("PASS: curated AMC A/B split, 30-slot plans, one-attempt UI, 52 links and countdown boundaries.");

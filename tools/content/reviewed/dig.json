@@ -1,0 +1,314 @@
+[
+  {
+    "id": "O002T",
+    "title": "Stationery shop: total cost",
+    "prompt": "A school bookshop sells packs of stickers for 99 cents each. A student buys 7 packs and a pencil costing 37 cents. What is the total cost in cents?",
+    "band": "1–10"
+  },
+  {
+    "id": "O002X",
+    "title": "The warehouse stock-counter error",
+    "prompt": "A warehouse already has 53 batteries in stock. It receives 7 boxes containing 198 batteries each. Its stock system mistakenly records 200 batteries per box, so the total on the screen is 1453. What should the correct stock total be?",
+    "band": "11–20"
+  },
+  {
+    "id": "O004T",
+    "title": "Even numbers from four cards",
+    "band": "11–20",
+    "prompt": "Nina has cards marked 0, 2, 4 and 7. She makes three-digit even numbers using three different cards. How many of her numbers are greater than 300?"
+  },
+  {
+    "id": "O004X",
+    "title": "The last two digits",
+    "band": "21–25",
+    "prompt": "Tahlia uses three different cards from 0, 1, 2, 4 and 6 to make a three-digit number. How many of her numbers are multiples of 4 and have an odd hundreds digit?"
+  },
+  {
+    "id": "O005T",
+    "title": "Twos on the drawer labels",
+    "band": "11–20",
+    "prompt": "Drawers are numbered from 320 to 359, including both ends. How many times is the digit 2 written on their labels?"
+  },
+  {
+    "id": "O005X",
+    "title": "Tickets from two rolls",
+    "band": "11–20",
+    "prompt": "A fair issues every ticket from 96 to 107 on one roll and every ticket from 996 to 1003 on another. Counting every digit printed in the ticket numbers, how many digits are on these tickets?"
+  },
+  {
+    "id": "O008T",
+    "title": "A fixed sum in a mirrored number",
+    "band": "11–20",
+    "prompt": "A palindrome reads the same left to right and right to left. How many four-digit palindromes have digit sum 12?"
+  },
+  {
+    "id": "O008X",
+    "title": "A mirror above the threshold",
+    "band": "21–25",
+    "prompt": "What is the smallest four-digit palindrome greater than 1411? A palindrome reads the same in either direction."
+  },
+  {
+    "id": "O009T",
+    "title": "Two copies of a missing digit",
+    "band": "11–20",
+    "prompt": "The symbol 5A stands for a two-digit number with tens digit 5 and units digit A. If 5A + 5A = 114, what digit is A?"
+  },
+  {
+    "id": "O009X",
+    "title": "One digit moves to the other end",
+    "band": "21–25",
+    "prompt": "Two two-digit numbers are A7 and 7A, with the same digit A in each. Their sum is 132. What is A?"
+  },
+  {
+    "id": "O010T",
+    "title": "A borrow in the tens column",
+    "band": "11–20",
+    "prompt": "In the subtraction 82 − 4A = 35, the symbol 4A stands for a two-digit number with units digit A. What is A?"
+  },
+  {
+    "id": "O010X",
+    "title": "One repeated digit and one new digit",
+    "band": "21–25",
+    "prompt": "In the addition AA + 3B = 104, the letters A and B stand for different digits. The number AA uses A in both places. What two-digit number is AA?"
+  },
+  {
+    "id": "O055T",
+    "title": "The mirrored clock number",
+    "band": "11–20",
+    "prompt": "A display shows a four-digit palindrome. Its first digit is 3 and the product of its middle two digits is 49. What number does it show?"
+  },
+  {
+    "id": "O055X",
+    "title": "Seven as a common factor",
+    "band": "21–25",
+    "prompt": "How many three-digit palindromes from 200 to 399, inclusive, are multiples of 7?"
+  },
+  {
+    "id": "O102T",
+    "title": "A digit in either place",
+    "band": "11–20",
+    "prompt": "The lockers numbered 20 to 79 are all labelled. How many of their labels contain the digit 3 at least once?"
+  },
+  {
+    "id": "O102X",
+    "title": "Look only at even badges",
+    "band": "21–25",
+    "prompt": "The integers from 1 to 120 are written down. Only even numbers get a circle. How many copies of the digit 2 appear in the circled numbers?"
+  },
+  {
+    "id": "O114T",
+    "title": "The labels with all different digits",
+    "band": "11–20",
+    "prompt": "The house numbers on a short street run from 80 to 115. How many of their labels have no repeated digits?"
+  },
+  {
+    "id": "O114X",
+    "title": "A shortage of tens digits",
+    "band": "21–25",
+    "prompt": "Drawer labels begin at 40 and continue consecutively. The maker has exactly nine stickers printed with the digit 4, and enough of every other digit. What is the last label the maker can print before running out of 4s?"
+  },
+  {
+    "id": "O123T",
+    "title": "Two prices near a dollar",
+    "band": "11–20",
+    "prompt": "At the school fair, four badges cost 97 cents each and three bookmarks cost 104 cents each. How many cents do the seven items cost altogether?"
+  },
+  {
+    "id": "O123X",
+    "title": "The cash drawer counted twice",
+    "band": "21–25",
+    "prompt": "A till showed $420 after a busy morning. It turned out one $48 sale had been counted twice and every one of eight $19 sales had been recorded as $20. All other amounts were correct. What should the till have shown in dollars?"
+  },
+  {
+    "id": "O137T",
+    "title": "A row of repeated digits",
+    "band": "11–20",
+    "prompt": "A two-digit number has the same digit in each place. When 17 is added to it, the result starts with 8 and ends with 3. What was the two-digit number?"
+  },
+  {
+    "id": "O137X",
+    "title": "An addition with both letters",
+    "band": "21–25",
+    "prompt": "The addition A6 + 2A = B0 uses A for the same digit each time and B for a different digit. What two-digit number is B0?"
+  },
+  {
+    "id": "O146T",
+    "title": "Two printers, equal work",
+    "band": "11–20",
+    "prompt": "One printer labels each box from 1 to 25. Another prints every label from 90 to 106. What is the difference between the numbers of digits the printers print?"
+  },
+  {
+    "id": "O146X",
+    "title": "Zero belongs in the code",
+    "band": "21–25",
+    "prompt": "A label maker prints every three-character code from 085 through 123, including the leading zero in codes below 100. How many zeros does it print?"
+  },
+  {
+    "id": "O155T",
+    "title": "The closest on either side",
+    "band": "11–20",
+    "prompt": "What is the difference between the closest three-digit palindrome below 593 and the closest three-digit palindrome above 593?"
+  },
+  {
+    "id": "O155X",
+    "title": "Odd and even mirrored numbers",
+    "band": "21–25",
+    "prompt": "How many four-digit palindromes have a digit sum divisible by 5 and have an odd first digit?"
+  },
+  {
+    "id": "O164T",
+    "title": "Codes with rising digits",
+    "band": "11–20",
+    "prompt": "A three-digit lock code uses different digits from 1 to 6. Its digits increase from left to right and its last digit is 5. How many codes fit?"
+  },
+  {
+    "id": "O164X",
+    "title": "All three digits in the right place",
+    "band": "21–25",
+    "prompt": "A three-digit number uses three different digits from 0, 1, 3, 5 and 6. Its tens digit is the largest of its three digits, and the number is even. How many numbers fit?"
+  },
+  {
+    "id": "O187T",
+    "title": "Read both ways after an addition",
+    "band": "11–20",
+    "prompt": "A three-digit palindrome between 400 and 500 becomes another palindrome after 11 is added. What is the original palindrome?"
+  },
+  {
+    "id": "O187X",
+    "title": "Two small mirrors make a larger one",
+    "band": "21–25",
+    "prompt": "Two different three-digit palindromes both begin with 4. Their sum is a three-digit palindrome. How many pairs work? Count each pair once."
+  },
+  {
+    "id": "O205T",
+    "title": "One of each, or two of one?",
+    "band": "11–20",
+    "prompt": "Write the numbers 65 through 95 in order. What is the difference between the numbers of 7s and 8s written?"
+  },
+  {
+    "id": "O205X",
+    "title": "The odd-numbered pages",
+    "band": "26–30",
+    "prompt": "In a booklet, only odd-numbered pages receive a printed page number. The printer begins at page 1 and prints each odd page number in turn. After it has printed exactly 149 digits, what is the last odd page number it has printed?"
+  },
+  {
+    "id": "O214T",
+    "title": "A pair of balance weights",
+    "band": "11–20",
+    "prompt": "A bag holds equal numbers of 48 g and 52 g weights. All the weights together weigh 900 g. How many weights are in the bag?"
+  },
+  {
+    "id": "O214X",
+    "title": "The sum on the torn page",
+    "band": "21–25",
+    "prompt": "The numbers 97, 98, 99, 101, 102 and 103 are printed on a sheet. One number is torn off. The sum of the remaining five numbers is 498. Which number was torn off?"
+  },
+  {
+    "id": "O228T",
+    "title": "Both place values matter",
+    "band": "11–20",
+    "prompt": "The two-digit number AB has tens digit A and units digit B. The number BA has the same digits in reverse order. AB is 27 more than BA, and A + B = 11. What is AB?"
+  },
+  {
+    "id": "O228X",
+    "title": "What the product ends in",
+    "band": "21–25",
+    "prompt": "A digit has been rubbed off the number 3□. When that number is multiplied by 6, the result lies between 195 and 215 and has the same units digit as 3□. Which digit was rubbed off?"
+  },
+  {
+    "id": "O237T",
+    "title": "Both ends have a seven",
+    "band": "11–20",
+    "prompt": "How many three-digit numbers have a 7 in the hundreds place or the units place, but not in both of those places?"
+  },
+  {
+    "id": "O237X",
+    "title": "The three printing drums",
+    "band": "21–25",
+    "prompt": "A label maker prints the numbers 1 to 230. It uses different print wheels for the hundreds, tens and units digits and omits all leading zeroes. Of these three wheels, consider the one that prints odd digits the fewest times. How many odd digits does it print?"
+  },
+  {
+    "id": "O246T",
+    "title": "The nearest mirrored square",
+    "band": "21–25",
+    "prompt": "What is the smallest three-digit palindrome that is also the square of a whole number?"
+  },
+  {
+    "id": "O246X",
+    "title": "Between neighbouring palindromes",
+    "band": "26–30",
+    "prompt": "For how many three-digit palindromes is the gap to the next palindrome also a palindrome? Use the next palindrome with any number of digits."
+  },
+  {
+    "id": "O255T",
+    "title": "Between two hundred and three hundred",
+    "band": "11–20",
+    "prompt": "Use three different digits from 0, 2, 3, 6 and 8 to make a number between 200 and 300. How many possibilities are greater than 245?"
+  },
+  {
+    "id": "O255X",
+    "title": "Only one adjacent pair",
+    "band": "21–25",
+    "prompt": "Use four different digit cards from 1, 2, 3, 4 and 5 to make a four-digit number. The digits 2 and 3 must appear next to each other in that order. The number must be divisible by 5. How many numbers fit?"
+  },
+  {
+    "id": "O278T",
+    "title": "Reverse the first half",
+    "band": "21–25",
+    "prompt": "A four-digit palindrome uses only the digits 2, 5 and 8. How many such palindromes use exactly two different digits?"
+  },
+  {
+    "id": "O278X",
+    "title": "Two palindromes with a fixed difference",
+    "band": "26–30",
+    "prompt": "How many pairs of four-digit palindromes differ by exactly 110? Count each pair once."
+  },
+  {
+    "id": "O296T",
+    "title": "Exactly two matching places",
+    "band": "21–25",
+    "prompt": "All the labels from 300 to 349 are printed once. How many labels contain exactly two copies of the digit 3?"
+  },
+  {
+    "id": "O296X",
+    "title": "Every possible pair meets",
+    "band": "21–25",
+    "prompt": "A set of labels has two digits. The first digit is chosen from 1, 2, 3 and 4, and the second from 0, 1, 2, 3 and 4. One of each possible label is printed, except any label on which both digits are odd or both digits are even. How many times is the digit 4 printed?"
+  },
+  {
+    "id": "O305T",
+    "title": "Score from the centre",
+    "band": "21–25",
+    "prompt": "A quiz awards 49 marks for each correct answer and 51 marks for each bonus answer. A team gives 12 correct answers in total, of which some are bonus answers instead of ordinary answers. It earns 606 marks. How many of the 12 were bonus answers?"
+  },
+  {
+    "id": "O305X",
+    "title": "Move one unit twice",
+    "band": "26–30",
+    "prompt": "Two whole numbers add to 100. Their product is 2419. If 2 is moved from the greater number to the smaller, what is their new product?"
+  },
+  {
+    "id": "O319T",
+    "title": "The constant units column",
+    "band": "21–25",
+    "prompt": "A two-digit number ends in 7. When it is multiplied by 3, the result is a three-digit number below 200. Its tens digit equals the tens digit of the original number. What was the original number?"
+  },
+  {
+    "id": "O319X",
+    "title": "The code on the subtraction strip",
+    "band": "26–30",
+    "prompt": "Each letter stands for a different digit. A, B and C are all nonzero. The subtraction ABC − CBA equals 396, and A + B + C = 12. How many three-digit numbers ABC fit?"
+  },
+  {
+    "id": "O346T",
+    "title": "Even first, odd last",
+    "band": "21–25",
+    "prompt": "A lock uses four different digits chosen from 0, 1, 2, 3 and 4. It cannot start with 0. Its first digit is even, its last digit is odd, and 0 must appear. How many codes fit?"
+  },
+  {
+    "id": "O346X",
+    "title": "One jump down in the digits",
+    "band": "26–30",
+    "prompt": "Arrange 1, 2, 3, 4 and 5, using each once, to make a five-digit number. When read left to right, exactly one digit is smaller than the digit immediately before it. How many numbers fit?"
+  }
+]

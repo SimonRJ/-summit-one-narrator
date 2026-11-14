@@ -36,7 +36,7 @@ def main():
     assert expected == {key:q['answer'] for key,q in DATA_REVISITS.items()}, expected
     with tempfile.TemporaryDirectory() as tmp:
         out = Path(tmp)
-        build(map_course(), out)
+        build(map_course(), out, public_only=True)
         manifest = json.loads((out/'lesson-manifest.json').read_text())['items']
         published = json.loads((Path(__file__).resolve().parents[2]/'data/lesson-challenges.json').read_text())['items']
         assert [m for m in manifest if m['skill']=='DATA-03'] == [m for m in published if m['skill']=='DATA-03']

@@ -148,7 +148,7 @@ def main():
     assert tiling == {key: q['answer'] for key, q in TILINGS.items()}, tiling
     with tempfile.TemporaryDirectory() as tmp:
         out = Path(tmp)
-        build(map_course(), out)
+        build(map_course(), out, public_only=True)
         manifest = json.loads((out / 'lesson-manifest.json').read_text())['items']
         published = json.loads((Path(__file__).resolve().parents[2] / 'data/lesson-challenges.json').read_text())['items']
         spatial = [m for m in manifest if m['skill'] in ('SPATIAL-02', 'SPATIAL-03')]

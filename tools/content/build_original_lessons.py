@@ -3,13 +3,15 @@ Families are deliberately different from the worked-example drills, with explici
 conditions and checks. Parameter variants are practice, not new structural mastery.
 Run: python tools/content/build_original_lessons.py SESSION_MAP OUTPUT_DIR
 """
-import json, math, itertools, sys
+import argparse
+import json, math, itertools, os
 from pathlib import Path
 from fractions import Fraction
 from curated_revisits import curate
 from curated_batch2 import curate2
 from curated_spatial import spatial_revisit
 from curated_data import data_revisit
+from reviewed_lessons import reviewed_lessons
 C=math.comb
 
 def ordinal(n):
@@ -277,35 +279,96 @@ def stem_signature(prompt):
     return signature
 
 
-def build(mapping,out):
-    title_map=json.loads(Path(__file__).with_name('lesson_problem_titles.json').read_text())['titles']
-    counts={};rows=[];manifest=[]
-    for s in mapping:
-        k=s['skill'];counts[k]=counts.get(k,0)+1;n=counts[k]+2
-        for role in ['try','transfer']:
-            # Discrete fractional-transfer stories require an even scale.
-            nn=2*n if (k=='FRAC-01' and role=='transfer') or (k=='ALG-05' and role=='try') else n
-            q=(capstone(s['slot']) if role=='transfer' else None) or family(k,nn,role)
-            if not (role=='transfer' and capstone(s['slot'])):
-                q=curate(k,role,counts[k],q)
-                q=curate2(k,role,counts[k],q)
-                q=spatial_revisit(k,counts[k],role) or data_revisit(k,counts[k],role) or q
-            if k=='FRAC-01' and role=='transfer':q['check']='Send half of the original count, then one third of the remainder; all counts are whole numbers and the final remainder agrees.'
-            if k=='ALG-05' and role=='try':q['check']='Subtract the transfer from the first count and add it to the second; check the stated final gap.'
-            pid=f'O{s["slot"]:03}{"T" if role=="try" else "X"}'
-            visit=counts[k]
-            # Every standard lesson problem accepts only the final answer.
-            # The worked solution still teaches the mathematical reasoning.
-            prompt=q['prompt']
-            bespoke_titles={"O001T":"Packing bolts into boxes","O002T":"Stationery shop: total cost","O002X":"The warehouse stock-counter error","O003T":"Reverse a number machine","O003X":"Pocket money, worked backwards","O004T":"Even numbers from five digits","O005X":"Counting printed ticket digits","O009T":"A missing digit in two-digit addition","O010T":"Recover the missing units digit","O123X":"Correct the ticket-printer total","O214X":"A scoreboard that adds too much","O305X":"Repair a factory's production count"}
-            title=q.get('title') or bespoke_titles.get(pid, title_map[k][0 if role=='try' else 1])
-            rows.append(dict(id=pid,source_type='original_authored',title=title,source_label='Summit One original learning problem',category=k,difficulty=3 if role=='try' else 4,prompt=prompt,answer=q['answer'],unit='',solution_text=q['clue']+'\n\n'+'\n\n'.join(q['steps'])+'\n\n'+q['check']+'\n\nFinal answer: '+str(q['answer']),spoken_script='',rights='original_authored_for_summit_one'))
-            manifest.append(dict(id=pid,session=s['slot'],skill=k,role=role,family=k+(':capstone:'+str(s['slot']) if role=='transfer' and capstone(s['slot']) else ':'+role),visit=visit,source_type='original_authored'))
-            if q.get('diagram'):
-                figure_key = 'dataDisplay' if k == 'DATA-03' else 'spatialDiagram'
-                manifest[-1][figure_key] = dict(q['diagram'], stemSignature=stem_signature(prompt))
-    out.mkdir(parents=True,exist_ok=True)
-    (out/'original-problems.json').write_text(json.dumps(rows,ensure_ascii=False,indent=2))
-    (out/'lesson-manifest.json').write_text(json.dumps({'version':'original-transfer-20261112','note':'Different numbers in a repeated family are practice, not evidence of a new structure.','items':manifest},indent=2))
-    print(f'Built {len(rows)} protected original challenges for {len(mapping)} lessons across {len(counts)} techniques.')
-if __name__=='__main__':build(json.load(open(sys.argv[1])),Path(sys.argv[2]))
+FIGURE_TYPES = {
+    'data': 'dataDisplay',
+    'board': 'spatialDiagram',
+    'geometry': 'geometryDiagram',
+    'cuboid': 'cuboidDiagram',
+    'pictogram': 'pictogram',
+}
+LESSON_VERSION = 'upper-primary-audit-20261114'
+PRIVATE_SOURCE_ENV = 'SUMMIT_ONE_LESSON_SOLUTIONS'
+
+
+def private_solutions(path):
+    bundle = json.loads(Path(path).read_text(encoding='utf-8'))
+    if bundle.get('version') != LESSON_VERSION:
+        raise ValueError(f'Expected the {LESSON_VERSION} authoring source')
+    solutions = bundle['solutions']
+    if any(set(row) != {'answer', 'solution_text'} for row in solutions.values()):
+        raise ValueError('Each private entry must contain the answer and worked solution')
+    return solutions
+
+
+def build(mapping, out, *, solutions_path=None, public_only=False):
+    """Build the public prompts and figure manifest, or a private database export."""
+    reviewed = reviewed_lessons()
+    titles = json.loads(Path(__file__).with_name('lesson_problem_titles.json').read_text())['titles']
+    solutions = {}
+    if not public_only:
+        solutions_path = solutions_path or os.environ.get(PRIVATE_SOURCE_ENV)
+        if not solutions_path:
+            raise ValueError(f'Set {PRIVATE_SOURCE_ENV} to the private authoring file or use public_only=True')
+        solutions = private_solutions(solutions_path)
+    counts, rows, manifest = {}, [], []
+    for session in mapping:
+        slot, skill = session['slot'], session['skill']
+        visit = counts.get(skill, 0) + 1
+        counts[skill] = visit
+        for role, suffix in (('try', 'T'), ('transfer', 'X')):
+            pid = f'O{slot:03}{suffix}'
+            capstone_problem = capstone(slot) if role == 'transfer' else None
+            entry = reviewed.get(pid)
+            if entry is None:
+                n = visit + 2
+                # Keep historical family variants available for the earlier independent checks.
+                if (skill, role) in (('FRAC-01', 'transfer'), ('ALG-05', 'try')):
+                    n *= 2
+                entry = capstone_problem or family(skill, n, role)
+                if not capstone_problem:
+                    entry = curate(skill, role, visit, entry)
+                    entry = curate2(skill, role, visit, entry)
+                    entry = spatial_revisit(skill, visit, role) or data_revisit(skill, visit, role) or entry
+            prompt = entry['prompt']
+            title = entry.get('title') or titles[skill][0 if role == 'try' else 1]
+            row = dict(
+                id=pid, source_type='original_authored', title=title,
+                source_label='Summit One original learning problem', category=skill,
+                difficulty=3 if role == 'try' else 4, prompt=prompt, unit='',
+                spoken_script='', rights='original_authored_for_summit_one',
+            )
+            if not public_only:
+                row.update(solutions[pid])
+            rows.append(row)
+            lesson_family = f'{skill}:capstone:{slot}' if capstone_problem else f'{skill}:{role}'
+            item = dict(id=pid, session=slot, skill=skill, role=role, family=lesson_family,
+                        visit=visit, source_type='original_authored')
+            diagram = entry.get('diagram')
+            if diagram:
+                figure_type = diagram.get('type') or ('data' if skill == 'DATA-03' else 'board')
+                figure = {key: value for key, value in diagram.items() if key != 'type'}
+                item[FIGURE_TYPES[figure_type]] = dict(figure, stemSignature=stem_signature(prompt))
+            manifest.append(item)
+
+    if not public_only and solutions.keys() != {row['id'] for row in rows}:
+        raise ValueError('Private authoring source does not match the canonical lesson IDs')
+    out.mkdir(parents=True, exist_ok=True)
+    filename = 'lesson-prompts.json' if public_only else 'original-problems.json'
+    (out / filename).write_text(json.dumps(rows, ensure_ascii=False, indent=2))
+    (out / 'lesson-manifest.json').write_text(json.dumps({
+        'version': LESSON_VERSION,
+        'note': 'Two original questions per lesson. Technique families remain the basis of saved transfer evidence.',
+        'items': manifest,
+    }, indent=2))
+    print(f'Built {len(rows)} lesson questions for {len(mapping)} lessons across {len(counts)} techniques.')
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('session_map', type=Path)
+    parser.add_argument('output_dir', type=Path)
+    parser.add_argument('--solutions', type=Path, help=f'Private authoring JSON (or set {PRIVATE_SOURCE_ENV})')
+    parser.add_argument('--public-only', action='store_true', help='Build prompts and the diagram manifest')
+    args = parser.parse_args()
+    build(json.loads(args.session_map.read_text()), args.output_dir,
+          solutions_path=args.solutions, public_only=args.public_only)

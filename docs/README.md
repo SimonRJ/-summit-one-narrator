@@ -6,7 +6,7 @@
 |---|---|
 | [STUDENT_GUIDE.md](STUDENT_GUIDE.md) | Sign-in, lessons, practice and review on iPhone. |
 | [PARENT_GUIDE.md](PARENT_GUIDE.md) | Pace, evidence, exam practice and review. |
-| [CHATGPT_CONTINUATION.md](CHATGPT_CONTINUATION.md) | Verified checkpoint, release checks and next audit families. |
+| [CHATGPT_CONTINUATION.md](CHATGPT_CONTINUATION.md) | Verified checkpoint, private authoring source and release checks. |
 | [CURRENT_STATUS.md](CURRENT_STATUS.md) | Verified counts, what is released, what the tests prove, known limitations. Updated 14 November 2026. |
 | [AUTHENTIC_AMC_FREEZE.md](AUTHENTIC_AMC_FREEZE.md) | What is frozen, its fingerprint, and how to prove it is unchanged. |
 | [CONTENT_AUDIT_REGISTER.md](CONTENT_AUDIT_REGISTER.md) | Per-problem audit status for the 566 lesson problems, and the log of content changes. Data in [content-audit-register.csv](content-audit-register.csv). |

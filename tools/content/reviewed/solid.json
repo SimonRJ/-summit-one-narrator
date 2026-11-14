@@ -1,0 +1,528 @@
+[
+  {
+    "id": "O006T",
+    "title": "A tower with three floor plans",
+    "band": "11–20",
+    "prompt": "A model is built from unit cubes. Its bottom layer is a 7-by-5 rectangle, the middle layer a 6-by-4 rectangle and the top layer a 5-by-3 rectangle. How many cubes does the model contain?"
+  },
+  {
+    "id": "O006X",
+    "title": "Cubes left after tunnelling",
+    "band": "21–25",
+    "prompt": "A solid block is 7 cubes long, 6 cubes wide and 4 cubes high. A straight tunnel one cube wide and two cubes high runs through the whole 7-cube length. How many cubes are left?",
+    "diagram": {
+      "type": "cuboid",
+      "dimensions": [
+        7,
+        6,
+        4
+      ],
+      "caption": "Full block before the one-by-two tunnel is cut.",
+      "labels": [
+        7,
+        6,
+        4
+      ],
+      "faces": []
+    }
+  },
+  {
+    "id": "O072T",
+    "title": "A missing corner in each layer",
+    "band": "11–20",
+    "prompt": "A block is made of unit cubes, with a 4-by-4 square in each of three layers. A single column of cubes is removed from one corner, all the way down. How many cubes remain?",
+    "diagram": {
+      "type": "board",
+      "cells": [
+        " ...",
+        "....",
+        "....",
+        "...."
+      ],
+      "description": "Top view. Each of the three layers has the same missing corner.",
+      "hideLabels": true
+    }
+  },
+  {
+    "id": "O072X",
+    "title": "Move the entire top layer",
+    "band": "21–25",
+    "prompt": "A block has four layers of unit cubes, each a 5-by-3 rectangle. Its top layer is removed and turned into a separate tower with a base of 1 by 3 cubes. How many layers high is the new tower?"
+  },
+  {
+    "id": "O087T",
+    "title": "Stack three unequal floors",
+    "band": "11–20",
+    "prompt": "A tower of unit cubes has four layers. The bottom two each contain a 6-by-3 rectangle. The third layer is a 4-by-3 rectangle. The top layer contains only six cubes. How many cubes are there altogether?"
+  },
+  {
+    "id": "O087X",
+    "title": "Two paths are dug through the same cube",
+    "band": "21–25",
+    "prompt": "A 5-by-5-by-5 block is built from unit cubes. Two straight one-cube-wide tunnels pass through the middle, one from left to right and one from front to back. They are at the same height. How many unit cubes remain?",
+    "diagram": {
+      "type": "board",
+      "cells": [
+        "..d..",
+        "..d..",
+        "ddddd",
+        "..d..",
+        "..d.."
+      ],
+      "description": "Plan of the middle layer. The dark cells mark the two tunnels.",
+      "hideLabels": true
+    }
+  },
+  {
+    "id": "O089T",
+    "title": "Paint along the edges",
+    "band": "11–20",
+    "prompt": "A solid block is made from unit cubes. It is 5 cubes long, 6 cubes wide and 7 cubes high. All six outside faces are painted. How many small cubes have exactly two painted faces?",
+    "diagram": {
+      "type": "cuboid",
+      "dimensions": [
+        5,
+        6,
+        7
+      ],
+      "caption": "All outside faces are painted, including the hidden faces.",
+      "labels": [
+        5,
+        6,
+        7
+      ],
+      "faces": [
+        "front",
+        "right",
+        "top"
+      ]
+    }
+  },
+  {
+    "id": "O089X",
+    "title": "Two layers of paint",
+    "band": "21–25",
+    "prompt": "A block of unit cubes is 5 cubes wide, 6 deep and 7 high. Only its top and bottom faces are painted. How many small cubes receive paint?",
+    "diagram": {
+      "type": "cuboid",
+      "dimensions": [
+        6,
+        5,
+        7
+      ],
+      "caption": "Only the top and the hidden bottom are painted.",
+      "labels": [
+        6,
+        5,
+        7
+      ],
+      "faces": [
+        "top"
+      ]
+    }
+  },
+  {
+    "id": "O090T",
+    "title": "The base and four walls",
+    "band": "11–20",
+    "prompt": "An open rectangular box has a 7 cm by 4 cm base and is 3 cm high. Ignoring material thickness, what area is needed for its base and four walls, in square centimetres?",
+    "diagram": {
+      "type": "cuboid",
+      "dimensions": [
+        7,
+        4,
+        3
+      ],
+      "caption": "The box has a base and four walls. Its top is open.",
+      "labels": [
+        7,
+        4,
+        3
+      ],
+      "faces": [],
+      "openTop": true
+    }
+  },
+  {
+    "id": "O090X",
+    "title": "Two new faces from one cut",
+    "band": "21–25",
+    "prompt": "A cube has edges of 7 cm. A flat cut through its middle, parallel to one face, splits it into two equal pieces. What is the total surface area of the two pieces, in square centimetres?",
+    "diagram": {
+      "type": "cuboid",
+      "dimensions": [
+        7,
+        7,
+        7
+      ],
+      "caption": "A cube with a cut parallel to one face.",
+      "labels": [
+        7,
+        7,
+        7
+      ],
+      "faces": []
+    }
+  },
+  {
+    "id": "O113T",
+    "title": "Only two adjacent faces are painted",
+    "band": "11–20",
+    "prompt": "A block of unit cubes is 4 long, 5 wide and 6 high. Only the top and the front face are painted. How many small cubes have paint on both of those faces?",
+    "diagram": {
+      "type": "cuboid",
+      "dimensions": [
+        4,
+        5,
+        6
+      ],
+      "caption": "The front and top are the only painted faces.",
+      "labels": [
+        4,
+        5,
+        6
+      ],
+      "faces": [
+        "front",
+        "top"
+      ]
+    }
+  },
+  {
+    "id": "O113X",
+    "title": "Cut through the painted brick",
+    "band": "21–25",
+    "prompt": "A 6-by-4-by-3 cuboid is built from unit cubes and painted on all its outside faces. It is then separated into two 3-by-4-by-3 blocks. In one of the two halves, how many small cubes touch the new cut face and have no paint?",
+    "diagram": {
+      "type": "cuboid",
+      "dimensions": [
+        6,
+        4,
+        3
+      ],
+      "caption": "The 6-cube length is cut in half. The new faces are each 4 by 3.",
+      "labels": [
+        6,
+        4,
+        3
+      ],
+      "faces": [
+        "front",
+        "right",
+        "top"
+      ]
+    }
+  },
+  {
+    "id": "O145T",
+    "title": "Counting the untouched middle",
+    "band": "11–20",
+    "prompt": "A 4-by-5-by-6 cuboid is assembled from unit cubes. All its outside faces are painted. How many unit cubes have no paint?",
+    "diagram": {
+      "type": "cuboid",
+      "dimensions": [
+        4,
+        5,
+        6
+      ],
+      "caption": "The whole cuboid is painted on the outside.",
+      "labels": [
+        4,
+        5,
+        6
+      ],
+      "faces": [
+        "front",
+        "right",
+        "top"
+      ]
+    }
+  },
+  {
+    "id": "O145X",
+    "title": "Find the length of a painted block",
+    "band": "21–25",
+    "prompt": "A block of unit cubes is 4 wide and 5 high. It is at least 3 cubes long. When all its outside faces are painted, there are 24 unit cubes with no paint. How many cubes long is the block?",
+    "diagram": {
+      "type": "cuboid",
+      "dimensions": [
+        7,
+        4,
+        5
+      ],
+      "caption": "The unknown dimension is the length. The drawing is schematic.",
+      "labels": [
+        "?",
+        4,
+        5
+      ],
+      "faces": [
+        "front",
+        "right",
+        "top"
+      ]
+    }
+  },
+  {
+    "id": "O163T",
+    "title": "Cubes measured from above",
+    "band": "11–20",
+    "prompt": "Six stacks of unit cubes stand on six marked floor squares. Their heights are 3, 1, 2, 4, 1 and 3 cubes. How many cubes are hidden directly below the top cube of their stack?"
+  },
+  {
+    "id": "O163X",
+    "title": "Recover the missing height from a total",
+    "band": "21–25",
+    "prompt": "A rectangular platform has a footprint of 5 by 4 unit cubes. All its full layers together and one partial top layer use 91 cubes. The partial layer has 11 cubes. How many layers, including the partial layer, does the platform have?"
+  },
+  {
+    "id": "O186T",
+    "title": "Take the lid off",
+    "band": "11–20",
+    "prompt": "A narrow rectangular box measures 9 cm long, 4 cm wide and 3 cm high. Its flat lid is removed. How many square centimetres of outside surface are left on the open box, including the base?"
+  },
+  {
+    "id": "O186X",
+    "title": "Paint before separating",
+    "band": "21–25",
+    "prompt": "Two identical cubes of side length 4 cm are joined face to face. The resulting block is painted on all its outside faces and then the cubes are separated. What total area of the separated cubes has no paint, in square centimetres?"
+  },
+  {
+    "id": "O195T",
+    "title": "The block with two hollow bays",
+    "band": "11–20",
+    "prompt": "A solid 6-by-4-by-3 block is made from unit cubes. A 2-by-2 square of cubes is removed from its top layer, and a different 1-by-3 row is removed from the bottom layer. How many cubes remain?"
+  },
+  {
+    "id": "O195X",
+    "title": "One shorter row on every floor",
+    "band": "21–25",
+    "prompt": "A block of cubes has five identical layers. Each layer has four rows: the first and second have six cubes each, and the third and fourth have four cubes each. How many more cubes would be needed to turn it into a full 6-by-4-by-5 block?",
+    "diagram": {
+      "type": "board",
+      "cells": [
+        "......",
+        "......",
+        "....  ",
+        "....  "
+      ],
+      "description": "Plan of one layer, with the shorter rows aligned at the left.",
+      "hideLabels": true
+    }
+  },
+  {
+    "id": "O204T",
+    "title": "Two layers, four painted sides",
+    "band": "11–20",
+    "prompt": "A tray-shaped block of cubes is 5 cubes long, 4 wide and just 2 high. Its four vertical faces are painted, while the top and bottom stay bare. How many cubes have exactly one painted face?",
+    "diagram": {
+      "type": "cuboid",
+      "dimensions": [
+        5,
+        4,
+        2
+      ],
+      "caption": "Four vertical faces are painted. The top and bottom are bare.",
+      "labels": [
+        5,
+        4,
+        2
+      ],
+      "faces": [
+        "front",
+        "right"
+      ]
+    }
+  },
+  {
+    "id": "O204X",
+    "title": "A cube drilled after painting",
+    "band": "26–30",
+    "prompt": "A solid 5-by-5-by-5 cube is made from unit cubes, and its six outside faces are painted. A one-cube-wide tunnel is drilled straight through the centres of the top and bottom faces, removing five small cubes. How many small cubes left have exactly one painted face?",
+    "diagram": {
+      "type": "cuboid",
+      "dimensions": [
+        5,
+        5,
+        5
+      ],
+      "caption": "The tunnel enters at the centre of the top face and leaves through the bottom.",
+      "labels": [
+        5,
+        5,
+        5
+      ],
+      "faces": [
+        "front",
+        "right",
+        "top"
+      ],
+      "markTop": true
+    }
+  },
+  {
+    "id": "O254T",
+    "title": "The missing step of the staircase",
+    "band": "21–25",
+    "prompt": "A stair model has four steps. Each step is two unit cubes wide and one cube deep. The first three steps are 1, 2 and 3 cubes high. The whole model contains 24 unit cubes. How many cubes high is the fourth step?"
+  },
+  {
+    "id": "O254X",
+    "title": "Two towers with a shared piece",
+    "band": "21–25",
+    "prompt": "A solid model is made of a 3-by-3-by-5 cuboid and a 3-by-5-by-3 cuboid. Their common part is a 3-by-3-by-3 cube. How many unit cubes are in the model?"
+  },
+  {
+    "id": "O277T",
+    "title": "Area gained after one cut",
+    "band": "21–25",
+    "prompt": "A cuboid is 9 cm long, 6 cm wide and 5 cm high. One straight cut parallel to an end face of size 6 cm by 5 cm makes two pieces. How many square centimetres does the cut add to their combined surface area?",
+    "diagram": {
+      "type": "cuboid",
+      "dimensions": [
+        9,
+        6,
+        5
+      ],
+      "caption": "The cut is parallel to the visible right face, which measures 6 cm by 5 cm.",
+      "labels": [
+        9,
+        6,
+        5
+      ]
+    }
+  },
+  {
+    "id": "O277X",
+    "title": "Two small cubes are taken out",
+    "band": "26–30",
+    "prompt": "A solid cube 4 cm on each side is built from 1 cm cubes. One small cube is removed from a corner. Another is removed from a face that does not meet that corner, away from the edges of that face. What is the new total surface area, including newly exposed surfaces, in square centimetres?"
+  },
+  {
+    "id": "O286T",
+    "title": "One layer changes shape",
+    "band": "21–25",
+    "prompt": "A model has four layers of 16 cubes each and a top layer of eight cubes. Its cubes are rebuilt into identical layers of nine cubes each. How many complete layers can be built?"
+  },
+  {
+    "id": "O286X",
+    "title": "Cubes on alternating layers",
+    "band": "21–25",
+    "prompt": "A rectangular block is 4 cubes long, 4 wide and 6 high. All four corner cubes are removed from its first, third and fifth layers, counting from the bottom. How many cubes are left in the block?"
+  },
+  {
+    "id": "O295T",
+    "title": "Only two opposite layers carry paint",
+    "band": "21–25",
+    "prompt": "A 3-by-4-by-5 block of unit cubes has its two 3-by-4 faces painted and its other faces left bare. Then the central 3-by-4 layer is taken away. How many of the remaining cubes have no paint?",
+    "diagram": {
+      "type": "cuboid",
+      "dimensions": [
+        3,
+        4,
+        5
+      ],
+      "caption": "Only the top and bottom 3-by-4 faces carry paint.",
+      "labels": [
+        3,
+        4,
+        5
+      ],
+      "faces": [
+        "top"
+      ]
+    }
+  },
+  {
+    "id": "O295X",
+    "title": "Edge cubes compete with corner cubes",
+    "band": "26–30",
+    "prompt": "A cuboid is 3 cubes wide, 3 cubes high and an unknown whole number of cubes long. The length is at least 3. Its six faces are painted. There are three times as many cubes with exactly two painted faces as there are cubes with three painted faces. How many cubes long is it?",
+    "diagram": {
+      "type": "cuboid",
+      "dimensions": [
+        5,
+        3,
+        3
+      ],
+      "caption": "The short edges have length 3. The drawing leaves the long edges unmarked.",
+      "labels": [
+        "?",
+        3,
+        3
+      ],
+      "faces": [
+        "front",
+        "right",
+        "top"
+      ]
+    }
+  },
+  {
+    "id": "O327T",
+    "title": "A border of blue cubes",
+    "band": "26–30",
+    "prompt": "A 6-by-5-by-4 block of unit cubes has all its outside faces painted blue. Afterwards the unpainted cubes are removed. A second colour is added only to the newly exposed faces of the original blue cubes. How many small cubes have both colours?",
+    "diagram": {
+      "type": "cuboid",
+      "dimensions": [
+        6,
+        5,
+        4
+      ],
+      "caption": "The full block before its unpainted centre is removed.",
+      "labels": [
+        6,
+        5,
+        4
+      ],
+      "faces": [
+        "front",
+        "right",
+        "top"
+      ]
+    }
+  },
+  {
+    "id": "O327X",
+    "title": "Two coats, no shared face",
+    "band": "21–25",
+    "prompt": "A 5-by-5-by-5 block of unit cubes is painted red on its top and bottom and blue on its four sides. How many cubes have exactly two blue faces and no red face?",
+    "diagram": {
+      "type": "cuboid",
+      "dimensions": [
+        5,
+        5,
+        5
+      ],
+      "caption": "The vertical sides are blue. The top and bottom are red.",
+      "labels": [
+        5,
+        5,
+        5
+      ],
+      "faces": [
+        "front",
+        "right",
+        "top"
+      ],
+      "faceColours": {
+        "front": "#4679ad",
+        "right": "#315e94",
+        "top": "#a95562"
+      }
+    }
+  },
+  {
+    "id": "O345T",
+    "title": "Fill only the shorter stacks",
+    "band": "11–20",
+    "prompt": "A base has six stacks of cubes, with heights 1, 4, 3, 2, 4 and 1. More cubes are added until the stacks all have the height of the tallest original stack. How many cubes are added?"
+  },
+  {
+    "id": "O345X",
+    "title": "The two models must balance",
+    "band": "21–25",
+    "prompt": "Model A has three equal layers, each a 6-by-4 rectangle of unit cubes. Model B has two equal layers, each a 4-by-5 rectangle, and a tower of equal 2-by-2 layers standing on top. Both models use the same number of cubes. How many layers high is the tower on Model B?"
+  }
+]
