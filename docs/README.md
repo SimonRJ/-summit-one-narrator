@@ -4,6 +4,7 @@
 
 | Document | Covers |
 |---|---|
+| [CHATGPT_CONTINUATION.md](CHATGPT_CONTINUATION.md) | Verified checkpoint, release checks and next audit families. |
 | [CURRENT_STATUS.md](CURRENT_STATUS.md) | Verified counts, what is released, what the tests prove, known limitations. Updated 14 November 2026. |
 | [AUTHENTIC_AMC_FREEZE.md](AUTHENTIC_AMC_FREEZE.md) | What is frozen, its fingerprint, and how to prove it is unchanged. |
 | [CONTENT_AUDIT_REGISTER.md](CONTENT_AUDIT_REGISTER.md) | Per-problem audit status for the 566 lesson problems, and the log of content changes. Data in [content-audit-register.csv](content-audit-register.csv). |
@@ -19,7 +20,7 @@ These record what was true or planned on their dates. Do not quote their numbers
 
 | Document | Date | Note |
 |---|---|---|
-| [FULL_CONTENT_AUDIT_2026-11-13.md](FULL_CONTENT_AUDIT_2026-11-13.md) | 13 Nov 2026 | Its count of 444 repeated-structure rows is superseded: 328 on 14 Nov 2026. |
+| [FULL_CONTENT_AUDIT_2026-11-13.md](FULL_CONTENT_AUDIT_2026-11-13.md) | 13 Nov 2026 | Its repetition count is superseded by the figures in CURRENT_STATUS.md. |
 | [LESSON_ORIGINALITY_AUDIT.md](LESSON_ORIGINALITY_AUDIT.md) | 12 Nov 2026 | Originality screen against the installed AMC archive. |
 | [TEACHING_AUDIT_CHECKPOINT.md](TEACHING_AUDIT_CHECKPOINT.md) | Nov 2026 | Earlier teaching audit. |
 | [REBUILD_PLAN_20261112.md](REBUILD_PLAN_20261112.md) | 12 Nov 2026 | A plan; not all of it was built. |

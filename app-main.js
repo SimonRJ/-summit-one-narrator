@@ -3,7 +3,7 @@ import {wordingHTML} from './recognition.js?v=recognition-20261113';
 import {bridgeHTML,mountPractice} from './transfer-practice.js?v=content-audit-20261113';
 import {allRows,queueLessonRepairs,renderRepairs,mountInvestigationReview,rubricHTML} from './learning-support.js?v=cinematic-practice-20261113';
 import {mountFlashCards,flashReviewed} from './flash-ui.js?v=content-audit-20261113';
-import {selectOriginalProblems,familySeen,reasoningReady,applicationStatus,mountReasoning,originalFigure,LEARNING_VERSION} from './original-learning.js?v=geometry-r2-20261114';
+import {selectOriginalProblems,familySeen,reasoningReady,applicationStatus,mountReasoning,originalFigure,LEARNING_VERSION} from './original-learning.js?v=spatial-20261114';
 import {introductionHTML,lessonPlan,investigationIntroHTML,investigationWarmupHTML} from './session-intros.js?v=recognition-20261113';
 
 if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));}
@@ -14,7 +14,7 @@ import {lessonCard,mountCheck,mountRetrieval,readinessHTML} from "./learning-ui.
 import {advancedConnectionHTML} from "./advanced-connections.js?v=adv-enrichment-20261113";
 import { problemFigure } from "./problem-figures.js";
 import {mountLessonPager} from "./lesson-pager.js?v=responsive-20261113";
-import {learningScreens} from "./lesson-screenflow.js?v=advanced-20261113";
+import {learningScreens} from "./lesson-screenflow.js?v=spatial-20261114";
 import {buildCourseNavigation} from "./course-menu.js?v=menu-20261113";
 import {mountCourseMenu} from "./course-menu-ui.js?v=lesson-replay-20261113";
 
@@ -149,7 +149,7 @@ async function boot(){
   try{
     user=await currentUser();
     if(!user){location.href="login.html";return}
-    const [c,t,m,h,tax,ms,lm]=await Promise.all([fetch("data/sessions-372.json").then(r=>r.json()),fetch("data/teaching-72.json").then(r=>r.json()),fetch("data/mawa-investigations-20.json").then(r=>r.json()),fetch("data/rossmoyne-h23.json").then(r=>r.json()),fetch("data/taxonomy-52.json").then(r=>r.json()),fetch("data/milestones.json").then(r=>r.json()),fetch("data/lesson-challenges.json?v=recognition-20261113").then(r=>r.json())]);
+    const [c,t,m,h,tax,ms,lm]=await Promise.all([fetch("data/sessions-372.json").then(r=>r.json()),fetch("data/teaching-72.json").then(r=>r.json()),fetch("data/mawa-investigations-20.json").then(r=>r.json()),fetch("data/rossmoyne-h23.json").then(r=>r.json()),fetch("data/taxonomy-52.json").then(r=>r.json()),fetch("data/milestones.json").then(r=>r.json()),fetch("data/lesson-challenges.json?v=spatial-20261114").then(r=>r.json())]);
     course=c.sessions; teaching=t.items; mawa=m.items; rossMap=h.items; taxonomy=tax; milestones=ms;lessonManifest=lm.items;courseNavigation=buildCourseNavigation(course,taxonomy);
     const {data:problems,error}=await supabase.from("content_problems_student").select("id,source_type,title,source_label,category,difficulty,prompt,unit").eq("source_type","original_authored").order("id");
     if(error)throw error; problemIndex=problems||[];

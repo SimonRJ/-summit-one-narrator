@@ -47,8 +47,45 @@ export function transferEvidenceHTML(records){
  return `<section class="transfer-evidence"><h2>Applying ideas in other settings</h2><p><b>${first.size}</b> different transfer patterns solved correctly on a first unassisted attempt. <b>${support}</b> transfer attempts solved with support.</p><p class="muted">A new set of numbers in a familiar pattern counts as practice. Worked solutions remain available after attempts; a correct answer alone does not guarantee readiness for unfamiliar problems. Mixed mocks and fresh past papers give additional evidence.</p></section>`;
 }
 
+function spatialFigure(p, diagram) {
+ const signature = new TextEncoder().encode(p.prompt).reduce(
+  (hash, byte) => Math.imul(hash ^ byte, 16777619) >>> 0, 2166136261);
+ // The live question and the static lesson manifest can deploy separately.
+ if (signature !== diagram.stemSignature) return '';
+ const {cells, description, gap, crease} = diagram;
+ const widths = diagram.widths || Array(cells[0].length).fill(1);
+ const heights = diagram.heights || Array(cells.length).fill(1);
+ const sum = values => values.reduce((total, value) => total + value, 0);
+ const unit = Math.min(34, (diagram.widths ? 205 : 230) / sum(widths), 145 / sum(heights));
+ const offsets = (values, start) => values.reduce(
+  (positions, value) => [...positions, positions.at(-1) + value * unit], [start]);
+ const x = offsets(widths, (276 - unit * sum(widths)) / 2 + 8);
+ const y = offsets(heights, 29);
+ const boardHeight = y.at(-1) + 5;
+ const fills = {'.':'#e4edf4', d:'#6e829a', '#':'#6e829a', X:'#fab958'};
+ const label = (a, b, content) => `<text x="${a}" y="${b}" text-anchor="middle" fill="#edf6ff" font-size="16">${content}</text>`;
+ const rects = cells.flatMap((row, r) => Array.from(row, (cell, c) => {
+  if (cell === ' ') return '';
+  const cx = (x[c] + x[c+1]) / 2, cy = (y[r] + y[r+1]) / 2;
+  return `<rect x="${x[c]}" y="${y[r]}" width="${widths[c]*unit}" height="${heights[r]*unit}" fill="${fills[cell]}" stroke="#233e56" stroke-width="1.3"/>` +
+   (cell === 'X' ? `<circle cx="${cx}" cy="${cy}" r="4" fill="#253748"/>` : '');
+ })).join('');
+ const columns = widths.map((w, c) => label((x[c]+x[c+1])/2, 20,
+  diagram.widths ? w : String.fromCharCode(65+c))).join('');
+ const rows = heights.map((h, r) => label(x[0]-16, (y[r]+y[r+1])/2+5,
+  diagram.heights ? h : r+1)).join('');
+ let markings = '';
+ if (gap) {
+  const [c, r] = gap;
+  markings = `<path d="M${x[c]+1.5} ${y[r]}H${x[c+1]-1.5}" stroke="${fills['.']}" stroke-width="3"/>`;
+ }
+ if (crease) markings = `<path d="M${x[crease]} ${y[0]-4}V${y.at(-1)+2}" stroke="#4e2910" stroke-width="2.6" stroke-dasharray="5 4"/>`;
+ return `<figure class="original-figure" data-spatial-figure><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 276 ${boardHeight}" aria-hidden="true">${rects}${columns}${rows}${markings}</svg><figcaption>${esc(description)}</figcaption></figure>`;
+}
+
 export function originalFigure(p){
  const m=p.learning;if(!m)return '';
+ if(m.spatialDiagram)return spatialFigure(p,m.spatialDiagram);
  const n=m.visit+2,x=n+4;let body='',alt='';
  if(m.skill==='GEO-04'){
   const N=2*x,points=Array.from({length:N},(_,i)=>[180+105*Math.cos(2*Math.PI*i/N-Math.PI/2),135+105*Math.sin(2*Math.PI*i/N-Math.PI/2)]);

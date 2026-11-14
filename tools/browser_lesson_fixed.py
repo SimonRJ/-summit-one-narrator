@@ -113,7 +113,7 @@ async def main():
   await page.locator('.opening-film').wait_for()
   # Check all fourteen 3D schematic diagrams on the actual iPhone viewport.
   diagram_report=await page.evaluate("""async()=>{
-    const {originalFigure}=await import('./original-learning.js?v=geometry-r2-20261114');
+    const {originalFigure}=await import('./original-learning.js?v=spatial-20261114');
     const stage=document.querySelector('.lesson-screen-stage');
     const results=[];
     for(const role of ['try','transfer'])for(const skill of ['SOLID-01','DATA-03'])for(let visit=(skill==='SOLID-01'?2:1);visit<=(skill==='SOLID-01'?8:7);visit++){
@@ -135,6 +135,73 @@ async def main():
   assert all(d['svgWidth']>160 and d['svgWidth']<=d['stageWidth']+2
              and d['viewBox']==[360,275] and d['invalidLabels']==0
              for d in diagram_report),diagram_report
+
+  # Use the authored stems and the published manifest on both narrow iPhone widths.
+  import json
+  import subprocess
+  import tempfile
+  with tempfile.TemporaryDirectory() as tmp:
+   subprocess.run(['python', '-c',
+    'import sys; from pathlib import Path; sys.path.insert(0, "tools/content"); '
+    'from audit_all_lessons import map_course; from build_original_lessons import build; '
+    'build(map_course(), Path(sys.argv[1]))', tmp], cwd=ROOT, check=True)
+   authored=json.loads((Path(tmp)/'original-problems.json').read_text())
+   stems={r['id']:r['prompt'] for r in authored}
+  for width in (320,390):
+   await page.set_viewport_size({'width':width,'height':844})
+   spatial=await page.evaluate("""async stems=>{
+    const {originalFigure}=await import('./original-learning.js?v=spatial-20261114');
+    const entries=(await (await fetch('data/lesson-challenges.json')).json()).items.filter(m=>m.spatialDiagram);
+    const stage=document.querySelector('.lesson-screen-stage');
+    return entries.map(learning=>{
+      const card=document.createElement('article');
+      card.className='problem-card';
+      card.innerHTML=originalFigure({prompt:stems[learning.id],learning});
+      stage.append(card);
+      const svg=card.querySelector('svg'),labels=[...svg.querySelectorAll('text')];
+      const width=svg.getBoundingClientRect().width,view=svg.viewBox.baseVal;
+      const bounds=labels.map(t=>t.getBBox());
+      const clipped=bounds.some(b=>b.x<0||b.y<0||b.x+b.width>view.width||b.y+b.height>view.height);
+      const overlap=bounds.some((a,i)=>bounds.slice(i+1).some(b=>a.x<b.x+b.width&&a.x+a.width>b.x&&a.y<b.y+b.height&&a.y+a.height>b.y));
+      const textPx=width/view.width*Math.min(...labels.map(t=>Number(t.getAttribute('font-size'))));
+      const stale=originalFigure({prompt:'An earlier question.',learning});
+      card.remove();
+      return {id:learning.id,width,clipped,overlap,textPx,stale};
+    });
+   }""", stems)
+   assert len(spatial)==29,spatial
+   assert all(d['width']>=185 and d['textPx']>=11 and not d['clipped'] and not d['overlap']
+              and not d['stale'] for d in spatial),spatial
+  await page.set_viewport_size({'width':390,'height':844})
+  # Run one spatial question through the real lesson screen and solution reveal.
+  authored_mock=MOCK.replace("function query(table)", "const authored="+json.dumps(authored)+";"+
+   "for(const row of problems)Object.assign(row,authored.find(a=>a.id===row.id));function query(table)")
+  authored_mock=authored_mock.replace("{solution_text:'Six plus six is twelve.'}",
+   "{solution_text:authored.find(a=>a.id===body.problem_id)?.solution_text}")
+  spatial_ctx=await browser.new_context(viewport={'width':390,'height':844},service_workers='block')
+  await spatial_ctx.add_init_script("""window.fixture={records:[{session_number:94,answers:{},working:{},
+   evidence:{'guided:SPATIAL-02':{},'retrieval:SPATIAL-02':{}},summary:{lesson_stage:3,lesson_panel:5}}],
+   attempts:[],exams:[],progress:{completed_sessions:93,current_session:94,xp:0,rank:0,state:{}},writes:[],fail:false}""")
+  await spatial_ctx.route('**/supabase-client.js*',lambda route:route.fulfill(content_type='application/javascript',body=authored_mock))
+  spatial_page=await spatial_ctx.new_page()
+  await spatial_page.goto('http://127.0.0.1:8765/')
+  await spatial_page.locator('#continue').click()
+  spatial_card=spatial_page.locator('.lesson-problem-unit')
+  await spatial_card.locator('svg').wait_for()
+  assert 'missing grid segment' in (await spatial_card.locator('.problem-title').inner_text()).lower()
+  await spatial_page.locator('[data-screen-next]').click()
+  await spatial_card.locator('.final-answer-input').fill('42')
+  await spatial_card.locator('.submit-answer').click()
+  await spatial_card.locator('.submit-answer').wait_for(state='hidden')
+  await spatial_page.locator('[data-screen-next]').click()
+  await spatial_card.locator('.reveal-solution').click()
+  await spatial_card.get_by_text('Read full worked solution').click()
+  assert await spatial_card.locator('svg').first.is_visible()
+  assert 'Final answer: 42' in await spatial_card.locator('.solution-panel details[open] p').text_content()
+  assert await spatial_page.evaluate('document.documentElement.scrollWidth <= innerWidth+2')
+  await spatial_page.locator('.lesson-screen-stage').evaluate('(stage)=>stage.scrollTop=0')
+  await spatial_page.screenshot(path=str(ROOT/'docs/spatial-solution-iphone.png'))
+  await spatial_ctx.close()
 
   # Confirm ordinary arithmetic becomes semantic TeX without changing saved data.
   await page.locator('#stage').evaluate("""stage => {
