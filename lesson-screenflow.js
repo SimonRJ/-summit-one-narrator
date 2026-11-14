@@ -60,7 +60,7 @@ export function learningScreens(host,stage,{draft,skill,problem,flashDone,slot}=
   const pieces={
    intro:[...node.querySelectorAll(":scope > .problem-meta, :scope > .problem-title, :scope > .problem-prompt, :scope > .original-figure, :scope > .problem-figure, :scope > .challenge-bridge")],
    answer:[...node.querySelectorAll(":scope > .problem-title, :scope > .problem-prompt, :scope > .original-figure, :scope > .problem-figure, :scope > .reasoning-help-only, :scope > .answer-label, :scope > .problem-actions, :scope > .attempt-feedback")],
-   review:[...node.querySelectorAll(":scope > .problem-title, :scope > .problem-prompt, :scope > .problem-actions, :scope > .attempt-feedback, :scope > .solution-panel")]
+   review:[...node.querySelectorAll(":scope > .problem-title, :scope > .problem-prompt, :scope > .original-figure[data-spatial-figure], :scope > .problem-actions, :scope > .attempt-feedback, :scope > .solution-panel")]
   };
   const showProblem=type=>{
    showTop([node]);

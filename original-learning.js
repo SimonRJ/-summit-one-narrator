@@ -60,7 +60,7 @@ function spatialFigure(p, diagram) {
  const offsets = (values, start) => values.reduce(
   (positions, value) => [...positions, positions.at(-1) + value * unit], [start]);
  const x = offsets(widths, (276 - unit * sum(widths)) / 2 + 8);
- const y = offsets(heights, diagram.widths ? 65 : 29);
+ const y = offsets(heights, 29);
  const boardHeight = y.at(-1) + 5;
  const fills = {'.':'#e4edf4', d:'#6e829a', '#':'#6e829a', X:'#fab958'};
  const label = (a, b, content) => `<text x="${a}" y="${b}" text-anchor="middle" fill="#edf6ff" font-size="16">${content}</text>`;
@@ -70,17 +70,17 @@ function spatialFigure(p, diagram) {
   return `<rect x="${x[c]}" y="${y[r]}" width="${widths[c]*unit}" height="${heights[r]*unit}" fill="${fills[cell]}" stroke="#233e56" stroke-width="1.3"/>` +
    (cell === 'X' ? `<circle cx="${cx}" cy="${cy}" r="4" fill="#253748"/>` : '');
  })).join('');
- const columns = widths.map((w, c) => label((x[c]+x[c+1])/2, 20, String.fromCharCode(65+c)) +
-  (diagram.widths ? label((x[c]+x[c+1])/2, 42, w) : '')).join('');
- const rows = heights.map((h, r) => label(x[0]-(diagram.heights?25:16), (y[r]+y[r+1])/2+5, r+1) +
-  (diagram.heights ? label(x.at(-1)+17, (y[r]+y[r+1])/2+5, h) : '')).join('');
+ const columns = widths.map((w, c) => label((x[c]+x[c+1])/2, 20,
+  diagram.widths ? w : String.fromCharCode(65+c))).join('');
+ const rows = heights.map((h, r) => label(x[0]-16, (y[r]+y[r+1])/2+5,
+  diagram.heights ? h : r+1)).join('');
  let markings = '';
  if (gap) {
   const [c, r] = gap;
   markings = `<path d="M${x[c]+1.5} ${y[r]}H${x[c+1]-1.5}" stroke="${fills['.']}" stroke-width="3"/>`;
  }
  if (crease) markings = `<path d="M${x[crease]} ${y[0]-4}V${y.at(-1)+2}" stroke="#4e2910" stroke-width="2.6" stroke-dasharray="5 4"/>`;
- return `<figure class="original-figure"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 276 ${boardHeight}" aria-hidden="true">${rects}${columns}${rows}${markings}</svg><figcaption>${esc(description)}</figcaption></figure>`;
+ return `<figure class="original-figure" data-spatial-figure><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 276 ${boardHeight}" aria-hidden="true">${rects}${columns}${rows}${markings}</svg><figcaption>${esc(description)}</figcaption></figure>`;
 }
 
 export function originalFigure(p){

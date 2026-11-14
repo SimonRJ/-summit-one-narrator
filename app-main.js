@@ -14,7 +14,7 @@ import {lessonCard,mountCheck,mountRetrieval,readinessHTML} from "./learning-ui.
 import {advancedConnectionHTML} from "./advanced-connections.js?v=adv-enrichment-20261113";
 import { problemFigure } from "./problem-figures.js";
 import {mountLessonPager} from "./lesson-pager.js?v=responsive-20261113";
-import {learningScreens} from "./lesson-screenflow.js?v=advanced-20261113";
+import {learningScreens} from "./lesson-screenflow.js?v=spatial-20261114";
 import {buildCourseNavigation} from "./course-menu.js?v=menu-20261113";
 import {mountCourseMenu} from "./course-menu-ui.js?v=lesson-replay-20261113";
 
