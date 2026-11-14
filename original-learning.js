@@ -147,9 +147,14 @@ function drawCuboid(diagram) {
   addLine([0,0,z],[length,0,z]);
   addLine([length,0,z],[length,width,z]);
  }
+ if(diagram.cutAt != null){
+  const x=diagram.cutAt;
+  body += path([[x,0,0],[x,0,height],[x,width,height]],'none','#f4b583',2.6);
+ }
  if(diagram.markTop){
   const [x,y]=project([length/2,width/2,height]);
-  body += `<circle cx="${x}" cy="${y}" r="4.2" fill="#fab958" stroke="#203549" stroke-width="1.3"/>`;
+  const opening=diagram.markTop==='opening';
+  body += `<circle cx="${x}" cy="${y}" r="4.2" fill="${opening?'#0b1b2c':'#fab958'}" stroke="${opening?'#f4b583':'#203549'}" stroke-width="1.3"/>`;
  }
  const label = (point,dx,dy,value) => {
   const [x,y]=project(point);

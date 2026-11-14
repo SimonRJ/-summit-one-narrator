@@ -535,8 +535,8 @@
             142
           ],
           [
-            114,
-            32
+            156,
+            67
           ],
           [
             188,
@@ -551,8 +551,8 @@
       "caption": "The bottom-right exterior angle is 113 degrees; the bottom-left angle is 38 degrees.",
       "labels": [
         [
-          79,
-          131,
+          104,
+          135,
           "38°"
         ],
         [
@@ -1234,8 +1234,8 @@
             87
           ],
           [
-            138,
-            24
+            138.0,
+            21.0
           ]
         ],
         [
@@ -1244,8 +1244,8 @@
             87
           ],
           [
-            202,
-            48
+            193.97,
+            52.03
           ]
         ],
         [
@@ -1254,8 +1254,8 @@
             87
           ],
           [
-            199,
-            134
+            173.95,
+            142.35
           ]
         ],
         [
@@ -1264,21 +1264,21 @@
             87
           ],
           [
-            46,
-            110
+            75.6,
+            65.51
           ]
         ]
       ],
       "caption": "Four angles meet about a point. The diagram is schematic.",
       "labels": [
         [
-          162,
-          56,
+          161.27,
+          50.02,
           "58°"
         ],
         [
-          180,
-          93,
+          182.91,
+          101.96,
           "89°"
         ]
       ]
@@ -1712,7 +1712,7 @@
           ],
           [
             138,
-            151
+            145
           ]
         ],
         [
@@ -2242,26 +2242,26 @@
         ],
         [
           [
-            107,
+            112,
             24
           ],
           [
-            107,
+            112,
             150
           ]
         ],
         [
           [
-            167,
+            163,
             24
           ],
           [
-            167,
+            163,
             150
           ]
         ]
       ],
-      "caption": "Two cuts run from top to bottom. The drawing is schematic.",
+      "caption": "The middle rectangle has a perimeter of 34 cm. The drawing is schematic.",
       "labels": [
         [
           138,
@@ -2272,11 +2272,6 @@
           36,
           95,
           "12"
-        ],
-        [
-          137,
-          92,
-          "34 cm around"
         ]
       ]
     }
@@ -2327,11 +2322,11 @@
             145
           ],
           [
-            120,
+            109.65,
             24
           ],
           [
-            228,
+            230.65,
             145
           ],
           [
@@ -2341,23 +2336,54 @@
         ],
         [
           [
-            120,
+            109.65,
             24
           ],
           [
-            130,
+            128.81,
             145
+          ]
+        ],
+        [
+          [
+            125.91,
+            40.26
+          ],
+          [
+            123.17,
+            42.61
+          ],
+          [
+            120.09,
+            44.49
+          ],
+          [
+            116.76,
+            45.87
+          ],
+          [
+            113.25,
+            46.72
+          ],
+          [
+            109.65,
+            47.0
+          ],
+          [
+            106.05,
+            46.72
+          ],
+          [
+            102.54,
+            45.87
+          ],
+          [
+            99.21,
+            44.49
           ]
         ]
       ],
-      "caption": "The top angle is split into two equal angles. The ends of the base are 18 degrees apart in angle size.",
-      "labels": [
-        [
-          120,
-          56,
-          "72°"
-        ]
-      ]
+      "caption": "The dividing line bisects the 72-degree angle. The angles at the ends of the base differ by 18 degrees."
     }
   },
   {
@@ -2685,7 +2711,7 @@
           ]
         ]
       ],
-      "caption": "The star is at the top. The dot is two positions clockwise from it. The corners alternate light and dark.",
+      "caption": "Solid dots mark light corners and rings mark dark corners. The star is at the top, and the dot is two positions clockwise.",
       "labels": [
         [
           138.0,
@@ -2704,28 +2730,30 @@
           25.0
         ],
         [
-          181.1,
-          42.9
-        ],
-        [
           199.0,
           86.0
-        ],
-        [
-          181.1,
-          129.1
         ],
         [
           138.0,
           147.0
         ],
         [
-          94.9,
+          77.0,
+          86.0
+        ]
+      ],
+      "openPoints": [
+        [
+          181.1,
+          42.9
+        ],
+        [
+          181.1,
           129.1
         ],
         [
-          77.0,
-          86.0
+          94.9,
+          129.1
         ],
         [
           94.9,

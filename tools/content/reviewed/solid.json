@@ -161,7 +161,8 @@
         7,
         7
       ],
-      "faces": []
+      "faces": [],
+      "cutAt": 3.5
     }
   },
   {
@@ -210,7 +211,8 @@
         "front",
         "right",
         "top"
-      ]
+      ],
+      "cutAt": 3
     }
   },
   {
@@ -357,7 +359,7 @@
         "right",
         "top"
       ],
-      "markTop": true
+      "markTop": "opening"
     }
   },
   {
@@ -389,7 +391,8 @@
         9,
         6,
         5
-      ]
+      ],
+      "cutAt": 4
     }
   },
   {
