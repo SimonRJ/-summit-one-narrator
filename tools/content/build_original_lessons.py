@@ -8,6 +8,7 @@ from pathlib import Path
 from fractions import Fraction
 from curated_revisits import curate
 from curated_batch2 import curate2
+from curated_spatial import spatial_revisit
 C=math.comb
 
 def ordinal(n):
@@ -268,6 +269,13 @@ def capstone(slot):
         tasks[slot]['steps'][1]='The zero-remainder pair gives only 30 (03 is not two-digit). The 1+2 groups give 2×2×2=8 numbers. Together there are 9.'
     return tasks.get(slot)
 
+def stem_signature(prompt):
+    signature = 2166136261
+    for byte in prompt.encode():
+        signature = ((signature ^ byte) * 16777619) & 0xffffffff
+    return signature
+
+
 def build(mapping,out):
     title_map=json.loads(Path(__file__).with_name('lesson_problem_titles.json').read_text())['titles']
     counts={};rows=[];manifest=[]
@@ -280,6 +288,7 @@ def build(mapping,out):
             if not (role=='transfer' and capstone(s['slot'])):
                 q=curate(k,role,counts[k],q)
                 q=curate2(k,role,counts[k],q)
+                q=spatial_revisit(k,counts[k],role) or q
             if k=='FRAC-01' and role=='transfer':q['check']='Send half of the original count, then one third of the remainder; all counts are whole numbers and the final remainder agrees.'
             if k=='ALG-05' and role=='try':q['check']='Subtract the transfer from the first count and add it to the second; check the stated final gap.'
             pid=f'O{s["slot"]:03}{"T" if role=="try" else "X"}'
@@ -291,6 +300,8 @@ def build(mapping,out):
             title=q.get('title') or bespoke_titles.get(pid, title_map[k][0 if role=='try' else 1])
             rows.append(dict(id=pid,source_type='original_authored',title=title,source_label='Summit One original learning problem',category=k,difficulty=3 if role=='try' else 4,prompt=prompt,answer=q['answer'],unit='',solution_text=q['clue']+'\n\n'+'\n\n'.join(q['steps'])+'\n\n'+q['check']+'\n\nFinal answer: '+str(q['answer']),spoken_script='',rights='original_authored_for_summit_one'))
             manifest.append(dict(id=pid,session=s['slot'],skill=k,role=role,family=k+(':capstone:'+str(s['slot']) if role=='transfer' and capstone(s['slot']) else ':'+role),visit=visit,source_type='original_authored'))
+            if q.get('diagram'):
+                manifest[-1]['spatialDiagram'] = dict(q['diagram'], stemSignature=stem_signature(prompt))
     out.mkdir(parents=True,exist_ok=True)
     (out/'original-problems.json').write_text(json.dumps(rows,ensure_ascii=False,indent=2))
     (out/'lesson-manifest.json').write_text(json.dumps({'version':'original-transfer-20261112','note':'Different numbers in a repeated family are practice, not evidence of a new structure.','items':manifest},indent=2))

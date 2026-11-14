@@ -113,7 +113,7 @@ async def main():
   await page.locator('.opening-film').wait_for()
   # Check all fourteen 3D schematic diagrams on the actual iPhone viewport.
   diagram_report=await page.evaluate("""async()=>{
-    const {originalFigure}=await import('./original-learning.js?v=geometry-r2-20261114');
+    const {originalFigure}=await import('./original-learning.js?v=spatial-20261114');
     const stage=document.querySelector('.lesson-screen-stage');
     const results=[];
     for(const role of ['try','transfer'])for(const skill of ['SOLID-01','DATA-03'])for(let visit=(skill==='SOLID-01'?2:1);visit<=(skill==='SOLID-01'?8:7);visit++){
@@ -135,6 +135,43 @@ async def main():
   assert all(d['svgWidth']>160 and d['svgWidth']<=d['stageWidth']+2
              and d['viewBox']==[360,275] and d['invalidLabels']==0
              for d in diagram_report),diagram_report
+
+  # Use the authored stems and the published manifest on both narrow iPhone widths.
+  import json
+  import subprocess
+  import tempfile
+  with tempfile.TemporaryDirectory() as tmp:
+   subprocess.run(['python', '-c',
+    'import sys; from pathlib import Path; sys.path.insert(0, "tools/content"); '
+    'from audit_all_lessons import map_course; from build_original_lessons import build; '
+    'build(map_course(), Path(sys.argv[1]))', tmp], cwd=ROOT, check=True)
+   stems={r['id']:r['prompt'] for r in json.loads((Path(tmp)/'original-problems.json').read_text())}
+  for width in (320,390):
+   await page.set_viewport_size({'width':width,'height':844})
+   spatial=await page.evaluate("""async stems=>{
+    const {originalFigure}=await import('./original-learning.js?v=spatial-20261114');
+    const entries=(await (await fetch('data/lesson-challenges.json')).json()).items.filter(m=>m.spatialDiagram);
+    const stage=document.querySelector('.lesson-screen-stage');
+    return entries.map(learning=>{
+      const card=document.createElement('article');
+      card.className='problem-card';
+      card.innerHTML=originalFigure({prompt:stems[learning.id],learning});
+      stage.append(card);
+      const svg=card.querySelector('svg'),labels=[...svg.querySelectorAll('text')];
+      const width=svg.getBoundingClientRect().width,view=svg.viewBox.baseVal;
+      const bounds=labels.map(t=>t.getBBox());
+      const clipped=bounds.some(b=>b.x<0||b.y<0||b.x+b.width>view.width||b.y+b.height>view.height);
+      const overlap=bounds.some((a,i)=>bounds.slice(i+1).some(b=>a.x<b.x+b.width&&a.x+a.width>b.x&&a.y<b.y+b.height&&a.y+a.height>b.y));
+      const textPx=width/view.width*Math.min(...labels.map(t=>Number(t.getAttribute('font-size'))));
+      const stale=originalFigure({prompt:'An earlier question.',learning});
+      card.remove();
+      return {id:learning.id,width,clipped,overlap,textPx,stale};
+    });
+   }""", stems)
+   assert len(spatial)==29,spatial
+   assert all(d['width']>=185 and d['textPx']>=11 and not d['clipped'] and not d['overlap']
+              and not d['stale'] for d in spatial),spatial
+  await page.set_viewport_size({'width':390,'height':844})
 
   # Confirm ordinary arithmetic becomes semantic TeX without changing saved data.
   await page.locator('#stage').evaluate("""stage => {

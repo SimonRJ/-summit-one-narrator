@@ -13,18 +13,26 @@ The per-problem register for the 566 standard lesson problems is [content-audit-
 | `same_structure_elsewhere` | How many other lesson problems have the same statement once numbers are removed. |
 | `individually_reviewed` | Whether a reviewer wrote or read this statement and solution one by one. |
 | `has_recorded_attempts` | `yes - frozen` means a learner has answered it and it must not be changed. |
-| `diagram` | Diagram review status. Lesson problems are text only. |
+| `diagram` | Diagram review status for the original lesson prompt. |
 | `status` | One of: Verified and suitable; Correct by family check, awaiting individual review; Repetitive and requires redesign. |
 
 ## Totals on 14 November 2026
 
 | Status | Problems |
 |---|---:|
-| Verified and suitable | 60 |
-| Correct by family check; awaiting individual review | 94 |
-| Repetitive and requires redesign | 412 |
+| Verified and suitable | 90 |
+| Correct by family check; awaiting individual review | 98 |
+| Repetitive and requires redesign | 378 |
 
 ## Change log
+
+### Spatial batch: 14 November 2026
+
+**Change.** Revised all 30 later-visit problems in SPATIAL-02 (16) and SPATIAL-03 (14). Six SPATIAL-03 rows already had different live prompts and keys. Their mathematical ideas and keys were preserved, and their wording and diagrams were brought into the generator. The four first-visit problems remain as introductions. The new problems ask students to reason about missing edges, irregular grids, symmetry, constrained tilings, bounds and overlap. Twenty-nine have diagrams. The inverse square-grid problem leaves the board size for the learner to infer.
+
+**Problem IDs.** O082T O082X O094T O094X O097T O097X O118T O118X O127T O127X O159T O159X O177T O177X O209T O209X O218T O218X O250T O250X O268T O268X O300T O300X O309T O309X O341T O341X O359T O359X.
+
+**Verification.** Independent enumeration checks all 30 answers. Browser fixtures check diagram labels and safe handling of a stale question at 320 and 390 CSS pixels. The content source includes no changes to the authentic exam bank or its linked problem records.
 
 ### Batch 2: 14 November 2026
 
@@ -51,4 +59,4 @@ DIV-03, ALG-04, DATA-02, DIG-03 and SOLID-01 later visits were reauthored in `cu
 
 ## Next families to redesign
 
-Ranked by remaining repeats: SPATIAL-02, SPATIAL-03, DATA-03, SOLID-02, RATE-01, RATE-02, GEO-03, FRAC-01, DIG-04, COUNT-04. The spatial, solid and geometry families will need diagrams, which must be inspected in a browser at phone size before release.
+Ranked by remaining repeats: DATA-03, SOLID-02, RATE-01, RATE-02, GEO-03, FRAC-01, DIG-04, COUNT-04. The remaining solid and geometry families will need diagrams, which must be inspected in a browser at phone size before release.

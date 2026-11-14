@@ -33,7 +33,7 @@ The user approved the T02.1 studio edition as the visual standard. Apply it to s
 - Retain the identity of objects when transferring them. Animate regrouping, restoration, cancellation and correspondence instead of decorating text slides.
 - Use large legible equations, purposeful transitions and mathematical colour coding. Lines and arrows must explain a relationship.
 - Time the important changes to the finished narration. Review intermediate motion states as well as still storyboards.
-- Keep the approved T02.1 audio unchanged. New lessons may use clearer, self-contained narration with the same af_heart voice at natural speed; spell mathematical expressions out for speech.
+- Keep the approved T02.1 audio unchanged. New lessons may use clearer, self-contained narration with the approved Voice C at natural speed, as specified in the [production guide](VIDEO_PRODUCTION.md); spell mathematical expressions out for speech.
 - Check the mathematics, caption overlap and readability, audio integrity, app lesson route, browser cache revision and final public HTTPS playback.
 
 T02.2 follows this art system with a number machine, a fraction-of-the-remainder example, and a whole-counter legality check. Preserve the established lesson ID so course sequencing and progress records continue to work.

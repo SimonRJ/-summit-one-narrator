@@ -27,7 +27,7 @@ All examples in the scripts are original to Summit One. None reuses a competitio
 ## From script to video
 
 1. Read the script JSON and storyboard each scene from its `visual` field, following the T02.1 art system: matte background, one focal idea, objects that keep their identity as they move.
-2. Record narration with the approved voice (`af_heart`, natural speed). An earlier preference recorded elsewhere as "Voice C" should be confirmed with the parent before a batch is recorded.
+2. Record with the approved male Voice C at natural speed. The reference is `media/voice-audition/vox-australian-male-c.mp3`. Reuse the `openbmb/VoxCPM2` revision pinned in `production/voice-c-welcome/synth.py` and its reference prompt. The reference file matches the SHA-256 in `review/AMC2025Q17-voice-c.json`. Finish and review a concept pilot and a worked-example pilot before batch recording.
 3. Time animation to the recorded audio. Do not stretch speech.
 4. Burn in one caption layer only.
 5. Check the mathematics on screen, caption alignment, legibility on a phone, and the published HTTPS link.

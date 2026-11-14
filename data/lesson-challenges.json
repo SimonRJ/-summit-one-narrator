@@ -1179,7 +1179,18 @@
       "role": "try",
       "family": "SPATIAL-02:try",
       "visit": 2,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "spatialDiagram": {
+        "cells": [
+          "....",
+          "....",
+          "...."
+        ],
+        "description": "Three rows of four equal squares.",
+        "widths": null,
+        "heights": null,
+        "stemSignature": 2310327189
+      }
     },
     {
       "id": "O082X",
@@ -1188,7 +1199,19 @@
       "role": "transfer",
       "family": "SPATIAL-02:transfer",
       "visit": 2,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "spatialDiagram": {
+        "cells": [
+          ".....",
+          ".....",
+          ".....",
+          "....."
+        ],
+        "description": "Four rows of five equal squares.",
+        "widths": null,
+        "heights": null,
+        "stemSignature": 1546475885
+      }
     },
     {
       "id": "O083T",
@@ -1359,7 +1382,18 @@
       "role": "try",
       "family": "SPATIAL-02:try",
       "visit": 3,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "spatialDiagram": {
+        "cells": [
+          "....",
+          "....",
+          "..  "
+        ],
+        "description": "A stepped floor. The bottom row contains only A3 and B3.",
+        "widths": null,
+        "heights": null,
+        "stemSignature": 173057465
+      }
     },
     {
       "id": "O094X",
@@ -1368,7 +1402,22 @@
       "role": "transfer",
       "family": "SPATIAL-02:transfer",
       "visit": 3,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "spatialDiagram": {
+        "cells": [
+          "....",
+          "....",
+          "...."
+        ],
+        "description": "The horizontal segment between B1 and B2 is missing.",
+        "widths": null,
+        "heights": null,
+        "gap": [
+          1,
+          1
+        ],
+        "stemSignature": 2179025763
+      }
     },
     {
       "id": "O095T",
@@ -1395,7 +1444,19 @@
       "role": "try",
       "family": "SPATIAL-03:try",
       "visit": 2,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "spatialDiagram": {
+        "cells": [
+          " .d.",
+          ".d.d",
+          "d.d.",
+          ".d. "
+        ],
+        "description": "The checkerboard is missing the corners A1 and D4.",
+        "widths": null,
+        "heights": null,
+        "stemSignature": 1260068444
+      }
     },
     {
       "id": "O097X",
@@ -1404,7 +1465,20 @@
       "role": "transfer",
       "family": "SPATIAL-03:transfer",
       "visit": 2,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "spatialDiagram": {
+        "cells": [
+          "d.d.d",
+          ".d.d.",
+          "d.d.d",
+          ".d.d.",
+          "d.d.d"
+        ],
+        "description": "A 5-by-5 checkerboard with A1 dark.",
+        "widths": null,
+        "heights": null,
+        "stemSignature": 3378853855
+      }
     },
     {
       "id": "O099T",
@@ -1701,7 +1775,18 @@
       "role": "try",
       "family": "SPATIAL-02:try",
       "visit": 4,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "spatialDiagram": {
+        "cells": [
+          ".....",
+          ".X.X.",
+          "....."
+        ],
+        "description": "Stamps in cells B2 and D2.",
+        "widths": null,
+        "heights": null,
+        "stemSignature": 189559718
+      }
     },
     {
       "id": "O118X",
@@ -1710,7 +1795,18 @@
       "role": "transfer",
       "family": "SPATIAL-02:transfer",
       "visit": 4,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "spatialDiagram": {
+        "cells": [
+          ".X...",
+          ".....",
+          "...X."
+        ],
+        "description": "Ink marks in cells B1 and D3.",
+        "widths": null,
+        "heights": null,
+        "stemSignature": 1938654399
+      }
     },
     {
       "id": "O120T",
@@ -1827,7 +1923,19 @@
       "role": "try",
       "family": "SPATIAL-03:try",
       "visit": 3,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "spatialDiagram": {
+        "cells": [
+          "  ..",
+          "....",
+          "....",
+          "...."
+        ],
+        "description": "The top row is missing A1 and B1.",
+        "widths": null,
+        "heights": null,
+        "stemSignature": 60003186
+      }
     },
     {
       "id": "O127X",
@@ -1836,7 +1944,21 @@
       "role": "transfer",
       "family": "SPATIAL-03:transfer",
       "visit": 3,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "spatialDiagram": {
+        "cells": [
+          "......",
+          "......",
+          "......",
+          "......",
+          "......",
+          "......"
+        ],
+        "description": "A plain 6-by-6 board. The worked solution describes the colouring.",
+        "widths": null,
+        "heights": null,
+        "stemSignature": 1886369804
+      }
     },
     {
       "id": "O129T",
@@ -2277,7 +2399,18 @@
       "role": "try",
       "family": "SPATIAL-03:try",
       "visit": 4,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "spatialDiagram": {
+        "cells": [
+          "...",
+          "...",
+          "..."
+        ],
+        "description": "Nine lamps in a square array, all initially off.",
+        "widths": null,
+        "heights": null,
+        "stemSignature": 1367798374
+      }
     },
     {
       "id": "O159X",
@@ -2286,7 +2419,21 @@
       "role": "transfer",
       "family": "SPATIAL-03:transfer",
       "visit": 4,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "spatialDiagram": {
+        "cells": [
+          "......",
+          "......",
+          "......",
+          "......",
+          "......",
+          "......"
+        ],
+        "description": "A plain 6-by-6 board. Each tile consists of three squares in a row and one attached to the middle.",
+        "widths": null,
+        "heights": null,
+        "stemSignature": 277230702
+      }
     },
     {
       "id": "O162T",
@@ -2511,7 +2658,19 @@
       "role": "try",
       "family": "SPATIAL-02:try",
       "visit": 5,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "spatialDiagram": {
+        "cells": [
+          "....",
+          "....",
+          "...."
+        ],
+        "description": "A dashed vertical crease between columns B and C.",
+        "widths": null,
+        "heights": null,
+        "crease": 2,
+        "stemSignature": 640132386
+      }
     },
     {
       "id": "O177X",
@@ -2520,7 +2679,19 @@
       "role": "transfer",
       "family": "SPATIAL-02:transfer",
       "visit": 5,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "spatialDiagram": {
+        "cells": [
+          "#####",
+          "#...#",
+          "#...#",
+          "#####"
+        ],
+        "description": "The shaded cells form the outer border.",
+        "widths": null,
+        "heights": null,
+        "stemSignature": 652999860
+      }
     },
     {
       "id": "O178T",
@@ -2961,7 +3132,27 @@
       "role": "try",
       "family": "SPATIAL-02:try",
       "visit": 6,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "spatialDiagram": {
+        "cells": [
+          "....",
+          "....",
+          "...."
+        ],
+        "description": "Column widths 1, 2, 1 and 3 cm. Row heights 1, 2 and 1 cm.",
+        "widths": [
+          1,
+          2,
+          1,
+          3
+        ],
+        "heights": [
+          1,
+          2,
+          1
+        ],
+        "stemSignature": 2174101499
+      }
     },
     {
       "id": "O209X",
@@ -2970,7 +3161,19 @@
       "role": "transfer",
       "family": "SPATIAL-02:transfer",
       "visit": 6,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "spatialDiagram": {
+        "cells": [
+          ".....",
+          ".....",
+          ".....",
+          "....."
+        ],
+        "description": "Four rows of five one-metre beds.",
+        "widths": null,
+        "heights": null,
+        "stemSignature": 1701558424
+      }
     },
     {
       "id": "O211T",
@@ -3069,7 +3272,19 @@
       "role": "try",
       "family": "SPATIAL-03:try",
       "visit": 5,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "spatialDiagram": {
+        "cells": [
+          " .. ",
+          "....",
+          "....",
+          " .. "
+        ],
+        "description": "The four outer corner squares are missing.",
+        "widths": null,
+        "heights": null,
+        "stemSignature": 1611887722
+      }
     },
     {
       "id": "O218X",
@@ -3078,7 +3293,19 @@
       "role": "transfer",
       "family": "SPATIAL-03:transfer",
       "visit": 5,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "spatialDiagram": {
+        "cells": [
+          "......",
+          "......",
+          "......",
+          "......"
+        ],
+        "description": "Four rows of six squares.",
+        "widths": null,
+        "heights": null,
+        "stemSignature": 3898574192
+      }
     },
     {
       "id": "O219T",
@@ -3519,7 +3746,21 @@
       "role": "try",
       "family": "SPATIAL-03:try",
       "visit": 6,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "spatialDiagram": {
+        "cells": [
+          "..##..",
+          "..##..",
+          "..##..",
+          "..##..",
+          "..##..",
+          "..##.."
+        ],
+        "description": "The two middle columns, C and D, are shaded.",
+        "widths": null,
+        "heights": null,
+        "stemSignature": 1377962003
+      }
     },
     {
       "id": "O250X",
@@ -3528,7 +3769,20 @@
       "role": "transfer",
       "family": "SPATIAL-03:transfer",
       "visit": 6,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "spatialDiagram": {
+        "cells": [
+          "......",
+          "......",
+          "......",
+          "......",
+          "......"
+        ],
+        "description": "Five rows of six squares.",
+        "widths": null,
+        "heights": null,
+        "stemSignature": 3406223550
+      }
     },
     {
       "id": "O251T",
@@ -3753,7 +4007,19 @@
       "role": "try",
       "family": "SPATIAL-02:try",
       "visit": 7,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "spatialDiagram": {
+        "cells": [
+          "#...",
+          ".#..",
+          "..#.",
+          "...#"
+        ],
+        "description": "A1, B2, C3 and D4 are shaded.",
+        "widths": null,
+        "heights": null,
+        "stemSignature": 3992941987
+      }
     },
     {
       "id": "O268X",
@@ -3762,7 +4028,18 @@
       "role": "transfer",
       "family": "SPATIAL-02:transfer",
       "visit": 7,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "spatialDiagram": {
+        "cells": [
+          "d.d.",
+          ".d.d",
+          "d.d."
+        ],
+        "description": "A 3-row, 4-column checkerboard with A1 dark.",
+        "widths": null,
+        "heights": null,
+        "stemSignature": 2476525999
+      }
     },
     {
       "id": "O269T",
@@ -4203,7 +4480,18 @@
       "role": "try",
       "family": "SPATIAL-02:try",
       "visit": 8,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "spatialDiagram": {
+        "cells": [
+          ".....",
+          ".....",
+          "....."
+        ],
+        "description": "Three rows of five equal squares.",
+        "widths": null,
+        "heights": null,
+        "stemSignature": 1240623948
+      }
     },
     {
       "id": "O300X",
@@ -4212,7 +4500,20 @@
       "role": "transfer",
       "family": "SPATIAL-02:transfer",
       "visit": 8,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "spatialDiagram": {
+        "cells": [
+          "  .  ",
+          "  .  ",
+          ".....",
+          "  .  ",
+          "  .  "
+        ],
+        "description": "The middle row and middle column are five squares long.",
+        "widths": null,
+        "heights": null,
+        "stemSignature": 1963397371
+      }
     },
     {
       "id": "O302T",
@@ -4311,7 +4612,17 @@
       "role": "try",
       "family": "SPATIAL-03:try",
       "visit": 7,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "spatialDiagram": {
+        "cells": [
+          "... ..",
+          "... .."
+        ],
+        "description": "A 2-by-3 panel and a 2-by-2 panel separated by a gap.",
+        "widths": null,
+        "heights": null,
+        "stemSignature": 3489747062
+      }
     },
     {
       "id": "O309X",
@@ -4320,7 +4631,19 @@
       "role": "transfer",
       "family": "SPATIAL-03:transfer",
       "visit": 7,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "spatialDiagram": {
+        "cells": [
+          "  ..",
+          "  ..",
+          "....",
+          "...."
+        ],
+        "description": "The top-left 2-by-2 block is missing.",
+        "widths": null,
+        "heights": null,
+        "stemSignature": 539442275
+      }
     },
     {
       "id": "O310T",
@@ -4725,7 +5048,20 @@
       "role": "try",
       "family": "SPATIAL-03:try",
       "visit": 8,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "spatialDiagram": {
+        "cells": [
+          ".....",
+          ".....",
+          ".....",
+          ".....",
+          "....."
+        ],
+        "description": "Five rows of five unit squares.",
+        "widths": null,
+        "heights": null,
+        "stemSignature": 2765448139
+      }
     },
     {
       "id": "O341X",
@@ -4734,7 +5070,20 @@
       "role": "transfer",
       "family": "SPATIAL-03:transfer",
       "visit": 8,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "spatialDiagram": {
+        "cells": [
+          ".....",
+          ".   .",
+          ".   .",
+          ".   .",
+          "....."
+        ],
+        "description": "Only the outer rim of the 5-by-5 board remains.",
+        "widths": null,
+        "heights": null,
+        "stemSignature": 3651751885
+      }
     },
     {
       "id": "O342T",
@@ -4950,7 +5299,18 @@
       "role": "transfer",
       "family": "SPATIAL-02:transfer",
       "visit": 9,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "spatialDiagram": {
+        "cells": [
+          "...",
+          ".X.",
+          "..."
+        ],
+        "description": "The centre square B2 is marked.",
+        "widths": null,
+        "heights": null,
+        "stemSignature": 303210689
+      }
     },
     {
       "id": "O360T",
