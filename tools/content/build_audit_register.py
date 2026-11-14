@@ -19,6 +19,7 @@ from audit_all_lessons import map_course, numeric_skeleton
 from build_original_lessons import build
 from curated_batch2 import B as BATCH2
 from curated_spatial import spatial_revisit
+from curated_data import data_revisit
 ROOT = Path(__file__).resolve().parents[2]
 BATCH1 = ('DIV-03', 'ALG-04', 'DATA-02', 'DIG-03', 'SOLID-01')
 ATTEMPTED = {'O001T', 'O001X', 'O002T', 'O002X'}  # recorded attempts at the 2026-11-14 database check
@@ -36,6 +37,8 @@ def main():
         shared = shape[numeric_skeleton(r['prompt'])] - 1
         if spatial_revisit(r['category'], m['visit'], m['role']):
             level, method, reviewed, status = 'independent', 'enumeration (check_curated_spatial.py)', 'authored and read individually 2026-11-14', 'Verified and suitable'
+        elif data_revisit(r['category'], m['visit'], m['role']):
+            level, method, reviewed, status = 'independent', 'independent reconstruction (check_curated_data.py)', 'authored and read individually 2026-11-14', 'Verified and suitable'
         elif key in BATCH2:
             level, method, reviewed, status = 'independent', 'brute-force recomputation (check_curated_batch2.py)', 'authored and read individually 2026-11-14', 'Verified and suitable'
         elif r['category'] in BATCH1 and m['visit'] >= 2:
@@ -44,7 +47,7 @@ def main():
             level, method, reviewed = 'family_check', 'generator family recomputed (check_original_lessons.py)', 'not individually reviewed'
             status = 'Repetitive and requires redesign' if shared else 'Correct by family check; awaiting individual review'
         diagram = 'none (text only)'
-        if m.get('spatialDiagram'):
+        if m.get('spatialDiagram') or m.get('dataDisplay'):
             diagram = 'checked at iPhone widths in browser fixture'
         elif r['category'] in ('GEO-04', 'SPATIAL-01', 'DATA-03') or (r['category'] == 'SOLID-01' and m['visit'] > 1):
             diagram = 'existing figure; outside this batch'

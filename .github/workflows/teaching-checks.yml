@@ -25,6 +25,7 @@ jobs:
       - run: python tools/content/audit_all_lessons.py
       - run: python tools/content/check_curated_batch2.py
       - run: python tools/content/check_curated_spatial.py
+      - run: python tools/content/check_curated_data.py
       - run: python tools/video/build_scripts.py --check
       - run: pip install playwright==1.58.0
       - run: google-chrome --version

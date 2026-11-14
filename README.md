@@ -46,7 +46,7 @@ More detail: [docs/PLATFORM_ARCHITECTURE.md](docs/PLATFORM_ARCHITECTURE.md).
 | Content | Source of truth | Reaches the learner via |
 |---|---|---|
 | Course map, techniques, investigations | `data/*.json` (public, answer-free) | fetched by `app-main.js` |
-| 566 lesson problems | `tools/content/build_original_lessons.py` with `curated_revisits.py`, `curated_batch2.py` and `curated_spatial.py` | rows in `content_problems`, released through Edge Functions |
+| 566 lesson problems | `tools/content/build_original_lessons.py` with `curated_revisits.py`, `curated_batch2.py`, `curated_spatial.py` and `curated_data.py` | rows in `content_problems`, released through Edge Functions |
 | Original mock papers | `tools/papers/*.py` | rows in `exam_catalog` and `exam_questions` |
 | Authentic AMC papers | database only; frozen | exam centre |
 | Teaching-video scripts | `production/scripts/src/*.txt` | built to `production/scripts/*.json`; not yet recorded |
@@ -74,6 +74,7 @@ node tools/check_split_training.mjs               # AMC Part A / Part B structur
 python tools/content/check_original_lessons.py    # recomputes every generator family
 python tools/content/check_curated_batch2.py      # recomputes 60 reauthored problems one by one
 python tools/content/check_curated_spatial.py      # enumerates 30 spatial answers and checks the diagram manifest
+python tools/content/check_curated_data.py         # recomputes 12 chart and table problems
 python tools/content/audit_all_lessons.py         # structure, wording and repetition audit of all 566
 python tools/papers/build_all.py /tmp/summit-papers && python tools/papers/audit_generated_papers.py /tmp/summit-papers
 python tools/video/build_scripts.py --check       # validates the 70 video scripts

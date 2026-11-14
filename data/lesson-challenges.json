@@ -1577,7 +1577,27 @@
       "role": "try",
       "family": "DATA-03:try",
       "visit": 2,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "dataDisplay": {
+        "kind": "bars",
+        "labels": [
+          "Boat A",
+          "Boat B"
+        ],
+        "values": [
+          22,
+          34
+        ],
+        "ticks": [
+          20,
+          24,
+          28,
+          32,
+          36
+        ],
+        "caption": "Boat lengths (cm). Boat A ends halfway between 20 and 24. Boat B ends halfway between 32 and 36.",
+        "stemSignature": 4526853
+      }
     },
     {
       "id": "O104X",
@@ -1586,7 +1606,32 @@
       "role": "transfer",
       "family": "DATA-03:transfer",
       "visit": 2,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "dataDisplay": {
+        "kind": "table",
+        "columns": [
+          "Club",
+          "Full",
+          "Half",
+          "Books per full symbol"
+        ],
+        "rows": [
+          [
+            "Cedar",
+            4,
+            1,
+            6
+          ],
+          [
+            "Banksia",
+            4,
+            1,
+            8
+          ]
+        ],
+        "caption": "Symbols in each club’s record.",
+        "stemSignature": 1661048857
+      }
     },
     {
       "id": "O106T",
@@ -2129,7 +2174,38 @@
       "role": "try",
       "family": "DATA-03:try",
       "visit": 3,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "dataDisplay": {
+        "kind": "table",
+        "columns": [
+          "Day",
+          "Birds"
+        ],
+        "rows": [
+          [
+            "Mon",
+            16
+          ],
+          [
+            "Tue",
+            12
+          ],
+          [
+            "Wed",
+            20
+          ],
+          [
+            "Thu",
+            "?"
+          ],
+          [
+            "Fri",
+            14
+          ]
+        ],
+        "caption": "Bird counts by day.",
+        "stemSignature": 1019389891
+      }
     },
     {
       "id": "O141X",
@@ -2138,7 +2214,29 @@
       "role": "transfer",
       "family": "DATA-03:transfer",
       "visit": 3,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "dataDisplay": {
+        "kind": "table",
+        "columns": [
+          "Team",
+          "Axis starts at",
+          "Bar rises by"
+        ],
+        "rows": [
+          [
+            "A",
+            20,
+            10
+          ],
+          [
+            "B",
+            35,
+            10
+          ]
+        ],
+        "caption": "Axis positions and bar rises in points.",
+        "stemSignature": 2325656794
+      }
     },
     {
       "id": "O142T",
@@ -2622,7 +2720,27 @@
       "role": "try",
       "family": "DATA-03:try",
       "visit": 4,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "dataDisplay": {
+        "kind": "bars",
+        "labels": [
+          "Apple",
+          "Pear"
+        ],
+        "values": [
+          24,
+          16
+        ],
+        "ticks": [
+          0,
+          8,
+          16,
+          24,
+          32
+        ],
+        "caption": "Apple reaches 24 votes. Pear reaches 16 votes.",
+        "stemSignature": 1400003231
+      }
     },
     {
       "id": "O173X",
@@ -2631,7 +2749,38 @@
       "role": "transfer",
       "family": "DATA-03:transfer",
       "visit": 4,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "dataDisplay": {
+        "kind": "table",
+        "columns": [
+          "After turn",
+          "Total (m)"
+        ],
+        "rows": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            9
+          ],
+          [
+            2,
+            13
+          ],
+          [
+            3,
+            25
+          ],
+          [
+            4,
+            30
+          ]
+        ],
+        "caption": "Cumulative distance from the start.",
+        "stemSignature": 5269537
+      }
     },
     {
       "id": "O174T",
@@ -3494,7 +3643,29 @@
       "role": "try",
       "family": "DATA-03:try",
       "visit": 5,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "dataDisplay": {
+        "kind": "table",
+        "columns": [
+          "Session",
+          "Full symbols",
+          "Half symbols"
+        ],
+        "rows": [
+          [
+            "Monday",
+            2,
+            1
+          ],
+          [
+            "Friday",
+            4,
+            1
+          ]
+        ],
+        "caption": "Symbols in the swimming log.",
+        "stemSignature": 1876702421
+      }
     },
     {
       "id": "O232X",
@@ -3503,7 +3674,34 @@
       "role": "transfer",
       "family": "DATA-03:transfer",
       "visit": 5,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "dataDisplay": {
+        "kind": "table",
+        "columns": [
+          "Day",
+          "Recorded (mm)"
+        ],
+        "rows": [
+          [
+            1,
+            7
+          ],
+          [
+            2,
+            14
+          ],
+          [
+            3,
+            15
+          ],
+          [
+            4,
+            10
+          ]
+        ],
+        "caption": "Rainfall as it was first entered.",
+        "stemSignature": 574297306
+      }
     },
     {
       "id": "O233T",
@@ -4814,7 +5012,31 @@
       "role": "try",
       "family": "DATA-03:try",
       "visit": 6,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "dataDisplay": {
+        "kind": "bars",
+        "labels": [
+          "Red",
+          "Blue",
+          "Gold",
+          "Green"
+        ],
+        "values": [
+          6,
+          4,
+          7,
+          5
+        ],
+        "ticks": [
+          0,
+          2,
+          4,
+          6,
+          8
+        ],
+        "caption": "Red reaches 6, Blue 4, Gold 7 and Green 5.",
+        "stemSignature": 2585372467
+      }
     },
     {
       "id": "O323X",
@@ -4823,7 +5045,34 @@
       "role": "transfer",
       "family": "DATA-03:transfer",
       "visit": 6,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "dataDisplay": {
+        "kind": "table",
+        "columns": [
+          "Score",
+          "Pupils"
+        ],
+        "rows": [
+          [
+            4,
+            3
+          ],
+          [
+            6,
+            5
+          ],
+          [
+            8,
+            1
+          ],
+          [
+            10,
+            3
+          ]
+        ],
+        "caption": "Frequency of each score.",
+        "stemSignature": 3598642149
+      }
     },
     {
       "id": "O324T",
@@ -5254,7 +5503,26 @@
       "role": "try",
       "family": "DATA-03:try",
       "visit": 7,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "dataDisplay": {
+        "kind": "table",
+        "columns": [
+          "Map",
+          "Metres per cm"
+        ],
+        "rows": [
+          [
+            "A",
+            20
+          ],
+          [
+            "B",
+            32
+          ]
+        ],
+        "caption": "Distance scales printed on the maps.",
+        "stemSignature": 3968661131
+      }
     },
     {
       "id": "O355X",
@@ -5263,7 +5531,27 @@
       "role": "transfer",
       "family": "DATA-03:transfer",
       "visit": 7,
-      "source_type": "original_authored"
+      "source_type": "original_authored",
+      "dataDisplay": {
+        "kind": "bars",
+        "labels": [
+          "A",
+          "B"
+        ],
+        "values": [
+          20,
+          24
+        ],
+        "ticks": [
+          18,
+          20,
+          22,
+          24,
+          26
+        ],
+        "caption": "Seedling height (cm). Axis begins at 18. A reaches 20, and B reaches 24.",
+        "stemSignature": 138533394
+      }
     },
     {
       "id": "O358T",

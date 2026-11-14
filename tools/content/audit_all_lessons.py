@@ -71,7 +71,7 @@ def check_problems(rows,mapping):
 
     # A curated problem may revisit the *technique*, but no two problems in
     # these reauthored families may share the same number-stripped stem.
-    for skill in ("DIV-03","ALG-04","DIG-03","DATA-02","SOLID-01","ALG-02","SEQ-04","LOGIC-02","FRAC-02","COUNT-01","SPATIAL-02","SPATIAL-03"):
+    for skill in ("DIV-03","ALG-04","DIG-03","DATA-02","SOLID-01","ALG-02","SEQ-04","LOGIC-02","FRAC-02","COUNT-01","SPATIAL-02","SPATIAL-03","DATA-03"):
         forms=[numeric_skeleton(r["prompt"]) for r in rows if r["category"]==skill]
         if len(forms)!=len(set(forms)):
             errors.append(f"{skill} still contains repeated number-normalised question setups")
