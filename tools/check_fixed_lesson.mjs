@@ -64,7 +64,7 @@ assert(css.includes('.lesson-screen-stage .problem-card,'));
 assert(css.includes('body.lesson-fullscreen{height:100dvh;overflow:hidden'));
 assert(css.includes('.lesson-screen-footer'));
 assert(css.includes('.opening-video-wrap'));
-assert(sw.includes('lesson-screenflow.js?v=advanced-20261113'));
+assert(sw.includes('lesson-screenflow.js?v=spatial-20261114'));
 assert(sw.includes('lesson-pager.js?v=responsive-20261113'));
 assert(html.includes('app-main.js?v=spatial-20261114'));
 assert(html.includes('id="courseMenu"') && html.includes('id="menuToggle"'));
