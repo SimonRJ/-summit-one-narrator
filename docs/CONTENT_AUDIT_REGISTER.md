@@ -20,11 +20,19 @@ The per-problem register for the 566 standard lesson problems is [content-audit-
 
 | Status | Problems |
 |---|---:|
-| Verified and suitable | 90 |
-| Correct by family check; awaiting individual review | 98 |
-| Repetitive and requires redesign | 378 |
+| Verified and suitable | 102 |
+| Correct by family check; awaiting individual review | 100 |
+| Repetitive and requires redesign | 364 |
 
 ## Change log
+
+### Data-reading batch: 14 November 2026
+
+**Change.** Reauthored the 12 DATA-03 revisits. New problems ask learners to interpolate, combine pictogram keys, find a cumulative change, compare truncated axes, infer overlap and recover a median from frequencies. The first visit is retained. Four problems use bar charts and eight use accessible HTML tables.
+
+**Problem IDs.** O104T O104X O141T O141X O173T O173X O232T O232X O323T O323X O355T O355X.
+
+**Verification.** Independent recomputation checks all 12 answers. The lesson browser verifies that each display fits at 320 and 390 CSS pixels and that older stems never show a mismatched display.
 
 ### Spatial batch: 14 November 2026
 
@@ -59,4 +67,4 @@ DIV-03, ALG-04, DATA-02, DIG-03 and SOLID-01 later visits were reauthored in `cu
 
 ## Next families to redesign
 
-Ranked by remaining repeats: DATA-03, SOLID-02, RATE-01, RATE-02, GEO-03, FRAC-01, DIG-04, COUNT-04. The remaining solid and geometry families will need diagrams, which must be inspected in a browser at phone size before release.
+Ranked by remaining repeats: SOLID-02, RATE-01, RATE-02, GEO-03, FRAC-01, DIG-04, COUNT-04. The remaining solid and geometry families will need diagrams, which must be inspected in a browser at phone size before release.

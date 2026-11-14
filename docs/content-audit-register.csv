@@ -71,8 +71,8 @@ O043T,43,GEO-01,try,1,3,71d2d5185d,family_check,generator family recomputed (che
 O043X,43,GEO-01,transfer,1,4,06f1cb2b48,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
 O044T,44,ALG-04,try,2,3,5d09166fc2,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
 O044X,44,ALG-04,transfer,2,4,7988be627d,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
-O045T,45,DATA-03,try,1,3,d0a52ac201,family_check,generator family recomputed (check_original_lessons.py),6,not individually reviewed,no,existing figure; outside this batch,Repetitive and requires redesign
-O045X,45,DATA-03,transfer,1,4,a01c3f624b,family_check,generator family recomputed (check_original_lessons.py),6,not individually reviewed,no,existing figure; outside this batch,Repetitive and requires redesign
+O045T,45,DATA-03,try,1,3,d0a52ac201,family_check,generator family recomputed (check_original_lessons.py),0,not individually reviewed,no,existing figure; outside this batch,Correct by family check; awaiting individual review
+O045X,45,DATA-03,transfer,1,4,a01c3f624b,family_check,generator family recomputed (check_original_lessons.py),0,not individually reviewed,no,existing figure; outside this batch,Correct by family check; awaiting individual review
 O046T,46,ALG-05,try,1,3,2f6e18d670,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
 O046X,46,ALG-05,transfer,1,4,53e0b752ab,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
 O047T,47,SEQ-01,try,1,3,c22d032341,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
@@ -165,8 +165,8 @@ O102T,102,DIG-03,try,2,3,b28a9ff0ab,family_check,curated rewrite asserted equal 
 O102X,102,DIG-03,transfer,2,4,2c8b92052b,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
 O103T,103,DATA-02,try,3,3,ee310c4496,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
 O103X,103,DATA-02,transfer,3,4,e055d991e6,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
-O104T,104,DATA-03,try,2,3,c7541d1090,family_check,generator family recomputed (check_original_lessons.py),6,not individually reviewed,no,existing figure; outside this batch,Repetitive and requires redesign
-O104X,104,DATA-03,transfer,2,4,61899e6fd9,family_check,generator family recomputed (check_original_lessons.py),6,not individually reviewed,no,existing figure; outside this batch,Repetitive and requires redesign
+O104T,104,DATA-03,try,2,3,103c73840e,independent,independent reconstruction (check_curated_data.py),0,authored and read individually 2026-11-14,no,checked at iPhone widths in browser fixture,Verified and suitable
+O104X,104,DATA-03,transfer,2,4,7100cd75e5,independent,independent reconstruction (check_curated_data.py),0,authored and read individually 2026-11-14,no,checked at iPhone widths in browser fixture,Verified and suitable
 O106T,106,RATE-02,try,3,3,b0869fe55d,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
 O106X,106,RATE-02,transfer,3,4,9d2287a06a,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
 O107T,107,SEQ-04,try,2,3,f53ede38f9,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
@@ -221,8 +221,8 @@ O138T,138,RATE-02,try,4,3,48af3b55c0,family_check,generator family recomputed (c
 O138X,138,RATE-02,transfer,4,4,30f259420a,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
 O139T,139,SEQ-04,try,3,3,eacaaf0e89,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
 O139X,139,SEQ-04,transfer,3,4,6dcf4bf223,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
-O141T,141,DATA-03,try,3,3,94f3714516,family_check,generator family recomputed (check_original_lessons.py),6,not individually reviewed,no,existing figure; outside this batch,Repetitive and requires redesign
-O141X,141,DATA-03,transfer,3,4,ff4db3fbc3,family_check,generator family recomputed (check_original_lessons.py),6,not individually reviewed,no,existing figure; outside this batch,Repetitive and requires redesign
+O141T,141,DATA-03,try,3,3,dfe60af111,independent,independent reconstruction (check_curated_data.py),0,authored and read individually 2026-11-14,no,checked at iPhone widths in browser fixture,Verified and suitable
+O141X,141,DATA-03,transfer,3,4,b24f5466cf,independent,independent reconstruction (check_curated_data.py),0,authored and read individually 2026-11-14,no,checked at iPhone widths in browser fixture,Verified and suitable
 O142T,142,FRAC-01,try,2,3,c3089a6f24,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
 O142X,142,FRAC-01,transfer,2,4,4e366c7ed7,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
 O143T,143,ALG-04,try,3,3,44b751f08d,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
@@ -273,8 +273,8 @@ O171T,171,COUNT-03,try,4,3,c0826ae7d1,family_check,generator family recomputed (
 O171X,171,COUNT-03,transfer,4,4,31196f6dd4,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
 O172T,172,GEO-04,try,2,3,8358d1880b,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,existing figure; outside this batch,Repetitive and requires redesign
 O172X,172,GEO-04,transfer,2,4,55c2b7ef34,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,existing figure; outside this batch,Repetitive and requires redesign
-O173T,173,DATA-03,try,4,3,50d3b30502,family_check,generator family recomputed (check_original_lessons.py),6,not individually reviewed,no,existing figure; outside this batch,Repetitive and requires redesign
-O173X,173,DATA-03,transfer,4,4,052594c913,family_check,generator family recomputed (check_original_lessons.py),6,not individually reviewed,no,existing figure; outside this batch,Repetitive and requires redesign
+O173T,173,DATA-03,try,4,3,bbd1fd3df0,independent,independent reconstruction (check_curated_data.py),0,authored and read individually 2026-11-14,no,checked at iPhone widths in browser fixture,Verified and suitable
+O173X,173,DATA-03,transfer,4,4,3928945473,independent,independent reconstruction (check_curated_data.py),0,authored and read individually 2026-11-14,no,checked at iPhone widths in browser fixture,Verified and suitable
 O174T,174,FRAC-01,try,3,3,ff1c20361f,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
 O174X,174,FRAC-01,transfer,3,4,447e0f008c,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
 O177T,177,SPATIAL-02,try,5,3,fbb448fc2a,independent,enumeration (check_curated_spatial.py),0,authored and read individually 2026-11-14,no,checked at iPhone widths in browser fixture,Verified and suitable
@@ -361,8 +361,8 @@ O229T,229,RATE-02,try,6,3,f6510a6518,family_check,generator family recomputed (c
 O229X,229,RATE-02,transfer,6,4,a4698defca,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
 O230T,230,SEQ-04,try,5,3,df9a1b2d95,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
 O230X,230,SEQ-04,transfer,5,4,6a420dfed0,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
-O232T,232,DATA-03,try,5,3,d4302f9f65,family_check,generator family recomputed (check_original_lessons.py),6,not individually reviewed,no,existing figure; outside this batch,Repetitive and requires redesign
-O232X,232,DATA-03,transfer,5,4,458ea5ee64,family_check,generator family recomputed (check_original_lessons.py),6,not individually reviewed,no,existing figure; outside this batch,Repetitive and requires redesign
+O232T,232,DATA-03,try,5,3,8dd88be406,independent,independent reconstruction (check_curated_data.py),0,authored and read individually 2026-11-14,no,checked at iPhone widths in browser fixture,Verified and suitable
+O232X,232,DATA-03,transfer,5,4,305852d158,independent,independent reconstruction (check_curated_data.py),0,authored and read individually 2026-11-14,no,checked at iPhone widths in browser fixture,Verified and suitable
 O233T,233,FRAC-01,try,4,3,696780e887,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
 O233X,233,FRAC-01,transfer,4,4,0b2f07372c,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
 O234T,234,ALG-04,try,4,3,d9dedf85af,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
@@ -497,8 +497,8 @@ O319T,319,DIG-05,try,5,3,8a96bf7592,family_check,generator family recomputed (ch
 O319X,319,DIG-05,transfer,5,4,072ca04f90,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
 O321T,321,SEQ-04,try,7,3,19355be9da,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
 O321X,321,SEQ-04,transfer,7,4,fb2065c5a3,independent,brute-force recomputation (check_curated_batch2.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable
-O323T,323,DATA-03,try,6,3,60a7b3c98f,family_check,generator family recomputed (check_original_lessons.py),6,not individually reviewed,no,existing figure; outside this batch,Repetitive and requires redesign
-O323X,323,DATA-03,transfer,6,4,e1d48463ef,family_check,generator family recomputed (check_original_lessons.py),6,not individually reviewed,no,existing figure; outside this batch,Repetitive and requires redesign
+O323T,323,DATA-03,try,6,3,da3074e89d,independent,independent reconstruction (check_curated_data.py),0,authored and read individually 2026-11-14,no,checked at iPhone widths in browser fixture,Verified and suitable
+O323X,323,DATA-03,transfer,6,4,6a20670673,independent,independent reconstruction (check_curated_data.py),0,authored and read individually 2026-11-14,no,checked at iPhone widths in browser fixture,Verified and suitable
 O324T,324,FRAC-01,try,6,3,944e98327e,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
 O324X,324,FRAC-01,transfer,6,4,19db14b7cb,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
 O325T,325,ALG-04,try,5,3,df128b5fc8,family_check,curated rewrite asserted equal to generator key (curated_revisits.py),0,reauthored 2026-11-13; not re-read in this audit,no,none (text only),Correct by family check; awaiting individual review
@@ -543,8 +543,8 @@ O353T,353,COUNT-03,try,6,3,fe8667ce45,family_check,generator family recomputed (
 O353X,353,COUNT-03,transfer,6,4,265ca72568,family_check,generator family recomputed (check_original_lessons.py),5,not individually reviewed,no,none (text only),Repetitive and requires redesign
 O354T,354,GEO-04,try,4,3,ecbfe129e1,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,existing figure; outside this batch,Repetitive and requires redesign
 O354X,354,GEO-04,transfer,4,4,fa5b4f63ef,family_check,generator family recomputed (check_original_lessons.py),3,not individually reviewed,no,existing figure; outside this batch,Repetitive and requires redesign
-O355T,355,DATA-03,try,7,3,2e26e25be7,family_check,generator family recomputed (check_original_lessons.py),6,not individually reviewed,no,existing figure; outside this batch,Repetitive and requires redesign
-O355X,355,DATA-03,transfer,7,4,dbea46b3bc,family_check,generator family recomputed (check_original_lessons.py),6,not individually reviewed,no,existing figure; outside this batch,Repetitive and requires redesign
+O355T,355,DATA-03,try,7,3,95691d32de,independent,independent reconstruction (check_curated_data.py),0,authored and read individually 2026-11-14,no,checked at iPhone widths in browser fixture,Verified and suitable
+O355X,355,DATA-03,transfer,7,4,988a3be54c,independent,independent reconstruction (check_curated_data.py),0,authored and read individually 2026-11-14,no,checked at iPhone widths in browser fixture,Verified and suitable
 O358T,358,LOGIC-03,try,5,3,4b2efeed22,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
 O358X,358,LOGIC-03,transfer,5,4,1d34b7ec32,family_check,generator family recomputed (check_original_lessons.py),4,not individually reviewed,no,none (text only),Repetitive and requires redesign
 O359T,359,SPATIAL-02,try,9,3,4c23755f1d,independent,enumeration (check_curated_spatial.py),0,authored and read individually 2026-11-14,no,none (text only),Verified and suitable

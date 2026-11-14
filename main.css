@@ -602,3 +602,5 @@ body.lesson-video-review>.shell{flex:1 1 0;min-height:0;max-height:none;height:a
   width:min(100%,74dvh);
  }
 }
+
+.original-data table{width:100%;border-collapse:collapse;font-size:.95rem;text-align:left}.original-data caption{padding:0 0 8px;color:var(--muted,#acb8c9);text-align:left}.original-data :is(th,td){padding:5px 8px;border-bottom:1px solid #41647a}.original-data thead th{background:#142a3e}.original-data td{text-align:center}

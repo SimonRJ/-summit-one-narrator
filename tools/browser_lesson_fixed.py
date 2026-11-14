@@ -113,7 +113,7 @@ async def main():
   await page.locator('.opening-film').wait_for()
   # Check all fourteen 3D schematic diagrams on the actual iPhone viewport.
   diagram_report=await page.evaluate("""async()=>{
-    const {originalFigure}=await import('./original-learning.js?v=spatial-20261114');
+    const {originalFigure}=await import('./original-learning.js?v=data-audit-20261114');
     const stage=document.querySelector('.lesson-screen-stage');
     const results=[];
     for(const role of ['try','transfer'])for(const skill of ['SOLID-01','DATA-03'])for(let visit=(skill==='SOLID-01'?2:1);visit<=(skill==='SOLID-01'?8:7);visit++){
@@ -150,7 +150,7 @@ async def main():
   for width in (320,390):
    await page.set_viewport_size({'width':width,'height':844})
    spatial=await page.evaluate("""async stems=>{
-    const {originalFigure}=await import('./original-learning.js?v=spatial-20261114');
+    const {originalFigure}=await import('./original-learning.js?v=data-audit-20261114');
     const entries=(await (await fetch('data/lesson-challenges.json')).json()).items.filter(m=>m.spatialDiagram);
     const stage=document.querySelector('.lesson-screen-stage');
     return entries.map(learning=>{
@@ -172,6 +172,27 @@ async def main():
    assert len(spatial)==29,spatial
    assert all(d['width']>=185 and d['textPx']>=11 and not d['clipped'] and not d['overlap']
               and not d['stale'] for d in spatial),spatial
+   displays=await page.evaluate("""async stems=>{
+    const {originalFigure}=await import('./original-learning.js?v=data-audit-20261114');
+    const entries=(await (await fetch('data/lesson-challenges.json')).json()).items.filter(m=>m.dataDisplay);
+    const stage=document.querySelector('.lesson-screen-stage');
+    return entries.map(learning=>{
+      const card=document.createElement('article');
+      card.className='problem-card';
+      card.innerHTML=originalFigure({prompt:stems[learning.id],learning});
+      stage.append(card);
+      const display=card.querySelector('table,svg');
+      const fits=display.getBoundingClientRect().width<=card.clientWidth && card.scrollWidth<=card.clientWidth+1;
+      const text=[...display.querySelectorAll('text')].map(el=>el.getBBox());
+      const overlaps=text.some((a,i)=>text.slice(i+1).some(b=>a.x<b.x+b.width&&a.x+a.width>b.x&&a.y<b.y+b.height&&a.y+a.height>b.y));
+      const stale=originalFigure({prompt:'An earlier question.',learning});
+      const kind=display.localName;
+      card.remove();
+      return {id:learning.id,fits,overlaps,stale,kind};
+    });
+   }""",stems)
+   assert len(displays)==12 and sum(d['kind']=='svg' for d in displays)==4,displays
+   assert all(d['fits'] and not d['overlaps'] and not d['stale'] for d in displays),displays
   await page.set_viewport_size({'width':390,'height':844})
   # Run one spatial question through the real lesson screen and solution reveal.
   authored_mock=MOCK.replace("function query(table)", "const authored="+json.dumps(authored)+";"+

@@ -47,11 +47,14 @@ export function transferEvidenceHTML(records){
  return `<section class="transfer-evidence"><h2>Applying ideas in other settings</h2><p><b>${first.size}</b> different transfer patterns solved correctly on a first unassisted attempt. <b>${support}</b> transfer attempts solved with support.</p><p class="muted">A new set of numbers in a familiar pattern counts as practice. Worked solutions remain available after attempts; a correct answer alone does not guarantee readiness for unfamiliar problems. Mixed mocks and fresh past papers give additional evidence.</p></section>`;
 }
 
-function spatialFigure(p, diagram) {
- const signature = new TextEncoder().encode(p.prompt).reduce(
-  (hash, byte) => Math.imul(hash ^ byte, 16777619) >>> 0, 2166136261);
+function matchesStem(prompt, diagram) {
  // The live question and the static lesson manifest can deploy separately.
- if (signature !== diagram.stemSignature) return '';
+ return new TextEncoder().encode(prompt).reduce(
+  (hash, byte) => Math.imul(hash ^ byte, 16777619) >>> 0, 2166136261) === diagram.stemSignature;
+}
+
+function spatialFigure(p, diagram) {
+ if (!matchesStem(p.prompt, diagram)) return '';
  const {cells, description, gap, crease} = diagram;
  const widths = diagram.widths || Array(cells[0].length).fill(1);
  const heights = diagram.heights || Array(cells.length).fill(1);
@@ -80,12 +83,37 @@ function spatialFigure(p, diagram) {
   markings = `<path d="M${x[c]+1.5} ${y[r]}H${x[c+1]-1.5}" stroke="${fills['.']}" stroke-width="3"/>`;
  }
  if (crease) markings = `<path d="M${x[crease]} ${y[0]-4}V${y.at(-1)+2}" stroke="#4e2910" stroke-width="2.6" stroke-dasharray="5 4"/>`;
- return `<figure class="original-figure" data-spatial-figure><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 276 ${boardHeight}" aria-hidden="true">${rects}${columns}${rows}${markings}</svg><figcaption>${esc(description)}</figcaption></figure>`;
+ return `<figure class="original-figure" data-lesson-figure><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 276 ${boardHeight}" aria-hidden="true">${rects}${columns}${rows}${markings}</svg><figcaption>${esc(description)}</figcaption></figure>`;
+}
+
+function dataDisplay(p, display) {
+ if (!matchesStem(p.prompt, display)) return '';
+ const {kind, caption} = display;
+ if (kind === 'table') {
+  const heading = display.columns.map(column => `<th scope="col">${esc(column)}</th>`).join('');
+  const rows = display.rows.map(([label, ...values]) =>
+   `<tr><th scope="row">${esc(label)}</th>${values.map(value => `<td>${esc(value)}</td>`).join('')}</tr>`).join('');
+  return `<figure class="original-figure original-data" data-lesson-figure><table><caption>${esc(caption)}</caption><thead><tr>${heading}</tr></thead><tbody>${rows}</tbody></table></figure>`;
+ }
+ const {labels, values, ticks} = display;
+ const low = ticks[0], high = ticks.at(-1);
+ const left = 42, right = 262, base = 135, slot = (right - left) / labels.length;
+ const height = value => 102 * (value - low) / (high - low);
+ const tickMarks = ticks.map(tick => {
+  const y = base - height(tick);
+  return `<path d="M${left-4} ${y}H${right}" stroke="#59708a"/><text x="${left-9}" y="${y+5}" text-anchor="end">${tick}</text>`;
+ }).join('');
+ const bars = labels.map((label, index) => {
+  const x = left + (index + .5) * slot, h = height(values[index]);
+  return `<rect x="${x-16}" y="${base-h}" width="32" height="${h}" fill="#8bd8d8"/><text x="${x}" y="157" text-anchor="middle">${esc(label)}</text>`;
+ }).join('');
+ return `<figure class="original-figure original-data" data-lesson-figure><svg viewBox="0 0 276 169" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="#edf6ff" font-size="15">${tickMarks}${bars}<path d="M${left} 28V${base}H${right}" fill="none" stroke="#edf6ff" stroke-width="1.4"/></svg><figcaption>${esc(caption)}</figcaption></figure>`;
 }
 
 export function originalFigure(p){
  const m=p.learning;if(!m)return '';
  if(m.spatialDiagram)return spatialFigure(p,m.spatialDiagram);
+ if(m.dataDisplay)return dataDisplay(p,m.dataDisplay);
  const n=m.visit+2,x=n+4;let body='',alt='';
  if(m.skill==='GEO-04'){
   const N=2*x,points=Array.from({length:N},(_,i)=>[180+105*Math.cos(2*Math.PI*i/N-Math.PI/2),135+105*Math.sin(2*Math.PI*i/N-Math.PI/2)]);
