@@ -17,6 +17,8 @@ The audit checks each statement, its assumptions, units, requested answer, answe
 
 The browser fixtures use the real lesson card and maths typesetter at 320 and 390 CSS pixels. They check prompt and solution overflow, cropped or overlapping diagram labels, mismatched figures and the normal answer-to-solution flow. The revised lessons use short final answers and show their reasoning in the worked solutions.
 
+The [release verification](CURRENT_STATUS.md#release-verification) records the Pages deployment, the 566-row live database comparison and the authentic AMC fingerprints.
+
 | Register column | Meaning |
 |---|---|
 | `id`, `session`, `technique`, `role`, `visit` | Canonical lesson mapping. The role is Try or Transfer. |

@@ -27,9 +27,9 @@ Original Summit One content (source types beginning `original_`, `summit_`) is o
 
 The first three must never change. The fourth changes only when the learner makes a new attempt; existing attempts must never be edited.
 
-## Evidence from the 14 November 2026 content batch
+## 14 November 2026 release verification
 
-The fingerprints of the exam questions and authentic-linked problems were taken before the batch and again after 60 original lesson problems were updated. They were identical. The update statement was restricted to `source_type = 'original_authored'`, to five named technique families, and to problems with no recorded attempts.
+The four fingerprints above matched before and after the full lesson-bank update in PR #12. The transaction was restricted to 469 exact `original_authored` lesson IDs with neither a recorded attempt nor a saved session. All 566 standard lesson rows matched the release after the update. The earlier 60-problem update was independently verified against the same frozen catalog, questions and linked records.
 
 ## Working rules
 

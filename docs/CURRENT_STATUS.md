@@ -39,7 +39,11 @@ The checks cover the 566 standard lesson problems. Retrieval cards, extra techni
 
 ### Release verification
 
-The revised lesson data and diagrams are prepared for release. The final live database and Pages verification is tracked separately from repository checks. The learner's account is left untouched during browser testing. A fixture account exercises answer submission, diagram rendering, solution reveal, locked review and navigation.
+The bank shipped in [PR #12](https://github.com/SimonRJ/-summit-one-narrator/pull/12), content commit `498072d13e07c46d4b5449f7f3fe2f2c07eb37d3`. Teaching behavior checks, Summit One release QA, AMC split training QA and the Pages deployment passed. The live Pages lesson manifest, renderer, entry page, application script and service worker matched the shipped files byte for byte.
+
+A single guarded database update revised 469 unattempted rows. All 566 live standard lesson rows matched the generated release, with an aggregate fingerprint of `5848d505c470b06d8c0cb7741b663778`. The authentic AMC catalog, questions, linked problems and seven recorded learner attempts matched their fingerprints before and after the update. Two saved session records and zero authentic exam sittings were confirmed afterward.
+
+A phone-width browser fixture used a local copy of the verified Pages assets to exercise submission, diagram rendering and solution reveal with test data. The actual learner’s progress was preserved.
 
 ## Examination papers
 
