@@ -60,7 +60,7 @@ function spatialFigure(p, diagram) {
  const offsets = (values, start) => values.reduce(
   (positions, value) => [...positions, positions.at(-1) + value * unit], [start]);
  const x = offsets(widths, (276 - unit * sum(widths)) / 2 + 8);
- const y = offsets(heights, diagram.widths ? 52 : 29);
+ const y = offsets(heights, diagram.widths ? 65 : 29);
  const boardHeight = y.at(-1) + 5;
  const fills = {'.':'#e4edf4', d:'#6e829a', '#':'#6e829a', X:'#fab958'};
  const label = (a, b, content) => `<text x="${a}" y="${b}" text-anchor="middle" fill="#edf6ff" font-size="16">${content}</text>`;
@@ -72,7 +72,7 @@ function spatialFigure(p, diagram) {
  })).join('');
  const columns = widths.map((w, c) => label((x[c]+x[c+1])/2, 20, String.fromCharCode(65+c)) +
   (diagram.widths ? label((x[c]+x[c+1])/2, 42, w) : '')).join('');
- const rows = heights.map((h, r) => label(x[0]-(diagram.heights?23:16), (y[r]+y[r+1])/2+5, r+1) +
+ const rows = heights.map((h, r) => label(x[0]-(diagram.heights?25:16), (y[r]+y[r+1])/2+5, r+1) +
   (diagram.heights ? label(x.at(-1)+17, (y[r]+y[r+1])/2+5, h) : '')).join('');
  let markings = '';
  if (gap) {
