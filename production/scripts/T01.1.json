@@ -4,9 +4,9 @@
  "chapter": "Read the question into a useful model",
  "type": "concept",
  "status": "script_ready_not_recorded",
- "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "voice": "Voice C (VoxCPM2), natural speed (see docs/VIDEO_PRODUCTION.md)",
  "goal": "Attach a meaning and a unit to every number before calculating.",
- "narration_words": 299,
+ "narration_words": 298,
  "estimated_minutes": 2.0,
  "scenes": [
   {
@@ -19,7 +19,7 @@
    "n": 2,
    "stage": "WHY",
    "visual": "Two worked lines side by side. Left: 4 + 3 + 2 = 9, greyed, with a small cross. Right: the same tiles with their tags. Tags pulse gently.",
-   "narration": "Why bother? Because most wrong answers in competitions are not arithmetic slips. They are correct calculations of the wrong thing. If you add packets to counters, the sum looks tidy, but it means nothing. Labels stop that mistake before it starts."
+   "narration": "Why bother? In competition maths, it is easy to do the arithmetic correctly and still answer the wrong question. If you add packets to counters, the sum looks tidy, but it means nothing. Labels stop that mistake before it starts."
   },
   {
    "n": 3,

@@ -5,7 +5,7 @@ V: Matte dark stage. Three plain number tiles 4, 3, 2 float with no labels. One 
 N: Every number in a maths question has a job. One number might count packets, another might count what is inside each packet, and another might count loose items. Before you calculate anything, give each number a label that says what it counts, and what unit it is measured in.
 [WHY]
 V: Two worked lines side by side. Left: 4 + 3 + 2 = 9, greyed, with a small cross. Right: the same tiles with their tags. Tags pulse gently.
-N: Why bother? Because most wrong answers in competitions are not arithmetic slips. They are correct calculations of the wrong thing. If you add packets to counters, the sum looks tidy, but it means nothing. Labels stop that mistake before it starts.
+N: Why bother? In competition maths, it is easy to do the arithmetic correctly and still answer the wrong question. If you add packets to counters, the sum looks tidy, but it means nothing. Labels stop that mistake before it starts.
 [PUZZLE]
 V: Four ceramic packets appear, each with three counters visible through a window, plus two loose counters. Question text: "How many counters altogether?" Hold two seconds.
 N: Here is a small puzzle. Mia has four packets. Each packet holds three counters. She also has two loose counters. How many counters does she have altogether? Pause and decide what each number is doing.
@@ -176,7 +176,7 @@ V: Two numbers 23 and 38 on a line with a bracket of length 15 between them, spl
 N: Here is a second use. Twenty-three and thirty-eight both leave remainder three when divided by five. Their difference is fifteen, a multiple of five. That always happens: two numbers have the same remainder exactly when their difference is a multiple of the divisor.
 [VARIATION]
 V: Candidate list 3, 8, 13, 18, 23, 28 with those leaving remainder 1 on division by 3 circled: 13, 28.
-N: You can also combine conditions. Which number under thirty leaves remainder three when divided by five, and remainder one when divided by three? List the first kind: three, eight, thirteen, eighteen, twenty-three, twenty-eight. Test each for the second condition. Thirteen works, and so does twenty-eight.
+N: You can also combine conditions. Which whole numbers below thirty leave remainder three when divided by five, and remainder one when divided by three? List the first kind: three, eight, thirteen, eighteen, twenty-three, twenty-eight. Test each for the second condition. Thirteen works, and so does twenty-eight.
 [RECAP]
 V: Lines: "N = groups x d + r", "r is from 0 to d - 1", "same remainder means difference is a multiple".
 N: A remainder says how far a number is past a multiple. It is always smaller than the divisor. Notebook challenge: today is Tuesday. What day of the week will it be one hundred days from now?
@@ -342,8 +342,8 @@ ANS: 20 = 2 x 2 x 5 and 30 = 2 x 3 x 5: HCF 10, LCM 60.
 @@ T04.E
 GOAL: Worked example: the smallest multiplier that turns 90 into a perfect square.
 [PUZZLE]
-V: The number 90 beside an empty multiplier box and a target labelled "a perfect square". Question: "What is the smallest whole number to put in the box?"
-N: What is the smallest whole number you can multiply ninety by to make a perfect square? Pause and think about what a square looks like in prime tiles.
+V: The number 90 beside an empty multiplier box and a target labelled "a perfect square". Question: "What is the smallest positive whole number to put in the box?"
+N: What is the smallest positive whole number you can multiply ninety by to make a perfect square? Pause and think about what a square looks like in prime tiles.
 [DEVELOP]
 V: 90 splits into blue tiles 2, 3, 3, 5. The two 3s move together as a pair; 2 and 5 stand alone.
 N: Factorise ninety: two times three times three times five. A square needs every prime in pairs. The threes already form a pair. The two and the five are each alone.
@@ -358,6 +358,6 @@ V: Trial multipliers 2 and 5 shown failing: with only an extra 2, the 5 is still
 N: Could a smaller multiplier work? Any multiplier that works must supply a two and a five, so it must be a multiple of ten. Nothing smaller than ten can do that. Ten is the smallest.
 [RECAP]
 V: Line: "pair every prime". Notebook prompt.
-N: To make a square, pair every prime. Rebuild this solution, then find the smallest whole number that multiplies sixty to make a perfect square.
-TRY: Find the smallest whole number that multiplies 60 to make a perfect square.
+N: To make a square, pair every prime. Rebuild this solution, then find the smallest positive whole number that multiplies sixty to make a perfect square.
+TRY: Find the smallest positive whole number that multiplies 60 to make a perfect square.
 ANS: 60 = 2 x 2 x 3 x 5, so multiply by 3 x 5 = 15, giving 900.

@@ -36,7 +36,7 @@ A "structure" is a problem statement with its numbers removed. Problems that sha
 | 14 Nov 2026, after batch 2 | 238 | 328 |
 | 14 Nov 2026, after the spatial batch | 268 | 298 |
 
-Twelve of the 52 technique families now have no repeated structure at all: DIV-03, ALG-04, DIG-03, DATA-02, SOLID-01 (batch 1) ALG-02, SEQ-04, LOGIC-02, FRAC-02, COUNT-01 (batch 2) and SPATIAL-02, SPATIAL-03 (spatial batch). The other 40 families still need redesign. The highest counts remaining are DATA-03 (12), then SOLID-02, RATE-01, RATE-02, GEO-03, FRAC-01, DIG-04 and COUNT-04 (10 each).
+Twelve of the 52 technique families now have no repeated structure at all: DIV-03, ALG-04, DIG-03, DATA-02, SOLID-01 (batch 1), ALG-02, SEQ-04, LOGIC-02, FRAC-02, COUNT-01 (batch 2) and SPATIAL-02, SPATIAL-03 (spatial batch). The other 40 families still need redesign. The highest counts remaining are DATA-03 (12), then SOLID-02, RATE-01, RATE-02, GEO-03, FRAC-01, DIG-04 and COUNT-04 (10 each).
 
 ## Levels of assurance for the 566 lesson problems
 
@@ -46,6 +46,10 @@ Twelve of the 52 technique families now have no repeated structure at all: DIV-0
 | Family check only | 476 | The generator formula for the family is recomputed over all visits. The individual statement, wording and solution have not been read one by one. |
 
 "566 problems pass structural checks" is true. "566 problems independently solved and reviewed" is not: the figure is 90.
+
+## Spatial release
+
+All 30 spatial rows matched the generator after the live update. The 60 rows from the previous batch were independently matched against the live database. Pages published the diagram assets. The original lesson and solution flow was exercised with a fixture account because the learner has not unlocked these later sessions. All three authentic AMC fingerprints matched before and after the update.
 
 ## Videos
 

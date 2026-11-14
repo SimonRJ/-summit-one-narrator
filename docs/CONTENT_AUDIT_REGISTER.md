@@ -32,7 +32,7 @@ The per-problem register for the 566 standard lesson problems is [content-audit-
 
 **Problem IDs.** O082T O082X O094T O094X O097T O097X O118T O118X O127T O127X O159T O159X O177T O177X O209T O209X O218T O218X O250T O250X O268T O268X O300T O300X O309T O309X O341T O341X O359T O359X.
 
-**Verification.** Independent enumeration checks all 30 answers. Browser fixtures check diagram labels and safe handling of a stale question at 320 and 390 CSS pixels. The content source includes no changes to the authentic exam bank or its linked problem records.
+**Verification.** Independent enumeration checks all 30 answers. Browser fixtures check diagram labels and safe handling of a stale question at 320 and 390 CSS pixels. The live database matches all 30 generated rows. The authentic AMC freeze and the seven recorded learner attempts had identical fingerprints before and after the database update. The Pages release published the client and diagram manifest.
 
 ### Batch 2: 14 November 2026
 

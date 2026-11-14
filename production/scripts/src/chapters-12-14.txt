@@ -272,8 +272,8 @@ V: A network with a dot that has only one connection. A card: "a dead-end dot mu
 N: Here is another look-ahead rule. A dot with only one connection can only be the first or the last dot of the route, because you cannot pass through it. If there are three such dots, no route can visit them all.
 [RECAP]
 V: Lines: "After each move, check what is cut off", "Dead ends must be endpoints", "Colouring can prove a route impossible".
-N: After each move, check that everything unvisited can still be reached. Dead ends must be endpoints. And colouring can prove impossibility. Notebook challenge: on a grid of dots with two rows and three columns, can a path visiting every dot once start at one end of the top row and finish at the other end of the top row?
-TRY: On a grid of dots with 2 rows and 3 columns, can a path visiting every dot once go from one end of the top row to the other end of the top row?
+N: After each move, check that everything unvisited can still be reached. Dead ends must be endpoints. And colouring can prove impossibility. Notebook challenge: on a grid of dots with two rows and three columns, can a path with only horizontal and vertical steps visit every dot once, starting at one end of the top row and finishing at the other?
+TRY: On a grid of dots with 2 rows and 3 columns, can a path using horizontal and vertical steps visit every dot once, starting at one end of the top row and finishing at the other?
 ANS: No. Those two corners have the same chessboard colour, but a path through 6 dots must start and finish on different colours.
 
 @@ T14.3
@@ -301,9 +301,9 @@ V: A single dot with three lines leaving it; label "needs at least 3 slots".
 N: There is a second kind of limit. A person who is in three meetings needs at least three slots, whatever everyone else is doing. Use whichever limit is stronger, and then show a timetable that reaches it.
 [RECAP]
 V: Lines: "People are dots, meetings are lines", "A slot: lines sharing no dot", "Find a limit, then build the timetable".
-N: Draw people as dots and meetings as lines. A slot is a set of lines sharing no dot. Find a limit, then build a timetable that reaches it. Notebook challenge: six players each play every other player once, with three games per round. What is the fewest rounds?
-TRY: Six players each play every other once; at most 3 games per round. Fewest rounds?
-ANS: 15 games / 3 = 5 rounds (and it can be done).
+N: Draw people as dots and meetings as lines. A slot is a set of lines sharing no dot. Find a limit, then build a timetable that reaches it. Notebook challenge: six players each play every other player once, with at most three games per round and no player playing twice in a round. What is the fewest rounds?
+TRY: Six players each play every other player once. A round has at most 3 games and no player plays twice in a round. What is the fewest rounds?
+ANS: There are 15 games, so at least 5 rounds. One schedule is AF, BE, CD; BF, AC, DE; CF, BD, AE; DF, CE, AB; EF, AD, BC.
 
 @@ T14.E
 GOAL: Worked example: schedule only the meetings that are required.

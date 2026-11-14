@@ -4,9 +4,9 @@
  "chapter": "Turn routes and schedules into networks",
  "type": "concept",
  "status": "script_ready_not_recorded",
- "voice": "af_heart, natural speed (see docs/VIDEO_TEACHING_STANDARD.md)",
+ "voice": "Voice C (VoxCPM2), natural speed (see docs/VIDEO_PRODUCTION.md)",
  "goal": "Reject a move now if it makes the rest of the route impossible.",
- "narration_words": 338,
+ "narration_words": 339,
  "estimated_minutes": 2.3,
  "scenes": [
   {
@@ -55,9 +55,9 @@
    "n": 8,
    "stage": "RECAP",
    "visual": "Lines: \"After each move, check what is cut off\", \"Dead ends must be endpoints\", \"Colouring can prove a route impossible\".",
-   "narration": "After each move, check that everything unvisited can still be reached. Dead ends must be endpoints. And colouring can prove impossibility. Notebook challenge: on a grid of dots with two rows and three columns, can a path visiting every dot once start at one end of the top row and finish at the other end of the top row?"
+   "narration": "After each move, check that everything unvisited can still be reached. Dead ends must be endpoints. And colouring can prove impossibility. Notebook challenge: on a grid of dots with two rows and three columns, can a path with only horizontal and vertical steps visit every dot once, starting at one end of the top row and finishing at the other?"
   }
  ],
- "notebook_exercise": "On a grid of dots with 2 rows and 3 columns, can a path visiting every dot once go from one end of the top row to the other end of the top row?",
+ "notebook_exercise": "On a grid of dots with 2 rows and 3 columns, can a path using horizontal and vertical steps visit every dot once, starting at one end of the top row and finishing at the other?",
  "notebook_answer": "No. Those two corners have the same chessboard colour, but a path through 6 dots must start and finish on different colours."
 }

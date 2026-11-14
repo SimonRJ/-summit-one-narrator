@@ -8,7 +8,7 @@ Scripts ready: 70 of 72. Approved videos: 2. Not yet scripted: 0.
 
 | ID | Title | Type | Status | Length | File |
 |---|---|---|---|---|---|
-| T01.1 | Give every quantity a job | concept | script ready | 299 words, about 2.0 min | [T01.1.json](T01.1.json) |
+| T01.1 | Give every quantity a job | concept | script ready | 298 words, about 2.0 min | [T01.1.json](T01.1.json) |
 | T01.2 | Choose a representation that exposes the relationship | concept | script ready | 332 words, about 2.2 min | [T01.2.json](T01.2.json) |
 | T01.3 | Use the model to check the answer | concept | script ready | 293 words, about 2.0 min | [T01.3.json](T01.3.json) |
 | T01.E | Read the question into a useful model | worked_example | script ready | 197 words, about 1.3 min | [T01.E.json](T01.E.json) |
@@ -16,14 +16,14 @@ Scripts ready: 70 of 72. Approved videos: 2. Not yet scripted: 0.
 | T02.2 | Work backwards: undo the last move first | concept | approved video | | Approved studio edition already published (media/T02.2.mp4). Keep its audio unchanged. |
 | T02.3 | Compare different orders of the same operations | concept | script ready | 291 words, about 1.9 min | [T02.3.json](T02.3.json) |
 | T02.E | Follow what changes and what stays fixed | worked_example | script ready | 180 words, about 1.2 min | [T02.E.json](T02.E.json) |
-| T03.1 | Read a remainder as a precise statement | concept | script ready | 305 words, about 2.0 min | [T03.1.json](T03.1.json) |
+| T03.1 | Read a remainder as a precise statement | concept | script ready | 306 words, about 2.0 min | [T03.1.json](T03.1.json) |
 | T03.2 | Separate the first coincidence from the repeat period | concept | script ready | 295 words, about 2.0 min | [T03.2.json](T03.2.json) |
 | T03.3 | Build guarantees with the pigeonhole principle | concept | script ready | 299 words, about 2.0 min | [T03.3.json](T03.3.json) |
 | T03.E | Remainders turn long lists into short systems | worked_example | script ready | 193 words, about 1.3 min | [T03.E.json](T03.E.json) |
 | T04.1 | Factor with a purpose | concept | script ready | 277 words, about 1.8 min | [T04.1.json](T04.1.json) |
 | T04.2 | Count divisors by making independent choices | concept | script ready | 257 words, about 1.7 min | [T04.2.json](T04.2.json) |
 | T04.3 | Track prime copies through several conditions | concept | script ready | 300 words, about 2.0 min | [T04.3.json](T04.3.json) |
-| T04.E | Use prime factors as the building blocks | worked_example | script ready | 172 words, about 1.1 min | [T04.E.json](T04.E.json) |
+| T04.E | Use prime factors as the building blocks | worked_example | script ready | 174 words, about 1.2 min | [T04.E.json](T04.E.json) |
 | T05.1 | Decide whether order belongs to the outcome | concept | script ready | 299 words, about 2.0 min | [T05.1.json](T05.1.json) |
 | T05.2 | Split by the restriction that changes the choices | concept | script ready | 276 words, about 1.8 min | [T05.2.json](T05.2.json) |
 | T05.3 | Prove that the classification is reversible | concept | script ready | 313 words, about 2.1 min | [T05.3.json](T05.3.json) |
@@ -45,7 +45,7 @@ Scripts ready: 70 of 72. Approved videos: 2. Not yet scripted: 0.
 | T09.3 | Transform equations without losing conditions | concept | script ready | 268 words, about 1.8 min | [T09.3.json](T09.3.json) |
 | T09.E | Make fractions, decimals and algebra agree | worked_example | script ready | 182 words, about 1.2 min | [T09.E.json](T09.E.json) |
 | T10.1 | Build a recurrence from a reversible step | concept | script ready | 280 words, about 1.9 min | [T10.1.json](T10.1.json) |
-| T10.2 | Remember enough information, but no more | concept | script ready | 282 words, about 1.9 min | [T10.2.json](T10.2.json) |
+| T10.2 | Remember enough information, but no more | concept | script ready | 294 words, about 2.0 min | [T10.2.json](T10.2.json) |
 | T10.3 | Classify game positions by their legal moves | concept | script ready | 303 words, about 2.0 min | [T10.3.json](T10.3.json) |
 | T10.E | Build patterns from reasons, not guesses | worked_example | script ready | 183 words, about 1.2 min | [T10.E.json](T10.E.json) |
 | T11.1 | Translate position into value | concept | script ready | 266 words, about 1.8 min | [T11.1.json](T11.1.json) |
@@ -61,8 +61,8 @@ Scripts ready: 70 of 72. Approved videos: 2. Not yet scripted: 0.
 | T13.3 | Count hidden pieces through layers and boundaries | concept | script ready | 304 words, about 2.0 min | [T13.3.json](T13.3.json) |
 | T13.E | Measure the region or solid that matters | worked_example | script ready | 184 words, about 1.2 min | [T13.E.json](T13.E.json) |
 | T14.1 | Translate the movement rules exactly | concept | script ready | 292 words, about 1.9 min | [T14.1.json](T14.1.json) |
-| T14.2 | Use future obligations to reject tempting moves | concept | script ready | 338 words, about 2.3 min | [T14.2.json](T14.2.json) |
-| T14.3 | Read a schedule as groups of nonconflicting edges | concept | script ready | 303 words, about 2.0 min | [T14.3.json](T14.3.json) |
+| T14.2 | Use future obligations to reject tempting moves | concept | script ready | 339 words, about 2.3 min | [T14.2.json](T14.2.json) |
+| T14.3 | Read a schedule as groups of nonconflicting edges | concept | script ready | 313 words, about 2.1 min | [T14.3.json](T14.3.json) |
 | T14.E | Turn routes and schedules into networks | worked_example | script ready | 204 words, about 1.4 min | [T14.E.json](T14.E.json) |
 | T15.1 | Define sameness before counting | concept | script ready | 306 words, about 2.0 min | [T15.1.json](T15.1.json) |
 | T15.2 | Do not divide by a symmetry count blindly | concept | script ready | 318 words, about 2.1 min | [T15.2.json](T15.2.json) |
