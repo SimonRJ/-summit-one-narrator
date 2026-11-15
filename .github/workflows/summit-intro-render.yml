@@ -1,0 +1,114 @@
+name: Summit One lesson introduction films
+
+on:
+  push:
+    branches: [codex/lesson-intro-production]
+    paths:
+      - 'production/t01-studio/intro_render_plan.json'
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 100
+    outputs:
+      lessons: ${{ steps.plan.outputs.lessons }}
+      audio: ${{ steps.plan.outputs.audio }}
+      repair: ${{ steps.plan.outputs.repair }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Verify the fifteen examples and course placements
+        run: python production/t01-studio/verify_intro_examples.py
+      - id: plan
+        name: Verify the batch and resolve its audio runs
+        run: |
+          python - <<'PY'
+          import json, os, re
+          from pathlib import Path
+
+          plan = json.loads(Path("production/t01-studio/intro_render_plan.json").read_text())
+          lessons = plan["lessons"]
+          assert lessons and len(lessons) == len(set(lessons)) <= 5
+          assert all(re.fullmatch(r"S00[1-5]", lesson) for lesson in lessons)
+          audio = plan["audio_run"]
+          repair = plan.get("repair_run", "")
+          assert isinstance(audio, int) and audio > 0
+          assert repair == "" or isinstance(repair, int) and repair > 0
+          with open(os.environ["GITHUB_OUTPUT"], "a") as out:
+              print(f"lessons={json.dumps(lessons, separators=(',', ':'))}", file=out)
+              print(f"audio={audio}\nrepair={repair}", file=out)
+          PY
+      - name: Wait for the Voice C recordings
+        env:
+          GH_TOKEN: ${{ github.token }}
+          AUDIO_RUN: ${{ steps.plan.outputs.audio }}
+          REPAIR_RUN: ${{ steps.plan.outputs.repair }}
+        run: |
+          gh run watch "$AUDIO_RUN" --repo "$GITHUB_REPOSITORY" --exit-status --interval 20
+          if [ -n "$REPAIR_RUN" ]; then
+            gh run watch "$REPAIR_RUN" --repo "$GITHUB_REPOSITORY" --exit-status --interval 20
+          fi
+
+  render:
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        lesson: ${{ fromJSON(needs.plan.outputs.lessons) }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: intro-voice-lane-*
+          merge-multiple: true
+          path: build/t01-studio
+          run-id: ${{ needs.plan.outputs.audio }}
+          github-token: ${{ github.token }}
+      - uses: actions/download-artifact@v4
+        if: needs.plan.outputs.repair != ''
+        with:
+          pattern: intro-voice-lane-*
+          merge-multiple: true
+          path: build/t01-studio-repair
+          run-id: ${{ needs.plan.outputs.repair }}
+          github-token: ${{ github.token }}
+      - name: Apply approved replacement recordings
+        if: needs.plan.outputs.repair != ''
+        run: cp build/t01-studio-repair/S* build/t01-studio/
+      - name: Install the rendering and alignment tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-open-sans fonts-dejavu-core libsndfile1
+          python -m pip install --disable-pip-version-check pillow numpy soundfile num2words faster-whisper
+      - name: Time the animations and captions to the recording
+        run: python production/t01-studio/prepare_audio.py "${{ matrix.lesson }}"
+      - name: Capture intermediate states for review
+        run: python production/t01-studio/render.py "${{ matrix.lesson }}" --preview
+      - name: Render and decode-check the Full HD film
+        run: python production/t01-studio/render.py "${{ matrix.lesson }}"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.lesson }}
+          path: |
+            build/t01-studio/${{ matrix.lesson }}/final.mp4
+            build/t01-studio/${{ matrix.lesson }}/poster.jpg
+            build/t01-studio/${{ matrix.lesson }}/captions.vtt
+            build/t01-studio/${{ matrix.lesson }}/qa.json
+            build/t01-studio/${{ matrix.lesson }}/timeline.json
+            build/t01-studio/${{ matrix.lesson }}/storyboard/sheet-*.jpg
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 14
+          overwrite: true
