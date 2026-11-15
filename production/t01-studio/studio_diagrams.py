@@ -69,18 +69,20 @@ def table(stage, xs, ys, rows, *, opacity=1.0, highlighted=(), width=950, colour
 
 def recap(stage, s, steps, cue, question, *, sub=None):
     """Reveal a short method, then give the learner a clean problem to try."""
-    show = s.reveal(cue)
-    stage.heading("Use the method again", opacity=1 - show)
+    change = s.reveal(cue)
+    method_opacity = max(0.0, 1.0 - 2 * change)
+    exercise_opacity = max(0.0, 2 * change - 1.0)
+    stage.heading("Use the method again", opacity=method_opacity)
     for i, (label, spoken) in enumerate(steps):
-        opacity = s.reveal(spoken) * (1 - show)
+        opacity = s.reveal(spoken) * method_opacity
         count = len(steps)
         x = 640 + (i - (count - 1) / 2) * 325
         tile(stage, x, 328, label, (BLUE, GOLD, MINT)[i], 300, 88, opacity, size=29)
-    stage.heading("Your turn", opacity=show)
+    stage.heading("Your turn", opacity=exercise_opacity)
     for i, line in enumerate(question):
-        fit(stage, line, 640, 263 + 63 * i, 38, 1070, WHITE, show)
+        fit(stage, line, 640, 263 + 63 * i, 38, 1070, WHITE, exercise_opacity)
     if sub:
-        fit(stage, sub, 640, 509, 27, 1070, MINT, show, False)
+        fit(stage, sub, 640, 509, 27, 1070, MINT, exercise_opacity, False)
 
 
 def join(stage, x, y1, y2, colour, opacity=1.0):
