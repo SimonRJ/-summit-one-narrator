@@ -49,11 +49,11 @@ Scripts ready: 56 of 72. Published for review: 14. Approved videos: 2. Not yet s
 | T10.3 | Classify game positions by their legal moves | concept | script ready | 337 words, about 2.2 min | [T10.3.json](T10.3.json) |
 | T10.E | Build patterns from reasons, not guesses | worked_example | script ready | 183 words, about 1.2 min | [T10.E.json](T10.E.json) |
 | T11.1 | Translate position into value | concept | script ready | 266 words, about 1.8 min | [T11.1.json](T11.1.json) |
-| T11.2 | Use information that survives rearrangement | concept | script ready | 285 words, about 1.9 min | [T11.2.json](T11.2.json) |
+| T11.2 | Use information that survives rearrangement | concept | script ready | 294 words, about 2.0 min | [T11.2.json](T11.2.json) |
 | T11.3 | Organise counts, inventories and next-number | concept | script ready | 254 words, about 1.7 min | [T11.3.json](T11.3.json) |
 | T11.E | Make every digit obey both its jobs | worked_example | script ready | 166 words, about 1.1 min | [T11.E.json](T11.E.json) |
-| T12.1 | Build an angle chain from dependable facts | concept | script ready | 324 words, about 2.2 min | [T12.1.json](T12.1.json) |
-| T12.2 | Connect angles on a circle to the arcs they see | concept | script ready | 329 words, about 2.2 min | [T12.2.json](T12.2.json) |
+| T12.1 | Build an angle chain from dependable facts | concept | script ready | 316 words, about 2.1 min | [T12.1.json](T12.1.json) |
+| T12.2 | Connect angles on a circle to the arcs they see | concept | script ready | 367 words, about 2.4 min | [T12.2.json](T12.2.json) |
 | T12.3 | Use coordinates or extra lines to make a proof visible | concept | script ready | 315 words, about 2.1 min | [T12.3.json](T12.3.json) |
 | T12.E | Use angle relationships and exact geometric facts | worked_example | script ready | 207 words, about 1.4 min | [T12.E.json](T12.E.json) |
 | T13.1 | Use bases, heights and complementary regions | concept | script ready | 320 words, about 2.1 min | [T13.1.json](T13.1.json) |

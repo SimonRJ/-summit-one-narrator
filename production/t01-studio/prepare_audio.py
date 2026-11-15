@@ -59,6 +59,7 @@ SPOKEN_FORMS = {
     "leftover": "left over",
     "kilogram": "kilograms",
     "kg": "kilograms",
+    "nought": "zero",
 }
 
 
@@ -71,11 +72,23 @@ def clock_words(match):
     return f"{hour} {minute}"
 
 
+def fraction_words(match):
+    numerator, denominator = map(int, match.groups())
+    if denominator < 2:
+        return match.group()
+    base = {2: "half", 4: "quarter"}.get(denominator, num2words(denominator, to="ordinal"))
+    if numerator != 1:
+        base = "halves" if denominator == 2 else base + "s"
+    return f"{numerator} {base}"
+
+
 def tokens(text):
     text = text.lower().replace("’", "'")
     text = re.sub(r"\$(\d+(?:,\d{3})*)", r"\1 dollars", text)
     text = re.sub(r"(?<!\d)(\d{1,2}):([0-5]\d)(?!\d)", clock_words, text)
-    text = re.sub(r"\b(\d+)\.5\b", r"\1 and a half", text)
+    text = re.sub(r"\b([1-9]\d*)\.5\b", r"\1 and a half", text)
+    text = re.sub(r"\b(\d+)\.(\d+)\b", lambda m: f"{m[1]} point {' '.join(m[2])}", text)
+    text = re.sub(r"\b(\d+)\s*/\s*(\d+)\b", fraction_words, text)
     text = re.sub(r"\b40s\b", "forties", text)
     text = re.sub(r"(?<=\d)\s*[×x*]\s*(?=\d)", " times ", text)
     parts = re.findall(r"[a-z]+(?:'[a-z]+)?|\d+(?:,\d{3})*(?:st|nd|rd|th)?", text)

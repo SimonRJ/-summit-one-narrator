@@ -272,7 +272,7 @@ V: The cubes gather: 4, 7, 2, 5 make 18. 18 forms two groups of 9. A tick.
 N: Four plus seven plus two plus five is eighteen. Eighteen is a multiple of nine, so the number is too. In general, a number and its digit sum leave the same remainder when divided by nine.
 [VARIATION]
 V: The number 583: digits sum to 16; 16 leaves 7 after removing 9. Label "remainder 7".
-N: The digit sum gives the remainder, not just a yes or no. Five hundred and eighty-three has digit sum sixteen. Sixteen is seven more than nine. So five hundred and eighty-three leaves remainder seven when divided by nine.
+N: The digit sum lets us find the remainder, too. Five hundred and eighty-three has digit sum sixteen. Remove as many complete groups of nine from sixteen as you can. Sixteen is seven more than nine. So five hundred and eighty-three leaves remainder seven when divided by nine.
 [VARIATION]
 V: Digit cards 1, 2, 6 shuffling into 126, 216, 612, 621. Sum 9 stays fixed above them.
 N: Rearranging digits does not change their sum. So every arrangement of the digits one, two and six is a multiple of nine. And since nine is a multiple of three, the same digit-sum test works for three.

@@ -5,7 +5,7 @@ V: A straight line with a ray rising from it; the two angles are marked and a ha
 N: Angle problems are solved by chains. You know one angle, a fact gives you the next, another fact gives the one after. The facts are few: a straight line makes one hundred and eighty degrees, a full turn makes three hundred and sixty, and angles opposite each other where two lines cross are equal.
 [WHY]
 V: A diagram with "not to scale" in the corner and a protractor fading out.
-N: Competition diagrams are not drawn to scale, so measuring is useless. What works is knowing a small set of facts and applying them one link at a time, saying which fact you used.
+N: Competition diagrams may not be drawn to scale. Use the stated facts, a link at a time, and say which angle rule justifies each link.
 [PUZZLE]
 V: Two parallel lines crossed by a slanted line. One angle at the top crossing is marked 65 degrees. An angle at the lower crossing, on the opposite side, is marked with a question mark.
 N: Two parallel lines are crossed by a third line. One angle at the top is sixty-five degrees. Find the marked angle at the bottom. Pause and trace how the top crossing relates to the bottom one.
@@ -46,14 +46,14 @@ V: A new point at 8 on the far side of the circle. Lines from 8 to 12 and from 8
 N: Now stand at a point on the circle instead, at eight, and look at the same arc from twelve to four. The angle you see is exactly half the angle at the centre: sixty degrees. An angle on the circle is half the angle at the centre standing on the same arc.
 [DEVELOP]
 V: The radius from the centre to 8 is drawn, splitting the picture into two isosceles triangles with equal radii ticked. Base angles are marked equal.
-N: Why half? Draw the radius to your viewing point. It makes two triangles, each with two equal sides, because all radii are equal. Their equal angles, added up, show that the centre angle is twice the angle at the edge.
+N: Why half here? Draw the radius to eight. It splits the angle at eight into two parts, a and b. Since the radii are equal, the two small triangles have equal base angles. Their angles at the centre are one hundred and eighty minus two a, and one hundred and eighty minus two b. Subtract both from a full turn. The centre angle over the arc is two a plus two b, twice the whole angle at eight.
 [VARIATION]
 V: The arc is a semicircle from 12 to 6: centre angle 180. A point at 3 sees it with angle 90.
 N: A special case is worth remembering. If the arc is exactly half the circle, the angle at the centre is one hundred and eighty, so the angle on the circle is ninety. Any triangle drawn with a diameter as one side, and its third corner on the circle, has a right angle.
 [RECAP]
 V: Lines: "Equal spacing: 360 shared equally", "Count gaps, not points", "Angle on the circle is half the angle at the centre".
 N: Share three hundred and sixty among the gaps. Count gaps, not points. The angle on the circle is half the angle at the centre. Notebook challenge: on the clock circle, what is the angle at the centre between the points at two and seven?
-TRY: On a clock circle, what is the angle at the centre between the points at 2 and 7?
+TRY: On a clock circle, what is the smaller angle at the centre between the points at 2 and 7?
 ANS: 5 gaps x 30 = 150 degrees.
 
 @@ T12.3

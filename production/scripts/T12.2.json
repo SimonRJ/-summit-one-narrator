@@ -6,8 +6,8 @@
  "status": "script_ready_not_recorded",
  "voice": "Voice C (VoxCPM2), natural speed (see docs/VIDEO_PRODUCTION.md)",
  "goal": "Use equal spacing on a circle, and the link between an angle at the centre and one on the circle.",
- "narration_words": 329,
- "estimated_minutes": 2.2,
+ "narration_words": 367,
+ "estimated_minutes": 2.4,
  "scenes": [
   {
    "n": 1,
@@ -43,7 +43,7 @@
    "n": 6,
    "stage": "DEVELOP",
    "visual": "The radius from the centre to 8 is drawn, splitting the picture into two isosceles triangles with equal radii ticked. Base angles are marked equal.",
-   "narration": "Why half? Draw the radius to your viewing point. It makes two triangles, each with two equal sides, because all radii are equal. Their equal angles, added up, show that the centre angle is twice the angle at the edge."
+   "narration": "Why half here? Draw the radius to eight. It splits the angle at eight into two parts, a and b. Since the radii are equal, the two small triangles have equal base angles. Their angles at the centre are one hundred and eighty minus two a, and one hundred and eighty minus two b. Subtract both from a full turn. The centre angle over the arc is two a plus two b, twice the whole angle at eight."
   },
   {
    "n": 7,
@@ -58,6 +58,6 @@
    "narration": "Share three hundred and sixty among the gaps. Count gaps, not points. The angle on the circle is half the angle at the centre. Notebook challenge: on the clock circle, what is the angle at the centre between the points at two and seven?"
   }
  ],
- "notebook_exercise": "On a clock circle, what is the angle at the centre between the points at 2 and 7?",
+ "notebook_exercise": "On a clock circle, what is the smaller angle at the centre between the points at 2 and 7?",
  "notebook_answer": "5 gaps x 30 = 150 degrees."
 }
