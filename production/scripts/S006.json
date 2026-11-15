@@ -1,0 +1,62 @@
+{
+  "id": "S006",
+  "course_slot": 6,
+  "title": "Unit-cube counting and layered solids",
+  "scenes": [
+    {
+      "n": 1,
+      "stage": "INTRO",
+      "narration": "Build a solid from little unit cubes. From one angle you can see the front and the top, but some cubes are hidden. The layers give you a way to count every cube in the solid. Think of lifting one level at a time."
+    },
+    {
+      "n": 2,
+      "stage": "EXAM",
+      "narration": "In AMC Upper Primary practice, a picture might ask how many cubes make a shape. In a Rossmoyne style spatial puzzle, the diagram may show holes or an opening. Sketch a plan of each layer so you can track which cubes stay."
+    },
+    {
+      "n": 3,
+      "stage": "PUZZLE",
+      "narration": "This block is three cubes wide, two deep, and two high. How many unit cubes does it contain? Think about how many positions there are on just the bottom layer."
+    },
+    {
+      "n": 4,
+      "stage": "BASIC",
+      "narration": "One layer has two rows, with three cubes in each row. That gives six cubes. The upper layer has exactly the same six positions. Together there are twelve cubes, including cubes the outside drawing hides."
+    },
+    {
+      "n": 5,
+      "stage": "PUZZLE",
+      "narration": "A block has six stacks. Their heights, front row first, are one, three, two, then four, one, three. All stacks rest on the table. How many cubes are in the block? Try counting level by level from the table up."
+    },
+    {
+      "n": 6,
+      "stage": "MEDIUM",
+      "narration": "Level one has six cubes. Four of those stacks reach level two. Three stacks reach level three, and one reaches level four. Add six, four, three and one to get fourteen. Summing the six heights gives fourteen as well. That is an independent check."
+    },
+    {
+      "n": 7,
+      "stage": "PUZZLE",
+      "narration": "Start with a solid four by four by three block. Remove a vertical column of three cubes. Also remove a straight tunnel of four cubes across the middle layer. The tunnel passes through the same column. How many cubes remain?"
+    },
+    {
+      "n": 8,
+      "stage": "HARD",
+      "narration": "Each of the three layers originally contained sixteen cubes. Removing the vertical column takes one from every layer. The tunnel runs through four positions on the middle layer. One of them is already empty. The tunnel takes only three more cubes."
+    },
+    {
+      "n": 9,
+      "stage": "HARD",
+      "narration": "Count what's left. The bottom and top each have fifteen cubes. The middle has twelve because four of its sixteen positions are empty. Fifteen plus twelve plus fifteen is forty-two. As a check, forty-eight minus six is also forty-two."
+    },
+    {
+      "n": 10,
+      "stage": "MISTAKES",
+      "narration": "A visible cube count misses the cubes inside. A second mistake is subtracting three and four when their paths meet. The shared cube can be removed once. Mark the empty cells by layer or subtract the shared cell from the removal count."
+    },
+    {
+      "n": 11,
+      "stage": "RECAP",
+      "narration": "In an exam, identify the base dimensions and the number of levels. Label hidden positions on a quick layer sketch. When two cuts cross, mark their common cell. Finally, check your count a second way, using full volume minus the missing cubes."
+    }
+  ]
+}

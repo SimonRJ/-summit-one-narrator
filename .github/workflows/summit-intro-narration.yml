@@ -2,7 +2,7 @@ name: Summit One introduction narration
 
 on:
   push:
-    branches: [codex/lesson-intro-production]
+    branches: [codex/lesson-intro-production, codex/lesson-intro-next]
     paths:
       - 'production/t01-studio/intro_narration_plan.json'
 
@@ -31,7 +31,7 @@ jobs:
           plan = json.loads(Path("production/t01-studio/intro_narration_plan.json").read_text())
           requests = []
           for lesson in plan["lessons"]:
-              assert re.fullmatch(r"S00[1-5]", lesson), lesson
+              assert re.fullmatch(r"S[0-9]{3}", lesson), lesson
               script = json.loads(Path(f"production/scripts/{lesson}.json").read_text())
               selected = plan.get("scenes", {}).get(lesson)
               for scene in script["scenes"]:

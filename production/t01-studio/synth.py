@@ -16,7 +16,11 @@ from chapter_films import CHAPTER_FILMS, COURSE_FILMS
 ROOT = Path(__file__).resolve().parents[2]
 BUILD = ROOT / "build/t01-studio"
 OPENING_IDS = ("T01.1", "T01.2")
-INTRO_IDS = ("S001", "S002", "S003", "S004", "S005")
+INTRO_IDS = tuple(
+    f"S{session['slot']:03}"
+    for session in json.loads((ROOT / "data/sessions-372.json").read_text())["sessions"]
+    if session["type"] == "LESSON"
+)
 IDS = (*OPENING_IDS, "T01.3", "T01.E", *CHAPTER_FILMS, *COURSE_FILMS, *INTRO_IDS)
 REFERENCE = ROOT / "media/voice-audition/vox-australian-male-c.mp3"
 VOICE_SHA = "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362"
