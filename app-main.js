@@ -16,7 +16,7 @@ import { problemFigure } from "./problem-figures.js";
 import {mountLessonPager} from "./lesson-pager.js?v=responsive-20261113";
 import {learningScreens} from "./lesson-screenflow.js?v=data-audit-20261114";
 import {buildCourseNavigation} from "./course-menu.js?v=menu-20261113";
-import {mountCourseMenu} from "./course-menu-ui.js?v=lesson-replay-20261113";
+import {mountCourseMenu} from "./course-menu-ui.js?v=teaching-videos-20261115";
 
 const app=document.getElementById("app");
 const problemTemplate=document.getElementById("problemTemplate");
@@ -64,6 +64,7 @@ const hash=s=>{let h=2166136261;for(const c of String(s)){h^=c.charCodeAt(0);h=M
 const normalize=s=>String(s??"").toLowerCase().replace(/\s+/g,"").replace(/[×·]/g,"*").replace(/[²]/g,"^2").replace(/[³]/g,"^3").replace(/[.,;:]$/g,"");
 const rankNames=["Pathfinder","Pattern Scout","Model Builder","Logic Ranger","Number Navigator","Geometry Pilot","Counting Specialist","Invariant Hunter","Transfer Thinker","Proof Builder","Problem Solver","Strategy Captain","Olympiad Explorer","Insight Engineer","Reasoning Commander","AMC Specialist","MAWA Specialist","Rossmoyne Specialist","Summit Elite","Summit Scholar"];
 const openingFilmIds=["T01.1","T01.2","T01.3","T01.E"];
+const chapterStudioFilmIds=new Set(["T02.3","T02.E","T03.1","T03.2","T03.3","T03.E","T04.1","T04.2","T04.3","T04.E"]);
 function finalVideoUrl(videoId){
   const id=String(videoId||"");
   // Only concept/worked-example T videos are public. Every challenge solution is attempt-gated.
@@ -71,6 +72,7 @@ function finalVideoUrl(videoId){
   if(openingFilmIds.includes(id))return "media/"+id+".mp4?v=t01-studio-v1";
   if(id==="T02.1")return "media/T02.1.mp4?v=studio-v4";
   if(id==="T02.2")return "media/T02.2.mp4?v=studio-v1";
+  if(chapterStudioFilmIds.has(id))return "media/"+id+".mp4?v=studio-chapters-02-04-v1";
   return ""; // Only verified published masters are offered; other lessons use their written/audio teaching.
 }
 async function recordVideoEvidence(sessionNumber,videoId,kind,detail={}){

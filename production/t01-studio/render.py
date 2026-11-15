@@ -1,4 +1,4 @@
-"""Render the two opening teaching films from their aligned narration."""
+"""Render Summit One teaching films from their aligned narration."""
 
 import argparse
 from bisect import bisect_right
@@ -11,8 +11,13 @@ import subprocess
 from PIL import Image, ImageDraw
 
 import check_answer
+import guarantees
 import measure_interval
+import operation_order
+import prime_conditions
+import prime_factors
 import quantities
+import remainder_patterns
 import representations
 from stage import HEIGHT, ROOT, WIDTH, Moment, Stage
 
@@ -24,6 +29,11 @@ LESSONS = {
     "T01.2": representations.SCENES,
     "T01.3": check_answer.SCENES,
     "T01.E": measure_interval.SCENES,
+    **operation_order.SCENES,
+    **remainder_patterns.SCENES,
+    **guarantees.SCENES,
+    **prime_factors.SCENES,
+    **prime_conditions.SCENES,
 }
 CHAPTERS = {
     "T01.1": ((1, "Give numbers meaning"), (3, "Mia’s counters"),
@@ -34,6 +44,26 @@ CHAPTERS = {
               (6, "Prove the minimum"), (7, "Buses completely full"), (8, "Your turn")),
     "T01.E": ((1, "The ribbon problem"), (3, "Count the gaps"), (4, "Subtract the start"),
               (5, "Slide the ribbon"), (6, "The film problem"), (8, "Your turn")),
+    "T02.3": ((1, "Compare two orders"), (3, "Find the gap"), (4, "Build both outputs"),
+              (5, "Prove the gap is fixed"), (7, "When can steps swap?"), (8, "Your turn")),
+    "T02.E": ((1, "The two rules"), (2, "Copy the whole sum"), (4, "Compare the extras"),
+              (5, "Test different inputs"), (6, "Your turn")),
+    "T03.1": ((1, "Groups and leftovers"), (3, "The bead puzzle"), (4, "Find bead 50"),
+              (5, "Remainder zero"), (6, "Same remainder"), (8, "Your turn")),
+    "T03.2": ((1, "Two flashing lights"), (3, "Start together"), (4, "Find the period"),
+              (5, "Shift one start"), (6, "When clocks never meet"), (7, "Your turn")),
+    "T03.3": ((1, "More counters than boxes"), (3, "The sock puzzle"), (5, "Remainder boxes"),
+              (6, "Pairs that sum to 11"), (7, "Your turn")),
+    "T03.E": ((1, "The four-number problem"), (2, "Sort by remainder"), (4, "Cancel the leftovers"),
+              (5, "Check the bound"), (6, "Your turn")),
+    "T04.1": ((1, "Build two factor trees"), (3, "Is 91 prime?"), (4, "Test small primes"),
+              (5, "Stop at the square root"), (6, "Three factors of 66"), (7, "Your turn")),
+    "T04.2": ((1, "Pair factors of 12"), (3, "Count prime choices"), (4, "Fill the grid"),
+              (5, "Count factors of 72 and 360"), (6, "Why squares have odd counts"), (7, "Your turn")),
+    "T04.3": ((1, "Sort prime copies"), (3, "Compare 12 and 18"), (4, "Highest common factor"),
+              (5, "Lowest common multiple"), (7, "Make a square"), (8, "Your turn")),
+    "T04.E": ((1, "The perfect square problem"), (2, "Find unpaired primes"),
+              (4, "Check the square"), (5, "Prove the multiplier is smallest"), (6, "Your turn")),
 }
 
 

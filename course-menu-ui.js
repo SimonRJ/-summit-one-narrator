@@ -50,6 +50,7 @@ export function mountCourseMenu({navigation,getDone,getCurrent,onContinue,onComp
         <div class="course-menu-divider" role="separator"></div>
         ${btn("lessons","Lessons",`${navigation.totals.lessons} technique lessons · ${navigation.topics.length} maths categories`)}
         ${btn("mawa","MAWA investigations",`${navigation.totals.mawa} investigations`)}
+        ${link("teaching-videos.html","Teaching videos","Watch concepts and worked examples in order")}
         ${btn("mixed","Strategy workshops",`${navigation.totals.workshops} workshops`)}
         ${btn("exams","Exams","AMC practice, real papers and Rossmoyne")}
         <div class="course-menu-divider" role="separator"></div>

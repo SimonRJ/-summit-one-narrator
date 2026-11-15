@@ -7,12 +7,12 @@ The visual and teaching standard is in [VIDEO_TEACHING_STANDARD.md](VIDEO_TEACHI
 | Status | Count | Which |
 |---|---:|---|
 | Finished and approved | 2 | T02.1 (the studio benchmark) and T02.2. Their audio must not be changed. |
-| Published for review | 4 | [T01.1](../watch-t01-1.html), [T01.2](../watch-t01-2.html), [T01.3](../watch-t01-3.html) and [T01.E](../watch-t01-e.html). |
-| Script ready | 66 | The remaining items in `data/teaching-72.json`. |
+| Published for review | 14 | The four T01 films and the ten films from T02.3 through T04.E in [Teaching videos](../teaching-videos.html). |
+| Script ready | 56 | The remaining items in `data/teaching-72.json`. |
 
 The full list with lengths is generated at [production/scripts/INDEX.md](../production/scripts/INDEX.md).
 
-Other finished public videos in `media/` include the AMC introduction, the welcome video, session introductions S001 and S002, and one AMC 2025 solution pilot. The four T01 studio films are available in the opening and replay screens for Lessons 1–4.
+Other finished public videos in `media/` include the AMC introduction, the welcome video, session introductions S001 and S002, and one AMC 2025 solution pilot. The four T01 studio films are available in the opening and replay screens for Lessons 1–4. Teaching videos in the course menu opens all sixteen films in chapter order.
 
 ## Scripts
 
@@ -34,7 +34,7 @@ All examples in the scripts are original to Summit One. None reuses a competitio
 5. Check the mathematics on screen, caption alignment, legibility on a phone, and the published HTTPS link.
 6. Record the checked video as published for review. Work through the teaching lessons in order and then produce the exam solution videos.
 
-The T01 production sources are in `production/t01-studio/`. The Voice C workflow records the scenes and the render workflow aligns speech, renders both videos and checks the final media. Each QA report in `review/` records the reference fingerprint, word alignment, format and playback duration.
+Studio sources for Chapters 1–4 are in `production/t01-studio/`. The Voice C workflows record the scenes. The render workflows align speech, animate the maths, and check the final media. Each QA report in `review/` records the reference fingerprint, word alignment, format and playback duration.
 
 ## Review status of the scripts
 
