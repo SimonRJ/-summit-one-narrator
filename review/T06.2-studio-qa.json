@@ -1,0 +1,92 @@
+{
+  "id": "T06.2",
+  "duration_seconds": 113.433333,
+  "sha256": "fad182df69cac8bfb594db702c5e209146026ce77fd801aed1c14f3ad9dfcc4e",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 97.7,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "match_percent": 100.0
+    },
+    {
+      "number": 2,
+      "start": 11.96,
+      "match_percent": 100.0
+    },
+    {
+      "number": 3,
+      "start": 22.37,
+      "match_percent": 100.0
+    },
+    {
+      "number": 4,
+      "start": 40.58,
+      "match_percent": 100.0
+    },
+    {
+      "number": 5,
+      "start": 56.42,
+      "match_percent": 83.08
+    },
+    {
+      "number": 6,
+      "start": 68.42,
+      "match_percent": 100.0
+    },
+    {
+      "number": 7,
+      "start": 76.75,
+      "match_percent": 100.0
+    },
+    {
+      "number": 8,
+      "start": 95.14,
+      "match_percent": 98.55
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Measure boxes in pairs",
+      "start": 0.0
+    },
+    {
+      "title": "Find the total first",
+      "start": 11.96
+    },
+    {
+      "title": "What does each box weigh?",
+      "start": 22.37
+    },
+    {
+      "title": "Add the readings and count each box",
+      "start": 40.58
+    },
+    {
+      "title": "Subtract the pair that excludes the box",
+      "start": 56.42
+    },
+    {
+      "title": "Check all three original weighings",
+      "start": 68.42
+    },
+    {
+      "title": "Sometimes the counts are unequal",
+      "start": 76.75
+    },
+    {
+      "title": "Your turn",
+      "start": 95.14
+    }
+  ],
+  "decoded_successfully": true
+}

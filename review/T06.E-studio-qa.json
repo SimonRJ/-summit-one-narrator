@@ -1,0 +1,74 @@
+{
+  "id": "T06.E",
+  "duration_seconds": 75.033333,
+  "sha256": "ac640609d1d60d50636377e7e64816b3a381055e93c49a2e65b1f4c1bd5a032d",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 99.5,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "match_percent": 100.0
+    },
+    {
+      "number": 2,
+      "start": 14.17,
+      "match_percent": 100.0
+    },
+    {
+      "number": 3,
+      "start": 20.1,
+      "match_percent": 100.0
+    },
+    {
+      "number": 4,
+      "start": 30.03,
+      "match_percent": 100.0
+    },
+    {
+      "number": 5,
+      "start": 41.39,
+      "match_percent": 100.0
+    },
+    {
+      "number": 6,
+      "start": 57.87,
+      "match_percent": 96.97
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Push four unit tiles together",
+      "start": 0.0
+    },
+    {
+      "title": "Count all the tile edges",
+      "start": 14.17
+    },
+    {
+      "title": "Find the four inside joins",
+      "start": 20.1
+    },
+    {
+      "title": "Remove the two reports at each join",
+      "start": 30.03
+    },
+    {
+      "title": "Rearranging the same tiles changes the boundary",
+      "start": 41.39
+    },
+    {
+      "title": "Your turn",
+      "start": 57.87
+    }
+  ],
+  "decoded_successfully": true
+}
