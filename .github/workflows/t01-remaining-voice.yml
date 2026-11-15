@@ -1,13 +1,6 @@
 name: Summit One T01.3 and T01.E Voice C
 
 on:
-  push:
-    branches: [codex/t01-chapter-finish]
-    paths:
-      - 'production/scripts/T01.3.json'
-      - 'production/scripts/T01.E.json'
-      - 'production/t01-studio/synth.py'
-      - '.github/workflows/t01-remaining-voice.yml'
   workflow_dispatch:
 
 permissions:

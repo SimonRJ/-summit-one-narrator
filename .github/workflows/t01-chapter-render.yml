@@ -22,6 +22,7 @@ concurrency:
 
 env:
   RECORDINGS_RUN: '43679229312'
+  RULER_SCENE_RUN: '43681408846'
 
 jobs:
   recordings:
@@ -31,7 +32,9 @@ jobs:
       GH_TOKEN: ${{ github.token }}
     steps:
       - name: Wait for the approved Voice C recordings
-        run: gh run watch "$RECORDINGS_RUN" --repo "$GITHUB_REPOSITORY" --exit-status --interval 15
+        run: |
+          gh run watch "$RECORDINGS_RUN" --repo "$GITHUB_REPOSITORY" --exit-status --interval 15
+          gh run watch "$RULER_SCENE_RUN" --repo "$GITHUB_REPOSITORY" --exit-status --interval 15
 
   render:
     needs: recordings
@@ -55,6 +58,16 @@ jobs:
           path: build/t01-studio
           run-id: ${{ env.RECORDINGS_RUN }}
           github-token: ${{ github.token }}
+      - uses: actions/download-artifact@v4
+        if: matrix.lesson == 'T01.E'
+        with:
+          name: t01-remaining-T01.E-scene-2
+          path: build/t01-ruler-clarification
+          run-id: ${{ env.RULER_SCENE_RUN }}
+          github-token: ${{ github.token }}
+      - name: Use the clarified ruler explanation
+        if: matrix.lesson == 'T01.E'
+        run: cp build/t01-ruler-clarification/T01.E-02.{wav,json} build/t01-studio/
       - name: Install the rendering and speech alignment tools
         run: |
           sudo apt-get update -qq
