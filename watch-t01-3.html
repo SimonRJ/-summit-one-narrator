@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10151d">
+<title>T01.3 · Use the model to check the answer · Summit One</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 25%, #192631, #0c121a 75%);
+  color: #f2f1ed; font: 1rem/1.55 system-ui, sans-serif;
+}
+main { max-width: 1120px; margin: auto; padding: clamp(18px, 4vw, 48px); }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.back { justify-content: space-between; gap: 8px 20px; }
+a { color: #9cdbbc; }
+h1 { max-width: 880px; margin: .25em 0 .45em; font-size: clamp(1.95rem, 5vw, 3.45rem); line-height: 1.12; }
+h2 { margin: 0; font-size: 1.2rem; }
+p { max-width: 55rem; color: #bac4cf; }
+.lesson { color: #9cdbbc; margin: 2rem 0 0; font-size: .88rem; font-weight: 700; }
+video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #10151d; border: 1px solid #354652; border-radius: 14px; }
+.meta { color: #bac4cf; margin: .65rem 0 0; }
+.chapters { margin: 1.2rem 0 1.6rem; }
+button {
+  cursor: pointer; min-height: 44px; border: 1px solid #405463; border-radius: 12px;
+  background: #1b2834; color: #eef2f4; font: inherit; padding: .5rem .8rem;
+}
+.exercise { background: #18232e; border: 1px solid #364756; border-radius: 16px; padding: 1.15rem; }
+summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
+.transcript { margin-top: 1rem; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+</style>
+</head>
+<body>
+<main>
+<nav class="back" aria-label="Lesson navigation">
+<a href="./">← Summit One</a><a href="watch-t01-e.html">Next · Worked example →</a>
+</nav>
+<p class="lesson">T01.3</p>
+<h1>Use the model to check the answer</h1>
+<p>Predict what kind of answer makes sense, then test it against every condition.</p>
+<video id="lesson" controls playsinline preload="metadata" aria-label="Use the model to check the answer"
+  poster="media/T01.3-studio-poster.jpg?v=t01-studio-v1">
+  <source src="media/T01.3.mp4?v=t01-studio-v1" type="video/mp4">
+</video>
+<p class="meta">2:19 · Full HD</p>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Predict the answer</button>
+<button type="button" data-time="35.000">0:35 · The school trip</button>
+<button type="button" data-time="53.040">0:53 · Fill the buses</button>
+<button type="button" data-time="81.520">1:21 · Prove the minimum</button>
+<button type="button" data-time="100.390">1:40 · Buses completely full</button>
+<button type="button" data-time="117.980">1:57 · Your turn</button></nav>
+<section class="exercise">
+<h2>Try it in your notebook</h2>
+<p>Pack 100 eggs into boxes of 12, filling each box before opening the next. How many boxes are needed, and how many eggs go in the last box?</p>
+<details><summary>Check your reasoning</summary><p>100 = 8 × 12 + 4. Use 9 boxes, with 4 eggs in the last box. Eight boxes hold only 96 eggs.</p></details>
+</section>
+<details class="transcript"><summary>Read the transcript</summary><p>Imagine a calculation gives seven and a half people in a queue. A headcount has to be a whole number. That tells you to look back at your reasoning. Start problems by asking what a sensible answer could look like. Then use that idea to check the result.</p>
+<p>A count of buses is a whole number. A probability is between zero and one, including both ends. An area has square units. Three metres along each side of a square gives nine square metres. Identify the kind of answer first. The model also helps you predict its size.</p>
+<p>One hundred and thirty students are going on a trip. Each bus has seats for forty students. What is the smallest number of buses that can take the whole group? Make a quick estimate before you continue. Think about what happens if a bus is only partly full.</p>
+<p>Group the students into forties. One bus takes forty. A second takes another forty. A third brings the total on board to one hundred and twenty. There are still ten students waiting. Write one hundred and thirty as three lots of forty plus ten.</p>
+<p>Those ten students still need seats. Put them in a fourth bus. Ten of its forty seats are used, so thirty are spare. Everyone now has a seat, and the answer is four buses.</p>
+<p>Check both sides of the boundary. Four buses make one hundred and sixty seats, enough for all one hundred and thirty students. Three buses make one hundred and twenty seats, so ten students would be left out. Any smaller number has even fewer seats. Four is the smallest number that works.</p>
+<p>Keep the same trip. This time ask how many buses are completely full if the driver fills each bus before opening the next. Each of the first three has forty students. The fourth has ten. So three buses are full. The last sentence of the question tells you which count to give.</p>
+<p>Predict what a sensible answer should look like. Check every condition, then reread the question. Here is your notebook challenge. Pack one hundred eggs into boxes of twelve. Fill each box before opening the next. How many boxes are needed, and how many eggs go in the last box?</p></details>
+<p><a href="media/T01.3.mp4?v=t01-studio-v1">Open the MP4 directly</a></p>
+</main>
+<script>
+const video = document.querySelector("#lesson");
+for (const button of document.querySelectorAll("[data-time]")) {
+  button.addEventListener("click", () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+  });
+}
+</script>
+</body>
+</html>
