@@ -101,7 +101,10 @@ assert(app.includes('buildCourseNavigation(course,taxonomy)'));
 assert(app.includes('mountCourseMenu(') && app.includes('data-review-session'));
 assert(css.includes('.course-menu-status.completed') && css.includes('.course-menu-status.current'));
 assert(css.includes('.course-menu-status.locked') && css.includes('dialog.course-menu'));
-assert(sw.includes('./course-menu-ui.js?v=lesson-replay-20261113') && sw.includes('./course-menu.js?v=menu-20261113'));
+for(const module of ["course-menu","course-menu-ui"]){
+  const asset=app.match(new RegExp(`from "\\./(${module}\\.js\\?v=[a-z0-9-]+)"`))?.[1];
+  assert(asset && sw.includes(`"./${asset}"`),`The service worker must precache the imported ${module} module`);
+}
 const focusedHome=app.slice(app.indexOf('function renderHome(){'),app.indexOf('async function startSession(s){'));
 assert(focusedHome.includes('focus-session-card') && focusedHome.includes('id="continue"'));
 assert(!focusedHome.includes('side-stack') && !focusedHome.includes('learning-note') && !focusedHome.includes('learning-to-exams'));
