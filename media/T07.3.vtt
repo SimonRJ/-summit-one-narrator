@@ -1,0 +1,124 @@
+WEBVTT
+
+00:00:00.600 --> 00:00:03.010
+A proof of a limit is also a set of instructions.
+
+00:00:03.800 --> 00:00:06.460
+To reach the limit exactly, nothing in the proof
+
+00:00:06.460 --> 00:00:07.350
+may be wasted.
+
+00:00:08.100 --> 00:00:10.760
+Looking at where the proof is tight tells you how the
+
+00:00:10.760 --> 00:00:12.470
+best arrangement must be built.
+
+00:00:13.400 --> 00:00:16.240
+Searching for the best arrangement by trial can take
+
+00:00:16.240 --> 00:00:17.250
+a long time.
+
+00:00:17.740 --> 00:00:20.240
+Letting the proof guide you is faster, and it shows
+
+00:00:20.240 --> 00:00:22.210
+whether the limit can be reached at all.
+
+00:00:23.000 --> 00:00:25.540
+Counters are placed on a four by four board,
+
+00:00:25.540 --> 00:00:27.290
+at most one per square.
+
+00:00:27.940 --> 00:00:30.060
+Each row may contain at most two counters,
+
+00:00:30.060 --> 00:00:32.130
+and each column at most two.
+
+00:00:32.520 --> 00:00:34.250
+What is the largest number of counters?
+
+00:00:35.140 --> 00:00:36.830
+Pause and find the limit first.
+
+00:00:40.730 --> 00:00:43.130
+There are four rows, and each holds at
+
+00:00:43.130 --> 00:00:44.140
+most two counters.
+
+00:00:44.850 --> 00:00:46.460
+So there are at most eight counters.
+
+00:00:47.190 --> 00:00:47.980
+That is the limit.
+
+00:00:48.900 --> 00:00:51.800
+To reach eight, every row must be completely full,
+
+00:00:51.800 --> 00:00:53.370
+with exactly two counters.
+
+00:00:53.980 --> 00:00:56.560
+And the counters must be spread so that no column gets
+
+00:00:56.560 --> 00:00:57.370
+more than two.
+
+00:00:57.920 --> 00:01:00.120
+Putting them all in the first two columns would break
+
+00:01:00.120 --> 00:01:00.950
+the column rule.
+
+00:01:01.700 --> 00:01:02.810
+So share the columns.
+
+00:01:03.180 --> 00:01:05.590
+Rows one and two use columns one and two.
+
+00:01:05.880 --> 00:01:08.630
+Rows three and four use columns three and four.
+
+00:01:09.100 --> 00:01:11.810
+Every row has two, and every column has two.
+
+00:01:12.380 --> 00:01:13.010
+Eight is reached.
+
+00:01:14.020 --> 00:01:16.620
+Always check the finished arrangement against every
+
+00:01:16.620 --> 00:01:18.470
+rule, not only the total.
+
+00:01:18.920 --> 00:01:21.540
+An arrangement can have the right number and still break
+
+00:01:21.540 --> 00:01:22.290
+a rule somewhere.
+
+00:01:23.100 --> 00:01:26.250
+Here every row, every column and every square passes.
+
+00:01:27.300 --> 00:01:28.270
+Prove the limit.
+
+00:01:29.120 --> 00:01:30.730
+Ask what must be full to reach it.
+
+00:01:31.220 --> 00:01:33.510
+Build the arrangement, then check every rule.
+
+00:01:34.000 --> 00:01:37.160
+Notebook challenge: on a three by three board with at
+
+00:01:37.160 --> 00:01:40.340
+most one counter per row and per column, what is the
+
+00:01:40.340 --> 00:01:43.110
+largest number of counters, and where could they go?

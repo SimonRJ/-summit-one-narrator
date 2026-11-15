@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10151d">
+<link rel="icon" href="icon.svg">
+<title>T08.2 · Track how one choice changes the next · Summit One</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 25%, #192631, #0c121a 75%);
+  color: #f2f1ed; font: 1rem/1.55 system-ui, sans-serif;
+}
+main { max-width: 1120px; margin: auto; padding: clamp(18px, 4vw, 48px); }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.back { justify-content: space-between; gap: 8px 20px; }
+a { color: #9cdbbc; }
+h1 { max-width: 880px; margin: .25em 0 .45em; font-size: clamp(1.95rem, 5vw, 3.45rem); line-height: 1.12; }
+h2 { margin: 0; font-size: 1.2rem; }
+p { max-width: 55rem; color: #bac4cf; }
+.lesson { color: #9cdbbc; margin: 2rem 0 0; font-size: .88rem; font-weight: 700; }
+video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #10151d; border: 1px solid #354652; border-radius: 14px; }
+.meta { color: #bac4cf; margin: .65rem 0 0; }
+.chapters { margin: 1.2rem 0 1.6rem; }
+button {
+  cursor: pointer; min-height: 44px; border: 1px solid #405463; border-radius: 12px;
+  background: #1b2834; color: #eef2f4; font: inherit; padding: .5rem .8rem;
+}
+.exercise { background: #18232e; border: 1px solid #364756; border-radius: 16px; padding: 1.15rem; }
+summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
+.transcript { margin-top: 1rem; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+</style>
+</head>
+<body>
+<main>
+<nav class="back" aria-label="Lesson navigation">
+<a href="./">← Summit One</a><a href="teaching-videos.html">Teaching videos</a><a href="watch-t08-3.html">Next · Recount within the information you are given →</a>
+</nav>
+<p class="lesson">T08.2</p>
+<h1>Track how one choice changes the next</h1>
+<p>Follow a probability tree when the first choice changes the second.</p>
+<video id="lesson" controls playsinline preload="metadata" aria-label="Track how one choice changes the next"
+  poster="media/T08.2-studio-poster.jpg?v=teaching-films-v1">
+  <source src="media/T08.2.mp4?v=teaching-films-v1" type="video/mp4">
+</video>
+<p class="meta">1:46 · Full HD</p>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · A draw changes the bag</button>
+<button type="button" data-time="11.800">0:11 · Update the bag after the first draw</button>
+<button type="button" data-time="19.490">0:19 · What is the chance of two reds?</button>
+<button type="button" data-time="37.060">0:37 · Start with the first draw</button>
+<button type="button" data-time="44.590">0:44 · Follow the red, then red route</button>
+<button type="button" data-time="60.590">1:00 · Every possible route belongs in the tree</button>
+<button type="button" data-time="74.990">1:14 · One of each colour can happen two ways</button>
+<button type="button" data-time="86.990">1:26 · Your turn</button></nav>
+<section class="exercise">
+<h2>Try it in your notebook</h2>
+<p>A bag has 3 red and 1 blue. Two are drawn without replacement. Probability both red?</p>
+<details><summary>Check your reasoning</summary><p>3/4 x 2/3 = 1/2.</p></details>
+</section>
+<details class="transcript"><summary>Read the transcript</summary><p>When you take something out and do not put it back, the situation changes. The second draw is from a different bag. To keep track, follow each possible route step by step.</p>
+<p>Using the original bag for both draws is a common error. Updating after each step is what makes the answer right.</p>
+<p>A bag holds two red counters and two blue counters. Draw two counters at random, one after the other, without putting the first back. What is the probability that both are red? Pause and think about the bag after the first draw.</p>
+<p>On the first draw, two of the four counters are red. The chance of red is two out of four, which is one half.</p>
+<p>If the first was red, the bag now has one red and two blue. The chance of red again is one out of three. Along one route, multiply: one half times one third is one sixth. So the probability of two reds is one sixth.</p>
+<p>Complete the tree. Red then blue is one half times two thirds, one third. Blue then red is also one third. Blue then blue is one sixth. The four routes add to one, which is a good check.</p>
+<p>What is the chance of one of each colour? That happens on two different routes: red then blue, or blue then red. Different routes are added: one third plus one third is two thirds.</p>
+<p>Update the situation after each step. Multiply along a route. Add separate routes. Notebook challenge: a bag has three red counters and one blue. Two are drawn without replacement. What is the probability both are red?</p></details>
+<p><a href="media/T08.2.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+</main>
+<script>
+const video = document.querySelector("#lesson");
+for (const button of document.querySelectorAll("[data-time]")) {
+  button.addEventListener("click", () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+    video.scrollIntoView({block: "center"});
+  });
+}
+</script>
+</body>
+</html>

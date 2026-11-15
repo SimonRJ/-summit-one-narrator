@@ -1,0 +1,88 @@
+WEBVTT
+
+00:00:00.600 --> 00:00:03.120
+Pack seven red counters and four blue
+
+00:00:03.120 --> 00:00:04.350
+counters into trays.
+
+00:00:04.820 --> 00:00:07.800
+A tray holds at most four counters, and at most two of
+
+00:00:07.800 --> 00:00:08.630
+them may be red.
+
+00:00:09.000 --> 00:00:11.210
+What is the smallest number of trays needed?
+
+00:00:14.970 --> 00:00:16.260
+There are eleven counters.
+
+00:00:16.890 --> 00:00:19.710
+Each tray holds at most four, so two trays
+
+00:00:19.710 --> 00:00:20.400
+are not enough.
+
+00:00:20.870 --> 00:00:22.380
+At least three trays are needed.
+
+00:00:23.250 --> 00:00:24.780
+But that is only a first limit.
+
+00:00:25.850 --> 00:00:27.580
+Now look at the red counters alone.
+
+00:00:28.210 --> 00:00:30.140
+Each tray takes at most two reds.
+
+00:00:30.450 --> 00:00:32.660
+Three trays could hold only six reds,
+
+00:00:32.790 --> 00:00:33.560
+and there are seven.
+
+00:00:34.030 --> 00:00:35.680
+So at least four trays are needed.
+
+00:00:36.270 --> 00:00:37.220
+This limit is stronger.
+
+00:00:38.330 --> 00:00:39.660
+Can four trays work?
+
+00:00:40.130 --> 00:00:43.830
+Fill them like this: two reds and two blues; two reds
+
+00:00:43.830 --> 00:00:47.300
+and one blue; two reds and one blue; and one red.
+
+00:00:47.870 --> 00:00:51.090
+All eleven counters are packed and every rule is obeyed.
+
+00:00:51.610 --> 00:00:54.520
+So four trays are enough, and three are not.
+
+00:00:55.110 --> 00:00:56.020
+The answer is four.
+
+00:00:56.530 --> 00:00:58.620
+Notice that some spaces are left empty.
+
+00:00:59.190 --> 00:01:01.900
+That is fine: the red rule, not the total space,
+
+00:01:02.210 --> 00:01:03.160
+decided the answer.
+
+00:01:04.090 --> 00:01:06.040
+Check each rule for a lower bound.
+
+00:01:06.750 --> 00:01:09.170
+Take the strongest bound, then build a packing
+
+00:01:09.170 --> 00:01:10.100
+that reaches it.
+
+00:01:10.570 --> 00:01:13.480
+Try it with nine red counters and three blue counters.

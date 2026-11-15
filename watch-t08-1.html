@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10151d">
+<link rel="icon" href="icon.svg">
+<title>T08.1 · Build an honest sample space · Summit One</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 25%, #192631, #0c121a 75%);
+  color: #f2f1ed; font: 1rem/1.55 system-ui, sans-serif;
+}
+main { max-width: 1120px; margin: auto; padding: clamp(18px, 4vw, 48px); }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.back { justify-content: space-between; gap: 8px 20px; }
+a { color: #9cdbbc; }
+h1 { max-width: 880px; margin: .25em 0 .45em; font-size: clamp(1.95rem, 5vw, 3.45rem); line-height: 1.12; }
+h2 { margin: 0; font-size: 1.2rem; }
+p { max-width: 55rem; color: #bac4cf; }
+.lesson { color: #9cdbbc; margin: 2rem 0 0; font-size: .88rem; font-weight: 700; }
+video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #10151d; border: 1px solid #354652; border-radius: 14px; }
+.meta { color: #bac4cf; margin: .65rem 0 0; }
+.chapters { margin: 1.2rem 0 1.6rem; }
+button {
+  cursor: pointer; min-height: 44px; border: 1px solid #405463; border-radius: 12px;
+  background: #1b2834; color: #eef2f4; font: inherit; padding: .5rem .8rem;
+}
+.exercise { background: #18232e; border: 1px solid #364756; border-radius: 16px; padding: 1.15rem; }
+summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
+.transcript { margin-top: 1rem; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+</style>
+</head>
+<body>
+<main>
+<nav class="back" aria-label="Lesson navigation">
+<a href="./">← Summit One</a><a href="teaching-videos.html">Teaching videos</a><a href="watch-t08-2.html">Next · Track how one choice changes the next →</a>
+</nav>
+<p class="lesson">T08.1</p>
+<h1>Build an honest sample space</h1>
+<p>List equally likely outcomes honestly before finding a probability.</p>
+<video id="lesson" controls playsinline preload="metadata" aria-label="Build an honest sample space"
+  poster="media/T08.1-studio-poster.jpg?v=teaching-films-v1">
+  <source src="media/T08.1.mp4?v=teaching-films-v1" type="video/mp4">
+</video>
+<p class="meta">1:49 · Full HD</p>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Count equally likely outcomes</button>
+<button type="button" data-time="18.840">0:18 · Colours are names, counters are outcomes</button>
+<button type="button" data-time="28.610">0:28 · Two fair coins, exactly one head?</button>
+<button type="button" data-time="48.100">0:48 · Keep the coins distinct</button>
+<button type="button" data-time="59.150">0:59 · Two outcomes have exactly one head</button>
+<button type="button" data-time="72.750">1:12 · On two dice, the pairs are equally likely</button>
+<button type="button" data-time="91.620">1:31 · Your turn</button></nav>
+<section class="exercise">
+<h2>Try it in your notebook</h2>
+<p>Two fair dice are rolled independently. What is the probability that both show the same number?</p>
+<details><summary>Check your reasoning</summary><p>6 out of 36 = 1/6.</p></details>
+</section>
+<details class="transcript"><summary>Read the transcript</summary><p>A probability compares favourable outcomes with all outcomes, but only if the outcomes are equally likely. A bag holds two red counters and one blue. There are two colours, but red is not a one in two chance. There are three counters, each equally likely, and two of them are red.</p>
+<p>Counting names instead of real outcomes is the most common probability mistake. The fix is to list outcomes that genuinely are equally likely, then count.</p>
+<p>Toss two fair coins separately, so one result cannot affect the other. What is the probability of getting exactly one head? Someone says there are three results, two heads, one head or no heads, so the answer is one third. Pause and decide whether that is right.</p>
+<p>Give the coins names: first coin and second coin. Now there are four outcomes: head head, head tail, tail head, and tail tail. These four are equally likely.</p>
+<p>Exactly one head happens in two of the four: head tail, and tail head. So the probability is two out of four, which is one half, not one third. The three results in the earlier list were not equally likely.</p>
+<p>Roll two fair dice separately. There are thirty-six equally likely pairs. A total of seven comes from six of them, so its probability is six out of thirty-six, one sixth. A total of two comes from only one pair. The totals are not equally likely, but the pairs are.</p>
+<p>Label the objects so each outcome is visible. Check the outcomes are equally likely. Then count favourable out of total. Notebook challenge: two dice are rolled. What is the probability that the two numbers are the same?</p></details>
+<p><a href="media/T08.1.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+</main>
+<script>
+const video = document.querySelector("#lesson");
+for (const button of document.querySelectorAll("[data-time]")) {
+  button.addEventListener("click", () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+    video.scrollIntoView({block: "center"});
+  });
+}
+</script>
+</body>
+</html>

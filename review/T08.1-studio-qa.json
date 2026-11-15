@@ -1,0 +1,83 @@
+{
+  "id": "T08.1",
+  "duration_seconds": 109.266667,
+  "sha256": "ea5ee785007bf22b32c0546a2c7452c1f3867bd72f0bdde9fb17d21ef7d2c877",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 99.33,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "match_percent": 100.0
+    },
+    {
+      "number": 2,
+      "start": 18.84,
+      "match_percent": 100.0
+    },
+    {
+      "number": 3,
+      "start": 28.61,
+      "match_percent": 100.0
+    },
+    {
+      "number": 4,
+      "start": 48.1,
+      "match_percent": 100.0
+    },
+    {
+      "number": 5,
+      "start": 59.15,
+      "match_percent": 100.0
+    },
+    {
+      "number": 6,
+      "start": 72.75,
+      "match_percent": 98.04
+    },
+    {
+      "number": 7,
+      "start": 91.62,
+      "match_percent": 97.3
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Count equally likely outcomes",
+      "start": 0.0
+    },
+    {
+      "title": "Colours are names, counters are outcomes",
+      "start": 18.84
+    },
+    {
+      "title": "Two fair coins, exactly one head?",
+      "start": 28.61
+    },
+    {
+      "title": "Keep the coins distinct",
+      "start": 48.1
+    },
+    {
+      "title": "Two outcomes have exactly one head",
+      "start": 59.15
+    },
+    {
+      "title": "On two dice, the pairs are equally likely",
+      "start": 72.75
+    },
+    {
+      "title": "Your turn",
+      "start": 91.62
+    }
+  ],
+  "decoded_successfully": true
+}

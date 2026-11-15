@@ -1,0 +1,92 @@
+{
+  "id": "T08.3",
+  "duration_seconds": 109.1,
+  "sha256": "a32a401a15f4c9cf2eea1b5a91f2a91164f289e8aed551b42ada3ebcddcac54d",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 99.55,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "match_percent": 100.0
+    },
+    {
+      "number": 2,
+      "start": 12.92,
+      "match_percent": 100.0
+    },
+    {
+      "number": 3,
+      "start": 22.05,
+      "match_percent": 100.0
+    },
+    {
+      "number": 4,
+      "start": 34.66,
+      "match_percent": 100.0
+    },
+    {
+      "number": 5,
+      "start": 44.91,
+      "match_percent": 100.0
+    },
+    {
+      "number": 6,
+      "start": 59.31,
+      "match_percent": 99.01
+    },
+    {
+      "number": 7,
+      "start": 78.02,
+      "match_percent": 100.0
+    },
+    {
+      "number": 8,
+      "start": 91.14,
+      "match_percent": 97.37
+    }
+  ],
+  "chapters": [
+    {
+      "title": "New information rules out outcomes",
+      "start": 0.0
+    },
+    {
+      "title": "The denominator changes",
+      "start": 12.92
+    },
+    {
+      "title": "The die result is known to be even",
+      "start": 22.05
+    },
+    {
+      "title": "Keep only 2, 4 and 6",
+      "start": 34.66
+    },
+    {
+      "title": "Two of the three survivors fit",
+      "start": 44.91
+    },
+    {
+      "title": "Condition on the total of two dice",
+      "start": 59.31
+    },
+    {
+      "title": "Count only when each survivor is equally likely",
+      "start": 78.02
+    },
+    {
+      "title": "Your turn",
+      "start": 91.14
+    }
+  ],
+  "decoded_successfully": true
+}

@@ -1,0 +1,109 @@
+WEBVTT
+
+00:00:00.600 --> 00:00:03.230
+When you take something out and do not put it back,
+
+00:00:03.500 --> 00:00:04.670
+the situation changes.
+
+00:00:05.320 --> 00:00:07.170
+The second draw is from a different bag.
+
+00:00:07.740 --> 00:00:10.890
+To keep track, follow each possible route step by step.
+
+00:00:11.800 --> 00:00:15.130
+Using the original bag for both draws is a common error.
+
+00:00:15.620 --> 00:00:18.510
+Updating after each step is what makes the answer right.
+
+00:00:19.490 --> 00:00:22.480
+A bag holds two red counters and two blue counters.
+
+00:00:23.030 --> 00:00:25.780
+Draw two counters at random, one after the other,
+
+00:00:25.990 --> 00:00:27.790
+without putting the first back.
+
+00:00:27.790 --> 00:00:30.120
+What is the probability that both are red?
+
+00:00:30.650 --> 00:00:33.320
+Pause and think about the bag after the first draw.
+
+00:00:37.060 --> 00:00:40.170
+On the first draw, two of the four counters are red.
+
+00:00:40.640 --> 00:00:43.690
+The chance of red is two out of four, which is one half.
+
+00:00:44.590 --> 00:00:47.430
+If the first was red, the bag now has one red
+
+00:00:47.430 --> 00:00:48.280
+and two blue.
+
+00:00:48.810 --> 00:00:51.010
+The chance of red again is one out of three.
+
+00:00:51.010 --> 00:00:55.250
+Along one route, multiply: one half times one third
+
+00:00:55.250 --> 00:00:56.220
+is one sixth.
+
+00:00:56.830 --> 00:00:59.480
+So the probability of two reds is one sixth.
+
+00:01:00.590 --> 00:01:01.620
+Complete the tree.
+
+00:01:02.350 --> 00:01:05.880
+Red then blue is one half times two thirds, one third.
+
+00:01:06.310 --> 00:01:08.500
+Blue then red is also one third.
+
+00:01:08.930 --> 00:01:10.840
+Blue then blue is one sixth.
+
+00:01:11.290 --> 00:01:13.900
+The four routes add to one, which is a good check.
+
+00:01:14.990 --> 00:01:16.780
+What is the chance of one of each colour?
+
+00:01:17.370 --> 00:01:20.300
+That happens on two different routes: red then blue,
+
+00:01:20.590 --> 00:01:21.560
+or blue then red.
+
+00:01:22.090 --> 00:01:24.950
+Different routes are added: one third plus one third
+
+00:01:24.950 --> 00:01:25.960
+is two thirds.
+
+00:01:26.990 --> 00:01:29.400
+Update the situation after each step.
+
+00:01:30.010 --> 00:01:31.160
+Multiply along a route.
+
+00:01:31.450 --> 00:01:32.360
+Add separate routes.
+
+00:01:32.850 --> 00:01:35.350
+Notebook challenge: a bag has three red counters
+
+00:01:35.350 --> 00:01:36.520
+and one blue.
+
+00:01:37.350 --> 00:01:38.880
+Two are drawn without replacement.
+
+00:01:39.550 --> 00:01:41.300
+What is the probability both are red?

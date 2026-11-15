@@ -1,0 +1,92 @@
+{
+  "id": "T07.3",
+  "duration_seconds": 108.3,
+  "sha256": "09f4db0b2534ebf77a75616a69f8c49638d9a3e25e86dfd0c60346f8504847db",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 100.0,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "match_percent": 100.0
+    },
+    {
+      "number": 2,
+      "start": 13.4,
+      "match_percent": 100.0
+    },
+    {
+      "number": 3,
+      "start": 23.0,
+      "match_percent": 100.0
+    },
+    {
+      "number": 4,
+      "start": 40.73,
+      "match_percent": 100.0
+    },
+    {
+      "number": 5,
+      "start": 48.9,
+      "match_percent": 100.0
+    },
+    {
+      "number": 6,
+      "start": 61.7,
+      "match_percent": 100.0
+    },
+    {
+      "number": 7,
+      "start": 74.02,
+      "match_percent": 100.0
+    },
+    {
+      "number": 8,
+      "start": 87.3,
+      "match_percent": 100.0
+    }
+  ],
+  "chapters": [
+    {
+      "title": "A tight bound tells you how to build",
+      "start": 0.0
+    },
+    {
+      "title": "Use the bound to direct your search",
+      "start": 13.4
+    },
+    {
+      "title": "Place counters on a 4 × 4 board",
+      "start": 23.0
+    },
+    {
+      "title": "The row rule gives a ceiling",
+      "start": 40.73
+    },
+    {
+      "title": "Filling the rows can still break the column rule",
+      "start": 48.9
+    },
+    {
+      "title": "Spread the rows across the columns",
+      "start": 61.7
+    },
+    {
+      "title": "Check every rule",
+      "start": 74.02
+    },
+    {
+      "title": "Your turn",
+      "start": 87.3
+    }
+  ],
+  "decoded_successfully": true
+}

@@ -1,0 +1,92 @@
+{
+  "id": "T08.2",
+  "duration_seconds": 106.566667,
+  "sha256": "06866c79a9bed272672f91d80f9167c48b23ef53bfd05f5d10a7e8f8f8248aef",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 96.97,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "match_percent": 96.88
+    },
+    {
+      "number": 2,
+      "start": 11.8,
+      "match_percent": 95.24
+    },
+    {
+      "number": 3,
+      "start": 19.49,
+      "match_percent": 97.62
+    },
+    {
+      "number": 4,
+      "start": 37.06,
+      "match_percent": 100.0
+    },
+    {
+      "number": 5,
+      "start": 44.59,
+      "match_percent": 94.51
+    },
+    {
+      "number": 6,
+      "start": 60.59,
+      "match_percent": 97.37
+    },
+    {
+      "number": 7,
+      "start": 74.99,
+      "match_percent": 94.12
+    },
+    {
+      "number": 8,
+      "start": 86.99,
+      "match_percent": 100.0
+    }
+  ],
+  "chapters": [
+    {
+      "title": "A draw changes the bag",
+      "start": 0.0
+    },
+    {
+      "title": "Update the bag after the first draw",
+      "start": 11.8
+    },
+    {
+      "title": "What is the chance of two reds?",
+      "start": 19.49
+    },
+    {
+      "title": "Start with the first draw",
+      "start": 37.06
+    },
+    {
+      "title": "Follow the red, then red route",
+      "start": 44.59
+    },
+    {
+      "title": "Every possible route belongs in the tree",
+      "start": 60.59
+    },
+    {
+      "title": "One of each colour can happen two ways",
+      "start": 74.99
+    },
+    {
+      "title": "Your turn",
+      "start": 86.99
+    }
+  ],
+  "decoded_successfully": true
+}
