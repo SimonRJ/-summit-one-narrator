@@ -6,46 +6,46 @@
  "status": "script_ready_not_recorded",
  "voice": "Voice C (VoxCPM2), natural speed (see docs/VIDEO_PRODUCTION.md)",
  "goal": "Worked example: any four whole numbers contain two whose difference is a multiple of 3.",
- "narration_words": 193,
- "estimated_minutes": 1.3,
+ "narration_words": 258,
+ "estimated_minutes": 1.7,
  "scenes": [
   {
    "n": 1,
    "stage": "PUZZLE",
-   "visual": "Four blank cards. Claim text: \"Any four different whole numbers include two whose difference is a multiple of 3.\" Question: \"Why must this be true?\"",
-   "narration": "Here is a claim to prove. Choose any four different whole numbers. Two of them will always have a difference that is a multiple of three. Why must that be true?"
+   "visual": "Show four blank number tiles and a challenge bracket between an unspecified pair.",
+   "narration": "Choose any four different whole numbers. Prove that two of them always have a difference that is a multiple of three. You can choose very large numbers if you like. How can one argument cover every possible choice?"
   },
   {
    "n": 2,
    "stage": "DEVELOP",
-   "visual": "Three boxes labelled 0, 1, 2. Text: \"remainder on division by 3\".",
-   "narration": "When any whole number is divided by three, the remainder is zero, one or two. Use those three remainders as three boxes."
+   "visual": "Build three boxes for the only allowable remainders modulo three.",
+   "narration": "Divide a whole number by three. The remainder can be zero, one or two. A leftover of three would make another complete group. Create one box for each of the three allowable remainders."
   },
   {
    "n": 3,
    "stage": "DEVELOP",
-   "visual": "Four cards drop towards three boxes; one box receives two cards.",
-   "narration": "Four numbers go into three boxes, so at least two numbers land in the same box. They have the same remainder."
+   "visual": "Route all four generic tiles to the three boxes. Highlight the pair forced into a shared remainder.",
+   "narration": "Every chosen number belongs to exactly one box. Four numbers and three boxes force at least two numbers into the same box. Those two numbers have the same remainder. We can use that single fact to show their difference is a multiple of three."
   },
   {
    "n": 4,
    "stage": "DEVELOP",
-   "visual": "Two numbers written as \"3a + r\" and \"3b + r\". Subtracting: the r's cancel, leaving 3(a - b).",
-   "narration": "Write those two numbers as three a plus r and three b plus r. When you subtract, the remainders cancel, leaving three times a minus b. That is a multiple of three."
+   "visual": "Write both numbers as groups of three and the same residue. Pair and remove the two matching residues.",
+   "narration": "Write the larger number as three a plus r, and the smaller as three b plus the same r. On subtracting, the two r terms cancel. The result is three times the difference between a and b. It is a whole number of groups of three."
   },
   {
    "n": 5,
    "stage": "VARIATION",
-   "visual": "Example cards 2, 6, 10, 13 sort into boxes: 6 in box 0; 10 and 13 in box 1; 2 in box 2. Then cards 1, 2, 3 shown as a set of three with all different boxes.",
-   "narration": "Test it. Take two, six, ten and thirteen. Ten and thirteen both have remainder one, and their difference is three. Could three numbers be enough? No: one, two and three all have different remainders, and no difference is a multiple of three. So four is the smallest number that guarantees it."
+   "visual": "Sort 2, 6, 10 and 13; highlight 10 and 13. Then show why selecting only 1, 2 and 3 can fail.",
+   "narration": "Try two, six, ten and thirteen. Ten and thirteen both leave remainder one. Their difference is three. Could three numbers guarantee the result? With one, two and three, the remainders all differ. Their differences are one or two. This shows four is the smallest number that guarantees a match."
   },
   {
    "n": 6,
    "stage": "RECAP",
-   "visual": "Line: \"same remainder gives a difference that is a multiple\". Notebook prompt.",
-   "narration": "The boxes proved the claim for every choice at once. Rebuild the proof, then answer this: how many whole numbers must you choose to be sure that two of them differ by a multiple of ten?"
+   "visual": "Show ten possible last-digit boxes, then leave the minimum question open.",
+   "narration": "Choose a box for each remainder and use subtraction once two numbers share a box. Now increase the divisor to ten. How many different whole numbers guarantee that two differ by a multiple of ten? Show both why your answer works and how one fewer choice could fail."
   }
  ],
- "notebook_exercise": "How many whole numbers guarantee two that differ by a multiple of 10?",
- "notebook_answer": "11, since there are 10 possible last digits."
+ "notebook_exercise": "How many different whole numbers guarantee that two differ by a multiple of 10? Show why one fewer can fail.",
+ "notebook_answer": "11. There are 10 possible remainders. For 10 choices, 0, 1, …, 9 give one per remainder and no pair with a multiple-of-10 difference."
 }

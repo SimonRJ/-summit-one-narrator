@@ -1,0 +1,81 @@
+name: Summit One chapters 2–4 Voice C
+
+on:
+  push:
+    branches: [codex/studio-chapters-02-04]
+    paths:
+      - '.github/workflows/studio-chapters-02-04-narration.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: studio-chapters-02-04-narration-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      scenes: ${{ steps.matrix.outputs.scenes }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - id: matrix
+        name: Read the scene numbers from the ten scripts
+        run: |
+          python - <<'PY'
+          import json, os, sys
+          from pathlib import Path
+
+          sys.path.insert(0, "production/t01-studio")
+          from chapter_films import CHAPTER_FILMS
+
+          rows = []
+          for lesson in CHAPTER_FILMS:
+              script = json.loads(Path(f"production/scripts/{lesson}.json").read_text())
+              rows.extend({"lesson": lesson, "scene": s["n"]} for s in script["scenes"])
+          with open(os.environ["GITHUB_OUTPUT"], "a") as output:
+              print("scenes=" + json.dumps({"include": rows}, separators=(",", ":")), file=output)
+          PY
+  record:
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+      matrix: ${{ fromJSON(needs.plan.outputs.scenes) }}
+    env:
+      HF_HUB_DISABLE_XET: '1'
+      TOKENIZERS_PARALLELISM: 'false'
+      OMP_NUM_THREADS: '2'
+      MKL_NUM_THREADS: '2'
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install the pinned Voice C runtime
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg libsndfile1
+          pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install 'transformers>=4.45,<5' 'huggingface-hub<1' einops pydantic soundfile librosa safetensors tqdm numpy scipy inflect addict argbind
+          pip install --no-deps 'git+https://github.com/OpenBMB/VoxCPM.git@300e4260b509066151d623dc9c0aa922cf82232b'
+      - name: Record the scene with the approved Voice C reference
+        run: python production/t01-studio/synth.py --lesson "${{ matrix.lesson }}" --scene "${{ matrix.scene }}"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: studio-narration-${{ matrix.lesson }}-${{ matrix.scene }}
+          path: |
+            build/t01-studio/${{ matrix.lesson }}-*.wav
+            build/t01-studio/${{ matrix.lesson }}-*.json
+          if-no-files-found: error
+          retention-days: 14
+          compression-level: 1

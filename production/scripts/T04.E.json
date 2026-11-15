@@ -6,44 +6,44 @@
  "status": "script_ready_not_recorded",
  "voice": "Voice C (VoxCPM2), natural speed (see docs/VIDEO_PRODUCTION.md)",
  "goal": "Worked example: the smallest multiplier that turns 90 into a perfect square.",
- "narration_words": 174,
- "estimated_minutes": 1.2,
+ "narration_words": 261,
+ "estimated_minutes": 1.7,
  "scenes": [
   {
    "n": 1,
    "stage": "PUZZLE",
-   "visual": "The number 90 beside an empty multiplier box and a target labelled \"a perfect square\". Question: \"What is the smallest positive whole number to put in the box?\"",
-   "narration": "What is the smallest positive whole number you can multiply ninety by to make a perfect square? Pause and think about what a square looks like in prime tiles."
+   "visual": "Show ninety and a blank multiplier, then a perfect square with an unknown side.",
+   "narration": "What is the smallest positive whole number that you can multiply ninety by to make a perfect square? Try to think of ninety as a collection of prime pieces. A square will let those pieces split into two identical groups."
   },
   {
    "n": 2,
    "stage": "DEVELOP",
-   "visual": "90 splits into blue tiles 2, 3, 3, 5. The two 3s move together as a pair; 2 and 5 stand alone.",
-   "narration": "Factorise ninety: two times three times three times five. A square needs every prime in pairs. The threes already form a pair. The two and the five are each alone."
+   "visual": "Arrange the prime tiles of ninety into two rows of potential pairs and reveal which slots are full.",
+   "narration": "Ninety factorises into two times three times three times five. Each prime needs an even number of copies in a square. The threes already make a pair. The two and the five each appear once. Put a space for a partner beside each of them."
   },
   {
    "n": 3,
    "stage": "DEVELOP",
-   "visual": "Gold tiles 2 and 5 slide in beside their partners. Multiplier box shows 10.",
-   "narration": "Give each lonely prime a partner. We need one more two and one more five. Two times five is ten, so multiply by ten."
+   "visual": "Slide one two and one five into the empty places, then collect the additional tiles as a multiplier of ten.",
+   "narration": "Supply one more two and one more five. Those are the missing tiles. Their product is ten, so multiplying ninety by ten adds just the two partners we need. Now each prime has an even count."
   },
   {
    "n": 4,
    "stage": "DEVELOP",
-   "visual": "All tiles split into two identical groups 2, 3, 5 and 2, 3, 5. Label 900 = 30 x 30.",
-   "narration": "Ninety times ten is nine hundred. Its tiles split into two identical groups of two, three, five, and two times three times five is thirty. So nine hundred is thirty squared."
+   "visual": "Separate the completed rows and connect two products of thirty to the area of a square.",
+   "narration": "Ninety times ten is nine hundred. Split its tiles into two identical groups, each with a two, a three and a five. Each group multiplies to thirty. Thirty times thirty is nine hundred, so the new number is a square."
   },
   {
    "n": 5,
    "stage": "VARIATION",
-   "visual": "Trial multipliers 2 and 5 shown failing: with only an extra 2, the 5 is still alone; with only an extra 5, the 2 is still alone.",
-   "narration": "Could a smaller multiplier work? Any multiplier that works must supply a two and a five, so it must be a multiple of ten. Nothing smaller than ten can do that. Ten is the smallest."
+   "visual": "Use divisibility by two and five to show why the multiplier is at least ten.",
+   "narration": "Could a smaller positive multiplier work? Any multiplier that works must supply a two and a five, because those counts start odd. A number divisible by the two distinct primes two and five is a multiple of ten. Ten is the first positive multiple and we have shown it works."
   },
   {
    "n": 6,
    "stage": "RECAP",
-   "visual": "Line: \"pair every prime\". Notebook prompt.",
-   "narration": "To make a square, pair every prime. Rebuild this solution, then find the smallest positive whole number that multiplies sixty to make a perfect square."
+   "visual": "Display the minimum pairing method, then introduce the notebook problem for sixty.",
+   "narration": "For a square, pair every prime. Choose one partner for each prime whose count is odd. Try the same proof with sixty. Find the smallest positive whole number to multiply sixty by to make a square, and check your answer by splitting the new prime tiles into two equal groups."
   }
  ],
  "notebook_exercise": "Find the smallest positive whole number that multiplies 60 to make a perfect square.",

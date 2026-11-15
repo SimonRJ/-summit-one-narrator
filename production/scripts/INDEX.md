@@ -14,16 +14,16 @@ Scripts ready: 66 of 72. Published for review: 4. Approved videos: 2. Not yet sc
 | T01.E | Read the question into a useful model | worked_example | published for review | 354 words, about 2.4 min | [T01.E.json](T01.E.json) |
 | T02.1 | Find an invariant by inspecting one move | concept | approved video | | Approved studio edition already published (media/T02.1.mp4). Keep its audio unchanged. |
 | T02.2 | Work backwards: undo the last move first | concept | approved video | | Approved studio edition already published (media/T02.2.mp4). Keep its audio unchanged. |
-| T02.3 | Compare different orders of the same operations | concept | script ready | 291 words, about 1.9 min | [T02.3.json](T02.3.json) |
-| T02.E | Follow what changes and what stays fixed | worked_example | script ready | 180 words, about 1.2 min | [T02.E.json](T02.E.json) |
-| T03.1 | Read a remainder as a precise statement | concept | script ready | 306 words, about 2.0 min | [T03.1.json](T03.1.json) |
-| T03.2 | Separate the first coincidence from the repeat period | concept | script ready | 295 words, about 2.0 min | [T03.2.json](T03.2.json) |
-| T03.3 | Build guarantees with the pigeonhole principle | concept | script ready | 299 words, about 2.0 min | [T03.3.json](T03.3.json) |
-| T03.E | Remainders turn long lists into short systems | worked_example | script ready | 193 words, about 1.3 min | [T03.E.json](T03.E.json) |
-| T04.1 | Factor with a purpose | concept | script ready | 277 words, about 1.8 min | [T04.1.json](T04.1.json) |
-| T04.2 | Count divisors by making independent choices | concept | script ready | 257 words, about 1.7 min | [T04.2.json](T04.2.json) |
-| T04.3 | Track prime copies through several conditions | concept | script ready | 300 words, about 2.0 min | [T04.3.json](T04.3.json) |
-| T04.E | Use prime factors as the building blocks | worked_example | script ready | 174 words, about 1.2 min | [T04.E.json](T04.E.json) |
+| T02.3 | Compare different orders of the same operations | concept | script ready | 342 words, about 2.3 min | [T02.3.json](T02.3.json) |
+| T02.E | Follow what changes and what stays fixed | worked_example | script ready | 253 words, about 1.7 min | [T02.E.json](T02.E.json) |
+| T03.1 | Read a remainder as a precise statement | concept | script ready | 327 words, about 2.2 min | [T03.1.json](T03.1.json) |
+| T03.2 | Separate the first coincidence from the repeat period | concept | script ready | 316 words, about 2.1 min | [T03.2.json](T03.2.json) |
+| T03.3 | Build guarantees with the pigeonhole principle | concept | script ready | 307 words, about 2.0 min | [T03.3.json](T03.3.json) |
+| T03.E | Remainders turn long lists into short systems | worked_example | script ready | 258 words, about 1.7 min | [T03.E.json](T03.E.json) |
+| T04.1 | Factor with a purpose | concept | script ready | 283 words, about 1.9 min | [T04.1.json](T04.1.json) |
+| T04.2 | Count divisors by making independent choices | concept | script ready | 310 words, about 2.1 min | [T04.2.json](T04.2.json) |
+| T04.3 | Track prime copies through several conditions | concept | script ready | 335 words, about 2.2 min | [T04.3.json](T04.3.json) |
+| T04.E | Use prime factors as the building blocks | worked_example | script ready | 261 words, about 1.7 min | [T04.E.json](T04.E.json) |
 | T05.1 | Decide whether order belongs to the outcome | concept | script ready | 299 words, about 2.0 min | [T05.1.json](T05.1.json) |
 | T05.2 | Split by the restriction that changes the choices | concept | script ready | 276 words, about 1.8 min | [T05.2.json](T05.2.json) |
 | T05.3 | Prove that the classification is reversible | concept | script ready | 313 words, about 2.1 min | [T05.3.json](T05.3.json) |
