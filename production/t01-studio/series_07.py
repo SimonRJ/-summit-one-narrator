@@ -210,7 +210,7 @@ FILMS = {
               note("Each row and column has 2", "every row has two",x=966,y=382,width=387,size=28),
               note("8 counters", "eight is reached",x=966,y=472,width=310,size=37)),
         scene("Check every rule",lambda stage,s:columns(stage,s,check=True),
-              note("✓ At most one in each square", "every square passes",x=961,y=354,width=423,size=29),
+              note("At most one in each square", "every square passes",x=961,y=354,width=423,size=29),
               note("All eight counters fit", "every row",x=961,y=459,width=365,size=32)),
         exercise((("Prove the limit","prove the limit"),("Find what must be full","ask what must be full"),
                   ("Build and check","build the arrangement")),"notebook challenge",

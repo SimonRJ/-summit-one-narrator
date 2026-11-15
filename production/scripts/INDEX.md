@@ -40,9 +40,9 @@ Scripts ready: 56 of 72. Published for review: 14. Approved videos: 2. Not yet s
 | T08.2 | Track how one choice changes the next | concept | script ready | 272 words, about 1.8 min | [T08.2.json](T08.2.json) |
 | T08.3 | Recount within the information you are given | concept | script ready | 274 words, about 1.8 min | [T08.3.json](T08.3.json) |
 | T08.E | Let the experiment determine the probability | worked_example | script ready | 162 words, about 1.1 min | [T08.E.json](T08.E.json) |
-| T09.1 | Keep the whole visible | concept | script ready | 305 words, about 2.0 min | [T09.1.json](T09.1.json) |
+| T09.1 | Keep the whole visible | concept | script ready | 293 words, about 2.0 min | [T09.1.json](T09.1.json) |
 | T09.2 | Read decimal places as divisibility conditions | concept | script ready | 273 words, about 1.8 min | [T09.2.json](T09.2.json) |
-| T09.3 | Transform equations without losing conditions | concept | script ready | 268 words, about 1.8 min | [T09.3.json](T09.3.json) |
+| T09.3 | Transform equations without losing conditions | concept | script ready | 275 words, about 1.8 min | [T09.3.json](T09.3.json) |
 | T09.E | Make fractions, decimals and algebra agree | worked_example | script ready | 182 words, about 1.2 min | [T09.E.json](T09.E.json) |
 | T10.1 | Build a recurrence from a reversible step | concept | script ready | 280 words, about 1.9 min | [T10.1.json](T10.1.json) |
 | T10.2 | Remember enough information, but no more | concept | script ready | 294 words, about 2.0 min | [T10.2.json](T10.2.json) |

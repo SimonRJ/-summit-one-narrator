@@ -63,7 +63,7 @@ def handshake_proof(stage,s):
 def report_five(stage,s):
     network(SIX,"ABCDEF",tuple((0,i,BLUE,"five others") for i in range(1,6)))(stage,s)
     for x,y in SIX:
-        a,b = 582+(x-582)*1.30, 350+(y-350)*1.30
+        a,b = 582+(x-582)*1.21, 350+(y-350)*1.21
         fit(stage,"5",a,b,27,73,GOLD,cue(s,"each person reports five"))
 
 
@@ -78,7 +78,7 @@ FILMS = {
               note("How many handshakes take place?", "how many handshakes")),
         scene("Every person reports five",report_five,
               note("5 + 5 + 5 + 5 + 5 + 5", "six reports of five",x=1005,y=382,width=357,size=29,colour=BLUE),
-              equation(("6 × 5",WHITE,"six reports of five"),("= 30 reports",MINT,"add to thirty"))),
+              equation(("6 × 5",WHITE,"six reports of five"),("= 30 reports",MINT,"add to thirty"),y=568)),
         scene("Two reports count one handshake",handshake_proof,
               equation(("30 reports",BLUE,"so thirty counts"),("÷ 2",GOLD,"divided by two"),
                        ("= 15 handshakes",MINT,"fifteen handshakes"),y=565,size=40)),
@@ -107,9 +107,9 @@ FILMS = {
               note("Find A, B and C", "how heavy is each box")),
         scene("Add the readings and count each box",
               chart(("Box","A + B","B + C","A + C","Appearances"),
-                    [(("A","✓","", "✓","2"),"each box was on the scales"),
-                     (("B","✓","✓", "", "2"),"each box was on the scales"),
-                     (("C","","✓", "✓","2"),"each box was on the scales")],
+                    [(("A","Yes","", "Yes","2"),"each box was on the scales"),
+                     (("B","Yes","Yes", "", "2"),"each box was on the scales"),
+                     (("C","","Yes", "Yes","2"),"each box was on the scales")],
                     y=217,row_height=69,highlight=((0,4),(1,4),(2,4))),
               note("10 + 14 + 12 = 36 kg", "is thirty-six",y=505,colour=BLUE),
               note("36 ÷ 2 = 18 kg in total", "weigh eighteen kilograms",y=568)),

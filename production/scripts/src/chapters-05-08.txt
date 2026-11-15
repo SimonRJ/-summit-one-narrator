@@ -413,7 +413,7 @@ ANS: Survivors 3, 4, 5, 6; odd are 3 and 5; 2/4 = 1/2.
 GOAL: Worked example: "at least one head" shrinks the comparison group.
 [PUZZLE]
 V: Two coins. Card: "At least one coin shows heads." Question: "What is the chance both are heads?"
-N: Two fair coins are tossed. You are told that at least one of them shows heads. What is the probability that both show heads?
+N: Two fair coins are tossed independently. You know that at least one of them shows heads. What is the probability that both show heads?
 [DEVELOP]
 V: Grid of four outcomes: HH, HT, TH, TT, each marked one quarter.
 N: Name the coins first and second. There are four equally likely outcomes: head head, head tail, tail head, tail tail.
@@ -429,5 +429,5 @@ N: Compare a slightly different piece of information. Suppose you are told the f
 [RECAP]
 V: Line: "the surviving outcomes are the new total". Notebook prompt.
 N: Information removes outcomes, and the survivors become the new total. Rebuild this example, then try: two coins are tossed and you are told they do not show the same face. What is the probability the first coin is heads?
-TRY: Two coins are tossed; you are told they show different faces. Probability the first is heads?
+TRY: Two fair coins are tossed independently and show different faces. What is the probability the first is heads?
 ANS: Survivors HT, TH; one of two: 1/2.
