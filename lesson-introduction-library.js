@@ -1,4 +1,4 @@
-import {introMediaSource,loadIntroductionCatalogue,loadIntroductionDetails} from "./lesson-introduction-media.js?v=lesson-intros-v4";
+import {introMediaSource,loadIntroductionCatalogue,loadIntroductionDetails} from "./lesson-introduction-media.js?v=lesson-intros-v5";
 
 const formatTime = value => Math.floor(value / 60) + ":" + String(Math.floor(value % 60)).padStart(2,"0");
 const watchHref = slot => "watch-lesson-intro.html?slot=" + slot;
@@ -13,16 +13,27 @@ function element(tag, text, classes) {
 async function addToGallery(gallery) {
   const remote = (await loadIntroductionCatalogue()).filter(entry => entry.status === "verified");
   const status = document.getElementById("introProgress");
+  const present = new Map([...gallery.querySelectorAll("li[data-intro-slot]")]
+    .map(row => [Number(row.dataset.introSlot), row]));
+  const slots = new Set(remote.map(entry => entry.slot));
+  for (const [slot, row] of present) {
+    if (!slots.has(slot)) row.remove();
+  }
   for (const entry of remote) {
+    if (present.has(entry.slot)) continue;
     const li = element("li");
+    li.dataset.introSlot = String(entry.slot);
     const link = element("a");
     link.href = watchHref(entry.slot);
     link.append(element("span", String(entry.slot).padStart(2,"0"), "number"),
       element("strong", entry.title), element("small", formatTime(entry.seconds)));
     li.append(link);
-    gallery.append(li);
+    const following = [...gallery.querySelectorAll("li[data-intro-slot]")]
+      .find(row => Number(row.dataset.introSlot) > entry.slot);
+    gallery.insertBefore(li, following ?? null);
   }
-  if (status) status.textContent = gallery.children.length + " of 283 lesson introductions available";
+  const count = gallery.children.length + " of 283 lesson introductions available";
+  if (status && status.textContent !== count) status.textContent = count;
 }
 
 async function showVideo(route) {
@@ -81,6 +92,11 @@ async function showVideo(route) {
   }
 }
 const gallery = document.getElementById("introGallery");
-if (gallery) addToGallery(gallery);
+if (gallery) {
+  addToGallery(gallery);
+  const refresh = () => { if (!document.hidden) addToGallery(gallery); };
+  document.addEventListener("visibilitychange", refresh);
+  setInterval(refresh, 45_000);
+}
 const route = document.getElementById("introWatch");
 if (route) showVideo(route);

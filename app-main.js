@@ -16,8 +16,8 @@ import { problemFigure } from "./problem-figures.js";
 import {mountLessonPager} from "./lesson-pager.js?v=responsive-20261113";
 import {learningScreens} from "./lesson-screenflow.js?v=data-audit-20261114";
 import {buildCourseNavigation} from "./course-menu.js?v=menu-20261113";
-import {mountCourseMenu} from "./course-menu-ui.js?v=lesson-intros-v4";
-import {introMediaSource,lessonIntroId,loadIntroductionCatalogue} from "./lesson-introduction-media.js?v=lesson-intros-v4";
+import {mountCourseMenu} from "./course-menu-ui.js?v=lesson-intros-v5";
+import {introMediaSource,lessonIntroId,loadIntroductionCatalogue} from "./lesson-introduction-media.js?v=lesson-intros-v5";
 
 const app=document.getElementById("app");
 const problemTemplate=document.getElementById("problemTemplate");

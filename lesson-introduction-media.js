@@ -7,6 +7,7 @@ const releaseRoot = "https://github.com/" + repository + "/releases/download/les
 export const INTRO_MEDIA_VERSION = "lesson-intros-v2";
 
 let loading;
+let loadedAt = -Infinity;
 
 export function lessonIntroId(slot) {
   const number = Number(slot);
@@ -42,17 +43,21 @@ function normaliseEntry(entry) {
 }
 
 export function loadIntroductionCatalogue() {
-  loading ??= readJson("lesson-intros-live.json").then(catalogue => {
-    if (catalogue.version !== 1 || !Array.isArray(catalogue.entries)) return [];
-    for (const raw of catalogue.entries) {
-      const entry = normaliseEntry(raw);
-      if (entry) online.set(entry.slot, entry);
-    }
-    return [...online.values()].sort((a,b) => a.slot - b.slot);
-  }).catch(() => {
-    loading = undefined;
-    return [...online.values()].sort((a,b) => a.slot - b.slot);
-  });
+  const latest = () => [...online.values()].sort((a,b) => a.slot - b.slot);
+  if (Date.now() - loadedAt < 30_000) return Promise.resolve(latest());
+  loading ??= readJson("lesson-intros-live.json")
+    .then(catalogue => {
+      if (catalogue.version !== 1 || !Array.isArray(catalogue.entries)) return;
+      online.clear();
+      for (const raw of catalogue.entries) {
+        const entry = normaliseEntry(raw);
+        if (entry) online.set(entry.slot, entry);
+      }
+      loadedAt = Date.now();
+    })
+    .catch(() => {})
+    .then(latest)
+    .finally(() => { loading = undefined; });
   return loading;
 }
 
