@@ -14,6 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       matrix: ${{ steps.plan.outputs.matrix }}
+      seed_offset: ${{ steps.plan.outputs.seed_offset }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -46,8 +47,11 @@ jobs:
               lanes[slot].append(request)
           matrix = {"include": [{"lane": index, "scenes": json.dumps(items, separators=(",", ":"))}
                                 for index, items in enumerate(lanes, 1)]}
+          seed_offset = plan.get("seed_offset", 0)
+          assert type(seed_offset) is int and 0 <= seed_offset < 10000
           with open(os.environ["GITHUB_OUTPUT"], "a") as out:
               print("matrix=" + json.dumps(matrix, separators=(",", ":")), file=out)
+              print(f"seed_offset={seed_offset}", file=out)
           PY
 
   voice:
@@ -81,9 +85,10 @@ jobs:
       - name: Record scene passages with the original reference
         env:
           SCENES: ${{ matrix.scenes }}
+          SEED_OFFSET: ${{ needs.plan.outputs.seed_offset }}
         run: |
           printf '%s\n' "$SCENES" > "$RUNNER_TEMP/scenes.json"
-          python production/t01-studio/synth.py --sequence "$RUNNER_TEMP/scenes.json" --threads 4
+          python production/t01-studio/synth.py --sequence "$RUNNER_TEMP/scenes.json" --threads 4 --seed-offset "$SEED_OFFSET"
       - uses: actions/upload-artifact@v4
         with:
           name: studio-voice-lane-${{ matrix.lane }}

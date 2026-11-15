@@ -33,7 +33,7 @@ def passages(text):
     return groups
 
 
-def record_scenes(requests, threads=2):
+def record_scenes(requests, threads=2, *, seed_offset=0):
     import torch
     from huggingface_hub import snapshot_download
     from voxcpm import VoxCPM
@@ -80,7 +80,7 @@ def record_scenes(requests, threads=2):
                     prompt_wav_path=str(reference_wav),
                     reference_wav_path=str(reference_wav),
                     prompt_text=prompt,
-                    seed=seed,
+                    seed=seed + seed_offset,
                     cfg_value=2.0,
                     inference_timesteps=10,
                     normalize=False,
@@ -132,11 +132,14 @@ if __name__ == "__main__":
     selection.add_argument("--sequence", type=Path)
     parser.add_argument("--lesson", choices=IDS)
     parser.add_argument("--threads", type=int, choices=(2, 4), default=2)
+    parser.add_argument("--seed-offset", type=int, default=0, help="Resample a scene in the same voice")
     args = parser.parse_args()
+    if not 0 <= args.seed_offset < 10000:
+        parser.error("The seed offset must be between 0 and 9999")
     if args.sequence:
         requests = [(item["lesson"], item["scene"]) for item in json.loads(args.sequence.read_text())]
         if not requests or len(requests) != len(set(requests)) or any(lesson not in IDS for lesson, _ in requests):
             parser.error("The sequence must list distinct teaching scenes")
     else:
         requests = [(lesson, args.scene) for lesson in ((args.lesson,) if args.lesson else OPENING_IDS)]
-    record_scenes(requests, args.threads)
+    record_scenes(requests, args.threads, seed_offset=args.seed_offset)
