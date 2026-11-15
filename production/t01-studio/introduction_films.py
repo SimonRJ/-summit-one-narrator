@@ -1,5 +1,6 @@
-"""Scene registration and chapter labels for the first five lesson introductions."""
+"""Scene registration and chapter labels for bespoke lesson introductions."""
 
+import intro_cubes
 import intro_digit_counts
 import intro_digit_positions
 import intro_divisibility
@@ -13,6 +14,7 @@ FILMS = {
     "S003": intro_inverse.SCENES,
     "S004": intro_digit_positions.SCENES,
     "S005": intro_digit_counts.SCENES,
+    "S006": intro_cubes.SCENES,
 }
 
 

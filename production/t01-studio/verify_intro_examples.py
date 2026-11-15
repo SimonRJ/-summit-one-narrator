@@ -46,11 +46,20 @@ def check_examples():
     ]
     assert sum(str(number).count("2") for number in allowed) == 10
 
+    assert 3 * 2 * 2 == 12
+    heights = (1, 3, 2, 4, 1, 3)
+    assert [sum(height >= level for height in heights) for level in range(1, 5)] == [6, 4, 3, 1]
+    assert sum(heights) == 14
+    original = {(x, y, z) for x in range(4) for y in range(4) for z in range(3)}
+    remaining = {p for p in original if not (p[:2] == (1, 2) or p[1:] == (2, 1))}
+    assert [sum(p[2] == z for p in remaining) for z in range(3)] == [15, 12, 15]
+    assert len(remaining) == 42
+
 
 def check_course_order():
     root = Path(__file__).resolve().parents[2]
     course = json.loads((root / "data/sessions-372.json").read_text())
-    for lesson in course["sessions"][:5]:
+    for lesson in course["sessions"][:6]:
         slot = lesson["slot"]
         code = f"S{slot:03}"
         script = json.loads((root / f"production/scripts/{code}.json").read_text())
@@ -65,4 +74,4 @@ def check_course_order():
 if __name__ == "__main__":
     check_examples()
     check_course_order()
-    print("Verified all 15 original examples and their five course placements.")
+    print("Verified the six original introductions and their course placements.")

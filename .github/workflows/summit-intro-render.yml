@@ -2,7 +2,7 @@ name: Summit One lesson introduction films
 
 on:
   push:
-    branches: [codex/lesson-intro-production]
+    branches: [codex/lesson-intro-production, codex/lesson-intro-next]
     paths:
       - 'production/t01-studio/intro_render_plan.json'
 
@@ -34,7 +34,7 @@ jobs:
           plan = json.loads(Path("production/t01-studio/intro_render_plan.json").read_text())
           lessons = plan["lessons"]
           assert lessons and len(lessons) == len(set(lessons)) <= 5
-          assert all(re.fullmatch(r"S00[1-5]", lesson) for lesson in lessons)
+          assert all(re.fullmatch(r"S[0-9]{3}", lesson) for lesson in lessons)
           audio = plan["audio_run"]
           repair = plan.get("repair_run", "")
           assert isinstance(audio, int) and audio > 0
