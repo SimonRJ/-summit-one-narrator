@@ -65,7 +65,8 @@ def table_diagram(stage, spec, box, p, boxed=False):
     top = y + (h - height * len(rows)) / 2
     for i, row in enumerate(rows):
         for j, value in enumerate(row):
-            a = min(1, max(0, 1.35*p-.08*i-.03*j))
+            delay = .42 * (i+j/columns) / max(1,len(rows))
+            a = min(1, max(0, (p-delay)/(1-delay)))
             highlighted = [i,j] in spec.get("highlight", ()) or (i,j) in spec.get("highlight", ())
             colour = GOLD if highlighted else BLUE if i == 0 and not boxed else WHITE
             fill = "#263643" if highlighted else PANEL if boxed or i == 0 else None
@@ -141,7 +142,8 @@ def cube_diagram(stage,spec,box,p):
     zoom=min((w-20)/(39*(width+depth)), (h-24-spread*(levels-1))/(20*(width+depth)+48*levels))
     anchor_x=x+w/2-(width-depth)*39*zoom/2
     anchor_y=y+h/2+(48*levels*zoom+spread*(levels-1)-20*(width+depth)*zoom)/2
-    solids(stage,cells,anchor_x,anchor_y,zoom=zoom,spread=spread,opacity=p)
+    painted = frozenset(map(tuple, spec["painted"])) if "painted" in spec else None
+    solids(stage,cells,anchor_x,anchor_y,zoom=zoom,spread=spread,opacity=p,painted=painted)
 
 
 def venn_diagram(stage,spec,box,p):

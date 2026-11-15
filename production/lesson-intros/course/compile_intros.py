@@ -9,6 +9,7 @@ from algebra_topics import backwards, differences, margins, part_whole, recurren
 from count_topics import restricted_arrangements
 from counting_cases import complement, double_counting, enumeration, partition_cases, selections
 from deduction_topics import deduction, exhaustiveness, magic_grid
+from shape_topics import angles, nets, paint, symmetry
 from spatial_topics import crossings, layered_cubes, optimise, perimeter, shaded_area, tiling
 from quantity_topics import averages, distance_speed, percentages, ratios, relative_motion, unit_rates, weighted_fractions, work_rates
 from logic_topics import graphs, truth_liars
@@ -19,6 +20,10 @@ from story import Lesson, film
 ROOT = Path(__file__).resolve().parents[3]
 BESPOKE = {f"S{slot:03}" for slot in range(1,7)}
 TOPICS = {
+    "Angle and polygon reasoning": angles,
+    "Symmetry, transformations and tessellation": symmetry,
+    "Painted faces, boundary and hidden cubes": paint,
+    "Nets, surface area, volume and 3D views": nets,
     "Constraint elimination and logical deduction": deduction,
     "Magic grids, symbolic rules and consistency": magic_grid,
     "Proving all cases and unique solutions": exhaustiveness,
