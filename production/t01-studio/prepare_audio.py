@@ -29,6 +29,11 @@ SPOKEN_FORMS = {
     "m": "meters",
     "it's": "its",
     "cue": "queue",
+    "headcount": "head count",
+    "endpoints": "end points",
+    "reread": "re read",
+    "o'clock": "o clock",
+    "oh": "o",
 }
 
 
@@ -56,7 +61,7 @@ def tokens(text):
             expanded = num2words(int(numeral.replace(",", "")), to="ordinal" if ordinal else "cardinal")
             result.extend(re.findall("[a-z]+", expanded))
         else:
-            result.append(SPOKEN_FORMS.get(part, part))
+            result.extend(SPOKEN_FORMS.get(part, part).split())
     return result
 
 
@@ -198,6 +203,7 @@ def prepare(lesson):
             "end": end + len(gap) / RATE,
             "speech_end": end,
             "words": words,
+            "recognized_speech": " ".join(word.word.strip() for word in spoken),
             "match_percent": match,
         })
         captions.extend(caption_cues(words))
