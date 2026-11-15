@@ -231,8 +231,9 @@ FILMS = {
         scene("The red limit decides",cards((("3 trays: up to 6 red",RED),("4 trays: all 7 red",MINT)),
               362,width=412,gap=470,words="four trays are enough",size=30),
               note("The minimum is 4 trays", "the answer is four")),
-        exercise((("Find each limit","find the limit each one gives"),("Use the strongest limit","the strongest limit")),
-                 "then try it",("Pack 9 red counters and 3 blue counters.","Allow at most 4 per tray and at most 2 red."),
+        exercise((("Find each lower bound","each rule for a lower bound"),("Use the strongest bound","the strongest bound"),
+                  ("Build a packing","build a packing")),
+                 "try it with",("Pack 9 red counters and 3 blue counters.","Allow at most 4 per tray and at most 2 red."),
                  sub="Find the minimum number of trays and build an example."),
     ),
 }

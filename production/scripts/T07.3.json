@@ -36,7 +36,7 @@
   {
    "n": 5,
    "stage": "DEVELOP",
-   "visual": "Text: \"to reach 8, every row must be full\". A first attempt fills rows 1 and 2 in columns 1 and 2, overloading those columns; it is rejected.",
+   "visual": "Text: \"to reach 8, every row must be full\". A first attempt fills all four rows in columns 1 and 2, overloading those columns; it is rejected.",
    "narration": "To reach eight, every row must be completely full, with exactly two counters. And the counters must be spread so that no column gets more than two. Putting them all in the first two columns would break the column rule."
   },
   {

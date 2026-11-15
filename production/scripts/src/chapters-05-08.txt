@@ -288,7 +288,7 @@ N: Counters are placed on a four by four board, at most one per square. Each row
 V: Four rows, each with capacity 2. Counter: 4 x 2 = 8.
 N: There are four rows, and each holds at most two counters. So there are at most eight counters. That is the limit.
 [DEVELOP]
-V: Text: "to reach 8, every row must be full". A first attempt fills rows 1 and 2 in columns 1 and 2, overloading those columns; it is rejected.
+V: Text: "to reach 8, every row must be full". A first attempt fills all four rows in columns 1 and 2, overloading those columns; it is rejected.
 N: To reach eight, every row must be completely full, with exactly two counters. And the counters must be spread so that no column gets more than two. Putting them all in the first two columns would break the column rule.
 [DEVELOP]
 V: A working arrangement: rows 1 and 2 use columns 1 and 2; rows 3 and 4 use columns 3 and 4. Column totals show 2, 2, 2, 2.
@@ -320,8 +320,8 @@ N: Can four trays work? Fill them like this: two reds and two blues; two reds an
 V: A tick against "4 trays". A crossed-out "3 trays" with the red capacity 6 highlighted.
 N: So four trays are enough, and three are not. The answer is four. Notice that some spaces are left empty. That is fine: the red rule, not the total space, decided the answer.
 [RECAP]
-V: Line: "test every rule for a limit; the strongest one decides". Notebook prompt.
-N: When there are several rules, find the limit each one gives. The strongest limit decides. Rebuild this argument, then try it with nine red counters and three blue counters.
+V: Three steps: "Find each lower bound", "Use the strongest bound", "Build a packing that reaches it". Notebook prompt.
+N: Check each rule for a lower bound. Take the strongest bound, then build a packing that reaches it. Try it with nine red counters and three blue counters.
 TRY: Same rules with 9 red and 3 blue counters. Smallest number of trays?
 ANS: At least 5 trays are needed, since 4 trays hold at most 8 reds. Use three trays with 2 red and 1 blue each, one tray with 2 reds, and one tray with 1 red.
 

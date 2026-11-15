@@ -31,7 +31,14 @@ jobs:
           assert isinstance(plan["render_run"], int) and plan["render_run"] > 0
           assert 1 <= len(plan["lessons"]) <= 5 and len(set(plan["lessons"])) == len(plan["lessons"])
           assert all(re.fullmatch(r"T(?:0[5-9]|1[0-8])\.[123E]", lesson) for lesson in plan["lessons"])
+          supplement = plan.get("supplement")
+          if supplement:
+              assert type(supplement["render_run"]) is int and supplement["render_run"] > 0
+              assert supplement["lesson"] in plan["lessons"]
           with open(os.environ["GITHUB_OUTPUT"], "a") as out:
+              if supplement:
+                  print(f"supplement_run={supplement['render_run']}", file=out)
+                  print(f"supplement_lesson={supplement['lesson']}", file=out)
               print(f"render={plan['render_run']}", file=out)
               print(f"lessons={' '.join(plan['lessons'])}", file=out)
           PY
@@ -40,6 +47,14 @@ jobs:
           pattern: T*
           path: build/t01-studio
           run-id: ${{ steps.plan.outputs.render }}
+          github-token: ${{ github.token }}
+      - name: Apply the corrected render
+        if: steps.plan.outputs.supplement_run != ''
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ steps.plan.outputs.supplement_lesson }}
+          path: build/t01-studio/${{ steps.plan.outputs.supplement_lesson }}
+          run-id: ${{ steps.plan.outputs.supplement_run }}
           github-token: ${{ github.token }}
       - name: Install the films and count the published lessons
         env:
