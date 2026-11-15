@@ -5,18 +5,29 @@ from collections import Counter
 import json
 from pathlib import Path
 
-from algebra_topics import backwards, part_whole, recurrence
+from algebra_topics import backwards, differences, margins, part_whole, recurrence, simultaneous, word_equations
 from count_topics import restricted_arrangements
-from spatial_topics import crossings, perimeter, tiling
+from spatial_topics import crossings, layered_cubes, optimise, perimeter, shaded_area, tiling
 from quantity_topics import averages, distance_speed, percentages, ratios, relative_motion, unit_rates, weighted_fractions, work_rates
-from logic_topics import truth_liars
-from number_topics import cryptarithms, cycles, divisibility, multiples, parity, primes, repunits
+from logic_topics import graphs, truth_liars
+from number_topics import arithmetic_sequence, cryptarithms, cycles, divisibility, doubling, finite_state, multiples, parity, primes, repunits
 from story import Lesson, film
 
 
 ROOT = Path(__file__).resolve().parents[3]
 BESPOKE = {f"S{slot:03}" for slot in range(1,7)}
 TOPICS = {
+    "One- and two-variable word equations": word_equations,
+    "Simultaneous and total-sum constraints": simultaneous,
+    "Eliminating an unknown by differences": differences,
+    "Winner margins, shared totals and linear rules": margins,
+    "Reading and reasoning from graphs/tables": graphs,
+    "Arithmetic sequences and fixed increments": arithmetic_sequence,
+    "Doubling, geometric growth and finite sums": doubling,
+    "Repeating transformations and finite-state patterns": finite_state,
+    "Optimising areas and lengths under constraints": optimise,
+    "Area decomposition and shaded complements": shaded_area,
+    "Unit-cube counting and layered solids": layered_cubes,
     "Combined work rates": work_rates,
     "Truth-tellers, liars and contradiction": truth_liars,
     "Distance–speed–time reasoning": distance_speed,

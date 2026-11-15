@@ -2,7 +2,7 @@
 
 from itertools import permutations, product
 
-from story import Example, Topic, chain, grid, say, spoken_list, table, tiles
+from story import Example, Topic, chain, geometry, grid, say, spoken_list, table, tiles
 
 
 def truth_liars(lesson):
@@ -69,4 +69,68 @@ def truth_liars(lesson):
             ("Mark each statement as a condition. Decide whether it gives same types, opposite types, or another relationship.", "Write the relationships", "Make the truth rule explicit."),
             ("Look for a type forced by several conditions. Then check the remaining assignments against all the statements.", "Prove a unique assignment", "Show why no alternative can fit."),
         ), cover=chain("Statement","True or false","Person's type"),
+    )
+
+
+def line_plot(rows, lines, horizontal="Input", vertical="Total"):
+    xmax=max(x for x, _ in rows)
+    ymax=max(y for _, y in rows)
+    points=[(x,y,"") for x,y in rows]
+    axis=len(points)
+    points.extend(((0,0,""),(xmax*1.12,0,""),(0,ymax*1.12,"")))
+    edges=[(axis,axis+1,3),(axis,axis+2,3),*lines]
+    labels=[(xmax*.6,-ymax*.11,horizontal,3), (xmax*.15,ymax*1.13,vertical,3)]
+    for x in sorted({point[0] for point in rows}):
+        labels.append((x,-ymax*.05,x,3))
+    return geometry(points,edges,captions=labels,keep_aspect=False)
+
+
+def graphs(lesson):
+    from fractions import Fraction
+    v=lesson.visit
+    readings=(1+v,5+v,12+2*v,18+3*v)
+    total=readings[3]-readings[1]
+    times=(0,2,5,9)
+    rates=(2+v%3,6+v,4+v%2)
+    values=(0,rates[0]*2,rates[0]*2+rates[1]*3,rates[0]*2+rates[1]*3+rates[2]*4)
+    assert [Fraction(values[i+1]-values[i], times[i+1]-times[i]) for i in range(3)]==list(rates)
+    slow=2+v%3
+    faster=slow+2+v%2
+    cross=4+v
+    fixed=(faster-slow)*cross
+    tie=fixed+slow*cross
+    nodes=[(0,fixed),(cross,tie),(cross+2,fixed+(cross+2)*slow),(0,0),(cross+2,(cross+2)*faster)]
+    return Topic(
+        (("A graph connects each horizontal value to a vertical reading. Read the axis names and units before comparing points.", "Read the axes first."),
+         ("A change is a difference between readings. A rate of change divides that difference by the distance along the horizontal axis.", "Change per step = rise ÷ run.")),
+        (("In AMC Upper Primary questions, graphs and tables often represent the same information. Read the requested interval, row or category carefully.", "AMC Upper Primary · locate the correct values"),
+         ("A Mawa style comparison can use a crossing point. At that point two rules give the same value, and their order may change afterwards.", "MAWA-style · explain a crossover")),
+        (
+            Example("Read two values and compare them", (
+                (f"The table shows cumulative counts at hours one to four: {spoken_list(readings)}. How much did the count rise from hour two to hour four?", "Read the values at hours 2 and 4."),
+                ("The question asks for a change, not a final total.", "Find the difference.")),
+                ((f"The hour two count is {say(readings[1])}. The hour four count is {say(readings[3])}. Both readings use the same units.", f"Count at hour 2: {readings[1]}. At hour 4: {readings[3]}."),
+                 (f"Subtract the earlier count from the later one. The increase is {say(total)}.", f"{readings[3]} − {readings[1]} = {total}")), table(("Hour",1,2,3,4),("Total",*readings),highlight=((1,2),(1,4)))),
+            Example("Find the fastest rise across unequal intervals", (
+                (f"A chart shows times zero, two, five and nine minutes. The total counts at those times are {spoken_list(values)}.", f"Times 0, 2, 5, 9 min. Totals {', '.join(map(str,values))}."),
+                ("During which interval was the rate of increase highest? The intervals have different lengths.", "Compare change per minute.")),
+                ((f"Divide each rise by its own time interval. The first rise is {say(values[1])} over two minutes, giving {say(rates[0])} per minute.", f"0–2: {values[1]} ÷ 2 = {rates[0]} / min"),
+                 (f"The next two rates are {say(rates[1])} and {say(rates[2])} per minute. Use intervals of three minutes and four minutes.", f"2–5: {rates[1]}/min; 5–9: {rates[2]}/min"),
+                 (f"The highest rate is {say(rates[1])}. This is the interval from minute two to minute five.", "Fastest rise: minutes 2–5.")),
+                line_plot(list(zip(times,values)),[(0,1,0),(1,2,1),(2,3,0)],"Minutes","Total count")),
+            Example("Locate a crossing and interpret the prices", (
+                (f"Plan A charges a fixed fee of {say(fixed)} dollars and then {say(slow)} dollars per visit. Plan B charges {say(faster)} dollars per visit with no fixed fee.", f"A costs {fixed} + {slow}x. B costs {faster}x."),
+                ("At how many visits are the costs equal, and which plan is cheaper after that?", "Find the crossover on the graph.")),
+                ((f"At a crossing the two costs are equal. A starts {say(fixed)} dollars higher, while B rises {say(faster-slow)} dollars faster per visit.", f"Initial gap ${fixed}. Gap closes by ${faster-slow} each visit."),
+                 (f"Divide to find the intersection at {say(cross)} visits. At that point both costs equal {say(tie)} dollars.", f"{fixed} ÷ {faster-slow} = {cross} visits. Cost ${tie}."),
+                 ("After the crossing B is higher on the graph, because its cost rises faster. Plan A is cheaper beyond that visit count.", f"After {cross} visits, A is cheaper.")),
+                line_plot(nodes,[(0,1,0),(1,2,0),(3,4,1)],"Visits","Cost ($)"),proof=(
+                    (f"Test one visit after the crossover. A costs {say(tie+slow)} dollars. B costs {say(tie+faster)} dollars.", f"At {cross+1}: A ${tie+slow}; B ${tie+faster}."),
+                    ("B adds the larger amount every further visit, so the choice will not switch again.", "The steeper line stays above after the crossing."))),
+        ),
+        (("Read both axis scales. A vertical rise alone doesn't tell you the rate if time intervals are different.", "Compare the increases alone", "Divide each increase by its own interval"),
+         ("At a crossing, both graph rules give the same value. Read the horizontal coordinate to find when it happens.", "Read the cost as the number of visits", "Use the horizontal axis for visits")),
+        (("Label the horizontal and vertical quantities. Trace to the axis or row before performing a calculation.", "Read the axes and scale", "Use units in the answer."),
+         ("For a change, take a difference. For a rate, divide by the interval. For an intersection, check both rules at the same input.", "Interpret the result", "Check how the graph answers the exact question.")),
+        cover=line_plot([(0,0),(2,3),(5,4),(7,8)],[(0,1,0),(1,2,0),(2,3,1)]),
     )
