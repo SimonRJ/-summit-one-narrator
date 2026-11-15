@@ -1,0 +1,122 @@
+name: Summit One opening studio films
+
+on:
+  push:
+    branches: [codex/t01-teaching-videos]
+    paths:
+      - 'production/t01-studio/prepare_audio.py'
+      - 'production/t01-studio/render.py'
+      - 'production/t01-studio/stage.py'
+      - 'production/t01-studio/quantities.py'
+      - 'production/t01-studio/representations.py'
+      - 'production/t01-studio/publish.py'
+      - '.github/workflows/t01-studio.yml'
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+concurrency:
+  group: t01-studio-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  RECORDINGS_RUN: '43674521793'
+
+jobs:
+  recordings:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Wait for both Voice C recordings
+        run: gh run watch "$RECORDINGS_RUN" --repo "$GITHUB_REPOSITORY" --exit-status --interval 15
+
+  render:
+    needs: recordings
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        lesson: ['T01.1', 'T01.2']
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: t01-voice-c-scene-*
+          merge-multiple: true
+          path: build/t01-studio
+          run-id: ${{ env.RECORDINGS_RUN }}
+          github-token: ${{ github.token }}
+      - name: Install visual and speech alignment dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-open-sans fonts-dejavu-core libsndfile1
+          python -m pip install --disable-pip-version-check pillow numpy soundfile num2words faster-whisper
+      - name: Align captions and diagram movements to spoken words
+        run: python production/t01-studio/prepare_audio.py "${{ matrix.lesson }}"
+      - name: Review every scene state
+        run: python production/t01-studio/render.py "${{ matrix.lesson }}" --preview
+      - name: Render and verify the final 1080p video
+        run: python production/t01-studio/render.py "${{ matrix.lesson }}"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.lesson }}
+          path: |
+            build/t01-studio/${{ matrix.lesson }}/final.mp4
+            build/t01-studio/${{ matrix.lesson }}/poster.jpg
+            build/t01-studio/${{ matrix.lesson }}/captions.vtt
+            build/t01-studio/${{ matrix.lesson }}/timeline.json
+            build/t01-studio/${{ matrix.lesson }}/qa.json
+            build/t01-studio/${{ matrix.lesson }}/storyboard/sheet-*.jpg
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 14
+
+  stage:
+    needs: render
+    if: github.ref == 'refs/heads/codex/t01-teaching-videos'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: T01.*
+          path: build/t01-studio
+      - name: Connect both verified videos to the app and watch pages
+        run: |
+          python production/t01-studio/publish.py
+          python tools/video/build_scripts.py
+          python tools/video/build_scripts.py --check
+          node --input-type=module --check < app-main.js
+          node --check sw.js
+          git diff --check
+      - name: Stage the finished films for deployment
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add media/T01.1.mp4 media/T01.2.mp4 media/T01.1.vtt media/T01.2.vtt
+          git add media/T01.1-studio-poster.jpg media/T01.2-studio-poster.jpg
+          git add review/T01.1-studio-qa.json review/T01.2-studio-qa.json
+          git add watch-t01-1.html watch-t01-2.html app-main.js sw.js index.html data/teaching-72.json
+          git add production/scripts/T01.1.json production/scripts/T01.2.json production/scripts/INDEX.md
+          git commit -m 'Add the verified T01.1 and T01.2 studio films to Summit One'
+          git fetch origin "$GITHUB_REF_NAME"
+          git rebase FETCH_HEAD
+          git push origin "HEAD:$GITHUB_REF_NAME"

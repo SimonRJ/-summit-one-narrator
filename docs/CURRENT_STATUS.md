@@ -61,8 +61,8 @@ A phone-width browser fixture used a local copy of the verified Pages assets to 
 
 | Item | Status |
 |---|---|
-| Teaching videos | 72 planned, with T02.1 and T02.2 finished and approved |
-| Teaching scripts | 70 drafts |
+| Teaching videos | 72 planned. T02.1 and T02.2 are approved. T01.1 and T01.2 are published for review. |
+| Teaching scripts | 68 awaiting production |
 | Other finished public videos | AMC introduction, welcome, two session introductions and one AMC solution pilot |
 | Guides | [Student guide](STUDENT_GUIDE.md) and [parent guide](PARENT_GUIDE.md) |
 

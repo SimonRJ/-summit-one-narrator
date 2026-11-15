@@ -3,61 +3,67 @@
  "title": "Choose a representation that exposes the relationship",
  "chapter": "Read the question into a useful model",
  "type": "concept",
- "status": "script_ready_not_recorded",
+ "status": "published_for_review",
  "voice": "Voice C (VoxCPM2), natural speed (see docs/VIDEO_PRODUCTION.md)",
- "goal": "Choose a line, table, drawing or equation that makes the hidden relationship visible.",
- "narration_words": 332,
- "estimated_minutes": 2.2,
+ "goal": "Choose a line, table, sketch or equation that reveals the relationship.",
+ "narration_words": 451,
+ "estimated_minutes": 3.0,
  "scenes": [
   {
    "n": 1,
    "stage": "INSIGHT",
-   "visual": "A single sentence of text dissolves into four small icons: a number line, a table, a sketch, an equation.",
-   "narration": "The same problem can be drawn in different ways, and some drawings make the answer almost obvious. A good representation shows the relationship you need. The four you will use most are a line, a table, a sketch and an equation."
+   "visual": "One line of information resolves into four small models: a line, a table, a sketch and an equation. Each reveals a different relationship.",
+   "narration": "A difficult-looking question can become much clearer as soon as you draw the right picture. A line shows order. A table sets comparisons side by side. A sketch makes shapes and boundaries visible. An equation holds a relationship in place. Choose the one that helps you see what the question is asking."
   },
   {
    "n": 2,
    "stage": "WHY",
-   "visual": "A cluttered paragraph of words on the left; on the right a clean number line with marks. The line brightens.",
-   "narration": "Words hide structure. In a sentence, it is hard to see whether you are counting posts or the gaps between posts. On a line, you can point to each one. Choosing the right picture often saves more time than any calculation trick."
+   "visual": "Draw one fence panel with a post at either end, then attach another panel to show the shared post. Trace intervals and points in two colours.",
+   "narration": "Picture a fence. Your eye can follow every post or every panel between two posts. A sketch gives both counts a place on the same line. The words each end tell us where the fence starts and stops. Mark those ends first. Then look for what repeats between them."
   },
   {
    "n": 3,
    "stage": "PUZZLE",
-   "visual": "Number line from 0 to 30 with marks every 5: posts at 0, 5, 10, 15, 20, 25, 30. Question: \"How many posts? How many gaps?\"",
-   "narration": "A straight fence is thirty metres long. There is a post at each end and a post every five metres. How many posts are there? Pause and picture the fence."
+   "visual": "Establish a straight 30 m fence, mark seven equally spaced positions from 0 to 30 and hold the complete problem before counting.",
+   "narration": "A straight fence is thirty metres long. There is a post at each end, and the posts are five metres apart. How many posts are there? Draw the full thirty metres. Mark the left end as zero, and mark off spaces of five metres."
   },
   {
    "n": 4,
    "stage": "DEVELOP",
-   "visual": "The six gaps light up one at a time with a small counter 1 to 6. Then the seven posts light up with a counter 1 to 7.",
-   "narration": "Thirty divided by five is six. But six of what? Six is the number of gaps. Every gap has a post at its right-hand end, and there is one extra post at the very start. So there are seven posts. The line shows why the answer is one more than the division."
+   "visual": "Six gaps light up and hand their count to the post at each right-hand end. Reveal the starting post separately. Build the equalities one at a time.",
+   "narration": "Thirty metres divided into five-metre spaces gives six gaps. Follow each gap to its right-hand end. That accounts for six posts. The post at zero sits before the first gap, so add it once. Six gaps, plus that starting post, makes seven posts."
   },
   {
    "n": 5,
    "stage": "DEVELOP",
-   "visual": "The fence bends into a closed ring of 30 metres with posts every 5. The start and end posts merge into one. Counter shows 6 posts, 6 gaps.",
-   "narration": "Change the picture and the rule changes. If the same thirty metres of fence goes round a garden in a closed loop, the first and last posts are the same post. Now there are six gaps and six posts."
+   "visual": "The six panels fold into a regular hexagonal loop. The end markers meet, then the map from each gap to its right-hand post is visible around the loop.",
+   "narration": "Now join the ends to make a closed fence, using the same six equal panels. Watch the last post come back to the very first one. They meet at a single corner. Each panel now ends at a different post, and all posts are included. That makes six gaps and six posts."
   },
   {
    "n": 6,
    "stage": "VARIATION",
-   "visual": "A queue of faceless figures. One is highlighted. Labels: \"9th from the front\", \"6th from the back\". Figures in front counted 8, behind counted 5.",
-   "narration": "A line also untangles queues. Sam is ninth from the front and sixth from the back. How many people are in the queue? Eight people stand in front of Sam and five behind. Eight plus five plus Sam makes fourteen. Adding nine and six would count Sam twice."
+   "visual": "Place Sam on a line of figures. Build ranks from both ends, then colour the eight people in front and five behind and count Sam once.",
+   "narration": "Try the same kind of line with a queue. Sam is ninth from the front and sixth from the back. How many people are there? Eight stand in front of Sam, and five stand behind. Eight, plus Sam, plus five, makes fourteen. Both ranks include Sam, so give Sam one place in the picture."
   },
   {
    "n": 7,
    "stage": "VARIATION",
-   "visual": "A two-column table: \"item\", \"price\", with units in the headings. Then a small rectangle sketch with only stated lengths marked.",
-   "narration": "Use a table when several categories must be compared, and put the same kind of quantity in each column. Use a sketch when touching sides or a boundary matters, and mark only facts you were given, never guessed lengths."
+   "visual": "Build a table with pencil counts, prices in dollars and a computed price per pencil. Align the comparison for the two boxes.",
+   "narration": "A table helps when there are several things to compare. Box A contains eight pencils and costs sixteen dollars. Box B contains four pencils and costs twelve dollars. Add a price per pencil column. The divisions give two dollars and three dollars. Box A costs more for the box and less for each pencil."
   },
   {
    "n": 8,
+   "stage": "VARIATION",
+   "visual": "Slide two labelled four-by-three mats along their short sides. Reveal the two coincident interior edges. Trace the outside and build 14 + 14 − 3 − 3 = 22 metres.",
+   "narration": "A sketch reveals a boundary. Join two mats, each four metres by three metres, along their three-metre sides. How much edge is exposed? Each mat has fourteen metres around it. The pair has twenty-eight before joining. The shared edge removes three metres from each mat, so the equation gives twenty-two metres outside."
+  },
+  {
+   "n": 9,
    "stage": "RECAP",
-   "visual": "The four icons return with one word each: order, compare, shape, balance.",
-   "narration": "A line for order and gaps. A table for comparing. A sketch for shapes. An equation for a balance between totals. Notebook challenge: trees are planted every four metres along a forty-metre path, including both ends. How many trees are there?"
+   "visual": "Return to the four models. End on the notebook question and a line with just its endpoints so the learner can draw their own model.",
+   "narration": "Choose a line for order and gaps, a table for comparisons, and a sketch for shape and boundaries. Use an equation to show how the quantities fit together. Your turn. Trees are planted every four metres along a forty-metre path, including both ends. How many trees are there? Sketch it first."
   }
  ],
- "notebook_exercise": "Trees every 4 m along a 40 m path, including both ends. How many trees?",
- "notebook_answer": "40 / 4 = 10 gaps, so 11 trees."
+ "notebook_exercise": "Trees are planted every 4 m along a 40 m path, including both ends. How many trees are there?",
+ "notebook_answer": "40 ÷ 4 = 10 gaps. The starting tree plus one at the end of each gap makes 11 trees."
 }

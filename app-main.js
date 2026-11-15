@@ -67,7 +67,7 @@ function finalVideoUrl(videoId){
   const id=String(videoId||"");
   // Only concept/worked-example T videos are public. Every challenge solution is attempt-gated.
   if(!/^T\d{2}\.(?:1|2|3|E)$/.test(id))return "";
-  if(id==="T01.2")return ""; // George retired; use natural on-device narration until new T01.2 master is approved.
+  if(id==="T01.1"||id==="T01.2")return "media/"+id+".mp4?v=t01-studio-v1";
   if(id==="T02.1")return "media/T02.1.mp4?v=studio-v4";
   if(id==="T02.2")return "media/T02.2.mp4?v=studio-v1";
   return ""; // Only verified published masters are offered; other lessons use their written/audio teaching.
@@ -127,6 +127,16 @@ function problemKeywords(focus){
   return focus.toLowerCase().split(/[^a-z0-9]+/).filter(w=>w.length>4&&!["including","through","under","using","simple","reasoning"].includes(w));
 }
 function chooseProblems(session){return selectOriginalProblems(session,problemIndex,lessonManifest);}
+function openingConceptFilm(slot){
+ const id=slot===1?"T01.1":slot===2?"T01.2":null;
+ if(!id)return "";
+ const film=teaching.find(item=>item.id===id);
+ if(!film)return "";
+ return `<details class="opening-fallback"><summary>Watch ${esc(film.title)}</summary>
+   <div class="opening-video-wrap"><video controls playsinline preload="none"
+     src="${finalVideoUrl(id)}" poster="media/${id}-studio-poster.jpg?v=t01-studio-v1" aria-label="${esc(film.title)}"></video></div>
+ </details>`;
+}
 function teachingFor(session){
  const m=methods[skillFor(session,taxonomy)];
  return m?teaching.filter(t=>t.id===m.video):[];
@@ -223,6 +233,7 @@ async function openLessonIntroductionFromMenu(slot){
    <h1>${esc(item.focus)}</h1>
    <p class="muted">${introId?"Replay the original easy, medium and hard worked examples.":teaching?"Review the available narrated concept teaching. A dedicated three-level introduction has not yet been published for this lesson.":"The video for this lesson is not yet published."}</p>
    ${media}
+   ${openingConceptFilm(item.slot)}
    <p class="lesson-replay-note">${isComplete?"Your original answers, score and completion status stay locked. Replaying this video cannot restart the lesson.":"This is an optional teaching review. Your current answers and lesson position remain saved."}</p>
    <div class="lesson-replay-actions"><button type="button" id="replayBack" class="secondary">${isComplete?"Back to saved lesson":"Return to current lesson"}</button><button type="button" id="replayHome" class="ghost">Learning home</button></div>
  </section>`;
@@ -396,6 +407,7 @@ function renderLessonOpening(el,s){
    `<div class="opening-concept-board"><div class="opening-concept-method">${esc(p.hook)}</div><div class="opening-concept-mark">${esc(skillFor(s,taxonomy))}</div><p>${esc(p.goal)}</p></div>`}
    ${examples}
    <div id="openingFallback" class="opening-fallback" ${id?"hidden":""}></div>
+   ${openingConceptFilm(s.slot)}
    <p class="opening-coda">After watching, press <b>Next</b> and solve fresh problems using the same idea. Bring paper and a pencil.</p>
  </section>`;
  const mountFallback=()=>{
