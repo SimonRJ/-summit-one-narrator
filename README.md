@@ -15,7 +15,7 @@ Summit One is an independent family project. It is not affiliated with or endors
 | Original AMC practice | Part A (questions 1–20, speed and accuracy) and Part B (questions 21–30, deeper problems). | Partially complete: 4 active split papers, 60 questions |
 | Rossmoyne practice | Original Rossmoyne-style papers over 23 problem families. | Partially complete: 9 active papers, 207 questions |
 | Authentic AMC centre | 19 genuine Upper Primary papers, 2007–2025, one attempt each. | Deployed and frozen |
-| Teaching videos | 72 concept and worked-example videos planned. | 2 finished; 70 have scripts only |
+| Teaching videos | 72 concept and worked-example videos planned. | 2 approved, 2 published for review, 68 scripted |
 | Optional advanced maths | "Where this maths can lead" pages for the 52 techniques; not assessed. | Deployed |
 
 Exact, dated numbers are in [docs/CURRENT_STATUS.md](docs/CURRENT_STATUS.md).

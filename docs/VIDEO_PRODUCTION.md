@@ -2,16 +2,17 @@
 
 The visual and teaching standard is in [VIDEO_TEACHING_STANDARD.md](VIDEO_TEACHING_STANDARD.md). This document records what exists and how scripts become videos.
 
-## Registry of teaching videos (14 November 2026)
+## Registry of teaching videos (15 November 2026)
 
 | Status | Count | Which |
 |---|---:|---|
 | Finished and approved | 2 | T02.1 (the studio benchmark) and T02.2. Their audio must not be changed. |
-| Script ready; not recorded, not animated | 70 | Every other item in `data/teaching-72.json`. |
+| Published for review | 2 | [T01.1](../watch-t01-1.html) and [T01.2](../watch-t01-2.html). |
+| Script ready | 68 | The remaining items in `data/teaching-72.json`. |
 
 The full list with lengths is generated at [production/scripts/INDEX.md](../production/scripts/INDEX.md).
 
-Other finished public videos in `media/`: the AMC introduction, the welcome video, session introductions S001 and S002, and one AMC 2025 solution pilot. `media/T01.2_George_0.88.mp4` uses a retired voice and is a preview only; T01.2 now has a new script.
+Other finished public videos in `media/` include the AMC introduction, the welcome video, session introductions S001 and S002, and one AMC 2025 solution pilot. The opening lesson and replay screens include the two T01 studio films beside the original session introductions.
 
 ## Scripts
 
@@ -20,18 +21,20 @@ Other finished public videos in `media/`: the AMC introduction, the welcome vide
 - **Each script has:** a one-line goal; scenes tagged INSIGHT, WHY, PUZZLE, DEVELOP, VARIATION, RECAP; for each scene a visual direction and the narration; a notebook exercise with its answer for the producer.
 - **Concept videos** open with the insight and why it matters before any puzzle, as the standard requires. **Worked examples** go straight to the problem.
 - **Narration** is written for speech: numbers and operations are spelled out, with no symbols. The validator rejects symbols in narration and any reference to archive question codes.
-- **Length:** 161 to 338 narration words each, 18,586 words in total. At an unhurried pace that is roughly two minutes of speech per video before pauses and animation time are added. Final timings must come from the recorded audio.
+- **Length:** The index includes word counts and planning estimates. Final timing comes from the recorded audio.
 
 All examples in the scripts are original to Summit One. None reuses a competition question.
 
 ## From script to video
 
 1. Read the script JSON and storyboard each scene from its `visual` field, following the T02.1 art system: matte background, one focal idea, objects that keep their identity as they move.
-2. Record with the approved male Voice C at natural speed. The reference is `media/voice-audition/vox-australian-male-c.mp3`. Reuse the `openbmb/VoxCPM2` revision pinned in `production/voice-c-welcome/synth.py` and its reference prompt. The reference file matches the SHA-256 in `review/AMC2025Q17-voice-c.json`. Finish and review a concept pilot and a worked-example pilot before batch recording.
+2. Record with the approved male Voice C at natural speed. The reference is `media/voice-audition/vox-australian-male-c.mp3`. Reuse the `openbmb/VoxCPM2` revision pinned in `production/voice-c-welcome/synth.py` and its reference prompt. The reference file matches the SHA-256 in `review/AMC2025Q17-voice-c.json`.
 3. Time animation to the recorded audio. Do not stretch speech.
 4. Burn in one caption layer only.
 5. Check the mathematics on screen, caption alignment, legibility on a phone, and the published HTTPS link.
-6. Change the script's status in the registry only when the video is published and checked.
+6. Record the checked video as published for review. Work through the teaching lessons in order and then produce the exam solution videos.
+
+The T01 production sources are in `production/t01-studio/`. The Voice C workflow records the scenes and the render workflow aligns speech, renders both videos and checks the final media. Each QA report in `review/` records the reference fingerprint, word alignment, format and playback duration.
 
 ## Review status of the scripts
 
