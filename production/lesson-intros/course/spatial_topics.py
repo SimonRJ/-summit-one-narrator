@@ -99,6 +99,7 @@ def crossings(lesson):
 
 def tiling(lesson):
     v=lesson.visit
+    sample_width=3+v
     width=4+v
     height=3
     area=width*height
@@ -128,11 +129,11 @@ def tiling(lesson):
          ("A Rossmoyne style tiling count may restrict the number of vertical or horizontal pieces. Replace forced runs by blocks.", "Rossmoyne-style · count forced blocks")),
         (
             Example("Count squares after a turn", (
-                (f"A shape has a row of {say(3+v%3)} unit squares and one extra square attached underneath the left end. How many unit squares are in it after a quarter turn?", f"Row of {3+v%3}, plus one square underneath."),
+                (f"A shape has a row of {say(sample_width)} unit squares and one extra square attached underneath the left end. How many unit squares are in it after a quarter turn?", f"Row of {sample_width}, plus one square underneath."),
                 ("Picture the solid piece turning without coming apart.", "What area does it cover after the turn?")),
-                ((f"The top row has {say(3+v%3)} cells. The extra cell shares an edge but is a different square.", f"{3+v%3} + 1 = {4+v%3} cells"),
-                 (f"A quarter turn moves each cell to one new position. It preserves the {say(4+v%3)} squares and the same area.", f"Area = {4+v%3} square units")),
-                grid(tuple("■" for _ in range(3+v%3)),("■",*tuple("" for _ in range(2+v%3))))),
+                ((f"The top row has {say(sample_width)} cells. The extra cell shares an edge but is a different square.", f"{sample_width} + 1 = {sample_width+1} cells"),
+                 (f"A quarter turn moves each cell to one new position. It preserves the {say(sample_width+1)} squares and the same area.", f"Area = {sample_width+1} square units")),
+                grid(tuple("■" for _ in range(sample_width)),("■",*tuple("" for _ in range(sample_width-1))))),
             Example("Use area to rule out a tiling", (
                 (f"A {say(width)} by three board has {say(gap)} corner {'cell' if gap==1 else 'cells'} removed. Can you tile what remains using pieces of exactly three unit squares?", f"{width} × 3 board, remove {gap} corner {'cell' if gap==1 else 'cells'}."),
                 ("Pieces may be turned. They may not overlap, and each cell must be covered.", "Can three-square tiles cover it exactly?")),
@@ -326,7 +327,7 @@ def layered_cubes(lesson):
     w,d,h=2+v%3,2+v%2,2+v//3
     simple=w*d*h
     all_cells=set(product(range(w),range(d),range(h)))
-    heights=(1+v%2,3+v%2,2,2+v//3,4+v%2,1)
+    heights=(1+v%2,3+v%2,2+v,2+v//3,4+v%2,1)
     stacks={(x,y,z) for y in range(2) for x in range(3) for z in range(heights[y*3+x])}
     counts=[sum(height>=level for height in heights) for level in range(1,max(heights)+1)]
     short=2+v%2

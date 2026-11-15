@@ -592,9 +592,9 @@ def doubling(lesson):
 
 def finite_state(lesson):
     v=lesson.visit
-    past=11+4*v
+    past=11+5*v
     finish=("North","East","South","West")[past%4]
-    order=(2+v%2,3+v%3)
+    order=(2+v%2,3+v)
     period=lcm(*order)
     states=tuple(range(1,7+v%3))
     stem=1+v%3

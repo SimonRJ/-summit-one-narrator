@@ -6,9 +6,11 @@ import json
 from pathlib import Path
 
 from algebra_topics import backwards, differences, margins, part_whole, recurrence, simultaneous, word_equations
+from capstone_topics import capstone
 from count_topics import restricted_arrangements
 from counting_cases import complement, double_counting, enumeration, partition_cases, selections
 from deduction_topics import deduction, exhaustiveness, magic_grid
+from digit_topics import digit_positions, digit_sums, place_value
 from path_probability import dynamic_paths, probability, restricted_routes
 from shape_topics import angles, nets, paint, symmetry
 from spatial_topics import crossings, layered_cubes, optimise, perimeter, shaded_area, tiling
@@ -21,6 +23,10 @@ from story import Lesson, film
 ROOT = Path(__file__).resolve().parents[3]
 BESPOKE = {f"S{slot:03}" for slot in range(1,7)}
 TOPICS = {
+    "Rossmoyne method combinations and evidence-based review": capstone,
+    "Digit sums and counting digits in ranges": digit_sums,
+    "Place-value decomposition and estimation": place_value,
+    "Digits, zero and positional constraints": digit_positions,
     "Counting paths by dynamic totals": dynamic_paths,
     "Restricted routes and spatial adjacency": restricted_routes,
     "Elementary probability and favourable outcomes": probability,
