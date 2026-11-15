@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10151d">
+<link rel="icon" href="icon.svg">
+<title>T18.E · Choose a strategy, then learn from the decision · Summit One</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 25%, #192631, #0c121a 75%);
+  color: #f2f1ed; font: 1rem/1.55 system-ui, sans-serif;
+}
+main { max-width: 1120px; margin: auto; padding: clamp(18px, 4vw, 48px); }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.back { justify-content: space-between; gap: 8px 20px; }
+a { color: #9cdbbc; }
+h1 { max-width: 880px; margin: .25em 0 .45em; font-size: clamp(1.95rem, 5vw, 3.45rem); line-height: 1.12; }
+h2 { margin: 0; font-size: 1.2rem; }
+p { max-width: 55rem; color: #bac4cf; }
+.lesson { color: #9cdbbc; margin: 2rem 0 0; font-size: .88rem; font-weight: 700; }
+video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #10151d; border: 1px solid #354652; border-radius: 14px; }
+.meta { color: #bac4cf; margin: .65rem 0 0; }
+.chapters { margin: 1.2rem 0 1.6rem; }
+button {
+  cursor: pointer; min-height: 44px; border: 1px solid #405463; border-radius: 12px;
+  background: #1b2834; color: #eef2f4; font: inherit; padding: .5rem .8rem;
+}
+.exercise { background: #18232e; border: 1px solid #364756; border-radius: 16px; padding: 1.15rem; }
+summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
+.transcript { margin-top: 1rem; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+</style>
+</head>
+<body>
+<main>
+<nav class="back" aria-label="Lesson navigation">
+<a href="./">← Summit One</a><a href="teaching-videos.html">Teaching videos</a>
+</nav>
+<p class="lesson">T18.E · Worked example</p>
+<h1>Choose a strategy, then learn from the decision</h1>
+<p>Worked example: organise a count, then check it a second way.</p>
+<video id="lesson" controls playsinline preload="metadata" aria-label="Choose a strategy, then learn from the decision"
+  poster="media/T18.E-studio-poster.jpg?v=teaching-films-v1">
+  <source src="media/T18.E.mp4?v=teaching-films-v1" type="video/mp4">
+</video>
+<p class="meta">1:21 · Full HD</p>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Choose two different numbers from one to six</button>
+<button type="button" data-time="13.860">0:13 · Give every pair one larger number</button>
+<button type="button" data-time="22.190">0:22 · Count each possible larger number</button>
+<button type="button" data-time="40.580">0:40 · List the four qualifying pairs</button>
+<button type="button" data-time="49.230">0:49 · Check by sorting the pairs by their sum</button>
+<button type="button" data-time="65.870">1:05 · Your turn</button></nav>
+<section class="exercise">
+<h2>Try it in your notebook</h2>
+<p>How many pairs of different numbers from 1 to 6 have a sum of at most 5?</p>
+<details><summary>Check your reasoning</summary><p>1+2, 1+3, 1+4, 2+3: 4 pairs.</p></details>
+</section>
+<details class="transcript"><summary>Read the transcript</summary><p>Choose two different numbers from one, two, three, four, five and six. The order does not matter. How many choices have a sum of at least nine?</p>
+<p>To avoid counting any pair twice, always name the larger number first. Then organise the count by the larger number.</p>
+<p>If the larger number is six, the smaller must be at least three: three, four or five. That is three pairs. If the larger number is five, the smaller must be four: one pair. If the larger is four, the best sum is four plus three, which is only seven. No pairs.</p>
+<p>Three plus one is four. The pairs are three and six, four and six, five and six, and four and five.</p>
+<p>Check a different way, by the sum. Nine comes from three and six, or four and five. Ten comes from four and six. Eleven comes from five and six. Two plus one plus one is four. Notice that &quot;at least nine&quot; includes nine itself.</p>
+<p>Fix an order so nothing is counted twice, sort into cases, then check another way. Rebuild this, then count the pairs from one to six whose sum is at most five.</p></details>
+<p><a href="media/T18.E.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+</main>
+<script>
+const video = document.querySelector("#lesson");
+for (const button of document.querySelectorAll("[data-time]")) {
+  button.addEventListener("click", () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+    video.scrollIntoView({block: "center"});
+  });
+}
+</script>
+</body>
+</html>

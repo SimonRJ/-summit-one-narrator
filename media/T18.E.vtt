@@ -1,0 +1,85 @@
+WEBVTT
+
+00:00:00.600 --> 00:00:04.450
+Choose two different numbers from one, two, three, four,
+
+00:00:04.560 --> 00:00:05.550
+five and six.
+
+00:00:06.300 --> 00:00:07.410
+The order does not matter.
+
+00:00:07.820 --> 00:00:10.050
+How many choices have a sum of at least nine?
+
+00:00:13.860 --> 00:00:17.120
+To avoid counting any pair twice, always name the
+
+00:00:17.120 --> 00:00:18.190
+larger number first.
+
+00:00:18.900 --> 00:00:21.270
+Then organise the count by the larger number.
+
+00:00:22.190 --> 00:00:25.030
+If the larger number is six, the smaller must be at
+
+00:00:25.030 --> 00:00:27.380
+least three: three, four or five.
+
+00:00:27.630 --> 00:00:28.580
+That is three pairs.
+
+00:00:29.270 --> 00:00:31.770
+If the larger number is five, the smaller must be
+
+00:00:31.770 --> 00:00:33.060
+four: one pair.
+
+00:00:33.730 --> 00:00:37.140
+If the larger is four, the best sum is four plus three,
+
+00:00:37.350 --> 00:00:38.560
+which is only seven.
+
+00:00:38.850 --> 00:00:39.500
+No pairs.
+
+00:00:40.580 --> 00:00:42.210
+Three plus one is four.
+
+00:00:42.460 --> 00:00:46.790
+The pairs are three and six, four and six, five and six,
+
+00:00:47.020 --> 00:00:48.210
+and four and five.
+
+00:00:49.230 --> 00:00:51.180
+Check a different way, by the sum.
+
+00:00:51.770 --> 00:00:54.580
+Nine comes from three and six, or four and five.
+
+00:00:54.930 --> 00:00:56.640
+Ten comes from four and six.
+
+00:00:57.230 --> 00:00:59.080
+Eleven comes from five and six.
+
+00:00:59.670 --> 00:01:01.560
+Two plus one plus one is four.
+
+00:01:02.310 --> 00:01:04.780
+Notice that "at least nine" includes nine itself.
+
+00:01:05.870 --> 00:01:08.300
+Fix an order so nothing is counted twice,
+
+00:01:08.930 --> 00:01:11.200
+sort into cases, then check another way.
+
+00:01:11.610 --> 00:01:14.730
+Rebuild this, then count the pairs from one to six whose
+
+00:01:14.730 --> 00:01:16.140
+sum is at most five.
