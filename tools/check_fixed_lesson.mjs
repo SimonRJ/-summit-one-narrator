@@ -7,31 +7,34 @@ const lessons=JSON.parse(read('../data/sessions-372.json')).sessions;
 assert.equal(lessons.length,372);
 assert.equal(lessons[0].focus,'Divisibility tests and modular remainders');
 assert.equal(lessons[1].focus,'Place-value decomposition and estimation');
-for(let i=0;i<2;i++){
- const id='S00'+(i+1),data=JSON.parse(read('../production/lesson-intros/'+id+'.json'));
+const {lessonIntroId,INTRO_MEDIA_VERSION}=await import('../lesson-introduction-media.js');
+const playerSource=app.slice(app.indexOf('function lessonIntroPlayer('),app.indexOf('async function openLessonIntroductionFromMenu('));
+const lessonIntroPlayer=new Function('esc','INTRO_MEDIA_VERSION',playerSource+'\nreturn lessonIntroPlayer;')(String,INTRO_MEDIA_VERSION);
+for(let i=0;i<5;i++){
+ const lesson=lessons[i], id=lessonIntroId(lesson.slot), data=JSON.parse(read('../production/scripts/'+id+'.json'));
+ assert.equal(id,'S00'+(i+1));
  assert.equal(data.id,id);
- assert.equal(data.segments.length,9);
- assert.equal(data.pause_seconds.length,9);
- assert.deepEqual(data.examples.map(x=>x.level),['easy','medium','hard']);
- assert(data.segments.at(-1).toLowerCase().includes('your turn'));
- assert(data.voice.includes('voice C'));
- assert(data.segments.every(x=>x.length>100));
- assert(!data.segments.join(' ').toLowerCase().includes('george'));
+ assert.equal(data.title,lesson.focus);
+ assert.equal(data.course_slot,lesson.slot);
+ const stages=data.scenes.map(scene=>scene.stage);
+ assert.deepEqual(stages.slice(0,7),['INTRO','EXAM','PUZZLE','BASIC','PUZZLE','MEDIUM','PUZZLE']);
+ assert(stages.slice(7,-2).every(stage=>stage==='HARD'));
+ assert.deepEqual(stages.slice(-2),['MISTAKES','RECAP']);
+ const player=lessonIntroPlayer(id,lesson.focus,'introTest');
+ assert(player.includes('controls playsinline'));
+ assert(player.includes('media/'+id+'-Intro.mp4?v='+INTRO_MEDIA_VERSION));
+ assert(fs.existsSync(new URL('../media/'+id+'-Intro.mp4',import.meta.url)));
+ const qa=JSON.parse(read('../review/'+id+'-Intro-qa.json'));
+ assert.equal(qa.id,id);
+ assert.equal(qa.narration,'Approved synthetic Voice C');
+ assert.equal(qa.caption_layers,1);
+ assert(qa.decoded_successfully);
 }
-assert.equal(2473%3,1);
-assert.equal(1739%6,5);
-assert.equal(279%5,4);
-assert.equal(279%7,6);
-assert.equal(279%9,0);
-assert.equal(398+207,605);
-assert.equal(57*98,5586);
-assert.equal(49996*50004,50000**2-16);
-assert.equal(49996*50004-(50000**2-17),1);
+assert.equal(lessonIntroId(6),null);
 assert(/function renderLessonOpening/.test(app));
 assert(/function renderSession/.test(app));
 assert(/activeStage=-1/.test(app));
 assert(/activeLessonPanel/.test(app));
-assert(/S001-Intro\.mp4/.test(app)||/\$\{id\}-Intro\.mp4/.test(app));
 assert(/data-screen-back/.test(app));
 assert(/data-screen-next/.test(app));
 assert(/mountLessonPager/.test(app));
@@ -92,7 +95,7 @@ assert(menuUI.includes('data-menu-intro-slot') && menuUI.includes('onIntroductio
 assert(menuUI.includes('status==="locked"') && menuUI.includes('item.type==="LESSON"'));
 assert(menuUI.includes('Watch intro') && menuUI.includes('Teaching'));
 const readOnlyReplay=app.slice(app.indexOf('async function openLessonIntroductionFromMenu('),app.indexOf('function wireNav(){'));
-assert(readOnlyReplay.includes('id="replayIntroVideo"') && readOnlyReplay.includes('media/${introId}-Intro.mp4'));
+assert(readOnlyReplay.includes('lessonIntroId(item.slot)') && readOnlyReplay.includes('lessonIntroPlayer(introId,item.focus,"replayIntroVideo")'));
 assert(readOnlyReplay.includes('renderHome') && readOnlyReplay.includes('openCompletedFromMenu(slot)'));
 assert(!/upsertSession\(|recordVideoEvidence\(|submit-problem-attempt|completeSession\(/.test(readOnlyReplay),'Replays must never mutate a locked sitting');
 assert(app.includes('data-video-session') && app.includes('saved-intro'));
@@ -101,7 +104,7 @@ assert(app.includes('buildCourseNavigation(course,taxonomy)'));
 assert(app.includes('mountCourseMenu(') && app.includes('data-review-session'));
 assert(css.includes('.course-menu-status.completed') && css.includes('.course-menu-status.current'));
 assert(css.includes('.course-menu-status.locked') && css.includes('dialog.course-menu'));
-for(const module of ["course-menu","course-menu-ui"]){
+for(const module of ["course-menu","course-menu-ui","lesson-introduction-media"]){
   const asset=app.match(new RegExp(`from "\\./(${module}\\.js\\?v=[a-z0-9-]+)"`))?.[1];
   assert(asset && sw.includes(`"./${asset}"`),`The service worker must precache the imported ${module} module`);
 }
@@ -205,4 +208,4 @@ for(const path of ['advanced-number.js','advanced-counting.js','advanced-geometr
 
 assert(app.includes('attempted_on_paper_unreviewed'));
 
-console.log('PASS: two unique graduated video scripts, mathematical solutions, all stage screens, fixed viewport and protected learning data.');
+console.log('PASS: five graduated lesson videos, all stage screens, fixed viewport and protected learning data.');
