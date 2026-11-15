@@ -1,0 +1,181 @@
+name: Summit One lesson introduction series
+run-name: Summit One lesson introductions
+
+on:
+  push:
+    branches: [codex/lesson-intro-series]
+    paths:
+      - 'production/lesson-intros/course/queue.json'
+  workflow_dispatch:
+
+concurrency:
+  group: summit-one-lesson-intro-series
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  select:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    outputs:
+      ids: ${{ steps.select.outputs.ids }}
+      pilot: ${{ steps.select.outputs.pilot }}
+      count: ${{ steps.select.outputs.count }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Select the next authored lessons in course order
+        id: select
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          import json, os, subprocess, sys
+          from pathlib import Path
+          directory = Path("production/lesson-intros/course")
+          sys.path.insert(0, str(directory))
+          from release_intro import create_release, select
+          data = json.loads((directory / "queue.json").read_text())
+          pilot = data.get("pilot_render", 0)
+          assert type(pilot) is int and pilot >= 0
+          limit = data.get("parallel", 18)
+          assert type(limit) is int and 1 <= limit <= 18
+          ids = ["S008"] if pilot else select(limit)
+          if ids:
+              create_release()
+          with open(os.environ["GITHUB_OUTPUT"], "a") as out:
+              print("ids=" + json.dumps(ids, separators=(",",":")), file=out)
+              print("count=" + str(len(ids)), file=out)
+              print("pilot=" + str(pilot), file=out)
+          print("Lessons selected for production:", ", ".join(ids))
+          PY
+
+  pilot:
+    needs: select
+    if: needs.select.outputs.pilot != '0'
+    runs-on: ubuntu-latest
+    timeout-minutes: 95
+    permissions:
+      actions: read
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Wait for the first independently rendered film
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RENDER_ID: ${{ needs.select.outputs.pilot }}
+        run: gh run watch "$RENDER_ID" --repo "$GITHUB_REPOSITORY" --exit-status --interval 20
+      - uses: actions/download-artifact@v4
+        with:
+          name: S008
+          path: build/t01-studio/S008
+          run-id: ${{ needs.select.outputs.pilot }}
+          github-token: ${{ github.token }}
+      - name: Upload the verified narration and animation
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python production/lesson-intros/course/release_intro.py stage S008
+
+  produce:
+    needs: select
+    if: needs.select.outputs.count != '0' && needs.select.outputs.pilot == '0'
+    runs-on: ubuntu-latest
+    timeout-minutes: 280
+    permissions:
+      contents: write
+    strategy:
+      fail-fast: false
+      max-parallel: 18
+      matrix:
+        lesson: ${{ fromJSON(needs.select.outputs.ids) }}
+    env:
+      HF_HUB_DISABLE_XET: '1'
+      TOKENIZERS_PARALLELISM: 'false'
+      OMP_NUM_THREADS: '4'
+      MKL_NUM_THREADS: '4'
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install the pinned Voice C and video runtime
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg libsndfile1 fonts-open-sans fonts-dejavu-core
+          pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install 'transformers>=4.45,<5' 'huggingface-hub<1' einops pydantic soundfile librosa safetensors tqdm numpy scipy inflect addict argbind pillow num2words faster-whisper
+          pip install --no-deps 'git+https://github.com/OpenBMB/VoxCPM.git@300e4260b509066151d623dc9c0aa922cf82232b'
+      - name: Record, align and render the lesson introduction
+        env:
+          LESSON: ${{ matrix.lesson }}
+        run: python production/lesson-intros/course/produce_lesson.py "$LESSON"
+      - name: Upload this checked movie
+        env:
+          GH_TOKEN: ${{ github.token }}
+          LESSON: ${{ matrix.lesson }}
+        run: python production/lesson-intros/course/release_intro.py stage "$LESSON"
+      - name: Save diagnostics if a film needs another take
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: diagnostics-${{ matrix.lesson }}
+          path: |
+            build/t01-studio/${{ matrix.lesson }}/alignment-failure.json
+            build/t01-studio/${{ matrix.lesson }}/storyboard/*.jpg
+          if-no-files-found: ignore
+          retention-days: 3
+
+  verify:
+    needs: select
+    if: needs.select.outputs.count != '0'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 340
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install the playback test browser
+        run: |
+          npm install --no-save playwright
+      - name: Put each film on the site and confirm playback
+        env:
+          GH_TOKEN: ${{ github.token }}
+          LESSONS: ${{ needs.select.outputs.ids }}
+          PILOT_ID: ${{ needs.select.outputs.pilot }}
+        run: |
+          python - <<'PY'
+          import json, os, subprocess
+          ids = json.loads(os.environ["LESSONS"])
+          wait = "90" if os.environ["PILOT_ID"] != "0" else "295"
+          subprocess.run(["python", "production/lesson-intros/course/release_intro.py",
+                          "publish", *ids, "--wait-minutes", wait], check=True)
+          PY
+
+  continue:
+    needs: [select, verify]
+    if: needs.verify.result == 'success' && needs.select.outputs.pilot == '0' && needs.select.outputs.count != '0'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      actions: write
+      contents: read
+    steps:
+      - name: Continue with the next introductions
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run summit-intro-series.yml --repo "$GITHUB_REPOSITORY" --ref "$GITHUB_REF_NAME"

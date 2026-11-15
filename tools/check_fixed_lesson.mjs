@@ -7,9 +7,9 @@ const lessons=JSON.parse(read('../data/sessions-372.json')).sessions;
 assert.equal(lessons.length,372);
 assert.equal(lessons[0].focus,'Divisibility tests and modular remainders');
 assert.equal(lessons[1].focus,'Place-value decomposition and estimation');
-const {lessonIntroId,INTRO_MEDIA_VERSION}=await import('../lesson-introduction-media.js');
+const {lessonIntroId,INTRO_MEDIA_VERSION,introMediaSource}=await import('../lesson-introduction-media.js');
 const playerSource=app.slice(app.indexOf('function lessonIntroPlayer('),app.indexOf('async function openLessonIntroductionFromMenu('));
-const lessonIntroPlayer=new Function('esc','INTRO_MEDIA_VERSION',playerSource+'\nreturn lessonIntroPlayer;')(String,INTRO_MEDIA_VERSION);
+const lessonIntroPlayer=new Function('esc','introMediaSource',playerSource+'\nreturn lessonIntroPlayer;')(String,introMediaSource);
 for(let i=0;i<6;i++){
  const lesson=lessons[i], id=lessonIntroId(lesson.slot), data=JSON.parse(read('../production/scripts/'+id+'.json'));
  assert.equal(id,'S00'+(i+1));
@@ -31,6 +31,8 @@ for(let i=0;i<6;i++){
  assert(qa.decoded_successfully);
 }
 assert.equal(lessonIntroId(7),null);
+assert(introMediaSource("S008").movie.startsWith("https://github.com/"));
+assert(app.includes('loadIntroductionCatalogue()')&&read('../watch-lesson-intro.html').includes('playsinline'));
 assert(/function renderLessonOpening/.test(app));
 assert(/function renderSession/.test(app));
 assert(/activeStage=-1/.test(app));

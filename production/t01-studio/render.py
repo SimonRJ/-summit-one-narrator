@@ -15,6 +15,7 @@ import check_answer
 from chapter_films import COURSE_FILMS
 import guarantees
 import introduction_films
+import intro_story_draw
 import measure_interval
 import operation_order
 import prime_conditions
@@ -98,6 +99,8 @@ def estimated_timeline(lesson):
 def film_scenes(lesson):
     if lesson in introduction_films.FILMS:
         return introduction_films.FILMS[lesson], introduction_films.chapters(lesson)
+    if lesson.startswith("S"):
+        return intro_story_draw.movie(lesson)
     if lesson in LESSONS:
         return LESSONS[lesson], CHAPTERS[lesson]
     module = import_module(f"series_{lesson[1:3]}")
@@ -173,7 +176,7 @@ class Film:
             if ffmpeg.wait():
                 raise RuntimeError(f"FFmpeg failed to render {file}")
 
-        poster_scene = self.scenes[0 if self.timeline['id'] in introduction_films.FILMS else 3]
+        poster_scene = self.scenes[0 if self.timeline['id'].startswith("S") else 3]
         self.frame(poster_scene["speech_end"] - 0.15, captions=False).save(folder / "poster.jpg", quality=94)
         self.verify(file)
 
@@ -218,7 +221,8 @@ class Film:
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("lesson", choices=(*LESSONS, *COURSE_FILMS, *introduction_films.FILMS))
+    intro_scripts = sorted(path.stem for path in (ROOT / "production/scripts").glob("S[0-9][0-9][0-9].json"))
+    parser.add_argument("lesson", choices=(*LESSONS, *COURSE_FILMS, *intro_scripts))
     parser.add_argument("--preview", action="store_true")
     parser.add_argument("--estimate", action="store_true", help="Local storyboard timing only")
     args = parser.parse_args()

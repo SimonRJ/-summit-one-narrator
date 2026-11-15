@@ -16,8 +16,8 @@ import { problemFigure } from "./problem-figures.js";
 import {mountLessonPager} from "./lesson-pager.js?v=responsive-20261113";
 import {learningScreens} from "./lesson-screenflow.js?v=data-audit-20261114";
 import {buildCourseNavigation} from "./course-menu.js?v=menu-20261113";
-import {mountCourseMenu} from "./course-menu-ui.js?v=lesson-intros-v3";
-import {INTRO_MEDIA_VERSION,lessonIntroId} from "./lesson-introduction-media.js?v=lesson-intros-v3";
+import {mountCourseMenu} from "./course-menu-ui.js?v=lesson-intros-v4";
+import {introMediaSource,lessonIntroId,loadIntroductionCatalogue} from "./lesson-introduction-media.js?v=lesson-intros-v4";
 
 const app=document.getElementById("app");
 const problemTemplate=document.getElementById("problemTemplate");
@@ -165,6 +165,7 @@ async function boot(){
   try{
     user=await currentUser();
     if(!user){location.href="login.html";return}
+    const introCatalogue=loadIntroductionCatalogue();
     const [c,t,m,h,tax,ms,lm]=await Promise.all([fetch("data/sessions-372.json").then(r=>r.json()),fetch("data/teaching-72.json").then(r=>r.json()),fetch("data/mawa-investigations-20.json").then(r=>r.json()),fetch("data/rossmoyne-h23.json").then(r=>r.json()),fetch("data/taxonomy-52.json").then(r=>r.json()),fetch("data/milestones.json").then(r=>r.json()),fetch("data/lesson-challenges.json?v=upper-primary-audit-20261114").then(r=>r.json())]);
     course=c.sessions; teaching=t.items; mawa=m.items; rossMap=h.items; taxonomy=tax; milestones=ms;lessonManifest=lm.items;courseNavigation=buildCourseNavigation(course,taxonomy);
     const {data:problems,error}=await supabase.from("content_problems_student").select("id,source_type,title,source_label,category,difficulty,prompt,unit").eq("source_type","original_authored").order("id");
@@ -177,6 +178,7 @@ async function boot(){
     // Recover a completed session if the separate progress write lost its connection.
     let contiguous=0;while(completedRecords.some(r=>r.session_number===contiguous+1))contiguous++;
     if(contiguous>(progress.completed_sessions||0))progress=await saveProgress({completed_sessions:contiguous,current_session:Math.min(372,contiguous+1),xp:contiguous*100,rank:earnedRankBySessions(contiguous),overall_percent:contiguous/372*100});
+    await introCatalogue;
     wireNav();updateNavProgress(); const requestedView=new URLSearchParams(location.search).get("view");if(location.hash==="#repairs"||requestedView==="repairs")await openRepairs();else if(requestedView==="roadmap")await renderRoadmap();else if(requestedView==="review")await renderReview();else if(requestedView==="profile")await renderProfile();else if(requestedView==="technique")renderTechniqueRefresher();else renderHome();
   }catch(e){app.innerHTML='<section class="panel hero-panel"><h1>Unable to load Summit One</h1><p class="muted">'+esc(e.message)+'</p></section>'}
 }
@@ -214,9 +216,9 @@ async function openCompletedFromMenu(slot){
  if(details){details.open=true;details.scrollIntoView({behavior:"auto",block:"start"})}
 }
 function lessonIntroPlayer(id,title,elementId){
- const media="media/"+id+"-Intro";
+ const media=introMediaSource(id);
  return `<video id="${elementId}" controls playsinline preload="metadata"
-   poster="${media}-poster.jpg?v=${INTRO_MEDIA_VERSION}" src="${media}.mp4?v=${INTRO_MEDIA_VERSION}"
+   poster="${media.poster}" src="${media.movie}"
    aria-label="${esc(title)} · animated introduction with English captions"></video>`;
 }
 async function openLessonIntroductionFromMenu(slot){
@@ -235,6 +237,7 @@ async function openLessonIntroductionFromMenu(slot){
  document.body.classList.add("lesson-video-review");
  setLessonScreenTopbar();
  activeView="lesson-intro-review";
+ await loadIntroductionCatalogue();
  const introId=lessonIntroId(item.slot);
  const teaching=teachingFor(item)[0]||null;
  const openingFilm=openingConceptFilm(item.slot);
@@ -322,7 +325,7 @@ async function startSession(s){
  document.body.classList.remove("home-focus");
  const loadToken=window.SummitLoader?.beginSmall("Opening Session "+s.slot);
  try{
-  await refreshEvidence();
+  await Promise.all([refreshEvidence(),s.type==="LESSON"?loadIntroductionCatalogue():null]);
   activeStage=0;currentMawa=s.type==="MAWA"?mawa[(Math.floor(s.slot/7)-1)%mawa.length]:null;
   const {data:existing,error}=await supabase.from("session_records").select("*").eq("user_id",user.id).eq("session_number",s.slot).maybeSingle();if(error)throw error;
   if(existing?.immutable){await refreshEvidence();renderReview();return}
@@ -676,7 +679,7 @@ function renderWorkshop(s){
 }
 async function renderReview(){
  document.body.classList.remove("lesson-fullscreen","home-focus","lesson-video-review");
- activeView="review";await refreshEvidence();
+ activeView="review";await Promise.all([refreshEvidence(),loadIntroductionCatalogue()]);
  app.innerHTML=`<section class="panel hero-panel"><div class="eyebrow">YOUR MATHEMATICAL NOTEBOOK</div><h1>Completed sessions</h1><p class="muted">The original answers and working are locked. Use a fresh session to show new learning.</p>${[...completedRecords].reverse().map(r=>`<details class="review-detail" data-review-session="${r.session_number}"><summary>Session ${r.session_number} · ${esc(r.summary?.focus||course[r.session_number-1]?.focus||'')} <span class="type-chip">LOCKED</span></summary>${course[r.session_number-1]?.type==="LESSON"?`<button type="button" class="secondary saved-intro" data-video-session="${r.session_number}">${lessonIntroId(r.session_number)?"Watch introduction video":"Review lesson teaching"}</button>`:""}${r.summary?.takeaway?`<p><b>Key idea:</b> ${esc(r.summary.takeaway)}</p>`:""}${r.summary?.watch?`<p><b>Next time:</b> ${esc(r.summary.watch)}</p>`:""}${r.evidence?.mawa_base?.status?`<p>Mathematical investigation completed in a paper notebook. ${r.evidence.mawa_extension?.status?"Extension completed on paper.":""} Saved rubric scores are available above.</p>`:""}${Object.entries(r.answers||{}).map(([id,a])=>{
  const problem=problemIndex.find(entry=>entry.id===id);
  const learning=lessonManifest.find(entry=>entry.id===id);

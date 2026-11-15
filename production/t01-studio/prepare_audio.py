@@ -257,6 +257,8 @@ def prepare(lesson):
     script = json.loads((ROOT / f"production/scripts/{lesson}.json").read_text())
     build = BUILD / lesson
     build.mkdir(parents=True, exist_ok=True)
+    alignment_failure = build / "alignment-failure.json"
+    alignment_failure.unlink(missing_ok=True)
     model = WhisperModel("base.en", device="cpu", compute_type="int8", cpu_threads=2)
     audio = [np.zeros(round(0.6 * RATE), dtype="float32")]
     cursor = len(audio[0])
@@ -295,6 +297,11 @@ def prepare(lesson):
 
     average = sum(scene["match_percent"] for scene in scenes) / len(scenes)
     if average < 90 or min(scene["match_percent"] for scene in scenes) < 80:
+        limit = 90 if average < 90 else 80
+        alignment_failure.write_text(json.dumps({
+            "scenes": [scene["n"] for scene in scenes if scene["match_percent"] < limit],
+            "mean_match_percent": round(average, 2),
+        }) + "\n")
         for scene in scenes:
             if scene["match_percent"] < 90:
                 print(f"Review scene {scene['n']} ({scene['match_percent']:.2f}%): {scene['recognized_speech']}")
