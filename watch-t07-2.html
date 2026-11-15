@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10151d">
+<link rel="icon" href="icon.svg">
+<title>T07.2 · Explain why a promising choice is best · Summit One</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 25%, #192631, #0c121a 75%);
+  color: #f2f1ed; font: 1rem/1.55 system-ui, sans-serif;
+}
+main { max-width: 1120px; margin: auto; padding: clamp(18px, 4vw, 48px); }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.back { justify-content: space-between; gap: 8px 20px; }
+a { color: #9cdbbc; }
+h1 { max-width: 880px; margin: .25em 0 .45em; font-size: clamp(1.95rem, 5vw, 3.45rem); line-height: 1.12; }
+h2 { margin: 0; font-size: 1.2rem; }
+p { max-width: 55rem; color: #bac4cf; }
+.lesson { color: #9cdbbc; margin: 2rem 0 0; font-size: .88rem; font-weight: 700; }
+video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #10151d; border: 1px solid #354652; border-radius: 14px; }
+.meta { color: #bac4cf; margin: .65rem 0 0; }
+.chapters { margin: 1.2rem 0 1.6rem; }
+button {
+  cursor: pointer; min-height: 44px; border: 1px solid #405463; border-radius: 12px;
+  background: #1b2834; color: #eef2f4; font: inherit; padding: .5rem .8rem;
+}
+.exercise { background: #18232e; border: 1px solid #364756; border-radius: 16px; padding: 1.15rem; }
+summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
+.transcript { margin-top: 1rem; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+</style>
+</head>
+<body>
+<main>
+<nav class="back" aria-label="Lesson navigation">
+<a href="./">← Summit One</a><a href="teaching-videos.html">Teaching videos</a>
+</nav>
+<p class="lesson">T07.2</p>
+<h1>Explain why a promising choice is best</h1>
+<p>Explain why balanced parts give the largest product, and handle restrictions.</p>
+<video id="lesson" controls playsinline preload="metadata" aria-label="Explain why a promising choice is best"
+  poster="media/T07.2-studio-poster.jpg?v=teaching-films-v1">
+  <source src="media/T07.2.mp4?v=teaching-films-v1" type="video/mp4">
+</video>
+<p class="meta">2:00 · Full HD</p>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Equal sides enclose more area</button>
+<button type="button" data-time="12.920">0:12 · A pattern needs a reason</button>
+<button type="button" data-time="23.000">0:23 · Find the largest product with sum 12</button>
+<button type="button" data-time="33.380">0:33 · Products grow as their factors get closer</button>
+<button type="button" data-time="49.220">0:49 · The unequal rectangle loses a square</button>
+<button type="button" data-time="70.490">1:10 · If the numbers differ, try the closest pair</button>
+<button type="button" data-time="82.490">1:22 · Changing the number of parts changes the comparison</button>
+<button type="button" data-time="98.810">1:38 · Your turn</button></nav>
+<section class="exercise">
+<h2>Try it in your notebook</h2>
+<p>A rectangle with whole-number sides has perimeter 22. Largest possible area?</p>
+<details><summary>Check your reasoning</summary><p>Sides add to 11; 5 and 6 give area 30.</p></details>
+</section>
+<details class="transcript"><summary>Read the transcript</summary><p>Take a fixed length of fence and make a rectangle. A long thin rectangle encloses very little. As the sides become more equal, the area grows. Balanced parts give bigger products.</p>
+<p>You could discover this by trying examples. But in a competition you need to know it is always true, and what to do when perfect balance is not allowed.</p>
+<p>Two positive whole numbers add to twelve. What is the largest their product can be? Pause and try a few pairs.</p>
+<p>One and eleven give eleven. Two and ten give twenty. Three and nine, twenty-seven. Four and eight, thirty-two. Five and seven, thirty-five. Six and six give thirty-six. The product climbs as the numbers get closer.</p>
+<p>Here is why. Write the two numbers as six minus d and six plus d. Start with a six by six square. Move a strip from one side to the other. The pieces no longer fit: a small square of side d is missing. So the product is thirty-six minus d squared. The further from balance, the more you lose.</p>
+<p>Now add a restriction: the two numbers must be different. Six and six is no longer allowed. Choose the most balanced pair that is allowed, five and seven, giving thirty-five.</p>
+<p>The number of parts matters too. Three fours give a product of sixty-four. Four threes give eighty-one. Both splits are balanced within their own number of parts, but the second product is bigger. Check how many parts the question actually allows.</p>
+<p>For two positive parts with a fixed total, the most balanced pair gives the largest product. When a rule forbids perfect balance, get as close as the rule allows. Notebook challenge: a rectangle with whole-number sides has perimeter twenty-two. What is its largest possible area?</p></details>
+<p><a href="media/T07.2.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+</main>
+<script>
+const video = document.querySelector("#lesson");
+for (const button of document.querySelectorAll("[data-time]")) {
+  button.addEventListener("click", () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+    video.scrollIntoView({block: "center"});
+  });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10151d">
+<link rel="icon" href="icon.svg">
+<title>T06.3 · Turn contribution limits into a sharp bound · Summit One</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 25%, #192631, #0c121a 75%);
+  color: #f2f1ed; font: 1rem/1.55 system-ui, sans-serif;
+}
+main { max-width: 1120px; margin: auto; padding: clamp(18px, 4vw, 48px); }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.back { justify-content: space-between; gap: 8px 20px; }
+a { color: #9cdbbc; }
+h1 { max-width: 880px; margin: .25em 0 .45em; font-size: clamp(1.95rem, 5vw, 3.45rem); line-height: 1.12; }
+h2 { margin: 0; font-size: 1.2rem; }
+p { max-width: 55rem; color: #bac4cf; }
+.lesson { color: #9cdbbc; margin: 2rem 0 0; font-size: .88rem; font-weight: 700; }
+video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #10151d; border: 1px solid #354652; border-radius: 14px; }
+.meta { color: #bac4cf; margin: .65rem 0 0; }
+.chapters { margin: 1.2rem 0 1.6rem; }
+button {
+  cursor: pointer; min-height: 44px; border: 1px solid #405463; border-radius: 12px;
+  background: #1b2834; color: #eef2f4; font: inherit; padding: .5rem .8rem;
+}
+.exercise { background: #18232e; border: 1px solid #364756; border-radius: 16px; padding: 1.15rem; }
+summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
+.transcript { margin-top: 1rem; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+</style>
+</head>
+<body>
+<main>
+<nav class="back" aria-label="Lesson navigation">
+<a href="./">← Summit One</a><a href="teaching-videos.html">Teaching videos</a><a href="watch-t06-e.html">Next · Count the same structure from two directions →</a>
+</nav>
+<p class="lesson">T06.3</p>
+<h1>Turn contribution limits into a sharp bound</h1>
+<p>Turn &quot;each group uses up some of a limited supply&quot; into a maximum, then reach it.</p>
+<video id="lesson" controls playsinline preload="metadata" aria-label="Turn contribution limits into a sharp bound"
+  poster="media/T06.3-studio-poster.jpg?v=teaching-films-v1">
+  <source src="media/T06.3.mp4?v=teaching-films-v1" type="video/mp4">
+</video>
+<p class="meta">2:05 · Full HD</p>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · A supply limits how many groups fit</button>
+<button type="button" data-time="13.400">0:13 · A maximum needs two parts</button>
+<button type="button" data-time="24.120">0:24 · How many days can the pairs work?</button>
+<button type="button" data-time="42.490">0:42 · Count the total supply of pairs</button>
+<button type="button" data-time="52.420">0:52 · A schedule using all ten pairs</button>
+<button type="button" data-time="73.850">1:13 · Three-person groups change the limit</button>
+<button type="button" data-time="102.950">1:42 · Your turn</button></nav>
+<section class="exercise">
+<h2>Try it in your notebook</h2>
+<p>Six students; each day 3 games; no pair plays twice. Largest number of days?</p>
+<details><summary>Check your reasoning</summary><p>15 pairs / 3 per day = 5 days. One schedule for A to F is AF, BE, CD / AE, DF, BC / AD, CE, BF / AC, BD, EF / AB, CF, DE. Each day&#x27;s games are disjoint and each pair appears once.</p></details>
+</section>
+<details class="transcript"><summary>Read the transcript</summary><p>If every group uses up some of a limited supply, the supply limits how many groups you can have. Twelve tokens, three per group, means at most four groups. You know that before making a single group.</p>
+<p>This gives the first half of a &quot;largest possible&quot; answer: a ceiling. The second half is showing that the ceiling can actually be reached. A complete solution needs both.</p>
+<p>Five students are in a club. Each day, two pairs work together and one student rests. No two students may be partners more than once. What is the largest number of days this can continue? Pause and decide what is being used up.</p>
+<p>The supply is pairs of students. Five students form ten different pairs. Each day uses two new pairs. So there can be at most five days.</p>
+<p>Can five days really be done? Here is a schedule. Day one: A with B, C with D. Day two: A with C, B with E. Day three: A with D, C with E. Day four: A with E, B with D. Day five: B with C, D with E. All ten pairs appear exactly once.</p>
+<p>What if each group has three people? Counting pairs gives a ceiling of three groups. But any two legal groups must share exactly one person. Two triples cannot be disjoint among five people, and sharing two would repeat a pair. For a third group, using the shared person repeats a pair with any other person. Leaving that person out forces three choices from the two outer pairs, so one pair repeats. Two groups fit, and a third never does.</p>
+<p>Find the limited supply. Divide to get a ceiling. Then either build an example that reaches it, or explain why it cannot be reached. Notebook challenge: six students play chess, one game per pair at most. Each day three games are played. What is the largest possible number of days?</p></details>
+<p><a href="media/T06.3.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+</main>
+<script>
+const video = document.querySelector("#lesson");
+for (const button of document.querySelectorAll("[data-time]")) {
+  button.addEventListener("click", () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+    video.scrollIntoView({block: "center"});
+  });
+}
+</script>
+</body>
+</html>

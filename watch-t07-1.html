@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10151d">
+<link rel="icon" href="icon.svg">
+<title>T07.1 · Find a resource that every arrangement uses · Summit One</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 25%, #192631, #0c121a 75%);
+  color: #f2f1ed; font: 1rem/1.55 system-ui, sans-serif;
+}
+main { max-width: 1120px; margin: auto; padding: clamp(18px, 4vw, 48px); }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.back { justify-content: space-between; gap: 8px 20px; }
+a { color: #9cdbbc; }
+h1 { max-width: 880px; margin: .25em 0 .45em; font-size: clamp(1.95rem, 5vw, 3.45rem); line-height: 1.12; }
+h2 { margin: 0; font-size: 1.2rem; }
+p { max-width: 55rem; color: #bac4cf; }
+.lesson { color: #9cdbbc; margin: 2rem 0 0; font-size: .88rem; font-weight: 700; }
+video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #10151d; border: 1px solid #354652; border-radius: 14px; }
+.meta { color: #bac4cf; margin: .65rem 0 0; }
+.chapters { margin: 1.2rem 0 1.6rem; }
+button {
+  cursor: pointer; min-height: 44px; border: 1px solid #405463; border-radius: 12px;
+  background: #1b2834; color: #eef2f4; font: inherit; padding: .5rem .8rem;
+}
+.exercise { background: #18232e; border: 1px solid #364756; border-radius: 16px; padding: 1.15rem; }
+summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
+.transcript { margin-top: 1rem; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+</style>
+</head>
+<body>
+<main>
+<nav class="back" aria-label="Lesson navigation">
+<a href="./">← Summit One</a><a href="teaching-videos.html">Teaching videos</a><a href="watch-t07-2.html">Next · Explain why a promising choice is best →</a>
+</nav>
+<p class="lesson">T07.1</p>
+<h1>Find a resource that every arrangement uses</h1>
+<p>Prove a maximum by finding something limited that every arrangement must use.</p>
+<video id="lesson" controls playsinline preload="metadata" aria-label="Find a resource that every arrangement uses"
+  poster="media/T07.1-studio-poster.jpg?v=teaching-films-v1">
+  <source src="media/T07.1.mp4?v=teaching-films-v1" type="video/mp4">
+</video>
+<p class="meta">2:03 · Full HD</p>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · What resource limits the arrangement?</button>
+<button type="button" data-time="14.680">0:14 · Making four fit is only half the proof</button>
+<button type="button" data-time="25.720">0:25 · How many counters can fit?</button>
+<button type="button" data-time="43.450">0:43 · Each pair has room for at most one</button>
+<button type="button" data-time="57.370">0:57 · Reach the bound with separated counters</button>
+<button type="button" data-time="68.890">1:08 · An extra cell creates an extra place</button>
+<button type="button" data-time="84.250">1:24 · For a minimum, count what each counter covers</button>
+<button type="button" data-time="107.120">1:47 · Your turn</button></nav>
+<section class="exercise">
+<h2>Try it in your notebook</h2>
+<p>Largest number of counters in a row of 11 cells with no two in neighbouring cells?</p>
+<details><summary>Check your reasoning</summary><p>6 (five pairs plus one single cell; cells 1, 3, 5, 7, 9, 11).</p></details>
+</section>
+<details class="transcript"><summary>Read the transcript</summary><p>When a question asks for the largest possible number, trying examples is not enough. You need a reason why nobody could ever do better. That reason usually comes from something limited that every arrangement has to use.</p>
+<p>Finding a good arrangement shows what is possible. It does not show that it is the best. Without a proof of the limit, there is always the worry that a cleverer arrangement exists.</p>
+<p>Counters are placed in a row of eight cells, at most one per cell. No two counters may be in neighbouring cells. What is the largest number of counters that can be placed? Pause and try to find both an arrangement and a reason.</p>
+<p>Split the row into four pairs of neighbouring cells. Each pair can hold at most one counter, because two counters in a pair would be neighbours. Four pairs means at most four counters. That is the limit.</p>
+<p>Now reach the limit. Put counters in cells one, three, five and seven. No two are neighbours. So four is possible, and more than four is impossible. The largest number is four.</p>
+<p>With nine cells, there are four pairs and one cell left over. Each pair holds at most one counter and the extra cell holds at most one: at most five. And cells one, three, five, seven and nine achieve it.</p>
+<p>For a smallest-number question, turn the idea around: ask what every arrangement must cover. If every empty cell must be next to a counter, each counter can look after at most three cells, itself and its two neighbours. Eight cells need at least three counters. Cells two, five and eight give that coverage, so three is enough.</p>
+<p>Find what is limited. Use it to prove a limit. Then show an arrangement that reaches the limit. Notebook challenge: what is the largest number of counters in a row of eleven cells with no two neighbours?</p></details>
+<p><a href="media/T07.1.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+</main>
+<script>
+const video = document.querySelector("#lesson");
+for (const button of document.querySelectorAll("[data-time]")) {
+  button.addEventListener("click", () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+    video.scrollIntoView({block: "center"});
+  });
+}
+</script>
+</body>
+</html>

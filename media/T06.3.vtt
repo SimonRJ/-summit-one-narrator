@@ -1,0 +1,136 @@
+WEBVTT
+
+00:00:00.600 --> 00:00:03.170
+If every group uses up some of a limited supply,
+
+00:00:03.700 --> 00:00:05.970
+the supply limits how many groups you can have.
+
+00:00:06.480 --> 00:00:08.330
+Twelve tokens, three per group,
+
+00:00:08.500 --> 00:00:09.990
+means at most four groups.
+
+00:00:10.620 --> 00:00:12.630
+You know that before making a single group.
+
+00:00:13.400 --> 00:00:15.640
+This gives the first half of a "largest possible"
+
+00:00:15.640 --> 00:00:17.290
+answer: a ceiling.
+
+00:00:17.860 --> 00:00:20.020
+The second half is showing that the ceiling can
+
+00:00:20.020 --> 00:00:21.070
+actually be reached.
+
+00:00:21.580 --> 00:00:23.230
+A complete solution needs both.
+
+00:00:24.120 --> 00:00:25.690
+Five students are in a club.
+
+00:00:25.940 --> 00:00:29.350
+Each day, two pairs work together and one student rests.
+
+00:00:30.120 --> 00:00:32.510
+No two students may be partners more than once.
+
+00:00:33.240 --> 00:00:35.830
+What is the largest number of days this can continue?
+
+00:00:36.340 --> 00:00:38.670
+Pause and decide what is being used up.
+
+00:00:42.490 --> 00:00:44.200
+The supply is pairs of students.
+
+00:00:44.830 --> 00:00:46.820
+Five students form ten different pairs.
+
+00:00:47.470 --> 00:00:49.160
+Each day uses two new pairs.
+
+00:00:49.470 --> 00:00:51.360
+So there can be at most five days.
+
+00:00:52.420 --> 00:00:54.110
+Can five days really be done?
+
+00:00:54.560 --> 00:00:55.170
+Here is a schedule.
+
+00:00:55.880 --> 00:00:58.390
+Day one: A with B, C with D.
+
+00:00:58.980 --> 00:01:01.410
+Day two: A with C, B with E.
+
+00:01:02.100 --> 00:01:04.570
+Day three: A with D, C with E.
+
+00:01:05.100 --> 00:01:07.330
+Day four: A with E, B with D.
+
+00:01:07.900 --> 00:01:10.130
+Day five: B with C, D with E.
+
+00:01:10.600 --> 00:01:12.750
+All ten pairs appear exactly once.
+
+00:01:13.850 --> 00:01:15.840
+What if each group has three people?
+
+00:01:16.210 --> 00:01:18.640
+Counting pairs gives a ceiling of three groups.
+
+00:01:19.070 --> 00:01:22.740
+But any two legal groups must share exactly one person.
+
+00:01:23.230 --> 00:01:26.480
+Two triples cannot be disjoint among five people,
+
+00:01:26.730 --> 00:01:28.660
+and sharing two would repeat a pair.
+
+00:01:29.370 --> 00:01:32.110
+For a third group, using the shared person repeats a
+
+00:01:32.110 --> 00:01:33.560
+pair with any other person.
+
+00:01:33.850 --> 00:01:36.490
+Leaving that person out forces three choices from the
+
+00:01:36.490 --> 00:01:39.060
+two outer pairs, so one pair repeats.
+
+00:01:39.410 --> 00:01:41.980
+Two groups fit, and a third never does.
+
+00:01:42.950 --> 00:01:44.200
+Find the limited supply.
+
+00:01:45.030 --> 00:01:45.900
+Divide to get a ceiling.
+
+00:01:46.350 --> 00:01:48.540
+Then either build an example that reaches it,
+
+00:01:48.610 --> 00:01:50.540
+or explain why it cannot be reached.
+
+00:01:51.370 --> 00:01:53.760
+Notebook challenge: six students play chess,
+
+00:01:54.390 --> 00:01:55.580
+one game per pair at most.
+
+00:01:56.390 --> 00:01:57.820
+Each day three games are played.
+
+00:01:58.390 --> 00:02:00.480
+What is the largest possible number of days?

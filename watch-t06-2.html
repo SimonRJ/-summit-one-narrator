@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10151d">
+<link rel="icon" href="icon.svg">
+<title>T06.2 · Give each component its contribution · Summit One</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 25%, #192631, #0c121a 75%);
+  color: #f2f1ed; font: 1rem/1.55 system-ui, sans-serif;
+}
+main { max-width: 1120px; margin: auto; padding: clamp(18px, 4vw, 48px); }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.back { justify-content: space-between; gap: 8px 20px; }
+a { color: #9cdbbc; }
+h1 { max-width: 880px; margin: .25em 0 .45em; font-size: clamp(1.95rem, 5vw, 3.45rem); line-height: 1.12; }
+h2 { margin: 0; font-size: 1.2rem; }
+p { max-width: 55rem; color: #bac4cf; }
+.lesson { color: #9cdbbc; margin: 2rem 0 0; font-size: .88rem; font-weight: 700; }
+video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #10151d; border: 1px solid #354652; border-radius: 14px; }
+.meta { color: #bac4cf; margin: .65rem 0 0; }
+.chapters { margin: 1.2rem 0 1.6rem; }
+button {
+  cursor: pointer; min-height: 44px; border: 1px solid #405463; border-radius: 12px;
+  background: #1b2834; color: #eef2f4; font: inherit; padding: .5rem .8rem;
+}
+.exercise { background: #18232e; border: 1px solid #364756; border-radius: 16px; padding: 1.15rem; }
+summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
+.transcript { margin-top: 1rem; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+</style>
+</head>
+<body>
+<main>
+<nav class="back" aria-label="Lesson navigation">
+<a href="./">← Summit One</a><a href="teaching-videos.html">Teaching videos</a><a href="watch-t06-3.html">Next · Turn contribution limits into a sharp bound →</a>
+</nav>
+<p class="lesson">T06.2</p>
+<h1>Give each component its contribution</h1>
+<p>Add several measurements so that each unknown appears equally often.</p>
+<video id="lesson" controls playsinline preload="metadata" aria-label="Give each component its contribution"
+  poster="media/T06.2-studio-poster.jpg?v=teaching-films-v1">
+  <source src="media/T06.2.mp4?v=teaching-films-v1" type="video/mp4">
+</video>
+<p class="meta">1:53 · Full HD</p>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Measure boxes in pairs</button>
+<button type="button" data-time="11.960">0:11 · Find the total first</button>
+<button type="button" data-time="22.370">0:22 · What does each box weigh?</button>
+<button type="button" data-time="40.580">0:40 · Add the readings and count each box</button>
+<button type="button" data-time="56.420">0:56 · Subtract the pair that excludes the box</button>
+<button type="button" data-time="68.420">1:08 · Check all three original weighings</button>
+<button type="button" data-time="76.750">1:16 · Sometimes the counts are unequal</button>
+<button type="button" data-time="95.140">1:35 · Your turn</button></nav>
+<section class="exercise">
+<h2>Try it in your notebook</h2>
+<p>Three numbers added in pairs give 17, 20 and 23. Find them.</p>
+<details><summary>Check your reasoning</summary><p>Total (17 + 20 + 23) / 2 = 30; the numbers are 7, 10 and 13.</p></details>
+</section>
+<details class="transcript"><summary>Read the transcript</summary><p>Sometimes you cannot measure things one at a time. You only know totals of pairs. The useful trick is to add all the measurements and ask how many times each unknown has been counted.</p>
+<p>This replaces trial and error with one clean step. Instead of guessing the three values, you find their total first, and everything else follows by subtraction.</p>
+<p>Three boxes are weighed in pairs. The first and second weigh ten kilograms together. The second and third weigh fourteen. The first and third weigh twelve. How heavy is each box? Pause and try adding all three readings.</p>
+<p>Add the three readings: ten plus fourteen plus twelve is thirty-six. Look at the table. Each box was on the scales exactly twice. So thirty-six is twice the total weight, and the three boxes weigh eighteen kilograms altogether.</p>
+<p>Now subtract. The second and third weigh fourteen, so the first weighs eighteen minus fourteen, which is four. In the same way the second weighs six and the third weighs eight.</p>
+<p>Check every reading. Four and six make ten. Six and eight make fourteen. Four and eight make twelve.</p>
+<p>Watch for unequal counting. In a triangle puzzle where each side has a total, the corner numbers lie on two sides, but the middle numbers lie on only one. Adding the three side totals counts corners twice and middles once. You must keep track of that difference, not ignore it.</p>
+<p>Add the measurements. Count how often each unknown appears. Then subtract to separate them. Notebook challenge: three numbers are added in pairs to give seventeen, twenty and twenty-three. What are the three numbers?</p></details>
+<p><a href="media/T06.2.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+</main>
+<script>
+const video = document.querySelector("#lesson");
+for (const button of document.querySelectorAll("[data-time]")) {
+  button.addEventListener("click", () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+    video.scrollIntoView({block: "center"});
+  });
+}
+</script>
+</body>
+</html>

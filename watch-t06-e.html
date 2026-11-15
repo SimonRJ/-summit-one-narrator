@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10151d">
+<link rel="icon" href="icon.svg">
+<title>T06.E · Count the same structure from two directions · Summit One</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 25%, #192631, #0c121a 75%);
+  color: #f2f1ed; font: 1rem/1.55 system-ui, sans-serif;
+}
+main { max-width: 1120px; margin: auto; padding: clamp(18px, 4vw, 48px); }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.back { justify-content: space-between; gap: 8px 20px; }
+a { color: #9cdbbc; }
+h1 { max-width: 880px; margin: .25em 0 .45em; font-size: clamp(1.95rem, 5vw, 3.45rem); line-height: 1.12; }
+h2 { margin: 0; font-size: 1.2rem; }
+p { max-width: 55rem; color: #bac4cf; }
+.lesson { color: #9cdbbc; margin: 2rem 0 0; font-size: .88rem; font-weight: 700; }
+video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #10151d; border: 1px solid #354652; border-radius: 14px; }
+.meta { color: #bac4cf; margin: .65rem 0 0; }
+.chapters { margin: 1.2rem 0 1.6rem; }
+button {
+  cursor: pointer; min-height: 44px; border: 1px solid #405463; border-radius: 12px;
+  background: #1b2834; color: #eef2f4; font: inherit; padding: .5rem .8rem;
+}
+.exercise { background: #18232e; border: 1px solid #364756; border-radius: 16px; padding: 1.15rem; }
+summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
+.transcript { margin-top: 1rem; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+</style>
+</head>
+<body>
+<main>
+<nav class="back" aria-label="Lesson navigation">
+<a href="./">← Summit One</a><a href="teaching-videos.html">Teaching videos</a><a href="watch-t07-1.html">Next · Find a resource that every arrangement uses →</a>
+</nav>
+<p class="lesson">T06.E · Worked example</p>
+<h1>Count the same structure from two directions</h1>
+<p>Worked example: find a perimeter by removing edges that were counted twice.</p>
+<video id="lesson" controls playsinline preload="metadata" aria-label="Count the same structure from two directions"
+  poster="media/T06.E-studio-poster.jpg?v=teaching-films-v1">
+  <source src="media/T06.E.mp4?v=teaching-films-v1" type="video/mp4">
+</video>
+<p class="meta">1:15 · Full HD</p>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Push four unit tiles together</button>
+<button type="button" data-time="14.170">0:14 · Count all the tile edges</button>
+<button type="button" data-time="20.100">0:20 · Find the four inside joins</button>
+<button type="button" data-time="30.030">0:30 · Remove the two reports at each join</button>
+<button type="button" data-time="41.390">0:41 · Rearranging the same tiles changes the boundary</button>
+<button type="button" data-time="57.870">0:57 · Your turn</button></nav>
+<section class="exercise">
+<h2>Try it in your notebook</h2>
+<p>Find the perimeter of six unit squares arranged in a 2 by 3 rectangle, using joins.</p>
+<details><summary>Check your reasoning</summary><p>24 edges, 7 joins: 24 - 14 = 10.</p></details>
+</section>
+<details class="transcript"><summary>Read the transcript</summary><p>Four square tiles, each with side one, are pushed together to make a two by two square. What is the perimeter of the large square? We will find it by counting tile edges.</p>
+<p>Separately, each tile has four edges. Four tiles report sixteen edges altogether.</p>
+<p>When the tiles are joined, some edges end up inside. There are four inside joins: two along the vertical middle line and two along the horizontal middle line.</p>
+<p>Each inside join was reported by both tiles beside it. So remove two reports for each of the four joins. Sixteen minus eight is eight. The perimeter is eight.</p>
+<p>Check directly: the big square has side two, and four times two is eight. Now rearrange the tiles in a single row. There are only three joins, so the perimeter is sixteen minus six, which is ten. Fewer joins means a longer perimeter.</p>
+<p>The outside perimeter is the total of all tile edges, minus two for every join. Rebuild this argument, then find the perimeter of six unit squares arranged in a two by three rectangle.</p></details>
+<p><a href="media/T06.E.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+</main>
+<script>
+const video = document.querySelector("#lesson");
+for (const button of document.querySelectorAll("[data-time]")) {
+  button.addEventListener("click", () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+    video.scrollIntoView({block: "center"});
+  });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+WEBVTT
+
+00:00:00.600 --> 00:00:02.830
+Four square tiles, each with side one,
+
+00:00:02.960 --> 00:00:05.470
+are pushed together to make a two by two square.
+
+00:00:06.060 --> 00:00:07.950
+What is the perimeter of the large square?
+
+00:00:08.400 --> 00:00:10.330
+We will find it by counting tile edges.
+
+00:00:14.170 --> 00:00:16.380
+Separately, each tile has four edges.
+
+00:00:16.910 --> 00:00:19.060
+Four tiles report sixteen edges altogether.
+
+00:00:20.100 --> 00:00:22.670
+When the tiles are joined, some edges end up inside.
+
+00:00:23.480 --> 00:00:26.380
+There are four inside joins: two along the vertical
+
+00:00:26.380 --> 00:00:29.210
+middle line and two along the horizontal middle line.
+
+00:00:30.030 --> 00:00:33.640
+Each inside join was reported by both tiles beside it.
+
+00:00:34.070 --> 00:00:36.460
+So remove two reports for each of the four joins.
+
+00:00:37.390 --> 00:00:38.740
+Sixteen minus eight is eight.
+
+00:00:39.290 --> 00:00:40.520
+The perimeter is eight.
+
+00:00:41.390 --> 00:00:44.300
+Check directly: the big square has side two,
+
+00:00:44.550 --> 00:00:46.280
+and four times two is eight.
+
+00:00:46.790 --> 00:00:49.000
+Now rearrange the tiles in a single row.
+
+00:00:49.610 --> 00:00:52.470
+There are only three joins, so the perimeter is sixteen
+
+00:00:52.470 --> 00:00:54.320
+minus six, which is ten.
+
+00:00:55.050 --> 00:00:56.700
+Fewer joins means a longer perimeter.
+
+00:00:57.870 --> 00:01:01.360
+The outside perimeter is the total of all tile edges,
+
+00:01:01.590 --> 00:01:03.200
+minus two for every join.
+
+00:01:03.930 --> 00:01:06.730
+Rebuild this argument, then find the perimeter of six
+
+00:01:06.730 --> 00:01:09.700
+unit squares arranged in a two by three rectangle.

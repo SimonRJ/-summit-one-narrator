@@ -1,0 +1,92 @@
+{
+  "id": "T07.2",
+  "duration_seconds": 120.933333,
+  "sha256": "4cfaf9e55cb51f866e01fe66e51ac49f2d61ce8a7dd701f46d99be3cbf14a80d",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 97.7,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "match_percent": 96.77
+    },
+    {
+      "number": 2,
+      "start": 12.92,
+      "match_percent": 100.0
+    },
+    {
+      "number": 3,
+      "start": 23.0,
+      "match_percent": 100.0
+    },
+    {
+      "number": 4,
+      "start": 33.38,
+      "match_percent": 100.0
+    },
+    {
+      "number": 5,
+      "start": 49.22,
+      "match_percent": 91.67
+    },
+    {
+      "number": 6,
+      "start": 70.49,
+      "match_percent": 100.0
+    },
+    {
+      "number": 7,
+      "start": 82.49,
+      "match_percent": 93.18
+    },
+    {
+      "number": 8,
+      "start": 98.81,
+      "match_percent": 100.0
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Equal sides enclose more area",
+      "start": 0.0
+    },
+    {
+      "title": "A pattern needs a reason",
+      "start": 12.92
+    },
+    {
+      "title": "Find the largest product with sum 12",
+      "start": 23.0
+    },
+    {
+      "title": "Products grow as their factors get closer",
+      "start": 33.38
+    },
+    {
+      "title": "The unequal rectangle loses a square",
+      "start": 49.22
+    },
+    {
+      "title": "If the numbers differ, try the closest pair",
+      "start": 70.49
+    },
+    {
+      "title": "Changing the number of parts changes the comparison",
+      "start": 82.49
+    },
+    {
+      "title": "Your turn",
+      "start": 98.81
+    }
+  ],
+  "decoded_successfully": true
+}

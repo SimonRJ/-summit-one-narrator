@@ -1,0 +1,133 @@
+WEBVTT
+
+00:00:00.600 --> 00:00:03.670
+When a question asks for the largest possible number,
+
+00:00:03.840 --> 00:00:05.790
+trying examples is not enough.
+
+00:00:06.340 --> 00:00:08.730
+You need a reason why nobody could ever do better.
+
+00:00:09.240 --> 00:00:12.040
+That reason usually comes from something limited that
+
+00:00:12.040 --> 00:00:13.670
+every arrangement has to use.
+
+00:00:14.680 --> 00:00:16.950
+Finding a good arrangement shows what is possible.
+
+00:00:17.640 --> 00:00:19.350
+It does not show that it is the best.
+
+00:00:19.900 --> 00:00:22.560
+Without a proof of the limit, there is always the worry
+
+00:00:22.560 --> 00:00:24.530
+that a cleverer arrangement exists.
+
+00:00:25.720 --> 00:00:28.290
+Counters are placed in a row of eight cells,
+
+00:00:28.640 --> 00:00:29.950
+at most one per cell.
+
+00:00:30.460 --> 00:00:32.790
+No two counters may be in neighbouring cells.
+
+00:00:33.480 --> 00:00:35.540
+What is the largest number of counters that
+
+00:00:35.540 --> 00:00:36.190
+can be placed?
+
+00:00:36.760 --> 00:00:39.670
+Pause and try to find both an arrangement and a reason.
+
+00:00:43.450 --> 00:00:46.380
+Split the row into four pairs of neighbouring cells.
+
+00:00:47.030 --> 00:00:48.950
+Each pair can hold at most one counter,
+
+00:00:48.950 --> 00:00:51.800
+because two counters in a pair would be neighbours.
+
+00:00:52.650 --> 00:00:55.060
+Four pairs means at most four counters.
+
+00:00:55.670 --> 00:00:56.440
+That is the limit.
+
+00:00:57.370 --> 00:00:58.260
+Now reach the limit.
+
+00:00:58.610 --> 00:01:01.240
+Put counters in cells one, three, five and seven.
+
+00:01:01.510 --> 00:01:02.520
+No two are neighbours.
+
+00:01:03.070 --> 00:01:05.740
+So four is possible, and more than four is impossible.
+
+00:01:06.650 --> 00:01:08.000
+The largest number is four.
+
+00:01:08.890 --> 00:01:11.770
+With nine cells, there are four pairs and one
+
+00:01:11.770 --> 00:01:12.920
+cell left over.
+
+00:01:13.510 --> 00:01:16.610
+Each pair holds at most one counter and the extra cell
+
+00:01:16.610 --> 00:01:18.960
+holds at most one: at most five.
+
+00:01:19.330 --> 00:01:23.360
+And cells one, three, five, seven and nine achieve it.
+
+00:01:24.250 --> 00:01:27.460
+For a smallest-number question, turn the idea around:
+
+00:01:28.030 --> 00:01:30.120
+ask what every arrangement must cover.
+
+00:01:30.770 --> 00:01:33.280
+If every empty cell must be next to a counter,
+
+00:01:33.590 --> 00:01:36.200
+each counter can look after at most three cells,
+
+00:01:36.450 --> 00:01:38.080
+itself and its two neighbours.
+
+00:01:39.270 --> 00:01:41.050
+Eight cells need at least three counters.
+
+00:01:41.050 --> 00:01:44.560
+Cells two, five and eight give that coverage,
+
+00:01:45.030 --> 00:01:46.160
+so three is enough.
+
+00:01:47.120 --> 00:01:48.150
+Find what is limited.
+
+00:01:48.700 --> 00:01:49.830
+Use it to prove a limit.
+
+00:01:50.140 --> 00:01:52.350
+Then show an arrangement that reaches the limit.
+
+00:01:52.940 --> 00:01:55.580
+Notebook challenge: what is the largest number of
+
+00:01:55.580 --> 00:01:57.660
+counters in a row of eleven cells with
+
+00:01:57.660 --> 00:01:58.410
+no two neighbours?

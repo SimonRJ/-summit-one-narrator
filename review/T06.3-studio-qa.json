@@ -1,0 +1,83 @@
+{
+  "id": "T06.3",
+  "duration_seconds": 125.866667,
+  "sha256": "9f9d8fd1001243ee181cb2f15febad2c3733faa7bde0889c720de9989c7fb7ef",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 99.36,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "match_percent": 100.0
+    },
+    {
+      "number": 2,
+      "start": 13.4,
+      "match_percent": 100.0
+    },
+    {
+      "number": 3,
+      "start": 24.12,
+      "match_percent": 100.0
+    },
+    {
+      "number": 4,
+      "start": 42.49,
+      "match_percent": 96.15
+    },
+    {
+      "number": 5,
+      "start": 52.42,
+      "match_percent": 100.0
+    },
+    {
+      "number": 6,
+      "start": 73.85,
+      "match_percent": 99.37
+    },
+    {
+      "number": 7,
+      "start": 102.95,
+      "match_percent": 100.0
+    }
+  ],
+  "chapters": [
+    {
+      "title": "A supply limits how many groups fit",
+      "start": 0.0
+    },
+    {
+      "title": "A maximum needs two parts",
+      "start": 13.4
+    },
+    {
+      "title": "How many days can the pairs work?",
+      "start": 24.12
+    },
+    {
+      "title": "Count the total supply of pairs",
+      "start": 42.49
+    },
+    {
+      "title": "A schedule using all ten pairs",
+      "start": 52.42
+    },
+    {
+      "title": "Three-person groups change the limit",
+      "start": 73.85
+    },
+    {
+      "title": "Your turn",
+      "start": 102.95
+    }
+  ],
+  "decoded_successfully": true
+}
