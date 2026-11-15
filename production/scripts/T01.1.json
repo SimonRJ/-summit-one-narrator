@@ -5,53 +5,65 @@
  "type": "concept",
  "status": "script_ready_not_recorded",
  "voice": "Voice C (VoxCPM2), natural speed (see docs/VIDEO_PRODUCTION.md)",
- "goal": "Attach a meaning and a unit to every number before calculating.",
- "narration_words": 298,
- "estimated_minutes": 2.0,
+ "goal": "Attach a meaning and a unit to every quantity before calculating.",
+ "narration_words": 422,
+ "estimated_minutes": 2.8,
  "scenes": [
   {
    "n": 1,
    "stage": "INSIGHT",
-   "visual": "Matte dark stage. Three plain number tiles 4, 3, 2 float with no labels. One by one a small tag slides under each: \"packets\", \"counters in each packet\", \"loose counters\".",
-   "narration": "Every number in a maths question has a job. One number might count packets, another might count what is inside each packet, and another might count loose items. Before you calculate anything, give each number a label that says what it counts, and what unit it is measured in."
+   "visual": "Three tiles carry 4, 3 and 2. Each number gains its label as a ceramic packet or counter comes into view.",
+   "narration": "When a maths problem gives you three numbers, each number can do a different job. One might count packets. Another might tell you how many counters fit in each packet. The third might count counters on their own. Give every number its job before you calculate."
   },
   {
    "n": 2,
    "stage": "WHY",
-   "visual": "Two worked lines side by side. Left: 4 + 3 + 2 = 9, greyed, with a small cross. Right: the same tiles with their tags. Tags pulse gently.",
-   "narration": "Why bother? In competition maths, it is easy to do the arithmetic correctly and still answer the wrong question. If you add packets to counters, the sum looks tidy, but it means nothing. Labels stop that mistake before it starts."
+   "visual": "Keep the request visible. Build 4 + 3 + 2 = 9 from the tiles, then lift the different unit labels to expose the invalid addition.",
+   "narration": "Start with the question: how many counters altogether? That tells us the unit of our answer. Four plus three plus two gives nine, but we would be adding a packet count to two different descriptions of counters. Give each quantity its label and ask what it would take to get everything into counters."
   },
   {
    "n": 3,
    "stage": "PUZZLE",
-   "visual": "Four ceramic packets appear, each with three counters visible through a window, plus two loose counters. Question text: \"How many counters altogether?\" Hold two seconds.",
-   "narration": "Here is a small puzzle. Mia has four packets. Each packet holds three counters. She also has two loose counters. How many counters does she have altogether? Pause and decide what each number is doing."
+   "visual": "Four ceramic packets appear in turn, each with three counters visible inside. Two blue loose counters slide in alongside. Hold the complete diagram and the question.",
+   "narration": "Mia has four packets of counters. Each packet contains three counters, and Mia has two loose counters as well. How many counters does she have altogether? Before you work it out, point to what the four, the three and the two each describe."
   },
   {
    "n": 4,
    "stage": "DEVELOP",
-   "visual": "The four packets open; their counters slide out into four rows of three. Equation builds: 4 packets x 3 counters per packet = 12 counters.",
-   "narration": "The four counts packets, and the three counts counters in each packet. Packets times counters per packet gives counters. Four times three is twelve counters."
+   "visual": "Packet lids lift and fourteen objects retain their identities. The twelve gold counters settle into four rows of three. Build 4 packets × 3 counters per packet = 12 counters.",
+   "narration": "Four tells us how many groups there are. Three tells us the size of every group. Open the first packet and you can see three counters. Open the others and the same group repeats. Four groups of three give twelve counters. Multiplication gives the counter total for the packets."
   },
   {
    "n": 5,
    "stage": "DEVELOP",
-   "visual": "The two loose counters join the twelve. Equation: 12 counters + 2 counters = 14 counters. The word \"counters\" lines up vertically in both terms.",
-   "narration": "The two is already a number of counters, so it can be added directly. Twelve counters plus two counters is fourteen counters. Notice we only added things with the same label."
+   "visual": "Two loose blue counters slide below the twelve gold counters. Combine the two labelled quantities and outline all fourteen.",
+   "narration": "The two loose counters are already in the unit we want. Slide them into the collection. Now we are adding twelve counters and two counters, and the total is fourteen counters. Check it in the picture: four rows of three, and two beside them."
   },
   {
    "n": 6,
    "stage": "VARIATION",
-   "visual": "New strip of page numbers 95 to 105. The digit 9 highlights wherever it appears. Two counters at the side: \"numbers containing a 9\" and \"9s written\".",
-   "narration": "Now a different trap. Pages are numbered from ninety-five to one hundred and five. How many times is the digit nine written? Five page numbers contain a nine: ninety-five to ninety-nine. But ninety-nine contains it twice. So the digit nine is written six times. \"Numbers containing a nine\" and \"nines written\" are different jobs, and the question tells you which one it wants."
+   "visual": "Place proportional ribbons of 2 m and 30 cm on a common length scale. Relabel the first as 200 cm and join them end to end to show 230 cm.",
+   "narration": "The same idea works with measurements. One ribbon is two metres long, and another is thirty centimetres long. How much ribbon is there altogether? Two metres is two hundred centimetres. Both lengths are now in centimetres, so together they measure two hundred and thirty centimetres."
   },
   {
    "n": 7,
+   "stage": "VARIATION",
+   "visual": "A page-number strip from 95 to 105 builds in two rows. Introduce the question and let the learner scan the full range.",
+   "narration": "A number can have a different job even when it uses the same digits. Think of a book with pages numbered ninety-five through one hundred and five. In just that range, how many times is the digit nine written? Look across the page numbers and find each printed nine."
+  },
+  {
+   "n": 8,
+   "stage": "VARIATION",
+   "visual": "Highlight each page containing a 9. Transfer each highlighted glyph to its own position in a second row. Show five pages and six written nines.",
+   "narration": "Five page numbers contain a nine: ninety-five, ninety-six, ninety-seven, ninety-eight and ninety-nine. The last page number on that list contains two nines. Its first nine counts once and its second nine counts once. There are six written nines in all."
+  },
+  {
+   "n": 9,
    "stage": "RECAP",
-   "visual": "Three short lines appear in turn: \"Read the request\", \"Label every number\", \"Only combine matching labels\".",
-   "narration": "So here is the method. Read what the answer must describe. Give every number a label and a unit. Then only add or compare quantities whose labels match. In your notebook, try this one: a shelf holds six boxes, each box holds eight pencils, and five pencils are broken. How many pencils are not broken?"
+   "visual": "Rebuild the three-step method, then show six closed boxes of eight pencils each and the full notebook prompt.",
+   "narration": "Read the final question. Label each number with what it counts or measures. Bring quantities into a common unit when you need to add them. Here is your notebook challenge. Six boxes hold eight pencils each. Five pencils are broken. How many unbroken pencils are there? Label the quantities and show your calculation."
   }
  ],
- "notebook_exercise": "A shelf holds 6 boxes, each with 8 pencils; 5 pencils are broken. How many pencils are not broken?",
- "notebook_answer": "6 x 8 = 48 pencils; 48 - 5 = 43 pencils."
+ "notebook_exercise": "A shelf holds 6 boxes, each with 8 pencils. Five pencils are broken. How many unbroken pencils are there?",
+ "notebook_answer": "6 × 8 = 48 pencils and 48 − 5 = 43 unbroken pencils."
 }

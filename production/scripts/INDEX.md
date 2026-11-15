@@ -8,8 +8,8 @@ Scripts ready: 70 of 72. Approved videos: 2. Not yet scripted: 0.
 
 | ID | Title | Type | Status | Length | File |
 |---|---|---|---|---|---|
-| T01.1 | Give every quantity a job | concept | script ready | 298 words, about 2.0 min | [T01.1.json](T01.1.json) |
-| T01.2 | Choose a representation that exposes the relationship | concept | script ready | 332 words, about 2.2 min | [T01.2.json](T01.2.json) |
+| T01.1 | Give every quantity a job | concept | script ready | 422 words, about 2.8 min | [T01.1.json](T01.1.json) |
+| T01.2 | Choose a representation that exposes the relationship | concept | script ready | 451 words, about 3.0 min | [T01.2.json](T01.2.json) |
 | T01.3 | Use the model to check the answer | concept | script ready | 293 words, about 2.0 min | [T01.3.json](T01.3.json) |
 | T01.E | Read the question into a useful model | worked_example | script ready | 197 words, about 1.3 min | [T01.E.json](T01.E.json) |
 | T02.1 | Find an invariant by inspecting one move | concept | approved video | | Approved studio edition already published (media/T02.1.mp4). Keep its audio unchanged. |
