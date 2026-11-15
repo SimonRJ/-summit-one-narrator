@@ -1,8 +1,8 @@
-name: Summit One T01.3 and T01.E Voice C
+name: Summit One ruler positions Voice C clarification
 
 on:
   push:
-    branches: [codex/t01-chapter-finish]
+    branches: [codex/t01-ruler-clarification]
     paths:
       - 'production/scripts/T01.3.json'
       - 'production/scripts/T01.E.json'
@@ -24,8 +24,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        lesson: ['T01.3', 'T01.E']
-        scene: [1, 2, 3, 4, 5, 6, 7, 8]
+        lesson: ['T01.E']
+        scene: [2]
     env:
       HF_HUB_DISABLE_XET: '1'
       TOKENIZERS_PARALLELISM: 'false'
