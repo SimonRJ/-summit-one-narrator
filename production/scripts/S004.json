@@ -1,0 +1,67 @@
+{
+  "id": "S004",
+  "course_slot": 4,
+  "title": "Digits, zero and positional constraints",
+  "scenes": [
+    {
+      "n": 1,
+      "stage": "INTRO",
+      "narration": "Welcome to digits, zero and positional constraints. In a digit puzzle, moving just one card can change a number's size and whether it passes a rule. Imagine the places as separate slots, each with its own job."
+    },
+    {
+      "n": 2,
+      "stage": "EXAM",
+      "narration": "Look for clues about the first digit, the last digit, and whether cards may repeat. Those restrictions can turn a messy AMC search into a short list. In a Rossmoyne style counting puzzle, you can explain why your cases cover every possible number."
+    },
+    {
+      "n": 3,
+      "stage": "PUZZLE",
+      "narration": "Use the digit cards zero, four and seven once each. Make the smallest three-digit number. Where should zero go? Decide which place matters most for making the number small."
+    },
+    {
+      "n": 4,
+      "stage": "BASIC",
+      "narration": "The hundreds place has the biggest effect, and a three-digit number needs a nonzero digit there. Four is our smallest choice. Put zero in the tens and seven in the units. The number is four hundred and seven. Putting zero first would leave a two-digit number."
+    },
+    {
+      "n": 5,
+      "stage": "PUZZLE",
+      "narration": "Use zero, two and five once each. How many three-digit even numbers can you make? This time the units place is the one with the tightest rule. Start there and consider each allowed ending separately."
+    },
+    {
+      "n": 6,
+      "stage": "MEDIUM",
+      "narration": "A final zero leaves two and five free to swap, making two hundred and fifty and five hundred and twenty. A final two leaves zero and five. Five must come first, giving five hundred and two. Our two cases give three numbers altogether."
+    },
+    {
+      "n": 7,
+      "stage": "PUZZLE",
+      "narration": "Make a five-digit number from zero, one, two, four and six, using each card once. The number must exceed forty thousand and be divisible by four. How many numbers work? Split the puzzle by the first card and the final pair."
+    },
+    {
+      "n": 8,
+      "stage": "HARD",
+      "narration": "The first digit is four or six. Divisibility by four depends on the final pair because one hundred is divisible by four. Group the possible endings by their last digit. Ending in zero gives twenty, forty and sixty. Ending in two gives twelve. Ending in four gives zero four, twenty-four and sixty-four. Ending in six gives sixteen."
+    },
+    {
+      "n": 9,
+      "stage": "HARD",
+      "narration": "With four first, cross out endings containing four. Four endings remain. With six first, cross out endings containing six. Five endings remain. After choosing the first digit and the ending, two cards are left for the middle. They can go in either order."
+    },
+    {
+      "n": 10,
+      "stage": "HARD",
+      "narration": "The first case gives four times two, or eight. The second gives five times two, or ten. Add them for eighteen numbers. For example, sixty-one thousand two hundred and four ends in zero four. The hundreds before it make multiples of four, and so does that final four."
+    },
+    {
+      "n": 11,
+      "stage": "MISTAKES",
+      "narration": "Zero is allowed inside the number or at the end. It cannot go at the very start of a five-digit number. Cross out any ending containing the card already used at the front. Finally, remember to count the ways of placing the middle cards."
+    },
+    {
+      "n": 12,
+      "stage": "RECAP",
+      "narration": "On a timed paper, mark the places with the strongest rules first. Case-split once, use a table if it helps, and check that every number sits in exactly one case. You can use the same method whenever a question combines size, divisibility and rules about using digits."
+    }
+  ]
+}

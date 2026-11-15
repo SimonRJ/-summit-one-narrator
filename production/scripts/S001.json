@@ -1,0 +1,67 @@
+{
+  "id": "S001",
+  "course_slot": 1,
+  "title": "Divisibility tests and modular remainders",
+  "scenes": [
+    {
+      "n": 1,
+      "stage": "INTRO",
+      "narration": "Welcome to divisibility and remainders. A remainder is what is left after you have made as many equal groups as you can. That tiny number can tell you when a cycle repeats or which of several numbers can possibly be the answer."
+    },
+    {
+      "n": 2,
+      "stage": "EXAM",
+      "narration": "In AMC Upper Primary practice, look for clues such as divides evenly, left over, and repeats every. In a Rossmoyne style number puzzle, several clues can apply to the same number. We will turn each clue into a test."
+    },
+    {
+      "n": 3,
+      "stage": "PUZZLE",
+      "narration": "Start with thirty-eight stickers. Each full packet holds six. How many full packets can you make, and how many stickers are left? Picture filling the packets one at a time."
+    },
+    {
+      "n": 4,
+      "stage": "BASIC",
+      "narration": "Six packets use thirty-six stickers, leaving two. One more packet would need six stickers, so two is the remainder. We can record the whole story in one equation. Thirty-eight equals six times six plus two."
+    },
+    {
+      "n": 5,
+      "stage": "PUZZLE",
+      "narration": "Now pick one of these four numbers. It must be divisible by four and leave remainder two when divided by three. Which test would let you throw out choices fastest?"
+    },
+    {
+      "n": 6,
+      "stage": "MEDIUM",
+      "narration": "Every hundred is a multiple of four, so test the last two digits. Twenty-four and twelve are multiples of four. Forty-two and twenty-one are out. One hundred and twenty-four is one past a multiple of three. Two hundred and twelve is two past two hundred and ten, so it fits both clues."
+    },
+    {
+      "n": 7,
+      "stage": "PUZZLE",
+      "narration": "Here is a harder puzzle. A blue beacon flashes at minute two and every six minutes after that. A gold beacon flashes at minute five and every nine minutes after that. When do they flash together strictly between minutes one hundred and two hundred, at a multiple of five?"
+    },
+    {
+      "n": 8,
+      "stage": "HARD",
+      "narration": "List a few early flashes. Blue goes at two, eight, and fourteen. Gold goes at five and fourteen. They first meet at fourteen. From there, both beacons return together every eighteen minutes, the smallest positive time that is a multiple of six and nine."
+    },
+    {
+      "n": 9,
+      "stage": "HARD",
+      "narration": "Add eighteen repeatedly. Just below our range is eighty-six. Inside it we get one hundred and four, one hundred and twenty-two, one hundred and forty, one hundred and fifty-eight, one hundred and seventy-six, and one hundred and ninety-four. Only one ends in zero or five. One hundred and forty is the answer."
+    },
+    {
+      "n": 10,
+      "stage": "HARD",
+      "narration": "Check from the start. One hundred and forty minus two is one hundred and thirty-eight, or twenty-three cycles of six. One hundred and forty minus five is one hundred and thirty-five, or fifteen cycles of nine. And one hundred and forty is twenty-eight times five."
+    },
+    {
+      "n": 11,
+      "stage": "MISTAKES",
+      "narration": "When one cycle is six and the other is nine, adding the periods gives fifteen. Use the smallest common multiple, eighteen. Also remember that divisible means remainder zero. Finally, keep your search inside the interval the question gives you."
+    },
+    {
+      "n": 12,
+      "stage": "RECAP",
+      "narration": "On an exam, write the remainders next to their divisors and combine the clues one at a time. Check your answer against every original condition. For a Mawa style investigation, ask what changing one starting minute would do to the meetings."
+    }
+  ]
+}

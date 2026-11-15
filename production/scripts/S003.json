@@ -1,0 +1,62 @@
+{
+  "id": "S003",
+  "course_slot": 3,
+  "title": "Working backwards through operations",
+  "scenes": [
+    {
+      "n": 1,
+      "stage": "INTRO",
+      "narration": "Welcome to working backwards. Some problems tell you how a value changed but hide the starting point. As soon as you know where the story ends, you can walk back along its steps if each change can be undone."
+    },
+    {
+      "n": 2,
+      "stage": "EXAM",
+      "narration": "An AMC question can describe a number machine, a shrinking pile, or money spent in stages. A Rossmoyne style puzzle may ask you to explain why the starting amount is forced. Reverse the steps and replay them forward as a check."
+    },
+    {
+      "n": 3,
+      "stage": "PUZZLE",
+      "narration": "A number machine multiplies the input by four. Then it adds seven. Its output is thirty-one. What was the input? Ask yourself which step touched the result last."
+    },
+    {
+      "n": 4,
+      "stage": "BASIC",
+      "narration": "The last forward step added seven. Undo it first. Thirty-one minus seven is twenty-four. Then undo multiplying by four by dividing by four. The input is six. Run six forward. Four times six is twenty-four, and adding seven brings us to thirty-one."
+    },
+    {
+      "n": 5,
+      "stage": "PUZZLE",
+      "narration": "Sam gives away one third of her stamps. Later she receives seven stamps and ends up with twenty-five. How many did she have at the start? After undoing the gift, think about which fraction of the original pile is still there."
+    },
+    {
+      "n": 6,
+      "stage": "MEDIUM",
+      "narration": "Remove the seven received stamps. Eighteen stamps were left before the gift. That is two of the original three equal parts. Eighteen divided by two is nine stamps per part. Three parts is twenty-seven. Check by giving away nine and then adding seven."
+    },
+    {
+      "n": 7,
+      "stage": "PUZZLE",
+      "narration": "A player stops at three stations. At each station they hand over half the tickets they have at that moment, and then two more tickets. After the third station they have five tickets. How many did they start with?"
+    },
+    {
+      "n": 8,
+      "stage": "HARD",
+      "narration": "Start at the third station. Add back the last two tickets. Seven tickets were left just after the pile was halved. Double seven to restore fourteen. That was the pile on arrival at the third station. You can use the same reverse rule again."
+    },
+    {
+      "n": 9,
+      "stage": "HARD",
+      "narration": "At the second station, fourteen plus two is sixteen. Double it to get thirty-two. At the first station, thirty-two plus two is thirty-four. Double it to get sixty-eight. Check forward. Halve and subtract two three times, passing through thirty-two, fourteen and finally five."
+    },
+    {
+      "n": 10,
+      "stage": "MISTAKES",
+      "narration": "Watch the order. Doubling five and then adding two gives twelve. When twelve goes forward through the station, the result is four, so that route fails. Also watch what the fraction is taken from. Each station uses the pile currently in front of it."
+    },
+    {
+      "n": 11,
+      "stage": "RECAP",
+      "narration": "On an exam, circle what you know at the end. Draw the forward arrows, and write the inverse operations on the way back. Label what each fraction refers to. Then run your starting value forward through the story to check every stage."
+    }
+  ]
+}

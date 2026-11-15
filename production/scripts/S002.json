@@ -1,0 +1,62 @@
+{
+  "id": "S002",
+  "course_slot": 2,
+  "title": "Place-value decomposition and estimation",
+  "scenes": [
+    {
+      "n": 1,
+      "stage": "INTRO",
+      "narration": "Welcome to place value and estimation. A number close to a round number can be easier to tackle in two pieces. Work with the round part first, then account for the difference. Keep an estimate in mind to check the size of the answer."
+    },
+    {
+      "n": 2,
+      "stage": "EXAM",
+      "narration": "In AMC Upper Primary practice, an estimate can rule out options whose sizes make little sense. When a Rossmoyne style problem asks for an exact difference, keep the small adjustments visible so every bit of the answer is accounted for."
+    },
+    {
+      "n": 3,
+      "stage": "PUZZLE",
+      "narration": "Add three thousand nine hundred and eighty-six and two thousand and forty-seven. First think about the total to the nearest thousand. Then see whether you can get the exact sum without lining up every digit."
+    },
+    {
+      "n": 4,
+      "stage": "BASIC",
+      "narration": "The nearby thousands are four thousand and two thousand, giving an estimate of six thousand. The first number is fourteen below its round number. The second is forty-seven above. The total is therefore thirty-three above six thousand, giving six thousand and thirty-three."
+    },
+    {
+      "n": 5,
+      "stage": "PUZZLE",
+      "narration": "Multiply forty-nine by twenty-eight. Imagine forty-nine rows of twenty-eight squares. How could we turn that shape into a rectangle whose area is easier to work out? Remember to keep track of any row you add."
+    },
+    {
+      "n": 6,
+      "stage": "MEDIUM",
+      "narration": "Add one row to make fifty rows. Fifty times twenty-eight is fourteen hundred, since fifty is half of a hundred. The extra row contains twenty-eight squares. Take it away and get one thousand three hundred and seventy-two. An estimate of about fifteen hundred puts it in the right neighbourhood."
+    },
+    {
+      "n": 7,
+      "stage": "PUZZLE",
+      "narration": "A theatre has thirty-seven rows of forty-eight seats. The owner adds four seats to each existing row and builds two new rows. Each new row has fifty-two seats. After taking two hundred and fifty additional bookings, how many of the added seats are still free?"
+    },
+    {
+      "n": 8,
+      "stage": "HARD",
+      "narration": "Start with the old seating block. Attach four seats to each of the thirty-seven rows. That strip has one hundred and forty-eight seats. Now attach the two new rows across the full width. Two times fifty-two gives one hundred and four seats, including the corner."
+    },
+    {
+      "n": 9,
+      "stage": "HARD",
+      "narration": "Add the two strips. One hundred and forty-eight plus one hundred and four is two hundred and fifty-two. Remove two hundred and fifty for the bookings. Two seats are free. You can also check by subtracting the old total from the new total."
+    },
+    {
+      "n": 10,
+      "stage": "MISTAKES",
+      "narration": "If you extend all thirty-nine rows by four and also count two new rows of fifty-two, the corner's eight seats get counted twice. Another common mistake is adding an adjustment you meant to remove. Mark each change with a plus or minus before calculating."
+    },
+    {
+      "n": 11,
+      "stage": "RECAP",
+      "narration": "On an exam, estimate first so you have a target. Then split the calculation into tidy parts. If lengths or rows change, sketch the old block and shade each new part once. Read the question again to see whether it wants an estimate or the exact amount."
+    }
+  ]
+}
