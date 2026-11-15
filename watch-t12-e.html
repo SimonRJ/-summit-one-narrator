@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10151d">
+<link rel="icon" href="icon.svg">
+<title>T12.E · Use angle relationships and exact geometric facts · Summit One</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 25%, #192631, #0c121a 75%);
+  color: #f2f1ed; font: 1rem/1.55 system-ui, sans-serif;
+}
+main { max-width: 1120px; margin: auto; padding: clamp(18px, 4vw, 48px); }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.back { justify-content: space-between; gap: 8px 20px; }
+a { color: #9cdbbc; }
+h1 { max-width: 880px; margin: .25em 0 .45em; font-size: clamp(1.95rem, 5vw, 3.45rem); line-height: 1.12; }
+h2 { margin: 0; font-size: 1.2rem; }
+p { max-width: 55rem; color: #bac4cf; }
+.lesson { color: #9cdbbc; margin: 2rem 0 0; font-size: .88rem; font-weight: 700; }
+video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #10151d; border: 1px solid #354652; border-radius: 14px; }
+.meta { color: #bac4cf; margin: .65rem 0 0; }
+.chapters { margin: 1.2rem 0 1.6rem; }
+button {
+  cursor: pointer; min-height: 44px; border: 1px solid #405463; border-radius: 12px;
+  background: #1b2834; color: #eef2f4; font: inherit; padding: .5rem .8rem;
+}
+.exercise { background: #18232e; border: 1px solid #364756; border-radius: 16px; padding: 1.15rem; }
+summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
+.transcript { margin-top: 1rem; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+</style>
+</head>
+<body>
+<main>
+<nav class="back" aria-label="Lesson navigation">
+<a href="./">← Summit One</a><a href="teaching-videos.html">Teaching videos</a><a href="watch-t13-1.html">Next · Use bases, heights and complementary regions →</a>
+</nav>
+<p class="lesson">T12.E · Worked example</p>
+<h1>Use angle relationships and exact geometric facts</h1>
+<p>Worked example: the angle outside a triangle.</p>
+<video id="lesson" controls playsinline preload="metadata" aria-label="Use angle relationships and exact geometric facts"
+  poster="media/T12.E-studio-poster.jpg?v=teaching-films-v1">
+  <source src="media/T12.E.mp4?v=teaching-films-v1" type="video/mp4">
+</video>
+<p class="meta">1:28 · Full HD</p>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Find the angle outside the triangle</button>
+<button type="button" data-time="18.970">0:18 · Find the remaining inside angle</button>
+<button type="button" data-time="31.300">0:31 · The two angles at C share a straight line</button>
+<button type="button" data-time="45.380">0:45 · The two far interior angles add to the outside angle</button>
+<button type="button" data-time="57.860">0:57 · Change the shape and check the relationship</button>
+<button type="button" data-time="71.770">1:11 · Your turn</button></nav>
+<section class="exercise">
+<h2>Try it in your notebook</h2>
+<p>A triangle&#x27;s two far interior angles are 35 and 80 degrees. Find the exterior angle.</p>
+<details><summary>Check your reasoning</summary><p>35 + 80 = 115 degrees.</p></details>
+</section>
+<details class="transcript"><summary>Read the transcript</summary><p>Triangle A B C has an angle of forty-eight degrees at A and sixty-seven degrees at B. The side B C is extended beyond C to a point D. Find the angle A C D, the angle outside the triangle.</p>
+<p>First find the angle inside the triangle at C. The three angles total one hundred and eighty. One hundred and eighty minus forty-eight minus sixty-seven is sixty-five degrees.</p>
+<p>B, C and D lie on a straight line. The inside angle and the outside angle at C together make one hundred and eighty. So the outside angle is one hundred and eighty minus sixty-five: one hundred and fifteen degrees.</p>
+<p>Notice that forty-eight plus sixty-seven is also one hundred and fifteen. That is no accident. The outside angle of a triangle always equals the sum of the two inside angles furthest from it.</p>
+<p>Check with a different triangle. If the far angles were sixty and fifty-five, the inside angle at C would be sixty-five again, and the outside angle one hundred and fifteen. The shortcut and the long method agree.</p>
+<p>The outside angle equals the sum of the two far inside angles. Rebuild this argument, then find the outside angle when the far angles are thirty-five and eighty degrees.</p></details>
+<p><a href="media/T12.E.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+</main>
+<script>
+const video = document.querySelector("#lesson");
+for (const button of document.querySelectorAll("[data-time]")) {
+  button.addEventListener("click", () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+    video.scrollIntoView({block: "center"});
+  });
+}
+</script>
+</body>
+</html>

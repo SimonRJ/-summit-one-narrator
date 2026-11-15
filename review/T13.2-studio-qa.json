@@ -1,0 +1,92 @@
+{
+  "id": "T13.2",
+  "duration_seconds": 118.066667,
+  "sha256": "03494bd8e053d32cbd9d125ddc093b431448eb0112f26da1e22a70047496a9b5",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 98.53,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "match_percent": 100.0
+    },
+    {
+      "number": 2,
+      "start": 12.6,
+      "match_percent": 100.0
+    },
+    {
+      "number": 3,
+      "start": 22.05,
+      "match_percent": 93.1
+    },
+    {
+      "number": 4,
+      "start": 34.66,
+      "match_percent": 100.0
+    },
+    {
+      "number": 5,
+      "start": 51.62,
+      "match_percent": 100.0
+    },
+    {
+      "number": 6,
+      "start": 66.5,
+      "match_percent": 95.15
+    },
+    {
+      "number": 7,
+      "start": 84.1,
+      "match_percent": 100.0
+    },
+    {
+      "number": 8,
+      "start": 94.51,
+      "match_percent": 100.0
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Cuts affect area and perimeter differently",
+      "start": 0.0
+    },
+    {
+      "title": "The same area can have different perimeters",
+      "start": 12.6
+    },
+    {
+      "title": "Cut a unit square from the corner",
+      "start": 22.05
+    },
+    {
+      "title": "Two old edges are replaced by two new edges",
+      "start": 34.66
+    },
+    {
+      "title": "An edge notch adds two to the perimeter",
+      "start": 51.62
+    },
+    {
+      "title": "Doubling lengths quadruples the area",
+      "start": 66.5
+    },
+    {
+      "title": "Volume scales in three directions",
+      "start": 84.1
+    },
+    {
+      "title": "Your turn",
+      "start": 94.51
+    }
+  ],
+  "decoded_successfully": true
+}

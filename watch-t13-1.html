@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10151d">
+<link rel="icon" href="icon.svg">
+<title>T13.1 · Use bases, heights and complementary regions · Summit One</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 25%, #192631, #0c121a 75%);
+  color: #f2f1ed; font: 1rem/1.55 system-ui, sans-serif;
+}
+main { max-width: 1120px; margin: auto; padding: clamp(18px, 4vw, 48px); }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.back { justify-content: space-between; gap: 8px 20px; }
+a { color: #9cdbbc; }
+h1 { max-width: 880px; margin: .25em 0 .45em; font-size: clamp(1.95rem, 5vw, 3.45rem); line-height: 1.12; }
+h2 { margin: 0; font-size: 1.2rem; }
+p { max-width: 55rem; color: #bac4cf; }
+.lesson { color: #9cdbbc; margin: 2rem 0 0; font-size: .88rem; font-weight: 700; }
+video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #10151d; border: 1px solid #354652; border-radius: 14px; }
+.meta { color: #bac4cf; margin: .65rem 0 0; }
+.chapters { margin: 1.2rem 0 1.6rem; }
+button {
+  cursor: pointer; min-height: 44px; border: 1px solid #405463; border-radius: 12px;
+  background: #1b2834; color: #eef2f4; font: inherit; padding: .5rem .8rem;
+}
+.exercise { background: #18232e; border: 1px solid #364756; border-radius: 16px; padding: 1.15rem; }
+summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
+.transcript { margin-top: 1rem; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+</style>
+</head>
+<body>
+<main>
+<nav class="back" aria-label="Lesson navigation">
+<a href="./">← Summit One</a><a href="teaching-videos.html">Teaching videos</a><a href="watch-t13-2.html">Next · Separate boundary change from scale change →</a>
+</nav>
+<p class="lesson">T13.1</p>
+<h1>Use bases, heights and complementary regions</h1>
+<p>Find areas using a base with its perpendicular height, and by subtracting simpler regions.</p>
+<video id="lesson" controls playsinline preload="metadata" aria-label="Use bases, heights and complementary regions"
+  poster="media/T13.1-studio-poster.jpg?v=teaching-films-v1">
+  <source src="media/T13.1.mp4?v=teaching-films-v1" type="video/mp4">
+</video>
+<p class="meta">2:12 · Full HD</p>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Two equal triangles give a parallelogram</button>
+<button type="button" data-time="17.560">0:17 · The height is perpendicular to the base</button>
+<button type="button" data-time="30.360">0:30 · Three triangles share a base and height</button>
+<button type="button" data-time="48.250">0:48 · Sliding the top corner preserves the area</button>
+<button type="button" data-time="66.490">1:06 · Use an enclosing rectangle</button>
+<button type="button" data-time="82.650">1:22 · Remove the three outer triangles</button>
+<button type="button" data-time="95.620">1:35 · A triangle can be half the rectangle</button>
+<button type="button" data-time="109.860">1:49 · Your turn</button></nav>
+<section class="exercise">
+<h2>Try it in your notebook</h2>
+<p>A triangle has base 10 cm and area 35 square cm. Find its height.</p>
+<details><summary>Check your reasoning</summary><p>Half of 10 times height is 35, so the height is 7 cm.</p></details>
+</section>
+<details class="transcript"><summary>Read the transcript</summary><p>Two identical triangles fit together to make a parallelogram, and a parallelogram has the same area as a rectangle with the same base and height. So a triangle&#x27;s area is half its base times its height. The height must be measured straight up from the base, at a right angle.</p>
+<p>The most common error is using a slanted side as the height. The second most common is trying to measure an awkward shape directly, when it would be far easier to subtract simple shapes from a rectangle.</p>
+<p>Three triangles share a base of eight centimetres. Their top corners lie at different places along a line parallel to the base, five centimetres above it. Which triangle has the largest area? Pause and think about the height of each.</p>
+<p>Every one of them has height five, because the top corners are all five centimetres above the base. Half of eight times five is twenty. All three have the same area: twenty square centimetres. Sliding the top corner along a parallel line changes the shape, but not the area.</p>
+<p>Now an awkward triangle inside a six by four rectangle. Its sides are all slanted. Do not attack it directly. The rectangle has area twenty-four. Around the triangle are three right-angled triangles, with areas nine, four and two.</p>
+<p>Those three take up fifteen. Twenty-four minus fifteen leaves nine. The awkward triangle has area nine square centimetres. Subtracting the surroundings is called using the complement.</p>
+<p>One more useful fact. Join any point on the top edge of a rectangle to both bottom corners. The triangle has the rectangle&#x27;s base and the rectangle&#x27;s height, so it is always exactly half the rectangle, wherever the point is.</p>
+<p>Half base times perpendicular height. Triangles with the same base and height have the same area. For awkward shapes, subtract from a rectangle. Notebook challenge: a triangle has base ten centimetres and area thirty-five square centimetres. What is its height?</p></details>
+<p><a href="media/T13.1.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+</main>
+<script>
+const video = document.querySelector("#lesson");
+for (const button of document.querySelectorAll("[data-time]")) {
+  button.addEventListener("click", () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+    video.scrollIntoView({block: "center"});
+  });
+}
+</script>
+</body>
+</html>

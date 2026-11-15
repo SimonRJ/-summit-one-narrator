@@ -1,0 +1,92 @@
+{
+  "id": "T13.3",
+  "duration_seconds": 119.033333,
+  "sha256": "7fead578dafd3ef1c535d44deafad9cbcebe6d32538c5b632b64673351759d55",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 98.68,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "match_percent": 98.55
+    },
+    {
+      "number": 2,
+      "start": 12.44,
+      "match_percent": 100.0
+    },
+    {
+      "number": 3,
+      "start": 21.89,
+      "match_percent": 100.0
+    },
+    {
+      "number": 4,
+      "start": 34.99,
+      "match_percent": 100.0
+    },
+    {
+      "number": 5,
+      "start": 46.67,
+      "match_percent": 96.61
+    },
+    {
+      "number": 6,
+      "start": 66.66,
+      "match_percent": 100.0
+    },
+    {
+      "number": 7,
+      "start": 84.26,
+      "match_percent": 98.46
+    },
+    {
+      "number": 8,
+      "start": 97.38,
+      "match_percent": 95.83
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Separate a block into layers",
+      "start": 0.0
+    },
+    {
+      "title": "Some cubes are hidden",
+      "start": 12.44
+    },
+    {
+      "title": "Count the unit cubes in the block",
+      "start": 21.89
+    },
+    {
+      "title": "Two layers of twelve make twenty-four",
+      "start": 34.99
+    },
+    {
+      "title": "Paint reaches only the outside",
+      "start": 46.67
+    },
+    {
+      "title": "Every cube belongs to one surface class",
+      "start": 66.66
+    },
+    {
+      "title": "Count uneven layers as they are",
+      "start": 84.26
+    },
+    {
+      "title": "Your turn",
+      "start": 97.38
+    }
+  ],
+  "decoded_successfully": true
+}

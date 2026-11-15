@@ -1,0 +1,92 @@
+{
+  "id": "T13.1",
+  "duration_seconds": 132.133333,
+  "sha256": "f941cf5944869274bdb6151774bf83e79ede38c18d15a4561d3c78d53d3713c8",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 98.89,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "match_percent": 98.0
+    },
+    {
+      "number": 2,
+      "start": 17.56,
+      "match_percent": 100.0
+    },
+    {
+      "number": 3,
+      "start": 30.36,
+      "match_percent": 100.0
+    },
+    {
+      "number": 4,
+      "start": 48.25,
+      "match_percent": 100.0
+    },
+    {
+      "number": 5,
+      "start": 66.49,
+      "match_percent": 95.0
+    },
+    {
+      "number": 6,
+      "start": 82.65,
+      "match_percent": 98.11
+    },
+    {
+      "number": 7,
+      "start": 95.62,
+      "match_percent": 100.0
+    },
+    {
+      "number": 8,
+      "start": 109.86,
+      "match_percent": 100.0
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Two equal triangles give a parallelogram",
+      "start": 0.0
+    },
+    {
+      "title": "The height is perpendicular to the base",
+      "start": 17.56
+    },
+    {
+      "title": "Three triangles share a base and height",
+      "start": 30.36
+    },
+    {
+      "title": "Sliding the top corner preserves the area",
+      "start": 48.25
+    },
+    {
+      "title": "Use an enclosing rectangle",
+      "start": 66.49
+    },
+    {
+      "title": "Remove the three outer triangles",
+      "start": 82.65
+    },
+    {
+      "title": "A triangle can be half the rectangle",
+      "start": 95.62
+    },
+    {
+      "title": "Your turn",
+      "start": 109.86
+    }
+  ],
+  "decoded_successfully": true
+}

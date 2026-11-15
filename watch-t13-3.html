@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10151d">
+<link rel="icon" href="icon.svg">
+<title>T13.3 · Count hidden pieces through layers and boundaries · Summit One</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 25%, #192631, #0c121a 75%);
+  color: #f2f1ed; font: 1rem/1.55 system-ui, sans-serif;
+}
+main { max-width: 1120px; margin: auto; padding: clamp(18px, 4vw, 48px); }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.back { justify-content: space-between; gap: 8px 20px; }
+a { color: #9cdbbc; }
+h1 { max-width: 880px; margin: .25em 0 .45em; font-size: clamp(1.95rem, 5vw, 3.45rem); line-height: 1.12; }
+h2 { margin: 0; font-size: 1.2rem; }
+p { max-width: 55rem; color: #bac4cf; }
+.lesson { color: #9cdbbc; margin: 2rem 0 0; font-size: .88rem; font-weight: 700; }
+video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #10151d; border: 1px solid #354652; border-radius: 14px; }
+.meta { color: #bac4cf; margin: .65rem 0 0; }
+.chapters { margin: 1.2rem 0 1.6rem; }
+button {
+  cursor: pointer; min-height: 44px; border: 1px solid #405463; border-radius: 12px;
+  background: #1b2834; color: #eef2f4; font: inherit; padding: .5rem .8rem;
+}
+.exercise { background: #18232e; border: 1px solid #364756; border-radius: 16px; padding: 1.15rem; }
+summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
+.transcript { margin-top: 1rem; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+</style>
+</head>
+<body>
+<main>
+<nav class="back" aria-label="Lesson navigation">
+<a href="./">← Summit One</a><a href="teaching-videos.html">Teaching videos</a>
+</nav>
+<p class="lesson">T13.3</p>
+<h1>Count hidden pieces through layers and boundaries</h1>
+<p>Count cubes in a solid by layers, including the ones you cannot see.</p>
+<video id="lesson" controls playsinline preload="metadata" aria-label="Count hidden pieces through layers and boundaries"
+  poster="media/T13.3-studio-poster.jpg?v=teaching-films-v1">
+  <source src="media/T13.3.mp4?v=teaching-films-v1" type="video/mp4">
+</video>
+<p class="meta">1:59 · Full HD</p>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Separate a block into layers</button>
+<button type="button" data-time="12.440">0:12 · Some cubes are hidden</button>
+<button type="button" data-time="21.890">0:21 · Count the unit cubes in the block</button>
+<button type="button" data-time="34.990">0:34 · Two layers of twelve make twenty-four</button>
+<button type="button" data-time="46.670">0:46 · Paint reaches only the outside</button>
+<button type="button" data-time="66.660">1:06 · Every cube belongs to one surface class</button>
+<button type="button" data-time="84.260">1:24 · Count uneven layers as they are</button>
+<button type="button" data-time="97.380">1:37 · Your turn</button></nav>
+<section class="exercise">
+<h2>Try it in your notebook</h2>
+<p>A 4 by 4 by 4 cube is painted and cut into unit cubes. How many have no paint?</p>
+<details><summary>Check your reasoning</summary><p>The inner 2 by 2 by 2 block: 8.</p></details>
+</section>
+<details class="transcript"><summary>Read the transcript</summary><p>A drawing of a solid only shows some of its cubes. The rest are hidden behind or underneath. To count them all, slice the solid into layers. Count one layer, then count the layers.</p>
+<p>Counting only visible cubes can miss part of a solid. Counting layer by layer is reliable, and it also answers questions about which cubes are on the outside.</p>
+<p>A solid block is four cubes long, three cubes wide and two cubes high. How many small cubes does it contain? Pause and picture one layer.</p>
+<p>One layer is four by three, which is twelve cubes. There are two layers, so the block contains twenty-four cubes. Half of them are in the bottom layer, including some that were hidden in the drawing.</p>
+<p>Now a harder question. A three by three by three cube is painted all over, then cut into twenty-seven small cubes. How many have no paint at all? Only a cube that touches no outside face. Peel off the outer layer in every direction, and a single cube is left in the very centre. The answer is one.</p>
+<p>You can sort all twenty-seven. Eight corner cubes have three painted faces. Twelve cubes along the edges have two. Six in the middle of each face have one. One in the centre has none. Eight, twelve, six and one make twenty-seven, so nothing is missing.</p>
+<p>Layers also handle uneven solids. A corner staircase has nine cubes on the bottom layer, four on the next and one on top: fourteen altogether. Count each layer as it really is.</p>
+<p>Slice the solid into layers. Include the hidden cubes. If you sort the cubes into types, check that the types add up to the total. Notebook challenge: a four by four by four cube is painted and cut into small cubes. How many small cubes have no paint?</p></details>
+<p><a href="media/T13.3.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+</main>
+<script>
+const video = document.querySelector("#lesson");
+for (const button of document.querySelectorAll("[data-time]")) {
+  button.addEventListener("click", () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+    video.scrollIntoView({block: "center"});
+  });
+}
+</script>
+</body>
+</html>

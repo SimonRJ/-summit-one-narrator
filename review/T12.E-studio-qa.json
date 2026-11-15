@@ -1,0 +1,74 @@
+{
+  "id": "T12.E",
+  "duration_seconds": 88.3,
+  "sha256": "5323ee692eb55266cd5e3ad8ec436e5f417a9dc177f2aa7266ddf7ae02f63ed4",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 97.68,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "match_percent": 86.08
+    },
+    {
+      "number": 2,
+      "start": 18.97,
+      "match_percent": 100.0
+    },
+    {
+      "number": 3,
+      "start": 31.3,
+      "match_percent": 100.0
+    },
+    {
+      "number": 4,
+      "start": 45.38,
+      "match_percent": 100.0
+    },
+    {
+      "number": 5,
+      "start": 57.86,
+      "match_percent": 100.0
+    },
+    {
+      "number": 6,
+      "start": 71.77,
+      "match_percent": 100.0
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Find the angle outside the triangle",
+      "start": 0.0
+    },
+    {
+      "title": "Find the remaining inside angle",
+      "start": 18.97
+    },
+    {
+      "title": "The two angles at C share a straight line",
+      "start": 31.3
+    },
+    {
+      "title": "The two far interior angles add to the outside angle",
+      "start": 45.38
+    },
+    {
+      "title": "Change the shape and check the relationship",
+      "start": 57.86
+    },
+    {
+      "title": "Your turn",
+      "start": 71.77
+    }
+  ],
+  "decoded_successfully": true
+}
