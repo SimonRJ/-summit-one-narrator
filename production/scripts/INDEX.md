@@ -54,11 +54,11 @@ Scripts ready: 56 of 72. Published for review: 14. Approved videos: 2. Not yet s
 | T11.E | Make every digit obey both its jobs | worked_example | script ready | 166 words, about 1.1 min | [T11.E.json](T11.E.json) |
 | T12.1 | Build an angle chain from dependable facts | concept | script ready | 316 words, about 2.1 min | [T12.1.json](T12.1.json) |
 | T12.2 | Connect angles on a circle to the arcs they see | concept | script ready | 367 words, about 2.4 min | [T12.2.json](T12.2.json) |
-| T12.3 | Use coordinates or extra lines to make a proof visible | concept | script ready | 315 words, about 2.1 min | [T12.3.json](T12.3.json) |
+| T12.3 | Use coordinates or extra lines to make a proof visible | concept | script ready | 313 words, about 2.1 min | [T12.3.json](T12.3.json) |
 | T12.E | Use angle relationships and exact geometric facts | worked_example | script ready | 207 words, about 1.4 min | [T12.E.json](T12.E.json) |
 | T13.1 | Use bases, heights and complementary regions | concept | script ready | 320 words, about 2.1 min | [T13.1.json](T13.1.json) |
 | T13.2 | Separate boundary change from scale change | concept | script ready | 300 words, about 2.0 min | [T13.2.json](T13.2.json) |
-| T13.3 | Count hidden pieces through layers and boundaries | concept | script ready | 304 words, about 2.0 min | [T13.3.json](T13.3.json) |
+| T13.3 | Count hidden pieces through layers and boundaries | concept | script ready | 307 words, about 2.0 min | [T13.3.json](T13.3.json) |
 | T13.E | Measure the region or solid that matters | worked_example | script ready | 184 words, about 1.2 min | [T13.E.json](T13.E.json) |
 | T14.1 | Translate the movement rules exactly | concept | script ready | 292 words, about 1.9 min | [T14.1.json](T14.1.json) |
 | T14.2 | Use future obligations to reject tempting moves | concept | script ready | 339 words, about 2.3 min | [T14.2.json](T14.2.json) |

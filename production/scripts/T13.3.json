@@ -6,7 +6,7 @@
  "status": "script_ready_not_recorded",
  "voice": "Voice C (VoxCPM2), natural speed (see docs/VIDEO_PRODUCTION.md)",
  "goal": "Count cubes in a solid by layers, including the ones you cannot see.",
- "narration_words": 304,
+ "narration_words": 307,
  "estimated_minutes": 2.0,
  "scenes": [
   {
@@ -19,7 +19,7 @@
    "n": 2,
    "stage": "WHY",
    "visual": "A tally of \"cubes I can see\" with a warning mark; beside it the layers neatly separated.",
-   "narration": "Counting the cubes you can see always gives too few. Counting layer by layer is reliable, and it also answers questions about which cubes are on the outside."
+   "narration": "Counting only visible cubes can miss part of a solid. Counting layer by layer is reliable, and it also answers questions about which cubes are on the outside."
   },
   {
    "n": 3,
@@ -31,7 +31,7 @@
    "n": 4,
    "stage": "DEVELOP",
    "visual": "The top layer lifts off, showing a 4 by 3 grid: 12 cubes. The bottom layer is identical. 2 layers of 12 give 24.",
-   "narration": "One layer is four by three, which is twelve cubes. There are two layers, so the block contains twenty-four cubes. Half of them are in the bottom layer, mostly hidden in the drawing."
+   "narration": "One layer is four by three, which is twelve cubes. There are two layers, so the block contains twenty-four cubes. Half of them are in the bottom layer, including some that were hidden in the drawing."
   },
   {
    "n": 5,

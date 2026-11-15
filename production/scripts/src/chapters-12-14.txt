@@ -66,7 +66,7 @@ V: A cluttered diagram with many random lines beside a clean one with a single a
 N: Many geometry problems are one well-chosen line away from being easy. Learning which lines tend to help is a real skill: a parallel line, a height, or a line that makes a triangle with equal sides.
 [PUZZLE]
 V: Two horizontal parallel lines. A zigzag: from a point on the top line a segment goes down to a bend, then on to the bottom line. The angle between the top line and the first segment is 35 degrees; between the bottom line and the second segment, 45 degrees. The angle at the bend has a question mark.
-N: A path goes from one of two parallel lines to a bend, and then to the other line. It makes thirty-five degrees with the top line and forty-five degrees with the bottom line. What is the angle at the bend? Pause and think about what line you could add.
+N: A path runs between two parallel lines, with a bend to the right of both ends. It makes thirty-five degrees with the top line and forty-five degrees with the bottom line. What is the angle at the bend? Pause and think about what line you could add.
 [DEVELOP]
 V: A dashed line appears through the bend, parallel to both lines. It splits the bend angle into an upper and a lower part.
 N: Draw a line through the bend, parallel to the other two. It splits the bend angle into two parts.
@@ -173,13 +173,13 @@ V: A drawing of a block made from small cubes, seen from one corner. The block s
 N: A drawing of a solid only shows some of its cubes. The rest are hidden behind or underneath. To count them all, slice the solid into layers. Count one layer, then count the layers.
 [WHY]
 V: A tally of "cubes I can see" with a warning mark; beside it the layers neatly separated.
-N: Counting the cubes you can see always gives too few. Counting layer by layer is reliable, and it also answers questions about which cubes are on the outside.
+N: Counting only visible cubes can miss part of a solid. Counting layer by layer is reliable, and it also answers questions about which cubes are on the outside.
 [PUZZLE]
 V: A solid block 4 cubes long, 3 wide and 2 high. Question: "How many small cubes?"
 N: A solid block is four cubes long, three cubes wide and two cubes high. How many small cubes does it contain? Pause and picture one layer.
 [DEVELOP]
 V: The top layer lifts off, showing a 4 by 3 grid: 12 cubes. The bottom layer is identical. 2 layers of 12 give 24.
-N: One layer is four by three, which is twelve cubes. There are two layers, so the block contains twenty-four cubes. Half of them are in the bottom layer, mostly hidden in the drawing.
+N: One layer is four by three, which is twelve cubes. There are two layers, so the block contains twenty-four cubes. Half of them are in the bottom layer, including some that were hidden in the drawing.
 [DEVELOP]
 V: A 3 by 3 by 3 cube dipped in paint. It separates into three layers. In the middle layer, the centre cube is unpainted and glows.
 N: Now a harder question. A three by three by three cube is painted all over, then cut into twenty-seven small cubes. How many have no paint at all? Only a cube that touches no outside face. Peel off the outer layer in every direction, and a single cube is left in the very centre. The answer is one.
