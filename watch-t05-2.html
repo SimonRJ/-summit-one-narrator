@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10151d">
+<link rel="icon" href="icon.svg">
+<title>T05.2 · Split by the restriction that changes the choices · Summit One</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 25%, #192631, #0c121a 75%);
+  color: #f2f1ed; font: 1rem/1.55 system-ui, sans-serif;
+}
+main { max-width: 1120px; margin: auto; padding: clamp(18px, 4vw, 48px); }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.back { justify-content: space-between; gap: 8px 20px; }
+a { color: #9cdbbc; }
+h1 { max-width: 880px; margin: .25em 0 .45em; font-size: clamp(1.95rem, 5vw, 3.45rem); line-height: 1.12; }
+h2 { margin: 0; font-size: 1.2rem; }
+p { max-width: 55rem; color: #bac4cf; }
+.lesson { color: #9cdbbc; margin: 2rem 0 0; font-size: .88rem; font-weight: 700; }
+video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #10151d; border: 1px solid #354652; border-radius: 14px; }
+.meta { color: #bac4cf; margin: .65rem 0 0; }
+.chapters { margin: 1.2rem 0 1.6rem; }
+button {
+  cursor: pointer; min-height: 44px; border: 1px solid #405463; border-radius: 12px;
+  background: #1b2834; color: #eef2f4; font: inherit; padding: .5rem .8rem;
+}
+.exercise { background: #18232e; border: 1px solid #364756; border-radius: 16px; padding: 1.15rem; }
+summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
+.transcript { margin-top: 1rem; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+</style>
+</head>
+<body>
+<main>
+<nav class="back" aria-label="Lesson navigation">
+<a href="./">← Summit One</a><a href="teaching-videos.html">Teaching videos</a><a href="watch-t05-3.html">Next · Prove that the classification is reversible →</a>
+</nav>
+<p class="lesson">T05.2</p>
+<h1>Split by the restriction that changes the choices</h1>
+<p>Split a count into cases using the restriction that changes the number of choices.</p>
+<video id="lesson" controls playsinline preload="metadata" aria-label="Split by the restriction that changes the choices"
+  poster="media/T05.2-studio-poster.jpg?v=teaching-films-v1">
+  <source src="media/T05.2.mp4?v=teaching-films-v1" type="video/mp4">
+</video>
+<p class="meta">1:52 · Full HD</p>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Split a difficult count into cases</button>
+<button type="button" data-time="12.760">0:12 · Does the restriction change the count?</button>
+<button type="button" data-time="26.200">0:26 · How many even three-digit numbers?</button>
+<button type="button" data-time="40.250">0:40 · Split by the last digit</button>
+<button type="button" data-time="54.330">0:54 · Count inside each class</button>
+<button type="button" data-time="74.000">1:14 · A number belongs to just one class</button>
+<button type="button" data-time="81.850">1:21 · Count the complement when it is shorter</button>
+<button type="button" data-time="97.210">1:37 · Your turn</button></nav>
+<section class="exercise">
+<h2>Try it in your notebook</h2>
+<p>How many two-digit numbers have two different digits?</p>
+<details><summary>Check your reasoning</summary><p>90 two-digit numbers minus 9 with equal digits (11, 22, ..., 99) = 81.</p></details>
+</section>
+<details class="transcript"><summary>Read the transcript</summary><p>Some counting problems are too awkward to do in one go. The trick is to split them into cases. Good cases have two properties: no outcome belongs to two cases, and every outcome belongs to one.</p>
+<p>Multiplying choices only works when the number of choices does not depend on what you chose earlier. When a restriction changes the choices, a single multiplication breaks. Splitting at the restriction repairs it.</p>
+<p>Using the digits zero, one, two, three and four, with no digit repeated, how many even three-digit numbers can be made? Pause and think about which place causes the trouble.</p>
+<p>The number must be even, so the last digit is zero, two or four. But zero is special, because a number cannot start with zero. So split by the last digit: either it is zero, or it is two or four.</p>
+<p>If the last digit is zero, the first digit has four choices and the middle has three: twelve numbers. If the last digit is two or four, the first digit cannot be zero or the last digit, leaving three choices, and the middle has three. That is two times three times three: eighteen numbers.</p>
+<p>The cases cannot overlap, because a number has only one last digit. Add them: twelve plus eighteen is thirty.</p>
+<p>Sometimes it is quicker to count what is forbidden. Two switches have four settings altogether. If &quot;both on&quot; is not allowed, subtract that one, leaving three. Counting everything and subtracting the unwanted part is called using the complement.</p>
+<p>Split at the feature that changes the choices. Multiply within a case. Add the cases. Notebook challenge: how many two-digit numbers have two different digits?</p></details>
+<p><a href="media/T05.2.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+</main>
+<script>
+const video = document.querySelector("#lesson");
+for (const button of document.querySelectorAll("[data-time]")) {
+  button.addEventListener("click", () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+    video.scrollIntoView({block: "center"});
+  });
+}
+</script>
+</body>
+</html>

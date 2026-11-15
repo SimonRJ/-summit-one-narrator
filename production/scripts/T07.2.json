@@ -6,7 +6,7 @@
  "status": "script_ready_not_recorded",
  "voice": "Voice C (VoxCPM2), natural speed (see docs/VIDEO_PRODUCTION.md)",
  "goal": "Explain why balanced parts give the largest product, and handle restrictions.",
- "narration_words": 283,
+ "narration_words": 292,
  "estimated_minutes": 1.9,
  "scenes": [
   {
@@ -49,13 +49,13 @@
    "n": 7,
    "stage": "VARIATION",
    "visual": "12 split into three parts 4, 4, 4 with product 64, compared with 6, 6 at 36 and 3, 3, 3, 3 at 81.",
-   "narration": "The same idea works with more parts. Splitting twelve into four, four and four gives sixty-four. Splitting into four threes gives eighty-one, which is the best of all for twelve. Equal parts win, and threes are especially good."
+   "narration": "The number of parts matters too. Three fours give a product of sixty-four. Four threes give eighty-one. Both splits are balanced within their own number of parts, but the second product is bigger. Check how many parts the question actually allows."
   },
   {
    "n": 8,
    "stage": "RECAP",
    "visual": "Lines: \"Fixed sum: balance for the biggest product\", \"If balance is forbidden, get as close as allowed\".",
-   "narration": "With a fixed total, balanced parts give the largest product. When a rule forbids perfect balance, get as close as the rule allows. Notebook challenge: a rectangle with whole-number sides has perimeter twenty-two. What is its largest possible area?"
+   "narration": "For two positive parts with a fixed total, the most balanced pair gives the largest product. When a rule forbids perfect balance, get as close as the rule allows. Notebook challenge: a rectangle with whole-number sides has perimeter twenty-two. What is its largest possible area?"
   }
  ],
  "notebook_exercise": "A rectangle with whole-number sides has perimeter 22. Largest possible area?",

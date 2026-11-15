@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10151d">
+<link rel="icon" href="icon.svg">
+<title>T06.1 · Count incidences before counting objects · Summit One</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 25%, #192631, #0c121a 75%);
+  color: #f2f1ed; font: 1rem/1.55 system-ui, sans-serif;
+}
+main { max-width: 1120px; margin: auto; padding: clamp(18px, 4vw, 48px); }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.back { justify-content: space-between; gap: 8px 20px; }
+a { color: #9cdbbc; }
+h1 { max-width: 880px; margin: .25em 0 .45em; font-size: clamp(1.95rem, 5vw, 3.45rem); line-height: 1.12; }
+h2 { margin: 0; font-size: 1.2rem; }
+p { max-width: 55rem; color: #bac4cf; }
+.lesson { color: #9cdbbc; margin: 2rem 0 0; font-size: .88rem; font-weight: 700; }
+video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #10151d; border: 1px solid #354652; border-radius: 14px; }
+.meta { color: #bac4cf; margin: .65rem 0 0; }
+.chapters { margin: 1.2rem 0 1.6rem; }
+button {
+  cursor: pointer; min-height: 44px; border: 1px solid #405463; border-radius: 12px;
+  background: #1b2834; color: #eef2f4; font: inherit; padding: .5rem .8rem;
+}
+.exercise { background: #18232e; border: 1px solid #364756; border-radius: 16px; padding: 1.15rem; }
+summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
+.transcript { margin-top: 1rem; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+</style>
+</head>
+<body>
+<main>
+<nav class="back" aria-label="Lesson navigation">
+<a href="./">← Summit One</a><a href="teaching-videos.html">Teaching videos</a>
+</nav>
+<p class="lesson">T06.1</p>
+<h1>Count incidences before counting objects</h1>
+<p>Count the same set of meetings in two ways to find a hidden number.</p>
+<video id="lesson" controls playsinline preload="metadata" aria-label="Count incidences before counting objects"
+  poster="media/T06.1-studio-poster.jpg?v=teaching-films-v1">
+  <source src="media/T06.1.mp4?v=teaching-films-v1" type="video/mp4">
+</video>
+<p class="meta">1:45 · Full HD</p>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Every handshake has two ends</button>
+<button type="button" data-time="14.840">0:14 · Count something in two ways</button>
+<button type="button" data-time="25.400">0:25 · Six people all shake hands once</button>
+<button type="button" data-time="38.020">0:38 · Every person reports five</button>
+<button type="button" data-time="46.670">0:46 · Two reports count one handshake</button>
+<button type="button" data-time="56.440">0:56 · An odd report total cannot happen</button>
+<button type="button" data-time="74.040">1:14 · Two faces share each cube edge</button>
+<button type="button" data-time="86.200">1:26 · Your turn</button></nav>
+<section class="exercise">
+<h2>Try it in your notebook</h2>
+<p>Eight teams each play every other team once. How many games?</p>
+<details><summary>Check your reasoning</summary><p>8 x 7 / 2 = 28.</p></details>
+</section>
+<details class="transcript"><summary>Read the transcript</summary><p>Every handshake has two hands in it. That small fact is surprisingly powerful. If each person reports how many hands they shook, and you add up the reports, every handshake has been counted twice, once by each person.</p>
+<p>Counting something in two different ways gives you an equation for free. It lets you count lines by counting ends, or faces by counting edges, without drawing the whole picture.</p>
+<p>Six people meet, and everyone shakes hands once with everyone else. How many handshakes take place? Pause and think about what each person would report.</p>
+<p>Each person shakes hands with the five others, so each person reports five. Six reports of five add to thirty.</p>
+<p>But each handshake was reported by both of the people in it. So thirty counts every handshake twice. Thirty divided by two is fifteen handshakes.</p>
+<p>The same idea can prove something is impossible. Can seven people each shake hands with exactly three others? The reports would add to twenty-one. But the total of the reports is always twice the number of handshakes, so it must be even. Twenty-one is odd. It cannot be done.</p>
+<p>It works for solids too. A cube has six faces, and each face has four edges: twenty-four reports. Every edge belongs to two faces, so there are twelve edges.</p>
+<p>Let each object report what it touches. Add the reports. Then divide by how many times each item was reported. Notebook challenge: in a tournament, eight teams each play every other team once. How many games are played?</p></details>
+<p><a href="media/T06.1.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+</main>
+<script>
+const video = document.querySelector("#lesson");
+for (const button of document.querySelectorAll("[data-time]")) {
+  button.addEventListener("click", () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+    video.scrollIntoView({block: "center"});
+  });
+}
+</script>
+</body>
+</html>

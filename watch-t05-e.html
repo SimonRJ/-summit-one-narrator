@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10151d">
+<link rel="icon" href="icon.svg">
+<title>T05.E · Count outcomes once, using complete cases · Summit One</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 25%, #192631, #0c121a 75%);
+  color: #f2f1ed; font: 1rem/1.55 system-ui, sans-serif;
+}
+main { max-width: 1120px; margin: auto; padding: clamp(18px, 4vw, 48px); }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.back { justify-content: space-between; gap: 8px 20px; }
+a { color: #9cdbbc; }
+h1 { max-width: 880px; margin: .25em 0 .45em; font-size: clamp(1.95rem, 5vw, 3.45rem); line-height: 1.12; }
+h2 { margin: 0; font-size: 1.2rem; }
+p { max-width: 55rem; color: #bac4cf; }
+.lesson { color: #9cdbbc; margin: 2rem 0 0; font-size: .88rem; font-weight: 700; }
+video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #10151d; border: 1px solid #354652; border-radius: 14px; }
+.meta { color: #bac4cf; margin: .65rem 0 0; }
+.chapters { margin: 1.2rem 0 1.6rem; }
+button {
+  cursor: pointer; min-height: 44px; border: 1px solid #405463; border-radius: 12px;
+  background: #1b2834; color: #eef2f4; font: inherit; padding: .5rem .8rem;
+}
+.exercise { background: #18232e; border: 1px solid #364756; border-radius: 16px; padding: 1.15rem; }
+summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
+.transcript { margin-top: 1rem; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+</style>
+</head>
+<body>
+<main>
+<nav class="back" aria-label="Lesson navigation">
+<a href="./">← Summit One</a><a href="teaching-videos.html">Teaching videos</a><a href="watch-t06-1.html">Next · Count incidences before counting objects →</a>
+</nav>
+<p class="lesson">T05.E · Worked example</p>
+<h1>Count outcomes once, using complete cases</h1>
+<p>Worked example: a restriction that affects only one branch.</p>
+<video id="lesson" controls playsinline preload="metadata" aria-label="Count outcomes once, using complete cases"
+  poster="media/T05.E-studio-poster.jpg?v=teaching-films-v1">
+  <source src="media/T05.E.mp4?v=teaching-films-v1" type="video/mp4">
+</video>
+<p class="meta">1:13 · Full HD</p>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Pick one sandwich and one fruit</button>
+<button type="button" data-time="13.540">0:13 · The sandwich determines the case</button>
+<button type="button" data-time="23.150">0:23 · Cheese allows two fruit choices</button>
+<button type="button" data-time="32.760">0:32 · Bean allows all three choices</button>
+<button type="button" data-time="40.290">0:40 · Check by removing the forbidden pair</button>
+<button type="button" data-time="52.610">0:52 · Your turn</button></nav>
+<section class="exercise">
+<h2>Try it in your notebook</h2>
+<p>3 shirts and 4 pairs of shorts; the red shirt cannot go with the 2 orange pairs. How many outfits?</p>
+<details><summary>Check your reasoning</summary><p>12 - 2 = 10.</p></details>
+</section>
+<details class="transcript"><summary>Read the transcript</summary><p>A lunch has one sandwich, cheese or bean, and one fruit, apple, pear or plum. Cheese may not be paired with plum. How many different lunches are possible?</p>
+<p>The restriction only mentions cheese, so split by sandwich. A lunch has exactly one sandwich, so these two cases cannot overlap.</p>
+<p>With cheese, plum is not allowed, so the allowed fruits are apple and pear. That is two lunches: cheese with apple, and cheese with pear.</p>
+<p>With bean, all three fruits are allowed. That is three lunches. Add the cases: two plus three is five.</p>
+<p>Check another way. Without the rule there would be two times three, six lunches. Exactly one of them, cheese with plum, is forbidden. Six minus one is five. Two methods agree.</p>
+<p>When branches have different sizes, add them rather than multiplying. Rebuild the tree yourself, then try this: there are three shirts and four pairs of shorts, but the red shirt cannot be worn with the two orange pairs. How many outfits are possible?</p></details>
+<p><a href="media/T05.E.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+</main>
+<script>
+const video = document.querySelector("#lesson");
+for (const button of document.querySelectorAll("[data-time]")) {
+  button.addEventListener("click", () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+    video.scrollIntoView({block: "center"});
+  });
+}
+</script>
+</body>
+</html>

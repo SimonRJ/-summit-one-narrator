@@ -1,0 +1,133 @@
+WEBVTT
+
+00:00:00.600 --> 00:00:03.340
+A counting method is correct when every outcome has
+
+00:00:03.340 --> 00:00:04.750
+exactly one address.
+
+00:00:05.380 --> 00:00:07.820
+From the outcome you can tell which choices made it,
+
+00:00:07.820 --> 00:00:10.710
+and every set of choices makes a real outcome.
+
+00:00:11.440 --> 00:00:14.060
+If both are true, nothing is missed and nothing
+
+00:00:14.060 --> 00:00:15.010
+is counted twice.
+
+00:00:16.110 --> 00:00:18.790
+Double counting and missed cases are invisible if you
+
+00:00:18.790 --> 00:00:20.280
+only look at the final number.
+
+00:00:20.850 --> 00:00:23.010
+Checking the addresses is the way to trust a count
+
+00:00:23.010 --> 00:00:24.100
+without redoing it.
+
+00:00:24.920 --> 00:00:27.630
+Five different students sit in a row of five seats.
+
+00:00:27.920 --> 00:00:29.830
+Three are girls and two are boys.
+
+00:00:30.340 --> 00:00:32.630
+The two boys must not sit next to each other.
+
+00:00:33.260 --> 00:00:34.890
+In how many ways can they be seated?
+
+00:00:35.560 --> 00:00:37.860
+Pause and look for a way to build every legal
+
+00:00:37.860 --> 00:00:39.210
+row exactly once.
+
+00:00:42.970 --> 00:00:44.160
+Seat the girls first.
+
+00:00:44.890 --> 00:00:47.100
+Three girls can be arranged in six orders.
+
+00:00:47.770 --> 00:00:50.170
+Around them are four gaps: one at each end
+
+00:00:50.170 --> 00:00:51.220
+and two between.
+
+00:00:52.260 --> 00:00:54.030
+Put each boy into a different gap.
+
+00:00:54.560 --> 00:00:56.830
+The first boy has four gaps to choose from,
+
+00:00:57.060 --> 00:00:58.170
+and the second has three.
+
+00:00:58.620 --> 00:01:01.000
+That is twelve ways, so there are six times
+
+00:01:01.000 --> 00:01:02.950
+twelve, seventy-two seatings.
+
+00:01:03.780 --> 00:01:04.930
+Now check the addresses.
+
+00:01:05.640 --> 00:01:06.610
+Take any legal row.
+
+00:01:07.300 --> 00:01:09.210
+Remove the boys and you see the girls' order.
+
+00:01:09.660 --> 00:01:11.340
+Look where the boys were and you see which
+
+00:01:11.340 --> 00:01:12.310
+gaps they used.
+
+00:01:12.800 --> 00:01:15.870
+So each legal row comes from exactly one set of choices.
+
+00:01:16.460 --> 00:01:18.530
+The count is complete and has no repeats.
+
+00:01:19.610 --> 00:01:21.340
+A second method confirms it.
+
+00:01:21.730 --> 00:01:24.580
+Five people can sit in one hundred and twenty ways.
+
+00:01:25.030 --> 00:01:28.290
+Glue the boys together as one block: four objects in
+
+00:01:28.290 --> 00:01:31.320
+twenty-four orders, times two for the boys swapping.
+
+00:01:31.850 --> 00:01:33.660
+That is forty-eight unwanted rows.
+
+00:01:34.810 --> 00:01:37.320
+One hundred and twenty minus forty-eight is seventy-two.
+
+00:01:38.640 --> 00:01:41.110
+Ask two questions of any counting method.
+
+00:01:41.620 --> 00:01:44.130
+Can I recover the choices from every legal outcome?
+
+00:01:44.540 --> 00:01:46.770
+And does every choice give a legal outcome?
+
+00:01:47.480 --> 00:01:50.280
+Notebook challenge: in how many ways can four different
+
+00:01:50.280 --> 00:01:53.820
+books stand on a shelf if two particular books must not
+
+00:01:53.820 --> 00:01:54.970
+be next to each other?

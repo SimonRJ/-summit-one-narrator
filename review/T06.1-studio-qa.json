@@ -1,0 +1,92 @@
+{
+  "id": "T06.1",
+  "duration_seconds": 105.433333,
+  "sha256": "2d4ce278680f195689421495c8c74869b669fc59494153d7c916e0b582cc7cc2",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 99.84,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "match_percent": 100.0
+    },
+    {
+      "number": 2,
+      "start": 14.84,
+      "match_percent": 100.0
+    },
+    {
+      "number": 3,
+      "start": 25.4,
+      "match_percent": 100.0
+    },
+    {
+      "number": 4,
+      "start": 38.02,
+      "match_percent": 100.0
+    },
+    {
+      "number": 5,
+      "start": 46.67,
+      "match_percent": 100.0
+    },
+    {
+      "number": 6,
+      "start": 56.44,
+      "match_percent": 100.0
+    },
+    {
+      "number": 7,
+      "start": 74.04,
+      "match_percent": 100.0
+    },
+    {
+      "number": 8,
+      "start": 86.2,
+      "match_percent": 98.7
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Every handshake has two ends",
+      "start": 0.0
+    },
+    {
+      "title": "Count something in two ways",
+      "start": 14.84
+    },
+    {
+      "title": "Six people all shake hands once",
+      "start": 25.4
+    },
+    {
+      "title": "Every person reports five",
+      "start": 38.02
+    },
+    {
+      "title": "Two reports count one handshake",
+      "start": 46.67
+    },
+    {
+      "title": "An odd report total cannot happen",
+      "start": 56.44
+    },
+    {
+      "title": "Two faces share each cube edge",
+      "start": 74.04
+    },
+    {
+      "title": "Your turn",
+      "start": 86.2
+    }
+  ],
+  "decoded_successfully": true
+}

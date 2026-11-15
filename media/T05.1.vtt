@@ -1,0 +1,130 @@
+WEBVTT
+
+00:00:00.600 --> 00:00:03.210
+Before counting anything, ask one question:
+
+00:00:03.700 --> 00:00:04.430
+does order matter?
+
+00:00:05.040 --> 00:00:07.420
+Choosing a winner and a runner-up is different from
+
+00:00:07.420 --> 00:00:08.670
+choosing a team of two.
+
+00:00:09.480 --> 00:00:11.560
+On the podium, swapping the two people
+
+00:00:11.560 --> 00:00:12.550
+changes the result.
+
+00:00:13.120 --> 00:00:15.250
+In a team, swapping them changes nothing.
+
+00:00:16.280 --> 00:00:18.970
+Getting this wrong doubles your answer, or halves it.
+
+00:00:19.560 --> 00:00:21.790
+It is one of the most common counting mistakes,
+
+00:00:22.200 --> 00:00:24.760
+and the cure is to decide about order before
+
+00:00:24.760 --> 00:00:25.910
+you start multiplying.
+
+00:00:27.000 --> 00:00:30.370
+Three runners, Ava, Ben and Cal, are in a race.
+
+00:00:30.840 --> 00:00:33.730
+In how many ways can first and second place be filled?
+
+00:00:34.340 --> 00:00:36.720
+And how many different pairs of them could form a team?
+
+00:00:36.720 --> 00:00:38.090
+Pause and try both.
+
+00:00:41.850 --> 00:00:44.660
+For the podium, there are three choices for first place,
+
+00:00:45.090 --> 00:00:46.940
+then two remaining choices for second.
+
+00:00:47.650 --> 00:00:49.880
+Three times two is six ordered results.
+
+00:00:50.980 --> 00:00:53.920
+For a team, Ava then Ben is the same team as
+
+00:00:53.920 --> 00:00:54.890
+Ben then Ava.
+
+00:00:55.260 --> 00:00:57.330
+The six ordered results merge in pairs,
+
+00:00:57.640 --> 00:00:58.670
+leaving three teams.
+
+00:00:59.420 --> 00:01:01.820
+We divide by two because each team was counted
+
+00:01:01.820 --> 00:01:02.930
+in two orders.
+
+00:01:04.100 --> 00:01:06.030
+Now choose three people from five.
+
+00:01:06.600 --> 00:01:09.270
+In order, that is five times four times three,
+
+00:01:09.360 --> 00:01:09.970
+which is sixty.
+
+00:01:10.760 --> 00:01:13.720
+As an unordered group, each set of three people can be
+
+00:01:13.720 --> 00:01:16.980
+arranged in six orders, so sixty divided by six
+
+00:01:16.980 --> 00:01:18.130
+gives ten groups.
+
+00:01:18.840 --> 00:01:21.240
+The number you divide by is the number of ways to
+
+00:01:21.240 --> 00:01:22.550
+arrange the chosen objects.
+
+00:01:23.770 --> 00:01:24.980
+Read the wording carefully.
+
+00:01:25.670 --> 00:01:27.800
+If the three chosen people get different jobs,
+
+00:01:28.150 --> 00:01:30.600
+such as captain, scorer and timekeeper,
+
+00:01:30.910 --> 00:01:33.840
+then order matters again and the answer is sixty.
+
+00:01:34.820 --> 00:01:37.350
+If positions or roles differ, count in order.
+
+00:01:37.820 --> 00:01:40.620
+If only membership matters, divide by the number of
+
+00:01:40.620 --> 00:01:42.230
+arrangements of the chosen group.
+
+00:01:42.840 --> 00:01:46.340
+Notebook challenge: from six players, how many ways are
+
+00:01:46.340 --> 00:01:48.490
+there to choose a captain and a vice-captain?
+
+00:01:49.180 --> 00:01:51.360
+And how many ways to choose two players to
+
+00:01:51.360 --> 00:01:52.250
+carry the equipment?

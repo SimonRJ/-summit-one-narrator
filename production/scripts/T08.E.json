@@ -13,7 +13,7 @@
    "n": 1,
    "stage": "PUZZLE",
    "visual": "Two coins. Card: \"At least one coin shows heads.\" Question: \"What is the chance both are heads?\"",
-   "narration": "Two fair coins are tossed. You are told that at least one of them shows heads. What is the probability that both show heads?"
+   "narration": "Two fair coins are tossed independently. You know that at least one of them shows heads. What is the probability that both show heads?"
   },
   {
    "n": 2,
@@ -46,6 +46,6 @@
    "narration": "Information removes outcomes, and the survivors become the new total. Rebuild this example, then try: two coins are tossed and you are told they do not show the same face. What is the probability the first coin is heads?"
   }
  ],
- "notebook_exercise": "Two coins are tossed; you are told they show different faces. Probability the first is heads?",
+ "notebook_exercise": "Two fair coins are tossed independently and show different faces. What is the probability the first is heads?",
  "notebook_answer": "Survivors HT, TH; one of two: 1/2."
 }

@@ -1,0 +1,92 @@
+{
+  "id": "T05.3",
+  "duration_seconds": 120.3,
+  "sha256": "d24ed4eb04cb01bd4db1e830badea1fb1c936235714ac7104850f2ef7f639949",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 99.17,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "match_percent": 96.47
+    },
+    {
+      "number": 2,
+      "start": 16.11,
+      "match_percent": 100.0
+    },
+    {
+      "number": 3,
+      "start": 24.92,
+      "match_percent": 100.0
+    },
+    {
+      "number": 4,
+      "start": 42.97,
+      "match_percent": 100.0
+    },
+    {
+      "number": 5,
+      "start": 52.26,
+      "match_percent": 100.0
+    },
+    {
+      "number": 6,
+      "start": 63.78,
+      "match_percent": 97.92
+    },
+    {
+      "number": 7,
+      "start": 79.61,
+      "match_percent": 98.99
+    },
+    {
+      "number": 8,
+      "start": 98.64,
+      "match_percent": 100.0
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Give each outcome one address",
+      "start": 0.0
+    },
+    {
+      "title": "Look for repeats and omissions",
+      "start": 16.11
+    },
+    {
+      "title": "Seat five different people",
+      "start": 24.92
+    },
+    {
+      "title": "Seat the girls first",
+      "start": 42.97
+    },
+    {
+      "title": "Choose two gaps in order",
+      "start": 52.26
+    },
+    {
+      "title": "Recover the choices from the row",
+      "start": 63.78
+    },
+    {
+      "title": "Check by grouping the neighbours",
+      "start": 79.61
+    },
+    {
+      "title": "Your turn",
+      "start": 98.64
+    }
+  ],
+  "decoded_successfully": true
+}

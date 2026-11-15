@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10151d">
+<link rel="icon" href="icon.svg">
+<title>T05.3 · Prove that the classification is reversible · Summit One</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 25%, #192631, #0c121a 75%);
+  color: #f2f1ed; font: 1rem/1.55 system-ui, sans-serif;
+}
+main { max-width: 1120px; margin: auto; padding: clamp(18px, 4vw, 48px); }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.back { justify-content: space-between; gap: 8px 20px; }
+a { color: #9cdbbc; }
+h1 { max-width: 880px; margin: .25em 0 .45em; font-size: clamp(1.95rem, 5vw, 3.45rem); line-height: 1.12; }
+h2 { margin: 0; font-size: 1.2rem; }
+p { max-width: 55rem; color: #bac4cf; }
+.lesson { color: #9cdbbc; margin: 2rem 0 0; font-size: .88rem; font-weight: 700; }
+video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #10151d; border: 1px solid #354652; border-radius: 14px; }
+.meta { color: #bac4cf; margin: .65rem 0 0; }
+.chapters { margin: 1.2rem 0 1.6rem; }
+button {
+  cursor: pointer; min-height: 44px; border: 1px solid #405463; border-radius: 12px;
+  background: #1b2834; color: #eef2f4; font: inherit; padding: .5rem .8rem;
+}
+.exercise { background: #18232e; border: 1px solid #364756; border-radius: 16px; padding: 1.15rem; }
+summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
+.transcript { margin-top: 1rem; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+</style>
+</head>
+<body>
+<main>
+<nav class="back" aria-label="Lesson navigation">
+<a href="./">← Summit One</a><a href="teaching-videos.html">Teaching videos</a><a href="watch-t05-e.html">Next · Count outcomes once, using complete cases →</a>
+</nav>
+<p class="lesson">T05.3</p>
+<h1>Prove that the classification is reversible</h1>
+<p>Check a counting method by giving every outcome exactly one address.</p>
+<video id="lesson" controls playsinline preload="metadata" aria-label="Prove that the classification is reversible"
+  poster="media/T05.3-studio-poster.jpg?v=teaching-films-v1">
+  <source src="media/T05.3.mp4?v=teaching-films-v1" type="video/mp4">
+</video>
+<p class="meta">2:00 · Full HD</p>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Give each outcome one address</button>
+<button type="button" data-time="16.110">0:16 · Look for repeats and omissions</button>
+<button type="button" data-time="24.920">0:24 · Seat five different people</button>
+<button type="button" data-time="42.970">0:42 · Seat the girls first</button>
+<button type="button" data-time="52.260">0:52 · Choose two gaps in order</button>
+<button type="button" data-time="63.780">1:03 · Recover the choices from the row</button>
+<button type="button" data-time="79.610">1:19 · Check by grouping the neighbours</button>
+<button type="button" data-time="98.640">1:38 · Your turn</button></nav>
+<section class="exercise">
+<h2>Try it in your notebook</h2>
+<p>Four different books on a shelf; two particular books must not be adjacent. How many arrangements?</p>
+<details><summary>Check your reasoning</summary><p>24 total minus 12 with them together = 12.</p></details>
+</section>
+<details class="transcript"><summary>Read the transcript</summary><p>A counting method is correct when every outcome has exactly one address. From the outcome you can tell which choices made it, and every set of choices makes a real outcome. If both are true, nothing is missed and nothing is counted twice.</p>
+<p>Double counting and missed cases are invisible if you only look at the final number. Checking the addresses is the way to trust a count without redoing it.</p>
+<p>Five different students sit in a row of five seats. Three are girls and two are boys. The two boys must not sit next to each other. In how many ways can they be seated? Pause and look for a way to build every legal row exactly once.</p>
+<p>Seat the girls first. Three girls can be arranged in six orders. Around them are four gaps: one at each end and two between.</p>
+<p>Put each boy into a different gap. The first boy has four gaps to choose from, and the second has three. That is twelve ways, so there are six times twelve, seventy-two seatings.</p>
+<p>Now check the addresses. Take any legal row. Remove the boys and you see the girls&#x27; order. Look where the boys were and you see which gaps they used. So each legal row comes from exactly one set of choices. The count is complete and has no repeats.</p>
+<p>A second method confirms it. Five people can sit in one hundred and twenty ways. Glue the boys together as one block: four objects in twenty-four orders, times two for the boys swapping. That is forty-eight unwanted rows. One hundred and twenty minus forty-eight is seventy-two.</p>
+<p>Ask two questions of any counting method. Can I recover the choices from every legal outcome? And does every choice give a legal outcome? Notebook challenge: in how many ways can four different books stand on a shelf if two particular books must not be next to each other?</p></details>
+<p><a href="media/T05.3.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+</main>
+<script>
+const video = document.querySelector("#lesson");
+for (const button of document.querySelectorAll("[data-time]")) {
+  button.addEventListener("click", () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+    video.scrollIntoView({block: "center"});
+  });
+}
+</script>
+</body>
+</html>
