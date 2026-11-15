@@ -48,6 +48,17 @@ SPOKEN_FORMS = {
     "factorisation": "factorization",
     "factorise": "factorize",
     "factorises": "factorizes",
+    "colour": "color",
+    "colours": "colors",
+    "colouring": "coloring",
+    "centre": "center",
+    "centres": "centers",
+    "neighbour": "neighbor",
+    "neighbours": "neighbors",
+    "neighbouring": "neighboring",
+    "leftover": "left over",
+    "kilogram": "kilograms",
+    "kg": "kilograms",
 }
 
 
@@ -66,6 +77,7 @@ def tokens(text):
     text = re.sub(r"(?<!\d)(\d{1,2}):([0-5]\d)(?!\d)", clock_words, text)
     text = re.sub(r"\b(\d+)\.5\b", r"\1 and a half", text)
     text = re.sub(r"\b40s\b", "forties", text)
+    text = re.sub(r"(?<=\d)\s*[×x*]\s*(?=\d)", " times ", text)
     parts = re.findall(r"[a-z]+(?:'[a-z]+)?|\d+(?:,\d{3})*(?:st|nd|rd|th)?", text)
     result = []
     for part in parts:
@@ -200,7 +212,8 @@ def prepare(lesson):
         waveform = load_recording(lesson, index, scene["narration"])
         start = cursor / RATE
         end = (cursor + len(waveform)) / RATE
-        gap = np.zeros(round(PAUSES[lesson].get(index, 0.65) * RATE), dtype="float32")
+        pause = PAUSES.get(lesson, {}).get(index, {"PUZZLE": 3.5, "RECAP": 5.0}.get(scene["stage"], 0.65))
+        gap = np.zeros(round(pause * RATE), dtype="float32")
         decoded, _ = model.transcribe(
             waveform[::3],
             word_timestamps=True,
@@ -226,6 +239,9 @@ def prepare(lesson):
 
     average = sum(scene["match_percent"] for scene in scenes) / len(scenes)
     if average < 90 or min(scene["match_percent"] for scene in scenes) < 80:
+        for scene in scenes:
+            if scene["match_percent"] < 90:
+                print(f"Review scene {scene['n']} ({scene['match_percent']:.2f}%): {scene['recognized_speech']}")
         raise ValueError(f"{lesson}: review the narration before publishing ({average:.2f}% mean alignment)")
 
     raw = build / "voice-c-raw.wav"

@@ -3,6 +3,7 @@
 import argparse
 from bisect import bisect_right
 import hashlib
+from importlib import import_module
 import json
 import math
 from pathlib import Path
@@ -11,6 +12,7 @@ import subprocess
 from PIL import Image, ImageDraw
 
 import check_answer
+from chapter_films import COURSE_FILMS
 import guarantees
 import measure_interval
 import operation_order
@@ -92,12 +94,22 @@ def estimated_timeline(lesson):
     return {"id": lesson, "duration": cursor, "scenes": scenes, "captions": captions}
 
 
+def film_scenes(lesson):
+    if lesson in LESSONS:
+        return LESSONS[lesson], CHAPTERS[lesson]
+    module = import_module(f"series_{lesson[1:3]}")
+    scenes = module.FILMS[lesson]
+    return scenes, tuple((number, draw.chapter) for number, draw in enumerate(scenes, 1))
+
+
 class Film:
     def __init__(self, timeline, scale):
         self.timeline = timeline
         self.scenes = timeline["scenes"]
         self.captions = timeline["captions"]
-        self.functions = LESSONS[timeline["id"]]
+        self.functions, self.chapters = film_scenes(timeline["id"])
+        if len(self.functions) != len(self.scenes):
+            raise ValueError(f"{timeline['id']}: every recorded scene requires its own animation")
         self.scale = scale
         self.scene_starts = [scene["start"] for scene in self.scenes]
         self.caption_starts = [cue["start"] for cue in self.captions]
@@ -194,7 +206,7 @@ class Film:
             "match_percent": self.timeline["mean_match_percent"],
             "scenes": [{"number": scene["n"], "start": scene["start"],
                         "match_percent": scene["match_percent"]} for scene in self.scenes],
-            "chapters": [{"title": title, "start": self.scenes[n - 1]["start"]} for n, title in CHAPTERS[lesson]],
+            "chapters": [{"title": title, "start": self.scenes[n - 1]["start"]} for n, title in self.chapters],
             "decoded_successfully": True,
         }
         (file.parent / "qa.json").write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n")
@@ -203,7 +215,7 @@ class Film:
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("lesson", choices=LESSONS)
+    parser.add_argument("lesson", choices=(*LESSONS, *COURSE_FILMS))
     parser.add_argument("--preview", action="store_true")
     parser.add_argument("--estimate", action="store_true", help="Local storyboard timing only")
     args = parser.parse_args()

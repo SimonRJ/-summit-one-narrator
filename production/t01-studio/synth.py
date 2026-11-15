@@ -10,19 +10,17 @@ from pathlib import Path
 import numpy as np
 import soundfile as sf
 
-from chapter_films import CHAPTER_FILMS
+from chapter_films import CHAPTER_FILMS, COURSE_FILMS
 
 
 ROOT = Path(__file__).resolve().parents[2]
 BUILD = ROOT / "build/t01-studio"
 OPENING_IDS = ("T01.1", "T01.2")
-IDS = (*OPENING_IDS, "T01.3", "T01.E", *CHAPTER_FILMS)
+IDS = (*OPENING_IDS, "T01.3", "T01.E", *CHAPTER_FILMS, *COURSE_FILMS)
 REFERENCE = ROOT / "media/voice-audition/vox-australian-male-c.mp3"
 VOICE_SHA = "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362"
 MODEL_REVISION = "7936080b41163874f38610f46f438e2c0757f9fd"
 RATE = 48000
-COURSE_FILMS = tuple(f"T{chapter:02}.{kind}" for chapter in range(5, 19) for kind in ("1", "2", "3", "E"))
-IDS = (*IDS, *COURSE_FILMS)
 
 
 def passages(text):
