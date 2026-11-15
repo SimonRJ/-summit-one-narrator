@@ -49,9 +49,10 @@ jobs:
           AUDIO_RUN: ${{ steps.plan.outputs.audio }}
           REPAIR_RUN: ${{ steps.plan.outputs.repair }}
         run: |
-          gh run watch "$AUDIO_RUN" --repo "$GITHUB_REPOSITORY" --exit-status --interval 20
           if [ -n "$REPAIR_RUN" ]; then
             gh run watch "$REPAIR_RUN" --repo "$GITHUB_REPOSITORY" --exit-status --interval 20
+          else
+            gh run watch "$AUDIO_RUN" --repo "$GITHUB_REPOSITORY" --exit-status --interval 20
           fi
 
   render:
