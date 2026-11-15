@@ -30,10 +30,10 @@ Scripts ready: 56 of 72. Published for review: 14. Approved videos: 2. Not yet s
 | T05.E | Count outcomes once, using complete cases | worked_example | script ready | 167 words, about 1.1 min | [T05.E.json](T05.E.json) |
 | T06.1 | Count incidences before counting objects | concept | script ready | 254 words, about 1.7 min | [T06.1.json](T06.1.json) |
 | T06.2 | Give each component its contribution | concept | script ready | 268 words, about 1.8 min | [T06.2.json](T06.2.json) |
-| T06.3 | Turn contribution limits into a sharp bound | concept | script ready | 303 words, about 2.0 min | [T06.3.json](T06.3.json) |
+| T06.3 | Turn contribution limits into a sharp bound | concept | script ready | 320 words, about 2.1 min | [T06.3.json](T06.3.json) |
 | T06.E | Count the same structure from two directions | worked_example | script ready | 178 words, about 1.2 min | [T06.E.json](T06.E.json) |
-| T07.1 | Find a resource that every arrangement uses | concept | script ready | 305 words, about 2.0 min | [T07.1.json](T07.1.json) |
-| T07.2 | Explain why a promising choice is best | concept | script ready | 283 words, about 1.9 min | [T07.2.json](T07.2.json) |
+| T07.1 | Find a resource that every arrangement uses | concept | script ready | 317 words, about 2.1 min | [T07.1.json](T07.1.json) |
+| T07.2 | Explain why a promising choice is best | concept | script ready | 292 words, about 1.9 min | [T07.2.json](T07.2.json) |
 | T07.3 | Make equality conditions guide the construction | concept | script ready | 288 words, about 1.9 min | [T07.3.json](T07.3.json) |
 | T07.E | Prove a limit, then build an example | worked_example | script ready | 197 words, about 1.3 min | [T07.E.json](T07.E.json) |
 | T08.1 | Build an honest sample space | concept | script ready | 271 words, about 1.8 min | [T08.1.json](T08.1.json) |

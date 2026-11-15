@@ -6,8 +6,8 @@
  "status": "script_ready_not_recorded",
  "voice": "Voice C (VoxCPM2), natural speed (see docs/VIDEO_PRODUCTION.md)",
  "goal": "Prove a maximum by finding something limited that every arrangement must use.",
- "narration_words": 305,
- "estimated_minutes": 2.0,
+ "narration_words": 317,
+ "estimated_minutes": 2.1,
  "scenes": [
   {
    "n": 1,
@@ -49,7 +49,7 @@
    "n": 7,
    "stage": "VARIATION",
    "visual": "Text: \"smallest number\" with eight cells and a new rule \"every empty cell must be next to a counter\". Groups of three cells, each with a counter in the middle.",
-   "narration": "For a smallest-number question, turn the idea around: ask what every arrangement must cover. If every empty cell must be next to a counter, each counter can look after at most three cells, itself and its two neighbours. Eight cells need at least three counters."
+   "narration": "For a smallest-number question, turn the idea around: ask what every arrangement must cover. If every empty cell must be next to a counter, each counter can look after at most three cells, itself and its two neighbours. Eight cells need at least three counters. Cells two, five and eight give that coverage, so three is enough."
   },
   {
    "n": 8,

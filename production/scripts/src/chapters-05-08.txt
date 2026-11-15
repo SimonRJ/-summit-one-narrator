@@ -4,7 +4,7 @@ GOAL: Decide whether swapping two chosen objects makes a new outcome.
 V: Three ceramic counters A, B, C. Two podium places "1st" and "2nd" on the left; a plain tray labelled "team of 2" on the right.
 N: Before counting anything, ask one question: does order matter? Choosing a winner and a runner-up is different from choosing a team of two. On the podium, swapping the two people changes the result. In a team, swapping them changes nothing.
 [WHY]
-V: Two answers, 6 and 3, hover over the same three counters with a question mark between them.
+V: Two ordered outcomes AB and BA link to the same team of A and B.
 N: Getting this wrong doubles your answer, or halves it. It is one of the most common counting mistakes, and the cure is to decide about order before you start multiplying.
 [PUZZLE]
 V: Counters A, B, C. Question one: "How many ways to fill 1st and 2nd?" Question two: "How many teams of two?"
@@ -184,13 +184,13 @@ N: The supply is pairs of students. Five students form ten different pairs. Each
 V: A five-day schedule fills in: Day 1 AB, CD (E rests); Day 2 AC, BE (D rests); Day 3 AD, CE (B rests); Day 4 AE, BD (C rests); Day 5 BC, DE (A rests). Each used line fades from the pair list until none remain.
 N: Can five days really be done? Here is a schedule. Day one: A with B, C with D. Day two: A with C, B with E. Day three: A with D, C with E. Day four: A with E, B with D. Day five: B with C, D with E. All ten pairs appear exactly once.
 [VARIATION]
-V: The same five dots with rule changed: "groups of three; no pair together twice". Each group uses 3 pairs; 10 / 3 gives at most 3. A search shows only 2 groups fit.
-N: Be careful: a ceiling is not always reachable. If the students work in groups of three, each group uses three pairs. Ten pairs would allow at most three groups. But try it: after A, B, C and A, D, E, every further group of three would repeat a pair. Only two groups are possible. The bound said three, the truth is two.
+V: Two triangles meet at one pupil. A third triangle using that pupil repeats a used edge. Without that pupil, any three of the other four must complete one of the two used outer pairs.
+N: What if each group has three people? Counting pairs gives a ceiling of three groups. But any two legal groups must share exactly one person. Two triples cannot be disjoint among five people, and sharing two would repeat a pair. For a third group, using the shared person repeats a pair with any other person. Leaving that person out forces three choices from the two outer pairs, so one pair repeats. Two groups fit, and a third never does.
 [RECAP]
 V: Lines: "Find what is used up", "Divide to get a ceiling", "Build an example, or show the ceiling fails".
 N: Find the limited supply. Divide to get a ceiling. Then either build an example that reaches it, or explain why it cannot be reached. Notebook challenge: six students play chess, one game per pair at most. Each day three games are played. What is the largest possible number of days?
 TRY: Six students; each day 3 games; no pair plays twice. Largest number of days?
-ANS: 15 pairs / 3 per day = 5 days, and a round-robin schedule achieves it.
+ANS: 15 pairs / 3 per day = 5 days. One schedule for A to F is AF, BE, CD / AE, DF, BC / AD, CE, BF / AC, BD, EF / AB, CF, DE. Each day's games are disjoint and each pair appears once.
 
 @@ T06.E
 GOAL: Worked example: find a perimeter by removing edges that were counted twice.
@@ -237,7 +237,7 @@ V: A row of nine cells. Pairs (1,2), (3,4), (5,6), (7,8) and a single cell 9. Co
 N: With nine cells, there are four pairs and one cell left over. Each pair holds at most one counter and the extra cell holds at most one: at most five. And cells one, three, five, seven and nine achieve it.
 [VARIATION]
 V: Text: "smallest number" with eight cells and a new rule "every empty cell must be next to a counter". Groups of three cells, each with a counter in the middle.
-N: For a smallest-number question, turn the idea around: ask what every arrangement must cover. If every empty cell must be next to a counter, each counter can look after at most three cells, itself and its two neighbours. Eight cells need at least three counters.
+N: For a smallest-number question, turn the idea around: ask what every arrangement must cover. If every empty cell must be next to a counter, each counter can look after at most three cells, itself and its two neighbours. Eight cells need at least three counters. Cells two, five and eight give that coverage, so three is enough.
 [RECAP]
 V: Lines: "Find the limited resource", "Prove the limit", "Show an arrangement that reaches it".
 N: Find what is limited. Use it to prove a limit. Then show an arrangement that reaches the limit. Notebook challenge: what is the largest number of counters in a row of eleven cells with no two neighbours?
@@ -266,10 +266,10 @@ V: Rule added: "the two numbers must be different". The 6 and 6 pair greys out; 
 N: Now add a restriction: the two numbers must be different. Six and six is no longer allowed. Choose the most balanced pair that is allowed, five and seven, giving thirty-five.
 [VARIATION]
 V: 12 split into three parts 4, 4, 4 with product 64, compared with 6, 6 at 36 and 3, 3, 3, 3 at 81.
-N: The same idea works with more parts. Splitting twelve into four, four and four gives sixty-four. Splitting into four threes gives eighty-one, which is the best of all for twelve. Equal parts win, and threes are especially good.
+N: The number of parts matters too. Three fours give a product of sixty-four. Four threes give eighty-one. Both splits are balanced within their own number of parts, but the second product is bigger. Check how many parts the question actually allows.
 [RECAP]
 V: Lines: "Fixed sum: balance for the biggest product", "If balance is forbidden, get as close as allowed".
-N: With a fixed total, balanced parts give the largest product. When a rule forbids perfect balance, get as close as the rule allows. Notebook challenge: a rectangle with whole-number sides has perimeter twenty-two. What is its largest possible area?
+N: For two positive parts with a fixed total, the most balanced pair gives the largest product. When a rule forbids perfect balance, get as close as the rule allows. Notebook challenge: a rectangle with whole-number sides has perimeter twenty-two. What is its largest possible area?
 TRY: A rectangle with whole-number sides has perimeter 22. Largest possible area?
 ANS: Sides add to 11; 5 and 6 give area 30.
 
