@@ -71,11 +71,11 @@ def points(stage,s, *, equal=False, mean=None):
     xs=[a+i*(b-a)/4 for i in range(5)]
     rail(stage,xs,430,["6","7","8","9","10"])
     for i in range(2):
-        bead(stage,a,395-49*i,BLUE,1,20)
+        bead(stage,xs[1],395-49*i,BLUE,1,20)
     for i in range(2 if equal else 3):
-        bead(stage,b,395-49*i,GOLD,1,20)
+        bead(stage,xs[3],395-49*i,GOLD,1,20)
     if mean is not None:
-        word="would be exactly eight" if equal else "pulled towards ten"
+        word="would be exactly eight" if equal else "pulled towards nine"
         p=cue(s,word,duration=.9)
         x=mix(xs[2],a+(mean-6)*(b-a)/4,p)
         stage.line([(x,403),(x,459)],MINT,6,p)
@@ -157,7 +157,8 @@ FILMS={
           note("40", "forty",x=1082,y=423,width=188,colour=GOLD,size=39)),
     scene("The added score is the difference",
           blocks(((28,"Original 28",BLUE,None),(12,"New score",GOLD,None)),words="supplies the difference"),
-          equation(("40 − 28",WHITE,"forty minus twenty-eight"),("= 12",MINT,"is twelve"))),
+          equation(("40 − 28",WHITE,"forty minus twenty-eight"),("= 12",MINT,"is twelve"),y=487),
+          note("12 = 8 + 4", "eight points and those four extra points",y=565,colour=GOLD)),
     scene("Combine group totals before dividing",
           chart(("Learners","Mean","Total"),
                 [(("2","6","12"),"two people average six"),(("3","10","30"),"three people average ten")],
@@ -174,18 +175,18 @@ FILMS={
  ),
  "T16.E":(
     scene("Find the mean score of all five learners",points,
-          note("Two learners score 6. Three learners score 10.", "three learners",y=557)),
+          note("Two learners score 7. Three learners score 9.", "three learners",y=557)),
     scene("Add up the points each group contributes",
           chart(("Learners","Points each","Total"),
-                [(("2","6","12"),"the first group"),(("3","10","30"),"the second group")],
+                [(("2","7","14"),"the first group"),(("3","9","27"),"the second group")],
                 y=229,row_height=95,highlight=((0,2),(1,2)))),
-    scene("Share all forty-two points among five learners",
-          blocks(((1,"8.4",BLUE,None),)*5,y=334,width=860,words="the mean score"),
-          equation(("42 ÷ 5",WHITE,"forty-two divided by five"),("= 8.4",MINT,"eight point four"))),
-    scene("The larger group has more weight",lambda stage,s:points(stage,s,mean=8.4),
-          note("8.4 is closer to the group of three at 10", "pulled towards ten",y=587,size=30)),
+    scene("Share all forty-one points among five learners",
+          blocks(((1,"8.2",BLUE,None),)*5,y=334,width=860,words="the mean score"),
+          equation(("41 ÷ 5",WHITE,"forty-one divided by five"),("= 8.2",MINT,"eight point two"))),
+    scene("The larger group has more weight",lambda stage,s:points(stage,s,mean=8.2),
+          note("8.2 is closer to the group of three at 9", "pulled towards nine",y=587,size=30)),
     scene("Equal group sizes have an equal weight",lambda stage,s:points(stage,s,equal=True,mean=8),
-          note("Two at six and two at ten have mean eight", "their simple average works",y=587,size=30)),
+          note("Two at 7 and two at 9 have mean 8", "their simple average works",y=587,size=30)),
     exercise((("Combine the totals","combine the totals"),("Divide by all the people","the total number of people")),
              "then find",("Four learners score 5 each and one learner scores 10.","What is their mean score?")),
  ),

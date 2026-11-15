@@ -6,8 +6,8 @@
  "status": "script_ready_not_recorded",
  "voice": "Voice C (VoxCPM2), natural speed (see docs/VIDEO_PRODUCTION.md)",
  "goal": "Turn \"takes so long\" into \"does so much each minute\", and add rates.",
- "narration_words": 319,
- "estimated_minutes": 2.1,
+ "narration_words": 325,
+ "estimated_minutes": 2.2,
  "scenes": [
   {
    "n": 1,
@@ -54,8 +54,8 @@
   {
    "n": 8,
    "stage": "RECAP",
-   "visual": "Lines: \"Time for the job gives amount per minute\", \"Add rates that help; subtract rates that hinder\", \"Total job divided by the combined rate\".",
-   "narration": "Convert each time to an amount per minute. Add rates that help and subtract rates that hinder. Divide the job by the combined rate. Notebook challenge: one painter paints a fence in four hours, another in twelve hours. How long do they take together?"
+   "visual": "Lines: \"Express the job as a rate in a shared unit of time\", \"Add rates that help; subtract rates that hinder\", \"Total job divided by the combined rate\".",
+   "narration": "Convert each time into a rate. Use the same time unit for each rate. Add rates that help and subtract rates that hinder. Divide the job by the combined rate. Notebook challenge: one painter paints a fence in four hours, another in twelve hours. How long do they take together?"
   }
  ],
  "notebook_exercise": "One painter takes 4 hours, another 12 hours. How long together?",

@@ -6,38 +6,38 @@
  "status": "script_ready_not_recorded",
  "voice": "Voice C (VoxCPM2), natural speed (see docs/VIDEO_PRODUCTION.md)",
  "goal": "Worked example: why you cannot average two averages.",
- "narration_words": 162,
- "estimated_minutes": 1.1,
+ "narration_words": 156,
+ "estimated_minutes": 1,
  "scenes": [
   {
    "n": 1,
    "stage": "PUZZLE",
-   "visual": "Two learners scoring 6 each and three learners scoring 10 each, as dots above a number line. Question: \"What is the mean score of all five?\"",
-   "narration": "Two learners each score six points, and three learners each score ten points. What is the mean score for all five learners?"
+   "visual": "Two learners scoring 7 each and three learners scoring 9 each, as dots above a number line. Question: \"What is the mean score of all five?\"",
+   "narration": "Two learners each score seven points, and three learners each score nine points. What is the mean score for all five learners?"
   },
   {
    "n": 2,
    "stage": "DEVELOP",
-   "visual": "First group: 2 lots of 6 make 12. Second group: 3 lots of 10 make 30.",
-   "narration": "Find the totals. The first group scores two times six: twelve points. The second group scores three times ten: thirty points."
+   "visual": "First group: 2 lots of 7 make 14. Second group: 3 lots of 9 make 27.",
+   "narration": "Find the totals. The first group scores two times seven: fourteen points. The second group scores three times nine: twenty-seven points."
   },
   {
    "n": 3,
    "stage": "DEVELOP",
-   "visual": "12 and 30 combine to 42, shared among 5 dots: 8.4 each.",
-   "narration": "Together that is forty-two points for five learners. Forty-two divided by five is eight point four. The mean score is eight point four."
+   "visual": "14 and 27 combine to 41, shared among 5 dots: 8.2 each.",
+   "narration": "Together that is forty-one points for five learners. Forty-one divided by five is eight point two. The mean score is eight point two."
   },
   {
    "n": 4,
    "stage": "DEVELOP",
-   "visual": "The tempting answer 8, halfway between 6 and 10, marked on the line; the true mean 8.4 sits closer to 10 where there are three dots.",
-   "narration": "Why not simply eight, halfway between six and ten? Because the groups are different sizes. Three learners sit at ten and only two at six, so the balance point is pulled towards ten."
+   "visual": "Mark eight halfway between seven and nine, then move the balance point to 8.2, closer to the three scores of nine.",
+   "narration": "Why is the mean above eight, halfway between seven and nine? Three learners score nine and two score seven, so the balance point is pulled towards nine."
   },
   {
    "n": 5,
    "stage": "VARIATION",
-   "visual": "The groups change to 2 at 6 and 2 at 10; the mean moves to exactly 8.",
-   "narration": "If the groups were the same size, two learners at six and two at ten, the mean would be exactly eight. The two group means now carry equal weight, so their simple average works."
+   "visual": "With 2 scores of 7 and 2 scores of 9, the mean is exactly 8.",
+   "narration": "If the groups were the same size, two learners at seven and two at nine, the mean would be exactly eight. The two group means now carry equal weight, so their simple average works."
   },
   {
    "n": 6,
