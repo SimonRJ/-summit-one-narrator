@@ -80,13 +80,27 @@ def font(px, bold):
     path = Path(f"/usr/share/fonts/truetype/open-sans/OpenSans-{suffix}.ttf")
     if path.exists():
         return ImageFont.truetype(str(path), px)
-    fallback = "DejaVuSans-Bold.ttf" if bold else "DejaVuSans.ttf"
-    return ImageFont.truetype(fallback, px)
+    return symbol_font(px, bold)
+
+
+@lru_cache(maxsize=96)
+def symbol_font(px, bold):
+    return ImageFont.truetype("DejaVuSans-Bold.ttf" if bold else "DejaVuSans.ttf", px)
+
+
+@lru_cache(maxsize=500)
+def missing_character(character, bold):
+    primary = font(32, bold)
+    candidate = primary.getmask(character, mode="1")
+    missing = primary.getmask("\U0010ffff", mode="1")
+    return candidate.size == missing.size and bytes(candidate) == bytes(missing)
 
 
 @lru_cache(maxsize=620)
 def lettering(text, size, color, bold):
     face = font(size, bold)
+    if any(ord(character) > 127 and missing_character(character, bold) for character in text):
+        face = symbol_font(size, bold)
     left, top, right, bottom = face.getbbox(text, stroke_width=0)
     im = Image.new("RGBA", (max(1, right - left + 4), max(1, bottom - top + 4)))
     ImageDraw.Draw(im).text((2 - left, 2 - top), text, font=face, fill=(*rgb(color), 255))

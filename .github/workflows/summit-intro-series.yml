@@ -7,10 +7,16 @@ on:
     paths:
       - 'production/lesson-intros/course/queue.json'
   workflow_dispatch:
+    inputs:
+      retry:
+        description: Retry number for a film that needs another recording
+        type: choice
+        options: ['0', '1', '2']
+        default: '0'
 
 concurrency:
   group: summit-one-lesson-intro-series
-  cancel-in-progress: false
+  cancel-in-progress: ${{ github.event_name == 'push' }}
 
 permissions:
   contents: read
@@ -24,6 +30,8 @@ jobs:
     outputs:
       ids: ${{ steps.select.outputs.ids }}
       pilot: ${{ steps.select.outputs.pilot }}
+      needed: ${{ steps.select.outputs.needed }}
+      needed_count: ${{ steps.select.outputs.needed_count }}
       count: ${{ steps.select.outputs.count }}
     steps:
       - uses: actions/checkout@v4
@@ -39,7 +47,7 @@ jobs:
           from pathlib import Path
           directory = Path("production/lesson-intros/course")
           sys.path.insert(0, str(directory))
-          from release_intro import create_release, select
+          from release_intro import create_release, missing_candidates, select
           data = json.loads((directory / "queue.json").read_text())
           pilot = data.get("pilot_render", 0)
           assert type(pilot) is int and pilot >= 0
@@ -48,7 +56,10 @@ jobs:
           ids = ["S008"] if pilot else select(limit)
           if ids:
               create_release()
+          needed = missing_candidates(ids) if ids and not pilot else []
           with open(os.environ["GITHUB_OUTPUT"], "a") as out:
+              print("needed=" + json.dumps(needed, separators=(",",":")), file=out)
+              print("needed_count=" + str(len(needed)), file=out)
               print("ids=" + json.dumps(ids, separators=(",",":")), file=out)
               print("count=" + str(len(ids)), file=out)
               print("pilot=" + str(pilot), file=out)
@@ -85,7 +96,7 @@ jobs:
 
   produce:
     needs: select
-    if: needs.select.outputs.count != '0' && needs.select.outputs.pilot == '0'
+    if: needs.select.outputs.needed_count != '0' && needs.select.outputs.pilot == '0'
     runs-on: ubuntu-latest
     timeout-minutes: 280
     permissions:
@@ -94,7 +105,7 @@ jobs:
       fail-fast: false
       max-parallel: 18
       matrix:
-        lesson: ${{ fromJSON(needs.select.outputs.ids) }}
+        lesson: ${{ fromJSON(needs.select.outputs.needed) }}
     env:
       HF_HUB_DISABLE_XET: '1'
       TOKENIZERS_PARALLELISM: 'false'
@@ -118,7 +129,8 @@ jobs:
       - name: Record, align and render the lesson introduction
         env:
           LESSON: ${{ matrix.lesson }}
-        run: python production/lesson-intros/course/produce_lesson.py "$LESSON"
+          RETRY: ${{ inputs.retry || '0' }}
+        run: python production/lesson-intros/course/produce_lesson.py "$LESSON" --attempt "$RETRY"
       - name: Upload this checked movie
         env:
           GH_TOKEN: ${{ github.token }}
@@ -141,6 +153,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 340
     permissions:
+      actions: read
       contents: write
     steps:
       - uses: actions/checkout@v4
@@ -167,8 +180,8 @@ jobs:
           PY
 
   continue:
-    needs: [select, verify]
-    if: needs.verify.result == 'success' && needs.select.outputs.pilot == '0' && needs.select.outputs.count != '0'
+    needs: [select, produce, verify]
+    if: always() && !cancelled() && needs.select.result == 'success' && needs.select.outputs.pilot == '0' && needs.select.outputs.count != '0'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
@@ -178,4 +191,16 @@ jobs:
       - name: Continue with the next introductions
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh workflow run summit-intro-series.yml --repo "$GITHUB_REPOSITORY" --ref "$GITHUB_REF_NAME"
+          RESULT: ${{ needs.verify.result }}
+          RETRY: ${{ inputs.retry || '0' }}
+        run: |
+          next_retry=0
+          if [[ "$RESULT" != success ]]; then
+            if [[ "$RETRY" -ge 2 ]]; then
+              echo "::error::A lesson still needs a new take after two automatic retries."
+              exit 1
+            fi
+            next_retry=$((RETRY + 1))
+          fi
+          gh workflow run summit-intro-series.yml --repo "$GITHUB_REPOSITORY" \
+            --ref "$GITHUB_REF_NAME" -f "retry=$next_retry"

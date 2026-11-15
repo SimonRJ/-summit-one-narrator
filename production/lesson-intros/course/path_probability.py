@@ -27,7 +27,7 @@ def route_map(w,h,counts=None,closed=()):
     if counts is not None:
         rows=tuple(tuple("×" if (x,y) in closed else counts[x,y] for x in range(w+1))
                    for y in reversed(range(h+1)))
-        return grid(*rows,highlight=((0,w),(h,0)))
+        return {**grid(*rows,highlight=((0,w),(h,0))),"bottom_up":True}
     edges=[]
     for y in range(h+1):
         for x in range(w+1):
@@ -168,7 +168,7 @@ def probability(lesson):
                 (f"A fair spinner has {say(sectors)} equal sectors, {say(green)} of them green. What is the probability it stops on green?", f"{sectors} equal sectors; {green} green."),
                 ("Use each sector as one equally likely outcome.", "Count sectors, not colour names.")),
                 ((f"There are {say(sectors)} possible sectors, and {say(green)} satisfy the condition. The probability is the green count over the whole count.", f"{green} / {sectors}."),
-                 (f"As a fraction in simplest form that is {say(simple)}.", f"P(green) = {simple}.")),tiles(*(["Green"]*green+["Other"]*(sectors-green)),highlight=tuple(range(green)))),
+                 (f"As a fraction in simplest form that is {say(simple)}.", f"P(green) = {simple}.")),{"kind":"spinner","sectors":sectors,"green":green}),
             Example("Count ordered pairs with a given sum", (
                 (f"Two fair independent spinners each have equal sectors numbered one to {say(size)}. What is the probability their numbers sum to {say(target)}?", f"Each spinner 1–{size}. Target sum {target}."),
                 ("Make a row for every number on the first spinner, and a column for every number on the second.", "Count equal pairs, not possible sums.")),
@@ -180,7 +180,7 @@ def probability(lesson):
                 ((f"Think of the counters as distinct. Each set of three is equally likely because each can be drawn in the same six orders.", "Every 3-counter set has 6 draw orders."),
                  (f"There are {say(all_groups)} sets altogether. A favourable set chooses two of the {say(red)} reds and one of the {say(blue)} blues.", f"Favourable = {comb(red,2)} red pairs × {blue} blues."),
                  (f"There are {say(good)} favourable sets. The probability is {say(answer)}.", f"{good} / {all_groups} = {answer}.")),
-                tiles(f"{red} red",f"{blue} blue","Draw 3"),proof=(
+                tiles(f"{red} red",f"{blue} blue","Draw 3",colours=("#f39299","#7eb5f3","#eeb765")),proof=(
                     (f"Check with ordered draws. Red, red, blue has probability {say(red)} over {say(n)}, times {say(red-1)} over {say(n-1)}, times {say(blue)} over {say(n-2)}.", f"RRB: {red}/{n} × {red-1}/{n-1} × {blue}/{n-2}."),
                     ("Red, blue, red and blue, red, red have the same three factors in the numerators, just in another order. The three outcomes are distinct.", f"RRB, RBR and BRR: 3 × {ordered} = {answer}.")),
                 proof_art=tiles("R R B","R B R","B R R")),

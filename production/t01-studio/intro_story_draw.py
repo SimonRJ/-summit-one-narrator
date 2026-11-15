@@ -2,35 +2,17 @@
 
 from functools import lru_cache
 import json
+from math import cos, pi, sin
 
 from intro_art import card, header, mistakes, steps
 from intro_cubes import solids
-from stage import BG, BLUE, GOLD, MINT, MUTED, PANEL, RIM, ROOT, WHITE, between, blend, lettering, mix
-from studio_diagrams import fit
+from stage import BG, BLUE, GOLD, MINT, MUTED, PANEL, RIM, ROOT, WHITE, blend, mix
+from studio_diagrams import fit, wrapped_text
 
 
 COLOURS = (BLUE, GOLD, MINT, "#c2b0f5")
 LEVELS = {"INTRO": "The idea", "EXAM": "Where it shows up", "BASIC": "Basic example",
           "MEDIUM": "Medium example", "HARD": "Exam-style challenge"}
-
-
-def wrapped(stage, text, x, y, size, width, colour, opacity, *, bold=False):
-    lines = []
-    buffer = ""
-    for word in text.split():
-        candidate = f"{buffer} {word}".strip()
-        if buffer and lettering(candidate, stage.px(size), colour, bold).width > stage.px(width):
-            lines.append(buffer)
-            buffer = word
-        else:
-            buffer = candidate
-    if buffer:
-        lines.append(buffer)
-    if len(lines) > 2:
-        return wrapped(stage, text, x, y, size - 2, width, colour, opacity, bold=bold)
-    for i, line in enumerate(lines):
-        fit(stage, line, x, y + (i - (len(lines)-1)/2) * (size + 7),
-            size, width, colour, opacity, bold)
 
 
 def tile_diagram(stage, spec, box, p, flow=False):
@@ -44,7 +26,10 @@ def tile_diagram(stage, spec, box, p, flow=False):
         pos = x + (w - spacing * (len(line) - 1)) / 2
         for i, value in enumerate(line):
             opacity = min(1, max(0, 1.25 * p - .045 * (row*per_row + i)))
-            colour = GOLD if row * per_row + i in spec.get("highlight", ()) else COLOURS[row % len(COLOURS)]
+            index = row * per_row + i
+            colours = spec.get("colours")
+            colour = (colours[index] if colours else GOLD if index in spec.get("highlight", ())
+                      else COLOURS[row % len(COLOURS)])
             cy = y + (row+.5)*h/row_count
             card(stage, pos + i*spacing, cy, value, colour, w=spacing*(.71 if flow else .87),
                  h=min(95,h/row_count*.68), size=53, opacity=opacity)
@@ -65,15 +50,19 @@ def table_diagram(stage, spec, box, p, boxed=False):
     top = y + (h - height * len(rows)) / 2
     for i, row in enumerate(rows):
         for j, value in enumerate(row):
-            delay = .42 * (i+j/columns) / max(1,len(rows))
+            ordering = len(rows)-1-i if spec.get("bottom_up") else i
+            delay = .48 * (ordering+j/columns) / max(1,len(rows))
             a = min(1, max(0, (p-delay)/(1-delay)))
             highlighted = [i,j] in spec.get("highlight", ()) or (i,j) in spec.get("highlight", ())
             colour = GOLD if highlighted else BLUE if i == 0 and not boxed else WHITE
             fill = "#263643" if highlighted else PANEL if boxed or i == 0 else None
             stage.box(left+j*cell+1, top+i*height+1, cell-3, height-3, radius=7,
                       fill=fill, edge=RIM if boxed or i == 0 else None, opacity=a)
-            fit(stage, value, left+(j+.5)*cell, top+(i+.5)*height, min(43, round(.54*height)),
-                cell-10, colour, a)
+            xx,yy=left+(j+.5)*cell,top+(i+.5)*height
+            if i == 0 and not boxed:
+                wrapped_text(stage,value,xx,yy,min(24,round(.38*height)),cell-8,colour,a,bold=True)
+            else:
+                fit(stage,value,xx,yy,min(43,round(.54*height)),cell-10,colour,a)
 
 
 def bar_diagram(stage, spec, box, p):
@@ -126,7 +115,7 @@ def geometry_diagram(stage, spec, box, p):
         if label:
             a,b=coords[i]
             stage.dot(a,b,4,WHITE,p)
-            fit(stage, str(label),a+13,b-20,24,92,WHITE,p)
+            fit(stage, str(label),a+13,b-20,31,92,WHITE,p)
     for a,b,label,colour_index in spec.get("labels", ()):
         ax,ay=as_point(a,b)
         fit(stage,str(label),ax,ay,30,215,COLOURS[colour_index%4],p)
@@ -134,6 +123,9 @@ def geometry_diagram(stage, spec, box, p):
 
 def cube_diagram(stage,spec,box,p):
     x,y,w,h=box
+    paint_legend = "painted" in spec
+    if paint_legend:
+        h -= 45
     cells=frozenset(tuple(cell) for cell in spec["cells"])
     width=max(x+1 for x,_,_ in cells)
     depth=max(y+1 for _,y,_ in cells)
@@ -144,6 +136,31 @@ def cube_diagram(stage,spec,box,p):
     anchor_y=y+h/2+(48*levels*zoom+spread*(levels-1)-20*(width+depth)*zoom)/2
     painted = frozenset(map(tuple, spec["painted"])) if "painted" in spec else None
     solids(stage,cells,anchor_x,anchor_y,zoom=zoom,spread=spread,opacity=p,painted=painted)
+    if paint_legend:
+        fit(stage,"Painted surface",x+w*.28,y+h+24,23,w*.44,GOLD,p)
+        fit(stage,"Unpainted surface",x+w*.73,y+h+24,23,w*.44,BLUE,p)
+
+
+def spinner_diagram(stage, spec, box, p):
+    if p <= 0:
+        return
+    x,y,w,h=box
+    cx,cy=x+w/2,y+h/2
+    radius=min(w,h)*.39
+    bounds=tuple(map(stage.px,(cx-radius,cy-radius,cx+radius,cy+radius)))
+    count=spec["sectors"]
+    split=spec["green"]
+    angle=360/count
+    for i in range(count):
+        opacity=min(1,max(0,p*1.45-.45*i/count))
+        colour=MINT if i<split else BLUE
+        stage.draw.pieslice(bounds,start=-90+i*angle,end=-90+(i+1)*angle,
+                            fill=blend(BG,colour,opacity*.72),outline=blend(BG,RIM,opacity),
+                            width=max(1,stage.px(2)))
+    theta=(-.5+1.45*p)*pi
+    pointer=(cx+.57*radius*cos(theta),cy+.57*radius*sin(theta))
+    stage.arrow((cx,cy),pointer,WHITE,p,6)
+    stage.dot(cx,cy,7,WHITE,p)
 
 
 def venn_diagram(stage,spec,box,p):
@@ -163,7 +180,7 @@ ARTISTS = {
     "chain": lambda stage,spec,box,p: tile_diagram(stage,spec,box,p,flow=True),
     "grid": lambda stage,spec,box,p: table_diagram(stage,spec,box,p,boxed=True),
     "table": table_diagram, "bars": bar_diagram, "geometry": geometry_diagram,
-    "cubes": cube_diagram, "venn": venn_diagram,
+    "cubes": cube_diagram, "venn": venn_diagram, "spinner": spinner_diagram,
 }
 
 
@@ -185,7 +202,10 @@ def draw_scene(stage, moment, scene, lesson, section):
     header(stage,slot,section,heading)
     art = scene.get("art")
     if art:
-        ARTISTS[art["kind"]](stage,art,(80,203,510,382),moment.reveal(beats[0]["cue"],.82))
+        build_time=.9
+        if art.get("bottom_up"):
+            build_time=max(.9,moment.at(beats[-1]["cue"])-moment.at(beats[0]["cue"]))
+        ARTISTS[art["kind"]](stage,art,(80,203,510,382),moment.reveal(beats[0]["cue"],build_time))
     first = 225 if len(beats) >= 4 else 260
     spacing = min(132, (565-first)/max(1,len(beats)-1))
     for i, beat in enumerate(beats):
@@ -196,7 +216,7 @@ def draw_scene(stage, moment, scene, lesson, section):
         colour = MINT if i == len(beats)-1 and phase in ("BASIC","MEDIUM","HARD") else WHITE
         stage.box(x-max_width/2-18,y-48,max_width+36,96,radius=20,fill=PANEL,
                   edge=blend(RIM,colour,.18),opacity=p)
-        wrapped(stage,beat["line"],x,y,35 if art else 42,max_width-14,colour,p,
+        wrapped_text(stage,beat["line"],x,y,39 if art else 42,max_width-14,colour,p,
                 bold=phase in ("BASIC","MEDIUM","HARD"))
 
 

@@ -59,7 +59,7 @@ def angles(lesson):
                   ("This gives a shortcut for any such pair of interior bisectors. Angle B I C equals ninety degrees plus half of angle A.", "∠BIC = 90° + ½∠A.")),proof_art=challenge),
         ),
         (("The middle letter of an angle name gives the vertex. Angle A B C is at B, even when A is the first letter you read.", "Mark the first letter as the vertex", "Locate the middle letter first"),
-         ("An angle labelled outside a triangle usually does not belong in the interior sum. Use the straight line to move inside first.", "Add an exterior angle to the two interior angles as if all three were inside", "Find the interior supplement first")),
+         ("An angle labelled outside a triangle usually does not belong in the interior sum. Use the straight line to move inside first.", "Include the exterior angle in the triangle sum", "Find the interior supplement first")),
         (("Copy the diagram and mark angle totals you can justify. Use the units and symbols attached to the correct vertex.", "Mark straight lines and triangles", "Record the angle sum you use."),
          ("When two unknown angles occur only as a sum, work with that sum directly. Check the angle you found is the one requested.", "Use sums of unknown angles", "Follow the angle name to the correct vertex.")),
         cover=triangle,
