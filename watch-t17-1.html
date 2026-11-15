@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10151d">
+<link rel="icon" href="icon.svg">
+<title>T17.1 · Match the strength of the proof to the claim · Summit One</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 25%, #192631, #0c121a 75%);
+  color: #f2f1ed; font: 1rem/1.55 system-ui, sans-serif;
+}
+main { max-width: 1120px; margin: auto; padding: clamp(18px, 4vw, 48px); }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.back { justify-content: space-between; gap: 8px 20px; }
+a { color: #9cdbbc; }
+h1 { max-width: 880px; margin: .25em 0 .45em; font-size: clamp(1.95rem, 5vw, 3.45rem); line-height: 1.12; }
+h2 { margin: 0; font-size: 1.2rem; }
+p { max-width: 55rem; color: #bac4cf; }
+.lesson { color: #9cdbbc; margin: 2rem 0 0; font-size: .88rem; font-weight: 700; }
+video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #10151d; border: 1px solid #354652; border-radius: 14px; }
+.meta { color: #bac4cf; margin: .65rem 0 0; }
+.chapters { margin: 1.2rem 0 1.6rem; }
+button {
+  cursor: pointer; min-height: 44px; border: 1px solid #405463; border-radius: 12px;
+  background: #1b2834; color: #eef2f4; font: inherit; padding: .5rem .8rem;
+}
+.exercise { background: #18232e; border: 1px solid #364756; border-radius: 16px; padding: 1.15rem; }
+summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
+.transcript { margin-top: 1rem; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+</style>
+</head>
+<body>
+<main>
+<nav class="back" aria-label="Lesson navigation">
+<a href="./">← Summit One</a><a href="teaching-videos.html">Teaching videos</a><a href="watch-t17-2.html">Next · Use counterexamples and contradictions carefully →</a>
+</nav>
+<p class="lesson">T17.1</p>
+<h1>Match the strength of the proof to the claim</h1>
+<p>Match the kind of evidence to the kind of claim.</p>
+<video id="lesson" controls playsinline preload="metadata" aria-label="Match the strength of the proof to the claim"
+  poster="media/T17.1-studio-poster.jpg?v=teaching-films-v1">
+  <source src="media/T17.1.mp4?v=teaching-films-v1" type="video/mp4">
+</video>
+<p class="meta">1:57 · Full HD</p>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · The claim determines what counts as proof</button>
+<button type="button" data-time="15.640">0:15 · A pattern may fail at a later case</button>
+<button type="button" data-time="27.000">0:27 · Do three examples prove an always claim?</button>
+<button type="button" data-time="43.130">0:43 · An odd number has one left over</button>
+<button type="button" data-time="53.690">0:53 · The two leftovers form a pair</button>
+<button type="button" data-time="65.690">1:05 · One counterexample disproves an always claim</button>
+<button type="button" data-time="81.850">1:21 · A condition can be needed without being enough</button>
+<button type="button" data-time="97.050">1:37 · Your turn</button></nav>
+<section class="exercise">
+<h2>Try it in your notebook</h2>
+<p>Is the sum of three odd numbers always odd? Give a reason.</p>
+<details><summary>Check your reasoning</summary><p>Yes: two of the three leftover ones make a pair, leaving exactly one leftover, so the total is odd.</p></details>
+</section>
+<details class="transcript"><summary>Read the transcript</summary><p>Different claims need different evidence. To show something can happen, one example is enough. To show something always happens or can never happen, your reasons must cover every case. A few examples only settle the cases that you checked.</p>
+<p>Patterns can hold for a long time and then break. Knowing what a claim actually requires stops you from trusting a pattern too far, and tells you when your solution is really complete.</p>
+<p>Here is a claim: the sum of two odd numbers is always even. Three and five make eight. Seven and nine make sixteen. Eleven and one make twelve. Is that a proof? Pause and decide.</p>
+<p>Three examples are not a proof, because there are endlessly many odd numbers. Here is a reason instead. Any odd number is a collection of pairs with one left over.</p>
+<p>Put two odd numbers together. Their two leftover counters make one more pair. Now everything is in pairs, so the total is even. This works for every pair of odd numbers at once.</p>
+<p>To show a claim is false, one example that breaks it is enough. Someone claims that every odd number bigger than one is prime. Three, five and seven fit. But nine is three times three. One counterexample and the claim is finished.</p>
+<p>One more distinction. A condition can be needed without being enough. Every multiple of six is even, so being even is needed. But fourteen is even and is not a multiple of six, so being even is not enough.</p>
+<p>One example shows something can happen. A reason covering every case shows it always does. One counterexample shows a claim is false. Notebook challenge: is it true that the sum of three odd numbers is always odd? Give a reason, not just examples.</p></details>
+<p><a href="media/T17.1.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+</main>
+<script>
+const video = document.querySelector("#lesson");
+for (const button of document.querySelectorAll("[data-time]")) {
+  button.addEventListener("click", () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+    video.scrollIntoView({block: "center"});
+  });
+}
+</script>
+</body>
+</html>

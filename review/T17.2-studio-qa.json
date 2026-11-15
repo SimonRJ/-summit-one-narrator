@@ -1,0 +1,92 @@
+{
+  "id": "T17.2",
+  "duration_seconds": 123.166667,
+  "sha256": "0a19ac73da0fd24bc476c9883d2785529669e9b96b0318de4ff3e54eb0ff8059",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 98.15,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "match_percent": 96.1
+    },
+    {
+      "number": 2,
+      "start": 14.84,
+      "match_percent": 100.0
+    },
+    {
+      "number": 3,
+      "start": 25.72,
+      "match_percent": 100.0
+    },
+    {
+      "number": 4,
+      "start": 40.09,
+      "match_percent": 95.38
+    },
+    {
+      "number": 5,
+      "start": 51.45,
+      "match_percent": 97.03
+    },
+    {
+      "number": 6,
+      "start": 69.68,
+      "match_percent": 96.7
+    },
+    {
+      "number": 7,
+      "start": 86.32,
+      "match_percent": 100.0
+    },
+    {
+      "number": 8,
+      "start": 100.56,
+      "match_percent": 100.0
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Test a claim with a counterexample or contradiction",
+      "start": 0.0
+    },
+    {
+      "title": "Decide what would prove a possibility",
+      "start": 14.84
+    },
+    {
+      "title": "Does multiplying always make a number bigger?",
+      "start": 25.72
+    },
+    {
+      "title": "Any one of these three cases breaks the claim",
+      "start": 40.09
+    },
+    {
+      "title": "State the conditions of the claim precisely",
+      "start": 51.45
+    },
+    {
+      "title": "Flip exactly two of nine coins",
+      "start": 69.68
+    },
+    {
+      "title": "An odd head count can never become zero",
+      "start": 86.32
+    },
+    {
+      "title": "Your turn",
+      "start": 100.56
+    }
+  ],
+  "decoded_successfully": true
+}

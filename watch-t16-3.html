@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10151d">
+<link rel="icon" href="icon.svg">
+<title>T16.3 · Recover totals and interpret averages · Summit One</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 25%, #192631, #0c121a 75%);
+  color: #f2f1ed; font: 1rem/1.55 system-ui, sans-serif;
+}
+main { max-width: 1120px; margin: auto; padding: clamp(18px, 4vw, 48px); }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.back { justify-content: space-between; gap: 8px 20px; }
+a { color: #9cdbbc; }
+h1 { max-width: 880px; margin: .25em 0 .45em; font-size: clamp(1.95rem, 5vw, 3.45rem); line-height: 1.12; }
+h2 { margin: 0; font-size: 1.2rem; }
+p { max-width: 55rem; color: #bac4cf; }
+.lesson { color: #9cdbbc; margin: 2rem 0 0; font-size: .88rem; font-weight: 700; }
+video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #10151d; border: 1px solid #354652; border-radius: 14px; }
+.meta { color: #bac4cf; margin: .65rem 0 0; }
+.chapters { margin: 1.2rem 0 1.6rem; }
+button {
+  cursor: pointer; min-height: 44px; border: 1px solid #405463; border-radius: 12px;
+  background: #1b2834; color: #eef2f4; font: inherit; padding: .5rem .8rem;
+}
+.exercise { background: #18232e; border: 1px solid #364756; border-radius: 16px; padding: 1.15rem; }
+summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
+.transcript { margin-top: 1rem; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+</style>
+</head>
+<body>
+<main>
+<nav class="back" aria-label="Lesson navigation">
+<a href="./">← Summit One</a><a href="teaching-videos.html">Teaching videos</a><a href="watch-t16-e.html">Next · Keep ratios, rates and averages precise →</a>
+</nav>
+<p class="lesson">T16.3</p>
+<h1>Recover totals and interpret averages</h1>
+<p>Turn an average back into a total before doing anything else.</p>
+<video id="lesson" controls playsinline preload="metadata" aria-label="Recover totals and interpret averages"
+  poster="media/T16.3-studio-poster.jpg?v=teaching-films-v1">
+  <source src="media/T16.3.mp4?v=teaching-films-v1" type="video/mp4">
+</video>
+<p class="meta">1:57 · Full HD</p>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · The mean is the result of sharing equally</button>
+<button type="button" data-time="13.720">0:13 · Different group sizes carry different weight</button>
+<button type="button" data-time="24.770">0:24 · What is the fifth score?</button>
+<button type="button" data-time="37.390">0:37 · The mean and number of scores give the total</button>
+<button type="button" data-time="43.960">0:43 · The added score is the difference</button>
+<button type="button" data-time="61.080">1:01 · Combine group totals before dividing</button>
+<button type="button" data-time="77.560">1:17 · The median reads the middle of the sorted list</button>
+<button type="button" data-time="95.630">1:35 · Your turn</button></nav>
+<section class="exercise">
+<h2>Try it in your notebook</h2>
+<p>The mean of 6 numbers is 9. One is removed and the mean of the rest is 8. Which number was removed?</p>
+<details><summary>Check your reasoning</summary><p>54 - 40 = 14.</p></details>
+</section>
+<details class="transcript"><summary>Read the transcript</summary><p>The mean is what everyone would have if the total were shared equally. So a mean always hides a total: the mean multiplied by the number of items. Whenever a question mentions an average, recover the total first.</p>
+<p>When groups have different sizes, their averages carry different weight. Recover the total in each group before combining them. Then each individual item makes the right contribution.</p>
+<p>Four scores have a mean of seven. A fifth score is added and the mean becomes eight. What is the fifth score? Pause and find the totals.</p>
+<p>Four scores with mean seven total twenty-eight. Five scores with mean eight total forty.</p>
+<p>The fifth score supplies the difference: forty minus twenty-eight is twelve. To average eight, the original four scores would need thirty-two points. They have twenty-eight, so they are four points short. The fifth score supplies its own eight points and those four extra points.</p>
+<p>Combining groups works the same way. Two people average six and three people average ten. The totals are twelve and thirty, forty-two for five people. The combined mean is eight point four, not eight. It leans towards the larger group.</p>
+<p>The mean is not the only average. The median is the middle value when the list is in order. For two, three, five, nine and thirty-one, the median is five, while the mean is ten. One very large value pulls the mean up but leaves the median alone.</p>
+<p>The total is the mean times the number of items. Do your reasoning with totals. And the median is the middle value. Notebook challenge: the mean of six numbers is nine. One number is removed and the mean of the rest is eight. Which number was removed?</p></details>
+<p><a href="media/T16.3.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+</main>
+<script>
+const video = document.querySelector("#lesson");
+for (const button of document.querySelectorAll("[data-time]")) {
+  button.addEventListener("click", () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+    video.scrollIntoView({block: "center"});
+  });
+}
+</script>
+</body>
+</html>

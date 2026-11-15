@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10151d">
+<link rel="icon" href="icon.svg">
+<title>T16.E · Keep ratios, rates and averages precise · Summit One</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 25%, #192631, #0c121a 75%);
+  color: #f2f1ed; font: 1rem/1.55 system-ui, sans-serif;
+}
+main { max-width: 1120px; margin: auto; padding: clamp(18px, 4vw, 48px); }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.back { justify-content: space-between; gap: 8px 20px; }
+a { color: #9cdbbc; }
+h1 { max-width: 880px; margin: .25em 0 .45em; font-size: clamp(1.95rem, 5vw, 3.45rem); line-height: 1.12; }
+h2 { margin: 0; font-size: 1.2rem; }
+p { max-width: 55rem; color: #bac4cf; }
+.lesson { color: #9cdbbc; margin: 2rem 0 0; font-size: .88rem; font-weight: 700; }
+video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #10151d; border: 1px solid #354652; border-radius: 14px; }
+.meta { color: #bac4cf; margin: .65rem 0 0; }
+.chapters { margin: 1.2rem 0 1.6rem; }
+button {
+  cursor: pointer; min-height: 44px; border: 1px solid #405463; border-radius: 12px;
+  background: #1b2834; color: #eef2f4; font: inherit; padding: .5rem .8rem;
+}
+.exercise { background: #18232e; border: 1px solid #364756; border-radius: 16px; padding: 1.15rem; }
+summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
+.transcript { margin-top: 1rem; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+</style>
+</head>
+<body>
+<main>
+<nav class="back" aria-label="Lesson navigation">
+<a href="./">← Summit One</a><a href="teaching-videos.html">Teaching videos</a><a href="watch-t17-1.html">Next · Match the strength of the proof to the claim →</a>
+</nav>
+<p class="lesson">T16.E · Worked example</p>
+<h1>Keep ratios, rates and averages precise</h1>
+<p>Worked example: why you cannot average two averages.</p>
+<video id="lesson" controls playsinline preload="metadata" aria-label="Keep ratios, rates and averages precise"
+  poster="media/T16.E-studio-poster.jpg?v=teaching-films-v1">
+  <source src="media/T16.E.mp4?v=teaching-films-v1" type="video/mp4">
+</video>
+<p class="meta">1:15 · Full HD</p>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Find the mean score of all five learners</button>
+<button type="button" data-time="11.460">0:11 · Add up the points each group contributes</button>
+<button type="button" data-time="20.750">0:20 · Share all forty-one points among five learners</button>
+<button type="button" data-time="30.680">0:30 · The larger group has more weight</button>
+<button type="button" data-time="48.120">0:48 · Equal group sizes have an equal weight</button>
+<button type="button" data-time="60.120">1:00 · Your turn</button></nav>
+<section class="exercise">
+<h2>Try it in your notebook</h2>
+<p>Four learners score 5 each and one learner scores 10. What is the mean?</p>
+<details><summary>Check your reasoning</summary><p>(20 + 10) / 5 = 6.</p></details>
+</section>
+<details class="transcript"><summary>Read the transcript</summary><p>Two learners each score seven points, and three learners each score nine points. What is the mean score for all five learners?</p>
+<p>Find the totals. The first group scores two times seven: fourteen points. The second group scores three times nine: twenty-seven points.</p>
+<p>Together that is forty-one points for five learners. Forty-one divided by five is eight point two. The mean score is eight point two.</p>
+<p>Why is the mean above eight, halfway between seven and nine? Three learners score nine and two score seven, so the balance point is pulled towards nine. If you add one extra score of nine to four scores averaging eight, the mean moves one fifth of the way from eight to nine.</p>
+<p>If the groups were the same size, two learners at seven and two at nine, the mean would be exactly eight. The two group means now carry equal weight, so their simple average works.</p>
+<p>Combine the totals, then divide by the total number of people. Rebuild this, then find the mean score when four learners score five each and one learner scores ten.</p></details>
+<p><a href="media/T16.E.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+</main>
+<script>
+const video = document.querySelector("#lesson");
+for (const button of document.querySelectorAll("[data-time]")) {
+  button.addEventListener("click", () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+    video.scrollIntoView({block: "center"});
+  });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+{
+  "id": "T16.3",
+  "duration_seconds": 117.1,
+  "sha256": "9e074ff4aefda57cce35853860f12ae782dc3ad1892425c5e5229b4744d2efda",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 99.52,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "match_percent": 97.37
+    },
+    {
+      "number": 2,
+      "start": 13.72,
+      "match_percent": 100.0
+    },
+    {
+      "number": 3,
+      "start": 24.77,
+      "match_percent": 100.0
+    },
+    {
+      "number": 4,
+      "start": 37.39,
+      "match_percent": 100.0
+    },
+    {
+      "number": 5,
+      "start": 43.96,
+      "match_percent": 100.0
+    },
+    {
+      "number": 6,
+      "start": 61.08,
+      "match_percent": 98.8
+    },
+    {
+      "number": 7,
+      "start": 77.56,
+      "match_percent": 100.0
+    },
+    {
+      "number": 8,
+      "start": 95.63,
+      "match_percent": 100.0
+    }
+  ],
+  "chapters": [
+    {
+      "title": "The mean is the result of sharing equally",
+      "start": 0.0
+    },
+    {
+      "title": "Different group sizes carry different weight",
+      "start": 13.72
+    },
+    {
+      "title": "What is the fifth score?",
+      "start": 24.77
+    },
+    {
+      "title": "The mean and number of scores give the total",
+      "start": 37.39
+    },
+    {
+      "title": "The added score is the difference",
+      "start": 43.96
+    },
+    {
+      "title": "Combine group totals before dividing",
+      "start": 61.08
+    },
+    {
+      "title": "The median reads the middle of the sorted list",
+      "start": 77.56
+    },
+    {
+      "title": "Your turn",
+      "start": 95.63
+    }
+  ],
+  "decoded_successfully": true
+}

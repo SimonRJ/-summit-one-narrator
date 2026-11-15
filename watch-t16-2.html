@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10151d">
+<link rel="icon" href="icon.svg">
+<title>T16.2 · Convert time descriptions into rates · Summit One</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 25%, #192631, #0c121a 75%);
+  color: #f2f1ed; font: 1rem/1.55 system-ui, sans-serif;
+}
+main { max-width: 1120px; margin: auto; padding: clamp(18px, 4vw, 48px); }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.back { justify-content: space-between; gap: 8px 20px; }
+a { color: #9cdbbc; }
+h1 { max-width: 880px; margin: .25em 0 .45em; font-size: clamp(1.95rem, 5vw, 3.45rem); line-height: 1.12; }
+h2 { margin: 0; font-size: 1.2rem; }
+p { max-width: 55rem; color: #bac4cf; }
+.lesson { color: #9cdbbc; margin: 2rem 0 0; font-size: .88rem; font-weight: 700; }
+video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #10151d; border: 1px solid #354652; border-radius: 14px; }
+.meta { color: #bac4cf; margin: .65rem 0 0; }
+.chapters { margin: 1.2rem 0 1.6rem; }
+button {
+  cursor: pointer; min-height: 44px; border: 1px solid #405463; border-radius: 12px;
+  background: #1b2834; color: #eef2f4; font: inherit; padding: .5rem .8rem;
+}
+.exercise { background: #18232e; border: 1px solid #364756; border-radius: 16px; padding: 1.15rem; }
+summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
+.transcript { margin-top: 1rem; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+</style>
+</head>
+<body>
+<main>
+<nav class="back" aria-label="Lesson navigation">
+<a href="./">← Summit One</a><a href="teaching-videos.html">Teaching videos</a><a href="watch-t16-3.html">Next · Recover totals and interpret averages →</a>
+</nav>
+<p class="lesson">T16.2</p>
+<h1>Convert time descriptions into rates</h1>
+<p>Turn &quot;takes so long&quot; into &quot;does so much each minute&quot;, and add rates.</p>
+<video id="lesson" controls playsinline preload="metadata" aria-label="Convert time descriptions into rates"
+  poster="media/T16.2-studio-poster.jpg?v=teaching-films-v1">
+  <source src="media/T16.2.mp4?v=teaching-films-v1" type="video/mp4">
+</video>
+<p class="meta">2:00 · Full HD</p>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Turn time into amount per minute</button>
+<button type="button" data-time="13.240">0:13 · Add what the taps fill in one minute</button>
+<button type="button" data-time="25.080">0:25 · How long will both taps take?</button>
+<button type="button" data-time="40.090">0:40 · One minute fills three of six slices</button>
+<button type="button" data-time="54.970">0:54 · Fill all six slices in two minutes</button>
+<button type="button" data-time="64.100">1:04 · Subtract the amount flowing out</button>
+<button type="button" data-time="82.010">1:22 · Add the rates that close the gap</button>
+<button type="button" data-time="97.690">1:37 · Your turn</button></nav>
+<section class="exercise">
+<h2>Try it in your notebook</h2>
+<p>One painter takes 4 hours, another 12 hours. How long together?</p>
+<details><summary>Check your reasoning</summary><p>3/12 + 1/12 = 4/12 per hour, so 3 hours.</p></details>
+</section>
+<details class="transcript"><summary>Read the transcript</summary><p>If a tap fills a tank in ten minutes, then each minute it fills one tenth of the tank. Turning a time into an amount per minute is the key move. Amounts per minute can be added together. Times cannot.</p>
+<p>When two taps run together at constant rates, the tank fills faster. The two amounts filled in one minute can be added. That combined amount per minute tells us how long the whole job will take.</p>
+<p>One tap fills a tank in six minutes. Another fills it in three minutes. Both run at constant rates. How long do they take together? Pause and work out what each tap does in one minute.</p>
+<p>Picture the tank in six equal slices. In one minute, the slow tap fills one slice. The fast tap fills the whole tank in three minutes, so it fills two slices a minute. Together they fill three slices a minute.</p>
+<p>Six slices at three slices a minute takes two minutes. Together the taps take two minutes, which is less than either alone, as it should be.</p>
+<p>Rates can also work against each other. A tap fills a tank in four minutes, while a leak would empty it in twelve. In a tank of twelve slices, the tap adds three slices a minute and the leak removes one. The net gain is two slices a minute, so the tank fills in six minutes.</p>
+<p>Moving objects follow the same rule. Two runners start one hundred metres apart and run towards each other, at six metres per second and four metres per second. The gap closes at ten metres per second. They meet after ten seconds.</p>
+<p>Convert each time into a rate. Use the same time unit for each rate. Add rates that help and subtract rates that hinder. Divide the job by the combined rate. Notebook challenge: one painter paints a fence in four hours, another in twelve hours. How long do they take together?</p></details>
+<p><a href="media/T16.2.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+</main>
+<script>
+const video = document.querySelector("#lesson");
+for (const button of document.querySelectorAll("[data-time]")) {
+  button.addEventListener("click", () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+    video.scrollIntoView({block: "center"});
+  });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+{
+  "id": "T17.1",
+  "duration_seconds": 117.9,
+  "sha256": "6213e172edd8689ad2903f335955fb6cbfa40a3db5902b0192d9e8d73d362855",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 98.99,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "match_percent": 100.0
+    },
+    {
+      "number": 2,
+      "start": 15.64,
+      "match_percent": 100.0
+    },
+    {
+      "number": 3,
+      "start": 27.0,
+      "match_percent": 100.0
+    },
+    {
+      "number": 4,
+      "start": 43.13,
+      "match_percent": 100.0
+    },
+    {
+      "number": 5,
+      "start": 53.69,
+      "match_percent": 100.0
+    },
+    {
+      "number": 6,
+      "start": 65.69,
+      "match_percent": 95.35
+    },
+    {
+      "number": 7,
+      "start": 81.85,
+      "match_percent": 100.0
+    },
+    {
+      "number": 8,
+      "start": 97.05,
+      "match_percent": 96.55
+    }
+  ],
+  "chapters": [
+    {
+      "title": "The claim determines what counts as proof",
+      "start": 0.0
+    },
+    {
+      "title": "A pattern may fail at a later case",
+      "start": 15.64
+    },
+    {
+      "title": "Do three examples prove an always claim?",
+      "start": 27.0
+    },
+    {
+      "title": "An odd number has one left over",
+      "start": 43.13
+    },
+    {
+      "title": "The two leftovers form a pair",
+      "start": 53.69
+    },
+    {
+      "title": "One counterexample disproves an always claim",
+      "start": 65.69
+    },
+    {
+      "title": "A condition can be needed without being enough",
+      "start": 81.85
+    },
+    {
+      "title": "Your turn",
+      "start": 97.05
+    }
+  ],
+  "decoded_successfully": true
+}

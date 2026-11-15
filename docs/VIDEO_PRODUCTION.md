@@ -7,8 +7,8 @@ The visual and teaching standard is in [VIDEO_TEACHING_STANDARD.md](VIDEO_TEACHI
 | Status | Count | Which |
 |---|---:|---|
 | Finished and approved | 2 | T02.1 (the studio benchmark) and T02.2. Their audio must not be changed. |
-| Published for review | 59 | Teaching films through T16.1 are available in [Teaching videos](../teaching-videos.html). |
-| Script ready | 11 | The remaining items in `data/teaching-72.json`. |
+| Published for review | 64 | Teaching films through T17.2 are available in [Teaching videos](../teaching-videos.html). |
+| Script ready | 6 | The remaining items in `data/teaching-72.json`. |
 
 The full list with lengths is generated at [production/scripts/INDEX.md](../production/scripts/INDEX.md).
 
