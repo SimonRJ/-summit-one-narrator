@@ -6,20 +6,20 @@
  "status": "script_ready_not_recorded",
  "voice": "Voice C (VoxCPM2), natural speed (see docs/VIDEO_PRODUCTION.md)",
  "goal": "Change an equation only in ways that keep both sides balanced.",
- "narration_words": 268,
+ "narration_words": 275,
  "estimated_minutes": 1.8,
  "scenes": [
   {
    "n": 1,
    "stage": "INSIGHT",
    "visual": "A balance scale level, with a pouch and 3 counters on the left and 10 counters on the right. Three counters are removed from each side; it stays level.",
-   "narration": "An equation is a balance. Whatever you do to one side, do to the other, and it stays level. Take three from both sides, or halve both sides, and the balance still holds. That is all that solving an equation is."
+   "narration": "An equation is a balance. Take three from both sides and it stays level. Addition takes us back to the original. Halve both sides and it still balances. Doubling takes us back. A move you can undo keeps exactly the same solutions."
   },
   {
    "n": 2,
    "stage": "WHY",
    "visual": "A scale tipping after something is done to one side only.",
-   "narration": "Guessing works for small numbers. Balancing works every time, and it shows your reasoning, which is how you avoid losing track in longer problems."
+   "narration": "Guessing may find an answer. Reversible moves let you solve the equation step by step and confirm you have kept all of its possible answers."
   },
   {
    "n": 3,
@@ -55,7 +55,7 @@
    "n": 8,
    "stage": "VARIATION",
    "visual": "Statement: \"x times x equals 5 times x\". A tempting \"divide by x\" gives 5 only; the solution 0 appears separately with a highlight.",
-   "narration": "One caution. Never divide both sides by something that might be zero. If a number times itself equals five times the number, dividing by the number gives five. But zero also works, because zero times zero equals five times zero. Dividing threw that answer away."
+   "narration": "One caution. Before dividing by an unknown number, check whether it could be zero. If a number times itself equals five times the number and the number is not zero, dividing gives five. Zero also works, because zero times zero equals five times zero. Those two cases cover all possibilities."
   },
   {
    "n": 9,

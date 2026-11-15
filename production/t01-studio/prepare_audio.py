@@ -60,6 +60,11 @@ SPOKEN_FORMS = {
     "kilogram": "kilograms",
     "kg": "kilograms",
     "nought": "zero",
+    "weigh": "way",
+    "weighs": "ways",
+    "route": "root",
+    "routes": "roots",
+    "along": "a long",
 }
 
 
@@ -91,25 +96,50 @@ def tokens(text):
     text = re.sub(r"\b(\d+)\s*/\s*(\d+)\b", fraction_words, text)
     text = re.sub(r"\b40s\b", "forties", text)
     text = re.sub(r"(?<=\d)\s*[×x*]\s*(?=\d)", " times ", text)
-    parts = re.findall(r"[a-z]+(?:'[a-z]+)?|\d+(?:,\d{3})*(?:st|nd|rd|th)?", text)
+    text = text.replace("×", " times ").replace("÷", " divided by ").replace("+", " plus ")
+    text = text.replace("=", " equals ").replace("−", " minus ")
+    parts = re.findall(r"[a-z]+(?:'[a-z]+)?|\d+(?:,\d{3})*(?:st|nd|rd|th)?s?", text)
     result = []
     for part in parts:
         if part[0].isdigit():
-            ordinal = part[-2:] in ("st", "nd", "rd", "th")
-            numeral = part[:-2] if ordinal else part
+            plural = part.endswith("s")
+            numeral = part[:-1] if plural else part
+            ordinal = numeral[-2:] in ("st", "nd", "rd", "th")
+            numeral = numeral[:-2] if ordinal else numeral
             expanded = num2words(int(numeral.replace(",", "")), to="ordinal" if ordinal else "cardinal")
-            result.extend(re.findall("[a-z]+", expanded))
+            terms = re.findall("[a-z]+", expanded)
+            if plural:
+                terms[-1] += "s"
+            result.extend(terms)
         else:
             result.extend(SPOKEN_FORMS.get(part, part).split())
     return result
+
+
+def recognized_terms(words, index):
+    """Keep the time of each recognised word when Whisper splits a written number."""
+    text = words[index].word.strip()
+    previous = words[index - 1].word.strip() if index else ""
+    following = words[index + 1].word.strip() if index + 1 < len(words) else ""
+    if text.lower() == "x" and previous.isdigit() and following.isdigit():
+        return ["times"]
+    decimal = re.fullmatch(r"\.(\d+)[,.;]?", text)
+    if decimal and previous.isdigit():
+        return ["point", *[num2words(int(digit)) for digit in decimal[1]]]
+    tail = re.fullmatch(r"(\d+)[,.;]?", text)
+    if tail and re.fullmatch(r"\.\d+,", previous):
+        return [num2words(int(digit)) for digit in tail[1]]
+    if previous.isdigit() and re.fullmatch(r",000ths?[,.]?", text):
+        return ["thousandths"]
+    return tokens(text)
 
 
 def align(script, recognized, start, end):
     expected = script.split()
     target = [(token, k) for k, word in enumerate(expected) for token in tokens(word)]
     heard = []
-    for word in recognized:
-        terms = tokens(word.word)
+    for word_index, word in enumerate(recognized):
+        terms = recognized_terms(recognized, word_index)
         for index, term in enumerate(terms):
             span = (word.end - word.start) / len(terms)
             heard.append((term, start + word.start + index * span, start + word.start + (index + 1) * span))
