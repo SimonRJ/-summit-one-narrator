@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10151d">
+<link rel="icon" href="icon.svg">
+<title>T11.3 · Organise counts, inventories and next-number · Summit One</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 25%, #192631, #0c121a 75%);
+  color: #f2f1ed; font: 1rem/1.55 system-ui, sans-serif;
+}
+main { max-width: 1120px; margin: auto; padding: clamp(18px, 4vw, 48px); }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.back { justify-content: space-between; gap: 8px 20px; }
+a { color: #9cdbbc; }
+h1 { max-width: 880px; margin: .25em 0 .45em; font-size: clamp(1.95rem, 5vw, 3.45rem); line-height: 1.12; }
+h2 { margin: 0; font-size: 1.2rem; }
+p { max-width: 55rem; color: #bac4cf; }
+.lesson { color: #9cdbbc; margin: 2rem 0 0; font-size: .88rem; font-weight: 700; }
+video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #10151d; border: 1px solid #354652; border-radius: 14px; }
+.meta { color: #bac4cf; margin: .65rem 0 0; }
+.chapters { margin: 1.2rem 0 1.6rem; }
+button {
+  cursor: pointer; min-height: 44px; border: 1px solid #405463; border-radius: 12px;
+  background: #1b2834; color: #eef2f4; font: inherit; padding: .5rem .8rem;
+}
+.exercise { background: #18232e; border: 1px solid #364756; border-radius: 16px; padding: 1.15rem; }
+summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
+.transcript { margin-top: 1rem; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+</style>
+</head>
+<body>
+<main>
+<nav class="back" aria-label="Lesson navigation">
+<a href="./">← Summit One</a><a href="teaching-videos.html">Teaching videos</a><a href="watch-t11-e.html">Next · Make every digit obey both its jobs →</a>
+</nav>
+<p class="lesson">T11.3</p>
+<h1>Organise counts, inventories and next-number</h1>
+<p>Count digits place by place, and know whether you are counting numbers or occurrences.</p>
+<video id="lesson" controls playsinline preload="metadata" aria-label="Organise counts, inventories and next-number"
+  poster="media/T11.3-studio-poster.jpg?v=teaching-films-v1">
+  <source src="media/T11.3.mp4?v=teaching-films-v1" type="video/mp4">
+</video>
+<p class="meta">1:48 · Full HD</p>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · A number can contain the same digit twice</button>
+<button type="button" data-time="14.360">0:14 · Count each place separately</button>
+<button type="button" data-time="23.490">0:23 · How many times is the digit 7 written?</button>
+<button type="button" data-time="35.470">0:35 · Units: one seven in each group of ten</button>
+<button type="button" data-time="45.400">0:45 · Tens: seven appears from 70 to 79</button>
+<button type="button" data-time="60.120">1:00 · Counting numbers needs a different total</button>
+<button type="button" data-time="72.600">1:12 · Count every digit used in page numbers</button>
+<button type="button" data-time="91.150">1:31 · Your turn</button></nav>
+<section class="exercise">
+<h2>Try it in your notebook</h2>
+<p>How many times is the digit 3 written in the numbers from 1 to 50?</p>
+<details><summary>Check your reasoning</summary><p>Units: 3, 13, 23, 33, 43 (5 times); tens: 30 to 39 (10 times); total 15.</p></details>
+</section>
+<details class="transcript"><summary>Read the transcript</summary><p>&quot;How many numbers contain a two?&quot; and &quot;How many twos are written?&quot; are different questions. Twenty-two is one number, but it contains two twos. Decide which you are counting, then count one place at a time.</p>
+<p>Counting straight through a long list is slow and error-prone. Counting each place separately is quick, and repeated digits take care of themselves.</p>
+<p>All the whole numbers from one to one hundred are written out. How many times is the digit seven written? Pause and think about the units place first.</p>
+<p>In the units place, seven appears once in every ten numbers: seven, seventeen, twenty-seven, up to ninety-seven. That is ten times.</p>
+<p>In the tens place, seven appears in seventy to seventy-nine: ten times. Altogether the digit seven is written twenty times. Seventy-seven was counted once in each place, which is correct, because it has two sevens.</p>
+<p>Now the other question: how many numbers contain a seven? The column has ten numbers and the row has ten, but seventy-seven is in both. Ten plus ten minus one is nineteen.</p>
+<p>A related skill is counting all the digits. Numbering pages one to ninety-nine uses nine digits for the single-digit pages, and two digits each for the ninety pages from ten to ninety-nine. That is nine plus one hundred and eighty: one hundred and eighty-nine digits.</p>
+<p>Decide whether you are counting numbers or occurrences. Count each place separately. For numbers, remove any overlap. Notebook challenge: how many times is the digit three written in the numbers from one to fifty?</p></details>
+<p><a href="media/T11.3.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+</main>
+<script>
+const video = document.querySelector("#lesson");
+for (const button of document.querySelectorAll("[data-time]")) {
+  button.addEventListener("click", () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+    video.scrollIntoView({block: "center"});
+  });
+}
+</script>
+</body>
+</html>

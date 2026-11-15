@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10151d">
+<link rel="icon" href="icon.svg">
+<title>T11.2 · Use information that survives rearrangement · Summit One</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 25%, #192631, #0c121a 75%);
+  color: #f2f1ed; font: 1rem/1.55 system-ui, sans-serif;
+}
+main { max-width: 1120px; margin: auto; padding: clamp(18px, 4vw, 48px); }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.back { justify-content: space-between; gap: 8px 20px; }
+a { color: #9cdbbc; }
+h1 { max-width: 880px; margin: .25em 0 .45em; font-size: clamp(1.95rem, 5vw, 3.45rem); line-height: 1.12; }
+h2 { margin: 0; font-size: 1.2rem; }
+p { max-width: 55rem; color: #bac4cf; }
+.lesson { color: #9cdbbc; margin: 2rem 0 0; font-size: .88rem; font-weight: 700; }
+video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #10151d; border: 1px solid #354652; border-radius: 14px; }
+.meta { color: #bac4cf; margin: .65rem 0 0; }
+.chapters { margin: 1.2rem 0 1.6rem; }
+button {
+  cursor: pointer; min-height: 44px; border: 1px solid #405463; border-radius: 12px;
+  background: #1b2834; color: #eef2f4; font: inherit; padding: .5rem .8rem;
+}
+.exercise { background: #18232e; border: 1px solid #364756; border-radius: 16px; padding: 1.15rem; }
+summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
+.transcript { margin-top: 1rem; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+</style>
+</head>
+<body>
+<main>
+<nav class="back" aria-label="Lesson navigation">
+<a href="./">← Summit One</a><a href="teaching-videos.html">Teaching videos</a><a href="watch-t11-3.html">Next · Organise counts, inventories and next-number →</a>
+</nav>
+<p class="lesson">T11.2</p>
+<h1>Use information that survives rearrangement</h1>
+<p>Use digit sums to find remainders on division by 9 and by 3.</p>
+<video id="lesson" controls playsinline preload="metadata" aria-label="Use information that survives rearrangement"
+  poster="media/T11.2-studio-poster.jpg?v=teaching-films-v1">
+  <source src="media/T11.2.mp4?v=teaching-films-v1" type="video/mp4">
+</video>
+<p class="meta">2:00 · Full HD</p>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Each place value is one more than a multiple of nine</button>
+<button type="button" data-time="14.040">0:14 · Digit sums test multiples of nine and three</button>
+<button type="button" data-time="23.810">0:23 · Is 4,725 divisible by nine?</button>
+<button type="button" data-time="33.070">0:33 · Remove the nines from each place</button>
+<button type="button" data-time="47.150">0:47 · Collect the digit sum</button>
+<button type="button" data-time="60.270">1:00 · Reduce the digit sum to find the remainder</button>
+<button type="button" data-time="77.860">1:17 · Rearrange the digits without changing the sum</button>
+<button type="button" data-time="90.980">1:30 · Use the digit sum to complete a number</button>
+<button type="button" data-time="102.510">1:42 · Your turn</button></nav>
+<section class="exercise">
+<h2>Try it in your notebook</h2>
+<p>What digit makes 73_4 a multiple of 9?</p>
+<details><summary>Check your reasoning</summary><p>7 + 3 + 4 = 14; the digit is 4, making 18.</p></details>
+</section>
+<details class="transcript"><summary>Read the transcript</summary><p>Ten is one more than nine. A hundred is one more than ninety-nine. A thousand is one more than nine hundred and ninety-nine. Every place value is one more than a multiple of nine. That is why digit sums work.</p>
+<p>This gives a test for multiples of nine, and of three, that takes seconds, even for enormous numbers. It also survives when digits are rearranged.</p>
+<p>Is four thousand seven hundred and twenty-five a multiple of nine? Pause and add its digits.</p>
+<p>Each thousand leaves one over after removing nines. So four thousands leave four. Seven hundreds leave seven. Two tens leave two. The five units stay. What is left over is exactly the digit sum.</p>
+<p>Four plus seven plus two plus five is eighteen. Eighteen is a multiple of nine, so the number is too. In general, a number and its digit sum leave the same remainder when divided by nine.</p>
+<p>The digit sum lets us find the remainder, too. Five hundred and eighty-three has digit sum sixteen. Remove as many complete groups of nine from sixteen as you can. Sixteen is seven more than nine. So five hundred and eighty-three leaves remainder seven when divided by nine.</p>
+<p>Rearranging digits does not change their sum. So every arrangement of the digits one, two and six is a multiple of nine. And since nine is a multiple of three, the same digit-sum test works for three.</p>
+<p>It solves missing digits too. Five, blank, eight is a multiple of nine. The known digits add to thirteen, so the blank must be five, making eighteen.</p>
+<p>A number and its digit sum have the same remainder on division by nine, and on division by three. Notebook challenge: what digit makes seven, three, blank, four a multiple of nine?</p></details>
+<p><a href="media/T11.2.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+</main>
+<script>
+const video = document.querySelector("#lesson");
+for (const button of document.querySelectorAll("[data-time]")) {
+  button.addEventListener("click", () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+    video.scrollIntoView({block: "center"});
+  });
+}
+</script>
+</body>
+</html>

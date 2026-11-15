@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10151d">
+<link rel="icon" href="icon.svg">
+<title>T12.2 · Connect angles on a circle to the arcs they see · Summit One</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 25%, #192631, #0c121a 75%);
+  color: #f2f1ed; font: 1rem/1.55 system-ui, sans-serif;
+}
+main { max-width: 1120px; margin: auto; padding: clamp(18px, 4vw, 48px); }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.back { justify-content: space-between; gap: 8px 20px; }
+a { color: #9cdbbc; }
+h1 { max-width: 880px; margin: .25em 0 .45em; font-size: clamp(1.95rem, 5vw, 3.45rem); line-height: 1.12; }
+h2 { margin: 0; font-size: 1.2rem; }
+p { max-width: 55rem; color: #bac4cf; }
+.lesson { color: #9cdbbc; margin: 2rem 0 0; font-size: .88rem; font-weight: 700; }
+video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #10151d; border: 1px solid #354652; border-radius: 14px; }
+.meta { color: #bac4cf; margin: .65rem 0 0; }
+.chapters { margin: 1.2rem 0 1.6rem; }
+button {
+  cursor: pointer; min-height: 44px; border: 1px solid #405463; border-radius: 12px;
+  background: #1b2834; color: #eef2f4; font: inherit; padding: .5rem .8rem;
+}
+.exercise { background: #18232e; border: 1px solid #364756; border-radius: 16px; padding: 1.15rem; }
+summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
+.transcript { margin-top: 1rem; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+</style>
+</head>
+<body>
+<main>
+<nav class="back" aria-label="Lesson navigation">
+<a href="./">← Summit One</a><a href="teaching-videos.html">Teaching videos</a>
+</nav>
+<p class="lesson">T12.2</p>
+<h1>Connect angles on a circle to the arcs they see</h1>
+<p>Use equal spacing on a circle, and the link between an angle at the centre and one on the circle.</p>
+<video id="lesson" controls playsinline preload="metadata" aria-label="Connect angles on a circle to the arcs they see"
+  poster="media/T12.2-studio-poster.jpg?v=teaching-films-v1">
+  <source src="media/T12.2.mp4?v=teaching-films-v1" type="video/mp4">
+</video>
+<p class="meta">2:17 · Full HD</p>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Twelve equal gaps share a full turn</button>
+<button type="button" data-time="17.230">0:17 · Choose where the angle is measured</button>
+<button type="button" data-time="29.390">0:29 · Join twelve and four to the centre</button>
+<button type="button" data-time="41.360">0:41 · Count four gaps, not five points</button>
+<button type="button" data-time="54.480">0:54 · View the same arc from the edge</button>
+<button type="button" data-time="70.950">1:10 · Two isosceles triangles explain the half</button>
+<button type="button" data-time="98.610">1:38 · The angle in a semicircle is a right angle</button>
+<button type="button" data-time="116.840">1:56 · Your turn</button></nav>
+<section class="exercise">
+<h2>Try it in your notebook</h2>
+<p>On a clock circle, what is the smaller angle at the centre between the points at 2 and 7?</p>
+<details><summary>Check your reasoning</summary><p>5 gaps x 30 = 150 degrees.</p></details>
+</section>
+<details class="transcript"><summary>Read the transcript</summary><p>Put twelve points equally spaced round a circle, like the hours on a clock. From the centre, the full turn of three hundred and sixty degrees is shared into twelve equal angles of thirty degrees. Counting gaps between points tells you an angle at the centre.</p>
+<p>Clock problems, wheels and regular shapes all use this idea. And there is a second fact, about angles drawn from a point on the circle itself, that unlocks many harder problems.</p>
+<p>On the clock circle, join the centre to the point at twelve and to the point at four. What angle is made at the centre? Pause and count carefully.</p>
+<p>From twelve to four there are four gaps. Four times thirty is one hundred and twenty degrees. Count the gaps, not the points. There are five points from twelve to four, but only four gaps.</p>
+<p>Now stand at a point on the circle instead, at eight, and look at the same arc from twelve to four. The angle you see is exactly half the angle at the centre: sixty degrees. An angle on the circle is half the angle at the centre standing on the same arc.</p>
+<p>Why half here? Draw the radius to eight. It splits the angle at eight into two parts, a and b. Since the radii are equal, the two small triangles have equal base angles. Their angles at the centre are one hundred and eighty minus two a, and one hundred and eighty minus two b. Subtract both from a full turn. The centre angle over the arc is two a plus two b, twice the whole angle at eight.</p>
+<p>A special case is worth remembering. If the arc is exactly half the circle, the angle at the centre is one hundred and eighty, so the angle on the circle is ninety. Any triangle drawn with a diameter as one side, and its third corner on the circle, has a right angle.</p>
+<p>Share three hundred and sixty among the gaps. Count gaps, not points. The angle on the circle is half the angle at the centre. Notebook challenge: on the clock circle, what is the angle at the centre between the points at two and seven?</p></details>
+<p><a href="media/T12.2.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+</main>
+<script>
+const video = document.querySelector("#lesson");
+for (const button of document.querySelectorAll("[data-time]")) {
+  button.addEventListener("click", () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+    video.scrollIntoView({block: "center"});
+  });
+}
+</script>
+</body>
+</html>

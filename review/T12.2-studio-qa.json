@@ -1,0 +1,92 @@
+{
+  "id": "T12.2",
+  "duration_seconds": 137.2,
+  "sha256": "705a213376bf556e664ab405ceda90b52960bd3a1d4df851055ba9764b0f0890",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 99.76,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "match_percent": 100.0
+    },
+    {
+      "number": 2,
+      "start": 17.23,
+      "match_percent": 100.0
+    },
+    {
+      "number": 3,
+      "start": 29.39,
+      "match_percent": 100.0
+    },
+    {
+      "number": 4,
+      "start": 41.36,
+      "match_percent": 100.0
+    },
+    {
+      "number": 5,
+      "start": 54.48,
+      "match_percent": 100.0
+    },
+    {
+      "number": 6,
+      "start": 70.95,
+      "match_percent": 98.09
+    },
+    {
+      "number": 7,
+      "start": 98.61,
+      "match_percent": 100.0
+    },
+    {
+      "number": 8,
+      "start": 116.84,
+      "match_percent": 100.0
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Twelve equal gaps share a full turn",
+      "start": 0.0
+    },
+    {
+      "title": "Choose where the angle is measured",
+      "start": 17.23
+    },
+    {
+      "title": "Join twelve and four to the centre",
+      "start": 29.39
+    },
+    {
+      "title": "Count four gaps, not five points",
+      "start": 41.36
+    },
+    {
+      "title": "View the same arc from the edge",
+      "start": 54.48
+    },
+    {
+      "title": "Two isosceles triangles explain the half",
+      "start": 70.95
+    },
+    {
+      "title": "The angle in a semicircle is a right angle",
+      "start": 98.61
+    },
+    {
+      "title": "Your turn",
+      "start": 116.84
+    }
+  ],
+  "decoded_successfully": true
+}

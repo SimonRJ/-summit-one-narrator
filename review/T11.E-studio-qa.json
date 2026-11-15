@@ -1,0 +1,74 @@
+{
+  "id": "T11.E",
+  "duration_seconds": 74.733333,
+  "sha256": "5a0769c6c9cd36820460b8167a32e64ef6cd7a88d84c3a9da49c5f134d40292f",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 100.0,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "match_percent": 100.0
+    },
+    {
+      "number": 2,
+      "start": 9.38,
+      "match_percent": 100.0
+    },
+    {
+      "number": 3,
+      "start": 19.95,
+      "match_percent": 100.0
+    },
+    {
+      "number": 4,
+      "start": 30.83,
+      "match_percent": 100.0
+    },
+    {
+      "number": 5,
+      "start": 44.27,
+      "match_percent": 100.0
+    },
+    {
+      "number": 6,
+      "start": 59.47,
+      "match_percent": 100.0
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Read each place in the addition",
+      "start": 0.0
+    },
+    {
+      "title": "Trade ten units for a ten",
+      "start": 9.38
+    },
+    {
+      "title": "Trade ten tens for a hundred",
+      "start": 19.95
+    },
+    {
+      "title": "Read the three places in the answer",
+      "start": 30.83
+    },
+    {
+      "title": "Check with an estimate and with exact totals",
+      "start": 44.27
+    },
+    {
+      "title": "Your turn",
+      "start": 59.47
+    }
+  ],
+  "decoded_successfully": true
+}

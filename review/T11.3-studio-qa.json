@@ -1,0 +1,92 @@
+{
+  "id": "T11.3",
+  "duration_seconds": 108.966667,
+  "sha256": "97d5bb0fe14285a53f7020aeb13189a32f552010c2037ca64ea46037d046d079",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 99.43,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "match_percent": 100.0
+    },
+    {
+      "number": 2,
+      "start": 14.36,
+      "match_percent": 100.0
+    },
+    {
+      "number": 3,
+      "start": 23.49,
+      "match_percent": 96.43
+    },
+    {
+      "number": 4,
+      "start": 35.47,
+      "match_percent": 100.0
+    },
+    {
+      "number": 5,
+      "start": 45.4,
+      "match_percent": 100.0
+    },
+    {
+      "number": 6,
+      "start": 60.12,
+      "match_percent": 100.0
+    },
+    {
+      "number": 7,
+      "start": 72.6,
+      "match_percent": 98.97
+    },
+    {
+      "number": 8,
+      "start": 91.15,
+      "match_percent": 100.0
+    }
+  ],
+  "chapters": [
+    {
+      "title": "A number can contain the same digit twice",
+      "start": 0.0
+    },
+    {
+      "title": "Count each place separately",
+      "start": 14.36
+    },
+    {
+      "title": "How many times is the digit 7 written?",
+      "start": 23.49
+    },
+    {
+      "title": "Units: one seven in each group of ten",
+      "start": 35.47
+    },
+    {
+      "title": "Tens: seven appears from 70 to 79",
+      "start": 45.4
+    },
+    {
+      "title": "Counting numbers needs a different total",
+      "start": 60.12
+    },
+    {
+      "title": "Count every digit used in page numbers",
+      "start": 72.6
+    },
+    {
+      "title": "Your turn",
+      "start": 91.15
+    }
+  ],
+  "decoded_successfully": true
+}

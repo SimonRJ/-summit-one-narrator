@@ -1,0 +1,101 @@
+{
+  "id": "T11.2",
+  "duration_seconds": 120.166667,
+  "sha256": "c154d077abfaba1078b4c2638f68d8a4990c67af9f826c279ff0928ae75898b6",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 97.38,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "match_percent": 95.24
+    },
+    {
+      "number": 2,
+      "start": 14.04,
+      "match_percent": 100.0
+    },
+    {
+      "number": 3,
+      "start": 23.81,
+      "match_percent": 90.91
+    },
+    {
+      "number": 4,
+      "start": 33.07,
+      "match_percent": 100.0
+    },
+    {
+      "number": 5,
+      "start": 47.15,
+      "match_percent": 97.22
+    },
+    {
+      "number": 6,
+      "start": 60.27,
+      "match_percent": 94.95
+    },
+    {
+      "number": 7,
+      "start": 77.86,
+      "match_percent": 100.0
+    },
+    {
+      "number": 8,
+      "start": 90.98,
+      "match_percent": 98.11
+    },
+    {
+      "number": 9,
+      "start": 102.51,
+      "match_percent": 100.0
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Each place value is one more than a multiple of nine",
+      "start": 0.0
+    },
+    {
+      "title": "Digit sums test multiples of nine and three",
+      "start": 14.04
+    },
+    {
+      "title": "Is 4,725 divisible by nine?",
+      "start": 23.81
+    },
+    {
+      "title": "Remove the nines from each place",
+      "start": 33.07
+    },
+    {
+      "title": "Collect the digit sum",
+      "start": 47.15
+    },
+    {
+      "title": "Reduce the digit sum to find the remainder",
+      "start": 60.27
+    },
+    {
+      "title": "Rearrange the digits without changing the sum",
+      "start": 77.86
+    },
+    {
+      "title": "Use the digit sum to complete a number",
+      "start": 90.98
+    },
+    {
+      "title": "Your turn",
+      "start": 102.51
+    }
+  ],
+  "decoded_successfully": true
+}

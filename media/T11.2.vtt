@@ -1,0 +1,127 @@
+WEBVTT
+
+00:00:00.600 --> 00:00:02.000
+Ten is one more than nine.
+
+00:00:02.000 --> 00:00:03.880
+A hundred is one more than ninety-nine.
+
+00:00:03.880 --> 00:00:06.004
+A thousand is one more than nine
+
+00:00:06.004 --> 00:00:06.390
+hundred and ninety-nine.
+
+00:00:07.920 --> 00:00:11.090
+Every place value is one more than a multiple of nine.
+
+00:00:11.460 --> 00:00:13.250
+That is why digit sums work.
+
+00:00:14.040 --> 00:00:17.080
+This gives a test for multiples of nine, and of three,
+
+00:00:17.080 --> 00:00:19.950
+that takes seconds, even for enormous numbers.
+
+00:00:20.560 --> 00:00:22.890
+It also survives when digits are rearranged.
+
+00:00:23.810 --> 00:00:26.770
+Is four thousand seven hundred and twenty-five a
+
+00:00:26.770 --> 00:00:27.590
+multiple of nine?
+
+00:00:27.590 --> 00:00:29.240
+Pause and add its digits.
+
+00:00:33.070 --> 00:00:36.140
+Each thousand leaves one over after removing nines.
+
+00:00:36.850 --> 00:00:38.300
+So four thousands leave four.
+
+00:00:38.530 --> 00:00:39.980
+Seven hundreds leave seven.
+
+00:00:40.390 --> 00:00:41.560
+Two tens leave two.
+
+00:00:42.090 --> 00:00:43.220
+The five units stay.
+
+00:00:43.690 --> 00:00:46.180
+What is left over is exactly the digit sum.
+
+00:00:47.150 --> 00:00:50.240
+Four plus seven plus two plus five is eighteen.
+
+00:00:51.110 --> 00:00:54.430
+Eighteen is a multiple of nine, so the number is too.
+
+00:00:54.430 --> 00:00:57.390
+In general, a number and its digit sum leave the same
+
+00:00:57.390 --> 00:00:59.360
+remainder when divided by nine.
+
+00:01:00.270 --> 00:01:03.530
+The digit sum lets us find the remainder, too.
+
+00:01:03.530 --> 00:01:05.820
+Five hundred and eighty-three has digit sum sixteen.
+
+00:01:06.470 --> 00:01:09.070
+Remove as many complete groups of nine from sixteen
+
+00:01:09.070 --> 00:01:09.880
+as you can.
+
+00:01:10.670 --> 00:01:12.240
+Sixteen is seven more than nine.
+
+00:01:12.870 --> 00:01:15.550
+So five hundred and eighty-three leaves remainder seven
+
+00:01:15.550 --> 00:01:17.120
+when divided by nine.
+
+00:01:17.860 --> 00:01:20.230
+Rearranging digits does not change their sum.
+
+00:01:20.760 --> 00:01:23.760
+So every arrangement of the digits one, two and six is a
+
+00:01:23.760 --> 00:01:24.770
+multiple of nine.
+
+00:01:25.420 --> 00:01:27.350
+And since nine is a multiple of three,
+
+00:01:27.680 --> 00:01:30.170
+the same digit-sum test works for three.
+
+00:01:30.980 --> 00:01:32.650
+It solves missing digits too.
+
+00:01:33.320 --> 00:01:36.390
+Five, blank, eight is a multiple of nine.
+
+00:01:36.960 --> 00:01:39.880
+The known digits add to thirteen, so the blank must be
+
+00:01:39.880 --> 00:01:41.350
+five, making eighteen.
+
+00:01:42.510 --> 00:01:45.310
+A number and its digit sum have the same remainder on
+
+00:01:45.310 --> 00:01:48.120
+division by nine, and on division by three.
+
+00:01:48.670 --> 00:01:52.140
+Notebook challenge: what digit makes seven, three,
+
+00:01:52.690 --> 00:01:54.840
+blank, four a multiple of nine?

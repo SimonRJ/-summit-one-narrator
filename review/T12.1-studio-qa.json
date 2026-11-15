@@ -1,0 +1,92 @@
+{
+  "id": "T12.1",
+  "duration_seconds": 121.9,
+  "sha256": "ef0a6580ad766664ad876d76a753afd7239d39bc0595af732fefdb06192c846b",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 99.88,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "match_percent": 99.08
+    },
+    {
+      "number": 2,
+      "start": 19.32,
+      "match_percent": 100.0
+    },
+    {
+      "number": 3,
+      "start": 28.77,
+      "match_percent": 100.0
+    },
+    {
+      "number": 4,
+      "start": 43.3,
+      "match_percent": 100.0
+    },
+    {
+      "number": 5,
+      "start": 59.14,
+      "match_percent": 100.0
+    },
+    {
+      "number": 6,
+      "start": 73.22,
+      "match_percent": 100.0
+    },
+    {
+      "number": 7,
+      "start": 91.29,
+      "match_percent": 100.0
+    },
+    {
+      "number": 8,
+      "start": 105.21,
+      "match_percent": 100.0
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Build a chain of angle facts",
+      "start": 0.0
+    },
+    {
+      "title": "Use the stated facts",
+      "start": 19.32
+    },
+    {
+      "title": "Find the marked lower angle",
+      "start": 28.77
+    },
+    {
+      "title": "Parallel lines keep corresponding angles equal",
+      "start": 43.3
+    },
+    {
+      "title": "Angles on a straight line sum to 180°",
+      "start": 59.14
+    },
+    {
+      "title": "Copy the triangle’s base angles to the top",
+      "start": 73.22
+    },
+    {
+      "title": "Equal sides have equal opposite angles",
+      "start": 91.29
+    },
+    {
+      "title": "Your turn",
+      "start": 105.21
+    }
+  ],
+  "decoded_successfully": true
+}
