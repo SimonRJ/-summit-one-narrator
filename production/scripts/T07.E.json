@@ -6,7 +6,7 @@
  "status": "script_ready_not_recorded",
  "voice": "Voice C (VoxCPM2), natural speed (see docs/VIDEO_PRODUCTION.md)",
  "goal": "Worked example: two different limits, and why the tighter one decides.",
- "narration_words": 197,
+ "narration_words": 196,
  "estimated_minutes": 1.3,
  "scenes": [
   {
@@ -42,8 +42,8 @@
   {
    "n": 6,
    "stage": "RECAP",
-   "visual": "Line: \"test every rule for a limit; the strongest one decides\". Notebook prompt.",
-   "narration": "When there are several rules, find the limit each one gives. The strongest limit decides. Rebuild this argument, then try it with nine red counters and three blue counters."
+   "visual": "Three steps: \"Find each lower bound\", \"Use the strongest bound\", \"Build a packing that reaches it\". Notebook prompt.",
+   "narration": "Check each rule for a lower bound. Take the strongest bound, then build a packing that reaches it. Try it with nine red counters and three blue counters."
   }
  ],
  "notebook_exercise": "Same rules with 9 red and 3 blue counters. Smallest number of trays?",
