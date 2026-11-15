@@ -39,7 +39,9 @@ jobs:
                       weight = len(scene["narration"].split())
                       requests.append((weight, {"lesson": lesson, "scene": scene["n"]}))
           assert requests
-          lanes = [[] for _ in range(min(len(requests), 19))]
+          workers = plan.get("workers", 19)
+          assert type(workers) is int and 1 <= workers <= 19
+          lanes = [[] for _ in range(min(len(requests), workers))]
           weights = [0] * len(lanes)
           for words, request in sorted(requests, key=lambda row: -row[0]):
               slot = min(range(len(lanes)), key=lambda index: weights[index])
