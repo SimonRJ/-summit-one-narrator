@@ -10,6 +10,8 @@ import subprocess
 
 from PIL import Image, ImageDraw
 
+import check_answer
+import measure_interval
 import quantities
 import representations
 from stage import HEIGHT, ROOT, WIDTH, Moment, Stage
@@ -17,12 +19,21 @@ from stage import HEIGHT, ROOT, WIDTH, Moment, Stage
 
 BUILD = ROOT / "build/t01-studio"
 FPS = 30
-LESSONS = {"T01.1": quantities.SCENES, "T01.2": representations.SCENES}
+LESSONS = {
+    "T01.1": quantities.SCENES,
+    "T01.2": representations.SCENES,
+    "T01.3": check_answer.SCENES,
+    "T01.E": measure_interval.SCENES,
+}
 CHAPTERS = {
     "T01.1": ((1, "Give numbers meaning"), (3, "Mia’s counters"),
               (6, "Convert units"), (7, "Count written nines"), (9, "Your turn")),
     "T01.2": ((1, "Choose a model"), (3, "The fence problem"), (5, "Close the loop"),
               (6, "Count a queue"), (7, "Compare prices"), (8, "Trace a boundary"), (9, "Your turn")),
+    "T01.3": ((1, "Predict the answer"), (3, "The school trip"), (4, "Fill the buses"),
+              (6, "Prove the minimum"), (7, "Buses completely full"), (8, "Your turn")),
+    "T01.E": ((1, "The ribbon problem"), (3, "Count the gaps"), (4, "Subtract the start"),
+              (5, "Slide the ribbon"), (6, "The film problem"), (8, "Your turn")),
 }
 
 
@@ -88,7 +99,7 @@ class Film:
                 sheet.paste(thumbnail, (x, y + 23))
                 ImageDraw.Draw(sheet).text((x + 9, y + 5), f"Scene {index + 1}  ·  {t:.1f}s", fill="#d6e4ed")
                 blocks.append({"scene": index + 1, "time": round(t, 3)})
-            if index % 3 == 2:
+            if index % 3 == 2 or index == len(self.scenes) - 1:
                 sheet.save(out / f"sheet-{index // 3 + 1}.jpg", quality=91)
         (out / "frames.json").write_text(json.dumps(blocks, indent=2) + "\n")
 

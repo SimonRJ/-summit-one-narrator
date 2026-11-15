@@ -17,19 +17,36 @@ from synth import BUILD, IDS, MODEL_REVISION, RATE, ROOT, VOICE_SHA
 PAUSES = {
     "T01.1": {3: 2.4, 7: 2.3, 9: 5.0},
     "T01.2": {3: 2.4, 6: 1.0, 9: 5.0},
+    "T01.3": {3: 3.5, 8: 5.0},
+    "T01.E": {1: 3.5, 6: 2.6, 8: 5.0},
 }
 SPOKEN_FORMS = {
     "centimetre": "centimeter",
     "centimetres": "centimeters",
     "metre": "meter",
     "metres": "meters",
+    "cm": "centimeters",
+    "m": "meters",
     "it's": "its",
     "cue": "queue",
 }
 
 
+def clock_words(match):
+    hour, minute = map(int, match.groups())
+    if minute == 0:
+        return f"{hour} o'clock"
+    if minute < 10:
+        return f"{hour} oh {minute}"
+    return f"{hour} {minute}"
+
+
 def tokens(text):
-    text = re.sub(r"\$(\d+(?:,\d{3})*)", r"\1 dollars", text.lower())
+    text = text.lower().replace("’", "'")
+    text = re.sub(r"\$(\d+(?:,\d{3})*)", r"\1 dollars", text)
+    text = re.sub(r"(?<!\d)(\d{1,2}):([0-5]\d)(?!\d)", clock_words, text)
+    text = re.sub(r"\b(\d+)\.5\b", r"\1 and a half", text)
+    text = re.sub(r"\b40s\b", "forties", text)
     parts = re.findall(r"[a-z]+(?:'[a-z]+)?|\d+(?:,\d{3})*(?:st|nd|rd|th)?", text)
     result = []
     for part in parts:

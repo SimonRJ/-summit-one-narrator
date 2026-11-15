@@ -7,12 +7,12 @@ The visual and teaching standard is in [VIDEO_TEACHING_STANDARD.md](VIDEO_TEACHI
 | Status | Count | Which |
 |---|---:|---|
 | Finished and approved | 2 | T02.1 (the studio benchmark) and T02.2. Their audio must not be changed. |
-| Published for review | 2 | [T01.1](../watch-t01-1.html) and [T01.2](../watch-t01-2.html). |
-| Script ready | 68 | The remaining items in `data/teaching-72.json`. |
+| Published for review | 4 | [T01.1](../watch-t01-1.html), [T01.2](../watch-t01-2.html), [T01.3](../watch-t01-3.html) and [T01.E](../watch-t01-e.html). |
+| Script ready | 66 | The remaining items in `data/teaching-72.json`. |
 
 The full list with lengths is generated at [production/scripts/INDEX.md](../production/scripts/INDEX.md).
 
-Other finished public videos in `media/` include the AMC introduction, the welcome video, session introductions S001 and S002, and one AMC 2025 solution pilot. The opening lesson and replay screens include the two T01 studio films beside the original session introductions.
+Other finished public videos in `media/` include the AMC introduction, the welcome video, session introductions S001 and S002, and one AMC 2025 solution pilot. The four T01 studio films are available in the opening and replay screens for Lessons 1–4.
 
 ## Scripts
 

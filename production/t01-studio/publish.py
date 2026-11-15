@@ -1,6 +1,7 @@
 """Install verified T01 assets and connect their normal lesson and review routes."""
 
 from html import escape
+import argparse
 import hashlib
 import json
 from pathlib import Path
@@ -11,6 +12,7 @@ import shutil
 ROOT = Path(__file__).resolve().parents[2]
 BUILD = ROOT / "build/t01-studio"
 IDS = ("T01.1", "T01.2")
+CHAPTER_IDS = (*IDS, "T01.3", "T01.E")
 VERSION = "t01-studio-v1"
 VOICE_SHA = "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362"
 
@@ -33,7 +35,9 @@ def clock(seconds):
 def make_watch_page(lesson, source, report):
     next_lesson = {
         "T01.1": ("watch-t01-2.html", "Next · Choose a representation"),
-        "T01.2": ("watch-t02-1.html", "Also watch · Find an invariant"),
+        "T01.2": ("watch-t01-3.html", "Next · Check the answer"),
+        "T01.3": ("watch-t01-e.html", "Next · Worked example"),
+        "T01.E": ("watch-t02-1.html", "Next · Find an invariant"),
     }
     next_href, next_title = next_lesson[lesson]
     chapter_buttons = "\n".join(
@@ -42,6 +46,7 @@ def make_watch_page(lesson, source, report):
         for chapter in report["chapters"]
     )
     title = escape(source["title"])
+    label = f"{lesson} · Worked example" if source.get("type") == "worked_example" else lesson
     transcript = "\n".join(f'<p>{escape(scene["narration"])}</p>' for scene in source["scenes"])
     return f"""<!doctype html>
 <html lang="en">
@@ -84,7 +89,7 @@ button:focus-visible, a:focus-visible, summary:focus-visible {{ outline: 2px sol
 <nav class="back" aria-label="Lesson navigation">
 <a href="./">← Summit One</a><a href="{next_href}">{next_title} →</a>
 </nav>
-<p class="lesson">{lesson}</p>
+<p class="lesson">{label}</p>
 <h1>{title}</h1>
 <p>{escape(source["goal"])}</p>
 <video id="lesson" controls playsinline preload="metadata" aria-label="{title}"
@@ -115,9 +120,9 @@ for (const button of document.querySelectorAll("[data-time]")) {{
 """
 
 
-def install():
+def install(lessons=IDS):
     verified = {}
-    for lesson in IDS:
+    for lesson in lessons:
         folder = BUILD / lesson
         source = json.loads((ROOT / f"production/scripts/{lesson}.json").read_text())
         report = json.loads((folder / "qa.json").read_text())
@@ -142,6 +147,11 @@ def install():
         row["transcript"] = " ".join(scene["narration"] for scene in source["scenes"])
     teaching_file.write_text(json.dumps(teaching, ensure_ascii=False, indent=2) + "\n")
 
+    if tuple(lessons) == IDS and "const openingFilmIds=" not in (ROOT / "app-main.js").read_text():
+        install_first_lesson_routes()
+
+
+def install_first_lesson_routes():
     revise("app-main.js",
            '  if(id==="T01.2")return ""; // George retired; use natural on-device narration until new T01.2 master is approved.',
            f'  if(id==="T01.1"||id==="T01.2")return "media/"+id+".mp4?v={VERSION}";')
@@ -175,4 +185,6 @@ function teachingFor(session){{""")
 
 
 if __name__ == "__main__":
-    install()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--lessons", choices=CHAPTER_IDS, nargs="+", default=IDS)
+    install(parser.parse_args().lessons)
