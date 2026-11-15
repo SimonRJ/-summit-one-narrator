@@ -12,7 +12,7 @@ The visual and teaching standard is in [VIDEO_TEACHING_STANDARD.md](VIDEO_TEACHI
 
 The full list with lengths is generated at [production/scripts/INDEX.md](../production/scripts/INDEX.md).
 
-Other finished public videos in `media/` include the AMC introduction, the welcome video, session introductions S001 and S002, and one AMC 2025 solution pilot. The four T01 studio films are available in the opening and replay screens for Lessons 1–4. Teaching videos in the course menu opens all sixteen films in chapter order.
+Other finished public videos in `media/` include the AMC introduction, the welcome video, session introductions S001 and S002, and one AMC 2025 solution pilot. The four T01 studio films are available in the opening and replay screens for Lessons 1–4. Teaching videos in the course menu lists the published films in chapter order.
 
 ## Scripts
 
@@ -34,7 +34,9 @@ All examples in the scripts are original to Summit One. None reuses a competitio
 5. Check the mathematics on screen, caption alignment, legibility on a phone, and the published HTTPS link.
 6. Record the checked video as published for review. Work through the teaching lessons in order and then produce the exam solution videos.
 
-Studio sources for Chapters 1–4 are in `production/t01-studio/`. The Voice C workflows record the scenes. The render workflows align speech, animate the maths, and check the final media. Each QA report in `review/` records the reference fingerprint, word alignment, format and playback duration.
+Studio sources are in `production/t01-studio/`. The Voice C workflow records groups of scenes with the approved reference. The render workflow aligns speech, animates the maths, and checks the final media. Each QA report in `review/` records the reference fingerprint, word alignment, format and playback duration.
+
+The release workflow stages the next five consecutive films, or the final one, with their watch pages, transcript entries and verification reports. Each release saves the current count here and on the teaching video list. After GitHub Pages deploys, the workflow checks that each new watch page loads the same MP4 bytes as the verified export.
 
 ## Review status of the scripts
 

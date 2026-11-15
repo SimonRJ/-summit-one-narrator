@@ -8,15 +8,17 @@ from pathlib import Path
 import re
 import shutil
 
-from chapter_films import CHAPTER_FILMS
+from chapter_films import CHAPTER_FILMS, COURSE_FILMS
 
 ROOT = Path(__file__).resolve().parents[2]
 BUILD = ROOT / "build/t01-studio"
 IDS = ("T01.1", "T01.2")
-CHAPTER_IDS = (*IDS, "T01.3", "T01.E", *CHAPTER_FILMS)
-TEACHING_SEQUENCE = (*IDS, "T01.3", "T01.E", "T02.1", "T02.2", *CHAPTER_FILMS)
+CHAPTER_IDS = (*IDS, "T01.3", "T01.E", *CHAPTER_FILMS, *COURSE_FILMS)
+OPENING_SEQUENCE = (*IDS, "T01.3", "T01.E", "T02.1", "T02.2", *CHAPTER_FILMS)
+TEACHING_SEQUENCE = (*OPENING_SEQUENCE, *COURSE_FILMS)
 VERSION = "t01-studio-v1"
 CHAPTER_VERSION = "studio-chapters-02-04-v1"
+COURSE_VERSION = "teaching-films-v1"
 VOICE_SHA = "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362"
 
 
@@ -39,7 +41,7 @@ def watch_path(lesson):
     return f"watch-{lesson.lower().replace('.', '-')}.html"
 
 
-def make_watch_page(lesson, source, report):
+def make_watch_page(lesson, source, report, *, available=OPENING_SEQUENCE):
     next_lesson = {
         "T01.1": ("watch-t01-2.html", "Next · Choose a representation"),
         "T01.2": ("watch-t01-3.html", "Next · Check the answer"),
@@ -48,12 +50,12 @@ def make_watch_page(lesson, source, report):
     }
     chapter_link = ""
     version = VERSION
-    if lesson in CHAPTER_FILMS:
-        version = CHAPTER_VERSION
+    if lesson in (*CHAPTER_FILMS, *COURSE_FILMS):
+        version = COURSE_VERSION if lesson in COURSE_FILMS else CHAPTER_VERSION
         chapter_link = '<a href="teaching-videos.html">Teaching videos</a>'
-        index = CHAPTER_FILMS.index(lesson)
-        if index + 1 < len(CHAPTER_FILMS):
-            following = CHAPTER_FILMS[index + 1]
+        index = available.index(lesson)
+        if index + 1 < len(available):
+            following = available[index + 1]
             title = json.loads((ROOT / f"production/scripts/{following}.json").read_text())["title"]
             next_link = f'<a href="{watch_path(following)}">Next · {escape(title)} →</a>'
         else:
@@ -143,20 +145,21 @@ for (const button of document.querySelectorAll("[data-time]")) {{
 """
 
 
-def make_video_index(teaching):
+def make_video_index(teaching, available=OPENING_SEQUENCE):
     videos = {item["id"]: item for item in teaching["items"]}
     sections = []
-    for number in range(1, 5):
+    for number in range(1, 19):
         rows = []
-        for lesson in TEACHING_SEQUENCE:
+        for lesson in available:
             if not lesson.startswith(f"T{number:02}."):
                 continue
             title = escape(videos[lesson]["title"])
             kind = "Worked example" if videos[lesson]["type"] == "worked_example" else "Concept"
             rows.append(f'<li><a href="{watch_path(lesson)}"><span>{title}</span>'
                         f'<small>{lesson} · {kind}</small></a></li>')
-        heading = escape(videos[f"T{number:02}.1"]["chapter"])
-        sections.append(f'<section><h2>{heading}</h2><ol>{"".join(rows)}</ol></section>')
+        if rows:
+            heading = escape(videos[f"T{number:02}.1"]["chapter"])
+            sections.append(f'<section><h2>{heading}</h2><ol>{"".join(rows)}</ol></section>')
     blocks = "\n".join(sections)
     return f"""<!doctype html>
 <html lang="en">
@@ -172,7 +175,8 @@ def make_video_index(teaching):
 body {{ margin: 0; min-height: 100vh; color: #f2f1ed; background: radial-gradient(ellipse at 50% 20%, #192631, #0c121a 75%); font: 1rem/1.5 system-ui, sans-serif; }}
 main {{ max-width: 1040px; margin: auto; padding: clamp(18px, 4vw, 48px); }}
 a {{ color: #9cdbbc; }}
-h1 {{ font-size: clamp(2.15rem, 6vw, 3.65rem); line-height: 1.08; margin: .85em 0 .75em; }}
+h1 {{ font-size: clamp(2.15rem, 6vw, 3.65rem); line-height: 1.08; margin: .85em 0 .23em; }}
+.progress {{ color: #bac4cf; margin: 0 0 1.45rem; }}
 h2 {{ margin: 0 0 14px; font-size: 1.14rem; line-height: 1.3; }}
 .chapters {{ display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr)); }}
 section {{ background: #17232e; border: 1px solid #354652; border-radius: 14px; padding: 17px; }}
@@ -188,6 +192,7 @@ a:focus-visible {{ outline: 2px solid #9cdbbc; outline-offset: 3px; }}
 <main>
 <a href="./">← Summit One</a>
 <h1>Teaching videos</h1>
+<p class="progress">{len(available)} of {len(videos)} videos available</p>
 <div class="chapters">
 {blocks}
 </div>
@@ -198,6 +203,23 @@ a:focus-visible {{ outline: 2px solid #9cdbbc; outline-offset: 3px; }}
 
 
 def install(lessons=IDS):
+    teaching_file = ROOT / "data/teaching-72.json"
+    teaching = json.loads(teaching_file.read_text())
+    entries = {item["id"]: item for item in teaching["items"]}
+    available = OPENING_SEQUENCE
+    course_release = any(lesson in COURSE_FILMS for lesson in lessons)
+    if course_release:
+        ready = tuple(lesson for lesson in COURSE_FILMS if entries[lesson].get("video_url"))
+        if ready != COURSE_FILMS[:len(ready)] or any(
+                not (ROOT / entries[lesson]["video_url"].split("?")[0]).is_file()
+                for lesson in ready):
+            raise ValueError("The existing teaching-video sequence must contain each published film")
+        expected = COURSE_FILMS[len(ready):len(ready) + 5]
+        if tuple(lessons) != expected:
+            raise ValueError(f"The next complete teaching batch is {', '.join(expected)}")
+        previous = (*OPENING_SEQUENCE, *ready)[-1]
+        available = (*OPENING_SEQUENCE, *ready, *lessons)
+
     verified = {}
     for lesson in lessons:
         folder = BUILD / lesson
@@ -208,15 +230,13 @@ def install(lessons=IDS):
                 or report["match_percent"] < 90
                 or hashlib.sha256((folder / "final.mp4").read_bytes()).hexdigest() != report["sha256"]):
             raise ValueError(f"{lesson}: a verified render with Voice C is required")
-        if lesson in CHAPTER_FILMS:
+        if lesson in (*CHAPTER_FILMS, *COURSE_FILMS):
             timeline = json.loads((folder / "timeline.json").read_text())
             recorded = [" ".join(word["text"] for word in scene["words"]) for scene in timeline["scenes"]]
             if recorded != [scene["narration"] for scene in source["scenes"]]:
                 raise ValueError(f"{lesson}: the verified export must match the lesson script")
         verified[lesson] = (folder, source, report)
 
-    teaching_file = ROOT / "data/teaching-72.json"
-    teaching = json.loads(teaching_file.read_text())
     for lesson, (folder, source, report) in verified.items():
         for src, dest in (("final.mp4", f"{lesson}.mp4"),
                           ("poster.jpg", f"{lesson}-studio-poster.jpg")):
@@ -225,15 +245,55 @@ def install(lessons=IDS):
         (ROOT / "media" / f"{lesson}.vtt").write_text(captions + "\n")
         shutil.copyfile(folder / "qa.json", ROOT / f"review/{lesson}-studio-qa.json")
         page = ROOT / watch_path(lesson)
-        page.write_text(make_watch_page(lesson, source, report))
-        row = next(item for item in teaching["items"] if item["id"] == lesson)
+        page.write_text(make_watch_page(lesson, source, report, available=available))
+        row = entries[lesson]
         row["transcript"] = " ".join(scene["narration"] for scene in source["scenes"])
+        if course_release:
+            row["video_url"] = f"media/{lesson}.mp4?v={COURSE_VERSION}"
     teaching_file.write_text(json.dumps(teaching, ensure_ascii=False, indent=2) + "\n")
-    if set(CHAPTER_FILMS) <= verified.keys():
-        (ROOT / "teaching-videos.html").write_text(make_video_index(teaching))
+    if course_release:
+        source = json.loads((ROOT / f"production/scripts/{previous}.json").read_text())
+        qa = json.loads((ROOT / f"review/{previous}-studio-qa.json").read_text())
+        (ROOT / watch_path(previous)).write_text(make_watch_page(previous, source, qa, available=available))
+        update_production_status(available)
+    if course_release or set(CHAPTER_FILMS) <= verified.keys():
+        (ROOT / "teaching-videos.html").write_text(make_video_index(teaching, available))
 
     if tuple(lessons) == IDS and "const openingFilmIds=" not in (ROOT / "app-main.js").read_text():
         install_first_lesson_routes()
+
+
+def update_production_status(available):
+    approved, published = 2, len(available) - 2
+    pending = len(TEACHING_SEQUENCE) - len(available)
+    latest = available[-1]
+    descriptions = {
+        "README.md": (
+            (r"2 approved, \d+ published for review, \d+ scripted",
+             f"{approved} approved, {published} published for review, {pending} scripted"),
+        ),
+        "docs/CURRENT_STATUS.md": (
+            (r"(?m)^\| Teaching videos \| [^\n]+",
+             f"| Teaching videos | {len(available)} of {len(TEACHING_SEQUENCE)} online through {latest}. "
+             "[Watch in teaching order](../teaching-videos.html). |"),
+            (r"(?m)^\| Teaching scripts \| [^\n]+", f"| Teaching scripts | {pending} awaiting production |"),
+        ),
+        "docs/VIDEO_PRODUCTION.md": (
+            (r"(?m)^\| Published for review \| [^\n]+",
+             f"| Published for review | {published} | Teaching films through {latest} are available in "
+             "[Teaching videos](../teaching-videos.html). |"),
+            (r"(?m)^\| Script ready \| [^\n]+",
+             f"| Script ready | {pending} | The remaining items in `data/teaching-72.json`. |"),
+        ),
+    }
+    for relative, replacements in descriptions.items():
+        path = ROOT / relative
+        content = path.read_text()
+        for pattern, replacement in replacements:
+            content, count = re.subn(pattern, replacement, content)
+            if count != 1:
+                raise ValueError(f"{relative}: expected exactly one video status line")
+        path.write_text(content)
 
 
 def install_first_lesson_routes():
