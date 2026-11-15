@@ -50,7 +50,7 @@ jobs:
           REPAIR_RUN: ${{ steps.plan.outputs.repair }}
         run: |
           if [ -n "$REPAIR_RUN" ]; then
-            gh run watch "$REPAIR_RUN" --repo "$GITHUB_REPOSITORY" --exit-status --interval 20
+            python production/t01-studio/wait_for_intro_audio.py "$GITHUB_REPOSITORY" "$AUDIO_RUN" "$REPAIR_RUN"
           else
             gh run watch "$AUDIO_RUN" --repo "$GITHUB_REPOSITORY" --exit-status --interval 20
           fi
