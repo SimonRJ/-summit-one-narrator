@@ -1,0 +1,235 @@
+WEBVTT
+
+00:00:00.600 --> 00:00:03.670
+Welcome to digit sums and counting digits in ranges.
+
+00:00:04.520 --> 00:00:06.550
+Today a place-value column has two jobs.
+
+00:00:07.240 --> 00:00:09.840
+It tells us the value of a digit, and it gives us a
+
+00:00:09.840 --> 00:00:11.550
+position where a digit can appear.
+
+00:00:12.080 --> 00:00:14.510
+We will use both ideas in one harder puzzle.
+
+00:00:15.480 --> 00:00:19.200
+In AMC practice, a question might ask how many times a
+
+00:00:19.200 --> 00:00:21.520
+digit is written, or which numbers pass
+
+00:00:21.520 --> 00:00:22.830
+a divisibility test.
+
+00:00:23.480 --> 00:00:26.660
+A Mawa style investigation can ask what changes when you
+
+00:00:26.660 --> 00:00:27.730
+move the end of the range.
+
+00:00:28.320 --> 00:00:30.400
+A column-by-column count makes the pattern
+
+00:00:30.400 --> 00:00:31.370
+easier to see.
+
+00:00:32.280 --> 00:00:34.880
+Is five thousand seven hundred and twenty-four a
+
+00:00:34.880 --> 00:00:35.790
+multiple of nine?
+
+00:00:36.500 --> 00:00:37.390
+Add its four digits.
+
+00:00:38.180 --> 00:00:41.260
+Before we use the answer, think about why it is safe to
+
+00:00:41.260 --> 00:00:45.080
+replace a thousand, a hundred or a ten by a single unit
+
+00:00:45.080 --> 00:00:45.950
+in this test.
+
+00:00:49.690 --> 00:00:53.030
+Ten, one hundred and one thousand are each one more than
+
+00:00:53.030 --> 00:00:54.020
+a multiple of nine.
+
+00:00:54.550 --> 00:00:57.470
+For this test each place-value unit contributes the same
+
+00:00:57.470 --> 00:00:58.480
+remainder as one.
+
+00:00:59.230 --> 00:01:02.540
+Five plus seven plus two plus four is eighteen.
+
+00:01:03.450 --> 00:01:05.750
+Eighteen is a multiple of nine, so the original
+
+00:01:05.750 --> 00:01:07.250
+number is too.
+
+00:01:07.770 --> 00:01:09.760
+Write the numbers from one through sixty-five.
+
+00:01:10.510 --> 00:01:12.440
+How many times would you write the digit four?
+
+00:01:12.950 --> 00:01:15.310
+Choose whether you are counting numbers or actual marks
+
+00:01:15.310 --> 00:01:16.120
+on the page.
+
+00:01:16.870 --> 00:01:18.590
+Which number in the range might make
+
+00:01:18.590 --> 00:01:19.680
+those answers different?
+
+00:01:23.580 --> 00:01:25.150
+First watch the units column.
+
+00:01:25.700 --> 00:01:29.150
+Four, fourteen, twenty-four, and so on up to sixty-four
+
+00:01:29.640 --> 00:01:30.430
+give seven marks.
+
+00:01:31.180 --> 00:01:33.550
+In the tens column, forty through forty-nine
+
+00:01:33.860 --> 00:01:34.690
+give ten more.
+
+00:01:35.440 --> 00:01:36.890
+Seven plus ten is seventeen.
+
+00:01:37.720 --> 00:01:40.650
+The two fours in forty-four are in two different places,
+
+00:01:40.860 --> 00:01:41.710
+and both count.
+
+00:01:42.780 --> 00:01:45.960
+Now write only the multiples of nine from one through
+
+00:01:45.960 --> 00:01:46.470
+two hundred and fifty.
+
+00:01:47.560 --> 00:01:49.630
+How many times would you write the digit two?
+
+00:01:50.280 --> 00:01:52.920
+Keep the columns separate, and use the divisibility rule
+
+00:01:52.920 --> 00:01:54.770
+to decide which numbers are allowed.
+
+00:01:58.590 --> 00:01:59.560
+Start with units.
+
+00:02:00.210 --> 00:02:03.260
+The first multiple of nine ending in two is seventy-two.
+
+00:02:04.030 --> 00:02:06.660
+The units cycle repeats after ten multiples,
+
+00:02:06.770 --> 00:02:09.120
+so adding ninety gives one hundred and sixty-two.
+
+00:02:09.910 --> 00:02:11.470
+The next is two hundred and fifty-two,
+
+00:02:11.470 --> 00:02:13.280
+outside our range.
+
+00:02:13.770 --> 00:02:15.680
+That is two marks in the units column.
+
+00:02:16.670 --> 00:02:19.760
+In the tens column, check the twenties, the one hundred
+
+00:02:19.760 --> 00:02:22.630
+and twenties, and the two hundred and twenties.
+
+00:02:22.630 --> 00:02:25.610
+The digit sums give twenty-seven, one hundred and
+
+00:02:25.610 --> 00:02:26.960
+twenty-six, and two hundred and twenty-five.
+
+00:02:28.650 --> 00:02:29.660
+Three tens marks.
+
+00:02:30.390 --> 00:02:32.970
+Each of those ten-number bands contains just one
+
+00:02:32.970 --> 00:02:35.340
+permitted number with two in the tens place.
+
+00:02:36.340 --> 00:02:38.560
+In the hundreds column, start at two hundred and seven
+
+00:02:38.560 --> 00:02:41.030
+and count by nines.
+
+00:02:41.440 --> 00:02:44.180
+We get two hundred and sixteen, two hundred and
+
+00:02:44.180 --> 00:02:46.230
+twenty-five, two hundred and thirty-four,
+
+00:02:47.100 --> 00:02:48.130
+and two hundred and forty-three.
+
+00:02:49.900 --> 00:02:50.320
+Five hundreds marks.
+
+00:02:50.320 --> 00:02:54.370
+Two plus three plus five means ten written twos.
+
+00:02:55.210 --> 00:02:58.150
+Two hundred and twenty-five contributes once in the tens
+
+00:02:58.150 --> 00:02:59.700
+and once in the hundreds.
+
+00:03:00.210 --> 00:03:02.750
+Counting it only once would answer how many numbers
+
+00:03:02.750 --> 00:03:03.660
+contain a two.
+
+00:03:04.270 --> 00:03:06.500
+Another trap is including two hundred and fifty-two.
+
+00:03:07.270 --> 00:03:10.550
+It passes the divisibility test, but the range ends at
+
+00:03:10.550 --> 00:03:10.980
+two hundred and fifty.
+
+00:03:12.650 --> 00:03:15.650
+On an exam, underline times the digit is written or
+
+00:03:15.650 --> 00:03:16.500
+how many numbers.
+
+00:03:17.070 --> 00:03:19.670
+Draw one tally line per position, write the range
+
+00:03:19.670 --> 00:03:22.540
+endpoints, and apply any filter before adding.
+
+00:03:23.250 --> 00:03:26.110
+Then check one number with a repeat digit to make sure
+
+00:03:26.110 --> 00:03:27.620
+you have counted the right thing.

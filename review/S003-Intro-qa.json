@@ -1,0 +1,103 @@
+{
+  "id": "S003",
+  "duration_seconds": 183.766667,
+  "sha256": "84e9cc30d6b88ba56da489d358dd9aedf99a4df817a88331f742b34ac666dea6",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 99.61,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "match_percent": 100.0
+    },
+    {
+      "number": 2,
+      "start": 13.88,
+      "match_percent": 100.0
+    },
+    {
+      "number": 3,
+      "start": 29.72,
+      "match_percent": 100.0
+    },
+    {
+      "number": 4,
+      "start": 43.62,
+      "match_percent": 100.0
+    },
+    {
+      "number": 5,
+      "start": 62.34,
+      "match_percent": 100.0
+    },
+    {
+      "number": 6,
+      "start": 79.91,
+      "match_percent": 98.88
+    },
+    {
+      "number": 7,
+      "start": 97.83,
+      "match_percent": 100.0
+    },
+    {
+      "number": 8,
+      "start": 114.12,
+      "match_percent": 100.0
+    },
+    {
+      "number": 9,
+      "start": 129.48,
+      "match_percent": 96.84
+    },
+    {
+      "number": 10,
+      "start": 148.68,
+      "match_percent": 100.0
+    },
+    {
+      "number": 11,
+      "start": 164.84,
+      "match_percent": 100.0
+    }
+  ],
+  "chapters": [
+    {
+      "title": "The technique",
+      "start": 0.0
+    },
+    {
+      "title": "Where it shows up",
+      "start": 13.88
+    },
+    {
+      "title": "Basic example",
+      "start": 29.72
+    },
+    {
+      "title": "Medium example",
+      "start": 62.34
+    },
+    {
+      "title": "Exam-style challenge",
+      "start": 97.83
+    },
+    {
+      "title": "Common mistakes",
+      "start": 148.68
+    },
+    {
+      "title": "Exam checklist",
+      "start": 164.84
+    }
+  ],
+  "decoded_successfully": true
+}

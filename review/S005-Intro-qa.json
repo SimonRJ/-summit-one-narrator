@@ -1,0 +1,108 @@
+{
+  "id": "S005",
+  "duration_seconds": 212.833333,
+  "sha256": "0c0ca4833538f136a296c4a7bdf411c0ebcc475fcb666e7f9a8b162f55a5dc52",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 98.61,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "match_percent": 100.0
+    },
+    {
+      "number": 2,
+      "start": 15.48,
+      "match_percent": 97.92
+    },
+    {
+      "number": 3,
+      "start": 32.28,
+      "match_percent": 100.0
+    },
+    {
+      "number": 4,
+      "start": 49.69,
+      "match_percent": 96.97
+    },
+    {
+      "number": 5,
+      "start": 67.77,
+      "match_percent": 100.0
+    },
+    {
+      "number": 6,
+      "start": 83.58,
+      "match_percent": 100.0
+    },
+    {
+      "number": 7,
+      "start": 102.78,
+      "match_percent": 100.0
+    },
+    {
+      "number": 8,
+      "start": 118.59,
+      "match_percent": 97.96
+    },
+    {
+      "number": 9,
+      "start": 136.67,
+      "match_percent": 94.55
+    },
+    {
+      "number": 10,
+      "start": 156.34,
+      "match_percent": 100.0
+    },
+    {
+      "number": 11,
+      "start": 175.21,
+      "match_percent": 100.0
+    },
+    {
+      "number": 12,
+      "start": 192.65,
+      "match_percent": 95.92
+    }
+  ],
+  "chapters": [
+    {
+      "title": "The technique",
+      "start": 0.0
+    },
+    {
+      "title": "Where it shows up",
+      "start": 15.48
+    },
+    {
+      "title": "Basic example",
+      "start": 32.28
+    },
+    {
+      "title": "Medium example",
+      "start": 67.77
+    },
+    {
+      "title": "Exam-style challenge",
+      "start": 102.78
+    },
+    {
+      "title": "Common mistakes",
+      "start": 175.21
+    },
+    {
+      "title": "Exam checklist",
+      "start": 192.65
+    }
+  ],
+  "decoded_successfully": true
+}
