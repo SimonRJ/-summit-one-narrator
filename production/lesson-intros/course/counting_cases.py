@@ -26,7 +26,7 @@ def enumeration(lesson):
         (("A complete list follows a rule you can explain. Fix one choice and list every possible ending before changing the first choice.", "Fix the first choice, then list the endings."),
          ("When a list gets long, record a range or a subtotal for each first choice. This keeps the reason that the list is complete.", "Use rows for the first choices.")),
         (("A late AMC counting question may hide a short list behind several conditions. Pick one condition that makes the list shrink quickly.", "AMC Upper Primary · choose an efficient first case"),
-         ("In MAWA primary application practice, a complete list can be part of the answer. The published application questions ask students to explain their reasoning.", "MAWA-style · show why the list covers everything")),
+         ("In Mawa primary application practice, a complete list can be part of the answer. The published application questions ask students to explain their reasoning.", "MAWA-style · show why the list covers everything")),
         (
             Example("Make a short list in order", (
                 (f"Use two different digits chosen from {spoken_list(available)}. List all the possible two-digit numbers in increasing order.", f"Available digits: {', '.join(map(str,available))}."),
@@ -122,7 +122,7 @@ def complement(lesson):
         (("The complement of an event is everything outside it. When that opposite set is simpler, count it and subtract from the whole.", "Wanted = whole set minus unwanted."),
          ("When an item satisfies two rules, the two rule totals overlap. Correct those overlaps before subtracting the union.", "Correct overlaps before subtracting.")),
         (("AMC practice can ask for at least one or for none. Those conditions are opposites inside the same sample space.", "AMC Upper Primary · often count the opposite"),
-         ("A MAWA style extension may combine several rules for the same number. Show how many times a number is counted when it obeys more than one rule.", "MAWA-style · account for every overlap")),
+         ("A Mawa style extension may combine several rules for the same number. Show how many times a number is counted when it obeys more than one rule.", "MAWA-style · account for every overlap")),
         (
             Example("Count strings with at least one T", (
                 (f"Write a string of {say(length)} letters. Each position can be H or T. How many strings have at least one T?", f"{length} positions; each H or T."),
@@ -180,7 +180,7 @@ def double_counting(lesson):
         (("A double-counting argument counts the same thing from two viewpoints. Both totals must describe the same physical objects or links.", "Count one set in two ways."),
          ("If every link is reported by its two endpoints, the endpoint total is twice the number of links.", "One link gives two endpoint reports.")),
         (("AMC Upper Primary practice can use handshakes or matches. Draw one pair to see how many times it appears when people report their own totals.", "AMC Upper Primary · use each link once"),
-         ("In a MAWA style counting argument, name exactly what the two calculations count. A participant-room booking differs from an individual participant.", "MAWA-style · name the shared object")),
+         ("In a Mawa style counting argument, name exactly what the two calculations count. A participant-room booking differs from an individual participant.", "MAWA-style · name the shared object")),
         (
             Example("Count greetings from the people involved", (
                 (f"{say(people).capitalize()} students each shake hands with every other student once. How many handshakes take place?", f"{people} students, one handshake per pair."),

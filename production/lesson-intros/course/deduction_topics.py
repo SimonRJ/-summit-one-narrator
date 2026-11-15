@@ -75,7 +75,7 @@ def magic_grid(lesson):
         (("A magic grid has the same sum along every row, column and long diagonal. Start with a line where only one entry is missing.", "Every full line shares a target sum."),
          ("Two or more intersecting lines reveal relationships that a single row cannot. Look for one cell that belongs to several useful lines.", "Use lines that meet.")),
         (("AMC Upper Primary practice can use a missing value in a number grid. Recover the shared target before filling the blanks.", "AMC Upper Primary · find the target sum"),
-         ("A MAWA style extension may ask you to explain which blanks are forced. Keep the long diagonals as well as the rows and columns.", "MAWA-style · justify the completed grid")),
+         ("A Mawa style extension may ask you to explain which blanks are forced. Keep the long diagonals as well as the rows and columns.", "MAWA-style · justify the completed grid")),
         (
             Example("Fill a missing value on a known line", (
                 (f"Every row in a grid totals {say(small)}. One row contains {say(4+v)} and {say(5+v)}, with one empty cell.", f"Row: {4+v}, {5+v}, ?. Total {small}."),
@@ -126,7 +126,7 @@ def exhaustiveness(lesson):
         (("A proof needs reasons that cover every allowed case. To prove a unique answer, show that it works and that every different answer fails.", "Existence checks one; uniqueness rules out all others."),
          ("A bound or an increasing pattern can eliminate an entire range in one step.", "Rule out whole ranges where you can.")),
         (("AMC practice may ask for the only integer satisfying a clue. Use the constraint to get a narrow range before testing candidates.", "AMC Upper Primary · shrink the search"),
-         ("MAWA application practice rewards clear reasons. A proof can use inequalities, a complete list, or a pattern you justify for all values.", "MAWA-style · explain why the search is complete")),
+         ("Mawa application practice rewards clear reasons. A proof can use inequalities, a complete list, or a pattern you justify for all values.", "MAWA-style · explain why the search is complete")),
         (
             Example("Find all divisible numbers in a closed interval", (
                 (f"List the multiples of {say(div)} from {say(lo)} through {say(hi)}, counting both endpoints. Explain how you know the list is complete.", f"Multiples of {div} within {lo}–{hi}."),

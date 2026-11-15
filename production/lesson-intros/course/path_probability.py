@@ -162,7 +162,7 @@ def probability(lesson):
         (("Probability compares favourable outcomes with all possible outcomes when each outcome being counted is equally likely. First choose outcomes you can count fairly.", "Favourable outcomes ÷ equally likely outcomes."),
          ("With more than one draw, check whether drawing one object changes the choices on the next draw.", "Without replacement changes the next draw.")),
         (("AMC Upper Primary practice may use spinners, dice or draws from a bag. List ordered pairs if the individual choices are independent.", "AMC Upper Primary · make a fair sample space"),
-         ("A MAWA style solution may ask you to justify the counting method. Explain why each choice in your denominator is equally likely.", "MAWA-style · justify the sample space")),
+         ("A Mawa style solution may ask you to justify the counting method. Explain why each choice in your denominator is equally likely.", "MAWA-style · justify the sample space")),
         (
             Example("Find a probability from equal spinner sections", (
                 (f"A fair spinner has {say(sectors)} equal sectors, {say(green)} of them green. What is the probability it stops on green?", f"{sectors} equal sectors; {green} green."),

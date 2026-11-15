@@ -34,7 +34,7 @@ def digit_sums(lesson):
         (("A digit has a value and a position. The digit sum forgets the positions, but a count of written digits must consider every position.", "Digit sum and digit frequency answer different questions."),
          ("Break a range count into the ones, tens and hundreds places, then add those separate counts.", "Count appearances one place at a time.")),
         (("The AMC can ask how often a digit is written. Work in complete blocks, then inspect the last incomplete block.", "AMC Upper Primary · use complete and partial blocks"),
-         ("In MAWA primary application practice, digit sum restrictions can be combined with range restrictions. Use place value to prove which cases count.", "MAWA-style · work from the digit conditions")),
+         ("In Mawa primary application practice, digit sum restrictions can be combined with range restrictions. Use place value to prove which cases count.", "MAWA-style · work from the digit conditions")),
         (
             Example("Use a digit sum to find a remainder", (
                 (f"What remainder does {say(n)} leave after division by nine? Use its digits to find the remainder without long division.", f"Remainder when {n} is divided by 9."),
@@ -144,7 +144,7 @@ def digit_positions(lesson):
         (("The places in a number have different rules. A leading zero cannot start a four-digit number, but zero can appear in any of the other positions if allowed.", "The leading digit must be nonzero."),
          ("If the question restricts the last digit or last two digits, fill those first and keep track of what remains.", "Place the restricted suffix before the other digits.")),
         (("An AMC digit puzzle may put one condition on the size and another on divisibility. These conditions usually restrict different positions.", "AMC Upper Primary · separate size and suffix rules"),
-         ("In MAWA primary practice, use an ordered list of cases and explain why no valid leading digit or ending was lost.", "MAWA-style · account for zero and repeated digits")),
+         ("In Mawa primary practice, use an ordered list of cases and explain why no valid leading digit or ending was lost.", "MAWA-style · account for zero and repeated digits")),
         (
             Example("Place zero in a genuine three-digit number", (
                 (f"Use each of the digits {spoken_list(basic_digits)} exactly once. How many three-digit numbers can be made?", f"Use {', '.join(map(str,basic_digits))} once each."),
