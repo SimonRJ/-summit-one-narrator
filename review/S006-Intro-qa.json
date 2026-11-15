@@ -1,0 +1,103 @@
+{
+  "id": "S006",
+  "duration_seconds": 176.866667,
+  "sha256": "9a9442dacfa1af805ba5ac6e7bc42659b6c9b8876c98e3e0ef5ec0a604d17f1d",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 98.61,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "match_percent": 100.0
+    },
+    {
+      "number": 2,
+      "start": 14.52,
+      "match_percent": 100.0
+    },
+    {
+      "number": 3,
+      "start": 29.4,
+      "match_percent": 93.33
+    },
+    {
+      "number": 4,
+      "start": 42.81,
+      "match_percent": 100.0
+    },
+    {
+      "number": 5,
+      "start": 56.41,
+      "match_percent": 100.0
+    },
+    {
+      "number": 6,
+      "start": 74.62,
+      "match_percent": 100.0
+    },
+    {
+      "number": 7,
+      "start": 91.9,
+      "match_percent": 95.0
+    },
+    {
+      "number": 8,
+      "start": 109.31,
+      "match_percent": 100.0
+    },
+    {
+      "number": 9,
+      "start": 125.47,
+      "match_percent": 100.0
+    },
+    {
+      "number": 10,
+      "start": 141.47,
+      "match_percent": 100.0
+    },
+    {
+      "number": 11,
+      "start": 156.67,
+      "match_percent": 96.39
+    }
+  ],
+  "chapters": [
+    {
+      "title": "The technique",
+      "start": 0.0
+    },
+    {
+      "title": "Where it shows up",
+      "start": 14.52
+    },
+    {
+      "title": "Basic example",
+      "start": 29.4
+    },
+    {
+      "title": "Medium example",
+      "start": 56.41
+    },
+    {
+      "title": "Exam-style challenge",
+      "start": 91.9
+    },
+    {
+      "title": "Common mistakes",
+      "start": 141.47
+    },
+    {
+      "title": "Exam checklist",
+      "start": 156.67
+    }
+  ],
+  "decoded_successfully": true
+}
