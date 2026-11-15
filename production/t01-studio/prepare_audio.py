@@ -18,16 +18,28 @@ PAUSES = {
     "T01.1": {3: 2.4, 7: 2.3, 9: 5.0},
     "T01.2": {3: 2.4, 6: 1.0, 9: 5.0},
 }
+SPOKEN_FORMS = {
+    "centimetre": "centimeter",
+    "centimetres": "centimeters",
+    "metre": "meter",
+    "metres": "meters",
+    "it's": "its",
+    "cue": "queue",
+}
 
 
 def tokens(text):
-    parts = re.findall(r"[a-z]+(?:'[a-z]+)?|\d+(?:,\d{3})*", text.lower())
+    text = re.sub(r"\$(\d+(?:,\d{3})*)", r"\1 dollars", text.lower())
+    parts = re.findall(r"[a-z]+(?:'[a-z]+)?|\d+(?:,\d{3})*(?:st|nd|rd|th)?", text)
     result = []
     for part in parts:
         if part[0].isdigit():
-            result.extend(re.findall("[a-z]+", num2words(int(part.replace(",", "")))))
+            ordinal = part[-2:] in ("st", "nd", "rd", "th")
+            numeral = part[:-2] if ordinal else part
+            expanded = num2words(int(numeral.replace(",", "")), to="ordinal" if ordinal else "cardinal")
+            result.extend(re.findall("[a-z]+", expanded))
         else:
-            result.append(part)
+            result.append(SPOKEN_FORMS.get(part, part))
     return result
 
 
@@ -77,18 +89,14 @@ def align(script, recognized, start, end):
 
 def caption_cues(words):
     groups = []
-    spoken = []
+    sentence = []
     for word in words:
-        length = len(" ".join(w["text"] for w in (*spoken, word)))
-        if spoken and length > 54:
-            groups.append(spoken)
-            spoken = []
-        spoken.append(word)
+        sentence.append(word)
         if word["text"].endswith((".", "?", "!")):
-            groups.append(spoken)
-            spoken = []
-    if spoken:
-        groups.append(spoken)
+            groups.extend(caption_phrases(sentence))
+            sentence = []
+    if sentence:
+        groups.extend(caption_phrases(sentence))
 
     cues = []
     for i, group in enumerate(groups):
@@ -99,6 +107,27 @@ def caption_cues(words):
         if end - start >= 0.12:
             cues.append({"start": start, "end": end, "text": " ".join(w["text"] for w in group)})
     return cues
+
+
+def caption_phrases(sentence):
+    while len(" ".join(word["text"] for word in sentence)) > 56:
+        length = 0
+        end = 0
+        for word in sentence:
+            length += len(word["text"]) + (1 if end else 0)
+            if length > 56:
+                break
+            end += 1
+        # Leave a complete phrase at the end of a sentence and prefer a nearby clause break.
+        end = max(1, min(end, len(sentence) - 3))
+        for index in range(end, max(2, end - 3), -1):
+            if sentence[index - 1]["text"].endswith((",", ":")):
+                end = index
+                break
+        yield sentence[:end]
+        sentence = sentence[end:]
+    if sentence:
+        yield sentence
 
 
 def load_recording(lesson, index, text):
