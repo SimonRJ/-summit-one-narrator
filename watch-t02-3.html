@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10151d">
+<link rel="icon" href="icon.svg">
+<title>T02.3 · Compare different orders of the same operations · Summit One</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 25%, #192631, #0c121a 75%);
+  color: #f2f1ed; font: 1rem/1.55 system-ui, sans-serif;
+}
+main { max-width: 1120px; margin: auto; padding: clamp(18px, 4vw, 48px); }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.back { justify-content: space-between; gap: 8px 20px; }
+a { color: #9cdbbc; }
+h1 { max-width: 880px; margin: .25em 0 .45em; font-size: clamp(1.95rem, 5vw, 3.45rem); line-height: 1.12; }
+h2 { margin: 0; font-size: 1.2rem; }
+p { max-width: 55rem; color: #bac4cf; }
+.lesson { color: #9cdbbc; margin: 2rem 0 0; font-size: .88rem; font-weight: 700; }
+video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #10151d; border: 1px solid #354652; border-radius: 14px; }
+.meta { color: #bac4cf; margin: .65rem 0 0; }
+.chapters { margin: 1.2rem 0 1.6rem; }
+button {
+  cursor: pointer; min-height: 44px; border: 1px solid #405463; border-radius: 12px;
+  background: #1b2834; color: #eef2f4; font: inherit; padding: .5rem .8rem;
+}
+.exercise { background: #18232e; border: 1px solid #364756; border-radius: 16px; padding: 1.15rem; }
+summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
+.transcript { margin-top: 1rem; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+</style>
+</head>
+<body>
+<main>
+<nav class="back" aria-label="Lesson navigation">
+<a href="./">← Summit One</a><a href="teaching-videos.html">Teaching videos</a><a href="watch-t02-e.html">Next · Follow what changes and what stays fixed →</a>
+</nav>
+<p class="lesson">T02.3</p>
+<h1>Compare different orders of the same operations</h1>
+<p>Compare two orders of the same operations using a general starting value.</p>
+<video id="lesson" controls playsinline preload="metadata" aria-label="Compare different orders of the same operations"
+  poster="media/T02.3-studio-poster.jpg?v=studio-chapters-02-04-v1">
+  <source src="media/T02.3.mp4?v=studio-chapters-02-04-v1" type="video/mp4">
+</video>
+<p class="meta">2:17 · Full HD</p>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Compare two orders</button>
+<button type="button" data-time="29.240">0:29 · Find the gap</button>
+<button type="button" data-time="45.690">0:45 · Build both outputs</button>
+<button type="button" data-time="61.530">1:01 · Prove the gap is fixed</button>
+<button type="button" data-time="99.120">1:39 · When can steps swap?</button>
+<button type="button" data-time="114.480">1:54 · Your turn</button></nav>
+<section class="exercise">
+<h2>Try it in your notebook</h2>
+<p>Compare subtracting 4 then multiplying by 3 with multiplying by 3 then subtracting 4. Which gives the greater result, and by how much?</p>
+<details><summary>Check your reasoning</summary><p>3(x − 4) = 3x − 12 and 3x − 4. The second is always larger by 8.</p></details>
+</section>
+<details class="transcript"><summary>Read the transcript</summary><p>Start with three. Add two and then double. Five becomes ten. Try the same start with the operations swapped. Double three first, then add two. Six becomes eight. The same steps can give different results when their order changes.</p>
+<p>Testing more starting numbers might help us guess a pattern. A letter lets us explain the pattern for every starting number. We&#x27;ll compare the two operation orders side by side and look for the part that changes.</p>
+<p>Choose any starting number. Order A adds five and then doubles. Order B doubles and then adds five. Which order gives the bigger result, and by how much? Try one starting number before we compare them all.</p>
+<p>Call the starting number x. In Order A, adding five makes a bar with an x part and a five part. Doubling makes two copies of that whole bar. Collect its parts. Two copies of x and two fives give two x plus ten.</p>
+<p>Order B doubles x first. That gives two copies of x. Add five once. Both orders now show two copies of the starting value and at least one five. Pair those matching pieces. The extra five in Order A is the entire difference.</p>
+<p>What if we multiply by negative two instead? In Order A, the five is multiplied too, so its contribution is negative ten. Order B still adds positive five. The common part is negative two x in both orders. Positive five is fifteen more than negative ten, so Order B now wins by fifteen.</p>
+<p>Two additions can swap because we still add the same total. Two multiplications can swap because their combined scale is the same. When you mix the two types of step, look closely at whether an amount added later gets scaled at all.</p>
+<p>Give the start a letter. Write the two orders separately. Compare the parts that match and calculate the difference. In your notebook, compare subtracting four and then multiplying by three with multiplying by three and then subtracting four. Which gives the greater result, and by how much?</p></details>
+<p><a href="media/T02.3.mp4?v=studio-chapters-02-04-v1">Open the MP4 directly</a></p>
+</main>
+<script>
+const video = document.querySelector("#lesson");
+for (const button of document.querySelectorAll("[data-time]")) {
+  button.addEventListener("click", () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+    video.scrollIntoView({block: "center"});
+  });
+}
+</script>
+</body>
+</html>

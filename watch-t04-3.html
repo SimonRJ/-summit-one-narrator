@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10151d">
+<link rel="icon" href="icon.svg">
+<title>T04.3 · Track prime copies through several conditions · Summit One</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 25%, #192631, #0c121a 75%);
+  color: #f2f1ed; font: 1rem/1.55 system-ui, sans-serif;
+}
+main { max-width: 1120px; margin: auto; padding: clamp(18px, 4vw, 48px); }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.back { justify-content: space-between; gap: 8px 20px; }
+a { color: #9cdbbc; }
+h1 { max-width: 880px; margin: .25em 0 .45em; font-size: clamp(1.95rem, 5vw, 3.45rem); line-height: 1.12; }
+h2 { margin: 0; font-size: 1.2rem; }
+p { max-width: 55rem; color: #bac4cf; }
+.lesson { color: #9cdbbc; margin: 2rem 0 0; font-size: .88rem; font-weight: 700; }
+video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #10151d; border: 1px solid #354652; border-radius: 14px; }
+.meta { color: #bac4cf; margin: .65rem 0 0; }
+.chapters { margin: 1.2rem 0 1.6rem; }
+button {
+  cursor: pointer; min-height: 44px; border: 1px solid #405463; border-radius: 12px;
+  background: #1b2834; color: #eef2f4; font: inherit; padding: .5rem .8rem;
+}
+.exercise { background: #18232e; border: 1px solid #364756; border-radius: 16px; padding: 1.15rem; }
+summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
+.transcript { margin-top: 1rem; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+</style>
+</head>
+<body>
+<main>
+<nav class="back" aria-label="Lesson navigation">
+<a href="./">← Summit One</a><a href="teaching-videos.html">Teaching videos</a><a href="watch-t04-e.html">Next · Use prime factors as the building blocks →</a>
+</nav>
+<p class="lesson">T04.3</p>
+<h1>Track prime copies through several conditions</h1>
+<p>Use prime copies to find highest common factors, lowest common multiples and squares.</p>
+<video id="lesson" controls playsinline preload="metadata" aria-label="Track prime copies through several conditions"
+  poster="media/T04.3-studio-poster.jpg?v=studio-chapters-02-04-v1">
+  <source src="media/T04.3.mp4?v=studio-chapters-02-04-v1" type="video/mp4">
+</video>
+<p class="meta">2:18 · Full HD</p>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Sort prime copies</button>
+<button type="button" data-time="34.040">0:34 · Compare 12 and 18</button>
+<button type="button" data-time="49.850">0:49 · Highest common factor</button>
+<button type="button" data-time="66.650">1:06 · Lowest common multiple</button>
+<button type="button" data-time="98.970">1:38 · Make a square</button>
+<button type="button" data-time="118.490">1:58 · Your turn</button></nav>
+<section class="exercise">
+<h2>Try it in your notebook</h2>
+<p>Find the highest common factor and lowest common multiple of 20 and 30.</p>
+<details><summary>Check your reasoning</summary><p>20 = 2 x 2 x 5 and 30 = 2 x 3 x 5: HCF 10, LCM 60.</p></details>
+</section>
+<details class="transcript"><summary>Read the transcript</summary><p>Write twelve as two times two times three. Write eighteen as two times three times three. Group copies of the same prime vertically. One column holds the twos. Another holds the threes. We can see exactly how many of each prime each number uses.</p>
+<p>We can solve three problems using these counts. To divide into both numbers, a factor needs to fit inside both rows. A common multiple has to contain both rows. For a square, the tiles must split into two matching sets.</p>
+<p>Find the largest positive number that divides both twelve and eighteen. Then find the smallest positive number that is a multiple of both. Use the tiles, and decide how many copies of each prime you need.</p>
+<p>A common factor can use only the copies both numbers can supply. Eighteen can supply one two and twelve can supply one three. Those are the smaller counts in the two columns. The highest common factor is two times three, which is six.</p>
+<p>A common multiple needs enough copies to cover either number. Twelve needs two twos. Eighteen needs two threes. Take the larger count in each column. Two twos and two threes multiply to thirty-six. It is the lowest common multiple.</p>
+<p>For each prime, the smaller count plus the larger count equals the original two counts added together. So the factors of six and thirty-six together use exactly the same prime copies as twelve and eighteen together. Both products are two hundred and sixteen.</p>
+<p>A square needs two matching groups of prime tiles. Thirty-six splits into two sixes. Forty-eight has four twos and one three. The three has no partner. Multiply by another three and the tiles can split evenly. The new total is one hundred and forty-four, or twelve squared.</p>
+<p>Use the smaller prime counts for a highest common factor. Use the larger counts for a lowest common multiple. A square has even counts of every prime. In your notebook, find the highest common factor and lowest common multiple of twenty and thirty.</p></details>
+<p><a href="media/T04.3.mp4?v=studio-chapters-02-04-v1">Open the MP4 directly</a></p>
+</main>
+<script>
+const video = document.querySelector("#lesson");
+for (const button of document.querySelectorAll("[data-time]")) {
+  button.addEventListener("click", () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+    video.scrollIntoView({block: "center"});
+  });
+}
+</script>
+</body>
+</html>

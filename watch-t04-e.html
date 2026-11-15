@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10151d">
+<link rel="icon" href="icon.svg">
+<title>T04.E · Use prime factors as the building blocks · Summit One</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 25%, #192631, #0c121a 75%);
+  color: #f2f1ed; font: 1rem/1.55 system-ui, sans-serif;
+}
+main { max-width: 1120px; margin: auto; padding: clamp(18px, 4vw, 48px); }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.back { justify-content: space-between; gap: 8px 20px; }
+a { color: #9cdbbc; }
+h1 { max-width: 880px; margin: .25em 0 .45em; font-size: clamp(1.95rem, 5vw, 3.45rem); line-height: 1.12; }
+h2 { margin: 0; font-size: 1.2rem; }
+p { max-width: 55rem; color: #bac4cf; }
+.lesson { color: #9cdbbc; margin: 2rem 0 0; font-size: .88rem; font-weight: 700; }
+video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #10151d; border: 1px solid #354652; border-radius: 14px; }
+.meta { color: #bac4cf; margin: .65rem 0 0; }
+.chapters { margin: 1.2rem 0 1.6rem; }
+button {
+  cursor: pointer; min-height: 44px; border: 1px solid #405463; border-radius: 12px;
+  background: #1b2834; color: #eef2f4; font: inherit; padding: .5rem .8rem;
+}
+.exercise { background: #18232e; border: 1px solid #364756; border-radius: 16px; padding: 1.15rem; }
+summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
+.transcript { margin-top: 1rem; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+</style>
+</head>
+<body>
+<main>
+<nav class="back" aria-label="Lesson navigation">
+<a href="./">← Summit One</a><a href="teaching-videos.html">Teaching videos</a>
+</nav>
+<p class="lesson">T04.E · Worked example</p>
+<h1>Use prime factors as the building blocks</h1>
+<p>Worked example: the smallest multiplier that turns 90 into a perfect square.</p>
+<video id="lesson" controls playsinline preload="metadata" aria-label="Use prime factors as the building blocks"
+  poster="media/T04.E-studio-poster.jpg?v=studio-chapters-02-04-v1">
+  <source src="media/T04.E.mp4?v=studio-chapters-02-04-v1" type="video/mp4">
+</video>
+<p class="meta">1:43 · Full HD</p>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · The perfect square problem</button>
+<button type="button" data-time="17.690">0:17 · Find unpaired primes</button>
+<button type="button" data-time="46.010">0:46 · Check the square</button>
+<button type="button" data-time="62.010">1:02 · Prove the multiplier is smallest</button>
+<button type="button" data-time="80.090">1:20 · Your turn</button></nav>
+<section class="exercise">
+<h2>Try it in your notebook</h2>
+<p>Find the smallest positive whole number that multiplies 60 to make a perfect square.</p>
+<details><summary>Check your reasoning</summary><p>60 = 2 x 2 x 3 x 5, so multiply by 3 x 5 = 15, giving 900.</p></details>
+</section>
+<details class="transcript"><summary>Read the transcript</summary><p>What is the smallest positive whole number that you can multiply ninety by to make a perfect square? Try to think of ninety as a collection of prime pieces. A square will let those pieces split into two identical groups.</p>
+<p>Ninety factorises into two times three times three times five. Each prime needs an even number of copies in a square. The threes already make a pair. The two and the five each appear once. Put a space for a partner beside each of them.</p>
+<p>Supply one more two and one more five. Those are the missing tiles. Their product is ten, so multiplying ninety by ten adds just the two partners we need. Now each prime has an even count.</p>
+<p>Ninety times ten is nine hundred. Split its tiles into two identical groups, each with a two, a three and a five. Each group multiplies to thirty. Thirty times thirty is nine hundred, so the new number is a square.</p>
+<p>Could a smaller positive multiplier work? Any multiplier that works must supply a two and a five, because those counts start odd. A number divisible by the two distinct primes two and five is a multiple of ten. Ten is the first positive multiple and we have shown it works.</p>
+<p>For a square, pair every prime. Choose one partner for each prime whose count is odd. Try the same proof with sixty. Find the smallest positive whole number to multiply sixty by to make a square, and check your answer by splitting the new prime tiles into two equal groups.</p></details>
+<p><a href="media/T04.E.mp4?v=studio-chapters-02-04-v1">Open the MP4 directly</a></p>
+</main>
+<script>
+const video = document.querySelector("#lesson");
+for (const button of document.querySelectorAll("[data-time]")) {
+  button.addEventListener("click", () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+    video.scrollIntoView({block: "center"});
+  });
+}
+</script>
+</body>
+</html>

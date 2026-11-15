@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10151d">
+<link rel="icon" href="icon.svg">
+<title>T03.2 · Separate the first coincidence from the repeat period · Summit One</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 25%, #192631, #0c121a 75%);
+  color: #f2f1ed; font: 1rem/1.55 system-ui, sans-serif;
+}
+main { max-width: 1120px; margin: auto; padding: clamp(18px, 4vw, 48px); }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.back { justify-content: space-between; gap: 8px 20px; }
+a { color: #9cdbbc; }
+h1 { max-width: 880px; margin: .25em 0 .45em; font-size: clamp(1.95rem, 5vw, 3.45rem); line-height: 1.12; }
+h2 { margin: 0; font-size: 1.2rem; }
+p { max-width: 55rem; color: #bac4cf; }
+.lesson { color: #9cdbbc; margin: 2rem 0 0; font-size: .88rem; font-weight: 700; }
+video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #10151d; border: 1px solid #354652; border-radius: 14px; }
+.meta { color: #bac4cf; margin: .65rem 0 0; }
+.chapters { margin: 1.2rem 0 1.6rem; }
+button {
+  cursor: pointer; min-height: 44px; border: 1px solid #405463; border-radius: 12px;
+  background: #1b2834; color: #eef2f4; font: inherit; padding: .5rem .8rem;
+}
+.exercise { background: #18232e; border: 1px solid #364756; border-radius: 16px; padding: 1.15rem; }
+summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
+.transcript { margin-top: 1rem; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+</style>
+</head>
+<body>
+<main>
+<nav class="back" aria-label="Lesson navigation">
+<a href="./">← Summit One</a><a href="teaching-videos.html">Teaching videos</a><a href="watch-t03-3.html">Next · Build guarantees with the pigeonhole principle →</a>
+</nav>
+<p class="lesson">T03.2</p>
+<h1>Separate the first coincidence from the repeat period</h1>
+<p>Find when two repeating events first coincide, and how often after that.</p>
+<video id="lesson" controls playsinline preload="metadata" aria-label="Separate the first coincidence from the repeat period"
+  poster="media/T03.2-studio-poster.jpg?v=studio-chapters-02-04-v1">
+  <source src="media/T03.2.mp4?v=studio-chapters-02-04-v1" type="video/mp4">
+</video>
+<p class="meta">2:04 · Full HD</p>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Two flashing lights</button>
+<button type="button" data-time="31.000">0:31 · Start together</button>
+<button type="button" data-time="46.810">0:46 · Find the period</button>
+<button type="button" data-time="68.400">1:08 · Shift one start</button>
+<button type="button" data-time="86.320">1:26 · When clocks never meet</button>
+<button type="button" data-time="102.310">1:42 · Your turn</button></nav>
+<section class="exercise">
+<h2>Try it in your notebook</h2>
+<p>Buses leave every 8 minutes and every 12 minutes, both at 9:00. When do they next leave together?</p>
+<details><summary>Check your reasoning</summary><p>The lowest common multiple of 8 and 12 is 24, so at 9:24.</p></details>
+</section>
+<details class="transcript"><summary>Read the transcript</summary><p>Two lights repeat at different speeds. One flashes every four seconds and the other every six. We can ask when they first flash together after starting. We can also ask how much time separates one meeting from the next.</p>
+<p>Twenty-four is a multiple of both four and six. A smaller common multiple may also work. First mark where each light starts. Then add its own period each time. A timeline shows both the starting positions and the repeated jumps.</p>
+<p>Both lights flash at time zero. One repeats every four seconds. The other repeats every six seconds. When do they next flash together? List a few times for each light, and line up the lists.</p>
+<p>The first light flashes at four, eight, twelve and sixteen. The second flashes at six, twelve and eighteen. Their first positive meeting is at twelve seconds. Twelve is the lowest common multiple of four and six. A gap between meetings has to be a multiple of both periods, so the next meeting is twelve seconds later.</p>
+<p>Let the second light start at time two. Its times are two, eight, fourteen and twenty. The first light&#x27;s times stay on the multiples of four. The first meeting moves to eight seconds, and the next is at twenty. The starting offset changed the first meeting. The twelve-second gap stayed the same.</p>
+<p>Now start the second light at time one. Its jumps of six keep all its times odd. Starting from zero and moving in jumps of four keeps the other times even. An odd time and an even time cannot match, so these two lights never flash together.</p>
+<p>When meetings are possible, the lowest common multiple gives the gap between them. The starting positions decide when the first meeting happens. In your notebook, one bus leaves every eight minutes and another every twelve. They both leave at nine o&#x27;clock. When do they next leave together?</p></details>
+<p><a href="media/T03.2.mp4?v=studio-chapters-02-04-v1">Open the MP4 directly</a></p>
+</main>
+<script>
+const video = document.querySelector("#lesson");
+for (const button of document.querySelectorAll("[data-time]")) {
+  button.addEventListener("click", () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+    video.scrollIntoView({block: "center"});
+  });
+}
+</script>
+</body>
+</html>

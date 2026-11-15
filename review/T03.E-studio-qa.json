@@ -1,0 +1,70 @@
+{
+  "id": "T03.E",
+  "duration_seconds": 100.6,
+  "sha256": "407573356b24540c13cbe949ba97f639ed897f5975ec76bcaa26381d9e836ff7",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 99.81,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "match_percent": 100.0
+    },
+    {
+      "number": 2,
+      "start": 16.09,
+      "match_percent": 100.0
+    },
+    {
+      "number": 3,
+      "start": 28.09,
+      "match_percent": 98.88
+    },
+    {
+      "number": 4,
+      "start": 43.61,
+      "match_percent": 100.0
+    },
+    {
+      "number": 5,
+      "start": 59.45,
+      "match_percent": 100.0
+    },
+    {
+      "number": 6,
+      "start": 79.29,
+      "match_percent": 100.0
+    }
+  ],
+  "chapters": [
+    {
+      "title": "The four-number problem",
+      "start": 0.0
+    },
+    {
+      "title": "Sort by remainder",
+      "start": 16.09
+    },
+    {
+      "title": "Cancel the leftovers",
+      "start": 43.61
+    },
+    {
+      "title": "Check the bound",
+      "start": 59.45
+    },
+    {
+      "title": "Your turn",
+      "start": 79.29
+    }
+  ],
+  "decoded_successfully": true
+}
