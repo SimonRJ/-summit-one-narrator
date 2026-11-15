@@ -1,0 +1,27 @@
+name: Defer Summit One renders until recordings are ready
+on:
+  push:
+    branches: [codex/teaching-production]
+    paths: ['.github/workflows/summit-pause-waiting-renders.yml']
+permissions:
+  actions: write
+jobs:
+  defer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Release workers occupied by the four waiting plan jobs
+        run: |
+          set -euo pipefail
+          for run in 43694066032 43694250355 43694446803 43694451569; do
+            read -r branch workflow status < <(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$run" --jq '[.head_branch,.path,.status] | @tsv')
+            if [[ "$branch" != codex/teaching-production || "$workflow" != .github/workflows/summit-teaching-render.yml || "$status" != in_progress ]]; then
+              continue
+            fi
+            if gh api "repos/$GITHUB_REPOSITORY/actions/runs/$run/jobs" --jq '.jobs | length == 1 and .[0].name == "plan" and .[0].status == "in_progress"' | grep -qx true; then
+              gh run cancel "$run" --repo "$GITHUB_REPOSITORY"
+              echo "Deferred the waiting plan for $run"
+            fi
+          done
