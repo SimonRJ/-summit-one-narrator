@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10151d">
+<link rel="icon" href="icon.svg">
+<title>T14.3 · Read a schedule as groups of nonconflicting edges · Summit One</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 25%, #192631, #0c121a 75%);
+  color: #f2f1ed; font: 1rem/1.55 system-ui, sans-serif;
+}
+main { max-width: 1120px; margin: auto; padding: clamp(18px, 4vw, 48px); }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.back { justify-content: space-between; gap: 8px 20px; }
+a { color: #9cdbbc; }
+h1 { max-width: 880px; margin: .25em 0 .45em; font-size: clamp(1.95rem, 5vw, 3.45rem); line-height: 1.12; }
+h2 { margin: 0; font-size: 1.2rem; }
+p { max-width: 55rem; color: #bac4cf; }
+.lesson { color: #9cdbbc; margin: 2rem 0 0; font-size: .88rem; font-weight: 700; }
+video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #10151d; border: 1px solid #354652; border-radius: 14px; }
+.meta { color: #bac4cf; margin: .65rem 0 0; }
+.chapters { margin: 1.2rem 0 1.6rem; }
+button {
+  cursor: pointer; min-height: 44px; border: 1px solid #405463; border-radius: 12px;
+  background: #1b2834; color: #eef2f4; font: inherit; padding: .5rem .8rem;
+}
+.exercise { background: #18232e; border: 1px solid #364756; border-radius: 16px; padding: 1.15rem; }
+summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
+.transcript { margin-top: 1rem; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+</style>
+</head>
+<body>
+<main>
+<nav class="back" aria-label="Lesson navigation">
+<a href="./">← Summit One</a><a href="teaching-videos.html">Teaching videos</a><a href="watch-t14-e.html">Next · Turn routes and schedules into networks →</a>
+</nav>
+<p class="lesson">T14.3</p>
+<h1>Read a schedule as groups of nonconflicting edges</h1>
+<p>Turn a timetable problem into a network and find the fewest time slots.</p>
+<video id="lesson" controls playsinline preload="metadata" aria-label="Read a schedule as groups of nonconflicting edges"
+  poster="media/T14.3-studio-poster.jpg?v=teaching-films-v1">
+  <source src="media/T14.3.mp4?v=teaching-films-v1" type="video/mp4">
+</video>
+<p class="meta">2:03 · Full HD</p>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · A meeting is an edge between two people</button>
+<button type="button" data-time="15.800">0:15 · A network makes conflicts visible</button>
+<button type="button" data-time="25.730">0:25 · Schedule all games for four players</button>
+<button type="button" data-time="40.740">0:40 · Six games take at least three rounds</button>
+<button type="button" data-time="52.740">0:52 · Build three rounds without clashes</button>
+<button type="button" data-time="68.420">1:08 · Five players also fit at most two games per round</button>
+<button type="button" data-time="86.330">1:26 · The busiest player gives another lower bound</button>
+<button type="button" data-time="99.130">1:39 · Your turn</button></nav>
+<section class="exercise">
+<h2>Try it in your notebook</h2>
+<p>Six players each play every other player once. A round has at most 3 games and no player plays twice in a round. What is the fewest rounds?</p>
+<details><summary>Check your reasoning</summary><p>There are 15 games, so at least 5 rounds. One schedule is AF, BE, CD; BF, AC, DE; CF, BD, AE; DF, CE, AB; EF, AD, BC.</p></details>
+</section>
+<details class="transcript"><summary>Read the transcript</summary><p>A timetable can be drawn as a network. Each person is a dot, and each meeting that must happen is a line between two dots. Meetings in the same time slot must not share a person. So a time slot is a set of lines with no dot in common.</p>
+<p>Drawing it this way turns &quot;avoid clashes&quot; into something you can see. It also gives quick lower limits on the number of slots, before you build anything.</p>
+<p>Four players each play one game against every other player. A player can play at most one game per round. What is the smallest number of rounds needed? Pause and count the games.</p>
+<p>There are six games. A round uses each player at most once, so it holds at most two games. Six divided by two is three. At least three rounds are needed.</p>
+<p>Can three be reached? Round one: A plays B, and C plays D. Round two: A plays C, and B plays D. Round three: A plays D, and B plays C. All six games are played. Three rounds is the answer.</p>
+<p>With five players there are ten games. In any round one player must rest, so again at most two games fit. That takes at least five rounds, even though each player plays only four games. The five-day pairing schedule from the earlier lesson shows that five rounds can be reached.</p>
+<p>There is a second kind of limit. A person who is in three meetings needs at least three slots, whatever everyone else is doing. Use whichever limit is stronger, and then show a timetable that reaches it.</p>
+<p>Draw people as dots and meetings as lines. A slot is a set of lines sharing no dot. Find a limit, then build a timetable that reaches it. Notebook challenge: six players each play every other player once, with at most three games per round and no player playing twice in a round. What is the fewest rounds?</p></details>
+<p><a href="media/T14.3.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+</main>
+<script>
+const video = document.querySelector("#lesson");
+for (const button of document.querySelectorAll("[data-time]")) {
+  button.addEventListener("click", () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+    video.scrollIntoView({block: "center"});
+  });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10151d">
+<link rel="icon" href="icon.svg">
+<title>T14.1 · Translate the movement rules exactly · Summit One</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 25%, #192631, #0c121a 75%);
+  color: #f2f1ed; font: 1rem/1.55 system-ui, sans-serif;
+}
+main { max-width: 1120px; margin: auto; padding: clamp(18px, 4vw, 48px); }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.back { justify-content: space-between; gap: 8px 20px; }
+a { color: #9cdbbc; }
+h1 { max-width: 880px; margin: .25em 0 .45em; font-size: clamp(1.95rem, 5vw, 3.45rem); line-height: 1.12; }
+h2 { margin: 0; font-size: 1.2rem; }
+p { max-width: 55rem; color: #bac4cf; }
+.lesson { color: #9cdbbc; margin: 2rem 0 0; font-size: .88rem; font-weight: 700; }
+video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #10151d; border: 1px solid #354652; border-radius: 14px; }
+.meta { color: #bac4cf; margin: .65rem 0 0; }
+.chapters { margin: 1.2rem 0 1.6rem; }
+button {
+  cursor: pointer; min-height: 44px; border: 1px solid #405463; border-radius: 12px;
+  background: #1b2834; color: #eef2f4; font: inherit; padding: .5rem .8rem;
+}
+.exercise { background: #18232e; border: 1px solid #364756; border-radius: 16px; padding: 1.15rem; }
+summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
+.transcript { margin-top: 1rem; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+</style>
+</head>
+<body>
+<main>
+<nav class="back" aria-label="Lesson navigation">
+<a href="./">← Summit One</a><a href="teaching-videos.html">Teaching videos</a><a href="watch-t14-2.html">Next · Use future obligations to reject tempting moves →</a>
+</nav>
+<p class="lesson">T14.1</p>
+<h1>Translate the movement rules exactly</h1>
+<p>Count routes by following exactly the moves the rules allow.</p>
+<video id="lesson" controls playsinline preload="metadata" aria-label="Translate the movement rules exactly"
+  poster="media/T14.1-studio-poster.jpg?v=teaching-films-v1">
+  <source src="media/T14.1.mp4?v=teaching-films-v1" type="video/mp4">
+</video>
+<p class="meta">1:49 · Full HD</p>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · The movement rules define a route</button>
+<button type="button" data-time="15.160">0:15 · Write one count at each point</button>
+<button type="button" data-time="24.770">0:24 · Move only right or up</button>
+<button type="button" data-time="40.580">0:40 · The edges have only one way in</button>
+<button type="button" data-time="50.180">0:50 · Add the routes from the left and below</button>
+<button type="button" data-time="66.500">1:06 · A blocked corner contributes zero</button>
+<button type="button" data-time="78.500">1:18 · A bridge crossing is not a junction</button>
+<button type="button" data-time="89.220">1:29 · Your turn</button></nav>
+<section class="exercise">
+<h2>Try it in your notebook</h2>
+<p>How many right-and-up routes cross a grid of streets 3 blocks wide and 2 blocks high?</p>
+<details><summary>Check your reasoning</summary><p>Filling in the corners gives 10.</p></details>
+</section>
+<details class="transcript"><summary>Read the transcript</summary><p>A route problem is defined by its rules: which points are joined, and which directions are allowed. Before counting anything, read those rules exactly. Two lines that cross in a drawing are not a junction unless the problem says so.</p>
+<p>Tracing every route by hand is slow and you lose track. There is a method that counts all routes at once, by writing one number on each point.</p>
+<p>A walker goes from the bottom-left corner to the top-right corner of a two by two block of streets, moving only right or up. How many different routes are there? Pause and think about how you could arrive at each corner.</p>
+<p>Write on each corner the number of ways to reach it. Along the bottom row and up the left side there is only one way: straight along. Write one on each.</p>
+<p>To reach any other corner, your last step came either from the left or from below. So its number is the sum of those two neighbours. The middle corner gets one plus one: two. The next corners get three. The final corner gets three plus three: six routes.</p>
+<p>The method copes with obstacles. If the centre corner is closed, write zero there and carry on adding. Now only two routes remain: all the way round one side or the other.</p>
+<p>Always check what counts as a connection. If one path crosses over another on a bridge, you cannot turn there. Only the connections the rules give you are real.</p>
+<p>Read the rules exactly. Label each point with the number of ways to reach it, adding the points that lead into it. A blocked point gets zero. Notebook challenge: how many right-and-up routes cross a block of streets three wide and two high?</p></details>
+<p><a href="media/T14.1.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+</main>
+<script>
+const video = document.querySelector("#lesson");
+for (const button of document.querySelectorAll("[data-time]")) {
+  button.addEventListener("click", () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+    video.scrollIntoView({block: "center"});
+  });
+}
+</script>
+</body>
+</html>

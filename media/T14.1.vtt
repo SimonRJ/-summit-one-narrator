@@ -1,0 +1,121 @@
+WEBVTT
+
+00:00:00.600 --> 00:00:02.970
+A route problem is defined by its rules:
+
+00:00:03.260 --> 00:00:04.060
+which points are joined,
+
+00:00:04.060 --> 00:00:05.910
+and which directions are allowed.
+
+00:00:06.640 --> 00:00:09.370
+Before counting anything, read those rules exactly.
+
+00:00:10.020 --> 00:00:12.340
+Two lines that cross in a drawing are not a junction
+
+00:00:12.340 --> 00:00:14.310
+unless the problem says so.
+
+00:00:15.160 --> 00:00:18.550
+Tracing every route by hand is slow and you lose track.
+
+00:00:19.140 --> 00:00:21.280
+There is a method that counts all routes at once,
+
+00:00:21.280 --> 00:00:23.790
+by writing one number on each point.
+
+00:00:24.770 --> 00:00:26.950
+A walker goes from the bottom-left corner to the
+
+00:00:26.950 --> 00:00:29.500
+top-right corner of a two by two block of streets,
+
+00:00:29.810 --> 00:00:31.480
+moving only right or up.
+
+00:00:32.150 --> 00:00:33.640
+How many different routes are there?
+
+00:00:34.110 --> 00:00:35.970
+Pause and think about how you could arrive
+
+00:00:35.970 --> 00:00:36.900
+at each corner.
+
+00:00:40.580 --> 00:00:43.350
+Write on each corner the number of ways to reach it.
+
+00:00:43.820 --> 00:00:46.500
+Along the bottom row and up the left side there is only
+
+00:00:46.500 --> 00:00:47.760
+one way: straight along.
+
+00:00:47.760 --> 00:00:49.250
+Write one on each.
+
+00:00:50.180 --> 00:00:53.020
+To reach any other corner, your last step came either
+
+00:00:53.020 --> 00:00:54.510
+from the left or from below.
+
+00:00:54.880 --> 00:00:57.170
+So its number is the sum of those two neighbours.
+
+00:00:58.160 --> 00:01:00.270
+The middle corner gets one plus one: two.
+
+00:01:00.640 --> 00:01:01.970
+The next corners get three.
+
+00:01:02.360 --> 00:01:05.430
+The final corner gets three plus three: six routes.
+
+00:01:06.500 --> 00:01:08.170
+The method copes with obstacles.
+
+00:01:08.860 --> 00:01:11.720
+If the centre corner is closed, write zero there and
+
+00:01:11.720 --> 00:01:12.630
+carry on adding.
+
+00:01:13.260 --> 00:01:16.820
+Now only two routes remain: all the way round one side
+
+00:01:16.820 --> 00:01:17.550
+or the other.
+
+00:01:18.500 --> 00:01:20.690
+Always check what counts as a connection.
+
+00:01:21.460 --> 00:01:23.830
+If one path crosses over another on a bridge,
+
+00:01:24.080 --> 00:01:25.150
+you cannot turn there.
+
+00:01:25.780 --> 00:01:28.290
+Only the connections the rules give you are real.
+
+00:01:29.220 --> 00:01:30.750
+Read the rules exactly.
+
+00:01:31.520 --> 00:01:34.150
+Label each point with the number of ways to reach it,
+
+00:01:34.320 --> 00:01:36.130
+adding the points that lead into it.
+
+00:01:36.500 --> 00:01:37.970
+A blocked point gets zero.
+
+00:01:38.760 --> 00:01:41.880
+Notebook challenge: how many right-and-up routes cross a
+
+00:01:41.880 --> 00:01:44.490
+block of streets three wide and two high?

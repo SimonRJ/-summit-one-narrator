@@ -1,0 +1,133 @@
+WEBVTT
+
+00:00:00.600 --> 00:00:02.590
+A timetable can be drawn as a network.
+
+00:00:02.980 --> 00:00:06.060
+Each person is a dot, and each meeting that must happen
+
+00:00:06.060 --> 00:00:07.790
+is a line between two dots.
+
+00:00:08.540 --> 00:00:11.490
+Meetings in the same time slot must not share a person.
+
+00:00:11.840 --> 00:00:14.950
+So a time slot is a set of lines with no dot in common.
+
+00:00:15.800 --> 00:00:19.000
+Drawing it this way turns "avoid clashes" into something
+
+00:00:19.000 --> 00:00:19.730
+you can see.
+
+00:00:20.180 --> 00:00:22.840
+It also gives quick lower limits on the number of slots,
+
+00:00:22.840 --> 00:00:24.690
+before you build anything.
+
+00:00:25.730 --> 00:00:27.990
+Four players each play one game against
+
+00:00:27.990 --> 00:00:29.180
+every other player.
+
+00:00:29.790 --> 00:00:32.420
+A player can play at most one game per round.
+
+00:00:33.010 --> 00:00:35.180
+What is the smallest number of rounds needed?
+
+00:00:35.690 --> 00:00:36.880
+Pause and count the games.
+
+00:00:40.740 --> 00:00:41.890
+There are six games.
+
+00:00:42.500 --> 00:00:46.000
+A round uses each player at most once, so it holds at
+
+00:00:46.000 --> 00:00:47.010
+most two games.
+
+00:00:47.640 --> 00:00:49.550
+Six divided by two is three.
+
+00:00:50.140 --> 00:00:51.690
+At least three rounds are needed.
+
+00:00:52.740 --> 00:00:53.850
+Can three be reached?
+
+00:00:54.240 --> 00:00:56.890
+Round one: A plays B, and C plays D.
+
+00:00:57.400 --> 00:01:00.210
+Round two: A plays C, and B plays D.
+
+00:01:00.960 --> 00:01:04.170
+Round three: A plays D, and B plays C.
+
+00:01:04.660 --> 00:01:05.890
+All six games are played.
+
+00:01:06.380 --> 00:01:07.510
+Three rounds is the answer.
+
+00:01:08.420 --> 00:01:10.370
+With five players there are ten games.
+
+00:01:10.960 --> 00:01:14.040
+In any round one player must rest, so again at most
+
+00:01:14.040 --> 00:01:15.090
+two games fit.
+
+00:01:15.500 --> 00:01:18.420
+That takes at least five rounds, even though each player
+
+00:01:18.420 --> 00:01:19.910
+plays only four games.
+
+00:01:20.640 --> 00:01:23.160
+The five-day pairing schedule from the earlier lesson
+
+00:01:23.160 --> 00:01:25.270
+shows that five rounds can be reached.
+
+00:01:26.330 --> 00:01:27.880
+There is a second kind of limit.
+
+00:01:28.330 --> 00:01:31.030
+A person who is in three meetings needs at least three
+
+00:01:31.030 --> 00:01:33.340
+slots, whatever everyone else is doing.
+
+00:01:34.030 --> 00:01:36.730
+Use whichever limit is stronger, and then show a
+
+00:01:36.730 --> 00:01:38.220
+timetable that reaches it.
+
+00:01:39.130 --> 00:01:41.480
+Draw people as dots and meetings as lines.
+
+00:01:42.090 --> 00:01:44.380
+A slot is a set of lines sharing no dot.
+
+00:01:44.870 --> 00:01:47.920
+Find a limit, then build a timetable that reaches it.
+
+00:01:48.470 --> 00:01:51.530
+Notebook challenge: six players each play every other
+
+00:01:51.530 --> 00:01:54.970
+player once, with at most three games per round and no
+
+00:01:54.970 --> 00:01:56.620
+player playing twice in a round.
+
+00:01:57.330 --> 00:01:58.420
+What is the fewest rounds?

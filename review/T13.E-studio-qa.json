@@ -1,0 +1,74 @@
+{
+  "id": "T13.E",
+  "duration_seconds": 78.066667,
+  "sha256": "c45c06bd1eb03fc8e6d6da2baca6a7e9ed47b34f05a8401487298b9fc4477a46",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 96.71,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "match_percent": 94.12
+    },
+    {
+      "number": 2,
+      "start": 16.72,
+      "match_percent": 100.0
+    },
+    {
+      "number": 3,
+      "start": 23.93,
+      "match_percent": 93.1
+    },
+    {
+      "number": 4,
+      "start": 34.82,
+      "match_percent": 100.0
+    },
+    {
+      "number": 5,
+      "start": 46.5,
+      "match_percent": 100.0
+    },
+    {
+      "number": 6,
+      "start": 59.46,
+      "match_percent": 93.02
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Two equal cuts in different places",
+      "start": 0.0
+    },
+    {
+      "title": "The original boundary measures twenty",
+      "start": 16.72
+    },
+    {
+      "title": "A corner cut gives two edges back",
+      "start": 23.93
+    },
+    {
+      "title": "An edge notch gives three edges back",
+      "start": 34.82
+    },
+    {
+      "title": "Same area removed, different boundary",
+      "start": 46.5
+    },
+    {
+      "title": "Your turn",
+      "start": 59.46
+    }
+  ],
+  "decoded_successfully": true
+}

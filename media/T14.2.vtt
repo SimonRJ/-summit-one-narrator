@@ -1,0 +1,136 @@
+WEBVTT
+
+00:00:00.600 --> 00:00:03.450
+Some routes must visit every place exactly once.
+
+00:00:04.400 --> 00:00:07.340
+A move can be perfectly legal now and still ruin the
+
+00:00:07.340 --> 00:00:09.920
+route later, by cutting off a place you still
+
+00:00:09.920 --> 00:00:10.690
+need to visit.
+
+00:00:11.440 --> 00:00:14.430
+Good solvers look ahead at what each move leaves behind.
+
+00:00:15.470 --> 00:00:18.350
+Without looking ahead you find out about a mistake only
+
+00:00:18.350 --> 00:00:19.320
+at the very end.
+
+00:00:19.690 --> 00:00:22.370
+Checking what remains after each move catches dead ends
+
+00:00:22.370 --> 00:00:24.280
+early and saves most of the work.
+
+00:00:25.070 --> 00:00:27.640
+A token moves on a three by three grid of dots,
+
+00:00:27.990 --> 00:00:30.580
+stepping to a neighbour up, down, left or right.
+
+00:00:30.950 --> 00:00:33.200
+It must visit every dot exactly once.
+
+00:00:34.050 --> 00:00:36.400
+Starting in a corner, can it finish in the centre?
+
+00:00:36.650 --> 00:00:38.320
+Pause and try to trace it.
+
+00:00:42.000 --> 00:00:42.990
+A spiral works.
+
+00:00:43.740 --> 00:00:46.850
+Go along the top, down the right side, along the bottom,
+
+00:00:46.940 --> 00:00:48.810
+up the left, and step into the centre.
+
+00:00:49.320 --> 00:00:51.940
+Every dot is visited once, and the path ends
+
+00:00:51.940 --> 00:00:52.670
+in the centre.
+
+00:00:53.520 --> 00:00:56.440
+Now ask a harder question: can a path start in the
+
+00:00:56.440 --> 00:00:57.290
+middle of a side?
+
+00:00:57.660 --> 00:00:59.230
+Colour the dots like a chessboard.
+
+00:00:59.660 --> 00:01:02.590
+The corners and the centre are dark: five dots.
+
+00:01:03.100 --> 00:01:05.450
+The middles of the sides are light: four dots.
+
+00:01:06.100 --> 00:01:07.270
+Every step changes colour.
+
+00:01:08.240 --> 00:01:10.880
+A path through nine dots that starts on a light dot
+
+00:01:10.880 --> 00:01:14.250
+would visit light, dark, light, dark, and so on:
+
+00:01:14.780 --> 00:01:16.550
+five light dots and four dark.
+
+00:01:17.280 --> 00:01:19.030
+But there are only four light dots.
+
+00:01:19.340 --> 00:01:20.830
+So no such path exists.
+
+00:01:21.480 --> 00:01:24.210
+One simple count rules out every attempt at once.
+
+00:01:25.200 --> 00:01:26.790
+Here is another look-ahead rule.
+
+00:01:27.420 --> 00:01:30.400
+A dot with only one connection can only be the first or
+
+00:01:30.400 --> 00:01:32.740
+the last dot of the route, because you cannot
+
+00:01:32.740 --> 00:01:33.710
+pass through it.
+
+00:01:34.360 --> 00:01:36.920
+If there are three such dots, no route can
+
+00:01:36.920 --> 00:01:37.690
+visit them all.
+
+00:01:38.470 --> 00:01:41.470
+After each move, check that everything unvisited can
+
+00:01:41.470 --> 00:01:42.300
+still be reached.
+
+00:01:42.950 --> 00:01:44.280
+Dead ends must be endpoints.
+
+00:01:44.590 --> 00:01:46.320
+And colouring can prove impossibility.
+
+00:01:47.330 --> 00:01:50.530
+Notebook challenge: on a grid of dots with two rows and
+
+00:01:50.530 --> 00:01:53.530
+three columns, can a path with only horizontal and
+
+00:01:53.530 --> 00:01:57.050
+vertical steps visit every dot once, starting at one end
+
+00:01:57.050 --> 00:01:59.340
+of the top row and finishing at the other?

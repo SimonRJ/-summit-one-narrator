@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10151d">
+<link rel="icon" href="icon.svg">
+<title>T14.E · Turn routes and schedules into networks · Summit One</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 25%, #192631, #0c121a 75%);
+  color: #f2f1ed; font: 1rem/1.55 system-ui, sans-serif;
+}
+main { max-width: 1120px; margin: auto; padding: clamp(18px, 4vw, 48px); }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.back { justify-content: space-between; gap: 8px 20px; }
+a { color: #9cdbbc; }
+h1 { max-width: 880px; margin: .25em 0 .45em; font-size: clamp(1.95rem, 5vw, 3.45rem); line-height: 1.12; }
+h2 { margin: 0; font-size: 1.2rem; }
+p { max-width: 55rem; color: #bac4cf; }
+.lesson { color: #9cdbbc; margin: 2rem 0 0; font-size: .88rem; font-weight: 700; }
+video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #10151d; border: 1px solid #354652; border-radius: 14px; }
+.meta { color: #bac4cf; margin: .65rem 0 0; }
+.chapters { margin: 1.2rem 0 1.6rem; }
+button {
+  cursor: pointer; min-height: 44px; border: 1px solid #405463; border-radius: 12px;
+  background: #1b2834; color: #eef2f4; font: inherit; padding: .5rem .8rem;
+}
+.exercise { background: #18232e; border: 1px solid #364756; border-radius: 16px; padding: 1.15rem; }
+summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
+.transcript { margin-top: 1rem; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+</style>
+</head>
+<body>
+<main>
+<nav class="back" aria-label="Lesson navigation">
+<a href="./">← Summit One</a><a href="teaching-videos.html">Teaching videos</a>
+</nav>
+<p class="lesson">T14.E · Worked example</p>
+<h1>Turn routes and schedules into networks</h1>
+<p>Worked example: schedule only the meetings that are required.</p>
+<video id="lesson" controls playsinline preload="metadata" aria-label="Turn routes and schedules into networks"
+  poster="media/T14.E-studio-poster.jpg?v=teaching-films-v1">
+  <source src="media/T14.E.mp4?v=teaching-films-v1" type="video/mp4">
+</video>
+<p class="meta">1:24 · Full HD</p>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Schedule only the five required meetings</button>
+<button type="button" data-time="19.290">0:19 · Three meetings use the same pupil</button>
+<button type="button" data-time="26.180">0:26 · Build a schedule with three slots</button>
+<button type="button" data-time="38.500">0:38 · Each pupil appears at most once in a slot</button>
+<button type="button" data-time="54.340">0:54 · The total meeting count gives the same lower bound</button>
+<button type="button" data-time="68.740">1:08 · Your turn</button></nav>
+<section class="exercise">
+<h2>Try it in your notebook</h2>
+<p>Add the meeting DE to the list AB, AC, AD, BE, CE. How many slots are needed now?</p>
+<details><summary>Check your reasoning</summary><p>Still 3. For example: AB with DE, then AC with BE, then AD with CE.</p></details>
+</section>
+<details class="transcript"><summary>Read the transcript</summary><p>Five pupils, A, B, C, D and E, need only these meetings: A with B, A with C, A with D, B with E, and C with E. A pupil can attend at most one meeting in a time slot. What is the smallest number of slots?</p>
+<p>Pupil A is in three meetings. Those three cannot share a slot. So at least three slots are needed.</p>
+<p>Now try to manage with three. Slot one: A meets B, and C meets E. Slot two: A meets C, and B meets E. Slot three: A meets D.</p>
+<p>Check each slot. In slot one, the pupils are A, B, C and E, each once. In slot two, the same four, each once. In slot three, only A and D. All five meetings are scheduled with no clashes.</p>
+<p>A second limit agrees. There are five meetings, and a slot holds at most two of them, since five pupils cannot form three pairs. Five meetings need at least three slots. Both limits say three, and three works.</p>
+<p>The busiest person gives a limit. Then build a timetable and check every slot. Rebuild this, then decide how many slots are needed if a sixth meeting, D with E, is added.</p></details>
+<p><a href="media/T14.E.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+</main>
+<script>
+const video = document.querySelector("#lesson");
+for (const button of document.querySelectorAll("[data-time]")) {
+  button.addEventListener("click", () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+    video.scrollIntoView({block: "center"});
+  });
+}
+</script>
+</body>
+</html>

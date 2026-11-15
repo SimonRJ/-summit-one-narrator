@@ -1,0 +1,92 @@
+{
+  "id": "T14.3",
+  "duration_seconds": 123.8,
+  "sha256": "f584ae6ee71e47b937a7336e8caa3cc205f39c54ba73e05e8032fe83f92a49d8",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 99.8,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "match_percent": 100.0
+    },
+    {
+      "number": 2,
+      "start": 15.8,
+      "match_percent": 100.0
+    },
+    {
+      "number": 3,
+      "start": 25.73,
+      "match_percent": 100.0
+    },
+    {
+      "number": 4,
+      "start": 40.74,
+      "match_percent": 98.41
+    },
+    {
+      "number": 5,
+      "start": 52.74,
+      "match_percent": 100.0
+    },
+    {
+      "number": 6,
+      "start": 68.42,
+      "match_percent": 100.0
+    },
+    {
+      "number": 7,
+      "start": 86.33,
+      "match_percent": 100.0
+    },
+    {
+      "number": 8,
+      "start": 99.13,
+      "match_percent": 100.0
+    }
+  ],
+  "chapters": [
+    {
+      "title": "A meeting is an edge between two people",
+      "start": 0.0
+    },
+    {
+      "title": "A network makes conflicts visible",
+      "start": 15.8
+    },
+    {
+      "title": "Schedule all games for four players",
+      "start": 25.73
+    },
+    {
+      "title": "Six games take at least three rounds",
+      "start": 40.74
+    },
+    {
+      "title": "Build three rounds without clashes",
+      "start": 52.74
+    },
+    {
+      "title": "Five players also fit at most two games per round",
+      "start": 68.42
+    },
+    {
+      "title": "The busiest player gives another lower bound",
+      "start": 86.33
+    },
+    {
+      "title": "Your turn",
+      "start": 99.13
+    }
+  ],
+  "decoded_successfully": true
+}

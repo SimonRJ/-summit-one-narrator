@@ -1,0 +1,74 @@
+{
+  "id": "T14.E",
+  "duration_seconds": 84.933333,
+  "sha256": "fad0d0363b6ccdce5b378ceb89a696f115e12a0bf2607c048e1e9473f6d91306",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 99.65,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "match_percent": 97.92
+    },
+    {
+      "number": 2,
+      "start": 19.29,
+      "match_percent": 100.0
+    },
+    {
+      "number": 3,
+      "start": 26.18,
+      "match_percent": 100.0
+    },
+    {
+      "number": 4,
+      "start": 38.5,
+      "match_percent": 100.0
+    },
+    {
+      "number": 5,
+      "start": 54.34,
+      "match_percent": 100.0
+    },
+    {
+      "number": 6,
+      "start": 68.74,
+      "match_percent": 100.0
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Schedule only the five required meetings",
+      "start": 0.0
+    },
+    {
+      "title": "Three meetings use the same pupil",
+      "start": 19.29
+    },
+    {
+      "title": "Build a schedule with three slots",
+      "start": 26.18
+    },
+    {
+      "title": "Each pupil appears at most once in a slot",
+      "start": 38.5
+    },
+    {
+      "title": "The total meeting count gives the same lower bound",
+      "start": 54.34
+    },
+    {
+      "title": "Your turn",
+      "start": 68.74
+    }
+  ],
+  "decoded_successfully": true
+}
