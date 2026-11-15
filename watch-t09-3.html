@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10151d">
+<link rel="icon" href="icon.svg">
+<title>T09.3 · Transform equations without losing conditions · Summit One</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 25%, #192631, #0c121a 75%);
+  color: #f2f1ed; font: 1rem/1.55 system-ui, sans-serif;
+}
+main { max-width: 1120px; margin: auto; padding: clamp(18px, 4vw, 48px); }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.back { justify-content: space-between; gap: 8px 20px; }
+a { color: #9cdbbc; }
+h1 { max-width: 880px; margin: .25em 0 .45em; font-size: clamp(1.95rem, 5vw, 3.45rem); line-height: 1.12; }
+h2 { margin: 0; font-size: 1.2rem; }
+p { max-width: 55rem; color: #bac4cf; }
+.lesson { color: #9cdbbc; margin: 2rem 0 0; font-size: .88rem; font-weight: 700; }
+video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #10151d; border: 1px solid #354652; border-radius: 14px; }
+.meta { color: #bac4cf; margin: .65rem 0 0; }
+.chapters { margin: 1.2rem 0 1.6rem; }
+button {
+  cursor: pointer; min-height: 44px; border: 1px solid #405463; border-radius: 12px;
+  background: #1b2834; color: #eef2f4; font: inherit; padding: .5rem .8rem;
+}
+.exercise { background: #18232e; border: 1px solid #364756; border-radius: 16px; padding: 1.15rem; }
+summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
+.transcript { margin-top: 1rem; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+</style>
+</head>
+<body>
+<main>
+<nav class="back" aria-label="Lesson navigation">
+<a href="./">← Summit One</a><a href="teaching-videos.html">Teaching videos</a><a href="watch-t09-e.html">Next · Make fractions, decimals and algebra agree →</a>
+</nav>
+<p class="lesson">T09.3</p>
+<h1>Transform equations without losing conditions</h1>
+<p>Change an equation only in ways that keep both sides balanced.</p>
+<video id="lesson" controls playsinline preload="metadata" aria-label="Transform equations without losing conditions"
+  poster="media/T09.3-studio-poster.jpg?v=teaching-films-v1">
+  <source src="media/T09.3.mp4?v=teaching-films-v1" type="video/mp4">
+</video>
+<p class="meta">1:57 · Full HD</p>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Use moves that you can undo</button>
+<button type="button" data-time="16.120">0:16 · A reversible move preserves the solutions</button>
+<button type="button" data-time="24.930">0:24 · Find the counters in each pouch</button>
+<button type="button" data-time="40.740">0:40 · Remove one pouch from both pans</button>
+<button type="button" data-time="48.430">0:48 · Remove five loose counters from both pans</button>
+<button type="button" data-time="55.480">0:55 · Check in the original balance</button>
+<button type="button" data-time="64.130">1:04 · Undo addition, then undo halving</button>
+<button type="button" data-time="77.410">1:17 · Check the zero case before dividing</button>
+<button type="button" data-time="97.400">1:37 · Your turn</button></nav>
+<section class="exercise">
+<h2>Try it in your notebook</h2>
+<p>Three pouches and 4 counters balance one pouch and 18 counters. How many per pouch?</p>
+<details><summary>Check your reasoning</summary><p>Two pouches balance 14 counters, so 7 each.</p></details>
+</section>
+<details class="transcript"><summary>Read the transcript</summary><p>An equation is a balance. Take three from both sides and it stays level. Addition takes us back to the original. Halve both sides and it still balances. Doubling takes us back. A move you can undo keeps exactly the same solutions.</p>
+<p>Guessing may find an answer. Reversible moves let you solve the equation step by step and confirm you have kept all of its possible answers.</p>
+<p>Two pouches and five counters balance one pouch and twelve counters. Every pouch holds the same number. How many counters are in a pouch? Pause and think about what you could remove from both sides.</p>
+<p>Remove one pouch from each side. The balance holds. Now one pouch and five counters balance twelve counters.</p>
+<p>Remove five counters from each side. One pouch balances seven counters. Each pouch holds seven.</p>
+<p>Check in the original. Two sevens and five make nineteen. One seven and twelve make nineteen. Both sides agree.</p>
+<p>With fractions, clear them by multiplying both sides. Half a number plus three is eleven. Take three from both sides: half the number is eight. Double both sides: the number is sixteen.</p>
+<p>One caution. Before dividing by an unknown number, check whether it could be zero. If a number times itself equals five times the number and the number is not zero, dividing gives five. Zero also works, because zero times zero equals five times zero. Those two cases cover all possibilities.</p>
+<p>Do the same to both sides. Undo one operation at a time. Check your answer in the original equation. Notebook challenge: three pouches and four counters balance one pouch and eighteen counters. How many counters are in each pouch?</p></details>
+<p><a href="media/T09.3.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+</main>
+<script>
+const video = document.querySelector("#lesson");
+for (const button of document.querySelectorAll("[data-time]")) {
+  button.addEventListener("click", () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+    video.scrollIntoView({block: "center"});
+  });
+}
+</script>
+</body>
+</html>

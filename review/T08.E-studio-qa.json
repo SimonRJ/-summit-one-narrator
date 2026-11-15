@@ -1,0 +1,74 @@
+{
+  "id": "T08.E",
+  "duration_seconds": 70.1,
+  "sha256": "2ce3c917f2884b74532a9d9ab32a8da7e00080ede896d214fc4c18883facec8c",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 98.78,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "match_percent": 100.0
+    },
+    {
+      "number": 2,
+      "start": 11.94,
+      "match_percent": 92.68
+    },
+    {
+      "number": 3,
+      "start": 20.43,
+      "match_percent": 100.0
+    },
+    {
+      "number": 4,
+      "start": 30.04,
+      "match_percent": 100.0
+    },
+    {
+      "number": 5,
+      "start": 35.97,
+      "match_percent": 100.0
+    },
+    {
+      "number": 6,
+      "start": 51.33,
+      "match_percent": 100.0
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Two coins and at least one head",
+      "start": 0.0
+    },
+    {
+      "title": "Make the four outcomes visible",
+      "start": 11.94
+    },
+    {
+      "title": "At least one head rules out tail–tail",
+      "start": 20.43
+    },
+    {
+      "title": "One of the survivors is head–head",
+      "start": 30.04
+    },
+    {
+      "title": "Knowing the first coin gives a different total",
+      "start": 35.97
+    },
+    {
+      "title": "Your turn",
+      "start": 51.33
+    }
+  ],
+  "decoded_successfully": true
+}

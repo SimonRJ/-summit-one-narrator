@@ -1,0 +1,92 @@
+{
+  "id": "T09.1",
+  "duration_seconds": 114.866667,
+  "sha256": "4f54ce8b7841d9825a74b12ab0363ac564462be29b93f1f59d46c994c0c61015",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 96.8,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "match_percent": 100.0
+    },
+    {
+      "number": 2,
+      "start": 16.76,
+      "match_percent": 100.0
+    },
+    {
+      "number": 3,
+      "start": 27.33,
+      "match_percent": 96.88
+    },
+    {
+      "number": 4,
+      "start": 42.02,
+      "match_percent": 92.31
+    },
+    {
+      "number": 5,
+      "start": 48.27,
+      "match_percent": 91.89
+    },
+    {
+      "number": 6,
+      "start": 60.59,
+      "match_percent": 100.0
+    },
+    {
+      "number": 7,
+      "start": 77.86,
+      "match_percent": 93.33
+    },
+    {
+      "number": 8,
+      "start": 96.26,
+      "match_percent": 100.0
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Name the whole before finding a fraction",
+      "start": 0.0
+    },
+    {
+      "title": "The next percentage has a new whole",
+      "start": 16.76
+    },
+    {
+      "title": "Two people take marbles from the same jar",
+      "start": 27.33
+    },
+    {
+      "title": "Ali uses the original forty",
+      "start": 42.02
+    },
+    {
+      "title": "Bea uses the thirty that remain",
+      "start": 48.27
+    },
+    {
+      "title": "See a fraction of a fraction",
+      "start": 60.59
+    },
+    {
+      "title": "Up 10 percent and down 10 percent",
+      "start": 77.86
+    },
+    {
+      "title": "Your turn",
+      "start": 96.26
+    }
+  ],
+  "decoded_successfully": true
+}

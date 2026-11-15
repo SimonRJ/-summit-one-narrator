@@ -1,0 +1,67 @@
+WEBVTT
+
+00:00:00.600 --> 00:00:02.490
+Two fair coins are tossed independently.
+
+00:00:03.480 --> 00:00:05.370
+You know that at least one of them shows heads.
+
+00:00:05.900 --> 00:00:08.070
+What is the probability that both show heads?
+
+00:00:11.940 --> 00:00:13.870
+Name the coins first and second.
+
+00:00:14.400 --> 00:00:17.230
+There are four equally likely outcomes: head head,
+
+00:00:17.460 --> 00:00:19.290
+head tail, tail head, tail tail.
+
+00:00:20.430 --> 00:00:22.760
+"At least one head" rules out tail tail.
+
+00:00:23.130 --> 00:00:25.520
+Three outcomes survive: head head,
+
+00:00:25.790 --> 00:00:27.280
+head tail and tail head.
+
+00:00:27.690 --> 00:00:29.240
+They are still equally likely.
+
+00:00:30.040 --> 00:00:32.590
+Only one of the three survivors has two heads.
+
+00:00:33.020 --> 00:00:35.110
+The probability is one out of three.
+
+00:00:35.970 --> 00:00:38.300
+Compare a slightly different piece of information.
+
+00:00:38.910 --> 00:00:41.240
+Suppose you are told the first coin shows heads.
+
+00:00:41.710 --> 00:00:44.460
+Now only head head and head tail survive,
+
+00:00:44.910 --> 00:00:47.460
+and the probability of two heads is one half.
+
+00:00:47.970 --> 00:00:50.140
+The exact wording of the information matters.
+
+00:00:51.330 --> 00:00:54.490
+Information removes outcomes, and the survivors become
+
+00:00:54.490 --> 00:00:55.400
+the new total.
+
+00:00:55.950 --> 00:00:59.730
+Rebuild this example, then try: two coins are tossed and
+
+00:00:59.730 --> 00:01:01.880
+you are told they do not show the same face.
+
+00:01:02.430 --> 00:01:04.720
+What is the probability the first coin is heads?

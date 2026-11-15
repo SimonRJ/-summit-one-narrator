@@ -61,8 +61,8 @@ A phone-width browser fixture used a local copy of the verified Pages assets to 
 
 | Item | Status |
 |---|---|
-| Teaching videos | 31 of 72 online through T08.3. [Watch in teaching order](../teaching-videos.html). |
-| Teaching scripts | 41 awaiting production |
+| Teaching videos | 36 of 72 online through T09.E. [Watch in teaching order](../teaching-videos.html). |
+| Teaching scripts | 36 awaiting production |
 | Other finished public videos | AMC introduction, welcome, two session introductions and one AMC solution pilot |
 | Guides | [Student guide](STUDENT_GUIDE.md) and [parent guide](PARENT_GUIDE.md) |
 

@@ -1,0 +1,92 @@
+{
+  "id": "T09.2",
+  "duration_seconds": 120.0,
+  "sha256": "1f0ff0af5149a5b4d544b41b7e10c83b542cc23942f4864caf1a84c78dc5880b",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 94.42,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "match_percent": 93.18
+    },
+    {
+      "number": 2,
+      "start": 16.76,
+      "match_percent": 100.0
+    },
+    {
+      "number": 3,
+      "start": 24.77,
+      "match_percent": 94.12
+    },
+    {
+      "number": 4,
+      "start": 34.03,
+      "match_percent": 98.0
+    },
+    {
+      "number": 5,
+      "start": 54.51,
+      "match_percent": 97.5
+    },
+    {
+      "number": 6,
+      "start": 70.35,
+      "match_percent": 90.62
+    },
+    {
+      "number": 7,
+      "start": 83.79,
+      "match_percent": 100.0
+    },
+    {
+      "number": 8,
+      "start": 99.63,
+      "match_percent": 81.93
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Decimal places are powers of ten",
+      "start": 0.0
+    },
+    {
+      "title": "Predict a stopping decimal",
+      "start": 16.76
+    },
+    {
+      "title": "Does 3/40 give a decimal that stops?",
+      "start": 24.77
+    },
+    {
+      "title": "Pair every two with a five",
+      "start": 34.03
+    },
+    {
+      "title": "One sixth has a factor of three",
+      "start": 54.51
+    },
+    {
+      "title": "Simplify before inspecting the denominator",
+      "start": 70.35
+    },
+    {
+      "title": "Find a multiplier that makes a whole number",
+      "start": 83.79
+    },
+    {
+      "title": "Your turn",
+      "start": 99.63
+    }
+  ],
+  "decoded_successfully": true
+}

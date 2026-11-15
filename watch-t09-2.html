@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10151d">
+<link rel="icon" href="icon.svg">
+<title>T09.2 · Read decimal places as divisibility conditions · Summit One</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 25%, #192631, #0c121a 75%);
+  color: #f2f1ed; font: 1rem/1.55 system-ui, sans-serif;
+}
+main { max-width: 1120px; margin: auto; padding: clamp(18px, 4vw, 48px); }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.back { justify-content: space-between; gap: 8px 20px; }
+a { color: #9cdbbc; }
+h1 { max-width: 880px; margin: .25em 0 .45em; font-size: clamp(1.95rem, 5vw, 3.45rem); line-height: 1.12; }
+h2 { margin: 0; font-size: 1.2rem; }
+p { max-width: 55rem; color: #bac4cf; }
+.lesson { color: #9cdbbc; margin: 2rem 0 0; font-size: .88rem; font-weight: 700; }
+video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #10151d; border: 1px solid #354652; border-radius: 14px; }
+.meta { color: #bac4cf; margin: .65rem 0 0; }
+.chapters { margin: 1.2rem 0 1.6rem; }
+button {
+  cursor: pointer; min-height: 44px; border: 1px solid #405463; border-radius: 12px;
+  background: #1b2834; color: #eef2f4; font: inherit; padding: .5rem .8rem;
+}
+.exercise { background: #18232e; border: 1px solid #364756; border-radius: 16px; padding: 1.15rem; }
+summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
+.transcript { margin-top: 1rem; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+</style>
+</head>
+<body>
+<main>
+<nav class="back" aria-label="Lesson navigation">
+<a href="./">← Summit One</a><a href="teaching-videos.html">Teaching videos</a><a href="watch-t09-3.html">Next · Transform equations without losing conditions →</a>
+</nav>
+<p class="lesson">T09.2</p>
+<h1>Read decimal places as divisibility conditions</h1>
+<p>Connect decimals to fractions with tens, and predict when a decimal stops.</p>
+<video id="lesson" controls playsinline preload="metadata" aria-label="Read decimal places as divisibility conditions"
+  poster="media/T09.2-studio-poster.jpg?v=teaching-films-v1">
+  <source src="media/T09.2.mp4?v=teaching-films-v1" type="video/mp4">
+</video>
+<p class="meta">2:00 · Full HD</p>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Decimal places are powers of ten</button>
+<button type="button" data-time="16.760">0:16 · Predict a stopping decimal</button>
+<button type="button" data-time="24.770">0:24 · Does 3/40 give a decimal that stops?</button>
+<button type="button" data-time="34.030">0:34 · Pair every two with a five</button>
+<button type="button" data-time="54.510">0:54 · One sixth has a factor of three</button>
+<button type="button" data-time="70.350">1:10 · Simplify before inspecting the denominator</button>
+<button type="button" data-time="83.790">1:23 · Find a multiplier that makes a whole number</button>
+<button type="button" data-time="99.630">1:39 · Your turn</button></nav>
+<section class="exercise">
+<h2>Try it in your notebook</h2>
+<p>Which stop as decimals: 7/20, 5/12, 9/75?</p>
+<details><summary>Check your reasoning</summary><p>7/20 = 0.35 stops; 5/12 does not (factor 3); 9/75 = 3/25 = 0.12 stops.</p></details>
+</section>
+<details class="transcript"><summary>Read the transcript</summary><p>A decimal that stops is just a fraction whose bottom number is ten, a hundred, a thousand, and so on. Nought point three seven five is three hundred and seventy-five thousandths. And every power of ten is built from twos and fives only.</p>
+<p>That one fact tells you which fractions make decimals that stop, and which go on forever, without doing any long division.</p>
+<p>Does three fortieths give a decimal that stops? And what is it? Pause and factorise forty.</p>
+<p>Forty is two times two times two times five. To make a power of ten, every two needs a five. There are three twos and one five, so supply two more fives. Multiply top and bottom by twenty-five. Three fortieths becomes seventy-five thousandths: nought point nought seven five.</p>
+<p>Now try one sixth. Six is two times three. No amount of multiplying by twos and fives can turn that three into part of a power of ten. So one sixth never stops: nought point one six six six, forever.</p>
+<p>One warning: simplify first. Six fifteenths has a three in the bottom, but it cancels. Six fifteenths is two fifths, which is nought point four. Only the simplified fraction tells the truth.</p>
+<p>Decimals also hide divisibility. Nought point two five is a quarter, so multiplying by four gives a whole number. A decimal with two places always becomes whole when multiplied by one hundred, and sometimes by something smaller.</p>
+<p>Simplify the fraction. If the bottom is built only from twos and fives, the decimal stops. If any other prime remains, it repeats forever. Notebook challenge: which of these stop: seven twentieths, five twelfths, nine seventy-fifths?</p></details>
+<p><a href="media/T09.2.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+</main>
+<script>
+const video = document.querySelector("#lesson");
+for (const button of document.querySelectorAll("[data-time]")) {
+  button.addEventListener("click", () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+    video.scrollIntoView({block: "center"});
+  });
+}
+</script>
+</body>
+</html>

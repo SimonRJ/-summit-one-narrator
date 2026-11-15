@@ -6,8 +6,8 @@
  "status": "script_ready_not_recorded",
  "voice": "Voice C (VoxCPM2), natural speed (see docs/VIDEO_PRODUCTION.md)",
  "goal": "Use digit sums to find remainders on division by 9 and by 3.",
- "narration_words": 285,
- "estimated_minutes": 1.9,
+ "narration_words": 294,
+ "estimated_minutes": 2.0,
  "scenes": [
   {
    "n": 1,
@@ -43,7 +43,7 @@
    "n": 6,
    "stage": "VARIATION",
    "visual": "The number 583: digits sum to 16; 16 leaves 7 after removing 9. Label \"remainder 7\".",
-   "narration": "The digit sum gives the remainder, not just a yes or no. Five hundred and eighty-three has digit sum sixteen. Sixteen is seven more than nine. So five hundred and eighty-three leaves remainder seven when divided by nine."
+   "narration": "The digit sum lets us find the remainder, too. Five hundred and eighty-three has digit sum sixteen. Remove as many complete groups of nine from sixteen as you can. Sixteen is seven more than nine. So five hundred and eighty-three leaves remainder seven when divided by nine."
   },
   {
    "n": 7,

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10151d">
+<link rel="icon" href="icon.svg">
+<title>T08.E · Let the experiment determine the probability · Summit One</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 25%, #192631, #0c121a 75%);
+  color: #f2f1ed; font: 1rem/1.55 system-ui, sans-serif;
+}
+main { max-width: 1120px; margin: auto; padding: clamp(18px, 4vw, 48px); }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.back { justify-content: space-between; gap: 8px 20px; }
+a { color: #9cdbbc; }
+h1 { max-width: 880px; margin: .25em 0 .45em; font-size: clamp(1.95rem, 5vw, 3.45rem); line-height: 1.12; }
+h2 { margin: 0; font-size: 1.2rem; }
+p { max-width: 55rem; color: #bac4cf; }
+.lesson { color: #9cdbbc; margin: 2rem 0 0; font-size: .88rem; font-weight: 700; }
+video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #10151d; border: 1px solid #354652; border-radius: 14px; }
+.meta { color: #bac4cf; margin: .65rem 0 0; }
+.chapters { margin: 1.2rem 0 1.6rem; }
+button {
+  cursor: pointer; min-height: 44px; border: 1px solid #405463; border-radius: 12px;
+  background: #1b2834; color: #eef2f4; font: inherit; padding: .5rem .8rem;
+}
+.exercise { background: #18232e; border: 1px solid #364756; border-radius: 16px; padding: 1.15rem; }
+summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
+.transcript { margin-top: 1rem; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+</style>
+</head>
+<body>
+<main>
+<nav class="back" aria-label="Lesson navigation">
+<a href="./">← Summit One</a><a href="teaching-videos.html">Teaching videos</a><a href="watch-t09-1.html">Next · Keep the whole visible →</a>
+</nav>
+<p class="lesson">T08.E · Worked example</p>
+<h1>Let the experiment determine the probability</h1>
+<p>Worked example: &quot;at least one head&quot; shrinks the comparison group.</p>
+<video id="lesson" controls playsinline preload="metadata" aria-label="Let the experiment determine the probability"
+  poster="media/T08.E-studio-poster.jpg?v=teaching-films-v1">
+  <source src="media/T08.E.mp4?v=teaching-films-v1" type="video/mp4">
+</video>
+<p class="meta">1:10 · Full HD</p>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Two coins and at least one head</button>
+<button type="button" data-time="11.940">0:11 · Make the four outcomes visible</button>
+<button type="button" data-time="20.430">0:20 · At least one head rules out tail–tail</button>
+<button type="button" data-time="30.040">0:30 · One of the survivors is head–head</button>
+<button type="button" data-time="35.970">0:35 · Knowing the first coin gives a different total</button>
+<button type="button" data-time="51.330">0:51 · Your turn</button></nav>
+<section class="exercise">
+<h2>Try it in your notebook</h2>
+<p>Two fair coins are tossed independently and show different faces. What is the probability the first is heads?</p>
+<details><summary>Check your reasoning</summary><p>Survivors HT, TH; one of two: 1/2.</p></details>
+</section>
+<details class="transcript"><summary>Read the transcript</summary><p>Two fair coins are tossed independently. You know that at least one of them shows heads. What is the probability that both show heads?</p>
+<p>Name the coins first and second. There are four equally likely outcomes: head head, head tail, tail head, tail tail.</p>
+<p>&quot;At least one head&quot; rules out tail tail. Three outcomes survive: head head, head tail and tail head. They are still equally likely.</p>
+<p>Only one of the three survivors has two heads. The probability is one out of three.</p>
+<p>Compare a slightly different piece of information. Suppose you are told the first coin shows heads. Now only head head and head tail survive, and the probability of two heads is one half. The exact wording of the information matters.</p>
+<p>Information removes outcomes, and the survivors become the new total. Rebuild this example, then try: two coins are tossed and you are told they do not show the same face. What is the probability the first coin is heads?</p></details>
+<p><a href="media/T08.E.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+</main>
+<script>
+const video = document.querySelector("#lesson");
+for (const button of document.querySelectorAll("[data-time]")) {
+  button.addEventListener("click", () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+    video.scrollIntoView({block: "center"});
+  });
+}
+</script>
+</body>
+</html>
