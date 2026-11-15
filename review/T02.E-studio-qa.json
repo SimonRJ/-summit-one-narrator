@@ -1,0 +1,70 @@
+{
+  "id": "T02.E",
+  "duration_seconds": 104.133333,
+  "sha256": "b75496215d031144b4c29126c7d7b9423ddb029273a7731cf2c6663d11ba944c",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 99.35,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "match_percent": 100.0
+    },
+    {
+      "number": 2,
+      "start": 19.29,
+      "match_percent": 100.0
+    },
+    {
+      "number": 3,
+      "start": 36.25,
+      "match_percent": 96.1
+    },
+    {
+      "number": 4,
+      "start": 50.33,
+      "match_percent": 100.0
+    },
+    {
+      "number": 5,
+      "start": 67.29,
+      "match_percent": 100.0
+    },
+    {
+      "number": 6,
+      "start": 82.33,
+      "match_percent": 100.0
+    }
+  ],
+  "chapters": [
+    {
+      "title": "The two rules",
+      "start": 0.0
+    },
+    {
+      "title": "Copy the whole sum",
+      "start": 19.29
+    },
+    {
+      "title": "Compare the extras",
+      "start": 50.33
+    },
+    {
+      "title": "Test different inputs",
+      "start": 67.29
+    },
+    {
+      "title": "Your turn",
+      "start": 82.33
+    }
+  ],
+  "decoded_successfully": true
+}

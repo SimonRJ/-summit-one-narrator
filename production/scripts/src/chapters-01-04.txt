@@ -123,259 +123,260 @@ ANS: 13 minutes to 11:00 am, 60 to noon, 6 more to 12:06 pm. The total is 13 + 6
 @@ T02.3
 GOAL: Compare two orders of the same operations using a general starting value.
 [INSIGHT]
-V: Two machines in a row: "+5" then "x2". They swap places and the output number changes.
-N: Putting on socks then shoes is not the same as shoes then socks. Many maths operations are like that. Changing the order can change the result. Today you will learn how to compare two orders for every starting number at once.
+V: Run three through add two and double in both orders. Track the amount between each operation.
+N: Start with three. Add two and then double. Five becomes ten. Try the same start with the operations swapped. Double three first, then add two. Six becomes eight. The same steps can give different results when their order changes.
 [WHY]
-V: A table of test values 1, 2, 3 with outputs for both orders; a question mark hangs over "all numbers?".
-N: You could test a few starting numbers, but tests only tell you about the numbers you tried. Using a letter for the start tells you about all of them, and it shows exactly how big the difference is.
+V: Let several example inputs become a single tile labelled x, then lead the tile to two operation lanes.
+N: Testing more starting numbers might help us guess a pattern. A letter lets us explain the pattern for every starting number. We'll compare the two operation orders side by side and look for the part that changes.
 [PUZZLE]
-V: Order A: add 5, then double. Order B: double, then add 5. Start value shown as a covered box x. Question: "Which is bigger, and by how much?"
-N: Start with any number. Order A adds five, then doubles. Order B doubles, then adds five. Which order gives the bigger result, and by how much? Pause and try it with a starting number of your own.
+V: Build two unsolved lanes with add five and double. Hold the question and the input tile.
+N: Choose any starting number. Order A adds five and then doubles. Order B doubles and then adds five. Which order gives the bigger result, and by how much? Try one starting number before we compare them all.
 [DEVELOP]
-V: A bar of length x with a block of 5 attached; the whole bar is copied twice. Label: 2x + 10.
-N: Call the start x. Order A makes x plus five, then doubles everything, including the five. That gives two x plus ten.
+V: Attach a gold five to x, duplicate the entire bar, then collect its two gold tiles.
+N: Call the starting number x. In Order A, adding five makes a bar with an x part and a five part. Doubling makes two copies of that whole bar. Collect its parts. Two copies of x and two fives give two x plus ten.
 [DEVELOP]
-V: A bar x copied twice, then a single block of 5 attached. Label: 2x + 5. The two results stack; the shared 2x parts fade, leaving one block of 5.
-N: Order B doubles x first, giving two x, and then adds just one five. That gives two x plus five. Both results contain two x. Order A has one extra five. So order A is always bigger by exactly five, whatever number you start with.
+V: Double x alone and attach one five in a second lane. Pair the corresponding pieces with Order A.
+N: Order B doubles x first. That gives two copies of x. Add five once. Both orders now show two copies of the starting value and at least one five. Pair those matching pieces. The extra five in Order A is the entire difference.
 [VARIATION]
-V: Same machines with the doubling replaced by "x(-2)". Outputs: -2x - 10 and -2x + 5. A small flip arrow shows the comparison reversing.
-N: Be careful with negative multipliers. If the second machine multiplies by negative two, order A gives negative two x minus ten, and order B gives negative two x plus five. Now order B is bigger, by fifteen. Multiplying by a negative number reverses which side is larger.
+V: Replace the multiplier with negative two. Align the common terms, then measure the gap from negative ten to positive five.
+N: What if we multiply by negative two instead? In Order A, the five is multiplied too, so its contribution is negative ten. Order B still adds positive five. The common part is negative two x in both orders. Positive five is fifteen more than negative ten, so Order B now wins by fifteen.
 [VARIATION]
-V: Two machines "+3" and "+7" swap with no change; two machines "x2" and "x5" swap with no change. A tick on each.
-N: Some pairs never care about order. Two additions can be swapped. Two multiplications can be swapped. The interesting cases mix adding with multiplying.
+V: Rearrange two addition tiles, then two multiplication tiles, and show that their combined amount is unchanged.
+N: Two additions can swap because we still add the same total. Two multiplications can swap because their combined scale is the same. When you mix the two types of step, look closely at whether an amount added later gets scaled at all.
 [RECAP]
-V: Lines: "Use x for the start", "Simplify both orders", "Subtract to compare".
-N: Use a letter for the start. Write both orders as expressions. Subtract them to see which is larger and by how much. Notebook challenge: compare "subtract four, then multiply by three" with "multiply by three, then subtract four".
-TRY: Compare "subtract 4 then multiply by 3" with "multiply by 3 then subtract 4".
-ANS: 3(x - 4) = 3x - 12 and 3x - 4; the second is always larger by 8.
+V: Recall input, two orders, gap. Show the notebook operation lanes without either output.
+N: Give the start a letter. Write the two orders separately. Compare the parts that match and calculate the difference. In your notebook, compare subtracting four and then multiplying by three with multiplying by three and then subtracting four. Which gives the greater result, and by how much?
+TRY: Compare subtracting 4 then multiplying by 3 with multiplying by 3 then subtracting 4. Which gives the greater result, and by how much?
+ANS: 3(x − 4) = 3x − 12 and 3x − 4. The second is always larger by 8.
 
 @@ T02.E
 GOAL: Worked example: why one order always wins by the same amount.
 [PUZZLE]
-V: Rule A: add 3, then multiply by 4. Rule B: multiply by 4, then add 3. A covered start box. Question: "Which output is larger, and by how much?"
-N: Here is a worked example. Start with any whole number. Rule A adds three and then multiplies by four. Rule B multiplies by four and then adds three. Which output is larger, and by how much?
+V: Set up two unsolved operation machines using the same whole-number input.
+N: Start with any whole number, including zero. Rule A adds three and then multiplies by four. Rule B multiplies by four and then adds three. Which output is larger, and by how much? Sketch one example before looking for a proof.
 [DEVELOP]
-V: A bar x with a gold block of 3. Four copies stack: four bars and four gold blocks. Label 4x + 12.
-N: Rule A makes four copies of the whole amount x plus three. That is four copies of x and four copies of three: four x plus twelve.
+V: Copy the whole x plus three bar four times, then display four x tiles and four threes.
+N: Call the start x. Rule A forms x plus three and makes four copies of the whole amount. Look at one copy. It contains an x tile and a three tile. Four copies give four x tiles and four threes, so the result is four x plus twelve.
 [DEVELOP]
-V: Four copies of bar x, then a single gold block of 3. Label 4x + 3.
-N: Rule B makes four copies of x, and then adds only one three: four x plus three.
+V: Copy x alone four times. Bring in one gold three from the add step.
+N: In Rule B, the multiplication acts on the starting value. Make four copies of x. Now add the three. This time the three comes in once, after the copying step. The result is four x plus three.
 [DEVELOP]
-V: The two stacks side by side. Matching bars fade out in pairs. Three gold blocks of 3 remain on Rule A's side. Label: difference 9.
-N: Both outputs contain the same four copies of x. Rule A has three extra threes. Three times three is nine. Rule A is always larger by nine.
+V: Align the two rows, dim each matched x and matching three, then collect the unmatched gold pieces.
+N: Line up the outputs. Each side contains four copies of the same x and one added three. Pair those tiles. There are three extra threes in Rule A. Their total is nine. Whatever whole number we pick at the start, Rule A is larger by nine.
 [VARIATION]
-V: Start box opens to show 0: outputs 12 and 3. Then 10: outputs 52 and 43.
-N: Check with numbers. Starting from zero, the outputs are twelve and three. Starting from ten, they are fifty-two and forty-three. The difference is nine both times, exactly as the bars predicted.
+V: Use an input-output table to check zero and ten with the proved difference.
+N: Check the smallest allowed input. Starting from zero gives twelve and three. Starting from ten gives fifty-two and forty-three. Each difference is nine. In both rows, the starting amount changes the two outputs by the same amount.
 [RECAP]
-V: Line: "extra = (multiplier - 1) x amount added". Notebook prompt.
-N: The amount added gets multiplied in one rule and not in the other. That is the whole difference. Rebuild this argument in your notebook, then predict the gap between "add two then multiply by six" and "multiply by six then add two".
+V: Draw the repeatable copy rule, then present the add two and multiply by six challenge.
+N: The multiplication makes extra copies of the added amount when the addition comes first. Use that observation with two new rules. One adds two before multiplying by six. The other multiplies by six before adding two. Draw the matching pieces and find the gap.
 TRY: Find the gap between "add 2 then multiply by 6" and "multiply by 6 then add 2".
 ANS: 6x + 12 and 6x + 2; the gap is always 10.
 
 @@ T03.1
 GOAL: Read "remainder r on division by d" as: the number is r more than a multiple of d.
 [INSIGHT]
-V: Seventeen counters fall into groups of five: three full groups and two left over. Label: 17 = 3 x 5 + 2.
-N: When you divide and something is left over, that leftover is called the remainder. Seventeen counters make three full groups of five, with two left over. So seventeen is two more than a multiple of five. That sentence is what a remainder really says.
+V: Group seventeen counters into three rows of five and two loose counters.
+N: Seventeen counters make three full groups of five, with two left over. That leftover is called the remainder. The three full groups give a multiple of five. The two counters tell you exactly how far seventeen is past that multiple.
 [WHY]
-V: A long row of numbers shrinks into five coloured columns labelled 0, 1, 2, 3, 4.
-N: Remainders are useful because they shrink huge lists. There are endlessly many whole numbers, but when dividing by five there are only five possible remainders: zero, one, two, three and four. Hard questions about big numbers become small questions about remainders.
+V: Give each allowable leftover from zero to four a bucket. Slide the fifth counter into a new complete group.
+N: When we divide whole numbers by five, the possible remainders are zero, one, two, three and four. A leftover of five would make another complete group. However large the starting number, it fits into one of these five remainder classes.
 [PUZZLE]
-V: A repeating row of beads: red, blue, green, yellow, red, blue... Position numbers underneath. Question: "What colour is bead 50?"
-N: Beads repeat in the order red, blue, green, yellow. What colour is the fiftieth bead? Pause and think about how remainders could help.
+V: Build the red, blue, green, yellow strip, label first four positions and ask for bead fifty.
+N: A necklace repeats red, blue, green and yellow in that order. The first bead is red. What colour is bead fifty? Try marking the boundaries between the repeating groups of four.
 [DEVELOP]
-V: The row folds into four columns under red, blue, green, yellow. Bead numbers 1, 5, 9 stack under red; 4, 8, 12 under yellow.
-N: The pattern has length four, so divide by four. Fifty is four times twelve, plus two. After twelve complete cycles, two more beads are used. The second bead in the cycle is blue. Bead fifty is blue.
+V: Compress twelve cycles into twelve tiles and unfold two positions of cycle thirteen.
+N: A full cycle has four beads. Fifty is twelve groups of four, plus two more beads. The twelve groups take us to bead forty-eight. Count two beads into the next cycle. Its second colour is blue, so bead fifty is blue.
 [DEVELOP]
-V: Bead 48 highlights under yellow with "remainder 0".
-N: Watch what happens for bead forty-eight. Forty-eight divided by four leaves remainder zero. That does not mean "no bead". It means a whole number of cycles has just finished, so it is the last colour, yellow.
+V: Move the cursor back to the end of a complete cycle. Highlight the last bead and remainder zero.
+N: Bead forty-eight lands on a complete group boundary. It has remainder zero when divided by four. In this position list we count from one, so a complete group finishes on its fourth bead. Bead forty-eight is yellow.
 [VARIATION]
-V: Two numbers 23 and 38 on a line with a bracket of length 15 between them, split into three fives.
-N: Here is a second use. Twenty-three and thirty-eight both leave remainder three when divided by five. Their difference is fifteen, a multiple of five. That always happens: two numbers have the same remainder exactly when their difference is a multiple of the divisor.
+V: Align two group strips for 23 and 38. Cancel their shared residue and show three extra groups of five.
+N: Twenty-three is four groups of five plus three. Thirty-eight is seven groups of five plus three. In the difference, the two leftovers cancel. Three extra groups of five give fifteen. And adding any whole group of five leaves a remainder unchanged. That is why equal remainders and a multiple-of-five difference go together.
 [VARIATION]
-V: Candidate list 3, 8, 13, 18, 23, 28 with those leaving remainder 1 on division by 3 circled: 13, 28.
-N: You can also combine conditions. Which whole numbers below thirty leave remainder three when divided by five, and remainder one when divided by three? List the first kind: three, eight, thirteen, eighteen, twenty-three, twenty-eight. Test each for the second condition. Thirteen works, and so does twenty-eight.
+V: Place the six candidates on a number line. Sort them by remainder modulo three, then identify the two in the target column.
+N: Try combining two conditions. Below thirty, the numbers with remainder three on division by five are three, eight, thirteen, eighteen, twenty-three and twenty-eight. Now test them for remainder one on division by three. Only thirteen and twenty-eight reach that column.
 [RECAP]
-V: Lines: "N = groups x d + r", "r is from 0 to d - 1", "same remainder means difference is a multiple".
-N: A remainder says how far a number is past a multiple. It is always smaller than the divisor. Notebook challenge: today is Tuesday. What day of the week will it be one hundred days from now?
+V: Return to a full group plus leftover, then show the Tuesday and one hundred days problem.
+N: A remainder tells how far you are past a multiple. It must be smaller than the divisor. For a repeating pattern, decide which position sits at remainder zero. Here is your notebook challenge. Today is Tuesday. What day will it be one hundred days from now?
 TRY: Today is Tuesday. What day will it be 100 days from now?
 ANS: 100 = 7 x 14 + 2, so two days after Tuesday: Thursday.
 
 @@ T03.2
 GOAL: Find when two repeating events first coincide, and how often after that.
 [INSIGHT]
-V: Two rows of lights. The top flashes every 4 beats, the bottom every 6. Vertical lines mark when both flash.
-N: Two things repeat at different speeds. A light flashes every four seconds. Another flashes every six. When do they flash together? There are two separate questions here: when is the first time, and how long between repeats.
+V: Show two lights pulsing at separate rates above a shared timeline, with a marker for a first flash and for spacing.
+N: Two lights repeat at different speeds. One flashes every four seconds and the other every six. We can ask when they first flash together after starting. We can also ask how much time separates one meeting from the next.
 [WHY]
-V: The numbers 4 and 6 with a tempting "x = 24" crossed lightly; "12" appears instead.
-N: A common mistake is to multiply the two periods. Four times six is twenty-four, and they do flash together then, but it is not the first time. Another mistake is to forget that the two events may not start together.
+V: Lay down cards for four and six and trace valid step lengths along parallel rails.
+N: Twenty-four is a multiple of both four and six. A smaller common multiple may also work. First mark where each light starts. Then add its own period each time. A timeline shows both the starting positions and the repeated jumps.
 [PUZZLE]
-V: Timeline from 0 to 30. Both lights flash at 0. Question: "When do they next flash together?"
-N: Both lights flash at time zero. One repeats every four seconds and the other every six. When do they next flash together? Pause and list some flash times.
+V: Draw both flashes at zero and leave future marks unfilled for the learner.
+N: Both lights flash at time zero. One repeats every four seconds. The other repeats every six seconds. When do they next flash together? List a few times for each light, and line up the lists.
 [DEVELOP]
-V: Top row marks at 4, 8, 12, 16, 20, 24. Bottom row at 6, 12, 18, 24. The marks at 12 and 24 join with vertical lines.
-N: The first light flashes at four, eight, twelve, sixteen. The second at six, twelve, eighteen. They meet at twelve. Twelve is the smallest number that both four and six divide into. It is called the lowest common multiple. After that, they meet every twelve seconds.
+V: Progressively fill both time rows; join common flashes at twelve and twenty-four, then bracket the spacing.
+N: The first light flashes at four, eight, twelve and sixteen. The second flashes at six, twelve and eighteen. Their first positive meeting is at twelve seconds. Twelve is the lowest common multiple of four and six. A gap between meetings has to be a multiple of both periods, so the next meeting is twelve seconds later.
 [DEVELOP]
-V: Same timeline, but the bottom light now starts at 2: marks at 2, 8, 14, 20, 26. Top row unchanged. Join at 8 and 20.
-N: Now change the start. The first light still flashes at zero, four, eight. The second starts at time two and flashes every six: two, eight, fourteen, twenty. Their first meeting is at eight, not twelve. But the gap between meetings is still twelve: eight, then twenty.
+V: Shift the six-second row two units right while keeping its marks equally spaced. Connect meetings at eight and twenty.
+N: Let the second light start at time two. Its times are two, eight, fourteen and twenty. The first light's times stay on the multiples of four. The first meeting moves to eight seconds, and the next is at twenty. The starting offset changed the first meeting. The twelve-second gap stayed the same.
 [VARIATION]
-V: Third version: top at 0, 4, 8...; bottom starting at 1: 1, 7, 13, 19, 25. No joins. Labels "even" and "odd".
-N: Sometimes they never meet. Suppose the second light starts at time one. The first light flashes only at even times. The second flashes at one, seven, thirteen, all odd times. An even time can never equal an odd time, so they never coincide. A quick odd-and-even check can save a long search.
+V: Shift the lower rail to offset one. Colour the even and odd columns and leave no vertical match.
+N: Now start the second light at time one. Its jumps of six keep all its times odd. Starting from zero and moving in jumps of four keeps the other times even. An odd time and an even time cannot match, so these two lights never flash together.
 [RECAP]
-V: Lines: "First meeting: depends on the starts", "Gap between meetings: lowest common multiple".
-N: The lowest common multiple gives the gap between meetings. The starting positions decide the first meeting, and whether there is one at all. Notebook challenge: one bus leaves every eight minutes and another every twelve minutes. Both leave at nine o'clock. When do they next leave together?
+V: Keep the two start markers and the spacing labels, then set up the bus departures notebook exercise.
+N: When meetings are possible, the lowest common multiple gives the gap between them. The starting positions decide when the first meeting happens. In your notebook, one bus leaves every eight minutes and another every twelve. They both leave at nine o'clock. When do they next leave together?
 TRY: Buses leave every 8 minutes and every 12 minutes, both at 9:00. When do they next leave together?
 ANS: The lowest common multiple of 8 and 12 is 24, so at 9:24.
 
 @@ T03.3
 GOAL: Use the pigeonhole principle: more objects than boxes forces a shared box.
 [INSIGHT]
-V: Three open boxes. Four counters drop in one by one; the fourth must land on an occupied box, which glows.
-N: Put four counters into three boxes. However you do it, some box ends up with at least two. This simple idea is called the pigeonhole principle, and it can prove that something must happen, even when you cannot say where.
+V: Move four counters into three outlined boxes and show that any placement must share a box.
+N: Put four counters into three boxes. You can place the first three with one in each box. The fourth has to join a counter somewhere. If you already put two together earlier, the claim already holds. This is the pigeonhole principle.
 [WHY]
-V: A cloud of "all possible choices" with a single line through it reading "guaranteed".
-N: Many competition questions ask for a guarantee: what is the smallest number that makes something certain? You cannot check every possibility. The pigeonhole principle handles them all at once. The skill is choosing the right boxes.
+V: Compare what can fit with one item per box and what happens when there is one more item.
+N: A guarantee asks what must happen in every possible case. Imagine the arrangement that delays the result for as long as possible. Its limit helps us find the smallest count that will force the result. The important decision is what the boxes represent.
 [PUZZLE]
-V: A drawer silhouette with socks in red, blue, green and black. Question: "How many socks must you take to be sure of a matching pair?"
-N: A drawer has many socks in four colours. You take socks out without looking. How many must you take to be certain of having two of the same colour? Pause and think about the unluckiest possible draw.
+V: Show four sock colours and ask for the minimum blind draw.
+N: A drawer contains many socks of exactly four colours. You take socks without looking. What is the smallest number you must take to guarantee two of the same colour? Try to plan a draw that delays the first matching pair.
 [DEVELOP]
-V: Four boxes labelled by colour. Four socks land one per box. A fifth sock hovers, then drops onto one of them.
-N: Make one box for each colour. The unluckiest start is one sock of each colour: four socks, no pair. The fifth sock must share a box with another. So five socks guarantee a pair, and four do not. Notice both halves: five is enough, and four can fail.
+V: Move the first four socks into separate colour bins, then place a fifth into one occupied bin.
+N: Use one box for each colour. Begin with one sock in each box. That is a possible draw of four socks with no match. The fifth sock has to go into one of the occupied boxes. Five is sufficient, and this example with four proves that five is the minimum.
 [DEVELOP]
-V: Boxes relabelled "remainder 0", "remainder 1", "remainder 2". Four numbers 2, 6, 10, 13 drop in; 10 and 13 share a box. Label 13 - 10 = 3.
-N: Boxes do not have to be colours. Take any four whole numbers. Sort them by their remainder when divided by three. There are only three remainders, so two of the numbers share one. Their difference is then a multiple of three. That is guaranteed for every choice of four numbers.
+V: Route four distinct numbers to three remainder boxes. Pair the two that share a residue, then show their difference.
+N: The boxes can stand for remainders. Take any four different whole numbers. When we divide by three, the possibilities are zero, one and two. Two of the four numbers share a remainder. Take their difference. The leftover parts cancel, leaving a multiple of three.
 [VARIATION]
-V: Numbers 1 to 10 arranged as five pairs that add to 11: (1,10), (2,9), (3,8), (4,7), (5,6). Six chosen numbers must fill some pair.
-N: Here is a cleverer choice of boxes. Choose six numbers from one to ten. Two of them must add to eleven. Why? Group the numbers into five pairs that each add to eleven. Six numbers in five pairs means some pair is chosen completely.
+V: Pair 1 with 10 through 5 with 6. Fill five separate pairs with one choice each, then put the sixth into an occupied pair.
+N: Choose six different numbers from one to ten. Group the ten numbers into five pairs that add to eleven. A choice of six puts two numbers in one of those five pair boxes. Both members of that pair have been chosen, and they add to eleven.
 [RECAP]
-V: Lines: "Choose the boxes", "Count objects and boxes", "Show the smaller number can fail".
-N: Decide what the boxes are. Check there are more objects than boxes. Then show that one fewer object is not enough. Notebook challenge: how many people must be in a room to be sure that two of them have birthdays in the same month?
+V: Recap objects, boxes and the minimum test. Show twelve calendar tiles and the birthday question.
+N: Choose the objects and choose the boxes. Compare their counts. When the problem asks for the smallest guarantee, show how one fewer could fail. In your notebook, how many people must be in a room to guarantee two birthdays in the same month?
 TRY: How many people guarantee two with birthdays in the same month?
 ANS: 13. Twelve people could all have different months.
 
 @@ T03.E
 GOAL: Worked example: any four whole numbers contain two whose difference is a multiple of 3.
 [PUZZLE]
-V: Four blank cards. Claim text: "Any four different whole numbers include two whose difference is a multiple of 3." Question: "Why must this be true?"
-N: Here is a claim to prove. Choose any four different whole numbers. Two of them will always have a difference that is a multiple of three. Why must that be true?
+V: Show four blank number tiles and a challenge bracket between an unspecified pair.
+N: Choose any four different whole numbers. Prove that two of them always have a difference that is a multiple of three. You can choose very large numbers if you like. How can one argument cover every possible choice?
 [DEVELOP]
-V: Three boxes labelled 0, 1, 2. Text: "remainder on division by 3".
-N: When any whole number is divided by three, the remainder is zero, one or two. Use those three remainders as three boxes.
+V: Build three boxes for the only allowable remainders modulo three.
+N: Divide a whole number by three. The remainder can be zero, one or two. A leftover of three would make another complete group. Create one box for each of the three allowable remainders.
 [DEVELOP]
-V: Four cards drop towards three boxes; one box receives two cards.
-N: Four numbers go into three boxes, so at least two numbers land in the same box. They have the same remainder.
+V: Route all four generic tiles to the three boxes. Highlight the pair forced into a shared remainder.
+N: Every chosen number belongs to exactly one box. Four numbers and three boxes force at least two numbers into the same box. Those two numbers have the same remainder. We can use that single fact to show their difference is a multiple of three.
 [DEVELOP]
-V: Two numbers written as "3a + r" and "3b + r". Subtracting: the r's cancel, leaving 3(a - b).
-N: Write those two numbers as three a plus r and three b plus r. When you subtract, the remainders cancel, leaving three times a minus b. That is a multiple of three.
+V: Write both numbers as groups of three and the same residue. Pair and remove the two matching residues.
+N: Write the larger number as three a plus r, and the smaller as three b plus the same r. On subtracting, the two r terms cancel. The result is three times the difference between a and b. It is a whole number of groups of three.
 [VARIATION]
-V: Example cards 2, 6, 10, 13 sort into boxes: 6 in box 0; 10 and 13 in box 1; 2 in box 2. Then cards 1, 2, 3 shown as a set of three with all different boxes.
-N: Test it. Take two, six, ten and thirteen. Ten and thirteen both have remainder one, and their difference is three. Could three numbers be enough? No: one, two and three all have different remainders, and no difference is a multiple of three. So four is the smallest number that guarantees it.
+V: Sort 2, 6, 10 and 13; highlight 10 and 13. Then show why selecting only 1, 2 and 3 can fail.
+N: Try two, six, ten and thirteen. Ten and thirteen both leave remainder one. Their difference is three. Could three numbers guarantee the result? With one, two and three, the remainders all differ. Their differences are one or two. This shows four is the smallest number that guarantees a match.
 [RECAP]
-V: Line: "same remainder gives a difference that is a multiple". Notebook prompt.
-N: The boxes proved the claim for every choice at once. Rebuild the proof, then answer this: how many whole numbers must you choose to be sure that two of them differ by a multiple of ten?
-TRY: How many whole numbers guarantee two that differ by a multiple of 10?
-ANS: 11, since there are 10 possible last digits.
+V: Show ten possible last-digit boxes, then leave the minimum question open.
+N: Choose a box for each remainder and use subtraction once two numbers share a box. Now increase the divisor to ten. How many different whole numbers guarantee that two differ by a multiple of ten? Show both why your answer works and how one fewer choice could fail.
+TRY: How many different whole numbers guarantee that two differ by a multiple of 10? Show why one fewer can fail.
+ANS: 11. There are 10 possible remainders. For 10 choices, 0, 1, …, 9 give one per remainder and no pair with a multiple-of-10 difference.
 
 @@ T04.1
 GOAL: Break a number into primes, and know when to stop searching for factors.
 [INSIGHT]
-V: The number 60 as a block that splits: 6 x 10, then 2 x 3 x 2 x 5. The primes settle as small coloured tiles 2, 2, 3, 5.
-N: Every whole number bigger than one is built by multiplying prime numbers. A prime is a number with exactly two factors, one and itself, like two, three, five and seven. Sixty is two times two times three times five. Those primes are the building blocks of sixty.
+V: Branch two ways through 60 and regroup the same prime tiles at the bottom.
+N: Whole numbers bigger than one are made by multiplying primes. A prime has exactly two positive factors, one and itself. Take sixty. Split it into six and ten, then split those again. The prime pieces are two, three, two and five.
 [WHY]
-V: The same 60 split a different way, 4 x 15, ending in the same tiles 2, 2, 3, 5.
-N: However you split a number, you end with the same primes. That makes the prime factorisation a kind of fingerprint. Questions about factors, squares, and common multiples all become questions about these tiles.
+V: Build a second tree for sixty and slide both lists into the same prime row.
+N: Start another way. Write sixty as four times fifteen. Four gives two twos, and fifteen gives a three and a five. Rearrange the pieces in increasing order and both trees give the same list. That fixed prime factorisation is why we can work with the pieces.
 [PUZZLE]
-V: The number 91 with a question: "prime or not?" Small test tiles 2, 3, 5, 7 wait beside it.
-N: Is ninety-one a prime number? Pause and decide how you would test it, and when you could stop.
+V: Open a blank factor rectangle for ninety-one and present the prime test.
+N: Is ninety-one prime? Decide which small primes you would try first, and think about how far the search needs to go.
 [DEVELOP]
-V: Tests: 91 is odd (2 fails); digit sum 10 (3 fails); does not end in 0 or 5 (5 fails); 7 x 13 = 91 succeeds. 91 splits into tiles 7 and 13.
-N: Test small primes in order. Ninety-one is odd, so two fails. Its digits add to ten, so three fails. It does not end in zero or five. But seven times thirteen is ninety-one. So ninety-one is not prime.
+V: Build a sequence of prime tests for 91, then assemble the seven by thirteen rectangle.
+N: Ninety-one is odd, so two fails. Its digits add to ten, so three fails. Its last digit is one, so five fails. Try seven. Seven times thirteen equals ninety-one. These two factors show that ninety-one is composite.
 [DEVELOP]
-V: A square of side 10 with area 100; text "if both factors were bigger than 10, the product would be bigger than 100". Then 97 with tests 2, 3, 5, 7 all failing.
-N: When can you stop testing? If a number splits into two factors, they cannot both be larger than its square root. So you only need to test primes up to the square root. For ninety-seven, the square root is just under ten, so test two, three, five and seven. All fail, so ninety-seven is prime.
+V: Use a square-root boundary to place both factors. Test 97 with the only relevant primes and show the nonzero remainders.
+N: If both factors were bigger than the square root, multiplying them would give too much. So a composite number has a prime factor at or below its square root. For ninety-seven that root lies between nine and ten. Try two, three, five and seven. All leave a remainder, so ninety-seven is prime.
 [VARIATION]
-V: Three covered cards multiply to 66. 66 splits into tiles 2, 3, 11. Each tile slides onto a different card.
-N: Factorising can crack puzzles. Three different whole numbers bigger than one multiply to sixty-six. What are they? Sixty-six is two times three times eleven, and that is three primes. The only way to share them among three numbers bigger than one is one prime each: two, three and eleven.
+V: Separate 66 into 2, 3 and 11 and allocate exactly one prime tile into each of three nonempty boxes.
+N: Three different whole numbers, each bigger than one, multiply to sixty-six. Which numbers are they? Sixty-six has exactly three prime pieces, two, three and eleven. Each of the three numbers needs a piece. Each gets exactly one, so those three primes are the answer.
 [RECAP]
-V: Lines: "Split until every piece is prime", "Test primes up to the square root", "1 is not prime".
-N: Split a number until every piece is prime. To test for a prime, try primes up to the square root. And remember that one is not a prime. Notebook challenge: write eighty-four as a product of primes.
+V: Show the factorisation and prime-test routines, then a blank tree rooted at eighty-four.
+N: Split a number until all its pieces are prime. When you test whether a number is prime, use the small primes up to its square root. One has only one positive factor. In your notebook, write eighty-four as a product of primes.
 TRY: Write 84 as a product of primes.
 ANS: 84 = 2 x 2 x 3 x 7.
 
 @@ T04.2
 GOAL: Count the factors of a number by choosing how many of each prime to use.
 [INSIGHT]
-V: The number 12 with its six factors 1, 2, 3, 4, 6, 12 appearing in a ring.
-N: Twelve has six factors: one, two, three, four, six and twelve. For small numbers you can list them. For large numbers you need a method that counts them without listing. That method comes from prime factors.
+V: Build factor pairs for twelve and sort their six distinct entries.
+N: Twelve has six positive factors: one, two, three, four, six and twelve. We can list those by finding the products that make twelve. For a larger number, it is easier to count choices from its prime factorisation.
 [WHY]
-V: The number 360 with a long list of factors scrolling past; a counter ticks up to 24.
-N: Three hundred and sixty has twenty-four factors. Listing them is slow and it is easy to miss one. Counting choices is fast and cannot miss.
+V: Show the prime powers of 360 and preview the three independent counts.
+N: Three hundred and sixty factorises into two cubed, three squared and five. Its full factor list has twenty-four entries. We can account for them through three small counts, one for each prime. Let's see how this works with twelve first.
 [PUZZLE]
-V: 12 = 2 x 2 x 3 as tiles. A grid with columns "use zero 2s, one 2, two 2s" and rows "use zero 3s, one 3". Empty cells. Question: "What goes in each cell?"
-N: Twelve is two times two times three. A factor of twelve is made from some of those tiles. Pause and work out how many different selections are possible.
+V: Show twelve made from two twos and one three. Hold the question of all distinct possible products.
+N: Twelve is two times two times three. A factor of twelve is made from some of those prime tiles. Think about how many twos you can use. Then think about your choices for the three. How many different products are possible?
 [DEVELOP]
-V: The grid fills: top row 1, 2, 4; bottom row 3, 6, 12. Each cell shows the tiles used.
-N: For the twos, you may use none, one or two of them: three choices. For the three, you may use it or not: two choices. Three times two is six selections, and each makes a different factor. Using no tiles at all gives the factor one. Using them all gives twelve itself.
+V: Fill a three by two grid using independent prime counts, including the empty choice.
+N: Use zero, one or two twos. That gives three choices. For each of them, either include the three or leave it out. That gives two choices. Three times two makes six products. Taking no tiles gives one. Taking all the tiles gives twelve. Every cell makes a different factor.
 [DEVELOP]
-V: 72 = 2 x 2 x 2 x 3 x 3. Choice counters: "2s: 0 to 3, four choices", "3s: 0 to 2, three choices". Result 4 x 3 = 12.
-N: Try seventy-two. It is two cubed times three squared. There are four choices for how many twos, from zero to three, and three choices for how many threes. Four times three is twelve factors. The rule is: add one to each power, then multiply.
+V: Build a four by three grid for the powers in 72. Show the count and return briefly to 360.
+N: Seventy-two is two cubed times three squared. Choose zero, one, two or three twos. For each choice there are three possibilities for the threes. Four times three gives twelve factors. For three hundred and sixty, the extra choice about the five doubles that count to twenty-four.
 [VARIATION]
-V: Factors of 36 pair up: 1 with 36, 2 with 18, 3 with 12, 4 with 9, and 6 alone in the centre.
-N: Here is a neat consequence. Factors come in pairs that multiply to the number. For thirty-six: one and thirty-six, two and eighteen, three and twelve, four and nine. But six pairs with itself. That lonely middle factor only happens for square numbers. So square numbers are exactly the numbers with an odd number of factors.
+V: Pair the factors of thirty-six and centre the self-paired six. Use a shaded square to show why it has a single middle factor.
+N: For thirty-six, the factor pairs are one and thirty-six, two and eighteen, three and twelve, and four and nine. Six pairs with itself, so it appears just once in the list. A factor pairs with itself exactly when its square is the number. That is why square numbers have an odd count of positive factors.
 [RECAP]
-V: Lines: "Factorise into primes", "Add 1 to each power", "Multiply".
-N: Factorise, add one to each power, and multiply. Notebook challenge: how many factors does two hundred have?
-TRY: How many factors does 200 have?
-ANS: 200 = 2^3 x 5^2, so (3 + 1)(2 + 1) = 12 factors.
+V: Show the exponent-plus-one rule and an unfilled factor count for two hundred.
+N: For each prime, include the choice to use zero copies. Add one to the prime's exponent, and multiply the resulting counts. In your notebook, find the number of positive factors of two hundred, then explain why your method counts each factor once.
+TRY: How many positive factors does 200 have?
+ANS: 200 = 2³ × 5². Choose 0–3 twos and 0–2 fives, giving 4 × 3 = 12 factors.
 
 @@ T04.3
 GOAL: Use prime copies to find highest common factors, lowest common multiples and squares.
 [INSIGHT]
-V: Two rows of prime tiles: 12 as 2, 2, 3 and 18 as 2, 3, 3. Tiles that both rows share glow.
-N: Write two numbers as rows of prime tiles and you can see what they share. Twelve is two, two, three. Eighteen is two, three, three. Comparing the rows, one prime at a time, answers several kinds of question.
+V: Build aligned prime tiles for twelve and eighteen, with separate columns for two and three.
+N: Write twelve as two times two times three. Write eighteen as two times three times three. Group copies of the same prime vertically. One column holds the twos. Another holds the threes. We can see exactly how many of each prime each number uses.
 [WHY]
-V: Three question cards: "largest shared factor?", "smallest shared multiple?", "is it a square?".
-N: Highest common factor, lowest common multiple, and perfect squares look like three different topics. They are really one idea: counting how many copies of each prime you have.
+V: Split the four counts into a table and introduce common factors, common multiples and squares.
+N: We can solve three problems using these counts. To divide into both numbers, a factor needs to fit inside both rows. A common multiple has to contain both rows. For a square, the tiles must split into two matching sets.
 [PUZZLE]
-V: The two rows for 12 and 18 with a blank row beneath labelled "shared" and another labelled "covers both".
-N: What is the largest number that divides both twelve and eighteen? And what is the smallest number that both divide into? Pause and use the tiles.
+V: Hold the two exact shared-factor and shared-multiple questions over the aligned rows.
+N: Find the largest positive number that divides both twelve and eighteen. Then find the smallest positive number that is a multiple of both. Use the tiles, and decide how many copies of each prime you need.
 [DEVELOP]
-V: Shared row fills with one 2 and one 3: label 6.
-N: A common factor can only use tiles that both numbers have. Both have one two, and both have one three. So the highest common factor is two times three, which is six. For each prime, take the smaller count.
+V: Match the shared copies of two and three and lift them into the highest common factor.
+N: A common factor can use only the copies both numbers can supply. Eighteen can supply one two and twelve can supply one three. Those are the smaller counts in the two columns. The highest common factor is two times three, which is six.
 [DEVELOP]
-V: "Covers both" row fills with 2, 2, 3, 3: label 36.
-N: A common multiple needs enough tiles to cover each number. Twelve needs two twos. Eighteen needs two threes. So the lowest common multiple is two times two times three times three, which is thirty-six. For each prime, take the larger count.
+V: Draw the larger count in each column into one combined row and show its product.
+N: A common multiple needs enough copies to cover either number. Twelve needs two twos. Eighteen needs two threes. Take the larger count in each column. Two twos and two threes multiply to thirty-six. It is the lowest common multiple.
 [VARIATION]
-V: 12 x 18 = 216 and 6 x 36 = 216 appear together.
-N: Notice that six times thirty-six equals twelve times eighteen. For two numbers, the highest common factor times the lowest common multiple always equals their product, because between them they use every tile exactly once.
+V: Arrange the smaller and larger count next to each other in each column and show equality of the two products.
+N: For each prime, the smaller count plus the larger count equals the original two counts added together. So the factors of six and thirty-six together use exactly the same prime copies as twelve and eighteen together. Both products are two hundred and sixteen.
 [VARIATION]
-V: 36 as tiles 2, 2, 3, 3 pairing off into two equal groups 2, 3 and 2, 3. Then 48 as 2, 2, 2, 2, 3 with the 3 left unpaired; one extra 3 slides in.
-N: Squares are about pairs. Thirty-six splits into two identical groups, so it is a square. Forty-eight is four twos and a three. The three has no partner, so forty-eight is not a square. Multiplying by three fixes that: one hundred and forty-four is twelve squared. A number is a square exactly when every prime appears an even number of times.
+V: Pair all factors of thirty-six, then show the unmatched three in forty-eight and add its partner.
+N: A square needs two matching groups of prime tiles. Thirty-six splits into two sixes. Forty-eight has four twos and one three. The three has no partner. Multiply by another three and the tiles can split evenly. The new total is one hundred and forty-four, or twelve squared.
 [RECAP]
-V: Lines: "Common factor: smaller count", "Common multiple: larger count", "Square: every count even".
-N: Smaller counts for the highest common factor. Larger counts for the lowest common multiple. Even counts for a square. Notebook challenge: find the highest common factor and lowest common multiple of twenty and thirty.
+V: Recall min, max and even copies, then give the two-number notebook task.
+N: Use the smaller prime counts for a highest common factor. Use the larger counts for a lowest common multiple. A square has even counts of every prime. In your notebook, find the highest common factor and lowest common multiple of twenty and thirty.
 TRY: Find the highest common factor and lowest common multiple of 20 and 30.
 ANS: 20 = 2 x 2 x 5 and 30 = 2 x 3 x 5: HCF 10, LCM 60.
 
 @@ T04.E
 GOAL: Worked example: the smallest multiplier that turns 90 into a perfect square.
 [PUZZLE]
-V: The number 90 beside an empty multiplier box and a target labelled "a perfect square". Question: "What is the smallest positive whole number to put in the box?"
-N: What is the smallest positive whole number you can multiply ninety by to make a perfect square? Pause and think about what a square looks like in prime tiles.
+V: Show ninety and a blank multiplier, then a perfect square with an unknown side.
+N: What is the smallest positive whole number that you can multiply ninety by to make a perfect square? Try to think of ninety as a collection of prime pieces. A square will let those pieces split into two identical groups.
 [DEVELOP]
-V: 90 splits into blue tiles 2, 3, 3, 5. The two 3s move together as a pair; 2 and 5 stand alone.
-N: Factorise ninety: two times three times three times five. A square needs every prime in pairs. The threes already form a pair. The two and the five are each alone.
+V: Arrange the prime tiles of ninety into two rows of potential pairs and reveal which slots are full.
+N: Ninety factorises into two times three times three times five. Each prime needs an even number of copies in a square. The threes already make a pair. The two and the five each appear once. Put a space for a partner beside each of them.
 [DEVELOP]
-V: Gold tiles 2 and 5 slide in beside their partners. Multiplier box shows 10.
-N: Give each lonely prime a partner. We need one more two and one more five. Two times five is ten, so multiply by ten.
+V: Slide one two and one five into the empty places, then collect the additional tiles as a multiplier of ten.
+N: Supply one more two and one more five. Those are the missing tiles. Their product is ten, so multiplying ninety by ten adds just the two partners we need. Now each prime has an even count.
 [DEVELOP]
-V: All tiles split into two identical groups 2, 3, 5 and 2, 3, 5. Label 900 = 30 x 30.
-N: Ninety times ten is nine hundred. Its tiles split into two identical groups of two, three, five, and two times three times five is thirty. So nine hundred is thirty squared.
+V: Separate the completed rows and connect two products of thirty to the area of a square.
+N: Ninety times ten is nine hundred. Split its tiles into two identical groups, each with a two, a three and a five. Each group multiplies to thirty. Thirty times thirty is nine hundred, so the new number is a square.
 [VARIATION]
-V: Trial multipliers 2 and 5 shown failing: with only an extra 2, the 5 is still alone; with only an extra 5, the 2 is still alone.
-N: Could a smaller multiplier work? Any multiplier that works must supply a two and a five, so it must be a multiple of ten. Nothing smaller than ten can do that. Ten is the smallest.
+V: Use divisibility by two and five to show why the multiplier is at least ten.
+N: Could a smaller positive multiplier work? Any multiplier that works must supply a two and a five, because those counts start odd. A number divisible by the two distinct primes two and five is a multiple of ten. Ten is the first positive multiple and we have shown it works.
 [RECAP]
-V: Line: "pair every prime". Notebook prompt.
-N: To make a square, pair every prime. Rebuild this solution, then find the smallest positive whole number that multiplies sixty to make a perfect square.
+V: Display the minimum pairing method, then introduce the notebook problem for sixty.
+N: For a square, pair every prime. Choose one partner for each prime whose count is odd. Try the same proof with sixty. Find the smallest positive whole number to multiply sixty by to make a square, and check your answer by splitting the new prime tiles into two equal groups.
 TRY: Find the smallest positive whole number that multiplies 60 to make a perfect square.
 ANS: 60 = 2 x 2 x 3 x 5, so multiply by 3 x 5 = 15, giving 900.
+

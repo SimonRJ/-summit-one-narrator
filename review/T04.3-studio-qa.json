@@ -1,0 +1,84 @@
+{
+  "id": "T04.3",
+  "duration_seconds": 138.866667,
+  "sha256": "890f8aae9549a456e45af96d1a967c6df277d54519a2727a7da4a90b24e6d0bb",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 96.95,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "match_percent": 100.0
+    },
+    {
+      "number": 2,
+      "start": 18.52,
+      "match_percent": 100.0
+    },
+    {
+      "number": 3,
+      "start": 34.04,
+      "match_percent": 100.0
+    },
+    {
+      "number": 4,
+      "start": 49.85,
+      "match_percent": 95.35
+    },
+    {
+      "number": 5,
+      "start": 66.65,
+      "match_percent": 95.0
+    },
+    {
+      "number": 6,
+      "start": 82.49,
+      "match_percent": 90.91
+    },
+    {
+      "number": 7,
+      "start": 98.97,
+      "match_percent": 99.01
+    },
+    {
+      "number": 8,
+      "start": 118.49,
+      "match_percent": 95.35
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Sort prime copies",
+      "start": 0.0
+    },
+    {
+      "title": "Compare 12 and 18",
+      "start": 34.04
+    },
+    {
+      "title": "Highest common factor",
+      "start": 49.85
+    },
+    {
+      "title": "Lowest common multiple",
+      "start": 66.65
+    },
+    {
+      "title": "Make a square",
+      "start": 98.97
+    },
+    {
+      "title": "Your turn",
+      "start": 118.49
+    }
+  ],
+  "decoded_successfully": true
+}

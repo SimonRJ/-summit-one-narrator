@@ -1,0 +1,118 @@
+WEBVTT
+
+00:00:00.600 --> 00:00:03.050
+Start with any whole number, including zero.
+
+00:00:03.780 --> 00:00:06.610
+Rule A adds three and then multiplies by four.
+
+00:00:07.260 --> 00:00:10.110
+Rule B multiplies by four and then adds three.
+
+00:00:10.840 --> 00:00:13.180
+Which output is larger, and by how much?
+
+00:00:13.180 --> 00:00:15.510
+Sketch one example before looking for a proof.
+
+00:00:19.290 --> 00:00:20.400
+Call the start x.
+
+00:00:20.950 --> 00:00:24.030
+Rule A forms x plus three and makes four copies of
+
+00:00:24.030 --> 00:00:24.740
+the whole amount.
+
+00:00:25.350 --> 00:00:26.100
+Look at one copy.
+
+00:00:26.810 --> 00:00:29.180
+It contains an x tile and a three tile.
+
+00:00:29.770 --> 00:00:32.660
+Four copies give four x tiles and four threes,
+
+00:00:33.030 --> 00:00:35.260
+so the result is four x plus twelve.
+
+00:00:36.250 --> 00:00:38.810
+In Rule B, the multiplication acts on
+
+00:00:38.810 --> 00:00:39.820
+the starting value.
+
+00:00:40.350 --> 00:00:41.540
+Make four copies of x.
+
+00:00:42.210 --> 00:00:43.060
+Now add the three.
+
+00:00:43.530 --> 00:00:45.310
+This time the three comes in once,
+
+00:00:45.310 --> 00:00:46.960
+after the copying step.
+
+00:00:47.430 --> 00:00:49.460
+The result is four x plus three.
+
+00:00:50.330 --> 00:00:51.280
+Line up the outputs.
+
+00:00:52.050 --> 00:00:54.970
+Each side contains four copies of the same x and
+
+00:00:54.970 --> 00:00:55.960
+one added three.
+
+00:00:56.610 --> 00:00:57.300
+Pair those tiles.
+
+00:00:57.830 --> 00:01:00.100
+There are three extra threes in Rule A.
+
+00:01:00.590 --> 00:01:01.800
+Their total is nine.
+
+00:01:02.330 --> 00:01:05.350
+Whatever whole number we pick at the start, Rule A is
+
+00:01:05.350 --> 00:01:06.360
+larger by nine.
+
+00:01:07.290 --> 00:01:08.900
+Check the smallest allowed input.
+
+00:01:09.350 --> 00:01:11.600
+Starting from zero gives twelve and three.
+
+00:01:12.090 --> 00:01:14.680
+Starting from ten gives fifty-two and forty-three.
+
+00:01:15.670 --> 00:01:16.660
+Each difference is nine.
+
+00:01:17.330 --> 00:01:19.990
+In both rows, the starting amount changes the two
+
+00:01:19.990 --> 00:01:21.480
+outputs by the same amount.
+
+00:01:22.330 --> 00:01:25.170
+The multiplication makes extra copies of the added
+
+00:01:25.170 --> 00:01:27.200
+amount when the addition comes first.
+
+00:01:27.830 --> 00:01:29.940
+Use that observation with two new rules.
+
+00:01:30.570 --> 00:01:32.920
+One adds two before multiplying by six.
+
+00:01:33.470 --> 00:01:36.180
+The other multiplies by six before adding two.
+
+00:01:36.810 --> 00:01:38.940
+Draw the matching pieces and find the gap.

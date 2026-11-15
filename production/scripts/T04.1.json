@@ -3,53 +3,53 @@
  "title": "Factor with a purpose",
  "chapter": "Use prime factors as the building blocks",
  "type": "concept",
- "status": "script_ready_not_recorded",
+ "status": "published_for_review",
  "voice": "Voice C (VoxCPM2), natural speed (see docs/VIDEO_PRODUCTION.md)",
  "goal": "Break a number into primes, and know when to stop searching for factors.",
- "narration_words": 277,
- "estimated_minutes": 1.8,
+ "narration_words": 283,
+ "estimated_minutes": 1.9,
  "scenes": [
   {
    "n": 1,
    "stage": "INSIGHT",
-   "visual": "The number 60 as a block that splits: 6 x 10, then 2 x 3 x 2 x 5. The primes settle as small coloured tiles 2, 2, 3, 5.",
-   "narration": "Every whole number bigger than one is built by multiplying prime numbers. A prime is a number with exactly two factors, one and itself, like two, three, five and seven. Sixty is two times two times three times five. Those primes are the building blocks of sixty."
+   "visual": "Branch two ways through 60 and regroup the same prime tiles at the bottom.",
+   "narration": "Whole numbers bigger than one are made by multiplying primes. A prime has exactly two positive factors, one and itself. Take sixty. Split it into six and ten, then split those again. The prime pieces are two, three, two and five."
   },
   {
    "n": 2,
    "stage": "WHY",
-   "visual": "The same 60 split a different way, 4 x 15, ending in the same tiles 2, 2, 3, 5.",
-   "narration": "However you split a number, you end with the same primes. That makes the prime factorisation a kind of fingerprint. Questions about factors, squares, and common multiples all become questions about these tiles."
+   "visual": "Build a second tree for sixty and slide both lists into the same prime row.",
+   "narration": "Start another way. Write sixty as four times fifteen. Four gives two twos, and fifteen gives a three and a five. Rearrange the pieces in increasing order and both trees give the same list. That fixed prime factorisation is why we can work with the pieces."
   },
   {
    "n": 3,
    "stage": "PUZZLE",
-   "visual": "The number 91 with a question: \"prime or not?\" Small test tiles 2, 3, 5, 7 wait beside it.",
-   "narration": "Is ninety-one a prime number? Pause and decide how you would test it, and when you could stop."
+   "visual": "Open a blank factor rectangle for ninety-one and present the prime test.",
+   "narration": "Is ninety-one prime? Decide which small primes you would try first, and think about how far the search needs to go."
   },
   {
    "n": 4,
    "stage": "DEVELOP",
-   "visual": "Tests: 91 is odd (2 fails); digit sum 10 (3 fails); does not end in 0 or 5 (5 fails); 7 x 13 = 91 succeeds. 91 splits into tiles 7 and 13.",
-   "narration": "Test small primes in order. Ninety-one is odd, so two fails. Its digits add to ten, so three fails. It does not end in zero or five. But seven times thirteen is ninety-one. So ninety-one is not prime."
+   "visual": "Build a sequence of prime tests for 91, then assemble the seven by thirteen rectangle.",
+   "narration": "Ninety-one is odd, so two fails. Its digits add to ten, so three fails. Its last digit is one, so five fails. Try seven. Seven times thirteen equals ninety-one. These two factors show that ninety-one is composite."
   },
   {
    "n": 5,
    "stage": "DEVELOP",
-   "visual": "A square of side 10 with area 100; text \"if both factors were bigger than 10, the product would be bigger than 100\". Then 97 with tests 2, 3, 5, 7 all failing.",
-   "narration": "When can you stop testing? If a number splits into two factors, they cannot both be larger than its square root. So you only need to test primes up to the square root. For ninety-seven, the square root is just under ten, so test two, three, five and seven. All fail, so ninety-seven is prime."
+   "visual": "Use a square-root boundary to place both factors. Test 97 with the only relevant primes and show the nonzero remainders.",
+   "narration": "If both factors were bigger than the square root, multiplying them would give too much. So a composite number has a prime factor at or below its square root. For ninety-seven that root lies between nine and ten. Try two, three, five and seven. All leave a remainder, so ninety-seven is prime."
   },
   {
    "n": 6,
    "stage": "VARIATION",
-   "visual": "Three covered cards multiply to 66. 66 splits into tiles 2, 3, 11. Each tile slides onto a different card.",
-   "narration": "Factorising can crack puzzles. Three different whole numbers bigger than one multiply to sixty-six. What are they? Sixty-six is two times three times eleven, and that is three primes. The only way to share them among three numbers bigger than one is one prime each: two, three and eleven."
+   "visual": "Separate 66 into 2, 3 and 11 and allocate exactly one prime tile into each of three nonempty boxes.",
+   "narration": "Three different whole numbers, each bigger than one, multiply to sixty-six. Which numbers are they? Sixty-six has exactly three prime pieces, two, three and eleven. Each of the three numbers needs a piece. Each gets exactly one, so those three primes are the answer."
   },
   {
    "n": 7,
    "stage": "RECAP",
-   "visual": "Lines: \"Split until every piece is prime\", \"Test primes up to the square root\", \"1 is not prime\".",
-   "narration": "Split a number until every piece is prime. To test for a prime, try primes up to the square root. And remember that one is not a prime. Notebook challenge: write eighty-four as a product of primes."
+   "visual": "Show the factorisation and prime-test routines, then a blank tree rooted at eighty-four.",
+   "narration": "Split a number until all its pieces are prime. When you test whether a number is prime, use the small primes up to its square root. One has only one positive factor. In your notebook, write eighty-four as a product of primes."
   }
  ],
  "notebook_exercise": "Write 84 as a product of primes.",

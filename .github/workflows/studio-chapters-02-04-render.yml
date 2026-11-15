@@ -1,0 +1,132 @@
+name: Summit One chapters 2–4 studio films
+
+on:
+  push:
+    branches: [codex/studio-chapters-02-04]
+    paths:
+      - 'production/t01-studio/publish.py'
+      - '.github/workflows/studio-chapters-02-04-render.yml'
+  workflow_dispatch:
+    inputs:
+      reuse_verified_exports:
+        description: Reuse the ten verified exports for release staging
+        type: boolean
+        default: true
+
+permissions:
+  actions: read
+  contents: read
+
+concurrency:
+  group: studio-chapters-02-04-render-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  RECORDINGS_RUN: '43684530335'
+  VERIFIED_EXPORTS_RUN: '43686162817'
+
+jobs:
+  recordings:
+    if: github.event_name == 'workflow_dispatch' && !inputs.reuse_verified_exports
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Wait for the Voice C recordings
+        run: gh run watch "$RECORDINGS_RUN" --repo "$GITHUB_REPOSITORY" --exit-status --interval 20
+
+  render:
+    needs: recordings
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      matrix:
+        lesson: [T02.3, T02.E, T03.1, T03.2, T03.3, T03.E, T04.1, T04.2, T04.3, T04.E]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: studio-narration-${{ matrix.lesson }}-*
+          merge-multiple: true
+          path: build/t01-studio
+          run-id: ${{ env.RECORDINGS_RUN }}
+          github-token: ${{ github.token }}
+      - name: Install the rendering and speech alignment tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-open-sans fonts-dejavu-core libsndfile1
+          python -m pip install --disable-pip-version-check pillow numpy soundfile num2words faster-whisper
+      - name: Time each animation to the Voice C recording
+        run: python production/t01-studio/prepare_audio.py "${{ matrix.lesson }}"
+      - name: Render each scene for review
+        run: python production/t01-studio/render.py "${{ matrix.lesson }}" --preview
+      - name: Export and verify the 1080p film
+        run: python production/t01-studio/render.py "${{ matrix.lesson }}"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.lesson }}
+          path: |
+            build/t01-studio/${{ matrix.lesson }}/final.mp4
+            build/t01-studio/${{ matrix.lesson }}/poster.jpg
+            build/t01-studio/${{ matrix.lesson }}/captions.vtt
+            build/t01-studio/${{ matrix.lesson }}/timeline.json
+            build/t01-studio/${{ matrix.lesson }}/qa.json
+            build/t01-studio/${{ matrix.lesson }}/storyboard/sheet-*.jpg
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 14
+
+  stage:
+    needs: render
+    if: >-
+      ${{ !cancelled() && github.ref == 'refs/heads/codex/studio-chapters-02-04' &&
+      (needs.render.result == 'success' ||
+       (needs.render.result == 'skipped' && (github.event_name == 'push' || inputs.reuse_verified_exports))) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: T0*
+          path: build/t01-studio
+          run-id: ${{ needs.render.result == 'success' && github.run_id || env.VERIFIED_EXPORTS_RUN }}
+          github-token: ${{ github.token }}
+      - name: Install the verified films and their watch pages
+        run: |
+          python production/t01-studio/publish.py --lessons T02.3 T02.E T03.1 T03.2 T03.3 T03.E T04.1 T04.2 T04.3 T04.E
+          python tools/video/build_scripts.py
+          python tools/video/build_scripts.py --check
+          node --input-type=module --check < app-main.js
+          node --input-type=module --check < course-menu-ui.js
+          node --check sw.js
+          git diff --check
+      - name: Stage the ten verified films for release review
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          for lesson in T02.3 T02.E T03.1 T03.2 T03.3 T03.E T04.1 T04.2 T04.3 T04.E; do
+            lower="$(printf '%s' "$lesson" | tr '[:upper:].' '[:lower:]-')"
+            git add "media/$lesson.mp4" "media/$lesson.vtt" "media/$lesson-studio-poster.jpg"
+            git add "review/$lesson-studio-qa.json" "watch-$lower.html" "production/scripts/$lesson.json"
+          done
+          git add data/teaching-72.json production/scripts/INDEX.md teaching-videos.html
+          git diff --cached --check
+          git commit -m 'Stage the ten verified Chapter 2–4 Summit One teaching films'
+          git fetch origin "$GITHUB_REF_NAME"
+          git rebase FETCH_HEAD
+          git push origin "HEAD:$GITHUB_REF_NAME"

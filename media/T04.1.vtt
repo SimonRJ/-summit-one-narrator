@@ -1,0 +1,136 @@
+WEBVTT
+
+00:00:00.600 --> 00:00:02.500
+Whole numbers bigger than one are made
+
+00:00:02.500 --> 00:00:03.990
+by multiplying primes.
+
+00:00:04.500 --> 00:00:06.790
+A prime has exactly two positive factors,
+
+00:00:07.140 --> 00:00:08.150
+one and itself.
+
+00:00:08.580 --> 00:00:09.170
+Take sixty.
+
+00:00:10.060 --> 00:00:13.230
+Split it into six and ten, then split those again.
+
+00:00:13.740 --> 00:00:16.950
+The prime pieces are two, three, two and five.
+
+00:00:17.880 --> 00:00:18.930
+Start another way.
+
+00:00:19.140 --> 00:00:21.490
+Write sixty as four times fifteen.
+
+00:00:21.940 --> 00:00:24.840
+Four gives two twos, and fifteen gives a three
+
+00:00:24.840 --> 00:00:25.590
+and a five.
+
+00:00:26.280 --> 00:00:28.920
+Rearrange the pieces in increasing order and both trees
+
+00:00:28.920 --> 00:00:30.070
+give the same list.
+
+00:00:30.720 --> 00:00:33.560
+That fixed prime factorisation is why we can work
+
+00:00:33.560 --> 00:00:34.230
+with the pieces.
+
+00:00:35.320 --> 00:00:36.510
+Is ninety-one prime?
+
+00:00:36.880 --> 00:00:39.350
+Decide which small primes you would try first,
+
+00:00:39.540 --> 00:00:41.890
+and think about how far the search needs to go.
+
+00:00:45.700 --> 00:00:48.230
+Ninety-one is odd, so two fails.
+
+00:00:48.740 --> 00:00:51.130
+Its digits add to ten, so three fails.
+
+00:00:51.600 --> 00:00:54.110
+Its last digit is one, so five fails.
+
+00:00:54.600 --> 00:00:55.270
+Try seven.
+
+00:00:56.060 --> 00:00:57.990
+Seven times thirteen equals ninety-one.
+
+00:00:58.600 --> 00:01:01.370
+These two factors show that ninety-one is composite.
+
+00:01:02.500 --> 00:01:04.810
+If both factors were bigger than the square root,
+
+00:01:05.080 --> 00:01:06.870
+multiplying them would give too much.
+
+00:01:07.740 --> 00:01:10.660
+So a composite number has a prime factor at or below
+
+00:01:10.660 --> 00:01:11.730
+its square root.
+
+00:01:11.900 --> 00:01:15.010
+For ninety-seven that root lies between nine and ten.
+
+00:01:15.540 --> 00:01:17.660
+Try two, three, five and seven.
+
+00:01:17.660 --> 00:01:21.030
+All leave a remainder, so ninety-seven is prime.
+
+00:01:22.010 --> 00:01:24.660
+Three different whole numbers, each bigger than one,
+
+00:01:25.170 --> 00:01:26.020
+multiply to sixty-six.
+
+00:01:26.950 --> 00:01:27.900
+Which numbers are they?
+
+00:01:28.510 --> 00:01:31.490
+Sixty-six has exactly three prime pieces, two,
+
+00:01:31.490 --> 00:01:32.380
+three and eleven.
+
+00:01:33.050 --> 00:01:34.840
+Each of the three numbers needs a piece.
+
+00:01:35.570 --> 00:01:38.070
+Each gets exactly one, so those three primes
+
+00:01:38.070 --> 00:01:38.820
+are the answer.
+
+00:01:39.770 --> 00:01:42.520
+Split a number until all its pieces are prime.
+
+00:01:43.030 --> 00:01:45.690
+When you test whether a number is prime, use the small
+
+00:01:45.690 --> 00:01:47.480
+primes up to its square root.
+
+00:01:48.050 --> 00:01:50.000
+One has only one positive factor.
+
+00:01:50.570 --> 00:01:52.790
+In your notebook, write eighty-four as a
+
+00:01:52.790 --> 00:01:53.920
+product of primes.

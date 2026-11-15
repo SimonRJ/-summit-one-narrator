@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10151d">
+<link rel="icon" href="icon.svg">
+<title>T03.1 · Read a remainder as a precise statement · Summit One</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 25%, #192631, #0c121a 75%);
+  color: #f2f1ed; font: 1rem/1.55 system-ui, sans-serif;
+}
+main { max-width: 1120px; margin: auto; padding: clamp(18px, 4vw, 48px); }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.back { justify-content: space-between; gap: 8px 20px; }
+a { color: #9cdbbc; }
+h1 { max-width: 880px; margin: .25em 0 .45em; font-size: clamp(1.95rem, 5vw, 3.45rem); line-height: 1.12; }
+h2 { margin: 0; font-size: 1.2rem; }
+p { max-width: 55rem; color: #bac4cf; }
+.lesson { color: #9cdbbc; margin: 2rem 0 0; font-size: .88rem; font-weight: 700; }
+video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #10151d; border: 1px solid #354652; border-radius: 14px; }
+.meta { color: #bac4cf; margin: .65rem 0 0; }
+.chapters { margin: 1.2rem 0 1.6rem; }
+button {
+  cursor: pointer; min-height: 44px; border: 1px solid #405463; border-radius: 12px;
+  background: #1b2834; color: #eef2f4; font: inherit; padding: .5rem .8rem;
+}
+.exercise { background: #18232e; border: 1px solid #364756; border-radius: 16px; padding: 1.15rem; }
+summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
+.transcript { margin-top: 1rem; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+</style>
+</head>
+<body>
+<main>
+<nav class="back" aria-label="Lesson navigation">
+<a href="./">← Summit One</a><a href="teaching-videos.html">Teaching videos</a><a href="watch-t03-2.html">Next · Separate the first coincidence from the repeat period →</a>
+</nav>
+<p class="lesson">T03.1</p>
+<h1>Read a remainder as a precise statement</h1>
+<p>Read &quot;remainder r on division by d&quot; as: the number is r more than a multiple of d.</p>
+<video id="lesson" controls playsinline preload="metadata" aria-label="Read a remainder as a precise statement"
+  poster="media/T03.1-studio-poster.jpg?v=studio-chapters-02-04-v1">
+  <source src="media/T03.1.mp4?v=studio-chapters-02-04-v1" type="video/mp4">
+</video>
+<p class="meta">2:16 · Full HD</p>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Groups and leftovers</button>
+<button type="button" data-time="31.320">0:31 · The bead puzzle</button>
+<button type="button" data-time="45.530">0:45 · Find bead 50</button>
+<button type="button" data-time="61.050">1:01 · Remainder zero</button>
+<button type="button" data-time="75.610">1:15 · Same remainder</button>
+<button type="button" data-time="114.960">1:54 · Your turn</button></nav>
+<section class="exercise">
+<h2>Try it in your notebook</h2>
+<p>Today is Tuesday. What day will it be 100 days from now?</p>
+<details><summary>Check your reasoning</summary><p>100 = 7 x 14 + 2, so two days after Tuesday: Thursday.</p></details>
+</section>
+<details class="transcript"><summary>Read the transcript</summary><p>Seventeen counters make three full groups of five, with two left over. That leftover is called the remainder. The three full groups give a multiple of five. The two counters tell you exactly how far seventeen is past that multiple.</p>
+<p>When we divide whole numbers by five, the possible remainders are zero, one, two, three and four. A leftover of five would make another complete group. However large the starting number, it fits into one of these five remainder classes.</p>
+<p>A necklace repeats red, blue, green and yellow in that order. The first bead is red. What colour is bead fifty? Try marking the boundaries between the repeating groups of four.</p>
+<p>A full cycle has four beads. Fifty is twelve groups of four, plus two more beads. The twelve groups take us to bead forty-eight. Count two beads into the next cycle. Its second colour is blue, so bead fifty is blue.</p>
+<p>Bead forty-eight lands on a complete group boundary. It has remainder zero when divided by four. In this position list we count from one, so a complete group finishes on its fourth bead. Bead forty-eight is yellow.</p>
+<p>Twenty-three is four groups of five plus three. Thirty-eight is seven groups of five plus three. In the difference, the two leftovers cancel. Three extra groups of five give fifteen. And adding any whole group of five leaves a remainder unchanged. That is why equal remainders and a multiple-of-five difference go together.</p>
+<p>Try combining two conditions. Below thirty, the numbers with remainder three on division by five are three, eight, thirteen, eighteen, twenty-three and twenty-eight. Now test them for remainder one on division by three. Only thirteen and twenty-eight reach that column.</p>
+<p>A remainder tells how far you are past a multiple. It must be smaller than the divisor. For a repeating pattern, decide which position sits at remainder zero. Here is your notebook challenge. Today is Tuesday. What day will it be one hundred days from now?</p></details>
+<p><a href="media/T03.1.mp4?v=studio-chapters-02-04-v1">Open the MP4 directly</a></p>
+</main>
+<script>
+const video = document.querySelector("#lesson");
+for (const button of document.querySelectorAll("[data-time]")) {
+  button.addEventListener("click", () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+    video.scrollIntoView({block: "center"});
+  });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10151d">
+<link rel="icon" href="icon.svg">
+<title>T04.1 · Factor with a purpose · Summit One</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 25%, #192631, #0c121a 75%);
+  color: #f2f1ed; font: 1rem/1.55 system-ui, sans-serif;
+}
+main { max-width: 1120px; margin: auto; padding: clamp(18px, 4vw, 48px); }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.back { justify-content: space-between; gap: 8px 20px; }
+a { color: #9cdbbc; }
+h1 { max-width: 880px; margin: .25em 0 .45em; font-size: clamp(1.95rem, 5vw, 3.45rem); line-height: 1.12; }
+h2 { margin: 0; font-size: 1.2rem; }
+p { max-width: 55rem; color: #bac4cf; }
+.lesson { color: #9cdbbc; margin: 2rem 0 0; font-size: .88rem; font-weight: 700; }
+video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #10151d; border: 1px solid #354652; border-radius: 14px; }
+.meta { color: #bac4cf; margin: .65rem 0 0; }
+.chapters { margin: 1.2rem 0 1.6rem; }
+button {
+  cursor: pointer; min-height: 44px; border: 1px solid #405463; border-radius: 12px;
+  background: #1b2834; color: #eef2f4; font: inherit; padding: .5rem .8rem;
+}
+.exercise { background: #18232e; border: 1px solid #364756; border-radius: 16px; padding: 1.15rem; }
+summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
+.transcript { margin-top: 1rem; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+</style>
+</head>
+<body>
+<main>
+<nav class="back" aria-label="Lesson navigation">
+<a href="./">← Summit One</a><a href="teaching-videos.html">Teaching videos</a><a href="watch-t04-2.html">Next · Count divisors by making independent choices →</a>
+</nav>
+<p class="lesson">T04.1</p>
+<h1>Factor with a purpose</h1>
+<p>Break a number into primes, and know when to stop searching for factors.</p>
+<video id="lesson" controls playsinline preload="metadata" aria-label="Factor with a purpose"
+  poster="media/T04.1-studio-poster.jpg?v=studio-chapters-02-04-v1">
+  <source src="media/T04.1.mp4?v=studio-chapters-02-04-v1" type="video/mp4">
+</video>
+<p class="meta">1:59 · Full HD</p>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Build two factor trees</button>
+<button type="button" data-time="35.320">0:35 · Is 91 prime?</button>
+<button type="button" data-time="45.700">0:45 · Test small primes</button>
+<button type="button" data-time="62.500">1:02 · Stop at the square root</button>
+<button type="button" data-time="82.010">1:22 · Three factors of 66</button>
+<button type="button" data-time="99.770">1:39 · Your turn</button></nav>
+<section class="exercise">
+<h2>Try it in your notebook</h2>
+<p>Write 84 as a product of primes.</p>
+<details><summary>Check your reasoning</summary><p>84 = 2 x 2 x 3 x 7.</p></details>
+</section>
+<details class="transcript"><summary>Read the transcript</summary><p>Whole numbers bigger than one are made by multiplying primes. A prime has exactly two positive factors, one and itself. Take sixty. Split it into six and ten, then split those again. The prime pieces are two, three, two and five.</p>
+<p>Start another way. Write sixty as four times fifteen. Four gives two twos, and fifteen gives a three and a five. Rearrange the pieces in increasing order and both trees give the same list. That fixed prime factorisation is why we can work with the pieces.</p>
+<p>Is ninety-one prime? Decide which small primes you would try first, and think about how far the search needs to go.</p>
+<p>Ninety-one is odd, so two fails. Its digits add to ten, so three fails. Its last digit is one, so five fails. Try seven. Seven times thirteen equals ninety-one. These two factors show that ninety-one is composite.</p>
+<p>If both factors were bigger than the square root, multiplying them would give too much. So a composite number has a prime factor at or below its square root. For ninety-seven that root lies between nine and ten. Try two, three, five and seven. All leave a remainder, so ninety-seven is prime.</p>
+<p>Three different whole numbers, each bigger than one, multiply to sixty-six. Which numbers are they? Sixty-six has exactly three prime pieces, two, three and eleven. Each of the three numbers needs a piece. Each gets exactly one, so those three primes are the answer.</p>
+<p>Split a number until all its pieces are prime. When you test whether a number is prime, use the small primes up to its square root. One has only one positive factor. In your notebook, write eighty-four as a product of primes.</p></details>
+<p><a href="media/T04.1.mp4?v=studio-chapters-02-04-v1">Open the MP4 directly</a></p>
+</main>
+<script>
+const video = document.querySelector("#lesson");
+for (const button of document.querySelectorAll("[data-time]")) {
+  button.addEventListener("click", () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+    video.scrollIntoView({block: "center"});
+  });
+}
+</script>
+</body>
+</html>

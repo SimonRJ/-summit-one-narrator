@@ -3,61 +3,61 @@
  "title": "Compare different orders of the same operations",
  "chapter": "Follow what changes and what stays fixed",
  "type": "concept",
- "status": "script_ready_not_recorded",
+ "status": "published_for_review",
  "voice": "Voice C (VoxCPM2), natural speed (see docs/VIDEO_PRODUCTION.md)",
  "goal": "Compare two orders of the same operations using a general starting value.",
- "narration_words": 291,
- "estimated_minutes": 1.9,
+ "narration_words": 342,
+ "estimated_minutes": 2.3,
  "scenes": [
   {
    "n": 1,
    "stage": "INSIGHT",
-   "visual": "Two machines in a row: \"+5\" then \"x2\". They swap places and the output number changes.",
-   "narration": "Putting on socks then shoes is not the same as shoes then socks. Many maths operations are like that. Changing the order can change the result. Today you will learn how to compare two orders for every starting number at once."
+   "visual": "Run three through add two and double in both orders. Track the amount between each operation.",
+   "narration": "Start with three. Add two and then double. Five becomes ten. Try the same start with the operations swapped. Double three first, then add two. Six becomes eight. The same steps can give different results when their order changes."
   },
   {
    "n": 2,
    "stage": "WHY",
-   "visual": "A table of test values 1, 2, 3 with outputs for both orders; a question mark hangs over \"all numbers?\".",
-   "narration": "You could test a few starting numbers, but tests only tell you about the numbers you tried. Using a letter for the start tells you about all of them, and it shows exactly how big the difference is."
+   "visual": "Let several example inputs become a single tile labelled x, then lead the tile to two operation lanes.",
+   "narration": "Testing more starting numbers might help us guess a pattern. A letter lets us explain the pattern for every starting number. We'll compare the two operation orders side by side and look for the part that changes."
   },
   {
    "n": 3,
    "stage": "PUZZLE",
-   "visual": "Order A: add 5, then double. Order B: double, then add 5. Start value shown as a covered box x. Question: \"Which is bigger, and by how much?\"",
-   "narration": "Start with any number. Order A adds five, then doubles. Order B doubles, then adds five. Which order gives the bigger result, and by how much? Pause and try it with a starting number of your own."
+   "visual": "Build two unsolved lanes with add five and double. Hold the question and the input tile.",
+   "narration": "Choose any starting number. Order A adds five and then doubles. Order B doubles and then adds five. Which order gives the bigger result, and by how much? Try one starting number before we compare them all."
   },
   {
    "n": 4,
    "stage": "DEVELOP",
-   "visual": "A bar of length x with a block of 5 attached; the whole bar is copied twice. Label: 2x + 10.",
-   "narration": "Call the start x. Order A makes x plus five, then doubles everything, including the five. That gives two x plus ten."
+   "visual": "Attach a gold five to x, duplicate the entire bar, then collect its two gold tiles.",
+   "narration": "Call the starting number x. In Order A, adding five makes a bar with an x part and a five part. Doubling makes two copies of that whole bar. Collect its parts. Two copies of x and two fives give two x plus ten."
   },
   {
    "n": 5,
    "stage": "DEVELOP",
-   "visual": "A bar x copied twice, then a single block of 5 attached. Label: 2x + 5. The two results stack; the shared 2x parts fade, leaving one block of 5.",
-   "narration": "Order B doubles x first, giving two x, and then adds just one five. That gives two x plus five. Both results contain two x. Order A has one extra five. So order A is always bigger by exactly five, whatever number you start with."
+   "visual": "Double x alone and attach one five in a second lane. Pair the corresponding pieces with Order A.",
+   "narration": "Order B doubles x first. That gives two copies of x. Add five once. Both orders now show two copies of the starting value and at least one five. Pair those matching pieces. The extra five in Order A is the entire difference."
   },
   {
    "n": 6,
    "stage": "VARIATION",
-   "visual": "Same machines with the doubling replaced by \"x(-2)\". Outputs: -2x - 10 and -2x + 5. A small flip arrow shows the comparison reversing.",
-   "narration": "Be careful with negative multipliers. If the second machine multiplies by negative two, order A gives negative two x minus ten, and order B gives negative two x plus five. Now order B is bigger, by fifteen. Multiplying by a negative number reverses which side is larger."
+   "visual": "Replace the multiplier with negative two. Align the common terms, then measure the gap from negative ten to positive five.",
+   "narration": "What if we multiply by negative two instead? In Order A, the five is multiplied too, so its contribution is negative ten. Order B still adds positive five. The common part is negative two x in both orders. Positive five is fifteen more than negative ten, so Order B now wins by fifteen."
   },
   {
    "n": 7,
    "stage": "VARIATION",
-   "visual": "Two machines \"+3\" and \"+7\" swap with no change; two machines \"x2\" and \"x5\" swap with no change. A tick on each.",
-   "narration": "Some pairs never care about order. Two additions can be swapped. Two multiplications can be swapped. The interesting cases mix adding with multiplying."
+   "visual": "Rearrange two addition tiles, then two multiplication tiles, and show that their combined amount is unchanged.",
+   "narration": "Two additions can swap because we still add the same total. Two multiplications can swap because their combined scale is the same. When you mix the two types of step, look closely at whether an amount added later gets scaled at all."
   },
   {
    "n": 8,
    "stage": "RECAP",
-   "visual": "Lines: \"Use x for the start\", \"Simplify both orders\", \"Subtract to compare\".",
-   "narration": "Use a letter for the start. Write both orders as expressions. Subtract them to see which is larger and by how much. Notebook challenge: compare \"subtract four, then multiply by three\" with \"multiply by three, then subtract four\"."
+   "visual": "Recall input, two orders, gap. Show the notebook operation lanes without either output.",
+   "narration": "Give the start a letter. Write the two orders separately. Compare the parts that match and calculate the difference. In your notebook, compare subtracting four and then multiplying by three with multiplying by three and then subtracting four. Which gives the greater result, and by how much?"
   }
  ],
- "notebook_exercise": "Compare \"subtract 4 then multiply by 3\" with \"multiply by 3 then subtract 4\".",
- "notebook_answer": "3(x - 4) = 3x - 12 and 3x - 4; the second is always larger by 8."
+ "notebook_exercise": "Compare subtracting 4 then multiplying by 3 with multiplying by 3 then subtracting 4. Which gives the greater result, and by how much?",
+ "notebook_answer": "3(x − 4) = 3x − 12 and 3x − 4. The second is always larger by 8."
 }

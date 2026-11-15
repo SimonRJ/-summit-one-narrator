@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10151d">
+<link rel="icon" href="icon.svg">
+<title>T03.3 · Build guarantees with the pigeonhole principle · Summit One</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 25%, #192631, #0c121a 75%);
+  color: #f2f1ed; font: 1rem/1.55 system-ui, sans-serif;
+}
+main { max-width: 1120px; margin: auto; padding: clamp(18px, 4vw, 48px); }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.back { justify-content: space-between; gap: 8px 20px; }
+a { color: #9cdbbc; }
+h1 { max-width: 880px; margin: .25em 0 .45em; font-size: clamp(1.95rem, 5vw, 3.45rem); line-height: 1.12; }
+h2 { margin: 0; font-size: 1.2rem; }
+p { max-width: 55rem; color: #bac4cf; }
+.lesson { color: #9cdbbc; margin: 2rem 0 0; font-size: .88rem; font-weight: 700; }
+video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #10151d; border: 1px solid #354652; border-radius: 14px; }
+.meta { color: #bac4cf; margin: .65rem 0 0; }
+.chapters { margin: 1.2rem 0 1.6rem; }
+button {
+  cursor: pointer; min-height: 44px; border: 1px solid #405463; border-radius: 12px;
+  background: #1b2834; color: #eef2f4; font: inherit; padding: .5rem .8rem;
+}
+.exercise { background: #18232e; border: 1px solid #364756; border-radius: 16px; padding: 1.15rem; }
+summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
+.transcript { margin-top: 1rem; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+</style>
+</head>
+<body>
+<main>
+<nav class="back" aria-label="Lesson navigation">
+<a href="./">← Summit One</a><a href="teaching-videos.html">Teaching videos</a><a href="watch-t03-e.html">Next · Remainders turn long lists into short systems →</a>
+</nav>
+<p class="lesson">T03.3</p>
+<h1>Build guarantees with the pigeonhole principle</h1>
+<p>Use the pigeonhole principle: more objects than boxes forces a shared box.</p>
+<video id="lesson" controls playsinline preload="metadata" aria-label="Build guarantees with the pigeonhole principle"
+  poster="media/T03.3-studio-poster.jpg?v=studio-chapters-02-04-v1">
+  <source src="media/T03.3.mp4?v=studio-chapters-02-04-v1" type="video/mp4">
+</video>
+<p class="meta">1:59 · Full HD</p>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · More counters than boxes</button>
+<button type="button" data-time="31.800">0:31 · The sock puzzle</button>
+<button type="button" data-time="66.490">1:06 · Remainder boxes</button>
+<button type="button" data-time="83.930">1:23 · Pairs that sum to 11</button>
+<button type="button" data-time="99.770">1:39 · Your turn</button></nav>
+<section class="exercise">
+<h2>Try it in your notebook</h2>
+<p>How many people guarantee two with birthdays in the same month?</p>
+<details><summary>Check your reasoning</summary><p>13. Twelve people could all have different months.</p></details>
+</section>
+<details class="transcript"><summary>Read the transcript</summary><p>Put four counters into three boxes. You can place the first three with one in each box. The fourth has to join a counter somewhere. If you already put two together earlier, the claim already holds. This is the pigeonhole principle.</p>
+<p>A guarantee asks what must happen in every possible case. Imagine the arrangement that delays the result for as long as possible. Its limit helps us find the smallest count that will force the result. The important decision is what the boxes represent.</p>
+<p>A drawer contains many socks of exactly four colours. You take socks without looking. What is the smallest number you must take to guarantee two of the same colour? Try to plan a draw that delays the first matching pair.</p>
+<p>Use one box for each colour. Begin with one sock in each box. That is a possible draw of four socks with no match. The fifth sock has to go into one of the occupied boxes. Five is sufficient, and this example with four proves that five is the minimum.</p>
+<p>The boxes can stand for remainders. Take any four different whole numbers. When we divide by three, the possibilities are zero, one and two. Two of the four numbers share a remainder. Take their difference. The leftover parts cancel, leaving a multiple of three.</p>
+<p>Choose six different numbers from one to ten. Group the ten numbers into five pairs that add to eleven. A choice of six puts two numbers in one of those five pair boxes. Both members of that pair have been chosen, and they add to eleven.</p>
+<p>Choose the objects and choose the boxes. Compare their counts. When the problem asks for the smallest guarantee, show how one fewer could fail. In your notebook, how many people must be in a room to guarantee two birthdays in the same month?</p></details>
+<p><a href="media/T03.3.mp4?v=studio-chapters-02-04-v1">Open the MP4 directly</a></p>
+</main>
+<script>
+const video = document.querySelector("#lesson");
+for (const button of document.querySelectorAll("[data-time]")) {
+  button.addEventListener("click", () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+    video.scrollIntoView({block: "center"});
+  });
+}
+</script>
+</body>
+</html>

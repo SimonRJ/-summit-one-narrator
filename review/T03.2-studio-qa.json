@@ -1,0 +1,79 @@
+{
+  "id": "T03.2",
+  "duration_seconds": 124.266667,
+  "sha256": "94dec4e8ebef32fc2ae2e4fd82fa68c3aeb008d87855c1feeffab00f41dc0fca",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 99.73,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "match_percent": 100.0
+    },
+    {
+      "number": 2,
+      "start": 14.68,
+      "match_percent": 100.0
+    },
+    {
+      "number": 3,
+      "start": 31.0,
+      "match_percent": 100.0
+    },
+    {
+      "number": 4,
+      "start": 46.81,
+      "match_percent": 100.0
+    },
+    {
+      "number": 5,
+      "start": 68.4,
+      "match_percent": 98.11
+    },
+    {
+      "number": 6,
+      "start": 86.32,
+      "match_percent": 100.0
+    },
+    {
+      "number": 7,
+      "start": 102.31,
+      "match_percent": 100.0
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Two flashing lights",
+      "start": 0.0
+    },
+    {
+      "title": "Start together",
+      "start": 31.0
+    },
+    {
+      "title": "Find the period",
+      "start": 46.81
+    },
+    {
+      "title": "Shift one start",
+      "start": 68.4
+    },
+    {
+      "title": "When clocks never meet",
+      "start": 86.32
+    },
+    {
+      "title": "Your turn",
+      "start": 102.31
+    }
+  ],
+  "decoded_successfully": true
+}

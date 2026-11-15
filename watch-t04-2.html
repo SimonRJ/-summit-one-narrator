@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10151d">
+<link rel="icon" href="icon.svg">
+<title>T04.2 · Count divisors by making independent choices · Summit One</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 25%, #192631, #0c121a 75%);
+  color: #f2f1ed; font: 1rem/1.55 system-ui, sans-serif;
+}
+main { max-width: 1120px; margin: auto; padding: clamp(18px, 4vw, 48px); }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.back { justify-content: space-between; gap: 8px 20px; }
+a { color: #9cdbbc; }
+h1 { max-width: 880px; margin: .25em 0 .45em; font-size: clamp(1.95rem, 5vw, 3.45rem); line-height: 1.12; }
+h2 { margin: 0; font-size: 1.2rem; }
+p { max-width: 55rem; color: #bac4cf; }
+.lesson { color: #9cdbbc; margin: 2rem 0 0; font-size: .88rem; font-weight: 700; }
+video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #10151d; border: 1px solid #354652; border-radius: 14px; }
+.meta { color: #bac4cf; margin: .65rem 0 0; }
+.chapters { margin: 1.2rem 0 1.6rem; }
+button {
+  cursor: pointer; min-height: 44px; border: 1px solid #405463; border-radius: 12px;
+  background: #1b2834; color: #eef2f4; font: inherit; padding: .5rem .8rem;
+}
+.exercise { background: #18232e; border: 1px solid #364756; border-radius: 16px; padding: 1.15rem; }
+summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
+.transcript { margin-top: 1rem; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+</style>
+</head>
+<body>
+<main>
+<nav class="back" aria-label="Lesson navigation">
+<a href="./">← Summit One</a><a href="teaching-videos.html">Teaching videos</a><a href="watch-t04-3.html">Next · Track prime copies through several conditions →</a>
+</nav>
+<p class="lesson">T04.2</p>
+<h1>Count divisors by making independent choices</h1>
+<p>Count the factors of a number by choosing how many of each prime to use.</p>
+<video id="lesson" controls playsinline preload="metadata" aria-label="Count divisors by making independent choices"
+  poster="media/T04.2-studio-poster.jpg?v=studio-chapters-02-04-v1">
+  <source src="media/T04.2.mp4?v=studio-chapters-02-04-v1" type="video/mp4">
+</video>
+<p class="meta">2:05 · Full HD</p>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Pair factors of 12</button>
+<button type="button" data-time="30.520">0:30 · Count prime choices</button>
+<button type="button" data-time="47.450">0:47 · Fill the grid</button>
+<button type="button" data-time="66.970">1:06 · Count factors of 72 and 360</button>
+<button type="button" data-time="85.210">1:25 · Why squares have odd counts</button>
+<button type="button" data-time="105.360">1:45 · Your turn</button></nav>
+<section class="exercise">
+<h2>Try it in your notebook</h2>
+<p>How many positive factors does 200 have?</p>
+<details><summary>Check your reasoning</summary><p>200 = 2³ × 5². Choose 0–3 twos and 0–2 fives, giving 4 × 3 = 12 factors.</p></details>
+</section>
+<details class="transcript"><summary>Read the transcript</summary><p>Twelve has six positive factors: one, two, three, four, six and twelve. We can list those by finding the products that make twelve. For a larger number, it is easier to count choices from its prime factorisation.</p>
+<p>Three hundred and sixty factorises into two cubed, three squared and five. Its full factor list has twenty-four entries. We can account for them through three small counts, one for each prime. Let&#x27;s see how this works with twelve first.</p>
+<p>Twelve is two times two times three. A factor of twelve is made from some of those prime tiles. Think about how many twos you can use. Then think about your choices for the three. How many different products are possible?</p>
+<p>Use zero, one or two twos. That gives three choices. For each of them, either include the three or leave it out. That gives two choices. Three times two makes six products. Taking no tiles gives one. Taking all the tiles gives twelve. Every cell makes a different factor.</p>
+<p>Seventy-two is two cubed times three squared. Choose zero, one, two or three twos. For each choice there are three possibilities for the threes. Four times three gives twelve factors. For three hundred and sixty, the extra choice about the five doubles that count to twenty-four.</p>
+<p>For thirty-six, the factor pairs are one and thirty-six, two and eighteen, three and twelve, and four and nine. Six pairs with itself, so it appears just once in the list. A factor pairs with itself exactly when its square is the number. That is why square numbers have an odd count of positive factors.</p>
+<p>For each prime, include the choice to use zero copies. Add one to the prime&#x27;s exponent, and multiply the resulting counts. In your notebook, find the number of positive factors of two hundred, then explain why your method counts each factor once.</p></details>
+<p><a href="media/T04.2.mp4?v=studio-chapters-02-04-v1">Open the MP4 directly</a></p>
+</main>
+<script>
+const video = document.querySelector("#lesson");
+for (const button of document.querySelectorAll("[data-time]")) {
+  button.addEventListener("click", () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+    video.scrollIntoView({block: "center"});
+  });
+}
+</script>
+</body>
+</html>

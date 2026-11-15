@@ -19,6 +19,16 @@ PAUSES = {
     "T01.2": {3: 2.4, 6: 1.0, 9: 5.0},
     "T01.3": {3: 3.5, 8: 5.0},
     "T01.E": {1: 3.5, 6: 2.6, 8: 5.0},
+    "T02.3": {3: 3.5, 8: 5.0},
+    "T02.E": {1: 3.5, 6: 5.0},
+    "T03.1": {3: 3.5, 8: 5.0},
+    "T03.2": {3: 3.5, 7: 5.0},
+    "T03.3": {3: 3.5, 7: 5.0},
+    "T03.E": {1: 3.5, 6: 5.0},
+    "T04.1": {3: 3.5, 7: 5.0},
+    "T04.2": {3: 3.5, 7: 5.0},
+    "T04.3": {3: 3.5, 8: 5.0},
+    "T04.E": {1: 3.5, 6: 5.0},
 }
 SPOKEN_FORMS = {
     "centimetre": "centimeter",
@@ -34,6 +44,10 @@ SPOKEN_FORMS = {
     "reread": "re read",
     "o'clock": "o clock",
     "oh": "o",
+    "ex": "x",
+    "factorisation": "factorization",
+    "factorise": "factorize",
+    "factorises": "factorizes",
 }
 
 
@@ -231,9 +245,9 @@ def prepare(lesson):
         "scenes": scenes,
         "captions": captions,
     }, indent=2) + "\n")
-    (build / "captions.vtt").write_text("WEBVTT\n\n" + "".join(
-        f"{stamp(cue['start'])} --> {stamp(cue['end'])}\n{cue['text']}\n\n" for cue in captions
-    ))
+    (build / "captions.vtt").write_text("WEBVTT\n\n" + "\n\n".join(
+        f"{stamp(cue['start'])} --> {stamp(cue['end'])}\n{cue['text']}" for cue in captions
+    ) + "\n")
 
 
 if __name__ == "__main__":

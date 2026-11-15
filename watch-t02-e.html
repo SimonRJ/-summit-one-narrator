@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10151d">
+<link rel="icon" href="icon.svg">
+<title>T02.E · Follow what changes and what stays fixed · Summit One</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 25%, #192631, #0c121a 75%);
+  color: #f2f1ed; font: 1rem/1.55 system-ui, sans-serif;
+}
+main { max-width: 1120px; margin: auto; padding: clamp(18px, 4vw, 48px); }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.back { justify-content: space-between; gap: 8px 20px; }
+a { color: #9cdbbc; }
+h1 { max-width: 880px; margin: .25em 0 .45em; font-size: clamp(1.95rem, 5vw, 3.45rem); line-height: 1.12; }
+h2 { margin: 0; font-size: 1.2rem; }
+p { max-width: 55rem; color: #bac4cf; }
+.lesson { color: #9cdbbc; margin: 2rem 0 0; font-size: .88rem; font-weight: 700; }
+video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #10151d; border: 1px solid #354652; border-radius: 14px; }
+.meta { color: #bac4cf; margin: .65rem 0 0; }
+.chapters { margin: 1.2rem 0 1.6rem; }
+button {
+  cursor: pointer; min-height: 44px; border: 1px solid #405463; border-radius: 12px;
+  background: #1b2834; color: #eef2f4; font: inherit; padding: .5rem .8rem;
+}
+.exercise { background: #18232e; border: 1px solid #364756; border-radius: 16px; padding: 1.15rem; }
+summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
+.transcript { margin-top: 1rem; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+</style>
+</head>
+<body>
+<main>
+<nav class="back" aria-label="Lesson navigation">
+<a href="./">← Summit One</a><a href="teaching-videos.html">Teaching videos</a><a href="watch-t03-1.html">Next · Read a remainder as a precise statement →</a>
+</nav>
+<p class="lesson">T02.E · Worked example</p>
+<h1>Follow what changes and what stays fixed</h1>
+<p>Worked example: why one order always wins by the same amount.</p>
+<video id="lesson" controls playsinline preload="metadata" aria-label="Follow what changes and what stays fixed"
+  poster="media/T02.E-studio-poster.jpg?v=studio-chapters-02-04-v1">
+  <source src="media/T02.E.mp4?v=studio-chapters-02-04-v1" type="video/mp4">
+</video>
+<p class="meta">1:44 · Full HD</p>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · The two rules</button>
+<button type="button" data-time="19.290">0:19 · Copy the whole sum</button>
+<button type="button" data-time="50.330">0:50 · Compare the extras</button>
+<button type="button" data-time="67.290">1:07 · Test different inputs</button>
+<button type="button" data-time="82.330">1:22 · Your turn</button></nav>
+<section class="exercise">
+<h2>Try it in your notebook</h2>
+<p>Find the gap between &quot;add 2 then multiply by 6&quot; and &quot;multiply by 6 then add 2&quot;.</p>
+<details><summary>Check your reasoning</summary><p>6x + 12 and 6x + 2; the gap is always 10.</p></details>
+</section>
+<details class="transcript"><summary>Read the transcript</summary><p>Start with any whole number, including zero. Rule A adds three and then multiplies by four. Rule B multiplies by four and then adds three. Which output is larger, and by how much? Sketch one example before looking for a proof.</p>
+<p>Call the start x. Rule A forms x plus three and makes four copies of the whole amount. Look at one copy. It contains an x tile and a three tile. Four copies give four x tiles and four threes, so the result is four x plus twelve.</p>
+<p>In Rule B, the multiplication acts on the starting value. Make four copies of x. Now add the three. This time the three comes in once, after the copying step. The result is four x plus three.</p>
+<p>Line up the outputs. Each side contains four copies of the same x and one added three. Pair those tiles. There are three extra threes in Rule A. Their total is nine. Whatever whole number we pick at the start, Rule A is larger by nine.</p>
+<p>Check the smallest allowed input. Starting from zero gives twelve and three. Starting from ten gives fifty-two and forty-three. Each difference is nine. In both rows, the starting amount changes the two outputs by the same amount.</p>
+<p>The multiplication makes extra copies of the added amount when the addition comes first. Use that observation with two new rules. One adds two before multiplying by six. The other multiplies by six before adding two. Draw the matching pieces and find the gap.</p></details>
+<p><a href="media/T02.E.mp4?v=studio-chapters-02-04-v1">Open the MP4 directly</a></p>
+</main>
+<script>
+const video = document.querySelector("#lesson");
+for (const button of document.querySelectorAll("[data-time]")) {
+  button.addEventListener("click", () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+    video.scrollIntoView({block: "center"});
+  });
+}
+</script>
+</body>
+</html>
