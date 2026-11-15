@@ -1,4 +1,4 @@
-name: Record the first pending introduction in parallel
+name: Record the next pending introduction in parallel
 on:
   push:
     branches: [codex/lesson-intro-runtime-check]
@@ -17,16 +17,16 @@ jobs:
           persist-credentials: false
       - id: plan
         run: |
-          python production/lesson-intros/course/compile_intros.py S009
+          python production/lesson-intros/course/compile_intros.py S010
           python - <<'PY'
           import json, os
           from pathlib import Path
-          scenes = json.loads(Path("production/scripts/S009.json").read_text())["scenes"]
+          scenes = json.loads(Path("production/scripts/S010.json").read_text())["scenes"]
           lanes = [{"index": i+1, "words": 0, "requests": []} for i in range(8)]
           for item in sorted(scenes, key=lambda scene: -len(scene["narration"].split())):
               lane = min(lanes, key=lambda slot: slot["words"])
               lane["words"] += len(item["narration"].split())
-              lane["requests"].append({"lesson": "S009", "scene": item["n"]})
+              lane["requests"].append({"lesson": "S010", "scene": item["n"]})
           data = {"include": [{"index": lane["index"], "requests": json.dumps(lane["requests"], separators=(",",":"))} for lane in lanes]}
           with open(os.environ["GITHUB_OUTPUT"], "a") as stream:
               print("lanes=" + json.dumps(data,separators=(",",":")), file=stream)
@@ -63,15 +63,15 @@ jobs:
         env:
           REQUESTS: ${{ matrix.requests }}
         run: |
-          python production/lesson-intros/course/compile_intros.py S009
+          python production/lesson-intros/course/compile_intros.py S010
           printf '%s\n' "$REQUESTS" > "$RUNNER_TEMP/requests.json"
           python production/t01-studio/synth.py --sequence "$RUNNER_TEMP/requests.json" --threads 4
       - uses: actions/upload-artifact@v4
         with:
-          name: S009-voice-${{ matrix.index }}
+          name: S010-voice-${{ matrix.index }}
           path: |
-            build/t01-studio/S009-*.wav
-            build/t01-studio/S009-*.json
+            build/t01-studio/S010-*.wav
+            build/t01-studio/S010-*.json
           compression-level: 1
           retention-days: 1
 
@@ -90,18 +90,18 @@ jobs:
           python-version: '3.11'
       - uses: actions/download-artifact@v4
         with:
-          pattern: S009-voice-*
+          pattern: S010-voice-*
           merge-multiple: true
           path: build/t01-studio
-      - name: Synchronize narration and render the first pending film
+      - name: Synchronize narration and render the next pending film
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y ffmpeg fonts-open-sans fonts-dejavu-core libsndfile1
           pip install pillow numpy soundfile num2words faster-whisper
-          python production/lesson-intros/course/compile_intros.py S009
-          python production/t01-studio/prepare_audio.py S009
-          python production/t01-studio/render.py S009 --preview
-          python production/t01-studio/render.py S009
+          python production/lesson-intros/course/compile_intros.py S010
+          python production/t01-studio/prepare_audio.py S010
+          python production/t01-studio/render.py S010 --preview
+          python production/t01-studio/render.py S010
       - name: Supply the checked introduction if it is still awaiting upload
         env:
           GH_TOKEN: ${{ github.token }}
@@ -109,6 +109,6 @@ jobs:
         run: |
           python - <<'PY'
           from release_intro import current_candidate, stage
-          if not current_candidate("S009"):
-              stage("S009")
+          if not current_candidate("S010"):
+              stage("S010")
           PY
