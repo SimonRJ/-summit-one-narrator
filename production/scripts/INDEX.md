@@ -36,9 +36,9 @@ Scripts ready: 56 of 72. Published for review: 14. Approved videos: 2. Not yet s
 | T07.2 | Explain why a promising choice is best | concept | script ready | 292 words, about 1.9 min | [T07.2.json](T07.2.json) |
 | T07.3 | Make equality conditions guide the construction | concept | script ready | 288 words, about 1.9 min | [T07.3.json](T07.3.json) |
 | T07.E | Prove a limit, then build an example | worked_example | script ready | 197 words, about 1.3 min | [T07.E.json](T07.E.json) |
-| T08.1 | Build an honest sample space | concept | script ready | 271 words, about 1.8 min | [T08.1.json](T08.1.json) |
-| T08.2 | Track how one choice changes the next | concept | script ready | 271 words, about 1.8 min | [T08.2.json](T08.2.json) |
-| T08.3 | Recount within the information you are given | concept | script ready | 272 words, about 1.8 min | [T08.3.json](T08.3.json) |
+| T08.1 | Build an honest sample space | concept | script ready | 277 words, about 1.8 min | [T08.1.json](T08.1.json) |
+| T08.2 | Track how one choice changes the next | concept | script ready | 272 words, about 1.8 min | [T08.2.json](T08.2.json) |
+| T08.3 | Recount within the information you are given | concept | script ready | 274 words, about 1.8 min | [T08.3.json](T08.3.json) |
 | T08.E | Let the experiment determine the probability | worked_example | script ready | 162 words, about 1.1 min | [T08.E.json](T08.E.json) |
 | T09.1 | Keep the whole visible | concept | script ready | 305 words, about 2.0 min | [T09.1.json](T09.1.json) |
 | T09.2 | Read decimal places as divisibility conditions | concept | script ready | 273 words, about 1.8 min | [T09.2.json](T09.2.json) |

@@ -323,7 +323,7 @@ N: So four trays are enough, and three are not. The answer is four. Notice that 
 V: Line: "test every rule for a limit; the strongest one decides". Notebook prompt.
 N: When there are several rules, find the limit each one gives. The strongest limit decides. Rebuild this argument, then try it with nine red counters and three blue counters.
 TRY: Same rules with 9 red and 3 blue counters. Smallest number of trays?
-ANS: Reds need at least 5 trays (4 trays hold 8); 5 trays work, so 5.
+ANS: At least 5 trays are needed, since 4 trays hold at most 8 reds. Use three trays with 2 red and 1 blue each, one tray with 2 reds, and one tray with 1 red.
 
 @@ T08.1
 GOAL: List equally likely outcomes honestly before finding a probability.
@@ -335,7 +335,7 @@ V: "red or blue: 1 out of 2" crossed lightly. "3 counters: 2 red" highlighted.
 N: Counting names instead of real outcomes is the most common probability mistake. The fix is to list outcomes that genuinely are equally likely, then count.
 [PUZZLE]
 V: Two coins. Question: "What is the chance of exactly one head?" Three tempting labels: "two heads", "one head", "no heads".
-N: Two fair coins are tossed. What is the probability of getting exactly one head? Someone says there are three results, two heads, one head or no heads, so the answer is one third. Pause and decide whether that is right.
+N: Toss two fair coins separately, so one result cannot affect the other. What is the probability of getting exactly one head? Someone says there are three results, two heads, one head or no heads, so the answer is one third. Pause and decide whether that is right.
 [DEVELOP]
 V: A 2 by 2 grid: first coin H or T down the side, second coin H or T across. Cells HH, HT, TH, TT.
 N: Give the coins names: first coin and second coin. Now there are four outcomes: head head, head tail, tail head, and tail tail. These four are equally likely.
@@ -344,11 +344,11 @@ V: Cells HT and TH glow. Fraction two out of four simplifies to one half.
 N: Exactly one head happens in two of the four: head tail, and tail head. So the probability is two out of four, which is one half, not one third. The three results in the earlier list were not equally likely.
 [VARIATION]
 V: A 6 by 6 grid of two dice. Cells with total 7 highlighted along a diagonal: six cells. Cells with total 2: one cell.
-N: Two dice work the same way. There are thirty-six equally likely pairs. A total of seven comes from six of them, so its probability is six out of thirty-six, one sixth. A total of two comes from only one pair. The totals are not equally likely, but the pairs are.
+N: Roll two fair dice separately. There are thirty-six equally likely pairs. A total of seven comes from six of them, so its probability is six out of thirty-six, one sixth. A total of two comes from only one pair. The totals are not equally likely, but the pairs are.
 [RECAP]
 V: Lines: "Label the objects", "List equally likely outcomes", "Favourable out of total".
 N: Label the objects so each outcome is visible. Check the outcomes are equally likely. Then count favourable out of total. Notebook challenge: two dice are rolled. What is the probability that the two numbers are the same?
-TRY: Two dice are rolled. What is the probability that both show the same number?
+TRY: Two fair dice are rolled independently. What is the probability that both show the same number?
 ANS: 6 out of 36 = 1/6.
 
 @@ T08.2
@@ -361,7 +361,7 @@ V: A wrong calculation "one half times one half" greyed, beside an updating bag.
 N: Using the original bag for both draws is a common error. Updating after each step is what makes the answer right.
 [PUZZLE]
 V: The bag with 2 red, 2 blue. Question: "Two counters are drawn without replacement. What is the chance both are red?"
-N: A bag holds two red counters and two blue counters. Two counters are drawn, one after the other, without putting the first back. What is the probability that both are red? Pause and think about the bag after the first draw.
+N: A bag holds two red counters and two blue counters. Draw two counters at random, one after the other, without putting the first back. What is the probability that both are red? Pause and think about the bag after the first draw.
 [DEVELOP]
 V: A tree's first branch: red with "2 out of 4", blue with "2 out of 4".
 N: On the first draw, two of the four counters are red. The chance of red is two out of four, which is one half.
@@ -399,7 +399,7 @@ V: Among 2, 4, 6 the faces 4 and 6 glow. Fraction: two out of three.
 N: Of those three, the numbers greater than three are four and six. So the probability is two out of three. Without the information it would have been three out of six, one half. The information changed the answer.
 [VARIATION]
 V: The 6 by 6 dice grid. Card: "the total is 8". Five cells remain: (2,6), (3,5), (4,4), (5,3), (6,2). The cell (4,4) glows.
-N: Try two dice. You are told the total is eight. Five pairs survive: two and six, three and five, four and four, five and three, six and two. What is the chance that both dice show the same number? Only four and four works: one out of five.
+N: Roll two fair dice separately. You are told the total is eight. Five pairs survive: two and six, three and five, four and four, five and three, six and two. What is the chance that both dice show the same number? Only four and four works: one out of five.
 [VARIATION]
 V: Note card: "equally likely before, equally likely after".
 N: Crossing out works because outcomes that were equally likely before the information are still equally likely afterwards. If the outcomes are not equally likely, you compare their probabilities rather than just counting them.

@@ -6,7 +6,7 @@
  "status": "script_ready_not_recorded",
  "voice": "Voice C (VoxCPM2), natural speed (see docs/VIDEO_PRODUCTION.md)",
  "goal": "Follow a probability tree when the first choice changes the second.",
- "narration_words": 271,
+ "narration_words": 272,
  "estimated_minutes": 1.8,
  "scenes": [
   {
@@ -25,7 +25,7 @@
    "n": 3,
    "stage": "PUZZLE",
    "visual": "The bag with 2 red, 2 blue. Question: \"Two counters are drawn without replacement. What is the chance both are red?\"",
-   "narration": "A bag holds two red counters and two blue counters. Two counters are drawn, one after the other, without putting the first back. What is the probability that both are red? Pause and think about the bag after the first draw."
+   "narration": "A bag holds two red counters and two blue counters. Draw two counters at random, one after the other, without putting the first back. What is the probability that both are red? Pause and think about the bag after the first draw."
   },
   {
    "n": 4,
