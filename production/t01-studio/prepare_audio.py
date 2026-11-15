@@ -239,6 +239,18 @@ def stamp(seconds):
     return f"{ms // 3600000:02}:{ms // 60000 % 60:02}:{ms // 1000 % 60:02}.{ms % 1000:03}"
 
 
+def transcribe(model, waveform, *, use_vad=False):
+    decoded, _ = model.transcribe(
+        waveform[::3],
+        word_timestamps=True,
+        beam_size=5,
+        condition_on_previous_text=False,
+        language="en",
+        vad_filter=use_vad,
+    )
+    return [word for segment in decoded for word in segment.words or []]
+
+
 def prepare(lesson):
     from faster_whisper import WhisperModel
 
@@ -257,15 +269,16 @@ def prepare(lesson):
         end = (cursor + len(waveform)) / RATE
         pause = PAUSES.get(lesson, {}).get(index, {"PUZZLE": 3.5, "RECAP": 5.0}.get(scene["stage"], 0.65))
         gap = np.zeros(round(pause * RATE), dtype="float32")
-        decoded, _ = model.transcribe(
-            waveform[::3],
-            word_timestamps=True,
-            beam_size=5,
-            condition_on_previous_text=False,
-            language="en",
-        )
-        spoken = [word for segment in decoded for word in segment.words or []]
+        spoken = transcribe(model, waveform)
         words, match = align(scene["narration"], spoken, start, end)
+        if match < 80:
+            # The decoder can invent words in quiet passages. A second pass
+            # removes silence for recognition only and retains source timestamps.
+            checked = transcribe(model, waveform, use_vad=True)
+            checked_words, checked_match = align(scene["narration"], checked, start, end)
+            if checked_match >= 97 and len(checked) > 1:
+                spoken, words, match = checked, checked_words, checked_match
+                print(f"{lesson} scene {index}: speech-only recognition {match:.2f}%", flush=True)
         print(f"{lesson} scene {index}: {match:.2f}% aligned, speech {start:.2f}–{end:.2f}s", flush=True)
         scenes.append({
             "n": index,

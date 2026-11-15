@@ -5,7 +5,7 @@ V: A straight line with a ray rising from it; the two angles are marked and a ha
 N: Angle problems are solved by chains. You know one angle, a fact gives you the next, another fact gives the one after. The facts are few: a straight line makes one hundred and eighty degrees, a full turn makes three hundred and sixty, and angles opposite each other where two lines cross are equal.
 [WHY]
 V: A diagram with "not to scale" in the corner and a protractor fading out.
-N: Competition diagrams are not drawn to scale, so measuring is useless. What works is knowing a small set of facts and applying them one link at a time, saying which fact you used.
+N: Competition diagrams may not be drawn to scale. Use the stated facts, a link at a time, and say which angle rule justifies each link.
 [PUZZLE]
 V: Two parallel lines crossed by a slanted line. One angle at the top crossing is marked 65 degrees. An angle at the lower crossing, on the opposite side, is marked with a question mark.
 N: Two parallel lines are crossed by a third line. One angle at the top is sixty-five degrees. Find the marked angle at the bottom. Pause and trace how the top crossing relates to the bottom one.
@@ -46,14 +46,14 @@ V: A new point at 8 on the far side of the circle. Lines from 8 to 12 and from 8
 N: Now stand at a point on the circle instead, at eight, and look at the same arc from twelve to four. The angle you see is exactly half the angle at the centre: sixty degrees. An angle on the circle is half the angle at the centre standing on the same arc.
 [DEVELOP]
 V: The radius from the centre to 8 is drawn, splitting the picture into two isosceles triangles with equal radii ticked. Base angles are marked equal.
-N: Why half? Draw the radius to your viewing point. It makes two triangles, each with two equal sides, because all radii are equal. Their equal angles, added up, show that the centre angle is twice the angle at the edge.
+N: Why half here? Draw the radius to eight. It splits the angle at eight into two parts, a and b. Since the radii are equal, the two small triangles have equal base angles. Their angles at the centre are one hundred and eighty minus two a, and one hundred and eighty minus two b. Subtract both from a full turn. The centre angle over the arc is two a plus two b, twice the whole angle at eight.
 [VARIATION]
 V: The arc is a semicircle from 12 to 6: centre angle 180. A point at 3 sees it with angle 90.
 N: A special case is worth remembering. If the arc is exactly half the circle, the angle at the centre is one hundred and eighty, so the angle on the circle is ninety. Any triangle drawn with a diameter as one side, and its third corner on the circle, has a right angle.
 [RECAP]
 V: Lines: "Equal spacing: 360 shared equally", "Count gaps, not points", "Angle on the circle is half the angle at the centre".
 N: Share three hundred and sixty among the gaps. Count gaps, not points. The angle on the circle is half the angle at the centre. Notebook challenge: on the clock circle, what is the angle at the centre between the points at two and seven?
-TRY: On a clock circle, what is the angle at the centre between the points at 2 and 7?
+TRY: On a clock circle, what is the smaller angle at the centre between the points at 2 and 7?
 ANS: 5 gaps x 30 = 150 degrees.
 
 @@ T12.3
@@ -66,7 +66,7 @@ V: A cluttered diagram with many random lines beside a clean one with a single a
 N: Many geometry problems are one well-chosen line away from being easy. Learning which lines tend to help is a real skill: a parallel line, a height, or a line that makes a triangle with equal sides.
 [PUZZLE]
 V: Two horizontal parallel lines. A zigzag: from a point on the top line a segment goes down to a bend, then on to the bottom line. The angle between the top line and the first segment is 35 degrees; between the bottom line and the second segment, 45 degrees. The angle at the bend has a question mark.
-N: A path goes from one of two parallel lines to a bend, and then to the other line. It makes thirty-five degrees with the top line and forty-five degrees with the bottom line. What is the angle at the bend? Pause and think about what line you could add.
+N: A path runs between two parallel lines, with a bend to the right of both ends. It makes thirty-five degrees with the top line and forty-five degrees with the bottom line. What is the angle at the bend? Pause and think about what line you could add.
 [DEVELOP]
 V: A dashed line appears through the bend, parallel to both lines. It splits the bend angle into an upper and a lower part.
 N: Draw a line through the bend, parallel to the other two. It splits the bend angle into two parts.
@@ -75,14 +75,14 @@ V: The 35 degree angle slides along the first segment to become the upper part: 
 N: The upper part matches the thirty-five degree angle, because of the parallel lines. The lower part matches the forty-five. So the angle at the bend is thirty-five plus forty-five: eighty degrees.
 [VARIATION]
 V: A square grid. A tilted square has corners at grid points, each side going 3 across and 1 up. A surrounding 4 by 4 square is drawn, with four right triangles in the corners.
-N: A grid is another way to make things visible. Here is a tilted square whose sides each go three across and one up. What is its area? Surround it with a four by four square, area sixteen. The four corner triangles each have area one and a half, six altogether. Sixteen minus six is ten. The tilted square has area ten.
+N: A grid is another way to make things visible. Here is a tilted square. One side goes three squares to the right and one square down. What is its area? Surround it with a four by four square, area sixteen. The four corner triangles each have area one and a half, six altogether. Sixteen minus six is ten. The tilted square has area ten.
 [VARIATION]
 V: A triangle with a height dropped from the top to the base, splitting it into two right-angled triangles.
 N: The most common helpful line of all is a height. Dropping a perpendicular splits an awkward triangle into two right-angled ones, which are much easier to work with.
 [RECAP]
 V: Lines: "Add a line only with a purpose", "Parallels move angles; heights make right angles", "A grid makes lengths and areas exact".
-N: Add a line only when you can say why. Parallel lines carry angles; heights create right angles; a grid makes areas exact. Notebook challenge: on a grid, a tilted square has sides that each go two across and one up. What is its area?
-TRY: On a grid, a tilted square has sides going 2 across and 1 up. What is its area?
+N: Add a line only when you can say why. Parallel lines carry angles; heights create right angles; a grid makes areas exact. Notebook challenge: on a grid, one side of a tilted square goes two squares to the right and one square down. What is its area?
+TRY: On a grid, one side of a tilted square goes 2 squares right and 1 square down. What is its area?
 ANS: Surrounding 3 by 3 square (9) minus four triangles of area 1: 5.
 
 @@ T12.E
@@ -173,13 +173,13 @@ V: A drawing of a block made from small cubes, seen from one corner. The block s
 N: A drawing of a solid only shows some of its cubes. The rest are hidden behind or underneath. To count them all, slice the solid into layers. Count one layer, then count the layers.
 [WHY]
 V: A tally of "cubes I can see" with a warning mark; beside it the layers neatly separated.
-N: Counting the cubes you can see always gives too few. Counting layer by layer is reliable, and it also answers questions about which cubes are on the outside.
+N: Counting only visible cubes can miss part of a solid. Counting layer by layer is reliable, and it also answers questions about which cubes are on the outside.
 [PUZZLE]
 V: A solid block 4 cubes long, 3 wide and 2 high. Question: "How many small cubes?"
 N: A solid block is four cubes long, three cubes wide and two cubes high. How many small cubes does it contain? Pause and picture one layer.
 [DEVELOP]
 V: The top layer lifts off, showing a 4 by 3 grid: 12 cubes. The bottom layer is identical. 2 layers of 12 give 24.
-N: One layer is four by three, which is twelve cubes. There are two layers, so the block contains twenty-four cubes. Half of them are in the bottom layer, mostly hidden in the drawing.
+N: One layer is four by three, which is twelve cubes. There are two layers, so the block contains twenty-four cubes. Half of them are in the bottom layer, including some that were hidden in the drawing.
 [DEVELOP]
 V: A 3 by 3 by 3 cube dipped in paint. It separates into three layers. In the middle layer, the centre cube is unpainted and glows.
 N: Now a harder question. A three by three by three cube is painted all over, then cut into twenty-seven small cubes. How many have no paint at all? Only a cube that touches no outside face. Peel off the outer layer in every direction, and a single cube is left in the very centre. The answer is one.
@@ -295,7 +295,7 @@ V: Round one colours A-B and C-D; round two A-C and B-D; round three A-D and B-C
 N: Can three be reached? Round one: A plays B, and C plays D. Round two: A plays C, and B plays D. Round three: A plays D, and B plays C. All six games are played. Three rounds is the answer.
 [VARIATION]
 V: Five dots with every pair joined: ten lines. Each round holds at most two games, with one player resting. 10 divided by 2 gives 5.
-N: With five players there are ten games. In any round one player must rest, so again at most two games fit. Ten divided by two is five rounds, even though each player only plays four games.
+N: With five players there are ten games. In any round one player must rest, so again at most two games fit. That takes at least five rounds, even though each player plays only four games. The five-day pairing schedule from the earlier lesson shows that five rounds can be reached.
 [VARIATION]
 V: A single dot with three lines leaving it; label "needs at least 3 slots".
 N: There is a second kind of limit. A person who is in three meetings needs at least three slots, whatever everyone else is doing. Use whichever limit is stronger, and then show a timetable that reaches it.
