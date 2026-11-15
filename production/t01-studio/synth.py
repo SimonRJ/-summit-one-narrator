@@ -21,6 +21,8 @@ REFERENCE = ROOT / "media/voice-audition/vox-australian-male-c.mp3"
 VOICE_SHA = "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362"
 MODEL_REVISION = "7936080b41163874f38610f46f438e2c0757f9fd"
 RATE = 48000
+COURSE_FILMS = tuple(f"T{chapter:02}.{kind}" for chapter in range(5, 19) for kind in ("1", "2", "3", "E"))
+IDS = (*IDS, *COURSE_FILMS)
 
 
 def passages(text):
@@ -33,20 +35,20 @@ def passages(text):
     return groups
 
 
-def record(scene_number, selected_lesson=None):
+def record_scenes(requests, threads=2):
     import torch
     from huggingface_hub import snapshot_download
     from voxcpm import VoxCPM
 
     if hashlib.sha256(REFERENCE.read_bytes()).hexdigest() != VOICE_SHA:
         raise ValueError("The saved Voice C reference has changed")
-    lessons = (selected_lesson,) if selected_lesson else OPENING_IDS
     scripts = {
         lesson: json.loads((ROOT / f"production/scripts/{lesson}.json").read_text())
-        for lesson in lessons
+        for lesson in dict.fromkeys(lesson for lesson, _ in requests)
     }
-    if any(not 1 <= scene_number <= len(script["scenes"]) for script in scripts.values()):
-        raise ValueError(f"Scene {scene_number} is not present in the selected scripts")
+    for lesson, number in requests:
+        if not 1 <= number <= len(scripts[lesson]["scenes"]):
+            raise ValueError(f"{lesson}: scene {number} is not in the script")
     BUILD.mkdir(parents=True, exist_ok=True)
     reference_wav = BUILD / "reference.wav"
     subprocess.run(
@@ -55,7 +57,7 @@ def record(scene_number, selected_lesson=None):
         check=True,
     )
 
-    torch.set_num_threads(2)
+    torch.set_num_threads(threads)
     torch.set_num_interop_threads(1)
     model_path = snapshot_download(
         "openbmb/VoxCPM2",
@@ -66,8 +68,8 @@ def record(scene_number, selected_lesson=None):
         model_path, load_denoiser=False, optimize=False, device="cpu"
     )
     prompt = json.loads((ROOT / "production/voice-audition/brief.json").read_text())["text"]
-    for lesson, script in scripts.items():
-        scene = script["scenes"][scene_number - 1]
+    for lesson, scene_number in requests:
+        scene = scripts[lesson]["scenes"][scene_number - 1]
         narration = scene["narration"]
         short_passages = lesson not in OPENING_IDS
         chunks = passages(narration) if short_passages else [narration]
@@ -120,9 +122,23 @@ def record(scene_number, selected_lesson=None):
         print(f"{lesson} scene {scene_number}: {seconds:.2f}s from Voice C", flush=True)
 
 
+def record(scene_number, selected_lesson=None):
+    lessons = (selected_lesson,) if selected_lesson else OPENING_IDS
+    record_scenes([(lesson, scene_number) for lesson in lessons])
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--scene", type=int, required=True)
+    selection = parser.add_mutually_exclusive_group(required=True)
+    selection.add_argument("--scene", type=int)
+    selection.add_argument("--sequence", type=Path)
     parser.add_argument("--lesson", choices=IDS)
+    parser.add_argument("--threads", type=int, choices=(2, 4), default=2)
     args = parser.parse_args()
-    record(args.scene, args.lesson)
+    if args.sequence:
+        requests = [(item["lesson"], item["scene"]) for item in json.loads(args.sequence.read_text())]
+        if not requests or len(requests) != len(set(requests)) or any(lesson not in IDS for lesson, _ in requests):
+            parser.error("The sequence must list distinct teaching scenes")
+    else:
+        requests = [(lesson, args.scene) for lesson in ((args.lesson,) if args.lesson else OPENING_IDS)]
+    record_scenes(requests, args.threads)

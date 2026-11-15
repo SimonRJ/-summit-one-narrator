@@ -26,7 +26,7 @@ Scripts ready: 56 of 72. Published for review: 14. Approved videos: 2. Not yet s
 | T04.E | Use prime factors as the building blocks | worked_example | published for review | 261 words, about 1.7 min | [T04.E.json](T04.E.json) |
 | T05.1 | Decide whether order belongs to the outcome | concept | script ready | 299 words, about 2.0 min | [T05.1.json](T05.1.json) |
 | T05.2 | Split by the restriction that changes the choices | concept | script ready | 276 words, about 1.8 min | [T05.2.json](T05.2.json) |
-| T05.3 | Prove that the classification is reversible | concept | script ready | 313 words, about 2.1 min | [T05.3.json](T05.3.json) |
+| T05.3 | Prove that the classification is reversible | concept | script ready | 319 words, about 2.1 min | [T05.3.json](T05.3.json) |
 | T05.E | Count outcomes once, using complete cases | worked_example | script ready | 167 words, about 1.1 min | [T05.E.json](T05.E.json) |
 | T06.1 | Count incidences before counting objects | concept | script ready | 254 words, about 1.7 min | [T06.1.json](T06.1.json) |
 | T06.2 | Give each component its contribution | concept | script ready | 268 words, about 1.8 min | [T06.2.json](T06.2.json) |

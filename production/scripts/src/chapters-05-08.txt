@@ -66,7 +66,7 @@ V: Two outcome cards arriving at the same box, flashing; then a card with no box
 N: Double counting and missed cases are invisible if you only look at the final number. Checking the addresses is the way to trust a count without redoing it.
 [PUZZLE]
 V: Five seats in a row. Counters: three girls G and two boys B. Rule text: "the two boys must not sit next to each other".
-N: Three girls and two boys sit in a row of five seats. The two boys must not sit next to each other. In how many ways can they be seated? Pause and look for a way to build every legal row exactly once.
+N: Five different students sit in a row of five seats. Three are girls and two are boys. The two boys must not sit next to each other. In how many ways can they be seated? Pause and look for a way to build every legal row exactly once.
 [DEVELOP]
 V: The three girls are placed first in a row with four gaps marked: before, between, between, after. Count 3 x 2 x 1 = 6.
 N: Seat the girls first. Three girls can be arranged in six orders. Around them are four gaps: one at each end and two between.
@@ -81,7 +81,7 @@ V: All 120 arrangements, with 48 "boys together" arrangements shaded: a glued BB
 N: A second method confirms it. Five people can sit in one hundred and twenty ways. Glue the boys together as one block: four objects in twenty-four orders, times two for the boys swapping. That is forty-eight unwanted rows. One hundred and twenty minus forty-eight is seventy-two.
 [RECAP]
 V: Lines: "Can I rebuild the choices from the outcome?", "Does every choice give a legal outcome?".
-N: Ask two questions of any counting method. Can I recover the choices from the outcome? And does every choice give a legal outcome? Notebook challenge: in how many ways can four different books stand on a shelf if two particular books must not be next to each other?
+N: Ask two questions of any counting method. Can I recover the choices from every legal outcome? And does every choice give a legal outcome? Notebook challenge: in how many ways can four different books stand on a shelf if two particular books must not be next to each other?
 TRY: Four different books on a shelf; two particular books must not be adjacent. How many arrangements?
 ANS: 24 total minus 12 with them together = 12.
 
