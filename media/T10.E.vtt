@@ -1,0 +1,76 @@
+WEBVTT
+
+00:00:00.600 --> 00:00:03.720
+A square of dots grows from three rows of three to four
+
+00:00:03.720 --> 00:00:04.610
+rows of four.
+
+00:00:04.800 --> 00:00:05.990
+How many dots are added?
+
+00:00:06.420 --> 00:00:08.640
+And what is the rule for growing any square to
+
+00:00:08.640 --> 00:00:09.370
+the next one?
+
+00:00:13.050 --> 00:00:14.600
+Keep the nine original dots.
+
+00:00:15.370 --> 00:00:16.520
+Add a new bottom row.
+
+00:00:17.030 --> 00:00:18.920
+The new row belongs to the bigger square,
+
+00:00:19.170 --> 00:00:20.500
+so it has four dots.
+
+00:00:21.700 --> 00:00:23.490
+Now add the new right-hand column.
+
+00:00:24.140 --> 00:00:27.450
+Its bottom dot is already there, as part of the new row.
+
+00:00:27.800 --> 00:00:29.850
+So only three more dots are needed.
+
+00:00:30.830 --> 00:00:33.180
+Four plus three is seven dots added.
+
+00:00:33.830 --> 00:00:37.220
+Nine plus seven is sixteen, which is four times four.
+
+00:00:38.040 --> 00:00:39.970
+The same picture works for any size.
+
+00:00:40.360 --> 00:00:44.050
+To grow a square of side n, add a row of n plus one dots
+
+00:00:44.360 --> 00:00:45.630
+and a column of n dots.
+
+00:00:46.320 --> 00:00:48.230
+That is two n plus one dots.
+
+00:00:48.640 --> 00:00:51.500
+So from ten by ten to eleven by eleven you
+
+00:00:51.500 --> 00:00:52.750
+add twenty-one dots.
+
+00:00:53.720 --> 00:00:56.640
+That is why the gaps between square numbers are the odd
+
+00:00:56.640 --> 00:00:59.770
+numbers: three, five, seven, nine.
+
+00:01:00.260 --> 00:01:03.740
+Rebuild this argument, then answer: how many dots are
+
+00:01:03.740 --> 00:01:06.300
+added when a twenty by twenty square grows to
+
+00:01:06.300 --> 00:01:07.730
+twenty-one by twenty-one?

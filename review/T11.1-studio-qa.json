@@ -1,0 +1,101 @@
+{
+  "id": "T11.1",
+  "duration_seconds": 116.0,
+  "sha256": "132bc1e9f3cbc554cba277345efeaa63ba94ec6c23bf43b9d19454151e96efed",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 97.36,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "match_percent": 97.56
+    },
+    {
+      "number": 2,
+      "start": 15.96,
+      "match_percent": 100.0
+    },
+    {
+      "number": 3,
+      "start": 26.21,
+      "match_percent": 100.0
+    },
+    {
+      "number": 4,
+      "start": 39.15,
+      "match_percent": 89.8
+    },
+    {
+      "number": 5,
+      "start": 48.28,
+      "match_percent": 91.43
+    },
+    {
+      "number": 6,
+      "start": 61.56,
+      "match_percent": 100.0
+    },
+    {
+      "number": 7,
+      "start": 74.05,
+      "match_percent": 100.0
+    },
+    {
+      "number": 8,
+      "start": 87.01,
+      "match_percent": 100.0
+    },
+    {
+      "number": 9,
+      "start": 96.77,
+      "match_percent": 97.44
+    }
+  ],
+  "chapters": [
+    {
+      "title": "A digit changes value when it moves",
+      "start": 0.0
+    },
+    {
+      "title": "Use tens and units instead of guessing",
+      "start": 15.96
+    },
+    {
+      "title": "The reversed number is 27 bigger",
+      "start": 26.21
+    },
+    {
+      "title": "Write each number with place value",
+      "start": 39.15
+    },
+    {
+      "title": "Subtract the original from its reverse",
+      "start": 48.28
+    },
+    {
+      "title": "List the digit pairs three apart",
+      "start": 61.56
+    },
+    {
+      "title": "The sum of a number and its reverse",
+      "start": 74.05
+    },
+    {
+      "title": "Each digit has a limited range",
+      "start": 87.01
+    },
+    {
+      "title": "Your turn",
+      "start": 96.77
+    }
+  ],
+  "decoded_successfully": true
+}

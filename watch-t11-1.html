@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10151d">
+<link rel="icon" href="icon.svg">
+<title>T11.1 · Translate position into value · Summit One</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 25%, #192631, #0c121a 75%);
+  color: #f2f1ed; font: 1rem/1.55 system-ui, sans-serif;
+}
+main { max-width: 1120px; margin: auto; padding: clamp(18px, 4vw, 48px); }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.back { justify-content: space-between; gap: 8px 20px; }
+a { color: #9cdbbc; }
+h1 { max-width: 880px; margin: .25em 0 .45em; font-size: clamp(1.95rem, 5vw, 3.45rem); line-height: 1.12; }
+h2 { margin: 0; font-size: 1.2rem; }
+p { max-width: 55rem; color: #bac4cf; }
+.lesson { color: #9cdbbc; margin: 2rem 0 0; font-size: .88rem; font-weight: 700; }
+video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #10151d; border: 1px solid #354652; border-radius: 14px; }
+.meta { color: #bac4cf; margin: .65rem 0 0; }
+.chapters { margin: 1.2rem 0 1.6rem; }
+button {
+  cursor: pointer; min-height: 44px; border: 1px solid #405463; border-radius: 12px;
+  background: #1b2834; color: #eef2f4; font: inherit; padding: .5rem .8rem;
+}
+.exercise { background: #18232e; border: 1px solid #364756; border-radius: 16px; padding: 1.15rem; }
+summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
+.transcript { margin-top: 1rem; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+</style>
+</head>
+<body>
+<main>
+<nav class="back" aria-label="Lesson navigation">
+<a href="./">← Summit One</a><a href="teaching-videos.html">Teaching videos</a>
+</nav>
+<p class="lesson">T11.1</p>
+<h1>Translate position into value</h1>
+<p>Write a number in terms of its digits so that place value can be used.</p>
+<video id="lesson" controls playsinline preload="metadata" aria-label="Translate position into value"
+  poster="media/T11.1-studio-poster.jpg?v=teaching-films-v1">
+  <source src="media/T11.1.mp4?v=teaching-films-v1" type="video/mp4">
+</video>
+<p class="meta">1:56 · Full HD</p>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · A digit changes value when it moves</button>
+<button type="button" data-time="15.960">0:15 · Use tens and units instead of guessing</button>
+<button type="button" data-time="26.210">0:26 · The reversed number is 27 bigger</button>
+<button type="button" data-time="39.150">0:39 · Write each number with place value</button>
+<button type="button" data-time="48.280">0:48 · Subtract the original from its reverse</button>
+<button type="button" data-time="61.560">1:01 · List the digit pairs three apart</button>
+<button type="button" data-time="74.050">1:14 · The sum of a number and its reverse</button>
+<button type="button" data-time="87.010">1:27 · Each digit has a limited range</button>
+<button type="button" data-time="96.770">1:36 · Your turn</button></nav>
+<section class="exercise">
+<h2>Try it in your notebook</h2>
+<p>A two-digit number equals 4 times the sum of its digits. Find all such numbers.</p>
+<details><summary>Check your reasoning</summary><p>10A + B = 4A + 4B gives B = 2A: 12, 24, 36, 48.</p></details>
+</section>
+<details class="transcript"><summary>Read the transcript</summary><p>The digit four in forty-two is worth forty, because of where it stands. Swap the digits and the same four is worth only four. A digit&#x27;s position multiplies its value, and writing that down turns digit puzzles into simple algebra.</p>
+<p>Digit puzzles look like guessing games. But if you write a two-digit number as ten times its first digit plus its second, most of the guessing disappears.</p>
+<p>A two-digit number is reversed, and the new number is twenty-seven bigger. What can you say about its digits? Pause and write both numbers using place value.</p>
+<p>Call the tens digit A and the units digit B. The number is ten A plus B. The reverse is ten B plus A.</p>
+<p>Subtract. The difference is nine B minus nine A, which is nine times the gap between the digits. Twenty-seven is nine times three. So the units digit is three more than the tens digit.</p>
+<p>That gives fourteen, twenty-five, thirty-six, forty-seven, fifty-eight and sixty-nine. Check one: fifty-two minus twenty-five is twenty-seven.</p>
+<p>Adding a number to its reverse gives eleven A plus eleven B: eleven times the digit sum. Forty-seven plus seventy-four is one hundred and twenty-one, which is eleven times eleven.</p>
+<p>Remember that a digit is not just any number. The first digit runs from one to nine, and the others from zero to nine. Those limits often finish a puzzle.</p>
+<p>Write numbers using place value. Reversing and subtracting gives a multiple of nine. Reversing and adding gives a multiple of eleven. Notebook challenge: a two-digit number is four times the sum of its digits. Find all such numbers.</p></details>
+<p><a href="media/T11.1.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+</main>
+<script>
+const video = document.querySelector("#lesson");
+for (const button of document.querySelectorAll("[data-time]")) {
+  button.addEventListener("click", () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+    video.scrollIntoView({block: "center"});
+  });
+}
+</script>
+</body>
+</html>

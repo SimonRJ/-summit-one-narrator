@@ -1,0 +1,92 @@
+{
+  "id": "T10.1",
+  "duration_seconds": 105.6,
+  "sha256": "6e21ebb5bed4f5a67b3e59c6464e747c564101ab48ad5e5bb0c376dfd4a77c1f",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 100.0,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "match_percent": 100.0
+    },
+    {
+      "number": 2,
+      "start": 13.88,
+      "match_percent": 100.0
+    },
+    {
+      "number": 3,
+      "start": 23.33,
+      "match_percent": 100.0
+    },
+    {
+      "number": 4,
+      "start": 43.77,
+      "match_percent": 100.0
+    },
+    {
+      "number": 5,
+      "start": 57.37,
+      "match_percent": 100.0
+    },
+    {
+      "number": 6,
+      "start": 64.74,
+      "match_percent": 100.0
+    },
+    {
+      "number": 7,
+      "start": 75.31,
+      "match_percent": 100.0
+    },
+    {
+      "number": 8,
+      "start": 88.1,
+      "match_percent": 100.0
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Build big cases from smaller ones",
+      "start": 0.0
+    },
+    {
+      "title": "A short rule replaces a long list",
+      "start": 13.88
+    },
+    {
+      "title": "How many tilings for five cells?",
+      "start": 23.33
+    },
+    {
+      "title": "Sort by how the last tile ends the strip",
+      "start": 43.77
+    },
+    {
+      "title": "Append a last tile to each smaller case",
+      "start": 57.37
+    },
+    {
+      "title": "Each number adds the previous two",
+      "start": 64.74
+    },
+    {
+      "title": "Single and double steps make the same recurrence",
+      "start": 75.31
+    },
+    {
+      "title": "Your turn",
+      "start": 88.1
+    }
+  ],
+  "decoded_successfully": true
+}

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10151d">
+<link rel="icon" href="icon.svg">
+<title>T10.E · Build patterns from reasons, not guesses · Summit One</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 25%, #192631, #0c121a 75%);
+  color: #f2f1ed; font: 1rem/1.55 system-ui, sans-serif;
+}
+main { max-width: 1120px; margin: auto; padding: clamp(18px, 4vw, 48px); }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.back { justify-content: space-between; gap: 8px 20px; }
+a { color: #9cdbbc; }
+h1 { max-width: 880px; margin: .25em 0 .45em; font-size: clamp(1.95rem, 5vw, 3.45rem); line-height: 1.12; }
+h2 { margin: 0; font-size: 1.2rem; }
+p { max-width: 55rem; color: #bac4cf; }
+.lesson { color: #9cdbbc; margin: 2rem 0 0; font-size: .88rem; font-weight: 700; }
+video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #10151d; border: 1px solid #354652; border-radius: 14px; }
+.meta { color: #bac4cf; margin: .65rem 0 0; }
+.chapters { margin: 1.2rem 0 1.6rem; }
+button {
+  cursor: pointer; min-height: 44px; border: 1px solid #405463; border-radius: 12px;
+  background: #1b2834; color: #eef2f4; font: inherit; padding: .5rem .8rem;
+}
+.exercise { background: #18232e; border: 1px solid #364756; border-radius: 16px; padding: 1.15rem; }
+summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
+.transcript { margin-top: 1rem; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+</style>
+</head>
+<body>
+<main>
+<nav class="back" aria-label="Lesson navigation">
+<a href="./">← Summit One</a><a href="teaching-videos.html">Teaching videos</a><a href="watch-t11-1.html">Next · Translate position into value →</a>
+</nav>
+<p class="lesson">T10.E · Worked example</p>
+<h1>Build patterns from reasons, not guesses</h1>
+<p>Worked example: explain how a square of dots grows.</p>
+<video id="lesson" controls playsinline preload="metadata" aria-label="Build patterns from reasons, not guesses"
+  poster="media/T10.E-studio-poster.jpg?v=teaching-films-v1">
+  <source src="media/T10.E.mp4?v=teaching-films-v1" type="video/mp4">
+</video>
+<p class="meta">1:13 · Full HD</p>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Grow a square from 3 × 3 to 4 × 4</button>
+<button type="button" data-time="13.050">0:13 · The new bottom row has four dots</button>
+<button type="button" data-time="21.700">0:21 · Count the right column without its corner</button>
+<button type="button" data-time="30.830">0:30 · Add the new row and column</button>
+<button type="button" data-time="38.040">0:38 · Any larger square adds an odd number of dots</button>
+<button type="button" data-time="53.720">0:53 · Your turn</button></nav>
+<section class="exercise">
+<h2>Try it in your notebook</h2>
+<p>How many dots are added when a 20 by 20 square grows to 21 by 21?</p>
+<details><summary>Check your reasoning</summary><p>2 x 20 + 1 = 41.</p></details>
+</section>
+<details class="transcript"><summary>Read the transcript</summary><p>A square of dots grows from three rows of three to four rows of four. How many dots are added? And what is the rule for growing any square to the next one?</p>
+<p>Keep the nine original dots. Add a new bottom row. The new row belongs to the bigger square, so it has four dots.</p>
+<p>Now add the new right-hand column. Its bottom dot is already there, as part of the new row. So only three more dots are needed.</p>
+<p>Four plus three is seven dots added. Nine plus seven is sixteen, which is four times four.</p>
+<p>The same picture works for any size. To grow a square of side n, add a row of n plus one dots and a column of n dots. That is two n plus one dots. So from ten by ten to eleven by eleven you add twenty-one dots.</p>
+<p>That is why the gaps between square numbers are the odd numbers: three, five, seven, nine. Rebuild this argument, then answer: how many dots are added when a twenty by twenty square grows to twenty-one by twenty-one?</p></details>
+<p><a href="media/T10.E.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+</main>
+<script>
+const video = document.querySelector("#lesson");
+for (const button of document.querySelectorAll("[data-time]")) {
+  button.addEventListener("click", () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+    video.scrollIntoView({block: "center"});
+  });
+}
+</script>
+</body>
+</html>

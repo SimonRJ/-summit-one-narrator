@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10151d">
+<link rel="icon" href="icon.svg">
+<title>T10.1 · Build a recurrence from a reversible step · Summit One</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 25%, #192631, #0c121a 75%);
+  color: #f2f1ed; font: 1rem/1.55 system-ui, sans-serif;
+}
+main { max-width: 1120px; margin: auto; padding: clamp(18px, 4vw, 48px); }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.back { justify-content: space-between; gap: 8px 20px; }
+a { color: #9cdbbc; }
+h1 { max-width: 880px; margin: .25em 0 .45em; font-size: clamp(1.95rem, 5vw, 3.45rem); line-height: 1.12; }
+h2 { margin: 0; font-size: 1.2rem; }
+p { max-width: 55rem; color: #bac4cf; }
+.lesson { color: #9cdbbc; margin: 2rem 0 0; font-size: .88rem; font-weight: 700; }
+video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #10151d; border: 1px solid #354652; border-radius: 14px; }
+.meta { color: #bac4cf; margin: .65rem 0 0; }
+.chapters { margin: 1.2rem 0 1.6rem; }
+button {
+  cursor: pointer; min-height: 44px; border: 1px solid #405463; border-radius: 12px;
+  background: #1b2834; color: #eef2f4; font: inherit; padding: .5rem .8rem;
+}
+.exercise { background: #18232e; border: 1px solid #364756; border-radius: 16px; padding: 1.15rem; }
+summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
+.transcript { margin-top: 1rem; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+</style>
+</head>
+<body>
+<main>
+<nav class="back" aria-label="Lesson navigation">
+<a href="./">← Summit One</a><a href="teaching-videos.html">Teaching videos</a><a href="watch-t10-2.html">Next · Remember enough information, but no more →</a>
+</nav>
+<p class="lesson">T10.1</p>
+<h1>Build a recurrence from a reversible step</h1>
+<p>Count large cases by building them from smaller cases.</p>
+<video id="lesson" controls playsinline preload="metadata" aria-label="Build a recurrence from a reversible step"
+  poster="media/T10.1-studio-poster.jpg?v=teaching-films-v1">
+  <source src="media/T10.1.mp4?v=teaching-films-v1" type="video/mp4">
+</video>
+<p class="meta">1:45 · Full HD</p>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Build big cases from smaller ones</button>
+<button type="button" data-time="13.880">0:13 · A short rule replaces a long list</button>
+<button type="button" data-time="23.330">0:23 · How many tilings for five cells?</button>
+<button type="button" data-time="43.770">0:43 · Sort by how the last tile ends the strip</button>
+<button type="button" data-time="57.370">0:57 · Append a last tile to each smaller case</button>
+<button type="button" data-time="64.740">1:04 · Each number adds the previous two</button>
+<button type="button" data-time="75.310">1:15 · Single and double steps make the same recurrence</button>
+<button type="button" data-time="88.100">1:28 · Your turn</button></nav>
+<section class="exercise">
+<h2>Try it in your notebook</h2>
+<p>How many ways to tile a strip of length 7 with tiles of length 1 and 2?</p>
+<details><summary>Check your reasoning</summary><p>1, 2, 3, 5, 8, 13, 21: there are 21.</p></details>
+</section>
+<details class="transcript"><summary>Read the transcript</summary><p>Some counting problems are too big to list, but they grow in a regular way. If you can explain how each case is built from smaller ones, you can climb to any size. That building rule is called a recurrence.</p>
+<p>A strip of ten cells can be tiled in eighty-nine ways. Nobody wants to list those. A recurrence gets the answer with nine small additions.</p>
+<p>A strip is covered using tiles of length one and tiles of length two. A strip of length one can be tiled in one way, length two in two ways, length three in three ways, length four in five ways. How many ways are there for length five? Pause and look at how a tiling ends.</p>
+<p>Look at the last tile. Either it is a single, and the rest is a tiling of length four. Or it is a double, and the rest is a tiling of length three. Every tiling ends in exactly one of these two ways.</p>
+<p>So the number for length five is the number for length four plus the number for length three. Five plus three is eight.</p>
+<p>Keep going. Eight plus five is thirteen. Then twenty-one, thirty-four, fifty-five, eighty-nine. Each number is the sum of the two before it.</p>
+<p>The same rule appears in disguise. Climbing stairs one or two steps at a time is the same problem: the last move is a single step or a double. Six stairs can be climbed in thirteen ways.</p>
+<p>Sort the possibilities by their last move. Each group matches a smaller case. Add the groups. Notebook challenge: how many ways are there to tile a strip of length seven with singles and doubles?</p></details>
+<p><a href="media/T10.1.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+</main>
+<script>
+const video = document.querySelector("#lesson");
+for (const button of document.querySelectorAll("[data-time]")) {
+  button.addEventListener("click", () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+    video.scrollIntoView({block: "center"});
+  });
+}
+</script>
+</body>
+</html>

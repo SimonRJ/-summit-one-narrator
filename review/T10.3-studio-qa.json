@@ -1,0 +1,92 @@
+{
+  "id": "T10.3",
+  "duration_seconds": 124.133333,
+  "sha256": "b10ac3f237e9b45ffb36495a82982e6e4dcd8d7a89339afbd2d8a4aee4ad8a9c",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 99.31,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "match_percent": 100.0
+    },
+    {
+      "number": 2,
+      "start": 13.08,
+      "match_percent": 96.55
+    },
+    {
+      "number": 3,
+      "start": 22.84,
+      "match_percent": 100.0
+    },
+    {
+      "number": 4,
+      "start": 38.17,
+      "match_percent": 100.0
+    },
+    {
+      "number": 5,
+      "start": 50.65,
+      "match_percent": 100.0
+    },
+    {
+      "number": 6,
+      "start": 68.73,
+      "match_percent": 100.0
+    },
+    {
+      "number": 7,
+      "start": 83.93,
+      "match_percent": 100.0
+    },
+    {
+      "number": 8,
+      "start": 105.2,
+      "match_percent": 97.92
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Label positions for the player about to move",
+      "start": 0.0
+    },
+    {
+      "title": "Work up from small positions",
+      "start": 13.08
+    },
+    {
+      "title": "Choose whether to move first",
+      "start": 22.84
+    },
+    {
+      "title": "Three leaves a winning position for the opponent",
+      "start": 38.17
+    },
+    {
+      "title": "Winning moves leave a losing position",
+      "start": 50.65
+    },
+    {
+      "title": "Start at ten and leave nine",
+      "start": 68.73
+    },
+    {
+      "title": "Taking up to three changes the losing piles",
+      "start": 83.93
+    },
+    {
+      "title": "Your turn",
+      "start": 105.2
+    }
+  ],
+  "decoded_successfully": true
+}

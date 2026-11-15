@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10151d">
+<link rel="icon" href="icon.svg">
+<title>T10.3 · Classify game positions by their legal moves · Summit One</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 25%, #192631, #0c121a 75%);
+  color: #f2f1ed; font: 1rem/1.55 system-ui, sans-serif;
+}
+main { max-width: 1120px; margin: auto; padding: clamp(18px, 4vw, 48px); }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.back { justify-content: space-between; gap: 8px 20px; }
+a { color: #9cdbbc; }
+h1 { max-width: 880px; margin: .25em 0 .45em; font-size: clamp(1.95rem, 5vw, 3.45rem); line-height: 1.12; }
+h2 { margin: 0; font-size: 1.2rem; }
+p { max-width: 55rem; color: #bac4cf; }
+.lesson { color: #9cdbbc; margin: 2rem 0 0; font-size: .88rem; font-weight: 700; }
+video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #10151d; border: 1px solid #354652; border-radius: 14px; }
+.meta { color: #bac4cf; margin: .65rem 0 0; }
+.chapters { margin: 1.2rem 0 1.6rem; }
+button {
+  cursor: pointer; min-height: 44px; border: 1px solid #405463; border-radius: 12px;
+  background: #1b2834; color: #eef2f4; font: inherit; padding: .5rem .8rem;
+}
+.exercise { background: #18232e; border: 1px solid #364756; border-radius: 16px; padding: 1.15rem; }
+summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
+.transcript { margin-top: 1rem; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+</style>
+</head>
+<body>
+<main>
+<nav class="back" aria-label="Lesson navigation">
+<a href="./">← Summit One</a><a href="teaching-videos.html">Teaching videos</a><a href="watch-t10-e.html">Next · Build patterns from reasons, not guesses →</a>
+</nav>
+<p class="lesson">T10.3</p>
+<h1>Classify game positions by their legal moves</h1>
+<p>Label positions in a game as winning or losing, starting from the end.</p>
+<video id="lesson" controls playsinline preload="metadata" aria-label="Classify game positions by their legal moves"
+  poster="media/T10.3-studio-poster.jpg?v=teaching-films-v1">
+  <source src="media/T10.3.mp4?v=teaching-films-v1" type="video/mp4">
+</video>
+<p class="meta">2:04 · Full HD</p>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Label positions for the player about to move</button>
+<button type="button" data-time="13.080">0:13 · Work up from small positions</button>
+<button type="button" data-time="22.840">0:22 · Choose whether to move first</button>
+<button type="button" data-time="38.170">0:38 · Three leaves a winning position for the opponent</button>
+<button type="button" data-time="50.650">0:50 · Winning moves leave a losing position</button>
+<button type="button" data-time="68.730">1:08 · Start at ten and leave nine</button>
+<button type="button" data-time="83.930">1:23 · Taking up to three changes the losing piles</button>
+<button type="button" data-time="105.200">1:45 · Your turn</button></nav>
+<section class="exercise">
+<h2>Try it in your notebook</h2>
+<p>Take 1 or 2; last counter wins; pile of 14. What should the first player take?</p>
+<details><summary>Check your reasoning</summary><p>Take 2, leaving 12, a multiple of 3.</p></details>
+</section>
+<details class="transcript"><summary>Read the transcript</summary><p>In many two-player games, you can work out who should win before the game starts. Label each position as winning or losing for the player about to move, beginning with the smallest positions and working up.</p>
+<p>Playing out every possible game is hopeless. Labelling positions needs only a little work for each one, and it tells you the best move as well as the winner.</p>
+<p>Two players take turns removing one or two counters from a pile of ten. Whoever takes the last counter wins. Would you rather go first or second? Pause and think about very small piles.</p>
+<p>With one or two counters, you take them all and win. Those are winning positions. With three, whatever you take, you leave one or two, and your opponent wins. Three is a losing position.</p>
+<p>The rule is: a position is winning if some move leads to a losing position, and losing if every move leads to a winning position. From four or five you can move to three, so they are winning. Six is losing. The losing positions are the multiples of three: three, six and nine.</p>
+<p>Ten is not a multiple of three, so go first and take one, leaving nine. After that, whatever your opponent takes, you take the amount that makes three altogether. You always leave a multiple of three, and you take the last counter.</p>
+<p>Change the rule to taking one, two or three. One, two and three are winning, since you can take them all. Four is losing. From a multiple of four, any move lets the next player finish a total removal of four. From any other size, take enough to reach a multiple of four. The losing positions are the multiples of four.</p>
+<p>A position is winning if you can move to a losing one. It is losing if every move goes to a winning one. Start labelling from the end. Notebook challenge: with the take one or two rule and a pile of fourteen, what should the first player take?</p></details>
+<p><a href="media/T10.3.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+</main>
+<script>
+const video = document.querySelector("#lesson");
+for (const button of document.querySelectorAll("[data-time]")) {
+  button.addEventListener("click", () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+    video.scrollIntoView({block: "center"});
+  });
+}
+</script>
+</body>
+</html>

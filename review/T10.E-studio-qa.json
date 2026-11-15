@@ -1,0 +1,74 @@
+{
+  "id": "T10.E",
+  "duration_seconds": 73.133333,
+  "sha256": "e99baea8c153c0bd95d7068f038491c9a446edb5900fc9d868415b446671e4de",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 100.0,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "match_percent": 100.0
+    },
+    {
+      "number": 2,
+      "start": 13.05,
+      "match_percent": 100.0
+    },
+    {
+      "number": 3,
+      "start": 21.7,
+      "match_percent": 100.0
+    },
+    {
+      "number": 4,
+      "start": 30.83,
+      "match_percent": 100.0
+    },
+    {
+      "number": 5,
+      "start": 38.04,
+      "match_percent": 100.0
+    },
+    {
+      "number": 6,
+      "start": 53.72,
+      "match_percent": 100.0
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Grow a square from 3 × 3 to 4 × 4",
+      "start": 0.0
+    },
+    {
+      "title": "The new bottom row has four dots",
+      "start": 13.05
+    },
+    {
+      "title": "Count the right column without its corner",
+      "start": 21.7
+    },
+    {
+      "title": "Add the new row and column",
+      "start": 30.83
+    },
+    {
+      "title": "Any larger square adds an odd number of dots",
+      "start": 38.04
+    },
+    {
+      "title": "Your turn",
+      "start": 53.72
+    }
+  ],
+  "decoded_successfully": true
+}
