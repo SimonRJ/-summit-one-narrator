@@ -64,9 +64,9 @@ Scripts ready: 56 of 72. Published for review: 14. Approved videos: 2. Not yet s
 | T14.2 | Use future obligations to reject tempting moves | concept | script ready | 339 words, about 2.3 min | [T14.2.json](T14.2.json) |
 | T14.3 | Read a schedule as groups of nonconflicting edges | concept | script ready | 327 words, about 2.2 min | [T14.3.json](T14.3.json) |
 | T14.E | Turn routes and schedules into networks | worked_example | script ready | 204 words, about 1.4 min | [T14.E.json](T14.E.json) |
-| T15.1 | Define sameness before counting | concept | script ready | 306 words, about 2.0 min | [T15.1.json](T15.1.json) |
-| T15.2 | Do not divide by a symmetry count blindly | concept | script ready | 318 words, about 2.1 min | [T15.2.json](T15.2.json) |
-| T15.3 | Pair objects or classify their local structure | concept | script ready | 324 words, about 2.2 min | [T15.3.json](T15.3.json) |
+| T15.1 | Define sameness before counting | concept | script ready | 312 words, about 2.1 min | [T15.1.json](T15.1.json) |
+| T15.2 | Do not divide by a symmetry count blindly | concept | script ready | 334 words, about 2.2 min | [T15.2.json](T15.2.json) |
+| T15.3 | Pair objects or classify their local structure | concept | script ready | 327 words, about 2.2 min | [T15.3.json](T15.3.json) |
 | T15.E | Use symmetry without losing or repeating cases | worked_example | script ready | 188 words, about 1.3 min | [T15.E.json](T15.E.json) |
 | T16.1 | Turn a ratio into equal parts | concept | script ready | 284 words, about 1.9 min | [T16.1.json](T16.1.json) |
 | T16.2 | Convert time descriptions into rates | concept | script ready | 306 words, about 2.0 min | [T16.2.json](T16.2.json) |

@@ -6,8 +6,8 @@
  "status": "script_ready_not_recorded",
  "voice": "Voice C (VoxCPM2), natural speed (see docs/VIDEO_PRODUCTION.md)",
  "goal": "Decide which arrangements count as \"the same\" before counting them.",
- "narration_words": 306,
- "estimated_minutes": 2.0,
+ "narration_words": 312,
+ "estimated_minutes": 2.1,
  "scenes": [
   {
    "n": 1,
@@ -49,7 +49,7 @@
    "n": 7,
    "stage": "VARIATION",
    "visual": "A tile with an asymmetric mark and its mirror image side by side; rotating one never matches the other. A flip arrow turns one into the other.",
-   "narration": "Turning over is different from turning round. A flat tile can be rotated on the table, but its mirror image only appears if you are allowed to flip it over. Unless the question allows flipping, a shape and its mirror image are different."
+   "narration": "Turning over is different from turning round. This marked tile cannot match its mirror by turning on the table. Flipping it over changes the order of the marks and makes a match. Some other marks do match their mirrors by turning, so test the moves that the question allows."
   },
   {
    "n": 8,
