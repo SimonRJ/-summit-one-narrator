@@ -2,7 +2,7 @@ name: Summit One lesson introduction release
 
 on:
   push:
-    branches: ['codex/lesson-intro-release', main]
+    branches: ['codex/lesson-intro-release', 'codex/lesson-intro-release-next', main]
     paths:
       - 'production/t01-studio/intro_release_plan.json'
 
@@ -12,7 +12,7 @@ permissions:
 
 jobs:
   stage:
-    if: github.ref_name == 'codex/lesson-intro-release'
+    if: startsWith(github.ref_name, 'codex/lesson-intro-release')
     runs-on: ubuntu-latest
     timeout-minutes: 75
     permissions:
@@ -24,22 +24,24 @@ jobs:
         id: plan
         run: |
           python - <<'PY'
-          import json, os
+          import json, os, re
           from pathlib import Path
           plan = json.loads(Path("production/t01-studio/intro_release_plan.json").read_text())
           assert type(plan["render_run"]) is int and plan["render_run"] > 0
-          assert plan["lessons"] == [f"S{slot:03}" for slot in range(1, 6)]
+          lessons = plan["lessons"]
+          assert lessons and sorted(set(lessons)) == lessons
+          assert all(re.fullmatch(r"S[0-9]{3}", lesson) for lesson in lessons)
           with open(os.environ["GITHUB_OUTPUT"], "a") as out:
               print(f"render={plan['render_run']}", file=out)
           PY
-      - name: Wait until all five films pass render checks
+      - name: Wait until the films pass render checks
         env:
           GH_TOKEN: ${{ github.token }}
           RENDER_RUN: ${{ steps.plan.outputs.render }}
         run: gh run watch "$RENDER_RUN" --repo "$GITHUB_REPOSITORY" --exit-status --interval 20
       - uses: actions/download-artifact@v4
         with:
-          pattern: S00*
+          pattern: S*
           path: build/t01-studio
           run-id: ${{ steps.plan.outputs.render }}
           github-token: ${{ github.token }}
@@ -52,13 +54,13 @@ jobs:
           node --input-type=module --check < lesson-introduction-media.js
           node --check lesson-introduction-watch.js
           node --check sw.js
-      - name: Save the five finished films
+      - name: Save the finished introductions
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add media/S00*-Intro* review/S00*-Intro-qa.json watch-intro-s00*.html lesson-introduction-videos.html
           git diff --cached --check
-          git commit -m 'Publish Summit One introduction videos for lessons 1–5'
+          git commit -m 'Publish the verified unit-cube lesson introduction'
           git push origin "HEAD:$GITHUB_REF_NAME"
 
   verify:
@@ -69,5 +71,5 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
-      - name: Verify all five live introductions
+      - name: Verify the live introductions
         run: python production/t01-studio/check_published_intros.py https://simonrj.github.io/-summit-one-narrator/

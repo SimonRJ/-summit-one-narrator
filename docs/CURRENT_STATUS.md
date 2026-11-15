@@ -63,7 +63,7 @@ A phone-width browser fixture used a local copy of the verified Pages assets to 
 |---|---|
 | Teaching videos | 72 of 72 online through T18.E. [Watch in teaching order](../teaching-videos.html). |
 | Teaching scripts | 0 awaiting production |
-| Lesson introduction videos | Lessons 1–5 online in the Video step and completed lesson review. [Watch in lesson order](../lesson-introduction-videos.html). |
+| Lesson introduction videos | Lessons 1–6 online in the Video step and completed lesson review. [Watch in lesson order](../lesson-introduction-videos.html). |
 | Other finished public videos | AMC introduction, welcome and one AMC solution pilot |
 | Guides | [Student guide](STUDENT_GUIDE.md) and [parent guide](PARENT_GUIDE.md) |
 

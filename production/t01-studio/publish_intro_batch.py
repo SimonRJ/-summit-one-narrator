@@ -127,10 +127,15 @@ def install():
         transcript = "\n\n".join(scene["narration"] for scene in script["scenes"])
         stem.with_name(stem.name + "-transcript.txt").write_text(transcript + "\n")
         print(f"{lesson}: verified {watch_time(report['duration_seconds'])} in Full HD with Voice C and captions.")
-    for index, lesson in enumerate(lessons):
-        following = lessons[index + 1] if index + 1 < len(lessons) else None
+    published = sorted(path.name[:4] for path in (ROOT / "review").glob("S[0-9][0-9][0-9]-Intro-qa.json"))
+    for lesson in published:
+        if lesson not in reports:
+            reports[lesson] = json.loads((ROOT / f"review/{lesson}-Intro-qa.json").read_text())
+            scripts[lesson] = json.loads((ROOT / f"production/scripts/{lesson}.json").read_text())
+    for index, lesson in enumerate(published):
+        following = published[index + 1] if index + 1 < len(published) else None
         write_watch(lesson, scripts[lesson], reports[lesson], following)
-    write_gallery(lessons, scripts, reports)
+    write_gallery(published, scripts, reports)
 
 
 if __name__ == "__main__":

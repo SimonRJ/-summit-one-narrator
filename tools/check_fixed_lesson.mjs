@@ -10,7 +10,7 @@ assert.equal(lessons[1].focus,'Place-value decomposition and estimation');
 const {lessonIntroId,INTRO_MEDIA_VERSION}=await import('../lesson-introduction-media.js');
 const playerSource=app.slice(app.indexOf('function lessonIntroPlayer('),app.indexOf('async function openLessonIntroductionFromMenu('));
 const lessonIntroPlayer=new Function('esc','INTRO_MEDIA_VERSION',playerSource+'\nreturn lessonIntroPlayer;')(String,INTRO_MEDIA_VERSION);
-for(let i=0;i<5;i++){
+for(let i=0;i<6;i++){
  const lesson=lessons[i], id=lessonIntroId(lesson.slot), data=JSON.parse(read('../production/scripts/'+id+'.json'));
  assert.equal(id,'S00'+(i+1));
  assert.equal(data.id,id);
@@ -30,7 +30,7 @@ for(let i=0;i<5;i++){
  assert.equal(qa.caption_layers,1);
  assert(qa.decoded_successfully);
 }
-assert.equal(lessonIntroId(6),null);
+assert.equal(lessonIntroId(7),null);
 assert(/function renderLessonOpening/.test(app));
 assert(/function renderSession/.test(app));
 assert(/activeStage=-1/.test(app));
@@ -208,4 +208,4 @@ for(const path of ['advanced-number.js','advanced-counting.js','advanced-geometr
 
 assert(app.includes('attempted_on_paper_unreviewed'));
 
-console.log('PASS: five graduated lesson videos, all stage screens, fixed viewport and protected learning data.');
+console.log('PASS: six graduated lesson videos, all stage screens, fixed viewport and protected learning data.');
