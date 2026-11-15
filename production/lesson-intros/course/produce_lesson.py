@@ -1,8 +1,8 @@
 """Record one lesson with Voice C, then render and check the timed movie."""
 
 import argparse
+from hashlib import sha256
 import json
-from pathlib import Path
 import subprocess
 import sys
 
@@ -25,14 +25,22 @@ def record(lesson, scenes, seed):
     return run("synth.py", "--sequence", str(sequence), "--threads", "4", "--seed-offset", str(seed))
 
 
+def has_recording(lesson, scene):
+    stem = BUILD / f"{lesson}-{scene['n']:02}"
+    try:
+        metadata = json.loads(stem.with_suffix(".json").read_text())
+    except (OSError, json.JSONDecodeError):
+        return False
+    return (stem.with_suffix(".wav").is_file()
+            and metadata.get("narration_sha256") == sha256(scene["narration"].encode()).hexdigest())
+
+
 def produce(id, attempt):
     lesson = next(item for item in lessons() if item.id == id)
     script = compile_lesson(lesson)
-    numbers = [scene["n"] for scene in script["scenes"]]
     seed_base = attempt * 269
     for seed in (0, 19, 73, 155):
-        incomplete = [number for number in numbers if not (BUILD / f"{id}-{number:02}.json").is_file()
-                      or not (BUILD / f"{id}-{number:02}.wav").is_file()]
+        incomplete = [scene["n"] for scene in script["scenes"] if not has_recording(id, scene)]
         if not incomplete:
             break
         record(id, incomplete, seed_base + seed)
