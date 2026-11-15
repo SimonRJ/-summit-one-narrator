@@ -1,0 +1,74 @@
+{
+  "id": "T17.E",
+  "duration_seconds": 84.133333,
+  "sha256": "79ed28e006bebf43d89d3a3df5d3f55118b8ec48137d92f3cf0f91299e1d9364",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 100.0,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "match_percent": 100.0
+    },
+    {
+      "number": 2,
+      "start": 18.97,
+      "match_percent": 100.0
+    },
+    {
+      "number": 3,
+      "start": 33.21,
+      "match_percent": 100.0
+    },
+    {
+      "number": 4,
+      "start": 43.29,
+      "match_percent": 100.0
+    },
+    {
+      "number": 5,
+      "start": 52.57,
+      "match_percent": 100.0
+    },
+    {
+      "number": 6,
+      "start": 67.61,
+      "match_percent": 100.0
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Why is the product of neighbours always even?",
+      "start": 0.0
+    },
+    {
+      "title": "Every pair of neighbours has one even number",
+      "start": 18.97
+    },
+    {
+      "title": "Case 1: the first number is even",
+      "start": 33.21
+    },
+    {
+      "title": "Case 2: the next number is even",
+      "start": 43.29
+    },
+    {
+      "title": "The whole product splits into two staircases",
+      "start": 52.57
+    },
+    {
+      "title": "Your turn",
+      "start": 67.61
+    }
+  ],
+  "decoded_successfully": true
+}

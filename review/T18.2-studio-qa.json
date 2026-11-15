@@ -1,0 +1,92 @@
+{
+  "id": "T18.2",
+  "duration_seconds": 109.9,
+  "sha256": "94b3408973c6b7435214f5727d3cf3ec1d08cc7d54f9d4fbe0f1dd3b8f518d35",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 99.65,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "match_percent": 100.0
+    },
+    {
+      "number": 2,
+      "start": 12.28,
+      "match_percent": 100.0
+    },
+    {
+      "number": 3,
+      "start": 23.64,
+      "match_percent": 97.22
+    },
+    {
+      "number": 4,
+      "start": 38.17,
+      "match_percent": 100.0
+    },
+    {
+      "number": 5,
+      "start": 51.3,
+      "match_percent": 100.0
+    },
+    {
+      "number": 6,
+      "start": 63.94,
+      "match_percent": 100.0
+    },
+    {
+      "number": 7,
+      "start": 78.34,
+      "match_percent": 100.0
+    },
+    {
+      "number": 8,
+      "start": 90.18,
+      "match_percent": 100.0
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Leave a trail you can return to",
+      "start": 0.0
+    },
+    {
+      "title": "Keep your place and check independently",
+      "start": 12.28
+    },
+    {
+      "title": "How many border squares are shaded?",
+      "start": 23.64
+    },
+    {
+      "title": "Subtract the inside from the whole grid",
+      "start": 38.17
+    },
+    {
+      "title": "Split the border into four non-overlapping strips",
+      "start": 51.3
+    },
+    {
+      "title": "A full-side count repeats every corner",
+      "start": 63.94
+    },
+    {
+      "title": "Label completed cases and the next action",
+      "start": 78.34
+    },
+    {
+      "title": "Your turn",
+      "start": 90.18
+    }
+  ],
+  "decoded_successfully": true
+}

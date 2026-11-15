@@ -1,0 +1,145 @@
+WEBVTT
+
+00:00:00.600 --> 00:00:03.480
+Checking cases can be a complete proof, if there are
+
+00:00:03.480 --> 00:00:06.050
+only finitely many and you check them all.
+
+00:00:06.520 --> 00:00:09.080
+For endlessly many cases, checking is never enough
+
+00:00:09.080 --> 00:00:09.810
+on its own.
+
+00:00:10.200 --> 00:00:13.120
+But a check plus a rule that passes the result along can
+
+00:00:13.120 --> 00:00:13.990
+cover them all.
+
+00:00:14.840 --> 00:00:17.380
+The danger with case checking is a missing case.
+
+00:00:17.380 --> 00:00:20.640
+A proof by cases must show that the cases cover
+
+00:00:20.640 --> 00:00:22.850
+everything, with nothing left outside.
+
+00:00:23.970 --> 00:00:26.700
+You have plenty of three-cent and five-cent stamps.
+
+00:00:27.230 --> 00:00:29.100
+Which totals can you make exactly?
+
+00:00:29.870 --> 00:00:32.260
+Pause and test the totals from one to twelve.
+
+00:00:35.950 --> 00:00:37.260
+Three and five work.
+
+00:00:37.370 --> 00:00:39.000
+Six is two threes.
+
+00:00:39.070 --> 00:00:40.520
+Eight is three and five.
+
+00:00:40.690 --> 00:00:42.300
+Nine is three threes.
+
+00:00:42.350 --> 00:00:43.900
+Ten is two fives.
+
+00:00:44.250 --> 00:00:46.140
+Eleven is five and two threes.
+
+00:00:46.430 --> 00:00:47.960
+Twelve is four threes.
+
+00:00:48.390 --> 00:00:51.600
+But one, two, four and seven cannot be made.
+
+00:00:52.430 --> 00:00:53.600
+Now the key step.
+
+00:00:53.810 --> 00:00:56.320
+Eight, nine and ten can all be made.
+
+00:00:56.890 --> 00:00:59.420
+Add a three-cent stamp to each and you get eleven,
+
+00:00:59.670 --> 00:01:00.580
+twelve and thirteen.
+
+00:01:01.290 --> 00:01:04.180
+Add another and you get fourteen, fifteen and sixteen.
+
+00:01:04.910 --> 00:01:08.120
+Three totals in a row, plus the ability to add three,
+
+00:01:08.490 --> 00:01:10.260
+reach every total from eight onwards.
+
+00:01:11.470 --> 00:01:13.840
+Every total of eight or more is possible.
+
+00:01:14.750 --> 00:01:15.680
+Seven cannot be made.
+
+00:01:16.150 --> 00:01:17.480
+Two fives are too many.
+
+00:01:18.270 --> 00:01:21.400
+With one five we would need two more, and with no fives
+
+00:01:21.670 --> 00:01:23.140
+we would need a multiple of three.
+
+00:01:23.330 --> 00:01:24.080
+Neither works.
+
+00:01:24.910 --> 00:01:27.700
+So seven is the largest total that cannot be made.
+
+00:01:28.580 --> 00:01:30.490
+A finite check can prove a never.
+
+00:01:31.060 --> 00:01:32.730
+Does any square number end in seven?
+
+00:01:33.280 --> 00:01:35.800
+The last digit of a square depends only on the last
+
+00:01:35.800 --> 00:01:36.930
+digit of the number.
+
+00:01:37.520 --> 00:01:40.950
+Check the ten digits: their squares end in zero, one,
+
+00:01:41.120 --> 00:01:45.220
+four, nine, six, five, six, nine, four and one.
+
+00:01:45.220 --> 00:01:47.050
+Seven never appears.
+
+00:01:47.680 --> 00:01:49.570
+Ten checks cover every whole number.
+
+00:01:50.490 --> 00:01:53.910
+For finitely many cases, check them all and show nothing
+
+00:01:53.910 --> 00:01:54.720
+is left out.
+
+00:01:55.190 --> 00:01:58.050
+For endlessly many, check a starting block and give a
+
+00:01:58.050 --> 00:01:59.940
+rule that carries the result forward.
+
+00:02:00.430 --> 00:02:03.340
+Notebook challenge: with four-cent and five-cent stamps,
+
+00:02:03.790 --> 00:02:05.900
+what is the largest total you cannot make?

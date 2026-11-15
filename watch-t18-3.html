@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10151d">
+<link rel="icon" href="icon.svg">
+<title>T18.3 · Use answer information, then check independently · Summit One</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 25%, #192631, #0c121a 75%);
+  color: #f2f1ed; font: 1rem/1.55 system-ui, sans-serif;
+}
+main { max-width: 1120px; margin: auto; padding: clamp(18px, 4vw, 48px); }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.back { justify-content: space-between; gap: 8px 20px; }
+a { color: #9cdbbc; }
+h1 { max-width: 880px; margin: .25em 0 .45em; font-size: clamp(1.95rem, 5vw, 3.45rem); line-height: 1.12; }
+h2 { margin: 0; font-size: 1.2rem; }
+p { max-width: 55rem; color: #bac4cf; }
+.lesson { color: #9cdbbc; margin: 2rem 0 0; font-size: .88rem; font-weight: 700; }
+video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #10151d; border: 1px solid #354652; border-radius: 14px; }
+.meta { color: #bac4cf; margin: .65rem 0 0; }
+.chapters { margin: 1.2rem 0 1.6rem; }
+button {
+  cursor: pointer; min-height: 44px; border: 1px solid #405463; border-radius: 12px;
+  background: #1b2834; color: #eef2f4; font: inherit; padding: .5rem .8rem;
+}
+.exercise { background: #18232e; border: 1px solid #364756; border-radius: 16px; padding: 1.15rem; }
+summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
+.transcript { margin-top: 1rem; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+</style>
+</head>
+<body>
+<main>
+<nav class="back" aria-label="Lesson navigation">
+<a href="./">← Summit One</a><a href="teaching-videos.html">Teaching videos</a>
+</nav>
+<p class="lesson">T18.3</p>
+<h1>Use answer information, then check independently</h1>
+<p>Use multiple-choice options sensibly, and always answer the question that was asked.</p>
+<video id="lesson" controls playsinline preload="metadata" aria-label="Use answer information, then check independently"
+  poster="media/T18.3-studio-poster.jpg?v=teaching-films-v1">
+  <source src="media/T18.3.mp4?v=teaching-films-v1" type="video/mp4">
+</video>
+<p class="meta">2:11 · Full HD</p>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · The answer options give useful tests</button>
+<button type="button" data-time="16.120">0:16 · An intermediate result can look like an answer</button>
+<button type="button" data-time="27.320">0:27 · Find a multiple of both four and nine</button>
+<button type="button" data-time="41.690">0:41 · A multiple of four still has an even half</button>
+<button type="button" data-time="56.570">0:56 · Now apply the digit-sum test for nine</button>
+<button type="button" data-time="71.450">1:11 · Answer the quantity the question asks for</button>
+<button type="button" data-time="89.530">1:29 · A trial can tell you which direction to try</button>
+<button type="button" data-time="110.650">1:50 · Your turn</button></nav>
+<section class="exercise">
+<h2>Try it in your notebook</h2>
+<p>Which of 45, 60, 75 and 90 is a multiple of both 4 and 5?</p>
+<details><summary>Check your reasoning</summary><p>60.</p></details>
+</section>
+<details class="transcript"><summary>Read the transcript</summary><p>In a multiple-choice question, the options are information. You can test them, or rule some out, without solving the whole problem. But an option that merely looks familiar is not evidence. Every choice still has to be checked against the question.</p>
+<p>Question setters include options that match common mistakes, and options that match a step along the way. Using the options well, and rereading what was asked, protects you from both.</p>
+<p>Which of these numbers is a multiple of both four and nine: fifty-four, sixty-four, seventy-two, eighty-one or ninety? Pause and think about the quickest way to rule options out.</p>
+<p>A multiple of four is even, so eighty-one goes. Half of fifty-four is twenty-seven, which is odd, so fifty-four is not a multiple of four. The same happens with ninety. That leaves sixty-four and seventy-two.</p>
+<p>For nine, add the digits. Sixty-four gives ten, so it is not a multiple of nine. Seventy-two gives nine, so it is. The answer is seventy-two, option C. Two quick tests replaced any long division.</p>
+<p>Now the other trap. A book costs twelve dollars and a pen costs three dollars less. What do two pens cost? One pen costs nine dollars, and nine is among the options. But the question asks for two pens: eighteen. Always reread the request before choosing.</p>
+<p>When an equation is hard to solve directly, try the options in it. Suppose two times x plus five must be nineteen. Try six: the result is seventeen. Here bigger choices give bigger results, so try seven. That gives nineteen. Check how the expression changes before using a trial to choose a direction.</p>
+<p>Rule options out with quick tests. Do not choose a number just because it appeared in your working. Reread what was asked before you answer. Notebook challenge: which of forty-five, sixty, seventy-five and ninety is a multiple of both four and five?</p></details>
+<p><a href="media/T18.3.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+</main>
+<script>
+const video = document.querySelector("#lesson");
+for (const button of document.querySelectorAll("[data-time]")) {
+  button.addEventListener("click", () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+    video.scrollIntoView({block: "center"});
+  });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10151d">
+<link rel="icon" href="icon.svg">
+<title>T18.2 · Manage a complete attempt and an independent check · Summit One</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 25%, #192631, #0c121a 75%);
+  color: #f2f1ed; font: 1rem/1.55 system-ui, sans-serif;
+}
+main { max-width: 1120px; margin: auto; padding: clamp(18px, 4vw, 48px); }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.back { justify-content: space-between; gap: 8px 20px; }
+a { color: #9cdbbc; }
+h1 { max-width: 880px; margin: .25em 0 .45em; font-size: clamp(1.95rem, 5vw, 3.45rem); line-height: 1.12; }
+h2 { margin: 0; font-size: 1.2rem; }
+p { max-width: 55rem; color: #bac4cf; }
+.lesson { color: #9cdbbc; margin: 2rem 0 0; font-size: .88rem; font-weight: 700; }
+video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #10151d; border: 1px solid #354652; border-radius: 14px; }
+.meta { color: #bac4cf; margin: .65rem 0 0; }
+.chapters { margin: 1.2rem 0 1.6rem; }
+button {
+  cursor: pointer; min-height: 44px; border: 1px solid #405463; border-radius: 12px;
+  background: #1b2834; color: #eef2f4; font: inherit; padding: .5rem .8rem;
+}
+.exercise { background: #18232e; border: 1px solid #364756; border-radius: 16px; padding: 1.15rem; }
+summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
+.transcript { margin-top: 1rem; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+</style>
+</head>
+<body>
+<main>
+<nav class="back" aria-label="Lesson navigation">
+<a href="./">← Summit One</a><a href="teaching-videos.html">Teaching videos</a><a href="watch-t18-3.html">Next · Use answer information, then check independently →</a>
+</nav>
+<p class="lesson">T18.2</p>
+<h1>Manage a complete attempt and an independent check</h1>
+<p>Keep a clear trail while solving, and check with a different method.</p>
+<video id="lesson" controls playsinline preload="metadata" aria-label="Manage a complete attempt and an independent check"
+  poster="media/T18.2-studio-poster.jpg?v=teaching-films-v1">
+  <source src="media/T18.2.mp4?v=teaching-films-v1" type="video/mp4">
+</video>
+<p class="meta">1:49 · Full HD</p>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Leave a trail you can return to</button>
+<button type="button" data-time="12.280">0:12 · Keep your place and check independently</button>
+<button type="button" data-time="23.640">0:23 · How many border squares are shaded?</button>
+<button type="button" data-time="38.170">0:38 · Subtract the inside from the whole grid</button>
+<button type="button" data-time="51.300">0:51 · Split the border into four non-overlapping strips</button>
+<button type="button" data-time="63.940">1:03 · A full-side count repeats every corner</button>
+<button type="button" data-time="78.340">1:18 · Label completed cases and the next action</button>
+<button type="button" data-time="90.180">1:30 · Your turn</button></nav>
+<section class="exercise">
+<h2>Try it in your notebook</h2>
+<p>Find the number of border squares of a 7 by 7 grid in two different ways.</p>
+<details><summary>Check your reasoning</summary><p>49 - 25 = 24, and 4 strips of 6 = 24.</p></details>
+</section>
+<details class="transcript"><summary>Read the transcript</summary><p>Good working leaves a trail. If you write what you have established, which cases you have finished, and what you will do next, you can pause, return, or find a mistake without starting again.</p>
+<p>Under time pressure, it is easy to repeat work or trust an unchecked answer. Keep a clear trail to show where you stopped, and use an independent check to catch errors.</p>
+<p>A five by five grid of small squares has all the squares along its border shaded. How many squares are shaded? Pause and find the answer in one way, then in a second, different way.</p>
+<p>First method: take away the inside. The whole grid has twenty-five squares. The unshaded inner block is three by three: nine squares. Twenty-five minus nine is sixteen.</p>
+<p>Second method: split the border into four strips of four squares, each strip starting at a corner and stopping one short of the next. Four times four is sixteen. The two methods agree.</p>
+<p>A common error is to say four sides of five squares: twenty. That counts each corner twice. Subtract the four corners and you get sixteen again. A second method is valuable precisely because it would have caught that mistake.</p>
+<p>For longer problems, label your cases as you go, and tick each one when it is finished. If you must leave a problem, write one line saying what to do next. Your future self will thank you.</p>
+<p>Record what you know and what comes next. Tick off finished cases. Then check the answer by a method that could not make the same mistake. Notebook challenge: find the number of border squares of a seven by seven grid in two different ways.</p></details>
+<p><a href="media/T18.2.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+</main>
+<script>
+const video = document.querySelector("#lesson");
+for (const button of document.querySelectorAll("[data-time]")) {
+  button.addEventListener("click", () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+    video.scrollIntoView({block: "center"});
+  });
+}
+</script>
+</body>
+</html>

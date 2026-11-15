@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10151d">
+<link rel="icon" href="icon.svg">
+<title>T17.3 · Connect finite checks to general conclusions · Summit One</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 25%, #192631, #0c121a 75%);
+  color: #f2f1ed; font: 1rem/1.55 system-ui, sans-serif;
+}
+main { max-width: 1120px; margin: auto; padding: clamp(18px, 4vw, 48px); }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.back { justify-content: space-between; gap: 8px 20px; }
+a { color: #9cdbbc; }
+h1 { max-width: 880px; margin: .25em 0 .45em; font-size: clamp(1.95rem, 5vw, 3.45rem); line-height: 1.12; }
+h2 { margin: 0; font-size: 1.2rem; }
+p { max-width: 55rem; color: #bac4cf; }
+.lesson { color: #9cdbbc; margin: 2rem 0 0; font-size: .88rem; font-weight: 700; }
+video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #10151d; border: 1px solid #354652; border-radius: 14px; }
+.meta { color: #bac4cf; margin: .65rem 0 0; }
+.chapters { margin: 1.2rem 0 1.6rem; }
+button {
+  cursor: pointer; min-height: 44px; border: 1px solid #405463; border-radius: 12px;
+  background: #1b2834; color: #eef2f4; font: inherit; padding: .5rem .8rem;
+}
+.exercise { background: #18232e; border: 1px solid #364756; border-radius: 16px; padding: 1.15rem; }
+summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
+.transcript { margin-top: 1rem; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+</style>
+</head>
+<body>
+<main>
+<nav class="back" aria-label="Lesson navigation">
+<a href="./">← Summit One</a><a href="teaching-videos.html">Teaching videos</a><a href="watch-t17-e.html">Next · Write proofs that leave no hidden cases →</a>
+</nav>
+<p class="lesson">T17.3</p>
+<h1>Connect finite checks to general conclusions</h1>
+<p>Know when checking cases is a complete proof, and how to extend a check for ever.</p>
+<video id="lesson" controls playsinline preload="metadata" aria-label="Connect finite checks to general conclusions"
+  poster="media/T17.3-studio-poster.jpg?v=teaching-films-v1">
+  <source src="media/T17.3.mp4?v=teaching-films-v1" type="video/mp4">
+</video>
+<p class="meta">2:11 · Full HD</p>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · A complete check covers every case</button>
+<button type="button" data-time="14.840">0:14 · Make sure nothing falls between your cases</button>
+<button type="button" data-time="23.970">0:23 · Which stamp totals can you make?</button>
+<button type="button" data-time="35.950">0:35 · Check the first twelve totals</button>
+<button type="button" data-time="52.430">0:52 · Add three to carry a whole block forward</button>
+<button type="button" data-time="71.470">1:11 · Seven is the largest missing total</button>
+<button type="button" data-time="88.580">1:28 · Ten final digits cover every square</button>
+<button type="button" data-time="110.490">1:50 · Your turn</button></nav>
+<section class="exercise">
+<h2>Try it in your notebook</h2>
+<p>With 4-cent and 5-cent stamps, what is the largest total that cannot be made?</p>
+<details><summary>Check your reasoning</summary><p>11. Using 0, 1 or 2 five-cent stamps leaves 11, 6 or 1, none a multiple of 4. The totals 12, 13, 14 and 15 can all be made, and adding 4 repeatedly reaches everything larger.</p></details>
+</section>
+<details class="transcript"><summary>Read the transcript</summary><p>Checking cases can be a complete proof, if there are only finitely many and you check them all. For endlessly many cases, checking is never enough on its own. But a check plus a rule that passes the result along can cover them all.</p>
+<p>The danger with case checking is a missing case. A proof by cases must show that the cases cover everything, with nothing left outside.</p>
+<p>You have plenty of three-cent and five-cent stamps. Which totals can you make exactly? Pause and test the totals from one to twelve.</p>
+<p>Three and five work. Six is two threes. Eight is three and five. Nine is three threes. Ten is two fives. Eleven is five and two threes. Twelve is four threes. But one, two, four and seven cannot be made.</p>
+<p>Now the key step. Eight, nine and ten can all be made. Add a three-cent stamp to each and you get eleven, twelve and thirteen. Add another and you get fourteen, fifteen and sixteen. Three totals in a row, plus the ability to add three, reach every total from eight onwards.</p>
+<p>Every total of eight or more is possible. Seven cannot be made. Two fives are too many. With one five we would need two more, and with no fives we would need a multiple of three. Neither works. So seven is the largest total that cannot be made.</p>
+<p>A finite check can prove a never. Does any square number end in seven? The last digit of a square depends only on the last digit of the number. Check the ten digits: their squares end in zero, one, four, nine, six, five, six, nine, four and one. Seven never appears. Ten checks cover every whole number.</p>
+<p>For finitely many cases, check them all and show nothing is left out. For endlessly many, check a starting block and give a rule that carries the result forward. Notebook challenge: with four-cent and five-cent stamps, what is the largest total you cannot make?</p></details>
+<p><a href="media/T17.3.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+</main>
+<script>
+const video = document.querySelector("#lesson");
+for (const button of document.querySelectorAll("[data-time]")) {
+  button.addEventListener("click", () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+    video.scrollIntoView({block: "center"});
+  });
+}
+</script>
+</body>
+</html>
