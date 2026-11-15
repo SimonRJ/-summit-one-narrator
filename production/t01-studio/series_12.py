@@ -147,6 +147,12 @@ def tilted_square(stage,s):
     pts=[at(*q) for q in ((1,0),(4,1),(3,4),(0,3))]
     board(4,4,width=w,x=481,y=354)(stage,s)
     region(stage,pts,MINT,opacity=cue(s,"tilted square"),tint=.20)
+    across=cue(s,"three squares to the right")
+    down=cue(s,"one square down")
+    stage.line((pts[0],at(4,0)),BLUE,4,across)
+    stage.line((at(4,0),pts[1]),BLUE,4,down)
+    fit(stage,"3",left+2.5*w,top-22,26,56,BLUE,across)
+    fit(stage,"1",left+4*w+27,top+.5*w,26,48,BLUE,down)
     q=cue(s,"four corner triangles")
     for i,p in enumerate((at(4,0),at(4,4),at(0,4),at(0,0))):
         region(stage,(pts[i],p,pts[(i+1)%4]),GOLD,opacity=q,tint=.17)
@@ -245,7 +251,7 @@ FILMS={
           note("A perpendicular gives an exact height","splits an awkward triangle")),
     exercise((("Use a purposeful line","add a line only"),("Carry angles or add a height","parallel lines carry"),
               ("Use an exact grid","a grid makes areas exact")),"notebook challenge",
-             ("Each side of a tilted grid square moves 2 across and 1 up.","What is its area?")),
+             ("One side of a tilted grid square goes 2 squares right and 1 down.","What is its area?")),
  ),
  "T12.E":(
     scene("Find the angle outside the triangle",lambda stage,s:exterior(stage,s,mode="question")),
