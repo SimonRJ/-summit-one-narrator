@@ -1,4 +1,4 @@
-name: Compare approved narration runtimes
+name: Check reused Voice C prompt features
 on:
   push:
     branches: [codex/lesson-intro-runtime-check]
@@ -28,7 +28,7 @@ jobs:
           pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu
           pip install 'transformers>=4.45,<5' 'huggingface-hub<1' einops pydantic soundfile librosa safetensors tqdm numpy scipy inflect addict argbind num2words faster-whisper
           pip install --no-deps 'git+https://github.com/OpenBMB/VoxCPM.git@300e4260b509066151d623dc9c0aa922cf82232b'
-      - name: Time the same Voice C model at two CPU precisions
+      - name: Verify cached reference audio produces identical samples
         run: |
           mkdir -p build/runtime-check
           PYTHONPATH=production/t01-studio python - <<'PY'
@@ -55,56 +55,26 @@ jobs:
           from synth import MODEL_REVISION, RATE, ROOT
           from prepare_audio import align, transcribe
 
-          precision=sys.argv[1]
           torch.set_num_threads(4)
           torch.set_num_interop_threads(1)
-          path=Path(snapshot_download("openbmb/VoxCPM2", revision=MODEL_REVISION,
-                      allow_patterns=["*.json","*.safetensors","audiovae.pth","*.model","*.txt"]))
-          destination=Path('build/runtime-check')
-          if precision == "float32":
-              variant=destination/"model"
-              variant.mkdir()
-              for child in path.iterdir():
-                  if child.name != "config.json":
-                      (variant/child.name).symlink_to(child.resolve())
-              config=json.loads((path/"config.json").read_text())
-              config["dtype"]=precision
-              (variant/"config.json").write_text(json.dumps(config))
-              path=variant
-          start=monotonic()
-          model=VoxCPM.from_pretrained(str(path), load_denoiser=False, optimize=False, device="cpu")
-          wav=str(destination/"reference.wav")
-          prompt=json.loads((ROOT/"production/voice-audition/brief.json").read_text())["text"]
+          path=snapshot_download("openbmb/VoxCPM2", revision=MODEL_REVISION,
+                      allow_patterns=["*.json","*.safetensors","audiovae.pth","*.model","*.txt"])
+          model=VoxCPM.from_pretrained(path, load_denoiser=False, optimize=False, device="cpu")
+          wav=str(Path("build/runtime-check/reference.wav"))
+          text=json.loads((ROOT/"production/voice-audition/brief.json").read_text())["text"]
           story="One pump fills a tank in four minutes and another takes six minutes."
-          model_ready=monotonic()
-          samples=np.asarray(model.generate(text=story,prompt_wav_path=wav,reference_wav_path=wav,
-              prompt_text=prompt,seed=445,cfg_value=2.0,inference_timesteps=10,normalize=False,
-              denoise=False,max_len=375,retry_badcase=True,retry_badcase_max_times=1),dtype=np.float32)
-          render_seconds=monotonic()-model_ready
-          amount=len(samples)/RATE
-          assert 2<amount<16 and np.isfinite(samples).all()
-          sf.write(destination/(precision+".wav"),samples,RATE,subtype="PCM_16")
-          print(precision, "recorded", round(amount,2), "seconds in", round(render_seconds,2), flush=True)
-          del model
-          words = transcribe(WhisperModel("base.en",device="cpu",compute_type="int8",cpu_threads=2),samples)
-          _, match = align(story,words,0,amount)
-          result = dict(precision=precision, duration=round(amount,2), seconds=round(render_seconds,2),
-              model_load_seconds=round(model_ready-start,2), match_percent=match,
-              passage="".join(word.word for word in words).strip())
-          print(json.dumps(result,ensure_ascii=False))
-          (destination/(precision+".json")).write_text(json.dumps(result,ensure_ascii=False))
+          options=dict(seed=445,cfg_value=2.0,inference_timesteps=10,max_len=375,
+                       retry_badcase=True,retry_badcase_max_times=1)
+          start=monotonic()
+          reference=model.generate(text=story,prompt_wav_path=wav,reference_wav_path=wav,
+                                   prompt_text=text,normalize=False,denoise=False,**options)
+          original=monotonic()-start
+          cached=model.tts_model.build_prompt_cache(prompt_text=text,prompt_wav_path=wav,reference_wav_path=wav)
+          start=monotonic()
+          reused, _, _=model.tts_model.generate_with_prompt_cache(target_text=story,prompt_cache=cached,**options)
+          reused=reused.squeeze(0).cpu().numpy()
+          print(f"Original {original:.2f}s; pre-encoded prompt {monotonic()-start:.2f}s.")
+          assert np.array_equal(reference,reused)
+          print("Voice C audio samples are identical with the reused prompt features.")
           PY
-          lscpu | sed -n '/Model name:/p'
-          PYTHONPATH=production/t01-studio python "$RUNNER_TEMP/compare.py" float32
-          PYTHONPATH=production/t01-studio python "$RUNNER_TEMP/compare.py" bfloat16
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: voice-runtime-study
-          path: |
-            build/runtime-check/float32.wav
-            build/runtime-check/float32.json
-            build/runtime-check/bfloat16.wav
-            build/runtime-check/bfloat16.json
-          if-no-files-found: ignore
-          retention-days: 1
+          PYTHONPATH=production/t01-studio python "$RUNNER_TEMP/compare.py"
