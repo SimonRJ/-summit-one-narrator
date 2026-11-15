@@ -1,0 +1,84 @@
+{
+  "id": "T01.E",
+  "duration_seconds": 141.133333,
+  "sha256": "139c69120f81ec34309a7dad4156efee5d87aa1cd68eb78ad0e96d806fe86eb6",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 98.4,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "match_percent": 100.0
+    },
+    {
+      "number": 2,
+      "start": 17.37,
+      "match_percent": 95.0
+    },
+    {
+      "number": 3,
+      "start": 31.77,
+      "match_percent": 100.0
+    },
+    {
+      "number": 4,
+      "start": 47.61,
+      "match_percent": 100.0
+    },
+    {
+      "number": 5,
+      "start": 66.65,
+      "match_percent": 95.24
+    },
+    {
+      "number": 6,
+      "start": 82.17,
+      "match_percent": 98.0
+    },
+    {
+      "number": 7,
+      "start": 101.24,
+      "match_percent": 100.0
+    },
+    {
+      "number": 8,
+      "start": 118.52,
+      "match_percent": 98.97
+    }
+  ],
+  "chapters": [
+    {
+      "title": "The ribbon problem",
+      "start": 0.0
+    },
+    {
+      "title": "Count the gaps",
+      "start": 31.77
+    },
+    {
+      "title": "Subtract the start",
+      "start": 47.61
+    },
+    {
+      "title": "Slide the ribbon",
+      "start": 66.65
+    },
+    {
+      "title": "The film problem",
+      "start": 82.17
+    },
+    {
+      "title": "Your turn",
+      "start": 118.52
+    }
+  ],
+  "decoded_successfully": true
+}

@@ -63,11 +63,12 @@ const pct=n=>Math.max(0,Math.min(100,Number(n)||0));
 const hash=s=>{let h=2166136261;for(const c of String(s)){h^=c.charCodeAt(0);h=Math.imul(h,16777619)}return h>>>0};
 const normalize=s=>String(s??"").toLowerCase().replace(/\s+/g,"").replace(/[×·]/g,"*").replace(/[²]/g,"^2").replace(/[³]/g,"^3").replace(/[.,;:]$/g,"");
 const rankNames=["Pathfinder","Pattern Scout","Model Builder","Logic Ranger","Number Navigator","Geometry Pilot","Counting Specialist","Invariant Hunter","Transfer Thinker","Proof Builder","Problem Solver","Strategy Captain","Olympiad Explorer","Insight Engineer","Reasoning Commander","AMC Specialist","MAWA Specialist","Rossmoyne Specialist","Summit Elite","Summit Scholar"];
+const openingFilmIds=["T01.1","T01.2","T01.3","T01.E"];
 function finalVideoUrl(videoId){
   const id=String(videoId||"");
   // Only concept/worked-example T videos are public. Every challenge solution is attempt-gated.
   if(!/^T\d{2}\.(?:1|2|3|E)$/.test(id))return "";
-  if(id==="T01.1"||id==="T01.2")return "media/"+id+".mp4?v=t01-studio-v1";
+  if(openingFilmIds.includes(id))return "media/"+id+".mp4?v=t01-studio-v1";
   if(id==="T02.1")return "media/T02.1.mp4?v=studio-v4";
   if(id==="T02.2")return "media/T02.2.mp4?v=studio-v1";
   return ""; // Only verified published masters are offered; other lessons use their written/audio teaching.
@@ -128,7 +129,7 @@ function problemKeywords(focus){
 }
 function chooseProblems(session){return selectOriginalProblems(session,problemIndex,lessonManifest);}
 function openingConceptFilm(slot){
- const id=slot===1?"T01.1":slot===2?"T01.2":null;
+ const id=openingFilmIds[slot-1];
  if(!id)return "";
  const film=teaching.find(item=>item.id===id);
  if(!film)return "";
@@ -225,15 +226,16 @@ async function openLessonIntroductionFromMenu(slot){
  activeView="lesson-intro-review";
  const introId=item.slot===1?"S001":item.slot===2?"S002":null;
  const teaching=teachingFor(item)[0]||null;
+ const openingFilm=openingConceptFilm(item.slot);
  const media=introId?`<div class="lesson-replay-video"><video id="replayIntroVideo" controls playsinline preload="metadata" poster="media/${introId}-Intro-poster.jpg?v=cinema-20261113" src="media/${introId}-Intro.mp4?v=cinema-20261113" aria-label="${esc(item.focus)} · animated introduction"><track kind="captions" srclang="en" label="English captions" src="media/${introId}-Intro.vtt?v=cinema-20261113"></video></div>`:
   teaching?`<div id="replayNarratedTeaching" class="lesson-replay-narration"></div>`:
-  '<p class="muted">An animated introduction has not yet been published for this lesson. The original lesson and written explanations remain available.</p>';
+  openingFilm?"":'<p class="muted">An animated introduction has not yet been published for this lesson. The original lesson and written explanations remain available.</p>';
  app.innerHTML=`<section class="panel lesson-replay-page" aria-label="Read-only lesson video review">
    <div class="eyebrow">LESSON ${item.slot} · ${isComplete?"COMPLETED — REPLAY ONLY":"CURRENT — REVIEW"}</div>
    <h1>${esc(item.focus)}</h1>
-   <p class="muted">${introId?"Replay the original easy, medium and hard worked examples.":teaching?"Review the available narrated concept teaching. A dedicated three-level introduction has not yet been published for this lesson.":"The video for this lesson is not yet published."}</p>
+   <p class="muted">${introId?"Replay the original easy, medium and hard worked examples.":teaching||openingFilm?"Review the available teaching videos.":"The video for this lesson is not yet published."}</p>
    ${media}
-   ${openingConceptFilm(item.slot)}
+   ${openingFilm}
    <p class="lesson-replay-note">${isComplete?"Your original answers, score and completion status stay locked. Replaying this video cannot restart the lesson.":"This is an optional teaching review. Your current answers and lesson position remain saved."}</p>
    <div class="lesson-replay-actions"><button type="button" id="replayBack" class="secondary">${isComplete?"Back to saved lesson":"Return to current lesson"}</button><button type="button" id="replayHome" class="ghost">Learning home</button></div>
  </section>`;

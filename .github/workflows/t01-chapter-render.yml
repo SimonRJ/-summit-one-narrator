@@ -1,0 +1,134 @@
+name: Summit One T01.3 and T01.E studio films
+
+on:
+  push:
+    branches: [codex/t01-chapter-finish]
+    paths:
+      - 'production/t01-studio/check_answer.py'
+      - 'production/t01-studio/measure_interval.py'
+      - 'production/t01-studio/prepare_audio.py'
+      - 'production/t01-studio/render.py'
+      - 'production/t01-studio/publish.py'
+      - '.github/workflows/t01-chapter-render.yml'
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+concurrency:
+  group: t01-chapter-render-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  RECORDINGS_RUN: '43679229312'
+  RULER_SCENE_RUN: '43681408846'
+
+jobs:
+  recordings:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Wait for the approved Voice C recordings
+        run: |
+          gh run watch "$RECORDINGS_RUN" --repo "$GITHUB_REPOSITORY" --exit-status --interval 15
+          gh run watch "$RULER_SCENE_RUN" --repo "$GITHUB_REPOSITORY" --exit-status --interval 15
+
+  render:
+    needs: recordings
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        lesson: ['T01.3', 'T01.E']
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: t01-remaining-${{ matrix.lesson }}-scene-*
+          merge-multiple: true
+          path: build/t01-studio
+          run-id: ${{ env.RECORDINGS_RUN }}
+          github-token: ${{ github.token }}
+      - uses: actions/download-artifact@v4
+        if: matrix.lesson == 'T01.E'
+        with:
+          name: t01-remaining-T01.E-scene-2
+          path: build/t01-ruler-clarification
+          run-id: ${{ env.RULER_SCENE_RUN }}
+          github-token: ${{ github.token }}
+      - name: Use the clarified ruler explanation
+        if: matrix.lesson == 'T01.E'
+        run: cp build/t01-ruler-clarification/T01.E-02.{wav,json} build/t01-studio/
+      - name: Install the rendering and speech alignment tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-open-sans fonts-dejavu-core libsndfile1
+          python -m pip install --disable-pip-version-check pillow numpy soundfile num2words faster-whisper
+      - name: Time animation and captions to the Voice C tracks
+        run: python production/t01-studio/prepare_audio.py "${{ matrix.lesson }}"
+      - name: Render each scene for visual checking
+        run: python production/t01-studio/render.py "${{ matrix.lesson }}" --preview
+      - name: Export and verify the 1080p film
+        run: python production/t01-studio/render.py "${{ matrix.lesson }}"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.lesson }}
+          path: |
+            build/t01-studio/${{ matrix.lesson }}/final.mp4
+            build/t01-studio/${{ matrix.lesson }}/poster.jpg
+            build/t01-studio/${{ matrix.lesson }}/captions.vtt
+            build/t01-studio/${{ matrix.lesson }}/timeline.json
+            build/t01-studio/${{ matrix.lesson }}/qa.json
+            build/t01-studio/${{ matrix.lesson }}/storyboard/sheet-*.jpg
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 14
+
+  stage:
+    needs: render
+    if: github.ref == 'refs/heads/codex/t01-chapter-finish'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: T01.*
+          path: build/t01-studio
+      - name: Install the verified films and generate their watch pages
+        run: |
+          python production/t01-studio/publish.py --lessons T01.3 T01.E
+          python tools/video/build_scripts.py
+          python tools/video/build_scripts.py --check
+          node --input-type=module --check < app-main.js
+          node --check sw.js
+          git diff --check
+      - name: Stage both films for the app release
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add media/T01.3.mp4 media/T01.E.mp4 media/T01.3.vtt media/T01.E.vtt
+          git add media/T01.3-studio-poster.jpg media/T01.E-studio-poster.jpg
+          git add review/T01.3-studio-qa.json review/T01.E-studio-qa.json
+          git add watch-t01-3.html watch-t01-e.html data/teaching-72.json
+          git add production/scripts/T01.3.json production/scripts/T01.E.json production/scripts/INDEX.md
+          git commit -m 'Stage the verified T01.3 and T01.E teaching films'
+          git fetch origin "$GITHUB_REF_NAME"
+          git rebase FETCH_HEAD
+          git push origin "HEAD:$GITHUB_REF_NAME"

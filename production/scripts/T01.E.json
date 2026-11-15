@@ -3,49 +3,61 @@
  "title": "Read the question into a useful model",
  "chapter": "Read the question into a useful model",
  "type": "worked_example",
- "status": "script_ready_not_recorded",
+ "status": "published_for_review",
  "voice": "Voice C (VoxCPM2), natural speed (see docs/VIDEO_PRODUCTION.md)",
- "goal": "Worked example: positions on a ruler are not lengths.",
- "narration_words": 197,
- "estimated_minutes": 1.3,
+ "goal": "Find a length or an elapsed time by measuring the interval between two positions.",
+ "narration_words": 354,
+ "estimated_minutes": 2.4,
  "scenes": [
   {
    "n": 1,
    "stage": "PUZZLE",
-   "visual": "A ruler from 0 to 12 cm. A ribbon lies from the 2 cm mark to the 9 cm mark. Question: \"How long is the ribbon?\"",
-   "narration": "Let us work one example carefully. A ribbon starts at the two centimetre mark of a ruler and ends at the nine centimetre mark. How long is the ribbon? Pause and decide what is being counted."
+   "visual": "Draw a ruler with equally spaced centimetre marks from zero to twelve. Place a ribbon whose left and right edges line up with two and nine. State the question and hold the diagram.",
+   "narration": "A ribbon lies along a centimetre ruler. Its left edge lines up with two, and its right edge lines up with nine. How long is the ribbon? Look at where it begins and ends, then try to explain your first move."
   },
   {
    "n": 2,
    "stage": "DEVELOP",
-   "visual": "The labels 2 and 9 lift off the ruler with tags \"position\", \"position\".",
-   "narration": "The numbers two and nine are positions measured from zero. Neither of them is the length of the ribbon. We need the distance between the two positions."
+   "visual": "Mark the two positions separately with arrows measured from zero. Then focus on the portion from two to nine with a bracket spanning exactly the ribbon.",
+   "narration": "The mark labelled two is two centimetres from zero. The mark labelled nine is nine centimetres from zero. The question asks for the distance from the first position to the second. Trace that part of the ruler with your finger."
   },
   {
    "n": 3,
    "stage": "DEVELOP",
-   "visual": "The seven one-centimetre gaps under the ribbon light up in turn, numbered 1 to 7.",
-   "narration": "Count the gaps the ribbon covers: two to three, three to four, and so on up to eight to nine. That is seven gaps, each one centimetre long. The ribbon is seven centimetres long."
+   "visual": "Build seven one-centimetre intervals under the ribbon in sequence. Show both the intervals and the endpoint marks. Reveal the length after counting the seventh gap.",
+   "narration": "Move from two to three. That is the first centimetre. From three to four is the second. Every small step adds one centimetre. Keep going until you reach nine. There are seven gaps of one centimetre, so the ribbon is seven centimetres long."
   },
   {
    "n": 4,
    "stage": "DEVELOP",
-   "visual": "Equation 9 - 2 = 7 cm appears. Above it, the eight marks from 2 to 9 flash briefly with a small \"8 marks\" note, then fade.",
-   "narration": "Subtraction gives the same result: nine minus two is seven. Notice there are eight numbered marks from two to nine. Counting marks gives eight, which is the classic mistake. Length counts gaps, not marks."
+   "visual": "Show the zero-to-nine span and remove the first two one-centimetre segments. Display 9 − 2 = 7, then highlight the eight boundary marks and the seven spaces in separate rows.",
+   "narration": "The nine centimetres from zero to the end includes two centimetres before the ribbon begins. Remove those two centimetres. Nine minus two leaves seven. You can count eight marked points across the ribbon because both ends have a mark. Each centimetre lives in the space between two marks."
   },
   {
    "n": 5,
    "stage": "VARIATION",
-   "visual": "The ribbon slides to start at 0 and end at 7. Same length bracket stays.",
-   "narration": "Here is a check. Slide the ribbon so it starts at zero. It now ends at seven. Sliding does not change its length, so seven centimetres makes sense."
+   "visual": "Slide the ribbon bodily to start at zero and end at seven. Translate its markers and length bracket together. Keep the ruler fixed and keep the ribbon's length constant.",
+   "narration": "Slide the ribbon two centimetres to the left. Watch both ends move the same distance. It starts at zero and reaches seven. The two endpoints changed together, and the span stayed seven centimetres. That is another way to check our answer."
   },
   {
    "n": 6,
+   "stage": "VARIATION",
+   "visual": "Draw a clock timeline proportional to minutes elapsed. Use separate label levels for the final two times. Mark the start, the two hour boundaries and the finish.",
+   "narration": "The same idea works with time. A film starts at seven fifteen in the evening and ends at nine oh five. How many minutes pass? Draw a timeline. Put seven fifteen on the left. Mark eight o'clock and nine o'clock along the way, and stop at nine oh five."
+  },
+  {
+   "n": 7,
+   "stage": "DEVELOP",
+   "visual": "Draw proportional spans of 45, 60 and 5 minutes at the corresponding spoken cues. Assemble the sum, and represent the total as one hour and fifty minutes.",
+   "narration": "From seven fifteen to eight o'clock is forty-five minutes. The next hour gives sixty minutes. From nine o'clock to the end is five more. Add forty-five, sixty and five. The total is one hundred and ten minutes. That is one hour and fifty minutes."
+  },
+  {
+   "n": 8,
    "stage": "RECAP",
-   "visual": "Line: \"length = end position - start position\". Then the notebook prompt.",
-   "narration": "Length is the end position minus the start position. Now cover this solution and rebuild it yourself. Then try this: a film starts at seven fifteen and ends at nine oh five. How many minutes long is it?"
+   "visual": "Revisit the start-to-finish span and the unit. Then present the camera question with its two times on an empty timeline and room for a learner's own marks.",
+   "narration": "Label the two positions. Find the length, or the time, between them. Use equal steps and check the units. Now try your own timeline. A camera starts filming at ten forty-seven in the morning and stops at twelve oh six that day. How many minutes does it record?"
   }
  ],
- "notebook_exercise": "A film starts at 7:15 and ends at 9:05. How many minutes long is it?",
- "notebook_answer": "45 + 60 + 5 = 110 minutes."
+ "notebook_exercise": "A camera starts filming at 10:47 am and stops at 12:06 pm on the same day. How many minutes does it record?",
+ "notebook_answer": "13 minutes to 11:00 am, 60 to noon, 6 more to 12:06 pm. The total is 13 + 60 + 6 = 79 minutes."
 }
