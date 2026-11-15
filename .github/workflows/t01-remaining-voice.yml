@@ -1,0 +1,59 @@
+name: Summit One T01.3 and T01.E Voice C
+
+on:
+  push:
+    branches: [codex/t01-chapter-finish]
+    paths:
+      - 'production/scripts/T01.3.json'
+      - 'production/scripts/T01.E.json'
+      - 'production/t01-studio/synth.py'
+      - '.github/workflows/t01-remaining-voice.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: t01-remaining-voice-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  record:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      matrix:
+        lesson: ['T01.3', 'T01.E']
+        scene: [1, 2, 3, 4, 5, 6, 7, 8]
+    env:
+      HF_HUB_DISABLE_XET: '1'
+      TOKENIZERS_PARALLELISM: 'false'
+      OMP_NUM_THREADS: '2'
+      MKL_NUM_THREADS: '2'
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install the pinned Voice C runtime
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg libsndfile1
+          pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install 'transformers>=4.45,<5' 'huggingface-hub<1' einops pydantic soundfile librosa safetensors tqdm numpy scipy inflect addict argbind
+          pip install --no-deps 'git+https://github.com/OpenBMB/VoxCPM.git@300e4260b509066151d623dc9c0aa922cf82232b'
+      - name: Record the scene using Voice C
+        run: python production/t01-studio/synth.py --lesson "${{ matrix.lesson }}" --scene "${{ matrix.scene }}"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: t01-remaining-${{ matrix.lesson }}-scene-${{ matrix.scene }}
+          path: |
+            build/t01-studio/${{ matrix.lesson }}-*.wav
+            build/t01-studio/${{ matrix.lesson }}-*.json
+          if-no-files-found: error
+          retention-days: 14
+          compression-level: 1

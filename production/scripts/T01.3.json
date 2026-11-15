@@ -5,53 +5,59 @@
  "type": "concept",
  "status": "script_ready_not_recorded",
  "voice": "Voice C (VoxCPM2), natural speed (see docs/VIDEO_PRODUCTION.md)",
- "goal": "Predict the type and size of an answer, then test it against every condition.",
- "narration_words": 293,
- "estimated_minutes": 2.0,
+ "goal": "Predict what kind of answer makes sense, then test it against every condition.",
+ "narration_words": 375,
+ "estimated_minutes": 2.5,
  "scenes": [
   {
    "n": 1,
    "stage": "INSIGHT",
-   "visual": "A finished answer \"7.5 people\" sits in a box. A soft red outline appears round it. Then \"8 people\" replaces it with a calm outline.",
-   "narration": "An answer is not finished when the calculation ends. It is finished when it has been checked against the story. Your model of the problem tells you what kind of answer is even possible, and that is a powerful check."
+   "visual": "Unfold a queue of seven whole people and a fractional result of 7.5. Highlight the requirement that a headcount be a whole number. Leave the answer open so the learner checks the calculation.",
+   "narration": "Imagine a calculation gives seven and a half people in a queue. A headcount has to be a whole number. That tells you to look back at your reasoning. Start problems by asking what a sensible answer could look like. Then use that idea to check the result."
   },
   {
    "n": 2,
    "stage": "WHY",
-   "visual": "Three quick cards: \"a count must be whole\", \"a probability is between 0 and 1\", \"an area is in square units\".",
-   "narration": "A number of people must be whole. A probability must lie between zero and one. An area is measured in square units. If your answer breaks one of these, something earlier went wrong, and you have caught it for free."
+   "visual": "Reveal a whole-number bus count, a probability scale from zero to one, and a three-by-three square tiled in square metres. Each drawing shows the unit or range required by the quantity.",
+   "narration": "A count of buses is a whole number. A probability is between zero and one, including both ends. An area has square units. Three metres along each side of a square gives nine square metres. Identify the kind of answer first. The model also helps you predict its size."
   },
   {
    "n": 3,
    "stage": "PUZZLE",
-   "visual": "Buses drawn as rounded blocks holding 40 seats each; 130 small dots waiting. Question: \"How many buses are needed?\"",
-   "narration": "One hundred and thirty students are going on a trip. Each bus holds forty students. How many buses are needed? Pause and predict roughly what the answer should be before calculating."
+   "visual": "Show 130 students and a bus with forty marked student seats. Hold the exact minimum question and the full information for a thinking pause.",
+   "narration": "One hundred and thirty students are going on a trip. Each bus has seats for forty students. What is the smallest number of buses that can take the whole group? Make a quick estimate before you continue. Think about what happens if a bus is only partly full."
   },
   {
    "n": 4,
    "stage": "DEVELOP",
-   "visual": "Dots flow into buses: 40, 40, 40, and 10 left over standing outside. The division 130 / 40 = 3 remainder 10 appears.",
-   "narration": "One hundred and thirty divided by forty is three, with ten students left over. Three buses carry one hundred and twenty. The remaining ten still need a seat, so the answer is four buses. The division was correct, but the story decides what to do with the remainder."
+   "visual": "The same students transfer from four waiting columns into the first three buses. Each forty forms a full set of seats. Ten remain visible in the waiting group. Build 130 = 3 × 40 + 10.",
+   "narration": "Group the students into forties. One bus takes forty. A second takes another forty. A third brings the total on board to one hundred and twenty. There are still ten students waiting. Write one hundred and thirty as three lots of forty plus ten."
   },
   {
    "n": 5,
    "stage": "DEVELOP",
-   "visual": "Checklist ticks: \"whole number? yes\", \"enough seats? 160 >= 130\", \"one fewer fails? 120 < 130\".",
-   "narration": "Now check. Four is a whole number. Four buses hold one hundred and sixty, which is enough. And three buses would not be enough, so four is the smallest answer that works. That last check proves we did not overshoot."
+   "visual": "A fourth bus arrives with forty seat outlines. The ten waiting students move into the first row. Count thirty spare seats and outline all four buses.",
+   "narration": "Those ten students still need seats. Put them in a fourth bus. Ten of its forty seats are used, so thirty are spare. Everyone now has a seat, and the answer is four buses."
   },
   {
    "n": 6,
-   "stage": "VARIATION",
-   "visual": "Same numbers, new question text: \"How many buses are completely full?\" The three full buses glow; the fourth, part full, dims.",
-   "narration": "Keep the numbers and change the request. How many buses are completely full, if each bus is filled before the next one is used? Now the answer is three. The same calculation, a different question, a different answer. Always reread the request at the end."
+   "stage": "DEVELOP",
+   "visual": "Build a capacity scale with a target line at 130. Show 4 × 40 = 160 spanning the target and 3 × 40 = 120 falling ten short. Explain the minimum with a boundary check.",
+   "narration": "Check both sides of the boundary. Four buses make one hundred and sixty seats, enough for all one hundred and thirty students. Three buses make one hundred and twenty seats, so ten students would be left out. Any smaller number has even fewer seats. Four is the smallest number that works."
   },
   {
    "n": 7,
+   "stage": "VARIATION",
+   "visual": "Reuse all four buses and the same occupants. Highlight the three full buses in turn and leave the thirty empty seats visible in the fourth. Count only full buses.",
+   "narration": "Keep the same trip. This time ask how many buses are completely full if the driver fills each bus before opening the next. Each of the first three has forty students. The fourth has ten. So three buses are full. The last sentence of the question tells you which count to give."
+  },
+  {
+   "n": 8,
    "stage": "RECAP",
-   "visual": "Three lines: \"Predict\", \"Substitute back\", \"Reread the request\".",
-   "narration": "Predict the type and rough size of the answer. Put your answer back into every condition. Then reread what was asked. Notebook challenge: eggs are packed in boxes of twelve. How many boxes are needed to pack one hundred eggs, and how many eggs are in the last box?"
+   "visual": "Reveal Predict, Check the conditions, and Reread the question. Hold the egg-packing question with the group size of twelve, and leave space to solve on paper.",
+   "narration": "Predict what a sensible answer should look like. Check every condition, then reread the question. Here is your notebook challenge. Pack one hundred eggs into boxes of twelve. Fill each box before opening the next. How many boxes are needed, and how many eggs go in the last box?"
   }
  ],
- "notebook_exercise": "Eggs are packed in boxes of 12. How many boxes for 100 eggs, and how many eggs in the last box?",
- "notebook_answer": "100 = 12 x 8 + 4, so 9 boxes, with 4 eggs in the last box."
+ "notebook_exercise": "Pack 100 eggs into boxes of 12, filling each box before opening the next. How many boxes are needed, and how many eggs go in the last box?",
+ "notebook_answer": "100 = 8 × 12 + 4. Use 9 boxes, with 4 eggs in the last box. Eight boxes hold only 96 eggs."
 }

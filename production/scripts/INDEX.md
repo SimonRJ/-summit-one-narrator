@@ -10,8 +10,8 @@ Scripts ready: 68 of 72. Published for review: 2. Approved videos: 2. Not yet sc
 |---|---|---|---|---|---|
 | T01.1 | Give every quantity a job | concept | published for review | 422 words, about 2.8 min | [T01.1.json](T01.1.json) |
 | T01.2 | Choose a representation that exposes the relationship | concept | published for review | 451 words, about 3.0 min | [T01.2.json](T01.2.json) |
-| T01.3 | Use the model to check the answer | concept | script ready | 293 words, about 2.0 min | [T01.3.json](T01.3.json) |
-| T01.E | Read the question into a useful model | worked_example | script ready | 197 words, about 1.3 min | [T01.E.json](T01.E.json) |
+| T01.3 | Use the model to check the answer | concept | script ready | 375 words, about 2.5 min | [T01.3.json](T01.3.json) |
+| T01.E | Read the question into a useful model | worked_example | script ready | 354 words, about 2.4 min | [T01.E.json](T01.E.json) |
 | T02.1 | Find an invariant by inspecting one move | concept | approved video | | Approved studio edition already published (media/T02.1.mp4). Keep its audio unchanged. |
 | T02.2 | Work backwards: undo the last move first | concept | approved video | | Approved studio edition already published (media/T02.2.mp4). Keep its audio unchanged. |
 | T02.3 | Compare different orders of the same operations | concept | script ready | 291 words, about 1.9 min | [T02.3.json](T02.3.json) |

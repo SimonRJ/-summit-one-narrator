@@ -63,53 +63,62 @@ TRY: Trees are planted every 4 m along a 40 m path, including both ends. How man
 ANS: 40 ÷ 4 = 10 gaps. The starting tree plus one at the end of each gap makes 11 trees.
 
 @@ T01.3
-GOAL: Predict the type and size of an answer, then test it against every condition.
+GOAL: Predict what kind of answer makes sense, then test it against every condition.
 [INSIGHT]
-V: A finished answer "7.5 people" sits in a box. A soft red outline appears round it. Then "8 people" replaces it with a calm outline.
-N: An answer is not finished when the calculation ends. It is finished when it has been checked against the story. Your model of the problem tells you what kind of answer is even possible, and that is a powerful check.
+V: Unfold a queue of seven whole people and a fractional result of 7.5. Highlight the requirement that a headcount be a whole number. Leave the answer open so the learner checks the calculation.
+N: Imagine a calculation gives seven and a half people in a queue. A headcount has to be a whole number. That tells you to look back at your reasoning. Start problems by asking what a sensible answer could look like. Then use that idea to check the result.
 [WHY]
-V: Three quick cards: "a count must be whole", "a probability is between 0 and 1", "an area is in square units".
-N: A number of people must be whole. A probability must lie between zero and one. An area is measured in square units. If your answer breaks one of these, something earlier went wrong, and you have caught it for free.
+V: Reveal a whole-number bus count, a probability scale from zero to one, and a three-by-three square tiled in square metres. Each drawing shows the unit or range required by the quantity.
+N: A count of buses is a whole number. A probability is between zero and one, including both ends. An area has square units. Three metres along each side of a square gives nine square metres. Identify the kind of answer first. The model also helps you predict its size.
 [PUZZLE]
-V: Buses drawn as rounded blocks holding 40 seats each; 130 small dots waiting. Question: "How many buses are needed?"
-N: One hundred and thirty students are going on a trip. Each bus holds forty students. How many buses are needed? Pause and predict roughly what the answer should be before calculating.
+V: Show 130 students and a bus with forty marked student seats. Hold the exact minimum question and the full information for a thinking pause.
+N: One hundred and thirty students are going on a trip. Each bus has seats for forty students. What is the smallest number of buses that can take the whole group? Make a quick estimate before you continue. Think about what happens if a bus is only partly full.
 [DEVELOP]
-V: Dots flow into buses: 40, 40, 40, and 10 left over standing outside. The division 130 / 40 = 3 remainder 10 appears.
-N: One hundred and thirty divided by forty is three, with ten students left over. Three buses carry one hundred and twenty. The remaining ten still need a seat, so the answer is four buses. The division was correct, but the story decides what to do with the remainder.
+V: The same students transfer from four waiting columns into the first three buses. Each forty forms a full set of seats. Ten remain visible in the waiting group. Build 130 = 3 × 40 + 10.
+N: Group the students into forties. One bus takes forty. A second takes another forty. A third brings the total on board to one hundred and twenty. There are still ten students waiting. Write one hundred and thirty as three lots of forty plus ten.
 [DEVELOP]
-V: Checklist ticks: "whole number? yes", "enough seats? 160 >= 130", "one fewer fails? 120 < 130".
-N: Now check. Four is a whole number. Four buses hold one hundred and sixty, which is enough. And three buses would not be enough, so four is the smallest answer that works. That last check proves we did not overshoot.
+V: A fourth bus arrives with forty seat outlines. The ten waiting students move into the first row. Count thirty spare seats and outline all four buses.
+N: Those ten students still need seats. Put them in a fourth bus. Ten of its forty seats are used, so thirty are spare. Everyone now has a seat, and the answer is four buses.
+[DEVELOP]
+V: Build a capacity scale with a target line at 130. Show 4 × 40 = 160 spanning the target and 3 × 40 = 120 falling ten short. Explain the minimum with a boundary check.
+N: Check both sides of the boundary. Four buses make one hundred and sixty seats, enough for all one hundred and thirty students. Three buses make one hundred and twenty seats, so ten students would be left out. Any smaller number has even fewer seats. Four is the smallest number that works.
 [VARIATION]
-V: Same numbers, new question text: "How many buses are completely full?" The three full buses glow; the fourth, part full, dims.
-N: Keep the numbers and change the request. How many buses are completely full, if each bus is filled before the next one is used? Now the answer is three. The same calculation, a different question, a different answer. Always reread the request at the end.
+V: Reuse all four buses and the same occupants. Highlight the three full buses in turn and leave the thirty empty seats visible in the fourth. Count only full buses.
+N: Keep the same trip. This time ask how many buses are completely full if the driver fills each bus before opening the next. Each of the first three has forty students. The fourth has ten. So three buses are full. The last sentence of the question tells you which count to give.
 [RECAP]
-V: Three lines: "Predict", "Substitute back", "Reread the request".
-N: Predict the type and rough size of the answer. Put your answer back into every condition. Then reread what was asked. Notebook challenge: eggs are packed in boxes of twelve. How many boxes are needed to pack one hundred eggs, and how many eggs are in the last box?
-TRY: Eggs are packed in boxes of 12. How many boxes for 100 eggs, and how many eggs in the last box?
-ANS: 100 = 12 x 8 + 4, so 9 boxes, with 4 eggs in the last box.
+V: Reveal Predict, Check the conditions, and Reread the question. Hold the egg-packing question with the group size of twelve, and leave space to solve on paper.
+N: Predict what a sensible answer should look like. Check every condition, then reread the question. Here is your notebook challenge. Pack one hundred eggs into boxes of twelve. Fill each box before opening the next. How many boxes are needed, and how many eggs go in the last box?
+TRY: Pack 100 eggs into boxes of 12, filling each box before opening the next. How many boxes are needed, and how many eggs go in the last box?
+ANS: 100 = 8 × 12 + 4. Use 9 boxes, with 4 eggs in the last box. Eight boxes hold only 96 eggs.
 
 @@ T01.E
-GOAL: Worked example: positions on a ruler are not lengths.
+GOAL: Find a length or an elapsed time by measuring the interval between two positions.
 [PUZZLE]
-V: A ruler from 0 to 12 cm. A ribbon lies from the 2 cm mark to the 9 cm mark. Question: "How long is the ribbon?"
-N: Let us work one example carefully. A ribbon starts at the two centimetre mark of a ruler and ends at the nine centimetre mark. How long is the ribbon? Pause and decide what is being counted.
+V: Draw a ruler with equally spaced centimetre marks from zero to twelve. Place a ribbon whose left and right edges line up with two and nine. State the question and hold the diagram.
+N: A ribbon lies along a centimetre ruler. Its left edge lines up with two, and its right edge lines up with nine. How long is the ribbon? Look at where it begins and ends, then try to explain your first move.
 [DEVELOP]
-V: The labels 2 and 9 lift off the ruler with tags "position", "position".
-N: The numbers two and nine are positions measured from zero. Neither of them is the length of the ribbon. We need the distance between the two positions.
+V: Mark the two positions separately with arrows measured from zero. Then focus on the portion from two to nine with a bracket spanning exactly the ribbon.
+N: The two marks a position two centimetres from zero. The nine marks a position nine centimetres from zero. The question asks for the distance from the first position to the second. Trace that part of the ruler with your finger.
 [DEVELOP]
-V: The seven one-centimetre gaps under the ribbon light up in turn, numbered 1 to 7.
-N: Count the gaps the ribbon covers: two to three, three to four, and so on up to eight to nine. That is seven gaps, each one centimetre long. The ribbon is seven centimetres long.
+V: Build seven one-centimetre intervals under the ribbon in sequence. Show both the intervals and the endpoint marks. Reveal the length after counting the seventh gap.
+N: Move from two to three. That is the first centimetre. From three to four is the second. Every small step adds one centimetre. Keep going until you reach nine. There are seven gaps of one centimetre, so the ribbon is seven centimetres long.
 [DEVELOP]
-V: Equation 9 - 2 = 7 cm appears. Above it, the eight marks from 2 to 9 flash briefly with a small "8 marks" note, then fade.
-N: Subtraction gives the same result: nine minus two is seven. Notice there are eight numbered marks from two to nine. Counting marks gives eight, which is the classic mistake. Length counts gaps, not marks.
+V: Show the zero-to-nine span and remove the first two one-centimetre segments. Display 9 − 2 = 7, then highlight the eight boundary marks and the seven spaces in separate rows.
+N: The nine centimetres from zero to the end includes two centimetres before the ribbon begins. Remove those two centimetres. Nine minus two leaves seven. You can count eight marked points across the ribbon because both ends have a mark. Each centimetre lives in the space between two marks.
 [VARIATION]
-V: The ribbon slides to start at 0 and end at 7. Same length bracket stays.
-N: Here is a check. Slide the ribbon so it starts at zero. It now ends at seven. Sliding does not change its length, so seven centimetres makes sense.
+V: Slide the ribbon bodily to start at zero and end at seven. Translate its markers and length bracket together. Keep the ruler fixed and keep the ribbon's length constant.
+N: Slide the ribbon two centimetres to the left. Watch both ends move the same distance. It starts at zero and reaches seven. The two endpoints changed together, and the span stayed seven centimetres. That is another way to check our answer.
+[VARIATION]
+V: Draw a clock timeline proportional to minutes elapsed. Use separate label levels for the final two times. Mark the start, the two hour boundaries and the finish.
+N: The same idea works with time. A film starts at seven fifteen in the evening and ends at nine oh five. How many minutes pass? Draw a timeline. Put seven fifteen on the left. Mark eight o'clock and nine o'clock along the way, and stop at nine oh five.
+[DEVELOP]
+V: Draw proportional spans of 45, 60 and 5 minutes at the corresponding spoken cues. Assemble the sum, and represent the total as one hour and fifty minutes.
+N: From seven fifteen to eight o'clock is forty-five minutes. The next hour gives sixty minutes. From nine o'clock to the end is five more. Add forty-five, sixty and five. The total is one hundred and ten minutes. That is one hour and fifty minutes.
 [RECAP]
-V: Line: "length = end position - start position". Then the notebook prompt.
-N: Length is the end position minus the start position. Now cover this solution and rebuild it yourself. Then try this: a film starts at seven fifteen and ends at nine oh five. How many minutes long is it?
-TRY: A film starts at 7:15 and ends at 9:05. How many minutes long is it?
-ANS: 45 + 60 + 5 = 110 minutes.
+V: Revisit the start-to-finish span and the unit. Then present the camera question with its two times on an empty timeline and room for a learner's own marks.
+N: Label the two positions. Find the length, or the time, between them. Use equal steps and check the units. Now try your own timeline. A camera starts filming at ten forty-seven in the morning and stops at twelve oh six that day. How many minutes does it record?
+TRY: A camera starts filming at 10:47 am and stops at 12:06 pm on the same day. How many minutes does it record?
+ANS: 13 minutes to 11:00 am, 60 to noon, 6 more to 12:06 pm. The total is 13 + 60 + 6 = 79 minutes.
 
 @@ T02.3
 GOAL: Compare two orders of the same operations using a general starting value.
