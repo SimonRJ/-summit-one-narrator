@@ -7,8 +7,9 @@ from pathlib import Path
 
 from algebra_topics import backwards, part_whole, recurrence
 from count_topics import restricted_arrangements
-from spatial_topics import crossings
-from quantity_topics import averages, percentages, ratios, unit_rates, weighted_fractions
+from spatial_topics import crossings, perimeter, tiling
+from quantity_topics import averages, distance_speed, percentages, ratios, relative_motion, unit_rates, weighted_fractions, work_rates
+from logic_topics import truth_liars
 from number_topics import cryptarithms, cycles, divisibility, multiples, parity, primes, repunits
 from story import Lesson, film
 
@@ -16,6 +17,12 @@ from story import Lesson, film
 ROOT = Path(__file__).resolve().parents[3]
 BESPOKE = {f"S{slot:03}" for slot in range(1,7)}
 TOPICS = {
+    "Combined work rates": work_rates,
+    "Truth-tellers, liars and contradiction": truth_liars,
+    "Distance–speed–time reasoning": distance_speed,
+    "Relative speeds, timed movement and meetings": relative_motion,
+    "Polyominoes, tiling and shape assembly": tiling,
+    "Perimeter, shared edges and boundary effects": perimeter,
     "Averages, weighted means and simple distributions": averages,
     "Fractions, percentages and proportional comparisons": percentages,
     "Ratio and scale factors": ratios,

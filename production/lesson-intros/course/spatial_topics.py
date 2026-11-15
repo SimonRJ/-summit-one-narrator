@@ -2,7 +2,7 @@
 
 from itertools import product
 
-from story import Example, Topic, cubes, geometry, grid, say, table, tiles
+from story import Example, Topic, bars, cubes, geometry, grid, say, table, tiles
 
 
 def pairs(n):
@@ -93,4 +93,121 @@ def crossings(lesson):
             ("Mark whether you are choosing lines, crossing points or cells. Count the outer boundaries before using a formula.", "Label the grid objects", "A row of cells has one more boundary line."),
             ("Set constraints on one edge choice at a time. For a cell to be excluded, subtract exactly the choices that include it.", "Count by the boundaries", "The four sides specify each rectangle once."),
         ), cover=lattice(4,3,((1,1,"A"),)),
+    )
+
+
+def tiling(lesson):
+    v=lesson.visit
+    width=4+v
+    height=3
+    area=width*height
+    gap=(1+v%2)
+    left=area-gap
+    removed={(0,0)} | ({(width-1,2)} if gap==2 else set())
+    singles=2+v%2
+    doubles=3+v//2
+    cols=singles+2*doubles
+    from math import comb
+    answer=comb(singles+doubles,singles)
+    from functools import lru_cache
+
+    @lru_cache(maxsize=None)
+    def independent(n,s):
+        if n<0 or s<0:
+            return 0
+        if n==0:
+            return int(s==0)
+        return independent(n-1,s-1)+independent(n-2,s)
+
+    assert independent(cols,singles)==answer and left%3!=0
+    return Topic(
+        (("A polyomino joins unit squares edge to edge. A tiling covers a board exactly, with every piece inside and no squares covered twice.", "Tiles join squares edge to edge."),
+         ("Check area for a quick obstruction. Then use the board's shape to find what placements are possible.", "Area first, then placements.")),
+        (("In AMC practice, a shape puzzle may ask if pieces fit or how many arrangements form a rectangle. Draw the occupied cells.", "AMC Upper Primary · track occupied cells"),
+         ("A Rossmoyne style tiling count may restrict the number of vertical or horizontal pieces. Replace forced runs by blocks.", "Rossmoyne-style · count forced blocks")),
+        (
+            Example("Count squares after a turn", (
+                (f"A shape has a row of {say(3+v%3)} unit squares and one extra square attached underneath the left end. How many unit squares are in it after a quarter turn?", f"Row of {3+v%3}, plus one square underneath."),
+                ("Picture the solid piece turning without coming apart.", "What area does it cover after the turn?")),
+                ((f"The top row has {say(3+v%3)} cells. The extra cell shares an edge but is a different square.", f"{3+v%3} + 1 = {4+v%3} cells"),
+                 (f"A quarter turn moves each cell to one new position. It preserves the {say(4+v%3)} squares and the same area.", f"Area = {4+v%3} square units")),
+                grid(tuple("■" for _ in range(3+v%3)),("■",*tuple("" for _ in range(2+v%3))))),
+            Example("Use area to rule out a tiling", (
+                (f"A {say(width)} by three board has {say(gap)} corner {'cell' if gap==1 else 'cells'} removed. Can you tile what remains using pieces of exactly three unit squares?", f"{width} × 3 board, remove {gap} corner {'cell' if gap==1 else 'cells'}."),
+                ("Pieces may be turned. They may not overlap, and each cell must be covered.", "Can three-square tiles cover it exactly?")),
+                ((f"The original board has {say(area)} cells, and removing the corners leaves {say(left)}.", f"{width} × 3 − {gap} = {left}"),
+                 (f"Every piece covers exactly three squares. An exact cover would require {say(left)} to be divisible by three.", f"{left} leaves remainder {left%3} on division by 3."),
+                 ("There would be leftover cells even before any shape restrictions were checked. The tiling is impossible.", "The area test rules it out.")),
+                grid(*(tuple("×" if (j,i) in removed else "□"
+                             for j in range(width)) for i in range(3)))),
+            Example("Count tilings with a fixed number of vertical pieces", (
+                (f"Tile a two-row board of width {say(cols)} using dominoes. Exactly {say(singles)} dominoes must stand vertically and cover both rows of their column.", f"2 × {cols} strip. Exactly {singles} vertical dominoes."),
+                ("How many tilings work? A horizontal domino in the leftmost uncovered column creates a forced placement beside it.", "Count the legal strip tilings.")),
+                (("Look at the leftmost column still uncovered. A vertical domino fills one column. If you put a horizontal domino there, the other cell of the column must start another horizontal domino.", "One vertical fills 1 column. A horizontal pair fills 2."),
+                 (f"The {say(singles)} vertical dominoes use {say(singles)} columns. After that, {say(2*doubles)} columns are covered by {say(doubles)} pairs of horizontal dominoes.", f"{singles} single-column blocks + {doubles} double-column blocks"),
+                 (f"Choose the {say(singles)} positions occupied by the vertical blocks among the {say(singles+doubles)} blocks. The other positions are occupied by horizontal pairs.", f"Choose {singles} of {singles+doubles} block positions.")),
+                lattice(cols,2),worked_art=tiles(*("V",)*singles,*("HH",)*doubles),proof=(
+                    (f"The number of choices is {say(answer)}. Each sequence of these two block types gives a legal tiling when expanded from the left.", f"C({singles+doubles}, {singles}) = {answer}"),
+                    ("A finished tiling determines its block sequence from the leftmost uncovered column on each step. That gives only one count per tiling.", "The correspondence works both ways.")),
+                proof_art=bars(("Blocks",tuple([(1,"V")]*singles+[(2,"HH")]*doubles)))),
+        ),
+        (("Area that is a multiple of the tile size is only a starting check. The shapes must also fit inside the remaining board.", "Use divisible area as proof of a tiling", "Give placements or a construction"),
+         ("Two horizontal dominoes in a two-row strip can be forced into a paired block. Counting their orders as if they were distinct adds duplicates.", "Count extra orders inside a forced pair", "Treat the horizontal double-column as one block")),
+        (("Check the area, then look at a boundary cell where you have few choices. Ask which extra moves each placement forces.", "Start at a constrained cell", "Use area and shape together."),
+         ("When counting block sequences, convert a sequence back into an actual tiling. Explain why the original tiling has just one block sequence.", "Use a one-to-one count", "Every legal arrangement appears once.")),
+        cover=lattice(4,2,((0,0,""),(1,0,""))),
+    )
+
+
+def outer_boundary(cells):
+    return sum((x+dx,y+dy) not in cells for x,y in cells for dx,dy in ((1,0),(-1,0),(0,1),(0,-1)))
+
+
+def perimeter(lesson):
+    v=lesson.visit
+    w,h=2+v,3
+    unit=1+v
+    basic=2*(w+h)*unit
+    row=4+v
+    cells={(x,0) for x in range(row)}|{(0,y) for y in (1,2)}
+    internal=sum((x+1,y) in cells for x,y in cells)+sum((x,y+1) in cells for x,y in cells)
+    middle=4*len(cells)-2*internal
+    n=6+v
+    hole_width,hole_height=2+v%3,1+v%2
+    remain=set(product(range(n),repeat=2)) - {(x,y) for x in range(1,1+hole_width) for y in range(1,1+hole_height)} - {(n-1,n-1)}
+    answer=4*n+2*(hole_width+hole_height)
+    assert middle==outer_boundary(cells) and answer==outer_boundary(remain)
+    return Topic(
+        (("Perimeter is the total length of the boundary. When two pieces share an edge, that edge no longer lies on the outside.", "A shared edge is inside, so subtract both copies."),
+         ("A cut can create a new boundary. Follow the edge of any hole if the question says to include it.", "Trace every boundary the question names.")),
+        (("In AMC practice, a stepped outline or connected unit squares can hide which edges should be counted. Mark shared edges.", "AMC Upper Primary · trace exposed edges"),
+         ("A Rossmoyne style question may make several cuts. Compute how each cut changes the boundary length.", "Rossmoyne-style · reason about changes")),
+        (
+            Example("Trace all four sides", (
+                (f"A rectangle is {say(w*unit)} metres wide and {say(h*unit)} metres tall. What is its perimeter?", f"{w*unit} m by {h*unit} m"),
+                ("Trace around the outside to see how many of each side length there are.", "Count each side exactly once.")),
+                ((f"There are two sides of length {say(w*unit)} and two of length {say(h*unit)}. Add all four.", f"2 × {w*unit} + 2 × {h*unit}"),
+                 (f"The perimeter is {say(basic)} metres. Length uses metres, even though the shape also has an area.", f"Perimeter = {basic} m")), lattice(w,h)),
+            Example("Subtract shared edges from a count of unit squares", (
+                (f"Draw {say(row)} unit squares in a horizontal row. Add two more unit squares stacked directly above its leftmost square.", f"{row} squares in a row, plus 2 above the left end."),
+                ("What is the perimeter of this shape? Count the contacts between pairs of squares.", "How much edge is exposed?")),
+                ((f"Taken separately, the {say(len(cells))} squares contribute four edge units each.", f"Separate edges: 4 × {len(cells)} = {4*len(cells)}"),
+                 (f"There are {say(internal)} shared edges. Each is counted twice in the separate square totals, once by each square touching it.", f"Subtract 2 × {internal} = {2*internal}."),
+                 (f"The exposed boundary length is {say(middle)} units. Check by walking around the outside of the L shape.", f"Perimeter = {4*len(cells)} − {2*internal} = {middle}")),
+                grid(*tuple(tuple("■" if (x,2-y) in cells else "" for x in range(row)) for y in range(3)))),
+            Example("Combine an inside cut with a corner cut", (
+                (f"A {say(n)} by {say(n)} square board has a fully enclosed {say(hole_width)} by {say(hole_height)} rectangular hole cut out. Then remove one square at an outer corner far from the hole.", f"{n} × {n} board. Interior {hole_width} × {hole_height} hole. Cut a corner cell."),
+                ("Find the total boundary length, including the edge of the hole.", "Count the outer boundary and the hole.")),
+                ((f"The original outer boundary is {say(4*n)}. Removing one corner loses two outer edges of length one but exposes two equal inner edges.", f"Corner change = −2 + 2 = 0."),
+                 (f"The hole adds its full perimeter, twice {say(hole_width)} plus twice {say(hole_height)}. Every side of the hole meets the remaining board.", f"Hole boundary: 2({hole_width} + {hole_height}) = {2*(hole_width+hole_height)}"),
+                 (f"Add that to {say(4*n)}. The new total boundary length is {say(answer)} units.", f"{4*n} + {2*(hole_width+hole_height)} = {answer}")),
+                grid(*tuple(tuple("■" if (x,n-1-y) in remain else "×" for x in range(n)) for y in range(n))),proof=(
+                    ("A boundary is an edge with a filled cell on one side and an unfilled part on the other. This includes the through-hole boundary.", "Count filled-to-empty edges."),
+                    ("The outer walk and the inner walk are disjoint. Adding their lengths keeps every requested edge once.", "Outer boundary + inner boundary."))),
+        ),
+        (("A shared edge disappears from the exterior twice when you start by adding all individual perimeters.", "Subtract one edge per contact", "Subtract two copies of a shared edge"),
+         ("Cutting around a hole creates a boundary inside the shape. Include it if the problem asks for the total boundary.", "Trace only the outside loop", "Include each boundary named in the question")),
+        (("Mark shared and exposed edges with different colours. The units for perimeter are units of length.", "Trace the boundary", "Count length, not area."),
+         ("For a change of shape, list which old edges disappear and which new ones appear before re-counting everything.", "Track the change", "Check the result by walking the outline.")),
+        cover=lattice(4,3,((0,0,""),(1,0,""))),
     )

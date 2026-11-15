@@ -244,3 +244,151 @@ def unit_rates(lesson):
          ("For two schedules, check the shared starts and the repeated overlap. Verify whether the endpoint itself is a legal event.", "Check the overlap and endpoints", "Count a shared instant once.")),
         cover=chain("Minutes","×60","Seconds"),
     )
+
+
+def work_rates(lesson):
+    v=lesson.visit
+    a,b=6+2*v,9+3*v
+    whole=lcm(a,b)
+    duration=F(whole,whole//a+whole//b)
+    before=2+v
+    made=before*(whole//a+whole//b)
+    net=whole//a+whole//b-1
+    remaining=whole-made
+    answer=before+F(remaining,net)
+    assert (F(1,a)+F(1,b))*before+(F(1,a)+F(1,b)-F(1,whole))*(answer-before)==1
+    return Topic(
+        (("A work rate tells you how much of one complete job is done per unit of time. If one worker takes six minutes, the rate is one sixth of the job each minute.", "Rate = fraction of the job per minute."),
+         ("Workers on the same job contribute their rates. An activity that undoes progress subtracts from that total rate.", "Add or subtract rates.")),
+        (("In AMC practice, filling tanks, packing boxes or shared work can be described by the time for a whole task. Rewrite that time as progress per minute.", "AMC Upper Primary · convert time to rate"),
+         ("A Rossmoyne style problem might change workers part of the way through. Split the timeline and keep the remaining work.", "Rossmoyne-style · divide the timeline")),
+        (
+            Example("Find a unit rate for one worker", (
+                (f"A machine labels a whole batch of boxes in {say(a)} minutes at a steady rate. What fraction of the batch does it label in one minute?", f"One batch in {a} min"),
+                ("Use equal parts of the job.", "Find progress in 1 minute.")),
+                ((f"Divide the batch into {say(a)} equal portions. One minute is one of those portions.", f"1 ÷ {a} of the batch"),
+                 (f"The rate is {say(F(1,a))} of a batch per minute. Multiply this fraction by {say(a)} minutes to check it gives one batch.", f"Rate = 1/{a} batch per minute")), tiles("1 batch",f"{a} min")),
+            Example("Combine two rates", (
+                (f"Machine A can finish one batch in {say(a)} minutes. Machine B takes {say(b)} minutes to finish a batch of the same size.", f"A takes {a} min. B takes {b} min."),
+                ("How long does one batch take if they work together at their full rates?", "Find the combined completion time.")),
+                ((f"Represent one batch by {say(whole)} units. A completes {say(whole//a)} units per minute, and B completes {say(whole//b)}.", f"Choose {whole} units → rates {whole//a} and {whole//b}"),
+                 ("The combined rate is five units per minute. Both machines contribute during the same minute.", "Combined rate = 5 units per minute"),
+                 (f"The time is {say(whole)} divided by five. That is {say(duration)} minutes.", f"Time = {whole} ÷ 5 = {duration} min")), table(("Machine","Minutes","Units/min"),("A",a,whole//a),("B",b,whole//b))),
+            Example("Find when two pumps finish after a leak opens", (
+                (f"Two pumps together fill a tank. Alone, one would take {say(a)} minutes and the other {say(b)} minutes.", f"Pumps alone: {a} min or {b} min for one tank."),
+                (f"After {say(before)} minutes a leak opens which would empty a full tank in {say(whole)} minutes by itself. How long from the start until the tank is full?", f"Leak starts at {before} min. Leak alone empties in {whole} min.")),
+                ((f"Use {say(whole)} units for a full tank. The pumps initially fill five units per minute, so they add {say(made)} before the leak.", f"Before leak: {before} × 5 = {made} units"),
+                 (f"That leaves {say(remaining)} units. The leak removes one unit each minute, so the new net rate is four units per minute.", f"{whole} − {made} = {remaining}. New rate: 5 − 1 = 4."),
+                 (f"Divide the remaining work by four, then add the initial {say(before)} minutes. The answer is {say(answer)} minutes.", f"{before} + {remaining} ÷ 4 = {answer} min")),
+                chain("Start",f"{before} min","Leak","Full"),proof=(
+                    (f"The first period contributes {say(made)} units. During the second period, the net addition is {say(remaining)} units.", f"{made} + {remaining} = {whole}"),
+                    ("The two contributions fill exactly one tank. The two different rates apply to two different time intervals.", "Check one complete job."))),
+        ),
+        (("Times for a whole job do not add when two workers are working at once. Convert both times to rates before adding.", "Add the two completion times", "Add work completed per minute"),
+         ("A leak running during the second period has no effect on the first period's work. Keep the rate with its own interval.", "Use the leak rate from the start", "Split at the time the leak opens")),
+        (("Choose a convenient number of units for the job. A common multiple of the given times often gives whole-number rates.", "Choose work units", "Divide units by time to get a rate."),
+         ("After every change, subtract completed work from the whole. Use the new net rate only for the remaining work.", "Track the remaining work", "Check that contributions sum to one full job.")),
+        cover=bars(("A",( (3,"3"),)),("B",((2,"2"),)),("Together",((3,"3"),(2,"2")))),
+    )
+
+
+def distance_speed(lesson):
+    v=lesson.visit
+    distance=18+6*v
+    time=3
+    rate=distance//time
+    speed=12+4*v
+    length=3*speed
+    minute=45+5*v
+    ride=F(speed*minute,60)
+    trip=(24,30,36,48)[v]
+    outward,back=(12,18),(24,15)
+    vo,vr=outward[v%2],back[v%2]
+    break_minutes=12+6*v
+    go=F(trip*60,vo)
+    return_trip=F(trip*60,vr)
+    total=go+return_trip+break_minutes
+    mean=F(120*trip,total)
+    assert mean*total/60==2*trip
+    return Topic(
+        (("Speed tells you how far you travel in one unit of time. The three quantities are connected: distance equals speed times time.", "Distance = speed × time."),
+         ("An average speed uses total distance and total elapsed time. It includes stops if the question includes those in the time.", "Average speed = total distance ÷ elapsed time.")),
+        (("In AMC practice, distance, speed and time often arrive in different units. Choose one time unit for your calculation first.", "AMC Upper Primary · keep rate units consistent"),
+         ("A Rossmoyne style journey may have several stages. Work out each stage's distance or time before taking the average.", "Rossmoyne-style · combine journey stages")),
+        (
+            Example("Find speed from distance and time", (
+                (f"A cyclist covers {say(distance)} kilometres in {say(time)} hours at a steady pace. Find the speed in kilometres per hour.", f"{distance} km in {time} h"),
+                ("What distance is covered in one hour?", "Find distance per hour.")),
+                ((f"Share {say(distance)} kilometres among {say(time)} equal hours. Each hour covers {say(rate)} kilometres.", f"{distance} ÷ {time} = {rate}"),
+                 (f"The speed is {say(rate)} kilometres per hour. Multiplying back by the time recovers the full distance.", f"{rate} km/h")), bars(("Journey",tuple((1,rate) for _ in range(time))))),
+            Example("Convert minutes before computing distance", (
+                (f"A rider moves at {say(speed)} kilometres per hour for {say(minute)} minutes. How far do they travel?", f"{speed} km/h for {minute} min"),
+                ("The rate already uses hours, so express the time as a fraction of an hour.", "Convert the time before multiplying.")),
+                ((f"There are sixty minutes per hour. The travel time in hours is {say(F(minute,60))}.", f"{minute} min = {F(minute,60)} h"),
+                 (f"Multiply by the speed to get {say(ride)} kilometres. If the time is below an hour, the distance is below the one-hour distance.", f"{speed} × {F(minute,60)} = {ride} km")), chain(f"{minute} min",f"{F(minute,60)} h",f"{ride} km")),
+            Example("Find an average for a round trip with a stop", (
+                (f"A rider travels {say(trip)} kilometres out at {say(vo)} kilometres per hour, stops for {say(break_minutes)} minutes, and returns along the same route at {say(vr)} kilometres per hour.", f"{trip} km out at {vo} km/h, {break_minutes} min stop, return at {vr} km/h."),
+                ("What average speed covers the full trip including the stop?", "Use total elapsed time, including the stop.")),
+                ((f"Time equals distance divided by speed. The outward and return times are {say(go)} and {say(return_trip)} minutes.", f"Out {go} min. Back {return_trip} min."),
+                 (f"Add the stop. The elapsed time is {say(total)} minutes. The distance includes both legs, so it is {say(2*trip)} kilometres.", f"Elapsed {total} min. Travelled {2*trip} km."),
+                 (f"Divide the total distance by that time in hours. The average is {say(mean)} kilometres per hour.", f"Average = {2*trip} ÷ ({total}/60) = {mean} km/h")),
+                table(("Stage","Dist","Speed"),("Out",trip,vo),("Stop",0,0),("Return",trip,vr)),proof=(
+                    ("The two moving stages cover the same distance but take different amounts of time. A simple mean of the two speeds would give them equal time weights.", "Different speeds act for different times."),
+                    ("The stop contributes time and zero distance. Including it in the average correctly reduces the overall rate.", "Include stop time when the question asks."))),
+        ),
+        (("Multiplying kilometres per hour by minutes uses inconsistent time units. Convert the time to hours first, or change the speed to kilometres per minute.", "Multiply km/h by unconverted minutes", "Convert to hours first"),
+         ("Use one total distance and one total time. Do not average the speeds without checking how long you travelled at each.", "Average the two stage speeds directly", "Divide total distance by total time")),
+        (("Draw one row for each journey stage. Put speed, distance and time in matching units.", "Record each stage", "Use distance = speed × time."),
+         ("For an average, check whether the time window includes stops. Add all the distances and the corresponding times first.", "Find the overall rate", "Make the total in the denominator explicit.")),
+        cover=tiles("Distance","Speed","Time"),
+    )
+
+
+def relative_motion(lesson):
+    v=lesson.visit
+    p,q=3+v,5+v
+    initial=4*(p+q)
+    slow,fast=4+v,7+2*v
+    wait=5+v
+    lead=slow*wait
+    catch=F(lead,fast-slow)
+    track=300+60*v
+    a,b=2+v,3+2*v
+    delay=5+v
+    gap=track-a*delay
+    meet=F(gap,a+b)
+    second=delay+meet+F(track,a+b)
+    assert (a+b)*(second-delay)+a*delay==2*track
+    return Topic(
+        (("Relative speed measures how fast a gap changes. Moving towards each other closes a gap at the sum of the two speeds.", "Towards each other: add the speeds."),
+         ("For a chase in the same direction, the gap closes at the faster speed minus the slower speed.", "Chase in one direction: use the difference.")),
+        (("AMC questions about meetings, chases or moving markers often become short if you draw the gap that is changing.", "AMC Upper Primary · draw the gap"),
+         ("A Rossmoyne style problem may have delayed starts or a circular route. Track when the shared motion begins and when a full lap has passed.", "Rossmoyne-style · account for timing")),
+        (
+            Example("Close a gap from both ends", (
+                (f"Two walkers are {say(initial)} metres apart and walk directly towards each other at {say(p)} and {say(q)} metres per second.", f"Gap {initial} m. Speeds {p} and {q} m/s."),
+                ("How many seconds until they meet? Think about the distance closed in one second.", "Find the rate at which the gap closes.")),
+                ((f"The walkers together close {say(p+q)} metres every second. Both movements shorten the gap.", f"Closing speed: {p} + {q} = {p+q} m/s"),
+                 (f"Divide the starting gap by that rate. They meet after four seconds.", f"{initial} ÷ {p+q} = 4 s")), bars(("Gap",((4*p,"left"),(4*q,"right"))))),
+            Example("Catch a runner with a head start", (
+                (f"A runner moves at {say(slow)} metres per second. A second runner starts from the same point {say(wait)} seconds later at {say(fast)} metres per second.", f"Speeds {slow} and {fast} m/s. Second starts {wait} s later."),
+                ("How long after the second runner starts do they meet?", "Use the time measured from the later start.")),
+                ((f"During the head start the first runner covers {say(lead)} metres. That is the gap when the chase starts.", f"Gap = {slow} × {wait} = {lead} m"),
+                 (f"The faster runner closes {say(fast-slow)} metres each second, because both are moving in the same direction.", f"Closing speed: {fast} − {slow} = {fast-slow} m/s"),
+                 (f"The catch happens after {say(catch)} seconds from the second start. Only add the head start if the question measures from the first start.", f"{lead} ÷ {fast-slow} = {catch} s")), chain("Start",f"+{wait}s",f"{lead}m gap","Catch")),
+            Example("Track a delayed start around a circuit", (
+                (f"A round track is {say(track)} metres long. Runner A starts at {say(a)} metres per second. After {say(delay)} seconds runner B leaves the same point in the opposite direction at {say(b)} metres per second.", f"Loop {track} m. A at {a} m/s, B at {b} m/s after {delay} s."),
+                ("They keep running at those speeds. At what time after A starts do they meet for the second time?", "Find the second meeting time after A starts.")),
+                ((f"At B's start, A has run {say(a*delay)} metres. They first meet when the combined distances reach one lap, so the unused part is {say(gap)} metres.", f"Distance left before first meet: {track} − {a*delay} = {gap}"),
+                 (f"Together they cover {say(a+b)} metres each second. That gives {say(meet)} seconds from B's start to the first meeting.", f"First meeting after B starts: {gap} ÷ {a+b}"),
+                 (f"The second meeting takes one more lap at the same combined rate. Add that time and the original delay.", f"Second meeting time = {delay} + {gap}/{a+b} + {track}/{a+b}")),
+                chain("A starts","B starts","Meet 1","Meet 2"),proof=(
+                    (f"The total elapsed time is {say(second)} seconds after A starts. At that time the two distances add to exactly {say(2*track)} metres.", f"Second meeting at {second} s, combined distance {2*track} m"),
+                    ("The first meeting required one lap of combined movement. Adding a second lap accounts for exactly one further meeting.", "Track one lap between consecutive meetings."))),
+        ),
+        (("A same-direction chase uses the difference in speeds. Adding the speeds would model movement towards each other instead.", "Add speeds in a same-direction chase", "Subtract to find the rate of closing"),
+         ("Timing from the later start measures only the shared motion. Check whether the requested clock started earlier.", "Forget the earlier runner's head start", "Use the requested starting time")),
+        (("Draw arrows for the directions and label the gap. Decide whether the movements shorten the gap together or compete.", "Find the gap and its rate", "Use the sum or the difference."),
+         ("For a loop, use one full circuit between matching positions. Check the final answer by reconstructing both distances.", "Check the meeting condition", "Allow for an offset or delayed start.")),
+        cover=chain("Gap","Closing speed","Time"),
+    )
