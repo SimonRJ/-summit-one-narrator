@@ -147,10 +147,10 @@ V: A tank filling from one tap, with marks showing the fraction filled each minu
 N: If a tap fills a tank in ten minutes, then each minute it fills one tenth of the tank. Turning a time into an amount per minute is the key move. Amounts per minute can be added together. Times cannot.
 [WHY]
 V: A tempting "6 and 3 make 9 minutes?" crossed lightly; "must be less than 3" beside it.
-N: When two taps run together, the job gets faster, not slower. Adding the times, or averaging them, gives nonsense. Adding the rates gives the right answer every time.
+N: When two taps run together at constant rates, the tank fills faster. The two amounts filled in one minute can be added. That combined amount per minute tells us how long the whole job will take.
 [PUZZLE]
 V: Two taps over one tank. Labels: "alone: 6 minutes", "alone: 3 minutes". Question: "How long together?"
-N: One tap fills a tank in six minutes. Another fills it in three minutes. How long do they take together? Pause and work out what each tap does in one minute.
+N: One tap fills a tank in six minutes. Another fills it in three minutes. Both run at constant rates. How long do they take together? Pause and work out what each tap does in one minute.
 [DEVELOP]
 V: The tank drawn with 6 equal slices. In one minute the first tap fills 1 slice; the second fills 2 slices. Together 3 slices per minute.
 N: Picture the tank in six equal slices. In one minute, the slow tap fills one slice. The fast tap fills the whole tank in three minutes, so it fills two slices a minute. Together they fill three slices a minute.
@@ -176,7 +176,7 @@ V: Five stacks of counters of different heights are levelled until all are the s
 N: The mean is what everyone would have if the total were shared equally. So a mean always hides a total: the mean multiplied by the number of items. Whenever a question mentions an average, recover the total first.
 [WHY]
 V: Two class averages with a tempting "average the averages" crossed lightly.
-N: Averages cannot simply be averaged, and they cannot be adjusted without knowing how many items there are. Totals can always be added and subtracted safely.
+N: When groups have different sizes, their averages carry different weight. Recover the total in each group before combining them. Then each individual item makes the right contribution.
 [PUZZLE]
 V: Four test-score cards with mean 7, and a fifth card face down. Text: "With the fifth score, the mean is 8." Question: "What is the fifth score?"
 N: Four scores have a mean of seven. A fifth score is added and the mean becomes eight. What is the fifth score? Pause and find the totals.
@@ -214,7 +214,7 @@ V: The tempting answer 8, halfway between 6 and 10, marked on the line; the true
 N: Why not simply eight, halfway between six and ten? Because the groups are different sizes. Three learners sit at ten and only two at six, so the balance point is pulled towards ten.
 [VARIATION]
 V: The groups change to 2 at 6 and 2 at 10; the mean moves to exactly 8.
-N: If the groups were the same size, two learners at six and two at ten, the mean would be exactly eight. Averaging the averages only works when the groups are equal in size.
+N: If the groups were the same size, two learners at six and two at ten, the mean would be exactly eight. The two group means now carry equal weight, so their simple average works.
 [RECAP]
 V: Line: "combine totals, then divide by everyone". Notebook prompt.
 N: Combine the totals, then divide by the total number of people. Rebuild this, then find the mean score when four learners score five each and one learner scores ten.
@@ -225,7 +225,7 @@ ANS: (20 + 10) / 5 = 6.
 GOAL: Match the kind of evidence to the kind of claim.
 [INSIGHT]
 V: Three claim cards: "it can happen", "it always happens", "it never happens". Under the first, a single example; under the others, a question mark.
-N: Different claims need different amounts of evidence. To show something can happen, one example is enough. To show something always happens, or never happens, examples are not enough, however many you collect. You need a reason that covers every case.
+N: Different claims need different evidence. To show something can happen, one example is enough. To show something always happens or can never happen, your reasons must cover every case. A few examples only settle the cases that you checked.
 [WHY]
 V: A pattern of ticks ending in a single cross far along the row.
 N: Patterns can hold for a long time and then break. Knowing what a claim actually requires stops you from trusting a pattern too far, and tells you when your solution is really complete.
@@ -254,7 +254,7 @@ ANS: Yes: two of the three leftover ones make a pair, leaving exactly one leftov
 GOAL: Disprove with a legal counterexample; prove impossibility by contradiction.
 [INSIGHT]
 V: A statement with a small chip knocked out of it by a single card labelled "counterexample".
-N: There are two sharp tools for testing a claim. A counterexample is one case that breaks a claim about everything. A contradiction is the opposite kind of tool: you suppose something could happen, follow the consequences, and reach nonsense.
+N: A counterexample is one case that breaks a claim about everything. A proof by contradiction starts with a supposition and follows what it would imply. If it leads to two facts that cannot both hold, the supposition fails.
 [WHY]
 V: Two cards: "this is false, here is why" and "this is impossible, here is why".
 N: Competitions often ask whether something is possible. If it is, show it. If it is not, you need an argument, and contradiction is the standard way to build one.

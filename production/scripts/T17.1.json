@@ -6,14 +6,14 @@
  "status": "script_ready_not_recorded",
  "voice": "Voice C (VoxCPM2), natural speed (see docs/VIDEO_PRODUCTION.md)",
  "goal": "Match the kind of evidence to the kind of claim.",
- "narration_words": 295,
+ "narration_words": 294,
  "estimated_minutes": 2.0,
  "scenes": [
   {
    "n": 1,
    "stage": "INSIGHT",
    "visual": "Three claim cards: \"it can happen\", \"it always happens\", \"it never happens\". Under the first, a single example; under the others, a question mark.",
-   "narration": "Different claims need different amounts of evidence. To show something can happen, one example is enough. To show something always happens, or never happens, examples are not enough, however many you collect. You need a reason that covers every case."
+   "narration": "Different claims need different evidence. To show something can happen, one example is enough. To show something always happens or can never happen, your reasons must cover every case. A few examples only settle the cases that you checked."
   },
   {
    "n": 2,

@@ -6,7 +6,7 @@
  "status": "script_ready_not_recorded",
  "voice": "Voice C (VoxCPM2), natural speed (see docs/VIDEO_PRODUCTION.md)",
  "goal": "Worked example: why you cannot average two averages.",
- "narration_words": 161,
+ "narration_words": 162,
  "estimated_minutes": 1.1,
  "scenes": [
   {
@@ -37,7 +37,7 @@
    "n": 5,
    "stage": "VARIATION",
    "visual": "The groups change to 2 at 6 and 2 at 10; the mean moves to exactly 8.",
-   "narration": "If the groups were the same size, two learners at six and two at ten, the mean would be exactly eight. Averaging the averages only works when the groups are equal in size."
+   "narration": "If the groups were the same size, two learners at six and two at ten, the mean would be exactly eight. The two group means now carry equal weight, so their simple average works."
   },
   {
    "n": 6,

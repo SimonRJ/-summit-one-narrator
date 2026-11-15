@@ -69,11 +69,11 @@ Scripts ready: 56 of 72. Published for review: 14. Approved videos: 2. Not yet s
 | T15.3 | Pair objects or classify their local structure | concept | script ready | 327 words, about 2.2 min | [T15.3.json](T15.3.json) |
 | T15.E | Use symmetry without losing or repeating cases | worked_example | script ready | 188 words, about 1.3 min | [T15.E.json](T15.E.json) |
 | T16.1 | Turn a ratio into equal parts | concept | script ready | 284 words, about 1.9 min | [T16.1.json](T16.1.json) |
-| T16.2 | Convert time descriptions into rates | concept | script ready | 306 words, about 2.0 min | [T16.2.json](T16.2.json) |
-| T16.3 | Recover totals and interpret averages | concept | script ready | 275 words, about 1.8 min | [T16.3.json](T16.3.json) |
-| T16.E | Keep ratios, rates and averages precise | worked_example | script ready | 161 words, about 1.1 min | [T16.E.json](T16.E.json) |
-| T17.1 | Match the strength of the proof to the claim | concept | script ready | 295 words, about 2.0 min | [T17.1.json](T17.1.json) |
-| T17.2 | Use counterexamples and contradictions carefully | concept | script ready | 307 words, about 2.0 min | [T17.2.json](T17.2.json) |
+| T16.2 | Convert time descriptions into rates | concept | script ready | 319 words, about 2.1 min | [T16.2.json](T16.2.json) |
+| T16.3 | Recover totals and interpret averages | concept | script ready | 277 words, about 1.8 min | [T16.3.json](T16.3.json) |
+| T16.E | Keep ratios, rates and averages precise | worked_example | script ready | 162 words, about 1.1 min | [T16.E.json](T16.E.json) |
+| T17.1 | Match the strength of the proof to the claim | concept | script ready | 294 words, about 2.0 min | [T17.1.json](T17.1.json) |
+| T17.2 | Use counterexamples and contradictions carefully | concept | script ready | 306 words, about 2.0 min | [T17.2.json](T17.2.json) |
 | T17.3 | Connect finite checks to general conclusions | concept | script ready | 328 words, about 2.2 min | [T17.3.json](T17.3.json) |
 | T17.E | Write proofs that leave no hidden cases | worked_example | script ready | 210 words, about 1.4 min | [T17.E.json](T17.E.json) |
 | T18.1 | Start with the structure that limits the choices | concept | script ready | 254 words, about 1.7 min | [T18.1.json](T18.1.json) |

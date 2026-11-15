@@ -6,14 +6,14 @@
  "status": "script_ready_not_recorded",
  "voice": "Voice C (VoxCPM2), natural speed (see docs/VIDEO_PRODUCTION.md)",
  "goal": "Disprove with a legal counterexample; prove impossibility by contradiction.",
- "narration_words": 307,
+ "narration_words": 306,
  "estimated_minutes": 2.0,
  "scenes": [
   {
    "n": 1,
    "stage": "INSIGHT",
    "visual": "A statement with a small chip knocked out of it by a single card labelled \"counterexample\".",
-   "narration": "There are two sharp tools for testing a claim. A counterexample is one case that breaks a claim about everything. A contradiction is the opposite kind of tool: you suppose something could happen, follow the consequences, and reach nonsense."
+   "narration": "A counterexample is one case that breaks a claim about everything. A proof by contradiction starts with a supposition and follows what it would imply. If it leads to two facts that cannot both hold, the supposition fails."
   },
   {
    "n": 2,

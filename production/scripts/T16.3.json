@@ -6,7 +6,7 @@
  "status": "script_ready_not_recorded",
  "voice": "Voice C (VoxCPM2), natural speed (see docs/VIDEO_PRODUCTION.md)",
  "goal": "Turn an average back into a total before doing anything else.",
- "narration_words": 275,
+ "narration_words": 277,
  "estimated_minutes": 1.8,
  "scenes": [
   {
@@ -19,7 +19,7 @@
    "n": 2,
    "stage": "WHY",
    "visual": "Two class averages with a tempting \"average the averages\" crossed lightly.",
-   "narration": "Averages cannot simply be averaged, and they cannot be adjusted without knowing how many items there are. Totals can always be added and subtracted safely."
+   "narration": "When groups have different sizes, their averages carry different weight. Recover the total in each group before combining them. Then each individual item makes the right contribution."
   },
   {
    "n": 3,
