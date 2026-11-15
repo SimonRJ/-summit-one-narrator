@@ -6,8 +6,8 @@
  "status": "script_ready_not_recorded",
  "voice": "Voice C (VoxCPM2), natural speed (see docs/VIDEO_PRODUCTION.md)",
  "goal": "Turn \"takes so long\" into \"does so much each minute\", and add rates.",
- "narration_words": 306,
- "estimated_minutes": 2.0,
+ "narration_words": 325,
+ "estimated_minutes": 2.2,
  "scenes": [
   {
    "n": 1,
@@ -19,13 +19,13 @@
    "n": 2,
    "stage": "WHY",
    "visual": "A tempting \"6 and 3 make 9 minutes?\" crossed lightly; \"must be less than 3\" beside it.",
-   "narration": "When two taps run together, the job gets faster, not slower. Adding the times, or averaging them, gives nonsense. Adding the rates gives the right answer every time."
+   "narration": "When two taps run together at constant rates, the tank fills faster. The two amounts filled in one minute can be added. That combined amount per minute tells us how long the whole job will take."
   },
   {
    "n": 3,
    "stage": "PUZZLE",
    "visual": "Two taps over one tank. Labels: \"alone: 6 minutes\", \"alone: 3 minutes\". Question: \"How long together?\"",
-   "narration": "One tap fills a tank in six minutes. Another fills it in three minutes. How long do they take together? Pause and work out what each tap does in one minute."
+   "narration": "One tap fills a tank in six minutes. Another fills it in three minutes. Both run at constant rates. How long do they take together? Pause and work out what each tap does in one minute."
   },
   {
    "n": 4,
@@ -54,8 +54,8 @@
   {
    "n": 8,
    "stage": "RECAP",
-   "visual": "Lines: \"Time for the job gives amount per minute\", \"Add rates that help; subtract rates that hinder\", \"Total job divided by the combined rate\".",
-   "narration": "Convert each time to an amount per minute. Add rates that help and subtract rates that hinder. Divide the job by the combined rate. Notebook challenge: one painter paints a fence in four hours, another in twelve hours. How long do they take together?"
+   "visual": "Lines: \"Express the job as a rate in a shared unit of time\", \"Add rates that help; subtract rates that hinder\", \"Total job divided by the combined rate\".",
+   "narration": "Convert each time into a rate. Use the same time unit for each rate. Add rates that help and subtract rates that hinder. Divide the job by the combined rate. Notebook challenge: one painter paints a fence in four hours, another in twelve hours. How long do they take together?"
   }
  ],
  "notebook_exercise": "One painter takes 4 hours, another 12 hours. How long together?",

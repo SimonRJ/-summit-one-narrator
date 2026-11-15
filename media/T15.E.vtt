@@ -1,0 +1,67 @@
+WEBVTT
+
+00:00:00.600 --> 00:00:04.250
+From three objects, A, B and C, choose any group,
+
+00:00:04.440 --> 00:00:06.890
+including the empty group with nothing in it.
+
+00:00:07.380 --> 00:00:10.120
+Explain why exactly half of the groups have an even
+
+00:00:10.120 --> 00:00:11.070
+number of members.
+
+00:00:14.970 --> 00:00:18.220
+Each object is either in the group or out of it.
+
+00:00:18.730 --> 00:00:21.820
+Two choices, three times over, gives eight groups.
+
+00:00:22.820 --> 00:00:25.730
+Pair each group with the group you get by changing A:
+
+00:00:26.100 --> 00:00:29.950
+put A in if it is out, and take A out if it is in.
+
+00:00:30.540 --> 00:00:33.390
+The empty group pairs with the group containing only A.
+
+00:00:33.900 --> 00:00:37.310
+The group B, C pairs with the group A, B, C.
+
+00:00:38.180 --> 00:00:41.610
+Changing A changes the size of the group by exactly one.
+
+00:00:41.980 --> 00:00:44.900
+So each pair has one group of even size and one
+
+00:00:44.900 --> 00:00:45.650
+of odd size.
+
+00:00:46.240 --> 00:00:49.750
+Four pairs give four even groups and four odd groups.
+
+00:00:50.820 --> 00:00:51.730
+Check by listing.
+
+00:00:52.060 --> 00:00:55.400
+The even groups are the empty group, A with B, A with C,
+
+00:00:55.400 --> 00:00:56.430
+and B with C.
+
+00:00:56.720 --> 00:00:58.730
+That is four, exactly half of eight.
+
+00:00:59.630 --> 00:01:02.550
+Toggling one member pairs every even group with
+
+00:01:02.550 --> 00:01:03.320
+an odd one.
+
+00:01:03.790 --> 00:01:06.510
+Rebuild this argument, then say how many groups chosen
+
+00:01:06.510 --> 00:01:09.260
+from five objects have an odd number of members.

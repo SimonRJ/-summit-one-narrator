@@ -1,0 +1,151 @@
+WEBVTT
+
+00:00:00.600 --> 00:00:03.040
+Turn a square four times and you might expect
+
+00:00:03.040 --> 00:00:04.290
+four different pictures.
+
+00:00:04.520 --> 00:00:07.230
+But a pattern with its own symmetry repeats sooner.
+
+00:00:07.660 --> 00:00:10.260
+A completely symmetrical pattern looks the same
+
+00:00:10.260 --> 00:00:11.470
+after every turn.
+
+00:00:11.740 --> 00:00:14.050
+So you cannot always divide by four.
+
+00:00:14.840 --> 00:00:17.480
+Dividing a total by the number of turns is tempting
+
+00:00:17.480 --> 00:00:18.590
+and often wrong.
+
+00:00:19.100 --> 00:00:21.660
+It only works when every pattern has been counted the
+
+00:00:21.660 --> 00:00:22.910
+same number of times.
+
+00:00:23.970 --> 00:00:27.350
+Each of the four small squares in a two by two tile is
+
+00:00:27.350 --> 00:00:28.360
+black or white.
+
+00:00:28.930 --> 00:00:31.100
+Fixed on the page there are sixteen colourings.
+
+00:00:31.750 --> 00:00:34.230
+How many different tiles are there if the tile is
+
+00:00:34.230 --> 00:00:34.980
+free to turn?
+
+00:00:35.550 --> 00:00:38.260
+Pause, and resist dividing sixteen by four.
+
+00:00:41.860 --> 00:00:44.430
+Sort the sixteen by how many squares are black.
+
+00:00:45.120 --> 00:00:46.450
+None black: one colouring.
+
+00:00:46.680 --> 00:00:47.910
+One black: four.
+
+00:00:48.200 --> 00:00:49.190
+Two black: six.
+
+00:00:49.560 --> 00:00:50.550
+Three black: four.
+
+00:00:50.940 --> 00:00:51.910
+All black: one.
+
+00:00:52.750 --> 00:00:53.420
+Now turn them.
+
+00:00:53.830 --> 00:00:54.880
+No black is one tile.
+
+00:00:55.370 --> 00:00:58.000
+The four with one black square are all the same tile.
+
+00:00:58.630 --> 00:01:01.080
+The six with two black squares make two tiles:
+
+00:01:01.670 --> 00:01:04.080
+four are side by side, and two are diagonal.
+
+00:01:04.810 --> 00:01:07.680
+Three black gives one tile, and all black gives one.
+
+00:01:08.090 --> 00:01:09.680
+That is six tiles altogether.
+
+00:01:10.820 --> 00:01:14.650
+Look at the group sizes: one, four, four, two,
+
+00:01:14.960 --> 00:01:15.890
+four and one.
+
+00:01:16.240 --> 00:01:17.370
+They are not all four.
+
+00:01:17.760 --> 00:01:20.210
+The symmetrical tiles were counted fewer times,
+
+00:01:20.540 --> 00:01:23.540
+which is exactly why sixteen divided by four gives
+
+00:01:23.540 --> 00:01:24.470
+the wrong answer.
+
+00:01:25.380 --> 00:01:27.750
+When does dividing by the number of turns work?
+
+00:01:28.340 --> 00:01:30.290
+When every turn gives a different position.
+
+00:01:30.940 --> 00:01:32.870
+Seat five different people round a table,
+
+00:01:33.220 --> 00:01:35.830
+keeping clockwise order when you rotate the table.
+
+00:01:36.360 --> 00:01:38.730
+There are one hundred and twenty orders in a line.
+
+00:01:39.400 --> 00:01:42.840
+Each circular seating appears exactly five times as you
+
+00:01:42.840 --> 00:01:44.370
+choose a place to start reading.
+
+00:01:45.420 --> 00:01:47.930
+One hundred and twenty divided by five is twenty-four.
+
+00:01:49.050 --> 00:01:52.170
+Divide only when every arrangement is repeated the same
+
+00:01:52.170 --> 00:01:53.160
+number of times.
+
+00:01:53.650 --> 00:01:56.290
+Otherwise, sort the arrangements into groups and
+
+00:01:56.290 --> 00:01:57.120
+count the groups.
+
+00:01:57.890 --> 00:02:00.770
+Notebook challenge: in how many ways can four different
+
+00:02:00.770 --> 00:02:04.030
+people sit round a circular table, if turning the whole
+
+00:02:04.030 --> 00:02:05.900
+table does not count as different?

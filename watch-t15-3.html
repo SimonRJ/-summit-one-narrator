@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10151d">
+<link rel="icon" href="icon.svg">
+<title>T15.3 · Pair objects or classify their local structure · Summit One</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 25%, #192631, #0c121a 75%);
+  color: #f2f1ed; font: 1rem/1.55 system-ui, sans-serif;
+}
+main { max-width: 1120px; margin: auto; padding: clamp(18px, 4vw, 48px); }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.back { justify-content: space-between; gap: 8px 20px; }
+a { color: #9cdbbc; }
+h1 { max-width: 880px; margin: .25em 0 .45em; font-size: clamp(1.95rem, 5vw, 3.45rem); line-height: 1.12; }
+h2 { margin: 0; font-size: 1.2rem; }
+p { max-width: 55rem; color: #bac4cf; }
+.lesson { color: #9cdbbc; margin: 2rem 0 0; font-size: .88rem; font-weight: 700; }
+video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #10151d; border: 1px solid #354652; border-radius: 14px; }
+.meta { color: #bac4cf; margin: .65rem 0 0; }
+.chapters { margin: 1.2rem 0 1.6rem; }
+button {
+  cursor: pointer; min-height: 44px; border: 1px solid #405463; border-radius: 12px;
+  background: #1b2834; color: #eef2f4; font: inherit; padding: .5rem .8rem;
+}
+.exercise { background: #18232e; border: 1px solid #364756; border-radius: 16px; padding: 1.15rem; }
+summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
+.transcript { margin-top: 1rem; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+</style>
+</head>
+<body>
+<main>
+<nav class="back" aria-label="Lesson navigation">
+<a href="./">← Summit One</a><a href="teaching-videos.html">Teaching videos</a><a href="watch-t15-e.html">Next · Use symmetry without losing or repeating cases →</a>
+</nav>
+<p class="lesson">T15.3</p>
+<h1>Pair objects or classify their local structure</h1>
+<p>Count quickly by pairing every object with a partner.</p>
+<video id="lesson" controls playsinline preload="metadata" aria-label="Pair objects or classify their local structure"
+  poster="media/T15.3-studio-poster.jpg?v=teaching-films-v1">
+  <source src="media/T15.3.mp4?v=teaching-films-v1" type="video/mp4">
+</video>
+<p class="meta">2:01 · Full HD</p>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Match each object to one of the other type</button>
+<button type="button" data-time="11.160">0:11 · A pairing gives a reason for half</button>
+<button type="button" data-time="19.970">0:19 · How many of eight settings have even parity?</button>
+<button type="button" data-time="34.500">0:34 · Flip the first switch to find the partner</button>
+<button type="button" data-time="47.780">0:47 · Flipping one switch changes parity</button>
+<button type="button" data-time="62.490">1:02 · Use the same proof for ten switches</button>
+<button type="button" data-time="76.090">1:16 · Pair the first and last numbers</button>
+<button type="button" data-time="90.010">1:30 · Check for an object that pairs with itself</button>
+<button type="button" data-time="104.730">1:44 · Your turn</button></nav>
+<section class="exercise">
+<h2>Try it in your notebook</h2>
+<p>What is the sum of the whole numbers from 1 to 40?</p>
+<details><summary>Check your reasoning</summary><p>20 pairs each adding to 41: 820.</p></details>
+</section>
+<details class="transcript"><summary>Read the transcript</summary><p>If you can match every object with exactly one partner of the opposite type, then exactly half the objects are of each type. A good pairing lets you count without listing anything.</p>
+<p>Pairing arguments are short and they are proofs. They explain why the answer is half, instead of just noticing it in a few examples.</p>
+<p>Three light switches can each be on or off, giving eight settings. In how many of them is an even number of switches on? Zero counts as even. Pause and try to predict the answer.</p>
+<p>Pair each setting with the one you get by flipping the first switch. Flip it again and you return, so the settings really are in pairs. No setting is its own partner, because flipping always changes something.</p>
+<p>Flipping one switch changes the number of switches that are on by exactly one. So in each pair, one setting has an even number on and the other has an odd number. Four pairs, so four settings are even and four are odd.</p>
+<p>The same argument works whenever there is at least one switch to flip. With ten switches there are one thousand and twenty-four settings, and exactly half, five hundred and twelve, have an even number on. No listing needed.</p>
+<p>Pairing also adds. To add the numbers from one to one hundred, pair one with one hundred, two with ninety-nine, and so on. There are fifty pairs, each adding to one hundred and one. The total is five thousand and fifty.</p>
+<p>Always check that nothing is left without a partner, or paired with itself. The factors of thirty-six pair up to multiply to thirty-six, except six, which pairs with itself. That is why thirty-six has an odd number of factors.</p>
+<p>Find a rule that pairs every object with a different partner. If each pair has one of each type, the types occur equally often. Notebook challenge: what is the sum of the whole numbers from one to forty?</p></details>
+<p><a href="media/T15.3.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+</main>
+<script>
+const video = document.querySelector("#lesson");
+for (const button of document.querySelectorAll("[data-time]")) {
+  button.addEventListener("click", () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+    video.scrollIntoView({block: "center"});
+  });
+}
+</script>
+</body>
+</html>

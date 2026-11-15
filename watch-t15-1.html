@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10151d">
+<link rel="icon" href="icon.svg">
+<title>T15.1 · Define sameness before counting · Summit One</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 25%, #192631, #0c121a 75%);
+  color: #f2f1ed; font: 1rem/1.55 system-ui, sans-serif;
+}
+main { max-width: 1120px; margin: auto; padding: clamp(18px, 4vw, 48px); }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.back { justify-content: space-between; gap: 8px 20px; }
+a { color: #9cdbbc; }
+h1 { max-width: 880px; margin: .25em 0 .45em; font-size: clamp(1.95rem, 5vw, 3.45rem); line-height: 1.12; }
+h2 { margin: 0; font-size: 1.2rem; }
+p { max-width: 55rem; color: #bac4cf; }
+.lesson { color: #9cdbbc; margin: 2rem 0 0; font-size: .88rem; font-weight: 700; }
+video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #10151d; border: 1px solid #354652; border-radius: 14px; }
+.meta { color: #bac4cf; margin: .65rem 0 0; }
+.chapters { margin: 1.2rem 0 1.6rem; }
+button {
+  cursor: pointer; min-height: 44px; border: 1px solid #405463; border-radius: 12px;
+  background: #1b2834; color: #eef2f4; font: inherit; padding: .5rem .8rem;
+}
+.exercise { background: #18232e; border: 1px solid #364756; border-radius: 16px; padding: 1.15rem; }
+summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
+.transcript { margin-top: 1rem; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+</style>
+</head>
+<body>
+<main>
+<nav class="back" aria-label="Lesson navigation">
+<a href="./">← Summit One</a><a href="teaching-videos.html">Teaching videos</a><a href="watch-t15-2.html">Next · Do not divide by a symmetry count blindly →</a>
+</nav>
+<p class="lesson">T15.1</p>
+<h1>Define sameness before counting</h1>
+<p>Decide which arrangements count as &quot;the same&quot; before counting them.</p>
+<video id="lesson" controls playsinline preload="metadata" aria-label="Define sameness before counting"
+  poster="media/T15.1-studio-poster.jpg?v=teaching-films-v1">
+  <source src="media/T15.1.mp4?v=teaching-films-v1" type="video/mp4">
+</video>
+<p class="meta">1:54 · Full HD</p>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Does a turn give a new pattern?</button>
+<button type="button" data-time="15.960">0:15 · Read which moves count as the same</button>
+<button type="button" data-time="26.520">0:26 · Shade exactly one of four squares</button>
+<button type="button" data-time="41.530">0:41 · Fixed in place gives four patterns</button>
+<button type="button" data-time="51.140">0:51 · One tile can turn through all four pictures</button>
+<button type="button" data-time="60.580">1:00 · Two shaded squares produce two rotation groups</button>
+<button type="button" data-time="75.930">1:15 · Check whether a flip is allowed</button>
+<button type="button" data-time="92.240">1:32 · Your turn</button></nav>
+<section class="exercise">
+<h2>Try it in your notebook</h2>
+<p>A 2 by 2 square has three of its four small squares shaded. How many patterns, if it is free to turn?</p>
+<details><summary>Check your reasoning</summary><p>1 (it is the same as choosing the single unshaded square).</p></details>
+</section>
+<details class="transcript"><summary>Read the transcript</summary><p>Take a square tile with one corner coloured. Turn it, and the coloured corner moves. Is that a new tile, or the same tile seen from another side? The answer depends on the rules of the question. You must decide what counts as the same before you count.</p>
+<p>The same problem can have two correct-looking answers, one for objects fixed in place and one for objects that can be turned. Reading which is intended is half the work.</p>
+<p>A square is divided into four smaller squares, and exactly one of them is shaded. How many different patterns are there? Pause and decide whether the square is fixed to the page, or free to be turned.</p>
+<p>If the square is fixed on the page, like a window in a wall, there are four patterns: top-left, top-right, bottom-left, bottom-right.</p>
+<p>If the square is a loose tile that can be turned, all four are the same tile. A quarter turn carries each pattern to the next. There is only one pattern.</p>
+<p>Now shade two of the four squares. Fixed on the page there are six patterns. Free to turn, they fall into just two kinds: the two shaded squares are side by side, or they are diagonal. Turning can never change one kind into the other.</p>
+<p>Turning over is different from turning round. This marked tile cannot match its mirror by turning on the table. Flipping it over changes the order of the marks and makes a match. Some other marks do match their mirrors by turning, so test the moves that the question allows.</p>
+<p>Ask whether objects are fixed, can be turned, or can also be flipped. Two arrangements are the same only if an allowed move takes one to the other. Notebook challenge: three of the four small squares are shaded. How many patterns are there if the square is free to turn?</p></details>
+<p><a href="media/T15.1.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+</main>
+<script>
+const video = document.querySelector("#lesson");
+for (const button of document.querySelectorAll("[data-time]")) {
+  button.addEventListener("click", () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+    video.scrollIntoView({block: "center"});
+  });
+}
+</script>
+</body>
+</html>

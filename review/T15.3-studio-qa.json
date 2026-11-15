@@ -1,0 +1,101 @@
+{
+  "id": "T15.3",
+  "duration_seconds": 121.9,
+  "sha256": "58b2f6d6818afed98aeded4326040e7c075a6051ba111dbcc7a16f9b3a337214",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 99.14,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "match_percent": 100.0
+    },
+    {
+      "number": 2,
+      "start": 11.16,
+      "match_percent": 100.0
+    },
+    {
+      "number": 3,
+      "start": 19.97,
+      "match_percent": 100.0
+    },
+    {
+      "number": 4,
+      "start": 34.5,
+      "match_percent": 98.67
+    },
+    {
+      "number": 5,
+      "start": 47.78,
+      "match_percent": 100.0
+    },
+    {
+      "number": 6,
+      "start": 62.49,
+      "match_percent": 96.0
+    },
+    {
+      "number": 7,
+      "start": 76.09,
+      "match_percent": 97.56
+    },
+    {
+      "number": 8,
+      "start": 90.01,
+      "match_percent": 100.0
+    },
+    {
+      "number": 9,
+      "start": 104.73,
+      "match_percent": 100.0
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Match each object to one of the other type",
+      "start": 0.0
+    },
+    {
+      "title": "A pairing gives a reason for half",
+      "start": 11.16
+    },
+    {
+      "title": "How many of eight settings have even parity?",
+      "start": 19.97
+    },
+    {
+      "title": "Flip the first switch to find the partner",
+      "start": 34.5
+    },
+    {
+      "title": "Flipping one switch changes parity",
+      "start": 47.78
+    },
+    {
+      "title": "Use the same proof for ten switches",
+      "start": 62.49
+    },
+    {
+      "title": "Pair the first and last numbers",
+      "start": 76.09
+    },
+    {
+      "title": "Check for an object that pairs with itself",
+      "start": 90.01
+    },
+    {
+      "title": "Your turn",
+      "start": 104.73
+    }
+  ],
+  "decoded_successfully": true
+}

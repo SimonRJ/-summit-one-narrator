@@ -1,0 +1,92 @@
+{
+  "id": "T15.2",
+  "duration_seconds": 131.166667,
+  "sha256": "b96cc7529d02fd5802392096af658f5d0e5329573b27ff1c412516ef8703141e",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 99.43,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "match_percent": 100.0
+    },
+    {
+      "number": 2,
+      "start": 14.84,
+      "match_percent": 100.0
+    },
+    {
+      "number": 3,
+      "start": 23.97,
+      "match_percent": 95.45
+    },
+    {
+      "number": 4,
+      "start": 41.86,
+      "match_percent": 100.0
+    },
+    {
+      "number": 5,
+      "start": 52.75,
+      "match_percent": 100.0
+    },
+    {
+      "number": 6,
+      "start": 70.82,
+      "match_percent": 100.0
+    },
+    {
+      "number": 7,
+      "start": 85.38,
+      "match_percent": 100.0
+    },
+    {
+      "number": 8,
+      "start": 109.05,
+      "match_percent": 100.0
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Some patterns repeat after fewer turns",
+      "start": 0.0
+    },
+    {
+      "title": "Dividing by four assumes four copies each",
+      "start": 14.84
+    },
+    {
+      "title": "How many two-by-two tiles up to turning?",
+      "start": 23.97
+    },
+    {
+      "title": "Group the sixteen colourings by how many are black",
+      "start": 41.86
+    },
+    {
+      "title": "Count the rotation groups",
+      "start": 52.75
+    },
+    {
+      "title": "A tile’s group can contain 1, 2 or 4 pictures",
+      "start": 70.82
+    },
+    {
+      "title": "Five distinct seats have five possible starting places",
+      "start": 85.38
+    },
+    {
+      "title": "Your turn",
+      "start": 109.05
+    }
+  ],
+  "decoded_successfully": true
+}

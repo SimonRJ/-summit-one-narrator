@@ -1,0 +1,74 @@
+{
+  "id": "T15.E",
+  "duration_seconds": 74.566667,
+  "sha256": "e959a6d6dc691df18343f1c27734916e852cf67893e1c329dd41154ec1b1af9a",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 99.64,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "match_percent": 100.0
+    },
+    {
+      "number": 2,
+      "start": 14.97,
+      "match_percent": 100.0
+    },
+    {
+      "number": 3,
+      "start": 22.82,
+      "match_percent": 97.87
+    },
+    {
+      "number": 4,
+      "start": 38.18,
+      "match_percent": 100.0
+    },
+    {
+      "number": 5,
+      "start": 50.82,
+      "match_percent": 100.0
+    },
+    {
+      "number": 6,
+      "start": 59.63,
+      "match_percent": 100.0
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Choose any subset of A, B and C",
+      "start": 0.0
+    },
+    {
+      "title": "Every object has two choices",
+      "start": 14.97
+    },
+    {
+      "title": "Toggle A to pair each group",
+      "start": 22.82
+    },
+    {
+      "title": "In each pair, sizes differ by one",
+      "start": 38.18
+    },
+    {
+      "title": "Check the even-sized groups by listing",
+      "start": 50.82
+    },
+    {
+      "title": "Your turn",
+      "start": 59.63
+    }
+  ],
+  "decoded_successfully": true
+}
