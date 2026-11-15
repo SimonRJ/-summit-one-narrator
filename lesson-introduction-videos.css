@@ -1,0 +1,35 @@
+:root {
+  color-scheme: dark;
+  font: 1rem/1.55 Inter, system-ui, sans-serif;
+  color: #f2f5f8;
+  background: #0e1621;
+}
+* { box-sizing: border-box; }
+body { min-height: 100vh; margin: 0; background: radial-gradient(ellipse at 50% 0, #26394c, #0e1621 67%); }
+main { margin: auto; max-width: 1020px; padding: clamp(18px, 5vw, 58px); }
+a { color: #ace0fa; }
+a:hover { color: #e4f5ff; }
+:focus-visible { outline: 2px solid #bbe9ff; outline-offset: 4px; }
+h1 { margin: .5em 0 .23em; font-size: clamp(1.9rem, 5vw, 3.4rem); line-height: 1.1; letter-spacing: -.025em; text-wrap: balance; }
+h2 { font-size: 1.15rem; margin: 1.5em 0 .5em; }
+p, .lesson-number { color: #b6c7d6; }
+.intro { max-width: 42rem; margin-top: .5rem; }
+.lesson-number { margin: 1.6rem 0 0; font-size: .94rem; }
+.gallery { margin: 1.7rem 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+.gallery a { display: grid; grid-template-columns: 44px minmax(0, 1fr) auto; align-items: center; gap: 13px; padding: 16px 13px; min-height: 76px; background: #172637; border: 1px solid #395168; border-radius: 16px; text-decoration: none; color: #f2f5f8; }
+.gallery a:hover { background: #20374d; }
+.gallery .number { text-align: center; color: #ace0fa; font-weight: 700; font-variant-numeric: tabular-nums; }
+.gallery small { color: #b6c7d6; font-variant-numeric: tabular-nums; }
+video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #0d141d; border: 1px solid #395168; border-radius: 14px; margin-top: 1.2rem; }
+.jump { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 8px; margin: 0 0 1.4rem; padding: 0; list-style: none; }
+.jump button { width: 100%; min-height: 48px; background: #172637; border: 1px solid #395168; border-radius: 10px; color: #f2f5f8; font: inherit; padding: 10px 13px; text-align: left; display: flex; align-items: baseline; justify-content: space-between; gap: 8px; cursor: pointer; }
+.jump button:hover { background: #20374d; }
+.jump span { color: #ace0fa; font-size: .88rem; font-variant-numeric: tabular-nums; }
+details { margin-top: 1.2rem; border-top: 1px solid #395168; padding-top: 1rem; }
+summary { min-height: 44px; cursor: pointer; color: #ace0fa; }
+.transcript { max-width: 70ch; }
+.next { display: flex; flex-wrap: wrap; gap: 12px 28px; margin-top: 1.35rem; }
+.next a { display: flex; align-items: center; min-height: 44px; }
+@media (max-width: 440px) {
+  .gallery a { grid-template-columns: 32px minmax(0, 1fr) auto; gap: 8px; }
+}

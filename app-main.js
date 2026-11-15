@@ -16,7 +16,8 @@ import { problemFigure } from "./problem-figures.js";
 import {mountLessonPager} from "./lesson-pager.js?v=responsive-20261113";
 import {learningScreens} from "./lesson-screenflow.js?v=data-audit-20261114";
 import {buildCourseNavigation} from "./course-menu.js?v=menu-20261113";
-import {mountCourseMenu} from "./course-menu-ui.js?v=teaching-videos-20261115";
+import {mountCourseMenu} from "./course-menu-ui.js?v=lesson-intros-v2";
+import {INTRO_MEDIA_VERSION,lessonIntroId} from "./lesson-introduction-media.js?v=lesson-intros-v2";
 
 const app=document.getElementById("app");
 const problemTemplate=document.getElementById("problemTemplate");
@@ -212,6 +213,12 @@ async function openCompletedFromMenu(slot){
  const details=app.querySelector('[data-review-session="'+slot+'"]');
  if(details){details.open=true;details.scrollIntoView({behavior:"auto",block:"start"})}
 }
+function lessonIntroPlayer(id,title,elementId){
+ const media="media/"+id+"-Intro";
+ return `<video id="${elementId}" controls playsinline preload="metadata"
+   poster="${media}-poster.jpg?v=${INTRO_MEDIA_VERSION}" src="${media}.mp4?v=${INTRO_MEDIA_VERSION}"
+   aria-label="${esc(title)} · animated introduction with English captions"></video>`;
+}
 async function openLessonIntroductionFromMenu(slot){
  const loadToken=window.SummitLoader?.beginSmall("Preparing lesson video");
  try{
@@ -228,28 +235,37 @@ async function openLessonIntroductionFromMenu(slot){
  document.body.classList.add("lesson-video-review");
  setLessonScreenTopbar();
  activeView="lesson-intro-review";
- const introId=item.slot===1?"S001":item.slot===2?"S002":null;
+ const introId=lessonIntroId(item.slot);
  const teaching=teachingFor(item)[0]||null;
  const openingFilm=openingConceptFilm(item.slot);
- const media=introId?`<div class="lesson-replay-video"><video id="replayIntroVideo" controls playsinline preload="metadata" poster="media/${introId}-Intro-poster.jpg?v=cinema-20261113" src="media/${introId}-Intro.mp4?v=cinema-20261113" aria-label="${esc(item.focus)} · animated introduction"><track kind="captions" srclang="en" label="English captions" src="media/${introId}-Intro.vtt?v=cinema-20261113"></video></div>`:
+ const companion=teaching&&introId&&item.slot>=3
+  ?`<details id="replayCompanion" class="opening-fallback"><summary>Watch ${esc(teaching.title)}</summary><div id="replayNarratedTeaching" class="lesson-replay-narration"></div></details>`:"";
+ const media=introId?`<div class="lesson-replay-video">${lessonIntroPlayer(introId,item.focus,"replayIntroVideo")}</div>`:
   teaching?`<div id="replayNarratedTeaching" class="lesson-replay-narration"></div>`:
-  openingFilm?"":'<p class="muted">An animated introduction has not yet been published for this lesson. The original lesson and written explanations remain available.</p>';
+  openingFilm?"":'<p class="muted">The written lesson is available in the review below.</p>';
  app.innerHTML=`<section class="panel lesson-replay-page" aria-label="Read-only lesson video review">
    <div class="eyebrow">LESSON ${item.slot} · ${isComplete?"COMPLETED — REPLAY ONLY":"CURRENT — REVIEW"}</div>
    <h1>${esc(item.focus)}</h1>
-   <p class="muted">${introId?"Replay the original easy, medium and hard worked examples.":teaching||openingFilm?"Review the available teaching videos.":"The video for this lesson is not yet published."}</p>
+   <p class="muted">${introId?"Review the worked examples, common mistakes and exam checklist.":teaching||openingFilm?"Review the available teaching videos.":"The video for this lesson is not yet published."}</p>
    ${media}
    ${openingFilm}
+   ${companion}
    <p class="lesson-replay-note">${isComplete?"Your original answers, score and completion status stay locked. Replaying this video cannot restart the lesson.":"This is an optional teaching review. Your current answers and lesson position remain saved."}</p>
    <div class="lesson-replay-actions"><button type="button" id="replayBack" class="secondary">${isComplete?"Back to saved lesson":"Return to current lesson"}</button><button type="button" id="replayHome" class="ghost">Learning home</button></div>
  </section>`;
- if(!introId&&teaching){
-  mountNarratedPlayer(document.getElementById("replayNarratedTeaching"),{
+ const reviewHost=document.getElementById("replayNarratedTeaching");
+ const mountReview=()=>{
+  if(!reviewHost||reviewHost.dataset.mounted)return;
+  reviewHost.dataset.mounted="yes";
+  mountNarratedPlayer(reviewHost,{
    title:teaching.title,transcript:teaching.transcript,audioUrl:teaching.audio_url,
    videoUrl:finalVideoUrl(teaching.id),cacheKey:"read-only-lesson:"+item.slot
-   // Deliberately no onWatch callback and no session-record mutation.
+   // Replay does not record evidence or change a saved attempt.
   });
- }
+ };
+ const replayCompanion=document.getElementById("replayCompanion");
+ if(replayCompanion)replayCompanion.addEventListener("toggle",()=>{if(replayCompanion.open)mountReview()});
+ else if(reviewHost)mountReview();
  document.getElementById("replayBack").onclick=async()=>{document.body.classList.remove("lesson-video-review");if(isComplete)await openCompletedFromMenu(slot);else await continueFromMenu()};
  document.getElementById("replayHome").onclick=()=>{document.body.classList.remove("lesson-video-review");renderHome()};
  }finally{window.SummitLoader?.endSmall(loadToken)}
@@ -401,18 +417,21 @@ async function completeSpecialSession(s){
 }
 
 function renderLessonOpening(el,s){
- const id=s.slot===1?"S001":s.slot===2?"S002":null;
+ const id=lessonIntroId(s.slot);
+ const teachingFilm=teachingFor(s)[0];
+ const companion=id&&s.slot>=3&&teachingFilm;
  const p=lessonPlan(s,course,taxonomy);
  const title=esc(s.focus);
- const examples=id?'<p class="opening-levels"><span>Easy example</span><span>Medium example</span><span>Hard example</span></p>':'';
+ const examples=id?'<p class="opening-levels"><span>Basic example</span><span>Medium example</span><span>Exam-style challenge</span></p>':'';
  el.innerHTML=`<section class="opening-film" aria-label="Lesson introduction">
    <div class="eyebrow">THE IDEA FIRST · A VISUAL EXPLANATION</div>
    <h2>${title}</h2>
-   <p class="muted">Watch how a useful mathematical idea solves progressively harder problems. The problems in this introduction are teaching examples, not practice-test questions.</p>
-   ${id?`<div class="opening-video-wrap"><video id="openingVideo" controls playsinline preload="metadata" poster="media/${id}-Intro-poster.jpg?v=cinema-20261113" src="media/${id}-Intro.mp4?v=cinema-20261113" aria-label="${title} — fully worked animated introduction in three difficulty levels"><track kind="captions" srclang="en" label="English captions" src="media/${id}-Intro.vtt?v=cinema-20261113"></video></div>`:
-   `<div class="opening-concept-board"><div class="opening-concept-method">${esc(p.hook)}</div><div class="opening-concept-mark">${esc(skillFor(s,taxonomy))}</div><p>${esc(p.goal)}</p></div>`}
+   <p class="muted">Follow original examples from the first step to an exam-style challenge.</p>
+   ${id?`<div class="opening-video-wrap">${lessonIntroPlayer(id,s.focus,"openingVideo")}</div>`:
+    `<div class="opening-concept-board"><div class="opening-concept-method">${esc(p.hook)}</div><div class="opening-concept-mark">${esc(skillFor(s,taxonomy))}</div><p>${esc(p.goal)}</p></div>`}
    ${examples}
-   <div id="openingFallback" class="opening-fallback" ${id?"hidden":""}></div>
+   ${companion?`<details id="openingCompanion" class="opening-fallback"><summary>Watch ${esc(teachingFilm.title)}</summary><div id="openingFallback"></div></details>`:
+       `<div id="openingFallback" class="opening-fallback" ${id?"hidden":""}></div>`}
    ${openingConceptFilm(s.slot)}
    <p class="opening-coda">After watching, press <b>Next</b> and solve fresh problems using the same idea. Bring paper and a pencil.</p>
  </section>`;
@@ -420,13 +439,19 @@ function renderLessonOpening(el,s){
   const host=el.querySelector("#openingFallback");
   if(!host||host.dataset.mounted)return;
   host.hidden=false;host.dataset.mounted="yes";
-  const t=teachingFor(s)[0];
+  const t=teachingFilm;
   if(t)mountNarratedPlayer(host,{title:t.title,transcript:t.transcript,audioUrl:t.audio_url,videoUrl:finalVideoUrl(t.id),cacheKey:"lesson-opening-"+s.slot,onWatch:d=>recordVideoEvidence(s.slot,t.id,"concept",d)});
   else host.innerHTML='<p class="muted">The short written introduction is available in the next screen.</p>';
  };
+ const companionDetails=el.querySelector("#openingCompanion");
+ if(companionDetails)companionDetails.addEventListener("toggle",()=>{if(companionDetails.open)mountFallback()});
  const video=el.querySelector("#openingVideo");
  if(video){
-  video.addEventListener("error",()=>{video.hidden=true;mountFallback()});
+  video.addEventListener("error",()=>{
+   video.hidden=true;
+   if(companionDetails)companionDetails.open=true;
+   mountFallback();
+  });
   let marked=false;
   video.addEventListener("timeupdate",()=>{
    if(marked||!video.duration||video.currentTime/video.duration<.8)return;
@@ -652,7 +677,7 @@ function renderWorkshop(s){
 async function renderReview(){
  document.body.classList.remove("lesson-fullscreen","home-focus","lesson-video-review");
  activeView="review";await refreshEvidence();
- app.innerHTML=`<section class="panel hero-panel"><div class="eyebrow">YOUR MATHEMATICAL NOTEBOOK</div><h1>Completed sessions</h1><p class="muted">The original answers and working are locked. Use a fresh session to show new learning.</p>${[...completedRecords].reverse().map(r=>`<details class="review-detail" data-review-session="${r.session_number}"><summary>Session ${r.session_number} · ${esc(r.summary?.focus||course[r.session_number-1]?.focus||'')} <span class="type-chip">LOCKED</span></summary>${course[r.session_number-1]?.type==="LESSON"?`<button type="button" class="secondary saved-intro" data-video-session="${r.session_number}">${[1,2].includes(r.session_number)?"Watch introduction video":"Review lesson teaching"}</button>`:""}${r.summary?.takeaway?`<p><b>Key idea:</b> ${esc(r.summary.takeaway)}</p>`:""}${r.summary?.watch?`<p><b>Next time:</b> ${esc(r.summary.watch)}</p>`:""}${r.evidence?.mawa_base?.status?`<p>Mathematical investigation completed in a paper notebook. ${r.evidence.mawa_extension?.status?"Extension completed on paper.":""} Saved rubric scores are available above.</p>`:""}${Object.entries(r.answers||{}).map(([id,a])=>{
+ app.innerHTML=`<section class="panel hero-panel"><div class="eyebrow">YOUR MATHEMATICAL NOTEBOOK</div><h1>Completed sessions</h1><p class="muted">The original answers and working are locked. Use a fresh session to show new learning.</p>${[...completedRecords].reverse().map(r=>`<details class="review-detail" data-review-session="${r.session_number}"><summary>Session ${r.session_number} · ${esc(r.summary?.focus||course[r.session_number-1]?.focus||'')} <span class="type-chip">LOCKED</span></summary>${course[r.session_number-1]?.type==="LESSON"?`<button type="button" class="secondary saved-intro" data-video-session="${r.session_number}">${lessonIntroId(r.session_number)?"Watch introduction video":"Review lesson teaching"}</button>`:""}${r.summary?.takeaway?`<p><b>Key idea:</b> ${esc(r.summary.takeaway)}</p>`:""}${r.summary?.watch?`<p><b>Next time:</b> ${esc(r.summary.watch)}</p>`:""}${r.evidence?.mawa_base?.status?`<p>Mathematical investigation completed in a paper notebook. ${r.evidence.mawa_extension?.status?"Extension completed on paper.":""} Saved rubric scores are available above.</p>`:""}${Object.entries(r.answers||{}).map(([id,a])=>{
  const problem=problemIndex.find(entry=>entry.id===id);
  const learning=lessonManifest.find(entry=>entry.id===id);
  const figure=problem ? originalFigure({...problem,learning}) : '';
@@ -719,4 +744,3 @@ async function renderProfile(){
   document.getElementById("logout").onclick=async()=>{await signOut();location.href="login.html"};
 }
 boot().finally(()=>window.SummitLoader?.ready());
-

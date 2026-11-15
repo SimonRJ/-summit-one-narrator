@@ -1,3 +1,5 @@
+import {lessonIntroId} from "./lesson-introduction-media.js?v=lesson-intros-v2";
+
 /** Vertical course navigation: green checks mean completed and reviewable. */
 export function mountCourseMenu({navigation,getDone,getCurrent,onContinue,onCompleted,onIntroduction,onView}){
   const dialog=document.getElementById("courseMenu");
@@ -31,7 +33,7 @@ export function mountCourseMenu({navigation,getDone,getCurrent,onContinue,onComp
     const inner=`<span class="course-menu-number">${number}</span><span class="course-menu-copy"><b>${escape(item.focus)}</b><small>${escape(detail)}</small></span><span class="course-menu-status ${status}" aria-hidden="true">${marker}</span>`;
     if(status==="locked")return `<div class="course-menu-row course-menu-session is-locked" aria-label="${escape(label)}">${inner}</div>`;
     const availableIntro=item.type==="LESSON";
-    const publishedFilm=item.slot===1||item.slot===2;
+    const publishedFilm=Boolean(lessonIntroId(item.slot));
     const watch=availableIntro?`<button type="button" class="course-menu-watch" data-menu-intro-slot="${item.slot}" aria-label="${escape(publishedFilm?"Watch introduction video for session "+number:"Review teaching for session "+number)}" title="${publishedFilm?"Watch introduction":"Review teaching"}">${publishedFilm?"Watch intro":"Teaching"}</button>`:"";
     return `<div class="course-menu-row course-menu-session is-${status}" data-menu-slot="${item.slot}"><button type="button" class="course-menu-session-main" aria-label="${escape(label)}">${inner}</button>${watch}</div>`;
   }
@@ -50,6 +52,7 @@ export function mountCourseMenu({navigation,getDone,getCurrent,onContinue,onComp
         <div class="course-menu-divider" role="separator"></div>
         ${btn("lessons","Lessons",`${navigation.totals.lessons} technique lessons · ${navigation.topics.length} maths categories`)}
         ${btn("mawa","MAWA investigations",`${navigation.totals.mawa} investigations`)}
+        ${link("lesson-introduction-videos.html","Lesson introduction videos","Browse by lesson")}
         ${link("teaching-videos.html","Teaching videos","Watch concepts and worked examples in order")}
         ${btn("mixed","Strategy workshops",`${navigation.totals.workshops} workshops`)}
         ${btn("exams","Exams","AMC practice, real papers and Rossmoyne")}
