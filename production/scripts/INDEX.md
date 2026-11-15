@@ -74,9 +74,9 @@ Scripts ready: 56 of 72. Published for review: 14. Approved videos: 2. Not yet s
 | T16.E | Keep ratios, rates and averages precise | worked_example | script ready | 162 words, about 1.1 min | [T16.E.json](T16.E.json) |
 | T17.1 | Match the strength of the proof to the claim | concept | script ready | 294 words, about 2.0 min | [T17.1.json](T17.1.json) |
 | T17.2 | Use counterexamples and contradictions carefully | concept | script ready | 306 words, about 2.0 min | [T17.2.json](T17.2.json) |
-| T17.3 | Connect finite checks to general conclusions | concept | script ready | 328 words, about 2.2 min | [T17.3.json](T17.3.json) |
+| T17.3 | Connect finite checks to general conclusions | concept | script ready | 331 words, about 2.2 min | [T17.3.json](T17.3.json) |
 | T17.E | Write proofs that leave no hidden cases | worked_example | script ready | 210 words, about 1.4 min | [T17.E.json](T17.E.json) |
 | T18.1 | Start with the structure that limits the choices | concept | script ready | 254 words, about 1.7 min | [T18.1.json](T18.1.json) |
-| T18.2 | Manage a complete attempt and an independent check | concept | script ready | 275 words, about 1.8 min | [T18.2.json](T18.2.json) |
-| T18.3 | Use answer information, then check independently | concept | script ready | 296 words, about 2.0 min | [T18.3.json](T18.3.json) |
+| T18.2 | Manage a complete attempt and an independent check | concept | script ready | 280 words, about 1.9 min | [T18.2.json](T18.2.json) |
+| T18.3 | Use answer information, then check independently | concept | script ready | 311 words, about 2.1 min | [T18.3.json](T18.3.json) |
 | T18.E | Choose a strategy, then learn from the decision | worked_example | script ready | 195 words, about 1.3 min | [T18.E.json](T18.E.json) |

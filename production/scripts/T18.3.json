@@ -6,8 +6,8 @@
  "status": "script_ready_not_recorded",
  "voice": "Voice C (VoxCPM2), natural speed (see docs/VIDEO_PRODUCTION.md)",
  "goal": "Use multiple-choice options sensibly, and always answer the question that was asked.",
- "narration_words": 296,
- "estimated_minutes": 2.0,
+ "narration_words": 311,
+ "estimated_minutes": 2.1,
  "scenes": [
   {
    "n": 1,
@@ -48,8 +48,8 @@
   {
    "n": 7,
    "stage": "VARIATION",
-   "visual": "An equation puzzle with options; each option is substituted in turn until one fits.",
-   "narration": "When an equation is hard to solve directly, try the options in it. Substituting is slower than a neat method, but it is reliable, and starting with the middle-sized option tells you whether to go up or down."
+   "visual": "The equation 2x + 5 = 19. Test x = 6, then x = 7. Show that increasing x increases the left side.",
+   "narration": "When an equation is hard to solve directly, try the options in it. Suppose two times x plus five must be nineteen. Try six: the result is seventeen. Here bigger choices give bigger results, so try seven. That gives nineteen. Check how the expression changes before using a trial to choose a direction."
   },
   {
    "n": 8,

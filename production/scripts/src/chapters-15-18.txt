@@ -298,7 +298,7 @@ V: The three consecutive totals 8, 9, 10 highlighted. An arrow "add a 3" carries
 N: Now the key step. Eight, nine and ten can all be made. Add a three-cent stamp to each and you get eleven, twelve and thirteen. Add another and you get fourteen, fifteen and sixteen. Three totals in a row, plus the ability to add three, reach every total from eight onwards.
 [DEVELOP]
 V: Everything from 8 onward turns green. The crossed 7 remains as the largest total that cannot be made.
-N: So every total of eight or more is possible. That is endlessly many cases, proved by checking three and giving one rule. And seven is the largest total that cannot be made, which we know because the totals below eight were checked one by one.
+N: Every total of eight or more is possible. Seven cannot be made. Two fives are too many. With one five we would need two more, and with no fives we would need a multiple of three. Neither works. So seven is the largest total that cannot be made.
 [VARIATION]
 V: A finite claim card: "No two-digit square ends in 7." The ten units digits of squares listed: 0, 1, 4, 9, 6, 5, 6, 9, 4, 1.
 N: A finite check can prove a never. Does any square number end in seven? The last digit of a square depends only on the last digit of the number. Check the ten digits: their squares end in zero, one, four, nine, six, five, six, nine, four and one. Seven never appears. Ten checks cover every whole number.
@@ -306,7 +306,7 @@ N: A finite check can prove a never. Does any square number end in seven? The la
 V: Lines: "Finite: check every case, and show nothing is left out", "Endless: check a starting block and give a rule that carries it on".
 N: For finitely many cases, check them all and show nothing is left out. For endlessly many, check a starting block and give a rule that carries the result forward. Notebook challenge: with four-cent and five-cent stamps, what is the largest total you cannot make?
 TRY: With 4-cent and 5-cent stamps, what is the largest total that cannot be made?
-ANS: 11. (12, 13, 14, 15 can be made, and adding 4s reaches everything beyond.)
+ANS: 11. Using 0, 1 or 2 five-cent stamps leaves 11, 6 or 1, none a multiple of 4. The totals 12, 13, 14 and 15 can all be made, and adding 4 repeatedly reaches everything larger.
 
 @@ T17.E
 GOAL: Worked example: prove that a number times the next number is always even.
@@ -367,7 +367,7 @@ V: A page of scattered calculations beside a page with three labelled lines: "kn
 N: Good working leaves a trail. If you write what you have established, which cases you have finished, and what you will do next, you can pause, return, or find a mistake without starting again.
 [WHY]
 V: A clock with time running; a half-finished solution being picked up again smoothly.
-N: Under time pressure, people lose marks by repeating work or by trusting an answer they never checked. A clear trail and one independent check prevent both.
+N: Under time pressure, it is easy to repeat work or trust an unchecked answer. Keep a clear trail to show where you stopped, and use an independent check to catch errors.
 [PUZZLE]
 V: A 5 by 5 grid of unit squares with its border squares shaded. Question: "How many squares are on the border?"
 N: A five by five grid of small squares has all the squares along its border shaded. How many squares are shaded? Pause and find the answer in one way, then in a second, different way.
@@ -410,8 +410,8 @@ N: For nine, add the digits. Sixty-four gives ten, so it is not a multiple of ni
 V: A problem: "A book costs 12 dollars, a pen costs 3 dollars less. What do 2 pens cost?" Options include 9 and 18. The 9 flashes with "price of one pen".
 N: Now the other trap. A book costs twelve dollars and a pen costs three dollars less. What do two pens cost? One pen costs nine dollars, and nine is among the options. But the question asks for two pens: eighteen. Always reread the request before choosing.
 [VARIATION]
-V: An equation puzzle with options; each option is substituted in turn until one fits.
-N: When an equation is hard to solve directly, try the options in it. Substituting is slower than a neat method, but it is reliable, and starting with the middle-sized option tells you whether to go up or down.
+V: The equation 2x + 5 = 19. Test x = 6, then x = 7. Show that increasing x increases the left side.
+N: When an equation is hard to solve directly, try the options in it. Suppose two times x plus five must be nineteen. Try six: the result is seventeen. Here bigger choices give bigger results, so try seven. That gives nineteen. Check how the expression changes before using a trial to choose a direction.
 [RECAP]
 V: Lines: "Rule out options with quick tests", "Do not pick a number just because it appeared", "Reread what was asked".
 N: Rule options out with quick tests. Do not choose a number just because it appeared in your working. Reread what was asked before you answer. Notebook challenge: which of forty-five, sixty, seventy-five and ninety is a multiple of both four and five?
