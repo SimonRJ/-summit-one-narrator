@@ -144,7 +144,7 @@ ANS: 1, 2, 3, 5, 8, 13, 21: there are 21.
 GOAL: Decide what a repeating process must remember: its state.
 [INSIGHT]
 V: A token moving round a small loop of labelled states. When it lands on a state it has visited before, the path ahead copies the path already taken.
-N: In a step-by-step process, the state is everything you need to know to work out what happens next. Once the same state appears twice, the process must repeat from there. Finding the state is the key to long-run questions.
+N: In a process with a fixed rule, the state is everything you need to work out the next step. The same state must lead to the same next state. So once a state repeats, the whole path repeats from there. Finding the state is the key to long-run questions.
 [WHY]
 V: A question "what is the 1000th term?" over a long row; the row folds into a short loop.
 N: Questions about the hundredth or thousandth step look impossible. But if the states repeat in a short cycle, you only need the position inside the cycle.
@@ -191,7 +191,7 @@ V: From 10 an arrow to 9. Then pairs of moves: opponent takes 1, you take 2; opp
 N: Ten is not a multiple of three, so go first and take one, leaving nine. After that, whatever your opponent takes, you take the amount that makes three altogether. You always leave a multiple of three, and you take the last counter.
 [VARIATION]
 V: Rule card changes: "Take 1, 2 or 3." Number line relabelled with L at 4, 8.
-N: Change the rule to taking one, two or three, and the losing positions become the multiples of four. The method is the same: label from the bottom.
+N: Change the rule to taking one, two or three. One, two and three are winning, since you can take them all. Four is losing. From a multiple of four, any move lets the next player finish a total removal of four. From any other size, take enough to reach a multiple of four. The losing positions are the multiples of four.
 [RECAP]
 V: Lines: "Winning: some move reaches a losing position", "Losing: every move reaches a winning position", "Label from the smallest case".
 N: A position is winning if you can move to a losing one. It is losing if every move goes to a winning one. Start labelling from the end. Notebook challenge: with the take one or two rule and a pile of fourteen, what should the first player take?

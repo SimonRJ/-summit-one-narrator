@@ -45,8 +45,8 @@ Scripts ready: 56 of 72. Published for review: 14. Approved videos: 2. Not yet s
 | T09.3 | Transform equations without losing conditions | concept | script ready | 275 words, about 1.8 min | [T09.3.json](T09.3.json) |
 | T09.E | Make fractions, decimals and algebra agree | worked_example | script ready | 182 words, about 1.2 min | [T09.E.json](T09.E.json) |
 | T10.1 | Build a recurrence from a reversible step | concept | script ready | 280 words, about 1.9 min | [T10.1.json](T10.1.json) |
-| T10.2 | Remember enough information, but no more | concept | script ready | 294 words, about 2.0 min | [T10.2.json](T10.2.json) |
-| T10.3 | Classify game positions by their legal moves | concept | script ready | 303 words, about 2.0 min | [T10.3.json](T10.3.json) |
+| T10.2 | Remember enough information, but no more | concept | script ready | 304 words, about 2.0 min | [T10.2.json](T10.2.json) |
+| T10.3 | Classify game positions by their legal moves | concept | script ready | 337 words, about 2.2 min | [T10.3.json](T10.3.json) |
 | T10.E | Build patterns from reasons, not guesses | worked_example | script ready | 183 words, about 1.2 min | [T10.E.json](T10.E.json) |
 | T11.1 | Translate position into value | concept | script ready | 266 words, about 1.8 min | [T11.1.json](T11.1.json) |
 | T11.2 | Use information that survives rearrangement | concept | script ready | 285 words, about 1.9 min | [T11.2.json](T11.2.json) |

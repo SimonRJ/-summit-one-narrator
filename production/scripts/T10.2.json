@@ -6,14 +6,14 @@
  "status": "script_ready_not_recorded",
  "voice": "Voice C (VoxCPM2), natural speed (see docs/VIDEO_PRODUCTION.md)",
  "goal": "Decide what a repeating process must remember: its state.",
- "narration_words": 294,
+ "narration_words": 304,
  "estimated_minutes": 2.0,
  "scenes": [
   {
    "n": 1,
    "stage": "INSIGHT",
    "visual": "A token moving round a small loop of labelled states. When it lands on a state it has visited before, the path ahead copies the path already taken.",
-   "narration": "In a step-by-step process, the state is everything you need to know to work out what happens next. Once the same state appears twice, the process must repeat from there. Finding the state is the key to long-run questions."
+   "narration": "In a process with a fixed rule, the state is everything you need to work out the next step. The same state must lead to the same next state. So once a state repeats, the whole path repeats from there. Finding the state is the key to long-run questions."
   },
   {
    "n": 2,
