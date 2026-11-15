@@ -78,9 +78,9 @@ def link(start, end, words=None, *, colour=RIM, arrow=False, width=3, delay=0):
     return draw
 
 
-def chart(headings, rows, *, y=227, row_height=68, width=980, highlight=(), font=31):
+def chart(headings, rows, *, x=640, y=227, row_height=68, width=980, highlight=(), font=31):
     """Each row supplies its own spoken cue for revealing actual counted outcomes."""
-    left = (1280 - width) / 2
+    left = x - width / 2
     w = width / len(headings)
     xs = [left + w * (i + 0.5) for i in range(len(headings))]
 
