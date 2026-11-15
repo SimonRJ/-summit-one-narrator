@@ -3,10 +3,10 @@
  "title": "Prove that the classification is reversible",
  "chapter": "Count outcomes once, using complete cases",
  "type": "concept",
- "status": "script_ready_not_recorded",
+ "status": "published_for_review",
  "voice": "Voice C (VoxCPM2), natural speed (see docs/VIDEO_PRODUCTION.md)",
  "goal": "Check a counting method by giving every outcome exactly one address.",
- "narration_words": 313,
+ "narration_words": 319,
  "estimated_minutes": 2.1,
  "scenes": [
   {
@@ -25,7 +25,7 @@
    "n": 3,
    "stage": "PUZZLE",
    "visual": "Five seats in a row. Counters: three girls G and two boys B. Rule text: \"the two boys must not sit next to each other\".",
-   "narration": "Three girls and two boys sit in a row of five seats. The two boys must not sit next to each other. In how many ways can they be seated? Pause and look for a way to build every legal row exactly once."
+   "narration": "Five different students sit in a row of five seats. Three are girls and two are boys. The two boys must not sit next to each other. In how many ways can they be seated? Pause and look for a way to build every legal row exactly once."
   },
   {
    "n": 4,
@@ -55,7 +55,7 @@
    "n": 8,
    "stage": "RECAP",
    "visual": "Lines: \"Can I rebuild the choices from the outcome?\", \"Does every choice give a legal outcome?\".",
-   "narration": "Ask two questions of any counting method. Can I recover the choices from the outcome? And does every choice give a legal outcome? Notebook challenge: in how many ways can four different books stand on a shelf if two particular books must not be next to each other?"
+   "narration": "Ask two questions of any counting method. Can I recover the choices from every legal outcome? And does every choice give a legal outcome? Notebook challenge: in how many ways can four different books stand on a shelf if two particular books must not be next to each other?"
   }
  ],
  "notebook_exercise": "Four different books on a shelf; two particular books must not be adjacent. How many arrangements?",

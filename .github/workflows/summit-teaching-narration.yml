@@ -1,0 +1,96 @@
+name: Summit One teaching narration
+
+on:
+  push:
+    branches: [codex/teaching-production]
+    paths:
+      - 'production/t01-studio/narration_plan.json'
+
+permissions:
+  contents: read
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.plan.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Distribute complete scenes across warm model workers
+        id: plan
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          import os
+          import re
+
+          plan = json.loads(Path("production/t01-studio/narration_plan.json").read_text())
+          requests = []
+          for lesson in plan["lessons"]:
+              assert re.fullmatch(r"T(?:0[5-9]|1[0-8])\.[123E]", lesson), lesson
+              script = json.loads(Path(f"production/scripts/{lesson}.json").read_text())
+              selected = plan.get("scenes", {}).get(lesson)
+              for scene in script["scenes"]:
+                  if selected is None or scene["n"] in selected:
+                      weight = len(scene["narration"].split())
+                      requests.append((weight, {"lesson": lesson, "scene": scene["n"]}))
+          assert requests
+          lanes = [[] for _ in range(min(len(requests), 19))]
+          weights = [0] * len(lanes)
+          for words, request in sorted(requests, key=lambda row: -row[0]):
+              slot = min(range(len(lanes)), key=lambda index: weights[index])
+              weights[slot] += words
+              lanes[slot].append(request)
+          matrix = {"include": [{"lane": index, "scenes": json.dumps(items, separators=(",", ":"))}
+                                for index, items in enumerate(lanes, 1)]}
+          with open(os.environ["GITHUB_OUTPUT"], "a") as out:
+              print("matrix=" + json.dumps(matrix, separators=(",", ":")), file=out)
+          PY
+
+  voice:
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    strategy:
+      fail-fast: false
+      max-parallel: 19
+      matrix: ${{ fromJSON(needs.plan.outputs.matrix) }}
+    env:
+      HF_HUB_DISABLE_XET: '1'
+      TOKENIZERS_PARALLELISM: 'false'
+      OMP_NUM_THREADS: '4'
+      MKL_NUM_THREADS: '4'
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install the approved Voice C runtime
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg libsndfile1
+          pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install 'transformers>=4.45,<5' 'huggingface-hub<1' einops pydantic soundfile librosa safetensors tqdm numpy scipy inflect addict argbind
+          pip install --no-deps 'git+https://github.com/OpenBMB/VoxCPM.git@300e4260b509066151d623dc9c0aa922cf82232b'
+      - name: Record scene passages with the original reference
+        env:
+          SCENES: ${{ matrix.scenes }}
+        run: |
+          printf '%s\n' "$SCENES" > "$RUNNER_TEMP/scenes.json"
+          python production/t01-studio/synth.py --sequence "$RUNNER_TEMP/scenes.json" --threads 4
+      - uses: actions/upload-artifact@v4
+        with:
+          name: studio-voice-lane-${{ matrix.lane }}
+          path: |
+            build/t01-studio/T*.json
+            build/t01-studio/T*.wav
+          if-no-files-found: error
+          retention-days: 14
+          compression-level: 1
+          overwrite: true

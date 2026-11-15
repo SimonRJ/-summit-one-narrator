@@ -6,7 +6,7 @@
  "status": "script_ready_not_recorded",
  "voice": "Voice C (VoxCPM2), natural speed (see docs/VIDEO_PRODUCTION.md)",
  "goal": "When given information, cross out impossible outcomes and recount.",
- "narration_words": 272,
+ "narration_words": 274,
  "estimated_minutes": 1.8,
  "scenes": [
   {
@@ -43,7 +43,7 @@
    "n": 6,
    "stage": "VARIATION",
    "visual": "The 6 by 6 dice grid. Card: \"the total is 8\". Five cells remain: (2,6), (3,5), (4,4), (5,3), (6,2). The cell (4,4) glows.",
-   "narration": "Try two dice. You are told the total is eight. Five pairs survive: two and six, three and five, four and four, five and three, six and two. What is the chance that both dice show the same number? Only four and four works: one out of five."
+   "narration": "Roll two fair dice separately. You are told the total is eight. Five pairs survive: two and six, three and five, four and four, five and three, six and two. What is the chance that both dice show the same number? Only four and four works: one out of five."
   },
   {
    "n": 7,

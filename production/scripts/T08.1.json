@@ -6,7 +6,7 @@
  "status": "script_ready_not_recorded",
  "voice": "Voice C (VoxCPM2), natural speed (see docs/VIDEO_PRODUCTION.md)",
  "goal": "List equally likely outcomes honestly before finding a probability.",
- "narration_words": 271,
+ "narration_words": 277,
  "estimated_minutes": 1.8,
  "scenes": [
   {
@@ -25,7 +25,7 @@
    "n": 3,
    "stage": "PUZZLE",
    "visual": "Two coins. Question: \"What is the chance of exactly one head?\" Three tempting labels: \"two heads\", \"one head\", \"no heads\".",
-   "narration": "Two fair coins are tossed. What is the probability of getting exactly one head? Someone says there are three results, two heads, one head or no heads, so the answer is one third. Pause and decide whether that is right."
+   "narration": "Toss two fair coins separately, so one result cannot affect the other. What is the probability of getting exactly one head? Someone says there are three results, two heads, one head or no heads, so the answer is one third. Pause and decide whether that is right."
   },
   {
    "n": 4,
@@ -43,7 +43,7 @@
    "n": 6,
    "stage": "VARIATION",
    "visual": "A 6 by 6 grid of two dice. Cells with total 7 highlighted along a diagonal: six cells. Cells with total 2: one cell.",
-   "narration": "Two dice work the same way. There are thirty-six equally likely pairs. A total of seven comes from six of them, so its probability is six out of thirty-six, one sixth. A total of two comes from only one pair. The totals are not equally likely, but the pairs are."
+   "narration": "Roll two fair dice separately. There are thirty-six equally likely pairs. A total of seven comes from six of them, so its probability is six out of thirty-six, one sixth. A total of two comes from only one pair. The totals are not equally likely, but the pairs are."
   },
   {
    "n": 7,
@@ -52,6 +52,6 @@
    "narration": "Label the objects so each outcome is visible. Check the outcomes are equally likely. Then count favourable out of total. Notebook challenge: two dice are rolled. What is the probability that the two numbers are the same?"
   }
  ],
- "notebook_exercise": "Two dice are rolled. What is the probability that both show the same number?",
+ "notebook_exercise": "Two fair dice are rolled independently. What is the probability that both show the same number?",
  "notebook_answer": "6 out of 36 = 1/6."
 }

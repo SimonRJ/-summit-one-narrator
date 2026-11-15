@@ -4,7 +4,7 @@ GOAL: Decide whether swapping two chosen objects makes a new outcome.
 V: Three ceramic counters A, B, C. Two podium places "1st" and "2nd" on the left; a plain tray labelled "team of 2" on the right.
 N: Before counting anything, ask one question: does order matter? Choosing a winner and a runner-up is different from choosing a team of two. On the podium, swapping the two people changes the result. In a team, swapping them changes nothing.
 [WHY]
-V: Two answers, 6 and 3, hover over the same three counters with a question mark between them.
+V: Two ordered outcomes AB and BA link to the same team of A and B.
 N: Getting this wrong doubles your answer, or halves it. It is one of the most common counting mistakes, and the cure is to decide about order before you start multiplying.
 [PUZZLE]
 V: Counters A, B, C. Question one: "How many ways to fill 1st and 2nd?" Question two: "How many teams of two?"
@@ -66,7 +66,7 @@ V: Two outcome cards arriving at the same box, flashing; then a card with no box
 N: Double counting and missed cases are invisible if you only look at the final number. Checking the addresses is the way to trust a count without redoing it.
 [PUZZLE]
 V: Five seats in a row. Counters: three girls G and two boys B. Rule text: "the two boys must not sit next to each other".
-N: Three girls and two boys sit in a row of five seats. The two boys must not sit next to each other. In how many ways can they be seated? Pause and look for a way to build every legal row exactly once.
+N: Five different students sit in a row of five seats. Three are girls and two are boys. The two boys must not sit next to each other. In how many ways can they be seated? Pause and look for a way to build every legal row exactly once.
 [DEVELOP]
 V: The three girls are placed first in a row with four gaps marked: before, between, between, after. Count 3 x 2 x 1 = 6.
 N: Seat the girls first. Three girls can be arranged in six orders. Around them are four gaps: one at each end and two between.
@@ -81,7 +81,7 @@ V: All 120 arrangements, with 48 "boys together" arrangements shaded: a glued BB
 N: A second method confirms it. Five people can sit in one hundred and twenty ways. Glue the boys together as one block: four objects in twenty-four orders, times two for the boys swapping. That is forty-eight unwanted rows. One hundred and twenty minus forty-eight is seventy-two.
 [RECAP]
 V: Lines: "Can I rebuild the choices from the outcome?", "Does every choice give a legal outcome?".
-N: Ask two questions of any counting method. Can I recover the choices from the outcome? And does every choice give a legal outcome? Notebook challenge: in how many ways can four different books stand on a shelf if two particular books must not be next to each other?
+N: Ask two questions of any counting method. Can I recover the choices from every legal outcome? And does every choice give a legal outcome? Notebook challenge: in how many ways can four different books stand on a shelf if two particular books must not be next to each other?
 TRY: Four different books on a shelf; two particular books must not be adjacent. How many arrangements?
 ANS: 24 total minus 12 with them together = 12.
 
@@ -184,13 +184,13 @@ N: The supply is pairs of students. Five students form ten different pairs. Each
 V: A five-day schedule fills in: Day 1 AB, CD (E rests); Day 2 AC, BE (D rests); Day 3 AD, CE (B rests); Day 4 AE, BD (C rests); Day 5 BC, DE (A rests). Each used line fades from the pair list until none remain.
 N: Can five days really be done? Here is a schedule. Day one: A with B, C with D. Day two: A with C, B with E. Day three: A with D, C with E. Day four: A with E, B with D. Day five: B with C, D with E. All ten pairs appear exactly once.
 [VARIATION]
-V: The same five dots with rule changed: "groups of three; no pair together twice". Each group uses 3 pairs; 10 / 3 gives at most 3. A search shows only 2 groups fit.
-N: Be careful: a ceiling is not always reachable. If the students work in groups of three, each group uses three pairs. Ten pairs would allow at most three groups. But try it: after A, B, C and A, D, E, every further group of three would repeat a pair. Only two groups are possible. The bound said three, the truth is two.
+V: Two triangles meet at one pupil. A third triangle using that pupil repeats a used edge. Without that pupil, any three of the other four must complete one of the two used outer pairs.
+N: What if each group has three people? Counting pairs gives a ceiling of three groups. But any two legal groups must share exactly one person. Two triples cannot be disjoint among five people, and sharing two would repeat a pair. For a third group, using the shared person repeats a pair with any other person. Leaving that person out forces three choices from the two outer pairs, so one pair repeats. Two groups fit, and a third never does.
 [RECAP]
 V: Lines: "Find what is used up", "Divide to get a ceiling", "Build an example, or show the ceiling fails".
 N: Find the limited supply. Divide to get a ceiling. Then either build an example that reaches it, or explain why it cannot be reached. Notebook challenge: six students play chess, one game per pair at most. Each day three games are played. What is the largest possible number of days?
 TRY: Six students; each day 3 games; no pair plays twice. Largest number of days?
-ANS: 15 pairs / 3 per day = 5 days, and a round-robin schedule achieves it.
+ANS: 15 pairs / 3 per day = 5 days. One schedule for A to F is AF, BE, CD / AE, DF, BC / AD, CE, BF / AC, BD, EF / AB, CF, DE. Each day's games are disjoint and each pair appears once.
 
 @@ T06.E
 GOAL: Worked example: find a perimeter by removing edges that were counted twice.
@@ -237,7 +237,7 @@ V: A row of nine cells. Pairs (1,2), (3,4), (5,6), (7,8) and a single cell 9. Co
 N: With nine cells, there are four pairs and one cell left over. Each pair holds at most one counter and the extra cell holds at most one: at most five. And cells one, three, five, seven and nine achieve it.
 [VARIATION]
 V: Text: "smallest number" with eight cells and a new rule "every empty cell must be next to a counter". Groups of three cells, each with a counter in the middle.
-N: For a smallest-number question, turn the idea around: ask what every arrangement must cover. If every empty cell must be next to a counter, each counter can look after at most three cells, itself and its two neighbours. Eight cells need at least three counters.
+N: For a smallest-number question, turn the idea around: ask what every arrangement must cover. If every empty cell must be next to a counter, each counter can look after at most three cells, itself and its two neighbours. Eight cells need at least three counters. Cells two, five and eight give that coverage, so three is enough.
 [RECAP]
 V: Lines: "Find the limited resource", "Prove the limit", "Show an arrangement that reaches it".
 N: Find what is limited. Use it to prove a limit. Then show an arrangement that reaches the limit. Notebook challenge: what is the largest number of counters in a row of eleven cells with no two neighbours?
@@ -266,10 +266,10 @@ V: Rule added: "the two numbers must be different". The 6 and 6 pair greys out; 
 N: Now add a restriction: the two numbers must be different. Six and six is no longer allowed. Choose the most balanced pair that is allowed, five and seven, giving thirty-five.
 [VARIATION]
 V: 12 split into three parts 4, 4, 4 with product 64, compared with 6, 6 at 36 and 3, 3, 3, 3 at 81.
-N: The same idea works with more parts. Splitting twelve into four, four and four gives sixty-four. Splitting into four threes gives eighty-one, which is the best of all for twelve. Equal parts win, and threes are especially good.
+N: The number of parts matters too. Three fours give a product of sixty-four. Four threes give eighty-one. Both splits are balanced within their own number of parts, but the second product is bigger. Check how many parts the question actually allows.
 [RECAP]
 V: Lines: "Fixed sum: balance for the biggest product", "If balance is forbidden, get as close as allowed".
-N: With a fixed total, balanced parts give the largest product. When a rule forbids perfect balance, get as close as the rule allows. Notebook challenge: a rectangle with whole-number sides has perimeter twenty-two. What is its largest possible area?
+N: For two positive parts with a fixed total, the most balanced pair gives the largest product. When a rule forbids perfect balance, get as close as the rule allows. Notebook challenge: a rectangle with whole-number sides has perimeter twenty-two. What is its largest possible area?
 TRY: A rectangle with whole-number sides has perimeter 22. Largest possible area?
 ANS: Sides add to 11; 5 and 6 give area 30.
 
@@ -323,7 +323,7 @@ N: So four trays are enough, and three are not. The answer is four. Notice that 
 V: Line: "test every rule for a limit; the strongest one decides". Notebook prompt.
 N: When there are several rules, find the limit each one gives. The strongest limit decides. Rebuild this argument, then try it with nine red counters and three blue counters.
 TRY: Same rules with 9 red and 3 blue counters. Smallest number of trays?
-ANS: Reds need at least 5 trays (4 trays hold 8); 5 trays work, so 5.
+ANS: At least 5 trays are needed, since 4 trays hold at most 8 reds. Use three trays with 2 red and 1 blue each, one tray with 2 reds, and one tray with 1 red.
 
 @@ T08.1
 GOAL: List equally likely outcomes honestly before finding a probability.
@@ -335,7 +335,7 @@ V: "red or blue: 1 out of 2" crossed lightly. "3 counters: 2 red" highlighted.
 N: Counting names instead of real outcomes is the most common probability mistake. The fix is to list outcomes that genuinely are equally likely, then count.
 [PUZZLE]
 V: Two coins. Question: "What is the chance of exactly one head?" Three tempting labels: "two heads", "one head", "no heads".
-N: Two fair coins are tossed. What is the probability of getting exactly one head? Someone says there are three results, two heads, one head or no heads, so the answer is one third. Pause and decide whether that is right.
+N: Toss two fair coins separately, so one result cannot affect the other. What is the probability of getting exactly one head? Someone says there are three results, two heads, one head or no heads, so the answer is one third. Pause and decide whether that is right.
 [DEVELOP]
 V: A 2 by 2 grid: first coin H or T down the side, second coin H or T across. Cells HH, HT, TH, TT.
 N: Give the coins names: first coin and second coin. Now there are four outcomes: head head, head tail, tail head, and tail tail. These four are equally likely.
@@ -344,11 +344,11 @@ V: Cells HT and TH glow. Fraction two out of four simplifies to one half.
 N: Exactly one head happens in two of the four: head tail, and tail head. So the probability is two out of four, which is one half, not one third. The three results in the earlier list were not equally likely.
 [VARIATION]
 V: A 6 by 6 grid of two dice. Cells with total 7 highlighted along a diagonal: six cells. Cells with total 2: one cell.
-N: Two dice work the same way. There are thirty-six equally likely pairs. A total of seven comes from six of them, so its probability is six out of thirty-six, one sixth. A total of two comes from only one pair. The totals are not equally likely, but the pairs are.
+N: Roll two fair dice separately. There are thirty-six equally likely pairs. A total of seven comes from six of them, so its probability is six out of thirty-six, one sixth. A total of two comes from only one pair. The totals are not equally likely, but the pairs are.
 [RECAP]
 V: Lines: "Label the objects", "List equally likely outcomes", "Favourable out of total".
 N: Label the objects so each outcome is visible. Check the outcomes are equally likely. Then count favourable out of total. Notebook challenge: two dice are rolled. What is the probability that the two numbers are the same?
-TRY: Two dice are rolled. What is the probability that both show the same number?
+TRY: Two fair dice are rolled independently. What is the probability that both show the same number?
 ANS: 6 out of 36 = 1/6.
 
 @@ T08.2
@@ -361,7 +361,7 @@ V: A wrong calculation "one half times one half" greyed, beside an updating bag.
 N: Using the original bag for both draws is a common error. Updating after each step is what makes the answer right.
 [PUZZLE]
 V: The bag with 2 red, 2 blue. Question: "Two counters are drawn without replacement. What is the chance both are red?"
-N: A bag holds two red counters and two blue counters. Two counters are drawn, one after the other, without putting the first back. What is the probability that both are red? Pause and think about the bag after the first draw.
+N: A bag holds two red counters and two blue counters. Draw two counters at random, one after the other, without putting the first back. What is the probability that both are red? Pause and think about the bag after the first draw.
 [DEVELOP]
 V: A tree's first branch: red with "2 out of 4", blue with "2 out of 4".
 N: On the first draw, two of the four counters are red. The chance of red is two out of four, which is one half.
@@ -399,7 +399,7 @@ V: Among 2, 4, 6 the faces 4 and 6 glow. Fraction: two out of three.
 N: Of those three, the numbers greater than three are four and six. So the probability is two out of three. Without the information it would have been three out of six, one half. The information changed the answer.
 [VARIATION]
 V: The 6 by 6 dice grid. Card: "the total is 8". Five cells remain: (2,6), (3,5), (4,4), (5,3), (6,2). The cell (4,4) glows.
-N: Try two dice. You are told the total is eight. Five pairs survive: two and six, three and five, four and four, five and three, six and two. What is the chance that both dice show the same number? Only four and four works: one out of five.
+N: Roll two fair dice separately. You are told the total is eight. Five pairs survive: two and six, three and five, four and four, five and three, six and two. What is the chance that both dice show the same number? Only four and four works: one out of five.
 [VARIATION]
 V: Note card: "equally likely before, equally likely after".
 N: Crossing out works because outcomes that were equally likely before the information are still equally likely afterwards. If the outcomes are not equally likely, you compare their probabilities rather than just counting them.
@@ -413,7 +413,7 @@ ANS: Survivors 3, 4, 5, 6; odd are 3 and 5; 2/4 = 1/2.
 GOAL: Worked example: "at least one head" shrinks the comparison group.
 [PUZZLE]
 V: Two coins. Card: "At least one coin shows heads." Question: "What is the chance both are heads?"
-N: Two fair coins are tossed. You are told that at least one of them shows heads. What is the probability that both show heads?
+N: Two fair coins are tossed independently. You know that at least one of them shows heads. What is the probability that both show heads?
 [DEVELOP]
 V: Grid of four outcomes: HH, HT, TH, TT, each marked one quarter.
 N: Name the coins first and second. There are four equally likely outcomes: head head, head tail, tail head, tail tail.
@@ -429,5 +429,5 @@ N: Compare a slightly different piece of information. Suppose you are told the f
 [RECAP]
 V: Line: "the surviving outcomes are the new total". Notebook prompt.
 N: Information removes outcomes, and the survivors become the new total. Rebuild this example, then try: two coins are tossed and you are told they do not show the same face. What is the probability the first coin is heads?
-TRY: Two coins are tossed; you are told they show different faces. Probability the first is heads?
+TRY: Two fair coins are tossed independently and show different faces. What is the probability the first is heads?
 ANS: Survivors HT, TH; one of two: 1/2.

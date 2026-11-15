@@ -1,0 +1,74 @@
+{
+  "id": "T05.E",
+  "duration_seconds": 73.433333,
+  "sha256": "0ab1d12b7a8a551274c1c60e445f0f2d674cca49dbdc3ab303a55a54c8951c5c",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 100.0,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0.0,
+      "match_percent": 100.0
+    },
+    {
+      "number": 2,
+      "start": 13.54,
+      "match_percent": 100.0
+    },
+    {
+      "number": 3,
+      "start": 23.15,
+      "match_percent": 100.0
+    },
+    {
+      "number": 4,
+      "start": 32.76,
+      "match_percent": 100.0
+    },
+    {
+      "number": 5,
+      "start": 40.29,
+      "match_percent": 100.0
+    },
+    {
+      "number": 6,
+      "start": 52.61,
+      "match_percent": 100.0
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Pick one sandwich and one fruit",
+      "start": 0.0
+    },
+    {
+      "title": "The sandwich determines the case",
+      "start": 13.54
+    },
+    {
+      "title": "Cheese allows two fruit choices",
+      "start": 23.15
+    },
+    {
+      "title": "Bean allows all three choices",
+      "start": 32.76
+    },
+    {
+      "title": "Check by removing the forbidden pair",
+      "start": 40.29
+    },
+    {
+      "title": "Your turn",
+      "start": 52.61
+    }
+  ],
+  "decoded_successfully": true
+}

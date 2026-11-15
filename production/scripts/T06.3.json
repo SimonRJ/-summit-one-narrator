@@ -6,8 +6,8 @@
  "status": "script_ready_not_recorded",
  "voice": "Voice C (VoxCPM2), natural speed (see docs/VIDEO_PRODUCTION.md)",
  "goal": "Turn \"each group uses up some of a limited supply\" into a maximum, then reach it.",
- "narration_words": 303,
- "estimated_minutes": 2.0,
+ "narration_words": 320,
+ "estimated_minutes": 2.1,
  "scenes": [
   {
    "n": 1,
@@ -42,8 +42,8 @@
   {
    "n": 6,
    "stage": "VARIATION",
-   "visual": "The same five dots with rule changed: \"groups of three; no pair together twice\". Each group uses 3 pairs; 10 / 3 gives at most 3. A search shows only 2 groups fit.",
-   "narration": "Be careful: a ceiling is not always reachable. If the students work in groups of three, each group uses three pairs. Ten pairs would allow at most three groups. But try it: after A, B, C and A, D, E, every further group of three would repeat a pair. Only two groups are possible. The bound said three, the truth is two."
+   "visual": "Two triangles meet at one pupil. A third triangle using that pupil repeats a used edge. Without that pupil, any three of the other four must complete one of the two used outer pairs.",
+   "narration": "What if each group has three people? Counting pairs gives a ceiling of three groups. But any two legal groups must share exactly one person. Two triples cannot be disjoint among five people, and sharing two would repeat a pair. For a third group, using the shared person repeats a pair with any other person. Leaving that person out forces three choices from the two outer pairs, so one pair repeats. Two groups fit, and a third never does."
   },
   {
    "n": 7,
@@ -53,5 +53,5 @@
   }
  ],
  "notebook_exercise": "Six students; each day 3 games; no pair plays twice. Largest number of days?",
- "notebook_answer": "15 pairs / 3 per day = 5 days, and a round-robin schedule achieves it."
+ "notebook_answer": "15 pairs / 3 per day = 5 days. One schedule for A to F is AF, BE, CD / AE, DF, BC / AD, CE, BF / AC, BD, EF / AB, CF, DE. Each day's games are disjoint and each pair appears once."
 }

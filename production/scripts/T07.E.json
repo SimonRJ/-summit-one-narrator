@@ -47,5 +47,5 @@
   }
  ],
  "notebook_exercise": "Same rules with 9 red and 3 blue counters. Smallest number of trays?",
- "notebook_answer": "Reds need at least 5 trays (4 trays hold 8); 5 trays work, so 5."
+ "notebook_answer": "At least 5 trays are needed, since 4 trays hold at most 8 reds. Use three trays with 2 red and 1 blue each, one tray with 2 reds, and one tray with 1 red."
 }

@@ -1,0 +1,79 @@
+name: Summit One teaching batch release
+
+on:
+  push:
+    branches: ['codex/teaching-batch-*', main]
+    paths:
+      - 'production/t01-studio/release_plan.json'
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  stage:
+    if: startsWith(github.ref_name, 'codex/teaching-batch-')
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      actions: read
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Read the verified films for this batch
+        id: plan
+        run: |
+          python - <<'PY'
+          import json, os, re
+          from pathlib import Path
+
+          plan = json.loads(Path("production/t01-studio/release_plan.json").read_text())
+          assert isinstance(plan["render_run"], int) and plan["render_run"] > 0
+          assert 1 <= len(plan["lessons"]) <= 5 and len(set(plan["lessons"])) == len(plan["lessons"])
+          assert all(re.fullmatch(r"T(?:0[5-9]|1[0-8])\.[123E]", lesson) for lesson in plan["lessons"])
+          with open(os.environ["GITHUB_OUTPUT"], "a") as out:
+              print(f"render={plan['render_run']}", file=out)
+              print(f"lessons={' '.join(plan['lessons'])}", file=out)
+          PY
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: T*
+          path: build/t01-studio
+          run-id: ${{ steps.plan.outputs.render }}
+          github-token: ${{ github.token }}
+      - name: Install the films and count the published lessons
+        env:
+          LESSONS: ${{ steps.plan.outputs.lessons }}
+        run: |
+          read -r -a batch <<< "$LESSONS"
+          python production/t01-studio/publish.py --lessons "${batch[@]}"
+          python tools/video/build_scripts.py
+          python tools/video/build_scripts.py --check
+          node --input-type=module --check < app-main.js
+          node --check sw.js
+      - name: Save the finished batch
+        env:
+          LESSONS: ${{ steps.plan.outputs.lessons }}
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          for lesson in $LESSONS; do
+            git add "media/$lesson.mp4" "media/$lesson.vtt" "media/$lesson-studio-poster.jpg"
+            git add "review/$lesson-studio-qa.json"
+          done
+          git add watch-t*.html teaching-videos.html data/teaching-72.json production/scripts/
+          git add README.md docs/CURRENT_STATUS.md docs/VIDEO_PRODUCTION.md
+          git diff --cached --check
+          git commit -m "Publish verified Summit One films $LESSONS"
+          git push origin "HEAD:$GITHUB_REF_NAME"
+
+  verify:
+    if: github.ref_name == 'main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Check the live watch pages and media
+        run: python production/t01-studio/check_published_batch.py https://simonrj.github.io/-summit-one-narrator/

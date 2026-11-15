@@ -73,6 +73,8 @@ function finalVideoUrl(videoId){
   if(id==="T02.1")return "media/T02.1.mp4?v=studio-v4";
   if(id==="T02.2")return "media/T02.2.mp4?v=studio-v1";
   if(chapterStudioFilmIds.has(id))return "media/"+id+".mp4?v=studio-chapters-02-04-v1";
+  const published="media/"+id+".mp4?v=teaching-films-v1";
+  if(teaching.some(item=>item.id===id&&item.video_url===published))return published;
   return ""; // Only verified published masters are offered; other lessons use their written/audio teaching.
 }
 async function recordVideoEvidence(sessionNumber,videoId,kind,detail={}){
