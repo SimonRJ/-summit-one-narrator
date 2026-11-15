@@ -12,7 +12,9 @@ def cue(s, words, *, delay=0, duration=0.55):
 
 def scene(title, *layers, subtitle=None):
     def draw(stage, s):
-        stage.heading(title, subtitle)
+        fit(stage,title,640,87,48 if len(title)<41 else 43,1170,WHITE)
+        if subtitle:
+            fit(stage,subtitle,640,143,26,1100,MUTED,bold=False)
         for layer in layers:
             layer(stage, s)
     draw.chapter = title

@@ -6,8 +6,8 @@
  "status": "script_ready_not_recorded",
  "voice": "Voice C (VoxCPM2), natural speed (see docs/VIDEO_PRODUCTION.md)",
  "goal": "Turn a timetable problem into a network and find the fewest time slots.",
- "narration_words": 313,
- "estimated_minutes": 2.1,
+ "narration_words": 327,
+ "estimated_minutes": 2.2,
  "scenes": [
   {
    "n": 1,
@@ -43,7 +43,7 @@
    "n": 6,
    "stage": "VARIATION",
    "visual": "Five dots with every pair joined: ten lines. Each round holds at most two games, with one player resting. 10 divided by 2 gives 5.",
-   "narration": "With five players there are ten games. In any round one player must rest, so again at most two games fit. Ten divided by two is five rounds, even though each player only plays four games."
+   "narration": "With five players there are ten games. In any round one player must rest, so again at most two games fit. That takes at least five rounds, even though each player plays only four games. The five-day pairing schedule from the earlier lesson shows that five rounds can be reached."
   },
   {
    "n": 7,

@@ -62,7 +62,7 @@ Scripts ready: 56 of 72. Published for review: 14. Approved videos: 2. Not yet s
 | T13.E | Measure the region or solid that matters | worked_example | script ready | 184 words, about 1.2 min | [T13.E.json](T13.E.json) |
 | T14.1 | Translate the movement rules exactly | concept | script ready | 292 words, about 1.9 min | [T14.1.json](T14.1.json) |
 | T14.2 | Use future obligations to reject tempting moves | concept | script ready | 339 words, about 2.3 min | [T14.2.json](T14.2.json) |
-| T14.3 | Read a schedule as groups of nonconflicting edges | concept | script ready | 313 words, about 2.1 min | [T14.3.json](T14.3.json) |
+| T14.3 | Read a schedule as groups of nonconflicting edges | concept | script ready | 327 words, about 2.2 min | [T14.3.json](T14.3.json) |
 | T14.E | Turn routes and schedules into networks | worked_example | script ready | 204 words, about 1.4 min | [T14.E.json](T14.E.json) |
 | T15.1 | Define sameness before counting | concept | script ready | 306 words, about 2.0 min | [T15.1.json](T15.1.json) |
 | T15.2 | Do not divide by a symmetry count blindly | concept | script ready | 318 words, about 2.1 min | [T15.2.json](T15.2.json) |
