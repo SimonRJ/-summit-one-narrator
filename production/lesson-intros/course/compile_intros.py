@@ -8,6 +8,7 @@ from pathlib import Path
 from algebra_topics import backwards, part_whole, recurrence
 from count_topics import restricted_arrangements
 from spatial_topics import crossings
+from quantity_topics import averages, percentages, ratios, unit_rates, weighted_fractions
 from number_topics import cryptarithms, cycles, divisibility, multiples, parity, primes, repunits
 from story import Lesson, film
 
@@ -15,6 +16,11 @@ from story import Lesson, film
 ROOT = Path(__file__).resolve().parents[3]
 BESPOKE = {f"S{slot:03}" for slot in range(1,7)}
 TOPICS = {
+    "Averages, weighted means and simple distributions": averages,
+    "Fractions, percentages and proportional comparisons": percentages,
+    "Ratio and scale factors": ratios,
+    "Unit conversion and repeated-event rates": unit_rates,
+    "Grouped fractions and weighted totals": weighted_fractions,
     "Working backwards through operations": backwards,
     "Recurrence relations, steps and branching": recurrence,
     "Parts and wholes, including remaining fractions": part_whole,

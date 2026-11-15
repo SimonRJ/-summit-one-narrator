@@ -51,7 +51,7 @@ def restricted_arrangements(lesson):
             Example("Handle two neighbour rules", (
                 (f"Line up {say(count)} distinct {item}, including A, B, C and D. Consider two pairs: A with B, and C with D.", f"{count} distinct objects; test pairs AB and CD."),
                 ((f"How many orders make exactly one of those pairs adjacent?"
-                   if only_one else "How many orders leave both of those pairs nonadjacent.")+
+                   if only_one else "How many orders leave both of those pairs nonadjacent?")+
                  " Draw the two possible adjacency conditions as overlapping sets.", "Exactly one pair adjacent" if only_one else "Neither pair adjacent"),
             ), (
                 (f"There are {say(factorial(count))} total orders. The number making A and B adjacent is twice {say(factorial(count-1))}, or {say(close)}. The other pair has the same count.", f"Each single-pair count = 2 × {count-1}! = {close}"),
