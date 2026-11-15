@@ -20,7 +20,7 @@ V: Two small squares shaded. Six fixed patterns appear, then group under turning
 N: Now shade two of the four squares. Fixed on the page there are six patterns. Free to turn, they fall into just two kinds: the two shaded squares are side by side, or they are diagonal. Turning can never change one kind into the other.
 [VARIATION]
 V: A tile with an asymmetric mark and its mirror image side by side; rotating one never matches the other. A flip arrow turns one into the other.
-N: Turning over is different from turning round. A flat tile can be rotated on the table, but its mirror image only appears if you are allowed to flip it over. Unless the question allows flipping, a shape and its mirror image are different.
+N: Turning over is different from turning round. This marked tile cannot match its mirror by turning on the table. Flipping it over changes the order of the marks and makes a match. Some other marks do match their mirrors by turning, so test the moves that the question allows.
 [RECAP]
 V: Lines: "Fixed, turnable, or flippable?", "Same means: one can be moved onto the other by an allowed move".
 N: Ask whether objects are fixed, can be turned, or can also be flipped. Two arrangements are the same only if an allowed move takes one to the other. Notebook challenge: three of the four small squares are shaded. How many patterns are there if the square is free to turn?
@@ -49,7 +49,7 @@ V: Group sizes displayed: 1, 4, 4, 2, 4, 1 adding to 16. The sizes 1 and 2 are h
 N: Look at the group sizes: one, four, four, two, four and one. They are not all four. The symmetrical tiles were counted fewer times, which is exactly why sixteen divided by four gives the wrong answer.
 [VARIATION]
 V: Five different beads threaded on a ring: 120 line orders collapse in groups of exactly 5 under turning. 120 divided by 5 gives 24.
-N: When does dividing work? When no arrangement has any symmetry of its own. Seat five different people round a table. There are one hundred and twenty orders in a line, and every circular seating appears in exactly five of them. One hundred and twenty divided by five is twenty-four.
+N: When does dividing by the number of turns work? When every turn gives a different position. Seat five different people round a table, keeping clockwise order when you rotate the table. There are one hundred and twenty orders in a line. Each circular seating appears exactly five times as you choose a place to start reading. One hundred and twenty divided by five is twenty-four.
 [RECAP]
 V: Lines: "Divide only if every case is repeated equally", "Otherwise sort into groups and count the groups".
 N: Divide only when every arrangement is repeated the same number of times. Otherwise, sort the arrangements into groups and count the groups. Notebook challenge: in how many ways can four different people sit round a circular table, if turning the whole table does not count as different?
@@ -75,7 +75,7 @@ V: In each pair, one member is tagged "even", the other "odd". Four pairs: 4 eve
 N: Flipping one switch changes the number of switches that are on by exactly one. So in each pair, one setting has an even number on and the other has an odd number. Four pairs, so four settings are even and four are odd.
 [VARIATION]
 V: Ten switches: a counter shows 1024 settings, splitting into 512 and 512.
-N: The same argument works for any number of switches. With ten switches there are one thousand and twenty-four settings, and exactly half, five hundred and twelve, have an even number on. No listing needed.
+N: The same argument works whenever there is at least one switch to flip. With ten switches there are one thousand and twenty-four settings, and exactly half, five hundred and twelve, have an even number on. No listing needed.
 [VARIATION]
 V: Numbers 1 to 100. Pairs 1 with 100, 2 with 99, down to 50 with 51. Each pair sums to 101. Total 50 times 101.
 N: Pairing also adds. To add the numbers from one to one hundred, pair one with one hundred, two with ninety-nine, and so on. There are fifty pairs, each adding to one hundred and one. The total is five thousand and fifty.
@@ -84,7 +84,7 @@ V: A warning card: factors of 36 pair as 1 with 36, 2 with 18, 3 with 12, 4 with
 N: Always check that nothing is left without a partner, or paired with itself. The factors of thirty-six pair up to multiply to thirty-six, except six, which pairs with itself. That is why thirty-six has an odd number of factors.
 [RECAP]
 V: Lines: "Find a pairing rule", "Check: no one is their own partner", "Half are of each type".
-N: Find a rule that pairs every object with a different partner. Check that no object is its own partner. Then half are of each type. Notebook challenge: what is the sum of the whole numbers from one to forty?
+N: Find a rule that pairs every object with a different partner. If each pair has one of each type, the types occur equally often. Notebook challenge: what is the sum of the whole numbers from one to forty?
 TRY: What is the sum of the whole numbers from 1 to 40?
 ANS: 20 pairs each adding to 41: 820.
 
@@ -147,10 +147,10 @@ V: A tank filling from one tap, with marks showing the fraction filled each minu
 N: If a tap fills a tank in ten minutes, then each minute it fills one tenth of the tank. Turning a time into an amount per minute is the key move. Amounts per minute can be added together. Times cannot.
 [WHY]
 V: A tempting "6 and 3 make 9 minutes?" crossed lightly; "must be less than 3" beside it.
-N: When two taps run together, the job gets faster, not slower. Adding the times, or averaging them, gives nonsense. Adding the rates gives the right answer every time.
+N: When two taps run together at constant rates, the tank fills faster. The two amounts filled in one minute can be added. That combined amount per minute tells us how long the whole job will take.
 [PUZZLE]
 V: Two taps over one tank. Labels: "alone: 6 minutes", "alone: 3 minutes". Question: "How long together?"
-N: One tap fills a tank in six minutes. Another fills it in three minutes. How long do they take together? Pause and work out what each tap does in one minute.
+N: One tap fills a tank in six minutes. Another fills it in three minutes. Both run at constant rates. How long do they take together? Pause and work out what each tap does in one minute.
 [DEVELOP]
 V: The tank drawn with 6 equal slices. In one minute the first tap fills 1 slice; the second fills 2 slices. Together 3 slices per minute.
 N: Picture the tank in six equal slices. In one minute, the slow tap fills one slice. The fast tap fills the whole tank in three minutes, so it fills two slices a minute. Together they fill three slices a minute.
@@ -164,8 +164,8 @@ N: Rates can also work against each other. A tap fills a tank in four minutes, w
 V: Two figures walking towards each other along a 100 metre line, one at 6 metres a second and one at 4. The gap closes at 10 a second.
 N: Moving objects follow the same rule. Two runners start one hundred metres apart and run towards each other, at six metres per second and four metres per second. The gap closes at ten metres per second. They meet after ten seconds.
 [RECAP]
-V: Lines: "Time for the job gives amount per minute", "Add rates that help; subtract rates that hinder", "Total job divided by the combined rate".
-N: Convert each time to an amount per minute. Add rates that help and subtract rates that hinder. Divide the job by the combined rate. Notebook challenge: one painter paints a fence in four hours, another in twelve hours. How long do they take together?
+V: Lines: "Express the job as a rate in a shared unit of time", "Add rates that help; subtract rates that hinder", "Total job divided by the combined rate".
+N: Convert each time into a rate. Use the same time unit for each rate. Add rates that help and subtract rates that hinder. Divide the job by the combined rate. Notebook challenge: one painter paints a fence in four hours, another in twelve hours. How long do they take together?
 TRY: One painter takes 4 hours, another 12 hours. How long together?
 ANS: 3/12 + 1/12 = 4/12 per hour, so 3 hours.
 
@@ -176,7 +176,7 @@ V: Five stacks of counters of different heights are levelled until all are the s
 N: The mean is what everyone would have if the total were shared equally. So a mean always hides a total: the mean multiplied by the number of items. Whenever a question mentions an average, recover the total first.
 [WHY]
 V: Two class averages with a tempting "average the averages" crossed lightly.
-N: Averages cannot simply be averaged, and they cannot be adjusted without knowing how many items there are. Totals can always be added and subtracted safely.
+N: When groups have different sizes, their averages carry different weight. Recover the total in each group before combining them. Then each individual item makes the right contribution.
 [PUZZLE]
 V: Four test-score cards with mean 7, and a fifth card face down. Text: "With the fifth score, the mean is 8." Question: "What is the fifth score?"
 N: Four scores have a mean of seven. A fifth score is added and the mean becomes eight. What is the fifth score? Pause and find the totals.
@@ -184,8 +184,8 @@ N: Four scores have a mean of seven. A fifth score is added and the mean becomes
 V: Four stacks levelled at 7: total 28. Five stacks levelled at 8: total 40.
 N: Four scores with mean seven total twenty-eight. Five scores with mean eight total forty.
 [DEVELOP]
-V: The difference 40 minus 28 fills the fifth card: 12.
-N: The fifth score supplies the difference: forty minus twenty-eight is twelve. Notice it is much more than eight. One new score has to lift every existing score up by one, as well as reaching eight itself.
+V: The difference 40 minus 28 fills the fifth card: 12. Show 12 = 8 + 4 against a target mean of 8.
+N: The fifth score supplies the difference: forty minus twenty-eight is twelve. To average eight, the original four scores would need thirty-two points. They have twenty-eight, so they are four points short. The fifth score supplies its own eight points and those four extra points.
 [VARIATION]
 V: Two groups: 2 people with mean 6, and 3 people with mean 10. Totals 12 and 30; combined 42 over 5 people gives 8.4.
 N: Combining groups works the same way. Two people average six and three people average ten. The totals are twelve and thirty, forty-two for five people. The combined mean is eight point four, not eight. It leans towards the larger group.
@@ -201,20 +201,20 @@ ANS: 54 - 40 = 14.
 @@ T16.E
 GOAL: Worked example: why you cannot average two averages.
 [PUZZLE]
-V: Two learners scoring 6 each and three learners scoring 10 each, as dots above a number line. Question: "What is the mean score of all five?"
-N: Two learners each score six points, and three learners each score ten points. What is the mean score for all five learners?
+V: Two learners scoring 7 each and three learners scoring 9 each, as dots above a number line. Question: "What is the mean score of all five?"
+N: Two learners each score seven points, and three learners each score nine points. What is the mean score for all five learners?
 [DEVELOP]
-V: First group: 2 lots of 6 make 12. Second group: 3 lots of 10 make 30.
-N: Find the totals. The first group scores two times six: twelve points. The second group scores three times ten: thirty points.
+V: First group: 2 lots of 7 make 14. Second group: 3 lots of 9 make 27.
+N: Find the totals. The first group scores two times seven: fourteen points. The second group scores three times nine: twenty-seven points.
 [DEVELOP]
-V: 12 and 30 combine to 42, shared among 5 dots: 8.4 each.
-N: Together that is forty-two points for five learners. Forty-two divided by five is eight point four. The mean score is eight point four.
+V: 14 and 27 combine to 41, shared among 5 dots: 8.2 each.
+N: Together that is forty-one points for five learners. Forty-one divided by five is eight point two. The mean score is eight point two.
 [DEVELOP]
-V: The tempting answer 8, halfway between 6 and 10, marked on the line; the true mean 8.4 sits closer to 10 where there are three dots.
-N: Why not simply eight, halfway between six and ten? Because the groups are different sizes. Three learners sit at ten and only two at six, so the balance point is pulled towards ten.
+V: Mark eight halfway between seven and nine, then move the balance point to 8.2, closer to the three scores of nine.
+N: Why is the mean above eight, halfway between seven and nine? Three learners score nine and two score seven, so the balance point is pulled towards nine. If you add one extra score of nine to four scores averaging eight, the mean moves one fifth of the way from eight to nine.
 [VARIATION]
-V: The groups change to 2 at 6 and 2 at 10; the mean moves to exactly 8.
-N: If the groups were the same size, two learners at six and two at ten, the mean would be exactly eight. Averaging the averages only works when the groups are equal in size.
+V: With 2 scores of 7 and 2 scores of 9, the mean is exactly 8.
+N: If the groups were the same size, two learners at seven and two at nine, the mean would be exactly eight. The two group means now carry equal weight, so their simple average works.
 [RECAP]
 V: Line: "combine totals, then divide by everyone". Notebook prompt.
 N: Combine the totals, then divide by the total number of people. Rebuild this, then find the mean score when four learners score five each and one learner scores ten.
@@ -225,7 +225,7 @@ ANS: (20 + 10) / 5 = 6.
 GOAL: Match the kind of evidence to the kind of claim.
 [INSIGHT]
 V: Three claim cards: "it can happen", "it always happens", "it never happens". Under the first, a single example; under the others, a question mark.
-N: Different claims need different amounts of evidence. To show something can happen, one example is enough. To show something always happens, or never happens, examples are not enough, however many you collect. You need a reason that covers every case.
+N: Different claims need different evidence. To show something can happen, one example is enough. To show something always happens or can never happen, your reasons must cover every case. A few examples only settle the cases that you checked.
 [WHY]
 V: A pattern of ticks ending in a single cross far along the row.
 N: Patterns can hold for a long time and then break. Knowing what a claim actually requires stops you from trusting a pattern too far, and tells you when your solution is really complete.
@@ -254,7 +254,7 @@ ANS: Yes: two of the three leftover ones make a pair, leaving exactly one leftov
 GOAL: Disprove with a legal counterexample; prove impossibility by contradiction.
 [INSIGHT]
 V: A statement with a small chip knocked out of it by a single card labelled "counterexample".
-N: There are two sharp tools for testing a claim. A counterexample is one case that breaks a claim about everything. A contradiction is the opposite kind of tool: you suppose something could happen, follow the consequences, and reach nonsense.
+N: A counterexample is one case that breaks a claim about everything. A proof by contradiction starts with a supposition and follows what it would imply. If it leads to two facts that cannot both hold, the supposition fails.
 [WHY]
 V: Two cards: "this is false, here is why" and "this is impossible, here is why".
 N: Competitions often ask whether something is possible. If it is, show it. If it is not, you need an argument, and contradiction is the standard way to build one.
@@ -298,7 +298,7 @@ V: The three consecutive totals 8, 9, 10 highlighted. An arrow "add a 3" carries
 N: Now the key step. Eight, nine and ten can all be made. Add a three-cent stamp to each and you get eleven, twelve and thirteen. Add another and you get fourteen, fifteen and sixteen. Three totals in a row, plus the ability to add three, reach every total from eight onwards.
 [DEVELOP]
 V: Everything from 8 onward turns green. The crossed 7 remains as the largest total that cannot be made.
-N: So every total of eight or more is possible. That is endlessly many cases, proved by checking three and giving one rule. And seven is the largest total that cannot be made, which we know because the totals below eight were checked one by one.
+N: Every total of eight or more is possible. Seven cannot be made. Two fives are too many. With one five we would need two more, and with no fives we would need a multiple of three. Neither works. So seven is the largest total that cannot be made.
 [VARIATION]
 V: A finite claim card: "No two-digit square ends in 7." The ten units digits of squares listed: 0, 1, 4, 9, 6, 5, 6, 9, 4, 1.
 N: A finite check can prove a never. Does any square number end in seven? The last digit of a square depends only on the last digit of the number. Check the ten digits: their squares end in zero, one, four, nine, six, five, six, nine, four and one. Seven never appears. Ten checks cover every whole number.
@@ -306,7 +306,7 @@ N: A finite check can prove a never. Does any square number end in seven? The la
 V: Lines: "Finite: check every case, and show nothing is left out", "Endless: check a starting block and give a rule that carries it on".
 N: For finitely many cases, check them all and show nothing is left out. For endlessly many, check a starting block and give a rule that carries the result forward. Notebook challenge: with four-cent and five-cent stamps, what is the largest total you cannot make?
 TRY: With 4-cent and 5-cent stamps, what is the largest total that cannot be made?
-ANS: 11. (12, 13, 14, 15 can be made, and adding 4s reaches everything beyond.)
+ANS: 11. Using 0, 1 or 2 five-cent stamps leaves 11, 6 or 1, none a multiple of 4. The totals 12, 13, 14 and 15 can all be made, and adding 4 repeatedly reaches everything larger.
 
 @@ T17.E
 GOAL: Worked example: prove that a number times the next number is always even.
@@ -367,7 +367,7 @@ V: A page of scattered calculations beside a page with three labelled lines: "kn
 N: Good working leaves a trail. If you write what you have established, which cases you have finished, and what you will do next, you can pause, return, or find a mistake without starting again.
 [WHY]
 V: A clock with time running; a half-finished solution being picked up again smoothly.
-N: Under time pressure, people lose marks by repeating work or by trusting an answer they never checked. A clear trail and one independent check prevent both.
+N: Under time pressure, it is easy to repeat work or trust an unchecked answer. Keep a clear trail to show where you stopped, and use an independent check to catch errors.
 [PUZZLE]
 V: A 5 by 5 grid of unit squares with its border squares shaded. Question: "How many squares are on the border?"
 N: A five by five grid of small squares has all the squares along its border shaded. How many squares are shaded? Pause and find the answer in one way, then in a second, different way.
@@ -410,8 +410,8 @@ N: For nine, add the digits. Sixty-four gives ten, so it is not a multiple of ni
 V: A problem: "A book costs 12 dollars, a pen costs 3 dollars less. What do 2 pens cost?" Options include 9 and 18. The 9 flashes with "price of one pen".
 N: Now the other trap. A book costs twelve dollars and a pen costs three dollars less. What do two pens cost? One pen costs nine dollars, and nine is among the options. But the question asks for two pens: eighteen. Always reread the request before choosing.
 [VARIATION]
-V: An equation puzzle with options; each option is substituted in turn until one fits.
-N: When an equation is hard to solve directly, try the options in it. Substituting is slower than a neat method, but it is reliable, and starting with the middle-sized option tells you whether to go up or down.
+V: The equation 2x + 5 = 19. Test x = 6, then x = 7. Show that increasing x increases the left side.
+N: When an equation is hard to solve directly, try the options in it. Suppose two times x plus five must be nineteen. Try six: the result is seventeen. Here bigger choices give bigger results, so try seven. That gives nineteen. Check how the expression changes before using a trial to choose a direction.
 [RECAP]
 V: Lines: "Rule out options with quick tests", "Do not pick a number just because it appeared", "Reread what was asked".
 N: Rule options out with quick tests. Do not choose a number just because it appeared in your working. Reread what was asked before you answer. Notebook challenge: which of forty-five, sixty, seventy-five and ninety is a multiple of both four and five?

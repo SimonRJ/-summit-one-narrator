@@ -34,11 +34,11 @@ jobs:
           supplement = plan.get("supplement")
           if supplement:
               assert type(supplement["render_run"]) is int and supplement["render_run"] > 0
-              assert supplement["lesson"] in plan["lessons"]
+              lessons = supplement.get("lessons", [supplement.get("lesson")])
+              assert lessons and set(lessons) <= set(plan["lessons"])
           with open(os.environ["GITHUB_OUTPUT"], "a") as out:
               if supplement:
                   print(f"supplement_run={supplement['render_run']}", file=out)
-                  print(f"supplement_lesson={supplement['lesson']}", file=out)
               print(f"render={plan['render_run']}", file=out)
               print(f"lessons={' '.join(plan['lessons'])}", file=out)
           PY
@@ -48,12 +48,12 @@ jobs:
           path: build/t01-studio
           run-id: ${{ steps.plan.outputs.render }}
           github-token: ${{ github.token }}
-      - name: Apply the corrected render
+      - name: Apply the corrected renders
         if: steps.plan.outputs.supplement_run != ''
         uses: actions/download-artifact@v4
         with:
-          name: ${{ steps.plan.outputs.supplement_lesson }}
-          path: build/t01-studio/${{ steps.plan.outputs.supplement_lesson }}
+          pattern: T*
+          path: build/t01-studio
           run-id: ${{ steps.plan.outputs.supplement_run }}
           github-token: ${{ github.token }}
       - name: Install the films and count the published lessons
