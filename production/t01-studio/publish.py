@@ -208,15 +208,21 @@ def install(lessons=IDS):
                 or report["match_percent"] < 90
                 or hashlib.sha256((folder / "final.mp4").read_bytes()).hexdigest() != report["sha256"]):
             raise ValueError(f"{lesson}: a verified render with Voice C is required")
+        if lesson in CHAPTER_FILMS:
+            timeline = json.loads((folder / "timeline.json").read_text())
+            recorded = [" ".join(word["text"] for word in scene["words"]) for scene in timeline["scenes"]]
+            if recorded != [scene["narration"] for scene in source["scenes"]]:
+                raise ValueError(f"{lesson}: the verified export must match the lesson script")
         verified[lesson] = (folder, source, report)
 
     teaching_file = ROOT / "data/teaching-72.json"
     teaching = json.loads(teaching_file.read_text())
     for lesson, (folder, source, report) in verified.items():
         for src, dest in (("final.mp4", f"{lesson}.mp4"),
-                          ("poster.jpg", f"{lesson}-studio-poster.jpg"),
-                          ("captions.vtt", f"{lesson}.vtt")):
+                          ("poster.jpg", f"{lesson}-studio-poster.jpg")):
             shutil.copyfile(folder / src, ROOT / "media" / dest)
+        captions = (folder / "captions.vtt").read_text().rstrip("\n")
+        (ROOT / "media" / f"{lesson}.vtt").write_text(captions + "\n")
         shutil.copyfile(folder / "qa.json", ROOT / f"review/{lesson}-studio-qa.json")
         page = ROOT / watch_path(lesson)
         page.write_text(make_watch_page(lesson, source, report))

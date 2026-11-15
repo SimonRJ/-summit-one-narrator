@@ -4,9 +4,14 @@ on:
   push:
     branches: [codex/studio-chapters-02-04]
     paths:
-      - 'production/t01-studio/*.py'
+      - 'production/t01-studio/publish.py'
       - '.github/workflows/studio-chapters-02-04-render.yml'
   workflow_dispatch:
+    inputs:
+      reuse_verified_exports:
+        description: Reuse the ten verified exports for release staging
+        type: boolean
+        default: true
 
 permissions:
   actions: read
@@ -18,9 +23,11 @@ concurrency:
 
 env:
   RECORDINGS_RUN: '43684530335'
+  VERIFIED_EXPORTS_RUN: '43686162817'
 
 jobs:
   recordings:
+    if: github.event_name == 'workflow_dispatch' && !inputs.reuse_verified_exports
     runs-on: ubuntu-latest
     timeout-minutes: 90
     env:
@@ -78,7 +85,10 @@ jobs:
 
   stage:
     needs: render
-    if: github.ref == 'refs/heads/codex/studio-chapters-02-04'
+    if: >-
+      ${{ !cancelled() && github.ref == 'refs/heads/codex/studio-chapters-02-04' &&
+      (needs.render.result == 'success' ||
+       (needs.render.result == 'skipped' && (github.event_name == 'push' || inputs.reuse_verified_exports))) }}
     runs-on: ubuntu-latest
     timeout-minutes: 12
     permissions:
@@ -94,6 +104,8 @@ jobs:
         with:
           pattern: T0*
           path: build/t01-studio
+          run-id: ${{ needs.render.result == 'success' && github.run_id || env.VERIFIED_EXPORTS_RUN }}
+          github-token: ${{ github.token }}
       - name: Install the verified films and their watch pages
         run: |
           python production/t01-studio/publish.py --lessons T02.3 T02.E T03.1 T03.2 T03.3 T03.E T04.1 T04.2 T04.3 T04.E

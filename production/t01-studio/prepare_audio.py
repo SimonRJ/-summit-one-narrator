@@ -245,9 +245,9 @@ def prepare(lesson):
         "scenes": scenes,
         "captions": captions,
     }, indent=2) + "\n")
-    (build / "captions.vtt").write_text("WEBVTT\n\n" + "".join(
-        f"{stamp(cue['start'])} --> {stamp(cue['end'])}\n{cue['text']}\n\n" for cue in captions
-    ))
+    (build / "captions.vtt").write_text("WEBVTT\n\n" + "\n\n".join(
+        f"{stamp(cue['start'])} --> {stamp(cue['end'])}\n{cue['text']}" for cue in captions
+    ) + "\n")
 
 
 if __name__ == "__main__":
