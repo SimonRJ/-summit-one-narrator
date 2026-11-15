@@ -9,6 +9,7 @@ from algebra_topics import backwards, differences, margins, part_whole, recurren
 from count_topics import restricted_arrangements
 from counting_cases import complement, double_counting, enumeration, partition_cases, selections
 from deduction_topics import deduction, exhaustiveness, magic_grid
+from path_probability import dynamic_paths, probability, restricted_routes
 from shape_topics import angles, nets, paint, symmetry
 from spatial_topics import crossings, layered_cubes, optimise, perimeter, shaded_area, tiling
 from quantity_topics import averages, distance_speed, percentages, ratios, relative_motion, unit_rates, weighted_fractions, work_rates
@@ -20,6 +21,9 @@ from story import Lesson, film
 ROOT = Path(__file__).resolve().parents[3]
 BESPOKE = {f"S{slot:03}" for slot in range(1,7)}
 TOPICS = {
+    "Counting paths by dynamic totals": dynamic_paths,
+    "Restricted routes and spatial adjacency": restricted_routes,
+    "Elementary probability and favourable outcomes": probability,
     "Angle and polygon reasoning": angles,
     "Symmetry, transformations and tessellation": symmetry,
     "Painted faces, boundary and hidden cubes": paint,
