@@ -136,9 +136,9 @@ def cube_scale(stage,s):
             fit(stage,f"{n} × {n} × {n} = {n**3}",x,520,30,280,MINT if n>1 else BLUE)
 
 
-def layers_scene(stage,s,shape,words=None):
+def layers_scene(stage,s,shape,words=None,*,x=653,y=419,u=53):
     p=cue(s,words,duration=1.05) if words else 0
-    iso(stage,shape,x=653,y=462,u=53,spread=95*p)
+    iso(stage,shape,x=x,y=y,u=u,spread=95*p)
 
 
 def painted(stage,s):
@@ -220,9 +220,12 @@ FILMS={
            (("Face centres","1","6"),"six in the middle"),(("Interior","0","1"),"one in the centre")],
           y=207,row_height=64,highlight=((0,2),(1,2),(2,2),(3,2))),
           note("8 + 12 + 6 + 1 = 27", "make twenty-seven")),
-    scene("Count uneven layers as they are",lambda stage,s:layers_scene(stage,s,[(3,3),(2,2),(1,1)],"on the bottom layer"),
-          equation(("9",BLUE,"nine cubes"),("+ 4",GOLD,"four on the next"),("+ 1",WHITE,"one on top"),
-                   ("= 14",MINT,"fourteen altogether"),y=558)),
+    scene("Count uneven layers as they are",
+          lambda stage,s:layers_scene(stage,s,[(3,3),(2,2),(1,1)],"on the bottom layer",x=478,y=424,u=48),
+          note("Top: 1 cube", "one on top", x=915, y=235, width=380, size=32),
+          note("Middle: 4 cubes", "four on the next", x=915, y=328, width=380, size=32, colour=GOLD),
+          note("Bottom: 9 cubes", "nine cubes", x=915, y=426, width=380, size=32, colour=BLUE),
+          note("9 + 4 + 1 = 14", "fourteen altogether", x=915, y=534, width=380, size=40)),
     exercise((("Slice into layers","slice the solid"),("Count the hidden cubes","include the hidden cubes"),
               ("Check the total","add up to the total")),"notebook challenge",
              ("Paint the outside of a 4 × 4 × 4 cube and separate its unit cubes.",

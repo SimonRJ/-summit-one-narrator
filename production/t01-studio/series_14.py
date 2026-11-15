@@ -17,8 +17,8 @@ def streets(stage,s,mode):
            if abs(i//3-j//3)+abs(i%3-j%3)==1]
     network(pts,[""]*9,edges,radius=13)(stage,s)
     if mode=="puzzle":
-        for point,label in ((pts[6],"Start"),(pts[2],"Finish")):
-            fit(stage,label,point[0]+99,point[1]+2,28,182,MINT)
+        for point,label,shift in ((pts[6],"Start",-90),(pts[2],"Finish",100)):
+            fit(stage,label,point[0]+shift,point[1]+2,28,182,MINT)
         return
     result=[1,3,6,1,2,3,1,1,1] if mode!="block" else [1,1,2,1,0,1,1,1,1]
     for i,(x,y) in enumerate(pts):
@@ -110,9 +110,9 @@ FILMS={
                   (2,3,BLUE,"writing one number"),(3,4,BLUE,"writing one number")]),
           note("Count routes into a point instead of tracing them all", "counts all routes at once")),
     scene("Move only right or up",lambda stage,s:streets(stage,s,"puzzle"),
-          note("How many routes reach the top-right corner?", "how many different routes")),
+          note("How many routes reach the top-right corner?", "how many different routes",y=588)),
     scene("The edges have only one way in",lambda stage,s:streets(stage,s,"base"),
-          note("Along the bottom or up the left, just one route", "there is only one way")),
+          note("Along the bottom or up the left, just one route", "there is only one way",y=587)),
     scene("Add the routes from the left and below",lambda stage,s:streets(stage,s,"count"),
           equation(("3 + 3",BLUE,"three plus three"),("= 6 routes",MINT,"six routes"),y=575)),
     scene("A blocked corner contributes zero",lambda stage,s:streets(stage,s,"block"),
