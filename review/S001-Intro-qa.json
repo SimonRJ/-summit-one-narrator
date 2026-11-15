@@ -1,108 +1,22 @@
 {
   "id": "S001",
-  "duration_seconds": 200.066667,
-  "sha256": "23087ca9b677053d9cd8a02a10c97902825f0bcebc606a4ae8c96190d5195dbd",
-  "width": 1920,
-  "height": 1080,
-  "fps": 30,
-  "audio_streams": 1,
-  "narration": "Approved synthetic Voice C",
+  "title": "Divisibility tests and modular remainders",
+  "voice": "VoxCPM2 \u2014 approved voice C",
+  "old_audio_used": false,
   "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
-  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
-  "narration_speed_changed": false,
-  "caption_layers": 1,
-  "match_percent": 99.45,
-  "scenes": [
-    {
-      "number": 1,
-      "start": 0.0,
-      "match_percent": 100.0
-    },
-    {
-      "number": 2,
-      "start": 14.52,
-      "match_percent": 100.0
-    },
-    {
-      "number": 3,
-      "start": 30.04,
-      "match_percent": 100.0
-    },
-    {
-      "number": 4,
-      "start": 43.61,
-      "match_percent": 100.0
-    },
-    {
-      "number": 5,
-      "start": 57.85,
-      "match_percent": 100.0
-    },
-    {
-      "number": 6,
-      "start": 71.26,
-      "match_percent": 100.0
-    },
-    {
-      "number": 7,
-      "start": 90.78,
-      "match_percent": 100.0
-    },
-    {
-      "number": 8,
-      "start": 111.22,
-      "match_percent": 100.0
-    },
-    {
-      "number": 9,
-      "start": 127.54,
-      "match_percent": 98.28
-    },
-    {
-      "number": 10,
-      "start": 148.17,
-      "match_percent": 100.0
-    },
-    {
-      "number": 11,
-      "start": 164.65,
-      "match_percent": 100.0
-    },
-    {
-      "number": 12,
-      "start": 180.49,
-      "match_percent": 95.12
-    }
+  "duration_seconds": 171.583,
+  "video": "1920\u00d71080 H.264 24 fps",
+  "audio": "AAC",
+  "scenes": 9,
+  "example_levels": [
+    "easy",
+    "medium",
+    "hard"
   ],
-  "chapters": [
-    {
-      "title": "The technique",
-      "start": 0.0
-    },
-    {
-      "title": "Where it shows up",
-      "start": 14.52
-    },
-    {
-      "title": "Basic example",
-      "start": 30.04
-    },
-    {
-      "title": "Medium example",
-      "start": 57.85
-    },
-    {
-      "title": "Exam-style challenge",
-      "start": 90.78
-    },
-    {
-      "title": "Common mistakes",
-      "start": 164.65
-    },
-    {
-      "title": "Exam checklist",
-      "start": 180.49
-    }
-  ],
-  "decoded_successfully": true
+  "word_alignment_percent": 97.31,
+  "spoken_caption_layers": 1,
+  "mathematics_verified": true,
+  "full_video_decode_passed": true,
+  "bytes": 6021885,
+  "sha256": "bd296f6e57af88271d06969d392b3d0d3a8c66fd2b51384905fd4e027a519923"
 }

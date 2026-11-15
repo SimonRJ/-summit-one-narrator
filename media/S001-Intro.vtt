@@ -1,214 +1,167 @@
 WEBVTT
 
-00:00:00.600 --> 00:00:02.950
-Welcome to divisibility and remainders.
+00:00:00.000 --> 00:00:02.140
+Welcome to Divisibility and Remainders.
 
-00:00:03.320 --> 00:00:05.840
-A remainder is what is left after you have made as many
+00:00:02.680 --> 00:00:05.860
+Some Australian Mathematics Competition problems look as if
 
-00:00:05.840 --> 00:00:07.410
-equal groups as you can.
+00:00:05.860 --> 00:00:07.240
+they need hundreds of calculations.
 
-00:00:07.880 --> 00:00:10.940
-That tiny number can tell you when a cycle repeats or
+00:00:08.380 --> 00:00:09.220
+Often they do not.
 
-00:00:10.940 --> 00:00:13.550
-which of several numbers can possibly be the answer.
+00:00:09.780 --> 00:00:12.880
+The useful idea is to keep only what matters after dividing:
 
-00:00:14.520 --> 00:00:18.200
-In AMC Upper Primary practice, look for clues such as
+00:00:12.880 --> 00:00:16.500
+the remainder. Let's see it in an easy problem, a medium
 
-00:00:18.200 --> 00:00:21.450
-divides evenly, left over, and repeats every.
+00:00:16.500 --> 00:00:18.120
+problem, and a hard one.
 
-00:00:21.900 --> 00:00:25.420
-In a Rossmoyne style number puzzle, several clues can
+00:00:19.200 --> 00:00:22.240
+Easy problem. Is two thousand, four hundred and seventy-three
 
-00:00:25.420 --> 00:00:26.790
-apply to the same number.
+00:00:22.240 --> 00:00:24.020
+divisible by three?
 
-00:00:27.220 --> 00:00:29.130
-We will turn each clue into a test.
+00:00:24.680 --> 00:00:25.980
+You could divide the whole number.
 
-00:00:30.040 --> 00:00:31.630
-Start with thirty-eight stickers.
+00:00:26.460 --> 00:00:27.780
+Instead, look at its digits.
 
-00:00:32.160 --> 00:00:33.690
-Each full packet holds six.
+00:00:28.460 --> 00:00:30.820
+Why should adding the digits tell us anything about
 
-00:00:34.140 --> 00:00:36.560
-How many full packets can you make, and how many
+00:00:30.820 --> 00:00:31.440
+divisibility?
 
-00:00:36.560 --> 00:00:37.450
-stickers are left?
+00:00:32.540 --> 00:00:36.320
+Every ten, hundred or thousand leaves remainder one when
 
-00:00:38.200 --> 00:00:39.950
-Picture filling the packets one at a time.
+00:00:36.320 --> 00:00:37.320
+divided by three.
 
-00:00:43.610 --> 00:00:46.780
-Six packets use thirty-six stickers, leaving two.
+00:00:37.940 --> 00:00:40.300
+So the digit sum has the same remainder as the original
 
-00:00:47.310 --> 00:00:49.120
-One more packet would need six stickers,
+00:00:40.300 --> 00:00:44.580
+number. Two plus four plus seven plus three equals sixteen.
 
-00:00:49.530 --> 00:00:50.540
-so two is the remainder.
+00:00:45.340 --> 00:00:46.840
+Sixteen leaves remainder one.
 
-00:00:51.190 --> 00:00:53.380
-We can record the whole story in one equation.
+00:00:47.380 --> 00:00:49.160
+The number is not divisible by three.
 
-00:00:54.390 --> 00:00:56.960
-Thirty-eight equals six times six plus two.
+00:00:50.450 --> 00:00:54.370
+Medium problem. A display repeats six symbols in this order:
 
-00:00:57.850 --> 00:00:59.300
-Now pick one of these four numbers.
+00:00:55.190 --> 00:00:59.210
+triangle, square, circle, star, diamond, hexagon.
 
-00:00:59.870 --> 00:01:02.510
-It must be divisible by four and leave remainder two
+00:00:59.530 --> 00:01:03.050
+Which symbol is at position one thousand, seven hundred and
 
-00:01:02.510 --> 00:01:03.860
-when divided by three.
+00:01:03.050 --> 00:01:06.330
+thirty-nine? Never try drawing thousands of symbols.
 
-00:01:04.470 --> 00:01:07.080
-Which test would let you throw out choices fastest?
+00:01:06.870 --> 00:01:09.910
+Draw one cycle and give each position a number.
 
-00:01:11.260 --> 00:01:14.420
-Every hundred is a multiple of four, so test the
+00:01:10.930 --> 00:01:15.950
+One thousand, seven hundred and thirty-nine equals six times
 
-00:01:14.420 --> 00:01:15.310
-last two digits.
+00:01:15.950 --> 00:01:17.730
+two hundred and eighty-nine, plus five.
 
-00:01:15.880 --> 00:01:18.330
-Twenty-four and twelve are multiples of four.
+00:01:18.310 --> 00:01:21.210
+There are two hundred and eighty-nine complete cycles, with
 
-00:01:19.040 --> 00:01:20.750
-Forty-two and twenty-one are out.
+00:01:21.210 --> 00:01:22.750
+five positions left over.
 
-00:01:21.740 --> 00:01:23.540
-One hundred and twenty-four is one past a
+00:01:23.330 --> 00:01:24.670
+The fifth symbol is the diamond.
 
-00:01:23.540 --> 00:01:24.550
-multiple of three.
+00:01:25.350 --> 00:01:28.950
+A remainder of zero would mean the last, or sixth, symbol.
 
-00:01:25.420 --> 00:01:27.410
-Two hundred and twelve is two past two hundred and ten,
+00:01:30.380 --> 00:01:34.420
+Hard problem. Find the smallest three-digit whole number that
 
-00:01:28.140 --> 00:01:29.590
-so it fits both clues.
+00:01:34.420 --> 00:01:37.880
+leaves remainder four when divided by five, leaves remainder
 
-00:01:30.780 --> 00:01:32.130
-Here is a harder puzzle.
+00:01:37.880 --> 00:01:41.260
+six when divided by seven, and is divisible by nine.
 
-00:01:32.560 --> 00:01:35.620
-A blue beacon flashes at minute two and every six
+00:01:41.940 --> 00:01:44.640
+Three conditions look difficult until you notice the pattern:
 
-00:01:35.620 --> 00:01:36.610
-minutes after that.
+00:01:45.280 --> 00:01:47.620
+both remainders are one less than the divisor.
 
-00:01:37.280 --> 00:01:40.700
-A gold beacon flashes at minute five and every nine
+00:01:48.670 --> 00:01:49.970
+Call the number N.
 
-00:01:40.700 --> 00:01:41.810
-minutes after that.
+00:01:50.470 --> 00:01:53.530
+Then N plus one must be a multiple of both five
 
-00:01:42.420 --> 00:01:44.980
-When do they flash together strictly between minutes one
+00:01:53.530 --> 00:01:57.630
+and seven, so N plus one is thirty-five times a whole
 
-00:01:44.980 --> 00:01:47.550
-hundred and two hundred, at a multiple of five?
+00:01:57.630 --> 00:02:02.050
+number k. This gives N equals thirty-five k minus one.
 
-00:01:51.220 --> 00:01:52.650
-List a few early flashes.
+00:02:02.450 --> 00:02:05.510
+We have replaced two conditions with one useful expression.
 
-00:01:53.280 --> 00:01:55.010
-Blue goes at two, eight, and fourteen.
+00:02:06.700 --> 00:02:08.960
+We also need N divisible by nine.
 
-00:01:55.620 --> 00:01:57.250
-Gold goes at five and fourteen.
+00:02:09.660 --> 00:02:12.760
+So thirty-five k must leave remainder one when divided by
 
-00:01:57.720 --> 00:01:58.990
-They first meet at fourteen.
+00:02:12.760 --> 00:02:16.800
+nine. Thirty-five leaves remainder eight, which is the same as
 
-00:01:59.560 --> 00:02:02.240
-From there, both beacons return together every eighteen
+00:02:16.800 --> 00:02:19.680
+minus one. Thus k leaves remainder eight.
 
-00:02:02.240 --> 00:02:05.240
-minutes, the smallest positive time that is a multiple
+00:02:20.000 --> 00:02:23.515
+The smallest positive choice is eight, giving N equals two
 
-00:02:05.240 --> 00:02:06.650
-of six and nine.
+00:02:23.515 --> 00:02:24.220
+hundred and seventy-nine.
 
-00:02:07.540 --> 00:02:08.450
-Add eighteen repeatedly.
+00:02:25.340 --> 00:02:28.680
+Check: the remainders are four and six, and its digits sum
 
-00:02:09.360 --> 00:02:10.990
-Just below our range is eighty-six.
+00:02:28.680 --> 00:02:29.200
+to eighteen.
 
-00:02:12.160 --> 00:02:15.460
-Inside it we get one hundred and four, one hundred and
+00:02:30.690 --> 00:02:34.970
+Notice the three levels: a digit sum, a repeating cycle, and
 
-00:02:15.460 --> 00:02:18.300
-twenty-two, one hundred and forty, one hundred and
+00:02:34.970 --> 00:02:36.990
+a number satisfying several restrictions.
 
-00:02:18.300 --> 00:02:20.470
-fifty-eight, one hundred and seventy-six,
+00:02:37.970 --> 00:02:41.110
+The same tool connects them: simplify to a remainder without
 
-00:02:21.340 --> 00:02:22.250
-and one hundred and ninety-four.
+00:02:41.110 --> 00:02:42.590
+losing the original conditions.
 
-00:02:22.920 --> 00:02:25.230
-Only one ends in zero or five.
+00:02:43.410 --> 00:02:44.210
+Now take your turn.
 
-00:02:26.080 --> 00:02:27.350
-One hundred and forty is the answer.
+00:02:44.610 --> 00:02:47.990
+Start the lesson problems, explain the key step, and check
 
-00:02:28.170 --> 00:02:29.140
-Check from the start.
+00:02:47.990 --> 00:02:48.730
+each result.
 
-00:02:29.750 --> 00:02:32.174
-One hundred and forty minus two is one hundred and
-
-00:02:32.174 --> 00:02:35.360
-thirty-eight, or twenty-three cycles of six.
-
-00:02:36.290 --> 00:02:37.878
-One hundred and forty minus five is one hundred and
-
-00:02:37.878 --> 00:02:40.690
-thirty-five, or fifteen cycles of nine.
-
-00:02:40.690 --> 00:02:43.760
-And one hundred and forty is twenty-eight times five.
-
-00:02:44.650 --> 00:02:47.120
-When one cycle is six and the other is nine,
-
-00:02:47.410 --> 00:02:49.180
-adding the periods gives fifteen.
-
-00:02:49.810 --> 00:02:51.880
-Use the smallest common multiple, eighteen.
-
-00:02:52.930 --> 00:02:55.240
-Also remember that divisible means remainder zero.
-
-00:02:55.950 --> 00:02:58.730
-Finally, keep your search inside the interval the
-
-00:02:58.730 --> 00:02:59.720
-question gives you.
-
-00:03:00.490 --> 00:03:03.570
-On an exam, write the remainders next to their divisors
-
-00:03:03.570 --> 00:03:05.680
-and combine the clues one at a time.
-
-00:03:06.190 --> 00:03:08.640
-Check your answer against every original condition.
-
-00:03:09.450 --> 00:03:12.910
-For a Mawa style investigation, ask what changing one
-
-00:03:12.910 --> 00:03:14.600
-starting minute would do to the meetings.

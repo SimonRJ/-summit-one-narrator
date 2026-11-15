@@ -1,103 +1,22 @@
 {
   "id": "S002",
-  "duration_seconds": 186.933333,
-  "sha256": "94f3229921eb700bed165b782a51c76cdb5517e4b394fc4e1e233190dfdd9be6",
-  "width": 1920,
-  "height": 1080,
-  "fps": 30,
-  "audio_streams": 1,
-  "narration": "Approved synthetic Voice C",
+  "title": "Place-value decomposition and estimation",
+  "voice": "VoxCPM2 \u2014 approved voice C",
+  "old_audio_used": false,
   "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
-  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
-  "narration_speed_changed": false,
-  "caption_layers": 1,
-  "match_percent": 97.37,
-  "scenes": [
-    {
-      "number": 1,
-      "start": 0.0,
-      "match_percent": 100.0
-    },
-    {
-      "number": 2,
-      "start": 15.32,
-      "match_percent": 100.0
-    },
-    {
-      "number": 3,
-      "start": 30.04,
-      "match_percent": 95.77
-    },
-    {
-      "number": 4,
-      "start": 46.17,
-      "match_percent": 88.89
-    },
-    {
-      "number": 5,
-      "start": 63.29,
-      "match_percent": 100.0
-    },
-    {
-      "number": 6,
-      "start": 79.42,
-      "match_percent": 90.74
-    },
-    {
-      "number": 7,
-      "start": 98.14,
-      "match_percent": 100.0
-    },
-    {
-      "number": 8,
-      "start": 118.43,
-      "match_percent": 100.0
-    },
-    {
-      "number": 9,
-      "start": 135.23,
-      "match_percent": 97.83
-    },
-    {
-      "number": 10,
-      "start": 149.31,
-      "match_percent": 97.83
-    },
-    {
-      "number": 11,
-      "start": 165.63,
-      "match_percent": 100.0
-    }
+  "duration_seconds": 164.875,
+  "video": "1920\u00d71080 H.264 24 fps",
+  "audio": "AAC",
+  "scenes": 9,
+  "example_levels": [
+    "easy",
+    "medium",
+    "hard"
   ],
-  "chapters": [
-    {
-      "title": "The technique",
-      "start": 0.0
-    },
-    {
-      "title": "Where it shows up",
-      "start": 15.32
-    },
-    {
-      "title": "Basic example",
-      "start": 30.04
-    },
-    {
-      "title": "Medium example",
-      "start": 63.29
-    },
-    {
-      "title": "Exam-style challenge",
-      "start": 98.14
-    },
-    {
-      "title": "Common mistakes",
-      "start": 149.31
-    },
-    {
-      "title": "Exam checklist",
-      "start": 165.63
-    }
-  ],
-  "decoded_successfully": true
+  "word_alignment_percent": 97.01,
+  "spoken_caption_layers": 1,
+  "mathematics_verified": true,
+  "full_video_decode_passed": true,
+  "bytes": 5781486,
+  "sha256": "a7efa6d53c4e4c5e431a35506b80ebccc78dfa42cd59d89b9942f0c1f8f6ada4"
 }
