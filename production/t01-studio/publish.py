@@ -33,7 +33,7 @@ def clock(seconds):
 def make_watch_page(lesson, source, report):
     next_lesson = {
         "T01.1": ("watch-t01-2.html", "Next · Choose a representation"),
-        "T01.2": ("watch-t02-1.html", "Next · Find an invariant"),
+        "T01.2": ("watch-t02-1.html", "Also watch · Find an invariant"),
     }
     next_href, next_title = next_lesson[lesson]
     chapter_buttons = "\n".join(

@@ -136,8 +136,8 @@ def close_fence(stage, s):
         post(stage, x, y, MINT if i == 0 else BLUE)
     ex, ey = points[-1]
     post(stage, ex, ey, BLUE, 1 - between(s.t, joined - 0.12, 0.38))
-    stage.text("Shared starting corner", 640, 483, 27, MINT, opacity=between(s.t, joined) * (1 - result))
-    stage.terms([("6 gaps", GOLD, result), ("·", WHITE, result), ("6 posts", MINT, result)], 529, 47)
+    stage.text("Shared starting corner", 640, 506, 27, MINT, opacity=between(s.t, joined) * (1 - result))
+    stage.terms([("6 gaps", GOLD, result), ("·", WHITE, result), ("6 posts", MINT, result)], 556, 47)
 
 
 def person(stage, x, color, opacity):
