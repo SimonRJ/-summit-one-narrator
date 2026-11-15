@@ -23,6 +23,7 @@ BRANCH = "lesson-intro-catalog"
 CATALOGUE = "data/lesson-intros-live.json"
 LEGACY = {f"S{slot:03}" for slot in range(1, 7)}
 VOICE_C = "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362"
+ART_REVISION = 2
 ASSET_ROOT = f"https://github.com/{REPO}/releases/download/{TAG}/"
 RAW_ROOT = f"https://raw.githubusercontent.com/{REPO}/refs/heads/{BRANCH}/"
 
@@ -82,6 +83,16 @@ def asset_entry(lesson):
     return json.loads(public(ASSET_ROOT + assets(lesson)[2])[2])
 
 
+def current_candidate(lesson):
+    try:
+        report = asset_entry(lesson)
+        if report.get("art_revision") == ART_REVISION:
+            return report
+    except (HTTPError, URLError, TimeoutError, json.JSONDecodeError):
+        pass
+    return None
+
+
 def verified_report(report, lesson):
     assert report["id"] == lesson and report["decoded_successfully"]
     assert report["reference_sha256"] == VOICE_C and report["narration_speed_changed"] is False
@@ -120,6 +131,7 @@ def stage(lesson):
         return
     prepared = {
         **report, "title": script["title"], "seconds": report["duration_seconds"],
+        "art_revision": ART_REVISION,
         "script_sha256": sha256(script_file.read_bytes()).hexdigest(),
         "transcript": [item["narration"] for item in script["scenes"]],
     }
@@ -128,20 +140,41 @@ def stage(lesson):
     (folder / metadata).write_text(json.dumps(prepared, ensure_ascii=False) + "\n")
     # Publish metadata last so it can serve as a ready marker for the complete upload.
     for name in (movie, poster, metadata):
-        subprocess.run(["gh", "release", "upload", TAG, str(folder / name), "--repo", REPO, "--clobber"], check=True)
+        command = ["gh", "release", "upload", TAG, str(folder / name), "--repo", REPO, "--clobber"]
+        for attempt in range(3):
+            uploaded = subprocess.run(command)
+            if uploaded.returncode == 0:
+                break
+            if attempt == 2:
+                uploaded.check_returncode()
+            time.sleep(12 * (attempt + 1))
+
+
+def failed_production(lesson):
+    run = os.environ.get("GITHUB_RUN_ID")
+    attempt = os.environ.get("GITHUB_RUN_ATTEMPT")
+    if not run or not attempt:
+        return False
+    try:
+        jobs = api(f"actions/runs/{run}/attempts/{attempt}/jobs?per_page=100")["jobs"]
+    except subprocess.CalledProcessError:
+        return False
+    return any(job["name"] == f"produce ({lesson})" and job["status"] == "completed"
+               and job["conclusion"] in {"failure", "cancelled", "timed_out"} for job in jobs)
 
 
 def wait_for_candidate(lesson, deadline):
     while True:
-        try:
-            report = asset_entry(lesson)
+        report = current_candidate(lesson)
+        if report:
             verified_report(report, lesson)
             assert report["title"] == course()[lesson]
             return report
-        except (HTTPError, URLError, TimeoutError, json.JSONDecodeError):
-            if time.monotonic() > deadline:
-                raise TimeoutError(f"Waiting for {lesson} to finish rendering")
-            time.sleep(20)
+        if time.monotonic() > deadline:
+            raise TimeoutError(f"Waiting for {lesson} to finish rendering")
+        if failed_production(lesson):
+            raise RuntimeError(f"{lesson} needs another recording or upload attempt")
+        time.sleep(30)
 
 
 def examine_download(lesson, report):
@@ -211,7 +244,11 @@ def publish(lessons, max_wait_minutes):
             put_file(detail, report, f"Save the chapters and transcript for {lesson}", detail_sha)
         wait_for_raw(detail, lambda data: data["sha256"] == report["sha256"])
         mark(lesson, report, "checking")
-        subprocess.run(["node", str(ROOT / "tools/check_live_intro_player.mjs"), lesson], check=True)
+        player = ["node", str(ROOT / "tools/check_live_intro_player.mjs"), lesson]
+        first = subprocess.run(player)
+        if first.returncode:
+            time.sleep(20)
+            subprocess.run(player, check=True)
         final = mark(lesson, report, "verified")
         count = len(LEGACY) + sum(item["status"] == "verified" for item in final["entries"])
         counts = f"videos complete : {count}\nvideos to go: {len(course())-count}"
@@ -236,6 +273,12 @@ def select(max_items):
         if len(selected) == max_items:
             break
     return selected
+
+
+def missing_candidates(lessons):
+    uploaded = list_uploaded()
+    return [lesson for lesson in lessons
+            if not set(assets(lesson)) <= uploaded or not current_candidate(lesson)]
 
 
 if __name__ == "__main__":

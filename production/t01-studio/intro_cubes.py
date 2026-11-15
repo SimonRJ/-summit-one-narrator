@@ -19,7 +19,7 @@ TUNNEL = frozenset((x, 2, 1) for x in range(4))
 MISSING = COLUMN | TUNNEL
 
 
-def solids(stage, cells, x0, y0, *, zoom=1, spread=0, opacity=1, monochrome=False):
+def solids(stage, cells, x0, y0, *, zoom=1, spread=0, opacity=1, monochrome=False, painted=None):
     """Draw only exposed faces with a fixed isometric camera and colour by level."""
     if opacity <= 0:
         return
@@ -30,10 +30,11 @@ def solids(stage, cells, x0, y0, *, zoom=1, spread=0, opacity=1, monochrome=Fals
     )
     draw_order = sorted(cells, key=lambda xyz: (sum(xyz), xyz[2], xyz[1], xyz[0]))
     for x, y, z in draw_order:
-        tone = BLUE if monochrome else LAYERS[z % len(LAYERS)]
+        level_colour = BLUE if monochrome else LAYERS[z % len(LAYERS)]
         for (dx, dy, dz), vertices, shade in face_defs:
             if (x + dx, y + dy, z + dz) in cells and (dz == 0 or spread < 2):
                 continue
+            tone = level_colour if painted is None else (GOLD if (x, y, z, dx, dy, dz) in painted else BLUE)
             points = [(x0 + (x + vx - y - vy) * 39 * zoom,
                        y0 + (x + vx + y + vy) * 20 * zoom
                        - (z + vz) * 48 * zoom - spread * z)

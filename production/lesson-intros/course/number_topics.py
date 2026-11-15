@@ -497,3 +497,144 @@ def cycles(lesson):
             ("Divide by the cycle length and use the remainder. When the task asks for a sum, work out what the full cycles contribute.", "Reduce, then interpret", "Keep the tail in its original order."),
         ), cover=chain(*cycle),
     )
+
+
+def arithmetic_sequence(lesson):
+    v=lesson.visit
+    a,d=4+v,3+v%3
+    terms=[a+i*d for i in range(4)]
+    index=14+3*v
+    answer=a+(index-1)*d
+    count=12+2*v
+    last=a+(count-1)*d
+    total=count*(a+last)//2
+    assert total==sum(a+i*d for i in range(count))
+    return Topic(
+        (("In an arithmetic sequence each new term adds the same difference. The term number counts entries, but the changes happen in the gaps between entries.", "Term n is n−1 jumps from the start."),
+         ("For a total of several terms, pair values from the two ends. Their sums are equal.", "Pair first with last, then second with second-last.")),
+        (("AMC practice can hide a fixed increment in a seating plan, a stack or a pattern of growing figures. Check whether the differences are constant.", "AMC Upper Primary · find the common difference"),
+         ("A Rossmoyne style question may need a total without listing every term. Pairing gives a short calculation and a reason.", "Rossmoyne-style · sum the pattern")),
+        (
+            Example("Build the first few terms", (
+                (f"A list starts at {say(a)} and increases by {say(d)} each time. What are the first four terms?", f"Start {a}, add {d} each time."),
+                ("Count the starting number as the first term.", "How many jumps reach the fourth term?")),
+                ((f"Add {say(d)} three times after the starting value. That produces {spoken_list(terms)}.", " → ".join(map(str,terms))),
+                 ("There are four terms but only three gaps. The fixed step is the size of each gap.", "Four terms → three jumps")), chain(a,f"+{d}","…")),
+            Example("Jump to a distant position", (
+                (f"A sequence has first term {say(a)} and common difference {say(d)}. What is term {say(index)}?", f"Find term {index}."),
+                ("Work out how many gaps separate that term from the first.", f"Use the start and the repeated step.")),
+                ((f"Term {say(index)} is {say(index-1)} steps beyond term one. The total increase is that number of steps times {say(d)}.", f"{index-1} × {d} = {(index-1)*d}"),
+                 (f"Add the first term. The requested term is {say(answer)}. Check the rule would give {say(a)} at term one.", f"{a} + {index-1} × {d} = {answer}")), chain("Term 1",f"{index-1} jumps",f"Term {index}")),
+            Example("Pair opposite ends to sum a growing pattern", (
+                (f"A theatre section starts with {say(a)} seats in its first row. Each new row contains {say(d)} more than the row before it.", f"First row {a}. Each next row adds {d} seats."),
+                (f"There are {say(count)} rows. Find the total number of seats.", f"Total for {count} rows?")),
+                ((f"The last row contains {say(last)}, after {say(count-1)} increases. Pair the first row with the last.", f"Last row: {a} + ({count}−1) × {d} = {last}"),
+                 (f"Every pair totals {say(a+last)}. Moving inward adds {say(d)} to one end and removes {say(d)} from the other.", f"Each pair = {a} + {last} = {a+last}"),
+                 (f"There are {say(count//2)} pairs. Multiply by the common pair total to get {say(total)} seats.", f"{count//2} × {a+last} = {total} seats")),
+                tiles(a,a+d,a+2*d,"…",last-d,last,highlight=(0,5)),proof=(
+                    ("A check is to imagine the rows redistributed evenly. The mean of the first and last values is the mean row length.", f"Mean row length = ({a}+{last})/2"),
+                    (f"Multiplying that mean by all {say(count)} rows gives the same total, {say(total)} seats.", f"{count} × ({a}+{last})/2 = {total}"))),
+        ),
+        (("The starting value occupies term one. A later position needs one fewer step than its term number.", "Use n jumps to find term n", "Use n−1 jumps"),
+         ("If the step changes, arithmetic-sequence formulas no longer apply. Check the first few differences before summing.", "Use the same formula for any growing list", "Check the fixed difference")),
+        (("Write the first term and common difference. For a particular term, count the gaps before multiplying.", "Record start and step", "Translate term number into jumps."),
+         ("For a sum, check the last term and whether there is an unpaired centre. Pair opposite ends to verify the total.", "Pair the ends", "The downward change cancels the upward one.")),
+        cover=chain(*terms),
+    )
+
+
+def doubling(lesson):
+    v=lesson.visit
+    first,start=2+v,3+v
+    days=4+v
+    last=first*2**(days-1)
+    length=5+v
+    series=2**length-1
+    target=start*(2**(length+1)-1)+start*(2**(length-1))
+    allowed=length+1
+    spent=start*(2**allowed-1)
+    left=target-spent
+    assert spent<=target<start*(2**(allowed+1)-1)
+    return Topic(
+        (("A doubling pattern multiplies the current amount by two each time. Compare it with adding a fixed amount: its increases get larger as the terms grow.", "Each new amount is twice the previous one."),
+         ("To sum a doubling sequence, double the whole sum and align the common terms. Subtract to leave only the two ends.", "Double the sum, align, subtract.")),
+        (("An AMC problem may use objects that double each day or a prize that grows by a fixed multiplier. Mark whether it asks for one term or a total.", "AMC Upper Primary · term or total?"),
+         ("In a Mawa style investigation, compare the total with the next term. Changing the starting number scales both.", "MAWA-style · generalise the sum")),
+        (
+            Example("Track a doubling amount", (
+                (f"A display begins with {say(first)} lights on day one. The number doubles each day. How many are on at day {say(days)}?", f"Day 1: {first}. Double each day. Find day {days}."),
+                ("Count how many doublings happen after the first day.", "Day 1 already has a value.")),
+                ((f"There are {say(days-1)} doublings. Each one multiplies the current number by two, so use that power of two.", f"{days-1} doublings → multiply by 2^{days-1}"),
+                 (f"Multiply the starting amount by that power. Day {say(days)} has {say(last)} lights.", f"{first} × 2^{days-1} = {last}")), chain(first,2*first,4*first,"…",last)),
+            Example("Sum doubling terms by matching them", (
+                (f"Find the sum of the first {say(length)} terms of the sequence one, two, four, eight and so on.", f"S = 1 + 2 + 4 + … + {2**(length-1)}"),
+                ("What stays after you double the sum and subtract the original?", "Align S and 2S.")),
+                ((f"Let the whole sum be S. Doubling every term begins at two and ends at {say(2**length)}.", f"2S = 2 + 4 + … + {2**length}"),
+                 ("Subtract S. Every term shared by the two rows cancels. Only the last term of the doubled row and the first term of the original remain.", "2S − S = last doubled term − 1"),
+                 (f"So the sum is {say(2**length)} minus one, or {say(series)}.", f"S = {2**length} − 1 = {series}")), table(("S","1","2","4","…",2**(length-1)),("2S","","2","4","…",2**length))),
+            Example("Check how long a doubling budget lasts", (
+                (f"A project uses {say(start)} tokens on day one. Each day's requirement doubles. There are {say(target)} tokens in the whole budget.", f"Day 1 uses {start}; double daily. Budget {target}."),
+                ("How many complete days can it run? A day counts only if all of its tokens are available.", "Find the greatest affordable number of days.")),
+                ((f"The total through day n is {say(start)} times two to the power n minus one, with the minus one inside the multiplier.", f"After n days: {start}(2ⁿ − 1)"),
+                 (f"The total for {say(allowed)} days is {say(spent)}, which fits the budget. The next total would be {say(start*(2**(allowed+1)-1))}.", f"{allowed} days: {spent}. {allowed+1} days: {start*(2**(allowed+1)-1)}."),
+                 (f"The next total is over budget, so there are {say(allowed)} complete days. The unused balance is {say(left)} tokens.", f"{allowed} days, with {left} tokens left.")),
+                chain(start,start*2,start*4,"…","Budget"),proof=(
+                    (f"After day {say(allowed)}, the amount needed for the next single day is {say(start*2**allowed)} tokens. It exceeds the balance.", f"Next day costs {start*2**allowed} > {left}."),
+                    ("Every additional day uses positive tokens, so no later stopping point can be cheaper. The two consecutive totals prove the bound.", "One affordable day count, then the next is too expensive."))),
+        ),
+        (("The value on a day and the amount used across all days are different quantities. Check whether the problem says on or through.", "Use the last term as the running total", "Add all elapsed terms"),
+         ("Keep the first term when indexing the powers. There are zero doublings at the start.", "Power n gives the day n value", "Day n has n−1 doublings")),
+        (("Find the first term and the repeated multiplier. Mark whether you are calculating a term or a sum.", "Choose term or sum", "Check the first one or two values."),
+         ("For a budget limit, show the last affordable total and the next one. They prove where you must stop.", "Verify both sides of the boundary", "Check consecutive totals.")),
+        cover=chain(1,2,4,8,16),
+    )
+
+
+def finite_state(lesson):
+    v=lesson.visit
+    past=11+5*v
+    finish=("North","East","South","West")[past%4]
+    order=(2+v%2,3+v)
+    period=lcm(*order)
+    states=tuple(range(1,7+v%3))
+    stem=1+v%3
+    total=51+7*v
+    loop=states[stem:]
+    state=loop[(total-stem)%len(loop)]
+    mapping=dict(zip(states,(*states[1:],states[stem])))
+    direct=states[0]
+    for _ in range(total):
+        direct=mapping[direct]
+    assert direct==state
+    return Topic(
+        (("A finite-state rule has only a limited set of possible situations. Once the same full state occurs again, the same rule repeats everything that follows.", "Same full state + same rule → same future."),
+         ("Sometimes there is a short starting path before a loop. Count that path separately from the repeating part.", "Separate the lead-in and the loop.")),
+        (("In AMC practice, a repeating transformation might turn a pointer, change a colour or move a mark. Record the complete state between steps.", "AMC Upper Primary · track a state"),
+         ("A Mawa style investigation can compare loops from different starting states. Ask which states repeat and which appear only once.", "MAWA-style · inspect the lead-in")),
+        (
+            Example("Turn a pointer by whole quarter turns", (
+                (f"A pointer begins facing north. Turn it clockwise by a quarter turn {say(past)} times. Where does it point?", f"North at start. Turn clockwise {past} times."),
+                ("Count how many quarter turns bring it back to north.", "Remove complete revolutions.")),
+                ((f"Four turns make one complete revolution. Dividing {say(past)} by four leaves {say(past%4)} extra turns.", f"{past} leaves remainder {past%4} when divided by 4."),
+                 (f"Apply those extra turns from north. The pointer ends facing {finish.lower()}.", f"Final direction: {finish}")), chain("N","E","S","W","N")),
+            Example("Wait for two settings to reset together", (
+                (f"On each press, one dial moves to its next position in a cycle of {say(order[0])}. A second dial moves in a cycle of {say(order[1])}.", f"Two dials: cycles of {order[0]} and {order[1]}."),
+                ("After how many presses is the full starting pair first restored?", "Both dial positions must return.")),
+                ((f"The first dial resets at multiples of {say(order[0])}, and the second at multiples of {say(order[1])}.", "Match their reset steps."),
+                 (f"The first positive common reset occurs after {say(period)} presses. The state consists of both dials, not just one.", f"Full period = LCM({order[0]}, {order[1]}) = {period}")), tiles(*order,period)),
+            Example("Find a late state after a lead-in", (
+                (f"A machine starts at state one. It moves up through the numbered states until {say(states[-1])}. From there its next state is {say(states[stem])}, and it follows the same rule forever.", f"1 → 2 → … → {states[-1]} → {states[stem]}"),
+                (f"The starting state is at step zero. Where is it after {say(total)} moves?", f"Find state at step {total}.")),
+                ((f"At step {say(stem)} the machine first reaches {say(loop[0])}, the first state of the loop. The earlier states do not recur.", f"Lead-in: {stem} moves"),
+                 (f"The loop has {say(len(loop))} states. From the loop entry, there are {say(total-stem)} more moves to make.", f"Remaining loop moves: {total} − {stem}"),
+                 (f"Divide by the loop length. The remainder is {say((total-stem)%len(loop))}. Move that far from the first loop state to reach {say(state)}.", f"Remainder {(total-stem)%len(loop)} → state {state}")),
+                chain(*states,"↩ "+str(states[stem])),worked_art=chain(*loop),proof=(
+                    ("When counting from the entry time, a remainder of zero means no extra move. That puts the machine at the entry state again.", "Index the entry state at offset zero."),
+                    (f"The last state in the loop points back to {say(loop[0])}, so the calculation never returns to the earlier lead-in states.", "Check the arrow that closes the loop."))),
+        ),
+        (("A displayed position may not capture the full situation. Include any second dial or change in the rule that affects the next move.", "Match one visible detail", "Match the full state"),
+         ("The lead-in happens only once. Subtract its length before dividing by the size of the loop.", "Use the loop from step zero automatically", "Find where the loop really begins")),
+        (("List the first few complete states and name the next-step rule. Stop when a full state repeats.", "Find the first repeat", "Record the two occurrences as step numbers."),
+         ("Separate the first visit to the loop from later laps. Check whether your indexing is by moves from zero or by states from one.", "Count the remaining moves", "Use the loop remainder from the correct entry.")),
+        cover=chain("Start","Entry","Loop","Entry"),
+    )

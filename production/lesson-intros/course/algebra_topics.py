@@ -203,3 +203,195 @@ def part_whole(lesson):
             ("If the ending is known, rebuild the last whole first. Then reverse any addition and earlier removal.", "Reverse and recheck", "Forward steps must reproduce the ending."),
         ), cover=bars(("Original",((1,"used"),(4,"left"))),("New whole",((1,"used"),(3,"left")))),
     )
+
+
+def linear_context(definition, application, first, second, examples, diagram):
+    """Build an outline around explicit, question-specific mathematical moves."""
+    idea, point = definition
+    clue, exam = application
+    err1, right1, why1 = first
+    err2, right2, why2 = second
+    return Topic(
+        ((idea, point), ("Put a label on each unknown before you use a symbol. As you work, keep the same label attached to the same quantity.", "One symbol keeps one meaning.")),
+        ((f"In AMC Upper Primary practice, look for {clue}. A diagram or short equation can collect the clues in one place.", "AMC Upper Primary · "+exam),
+         ("In a Rossmoyne style puzzle, two or more conditions can constrain the same value. Substitute your result into the original conditions to prove it fits.", "Rossmoyne-style · check every condition")),
+        examples, ((why1,err1,right1),(why2,err2,right2)),
+        (("Name the unknown quantity and write what each given relationship says about it. Label your equations with the units used in the story.", "Translate every condition", "Use the same units and the same unknown names."),
+         ("Recheck the result by applying the original relationships, including each bound, whole-number rule or shared total.", "Verify the result", "Substitute back into the original conditions.")),
+        cover=diagram,
+    )
+
+
+def word_equations(lesson):
+    v=lesson.visit
+    x=7+v
+    a,b=3+v%2,5+v
+    simple=a*x+b
+    dif=4+2*v
+    medium_total=2*x+dif
+    adult,child=8+v,4+v
+    na,nb=10+2*v,14+v
+    tickets=na+nb
+    dollars=na*adult+nb*child
+    assert (dollars-tickets*child)//(adult-child)==na
+    return linear_context(
+        ("An equation says two expressions measure the same amount. Name the unknown, then represent each action on that amount with an operation.", "Write one expression for each side."),
+        ("stories giving a total, a fixed cost or a difference between two quantities", "turn a sentence into an equation"),
+        ("Use the same letter for two prices", "Assign one letter per unknown", "One letter names one quantity. Use separate variables when the ticket prices or numbers can differ."),
+        ("Use a total without checking its units", "Keep counts and money separate", "Ticket counts add to a number of tickets. Each price must multiply a count before it contributes to a total cost."),
+        (
+            Example("Write a one-variable equation", (
+                (f"Multiply a number by {say(a)} and add {say(b)}. The result is {say(simple)}. Find the number.", f"{a}x + {b} = {simple}"),
+                ("Use x for the input and check what the result measures.", "Let x be the original number.")),
+                ((f"Subtract {say(b)} from both sides to keep the equation balanced. The remaining multiple of x equals {say(a*x)}.", f"{a}x = {simple} − {b} = {a*x}"),
+                 (f"Divide by {say(a)} to get {say(x)}. Multiplying and adding in the original order checks the equation.", f"x = {x}")), chain("x",f"×{a}",f"+{b}",simple)),
+            Example("Build both quantities from one unknown", (
+                (f"A team collects {say(medium_total)} points in two rounds. The second round has {say(dif)} more points than the first. Find each round's score.", f"Total {medium_total}, second is {dif} more."),
+                ("Let x stand for the score in the first round.", "Represent both scores using x.")),
+                ((f"The first score is x. The second is x plus {say(dif)}. Together the scores total {say(medium_total)}.", f"x + (x + {dif}) = {medium_total}"),
+                 (f"Subtract the fixed difference and divide the rest by two. The first score is {say(x)}, and the second is {say(x+dif)}.", f"Scores {x} and {x+dif}")), bars(("Round 1",((x,"x"),)),("Round 2",((x,"x"),(dif,f"+{dif}"))))),
+            Example("Model ticket counts and revenue separately", (
+                (f"An event sells {say(tickets)} tickets. Adult tickets cost {say(adult)} dollars each and child tickets cost {say(child)} dollars each.", f"{tickets} tickets at either ${adult} or ${child}."),
+                (f"The total revenue is {say(dollars)} dollars. How many adult tickets and child tickets were sold?", f"Revenue ${dollars}. Find both ticket counts.")),
+                ((f"Let x be the number of adult tickets. Since {say(tickets)} tickets were sold, {say(tickets)} minus x is the number of child tickets.", f"Adult x, child {tickets} − x"),
+                 (f"Price times count gives each revenue. Combine the two products in the same equation to match the stated total.", f"{adult}x + {child}({tickets} − x) = {dollars}"),
+                 (f"Collect x terms. The baseline from child-price tickets would be {say(tickets*child)} dollars. Each adult ticket adds {say(adult-child)} dollars above it.", f"({adult} − {child})x = {dollars} − {tickets*child}")),
+                table(("Ticket","Count","Price"),("Adult","x",adult),("Child",f"{tickets}−x",child)),proof=(
+                    (f"Divide by {say(adult-child)} to get {say(na)} adult tickets. The remaining {say(nb)} tickets are child tickets.", f"x = {na}, child tickets = {nb}"),
+                    (f"Check both counts and costs. The tickets sum to {say(tickets)}, and their prices sum to {say(dollars)} dollars.", f"{na} × {adult} + {nb} × {child} = {dollars}"))),
+        ), tiles("Count","Price","Total"),
+    )
+
+
+def simultaneous(lesson):
+    v=lesson.visit
+    x,y=10+v,6+v%3
+    plus=x+y
+    gap=x-y
+    a,b=7+v,11+v//2
+    one=2*a+b
+    two=a+2*b
+    third=12+v
+    ab,bc,ca=a+b,b+third,third+a
+    total=a+b+third
+    assert ab+bc+ca==2*total
+    return linear_context(
+        ("Simultaneous conditions describe the same unknowns at the same time. A solution must make every condition true together.", "Use the conditions together."),
+        ("two totals or a sum and a difference describing the same values", "combine the information from both clues"),
+        ("Find any pair with the right sum", "Test the second condition too", "A single total can fit many pairs. Use the second condition to choose a particular pair."),
+        ("Add pair totals as if they were disjoint", "Account for the repeated values", "In the three pair totals, each single quantity appears twice. Divide the combined pair totals by two."),
+        (
+            Example("Use a sum and a difference together", (
+                (f"Two numbers add to {say(plus)}. The larger is {say(gap)} more than the smaller. What are they?", f"Sum {plus}, difference {gap}"),
+                ("Picture the two amounts lined up, with an extra piece on the larger one.", "Align the equal parts.")),
+                ((f"Remove the extra {say(gap)} from the total. The remaining {say(plus-gap)} comprises two equal copies of the smaller number.", f"{plus} − {gap} = {2*y}"),
+                 (f"So the smaller is {say(y)} and the larger is {say(x)}. Check both the sum and the difference.", f"{y}, {x}")), bars(("Small",((y,"same"),)),("Large",((y,"same"),(gap,gap))))),
+            Example("Add two conditions to find a shared sum", (
+                (f"Two notebooks and a ruler cost {say(one)} dollars. One notebook and two rulers cost {say(two)} dollars.", f"2N + R = {one}; N + 2R = {two}"),
+                ("Find the price of one notebook plus one ruler, then recover each price.", "Find N + R, then N and R.")),
+                ((f"Add the equations, giving three notebooks and three rulers for {say(one+two)} dollars.", f"3N + 3R = {one+two}"),
+                 (f"Divide by three. One of each costs {say(a+b)} dollars. Subtract that from the price of two notebooks and a ruler.", f"N + R = {a+b}"),
+                 (f"The notebook costs {say(a)}, leaving {say(b)} for the ruler. Both original prices work.", f"N = ${a}, R = ${b}")),table(("Bundle","N","R"),("First",2,1),("Second",1,2))),
+            Example("Recover three unknowns from overlapping totals", (
+                (f"Three boxes A, B and C contain counters. Boxes A and B together hold {say(ab)}. B and C hold {say(bc)}.", f"A + B = {ab}. B + C = {bc}."),
+                (f"C and A hold {say(ca)}. Find how many counters are in each box.", f"C + A = {ca}. Find A, B and C.")),
+                ((f"Add all three conditions. Each box appears twice, so the combined sum {say(2*total)} is twice the number of counters in the three boxes.", f"2(A+B+C) = {2*total}"),
+                 (f"Halve it to get the complete total {say(total)}. Subtract a pair's total to find the missing box.", f"A + B + C = {total}"),
+                 (f"Subtract B plus C to get A equals {say(a)}. The same method gives B equals {say(b)} and C equals {say(third)}.", f"A = {a}, B = {b}, C = {third}")),
+                table(("Pair","Total"),("A + B",ab),("B + C",bc),("C + A",ca)),proof=(
+                    (f"The resulting pairs total {say(ab)}, {say(bc)} and {say(ca)}. Each matches its clue.", f"Check {a}+{b}, {b}+{third}, {third}+{a}"),
+                    ("The original clues forced the overall total and then each single box. There can be only one such assignment.", "The three pair totals determine the three boxes."))),
+        ), tiles("A+B","B+C","C+A"),
+    )
+
+
+def differences(lesson):
+    v=lesson.visit
+    x,y=4+v,7+v
+    a=x+2*y
+    b=2*x+2*y
+    s,t=2+v%2,3+v%2
+    m1,m2=s*x+y,t*x+2*y
+    # A different pair of coefficients for the harder example.
+    r1,r2=3+v,5+v
+    k1,k2=2,3
+    full1=r1*x+k1*y
+    full2=r2*x+k2*y
+    coef=k1*r2-k2*r1
+    if coef==0:
+        r2+=1
+        full2=r2*x+k2*y
+        coef=k1*r2-k2*r1
+    diff=k1*full2-k2*full1
+    assert diff == coef*x and coef
+    return linear_context(
+        ("When two totals share the same contribution, subtracting them removes that contribution. The difference isolates the part that changed.", "Match one contribution, then subtract."),
+        ("bundles with matching parts or clues about what extra objects cost", "cancel a common part"),
+        ("Subtract totals with unequal hidden contributions", "Match the quantities first", "The other parts must match before they cancel. Scale an equation if the two numbers of matching objects differ."),
+        ("Change a coefficient without changing the total", "Scale the whole equation", "Multiplying an equation scales every coefficient and the total on the other side by the same factor."),
+        (
+            Example("Cancel a matching pair of items", (
+                (f"One bun and two drinks cost {say(a)} dollars. Two buns and two drinks cost {say(b)} dollars. Find the price of a bun.", f"B+2D={a}; 2B+2D={b}"),
+                ("Compare what changed between the orders.", "What accounts for the difference in prices?")),
+                ((f"The two drinks occur in both orders, so their total price cancels. Only one additional bun remains.", f"(2B+2D)−(B+2D) = B"),
+                 (f"The price increase is {say(x)} dollars. That is the cost of one bun.", f"B = {b} − {a} = ${x}")), table(("Order","Buns","Drinks"),("1",1,2),("2",2,2))),
+            Example("Scale a bundle to match one part", (
+                (f"{say(s).capitalize()} pens and one marker cost {say(m1)} dollars. {say(t).capitalize()} pens and two markers cost {say(m2)} dollars.", f"{s}P + M = {m1}; {t}P + 2M = {m2}"),
+                ("Find each price. Create two orders with the same number of markers first.", "Make both orders contain 2 markers.")),
+                ((f"Double the first bundle to make {say(2*s)} pens and two markers costing {say(2*m1)}.", f"{2*s}P + 2M = {2*m1}"),
+                 (f"Subtract the second bundle. The difference is {say(2*s-t)} pens costing {say(2*m1-m2)}.", f"{2*s-t}P = {2*m1-m2}"),
+                 (f"One pen costs {say(x)} dollars. Substitute into the first order to get {say(y)} dollars for a marker.", f"P = ${x}, M = ${y}")), table(("Bundle","P","M"),("First",s,1),("Second",t,2))),
+            Example("Choose a matching coefficient from both orders", (
+                (f"A stall sells two kinds of pack, X and Y. An order of {say(r1)} X packs and two Y packs costs {say(full1)} dollars.", f"{r1}X + 2Y = {full1}"),
+                (f"An order of {say(r2)} X packs and three Y packs costs {say(full2)} dollars. Find each unit price.", f"{r2}X + 3Y = {full2}")),
+                (("The smaller number of Y packs in a common scaled order is six. Multiply the first entire equation by three and the second by two.", "Make both amounts of Y equal to 6."),
+                 (f"Subtract the scaled first equation from the scaled second. That leaves {say(coef)} times X equal to {say(diff)}.", f"({2*r2} − {3*r1})X = {2*full2} − {3*full1}"),
+                 (f"Dividing gives {say(x)} dollars for X. Putting that into the first condition gives {say(y)} dollars for Y.", f"X = ${x}, Y = ${y}")),
+                table(("Scaled","X","Y"),("First ×3",r1*3,6),("Second ×2",r2*2,6)),proof=(
+                    (f"Rebuild both purchases. The first costs {say(full1)} and the second costs {say(full2)} dollars.", f"{r1}×{x}+2×{y}={full1}; {r2}×{x}+3×{y}={full2}"),
+                    ("The difference equation had a nonzero coefficient for X. That forced its price before we substituted to find Y.", "Matching one term isolates the other."))),
+        ), tiles("Same part","Subtract","Remainder"),
+    )
+
+
+def margins(lesson):
+    v=lesson.visit
+    second=18+v
+    gap=6+v
+    sum2=2*second+gap
+    bottom=12+v
+    g1,g2=3+v,5+v
+    totals=3*bottom+2*g1+g2
+    fair=25+3*v
+    move_a,move_b=7+v,2+v
+    x,y,z=fair+move_a,fair+move_b,fair-move_a-move_b
+    a,b=x-y,y-z
+    assert x+y+z==3*fair and x-move_a==y-move_b==z+move_a+move_b
+    return linear_context(
+        ("A margin is the difference between two scores. Use the smaller score as a base, then build the other scores by adding their margins.", "A higher score equals a base plus a gap."),
+        ("shared totals with one score stated relative to another", "write every score from the same base"),
+        ("Treat a margin as one score", "A margin is a difference", "A winning margin measures how far ahead the winner is. It is not either team's score."),
+        ("Change the total when transferring points", "Transfers preserve the total", "When the same points move from one team to another, the shared total stays constant. Only its distribution changes."),
+        (
+            Example("Find both scores from the winning margin", (
+                (f"Two teams score {say(sum2)} points in total. The winner leads by {say(gap)}. Find both scores.", f"Total {sum2}, winning margin {gap}"),
+                ("Imagine removing the extra points the winner has above the losing score.", "Equalise the two scores.")),
+                ((f"Subtract the {say(gap)} extra points. The remaining {say(2*second)} splits evenly between two equal parts.", f"{sum2} − {gap} = {2*second}"),
+                 (f"The two scores are {say(second)} and {say(second+gap)}. Restore the original margin to check.", f"{second} and {second+gap}")), bars(("Lower",((second,"base"),)),("Higher",((second,"base"),(gap,gap))))),
+            Example("Line up three scores by their differences", (
+                (f"The middle score is {say(g1)} above the lowest. The highest is {say(g2)} above the middle. Together the scores total {say(totals)}.", f"Middle leads low by {g1}; high leads middle by {g2}."),
+                ("Find the three scores. Take the lowest score as x.", f"Total {totals}. Write all three using x.")),
+                ((f"The scores are x, x plus {say(g1)}, and x plus {say(g1+g2)}. The highest has both gaps above the lowest.", f"x, x+{g1}, x+{g1+g2}"),
+                 (f"Subtract the extras from the total and divide by three. The lowest score is {say(bottom)}.", f"3x = {totals} − {2*g1+g2}"),
+                 (f"Add the margins back in order, giving {say(bottom)}, {say(bottom+g1)} and {say(bottom+g1+g2)}.", f"{bottom}, {bottom+g1}, {bottom+g1+g2}")), chain("Low",f"+{g1}","Middle",f"+{g2}","High")),
+            Example("Use margins and an unchanged shared total", (
+                (f"Teams A, B and C share {say(3*fair)} points. A leads B by {say(a)}, and B leads C by {say(b)}.", f"Total {3*fair}. A−B={a}, B−C={b}."),
+                ("Give points from A and B to C so all scores become equal. How many points must each higher team give?", "How much must A and B transfer to C?")),
+                ((f"Write C as c. Then B equals c plus {say(b)}, and A equals c plus {say(a+b)}.", f"C=c, B=c+{b}, A=c+{a+b}"),
+                 (f"Add the scores and subtract the extra amounts. This gives three c equal to {say(3*z)}, so C has {say(z)}.", f"3c = {3*fair} − {a+2*b} = {3*z}"),
+                 (f"The original scores were {say(x)}, {say(y)} and {say(z)}. The equal score is {say(fair)}, one third of the fixed total.", f"Scores {x}, {y}, {z}; equal target {fair}")),
+                bars(("C",((z,"base"),)),("B",((z,"base"),(b,b))),("A",((z,"base"),(a+b,a+b)))),proof=(
+                    (f"A gives {say(move_a)} and B gives {say(move_b)}. Subtract these from the first two scores and add both to C.", f"A gives {move_a}; B gives {move_b}."),
+                    (f"All scores then equal {say(fair)}. The total is still {say(3*fair)}, so this is the only possible equal score.", f"{x}−{move_a}={y}−{move_b}={z}+{move_a}+{move_b}={fair}"))),
+        ), tiles("Base","Margin","Total"),
+    )

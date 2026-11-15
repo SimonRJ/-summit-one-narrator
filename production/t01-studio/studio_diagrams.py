@@ -11,9 +11,32 @@ BEAD_COLOURS = ("#ee6870", "#64a8fc", "#55ca99", "#f6d455")
 def fit(stage, text, x, y, size=37, width=1100, colour=WHITE, opacity=1.0, bold=True):
     if opacity <= 0:
         return
-    while size > 21 and lettering(text, stage.px(size), colour, bold).width > stage.px(width):
+    while size > 8 and lettering(text, stage.px(size), colour, bold).width > stage.px(width):
         size -= 1
     stage.text(text, x, y, size, colour, bold=bold, opacity=opacity)
+
+
+def wrapped_text(stage, text, x, y, size, width, colour, opacity, *, bold=False, max_lines=2):
+    if opacity <= 0:
+        return
+    while True:
+        lines = []
+        pending = ""
+        for word in text.split():
+            candidate = f"{pending} {word}".strip()
+            if pending and lettering(candidate, stage.px(size), colour, bold).width > stage.px(width):
+                lines.append(pending)
+                pending = word
+            else:
+                pending = candidate
+        if pending:
+            lines.append(pending)
+        if len(lines) <= max_lines or size <= 8:
+            break
+        size -= 2
+    for i, line in enumerate(lines):
+        fit(stage, line, x, y + (i - (len(lines)-1)/2) * (size + 5),
+            size, width, colour, opacity, bold)
 
 
 def tile(stage, x, y, label, colour=BLUE, width=105, height=65, opacity=1.0, size=33):

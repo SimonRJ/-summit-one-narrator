@@ -1,7 +1,7 @@
 """Composition helpers for the Summit One lesson introductions."""
 
 from stage import BLUE, GOLD, MINT, MUTED, PANEL, RED, RIM, WHITE, between, blend
-from studio_diagrams import fit
+from studio_diagrams import fit, wrapped_text
 
 
 def header(stage, slot, section, title, subtitle=None):
@@ -64,8 +64,8 @@ def mistakes(stage, moment, slot, title, pairs):
         y = 266 + index * 133 + (1 - p) * 13
         stage.box(79, y - 42, 524, 84, edge=blend(RIM, RED, .48), radius=19, opacity=p)
         stage.box(677, y - 42, 524, 84, edge=blend(RIM, MINT, .48), radius=19, opacity=p)
-        fit(stage, error, 341, y, 39, 484, RED, p)
-        fit(stage, fix, 939, y, 39, 484, MINT, p)
+        wrapped_text(stage, error, 341, y, 30, 474, RED, p, bold=True)
+        wrapped_text(stage, fix, 939, y, 30, 474, MINT, p, bold=True)
         stage.arrow((617, y), (663, y), MINT, p, 3)
 
 

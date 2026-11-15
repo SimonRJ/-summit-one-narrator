@@ -5,16 +5,65 @@ from collections import Counter
 import json
 from pathlib import Path
 
-from algebra_topics import backwards, part_whole, recurrence
+from algebra_topics import backwards, differences, margins, part_whole, recurrence, simultaneous, word_equations
+from capstone_topics import capstone
 from count_topics import restricted_arrangements
-from spatial_topics import crossings
-from number_topics import cryptarithms, cycles, divisibility, multiples, parity, primes, repunits
+from counting_cases import complement, double_counting, enumeration, partition_cases, selections
+from deduction_topics import deduction, exhaustiveness, magic_grid
+from digit_topics import digit_positions, digit_sums, place_value
+from path_probability import dynamic_paths, probability, restricted_routes
+from shape_topics import angles, nets, paint, symmetry
+from spatial_topics import crossings, layered_cubes, optimise, perimeter, shaded_area, tiling
+from quantity_topics import averages, distance_speed, percentages, ratios, relative_motion, unit_rates, weighted_fractions, work_rates
+from logic_topics import graphs, truth_liars
+from number_topics import arithmetic_sequence, cryptarithms, cycles, divisibility, doubling, finite_state, multiples, parity, primes, repunits
 from story import Lesson, film
 
 
 ROOT = Path(__file__).resolve().parents[3]
 BESPOKE = {f"S{slot:03}" for slot in range(1,7)}
 TOPICS = {
+    "Rossmoyne method combinations and evidence-based review": capstone,
+    "Digit sums and counting digits in ranges": digit_sums,
+    "Place-value decomposition and estimation": place_value,
+    "Digits, zero and positional constraints": digit_positions,
+    "Counting paths by dynamic totals": dynamic_paths,
+    "Restricted routes and spatial adjacency": restricted_routes,
+    "Elementary probability and favourable outcomes": probability,
+    "Angle and polygon reasoning": angles,
+    "Symmetry, transformations and tessellation": symmetry,
+    "Painted faces, boundary and hidden cubes": paint,
+    "Nets, surface area, volume and 3D views": nets,
+    "Constraint elimination and logical deduction": deduction,
+    "Magic grids, symbolic rules and consistency": magic_grid,
+    "Proving all cases and unique solutions": exhaustiveness,
+    "Systematic enumeration without missing cases": enumeration,
+    "Multiplication principle and combinations": selections,
+    "Complement counting and inclusion–exclusion": complement,
+    "Double-counting and shared objects": double_counting,
+    "Partitioning into non-overlapping cases": partition_cases,
+    "One- and two-variable word equations": word_equations,
+    "Simultaneous and total-sum constraints": simultaneous,
+    "Eliminating an unknown by differences": differences,
+    "Winner margins, shared totals and linear rules": margins,
+    "Reading and reasoning from graphs/tables": graphs,
+    "Arithmetic sequences and fixed increments": arithmetic_sequence,
+    "Doubling, geometric growth and finite sums": doubling,
+    "Repeating transformations and finite-state patterns": finite_state,
+    "Optimising areas and lengths under constraints": optimise,
+    "Area decomposition and shaded complements": shaded_area,
+    "Unit-cube counting and layered solids": layered_cubes,
+    "Combined work rates": work_rates,
+    "Truth-tellers, liars and contradiction": truth_liars,
+    "Distance–speed–time reasoning": distance_speed,
+    "Relative speeds, timed movement and meetings": relative_motion,
+    "Polyominoes, tiling and shape assembly": tiling,
+    "Perimeter, shared edges and boundary effects": perimeter,
+    "Averages, weighted means and simple distributions": averages,
+    "Fractions, percentages and proportional comparisons": percentages,
+    "Ratio and scale factors": ratios,
+    "Unit conversion and repeated-event rates": unit_rates,
+    "Grouped fractions and weighted totals": weighted_fractions,
     "Working backwards through operations": backwards,
     "Recurrence relations, steps and branching": recurrence,
     "Parts and wholes, including remaining fractions": part_whole,

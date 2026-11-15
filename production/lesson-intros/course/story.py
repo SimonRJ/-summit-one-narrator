@@ -113,8 +113,9 @@ def film(lesson, topic):
     }
 
 
-def tiles(*values, highlight=()):
-    return {"kind": "tiles", "values": list(map(str, values)), "highlight": highlight}
+def tiles(*values, highlight=(), colours=()):
+    assert not colours or len(colours) == len(values)
+    return {"kind": "tiles", "values": list(map(str, values)), "highlight": highlight, "colours": colours}
 
 
 def table(*rows, highlight=()):
