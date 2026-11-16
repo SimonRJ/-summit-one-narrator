@@ -1,0 +1,62 @@
+{
+  "id": "S022",
+  "title": "Parts and wholes, including remaining fractions",
+  "voice": "VoxCPM2 — approved voice C",
+  "scenes": [
+    {
+      "n": 1,
+      "stage": "CONCEPT",
+      "narration": "A fraction always belongs to a whole. If the whole changes, one half can mean a different number of pieces. Name the whole and draw equal parts before you calculate."
+    },
+    {
+      "n": 2,
+      "stage": "APPLICATION",
+      "narration": "In AMC problems, a fraction may be taken from the starting pile and another fraction from what remains. Write down which whole goes with each step. Rossmoyne-style questions may give the ending and ask for the start. In a MAWA investigation, change the amounts and look for a pattern."
+    },
+    {
+      "n": 3,
+      "stage": "BASIC",
+      "narration": "There are fifteen tokens. A player takes one of three equal parts. How many tokens remain? Show the difference between the amount removed and the amount the question asks for."
+    },
+    {
+      "n": 4,
+      "stage": "EXPLANATION",
+      "narration": "One part has five tokens. The remaining two parts contain ten tokens. Check by adding the removed part back. ten plus five returns fifteen."
+    },
+    {
+      "n": 5,
+      "stage": "MEDIUM",
+      "narration": "A box starts with thirty chalk pieces. A class uses one of three equal parts. Then another class uses one of two equal parts of what is left. How many pieces remain after both classes? Label the whole for each fraction."
+    },
+    {
+      "n": 6,
+      "stage": "EXPLANATION",
+      "narration": "After the first class the remaining count is twenty, since thirty divided by three were used. The next whole is now twenty. Divide it into two equal parts. The second class uses ten pieces. Subtract the second use to get ten. This is one of the second whole's parts."
+    },
+    {
+      "n": 7,
+      "stage": "PUZZLE",
+      "narration": "Take one of three equal parts from a pile. Add a gift of four pieces. Then take one of two equal parts of that new amount. There are twelve pieces left. How many were in the original pile?"
+    },
+    {
+      "n": 8,
+      "stage": "EXPLANATION",
+      "narration": "The ending twelve pieces represent one of the last two equal parts. Find one part, then rebuild that whole. Undo the gift by subtracting four. The remaining twenty pieces are what was left after the first removal. Those were two of the original three equal parts. Restoring the missing part gives thirty."
+    },
+    {
+      "n": 9,
+      "stage": "EXPLANATION",
+      "narration": "Run the recipe forward. Remove ten from thirty to get twenty. Add the gift to get twenty-four. The final removal is twelve. That leaves twelve, the stated ending. Each fraction has used its own whole."
+    },
+    {
+      "n": 10,
+      "stage": "MISTAKES",
+      "narration": "Adding one third and one half directly is a mistake when they refer to different wholes. Here one third of thirty is ten, but the second half is taken from the twenty left. Label each whole before you work."
+    },
+    {
+      "n": 11,
+      "stage": "RECAP",
+      "narration": "In an exam, label the original and the remaining whole. Draw the equal parts, then work backwards from the ending. Reverse the last change first and check your answer forwards."
+    }
+  ]
+}
