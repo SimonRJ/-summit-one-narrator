@@ -1,12 +1,12 @@
 {
   "id": "S006",
   "duration_seconds": 176.866667,
-  "sha256": "9a9442dacfa1af805ba5ac6e7bc42659b6c9b8876c98e3e0ef5ec0a604d17f1d",
+  "sha256": "759b4dbc06f33e357893fa57fe0c67beb2d732153524ead8423b26827d481428",
   "width": 1920,
   "height": 1080,
   "fps": 30,
   "audio_streams": 1,
-  "narration": "Approved synthetic Voice C",
+  "narration": "Approved Voice C; original AAC packets copied unchanged",
   "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
   "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
   "narration_speed_changed": false,
@@ -99,5 +99,8 @@
       "start": 156.67
     }
   ],
-  "decoded_successfully": true
+  "decoded_successfully": true,
+  "bytes": 8236229,
+  "mathematics_verified": true,
+  "visual_review": "Sampled motion and captions; full-length and phone review remain pending"
 }
