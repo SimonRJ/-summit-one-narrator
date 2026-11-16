@@ -1,0 +1,76 @@
+name: Record distinct framing for the fraction lesson
+on:
+  push:
+    branches: [codex/s022-distinct-20261116]
+    paths: ['.github/workflows/s022-distinct-narration.yml']
+permissions:
+  contents: read
+jobs:
+  record:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        scene: [1, 2, 10, 11]
+    env:
+      HF_HUB_DISABLE_XET: '1'
+      TOKENIZERS_PARALLELISM: 'false'
+      OMP_NUM_THREADS: '2'
+      MKL_NUM_THREADS: '2'
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install the pinned approved narrator
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg libsndfile1
+          pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install 'transformers>=4.45,<5' 'huggingface-hub<1' einops pydantic soundfile librosa safetensors tqdm numpy scipy inflect addict argbind
+          pip install --no-deps 'git+https://github.com/OpenBMB/VoxCPM.git@300e4260b509066151d623dc9c0aa922cf82232b'
+      - name: Record the new lesson-specific passage
+        run: python production/t01-studio/synth.py --lesson S022 --scene "${{ matrix.scene }}"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: s022-distinct-speech-${{ matrix.scene }}
+          path: |
+            build/t01-studio/S022-*.wav
+            build/t01-studio/S022-*.json
+          if-no-files-found: error
+          retention-days: 14
+          compression-level: 1
+  align:
+    needs: record
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: s022-distinct-speech-*
+          merge-multiple: true
+          path: build/t01-studio
+      - name: Extract only the unchanged examples from the original soundtrack
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg libsndfile1
+          curl -fLsS 'https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S022-Intro.mp4' -o build/S022-original.mp4
+          python production/lesson-intros/illustrated/extract_unchanged_s022.py build/S022-original.mp4
+      - name: Check the narration and align captions
+        run: |
+          pip install numpy soundfile num2words faster-whisper
+          python production/t01-studio/prepare_audio.py S022
+      - uses: actions/upload-artifact@v4
+        with:
+          name: s022-distinct-audio-and-timeline
+          path: build/t01-studio/S022/
+          if-no-files-found: error
+          retention-days: 14
+          compression-level: 1
