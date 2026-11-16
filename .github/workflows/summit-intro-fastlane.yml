@@ -1,0 +1,55 @@
+name: Publish and verify completed Summit One introductions
+on:
+  push:
+    branches: [codex/lesson-intro-runtime-check]
+    paths: ['.github/workflows/summit-intro-fastlane.yml']
+permissions:
+  contents: write
+concurrency:
+  group: summit-intro-ready-film-publishing
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install playback verification
+        run: npm install --no-save playwright
+      - name: Publish already-rendered films only after public playback verification
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python production/lesson-intros/course/release_intro.py publish \
+            S057 \
+            S059 \
+            S060 \
+            S061 \
+            S062 \
+            S065 \
+            S067 \
+            S068 \
+            S069 \
+            S072 \
+            S073 \
+            S074 \
+            S075 \
+            S076 \
+            S078 \
+            S079 \
+            S081 \
+            S082 \
+            S085 \
+            S087 \
+            S088 \
+            S089 \
+            S092 \
+            S093 \
+            S095 \
+            S097 \
+            --wait-minutes 5
