@@ -32,6 +32,7 @@ The live catalogue transcripts were compared mechanically with the current topic
 | S022 | Checked the 15-token, 30-chalk and backwards examples independently; found four narration passages also used in S142. Authored distinct framing and a new token, chalk and proportional-strip treatment. A clipped extracted word ending was caught and corrected before release. | New narration and alignment in progress; original remains live. Full audiovisual and phone review required. |
 | S078, S108, S142 | New illustrated versions from another production run were sampled against their transcripts. Their figures are topic-specific; the samples alone do not establish a complete review. | Review entire films and playback on phone. |
 | T01.1 | Sampled frames show correctly counted counter packets and a correctly proportioned ribbon. Sampling does not establish a full review. | Full audiovisual and phone review pending. |
+| T01.2 | Sampled the actual published film and its progressive fence-to-loop, queue, price table and joined-mat diagrams. The seven versus six posts, 14 people, unit prices and 22 m perimeter were independently checked. | Samples only; full audio, film and phone review pending. |
 | Other lesson introductions and teaching films | See the separate 72-item teaching review register. No claim of a completed individual visual review. | Await review. |
 
 ## Required evidence before marking a film complete
