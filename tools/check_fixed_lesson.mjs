@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import {createHash} from 'node:crypto';
 const read=p=>fs.readFileSync(new URL(p,import.meta.url),'utf8');
 const app=read('../app-main.js'),css=read('../main.css'),html=read('../index.html'),sw=read('../sw.js');
 const screens=read('../lesson-screenflow.js'),pager=read('../lesson-pager.js');
@@ -22,13 +23,16 @@ for(let i=0;i<6;i++){
  assert.deepEqual(stages.slice(-2),['MISTAKES','RECAP']);
  const player=lessonIntroPlayer(id,lesson.focus,'introTest');
  assert(player.includes('controls playsinline'));
- assert(player.includes('media/'+id+'-Intro.mp4?v='+INTRO_MEDIA_VERSION));
- assert(fs.existsSync(new URL('../media/'+id+'-Intro.mp4',import.meta.url)));
+ const mediaURL=new URL('../media/'+id+'-Intro.mp4',import.meta.url);
+ assert(player.includes(introMediaSource(id).movie));
+ assert(fs.existsSync(mediaURL));
  const qa=JSON.parse(read('../review/'+id+'-Intro-qa.json'));
  assert.equal(qa.id,id);
- assert.equal(qa.narration,'Approved synthetic Voice C');
- assert.equal(qa.caption_layers,1);
- assert(qa.decoded_successfully);
+ assert.equal(qa.reference_sha256,'0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362');
+ assert.match(qa.narration??qa.voice,/approved.*voice c/i);
+ assert.equal(qa.caption_layers??qa.spoken_caption_layers,1);
+ assert.equal(qa.decoded_successfully??qa.full_video_decode_passed,true);
+ assert.equal(createHash('sha256').update(fs.readFileSync(mediaURL)).digest('hex'),qa.sha256);
 }
 assert.equal(lessonIntroId(7),null);
 assert(introMediaSource("S008").movie.startsWith("https://github.com/"));
