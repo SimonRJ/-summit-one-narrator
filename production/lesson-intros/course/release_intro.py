@@ -205,8 +205,9 @@ def wait_for_raw(path, condition):
 
 def contains_publications(data, reports, status):
     entries = {row["id"]: row for row in data["entries"]}
+    allowed = {"checking", "verified"} if status == "checking" else {status}
     return all(entries.get(lesson, {}).get("sha256") == report["sha256"]
-               and (entries[lesson]["status"] == status or\n                    (status == "checking" and entries[lesson]["status"] == "verified"))\n               for lesson, report in reports.items())
+               and entries[lesson]["status"] in allowed for lesson, report in reports.items())
 
 
 def mark(reports, status):
@@ -338,3 +339,4 @@ if __name__ == "__main__":
         stage(args.lesson)
     else:
         publish(args.lessons, args.wait_minutes)
+
