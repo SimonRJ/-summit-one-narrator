@@ -18,11 +18,14 @@ export function lessonIntroId(slot) {
 
 export function introMediaSource(id) {
   if (!/^S[0-9]{3}$/.test(id)) throw new TypeError("Invalid lesson ID");
-  const base = localSlots.has(Number(id.slice(1))) ? "media/" : releaseRoot;
+  const slot = Number(id.slice(1));
+  const base = localSlots.has(slot) ? "media/" : releaseRoot;
+  const edition = !localSlots.has(slot) && online.get(slot)?.illustration === 1 ? "-Illustrated" : "";
   const suffix = base === "media/" ? "?v=" + (updatedMedia[id] ?? INTRO_MEDIA_VERSION) : "";
+  const path = base + id + "-Intro" + edition;
   return {
-    movie: base + id + "-Intro.mp4" + suffix,
-    poster: base + id + "-Intro-poster.jpg" + suffix,
+    movie: path + ".mp4" + suffix,
+    poster: path + "-poster.jpg" + suffix,
   };
 }
 
