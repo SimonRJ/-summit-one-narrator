@@ -22,13 +22,14 @@ import digit_tallies
 import cube_layers
 import cryptarithm
 import reversed_digits
+import prime_pairs
 from visuals import Art, Cues
 
 
 HERE = Path(__file__).resolve().parent
 REPOSITORY = "SimonRJ/-summit-one-narrator"
 RELEASE = f"https://github.com/{REPOSITORY}/releases/download/lesson-introductions/"
-MOVIES = {"S001": (remainders, "digits"), "S002": (place_value, "area"), "S003": (reverse_steps, "digits"), "S004": (digit_slots, "edge"), "S005": (digit_tallies, "area"), "S006": (cube_layers, "edge"), "S008": (palindrome, "digits"), "S009": (cryptarithm, "fraction"), "S010": (reversed_digits, "area"), "S078": (area, "area"), "S108": (perimeter, "edge"), "S142": (fraction_art, "fraction")}
+MOVIES = {"S001": (remainders, "digits"), "S002": (place_value, "area"), "S003": (reverse_steps, "digits"), "S004": (digit_slots, "edge"), "S005": (digit_tallies, "area"), "S006": (cube_layers, "edge"), "S008": (palindrome, "digits"), "S009": (cryptarithm, "fraction"), "S010": (reversed_digits, "area"), "S011": (prime_pairs, "digits"), "S078": (area, "area"), "S108": (perimeter, "edge"), "S142": (fraction_art, "fraction")}
 FPS = 30
 
 
@@ -38,7 +39,7 @@ def load(lesson):
     assert all(scene["start"] <= scene["speech_end"] <= scene["end"] for scene in data["scenes"])
     assert all(a["end"] <= b["start"] for a,b in zip(data["captions"],data["captions"][1:]))
     if lesson not in ("S001", "S002"):
-        assert all(scene["match"] >= (80 if lesson == "S010" else 90) for scene in data["scenes"])
+        assert all(scene["match"] >= (80 if lesson in ("S010", "S011") else 90) for scene in data["scenes"])
     return data
 
 
