@@ -20,13 +20,14 @@ import reverse_steps
 import digit_slots
 import digit_tallies
 import cube_layers
+import cryptarithm
 from visuals import Art, Cues
 
 
 HERE = Path(__file__).resolve().parent
 REPOSITORY = "SimonRJ/-summit-one-narrator"
 RELEASE = f"https://github.com/{REPOSITORY}/releases/download/lesson-introductions/"
-MOVIES = {"S001": (remainders, "digits"), "S002": (place_value, "area"), "S003": (reverse_steps, "digits"), "S004": (digit_slots, "edge"), "S005": (digit_tallies, "area"), "S006": (cube_layers, "edge"), "S008": (palindrome, "digits"), "S078": (area, "area"), "S108": (perimeter, "edge"), "S142": (fraction_art, "fraction")}
+MOVIES = {"S001": (remainders, "digits"), "S002": (place_value, "area"), "S003": (reverse_steps, "digits"), "S004": (digit_slots, "edge"), "S005": (digit_tallies, "area"), "S006": (cube_layers, "edge"), "S008": (palindrome, "digits"), "S009": (cryptarithm, "fraction"), "S078": (area, "area"), "S108": (perimeter, "edge"), "S142": (fraction_art, "fraction")}
 FPS = 30
 
 
