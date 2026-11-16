@@ -4,6 +4,7 @@ from math import cos,pi,sin
 cycle=[pow(3,n,10) for n in range(1,5)]
 assert cycle==[3,9,7,1]
 assert all(pow(3,n,10)==cycle[(n-1)%4] for n in range(1,101))
+assert [pow(5,n,10) for n in range(1,6)]==[5]*5
 assert divmod(37,4)==(9,1) and pow(3,37,10)==3
 assert divmod(51,4)==(12,3)
 assert sum(cycle)==20 and sum(cycle[:3])==19
