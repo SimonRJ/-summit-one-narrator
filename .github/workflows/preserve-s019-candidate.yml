@@ -23,20 +23,20 @@ jobs:
           sudo apt-get install -y ffmpeg fonts-dejavu-core zip
           pip install pillow
       - name: Retrieve the aligned approved-voice recording
-        run: gh run download 43865263035 --repo "$GITHUB_REPOSITORY" --name s019-final-audio-and-timeline --dir build/s019-audio
+        run: gh run download 43869130248 --repo "$GITHUB_REPOSITORY" --name s019-clear-audio-and-timeline --dir build/s019-audio
       - name: Check the board mathematics and render a review candidate
         run: |
           python production/lesson-intros/illustrated/check_s019.py
           python production/lesson-intros/illustrated/render_s019_distinct.py --audio build/s019-audio --out build/s019-candidate
       - name: Preserve the candidate and source without changing the live catalogue
         run: |
-          cp build/s019-candidate/S019-Intro-Illustrated.mp4 build/s019-candidate/S019-Intro-Preview-20261116-v2.mp4
-          cp build/s019-candidate/S019-Intro-Illustrated-poster.jpg build/s019-candidate/S019-Intro-Preview-20261116-v2-poster.jpg
+          cp build/s019-candidate/S019-Intro-Illustrated.mp4 build/s019-candidate/S019-Intro-Preview-20261116-v3.mp4
+          cp build/s019-candidate/S019-Intro-Illustrated-poster.jpg build/s019-candidate/S019-Intro-Preview-20261116-v3-poster.jpg
           cd build/s019-audio
-          zip -1 ../s019-candidate/S019-distinct-audio-timeline-20261116-v2.zip narration.wav timeline.json captions.vtt
+          zip -1 ../s019-candidate/S019-distinct-audio-timeline-20261116-v3.zip narration.wav timeline.json captions.vtt
           cd ../..
           mkdir -p build/s019-download-check
-          for name in S019-Intro-Preview-20261116-v2.mp4 S019-Intro-Preview-20261116-v2-poster.jpg S019-distinct-audio-timeline-20261116-v2.zip; do
+          for name in S019-Intro-Preview-20261116-v3.mp4 S019-Intro-Preview-20261116-v3-poster.jpg S019-distinct-audio-timeline-20261116-v3.zip; do
             if ! gh release view lesson-introductions --repo "$GITHUB_REPOSITORY" --json assets --jq '.assets[].name' | grep -Fxq "$name"; then
               gh release upload lesson-introductions "build/s019-candidate/$name" --repo "$GITHUB_REPOSITORY"
             fi
