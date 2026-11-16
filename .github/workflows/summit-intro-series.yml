@@ -36,6 +36,7 @@ jobs:
       pilot: ${{ steps.select.outputs.pilot }}
       needed: ${{ steps.select.outputs.needed }}
       needed_count: ${{ steps.select.outputs.needed_count }}
+      workers: ${{ steps.select.outputs.workers }}
       count: ${{ steps.select.outputs.count }}
     steps:
       - uses: actions/checkout@v4
@@ -55,9 +56,10 @@ jobs:
           data = json.loads((directory / "queue.json").read_text())
           pilot = data.get("pilot_render", 0)
           assert type(pilot) is int and pilot >= 0
-          limit = data.get("parallel", 18)
-          assert type(limit) is int and 1 <= limit <= 18
-          ids = ["S008"] if pilot else select(limit)
+          workers = data.get("parallel", 18)
+          assert type(workers) is int and 1 <= workers <= 18
+          # Queue two rounds of films so a freed worker immediately starts the next lesson.
+          ids = ["S008"] if pilot else select(workers * 2)
           if ids:
               create_release()
           needed = missing_candidates(ids) if ids and not pilot else []
@@ -66,6 +68,7 @@ jobs:
               print("needed_count=" + str(len(needed)), file=out)
               print("ids=" + json.dumps(ids, separators=(",",":")), file=out)
               print("count=" + str(len(ids)), file=out)
+              print("workers=" + str(workers), file=out)
               print("pilot=" + str(pilot), file=out)
           print("Lessons selected for production:", ", ".join(ids))
           PY
@@ -108,7 +111,7 @@ jobs:
       contents: write
     strategy:
       fail-fast: false
-      max-parallel: 18
+      max-parallel: ${{ fromJSON(needs.select.outputs.workers) }}
       matrix:
         lesson: ${{ fromJSON(needs.select.outputs.needed) }}
     env:
