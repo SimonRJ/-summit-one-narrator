@@ -15,22 +15,23 @@ import fraction_art
 import perimeter
 import palindrome
 import remainders
+import place_value
 from visuals import Art, Cues
 
 
 HERE = Path(__file__).resolve().parent
 REPOSITORY = "SimonRJ/-summit-one-narrator"
 RELEASE = f"https://github.com/{REPOSITORY}/releases/download/lesson-introductions/"
-MOVIES = {"S001": (remainders, "digits"), "S008": (palindrome, "digits"), "S078": (area, "area"), "S108": (perimeter, "edge"), "S142": (fraction_art, "fraction")}
+MOVIES = {"S001": (remainders, "digits"), "S002": (place_value, "area"), "S008": (palindrome, "digits"), "S078": (area, "area"), "S108": (perimeter, "edge"), "S142": (fraction_art, "fraction")}
 FPS = 30
 
 
 def load(lesson):
     data = json.loads((HERE / f"{lesson}.json").read_text())
-    assert len(data["scenes"]) == (9 if lesson == "S001" else 11)
+    assert len(data["scenes"]) == (9 if lesson in ("S001", "S002") else 11)
     assert all(scene["start"] <= scene["speech_end"] <= scene["end"] for scene in data["scenes"])
     assert all(a["end"] <= b["start"] for a,b in zip(data["captions"],data["captions"][1:]))
-    if lesson != "S001":
+    if lesson not in ("S001", "S002"):
         assert all(scene["match"] >= 90 for scene in data["scenes"])
     return data
 
