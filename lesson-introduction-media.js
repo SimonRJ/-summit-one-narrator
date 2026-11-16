@@ -5,6 +5,7 @@ const catalogueRoot = "https://raw.githubusercontent.com/" + repository
   + "/refs/heads/lesson-intro-catalog/data/";
 const releaseRoot = "https://github.com/" + repository + "/releases/download/lesson-introductions/";
 export const INTRO_MEDIA_VERSION = "lesson-intros-v2";
+const updatedMedia = { S001: "intro-20261116", S002: "intro-20261116" };
 
 let loading;
 let loadedAt = -Infinity;
@@ -18,7 +19,7 @@ export function lessonIntroId(slot) {
 export function introMediaSource(id) {
   if (!/^S[0-9]{3}$/.test(id)) throw new TypeError("Invalid lesson ID");
   const base = localSlots.has(Number(id.slice(1))) ? "media/" : releaseRoot;
-  const suffix = base === "media/" ? "?v=" + INTRO_MEDIA_VERSION : "";
+  const suffix = base === "media/" ? "?v=" + (updatedMedia[id] ?? INTRO_MEDIA_VERSION) : "";
   return {
     movie: base + id + "-Intro.mp4" + suffix,
     poster: base + id + "-Intro-poster.jpg" + suffix,

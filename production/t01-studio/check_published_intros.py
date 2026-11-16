@@ -7,7 +7,7 @@ import re
 import sys
 import time
 from urllib.error import URLError
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlsplit
 from urllib.request import Request, urlopen
 
 from publish_intro_batch import ROOT, VERSION, read_plan, watch_page
@@ -57,10 +57,13 @@ def check(site):
     for lesson in lessons:
         position = published.index(lesson)
         name = f"media/{lesson}-Intro"
-        mp4 = name + ".mp4" + tag
         page = WatchPage(read(site, watch_page(lesson) + tag)[2].decode())
-        if page.sources != [mp4] or page.chapters != 7 or not page.player:
+        if len(page.sources) != 1 or page.chapters != 7 or not page.player:
             raise ValueError(f"{lesson}: watch page has an incomplete player")
+        mp4 = page.sources[0]
+        media = urlsplit(mp4)
+        if media.scheme or media.netloc or media.path != name + ".mp4":
+            raise ValueError(f"{lesson}: watch page points to a different movie")
         if position + 1 < len(published) and watch_page(published[position + 1]) not in page.links:
             raise ValueError(f"{lesson}: next lesson link is missing")
         _, mime, payload = read(site, mp4)

@@ -1,4 +1,4 @@
-import {introMediaSource,loadIntroductionCatalogue,loadIntroductionDetails} from "./lesson-introduction-media.js?v=lesson-intros-v5";
+import {introMediaSource,loadIntroductionCatalogue,loadIntroductionDetails} from "./lesson-introduction-media.js?v=lesson-intros-v6";
 
 const formatTime = value => Math.floor(value / 60) + ":" + String(Math.floor(value % 60)).padStart(2,"0");
 const watchHref = slot => "watch-lesson-intro.html?slot=" + slot;
