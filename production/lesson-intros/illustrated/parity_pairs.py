@@ -102,9 +102,10 @@ def layout(n):return [640+(i-(n-1)/2)*180 for i in range(n)]
 
 def merging(a,old,new,p):
     oldx=layout(len(old));newx=layout(len(new));arc=105*sin(pi*p)
-    card(a,old[0],mix(oldx[0],newx[0],p),300-arc,1-p)
-    card(a,old[1],mix(oldx[1],newx[0],p),300+arc,1-p)
-    card(a,new[0],newx[0],300,p)
+    old_alpha=max(0,1-2*p);new_alpha=max(0,2*p-1)
+    card(a,old[0],mix(oldx[0],newx[0],p),300-arc,old_alpha)
+    card(a,old[1],mix(oldx[1],newx[0],p),300+arc,old_alpha)
+    card(a,new[0],newx[0],300,new_alpha)
     for i in range(2,len(old)):card(a,old[i],mix(oldx[i],newx[i-1],p),300,1)
 
 
