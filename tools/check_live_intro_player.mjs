@@ -9,8 +9,9 @@ const browser = await chromium.launch({
   channel: "chrome",
   args: ["--autoplay-policy=no-user-gesture-required", "--no-sandbox"],
 });
+let page;
 try {
-  const page = await browser.newPage({viewport: {width: 390, height: 844}, isMobile: true, hasTouch: true});
+  page = await browser.newPage({viewport: {width: 390, height: 844}, isMobile: true, hasTouch: true});
   await page.goto(root + "watch-lesson-intro.html?slot=" + slot, {waitUntil: "domcontentloaded", timeout: 30000});
   const correct = page.locator("#introChapters button").filter({hasText: "Exam-style challenge"});
   await correct.waitFor({state: "visible", timeout: 38000});
@@ -27,6 +28,12 @@ try {
   assert.equal(await page.locator("video source").getAttribute("src"),
     "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/" + lesson + "-Intro.mp4");
   console.log(lesson + " plays and seeks at phone width on the live Summit One watch page.");
+} catch (error) {
+  if (page) {
+    const status = await page.locator("main").innerText({timeout: 2000}).catch(() => "The main page was unavailable.");
+    console.error(lesson, status.trim().slice(0, 460));
+  }
+  throw error;
 } finally {
   await browser.close();
 }

@@ -188,6 +188,9 @@ jobs:
   verify:
     needs: select
     if: needs.select.outputs.count != '0'
+    concurrency:
+      group: summit-one-lesson-intro-player-check
+      cancel-in-progress: false
     runs-on: ubuntu-24.04
     timeout-minutes: 340
     permissions:
