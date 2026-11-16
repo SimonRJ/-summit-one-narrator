@@ -1,5 +1,5 @@
 name: Prepare the next Summit One lesson introductions
-run-name: Prepare Summit One lessons 148 to 155
+run-name: Prepare Summit One lessons 156 to 159
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     paths: ['.github/workflows/summit-first-pending-intro.yml']
 
 concurrency:
-  group: summit-one-lesson-intro-ahead-s148-s155
+  group: summit-one-lesson-intro-ahead-s156-s159
   cancel-in-progress: false
 
 permissions:
@@ -22,9 +22,9 @@ jobs:
       contents: write
     strategy:
       fail-fast: false
-      max-parallel: 7
+      max-parallel: 3
       matrix:
-        lesson: [S148, S149, S150, S151, S152, S153, S155]
+        lesson: [S156, S157, S158, S159]
     env:
       HF_HUB_DISABLE_XET: '1'
       TOKENIZERS_PARALLELISM: 'false'
