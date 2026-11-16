@@ -126,8 +126,8 @@ def stage(lesson):
     assert sha256((folder / "final.mp4").read_bytes()).hexdigest() == report["sha256"]
     sha, catalogue = get_catalogue()
     existing = next((item for item in catalogue["entries"] if item["id"] == lesson), None)
-    if existing and existing["status"] == "verified":
-        # A retry must never replace the public bytes of an already verified film.
+    if existing and existing["status"] in {"checking", "verified"}:
+        # Keep the bytes stable once a watch page serves this film.
         return
     prepared = {
         **report, "title": script["title"], "seconds": report["duration_seconds"],
@@ -150,31 +150,21 @@ def stage(lesson):
             time.sleep(12 * (attempt + 1))
 
 
-def failed_production(lesson):
+def failed_productions():
     run = os.environ.get("GITHUB_RUN_ID")
     attempt = os.environ.get("GITHUB_RUN_ATTEMPT")
     if not run or not attempt:
-        return False
+        return set()
     try:
         jobs = api(f"actions/runs/{run}/attempts/{attempt}/jobs?per_page=100")["jobs"]
     except subprocess.CalledProcessError:
-        return False
-    return any(job["name"] == f"produce ({lesson})" and job["status"] == "completed"
-               and job["conclusion"] in {"failure", "cancelled", "timed_out"} for job in jobs)
-
-
-def wait_for_candidate(lesson, deadline):
-    while True:
-        report = current_candidate(lesson)
-        if report:
-            verified_report(report, lesson)
-            assert report["title"] == course()[lesson]
-            return report
-        if time.monotonic() > deadline:
-            raise TimeoutError(f"Waiting for {lesson} to finish rendering")
-        if failed_production(lesson):
-            raise RuntimeError(f"{lesson} needs another recording or upload attempt")
-        time.sleep(30)
+        return set()
+    return {
+        job["name"].removeprefix("produce (").removesuffix(")")
+        for job in jobs
+        if job["name"].startswith("produce (") and job["status"] == "completed"
+        and job["conclusion"] in {"failure", "cancelled", "timed_out"}
+    }
 
 
 def examine_download(lesson, report):
@@ -243,16 +233,29 @@ def confirm_player(lesson):
 
 
 def ready_window(lessons, deadline):
-    first, *following = lessons
-    reports = {first: wait_for_candidate(first, deadline)}
-    for lesson in following:
-        report = current_candidate(lesson)
-        if not report:
-            break
-        verified_report(report, lesson)
-        assert report["title"] == course()[lesson]
-        reports[lesson] = report
-    return reports
+    titles = course()
+    while True:
+        try:
+            uploaded = list_uploaded()
+        except subprocess.CalledProcessError:
+            uploaded = set()
+        reports = {}
+        for lesson in lessons:
+            if not set(assets(lesson)) <= uploaded:
+                continue
+            report = current_candidate(lesson)
+            if report:
+                verified_report(report, lesson)
+                assert report["title"] == titles[lesson]
+                reports[lesson] = report
+        if reports:
+            return reports
+        pending = ", ".join(lessons)
+        if time.monotonic() > deadline:
+            raise TimeoutError(f"Waiting for these lessons to finish rendering: {pending}")
+        if set(lessons) <= failed_productions():
+            raise RuntimeError(f"These lessons need another recording or upload attempt: {pending}")
+        time.sleep(30)
 
 
 def prepare_watch_page(lesson, report):
@@ -290,7 +293,7 @@ def publish(lessons, max_wait_minutes):
         for lesson, report in reports.items():
             confirm_player(lesson)
             report_progress(mark({lesson: report}, "verified"))
-        remaining = remaining[len(reports):]
+        remaining = [lesson for lesson in remaining if lesson not in reports]
         last_window = reports
     if last_window:
         wait_for_raw(CATALOGUE, lambda data: contains_publications(data, last_window, "verified"))
@@ -339,4 +342,3 @@ if __name__ == "__main__":
         stage(args.lesson)
     else:
         publish(args.lessons, args.wait_minutes)
-
