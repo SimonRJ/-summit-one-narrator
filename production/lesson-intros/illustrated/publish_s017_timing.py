@@ -10,7 +10,7 @@ import time
 from publish import BRANCH,CATALOGUE,REPOSITORY,api,check_upload,get_catalogue,gh
 from render import HERE
 
-EXPECTED_LIVE='8c88053cb5a765f0d705b2a6e84b76af195f66bf71feb32675d5b8e'
+EXPECTED_LIVE='8c88053cb5a765f0d705b2a6e84b76af195f66bf71feb32675d5bf792db4824c'
 
 
 def main(out):
