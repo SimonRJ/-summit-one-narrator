@@ -1,0 +1,63 @@
+name: Render illustrated Summit One introductions
+on:
+  push:
+    branches: [codex/illustrated-lesson-intros]
+    paths:
+      - '.github/workflows/summit-illustrated-intros.yml'
+      - 'production/lesson-intros/illustrated/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  pause-superseded-production:
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+    steps:
+      - name: Stop the earlier template-based introduction runs
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for branch in codex/lesson-intro-series codex/lesson-intro-runtime-check; do
+            gh api --method GET "repos/$GITHUB_REPOSITORY/actions/runs" -f "branch=$branch" -f per_page=60 \
+              --jq '.workflow_runs[] | select(.status != "completed") | select(.path | test("summit-(intro-series|intro-fastlane|first-pending-intro)\\.yml")) | .id' |
+              while read -r run; do
+                gh api --method POST "repos/$GITHUB_REPOSITORY/actions/runs/$run/cancel" || {
+                  test "$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$run" --jq .status)" = completed
+                }
+              done
+          done
+  produce:
+    needs: pause-superseded-production
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    permissions:
+      contents: write
+    strategy:
+      fail-fast: false
+      matrix:
+        lesson: [S078, S108, S142]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: production/lesson-intros/illustrated
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install the film renderer
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-dejavu-core
+          pip install Pillow
+      - name: Render and validate the full-length movie
+        env:
+          LESSON: ${{ matrix.lesson }}
+        run: python production/lesson-intros/illustrated/render.py "$LESSON" --out build/illustrated
+      - name: Verify the public assets and update the lesson catalogue
+        env:
+          GH_TOKEN: ${{ github.token }}
+          LESSON: ${{ matrix.lesson }}
+        run: python production/lesson-intros/illustrated/publish.py "$LESSON" --out build/illustrated
