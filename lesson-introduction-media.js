@@ -20,8 +20,10 @@ export function introMediaSource(id) {
   if (!/^S[0-9]{3}$/.test(id)) throw new TypeError("Invalid lesson ID");
   const slot = Number(id.slice(1));
   const base = localSlots.has(slot) ? "media/" : releaseRoot;
-  const revision = localSlots.has(slot) ? 0 : online.get(slot)?.illustration;
-  const edition = revision === 2 ? "-Illustrated-v2" : revision === 1 ? "-Illustrated" : "";
+  const entry = localSlots.has(slot) ? null : online.get(slot);
+  // Keep illustration=1 for older app versions, which can still play v1.
+  const edition = entry?.illustration === 2 || (entry?.illustration === 1 && entry?.illustratedRevision === 2)
+    ? "-Illustrated-v2" : entry?.illustration === 1 ? "-Illustrated" : "";
   const suffix = base === "media/" ? "?v=" + (updatedMedia[id] ?? INTRO_MEDIA_VERSION) : "";
   const path = base + id + "-Intro" + edition;
   return {
