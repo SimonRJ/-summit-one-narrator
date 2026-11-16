@@ -35,7 +35,7 @@ def repunits(lesson):
                 (f"Take the repunit {say(ones)} and multiply by {say(multiplier)}. What number will you get?", f"{ones:,} × {multiplier}"),
                 ("Picture multiplying each place separately. Look for any place that would need a carry.", "Can any column make a carry?"),
             ), (
-                (f"Each one becomes a {say(multiplier)}. The product in every column is below ten, so no digit has to move into the next place.", f"Every 1 becomes {multiplier}"),
+                (f"Each digit one becomes {say(multiplier)}. The product in every column is below ten, so no digit has to move into the next place.", f"Every 1 becomes {multiplier}"),
                 (f"The answer is {say(repdigit)}. You can view it as one copy of that digit in every position.", f"{ones:,} × {multiplier} = {repdigit:,}"),
             ), tiles(*str(ones)), worked_art=tiles(*str(repdigit))),
             Example("Spot a factor in a palindrome", (
@@ -99,7 +99,7 @@ def cryptarithms(lesson):
         ), tiles("AB","+ "+str(move),"BA"))
     else:
         medium=Example("Follow a carry", (
-            (f"The two-digit number A {say(ub)} is added to itself. The answer has tens digit {say(total//10)} and units digit B.", f"A{ub} + A{ub} = {total//10}B"),
+            (f"A two-digit number has tens digit A and units digit {say(ub)}. Add the number to itself. The sum has tens digit {say(total//10)} and units digit B.", f"A{ub} + A{ub} = {total//10}B"),
             ("A and B are distinct digits. Where does the carry come from and what are the two digits?", "Find A and B."),
         ), (
             (f"The units give {say(ub)} plus {say(ub)}, which is {say(2*ub)}. Write {say(last)} in the units and carry one ten.", f"B = {last}, with one ten carried"),

@@ -122,7 +122,7 @@ def restricted_routes(lesson):
                  ("Any other first move leaves you more than one step from the finish. There are only two legal routes in exactly two steps.", "2 possible two-step routes.")),
                 geometry(((0,0,"S"),(1,0,""),(0,1,""),(1,1,"F")),((0,1,0),(1,3,0),(0,2,1),(2,3,1)))),
             Example("Count alternating routes with one closed connection", (
-                (f"There are {say(n)} red stops and {say(n)} blue stops, each labelled. Every red can be followed by every blue and vice versa, except between red two and blue one.", f"{n} red and {n} blue stops. No edge R2–B1."),
+                (f"There are {say(n)} red stops and {say(n)} blue stops, each labelled. Every move goes between opposite colours. All those connections are open except the one joining red two and blue one.", f"{n} red and {n} blue stops. Change colour on every move. No edge R2–B1."),
                 (f"Start at red one, finish at blue {say(n)}, and visit every stop exactly once. How many routes are legal?", f"R1 first; B{n} last; visit every stop once.")),
                 ((f"Colours alternate. The free red stops can fill their {say(n-1)} positions in {say(factorial(n-1))} orders. The free blue stops have the same count.", f"Unrestricted: ({n-1}!)² = {unconstrained}."),
                  (f"Count the forbidden routes in both directions. When red two is followed by blue one, there are {say(n-2)} positions for the pair because the endpoints are already reserved.", f"R2 then B1: {n-2} locations."),
@@ -171,7 +171,7 @@ def probability(lesson):
                  (f"As a fraction in simplest form that is {say(simple)}.", f"P(green) = {simple}.")),{"kind":"spinner","sectors":sectors,"green":green}),
             Example("Count ordered pairs with a given sum", (
                 (f"Two fair independent spinners each have equal sectors numbered one to {say(size)}. What is the probability their numbers sum to {say(target)}?", f"Each spinner 1–{size}. Target sum {target}."),
-                ("Make a row for every number on the first spinner, and a column for every number on the second.", "Count equal pairs, not possible sums.")),
+                ("Make a row for every number on the first spinner, and a column for every number on the second.", "Count equally likely ordered pairs.")),
                 ((f"There are {say(size**2)} equally likely ordered pairs. In each row use a second reading of {say(target)} minus the first reading, if it is present.", f"{size} × {size} = {size**2} ordered pairs."),
                  (f"There are {say(len(wins))} favourable pairs. Dividing by the total gives {say(medium)}.", f"P(sum {target}) = {len(wins)}/{size**2} = {medium}.")),
                 table(*outcome_rows),worked_art=table(*outcome_rows,highlight=sorted(wins))),

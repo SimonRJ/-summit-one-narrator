@@ -74,7 +74,7 @@ def crossings(lesson):
                 (f"The four selected lines specify a unique rectangle. Multiply the counts to get {say(rectangles)}.", f"{pairs(m+1)} × {pairs(n+1)} = {rectangles}"),
             ), lattice(m,n,((1,1,""),))),
             Example("Include one cell and avoid another", (
-                (f"On a {say(wide)} column by {say(tall)} row grid, cell A is in column {say(ax+1)}, row {say(ay+1)}. Rows are numbered from the bottom.", f"A is in column {ax+1}, row {ay+1}."),
+                (f"On a grid with {say(wide)} columns and {say(tall)} rows, cell A is in column {say(ax+1)}, row {say(ay+1)}. Rows are numbered from the bottom.", f"A is in column {ax+1}, row {ay+1}."),
                 (f"Cell B is in column {say(bx+1)}, row {say(by+1)}. Count the grid-line rectangles containing all of A but none of the interior of B.", f"B is in column {bx+1}, row {by+1}."),
                 ("One way to begin is to count every rectangle containing A. Then identify the unwanted ones.", "Count rectangles containing A and avoiding B."),
             ), (
@@ -135,7 +135,7 @@ def tiling(lesson):
                  (f"A quarter turn moves each cell to one new position. It preserves the {say(sample_width+1)} squares and the same area.", f"Area = {sample_width+1} square units")),
                 grid(tuple("■" for _ in range(sample_width)),("■",*tuple("" for _ in range(sample_width-1))))),
             Example("Use area to rule out a tiling", (
-                (f"A {say(width)} by three board has {say(gap)} corner {'cell' if gap==1 else 'cells'} removed. Can you tile what remains using pieces of exactly three unit squares?", f"{width} × 3 board, remove {gap} corner {'cell' if gap==1 else 'cells'}."),
+                (f"A board with {say(width)} columns and three rows has {say(gap)} corner {'cell' if gap==1 else 'cells'} removed. Can you tile what remains using pieces of exactly three unit squares?", f"{width} × 3 board, remove {gap} corner {'cell' if gap==1 else 'cells'}."),
                 ("Pieces may be turned. They may not overlap, and each cell must be covered.", "Can three-square tiles cover it exactly?")),
                 ((f"The original board has {say(area)} cells, and removing the corners leaves {say(left)}.", f"{width} × 3 − {gap} = {left}"),
                  (f"Every piece covers exactly three squares. An exact cover would require {say(left)} to be divisible by three.", f"{left} leaves remainder {left%3} on division by 3."),
@@ -198,7 +198,7 @@ def perimeter(lesson):
                  (f"The exposed boundary length is {say(middle)} units. Check by walking around the outside of the L shape.", f"Perimeter = {4*len(cells)} − {2*internal} = {middle}")),
                 grid(*tuple(tuple("■" if (x,2-y) in cells else "" for x in range(row)) for y in range(3)))),
             Example("Combine an inside cut with a corner cut", (
-                (f"A {say(n)} by {say(n)} square board has a fully enclosed {say(hole_width)} by {say(hole_height)} rectangular hole cut out. Then remove one square at an outer corner far from the hole.", f"{n} × {n} board. Interior {hole_width} × {hole_height} hole. Cut a corner cell."),
+                (f"A square board has {say(n)} rows and {say(n)} columns of unit squares. Cut out an interior rectangle with side lengths {say(hole_width)} and {say(hole_height)}. Then remove one square at an outer corner far from the hole.", f"{n} × {n} board. Interior {hole_width} × {hole_height} hole. Cut a corner cell."),
                 ("Find the total boundary length, including the edge of the hole.", "Count the outer boundary and the hole.")),
                 ((f"The original outer boundary is {say(4*n)}. Removing one corner loses two outer edges of length one but exposes two equal inner edges.", f"Corner change = −2 + 2 = 0."),
                  (f"The hole adds its full perimeter, twice {say(hole_width)} plus twice {say(hole_height)}. Every side of the hole meets the remaining board.", f"Hole boundary: 2({hole_width} + {hole_height}) = {2*(hole_width+hole_height)}"),
@@ -309,17 +309,17 @@ def shaded_area(lesson):
          ("A Rossmoyne style area problem may make regions overlap. Count a shared piece exactly once when subtracting or adding.", "Rossmoyne-style · account for the overlap")),
         (
             Example("Combine two pieces with disjoint interiors", (
-                (f"Join a {say(w)} by {say(h)} rectangle to a {say(step)} by {say(extra)} rectangle along an edge without overlap. Find their combined area.", f"Areas of {w} × {h} and {step} × {extra}"),
+                (f"Join rectangles of dimensions {say(w)} by {say(h)} and {say(step)} by {say(extra)} along an edge. Their interiors do not overlap. Find their combined area.", f"Areas of {w} × {h} and {step} × {extra}"),
                 ("A shared edge has length but contributes no extra area.", "Add the two separate areas.")),
                 ((f"The first area is {say(w*h)} and the second is {say(step*extra)}. No unit square belongs to both interiors.", f"{w}×{h} = {w*h}; {step}×{extra} = {step*extra}"),
                  (f"The areas add to {say(simple)} square units. Joining along an edge leaves this total unchanged.", f"Combined area = {simple}")), joined_rectangles),
             Example("Subtract a triangle from a rectangle", (
-                (f"A {say(full_w)} by {say(full_h)} rectangle has a right triangle removed from one corner. The perpendicular legs of the triangle are {say(a)} and {say(b)} units.", f"Whole {full_w} × {full_h}; triangle legs {a} and {b}."),
+                (f"A rectangle with sides {say(full_w)} and {say(full_h)} units has a right triangle cut from one corner. The perpendicular legs of the triangle are {say(a)} and {say(b)} units.", f"Whole {full_w} × {full_h}; triangle legs {a} and {b}."),
                 ("Find the area left after that corner is removed.", "Subtract the triangle's area.")),
                 ((f"The whole rectangle has area {say(full_w*full_h)}. The right triangle is half of a rectangle with sides {say(a)} and {say(b)}.", f"Triangle = ½ × {a} × {b} = {Fraction(a*b,2)}"),
                  (f"Subtract the triangle. That leaves {say(remaining)} square units.", f"{full_w*full_h} − {Fraction(a*b,2)} = {remaining}")), corner_cut),
             Example("Subtract two rectangles that overlap", (
-                (f"On a {say(width)} by {say(height)} board, shade a lower-left rectangle {say(cut1[2])} columns wide and {say(cut1[3])} rows high.", f"Board {width} × {height}. Shade lower-left {cut1[2]} × {cut1[3]}."),
+                (f"On a board with {say(width)} columns and {say(height)} rows, shade a lower-left rectangle {say(cut1[2])} columns wide and {say(cut1[3])} rows high.", f"Board {width} × {height}. Shade lower-left {cut1[2]} × {cut1[3]}."),
                 (f"Shade the rectangle covering all columns from the fourth onwards and rows from the third upwards, with rows numbered from the bottom. How much area is unshaded?", f"Also shade x from 3 to {width}, y from 2 to {height}.")),
                 ((f"The two shaded areas separately are {say(len(region1))} and {say(len(region2))}. Adding them directly would count the shared part twice.", f"Areas: {len(region1)} and {len(region2)}."),
                  (f"The overlap has width {say(cut1[2]-3)} and height {say(cut1[3]-2)}. Its area is {say(overlap)}.", f"Overlap = ({cut1[2]}−3) × ({cut1[3]}−2) = {overlap}"),

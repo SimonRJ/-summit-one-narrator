@@ -105,7 +105,7 @@ def symmetry(lesson):
                  (f"Now add the horizontal move and subtract the downward move. The result is {say(final[0])}, {say(final[1])}.", f"R = ({-sy} + {dx}, {sx} − {-dy}) = {final}."),
                  ("The move acts on the point after the turn. Changing the order can produce a different point.", "Apply each rule to the previous result.")),rotation_art),
             Example("Count colourings symmetric in both centre lines", (
-                (f"On a {say(side)} by {say(side)} square board, colour exactly five cells. The pattern must be unchanged by both the horizontal and the vertical centre-line reflections.", f"{side} × {side} board. Colour exactly 5 cells with both mirror symmetries."),
+                (f"On a square board with {say(side)} rows and {say(side)} columns, colour exactly five cells. The pattern must be unchanged by both the horizontal and the vertical centre-line reflections.", f"{side} × {side} board. Colour exactly 5 cells with both mirror symmetries."),
                 ("Count the patterns on the fixed board. Patterns with different coloured positions count separately.", "How many patterns are possible?")),
                 ((f"The centre stands alone. On either centre line, each noncentral cell has a partner, giving {say(counts[2])} pairs in all.", f"1 centre, {counts[2]} pairs on the axes."),
                  (f"An off-axis cell has three partners. The four quadrants have matching positions, producing {say(counts[4])} separate groups of four.", f"Off-axis: {half} × {half} = {counts[4]} groups of 4."),
@@ -169,7 +169,7 @@ def paint(lesson):
                 ((f"There are four edges of each length. The edges of lengths {say(w)}, {say(d)} and {say(h)} have {say(w-2)}, {say(d-2)} and {say(h-2)} cubes between their endpoints.", f"Per edge: {w} − 2, {d} − 2, {h} − 2."),
                  (f"Multiply the sum of these three counts by four. This gives {say(both)} cubes with exactly two painted faces.", f"4 × ({w-2} + {d-2} + {h-2}) = {both}.")),painted_block(w,d,h,True)),
             Example("Count again when the top is left unpainted", (
-                (f"A {say(ww)} by {say(dd)} by {say(hh)} cuboid has all four vertical sides and the bottom painted. The top surface is not painted.", f"{ww} × {dd} × {hh}; paint the sides and bottom only."),
+                (f"A cuboid is {say(ww)} unit cubes wide, {say(dd)} deep and {say(hh)} high. Paint the four vertical sides and the bottom. Leave the top unpainted.", f"{ww} × {dd} × {hh}; paint the sides and bottom only."),
                 ("How many pieces have exactly two painted faces after splitting it into unit cubes?", "Count the bottom layer and all other layers separately.")),
                 ((f"The bottom layer already supplies one painted face. Exactly two requires one more, so count the bottom edge positions excluding its four corners.", f"Bottom layer: 2({ww}−2) + 2({dd}−2) = {bottom}."),
                  (f"Every layer above the bottom has painted vertical faces only. The four corner positions of each layer touch two side faces. The top layer follows this same rule.", f"Above the bottom: 4 × ({hh}−1) = {upper}."),
