@@ -65,6 +65,7 @@ SPOKEN_FORMS = {
     "route": "root",
     "routes": "roots",
     "along": "a long",
+    "nonzero": "non zero",
 }
 
 
@@ -116,11 +117,17 @@ def tokens(text):
     return result
 
 
-def recognized_terms(words, index):
+def recognized_terms(words, index, expected=()):
     """Keep the time of each recognised word when Whisper splits a written number."""
     text = words[index].word.strip()
     previous = words[index - 1].word.strip() if index else ""
     following = words[index + 1].word.strip() if index + 1 < len(words) else ""
+    written_digits = re.fullmatch(r"([A-Z]{1,6})([0-9]*)[.!?,;:]?", text)
+    if written_digits and sum(map(len,written_digits.groups())) > 1:
+        letters, digits = written_digits.groups()
+        spelled = [*letters.lower(), *(num2words(int(digit)) for digit in digits)]
+        if letters.lower() not in expected and all(term in expected for term in spelled):
+            return spelled
     if text.lower() == "x" and previous.isdigit() and following.isdigit():
         return ["times"]
     decimal = re.fullmatch(r"\.(\d+)[,.;]?", text)
@@ -137,9 +144,10 @@ def recognized_terms(words, index):
 def align(script, recognized, start, end):
     expected = script.split()
     target = [(token, k) for k, word in enumerate(expected) for token in tokens(word)]
+    expected_terms = {term for term, _ in target}
     heard = []
     for word_index, word in enumerate(recognized):
-        terms = recognized_terms(recognized, word_index)
+        terms = recognized_terms(recognized, word_index, expected_terms)
         for index, term in enumerate(terms):
             span = (word.end - word.start) / len(terms)
             heard.append((term, start + word.start + index * span, start + word.start + (index + 1) * span))
