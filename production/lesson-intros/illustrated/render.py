@@ -16,13 +16,14 @@ import perimeter
 import palindrome
 import remainders
 import place_value
+import reverse_steps
 from visuals import Art, Cues
 
 
 HERE = Path(__file__).resolve().parent
 REPOSITORY = "SimonRJ/-summit-one-narrator"
 RELEASE = f"https://github.com/{REPOSITORY}/releases/download/lesson-introductions/"
-MOVIES = {"S001": (remainders, "digits"), "S002": (place_value, "area"), "S008": (palindrome, "digits"), "S078": (area, "area"), "S108": (perimeter, "edge"), "S142": (fraction_art, "fraction")}
+MOVIES = {"S001": (remainders, "digits"), "S002": (place_value, "area"), "S003": (reverse_steps, "digits"), "S008": (palindrome, "digits"), "S078": (area, "area"), "S108": (perimeter, "edge"), "S142": (fraction_art, "fraction")}
 FPS = 30
 
 
