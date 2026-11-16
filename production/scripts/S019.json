@@ -1,0 +1,62 @@
+{
+  "id": "S019",
+  "title": "Parity, colouring and impossible tilings",
+  "voice": "VoxCPM2 — approved voice C",
+  "scenes": [
+    {
+      "n": 1,
+      "stage": "CONCEPT",
+      "narration": "A chessboard may look like a collection of little squares. Its colours can reveal something numbers alone cannot: whether a covering is impossible."
+    },
+    {
+      "n": 2,
+      "stage": "APPLICATION",
+      "narration": "In AMC, you may need to spot an odd or even pattern. In a Rossmoyne style problem, explain why every allowed piece follows the same rule. A MAWA investigation might explore which boards can be tiled. Let us move from pairs to colouring."
+    },
+    {
+      "n": 3,
+      "stage": "BASIC",
+      "narration": "Take fifteen blue counters and twenty gold counters. Group them in twos. Is their combined number odd or even? Pause and find the unpaired counter."
+    },
+    {
+      "n": 4,
+      "stage": "EXPLANATION",
+      "narration": "Fifteen gives seven pairs and one extra. Twenty gives ten pairs with nothing left. Together there is one extra, so thirty-five is odd."
+    },
+    {
+      "n": 5,
+      "stage": "MEDIUM",
+      "narration": "On a number line, put a marker at fifteen. Jump any even number of spaces left or right. Can you get to twenty? Try a few jumps."
+    },
+    {
+      "n": 6,
+      "stage": "EXPLANATION",
+      "narration": "A jump of two or four lands on another odd number. Each even jump changes position in pairs, so a marker starting on fifteen stays on odd numbers. Twenty is even: it cannot be reached under this rule."
+    },
+    {
+      "n": 7,
+      "stage": "PUZZLE",
+      "narration": "Here is a harder puzzle. A four by four board has its top-left and bottom-right corners removed. Each domino covers two squares sharing an edge. Can seven dominoes cover the remaining board, with no overlap?"
+    },
+    {
+      "n": 8,
+      "stage": "EXPLANATION",
+      "narration": "Colour the full board like a chessboard. There are eight blue squares and eight gold squares. Each domino, horizontal or vertical, covers one of each colour."
+    },
+    {
+      "n": 9,
+      "stage": "EXPLANATION",
+      "narration": "The two removed corners are both blue. That leaves six blue and eight gold squares. Seven dominoes would need seven of each colour. Since only six blue squares remain, the covering is impossible."
+    },
+    {
+      "n": 10,
+      "stage": "MISTAKES",
+      "narration": "It is a mistake to stop at fourteen squares. Fourteen is divisible by two, but the colours do not balance. And colour balance alone does not guarantee a covering: the squares must still join up legally."
+    },
+    {
+      "n": 11,
+      "stage": "RECAP",
+      "narration": "In an exam, identify what every allowed piece does. Pick a colouring that reveals the pattern. Count the colours and write a clear reason, not just an answer."
+    }
+  ]
+}
