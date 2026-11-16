@@ -16,22 +16,22 @@
     {
       "n": 3,
       "stage": "BASIC",
-      "narration": "Take fifteen blue counters and twenty gold counters. Group them in twos. Is their combined number odd or even? Pause and find the unpaired counter."
+      "narration": "Start with a three by three chessboard. The top-left square is blue and the colours alternate. Count each colour. Is the number of squares odd or even?"
     },
     {
       "n": 4,
       "stage": "EXPLANATION",
-      "narration": "Fifteen gives seven pairs and one extra. Twenty gives ten pairs with nothing left. Together there is one extra, so thirty-five is odd."
+      "narration": "There are five blue squares and four gold squares, nine altogether. They cannot all be grouped into pairs: one square remains."
     },
     {
       "n": 5,
       "stage": "MEDIUM",
-      "narration": "On a number line, put a marker at fifteen. Jump any even number of spaces left or right. Can you get to twenty? Try a few jumps."
+      "narration": "Now take a full four by four board. Remove two neighbouring squares in the top row: one blue and one gold. Can you cover the rest with dominoes? Each domino covers two squares sharing an edge."
     },
     {
       "n": 6,
       "stage": "EXPLANATION",
-      "narration": "A jump of two or four lands on another odd number. Each even jump changes position in pairs, so a marker starting on fifteen stays on odd numbers. Twenty is even: it cannot be reached under this rule."
+      "narration": "Yes. Place one domino across the remaining two squares in the top row. Then place two horizontal dominoes across each of the three lower rows. That is seven dominoes, covering fourteen squares."
     },
     {
       "n": 7,
