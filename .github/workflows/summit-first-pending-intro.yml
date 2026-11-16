@@ -1,4 +1,5 @@
 name: Prepare the next Summit One lesson introductions
+run-name: Prepare Summit One lessons 142 to 146
 
 on:
   push:
@@ -6,7 +7,7 @@ on:
     paths: ['.github/workflows/summit-first-pending-intro.yml']
 
 concurrency:
-  group: summit-one-lesson-intro-ahead
+  group: summit-one-lesson-intro-ahead-s142-s146
   cancel-in-progress: false
 
 permissions:
@@ -23,7 +24,7 @@ jobs:
       fail-fast: false
       max-parallel: 4
       matrix:
-        lesson: [S137, S138, S139, S141]
+        lesson: [S142, S143, S145, S146]
     env:
       HF_HUB_DISABLE_XET: '1'
       TOKENIZERS_PARALLELISM: 'false'
@@ -34,7 +35,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
-          ref: 'c76c944209c936b9297a740bd68e2e6b857e341d'
+          ref: '630c5cf47f054ac9c8fddd50cb726326a7e3101b'
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
@@ -88,3 +89,4 @@ jobs:
           compression-level: 1
           if-no-files-found: ignore
           retention-days: 1
+
