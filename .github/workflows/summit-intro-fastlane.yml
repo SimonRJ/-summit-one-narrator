@@ -1,5 +1,5 @@
 name: Publish and verify completed Summit One introductions
-run-name: Publish and verify the finished Lessons 143 and 146
+run-name: Verify the next finished lesson introductions
 on:
   push:
     branches: [codex/lesson-intro-runtime-check]
@@ -7,7 +7,7 @@ on:
 permissions:
   contents: write
 concurrency:
-  group: summit-intro-publish-s143-s146
+  group: summit-intro-publish-s138-s145
   cancel-in-progress: false
 jobs:
   publish:
@@ -27,4 +27,4 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          python production/lesson-intros/course/release_intro.py publish S143 S146 --wait-minutes 10
+          python production/lesson-intros/course/release_intro.py publish S138 S141 S142 S145 --wait-minutes 110
