@@ -87,13 +87,11 @@ def stamp_prompt(a,c):
 def stamp_answer(a,c):
     a.heading('Restore the missing third',GOLD)
     move=c.after('Remove the seven received stamps',1.4)
-    for i in range(25):
-        x0=470+(i%5)*66; y0=190+(i//5)*62
-        if i<18:
-            x1=300+(i%9)*80; y1=235+(i//9)*95
-            stamp(a,mix(x0,x1,move),mix(y0,y1,move),BLUE)
-        else:
-            stamp(a,x0+240*move,y0,GOLD,1-move)
+    # The original 18 and the 7 later gifts remain separate objects during removal.
+    for i in range(18):
+        stamp(a,300+(i%9)*80,235+(i//9)*95,BLUE)
+    for i in range(7):
+        stamp(a,300+i*80+180*move,420,GOLD,1-move)
     two=c.after('two of the original three equal parts',.8)
     a.dashed((262,390),(1018,390),SOFT,2,two)
     nine=c.after('nine stamps per part',.8)
