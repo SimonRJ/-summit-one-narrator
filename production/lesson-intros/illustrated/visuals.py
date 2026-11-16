@@ -58,13 +58,15 @@ def background(scale, theme):
         top, bottom = "#122d38", "#101c2a"
     elif theme == "edge":
         top, bottom = "#1e2838", "#111927"
+    elif theme == "digits":
+        top, bottom = "#122838", "#101b2c"
     else:
         top, bottom = "#34293a", "#201d31"
     image = Image.new("RGB", (width, height))
     draw = ImageDraw.Draw(image)
     for y in range(height):
         draw.line(((0, y), (width, y)), fill=tone(bottom, y / height, top))
-    if theme != "fraction":
+    if theme not in ("fraction", "digits"):
         gaps = round(24 * scale)
         for x in range(gaps, width, gaps):
             for y in range(gaps, height, gaps):

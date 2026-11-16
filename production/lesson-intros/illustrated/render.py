@@ -13,13 +13,14 @@ from PIL import Image, ImageDraw
 import area
 import fraction_art
 import perimeter
+import palindrome
 from visuals import Art, Cues
 
 
 HERE = Path(__file__).resolve().parent
 REPOSITORY = "SimonRJ/-summit-one-narrator"
 RELEASE = f"https://github.com/{REPOSITORY}/releases/download/lesson-introductions/"
-MOVIES = {"S078": (area, "area"), "S108": (perimeter, "edge"), "S142": (fraction_art, "fraction")}
+MOVIES = {"S008": (palindrome, "digits"), "S078": (area, "area"), "S108": (perimeter, "edge"), "S142": (fraction_art, "fraction")}
 FPS = 30
 
 
