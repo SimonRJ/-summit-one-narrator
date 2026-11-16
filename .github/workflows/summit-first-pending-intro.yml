@@ -1,32 +1,114 @@
-name: Resume the individual lesson playback checks
+name: Record a pending introduction in parallel
 on:
   push:
     branches: [codex/lesson-intro-runtime-check]
     paths: ['.github/workflows/summit-first-pending-intro.yml']
-
 permissions:
-  actions: read
-  contents: write
+  contents: read
 
 jobs:
-  verify:
+  plan:
     runs-on: ubuntu-24.04
-    timeout-minutes: 210
-    concurrency:
-      group: summit-one-lesson-intro-player-check
-      cancel-in-progress: true
+    outputs:
+      lanes: ${{ steps.plan.outputs.lanes }}
     steps:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
-      - uses: actions/setup-node@v4
+      - id: plan
+        run: |
+          python production/lesson-intros/course/compile_intros.py S033
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          scenes = json.loads(Path("production/scripts/S033.json").read_text())["scenes"]
+          lanes = [{"index": i+1, "words": 0, "requests": []} for i in range(5)]
+          for item in sorted(scenes, key=lambda scene: -len(scene["narration"].split())):
+              lane = min(lanes, key=lambda slot: slot["words"])
+              lane["words"] += len(item["narration"].split())
+              lane["requests"].append({"lesson": "S033", "scene": item["n"]})
+          data = {"include": [{"index": lane["index"], "requests": json.dumps(lane["requests"], separators=(",",":"))} for lane in lanes]}
+          with open(os.environ["GITHUB_OUTPUT"], "a") as stream:
+              print("lanes=" + json.dumps(data,separators=(",",":")), file=stream)
+          PY
+
+  voice:
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.plan.outputs.lanes) }}
+    env:
+      HF_HUB_DISABLE_XET: '1'
+      TOKENIZERS_PARALLELISM: 'false'
+      OMP_NUM_THREADS: '4'
+      MKL_NUM_THREADS: '4'
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - uses: actions/checkout@v4
         with:
-          node-version: '22'
-      - run: npm install --no-save playwright
-      - name: Confirm each staged introduction on the public site
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install the exact voice model
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg libsndfile1
+          pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install 'transformers>=4.45,<5' 'huggingface-hub<1' einops pydantic soundfile librosa safetensors tqdm numpy scipy inflect addict argbind
+          pip install --no-deps 'git+https://github.com/OpenBMB/VoxCPM.git@300e4260b509066151d623dc9c0aa922cf82232b'
+      - name: Record the selected scenes
+        env:
+          REQUESTS: ${{ matrix.requests }}
+        run: |
+          python production/lesson-intros/course/compile_intros.py S033
+          printf '%s\n' "$REQUESTS" > "$RUNNER_TEMP/requests.json"
+          python production/t01-studio/synth.py --sequence "$RUNNER_TEMP/requests.json" --threads 4
+      - uses: actions/upload-artifact@v4
+        with:
+          name: S033-voice-${{ matrix.index }}
+          path: |
+            build/t01-studio/S033-*.wav
+            build/t01-studio/S033-*.json
+          compression-level: 1
+          retention-days: 1
+
+  render:
+    needs: voice
+    runs-on: ubuntu-24.04
+    timeout-minutes: 32
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: S033-voice-*
+          merge-multiple: true
+          path: build/t01-studio
+      - name: Synchronize narration and render the first pending film
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-open-sans fonts-dejavu-core libsndfile1
+          pip install pillow numpy soundfile num2words faster-whisper
+          python production/lesson-intros/course/compile_intros.py S033
+          python production/t01-studio/prepare_audio.py S033
+          python production/t01-studio/render.py S033 --preview
+          python production/t01-studio/render.py S033
+      - name: Supply the checked introduction if it is still awaiting upload
         env:
           GH_TOKEN: ${{ github.token }}
+          PYTHONPATH: production/lesson-intros/course
         run: |
-          python production/lesson-intros/course/release_intro.py publish \
-            S010 S011 S012 S013 S015 S017 S018 S019 S020 S022 S023 S024 S025 S026 S027 S029 S030 \
-            --wait-minutes 155
+          python - <<'PY'
+          from release_intro import current_candidate, stage
+          if not current_candidate("S033"):
+              stage("S033")
+          PY
