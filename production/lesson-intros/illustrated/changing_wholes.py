@@ -50,7 +50,7 @@ def chalk(a,appear=1,first=0,second=0):
 
 def intro(a,c):
     heading(a,'01','A fraction needs a whole')
-    p=c.after('particular whole')
+    p=c.after('belongs to a whole')
     blocks(a,220,225,(10,10,10),19,BLUE,p)
     label(a,'Original whole: 30',505,185,30,SOFT,p)
     q=c.after('whole changes',1.4)
@@ -61,15 +61,15 @@ def intro(a,c):
 
 def exams(a,c):
     heading(a,'02','Read what comes after “of”')
-    p=c.after('fraction of the original pile');q=c.after('fraction of what is left')
+    p=c.after('starting pile');q=c.after('what remains')
     label(a,'1/3 of 30',355,225,45,BLUE,p)
     blocks(a,185,275,(10,10,10),12,BLUE,p)
     label(a,'1/2 of 20',930,225,45,AQUA,q)
     blocks(a,800,275,(10,10),12,AQUA,q)
     label(a,'Original whole',355,405,30,SOFT,p)
     label(a,'Remaining whole',920,405,30,SOFT,q)
-    a.arrow((900,520),(370,520),GOLD,c.after('Reverse one change'))
-    label(a,'Undo changes in reverse order',640,575,29,GOLD,c.after('Reverse one change'))
+    a.arrow((900,520),(370,520),GOLD,c.after('ask for the start'))
+    label(a,'Undo changes in reverse order',640,575,29,GOLD,c.after('ask for the start'))
 
 
 def token_question(a,c):
@@ -152,7 +152,7 @@ def check(a,c):
 
 def mistakes(a,c):
     heading(a,'10','Fractions must name the same whole')
-    p=c.after('same original whole');q=c.after('uses a new whole')
+    p=c.after('one third of thirty');q=c.after('twenty left')
     label(a,'Original: 30',85,215,30,BLUE,p,align='left')
     blocks(a,360,185,(10,10,10),14,BLUE,p)
     label(a,'1/3 of 30 = 10',1000,217,32,WHITE,p)
@@ -164,7 +164,7 @@ def mistakes(a,c):
 
 def recap(a,c):
     heading(a,'11','Name it, split it, rebuild it')
-    p=c.after('original, remaining or new');q=c.after('Draw equal parts');r=c.after('rebuild the last whole first');s=c.after('reverse any addition')
+    p=c.after('original and the remaining whole');q=c.after('Draw the equal parts');r=c.after('work backwards');s=c.after('Reverse the last change')
     label(a,'1',175,225,42,BLUE,p);label(a,'Name each whole',245,225,37,WHITE,p,'left')
     label(a,'2',175,325,42,AQUA,q);label(a,'Draw its equal parts',245,325,37,WHITE,q,'left')
     label(a,'3',175,425,42,GOLD,r);label(a,'Rebuild from the ending',245,425,37,WHITE,r,'left')
