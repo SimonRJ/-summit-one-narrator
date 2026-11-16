@@ -8,7 +8,7 @@ on:
 
 concurrency:
   group: summit-one-lesson-intro-corrected-s137
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 permissions:
   contents: read
@@ -35,7 +35,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
-          ref: '865e8a4c2b6ad4fbf5010994cebece098c100fe1'
+          ref: '39a1e30dd3e6ebab43398acbade68bf2cca134ad'
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
