@@ -2843,7 +2843,7 @@
       "n": 11,
       "start": 171.38,
       "end": 192.066667,
-      "speech_end": 192.066667,
+      "speech_end": 186.6,
       "words": [
         {
           "text": "Record",
@@ -3034,36 +3034,36 @@
         {
           "text": "When",
           "start": 182.36,
-          "end": 182.48,
+          "end": 182.5,
           "matched": true
         },
         {
           "text": "the",
-          "start": 182.48,
-          "end": 182.6,
+          "start": 182.5,
+          "end": 182.62,
           "matched": true
         },
         {
           "text": "task",
-          "start": 182.6,
-          "end": 182.86,
+          "start": 182.62,
+          "end": 182.88,
           "matched": true
         },
         {
           "text": "asks",
-          "start": 182.86,
+          "start": 182.88,
           "end": 183.26,
           "matched": true
         },
         {
           "text": "for",
           "start": 183.26,
-          "end": 183.6,
+          "end": 183.62,
           "matched": true
         },
         {
           "text": "a",
-          "start": 183.6,
+          "start": 183.62,
           "end": 183.7,
           "matched": true
         },
@@ -3088,36 +3088,36 @@
         {
           "text": "what",
           "start": 184.88,
-          "end": 191.98,
+          "end": 185.08,
           "matched": true
         },
         {
           "text": "the",
-          "matched": false,
-          "start": 191.98,
-          "end": 191.98
+          "matched": true,
+          "start": 185.08,
+          "end": 185.2
         },
         {
           "text": "full",
-          "matched": false,
-          "start": 191.98,
-          "end": 191.98
+          "matched": true,
+          "start": 185.2,
+          "end": 185.4
         },
         {
           "text": "cycles",
-          "matched": false,
-          "start": 191.98,
-          "end": 191.98
+          "matched": true,
+          "start": 185.4,
+          "end": 185.76
         },
         {
           "text": "contribute.",
-          "matched": false,
-          "start": 191.98,
-          "end": 191.98
+          "matched": true,
+          "start": 185.76,
+          "end": 186.5
         }
       ],
       "match": 90.7,
-      "timing_method": "automatic word alignment; manual audio review required"
+      "timing_method": "automatic alignment; final sentence separately transcribed with transcript guidance; full listening review required"
     }
   ],
   "captions": [
@@ -3468,8 +3468,13 @@
     },
     {
       "start": 182.36,
-      "end": 191.98,
-      "text": "When the task asks for a sum, work out what the full"
+      "end": 184.1,
+      "text": "When the task asks for a sum,"
+    },
+    {
+      "start": 184.38,
+      "end": 186.63,
+      "text": "work out what the full cycles contribute."
     }
   ]
 }
