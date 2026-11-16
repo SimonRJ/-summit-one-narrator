@@ -1,0 +1,35 @@
+name: Correct the lesson 17 caption timing
+on:
+  push:
+    branches: [codex/s020-visual-rebuild-20261116]
+    paths: ['.github/workflows/publish-s017-caption-revision.yml']
+permissions:
+  contents: write
+jobs:
+  caption-revision:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install rendering tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-dejavu-core
+          pip install pillow
+      - name: Recheck the diagram calculations
+        run: python production/lesson-intros/illustrated/check_s017.py
+      - name: Render the corrected caption against the unchanged original narration
+        run: python production/lesson-intros/illustrated/render.py S017 --out build/s017-timing
+      - name: Publish the new version without replacing the earlier release
+        run: python production/lesson-intros/illustrated/publish_s017_timing.py --out build/s017-timing
+      - uses: actions/upload-artifact@v4
+        with:
+          name: s017-caption-correction
+          path: build/s017-timing/
+          if-no-files-found: error
+          retention-days: 14
