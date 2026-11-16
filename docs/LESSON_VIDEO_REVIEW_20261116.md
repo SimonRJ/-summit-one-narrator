@@ -33,6 +33,9 @@ The live catalogue transcripts were compared mechanically with the current topic
 | S078, S108, S142 | New illustrated versions from another production run were sampled against their transcripts. Their figures are topic-specific; the samples alone do not establish a complete review. | Review entire films and playback on phone. |
 | T01.1 | Sampled frames show correctly counted counter packets and a correctly proportioned ribbon. Sampling does not establish a full review. | Full audiovisual and phone review pending. |
 | T01.2 | Sampled the actual published film and its progressive fence-to-loop, queue, price table and joined-mat diagrams. The seven versus six posts, 14 people, unit prices and 22 m perimeter were independently checked. | Samples only; full audio, film and phone review pending. |
+| T01.3 | Sampled the 130-student, 40-seat bus animation and checked four buses, three full buses and 30 spare seats, plus the 100-egg challenge. | Samples only; full audio, film and phone review pending. |
+| T01.E | Sampled the ruler and elapsed-time animations and checked the seven gaps, eight marked points, 110-minute example and 79-minute challenge. | Samples only; full audio, film and phone review pending. |
+| T02.3 | Sampled the operation-order lesson and checked the differences of 5 and 15. Its fixed-width blocks for an unknown x are described as a bar, which could be mistaken for a scale drawing; use a changing-width visual or clearly identify symbolic tiles. | Visual redesign and full audio, film and phone review pending. |
 | Other lesson introductions and teaching films | See the separate 72-item teaching review register. No claim of a completed individual visual review. | Await review. |
 
 ## Required evidence before marking a film complete

@@ -1,11 +1,11 @@
 id,title,type,review_status,observation
 T01.1,Give every quantity a job,concept,sampled; full review pending,Sampled frames show 4 packets of 3 counters plus 2 loose counters and a correctly proportioned 200 cm and 30 cm ribbon; full audiovisual and phone review pending.
 T01.2,Choose a representation that exposes the relationship,concept,sampled; full review pending,"Sampled the actual live film and its fence-to-loop motion, 14-person queue, price table and 4 m × 3 m mats; independently checked the examples. Full audiovisual and phone review pending."
-T01.3,Use the model to check the answer,concept,not reviewed,
-T01.E,Read the question into a useful model,worked_example,not reviewed,
+T01.3,Use the model to check the answer,concept,sampled; full review pending,"Sampled the live film: four 40-seat buses with 130 students, three full buses and 30 spare seats; checked the egg-box challenge. Full audiovisual and phone review pending."
+T01.E,Read the question into a useful model,worked_example,sampled; full review pending,"Sampled the live ruler and timeline animations; checked seven 1 cm gaps, eight marked points, 110 minutes and the 79-minute challenge. Full audiovisual and phone review pending."
 T02.1,Find an invariant by inspecting one move,concept,previously user approved,Preserve the approved film; confirm actual route and content before changing it.
 T02.2,Work backwards: undo the last move first,concept,previously user approved,Preserve the approved film; confirm actual route and content before changing it.
-T02.3,Compare different orders of the same operations,concept,not reviewed,
+T02.3,Compare different orders of the same operations,concept,sampled; visual redesign needed,Sampled the operation-order film and checked the differences 5 and 15. The fixed-width x and 5 blocks are presented as a bar; clarify that they are symbolic or show x changing. Full audiovisual and phone review pending.
 T02.E,Follow what changes and what stays fixed,worked_example,not reviewed,
 T03.1,Read a remainder as a precise statement,concept,not reviewed,
 T03.2,Separate the first coincidence from the repeat period,concept,not reviewed,
