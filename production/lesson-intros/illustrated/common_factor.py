@@ -6,6 +6,14 @@ RED='#ff7777'
 def text(a,t,x,y,size=34,col=WHITE,alpha=1):a.label(t,x,y,size,col,alpha,bold=True)
 
 
+def marker(a,x,y,col,alpha=1):
+    """One coloured felt-tip marker, with its cap and writing tip."""
+    if alpha<=0:return
+    a.rounded(x-7,y-16,14,32,3,col,.88*alpha)
+    a.rect(x-7,y-16,14,5,WHITE,.65*alpha)
+    a.polygon(((x-5,y+15),(x+5,y+15),(x,y+21)),col,.88*alpha)
+
+
 def schedules(a,p6=1,p12=1,p18a=1,p9=1,p18b=1,mark=0,moving=False):
     def X(t):return 210+51*t
     for y,col,period in ((265,BLUE,'6 min'),(430,GOLD,'9 min')):
@@ -69,8 +77,8 @@ def packs_prompt(a,c):
     a.heading('Make identical packs',BLUE)
     red=c.after('twenty-four red',.7);blue=c.after('thirty-six blue',.7)
     text(a,'24 red',390,215,39,RED,red);text(a,'36 blue',890,215,39,BLUE,blue)
-    for i in range(24):a.circle((265+(i%6)*50,285+(i//6)*52),13,RED,ease(red*2-i*.035))
-    for i in range(36):a.circle((765+(i%6)*50,270+(i//6)*43),13,BLUE,ease(blue*2-i*.025))
+    for i in range(24):marker(a,265+(i%6)*50,285+(i//6)*52,RED,ease(red*2-i*.035))
+    for i in range(36):marker(a,765+(i%6)*50,270+(i//6)*43,BLUE,ease(blue*2-i*.025))
     text(a,'How many identical packs?',640,555,32,WHITE,c.after('many identical packs'))
 
 
@@ -82,8 +90,8 @@ def packs_answer(a,c):
         x=180+(i%6)*185;y=290+(i//6)*160
         q=ease(p*2-i*.07)
         a.rounded(x-75,y-56,150,112,9,SOFT,.13*q)
-        for dx in (-20,20):a.circle((x+dx,y-23+30*(1-q)),12,RED,q)
-        for dx in (-38,0,38):a.circle((x+dx,y+24+30*(1-q)),12,BLUE,q)
+        for dx in (-20,20):marker(a,x+dx,y-23+30*(1-q),RED,q)
+        for dx in (-38,0,38):marker(a,x+dx,y+24+30*(1-q),BLUE,q)
     text(a,'2 red + 3 blue in each pack',640,550,31,WHITE,c.after('two reds'))
 
 
