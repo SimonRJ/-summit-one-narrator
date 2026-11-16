@@ -1,0 +1,16 @@
+name: Stop the preliminary lesson 4 render
+on:
+  push:
+    branches: [codex/s004-visual-rebuild-20261116]
+    paths: ['.github/workflows/stop-preliminary-s004.yml']
+permissions:
+  actions: write
+  contents: read
+jobs:
+  stop:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Stop the preliminary version before publication
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method POST "repos/$GITHUB_REPOSITORY/actions/runs/43856606151/cancel"
