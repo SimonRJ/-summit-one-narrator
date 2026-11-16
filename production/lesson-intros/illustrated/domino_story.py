@@ -17,12 +17,12 @@ def txt(a, s, x, y, size=31, colour=WHITE, alpha=1, align='center'):
     a.label(s, x, y, size, colour, alpha, align=align, bold=True)
 
 
-def board(a, x, y, u, reveal=1, colour=1, removed=0):
+def board(a, x, y, u, reveal=1, colour=1, removed=0, holes=((0, 0), (3, 3))):
     for r in range(4):
         for col in range(4):
             index = r * 4 + col
             appear = clamp(reveal * 16 - index)
-            gone = removed if (r, col) in ((0, 0), (3, 3)) else 0
+            gone = removed if (r, col) in holes else 0
             fill = BLUE if (r + col) % 2 == 0 else GOLD
             base = (x + col*u, y + r*u)
             # A faint neutral tile remains visible before the colours are revealed.
@@ -35,13 +35,15 @@ def board(a, x, y, u, reveal=1, colour=1, removed=0):
                 a.path(((base[0]+15,base[1]+u-15), (base[0]+u-15,base[1]+15)), PINK, 3, gone)
 
 
-def domino(a, cx, cy, u, theta=0, opacity=1, colour=True):
+def domino(a, cx, cy, u, theta=0, opacity=1, colour=True, swap=False):
     def pt(x,y): return (cx+x*cos(theta)-y*sin(theta), cy+x*sin(theta)+y*cos(theta))
-    for points, ink in [([(-u,-u/2),(0,-u/2),(0,u/2),(-u,u/2)], BLUE),
-                        ([(0,-u/2),(u,-u/2),(u,u/2),(0,u/2)], GOLD)]:
+    for points, ink in [([(-u,-u/2),(0,-u/2),(0,u/2),(-u,u/2)], GOLD if swap else BLUE),
+                        ([(0,-u/2),(u,-u/2),(u,u/2),(0,u/2)], BLUE if swap else GOLD)]:
         points=[pt(x,y) for x,y in points]
         a.polygon(points, ink if colour else SOFT, .82*opacity)
-        a.path(points+[points[0]], WHITE, 3, opacity)
+    outer=[pt(-u,-u/2),pt(u,-u/2),pt(u,u/2),pt(-u,u/2),pt(-u,-u/2)]
+    a.path(outer,WHITE,6,opacity)
+    a.path((pt(0,-u/2),pt(0,u/2)),WHITE,2,opacity)
 
 
 def intro(a,c):
@@ -71,69 +73,57 @@ def applications(a,c):
     txt(a,'test arrangements',1020,470,27,WHITE,r)
 
 
-def counter_array(a, count, x0, y0, colour, pair, alpha=1, mark_extra=False):
-    # Start with the two rows spread apart, then bring each partner together.
-    # This prevents unrelated counters crossing or briefly overlapping.
-    for i in range(count):
-        pairindex=i//2
-        newx=x0+pairindex*(59 if count == 15 else 48)
-        oldx=newx; oldy=265+(i%2)*155
-        newy=325+(i%2)*38
-        x=oldx+(newx-oldx)*pair; y=oldy+(newy-oldy)*pair
-        if mark_extra and i==14:
-            a.circle((x,y),20,PINK,alpha)
-        a.circle((x,y),14,colour,alpha)
+def small_board(a, x, y, u, reveal=1, colour=1):
+    for r in range(3):
+        for col in range(3):
+            appear=clamp(reveal*9-(r*3+col))
+            a.rect(x+col*u+2,y+r*u+2,u-4,u-4,BLUE if (r+col)%2==0 else GOLD,.8*appear*colour)
+            a.path(((x+col*u,y+r*u),(x+(col+1)*u,y+r*u),(x+(col+1)*u,y+(r+1)*u),
+                    (x+col*u,y+(r+1)*u),(x+col*u,y+r*u)),SOFT,2,appear)
 
 
 def basic(a,c):
-    title(a,'Basic example','Odd or even without adding?')
-    p=c.after('fifteen blue'); q=c.after('twenty gold'); move=c.after('Group them in twos',2.0)
-    txt(a,'15 BLUE',300,205,32,BLUE,p);txt(a,'20 GOLD',915,205,32,GOLD,q)
-    counter_array(a,15,105,250,BLUE,move,p)
-    counter_array(a,20,690,250,GOLD,move,q)
-    txt(a,'Find any counter without a partner',640,515,29,SOFT,c.after('unpaired counter'))
+    title(a,'Basic example','Count the colours on a 3 × 3 board')
+    p=c.after('three by three',1.5); colour=c.after('blue',1.2)
+    small_board(a,230,175,110,p,colour)
+    txt(a,'Start in the top-left corner',850,260,29,SOFT,c.after('top-left'))
+    txt(a,'How many blue?',850,355,34,BLUE,c.after('Count each colour'))
+    txt(a,'How many gold?',850,415,34,GOLD,c.after('Count each colour'))
+    txt(a,'Odd or even altogether?',850,500,30,WHITE,c.after('odd or even'))
 
 
 def basic_answer(a,c):
-    title(a,'Basic example','Pairs leave one extra')
-    counter_array(a,15,105,250,BLUE,1,c.opening(),True)
-    counter_array(a,20,690,250,GOLD,1,c.opening())
-    txt(a,'7 pairs + 1',300,245,35,BLUE,c.after('seven pairs'))
-    txt(a,'10 pairs',915,245,35,GOLD,c.after('ten pairs'))
-    txt(a,'15 + 20 = 35   •   odd',640,505,39,WHITE,c.after('thirty-five'))
-
-
-def line(a, location, arc=0, target=0):
-    left,step,y=155,86,370
-    a.path(((left,y),(left+11*step,y)),SOFT,3)
-    for n in range(11,23):
-        x=left+(n-11)*step; colour=BLUE if n%2 else GOLD
-        a.circle((x,y),6,colour)
-        txt(a,str(n),x,y+50,26,colour)
-    x=left+(location-11)*step
-    a.circle((x,y-arc),19,AQUA)
-    a.circle((left+9*step,y),23,PINK,.24*target)
-    txt(a,'target 20',left+9*step,255,27,PINK,target)
+    title(a,'Basic example','Nine squares leave one unpaired')
+    small_board(a,230,175,110,c.opening(),1)
+    p=c.after('five blue',1.2); q=c.after('four gold',1.0)
+    for i in range(5): a.rounded(740+i*58,240,42,42,5,BLUE,clamp(p*5-i))
+    for i in range(4): a.rounded(740+i*58,325,42,42,5,GOLD,clamp(q*4-i))
+    txt(a,'5 blue + 4 gold = 9',860,430,34,WHITE,c.after('nine altogether'))
+    txt(a,'4 pairs and 1 extra',860,505,31,PINK,c.after('one square remains'))
 
 
 def medium(a,c):
-    title(a,'Medium example','Can even jumps reach 20?')
-    p=c.after('Jump any even number',1.5);q=c.after('left or right',1.5);r=c.after('Try a few jumps',1.5)
-    if r>0:loc=21-2*r;arc=90*sin(pi*r)
-    elif q>0:loc=17+4*q;arc=110*sin(pi*q)
-    else:loc=15+2*p;arc=90*sin(pi*p)
-    line(a,loc,arc,c.after('twenty'))
-    txt(a,'Start: 15',290,230,29,AQUA,c.after('fifteen'))
-    txt(a,'Each jump: 2, 4, 6, …',640,515,29,SOFT,c.after('even number'))
+    title(a,'Medium example','Remove two neighbouring squares')
+    p=c.after('four by four',1.1); gone=c.after('Remove two neighbouring',1.3)
+    board(a,210,170,94,p,1,gone,((0,0),(0,1)))
+    q=c.after('Each domino')
+    domino(a,920,325,83,opacity=q)
+    txt(a,'two edge-sharing squares',920,440,27,SOFT,q)
+    txt(a,'Can the rest be covered?',920,515,31,WHITE,c.after('cover the rest'))
 
 
 def medium_answer(a,c):
-    title(a,'Medium example','Even jumps keep the position odd')
-    p=c.after('jump of two',1.6);q=c.after('or four',1.6)
-    loc=17+4*q if q>0 else 15+2*p
-    arc=(115*sin(pi*q) if q>0 else 85*sin(pi*p))
-    line(a,loc,arc,c.after('Twenty is even'))
-    txt(a,'odd  +  even  =  odd',640,500,39,WHITE,c.after('stays on odd numbers'))
+    title(a,'Medium example','A covering that works')
+    x,y,u=210,170,94
+    board(a,x,y,u,1,.5,1,((0,0),(0,1)))
+    p=c.after('remaining two squares',.9)
+    domino(a,x+3*u,y+.5*u,u,opacity=p)
+    q=c.after('two horizontal dominoes',3.0)
+    for i,(r,col) in enumerate([(r,col) for r in (1,2,3) for col in (0,2)]):
+        domino(a,x+(col+1)*u,y+(r+.5)*u,u,opacity=clamp(q*6-i),swap=bool(r%2))
+    txt(a,'1 + 2 + 2 + 2 = 7',925,275,37,WHITE,c.after('seven dominoes'))
+    txt(a,'7 dominoes cover 14 squares',925,365,29,AQUA,c.after('fourteen squares'))
+    txt(a,'Each piece covers one of each colour.',925,465,27,SOFT,q)
 
 
 def puzzle(a,c):
