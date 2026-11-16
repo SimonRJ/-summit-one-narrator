@@ -278,6 +278,20 @@ def shaded_area(lesson):
     full_w,full_h=10+v,8+v
     a,b=4+v,3+v
     remaining=Fraction(full_w*full_h)-Fraction(a*b,2)
+    joined_rectangles = geometry(
+        [(0,0,""),(w,0,""),(w,h,""),(0,h,""),(w+step,0,""),(w+step,extra,""),(w,extra,"")],
+        [(0,1,0),(1,2,0),(2,3,0),(3,0,0),(1,4,1),(4,5,1),(5,6,1)],
+        polygons=((0,1,2,3),(1,4,5,6)),
+        captions=((w/2,h/2,f"{w} × {h}",0),(w+step/2,extra/2,f"{step} × {extra}",1)),
+    )
+    corner_cut = geometry(
+        [(0,0,""),(full_w,0,""),(full_w,full_h,""),(0,full_h,""),
+         (full_w-a,full_h,""),(full_w,full_h-b,"")],
+        [(0,1,0),(1,5,0),(5,2,1),(2,4,1),(4,3,0),(3,0,0),(4,5,1)],
+        polygons=((0,1,5,4,3),(4,2,5)),
+        captions=((full_w/2,-.55,full_w,0),(-.55,full_h/2,full_h,0),
+                  (full_w-a/2,full_h+.45,a,1),(full_w+.55,full_h-b/2,b,1)),
+    )
     width,height=9+v,8+v
     cut1=(0,0,6+v,5+v)
     cut2=(3,2,width,height)
@@ -298,12 +312,12 @@ def shaded_area(lesson):
                 (f"Join a {say(w)} by {say(h)} rectangle to a {say(step)} by {say(extra)} rectangle along an edge without overlap. Find their combined area.", f"Areas of {w} × {h} and {step} × {extra}"),
                 ("A shared edge has length but contributes no extra area.", "Add the two separate areas.")),
                 ((f"The first area is {say(w*h)} and the second is {say(step*extra)}. No unit square belongs to both interiors.", f"{w}×{h} = {w*h}; {step}×{extra} = {step*extra}"),
-                 (f"The areas add to {say(simple)} square units. Joining along an edge leaves this total unchanged.", f"Combined area = {simple}")), tiles(f"{w} × {h}",f"{step} × {extra}")),
+                 (f"The areas add to {say(simple)} square units. Joining along an edge leaves this total unchanged.", f"Combined area = {simple}")), joined_rectangles),
             Example("Subtract a triangle from a rectangle", (
                 (f"A {say(full_w)} by {say(full_h)} rectangle has a right triangle removed from one corner. The perpendicular legs of the triangle are {say(a)} and {say(b)} units.", f"Whole {full_w} × {full_h}; triangle legs {a} and {b}."),
                 ("Find the area left after that corner is removed.", "Subtract the triangle's area.")),
                 ((f"The whole rectangle has area {say(full_w*full_h)}. The right triangle is half of a rectangle with sides {say(a)} and {say(b)}.", f"Triangle = ½ × {a} × {b} = {Fraction(a*b,2)}"),
-                 (f"Subtract the triangle. That leaves {say(remaining)} square units.", f"{full_w*full_h} − {Fraction(a*b,2)} = {remaining}")), rectangle(full_w,full_h)),
+                 (f"Subtract the triangle. That leaves {say(remaining)} square units.", f"{full_w*full_h} − {Fraction(a*b,2)} = {remaining}")), corner_cut),
             Example("Subtract two rectangles that overlap", (
                 (f"On a {say(width)} by {say(height)} board, shade a lower-left rectangle {say(cut1[2])} columns wide and {say(cut1[3])} rows high.", f"Board {width} × {height}. Shade lower-left {cut1[2]} × {cut1[3]}."),
                 (f"Shade the rectangle covering all columns from the fourth onwards and rows from the third upwards, with rows numbered from the bottom. How much area is unshaded?", f"Also shade x from 3 to {width}, y from 2 to {height}.")),

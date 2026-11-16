@@ -38,7 +38,7 @@ def enumeration(lesson):
                 ("How many possible ordered pairs of readings are there? A and B are distinct counters.", "Count possible readings for A.")),
                 ((f"B equals {say(total)} minus A. Since B is at most {say(cap)}, A must be at least {say(total-cap)}.", f"B = {total} − A; A ≥ {total-cap}."),
                  (f"The cap on A is {say(cap)}. Every integer in that inclusive range gives one legal B, for {say(len(pairs))} pairs.", f"A from {pairs[0][0]} through {pairs[-1][0]}: {len(pairs)} pairs.")),
-                table(("A","B"),*pairs)),
+                table(("A","B"),("?","?")),worked_art=table(("A","B"),*pairs)),
             Example("Enumerate an ordered triple with a parity rule", (
                 (f"Three labelled boxes A, B and C contain a total of {say(goal)} tokens. Each holds between one and {say(limit)} tokens inclusive. A holds an even number.", f"A+B+C = {goal}; each 1–{limit}; A even."),
                 ("Count the different ordered triples of box sizes. The boxes keep their labels.", "How many triples (A, B, C)?")),
@@ -134,7 +134,7 @@ def complement(lesson):
                 ("Someone in both activities still counts as a single student.", "Find the total in either circle.")),
                 ((f"Adding the two activity totals gives {say(left+right)}. It includes each of the {say(overlap)} shared students twice.", f"{left} + {right} = {left+right}, including two copies of the overlap."),
                  (f"Remove one copy of the overlap. There are {say(left+right-overlap)} students who do at least one of the activities.", f"{left} + {right} − {overlap} = {left+right-overlap}.")),
-                 venn(left-overlap,right-overlap,overlap)),
+                 venn("?","?",overlap),worked_art=venn(left-overlap,right-overlap,overlap)),
             Example("Count numbers that avoid three divisibility tests", (
                 (f"Consider integers from {say(start)} through {say(n)}, inclusive. How many are divisible by none of {spoken_list((a,b,c))}?", f"{start}–{n} inclusive. Avoid multiples of {a}, {b}, {c}."),
                 ("Count the union of the three unwanted lists first.", "Exclude every number divisible by at least one.")),

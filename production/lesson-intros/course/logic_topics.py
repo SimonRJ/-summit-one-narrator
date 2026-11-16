@@ -79,9 +79,14 @@ def line_plot(rows, lines, horizontal="Input", vertical="Total"):
     axis=len(points)
     points.extend(((0,0,""),(xmax*1.12,0,""),(0,ymax*1.12,"")))
     edges=[(axis,axis+1,3),(axis,axis+2,3),*lines]
-    labels=[(xmax*.6,-ymax*.11,horizontal,3), (xmax*.15,ymax*1.13,vertical,3)]
+    labels=[(xmax*.6,-ymax*.16,horizontal,3), (xmax*.15,ymax*1.13,vertical,3)]
     for x in sorted({point[0] for point in rows}):
         labels.append((x,-ymax*.05,x,3))
+    step = (ymax + 4) // 5
+    if step >= 5:
+        step = (step + 4) // 5 * 5
+    for y in range(step, ymax + 1, step):
+        labels.append((-xmax*.065,y,y,3))
     return geometry(points,edges,captions=labels,keep_aspect=False)
 
 
@@ -94,6 +99,7 @@ def graphs(lesson):
     rates=(2+v%3,6+v,4+v%2)
     values=(0,rates[0]*2,rates[0]*2+rates[1]*3,rates[0]*2+rates[1]*3+rates[2]*4)
     assert [Fraction(values[i+1]-values[i], times[i+1]-times[i]) for i in range(3)]==list(rates)
+    readings_by_time = list(zip(times, values))
     slow=2+v%3
     faster=slow+2+v%2
     cross=4+v
@@ -117,7 +123,8 @@ def graphs(lesson):
                 ((f"Divide each rise by its own time interval. The first rise is {say(values[1])} over two minutes, giving {say(rates[0])} per minute.", f"0–2: {values[1]} ÷ 2 = {rates[0]} / min"),
                  (f"The next two rates are {say(rates[1])} and {say(rates[2])} per minute. Use intervals of three minutes and four minutes.", f"2–5: {rates[1]}/min; 5–9: {rates[2]}/min"),
                  (f"The highest rate is {say(rates[1])}. This is the interval from minute two to minute five.", "Fastest rise: minutes 2–5.")),
-                line_plot(list(zip(times,values)),[(0,1,0),(1,2,1),(2,3,0)],"Minutes","Total count")),
+                line_plot(readings_by_time,[(0,1,0),(1,2,0),(2,3,0)],"Minutes","Total count"),
+                worked_art=line_plot(readings_by_time,[(0,1,0),(1,2,1),(2,3,0)],"Minutes","Total count")),
             Example("Locate a crossing and interpret the prices", (
                 (f"Plan A charges a fixed fee of {say(fixed)} dollars and then {say(slow)} dollars per visit. Plan B charges {say(faster)} dollars per visit with no fixed fee.", f"A costs {fixed} + {slow}x. B costs {faster}x."),
                 ("At how many visits are the costs equal, and which plan is cheaper after that?", "Find the crossover on the graph.")),

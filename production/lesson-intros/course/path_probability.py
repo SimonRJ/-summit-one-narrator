@@ -156,8 +156,8 @@ def probability(lesson):
     answer=Fraction(good,all_groups)
     ordered=Fraction(red,n)*Fraction(red-1,n-1)*Fraction(blue,n-2)
     assert answer==3*ordered and good==sum(sum(x<red for x in s)==2 for s in combinations(range(n),3))
-    outcomes=table(("A / B",*range(1,size+1)),*((a,*(a+b for b in range(1,size+1))) for a in range(1,size+1)),
-                   highlight=tuple(wins))
+    outcome_rows = [("A / B", *range(1, size + 1))]
+    outcome_rows.extend((a, *(a + b for b in range(1, size + 1))) for a in range(1, size + 1))
     return Topic(
         (("Probability compares favourable outcomes with all possible outcomes when each outcome being counted is equally likely. First choose outcomes you can count fairly.", "Favourable outcomes ÷ equally likely outcomes."),
          ("With more than one draw, check whether drawing one object changes the choices on the next draw.", "Without replacement changes the next draw.")),
@@ -173,7 +173,8 @@ def probability(lesson):
                 (f"Two fair independent spinners each have equal sectors numbered one to {say(size)}. What is the probability their numbers sum to {say(target)}?", f"Each spinner 1–{size}. Target sum {target}."),
                 ("Make a row for every number on the first spinner, and a column for every number on the second.", "Count equal pairs, not possible sums.")),
                 ((f"There are {say(size**2)} equally likely ordered pairs. In each row use a second reading of {say(target)} minus the first reading, if it is present.", f"{size} × {size} = {size**2} ordered pairs."),
-                 (f"There are {say(len(wins))} favourable pairs. Dividing by the total gives {say(medium)}.", f"P(sum {target}) = {len(wins)}/{size**2} = {medium}.")),outcomes),
+                 (f"There are {say(len(wins))} favourable pairs. Dividing by the total gives {say(medium)}.", f"P(sum {target}) = {len(wins)}/{size**2} = {medium}.")),
+                table(*outcome_rows),worked_art=table(*outcome_rows,highlight=sorted(wins))),
             Example("Draw exactly two red counters without replacement", (
                 (f"A bag contains {say(red)} red counters and {say(blue)} blue counters. Draw three counters at random without replacing any of them.", f"{red} red, {blue} blue. Draw 3 without replacement."),
                 ("What is the probability of getting exactly two red counters? Any order of colours is allowed.", "Find the chance of exactly 2 reds.")),
