@@ -1,44 +1,29 @@
-name: Record the next lesson introduction in parallel
+name: Prepare the next Summit One lesson introductions
+
 on:
   push:
     branches: [codex/lesson-intro-runtime-check]
     paths: ['.github/workflows/summit-first-pending-intro.yml']
+
+concurrency:
+  group: summit-one-lesson-intro-ahead
+  cancel-in-progress: false
+
 permissions:
   contents: read
 
 jobs:
-  plan:
-    runs-on: ubuntu-24.04
-    outputs:
-      lanes: ${{ steps.plan.outputs.lanes }}
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          persist-credentials: false
-      - id: plan
-        run: |
-          python production/lesson-intros/course/compile_intros.py S054
-          python - <<'PY'
-          import json, os
-          from pathlib import Path
-          scenes = json.loads(Path("production/scripts/S054.json").read_text())["scenes"]
-          lanes = [{"index": i+1, "words": 0, "requests": []} for i in range(8)]
-          for item in sorted(scenes, key=lambda scene: -len(scene["narration"].split())):
-              lane = min(lanes, key=lambda slot: slot["words"])
-              lane["words"] += len(item["narration"].split())
-              lane["requests"].append({"lesson": "S054", "scene": item["n"]})
-          data = {"include": [{"index": lane["index"], "requests": json.dumps(lane["requests"], separators=(",",":"))} for lane in lanes]}
-          with open(os.environ["GITHUB_OUTPUT"], "a") as stream:
-              print("lanes=" + json.dumps(data,separators=(",",":")), file=stream)
-          PY
-
-  voice:
-    needs: plan
+  produce:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 280
+    permissions:
+      actions: read
+      contents: write
     strategy:
       fail-fast: false
-      matrix: ${{ fromJSON(needs.plan.outputs.lanes) }}
+      max-parallel: 4
+      matrix:
+        lesson: [S137, S138, S139, S141]
     env:
       HF_HUB_DISABLE_XET: '1'
       TOKENIZERS_PARALLELISM: 'false'
@@ -49,66 +34,57 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
+          ref: 'c76c944209c936b9297a740bd68e2e6b857e341d'
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Install the exact voice model
-        run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y ffmpeg libsndfile1
-          pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu
-          pip install 'transformers>=4.45,<5' 'huggingface-hub<1' einops pydantic soundfile librosa safetensors tqdm numpy scipy inflect addict argbind
-          pip install --no-deps 'git+https://github.com/OpenBMB/VoxCPM.git@300e4260b509066151d623dc9c0aa922cf82232b'
-      - name: Record the selected scenes
+      - name: Identify identical reusable teaching passages
+        id: voice
         env:
-          REQUESTS: ${{ matrix.requests }}
+          LESSON: ${{ matrix.lesson }}
         run: |
-          python production/lesson-intros/course/compile_intros.py S054
-          printf '%s\n' "$REQUESTS" > "$RUNNER_TEMP/requests.json"
-          python production/t01-studio/synth.py --sequence "$RUNNER_TEMP/requests.json" --threads 4
-      - uses: actions/upload-artifact@v4
+          key=$(python production/lesson-intros/course/produce_lesson.py "$LESSON" --cache-key)
+          echo "key=$key" >> "$GITHUB_OUTPUT"
+      - name: Reuse verified Voice C audio for identical passages
+        uses: actions/cache@v4
+        continue-on-error: true
         with:
-          name: S054-voice-${{ matrix.index }}
-          path: |
-            build/t01-studio/S054-*.wav
-            build/t01-studio/S054-*.json
-          compression-level: 1
-          retention-days: 1
-
-  render:
-    needs: voice
-    runs-on: ubuntu-24.04
-    timeout-minutes: 32
-    permissions:
-      contents: write
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          persist-credentials: false
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-      - uses: actions/download-artifact@v4
-        with:
-          pattern: S054-voice-*
-          merge-multiple: true
-          path: build/t01-studio
-      - name: Synchronize narration and render the next lesson introduction
+          path: build/t01-studio/shared-voice
+          key: summit-intro-voice-c-${{ steps.voice.outputs.key }}
+      - name: Install the pinned Voice C and video runtime
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y ffmpeg fonts-open-sans fonts-dejavu-core libsndfile1
-          pip install pillow numpy soundfile num2words faster-whisper
-          python production/lesson-intros/course/compile_intros.py S054
-          python production/t01-studio/prepare_audio.py S054
-          python production/t01-studio/render.py S054 --preview
-          python production/t01-studio/render.py S054
-      - name: Supply the checked introduction if it is still awaiting upload
+          sudo apt-get install -y ffmpeg libsndfile1 fonts-open-sans fonts-dejavu-core
+          pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install 'transformers>=4.45,<5' 'huggingface-hub<1' einops pydantic soundfile librosa safetensors tqdm numpy scipy inflect addict argbind pillow num2words faster-whisper
+          pip install --no-deps 'git+https://github.com/OpenBMB/VoxCPM.git@300e4260b509066151d623dc9c0aa922cf82232b'
+      - name: Record, align and render the lesson introduction
+        env:
+          LESSON: ${{ matrix.lesson }}
+        run: python production/lesson-intros/course/produce_lesson.py "$LESSON" --attempt 0
+      - name: Upload this checked movie
         env:
           GH_TOKEN: ${{ github.token }}
-          PYTHONPATH: production/lesson-intros/course
-        run: |
-          python - <<'PY'
-          from release_intro import current_candidate, stage
-          if not current_candidate("S054"):
-              stage("S054")
-          PY
+          LESSON: ${{ matrix.lesson }}
+        run: python production/lesson-intros/course/release_intro.py stage "$LESSON"
+      - name: Save diagnostics if a film needs another take
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: diagnostics-${{ matrix.lesson }}
+          path: |
+            build/t01-studio/${{ matrix.lesson }}/alignment-failure.json
+            build/t01-studio/${{ matrix.lesson }}/storyboard/*.jpg
+          if-no-files-found: ignore
+          retention-days: 3
+      - name: Retain complete scenes for a retry
+        if: failure() || cancelled()
+        uses: actions/upload-artifact@v4
+        with:
+          name: recordings-${{ matrix.lesson }}
+          path: |
+            build/t01-studio/${{ matrix.lesson }}-*.wav
+            build/t01-studio/${{ matrix.lesson }}-*.json
+          compression-level: 1
+          if-no-files-found: ignore
+          retention-days: 1
