@@ -1,14 +1,13 @@
 name: Publish and verify completed Summit One introductions
-run-name: Start the continuing Summit One playback checks
+run-name: Publish and verify the finished Lessons 143 and 146
 on:
   push:
     branches: [codex/lesson-intro-runtime-check]
     paths: ['.github/workflows/summit-intro-fastlane.yml']
 permissions:
   contents: write
-  actions: write
 concurrency:
-  group: summit-intro-ready-film-publishing
+  group: summit-intro-publish-s143-s146
   cancel-in-progress: false
 jobs:
   publish:
@@ -28,10 +27,4 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          python production/lesson-intros/course/release_intro.py publish S139 --wait-minutes 10
-      - name: Start the continuing playback checker
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          gh workflow run summit-intro-series.yml --repo "$GITHUB_REPOSITORY" \
-            --ref codex/lesson-intro-series -f producer_run=43823192284
+          python production/lesson-intros/course/release_intro.py publish S143 S146 --wait-minutes 10
