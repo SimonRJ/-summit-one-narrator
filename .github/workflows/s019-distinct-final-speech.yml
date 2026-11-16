@@ -1,0 +1,94 @@
+name: Record the distinct chessboard examples for lesson 19
+on:
+  push:
+    branches: [codex/s019-distinct-20261116]
+    paths: ['.github/workflows/s019-distinct-final-speech.yml']
+permissions:
+  contents: read
+  actions: read
+jobs:
+  record:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        scene: [3, 4, 5, 6]
+    env:
+      HF_HUB_DISABLE_XET: '1'
+      TOKENIZERS_PARALLELISM: 'false'
+      OMP_NUM_THREADS: '2'
+      MKL_NUM_THREADS: '2'
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install the pinned approved narrator
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg libsndfile1
+          pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install 'transformers>=4.45,<5' 'huggingface-hub<1' einops pydantic soundfile librosa safetensors tqdm numpy scipy inflect addict argbind
+          pip install --no-deps 'git+https://github.com/OpenBMB/VoxCPM.git@300e4260b509066151d623dc9c0aa922cf82232b'
+      - name: Record the scene using the approved reference
+        run: python production/t01-studio/synth.py --lesson S019 --scene "${{ matrix.scene }}"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: s019-final-speech-${{ matrix.scene }}
+          path: |
+            build/t01-studio/S019-*.wav
+            build/t01-studio/S019-*.json
+          if-no-files-found: error
+          retention-days: 14
+          compression-level: 1
+  align:
+    needs: record
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: s019-final-speech-*
+          merge-multiple: true
+          path: build/t01-studio
+      - name: Reuse unchanged scene recordings from the first run
+        run: |
+          status=''
+          for attempt in {1..70}; do
+            status=$(gh run view 43864876293 --repo "$GITHUB_REPOSITORY" --json status --jq .status)
+            [ "$status" = completed ] && break
+            sleep 20
+          done
+          [ "$status" = completed ]
+          gh run download 43864876293 --repo "$GITHUB_REPOSITORY" --pattern 's019-distinct-speech-*' --dir old-speech
+          for n in 1 2 7 8 9 10 11; do
+            padded=$(printf '%02d' "$n")
+            cp "old-speech/s019-distinct-speech-${n}/S019-${padded}.wav" build/t01-studio/
+            cp "old-speech/s019-distinct-speech-${n}/S019-${padded}.json" build/t01-studio/
+          done
+      - name: Check reference, text and speech alignment
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg libsndfile1
+          pip install numpy soundfile num2words faster-whisper
+          python production/t01-studio/prepare_audio.py S019
+      - uses: actions/upload-artifact@v4
+        with:
+          name: s019-final-audio-and-timeline
+          path: build/t01-studio/S019/
+          if-no-files-found: error
+          retention-days: 14
+          compression-level: 1
