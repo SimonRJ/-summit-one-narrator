@@ -600,7 +600,14 @@ def finite_state(lesson):
     stem=1+v%3
     total=51+7*v
     loop=states[stem:]
-    state=loop[(total-stem)%len(loop)]
+    full_loops, remainder = divmod(total - stem, len(loop))
+    last_entry = total - remainder
+    state = loop[remainder]
+    if remainder:
+        moves = "move" if remainder == 1 else "moves"
+        finish_check = f"Take {say(remainder)} more {moves} from there to reach state {say(state)} at step {say(total)}."
+    else:
+        finish_check = f"That is already step {say(total)}, so the machine stays at state {say(state)}."
     mapping=dict(zip(states,(*states[1:],states[stem])))
     direct=states[0]
     for _ in range(total):
@@ -621,16 +628,18 @@ def finite_state(lesson):
                 (f"On each press, one dial moves to its next position in a cycle of {say(order[0])}. A second dial moves in a cycle of {say(order[1])}.", f"Two dials: cycles of {order[0]} and {order[1]}."),
                 ("After how many presses is the full starting pair first restored?", "Both dial positions must return.")),
                 ((f"The first dial resets at multiples of {say(order[0])}, and the second at multiples of {say(order[1])}.", "Match their reset steps."),
-                 (f"The first positive common reset occurs after {say(period)} presses. The state consists of both dials, not just one.", f"Full period = LCM({order[0]}, {order[1]}) = {period}")), tiles(*order,period)),
+                 (f"The first positive common reset occurs after {say(period)} presses. The state consists of both dials, not just one.", f"Full period = LCM({order[0]}, {order[1]}) = {period}")),
+                tiles(*order),worked_art=tiles(*order,period,highlight=(2,))),
             Example("Find a late state after a lead-in", (
                 (f"A machine starts at state one. It moves up through the numbered states until {say(states[-1])}. From there its next state is {say(states[stem])}, and it follows the same rule forever.", f"1 → 2 → … → {states[-1]} → {states[stem]}"),
                 (f"The starting state is at step zero. Where is it after {say(total)} moves?", f"Find state at step {total}.")),
                 ((f"At step {say(stem)} the machine first reaches {say(loop[0])}, the first state of the loop. The earlier states do not recur.", f"Lead-in: {stem} moves"),
                  (f"The loop has {say(len(loop))} states. From the loop entry, there are {say(total-stem)} more moves to make.", f"Remaining loop moves: {total} − {stem}"),
-                 (f"Divide by the loop length. The remainder is {say((total-stem)%len(loop))}. Move that far from the first loop state to reach {say(state)}.", f"Remainder {(total-stem)%len(loop)} → state {state}")),
+                 (f"Divide by the loop length. The remainder is {say(remainder)}. Move that far from the first loop state to reach {say(state)}.", f"Remainder {remainder} → state {state}")),
                 chain(*states,"↩ "+str(states[stem])),worked_art=chain(*loop),proof=(
-                    ("When counting from the entry time, a remainder of zero means no extra move. That puts the machine at the entry state again.", "Index the entry state at offset zero."),
-                    (f"The last state in the loop points back to {say(loop[0])}, so the calculation never returns to the earlier lead-in states.", "Check the arrow that closes the loop."))),
+                    (f"Each complete loop returns to state {say(loop[0])}. After {say(full_loops)} complete loops, we are back at that state at step {say(last_entry)}.", f"{stem} + {full_loops} × {len(loop)} = {last_entry} → state {loop[0]}"),
+                    (finish_check, f"{last_entry} + {remainder} = {total} → state {state}")),
+                proof_art=tiles(*loop,highlight=(remainder,))),
         ),
         (("A displayed position may not capture the full situation. Include any second dial or change in the rule that affects the next move.", "Match one visible detail", "Match the full state"),
          ("The lead-in happens only once. Subtract its length before dividing by the size of the loop.", "Use the loop from step zero automatically", "Find where the loop really begins")),
