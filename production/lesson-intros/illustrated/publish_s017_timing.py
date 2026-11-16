@@ -18,6 +18,10 @@ def main(out):
     report=json.loads((out/'S017-qa.json').read_text())
     _,catalogue=get_catalogue()
     row=next(x for x in catalogue['entries'] if x['id']=='S017')
+    if row.get('illustration')==1 and row.get('illustratedRevision')==2:
+        assert row['sha256']==report['sha256']
+        print('S017 v2 is already selected')
+        return
     assert row['illustration']==1 and row['sha256']==EXPECTED_LIVE
     assert row['legacy_sha256']==timeline['legacy_sha256'] and row['seconds']==report['seconds']
     assets=json.loads(gh('release','view','lesson-introductions','--repo',REPOSITORY,'--json','assets'))['assets']
@@ -34,11 +38,11 @@ def main(out):
     for attempt in range(8):
         previous,catalogue=get_catalogue()
         row=next(x for x in catalogue['entries'] if x['id']=='S017')
-        if row.get('illustration')==2:
+        if row.get('illustration')==1 and row.get('illustratedRevision')==2:
             assert row['sha256']==report['sha256']
             return
         assert row['illustration']==1 and row['sha256']==EXPECTED_LIVE
-        row.update(illustration=2,previous_illustrated_sha256=EXPECTED_LIVE,sha256=report['sha256'],
+        row.update(illustration=1,illustratedRevision=2,previous_illustrated_sha256=EXPECTED_LIVE,sha256=report['sha256'],
                    illustrated_at=datetime.now(timezone.utc).isoformat())
         content=json.dumps(catalogue,ensure_ascii=False,separators=(',',':'))+'\n'
         try:
