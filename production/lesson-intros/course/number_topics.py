@@ -178,7 +178,7 @@ def cryptarithms(lesson):
         (
             ("Write the columns and mark the possible carries. Use the very first digit of a three-digit sum to narrow your options.", "Use the strongest column", "Check the hundreds digit and then the units."),
             ("After solving, put each value back into the original expression. An equality and a legal assignment are both required.", "Substitute every digit", "Verify the sum and the digit rules."),
-        ), cover=grid(("A","B"),("A","B"),("B","C","D")),
+        ), cover=doubled_grid,
     )
 
 
