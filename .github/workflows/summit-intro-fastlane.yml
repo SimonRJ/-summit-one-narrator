@@ -1,4 +1,5 @@
 name: Publish and verify completed Summit One introductions
+run-name: Verify the next two Summit One lesson introductions
 on:
   push:
     branches: [codex/lesson-intro-runtime-check]
