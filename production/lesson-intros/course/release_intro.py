@@ -3,6 +3,7 @@
 import argparse
 import base64
 from datetime import datetime, timezone
+from functools import lru_cache
 from hashlib import sha256
 import json
 import os
@@ -83,13 +84,24 @@ def asset_entry(lesson):
     return json.loads(public(ASSET_ROOT + assets(lesson)[2])[2])
 
 
+@lru_cache(maxsize=None)
+def lesson_script_sha256(lesson):
+    from compile_intros import compile_lesson, lessons
+
+    plan = next(item for item in lessons() if item.id == lesson)
+    compile_lesson(plan)
+    script_file = ROOT / "production/scripts" / (lesson + ".json")
+    return sha256(script_file.read_bytes()).hexdigest()
+
+
 def current_candidate(lesson):
     try:
         report = asset_entry(lesson)
-        if report.get("art_revision") == ART_REVISION:
-            return report
     except (HTTPError, URLError, TimeoutError, json.JSONDecodeError):
-        pass
+        return None
+    if (report.get("art_revision") == ART_REVISION
+            and report.get("script_sha256") == lesson_script_sha256(lesson)):
+        return report
     return None
 
 

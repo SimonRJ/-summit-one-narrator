@@ -119,6 +119,7 @@ def cryptarithms(lesson):
     small=v<2
     first,second,result,a,b,c,d=(min(values) if small else max(values))
     target="smallest" if small else "largest"
+    doubled_grid = grid(("", "A", "B"), ("+", "A", "B"), ("B", "C", "D"))
     if use_reverse:
         hard=Example("Use the hundreds and units clues", (
             ("A B plus A C gives B D zero. A, B, C and D are four distinct digits and A and B are nonzero.", "AB + AC = BD0"),
@@ -127,7 +128,7 @@ def cryptarithms(lesson):
             ("Adding two two-digit numbers can carry just one hundred. Therefore B is one.", "B = 1"),
             ("The units add to a number ending in zero. One plus C can only make ten, so C is nine and one ten carries.", "1 + C = 10, so C = 9"),
             ("The tens then give twice A plus one. It must reach ten, and the units of that calculation give D.", "2A + 1 = 10 + D"),
-        ), grid(("A","B"),("A","C"),("B","D","0")), proof=(
+        ), grid(("", "A", "B"), ("+", "A", "C"), ("B", "D", "0")), proof=(
             (("Try A equals five. It makes D one, already used by B. Six works."
               if small else "Nine is already used by C. Eight gives D seven, which is available.") +
              " The tens rule and distinct digits rule give the first allowable choice in the required order.", f"A = {a}, D = {d}"),
@@ -141,7 +142,7 @@ def cryptarithms(lesson):
             ("The largest possible sum of two two-digit numbers is below two hundred, so the hundreds digit B is one.", "B = 1"),
             ("Now the units are one plus one. That gives D equals two, with no carry into the tens.", "D = 2"),
             ("The tens double A and must reach ten. That means A is at least five. Check distinct digits as you choose A.", "A ≥ 5 and C = 2A − 10"),
-        ), grid(("A","B"),("A","B"),("B","C","D")), proof=(
+        ), doubled_grid, proof=(
             ((f"Start at five. Five gives C equals zero, distinct from the other letters."
               if small else "Start at nine. Nine gives C equals eight, distinct from the other letters.") +
              " This endpoint of the possible tens digits already works.", f"A = {a}, C = {c}"),
@@ -156,7 +157,7 @@ def cryptarithms(lesson):
             ("The hundreds carry is one, so B is one. The units give two with no carry, so D is two.", "B = 1 and D = 2"),
             ("Twice A must produce a hundreds carry. A can be five through nine. The tens digit C is twice A minus ten.", "A = 5–9, C = 2A − 10"),
             ("For A equals six, C would equal two, repeating D. The other four candidates assign four different digits, and each addition checks.", "Exclude A = 6 because C = D = 2."),
-        ), grid(("A","B"),("A","B"),("B","C","D")), proof=(
+        ), doubled_grid, proof=(
             (f"The surviving numbers are {spoken_list(choices)}. Every possible A has been tested, so no other value is missing.", f"Valid AB: {', '.join(map(str,choices))}"),
             ("Test any of the doubles in the original pattern. For example, doubling seventy-one gives one hundred and forty-two.", f"{len(choices)} solutions"),
         ), proof_art=tiles(*choices))
