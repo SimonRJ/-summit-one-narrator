@@ -192,13 +192,27 @@ class Art:
         alpha = min(ease((time - caption["start"]) / .12), ease((caption["end"] - time) / .12))
         if alpha <= 0:
             return
-        text = caption["text"]
-        size = 32
-        while lettering(text, self.px(size), True, False).width > self.px(1160):
+        size = 45
+        words = caption["text"].split()
+        while True:
+            lines = ['']
+            for word in words:
+                trial = (lines[-1] + ' ' + word).strip()
+                if lines[-1] and lettering(trial, self.px(size), True, False).width > self.px(1160):
+                    lines.append(word)
+                else:
+                    lines[-1] = trial
+            if len(lines) <= 2 or size <= 32:
+                break
             size -= 1
-        width = lettering(text, self.px(size), True, False).width / self.scale + 40
-        self.rounded(640-width/2, 650, width, 55, 11, "#0b1420", alpha)
-        self.label(text, 640, 677, size, WHITE, alpha, bold=True)
+        width = max(lettering(line, self.px(size), True, False).width for line in lines) / self.scale + 42
+        if len(lines) == 1:
+            self.rounded(640-width/2, 648, width, 59, 11, "#0b1420", alpha)
+            self.label(lines[0], 640, 678, size, WHITE, alpha, bold=True)
+        else:
+            self.rounded(640-width/2, 606, width, 102, 11, "#0b1420", alpha)
+            self.label(lines[0], 640, 631, size, WHITE, alpha, bold=True)
+            self.label(lines[1], 640, 681, size, WHITE, alpha, bold=True)
 
 
 class Cues:

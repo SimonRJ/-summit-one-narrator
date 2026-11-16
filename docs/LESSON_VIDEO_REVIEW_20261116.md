@@ -10,10 +10,11 @@ The earlier generic production renderer `production/t01-studio/intro_story_draw.
 
 | Item | Observation from this review | Status |
 | --- | --- | --- |
-| S001–S002 | Sampled live frames. Their published films follow `production/lesson-intros/S001.json` and `S002.json`; the different files under `production/scripts/` describe different examples. The S001 chapter labels/times do not consistently describe the current film. | Full video and chapter review still required. |
+| S001 | Sampled the live film and found that the six named symbols were presented as words rather than the shapes being described. Created a replacement with six individually drawn shapes, timed drawing, and clear distinctions for remainder five and zero. The arithmetic and cycle indexing were independently checked. | Replacement rendered locally; final motion check and publication are pending. |
+| S002 | Sampled live frames. The published film follows `production/lesson-intros/S002.json`; the different file under `production/scripts/` describes different examples. | Full video and chapter review still required. |
 | S003 | Sampled live frames show missing glyph boxes in the fraction/arrow text in the stamp example. | Needs correction and full video review. |
 | S004–S006 | Sampled frames only. These use more individually drawn diagrams than the generic later series. | Full video, narration and phone review still required. |
-| S008 | Existing film sampled against its narration: largely static tiles and formula cards. Created an individual replacement with mirrored digit pairs, place-value grouping, timed centre-digit search and independently enumerated the 100 palindromes. The original published audio is copied without re-encoding. | Local Full HD render and intermediate motion frames checked; publishing and full playback review must be recorded separately. |
+| S008 | Existing film sampled against its narration: largely static tiles and formula cards. Created an individual replacement with mirrored digit pairs, place-value grouping, timed centre-digit search and independently enumerated the 100 palindromes. The original published audio is copied without re-encoding. | Replacement is live; playback and a chapter jump were checked in a desktop browser. Full-length audio/visual and phone review remain required. |
 | S078, S108, S142 | New illustrated versions from another production run were sampled against their transcripts. Their figures are topic-specific; the samples alone do not establish a complete review. | Review entire films and playback on phone. |
 | Other lesson introductions and 72 teaching films | No claim of a completed individual visual review. | Await review. |
 
