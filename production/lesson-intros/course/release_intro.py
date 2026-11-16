@@ -203,27 +203,29 @@ def wait_for_raw(path, condition):
     raise TimeoutError("The live catalogue has not caught up")
 
 
-def mark(lesson, report, status):
+def contains_publications(data, reports, status):
+    entries = {row["id"]: row for row in data["entries"]}
+    return all(entries.get(lesson, {}).get("sha256") == report["sha256"]
+               and entries[lesson]["status"] == status for lesson, report in reports.items())
+
+
+def mark(reports, status):
     previous, catalogue = get_catalogue()
     rows = {item["id"]: item for item in catalogue["entries"]}
-    row = rows.get(lesson, {})
-    if row.get("status") == "verified":
-        assert row["sha256"] == report["sha256"]
-        return catalogue
-    updated = {
-        "id": lesson, "title": report["title"], "seconds": report["seconds"],
-        "sha256": report["sha256"], "status": status,
-    }
-    if status == "verified":
-        updated["verified_at"] = datetime.now(timezone.utc).isoformat()
-    rows[lesson] = updated
+    for lesson, report in reports.items():
+        row = rows.get(lesson, {})
+        if row.get("status") == "verified":
+            assert row["sha256"] == report["sha256"]
+            continue
+        rows[lesson] = {
+            "id": lesson, "title": report["title"], "seconds": report["seconds"],
+            "sha256": report["sha256"], "status": status,
+            **({"verified_at": datetime.now(timezone.utc).isoformat()} if status == "verified" else {}),
+        }
     new = {"version": 1, "entries": [rows[id] for id in sorted(rows)]}
-    if row != updated:
-        put_file(CATALOGUE, new, f"{status.title()} Summit One introduction {lesson}", previous)
-    wait_for_raw(CATALOGUE, lambda data: any(
-        item["id"] == lesson and item["sha256"] == report["sha256"] and item["status"] == status
-        for item in data["entries"]
-    ))
+    if catalogue != new:
+        label = ", ".join(reports)
+        put_file(CATALOGUE, new, f"{status.title()} Summit One introductions {label}", previous)
     return new
 
 
@@ -239,31 +241,58 @@ def confirm_player(lesson):
         time.sleep(25)
 
 
+def ready_window(lessons, deadline):
+    first, *following = lessons
+    reports = {first: wait_for_candidate(first, deadline)}
+    for lesson in following:
+        report = current_candidate(lesson)
+        if not report:
+            break
+        verified_report(report, lesson)
+        assert report["title"] == course()[lesson]
+        reports[lesson] = report
+    return reports
+
+
+def prepare_watch_page(lesson, report):
+    examine_download(lesson, report)
+    detail = "data/lesson-intros/" + lesson + ".json"
+    try:
+        detail_sha, existing = get_file(detail)
+    except subprocess.CalledProcessError:
+        detail_sha, existing = None, None
+    if existing != report:
+        put_file(detail, report, f"Save the chapters and transcript for {lesson}", detail_sha)
+
+
+def report_progress(catalogue):
+    count = len(LEGACY) + sum(item["status"] == "verified" for item in catalogue["entries"])
+    counts = f"videos complete : {count}\nvideos to go: {len(course())-count}"
+    print(counts, flush=True)
+    if "GITHUB_STEP_SUMMARY" in os.environ:
+        with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as stream:
+            print(counts + "\n", file=stream)
+
+
 def publish(lessons, max_wait_minutes):
     deadline = time.monotonic() + max_wait_minutes * 60
-    for lesson in lessons:
-        _, current = get_catalogue()
-        if any(item["id"] == lesson and item["status"] == "verified" for item in current["entries"]):
-            continue
-        report = wait_for_candidate(lesson, deadline)
-        examine_download(lesson, report)
-        detail = "data/lesson-intros/" + lesson + ".json"
-        try:
-            detail_sha, existing = get_file(detail)
-        except subprocess.CalledProcessError:
-            detail_sha, existing = None, None
-        if existing != report:
-            put_file(detail, report, f"Save the chapters and transcript for {lesson}", detail_sha)
-        wait_for_raw(detail, lambda data: data["sha256"] == report["sha256"])
-        mark(lesson, report, "checking")
-        confirm_player(lesson)
-        final = mark(lesson, report, "verified")
-        count = len(LEGACY) + sum(item["status"] == "verified" for item in final["entries"])
-        counts = f"videos complete : {count}\nvideos to go: {len(course())-count}"
-        print(counts, flush=True)
-        if "GITHUB_STEP_SUMMARY" in os.environ:
-            with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as stream:
-                print(counts + "\n", file=stream)
+    _, catalogue = get_catalogue()
+    verified = {row["id"] for row in catalogue["entries"] if row["status"] == "verified"}
+    remaining = [lesson for lesson in lessons if lesson not in verified]
+    last_window = {}
+    while remaining:
+        reports = ready_window(remaining, deadline)
+        for lesson, report in reports.items():
+            prepare_watch_page(lesson, report)
+        mark(reports, "checking")
+        wait_for_raw(CATALOGUE, lambda data: contains_publications(data, reports, "checking"))
+        for lesson, report in reports.items():
+            confirm_player(lesson)
+            report_progress(mark({lesson: report}, "verified"))
+        remaining = remaining[len(reports):]
+        last_window = reports
+    if last_window:
+        wait_for_raw(CATALOGUE, lambda data: contains_publications(data, last_window, "verified"))
 
 
 def select(max_items):

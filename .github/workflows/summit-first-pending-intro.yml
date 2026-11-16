@@ -14,7 +14,7 @@ jobs:
     timeout-minutes: 210
     concurrency:
       group: summit-one-lesson-intro-player-check
-      cancel-in-progress: false
+      cancel-in-progress: true
     steps:
       - uses: actions/checkout@v4
         with:
