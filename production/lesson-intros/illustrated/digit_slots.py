@@ -28,8 +28,8 @@ def introduction(a,c):
     card(a,mix(430,640,p),315-70*math.sin(math.pi*p),'4',BLUE)
     card(a,mix(640,430,p),315+70*math.sin(math.pi*p),'0',GOLD)
     card(a,850,315,'7',AQUA)
-    label(a,'407',400,522,42,BLUE,1-p)
-    label(a,'047 is not three-digit',640,522,35,PINK,p)
+    label(a,'407',640,522,42,BLUE,max(0,1-2*p))
+    label(a,'047 is not three-digit',640,522,35,PINK,max(0,2*p-1))
 
 
 def exam(a,c):
