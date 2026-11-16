@@ -1,0 +1,82 @@
+name: Re-record the lesson 19 challenge clearly
+on:
+  push:
+    branches: [codex/s019-distinct-20261116]
+    paths: ['.github/workflows/s019-clear-challenge.yml']
+permissions:
+  contents: read
+  actions: read
+jobs:
+  record:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      HF_HUB_DISABLE_XET: '1'
+      TOKENIZERS_PARALLELISM: 'false'
+      OMP_NUM_THREADS: '2'
+      MKL_NUM_THREADS: '2'
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install the pinned approved narrator
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg libsndfile1
+          pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install 'transformers>=4.45,<5' 'huggingface-hub<1' einops pydantic soundfile librosa safetensors tqdm numpy scipy inflect addict argbind
+          pip install --no-deps 'git+https://github.com/OpenBMB/VoxCPM.git@300e4260b509066151d623dc9c0aa922cf82232b'
+      - name: Re-record the revised question
+        run: python production/t01-studio/synth.py --lesson S019 --scene 7
+      - uses: actions/upload-artifact@v4
+        with:
+          name: s019-clear-challenge-speech
+          path: |
+            build/t01-studio/S019-07.wav
+            build/t01-studio/S019-07.json
+          if-no-files-found: error
+          retention-days: 14
+  align:
+    needs: record
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          name: s019-clear-challenge-speech
+          path: build/t01-studio
+      - name: Reuse the ten unchanged scenes
+        run: |
+          gh run download 43864876293 --repo "$GITHUB_REPOSITORY" --pattern 's019-distinct-speech-*' --dir old-speech
+          gh run download 43865263035 --repo "$GITHUB_REPOSITORY" --pattern 's019-final-speech-*' --dir new-speech
+          for n in 1 2 8 9 10 11; do
+            padded=$(printf '%02d' "$n")
+            cp "old-speech/s019-distinct-speech-${n}/S019-${padded}.wav" build/t01-studio/
+            cp "old-speech/s019-distinct-speech-${n}/S019-${padded}.json" build/t01-studio/
+          done
+          for n in 3 4 5 6; do
+            padded=$(printf '%02d' "$n")
+            cp "new-speech/s019-final-speech-${n}/S019-${padded}.wav" build/t01-studio/
+            cp "new-speech/s019-final-speech-${n}/S019-${padded}.json" build/t01-studio/
+          done
+      - name: Verify script and narrator then align every scene
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg libsndfile1
+          pip install numpy soundfile num2words faster-whisper
+          python production/t01-studio/prepare_audio.py S019
+      - uses: actions/upload-artifact@v4
+        with:
+          name: s019-clear-audio-and-timeline
+          path: build/t01-studio/S019/
+          if-no-files-found: error
+          retention-days: 14
+          compression-level: 1
