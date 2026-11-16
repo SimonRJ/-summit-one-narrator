@@ -46,7 +46,7 @@ def exams(a,c):
     a.heading('A hidden digit in each column',AQUA)
     column(a,'AB','AB','BCD',alpha=c.after('letters or boxes'))
     p=c.after('leading digit',.8)
-    a.arrow((840,405),(690,405),AQUA,p)
+    a.arrow((230,482),(275,482),AQUA,p)
     text(a,'a carry can fix',975,280,34,SOFT,p)
     text(a,'the leading digit',975,330,34,AQUA,p)
 
