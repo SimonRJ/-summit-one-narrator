@@ -881,7 +881,7 @@
       "n": 5,
       "start": 57.06,
       "end": 71.59,
-      "speech_end": 71.49,
+      "speech_end": 67.76,
       "words": [
         {
           "text": "A",
@@ -1053,13 +1053,13 @@
         },
         {
           "text": "too.",
-          "matched": false,
+          "matched": true,
           "start": 67.3,
-          "end": 71.39
+          "end": 67.66
         }
       ],
       "match": 96.55,
-      "timing_method": "automatic word alignment; manual audio review required"
+      "timing_method": "automatic word alignment with localized transcript-guided timing for the last phrase; full listening review remains required"
     },
     {
       "n": 6,
@@ -2957,7 +2957,7 @@
     },
     {
       "start": 66.56,
-      "end": 71.51,
+      "end": 67.79,
       "text": "A square counts too."
     },
     {
