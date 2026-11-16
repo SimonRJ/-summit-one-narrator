@@ -14,7 +14,8 @@ def title(a, section, name):
 
 
 def txt(a, s, x, y, size=31, colour=WHITE, alpha=1, align='center'):
-    a.label(s, x, y, size, colour, alpha, align=align, bold=True)
+    # Keep explanatory labels legible when the video is shown at phone width.
+    a.label(s, x, y, max(size,32), colour, alpha, align=align, bold=True)
 
 
 def board(a, x, y, u, reveal=1, colour=1, removed=0, holes=((0, 0), (3, 3))):
@@ -123,7 +124,6 @@ def medium_answer(a,c):
         domino(a,x+(col+1)*u,y+(r+.5)*u,u,opacity=clamp(q*6-i),swap=bool(r%2))
     txt(a,'1 + 2 + 2 + 2 = 7',925,275,37,WHITE,c.after('seven dominoes'))
     txt(a,'7 dominoes cover 14 squares',925,365,29,AQUA,c.after('fourteen squares'))
-    txt(a,'Each piece covers one of each colour.',925,465,27,SOFT,q)
 
 
 def puzzle(a,c):
