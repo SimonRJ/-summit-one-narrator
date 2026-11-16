@@ -118,7 +118,7 @@ def boundary_choices(a,c):
 
 
 def subtract(a,c):
-    a.heading('Subtract rectangles that contain B',PINK)
+    a.heading('Subtract rectangles containing both',PINK)
     grid(a,240,165,6,5,66,marks=True,labels=True)
     rectangle(a,240,165,66,1,5,2,4,col=PINK)
     p=c.after('two two three and three',.7)
