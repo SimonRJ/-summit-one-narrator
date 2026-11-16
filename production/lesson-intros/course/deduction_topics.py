@@ -90,7 +90,8 @@ def magic_grid(lesson):
                  (f"Subtract the total of all nine entries and divide by three. The centre is {say(centre)}.", f"Centre = ({4*target} − {sum(values)}) ÷ 3 = {centre}.")),
                 grid(("↘","↓","↙"),("→","?","←"),("↗","↑","↖"),highlight=((1,1),))),
             Example("Complete a grid from two specified corners", (
-                (f"Use the same nine values once each in a three-by-three magic grid. The top left is {say(nw)} and the top right is {say(ne)}.", f"Top corners: {nw} and {ne}. Use the same nine values."),
+                (f"Use each of {spoken_list(values)} once in a three-by-three grid. Every row, column and long diagonal has the same sum.", f"Use {', '.join(map(str,values))} once each."),
+                (f"The top left is {say(nw)} and the top right is {say(ne)}.", f"Top corners: {nw} and {ne}."),
                 ("Fill the whole grid. Explain why no other completion can meet these clues.", "Find the unique finished square.")),
                 ((f"The line sum is {say(target)} and the centre is {say(centre)}. Any two cells directly opposite through the centre must total {say(diagonal_sum)}.", f"Opposite cells sum to {target} − {centre} = {diagonal_sum}."),
                  (f"The bottom corners must therefore be {say(sw)} at the left and {say(se)} at the right. The top and bottom row blanks are {say(n)} and {say(s)}.", f"Opposite corners: {sw}, {se}. Row middles: {n}, {s}."),

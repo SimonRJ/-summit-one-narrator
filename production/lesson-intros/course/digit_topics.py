@@ -158,10 +158,10 @@ def digit_positions(lesson):
                 ((f"Ending in zero leaves {say(nonzero)} choices to start. The middle two digits have {say(two_places)} ordered choices after the first and last are taken.", f"End 0: {nonzero} × {two_places} = {zero_ways}."),
                  (f"In each other even ending, zero is unused but still cannot start. There are {say(nonzero-1)} valid first digits and the same middle choices.", f"Nonzero even endings: {len(evens)} × {nonzero-1} × {two_places} = {other_ways}."),
                  (f"Add the two cases to get {say(medium)} different even numbers.", f"{zero_ways} + {other_ways} = {medium}.")),
-                 table(("Final digit","Leading choices"),(0,nonzero),("Nonzero even",nonzero-1))),
+                tiles(*digits),worked_art=table(("Final digit","Leading choices"),(0,nonzero),("Nonzero even",nonzero-1))),
             Example("Use the last-two-digit test and a first-digit bound", (
-                (f"From the same digit set, make a four-digit number with four different digits. It must be below {say(1000*cap)} and divisible by four.", f"4 distinct digits. Number < {1000*cap}; divisible by 4."),
-                ("How many different numbers are possible? Start by listing the legal endings.", "Count endings before choosing the start.")),
+                (f"Choose four different digits from {spoken_list(digits)}.", f"Allowed digits: {', '.join(map(str,digits))}."),
+                (f"How many four-digit numbers are divisible by four and below {say(1000*cap)}? Start by listing the legal endings.", f"4 distinct digits. Number < {1000*cap}; divisible by 4.")),
                 ((f"Only the last two digits determine divisibility by four, because one hundred is a multiple of four. This gives {say(len(endings))} endings with distinct digits from our set.", f"Legal endings: {text_end}."),
                  (f"The thousands digit must be one of {spoken_list(sorted(allowed))}. Remove any of these choices already used in the last two places.", f"First digit choices = {len(allowed)} minus eligible digits used in the ending."),
                  (f"Once the ending and thousands digit are chosen, the hundreds digit has {say(per_hundreds)} choices. It can be zero if still available.", f"Each suffix/first combination has {per_hundreds} choices in the hundreds place.")),
