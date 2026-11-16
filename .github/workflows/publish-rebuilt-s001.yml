@@ -1,0 +1,112 @@
+name: Publish rebuilt lesson 1 introduction
+
+on:
+  push:
+    branches: [codex/s001-visual-rebuild-20261116]
+    paths: ['.github/workflows/publish-rebuilt-s001.yml']
+
+permissions:
+  contents: read
+
+jobs:
+  publish-lesson-1:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    permissions:
+      contents: write
+    steps:
+      - name: Check out reviewed animation source and original film
+        uses: actions/checkout@v4
+        with:
+          path: authoring
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /production/lesson-intros/illustrated/**
+            /media/S001-Intro.mp4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install video tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-dejavu-core
+          pip install Pillow
+      - name: Check mathematics and render with the original audio
+        working-directory: authoring
+        run: |
+          python production/lesson-intros/illustrated/check_s001.py
+          python production/lesson-intros/illustrated/render.py S001 --out ../build/s001 --preview
+          python production/lesson-intros/illustrated/render.py S001 --out ../build/s001 --source media/S001-Intro.mp4
+      - name: Check out the current live site
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          path: main-source
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /media/S001-Intro.mp4
+            /media/S001-Intro-poster.jpg
+            /review/S001-Intro-qa.json
+            /lesson-introduction-media.js
+            /watch-intro-s001.html
+            /sw.js
+      - name: Stage only the reviewed lesson and invalidate its cache
+        run: |
+          python - <<'PY'
+          import hashlib, json, shutil
+          from pathlib import Path
+
+          authoring=Path("authoring/production/lesson-intros/illustrated/S001.json")
+          timeline=json.loads(authoring.read_text())
+          live=Path("main-source")
+          video=live/"media/S001-Intro.mp4"
+          assert hashlib.sha256(video.read_bytes()).hexdigest()==timeline["legacy_sha256"], "Live lesson changed since review"
+          output=Path("build/s001")
+          replacement=output/"S001-Intro-Illustrated.mp4"
+          report=json.loads((output/"S001-qa.json").read_text())
+          assert hashlib.sha256(replacement.read_bytes()).hexdigest()==report["sha256"]
+          shutil.copyfile(replacement,video)
+          shutil.copyfile(output/"S001-Intro-Illustrated-poster.jpg",live/"media/S001-Intro-poster.jpg")
+          qa_path=live/"review/S001-Intro-qa.json"
+          qa=json.loads(qa_path.read_text())
+          qa.update(sha256=report["sha256"], bytes=video.stat().st_size, duration_seconds=report["seconds"],
+                    video="1920×1080 H.264 30 fps", audio="Original AAC packets copied unchanged",
+                    spoken_caption_layers=1, mathematics_verified=True,
+                    visual_review="Sampled motion and captions; full-length and phone review remain pending",
+                    timing_source="Original captions and automatic word-level alignment")
+          qa.pop("word_alignment_percent",None)
+          qa_path.write_text(json.dumps(qa,ensure_ascii=False,indent=2)+"\n")
+          media=live/"lesson-introduction-media.js"
+          text=media.read_text()
+          before='S001: "intro-20261116"'
+          assert before in text
+          media.write_text(text.replace(before,'S001: "intro-20261116-illustrated"',1))
+          watch=live/"watch-intro-s001.html"
+          text=watch.read_text()
+          assert text.count("intro-20261116")==3
+          watch.write_text(text.replace("intro-20261116","intro-20261116-illustrated"))
+          sw=live/"sw.js"
+          text=sw.read_text()
+          assert 'summit-one-lesson-intros-v7' in text
+          sw.write_text(text.replace('summit-one-lesson-intros-v7','summit-one-lesson-intros-v8',1))
+          PY
+      - name: Publish the replacement without changing other content
+        working-directory: main-source
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add media/S001-Intro.mp4 media/S001-Intro-poster.jpg review/S001-Intro-qa.json lesson-introduction-media.js watch-intro-s001.html sw.js
+          git commit -m 'Rebuild lesson 1 introductory animation'
+          git fetch origin main
+          test "$(git rev-parse HEAD^)" = "$(git rev-parse origin/main)" || { echo 'Main changed; stop and review before retrying.'; exit 1; }
+          git push origin HEAD:main
+      - name: Preserve the finished film and visual review sheet
+        uses: actions/upload-artifact@v4
+        with:
+          name: rebuilt-s001-film
+          path: |
+            build/s001/S001-Intro-Illustrated.mp4
+            build/s001/S001-Intro-Illustrated-poster.jpg
+            build/s001/S001-contact.jpg
+            build/s001/S001-qa.json
+          retention-days: 30
