@@ -1,5 +1,5 @@
 name: Publish and verify completed Summit One introductions
-run-name: Verify the next two Summit One lesson introductions
+run-name: Verify and publish the finished Lesson 139 introduction
 on:
   push:
     branches: [codex/lesson-intro-runtime-check]
@@ -17,6 +17,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
+          ref: '39a1e30dd3e6ebab43398acbade68bf2cca134ad'
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
@@ -26,4 +27,5 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          python production/lesson-intros/course/release_intro.py publish S058 S086 --wait-minutes 5
+          python production/lesson-intros/course/release_intro.py publish S139 --wait-minutes 10
+
