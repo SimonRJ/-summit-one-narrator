@@ -46,8 +46,16 @@ def cycles(a,c):
     p=c.opening(2.0)
     four(a,305,220,170,p)
     q=c.after('full cycle',1.2)
-    a.arrow((955,350),(955,430),AQUA,q);a.arrow((955,430),(330,430),AQUA,q)
-    a.arrow((330,430),(330,350),AQUA,q)
+    a.arrow((894,350),(894,430),AQUA,q);a.arrow((894,430),(384,430),AQUA,q)
+    a.arrow((384,430),(384,350),AQUA,q)
+    # A travelling marker makes the order and wraparound visible.
+    if c.local>=2:
+        phase=(c.local-2)%8
+        if phase<3:x,y=384+170*phase,190
+        elif phase<4:x,y=894,190+240*(phase-3)
+        elif phase<7:x,y=894-170*(phase-4),430
+        else:x,y=384,430-240*(phase-7)
+        a.circle((x,y),9,AQUA)
     label(a,'3 × 3 → 9',640,505,34,WHITE,c.after('multiply last digits'))
 
 
@@ -62,7 +70,7 @@ def uses(a,c):
     r=c.after('last digit')
     label(a,'3 × 3 × 3',1030,300,33,WHITE,r)
     label(a,'last digits: 3, 9, 7',1030,375,29,AQUA,r)
-    label(a,'change the base; check the cycle',640,575,27,SOFT,c.after('change the base'))
+    label(a,'base 3: length 4   •   base 5: length 1',640,565,29,SOFT,c.after('cycle length stays the same'))
 
 
 def clock_question(a,c):
