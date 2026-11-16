@@ -1,4 +1,4 @@
-name: Align and release the recorded cryptarithm introduction
+name: Resume the individual lesson playback checks
 on:
   push:
     branches: [codex/lesson-intro-runtime-check]
@@ -9,39 +9,24 @@ permissions:
   contents: write
 
 jobs:
-  render:
+  verify:
     runs-on: ubuntu-24.04
-    timeout-minutes: 35
+    timeout-minutes: 210
+    concurrency:
+      group: summit-one-lesson-intro-player-check
+      cancel-in-progress: false
     steps:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-node@v4
         with:
-          python-version: '3.11'
-      - uses: actions/download-artifact@v4
-        with:
-          pattern: S010-voice-*
-          merge-multiple: true
-          path: build/t01-studio
-          run-id: 43776803536
-          github-token: ${{ github.token }}
-      - name: Align the original audio and render the introduction
-        run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y ffmpeg fonts-open-sans fonts-dejavu-core libsndfile1
-          pip install pillow numpy soundfile num2words faster-whisper
-          python production/lesson-intros/course/compile_intros.py S010
-          python production/t01-studio/prepare_audio.py S010
-          python production/t01-studio/render.py S010 --preview
-          python production/t01-studio/render.py S010
-      - name: Stage the cryptarithm film for the live playback check
+          node-version: '22'
+      - run: npm install --no-save playwright
+      - name: Confirm each staged introduction on the public site
         env:
           GH_TOKEN: ${{ github.token }}
-          PYTHONPATH: production/lesson-intros/course
         run: |
-          python - <<'PY'
-          from release_intro import current_candidate, stage
-          if not current_candidate("S010"):
-              stage("S010")
-          PY
+          python production/lesson-intros/course/release_intro.py publish \
+            S010 S011 S012 S013 S015 S017 S018 S019 S020 S022 S023 S024 S025 S026 S027 S029 S030 \
+            --wait-minutes 155

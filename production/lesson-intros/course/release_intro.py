@@ -227,6 +227,18 @@ def mark(lesson, report, status):
     return new
 
 
+def confirm_player(lesson):
+    command = ["node", str(ROOT / "tools/check_live_intro_player.mjs"), lesson]
+    deadline = time.monotonic() + 8 * 60
+    while True:
+        result = subprocess.run(command)
+        if result.returncode == 0:
+            return
+        if time.monotonic() >= deadline:
+            result.check_returncode()
+        time.sleep(25)
+
+
 def publish(lessons, max_wait_minutes):
     deadline = time.monotonic() + max_wait_minutes * 60
     for lesson in lessons:
@@ -244,11 +256,7 @@ def publish(lessons, max_wait_minutes):
             put_file(detail, report, f"Save the chapters and transcript for {lesson}", detail_sha)
         wait_for_raw(detail, lambda data: data["sha256"] == report["sha256"])
         mark(lesson, report, "checking")
-        player = ["node", str(ROOT / "tools/check_live_intro_player.mjs"), lesson]
-        first = subprocess.run(player)
-        if first.returncode:
-            time.sleep(20)
-            subprocess.run(player, check=True)
+        confirm_player(lesson)
         final = mark(lesson, report, "verified")
         count = len(LEGACY) + sum(item["status"] == "verified" for item in final["entries"])
         counts = f"videos complete : {count}\nvideos to go: {len(course())-count}"
