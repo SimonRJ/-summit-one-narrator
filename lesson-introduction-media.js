@@ -20,7 +20,8 @@ export function introMediaSource(id) {
   if (!/^S[0-9]{3}$/.test(id)) throw new TypeError("Invalid lesson ID");
   const slot = Number(id.slice(1));
   const base = localSlots.has(slot) ? "media/" : releaseRoot;
-  const edition = !localSlots.has(slot) && online.get(slot)?.illustration === 1 ? "-Illustrated" : "";
+  const revision = localSlots.has(slot) ? 0 : online.get(slot)?.illustration;
+  const edition = revision === 2 ? "-Illustrated-v2" : revision === 1 ? "-Illustrated" : "";
   const suffix = base === "media/" ? "?v=" + (updatedMedia[id] ?? INTRO_MEDIA_VERSION) : "";
   const path = base + id + "-Intro" + edition;
   return {
@@ -67,5 +68,6 @@ export function loadIntroductionCatalogue() {
 
 export async function loadIntroductionDetails(id) {
   if (!/^S[0-9]{3}$/.test(id)) throw new TypeError("Invalid lesson ID");
-  return readJson("lesson-intros/" + id + ".json");
+  const edition = online.get(Number(id.slice(1)))?.detailsEdition === 1 ? "-Illustrated" : "";
+  return readJson("lesson-intros/" + id + edition + ".json");
 }
