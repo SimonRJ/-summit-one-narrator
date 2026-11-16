@@ -33,3 +33,4 @@ jobs:
           path: build/s017-timing/
           if-no-files-found: error
           retention-days: 14
+# The publication script checks the live digest and retains the earlier movie.
