@@ -23,7 +23,7 @@ on:
         required: false
 
 concurrency:
-  group: ${{ inputs.producer_run && 'summit-one-lesson-intro-publication-run' || 'summit-one-lesson-intro-series' }}
+  group: ${{ inputs.producer_run && 'summit-one-lesson-intro-publication-run' || 'summit-one-lesson-intro-active-renderers' }}
   cancel-in-progress: ${{ github.event_name == 'push' }}
 
 permissions:
@@ -36,6 +36,7 @@ jobs:
     timeout-minutes: 10
     permissions:
       contents: write
+      actions: read
     outputs:
       ids: ${{ steps.select.outputs.ids }}
       pilot: ${{ steps.select.outputs.pilot }}
@@ -54,11 +55,11 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           python - <<'PY'
-          import json, os, subprocess, sys
+          import json, os, re, subprocess, sys
           from pathlib import Path
           directory = Path("production/lesson-intros/course")
           sys.path.insert(0, str(directory))
-          from release_intro import create_release, missing_candidates, select
+          from release_intro import api, create_release, missing_candidates, select
           data = json.loads((directory / "queue.json").read_text())
           pilot = data.get("pilot_render", 0)
           assert type(pilot) is int and pilot >= 0
@@ -70,6 +71,18 @@ jobs:
           if ids:
               create_release()
           needed = missing_candidates(ids) if ids and not pilot else []
+          already_recording = set()
+          for run_id in data.get("in_flight_runs", []):
+              assert type(run_id) is int and run_id > 0
+              try:
+                  jobs = api(f"actions/runs/{run_id}/jobs?per_page=100")["jobs"]
+              except subprocess.CalledProcessError:
+                  continue
+              for job in jobs:
+                  match = re.fullmatch(r"produce \((S[0-9]{3})\)", job["name"])
+                  if match and job["status"] != "completed":
+                      already_recording.add(match[1])
+          needed.sort(key=already_recording.__contains__)
           with open(os.environ["GITHUB_OUTPUT"], "a") as out:
               print("needed=" + json.dumps(needed, separators=(",",":")), file=out)
               print("needed_count=" + str(len(needed)), file=out)
@@ -132,10 +145,31 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
+      - name: Check for a film another worker has already finished
+        id: pending
+        env:
+          GH_TOKEN: ${{ github.token }}
+          LESSON: ${{ matrix.lesson }}
+          PYTHONPATH: production/lesson-intros/course
+        run: |
+          python - <<'PY'
+          import os
+          from subprocess import CalledProcessError
+          from release_intro import missing_candidates
+
+          try:
+              needed = bool(missing_candidates([os.environ["LESSON"]]))
+          except CalledProcessError:
+              needed = True
+          with open(os.environ["GITHUB_OUTPUT"], "a") as out:
+              print("needed=" + ("true" if needed else "false"), file=out)
+          PY
       - uses: actions/setup-python@v5
+        if: steps.pending.outputs.needed == 'true'
         with:
           python-version: '3.11'
       - name: Identify identical reusable teaching passages
+        if: steps.pending.outputs.needed == 'true'
         id: voice
         env:
           LESSON: ${{ matrix.lesson }}
@@ -143,13 +177,14 @@ jobs:
           key=$(python production/lesson-intros/course/produce_lesson.py "$LESSON" --cache-key)
           echo "key=$key" >> "$GITHUB_OUTPUT"
       - name: Reuse verified Voice C audio for identical passages
+        if: steps.pending.outputs.needed == 'true'
         uses: actions/cache@v4
         continue-on-error: true
         with:
           path: build/t01-studio/shared-voice
           key: summit-intro-voice-c-${{ steps.voice.outputs.key }}
       - name: Recover complete scenes from the previous attempt
-        if: inputs.recordings_from != ''
+        if: steps.pending.outputs.needed == 'true' && inputs.recordings_from != ''
         uses: actions/download-artifact@v4
         continue-on-error: true
         with:
@@ -158,6 +193,7 @@ jobs:
           run-id: ${{ inputs.recordings_from }}
           github-token: ${{ github.token }}
       - name: Install the pinned Voice C and video runtime
+        if: steps.pending.outputs.needed == 'true'
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y ffmpeg libsndfile1 fonts-open-sans fonts-dejavu-core
@@ -165,11 +201,13 @@ jobs:
           pip install 'transformers>=4.45,<5' 'huggingface-hub<1' einops pydantic soundfile librosa safetensors tqdm numpy scipy inflect addict argbind pillow num2words faster-whisper
           pip install --no-deps 'git+https://github.com/OpenBMB/VoxCPM.git@300e4260b509066151d623dc9c0aa922cf82232b'
       - name: Record, align and render the lesson introduction
+        if: steps.pending.outputs.needed == 'true'
         env:
           LESSON: ${{ matrix.lesson }}
           RETRY: ${{ inputs.retry || '0' }}
         run: python production/lesson-intros/course/produce_lesson.py "$LESSON" --attempt "$RETRY"
       - name: Upload this checked movie
+        if: steps.pending.outputs.needed == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
           LESSON: ${{ matrix.lesson }}
