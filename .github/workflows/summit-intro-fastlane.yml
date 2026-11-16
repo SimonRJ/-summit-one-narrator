@@ -8,16 +8,16 @@ permissions:
   contents: write
 concurrency:
   group: summit-intro-publish-s138-s145
-  cancel-in-progress: false
+  cancel-in-progress: true
 jobs:
   publish:
     runs-on: ubuntu-24.04
-    timeout-minutes: 150
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
-          ref: '78ea9e814d2d1feb1e5609487d2cba68dbe90849'
+          ref: '535f6ec4dceb26a49cbed4bfbe5f66e2dcbd0411'
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
@@ -27,4 +27,4 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          python production/lesson-intros/course/release_intro.py publish S138 S141 S142 S145 --wait-minutes 110
+          python production/lesson-intros/course/release_intro.py publish S157 --wait-minutes 5
