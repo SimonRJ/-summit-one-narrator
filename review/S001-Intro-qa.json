@@ -1,22 +1,23 @@
 {
   "id": "S001",
   "title": "Divisibility tests and modular remainders",
-  "voice": "VoxCPM2 \u2014 approved voice C",
+  "voice": "VoxCPM2 — approved voice C",
   "old_audio_used": false,
   "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
-  "duration_seconds": 170.958,
-  "video": "1920\u00d71080 H.264 24 fps",
-  "audio": "AAC",
+  "duration_seconds": 170.958333,
+  "video": "1920×1080 H.264 30 fps",
+  "audio": "Original AAC packets copied unchanged",
   "scenes": 9,
   "example_levels": [
     "easy",
     "medium",
     "hard"
   ],
-  "word_alignment_percent": 97.56,
   "spoken_caption_layers": 1,
   "mathematics_verified": true,
   "full_video_decode_passed": true,
-  "bytes": 5999796,
-  "sha256": "dfa0e9332ec418ff97394f292022cea17267e58ed12d8064683a25e4f6338d6c"
+  "bytes": 7959986,
+  "sha256": "c1372ed1717d85991ca550288d2985f096281b0b5e343855807f234f55c82ace",
+  "visual_review": "Sampled motion and captions; full-length and phone review remain pending",
+  "timing_source": "Original captions and automatic word-level alignment"
 }

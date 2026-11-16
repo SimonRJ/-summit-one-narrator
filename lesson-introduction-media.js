@@ -5,7 +5,7 @@ const catalogueRoot = "https://raw.githubusercontent.com/" + repository
   + "/refs/heads/lesson-intro-catalog/data/";
 const releaseRoot = "https://github.com/" + repository + "/releases/download/lesson-introductions/";
 export const INTRO_MEDIA_VERSION = "lesson-intros-v2";
-const updatedMedia = { S001: "intro-20261116", S002: "intro-20261116" };
+const updatedMedia = { S001: "intro-20261116-illustrated", S002: "intro-20261116" };
 
 let loading;
 let loadedAt = -Infinity;
