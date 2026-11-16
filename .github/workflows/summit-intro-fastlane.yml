@@ -25,31 +25,4 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          python production/lesson-intros/course/release_intro.py publish \
-            S057 \
-            S059 \
-            S060 \
-            S061 \
-            S062 \
-            S065 \
-            S067 \
-            S068 \
-            S069 \
-            S072 \
-            S073 \
-            S074 \
-            S075 \
-            S076 \
-            S078 \
-            S079 \
-            S081 \
-            S082 \
-            S085 \
-            S087 \
-            S088 \
-            S089 \
-            S092 \
-            S093 \
-            S095 \
-            S097 \
-            --wait-minutes 5
+          python production/lesson-intros/course/release_intro.py publish S058 S086 --wait-minutes 5
