@@ -1,0 +1,52 @@
+name: Align fraction narration with full word endings
+on:
+  push:
+    branches: [codex/s022-distinct-20261116]
+    paths: ['.github/workflows/s022-corrected-audio.yml']
+permissions:
+  contents: read
+  actions: read
+jobs:
+  align:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Retrieve the four new voice scenes
+        run: |
+          status=''
+          for attempt in {1..70}; do
+            status=$(gh run view 43869903703 --repo "$GITHUB_REPOSITORY" --json status --jq .status)
+            [ "$status" = completed ] && break
+            sleep 20
+          done
+          [ "$status" = completed ]
+          gh run download 43869903703 --repo "$GITHUB_REPOSITORY" --pattern 's022-distinct-speech-*' --dir new-speech
+          mkdir -p build/t01-studio
+          for n in 1 2 10 11; do
+            padded=$(printf '%02d' "$n")
+            cp "new-speech/s022-distinct-speech-${n}/S022-${padded}.wav" build/t01-studio/
+            cp "new-speech/s022-distinct-speech-${n}/S022-${padded}.json" build/t01-studio/
+          done
+      - name: Extract and check the unchanged examples
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg libsndfile1
+          curl -fLsS 'https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S022-Intro.mp4' -o build/S022-original.mp4
+          python production/lesson-intros/illustrated/extract_unchanged_s022.py build/S022-original.mp4
+      - name: Verify and align the assembled narration
+        run: |
+          pip install numpy soundfile num2words faster-whisper
+          python production/t01-studio/prepare_audio.py S022
+      - uses: actions/upload-artifact@v4
+        with:
+          name: s022-distinct-corrected-audio-and-timeline
+          path: build/t01-studio/S022/
+          if-no-files-found: error
+          retention-days: 14
+          compression-level: 1
