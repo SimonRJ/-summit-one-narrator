@@ -1,0 +1,49 @@
+name: Publish reviewed lesson 10 introduction
+
+on:
+  push:
+    branches: [codex/s010-visual-rebuild-20261116]
+    paths: ['.github/workflows/publish-reviewed-s010.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  publish-lesson-10:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install the rendering tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-dejavu-core
+          pip install Pillow
+      - name: Independently check the lesson mathematics
+        run: python production/lesson-intros/illustrated/check_s010.py
+      - name: Re-render the reviewed storyboard with its original Voice C audio
+        run: |
+          python production/lesson-intros/illustrated/render.py S010 --out build/reviewed-s010 --preview
+          python production/lesson-intros/illustrated/render.py S010 --out build/reviewed-s010
+      - name: Upload and verify the replacement at the existing lesson link
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python production/lesson-intros/illustrated/publish.py S010 --out build/reviewed-s010
+      - name: Preserve the actual published film and review frames
+        uses: actions/upload-artifact@v4
+        with:
+          name: reviewed-s010-film
+          path: |
+            build/reviewed-s010/S010-Intro-Illustrated.mp4
+            build/reviewed-s010/S010-Intro-Illustrated-poster.jpg
+            build/reviewed-s010/S010-contact.jpg
+            build/reviewed-s010/S010-qa.json
+          retention-days: 30
