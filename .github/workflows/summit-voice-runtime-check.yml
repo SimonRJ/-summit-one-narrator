@@ -1,4 +1,4 @@
-name: Check reused Voice C prompt features
+name: Compare Voice C CPU thread counts
 on:
   push:
     branches: [codex/lesson-intro-runtime-check]
@@ -9,6 +9,10 @@ jobs:
   compare:
     runs-on: ubuntu-latest
     timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        sample: [1, 2]
     env:
       HF_HUB_DISABLE_XET: '1'
       TOKENIZERS_PARALLELISM: 'false'
@@ -28,7 +32,7 @@ jobs:
           pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu
           pip install 'transformers>=4.45,<5' 'huggingface-hub<1' einops pydantic soundfile librosa safetensors tqdm numpy scipy inflect addict argbind num2words faster-whisper
           pip install --no-deps 'git+https://github.com/OpenBMB/VoxCPM.git@300e4260b509066151d623dc9c0aa922cf82232b'
-      - name: Verify cached reference audio produces identical samples
+      - name: Compare two CPU thread counts using the identical approved recording
         run: |
           mkdir -p build/runtime-check
           PYTHONPATH=production/t01-studio python - <<'PY'
@@ -51,9 +55,7 @@ jobs:
           import torch
           from huggingface_hub import snapshot_download
           from voxcpm import VoxCPM
-          from faster_whisper import WhisperModel
           from synth import MODEL_REVISION, RATE, ROOT
-          from prepare_audio import align, transcribe
 
           torch.set_num_threads(4)
           torch.set_num_interop_threads(1)
@@ -65,16 +67,15 @@ jobs:
           story="One pump fills a tank in four minutes and another takes six minutes."
           options=dict(seed=445,cfg_value=2.0,inference_timesteps=10,max_len=375,
                        retry_badcase=True,retry_badcase_max_times=1)
-          start=monotonic()
-          reference=model.generate(text=story,prompt_wav_path=wav,reference_wav_path=wav,
-                                   prompt_text=text,normalize=False,denoise=False,**options)
-          original=monotonic()-start
           cached=model.tts_model.build_prompt_cache(prompt_text=text,prompt_wav_path=wav,reference_wav_path=wav)
-          start=monotonic()
-          reused, _, _=model.tts_model.generate_with_prompt_cache(target_text=story,prompt_cache=cached,**options)
-          reused=reused.squeeze(0).cpu().numpy()
-          print(f"Original {original:.2f}s; pre-encoded prompt {monotonic()-start:.2f}s.")
-          assert np.array_equal(reference,reused)
-          print("Voice C audio samples are identical with the reused prompt features.")
+          recordings = {}
+          for threads in (4, 2):
+              torch.set_num_threads(threads)
+              start=monotonic()
+              audio, _, _=model.tts_model.generate_with_prompt_cache(target_text=story,prompt_cache=cached,**options)
+              recordings[threads] = audio.squeeze(0).cpu().numpy()
+              print(f"{threads} threads: {monotonic()-start:.2f}s for {len(recordings[threads])/RATE:.2f}s of narration", flush=True)
+          print("Identical narration samples:", np.array_equal(recordings[4], recordings[2]), flush=True)
           PY
+          lscpu | sed -n '/Model name:/p'
           PYTHONPATH=production/t01-studio python "$RUNNER_TEMP/compare.py"
