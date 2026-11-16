@@ -1,5 +1,5 @@
 name: Prepare the next Summit One lesson introductions
-run-name: Prepare Summit One lessons 142 to 146
+run-name: Render the corrected Lesson 137 introduction
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     paths: ['.github/workflows/summit-first-pending-intro.yml']
 
 concurrency:
-  group: summit-one-lesson-intro-ahead-s142-s146
+  group: summit-one-lesson-intro-corrected-s137
   cancel-in-progress: false
 
 permissions:
@@ -22,9 +22,9 @@ jobs:
       contents: write
     strategy:
       fail-fast: false
-      max-parallel: 4
+      max-parallel: 1
       matrix:
-        lesson: [S142, S143, S145, S146]
+        lesson: [S137]
     env:
       HF_HUB_DISABLE_XET: '1'
       TOKENIZERS_PARALLELISM: 'false'
@@ -35,7 +35,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
-          ref: '630c5cf47f054ac9c8fddd50cb726326a7e3101b'
+          ref: '865e8a4c2b6ad4fbf5010994cebece098c100fe1'
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
@@ -63,11 +63,24 @@ jobs:
         env:
           LESSON: ${{ matrix.lesson }}
         run: python production/lesson-intros/course/produce_lesson.py "$LESSON" --attempt 0
+      - name: Wait for the earlier Lesson 137 render before replacing its staged files
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          until [ "$(gh api "repos/$GITHUB_REPOSITORY/actions/jobs/133180080925" --jq .status)" = completed ]; do
+            sleep 25
+          done
       - name: Upload this checked movie
         env:
           GH_TOKEN: ${{ github.token }}
           LESSON: ${{ matrix.lesson }}
-        run: python production/lesson-intros/course/release_intro.py stage "$LESSON"
+          PYTHONPATH: production/lesson-intros/course
+        run: |
+          python - <<'PY'
+          from release_intro import current_candidate, stage
+          if not current_candidate('S137'):
+              stage('S137')
+          PY
       - name: Save diagnostics if a film needs another take
         if: failure()
         uses: actions/upload-artifact@v4
@@ -89,4 +102,5 @@ jobs:
           compression-level: 1
           if-no-files-found: ignore
           retention-days: 1
+
 
