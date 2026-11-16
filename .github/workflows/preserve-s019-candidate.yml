@@ -30,13 +30,13 @@ jobs:
           python production/lesson-intros/illustrated/render_s019_distinct.py --audio build/s019-audio --out build/s019-candidate
       - name: Preserve the candidate and source without changing the live catalogue
         run: |
-          cp build/s019-candidate/S019-Intro-Illustrated.mp4 build/s019-candidate/S019-Intro-Preview-20261116.mp4
-          cp build/s019-candidate/S019-Intro-Illustrated-poster.jpg build/s019-candidate/S019-Intro-Preview-20261116-poster.jpg
+          cp build/s019-candidate/S019-Intro-Illustrated.mp4 build/s019-candidate/S019-Intro-Preview-20261116-v2.mp4
+          cp build/s019-candidate/S019-Intro-Illustrated-poster.jpg build/s019-candidate/S019-Intro-Preview-20261116-v2-poster.jpg
           cd build/s019-audio
-          zip -1 ../s019-candidate/S019-distinct-audio-timeline-20261116.zip narration.wav timeline.json captions.vtt
+          zip -1 ../s019-candidate/S019-distinct-audio-timeline-20261116-v2.zip narration.wav timeline.json captions.vtt
           cd ../..
           mkdir -p build/s019-download-check
-          for name in S019-Intro-Preview-20261116.mp4 S019-Intro-Preview-20261116-poster.jpg S019-distinct-audio-timeline-20261116.zip; do
+          for name in S019-Intro-Preview-20261116-v2.mp4 S019-Intro-Preview-20261116-v2-poster.jpg S019-distinct-audio-timeline-20261116-v2.zip; do
             if ! gh release view lesson-introductions --repo "$GITHUB_REPOSITORY" --json assets --jq '.assets[].name' | grep -Fxq "$name"; then
               gh release upload lesson-introductions "build/s019-candidate/$name" --repo "$GITHUB_REPOSITORY"
             fi
