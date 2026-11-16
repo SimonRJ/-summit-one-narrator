@@ -213,23 +213,30 @@ def contains_publications(data, reports, status):
 
 
 def mark(reports, status):
-    previous, catalogue = get_catalogue()
-    rows = {item["id"]: item for item in catalogue["entries"]}
-    for lesson, report in reports.items():
-        row = rows.get(lesson, {})
-        if row.get("status") == "verified":
-            assert row["sha256"] == report["sha256"]
-            continue
-        rows[lesson] = {
-            "id": lesson, "title": report["title"], "seconds": report["seconds"],
-            "sha256": report["sha256"], "status": status,
-            **({"verified_at": datetime.now(timezone.utc).isoformat()} if status == "verified" else {}),
-        }
-    new = {"version": 1, "entries": [rows[id] for id in sorted(rows)]}
-    if catalogue != new:
-        label = ", ".join(reports)
-        put_file(CATALOGUE, new, f"{status.title()} Summit One introductions {label}", previous)
-    return new
+    label = ", ".join(reports)
+    for attempt in range(3):
+        previous, catalogue = get_catalogue()
+        rows = {item["id"]: item for item in catalogue["entries"]}
+        for lesson, report in reports.items():
+            row = rows.get(lesson, {})
+            if row.get("status") == "verified":
+                assert row["sha256"] == report["sha256"]
+                continue
+            rows[lesson] = {
+                "id": lesson, "title": report["title"], "seconds": report["seconds"],
+                "sha256": report["sha256"], "status": status,
+                **({"verified_at": datetime.now(timezone.utc).isoformat()} if status == "verified" else {}),
+            }
+        new = {"version": 1, "entries": [rows[id] for id in sorted(rows)]}
+        if catalogue == new:
+            return new
+        try:
+            put_file(CATALOGUE, new, f"{status.title()} Summit One introductions {label}", previous)
+        except subprocess.CalledProcessError:
+            if attempt == 2 or get_catalogue()[0] == previous:
+                raise
+        else:
+            return new
 
 
 def confirm_player(lesson):
@@ -244,22 +251,27 @@ def confirm_player(lesson):
         time.sleep(25)
 
 
+def available_reports(lessons, titles):
+    try:
+        uploaded = list_uploaded()
+    except subprocess.CalledProcessError:
+        return {}
+    reports = {}
+    for lesson in lessons:
+        if not set(assets(lesson)) <= uploaded:
+            continue
+        report = current_candidate(lesson)
+        if report:
+            verified_report(report, lesson)
+            assert report["title"] == titles[lesson]
+            reports[lesson] = report
+    return reports
+
+
 def ready_window(lessons, deadline):
     titles = course()
     while True:
-        try:
-            uploaded = list_uploaded()
-        except subprocess.CalledProcessError:
-            uploaded = set()
-        reports = {}
-        for lesson in lessons:
-            if not set(assets(lesson)) <= uploaded:
-                continue
-            report = current_candidate(lesson)
-            if report:
-                verified_report(report, lesson)
-                assert report["title"] == titles[lesson]
-                reports[lesson] = report
+        reports = available_reports(lessons, titles)
         if reports:
             return reports
         pending = ", ".join(lessons)
@@ -281,41 +293,78 @@ def prepare_watch_page(lesson, report):
         put_file(detail, report, f"Save the chapters and transcript for {lesson}", detail_sha)
 
 
+def verified_lessons(catalogue):
+    return LEGACY | {item["id"] for item in catalogue["entries"] if item["status"] == "verified"}
+
+
 def report_progress(catalogue):
-    count = len(LEGACY) + sum(item["status"] == "verified" for item in catalogue["entries"])
-    counts = f"videos complete : {count}\nvideos to go: {len(course())-count}"
+    titles = course()
+    count = len(titles.keys() & verified_lessons(catalogue))
+    counts = f"videos complete : {count}\nvideos to go: {len(titles)-count}"
     print(counts, flush=True)
     if "GITHUB_STEP_SUMMARY" in os.environ:
         with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as stream:
             print(counts + "\n", file=stream)
 
 
+def publish_reports(reports):
+    for lesson, report in reports.items():
+        prepare_watch_page(lesson, report)
+    mark(reports, "checking")
+    wait_for_raw(CATALOGUE, lambda data: contains_publications(data, reports, "checking"))
+    for lesson, report in reports.items():
+        confirm_player(lesson)
+        report_progress(mark({lesson: report}, "verified"))
+
+
 def publish(lessons, max_wait_minutes):
     deadline = time.monotonic() + max_wait_minutes * 60
     _, catalogue = get_catalogue()
-    verified = {row["id"] for row in catalogue["entries"] if row["status"] == "verified"}
+    verified = verified_lessons(catalogue)
     remaining = [lesson for lesson in lessons if lesson not in verified]
     last_window = {}
     while remaining:
         reports = ready_window(remaining, deadline)
-        for lesson, report in reports.items():
-            prepare_watch_page(lesson, report)
-        mark(reports, "checking")
-        wait_for_raw(CATALOGUE, lambda data: contains_publications(data, reports, "checking"))
-        for lesson, report in reports.items():
-            confirm_player(lesson)
-            report_progress(mark({lesson: report}, "verified"))
+        publish_reports(reports)
         remaining = [lesson for lesson in remaining if lesson not in reports]
         last_window = reports
     if last_window:
         wait_for_raw(CATALOGUE, lambda data: contains_publications(data, last_window, "verified"))
 
 
+def follow_production(run_id, minutes):
+    """Publish ready films while the production run uses its render slots."""
+    titles = course()
+    deadline = time.monotonic() + minutes * 60
+    completed_at = None
+    while True:
+        _, catalogue = get_catalogue()
+        remaining = sorted(titles.keys() - verified_lessons(catalogue))
+        if not remaining:
+            wait_for_raw(CATALOGUE, lambda data: titles.keys() <= verified_lessons(data))
+            report_progress(catalogue)
+            return False
+        if time.monotonic() >= deadline:
+            return True
+        reports = available_reports(remaining, titles)
+        if reports:
+            publish_reports(reports)
+            continue
+        if completed_at is None:
+            state = api(f"actions/runs/{run_id}")
+            if state["status"] == "completed":
+                completed_at = time.monotonic()
+        elif time.monotonic() - completed_at >= 7 * 60:
+            report_progress(catalogue)
+            return False
+        time.sleep(30)
+
+
 def select(max_items):
     from compile_intros import lessons, ready
 
     _, cat = get_catalogue()
-    archived = LEGACY | {item["id"] for item in cat["entries"] if item["status"] == "verified"}
+    archived = verified_lessons(cat)
     selected = []
     for lesson in lessons():
         if lesson.id in archived:
@@ -345,6 +394,9 @@ if __name__ == "__main__":
     check = parts.add_parser("publish")
     check.add_argument("lessons", nargs="+")
     check.add_argument("--wait-minutes", type=int, default=290)
+    follow = parts.add_parser("follow")
+    follow.add_argument("producer_run", type=int)
+    follow.add_argument("--minutes", type=int, default=150)
     args = parser.parse_args()
     if args.cmd == "prepare":
         create_release()
@@ -352,5 +404,9 @@ if __name__ == "__main__":
         print(json.dumps(select(args.limit), separators=(",", ":")))
     elif args.cmd == "stage":
         stage(args.lesson)
-    else:
+    elif args.cmd == "publish":
         publish(args.lessons, args.wait_minutes)
+    else:
+        again = follow_production(args.producer_run, args.minutes)
+        with open(os.environ["GITHUB_OUTPUT"], "a") as output:
+            print("again=" + ("true" if again else "false"), file=output)

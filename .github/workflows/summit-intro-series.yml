@@ -1,5 +1,5 @@
 name: Summit One lesson introduction series
-run-name: Summit One lesson introductions
+run-name: ${{ inputs.producer_run && 'Summit One introduction playback checks' || 'Summit One lesson introductions' }}
 
 on:
   push:
@@ -17,9 +17,13 @@ on:
         description: Previous run with any reusable recordings
         type: string
         required: false
+      producer_run:
+        description: Production run followed by a playback-check job
+        type: string
+        required: false
 
 concurrency:
-  group: summit-one-lesson-intro-series
+  group: ${{ inputs.producer_run && 'summit-one-lesson-intro-publication-run' || 'summit-one-lesson-intro-series' }}
   cancel-in-progress: ${{ github.event_name == 'push' }}
 
 permissions:
@@ -27,6 +31,7 @@ permissions:
 
 jobs:
   select:
+    if: ${{ !inputs.producer_run }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
@@ -38,6 +43,7 @@ jobs:
       needed_count: ${{ steps.select.outputs.needed_count }}
       workers: ${{ steps.select.outputs.workers }}
       count: ${{ steps.select.outputs.count }}
+      more: ${{ steps.select.outputs.more }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -58,8 +64,9 @@ jobs:
           assert type(pilot) is int and pilot >= 0
           workers = data.get("parallel", 18)
           assert type(workers) is int and 1 <= workers <= 18
-          # Queue two rounds of films so a freed worker immediately starts the next lesson.
-          ids = ["S008"] if pilot else select(workers * 2)
+          # Let each worker take the next outstanding lesson as soon as it is free.
+          limit = 240
+          ids = ["S008"] if pilot else select(limit)
           if ids:
               create_release()
           needed = missing_candidates(ids) if ids and not pilot else []
@@ -70,6 +77,7 @@ jobs:
               print("count=" + str(len(ids)), file=out)
               print("workers=" + str(workers), file=out)
               print("pilot=" + str(pilot), file=out)
+              print("more=" + ("true" if len(ids) == limit else "false"), file=out)
           print("Lessons selected for production:", ", ".join(ids))
           PY
 
@@ -188,9 +196,69 @@ jobs:
           if-no-files-found: ignore
           retention-days: 1
 
-  verify:
+  start_publish:
     needs: select
-    if: needs.select.outputs.count != '0'
+    if: needs.select.outputs.count != '0' && needs.select.outputs.pilot == '0'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      actions: write
+      contents: read
+    steps:
+      - name: Start checking the films as they finish
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh workflow run summit-intro-series.yml --repo "$GITHUB_REPOSITORY" \
+            --ref "$GITHUB_REF_NAME" -f "producer_run=$GITHUB_RUN_ID"
+
+  verify:
+    if: ${{ inputs.producer_run }}
+    concurrency:
+      group: summit-one-lesson-intro-player-check
+      cancel-in-progress: false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 340
+    permissions:
+      actions: write
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install the playback test browser
+        run: npm install --no-save playwright
+      - name: Put each finished film on the site and confirm playback
+        id: live
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PRODUCER: ${{ inputs.producer_run }}
+        run: python production/lesson-intros/course/release_intro.py follow "$PRODUCER"
+      - name: Continue checking playback while production runs
+        if: ${{ !cancelled() && (failure() || steps.live.outputs.again == 'true') }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PRODUCER: ${{ inputs.producer_run }}
+          RESULT: ${{ job.status }}
+          RETRY: ${{ inputs.retry || '0' }}
+        run: |
+          next_retry=0
+          if [[ "$RESULT" != success ]]; then
+            if [[ "$RETRY" -ge 2 ]]; then
+              echo "::error::Playback checks still need attention after two retries."
+              exit 1
+            fi
+            next_retry=$((RETRY + 1))
+          fi
+          gh workflow run summit-intro-series.yml --repo "$GITHUB_REPOSITORY" \
+            --ref "$GITHUB_REF_NAME" -f "producer_run=$PRODUCER" -f "retry=$next_retry"
+
+  verify_pilot:
+    needs: select
+    if: needs.select.outputs.count != '0' && needs.select.outputs.pilot != '0'
     concurrency:
       group: summit-one-lesson-intro-player-check
       cancel-in-progress: false
@@ -213,19 +281,21 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           LESSONS: ${{ needs.select.outputs.ids }}
-          PILOT_ID: ${{ needs.select.outputs.pilot }}
         run: |
           python - <<'PY'
           import json, os, subprocess
           ids = json.loads(os.environ["LESSONS"])
-          wait = "90" if os.environ["PILOT_ID"] != "0" else "295"
           subprocess.run(["python", "production/lesson-intros/course/release_intro.py",
-                          "publish", *ids, "--wait-minutes", wait], check=True)
+                          "publish", *ids, "--wait-minutes", "90"], check=True)
           PY
 
   continue:
-    needs: [select, produce, verify]
-    if: always() && !cancelled() && needs.select.result == 'success' && needs.select.outputs.pilot == '0' && needs.select.outputs.count != '0'
+    needs: [select, produce, start_publish]
+    if: >-
+      always() && !cancelled() && needs.select.result == 'success'
+      && needs.select.outputs.pilot == '0' && needs.select.outputs.count != '0'
+      && (needs.produce.result == 'failure' || needs.start_publish.result != 'success'
+          || needs.select.outputs.more == 'true')
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
@@ -235,18 +305,26 @@ jobs:
       - name: Continue with the next introductions
         env:
           GH_TOKEN: ${{ github.token }}
-          RESULT: ${{ needs.verify.result }}
+          RESULT: ${{ needs.produce.result }}
+          PUBLISH_START: ${{ needs.start_publish.result }}
+          MORE: ${{ needs.select.outputs.more }}
           RETRY: ${{ inputs.retry || '0' }}
         run: |
           next_retry=0
           resume=()
-          if [[ "$RESULT" != success ]]; then
+          if [[ "$PUBLISH_START" != success ]]; then
+            gh workflow run summit-intro-series.yml --repo "$GITHUB_REPOSITORY" \
+              --ref "$GITHUB_REF_NAME" -f "producer_run=$GITHUB_RUN_ID"
+          fi
+          if [[ "$RESULT" == failure ]]; then
             if [[ "$RETRY" -ge 2 ]]; then
               echo "::error::A lesson still needs a new take after two automatic retries."
               exit 1
             fi
             next_retry=$((RETRY + 1))
             resume=(-f "recordings_from=$GITHUB_RUN_ID")
+          elif [[ "$MORE" != true ]]; then
+            exit 0
           fi
           gh workflow run summit-intro-series.yml --repo "$GITHUB_REPOSITORY" \
             --ref "$GITHUB_REF_NAME" -f "retry=$next_retry" "${resume[@]}"
