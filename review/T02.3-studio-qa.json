@@ -1,7 +1,7 @@
 {
   "id": "T02.3",
   "duration_seconds": 137.4,
-  "sha256": "e333eb08cb10786a6f1debe9013a400b92d411bbdf8d15ce928dd2ec1699a725",
+  "sha256": "d708c47eea074fcc3a6d434d99330c9c31eea408c0657778c96795c176a58f44",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -80,5 +80,7 @@
       "start": 114.48
     }
   ],
-  "decoded_successfully": true
+  "decoded_successfully": true,
+  "source_sha256": "e333eb08cb10786a6f1debe9013a400b92d411bbdf8d15ce928dd2ec1699a725",
+  "diagram_revision": "Shared unit scale in scenes 4 and 5, original AAC packets and caption track retained"
 }
