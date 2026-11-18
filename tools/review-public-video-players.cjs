@@ -48,6 +48,7 @@ async function check(context,film,orientation,engine) {
     if (id==='T02.3') assert.match(source,/variable-bars/);
     if (id==='T13.1') assert.match(source,/moving-area/);
     if (id==='T13.2') assert.match(source,/cut-and-scale/);
+    if (id==='T12.3') assert.match(source,/construction-notebook/);
     if (id==='T12.1') assert.match(source,/angle-tracing/);
     if ((process.env.ILLUSTRATED || '').split(/\s+/).includes(id)) assert.match(source,/-Intro-Illustrated(?:-v2)?\.mp4(?:[?#]|$)/);
     await video.evaluate(v=>{v.muted=true;return v.play()});
