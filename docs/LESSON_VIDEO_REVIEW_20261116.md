@@ -2,6 +2,34 @@
 
 The course-wide survey and publication record below was updated on 19 November 2026. The November 16 observations provide the starting point for this work.
 
+## Revised public editions · November 19
+
+The public course has 113 introductions and 72 teaching films. The catalogue and six local introductions identify 55 revised introductions. The app links 5 revised teaching films and preserves 2 previously approved teaching films. Across the 185 published titles, 123 still use an earlier edition without a recorded replacement or user approval. Another 170 introduction slots have no published film. These are publication counts. Full editorial viewing and listening remain open across the catalogue.
+
+The following record reconciles 15 editions with the public player, including two previously published films whose review rows were stale. All four mobile-browser checks passed for 14 of the 15 editions listed here. The linked survey has the measured chapter-resume times.
+
+| Film | What the animation now shows |
+| --- | --- |
+| S024 | The bead and map models lead to two named trays. Moving twelve counters changes 24 and 12 into 12 and 24. All 36 remain visible. |
+| S040 | Stationery is re-paired and the same three boxes return in every weighing. Pair totals 18, 23 and 19 uniquely give 7, 11 and 12 counters. |
+| S041 | Two receipts preserve the identities of the items. Enlarging the last pair of receipts to six matching Y items isolates one $4 X item and gives $7 for Y. |
+| S044 | The moves run backwards on the same counters. Four equal piles contain seven each. Testing integer inputs against the output range leaves precisely 16, 18, 20 and 22. |
+| S045 | Calibrated axes show a rise of 13 and segment rates of 2, 6 and 4 per minute. The two price lines meet at four units and $16. Beyond that the first plan is cheaper. |
+| S046 | The score ledger splits 42 into 18 and 24 and preserves all 75 points in the final redistribution. Exactly seven move from the first team and two from the second to reach 25 each. |
+| S047 | Pairs of theatre rows rearrange into six equal rows of 41 seats. The same 246 seats remain visible. The fourteenth term in the separate sequence is 43. |
+| S050 | Two café orders share a coordinate grid. Matching their six Y items leaves two X items costing $10. The individual prices are $5 for X and $8 for Y. |
+| S051 | The display doubles from 2 to 4 to 8 to 16 lights. Two aligned rows show 32 minus 1. A budget of 237 covers six days at 189 and leaves 48. The seventh raises the total to 381. |
+| S052 | Hops land on numbered rungs and skip the broken third rung. Exhaustive paths to rung nine split into ten final one-step hops and six final two-step hops, giving sixteen. |
+| S054 | Two dials first reset together at six moves. The machine has a one-move lead-in followed by a five-state loop. After move 51 it is in state 2. Eleven independent quarter-turns point west. |
+| S055 | The outer digit pairs build and break apart on their mirror positions. A five-by-ten grid counts one legal centre per pair and a second centre for five pairs, giving 55 palindromes. |
+| S057 | The three labelled boxes keep their identity as coins move. The even first-box possibilities give four, six and four legal assignments, for 14 in total. |
+| S083 | A rotation followed by translation sends (2,3) to (2,1). Reversing the moves gives (−2,7). The five-cell mosaic challenge has ten patterns with the required symmetries. |
+| T12.3 | A line parallel to both rails locates a 35° plus 45° bend. Four congruent right triangles move away from the tilted square, leaving exactly 10 square units inside the 4-by-4 frame. |
+
+For 4 caption-preserving films, an additional check compared all 21,523 encoded caption frames with the corresponding original frames, verified identical recorded audio packets, and compared 1,437 delivered pictures with the authored drawings at half-second intervals. The comparisons use the bytes of the published movies.
+
+[Public playback survey](video-scene-and-playback-survey-20261119.csv) · [Introduction review register](lesson-introduction-review-register-20261116.csv) · [Teaching film review register](teaching-video-review-register-20261116.csv)
+
 ## Public video survey · November 19
 
 The inventory covers 113 published lesson introductions and 72 teaching films. For all 185 source movies, the downloaded public bytes matched the catalogue SHA-256 or the repository media blob. Both streams decoded through the end. The survey extracted 3,678 keyframes and indexed three representative frames for each film. Every one of the 1,804 timed spoken scenes also has a frame taken from inside that scene. The survey lists these timestamps in narration order for each source movie. A separate pass measured picture changes four times per second across the complete movies, excluding the header and subtitles. This produced 117,162 samples. The longest quiet intervals identify places to inspect. They do not measure mathematical accuracy or judge the value of a pause.
