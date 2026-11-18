@@ -36,13 +36,15 @@ jobs:
       - name: Render the revised introduction
         run: |
           python production/lesson-intros/illustrated/render_voiced_board.py S066 --audio build/voice --out build/staged
+          mv build/staged/S066-Intro-Illustrated.mp4 build/staged/S066-Intro-Illustrated-v2.mp4
+          mv build/staged/S066-Intro-Illustrated-poster.jpg build/staged/S066-Intro-Illustrated-v2-poster.jpg
           cp build/voice/timeline.json build/staged/
       - name: Stage exact video and poster bytes for the final review
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           mkdir -p build/returned
-          for asset in S066-Intro-Illustrated.mp4 S066-Intro-Illustrated-poster.jpg; do
+          for asset in S066-Intro-Illustrated-v2.mp4 S066-Intro-Illustrated-v2-poster.jpg; do
             if ! gh release download lesson-introductions --pattern "$asset" --dir build/returned; then
               gh release upload lesson-introductions "build/staged/$asset"
               gh release download lesson-introductions --pattern "$asset" --dir build/returned

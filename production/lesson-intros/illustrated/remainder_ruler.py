@@ -132,7 +132,9 @@ def ruler(c,lo,hi):
 
 def mark(c,n,y,colour):
     x=xpos(n)
-    c.line([(x,292),(x,y)],colour,2)
+    # Leave the scale-label row clear as a point slides under a tick.
+    c.line([(x,292),(x,320)],colour,2)
+    c.line([(x,364),(x,y)],colour,2)
     c.dot(x,y,9,colour)
     c.text(str(round(n)),x,y+36,31,colour,bold=True)
 
