@@ -1,0 +1,62 @@
+{
+  "id": "S024",
+  "title": "Ratios on a bead strand, a scale drawing and two trays",
+  "voice": "VoxCPM2 — approved voice C",
+  "scenes": [
+    {
+      "n": 1,
+      "stage": "INTRO",
+      "narration": "These beads make a seven-bead strand. Two are red and five are blue. The ratio two to five compares the colours. The fraction two sevenths compares the red beads with the whole strand. Watch which two quantities the question compares."
+    },
+    {
+      "n": 2,
+      "stage": "EXAM",
+      "narration": "A scale drawing and a bead recipe both use one multiplier. With an exam problem, first check what one unit on your picture means. A transfer puzzle works differently. Moving counters between two trays keeps the total fixed."
+    },
+    {
+      "n": 3,
+      "stage": "BASIC",
+      "narration": "Thread one strand with two red beads and five blue beads. You want three matching strands. How many reds and how many blues should you put on the workbench?"
+    },
+    {
+      "n": 4,
+      "stage": "EXPLANATION",
+      "narration": "Copy the entire strand twice. Look down the red columns. Three groups of two give six red beads. The three groups of five give fifteen blue beads. Reduce six to fifteen by dividing both numbers by three. You recover two to five."
+    },
+    {
+      "n": 5,
+      "stage": "MEDIUM",
+      "narration": "On an architect’s drawing, a wall measures four centimetres. The scale is one to one hundred. Put a ruler against the drawn wall. How many metres long is the actual wall?"
+    },
+    {
+      "n": 6,
+      "stage": "EXPLANATION",
+      "narration": "Each centimetre on the drawing represents one hundred centimetres on the wall. Four such lengths make four hundred centimetres. Mark off one metre at a time. Four hundred centimetres is four metres."
+    },
+    {
+      "n": 7,
+      "stage": "PUZZLE",
+      "narration": "Here are two trays, labelled Red and Blue. All the counters are the same colour. The numbers in the trays start in the ratio four to two. Move twelve counters from Red to Blue. The ratio becomes two to four. How many counters were there altogether?"
+    },
+    {
+      "n": 8,
+      "stage": "EXPLANATION",
+      "narration": "There are six equal parts both before and after the move. In the Blue tray, two extra parts appear. Those two parts hold the twelve counters that crossed over. One part holds six counters. Six parts therefore hold thirty-six."
+    },
+    {
+      "n": 9,
+      "stage": "EXPLANATION",
+      "narration": "Put twenty-four counters in the Red tray and twelve in Blue. Move exactly twelve. The counts become twelve and twenty-four. The trays have exchanged sizes, and all thirty-six counters are still on the table."
+    },
+    {
+      "n": 10,
+      "stage": "MISTAKES",
+      "narration": "Three orange beads and five green beads give a ratio of three to five. To find the fraction that is orange, count all eight beads. Three eighths are orange. Three fifths would compare orange with green."
+    },
+    {
+      "n": 11,
+      "stage": "CHECK",
+      "narration": "On a drawing, mark one unit and follow it to the real measurement. In a recipe, copy every part. When the question moves objects, follow the objects and ask which total stays fixed."
+    }
+  ]
+}
