@@ -4,7 +4,7 @@ All geometry is constructed from actual equal squares and every animation cue
 is tied to a phrase in this lesson's newly authored recording.
 """
 from math import cos, pi, sin
-from visuals import AQUA, BLUE, GOLD, PINK, SOFT, WHITE, VIOLET, clamp, ease
+from visuals import AQUA, BLUE, GOLD, PINK, SOFT, WHITE, VIOLET, clamp, ease, mix
 
 
 def title(a, section, name):
@@ -52,7 +52,7 @@ def intro(a,c):
     p=c.after('chessboard',1.2)
     board(a,180,175,92,p,c.after('colours',1.2),0)
     q=c.after('colours',1.0)
-    txt(a,'SAME BOARD',850,235,28,SOFT,q)
+    txt(a,'ONE DOMINO',850,235,28,SOFT,q)
     domino(a,850,335,75,theta=c.after('covering',1.4)*pi/2,opacity=q)
     txt(a,'one blue  +  one gold',850,455,31,WHITE,q)
     txt(a,'Can every square be covered?',850,520,29,PINK,c.after('impossible'))
@@ -117,13 +117,20 @@ def medium_answer(a,c):
     title(a,'Medium example','A covering that works')
     x,y,u=210,170,94
     board(a,x,y,u,1,.5,1,((0,0),(0,1)))
-    p=c.after('remaining two squares',.9)
-    domino(a,x+3*u,y+.5*u,u,opacity=p)
-    q=c.after('two horizontal dominoes',3.0)
-    for i,(r,col) in enumerate([(r,col) for r in (1,2,3) for col in (0,2)]):
-        domino(a,x+(col+1)*u,y+(r+.5)*u,u,opacity=clamp(q*6-i),swap=bool(r%2))
-    txt(a,'1 + 2 + 2 + 2 = 7',925,275,37,WHITE,c.after('seven dominoes'))
-    txt(a,'7 dominoes cover 14 squares',925,365,29,AQUA,c.after('fourteen squares'))
+    slots=[(0,2)]+[(r,col) for r in (1,2,3) for col in (0,2)]
+    first=c.after('Place one domino',2)
+    rest=c.after('then place two horizontal dominoes',5)
+    for i,(r,col) in enumerate(slots):
+        slide=first if i==0 else ease(clamp(rest*6-(i-1)))
+        origin_x=745+(i%4)*106
+        origin_y=260+(i//4)*86
+        target_x=x+(col+1)*u
+        target_y=y+(r+.5)*u
+        # A narrow inset preserves the seam between neighbouring dominoes.
+        domino(a,mix(origin_x,target_x,slide),mix(origin_y,target_y,slide)-22*sin(pi*slide),
+               mix(43,u-4,slide),swap=bool(r%2))
+    txt(a,'1 + 2 + 2 + 2 = 7',925,425,37,WHITE,c.after('seven dominoes'))
+    txt(a,'7 dominoes cover 14 squares',925,505,29,AQUA,c.after('fourteen squares'))
 
 
 def puzzle(a,c):
@@ -170,7 +177,7 @@ def mismatch(a,c):
 def mistake(a,c):
     title(a,'Common mistakes','An even area is only a first check')
     p=c.after('fourteen squares')
-    txt(a,'14 squares = 7 dominoes',640,215,37,WHITE,p)
+    txt(a,'14 ÷ 2 = 7 dominoes needed',640,215,37,WHITE,p)
     q=c.after('colours do not balance')
     board(a,205,270,70,1,1,1)
     txt(a,'6 blue ≠ 8 gold',355,585,29,PINK,q)

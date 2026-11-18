@@ -1,0 +1,82 @@
+name: Build the chessboard, clock and changing-whole films
+on:
+  push:
+    branches: [codex/reviewed-film-work-20261119]
+    paths: ['.github/workflows/stage-reviewed-films-20261119.yml']
+permissions:
+  contents: read
+  actions: read
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    permissions:
+      contents: write
+      actions: read
+    strategy:
+      fail-fast: false
+      matrix:
+        id: [S019, S020, S022]
+    env:
+      GH_TOKEN: ${{ github.token }}
+      FILM: ${{ matrix.id }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install the renderer
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-dejavu-core zip
+          pip install Pillow
+      - name: Get the matched soundtrack
+        run: |
+          mkdir -p build/audio build/out
+          case "$FILM" in
+            S019)
+              gh release download lesson-introductions -p S019-distinct-audio-timeline-20261116-v3.zip -D build
+              unzip -q build/S019-distinct-audio-timeline-20261116-v3.zip -d build/audio
+              ;;
+            S022)
+              gh run download 43870231515 -n s022-distinct-corrected-audio-and-timeline -D build/audio
+              ;;
+          esac
+      - name: Verify the mathematical examples and render to measured speech times
+        run: |
+          base=production/lesson-intros/illustrated
+          lower=$(echo "$FILM" | tr A-Z a-z)
+          python "$base/check_$lower.py"
+          if [ "$FILM" = S020 ]; then
+            python "$base/render.py" S020 --out build/out --preview
+            python "$base/render.py" S020 --out build/out
+          else
+            python "$base/render_${lower}_distinct.py" --audio build/audio --out build/out
+          fi
+      - name: Stage the verified film, poster and source for individual playback review
+        run: |
+          set -euo pipefail
+          names=("$FILM-Intro-Illustrated.mp4" "$FILM-Intro-Illustrated-poster.jpg")
+          if [ "$FILM" = S022 ]; then
+            (cd build/audio && zip -1 ../out/S022-changing-wholes-audio-20261119.zip narration.wav timeline.json captions.vtt)
+            names+=(S022-changing-wholes-audio-20261119.zip)
+          fi
+          mkdir -p build/checked
+          for asset in "${names[@]}"; do
+            gh release download lesson-introductions -p "$asset" -D build/checked 2>/dev/null || {
+              gh release upload lesson-introductions "build/out/$asset"
+              gh release download lesson-introductions -p "$asset" -D build/checked
+            }
+            cmp "build/checked/$asset" "build/out/$asset"
+          done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: reviewed-${{ matrix.id }}-evidence
+          path: |
+            build/out/*qa.json
+            build/out/*contact.jpg
+            build/audio/timeline.json
+          if-no-files-found: error
+          retention-days: 30

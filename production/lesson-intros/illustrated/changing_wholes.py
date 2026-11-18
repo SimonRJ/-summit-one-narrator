@@ -37,26 +37,32 @@ def chalk(a,appear=1,first=0,second=0):
     """Three groups of exactly ten chalk pieces, arranged five by two."""
     for group in range(3):
         x=170+group*325
-        shift=-85*first if group==0 else (92*second if group==1 else 0)
-        opacity=1-.65*first if group==0 else 1-.65*second if group==1 else 1
-        a.rounded(x-22+shift,238,245,223,16,GOLD if group==0 else BLUE if group==1 else AQUA,.10*appear*opacity)
+        used=(first,second,0)[group]
+        shift=100*used
+        opacity=1-.30*used
+        ink=(GOLD,BLUE,AQUA)[group]
+        a.rounded(x-22,225+shift,232,135,16,ink,.10*appear*opacity)
         for i in range(10):
-            px=x+(i%5)*40+shift;py=265+(i//5)*92
+            px=x+(i%5)*40;py=235+(i//5)*57+shift
             shown=clamp(appear*30-(group*10+i))
-            ink=GOLD if group==0 else BLUE if group==1 else AQUA
-            a.rounded(px,py,15,58,4,ink,.8*shown*opacity)
-            a.rect(px+3,py+4,3,42,WHITE,.25*shown*opacity)
+            a.rounded(px,py,16,50,4,ink,.95*shown*opacity)
+            a.rect(px+3,py+4,3,30,WHITE,.34*shown*opacity)
+        label(a,'10 used',x+91,477,27,ink,used)
 
 
 def intro(a,c):
     heading(a,'01','A fraction needs a whole')
-    p=c.after('belongs to a whole')
-    blocks(a,220,225,(10,10,10),19,BLUE,p)
-    label(a,'Original whole: 30',505,185,30,SOFT,p)
-    q=c.after('whole changes',1.4)
-    blocks(a,220,410,(10,10),19,AQUA,q)
-    label(a,'New whole: 20',410,515,30,AQUA,q)
-    label(a,'The whole has changed.',950,345,32,WHITE,c.after('different number of pieces'))
+    half=c.after('one half',1.0)
+    for y,total,colour,show in ((230,30,BLUE,c.opening(1.15)),(430,20,AQUA,c.after('whole changes',1))):
+        left=175
+        width=total*21
+        a.rect(left,y,width*show,80,colour,.17)
+        a.trace(((left,y),(left+width,y),(left+width,y+80),(left,y+80),(left,y)),show,colour,3,False)
+        label(a,f'{total} pieces',left,y-39,32,colour,show,'left')
+        a.rect(left,y,width/2*half,80,colour,.72*show)
+        a.path(((left+width/2,y),(left+width/2,y+80*half)),WHITE,4,show*half)
+        label(a,f'{total//2}',left+width/4,y+40,38,WHITE,half*show)
+        label(a,f'½ of {total} = {total//2}',995,y+40,42,WHITE,half*show)
 
 
 def exams(a,c):
@@ -95,7 +101,7 @@ def chalk_question(a,c):
     second=c.after('uses one of two equal parts',1.2)
     chalk(a,p,first,second)
     label(a,'1/3 of the original',290,180,29,GOLD,first)
-    label(a,'1/2 of what is left',730,495,30,BLUE,second)
+    label(a,'1/2 of what is left',675,535,30,BLUE,second)
     label(a,'What remains?',1000,570,34,WHITE,c.after('How many pieces remain'))
 
 
@@ -104,7 +110,8 @@ def chalk_answer(a,c):
     first=c.opening(1);second=c.after('second class uses',1.3)
     chalk(a,1,first,second)
     label(a,'30 − 10 = 20',640,180,39,WHITE,c.after('remaining count is twenty'))
-    label(a,'New whole: 20',800,490,32,AQUA,c.after('next whole is now twenty'))
+    whole=c.after('next whole is now twenty')*(1-second)
+    a.dimension((477,385),(1062,385),'New whole: 20',AQUA,whole,offset=-32,size=31)
     label(a,'20 − 10 = 10',640,555,38,WHITE,c.after('get ten'))
 
 
@@ -151,7 +158,7 @@ def check(a,c):
 
 
 def mistakes(a,c):
-    heading(a,'10','Fractions must name the same whole')
+    heading(a,'10','Which whole does each fraction use?')
     p=c.after('one third of thirty');q=c.after('twenty left')
     label(a,'Original: 30',85,215,30,BLUE,p,align='left')
     blocks(a,360,185,(10,10,10),14,BLUE,p)

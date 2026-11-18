@@ -86,17 +86,33 @@ def clock_answer(a,c):
     full=c.after('twelve hours',2.8);extra=c.after('Step five hours ahead',2.1)
     travel=12*full+5*extra
     clock(a,430,350,190,9+travel,min(12,travel))
+    if extra:
+        points=[]
+        for i in range(51):
+            angle=-pi/2+2*pi*(9+5*extra*i/50)/12
+            points.append((430+218*cos(angle),350+218*sin(angle)))
+        a.path(points,VIOLET,7)
+        for step in range(1,6):
+            if step<=5*extra:
+                angle=-pi/2+2*pi*(9+step)/12
+                a.circle((430+218*cos(angle),350+218*sin(angle)),6,VIOLET)
     label(a,'12 hours → back to 9',930,240,34,AQUA,c.after('returns to the starting'))
     label(a,'17 = 12 + 5',930,330,38,WHITE,c.after('five extra hours'))
     label(a,'9 + 5 hours → 2',930,440,38,GOLD,c.after('hour hand points to two'))
 
 
 def power_question(a,c):
-    title(a,'What is the units digit of 3^37?')
-    label(a,'Start with small powers',640,205,31,SOFT,c.after('first few powers'))
-    p=c.after('first few powers',2)
-    four(a,305,270,170,p)
-    label(a,'Repeat?',640,505,34,AQUA,c.after('first repeat'))
+    title(a,'What is the units digit of 3³⁷?')
+    progress=c.after('first few powers',2.8)
+    isolate=c.after('first repeat',1.2)
+    for i,(power,value,units,ink) in enumerate(zip(('3¹','3²','3³','3⁴'),('3','9','27','81'),('3','9','7','1'),(BLUE,GOLD,VIOLET,AQUA))):
+        x=286+228*i
+        shown=clamp(4*progress-i)
+        label(a,power,x,210,50,SOFT,shown)
+        label(a,value,x,310,57,WHITE,shown)
+        a.arrow((x,369),(x,419),ink,isolate)
+        label(a,units,x,470,57,ink,isolate)
+    label(a,'Only the last digit carries into the next step',640,568,31,AQUA,isolate)
 
 
 def power_answer(a,c):
@@ -111,7 +127,7 @@ def power_answer(a,c):
 
 def sum_question(a,c):
     title(a,'What is the units digit of this sum?')
-    label(a,'3^1 + 3^2 + 3^3 + … + 3^51',640,230,43,WHITE,c.opening())
+    label(a,'3¹ + 3² + 3³ + … + 3⁵¹',640,230,48,WHITE,c.opening())
     label(a,'Group the last digits in blocks of four',640,345,31,SOFT,c.after('cycle of the last digits'))
     four(a,305,390,170,c.after('one whole block',1.2))
 
