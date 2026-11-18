@@ -1,5 +1,9 @@
 # Summit One lesson video reviews
 
+## Current production work on 19 November 2026
+
+S066 has a newly authored eleven-scene Voice C script and diagrams on [the production branch](https://github.com/SimonRJ/-summit-one-narrator/commit/a5418eac693b89b2c5bb2ae9a94a3f9217ce78ec). The [voice recording](https://github.com/SimonRJ/-summit-one-narrator/actions/runs/44419469904) feeds the [candidate render](https://github.com/SimonRJ/-summit-one-narrator/actions/runs/44419747085). Finish this film first. Its original remains in the public catalogue until candidate review and release. T01.1 has a fresh nine-scene sampling and recorded-speech comparison in the teaching register. Neither film has been added to the completed count.
+
 ## Final reviews completed on 19 November 2026
 
 All 68 revised videos are live and have completed their final editorial review. This batch covers 8 teaching videos and 60 lesson introductions, with 721 narrated scenes over 3 hours 19 minutes 37 seconds. T02.1 and T02.2 had already received user approval in the previous round.
