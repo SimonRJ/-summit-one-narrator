@@ -1,8 +1,10 @@
-name: Build the individually voiced bead and forced-tiling films
+name: Build individually voiced lesson films
 on:
   push:
     branches: [codex/reviewed-film-work-20261119]
     paths:
+      - 'production/lesson-intros/illustrated/shop_comparison.py'
+      - 'production/lesson-intros/illustrated/mirror_mosaics.py'
       - 'production/lesson-intros/illustrated/forced_dominoes.py'
       - 'production/lesson-intros/illustrated/bead_scale_trays.py'
       - '.github/workflows/stage-cued-lesson-films-20261119.yml'
@@ -10,19 +12,38 @@ permissions:
   contents: write
   actions: read
 jobs:
+  select:
+    runs-on: ubuntu-latest
+    outputs:
+      films: ${{ steps.select.outputs.films }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+          persist-credentials: false
+      - id: select
+        run: |
+          python - <<'PYTHON'
+          import json, os, subprocess
+          changed = set(subprocess.check_output(['git','diff','--name-only','HEAD^','HEAD'], text=True).splitlines())
+          plans = [('S024','bead_scale_trays',44386238642),('S036','forced_dominoes',44386023082),
+                   ('S041','shop_comparison',44399717895),('S083','mirror_mosaics',44398986127)]
+          rows = []
+          for film, module, run in plans:
+              art = 'production/lesson-intros/illustrated/' + module + '.py'
+              if art in changed or ('.github/workflows/stage-cued-lesson-films-20261119.yml' in changed and film in ('S041','S083')):
+                  rows.append(dict(id=film, voice_run=run, artifact=film.lower()+'-checked-voice-and-timing'))
+          with open(os.environ['GITHUB_OUTPUT'],'a') as f: print('films='+json.dumps(rows),file=f)
+          PYTHON
   stage:
+    needs: select
+    if: needs.select.outputs.films != '[]'
     runs-on: ubuntu-latest
     timeout-minutes: 60
     strategy:
       fail-fast: false
       matrix:
-        include:
-          - id: S024
-            voice_run: 44386238642
-            artifact: s024-checked-voice-and-timing
-          - id: S036
-            voice_run: 44386023082
-            artifact: s036-checked-voice-and-timing
+        include: ${{ fromJSON(needs.select.outputs.films) }}
     env:
       GH_TOKEN: ${{ github.token }}
       FILM: ${{ matrix.id }}
