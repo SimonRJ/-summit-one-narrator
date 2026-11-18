@@ -1,11 +1,9 @@
-name: Stage individual badge, boundary and folding-box animations
+name: Stage individually drawn lesson animations
 on:
   push:
     branches: [codex/reviewed-film-work-20261119]
     paths:
-      - 'production/lesson-intros/illustrated/badge_arrangements.py'
-      - 'production/lesson-intros/illustrated/boundary_walk.py'
-      - 'production/lesson-intros/illustrated/folding_box.py'
+      - 'production/lesson-intros/illustrated/*.py'
       - '.github/workflows/stage-authored-diagrams-20261119.yml'
 permissions:
   contents: read
@@ -24,8 +22,10 @@ jobs:
           python - <<'PY'
           import os,subprocess,json
           files=set(subprocess.check_output(['git','diff','--name-only','HEAD^','HEAD'],text=True).splitlines())
-          modules={'badge_arrangements':'S023','boundary_walk':'S043','folding_box':'S090'}
-          ids=[id for name,id in modules.items() if 'production/lesson-intros/illustrated/'+name+'.py' in files]
+          import ast,pathlib
+          definitions=ast.parse(pathlib.Path('production/lesson-intros/illustrated/render_captioned_lesson.py').read_text())
+          modules=next(ast.literal_eval(node.value) for node in definitions.body if isinstance(node,ast.Assign) and any(getattr(t,'id',None)=='MODULES' for t in node.targets))
+          ids=[id for id,name in modules.items() if 'production/lesson-intros/illustrated/'+name+'.py' in files]
           with open(os.environ['GITHUB_OUTPUT'],'a') as f: print('lessons='+json.dumps(ids),file=f)
           PY
   render:
