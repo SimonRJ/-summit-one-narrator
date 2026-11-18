@@ -1,7 +1,7 @@
 {
   "id": "T13.3",
   "duration_seconds": 119.033333,
-  "sha256": "7fead578dafd3ef1c535d44deafad9cbcebe6d32538c5b632b64673351759d55",
+  "sha256": "84b56ff9e8acc7501953df44028715cb06863ff632eb82e526de7d9f64ec507d",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -88,5 +88,8 @@
       "start": 97.38
     }
   ],
-  "decoded_successfully": true
+  "decoded_successfully": true,
+  "source_sha256": "7fead578dafd3ef1c535d44deafad9cbcebe6d32538c5b632b64673351759d55",
+  "diagram_revision": "T13.3. Disassemble solids and carry the same cubes into their paint classes.",
+  "original_audio_packets": "SHA256=407df74930e6e246ab8c9172a815cc35ad21c30587a2385114b2b1a098ee718d"
 }

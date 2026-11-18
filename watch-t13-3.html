@@ -44,8 +44,8 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <h1>Count hidden pieces through layers and boundaries</h1>
 <p>Count cubes in a solid by layers, including the ones you cannot see.</p>
 <video id="lesson" controls playsinline preload="metadata" aria-label="Count hidden pieces through layers and boundaries"
-  poster="media/T13.3-studio-poster.jpg?v=teaching-films-v1">
-  <source src="media/T13.3.mp4?v=teaching-films-v1" type="video/mp4">
+  poster="media/T13.3-studio-poster.jpg?v=hidden-cubes-20261119">
+  <source src="media/T13.3.mp4?v=hidden-cubes-20261119" type="video/mp4">
 </video>
 <p class="meta">1:59 · Full HD</p>
 <nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Separate a block into layers</button>
@@ -69,17 +69,8 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <p>You can sort all twenty-seven. Eight corner cubes have three painted faces. Twelve cubes along the edges have two. Six in the middle of each face have one. One in the centre has none. Eight, twelve, six and one make twenty-seven, so nothing is missing.</p>
 <p>Layers also handle uneven solids. A corner staircase has nine cubes on the bottom layer, four on the next and one on top: fourteen altogether. Count each layer as it really is.</p>
 <p>Slice the solid into layers. Include the hidden cubes. If you sort the cubes into types, check that the types add up to the total. Notebook challenge: a four by four by four cube is painted and cut into small cubes. How many small cubes have no paint?</p></details>
-<p><a href="media/T13.3.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+<p><a href="media/T13.3.mp4?v=hidden-cubes-20261119">Open the MP4 directly</a></p>
 </main>
-<script>
-const video = document.querySelector("#lesson");
-for (const button of document.querySelectorAll("[data-time]")) {
-  button.addEventListener("click", () => {
-    video.currentTime = Number(button.dataset.time);
-    video.play().catch(() => {});
-    video.scrollIntoView({block: "center"});
-  });
-}
-</script>
+<script src="lesson-video-chapters.js?v=seek-1"></script>
 </body>
 </html>
