@@ -1,0 +1,62 @@
+{
+  "id": "S066",
+  "title": "Divisibility tests and modular remainders",
+  "voice": "VoxCPM2 — approved voice C",
+  "scenes": [
+    {
+      "n": 1,
+      "stage": "INTRO",
+      "narration": "Look at these two trays. One has space for five counters and the other has space for eight. Each tray has one empty space. Four and seven look different, yet both tell the same story. One more counter would fill the tray."
+    },
+    {
+      "n": 2,
+      "stage": "EXAM",
+      "narration": "Suppose one number leaves four when grouped in fives, and seven when grouped in eights. Add one to that number. Both leftovers become complete groups. Now you can search for a number on both times tables."
+    },
+    {
+      "n": 3,
+      "stage": "BASIC",
+      "narration": "Start with fifty-one counters. Each packet holds six. How many counters will stay outside the packets? Make a prediction before we pack them."
+    },
+    {
+      "n": 4,
+      "stage": "EXPLANATION",
+      "narration": "Slide six counters into each packet. Eight packets use forty-eight counters. Three counters stay loose. A ninth packet needs six, so we stop. Fifty-one divided by six has remainder three."
+    },
+    {
+      "n": 5,
+      "stage": "MEDIUM",
+      "narration": "A three-digit number starts with four and six. Which final digit makes the number divisible by both four and three? Begin with the last two digits. Which endings from sixty to sixty-nine belong to the four times table?"
+    },
+    {
+      "n": 6,
+      "stage": "EXPLANATION",
+      "narration": "Keep sixty, sixty-four and sixty-eight. Put the hundreds digit back. The candidates are four hundred and sixty, four hundred and sixty-four, and four hundred and sixty-eight. Their digit sums are ten, fourteen and eighteen. Only eighteen is divisible by three. The missing digit is eight."
+    },
+    {
+      "n": 7,
+      "stage": "PUZZLE",
+      "narration": "On this ruler, the allowed numbers run from sixty-three through two hundred and twenty-two, including both ends. Find every number that leaves four when divided by five and seven when divided by eight. What should happen to the two ends if you add one to every number?"
+    },
+    {
+      "n": 8,
+      "stage": "EXPLANATION",
+      "narration": "Shift the entire interval one place right. The new ends are sixty-four and two hundred and twenty-three. We need multiples of both five and eight. The first positive common multiple is forty. Mark eighty, one hundred and twenty, one hundred and sixty, and two hundred. The next mark, two hundred and forty, falls outside."
+    },
+    {
+      "n": 9,
+      "stage": "EXPLANATION",
+      "narration": "Slide each marked point one place left. Read the original numbers: seventy-nine, one hundred and nineteen, one hundred and fifty-nine, and one hundred and ninety-nine. There are four marked points, even though there are only three gaps between them."
+    },
+    {
+      "n": 10,
+      "stage": "CHECK",
+      "narration": "Test the first point. Seventy-nine is seventy-five plus four, and seventy-two plus seven. Test the last point. One hundred and ninety-nine is one hundred and ninety-five plus four, and one hundred and ninety-two plus seven. Stepping forty keeps both remainders unchanged."
+    },
+    {
+      "n": 11,
+      "stage": "RECAP",
+      "narration": "Try moving the upper end of the original interval down to one hundred and ninety-eight. Which point disappears? The last answer was one hundred and ninety-nine. It now lies one place outside the interval. Three answers remain. A boundary can change the count even when the step stays the same."
+    }
+  ]
+}
