@@ -30,6 +30,15 @@ async function check(context,film,orientation,engine) {
   const {id,asset}=film;
   const page=await context.newPage();
   try {
+    await page.addInitScript(()=>{
+      window.__chapterEvents=[];
+      for(const type of ['click','seeking','seeked','canplay','play','pause']) {
+        document.addEventListener(type,e=>{
+          const v=document.querySelector('video');
+          if(v)window.__chapterEvents.push([type,e.target.tagName,e.target.dataset?.time,v.currentTime,v.readyState,[...Array(v.seekable.length)].map((_,i)=>[v.seekable.start(i),v.seekable.end(i)])]);
+        },true);
+      }
+    });
     await page.goto(root+film.page,{waitUntil:'domcontentloaded',timeout:45000});
     const video=page.locator('video');
     await video.waitFor({state:'visible',timeout:25000});
@@ -50,7 +59,7 @@ async function check(context,film,orientation,engine) {
       const chapter=chapters.nth(Math.min(id.startsWith('S')?4:3,await chapters.count()-1));
       target=Number(await chapter.getAttribute('data-time'));
       assert.ok(target>0);
-      await chapter.click();method='chapter button';
+      await chapter.tap();method='chapter button';
     }
     await page.waitForFunction(t=>{const v=document.querySelector('video');return !v.seeking&&v.readyState>=2&&Math.abs(v.currentTime-t)<2},target,{timeout:25000});
     const afterSeek=await video.evaluate(v=>v.currentTime);
@@ -62,7 +71,7 @@ async function check(context,film,orientation,engine) {
     await fs.writeFile(file+'.json',JSON.stringify({id,engine,orientation,method,target,page:root+film.page,...result},null,2));
     console.log(id,engine,orientation,method,result.time.toFixed(2));
   } catch(error) {
-    const state=await page.locator('video').evaluate(v=>({time:v.currentTime,seeking:v.seeking,paused:v.paused,ready:v.readyState,network:v.networkState,buffered:[...Array(v.buffered.length)].map((_,i)=>[v.buffered.start(i),v.buffered.end(i)]),pageWidth:innerWidth,visible:v.getBoundingClientRect().toJSON(),error:v.error?.message})).catch(()=>({}));
+    const state=await page.locator('video').evaluate(v=>({time:v.currentTime,seeking:v.seeking,paused:v.paused,ready:v.readyState,network:v.networkState,events:window.__chapterEvents?.slice(-15),seekable:[...Array(v.seekable.length)].map((_,i)=>[v.seekable.start(i),v.seekable.end(i)]),buffered:[...Array(v.buffered.length)].map((_,i)=>[v.buffered.start(i),v.buffered.end(i)]),pageWidth:innerWidth,visible:v.getBoundingClientRect().toJSON(),error:v.error?.message})).catch(()=>({}));
     throw Error(String(error)+' '+JSON.stringify(state));
   } finally {await page.close();}
 }
