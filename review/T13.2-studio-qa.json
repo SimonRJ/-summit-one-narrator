@@ -1,7 +1,7 @@
 {
   "id": "T13.2",
   "duration_seconds": 118.066667,
-  "sha256": "03494bd8e053d32cbd9d125ddc093b431448eb0112f26da1e22a70047496a9b5",
+  "sha256": "cb05ddb68e05ead6236ccfbc9a982455518eb1ac18c93bded2e64ed7369f2062",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -88,5 +88,8 @@
       "start": 94.51
     }
   ],
-  "decoded_successfully": true
+  "decoded_successfully": true,
+  "source_sha256": "03494bd8e053d32cbd9d125ddc093b431448eb0112f26da1e22a70047496a9b5",
+  "diagram_revision": "Unit-square cuts from a corner and a straight edge expose different perimeter changes. The new corner edges slide onto the old ones. Scaled areas and volumes are drawn at true proportions.",
+  "original_audio_packets": "SHA256=6ab3d40ee1c91dea1f727be484e58792993c651a68a349d69ae7cfed431c94fa"
 }
