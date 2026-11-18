@@ -1,0 +1,46 @@
+name: Render the parallel rule and tilted-square dissection in T12.3
+on:
+  push:
+    branches: [codex/reviewed-film-work-20261119]
+    paths: ['production/lesson-intros/illustrated/construction_notebook.py','.github/workflows/stage-construction-notebook-20261119.yml']
+permissions:
+  contents: write
+jobs:
+  cutouts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 32
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install the drawing and encoding tools
+        run: |
+          if ! command -v ffmpeg >/dev/null; then
+            opts=(-o Acquire::Retries=2 -o Acquire::http::Timeout=15 -o Acquire::https::Timeout=15 -o Acquire::ForceIPv4=true)
+            sudo apt-get "${opts[@]}" update -qq
+            sudo apt-get "${opts[@]}" install --no-install-recommends -y ffmpeg fonts-dejavu-core
+          fi
+          pip install pillow
+      - name: Render the proof and verify every original audio packet
+        env:
+          PYTHONPATH: production/lesson-intros/illustrated
+        run: |
+          python - <<'PY'
+          import json,pathlib,shutil
+          import construction_notebook as spec
+          from captioned_film import render
+          root=pathlib.Path('.');out=root/'build/construction-notebook'
+          qa=render(spec,root/'media/T12.3.mp4',out)
+          shutil.copy(out/'T12.3-Intro-Illustrated.mp4',root/'media/T12.3.mp4')
+          shutil.copy(out/'T12.3-Intro-Illustrated-poster.jpg',root/'media/T12.3-studio-poster.jpg')
+          p=root/'review/T12.3-studio-qa.json';record=json.loads(p.read_text());assert record['sha256']==qa['legacy_sha256']
+          record.update(source_sha256=record['sha256'],sha256=qa['sha256'],diagram_revision='A parallel rule locates the 80-degree bend. Four actual corner triangles separate from a tilted square with side offsets 3 and 1, leaving exactly 10 square units.',original_audio_packets=qa['audio_packets']);p.write_text(json.dumps(record,ensure_ascii=False,indent=2)+'\n')
+          PY
+      - name: Keep the rendered film and digest together for review
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add media/T12.3.mp4 media/T12.3-studio-poster.jpg review/T12.3-studio-qa.json
+          git commit -m 'Stage the parallel rule and the complete grid dissection'
+          git push origin HEAD:refs/heads/codex/t123-rendered-media-20261119
