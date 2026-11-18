@@ -1,7 +1,7 @@
 {
   "id": "T12.2",
   "duration_seconds": 137.2,
-  "sha256": "705a213376bf556e664ab405ceda90b52960bd3a1d4df851055ba9764b0f0890",
+  "sha256": "93e188dc7afab9e0d69ed617c5711cfada3c6096948ea0afa8a5567202e8b668",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -88,5 +88,8 @@
       "start": 116.84
     }
   ],
-  "decoded_successfully": true
+  "decoded_successfully": true,
+  "source_sha256": "705a213376bf556e664ab405ceda90b52960bd3a1d4df851055ba9764b0f0890",
+  "diagram_revision": "T12.2. Trace twelve exact clock gaps, move the observer and build the two-triangle proof.",
+  "original_audio_packets": "SHA256=5a32530d72d8f376e2d9bdd51b91252bd2df5e08847775a6eff1fe058136c2f6"
 }

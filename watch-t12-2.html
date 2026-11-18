@@ -44,8 +44,8 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <h1>Connect angles on a circle to the arcs they see</h1>
 <p>Use equal spacing on a circle, and the link between an angle at the centre and one on the circle.</p>
 <video id="lesson" controls playsinline preload="metadata" aria-label="Connect angles on a circle to the arcs they see"
-  poster="media/T12.2-studio-poster.jpg?v=teaching-films-v1">
-  <source src="media/T12.2.mp4?v=teaching-films-v1" type="video/mp4">
+  poster="media/T12.2-studio-poster.jpg?v=clock-arc-proof-20261119">
+  <source src="media/T12.2.mp4?v=clock-arc-proof-20261119" type="video/mp4">
 </video>
 <p class="meta">2:17 · Full HD</p>
 <nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Twelve equal gaps share a full turn</button>
@@ -69,17 +69,8 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <p>Why half here? Draw the radius to eight. It splits the angle at eight into two parts, a and b. Since the radii are equal, the two small triangles have equal base angles. Their angles at the centre are one hundred and eighty minus two a, and one hundred and eighty minus two b. Subtract both from a full turn. The centre angle over the arc is two a plus two b, twice the whole angle at eight.</p>
 <p>A special case is worth remembering. If the arc is exactly half the circle, the angle at the centre is one hundred and eighty, so the angle on the circle is ninety. Any triangle drawn with a diameter as one side, and its third corner on the circle, has a right angle.</p>
 <p>Share three hundred and sixty among the gaps. Count gaps, not points. The angle on the circle is half the angle at the centre. Notebook challenge: on the clock circle, what is the angle at the centre between the points at two and seven?</p></details>
-<p><a href="media/T12.2.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+<p><a href="media/T12.2.mp4?v=clock-arc-proof-20261119">Open the MP4 directly</a></p>
 </main>
-<script>
-const video = document.querySelector("#lesson");
-for (const button of document.querySelectorAll("[data-time]")) {
-  button.addEventListener("click", () => {
-    video.currentTime = Number(button.dataset.time);
-    video.play().catch(() => {});
-    video.scrollIntoView({block: "center"});
-  });
-}
-</script>
+<script src="lesson-video-chapters.js?v=seek-1"></script>
 </body>
 </html>
