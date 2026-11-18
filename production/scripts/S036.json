@@ -1,0 +1,62 @@
+{
+  "id": "S036",
+  "title": "Tiling a strip with forced domino pairs",
+  "voice": "VoxCPM2 — approved voice C",
+  "scenes": [
+    {
+      "n": 1,
+      "stage": "INTRO",
+      "narration": "Slide a domino across a square grid. It covers two cells that share an edge. In a tiling, the last gap matters just as much as the first tile. Can every cell be covered exactly once?"
+    },
+    {
+      "n": 2,
+      "stage": "EXAM",
+      "narration": "For an AMC shape puzzle, try a move on the actual board. In a Rossmoyne or MAWA investigation, ask a second question. If you know the first move, can you predict the next one?"
+    },
+    {
+      "n": 3,
+      "stage": "BASIC",
+      "narration": "Join three unit squares in a row. Attach one more below the left end. Before you turn this piece a quarter turn, predict how many squares you will see afterwards."
+    },
+    {
+      "n": 4,
+      "stage": "EXPLANATION",
+      "narration": "Follow the marked square as the piece turns. The three squares in the row become a column. The attached square travels with them. Four squares before, four squares afterwards. Only their positions have changed."
+    },
+    {
+      "n": 5,
+      "stage": "MEDIUM",
+      "narration": "Here is a board four columns wide and three rows high. Lift out the top right corner square. Could pieces made of exactly three squares each cover the board that remains?"
+    },
+    {
+      "n": 6,
+      "stage": "EXPLANATION",
+      "narration": "Twelve cells minus one leaves eleven. Place three pieces covering three cells each. That covers nine cells and leaves two. Another whole piece needs three cells. No arrangement can fix that remainder."
+    },
+    {
+      "n": 7,
+      "stage": "PUZZLE",
+      "narration": "Now fill this two by eight board with dominoes. Exactly two dominoes must stand upright. How many different tilings are possible? Look at the two empty squares in the leftmost column."
+    },
+    {
+      "n": 8,
+      "stage": "EXPLANATION",
+      "narration": "An upright domino fills that column. A sideways domino covers only the top square of that column, so another sideways domino must go directly below it. Those two move as a single block two columns wide."
+    },
+    {
+      "n": 9,
+      "stage": "EXPLANATION",
+      "narration": "The two upright dominoes use two columns. The other six columns need three double blocks. That makes five blocks in a line. Choose two of the five positions for the uprights. There are ten choices. Watch each choice expand into a different board."
+    },
+    {
+      "n": 10,
+      "stage": "MISTAKES",
+      "narration": "The two sideways dominoes are identical. Exchanging the top and bottom pieces changes no covered edges. Counting both placements would count the same tiling twice. Compare the outlines to see why."
+    },
+    {
+      "n": 11,
+      "stage": "CHECK",
+      "narration": "Read the completed board from left to right. Each first uncovered column tells you whether to take one upright piece or a pair of sideways pieces. That gives back the block sequence. This is why the ten choices count every tiling exactly once."
+    }
+  ]
+}
