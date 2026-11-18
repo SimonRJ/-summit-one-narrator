@@ -160,6 +160,7 @@ def challenge(c,t):
 SCENES=(intro,visible,puzzle,layers,peel,classes,stair,challenge)
 def verify():
     assert len(BLOCK)==24 and sum(x==3 or y==2 or z==1 for x,y,z in BLOCK)==18
+    assert len({p for p in BLOCK if p[0]<3 and p[1]<2 and p[2]==0})==6
     assert Counter(faces(p,3) for p in CUBE)=={3:8,2:12,1:6,0:1}
     assert Counter(z for x,y,z in STAIR)=={0:9,1:4,2:1}
     assert sum(faces(p,4)==0 for p in product(range(4),repeat=3))==8

@@ -179,3 +179,4 @@ def verify():
         if counts[0] in (2,3) and counts[2]<=1:teams[counts]+=1
     assert set(teams)==set(PATTERNS) and [teams[k] for k in PATTERNS]==[18,54,12,12]
     assert sum(teams.values())==96
+    assert 2*len(tuple(combinations(PEOPLE,2)))==5*4

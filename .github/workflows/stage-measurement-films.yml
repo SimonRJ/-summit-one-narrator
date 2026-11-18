@@ -32,7 +32,7 @@ jobs:
         id: subject
         run: |
           script="$PYTHONPATH/$MODULE.py"
-          if test -e "$script" && ! git diff --quiet HEAD^ HEAD -- "$script" .github/workflows/stage-measurement-films.yml; then
+          if test -e "$script" && ! git diff --quiet HEAD^ HEAD -- "$script"; then
             echo 'changed=true' >> "$GITHUB_OUTPUT"
           fi
       - if: steps.subject.outputs.changed == 'true'
@@ -41,12 +41,7 @@ jobs:
           python-version: '3.12'
       - if: steps.subject.outputs.changed == 'true'
         name: Install the renderer
-        run: |
-          if ! command -v ffmpeg >/dev/null; then
-            sudo apt-get -o Acquire::Retries=3 update -qq
-            sudo apt-get -o Acquire::Retries=3 install --no-install-recommends -y ffmpeg fonts-dejavu-core
-          fi
-          pip install pillow
+        run: python production/lesson-intros/illustrated/install_media_tools.py
       - if: steps.subject.outputs.changed == 'true'
         name: Draw the full recording and verify its audio and video
         run: |
