@@ -66,6 +66,10 @@ def angles(lesson):
     )
 
 
+def units(n):
+    return f"{say(n)} {'unit' if n == 1 else 'units'}"
+
+
 def symmetry(lesson):
     v=lesson.visit
     x,y=2+v,1+v
@@ -94,12 +98,12 @@ def symmetry(lesson):
          ("A Rossmoyne style colouring problem can require two symmetries at once. Count groups of linked cells instead of making every colouring.", "Rossmoyne-style · count groups of matching cells")),
         (
             Example("Reflect a point in the vertical axis", (
-                (f"Point P is {say(x)} units right of the vertical axis and {say(y)} units above the horizontal axis. Reflect it across the vertical axis.", f"P = ({x}, {y}). Reflect across x = 0."),
+                (f"Point P is {units(x)} right of the vertical axis and {units(y)} above the horizontal axis. Reflect it across the vertical axis.", f"P = ({x}, {y}). Reflect across x = 0."),
                 ("Which coordinate changes sign?", "The mirror is vertical.")),
                 ((f"Keep the height of {say(y)}. Move from {say(x)} units on the right to {say(x)} units on the left.", f"Preserve y = {y}; reverse the horizontal offset."),
                  (f"The reflected point is at minus {say(x)}, {say(y)}. Both points are equally far from the vertical mirror.", f"P′ = ({-x}, {y}).")),basic_art),
             Example("Compose a quarter turn with a translation", (
-                (f"Start at coordinates {say(sx)}, {say(sy)}. Rotate ninety degrees anticlockwise about the origin. Then move {say(dx)} units right and {say(-dy)} units down.", f"Start ({sx}, {sy}). Turn 90° anticlockwise, then translate."),
+                (f"Start at coordinates {say(sx)}, {say(sy)}. Rotate ninety degrees anticlockwise about the origin. Then move {units(dx)} right and {units(-dy)} down.", f"Start ({sx}, {sy}). Turn 90° anticlockwise, then translate."),
                 ("Find the final point. Complete the turn before the move.", "What are the final coordinates?")),
                 ((f"A ninety-degree anticlockwise turn sends a rightward offset to the upward direction and an upward offset to the left. The new point is minus {say(sy)}, {say(sx)}.", f"Rotate (x,y) → (−y,x): Q = ({-sy}, {sx})."),
                  (f"Now add the horizontal move and subtract the downward move. The result is {say(final[0])}, {say(final[1])}.", f"R = ({-sy} + {dx}, {sx} − {-dy}) = {final}."),

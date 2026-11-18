@@ -1,16 +1,17 @@
-name: Stage the individually illustrated ratio and tiling lessons after voice verification
+name: Stage the individually illustrated lessons after voice verification
 on:
   workflow_run:
     workflows:
       - Recover the bead, scale and two-tray lesson in Voice C
       - Recover the original forced-domino lesson in Voice C
+      - Record the two corrected coordinate questions for S083
     types: [completed]
     branches: [codex/reviewed-film-work-20261119]
 permissions:
   contents: read
 jobs:
   stage:
-    if: github.event.workflow_run.conclusion == 'success' && (github.event.workflow_run.id == 44394377747 || github.event.workflow_run.id == 44394193825)
+    if: github.event.workflow_run.conclusion == 'success' && (github.event.workflow_run.id == 44394377747 || github.event.workflow_run.id == 44394193825 || github.event.workflow_run.id == 44398986127)
     runs-on: ubuntu-latest
     timeout-minutes: 34
     permissions:
@@ -19,11 +20,11 @@ jobs:
     env:
       GH_TOKEN: ${{ github.token }}
       VOICE_RUN: ${{ github.event.workflow_run.id }}
-      FILM: ${{ github.event.workflow_run.id == 44394377747 && 'S024' || 'S036' }}
+      FILM: ${{ github.event.workflow_run.id == 44394377747 && 'S024' || github.event.workflow_run.id == 44398986127 && 'S083' || 'S036' }}
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.workflow_run.head_sha }}
+          ref: ${{ github.event.workflow_run.id == 44398986127 && '69ee2e611707a1739b4ccf89adb87487f77653fe' || github.event.workflow_run.head_sha }}
           persist-credentials: false
       - uses: actions/setup-python@v5
         with:
@@ -32,8 +33,11 @@ jobs:
         run: gh run download "$VOICE_RUN" --repo "$GITHUB_REPOSITORY" -n "${FILM,,}-checked-voice-and-timing" -D build/review-voice
       - name: Install drawing and encoding tools
         run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y ffmpeg fonts-dejavu-core
+          if ! command -v ffmpeg >/dev/null; then
+            opts=(-o Acquire::ForceIPv4=true -o Acquire::Retries=2 -o Acquire::http::Timeout=15 -o Acquire::https::Timeout=15)
+            sudo apt-get "${opts[@]}" update -qq
+            sudo apt-get "${opts[@]}" install --no-install-recommends -y ffmpeg fonts-dejavu-core
+          fi
           pip install pillow numpy
       - name: Render each scene at its measured spoken cues
         run: python production/lesson-intros/illustrated/render_voiced_board.py "$FILM" --audio build/review-voice --out build/finished-film
