@@ -2,6 +2,7 @@
 from math import cos,sin,pi,hypot,floor
 from captioned_film import cue,mix,font
 ID='S054'
+REVISION=2
 ORIGINAL='425f62a72fe8011a7829c7714729f9cd58f8d1b62d386d66d2872011ff90c9cb'
 START=(0,17.08,35.48,49.38,60.59,75.44,89.52,107.41,126.60,141.64,156.52)
 POSTER=124.6
@@ -111,7 +112,7 @@ def dial_sol(c,t):
     if t>=83.5:label(c,'First joint reset   6',866,519,26,RED)
 def machine(c,t):
     title(c,'Follow the numbered machine for 51 moves')
-    m=step_at(t,91.85,94.65,5)+step_at(t,94.85,97.2,1)
+    m=step_at(t,91.85,94.65,5)+step_at(t,94.85,97.2,1) if t<99.4 else 0
     track(c,m);readout(c,floor(m+.0001))
     label(c,'Start at state 1.',842,312,30,GOLD)
     if t>=94.8:label(c,'6 returns to 2.',842,385,31,AQUA)

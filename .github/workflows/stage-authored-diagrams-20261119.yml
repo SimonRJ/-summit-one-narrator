@@ -51,15 +51,19 @@ jobs:
           python-version: '3.12'
       - name: Install drawing and encoding tools
         run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y ffmpeg fonts-dejavu-core
+          if ! command -v ffmpeg >/dev/null || ! command -v ffprobe >/dev/null; then
+            opts=(-o Acquire::Retries=2 -o Acquire::http::Timeout=15 -o Acquire::https::Timeout=15 -o Acquire::ForceIPv4=true)
+            sudo apt-get "${opts[@]}" update -qq
+            sudo apt-get "${opts[@]}" install --no-install-recommends -y ffmpeg fonts-dejavu-core
+          fi
           pip install pillow
       - name: Render and verify the original audio packets and caption track
         run: python production/lesson-intros/illustrated/render_captioned_lesson.py "$FILM" --out build/diagrams
       - name: Stage the film and poster for playback review
         run: |
           mkdir -p build/remote
-          for asset in "$FILM-Intro-Illustrated.mp4" "$FILM-Intro-Illustrated-poster.jpg"; do
+          for media in build/diagrams/"$FILM"-Intro-Illustrated*.mp4 build/diagrams/"$FILM"-Intro-Illustrated*-poster.jpg; do
+            asset=$(basename "$media")
             if ! gh release download lesson-introductions -p "$asset" -D build/remote; then
               gh release upload lesson-introductions "build/diagrams/$asset"
               gh release download lesson-introductions -p "$asset" -D build/remote

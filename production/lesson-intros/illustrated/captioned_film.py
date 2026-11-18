@@ -64,7 +64,8 @@ def render(module,src,out):
     stats=json.loads(subprocess.check_output(['ffprobe','-v','error','-select_streams','v:0','-show_streams','-of','json',str(src)]))['streams'][0]
     assert (stats['width'],stats['height'],stats['avg_frame_rate'])==(1920,1080,'30/1')
     count=int(stats['nb_frames'])
-    movie=out/(module.ID+'-Intro-Illustrated.mp4')
+    edition='-Illustrated-v2' if getattr(module,'REVISION',1)==2 else '-Illustrated'
+    movie=out/(module.ID+'-Intro'+edition+'.mp4')
     cmd=['ffmpeg','-nostdin','-v','error','-y','-threads','2','-i',str(src),'-f','rawvideo','-pix_fmt','rgb24','-s','1920x930','-framerate','30','-i','pipe:0',
          '-filter_complex_threads','2','-filter_complex','[0:v]crop=1920:150:0:930[caption];[1:v][caption]vstack=inputs=2[v]','-map','[v]','-map','0:a:0','-c:a','copy',
          '-c:v','libx264','-pix_fmt','yuv420p','-threads','3','-crf','19','-preset','fast','-profile:v','high','-level:v','4.1','-movflags','+faststart',str(movie)]
@@ -78,7 +79,7 @@ def render(module,src,out):
     v,a=final['streams'];assert int(v['nb_frames'])==count and v['width']==1920 and v['height']==1080 and a['codec_name']=='aac'
     voice=verify_audio(src,movie)
     subprocess.run(['ffmpeg','-nostdin','-v','error','-xerror','-i',str(movie),'-f','null','-'],check=True)
-    poster=Image.new('RGB',(1920,1080),module.PAPER);poster.paste(drawing(module,module.POSTER,1.5),(0,75));poster.save(out/(module.ID+'-Intro-Illustrated-poster.jpg'),quality=94)
+    poster=Image.new('RGB',(1920,1080),module.PAPER);poster.paste(drawing(module,module.POSTER,1.5),(0,75));poster.save(out/(module.ID+'-Intro'+edition+'-poster.jpg'),quality=94)
     report={'id':module.ID,'sha256':hashlib.sha256(movie.read_bytes()).hexdigest(),'legacy_sha256':module.ORIGINAL,'seconds':float(final['format']['duration']),'audio_packets':voice,'original_captions':True,'frames':count}
     (out/(module.ID+'-qa.json')).write_text(json.dumps(report,indent=2)+'\n')
     return report
