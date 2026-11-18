@@ -9,27 +9,16 @@ async function publicJson(url) {
   if (!response.ok) throw Error('Could not read '+url+' ('+response.status+')');
   return response.json();
 }
-async function publishedCatalogue() {
-  const requested = (process.env.ILLUSTRATED || '').split(/\s+/).filter(Boolean);
-  for (let attempt=0; attempt<6; attempt++) {
-    const catalogue = await publicJson(registry+'?review='+Date.now());
-    const missing = requested.filter(id => !catalogue.entries.some(row =>
-      row.id === id && row.status === 'verified' && (row.illustration === 1 || row.illustration === 2)));
-    if (!missing.length) return catalogue;
-    if (attempt === 5) throw Error('Illustrated editions absent from the public catalogue: '+missing.join(', '));
-    await new Promise(resolve => setTimeout(resolve, 12000));
-  }
-}
-
 async function course() {
-  const [catalogue, teaching] = await Promise.all([publishedCatalogue(),publicJson(root+'data/teaching-72.json')]);
+  const [catalogue, teaching] = await Promise.all([publicJson(registry),publicJson(root+'data/teaching-72.json')]);
   const films = [];
   for (let slot=1;slot<=6;slot++) {
     const id='S'+String(slot).padStart(3,'0');
     films.push({id,page:'watch-intro-'+id.toLowerCase()+'.html',asset:id+'-Intro.mp4'});
   }
   for (const row of catalogue.entries.filter(r=>r.status==='verified')) {
-    const suffix=row.illustration===2 || row.illustration===1 && row.illustratedRevision===2 ? '-Illustrated-v2' : row.illustration===1 ? '-Illustrated' : '';
+    const explicitlyRevised=(process.env.ILLUSTRATED || '').split(/\s+/).includes(row.id);
+    const suffix=row.illustration===2 || row.illustration===1 && row.illustratedRevision===2 ? '-Illustrated-v2' : (row.illustration===1 || explicitlyRevised) ? '-Illustrated' : '';
     films.push({id:row.id,page:'watch-lesson-intro.html?slot='+Number(row.id.slice(1)),asset:row.id+'-Intro'+suffix+'.mp4'});
   }
   for (const {id} of teaching.items) {

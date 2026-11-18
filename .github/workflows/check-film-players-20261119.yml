@@ -6,8 +6,8 @@ on:
 permissions:
   contents: read
 env:
-  FILMS: S044 S045 S046 S051
-  ILLUSTRATED: S044 S045 S046 S051
+  FILMS: S044 S045 S046 S050 S051 S052 S055
+  ILLUSTRATED: S044 S045 S046 S050 S051 S052 S055
 jobs:
   chrome:
     runs-on: ubuntu-latest
