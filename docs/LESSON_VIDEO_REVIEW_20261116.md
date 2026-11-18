@@ -4,9 +4,9 @@ The course-wide survey and publication record below was updated on 19 November 2
 
 ## Revised public editions · November 19
 
-The public course has 113 introductions and 72 teaching films. The catalogue and six local introductions identify 55 revised introductions. The app links 5 revised teaching films and preserves 2 previously approved teaching films. Across the 185 published titles, 123 still use an earlier edition without a recorded replacement or user approval. Another 170 introduction slots have no published film. These are publication counts. Full editorial viewing and listening remain open across the catalogue.
+The public course has 113 introductions and 72 teaching films. The catalogue and six local introductions identify 60 revised introductions. The app links 8 revised teaching films and preserves 2 previously approved teaching films. Across the 185 published titles, 115 still use an earlier edition without a recorded replacement or user approval. Another 170 introduction slots have no published film. The introduction register lists every lesson slot on the live 372-session path. Four of the unpublished introductions already have catalogue entries awaiting verification. Only 2 of the 355 planned videos have final approval in the registers. The other 353 include 68 revised and playable editions whose final editorial watch-through remains open.
 
-The following record reconciles 15 editions with the public player, including two previously published films whose review rows were stale. All four mobile-browser checks passed for 14 of the 15 editions listed here. The linked survey has the measured chapter-resume times.
+The following record reconciles 23 editions with the public player, including two previously published films whose review rows were stale. All four mobile-browser checks passed for 23 of the 23 editions listed here. The linked survey has the measured chapter-resume times.
 
 | Film | What the animation now shows |
 | --- | --- |
@@ -23,10 +23,26 @@ The following record reconciles 15 editions with the public player, including tw
 | S054 | Two dials first reset together at six moves. The machine has a one-move lead-in followed by a five-state loop. After move 51 it is in state 2. Eleven independent quarter-turns point west. |
 | S055 | The outer digit pairs build and break apart on their mirror positions. A five-by-ten grid counts one legal centre per pair and a second centre for five pairs, giving 55 palindromes. |
 | S057 | The three labelled boxes keep their identity as coins move. The even first-box possibilities give four, six and four legal assignments, for 14 in total. |
+| S058 | A stall produces six distinct orders. Folding the ordered grid gives ten helper pairs. All 96 legal four-person teams are enumerated in four exclusive classes of 18, 54, 12 and 12. |
+| S059 | A three-light display doubles four times to reach 48 on day five. Six nested strips sum to 63. The budget of 636 sits between cumulative requirements 508 and 1,020. Exactly 128 tokens remain. |
+| S060 | Name cards compress into movable blocks and open in both internal orders. A plot of all 720 permutations separates 144 A/B-only orders, 96 shared orders and 144 C/D-only orders, giving 288 with exactly one pair. |
+| S062 | Four shared pupils merge across a tennis and swimming roll. The 84-number sieve counts the pair intersections of 14, 8 and 5, restores 30 and 60 once each, and leaves 23 integers outside the union. |
+| S065 | A festival floor plan and roster show the same 48 bookings across six rooms and sixteen helpers. A 45-cell match schedule removes only E–F, G–H and I–J, leaving 42 matches. |
 | S083 | A rotation followed by translation sends (2,3) to (2,1). Reversing the moves gives (−2,7). The five-cell mosaic challenge has ten patterns with the required symmetries. |
+| T03.2 | Two signal rows share one calibrated time axis. Starting together gives meetings at 12 and 24 seconds. A two-second offset moves them to 8 and 20. A one-second offset gives incompatible odd and even times. The eight- and twelve-minute buses meet again at 09:24. |
+| T12.2 | Four equal clock gaps sweep out 120°. A moving point on the opposite arc keeps the 60° angle. A radius splits the proof into two isosceles triangles. The right-angle marker follows the third vertex of a triangle on a diameter. |
 | T12.3 | A line parallel to both rails locates a 35° plus 45° bend. Four congruent right triangles move away from the tilted square, leaving exactly 10 square units inside the 4-by-4 frame. |
+| T13.3 | The 4-by-3-by-2 block lifts apart and exposes its six hidden cubes. All 27 painted-cube pieces travel into classes of 8, 12, 6 and 1. The staircase has 9, 4 and 1 cubes and the 4-by-4-by-4 challenge reveals eight unpainted cubes. |
 
-For 4 caption-preserving films, an additional check compared all 21,523 encoded caption frames with the corresponding original frames, verified identical recorded audio packets, and compared 1,437 delivered pictures with the authored drawings at half-second intervals. The comparisons use the bytes of the published movies.
+For 20 caption-preserving films, an additional check compared all 101,891 encoded caption frames with the corresponding original frames, verified identical recorded audio packets, and compared 6,805 delivered pictures with the authored drawings at half-second intervals. The checks compare 384-by-30 caption images and 192-by-93 teaching pictures decoded from the published movies.
+
+The 3 re-recorded Voice C editions passed a separate comparison with the approved recording and its word timing. The timing records account for all 1,321 scripted words. The delivered narration matched its voice master in every scene. Every encoded caption frame and every half-second teaching picture was compared with the word-aligned master.
+
+[Per-film encoded timeline measurements](video-encoded-timeline-checks-20261119.csv)
+
+Production stopped after T03.2 on 19 November. This run published 17 revised lesson introductions and four revised teaching films. All 21 played and resumed from their lesson chapter controls in both portrait and landscape in phone-sized Chrome and WebKit.
+
+[Watch every approved film and published revision](https://simonrj.github.io/-summit-one-narrator/lesson-video-review-list.html)
 
 [Public playback survey](video-scene-and-playback-survey-20261119.csv) · [Introduction review register](lesson-introduction-review-register-20261116.csv) · [Teaching film review register](teaching-video-review-register-20261116.csv)
 
@@ -34,7 +50,7 @@ For 4 caption-preserving films, an additional check compared all 21,523 encoded 
 
 The inventory covers 113 published lesson introductions and 72 teaching films. For all 185 source movies, the downloaded public bytes matched the catalogue SHA-256 or the repository media blob. Both streams decoded through the end. The survey extracted 3,678 keyframes and indexed three representative frames for each film. Every one of the 1,804 timed spoken scenes also has a frame taken from inside that scene. The survey lists these timestamps in narration order for each source movie. A separate pass measured picture changes four times per second across the complete movies, excluding the header and subtitles. This produced 117,162 samples. The longest quiet intervals identify places to inspect. They do not measure mathematical accuracy or judge the value of a pause.
 
-The row for each film records its source hash, sample times, current published edition and the elapsed playback time immediately after a real chapter jump in each phone-sized browser. Blank playback cells identify outstanding checks. The original source and current edition can differ where a correction was published after the survey began. WebKit and Chrome used 390 × 844 and 844 × 390 viewports. For the editions in this revision, 740 of 740 film, browser and orientation combinations have recorded a successful start, seek and resume. The chapter controls for four teaching films were repaired after landscape WebKit exposed an unreliable seek. T02.1 uses its native seek control. The visual and motion survey does not establish a complete editorial watch and listen of every film.
+The row for each film records its source hash, sample times, current published edition and the elapsed playback time immediately after a real chapter jump in each phone-sized browser. Blank playback cells identify outstanding checks. The original source and current edition can differ where a correction was published after the survey began. WebKit and Chrome used 390 × 844 and 844 × 390 viewports. At the initial survey checkpoint, 740 of 740 film, browser and orientation combinations have recorded a successful start, seek and resume. The chapter controls for four teaching films were repaired after landscape WebKit exposed an unreliable seek. T02.1 uses its native seek control. The visual and motion survey does not establish a complete editorial watch and listen of every film.
 
 Among 88 introductions whose original recording script matched the unillustrated production source exactly, 83 reused the same diagram specification between the basic question and its explanation. The same pattern occurred in 77 medium examples and 65 challenges. Those counts compare geometry and objects in the source specifications. They do not count reworked editions or infer that every repetition was inappropriate. The recurring failure was a picture that stayed fixed when the narration described a mathematical change.
 
@@ -68,7 +84,7 @@ Among 88 introductions whose original recording script matched the unillustrated
 | T13.1 | An exactly congruent triangle makes a half-turn. The apex slides above an 8 cm base at a fixed perpendicular height of 5 cm. Three rigid cutouts of areas 9, 4 and 2 leave 9 cm² in a 6-by-4 rectangle. | Played and sought in portrait and landscape in phone-sized WebKit and Chrome. |
 | T13.2 | The two newly exposed corner edges slide onto the old edges of a 5-by-3 rectangle. A middle notch increases the boundary from 16 to 18. A 2 by 3 rectangle scales to 4 by 6, and measured cube arrays show volumes 1, 8 and 27. | Played and sought in portrait and landscape in phone-sized WebKit and Chrome. |
 
-The individually drawn animation, recording and player sources for these editions are on branch `codex/reviewed-film-work-20261119`. The separate live introduction catalogue is on `lesson-intro-catalog`. The individually rebuilt introductions total 38 in this review. Existing illustrated editions S078, S108 and S142 and user-approved T02.1 and T02.2 are tracked separately.
+The individually drawn animation, recording and player sources for these editions are on branch `codex/reviewed-film-work-20261119`. The separate live introduction catalogue is on `lesson-intro-catalog`. The initial survey checkpoint recorded 38 individually rebuilt introductions. Existing illustrated editions S078, S108 and S142 and user-approved T02.1 and T02.2 are tracked separately.
 
 The exact artwork for the measured triangle cut, the single-corner explanation and the wording of ratio transfers were also corrected in the production sources. Twenty future lesson variants passed the source checks. Two follow-up families that require particular care are the other domino and ratio films. The remaining work is an individual editorial review against the actual recording, including the older editions already published.
 
