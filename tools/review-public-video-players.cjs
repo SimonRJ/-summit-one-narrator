@@ -3,6 +3,11 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs/promises');
 const root = 'https://simonrj.github.io/-summit-one-narrator/';
 const registry = 'https://raw.githubusercontent.com/SimonRJ/-summit-one-narrator/refs/heads/lesson-intro-catalog/data/lesson-intros-live.json';
+const teachingRevisions = {
+  'T02.3':'variable-bars', 'T03.2':'signal-timetable',
+  'T12.1':'angle-tracing', 'T12.2':'clock-arc-proof', 'T12.3':'construction-notebook',
+  'T13.1':'moving-area', 'T13.2':'cut-and-scale', 'T13.3':'hidden-cubes',
+};
 
 async function publicJson(url) {
   const response = await fetch(url, {signal: AbortSignal.timeout(30000)});
@@ -46,14 +51,8 @@ async function check(context,film,orientation,engine) {
     await page.waitForFunction(()=>document.querySelector('video')?.readyState>=1,null,{timeout:45000});
     const source=await video.evaluate(v=>v.currentSrc);
     assert.equal(new URL(source).pathname.split('/').pop(),asset);
-    if (id==='T02.3') assert.match(source,/variable-bars/);
-    if (id==='T13.1') assert.match(source,/moving-area/);
-    if (id==='T13.2') assert.match(source,/cut-and-scale/);
-    if (id==='T03.2') assert.match(source,/signal-timetable/);
-    if (id==='T12.2') assert.match(source,/clock-arc-proof/);
-    if (id==='T13.3') assert.match(source,/hidden-cubes/);
-    if (id==='T12.3') assert.match(source,/construction-notebook/);
-    if (id==='T12.1') assert.match(source,/angle-tracing/);
+    if (teachingRevisions[id]) assert.ok(source.includes(teachingRevisions[id]),source);
+    if (id==='S054') assert.match(source,/-Intro-Illustrated-v2\.mp4(?:[?#]|$)/);
     if ((process.env.ILLUSTRATED || '').split(/\s+/).includes(id)) assert.match(source,/-Intro-Illustrated(?:-v2)?\.mp4(?:[?#]|$)/);
     // Opening a lesson and replaying it from a completed session share this live resolver.
     // The dedicated player and the app must select the exact same edition.
