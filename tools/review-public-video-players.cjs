@@ -46,6 +46,7 @@ async function check(context,film,orientation,engine) {
     const source=await video.evaluate(v=>v.currentSrc);
     assert.equal(new URL(source).pathname.split('/').pop(),asset);
     if (id==='T02.3') assert.match(source,/variable-bars/);
+    if (id==='T13.1') assert.match(source,/moving-area/);
     await video.evaluate(v=>{v.muted=true;return v.play()});
     await page.waitForFunction(()=>document.querySelector('video').currentTime>.15,null,{timeout:20000});
     let target,method;

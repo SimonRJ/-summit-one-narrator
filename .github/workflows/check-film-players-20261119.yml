@@ -5,16 +5,14 @@ on:
     paths: ['.github/workflows/check-film-players-20261119.yml']
 permissions:
   contents: read
+env:
+  FILMS: S025 S026 S027 S043 T13.1 T13.2 T16.E T17.2
 jobs:
-  phone:
+  chrome:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
-    strategy:
-      fail-fast: false
-      matrix:
-        engine: [webkit, chrome]
+    timeout-minutes: 16
     env:
-      ENGINE: ${{ matrix.engine }}
+      ENGINE: chrome
     steps:
       - uses: actions/checkout@v4
         with:
@@ -22,14 +20,32 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: npm install --no-save --package-lock=false playwright
-      - if: matrix.engine == 'webkit'
-        run: npx playwright install --with-deps webkit
-      - name: Play each public film and jump by its published chapter buttons
-        run: node tools/review-public-video-players.cjs S043 T13.1 T13.2 T16.E T17.2
+      - run: npm install --no-save --package-lock=false playwright@1.65.1
+      - run: node tools/review-public-video-players.cjs $FILMS
       - if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: public-players-${{ matrix.engine }}
+          name: public-players-chrome
+          path: build/phone
+          if-no-files-found: warn
+  webkit:
+    runs-on: ubuntu-latest
+    container: mcr.microsoft.com/playwright:v1.65.1-noble
+    timeout-minutes: 16
+    env:
+      ENGINE: webkit
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-save --package-lock=false playwright@1.65.1
+      - run: node tools/review-public-video-players.cjs $FILMS
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: public-players-webkit
           path: build/phone
           if-no-files-found: warn
