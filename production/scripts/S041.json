@@ -1,0 +1,62 @@
+{
+  "id": "S041",
+  "title": "Eliminating an unknown by differences",
+  "voice": "VoxCPM2 — approved voice C",
+  "scenes": [
+    {
+      "n": 1,
+      "stage": "INTRO",
+      "narration": "Lay two shopping orders side by side. Some objects are identical in both orders. Slide each matching pair away. Which objects are left? Their value must equal the difference between the two totals. This is elimination."
+    },
+    {
+      "n": 2,
+      "stage": "EXAM",
+      "narration": "An AMC question can hide a price inside two shopping totals. Look for an extra item on one receipt. In a Rossmoyne problem the counts may match only after you copy a whole order. Each copy includes its full price."
+    },
+    {
+      "n": 3,
+      "stage": "BASIC",
+      "narration": "One bun and two drinks cost eighteen dollars. Two buns and two drinks cost twenty-two dollars. Find the price of a bun. Compare what changed between the orders."
+    },
+    {
+      "n": 4,
+      "stage": "EXPLANATION",
+      "narration": "The two drinks occur in both orders, so their total price cancels. Only one additional bun remains. The price increase is four dollars. That is the cost of one bun."
+    },
+    {
+      "n": 5,
+      "stage": "MEDIUM",
+      "narration": "Two pens and one marker cost fifteen dollars. Three pens and two markers cost twenty-six dollars. Find each price. Create two orders with the same number of markers first."
+    },
+    {
+      "n": 6,
+      "stage": "EXPLANATION",
+      "narration": "Copy the first bundle. Now four pens and two markers cost thirty dollars. Match those two markers and three of the pens against the second bundle. One pen stays behind. The price difference is thirty minus twenty-six, so one pen costs four dollars. Two pens cost eight. That leaves seven dollars for the marker."
+    },
+    {
+      "n": 7,
+      "stage": "PUZZLE",
+      "narration": "A stall sells two kinds of pack, X and Y. An order of three X packs and two Y packs costs twenty-six dollars. An order of five X packs and three Y packs costs forty-one dollars. Find each unit price."
+    },
+    {
+      "n": 8,
+      "stage": "EXPLANATION",
+      "narration": "Make the Y counts match. Take three copies of the twenty-six dollar order: nine X packs and six Y packs cost seventy-eight dollars. Take two copies of the forty-one dollar order: ten X packs and six Y packs cost eighty-two dollars. Match the packs. One extra X pack costs four dollars. In the first order three X packs cost twelve dollars. Two Y packs share the remaining fourteen dollars, so each Y pack costs seven."
+    },
+    {
+      "n": 9,
+      "stage": "EXPLANATION",
+      "narration": "Rebuild both purchases. The first costs twenty-six and the second costs forty-one dollars. The difference equation had a nonzero coefficient for X. That forced its price before we substituted to find Y."
+    },
+    {
+      "n": 10,
+      "stage": "MISTAKES",
+      "narration": "The other parts must match before they cancel. Scale an equation if the two numbers of matching objects differ. Multiplying an equation scales every coefficient and the total on the other side by the same factor."
+    },
+    {
+      "n": 11,
+      "stage": "CHECK",
+      "narration": "When two totals look tangled, draw the two bundles at the same size. Align the objects you want to remove. If their counts differ, copy a whole bundle and its price. Subtract, price what remains, then rebuild both original purchases."
+    }
+  ]
+}
