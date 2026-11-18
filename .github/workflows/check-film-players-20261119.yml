@@ -26,7 +26,7 @@ jobs:
       - if: matrix.engine == 'webkit'
         run: npx playwright install --with-deps webkit
       - name: Play each public film and jump by its published chapter buttons
-        run: node tools/review-public-video-players.cjs S019 S020 S022
+        run: node tools/review-public-video-players.cjs S019 S020 S022 S090 T02.3
       - if: always()
         uses: actions/upload-artifact@v4
         with:
