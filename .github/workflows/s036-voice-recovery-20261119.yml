@@ -1,0 +1,86 @@
+name: Recover the original forced-domino lesson in Voice C
+on:
+  push:
+    branches: [codex/reviewed-film-work-20261119]
+    paths: ['.github/workflows/s036-voice-recovery-20261119.yml']
+permissions:
+  contents: read
+  actions: read
+jobs:
+  record:
+    runs-on: ubuntu-latest
+    timeout-minutes: 58
+    strategy:
+      fail-fast: false
+      max-parallel: 5
+      matrix:
+        group: ['5', '6', '7', '8']
+    env:
+      HF_HUB_DISABLE_XET: '1'
+      TOKENIZERS_PARALLELISM: 'false'
+      OMP_NUM_THREADS: '2'
+      MKL_NUM_THREADS: '2'
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install the pinned approved narrator
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg libsndfile1
+          pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install 'transformers>=4.45,<5' 'huggingface-hub<1' einops pydantic soundfile librosa safetensors tqdm numpy scipy inflect addict argbind
+          pip install --no-deps 'git+https://github.com/OpenBMB/VoxCPM.git@300e4260b509066151d623dc9c0aa922cf82232b'
+      - name: Recover the new lesson-specific passage
+        env:
+          SCENES: ${{ matrix.group }}
+        run: |
+          python - <<'PYTHON'
+          import json,os
+          with open('sequence.json','w') as f: json.dump([{'lesson':'S036','scene':int(n)} for n in os.environ['SCENES'].split(',')],f)
+          PYTHON
+          python production/t01-studio/synth.py --sequence sequence.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: s036-original-speech-${{ matrix.group }}
+          path: |
+            build/t01-studio/S036-*.wav
+            build/t01-studio/S036-*.json
+          if-no-files-found: error
+          retention-days: 14
+          compression-level: 1
+  align:
+    needs: record
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Restore the previously verified scene fragments
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p build/old build/t01-studio
+          gh run download 44386023082 --repo "$GITHUB_REPOSITORY" --pattern 's036-original-speech-*' -D build/old
+          find build/old -type f \( -name '*.json' -o -name '*.wav' \) -exec cp -t build/t01-studio {} +
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: s036-original-speech-*
+          merge-multiple: true
+          path: build/t01-studio
+      - name: Align the recording and verify every scene against the new script
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg libsndfile1
+          pip install numpy soundfile num2words faster-whisper
+          python production/t01-studio/prepare_audio.py S036
+      - uses: actions/upload-artifact@v4
+        with:
+          name: s036-checked-voice-and-timing
+          path: build/t01-studio/S036/
+          if-no-files-found: error
+          retention-days: 30
