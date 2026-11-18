@@ -1,8 +1,9 @@
-name: Render the commissioned circle and solid lessons
+name: Render individually drawn teaching films
 on:
   push:
     branches: [codex/reviewed-film-work-20261119]
     paths:
+      - production/lesson-intros/illustrated/signal_timetable.py
       - production/lesson-intros/illustrated/clock_arc_proof.py
       - production/lesson-intros/illustrated/hidden_cubes.py
       - .github/workflows/stage-measurement-films.yml
@@ -14,6 +15,8 @@ jobs:
       fail-fast: false
       matrix:
         include:
+          - module: signal_timetable
+            lesson: T03.2
           - module: hidden_cubes
             lesson: T13.3
           - module: clock_arc_proof
