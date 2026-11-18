@@ -19,7 +19,7 @@ TEACHING_SEQUENCE = (*OPENING_SEQUENCE, *COURSE_FILMS)
 VERSION = "t01-studio-v1"
 CHAPTER_VERSION = "studio-chapters-02-04-v1"
 COURSE_VERSION = "teaching-films-v1"
-REVISED_MEDIA = {"T02.3": "variable-bars-20261119", "T13.1": "moving-area-20261119"}
+REVISED_MEDIA = {"T02.3": "variable-bars-20261119", "T12.1": "angle-tracing-20261119", "T13.1": "moving-area-20261119"}
 VOICE_SHA = "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362"
 
 
