@@ -1,0 +1,46 @@
+name: Render sliding unit edges and scaled solids in T13.2
+on:
+  push:
+    branches: [codex/reviewed-film-work-20261119]
+    paths: ['production/lesson-intros/illustrated/boundary_scale_studio.py','.github/workflows/stage-boundary-scale-20261119.yml']
+permissions:
+  contents: write
+jobs:
+  cutouts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 32
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install the drawing and encoding tools
+        run: |
+          if ! command -v ffmpeg >/dev/null; then
+            opts=(-o Acquire::Retries=2 -o Acquire::http::Timeout=15 -o Acquire::https::Timeout=15 -o Acquire::ForceIPv4=true)
+            sudo apt-get "${opts[@]}" update -qq
+            sudo apt-get "${opts[@]}" install --no-install-recommends -y ffmpeg fonts-dejavu-core
+          fi
+          pip install pillow
+      - name: Render the proof and verify every original audio packet
+        env:
+          PYTHONPATH: production/lesson-intros/illustrated
+        run: |
+          python - <<'PY'
+          import json,pathlib,shutil
+          import boundary_scale_studio as spec
+          from captioned_film import render
+          root=pathlib.Path('.');out=root/'build/boundary-scale'
+          qa=render(spec,root/'media/T13.2.mp4',out)
+          shutil.copy(out/'T13.2-Intro-Illustrated.mp4',root/'media/T13.2.mp4')
+          shutil.copy(out/'T13.2-Intro-Illustrated-poster.jpg',root/'media/T13.2-studio-poster.jpg')
+          p=root/'review/T13.2-studio-qa.json';record=json.loads(p.read_text());assert record['sha256']==qa['legacy_sha256']
+          record.update(source_sha256=record['sha256'],sha256=qa['sha256'],diagram_revision='Unit-square cuts from a corner and a straight edge expose different perimeter changes. The new corner edges slide onto the old ones. Scaled areas and volumes are drawn at true proportions.',original_audio_packets=qa['audio_packets']);p.write_text(json.dumps(record,ensure_ascii=False,indent=2)+'\n')
+          PY
+      - name: Keep the rendered film and digest together for review
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add media/T13.2.mp4 media/T13.2-studio-poster.jpg review/T13.2-studio-qa.json
+          git commit -m 'Stage the sliding boundary, unit-grid enlargements and all eight corrected chapters'
+          git push origin HEAD:refs/heads/codex/t132-rendered-media-20261119
