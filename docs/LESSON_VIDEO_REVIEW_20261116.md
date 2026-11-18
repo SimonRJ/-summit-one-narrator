@@ -1,8 +1,18 @@
-# Lesson introduction video review — 16 November 2026
+# Summit One lesson video reviews
 
-The course-wide survey and publication record below was updated on 19 November 2026. The November 16 observations provide the starting point for this work.
+## Final reviews completed on 19 November 2026
 
-## Revised public editions · November 19
+All 68 revised videos are live and have completed their final editorial review. This batch covers 8 teaching videos and 60 lesson introductions, with 721 narrated scenes over 3 hours 19 minutes 37 seconds. T02.1 and T02.2 had already received user approval in the previous round.
+
+The review used each published recording from beginning to end. The full picture and audio tracks decoded successfully. The maths checks included independent calculations, enumeration or separate constructions. The scene review checked the drawings against the narrated problems and solutions. Speech recognition and on-screen caption reading checked wording and timing, with a second audio pass on unclear passages. The editions have 359,299 decoded video frames and 16,074 timed comparisons with the authored drawings. These include existing comparison results matched to the identical published files by their full hashes.
+
+S078’s 11-by-9 rectangle prompt now reads “An eleven-by-nine rectangle” in the film and the player transcript. The 85 revised caption frames retain the original Voice C recording. Rechecking the 5,278-frame public movie confirmed the correction and identical audio packets.
+
+All 68 public players opened the intended edition, played, and resumed after using a chapter control in both portrait and landscape in phone-sized Chrome and WebKit. All 272 playback checks passed. The per-video records link to each watch page and give the duration, maths checked, browser measurements and digest of the published file.
+
+[Watch the lesson videos](https://simonrj.github.io/-summit-one-narrator/lesson-video-review-list.html) · [Read the 68 individual review records](final-lesson-video-reviews-20261119.csv) · [Phone playback results](https://github.com/SimonRJ/-summit-one-narrator/actions/runs/44417114260)
+
+## Publication checkpoint before the final reviews
 
 The public course has 113 introductions and 72 teaching films. The catalogue and six local introductions identify 60 revised introductions. The app links 8 revised teaching films and preserves 2 previously approved teaching films. Across the 185 published titles, 115 still use an earlier edition without a recorded replacement or user approval. Another 170 introduction slots have no published film. The introduction register lists every lesson slot on the live 372-session path. Four of the unpublished introductions already have catalogue entries awaiting verification. Only 2 of the 355 planned videos have final approval in the registers. The other 353 include 68 revised and playable editions whose final editorial watch-through remains open.
 
