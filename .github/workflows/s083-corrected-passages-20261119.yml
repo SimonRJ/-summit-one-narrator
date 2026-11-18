@@ -1,0 +1,81 @@
+name: Record the two corrected coordinate questions for S083
+on:
+  push:
+    branches: [codex/reviewed-film-work-20261119]
+    paths: ['production/scripts/S083.json', '.github/workflows/s083-corrected-passages-20261119.yml']
+permissions:
+  contents: read
+jobs:
+  record:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 48
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        group: ['3','5']
+    env:
+      HF_HUB_DISABLE_XET: '1'
+      TOKENIZERS_PARALLELISM: 'false'
+      OMP_NUM_THREADS: '2'
+      MKL_NUM_THREADS: '2'
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install the pinned approved narrator
+        run: |
+          opts=(-o Acquire::Retries=2 -o Acquire::http::Timeout=15 -o Acquire::https::Timeout=15 -o Acquire::ForceIPv4=true)
+          sudo apt-get "${opts[@]}" update -qq
+          sudo apt-get "${opts[@]}" install --no-install-recommends -y ffmpeg libsndfile1
+          pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install 'transformers>=4.45,<5' 'huggingface-hub<1' einops pydantic soundfile librosa safetensors tqdm numpy scipy inflect addict argbind
+          pip install --no-deps 'git+https://github.com/OpenBMB/VoxCPM.git@300e4260b509066151d623dc9c0aa922cf82232b'
+      - name: Record the new lesson-specific passage
+        env:
+          SCENES: ${{ matrix.group }}
+        run: |
+          python - <<'PYTHON'
+          import json,os
+          with open('sequence.json','w') as f: json.dump([{'lesson':'S083','scene':int(n)} for n in os.environ['SCENES'].split(',')],f)
+          PYTHON
+          python production/t01-studio/synth.py --sequence sequence.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: s083-original-speech-${{ matrix.group }}
+          path: |
+            build/t01-studio/S083-*.wav
+            build/t01-studio/S083-*.json
+          if-no-files-found: error
+          retention-days: 14
+          compression-level: 1
+  align:
+    needs: record
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: s083-original-speech-*
+          merge-multiple: true
+          path: build/t01-studio
+      - name: Align the recording and verify every scene against the new script
+        run: |
+          opts=(-o Acquire::Retries=2 -o Acquire::http::Timeout=15 -o Acquire::https::Timeout=15 -o Acquire::ForceIPv4=true)
+          sudo apt-get "${opts[@]}" update -qq
+          sudo apt-get "${opts[@]}" install --no-install-recommends -y ffmpeg libsndfile1
+          pip install numpy soundfile num2words faster-whisper
+          python production/lesson-intros/illustrated/reuse_recorded_intro_scenes.py S083 7017f088a35f9c5daba063b58edce2957a6ac4fabd6c3a8e891aa78c79e47258
+          python production/t01-studio/prepare_audio.py S083
+      - uses: actions/upload-artifact@v4
+        with:
+          name: s083-checked-voice-and-timing
+          path: build/t01-studio/S083/
+          if-no-files-found: error
+          retention-days: 30

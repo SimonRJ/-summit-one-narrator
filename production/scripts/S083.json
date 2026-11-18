@@ -1,0 +1,62 @@
+{
+  "id": "S083",
+  "title": "Symmetry, transformations and tessellation",
+  "voice": "VoxCPM2 — approved voice C",
+  "scenes": [
+    {
+      "n": 1,
+      "stage": "INTRO",
+      "narration": "A symmetry leaves a shape or colouring the same after a transformation. A reflection mirrors each point across a line. If several reflections are required, one marked cell may force several other cells. Work with the whole group at once."
+    },
+    {
+      "n": 2,
+      "stage": "EXAM",
+      "narration": "A competition practice question can ask where a point lands after a flip or a turn. Mark the mirror or the centre and keep the order of moves. A Rossmoyne style colouring problem can require two symmetries at once. Count groups of linked cells instead of making every colouring."
+    },
+    {
+      "n": 3,
+      "stage": "BASIC",
+      "narration": "Put point P two units to the right of the vertical axis and one unit above the horizontal axis. A vertical mirror passes through the origin. Where does the point appear on the other side? Which coordinate changes sign?"
+    },
+    {
+      "n": 4,
+      "stage": "EXPLANATION",
+      "narration": "Keep the height of one. Move from two units on the right to two units on the left. The reflected point is at minus two, one. Both points are equally far from the vertical mirror."
+    },
+    {
+      "n": 5,
+      "stage": "MEDIUM",
+      "narration": "Start at the point two, three. Turn it a quarter turn anticlockwise about the origin. From that new position, move five units right and one unit down. What are the final coordinates? Trace the turn first, then the straight move."
+    },
+    {
+      "n": 6,
+      "stage": "EXPLANATION",
+      "narration": "A ninety-degree anticlockwise turn sends a rightward offset to the upward direction and an upward offset to the left. The new point is minus three, two. Now add the horizontal move and subtract the downward move. The result is two, one. The move acts on the point after the turn. Changing the order can produce a different point."
+    },
+    {
+      "n": 7,
+      "stage": "PUZZLE",
+      "narration": "On a five by five square board, colour exactly five cells. The pattern must be unchanged by both the horizontal and the vertical centre-line reflections. Count the patterns on the fixed board. Patterns with different coloured positions count separately."
+    },
+    {
+      "n": 8,
+      "stage": "EXPLANATION",
+      "narration": "The centre stands alone. On either centre line, each noncentral cell has a partner, giving four pairs in all. An off-axis cell has three partners. The four quadrants have matching positions, producing four separate groups of four. Because five is odd and every other group has even size, the centre must be coloured. Complete the last four with one four-cell group or two pairs."
+    },
+    {
+      "n": 9,
+      "stage": "EXPLANATION",
+      "narration": "Choose one of the four groups of four, or two of the four pairs. The pair choice can be made in six ways. Add the cases, giving ten patterns. The two cases are distinct because only one colours any off-axis cell."
+    },
+    {
+      "n": 10,
+      "stage": "MISTAKES",
+      "narration": "For a vertical mirror the sideways distance changes side. The height stays exactly the same. A cell off both axes must travel under both reflections. One reflected copy is not enough."
+    },
+    {
+      "n": 11,
+      "stage": "CHECK",
+      "narration": "Find the mirror line, turn centre or translation. Track one labelled point at a time and record the new position. For a symmetric pattern, use entire groups of matching cells. Build the requested total with legal group sizes, and count one case at a time."
+    }
+  ]
+}
