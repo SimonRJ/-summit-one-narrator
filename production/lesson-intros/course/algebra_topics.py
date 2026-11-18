@@ -339,13 +339,13 @@ def differences(lesson):
                 (f"{say(s).capitalize()} pens and one marker cost {say(m1)} dollars. {say(t).capitalize()} pens and two markers cost {say(m2)} dollars.", f"{s}P + M = {m1}; {t}P + 2M = {m2}"),
                 ("Find each price. Create two orders with the same number of markers first.", "Make both orders contain 2 markers.")),
                 ((f"Double the first bundle to make {say(2*s)} pens and two markers costing {say(2*m1)}.", f"{2*s}P + 2M = {2*m1}"),
-                 (f"Subtract the second bundle. The difference is {say(2*s-t)} pens costing {say(2*m1-m2)}.", f"{2*s-t}P = {2*m1-m2}"),
+                 (f"Subtract the second bundle. This leaves {say(2*s-t)} {'pen' if 2*s-t==1 else 'pens'} worth {say(2*m1-m2)} dollars.", f"{2*s-t}P = {2*m1-m2}"),
                  (f"One pen costs {say(x)} dollars. Substitute into the first order to get {say(y)} dollars for a marker.", f"P = ${x}, M = ${y}")), table(("Bundle","P","M"),("First",s,1),("Second",t,2))),
             Example("Choose a matching coefficient from both orders", (
                 (f"A stall sells two kinds of pack, X and Y. An order of {say(r1)} X packs and two Y packs costs {say(full1)} dollars.", f"{r1}X + 2Y = {full1}"),
                 (f"An order of {say(r2)} X packs and three Y packs costs {say(full2)} dollars. Find each unit price.", f"{r2}X + 3Y = {full2}")),
-                (("The smaller number of Y packs in a common scaled order is six. Multiply the first entire equation by three and the second by two.", "Make both amounts of Y equal to 6."),
-                 (f"Subtract the scaled first equation from the scaled second. That leaves {say(coef)} times X equal to {say(diff)}.", f"({2*r2} − {3*r1})X = {2*full2} − {3*full1}"),
+                (("The smallest equal number of Y packs in the two scaled orders is six. Multiply the first entire equation by three and the second by two.", "Make both amounts of Y equal to 6."),
+                 (f"Subtract the scaled first equation from the scaled second. That leaves {say(coef)} X {'pack' if coef==1 else 'packs'} worth {say(diff)} dollars.", f"({2*r2} − {3*r1})X = {2*full2} − {3*full1}"),
                  (f"Dividing gives {say(x)} dollars for X. Putting that into the first condition gives {say(y)} dollars for Y.", f"X = ${x}, Y = ${y}")),
                 table(("Scaled","X","Y"),("First ×3",r1*3,6),("Second ×2",r2*2,6)),proof=(
                     (f"Rebuild both purchases. The first costs {say(full1)} and the second costs {say(full2)} dollars.", f"{r1}×{x}+2×{y}={full1}; {r2}×{x}+3×{y}={full2}"),
