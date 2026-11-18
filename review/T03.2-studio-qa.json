@@ -1,7 +1,7 @@
 {
   "id": "T03.2",
   "duration_seconds": 124.266667,
-  "sha256": "94dec4e8ebef32fc2ae2e4fd82fa68c3aeb008d87855c1feeffab00f41dc0fca",
+  "sha256": "c1fb141aed0731b112d3bb0b1466c37ee5948f333981c548beb50835f9346f05",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -75,5 +75,8 @@
       "start": 102.31
     }
   ],
-  "decoded_successfully": true
+  "decoded_successfully": true,
+  "source_sha256": "94dec4e8ebef32fc2ae2e4fd82fa68c3aeb008d87855c1feeffab00f41dc0fca",
+  "diagram_revision": "T03.2. Advance two signal lights on a common time ruler. Move the starting phase and send the buses from a clock face at 09:24.",
+  "original_audio_packets": "SHA256=680d843e15ab96e66839b39e47a0faebf5b2f091f5dfc5fdf6c0754d76ddd2b1"
 }
