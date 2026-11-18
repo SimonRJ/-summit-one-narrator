@@ -1,0 +1,86 @@
+name: Render the commissioned circle and solid lessons
+on:
+  push:
+    branches: [codex/reviewed-film-work-20261119]
+    paths:
+      - production/lesson-intros/illustrated/clock_arc_proof.py
+      - production/lesson-intros/illustrated/hidden_cubes.py
+      - .github/workflows/stage-measurement-films.yml
+permissions:
+  contents: write
+jobs:
+  render:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - module: hidden_cubes
+            lesson: T13.3
+          - module: clock_arc_proof
+            lesson: T12.2
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      PYTHONPATH: production/lesson-intros/illustrated
+      MODULE: ${{ matrix.module }}
+      LESSON: ${{ matrix.lesson }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Detect this drawing
+        id: subject
+        run: |
+          script="$PYTHONPATH/$MODULE.py"
+          if test -e "$script" && ! git diff --quiet HEAD^ HEAD -- "$script" .github/workflows/stage-measurement-films.yml; then
+            echo 'changed=true' >> "$GITHUB_OUTPUT"
+          fi
+      - if: steps.subject.outputs.changed == 'true'
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - if: steps.subject.outputs.changed == 'true'
+        name: Install the renderer
+        run: |
+          if ! command -v ffmpeg >/dev/null; then
+            sudo apt-get -o Acquire::Retries=3 update -qq
+            sudo apt-get -o Acquire::Retries=3 install --no-install-recommends -y ffmpeg fonts-dejavu-core
+          fi
+          pip install pillow
+      - if: steps.subject.outputs.changed == 'true'
+        name: Draw the full recording and verify its audio and video
+        run: |
+          python - <<'PY'
+          import importlib,json,os,shutil
+          from pathlib import Path
+          from captioned_film import render
+          spec=importlib.import_module(os.environ['MODULE'])
+          lesson=spec.ID
+          assert lesson==os.environ['LESSON']
+          movie=Path('media')/(lesson+'.mp4')
+          out=Path('build')/lesson
+          qa=render(spec,movie,out)
+          p=Path('review')/(lesson+'-studio-qa.json')
+          old=json.loads(p.read_text())
+          assert old['sha256']==qa['legacy_sha256']
+          assert [s['start'] for s in old['scenes']]==list(spec.START)
+          shutil.copy(out/(lesson+'-Intro-Illustrated.mp4'),movie)
+          shutil.copy(out/(lesson+'-Intro-Illustrated-poster.jpg'),movie.with_name(lesson+'-studio-poster.jpg'))
+          old.update(source_sha256=old['sha256'],sha256=qa['sha256'],diagram_revision=spec.__doc__,
+                     original_audio_packets=qa['audio_packets'])
+          p.write_text(json.dumps(old,ensure_ascii=False,indent=2)+'\n')
+          PY
+      - if: steps.subject.outputs.changed == 'true'
+        name: Stage the identified render for independent review
+        run: |
+          target="codex/review-media-${MODULE//_/-}-${GITHUB_SHA:0:9}"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "media/$LESSON.mp4" "media/$LESSON-studio-poster.jpg" "review/$LESSON-studio-qa.json"
+          if git ls-remote --exit-code --heads origin "$target" >/dev/null; then
+            git fetch --depth=1 origin "$target"
+            git diff --quiet --cached FETCH_HEAD -- "media/$LESSON.mp4" "media/$LESSON-studio-poster.jpg" "review/$LESSON-studio-qa.json"
+          else
+            git commit -m "Stage the individually drawn and checked $LESSON lesson"
+            git push origin "HEAD:refs/heads/$target"
+          fi
