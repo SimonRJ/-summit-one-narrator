@@ -2,35 +2,80 @@ const {chromium, webkit, devices} = require('playwright');
 const assert = require('node:assert/strict');
 const fs = require('node:fs/promises');
 const root = 'https://simonrj.github.io/-summit-one-narrator/';
-async function check(context,id,orientation,engine) {
+const registry = 'https://raw.githubusercontent.com/SimonRJ/-summit-one-narrator/refs/heads/lesson-intro-catalog/data/lesson-intros-live.json';
+
+async function publicJson(url) {
+  const response = await fetch(url, {signal: AbortSignal.timeout(30000)});
+  if (!response.ok) throw Error('Could not read '+url+' ('+response.status+')');
+  return response.json();
+}
+async function course() {
+  const [catalogue, teaching] = await Promise.all([publicJson(registry),publicJson(root+'data/teaching-72.json')]);
+  const films = [];
+  for (let slot=1;slot<=6;slot++) {
+    const id='S'+String(slot).padStart(3,'0');
+    films.push({id,page:'watch-intro-'+id.toLowerCase()+'.html',asset:id+'-Intro.mp4'});
+  }
+  for (const row of catalogue.entries.filter(r=>r.status==='verified')) {
+    const suffix=row.illustration===2 || row.illustration===1 && row.illustratedRevision===2 ? '-Illustrated-v2' : row.illustration===1 ? '-Illustrated' : '';
+    films.push({id:row.id,page:'watch-lesson-intro.html?slot='+Number(row.id.slice(1)),asset:row.id+'-Intro'+suffix+'.mp4'});
+  }
+  for (const {id} of teaching.items) {
+    films.push({id,page:'watch-'+id.toLowerCase().replace('.','-')+'.html',asset:id+'.mp4'});
+  }
+  assert.equal(new Set(films.map(f=>f.id)).size,films.length);
+  return films;
+}
+async function check(context,film,orientation,engine) {
+  const {id,asset}=film;
   const page=await context.newPage();
   try {
-    const intro=id.startsWith('S');
-    const url=root+(intro?'watch-lesson-intro.html?slot='+Number(id.slice(1)):'watch-t02-3.html');
-    await page.goto(url,{waitUntil:'domcontentloaded',timeout:60000});
+    await page.goto(root+film.page,{waitUntil:'domcontentloaded',timeout:45000});
     const video=page.locator('video');
-    await video.waitFor({state:'visible',timeout:30000});
-    await page.waitForFunction(()=>document.querySelector('video')?.readyState>=1,null,{timeout:60000});
+    await video.waitFor({state:'visible',timeout:25000});
+    await page.waitForFunction(()=>document.querySelector('video')?.readyState>=1,null,{timeout:45000});
     const source=await video.evaluate(v=>v.currentSrc);
-    assert.ok(source.includes(intro?id+'-Intro-Illustrated.mp4':'T02.3.mp4?v=variable-bars'),source);
+    assert.equal(new URL(source).pathname.split('/').pop(),asset);
+    if (id==='T02.3') assert.match(source,/variable-bars/);
     await video.evaluate(v=>{v.muted=true;return v.play()});
-    await page.waitForFunction(()=>document.querySelector('video').currentTime>.15);
-    const chapter=page.locator('[data-time]').nth(intro?4:3);
-    await chapter.waitFor({timeout:20000});
-    const target=Number(await chapter.getAttribute('data-time'));
-    await chapter.click();
-    await page.waitForFunction(t=>{const v=document.querySelector('video');return v.readyState>=2&&Math.abs(v.currentTime-t)<2},target,{timeout:30000});
-    await page.waitForTimeout(280);
-    const result=await video.evaluate(v=>({time:v.currentTime,seconds:v.duration,width:v.videoWidth,height:v.videoHeight,
-      visibleWidth:v.getBoundingClientRect().width,source:v.currentSrc,error:v.error?.code||0,overflow:document.documentElement.scrollWidth>innerWidth+1}));
+    await page.waitForFunction(()=>document.querySelector('video').currentTime>.15,null,{timeout:20000});
+    let target,method;
+    if (id==='T02.1') {
+      // This approved film uses native controls and has no chapter buttons.
+      target=await video.evaluate(v=>{const t=v.duration*.53;v.currentTime=t;return t});
+      method='native seek';
+    } else {
+      const chapters=page.locator('[data-time]');
+      await chapters.first().waitFor({timeout:18000});
+      const chapter=chapters.nth(Math.min(id.startsWith('S')?4:3,await chapters.count()-1));
+      target=Number(await chapter.getAttribute('data-time'));
+      assert.ok(target>0);
+      await chapter.click();method='chapter button';
+    }
+    await page.waitForFunction(t=>{const v=document.querySelector('video');return !v.seeking&&v.readyState>=2&&Math.abs(v.currentTime-t)<2},target,{timeout:25000});
+    const afterSeek=await video.evaluate(v=>v.currentTime);
+    await page.waitForFunction(t=>document.querySelector('video').currentTime>t+.12,afterSeek,{timeout:15000});
+    const result=await video.evaluate(v=>({time:v.currentTime,seconds:v.duration,width:v.videoWidth,height:v.videoHeight,visibleWidth:v.getBoundingClientRect().width,source:v.currentSrc,error:v.error?.code||0,overflow:document.documentElement.scrollWidth>innerWidth+1}));
     assert.equal(result.width,1920);assert.equal(result.height,1080);assert.equal(result.error,0);assert.equal(result.overflow,false);
     const file='build/phone/'+id+'-'+engine+'-'+orientation;
-    await video.screenshot({path:file+'.png',timeout:20000});
-    await fs.writeFile(file+'.json',JSON.stringify({id,engine,orientation,target,...result},null,2));
-    console.log(id,engine,orientation,'playing',result.time,'chapter start',target);
+    await video.screenshot({path:file+'.png',timeout:15000});
+    await fs.writeFile(file+'.json',JSON.stringify({id,engine,orientation,method,target,page:root+film.page,...result},null,2));
+    console.log(id,engine,orientation,method,result.time.toFixed(2));
   } finally {await page.close();}
 }
 (async()=>{
+  const args=process.argv.slice(2);
+  const all=await course();
+  const requested=new Set(args);
+  let films;
+  if (args[0]==='--shard') {
+    const shard=Number(args[1]),total=Number(args[2]);
+    assert.ok(Number.isInteger(shard)&&shard>=0&&shard<total);
+    films=all.filter((_,i)=>i%total===shard);
+  } else {
+    films=all.filter(f=>requested.has(f.id));
+    assert.equal(films.length,requested.size);
+  }
   const engine=process.env.ENGINE||'webkit';
   const browser=engine==='webkit'?await webkit.launch():await chromium.launch({channel:'chrome'});
   let failed=false;
@@ -38,9 +83,16 @@ async function check(context,id,orientation,engine) {
     await fs.mkdir('build/phone',{recursive:true});
     for(const [orientation,width,height] of [['portrait',390,844],['landscape',844,390]]) {
       const context=await browser.newContext({...devices['iPhone 13'],defaultBrowserType:undefined,viewport:{width,height},screen:{width,height},deviceScaleFactor:2});
-      for(const id of process.argv.slice(2)){
-        try{await check(context,id,orientation,engine);}
-        catch(err){console.error(id,engine,orientation,String(err));failed=true;}
+      for(const film of films) {
+        try{await check(context,film,orientation,engine);}
+        catch(first){
+          console.error(film.id,engine,orientation,'retry:',String(first));
+          try{await check(context,film,orientation,engine);}
+          catch(err){
+            failed=true;
+            await fs.writeFile('build/phone/'+film.id+'-'+engine+'-'+orientation+'-failure.json',JSON.stringify({id:film.id,engine,orientation,page:root+film.page,error:String(err)}));
+          }
+        }
       }
       await context.close();
     }

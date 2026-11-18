@@ -1,0 +1,36 @@
+name: Review all published lesson players in portrait and landscape
+on:
+  push:
+    branches: [codex/reviewed-film-work-20261119]
+    paths: ['.github/workflows/survey-course-players-20261119.yml']
+permissions:
+  contents: read
+jobs:
+  phone:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        engine: [webkit, chrome]
+        shard: [0, 1, 2, 3]
+    env:
+      ENGINE: ${{ matrix.engine }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-save --package-lock=false playwright
+      - if: matrix.engine == 'webkit'
+        run: npx playwright install --with-deps webkit
+      - name: Play each public film and jump by its published chapter buttons
+        run: node tools/review-public-video-players.cjs --shard ${{ matrix.shard }} 4
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: course-players-${{ matrix.engine }}-${{ matrix.shard }}
+          path: build/phone
+          if-no-files-found: warn
