@@ -66,7 +66,7 @@ const normalize=s=>String(s??"").toLowerCase().replace(/\s+/g,"").replace(/[×·
 const rankNames=["Pathfinder","Pattern Scout","Model Builder","Logic Ranger","Number Navigator","Geometry Pilot","Counting Specialist","Invariant Hunter","Transfer Thinker","Proof Builder","Problem Solver","Strategy Captain","Olympiad Explorer","Insight Engineer","Reasoning Commander","AMC Specialist","MAWA Specialist","Rossmoyne Specialist","Summit Elite","Summit Scholar"];
 const openingFilmIds=["T01.1","T01.2","T01.3","T01.E"];
 const chapterStudioFilmIds=new Set(["T02.3","T02.E","T03.1","T03.2","T03.3","T03.E","T04.1","T04.2","T04.3","T04.E"]);
-const revisedTeachingFilms={"T02.3":"variable-bars-20261119","T12.1":"angle-tracing-20261119","T12.2":"clock-arc-proof-20261119","T12.3":"construction-notebook-20261119","T13.1":"moving-area-20261119","T13.2":"cut-and-scale-20261119","T13.3":"hidden-cubes-20261119"};
+const revisedTeachingFilms={"T02.3":"variable-bars-20261119","T03.2":"signal-timetable-20261119","T12.1":"angle-tracing-20261119","T12.2":"clock-arc-proof-20261119","T12.3":"construction-notebook-20261119","T13.1":"moving-area-20261119","T13.2":"cut-and-scale-20261119","T13.3":"hidden-cubes-20261119"};
 function finalVideoUrl(videoId){
   const id=String(videoId||"");
   // Only concept/worked-example T videos are public. Every challenge solution is attempt-gated.

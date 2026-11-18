@@ -44,8 +44,8 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <h1>Separate the first coincidence from the repeat period</h1>
 <p>Find when two repeating events first coincide, and how often after that.</p>
 <video id="lesson" controls playsinline preload="metadata" aria-label="Separate the first coincidence from the repeat period"
-  poster="media/T03.2-studio-poster.jpg?v=studio-chapters-02-04-v1">
-  <source src="media/T03.2.mp4?v=studio-chapters-02-04-v1" type="video/mp4">
+  poster="media/T03.2-studio-poster.jpg?v=signal-timetable-20261119">
+  <source src="media/T03.2.mp4?v=signal-timetable-20261119" type="video/mp4">
 </video>
 <p class="meta">2:04 · Full HD</p>
 <nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Two flashing lights</button>
@@ -66,17 +66,8 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <p>Let the second light start at time two. Its times are two, eight, fourteen and twenty. The first light&#x27;s times stay on the multiples of four. The first meeting moves to eight seconds, and the next is at twenty. The starting offset changed the first meeting. The twelve-second gap stayed the same.</p>
 <p>Now start the second light at time one. Its jumps of six keep all its times odd. Starting from zero and moving in jumps of four keeps the other times even. An odd time and an even time cannot match, so these two lights never flash together.</p>
 <p>When meetings are possible, the lowest common multiple gives the gap between them. The starting positions decide when the first meeting happens. In your notebook, one bus leaves every eight minutes and another every twelve. They both leave at nine o&#x27;clock. When do they next leave together?</p></details>
-<p><a href="media/T03.2.mp4?v=studio-chapters-02-04-v1">Open the MP4 directly</a></p>
+<p><a href="media/T03.2.mp4?v=signal-timetable-20261119">Open the MP4 directly</a></p>
 </main>
-<script>
-const video = document.querySelector("#lesson");
-for (const button of document.querySelectorAll("[data-time]")) {
-  button.addEventListener("click", () => {
-    video.currentTime = Number(button.dataset.time);
-    video.play().catch(() => {});
-    video.scrollIntoView({block: "center"});
-  });
-}
-</script>
+<script src="lesson-video-chapters.js?v=seek-1"></script>
 </body>
 </html>
