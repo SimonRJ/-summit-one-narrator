@@ -10,7 +10,7 @@ async function publicJson(url) {
   return response.json();
 }
 async function course() {
-  const [catalogue, teaching] = await Promise.all([publicJson(registry),publicJson(root+'data/teaching-72.json')]);
+  const [catalogue, teaching] = await Promise.all([publicJson(registry+'?review='+Date.now()),publicJson(root+'data/teaching-72.json')]);
   const films = [];
   for (let slot=1;slot<=6;slot++) {
     const id='S'+String(slot).padStart(3,'0');
@@ -63,9 +63,12 @@ async function check(context,film,orientation,engine) {
     }
     await page.waitForFunction(t=>{const v=document.querySelector('video');return !v.seeking&&v.readyState>=2&&Math.abs(v.currentTime-t)<2},target,{timeout:25000});
     const afterSeek=await video.evaluate(v=>v.currentTime);
-    await page.waitForFunction(t=>document.querySelector('video').currentTime>t+.12,afterSeek,{timeout:15000});
+    await page.waitForFunction(([t,after])=>{const v=document.querySelector('video');return v.currentTime>Math.max(t+.75,after+.12)&&v.currentTime<t+4},[target,afterSeek],{timeout:15000});
     const result=await video.evaluate(v=>({time:v.currentTime,seconds:v.duration,width:v.videoWidth,height:v.videoHeight,visibleWidth:v.getBoundingClientRect().width,source:v.currentSrc,error:v.error?.code||0,overflow:document.documentElement.scrollWidth>innerWidth+1}));
     assert.equal(result.width,1920);assert.equal(result.height,1080);assert.equal(result.error,0);assert.equal(result.overflow,false);
+    if (orientation==='landscape'&&['T13.1','T13.2','T16.E','T17.2'].includes(id)) {
+      assert.ok(await video.evaluate(v=>v.getBoundingClientRect().height<=innerHeight));
+    }
     const file='build/phone/'+id+'-'+engine+'-'+orientation;
     await video.screenshot({path:file+'.png',timeout:15000});
     await fs.writeFile(file+'.json',JSON.stringify({id,engine,orientation,method,target,page:root+film.page,...result},null,2));
