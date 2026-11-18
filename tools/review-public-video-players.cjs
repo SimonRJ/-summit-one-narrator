@@ -21,8 +21,8 @@ async function course() {
     const suffix=row.illustration===2 || row.illustration===1 && row.illustratedRevision===2 ? '-Illustrated-v2' : (row.illustration===1 || explicitlyRevised) ? '-Illustrated' : '';
     films.push({id:row.id,page:'watch-lesson-intro.html?slot='+Number(row.id.slice(1)),asset:row.id+'-Intro'+suffix+'.mp4'});
   }
-  for (const {id} of teaching.items) {
-    films.push({id,page:'watch-'+id.toLowerCase().replace('.','-')+'.html',asset:id+'.mp4'});
+  for (const {id,video_url} of teaching.items) {
+    films.push({id,page:'watch-'+id.toLowerCase().replace('.','-')+'.html',asset:id+'.mp4',listed:video_url});
   }
   assert.equal(new Set(films.map(f=>f.id)).size,films.length);
   return films;
@@ -49,11 +49,27 @@ async function check(context,film,orientation,engine) {
     if (id==='T02.3') assert.match(source,/variable-bars/);
     if (id==='T13.1') assert.match(source,/moving-area/);
     if (id==='T13.2') assert.match(source,/cut-and-scale/);
+    if (id==='T03.2') assert.match(source,/signal-timetable/);
     if (id==='T12.2') assert.match(source,/clock-arc-proof/);
     if (id==='T13.3') assert.match(source,/hidden-cubes/);
     if (id==='T12.3') assert.match(source,/construction-notebook/);
     if (id==='T12.1') assert.match(source,/angle-tracing/);
     if ((process.env.ILLUSTRATED || '').split(/\s+/).includes(id)) assert.match(source,/-Intro-Illustrated(?:-v2)?\.mp4(?:[?#]|$)/);
+    // Opening a lesson and replaying it from a completed session share this live resolver.
+    // The dedicated player and the app must select the exact same edition.
+    let courseSource;
+    if (id.startsWith('S')) {
+      courseSource=await page.evaluate(async id=>{
+        const api=await import('./lesson-introduction-media.js?v=lesson-intros-v16');
+        await api.loadIntroductionCatalogue();
+        const selected=api.lessonIntroId(Number(id.slice(1)));
+        if (selected!==id) throw Error('Lesson missing from the app catalogue: '+id);
+        return new URL(api.introMediaSource(selected).movie,location.href).href;
+      },id);
+    } else {
+      courseSource=film.listed ? new URL(film.listed,root).href : source;
+    }
+    assert.equal(courseSource,source);
     await video.evaluate(v=>{v.muted=true;return v.play()});
     await page.waitForFunction(()=>document.querySelector('video').currentTime>.15,null,{timeout:20000});
     let target,method;
@@ -79,7 +95,7 @@ async function check(context,film,orientation,engine) {
     }
     const file='build/phone/'+id+'-'+engine+'-'+orientation;
     await video.screenshot({path:file+'.png',timeout:15000});
-    await fs.writeFile(file+'.json',JSON.stringify({id,engine,orientation,method,target,page:root+film.page,...result},null,2));
+    await fs.writeFile(file+'.json',JSON.stringify({id,engine,orientation,method,target,page:root+film.page,courseSource,...result},null,2));
     console.log(id,engine,orientation,method,result.time.toFixed(2));
   } catch(error) {
     const state=await page.locator('video').evaluate(v=>({time:v.currentTime,seeking:v.seeking,paused:v.paused,ready:v.readyState,network:v.networkState,events:window.__chapterEvents?.slice(-15),seekable:[...Array(v.seekable.length)].map((_,i)=>[v.seekable.start(i),v.seekable.end(i)]),buffered:[...Array(v.buffered.length)].map((_,i)=>[v.buffered.start(i),v.buffered.end(i)]),pageWidth:innerWidth,visible:v.getBoundingClientRect().toJSON(),error:v.error?.message})).catch(()=>({}));
