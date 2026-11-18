@@ -1,0 +1,66 @@
+name: Build the individually voiced bead and forced-tiling films
+on:
+  push:
+    branches: [codex/reviewed-film-work-20261119]
+    paths:
+      - 'production/lesson-intros/illustrated/forced_dominoes.py'
+      - 'production/lesson-intros/illustrated/bead_scale_trays.py'
+      - '.github/workflows/stage-cued-lesson-films-20261119.yml'
+permissions:
+  contents: write
+  actions: read
+jobs:
+  stage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - id: S024
+            voice_run: 44386238642
+            artifact: s024-checked-voice-and-timing
+          - id: S036
+            voice_run: 44386023082
+            artifact: s036-checked-voice-and-timing
+    env:
+      GH_TOKEN: ${{ github.token }}
+      FILM: ${{ matrix.id }}
+      VOICE_RUN: ${{ matrix.voice_run }}
+      VOICE_ARTIFACT: ${{ matrix.artifact }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install the drawing and encoding dependencies
+        run: |
+          if ! command -v ffmpeg >/dev/null; then sudo apt-get -o Acquire::Retries=2 -o Acquire::http::Timeout=20 update -qq && sudo apt-get install -y ffmpeg; fi
+          pip install pillow numpy
+      - name: Load the verified recording and measured phrase times
+        run: |
+          for i in {1..90}; do
+            state=$(gh run view "$VOICE_RUN" --repo "$GITHUB_REPOSITORY" --json status --jq .status)
+            [ "$state" = completed ] && break
+            sleep 20
+          done
+          test "$(gh run view "$VOICE_RUN" --repo "$GITHUB_REPOSITORY" --json conclusion --jq .conclusion)" = success
+          gh run download "$VOICE_RUN" --repo "$GITHUB_REPOSITORY" -n "$VOICE_ARTIFACT" -D build/voice
+      - name: Render at the actual measured voice cues and decode the entire film
+        run: python production/lesson-intros/illustrated/render_voiced_board.py "$FILM" --audio build/voice --out build/film
+      - name: Stage and check the released bytes
+        run: |
+          mkdir -p build/returned
+          for asset in "$FILM-Intro-Illustrated.mp4" "$FILM-Intro-Illustrated-poster.jpg"; do
+            if ! gh release download lesson-introductions -p "$asset" -D build/returned; then
+              gh release upload lesson-introductions "build/film/$asset"
+              gh release download lesson-introductions -p "$asset" -D build/returned
+            fi
+            cmp "build/film/$asset" "build/returned/$asset"
+          done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: voiced-render-${{ matrix.id }}
+          path: build/film/*-qa.json
