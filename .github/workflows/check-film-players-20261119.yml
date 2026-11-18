@@ -6,7 +6,7 @@ on:
 permissions:
   contents: read
 env:
-  FILMS: S025 S026 S027 S043 T13.1 T13.2 T16.E T17.2
+  FILMS: S030 S031 T13.1
 jobs:
   chrome:
     runs-on: ubuntu-latest
