@@ -137,7 +137,7 @@ def tiling(lesson):
             Example("Use area to rule out a tiling", (
                 (f"A {say(width)} by three board has {say(gap)} corner {'cell' if gap==1 else 'cells'} removed. Can you tile what remains using pieces of exactly three unit squares?", f"{width} × 3 board, remove {gap} corner {'cell' if gap==1 else 'cells'}."),
                 ("Pieces may be turned. They may not overlap, and each cell must be covered.", "Can three-square tiles cover it exactly?")),
-                ((f"The original board has {say(area)} cells, and removing the corners leaves {say(left)}.", f"{width} × 3 − {gap} = {left}"),
+                ((f"The original board has {say(area)} cells. Removing {say(gap)} corner {'cell' if gap==1 else 'cells'} leaves {say(left)}.", f"{width} × 3 − {gap} = {left}"),
                  (f"Every piece covers exactly three squares. An exact cover would require {say(left)} to be divisible by three.", f"{left} leaves remainder {left%3} on division by 3."),
                  ("There would be leftover cells even before any shape restrictions were checked. The tiling is impossible.", "The area test rules it out.")),
                 grid(*(tuple("×" if (j,i) in removed else "□"
@@ -288,6 +288,21 @@ def shaded_area(lesson):
     assert white==width*height-len(region1)-len(region2)+overlap
     art=grid(*tuple(tuple("◆" if (x,y) in region1&region2 else "■" if (x,y) in region1|region2 else "□"
                         for x in range(width)) for y in reversed(range(height))))
+    joined = geometry(
+        ((0,0,""), (w,0,""), (w,h,""), (0,h,""), (w+step,0,""),
+         (w+step,extra,""), (w,extra,"")),
+        ((0,1,0),(1,2,0),(2,3,0),(3,0,0),(1,4,1),(4,5,1),(5,6,1)),
+        polygons=((0,1,2,3),(1,4,5,6)),
+        captions=((w/2,h/2,f"{w} × {h}",0),(w+step/2,extra/2,f"{step} × {extra}",1)),
+    )
+    cut_corner = geometry(
+        ((0,0,""), (full_w,0,""), (full_w,full_h-b,""),
+         (full_w-a,full_h,""), (0,full_h,""), (full_w,full_h,"")),
+        ((0,1,0),(1,2,0),(2,3,2),(3,4,0),(4,0,0),(3,5,1),(5,2,1)),
+        polygons=((0,1,2,3,4),),
+        captions=((full_w/2,.45,str(full_w),0),(.42,full_h/2,str(full_h),0),
+                  (full_w-a/2,full_h-.35,str(a),1),(full_w-.36,full_h-b/2,str(b),1)),
+    )
     return Topic(
         (("An area measures how many square units fill a region. Draw an extra line to split a complicated shape into pieces whose areas you can find.", "Break the shape into known areas."),
          ("If the missing pieces are simpler, start with a whole rectangle and subtract them. Check whether those missing parts overlap.", "Use the whole minus the missing parts.")),
@@ -298,15 +313,15 @@ def shaded_area(lesson):
                 (f"Join a {say(w)} by {say(h)} rectangle to a {say(step)} by {say(extra)} rectangle along an edge without overlap. Find their combined area.", f"Areas of {w} × {h} and {step} × {extra}"),
                 ("A shared edge has length but contributes no extra area.", "Add the two separate areas.")),
                 ((f"The first area is {say(w*h)} and the second is {say(step*extra)}. No unit square belongs to both interiors.", f"{w}×{h} = {w*h}; {step}×{extra} = {step*extra}"),
-                 (f"The areas add to {say(simple)} square units. Joining along an edge leaves this total unchanged.", f"Combined area = {simple}")), tiles(f"{w} × {h}",f"{step} × {extra}")),
+                 (f"The areas add to {say(simple)} square units. Joining along an edge leaves this total unchanged.", f"Combined area = {simple}")), joined),
             Example("Subtract a triangle from a rectangle", (
                 (f"A {say(full_w)} by {say(full_h)} rectangle has a right triangle removed from one corner. The perpendicular legs of the triangle are {say(a)} and {say(b)} units.", f"Whole {full_w} × {full_h}; triangle legs {a} and {b}."),
                 ("Find the area left after that corner is removed.", "Subtract the triangle's area.")),
                 ((f"The whole rectangle has area {say(full_w*full_h)}. The right triangle is half of a rectangle with sides {say(a)} and {say(b)}.", f"Triangle = ½ × {a} × {b} = {Fraction(a*b,2)}"),
-                 (f"Subtract the triangle. That leaves {say(remaining)} square units.", f"{full_w*full_h} − {Fraction(a*b,2)} = {remaining}")), rectangle(full_w,full_h)),
+                 (f"Subtract the triangle. That leaves {say(remaining)} square units.", f"{full_w*full_h} − {Fraction(a*b,2)} = {remaining}")), cut_corner),
             Example("Subtract two rectangles that overlap", (
                 (f"On a {say(width)} by {say(height)} board, shade a lower-left rectangle {say(cut1[2])} columns wide and {say(cut1[3])} rows high.", f"Board {width} × {height}. Shade lower-left {cut1[2]} × {cut1[3]}."),
-                (f"Shade the rectangle covering all columns from the fourth onwards and rows from the third upwards, with rows numbered from the bottom. How much area is unshaded?", f"Also shade x from 3 to {width}, y from 2 to {height}.")),
+                (f"Shade the rectangle covering all columns from the fourth onwards and rows from the third upwards, with rows numbered from the bottom. How much area is unshaded?", f"Also shade columns 4 to {width}, rows 3 to {height}.")),
                 ((f"The two shaded areas separately are {say(len(region1))} and {say(len(region2))}. Adding them directly would count the shared part twice.", f"Areas: {len(region1)} and {len(region2)}."),
                  (f"The overlap has width {say(cut1[2]-3)} and height {say(cut1[3]-2)}. Its area is {say(overlap)}.", f"Overlap = ({cut1[2]}−3) × ({cut1[3]}−2) = {overlap}"),
                  (f"Subtract the total shaded area from the full board. The overlap correction makes the unshaded area {say(white)} square units.", f"{width*height} − {len(region1)} − {len(region2)} + {overlap} = {white}")),

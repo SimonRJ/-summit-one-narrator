@@ -35,13 +35,13 @@ def ratios(lesson):
                  (f"There are one hundred centimetres in one metre. Divide the centimetre result by one hundred.", f"{cm*scale:,} cm ÷ 100"),
                  (f"The length is {say(metre)} metres. The factor from drawing to real length is the same before converting units.", f"{metre} m")), table(("Drawing","Real"),("1 cm",f"{scale} cm"),(f"{cm} cm",f"{cm*scale} cm"))),
             Example("Use a fixed total when a ratio changes", (
-                (f"A box initially has red and blue counters in ratio {say(p)} to {say(q)}. Move {say(shift)} from the red pile to the blue pile.", f"Red : blue = {p} : {q}. Transfer {shift} to blue."),
+                (f"Two trays, Red and Blue, contain identical counters. The counts in Red and Blue are in the ratio {say(p)} to {say(q)}. Move {say(shift)} counters from Red to Blue.", f"Red tray : Blue tray = {p} : {q}. Move {shift} to Blue."),
                 (f"The new ratio is {say(end_red)} to {say(end_blue)}. How many counters are there in all?", f"New ratio {end_red} : {end_blue}. Find the total.")),
                 ((f"The total stays the same. In both ratios there are {say(p+q)} equal parts of that same total.", f"Same total, split into {p+q} parts"),
-                 (f"Blue goes from {say(q)} parts to {say(p)} parts. That increase of {say(p-q)} parts consists of exactly the {say(shift)} transferred counters.", f"{p} − {q} = {p-q} parts = {shift} counters"),
-                 (f"One part is {say(shift//(p-q))}. Multiply by the full {say(p+q)} parts. The box contains {say(total)} counters.", f"{p+q} × {shift//(p-q)} = {total}")),
+                 (f"The Blue tray goes from {say(q)} parts to {say(p)} parts. That increase of {say(p-q)} parts consists of exactly the {say(shift)} transferred counters.", f"{p} − {q} = {p-q} parts = {shift} counters"),
+                 (f"One part is {say(shift//(p-q))}. Multiply by the full {say(p+q)} parts. Together the trays contain {say(total)} counters.", f"{p+q} × {shift//(p-q)} = {total}")),
                 bars(("Before",((p,f"red {p}"),(q,f"blue {q}"))),("After",((q,f"red {q}"),(p,f"blue {p}")))), proof=(
-                    (f"The original piles have {say(p*(6+v))} and {say(q*(6+v))}. The transfer changes them to {say(q*(6+v))} and {say(p*(6+v))}.", f"{p*(6+v)} : {q*(6+v)} → {q*(6+v)} : {p*(6+v)}"),
+                    (f"The original tray counts are {say(p*(6+v))} and {say(q*(6+v))}. The transfer changes them to {say(q*(6+v))} and {say(p*(6+v))}.", f"{p*(6+v)} : {q*(6+v)} → {q*(6+v)} : {p*(6+v)}"),
                     ("Reduce both pairs by the same part size. The two given ratios return, and the total is unchanged.", "Verify both ratios using one part size."))),
         ),
         (("Multiplying just one ratio term changes the comparison. Apply the same scale factor to every term.", "Scale a single ratio term", "Scale all terms by the same factor"),
