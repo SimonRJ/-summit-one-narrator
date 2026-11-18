@@ -1,0 +1,48 @@
+name: Check the spoken tiling question and the end of its proof
+on:
+  push:
+    branches: [codex/reviewed-film-work-20261119]
+    paths: ['.github/workflows/independent-domino-speech-20261119.yml']
+permissions:
+  contents: read
+  actions: read
+jobs:
+  recognize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    env:
+      GH_TOKEN: ${{ github.token }}
+      HF_HUB_DISABLE_XET: '1'
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Retrieve the public production evidence
+        run: gh run download 44394193825 -R "$GITHUB_REPOSITORY" -n s036-checked-voice-and-timing -D build/audio
+      - name: Transcribe three passages independently of the original alignment
+        run: |
+          pip install faster-whisper soundfile scipy
+          python - <<'PY'
+          import json,pathlib
+          import soundfile
+          from scipy.signal import resample_poly
+          from faster_whisper import WhisperModel
+          base=pathlib.Path('build/audio')
+          track=json.loads((base/'timeline.json').read_text())
+          sample,rate=soundfile.read(base/'narration.wav',dtype='float32')
+          model=WhisperModel('small.en',device='cpu',compute_type='int8',cpu_threads=4)
+          results=[]
+          for n in (2,7,11):
+              scene=track['scenes'][n-1]
+              wave=sample[int(rate*scene['start']):int(rate*(scene['speech_end']+.3))]
+              wave=resample_poly(wave,16000,rate)
+              segments,_=model.transcribe(wave,language='en',beam_size=5,condition_on_previous_text=False,word_timestamps=True,temperature=0.)
+              words=[(round(w.start,3),round(w.end,3),w.word.strip()) for segment in segments for w in segment.words]
+              print(n,' '.join(w[-1] for w in words),flush=True)
+              results.append({'scene':n,'words':words})
+          pathlib.Path('build/independent-domino-recognition.json').write_text(json.dumps(results))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: independent-domino-recognition
+          path: build/independent-domino-recognition.json
