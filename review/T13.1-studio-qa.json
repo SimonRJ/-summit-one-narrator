@@ -1,7 +1,7 @@
 {
   "id": "T13.1",
   "duration_seconds": 132.133333,
-  "sha256": "f941cf5944869274bdb6151774bf83e79ede38c18d15a4561d3c78d53d3713c8",
+  "sha256": "24100ebdbb730e380ea2c1009dcb7b9d570ffd5115549e354ba6f7ecaab84a0b",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -88,5 +88,8 @@
       "start": 109.86
     }
   ],
-  "decoded_successfully": true
+  "decoded_successfully": true,
+  "source_sha256": "f941cf5944869274bdb6151774bf83e79ede38c18d15a4561d3c78d53d3713c8",
+  "diagram_revision": "The moving apex keeps an exact 8 cm base and 5 cm height. A rigid half-turn, area-preserving shear, and 6-by-4 cutouts prove the area results.",
+  "original_audio_packets": "SHA256=0c9bfaecfee6df775fe5017065c47023eda95fd5568b6ebe5552254be5638b7e"
 }
