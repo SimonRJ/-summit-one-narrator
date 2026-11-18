@@ -31,7 +31,8 @@ def tray(c, x, y, capacity, filled, extra):
 
 
 def opening(c, q):
-    title(c, 'What does an almost-full tray tell us?')
+    title(c, 'Remainders: how far to the next multiple?')
+    c.text('The remainder is what stays outside full groups.', 640, 145, 31, INK)
     if q.after('space for five'):
         tray(c, 150, 265, 5, 4, q.after('One more counter'))
     if q.after('space for eight'):
@@ -41,13 +42,15 @@ def opening(c, q):
 
 
 def joint(c, q):
-    title(c, 'Add one to the same unknown number')
+    title(c, 'Exam clue: one short in two different groups')
+    c.text('In an AMC or Rossmoyne-style problem, look for two almost-full groups.',
+           640, 149, 30, INK)
     p = q.after('Add one to that number')
     tray(c, 150, 265, 5, 4, p)
     if q.after('grouped in eights'):
         tray(c, 650, 265, 8, 7, p)
     if q.after('both times tables'):
-        caption(c, 'N + 1 belongs to both times tables')
+        caption(c, 'N + 1 is a multiple of both 5 and 8')
 
 
 def packets(c, move):
@@ -59,7 +62,7 @@ def packets(c, move):
         x, y = 170+(i%17)*57, 195+(i//17)*55
         tx, ty = gx+(spot%3)*49, gy+(spot//3)*46
         p = min(1, max(0, move*9-group))
-        if move > 0 and group < 8 and spot == 0:
+        if p > 0 and group < 8 and spot == 0:
             c.rect(gx-28,gy-24,154,95,PALE,TEAL,2)
         c.dot(x+(tx-x)*p, y+(ty-y)*p-22*sin(pi*p), 16, GOLD if group==8 and p else TEAL)
 
@@ -81,6 +84,8 @@ def packet_answer(c,q):
 
 def endings(c,q):
     title(c,'Find the missing digit in 46□')
+    if q.after('starts with four and six'):
+        c.text('4  6  ?',640,148,48,INK,bold=True)
     if q.after('last two digits'):
         for i in range(10):
             x=131+113*i
@@ -98,7 +103,11 @@ def digit_sums(c,q):
             c.text(str(end+400) if q.after('hundreds digit back') else str(end),x,224,60,INK,bold=True)
         if q.after(('are ten','fourteen','and eighteen')[i]):
             c.text(f'4 + 6 + {end%10} = {10+end%10}',x,342,33,TEAL,bold=True)
+    if q.after('Only eighteen'):
+        # Keep the three candidates visible and mark the one passing both tests.
+        c.line([(887,385),(1174,385)],TEAL,5)
     if q.after('missing digit is eight'):
+        c.text('The missing digit is 8.',640,451,40,TEAL,bold=True)
         caption(c,'468 ÷ 4 = 117       468 ÷ 3 = 156')
 
 
@@ -142,8 +151,11 @@ def shift(c,q):
     title(c,'Mark the common multiples on the shifted ruler')
     p=q.after('one place right',1.1)
     ruler(c,63+p,222+p)
+    if q.after('one place right'):
+        c.text('63 + 1 = 64',291,148,31,TEAL,bold=True)
+        c.text('222 + 1 = 223',982,148,31,TEAL,bold=True)
     if q.after('common multiple is forty'):
-        c.text('LCM(5, 8) = 40',640,147,34,INK,bold=True)
+        c.text('LCM(5, 8) = 40',640,148,32,INK,bold=True)
     for n,phrase in zip(POINTS,('Mark eighty','one hundred and twenty','one hundred and sixty','sixty, and two hundred')):
         if q.after(phrase):
             mark(c,n,404,GOLD)
@@ -157,6 +169,8 @@ def restore(c,q):
     ruler(c,64-p,223-p)
     for n in POINTS:
         mark(c,n-p,404,GOLD)
+    if q.after('one place left'):
+        c.text('Subtract 1 from each marked multiple.',640,145,32,TEAL,bold=True)
     if q.after('three gaps'):
         for left,right in zip(POINTS,POINTS[1:]):
             c.line([(xpos(left-1)+10,404),(xpos(right-1)-10,404)],TEAL,3)
@@ -185,7 +199,10 @@ def boundary(c,q):
     for n in POINTS:
         mark(c,n-1,404,GOLD if n-1<=hi else RED)
     if q.after('Three answers remain'):
-        caption(c,'79, 119 and 159 are still inside')
+        c.text('79, 119 and 159 remain',640,504,33,INK,bold=True)
+    if q.after('A boundary can change'):
+        c.text('Add 1 → find common multiples → subtract 1 → check bounds',
+               640,570,32,TEAL,bold=True)
 
 
 SCENES=(opening,joint,packet_question,packet_answer,endings,digit_sums,challenge,shift,restore,test,boundary)

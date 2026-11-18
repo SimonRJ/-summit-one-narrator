@@ -5,7 +5,7 @@ on:
     paths: ['production/lesson-intros/illustrated/remainder_ruler.py', '.github/workflows/stage-s066-ruler.yml']
 permissions:
   actions: read
-  contents: read
+  contents: write
 jobs:
   stage:
     runs-on: ubuntu-24.04
@@ -29,13 +29,26 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Render all eleven scenes against the recorded words
+      - name: Install drawing and encoding tools
         run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y ffmpeg fonts-dejavu-core
-          pip install pillow numpy
+          python production/lesson-intros/illustrated/install_media_tools.py
+          pip install numpy
+      - name: Render the revised introduction
+        run: |
           python production/lesson-intros/illustrated/render_voiced_board.py S066 --audio build/voice --out build/staged
           cp build/voice/timeline.json build/staged/
+      - name: Stage exact video and poster bytes for the final review
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p build/returned
+          for asset in S066-Intro-Illustrated.mp4 S066-Intro-Illustrated-poster.jpg; do
+            if ! gh release download lesson-introductions --pattern "$asset" --dir build/returned; then
+              gh release upload lesson-introductions "build/staged/$asset"
+              gh release download lesson-introductions --pattern "$asset" --dir build/returned
+            fi
+            cmp "build/staged/$asset" "build/returned/$asset"
+          done
       - uses: actions/upload-artifact@v4
         with:
           name: s066-shifted-ruler-film
