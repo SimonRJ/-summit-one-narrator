@@ -1,0 +1,44 @@
+name: Stage the S066 shifted-ruler film for review
+on:
+  push:
+    branches: [codex/reviewed-film-work-20261119]
+    paths: ['production/lesson-intros/illustrated/remainder_ruler.py', '.github/workflows/stage-s066-ruler.yml']
+permissions:
+  actions: read
+  contents: read
+jobs:
+  stage:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 95
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Wait for the checked Voice C recording
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VOICE_RUN: '44419469904'
+        run: |
+          for attempt in $(seq 1 160); do
+            state=$(gh run view "$VOICE_RUN" --json status --jq .status)
+            if [ "$state" = completed ]; then break; fi
+            sleep 20
+          done
+          test "$(gh run view "$VOICE_RUN" --json conclusion --jq .conclusion)" = success
+          gh run download "$VOICE_RUN" --name s066-distinct-audio-and-timeline --dir build/voice
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Render all eleven scenes against the recorded words
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-dejavu-core
+          pip install pillow numpy
+          python production/lesson-intros/illustrated/render_voiced_board.py S066 --audio build/voice --out build/staged
+          cp build/voice/timeline.json build/staged/
+      - uses: actions/upload-artifact@v4
+        with:
+          name: s066-shifted-ruler-film
+          path: build/staged
+          if-no-files-found: error
+          retention-days: 30
