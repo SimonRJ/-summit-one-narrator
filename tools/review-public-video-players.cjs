@@ -61,6 +61,9 @@ async function check(context,film,orientation,engine) {
     await video.screenshot({path:file+'.png',timeout:15000});
     await fs.writeFile(file+'.json',JSON.stringify({id,engine,orientation,method,target,page:root+film.page,...result},null,2));
     console.log(id,engine,orientation,method,result.time.toFixed(2));
+  } catch(error) {
+    const state=await page.locator('video').evaluate(v=>({time:v.currentTime,seeking:v.seeking,paused:v.paused,ready:v.readyState,network:v.networkState,buffered:[...Array(v.buffered.length)].map((_,i)=>[v.buffered.start(i),v.buffered.end(i)]),pageWidth:innerWidth,visible:v.getBoundingClientRect().toJSON(),error:v.error?.message})).catch(()=>({}));
+    throw Error(String(error)+' '+JSON.stringify(state));
   } finally {await page.close();}
 }
 (async()=>{
