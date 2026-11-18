@@ -73,6 +73,7 @@ function finalVideoUrl(videoId){
   if(openingFilmIds.includes(id))return "media/"+id+".mp4?v=t01-studio-v1";
   if(id==="T02.1")return "media/T02.1.mp4?v=studio-v4";
   if(id==="T02.2")return "media/T02.2.mp4?v=studio-v1";
+  if(id==="T02.3")return "media/T02.3.mp4?v=variable-bars-20261119";
   if(chapterStudioFilmIds.has(id))return "media/"+id+".mp4?v=studio-chapters-02-04-v1";
   const published="media/"+id+".mp4?v=teaching-films-v1";
   if(teaching.some(item=>item.id===id&&item.video_url===published))return published;
@@ -140,7 +141,7 @@ function openingConceptFilm(slot){
  if(!film)return "";
  return `<details class="opening-fallback"><summary>Watch ${esc(film.title)}</summary>
    <div class="opening-video-wrap"><video controls playsinline preload="none"
-     src="${finalVideoUrl(id)}" poster="media/${id}-studio-poster.jpg?v=t01-studio-v1" aria-label="${esc(film.title)}"></video></div>
+     src="${finalVideoUrl(id)}" poster="media/${id}-studio-poster.jpg?v=${id==="T02.3"?"variable-bars-20261119":"t01-studio-v1"}" aria-label="${esc(film.title)}"></video></div>
  </details>`;
 }
 function teachingFor(session){

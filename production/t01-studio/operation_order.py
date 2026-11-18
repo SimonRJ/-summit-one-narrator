@@ -2,6 +2,8 @@
 
 import math
 
+from order_bars import compare_orders, double_sum
+
 from stage import BLUE, GOLD, MINT, MUTED, RED, RIM, WHITE, between, blend, mix
 from studio_diagrams import fit, join, rail, recap, table, tile
 
@@ -85,8 +87,7 @@ def copy_total(stage, s, *, copies, added, first_cue, copy_cue, total_cue, word)
 
 
 def copy_five(stage, s):
-    copy_total(stage, s, copies=2, added=5, first_cue="adding five makes a bar",
-               copy_cue="doubling makes two copies", total_cue="give two x plus ten", word="Order")
+    double_sum(stage, s)
 
 
 def copy_three(stage, s):
@@ -132,9 +133,7 @@ def compare_outputs(stage, s, *, copies, added, match, result, b=1.0, added_b=1.
 
 
 def compare_five(stage, s):
-    compare_outputs(stage, s, copies=2, added=5, match=s.reveal("pair those matching pieces"),
-                    result=s.reveal("the extra five"), b=s.reveal("order b doubles x"),
-                    added_b=s.reveal("add five once"))
+    compare_orders(stage, s)
 
 
 def compare_three(stage, s):
