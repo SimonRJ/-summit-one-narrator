@@ -21,21 +21,27 @@ def two_triangles(stage,s):
 
 
 def shared_height(stage,s,show=False):
-    x,y=433,456
-    tops=((486,218),(696,218),(949,218))
-    p=cue(s,"every one of them has height") if show else 0
-    for top,colour in zip(tops,(BLUE,GOLD,MINT)):
-        region(stage,((x,y),(824,y),top),colour,tint=.10,outline=False)
-    for top,colour in zip(tops,(BLUE,GOLD,MINT)):
-        stage.line([(x,y),top,(824,y)],colour,3)
-        point=(top[0],y)
-        dashed(stage,top,point,colour,p)
-        right_mark(stage,point,colour=colour,opacity=p)
-    stage.line([(303,218),(1075,218)],RIM,3)
-    stage.line([(310,y),(1076,y)],RIM,3)
-    fit(stage,"8 cm",628,508,35,400,WHITE)
+    left, bottom, unit = 403, 453, 46
+    right, high = left + 8 * unit, bottom - 5 * unit
+    slide = cue(s, "sliding the top corner", duration=2.6) if show else 0
+    tops = ((454,high), (626,high), (886,high))
+    height = cue(s,"every one of them has height") if show else 0
+    stage.line([(286,high),(1076,high)],RIM,3)
+    stage.line([(286,bottom),(1076,bottom)],RIM,3)
+    for top, colour in zip(tops, (BLUE,GOLD,MINT)):
+        stage.line([(left,bottom),top,(right,bottom)],colour,3,1-slide)
+        foot = (top[0],bottom)
+        dashed(stage,top,foot,colour,height*(1-slide))
+        right_mark(stage,foot,colour=colour,opacity=height*(1-slide))
+    if slide:
+        tip=(mix(tops[0][0],tops[-1][0],slide),high)
+        region(stage,((left,bottom),tip,(right,bottom)),MINT,tint=.18)
+        dashed(stage,tip,(tip[0],bottom),MINT)
+        right_mark(stage,(tip[0],bottom),colour=MINT)
+        stage.dot(*tip,7,MINT)
+    fit(stage,"8 cm",(left+right)/2,505,35,400,WHITE)
     if show:
-        fit(stage,"5 cm",1024,337,36,201,WHITE,p)
+        fit(stage,"5 cm",992,(bottom+high)/2,36,201,WHITE,height)
 
 
 def outer_triangles(stage,s,cut=False):
