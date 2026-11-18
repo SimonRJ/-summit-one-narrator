@@ -44,8 +44,8 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <h1>Use coordinates or extra lines to make a proof visible</h1>
 <p>Add one helpful line, or use a grid, to make a hidden relationship visible.</p>
 <video id="lesson" controls playsinline preload="metadata" aria-label="Use coordinates or extra lines to make a proof visible"
-  poster="media/T12.3-studio-poster.jpg?v=teaching-films-v1">
-  <source src="media/T12.3.mp4?v=teaching-films-v1" type="video/mp4">
+  poster="media/T12.3-studio-poster.jpg?v=construction-notebook-20261119">
+  <source src="media/T12.3.mp4?v=construction-notebook-20261119" type="video/mp4">
 </video>
 <p class="meta">2:01 · Full HD</p>
 <nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · An extra line can connect what you know</button>
@@ -69,17 +69,8 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <p>A grid is another way to make things visible. Here is a tilted square. One side goes three squares to the right and one square down. What is its area? Surround it with a four by four square, area sixteen. The four corner triangles each have area one and a half, six altogether. Sixteen minus six is ten. The tilted square has area ten.</p>
 <p>The most common helpful line of all is a height. Dropping a perpendicular splits an awkward triangle into two right-angled ones, which are much easier to work with.</p>
 <p>Add a line only when you can say why. Parallel lines carry angles; heights create right angles; a grid makes areas exact. Notebook challenge: on a grid, one side of a tilted square goes two squares to the right and one square down. What is its area?</p></details>
-<p><a href="media/T12.3.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+<p><a href="media/T12.3.mp4?v=construction-notebook-20261119">Open the MP4 directly</a></p>
 </main>
-<script>
-const video = document.querySelector("#lesson");
-for (const button of document.querySelectorAll("[data-time]")) {
-  button.addEventListener("click", () => {
-    video.currentTime = Number(button.dataset.time);
-    video.play().catch(() => {});
-    video.scrollIntoView({block: "center"});
-  });
-}
-</script>
+<script src="lesson-video-chapters.js?v=seek-1"></script>
 </body>
 </html>

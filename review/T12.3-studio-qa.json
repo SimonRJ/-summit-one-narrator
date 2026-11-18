@@ -1,7 +1,7 @@
 {
   "id": "T12.3",
   "duration_seconds": 121.1,
-  "sha256": "bd9f0f0b039c224d91c6209e697a295dd7114125405fdf9e054c01d63ad463e6",
+  "sha256": "8dfc85177dc9767132c5d3b26d82ea64ae5a544ce54a2aad45c4154417f449b0",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -88,5 +88,8 @@
       "start": 98.65
     }
   ],
-  "decoded_successfully": true
+  "decoded_successfully": true,
+  "source_sha256": "bd9f0f0b039c224d91c6209e697a295dd7114125405fdf9e054c01d63ad463e6",
+  "diagram_revision": "A parallel rule locates the 80-degree bend. Four actual corner triangles separate from a tilted square with side offsets 3 and 1, leaving exactly 10 square units.",
+  "original_audio_packets": "SHA256=0ffb9bb4e84e4fa685bba1662f3ef8ea7ede5eeee68e48d021c5f90f89589d17"
 }
