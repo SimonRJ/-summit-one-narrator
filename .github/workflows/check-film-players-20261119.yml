@@ -1,0 +1,35 @@
+name: Check the published lessons in phone-sized players
+on:
+  push:
+    branches: [codex/reviewed-film-work-20261119]
+    paths: ['.github/workflows/check-film-players-20261119.yml']
+permissions:
+  contents: read
+jobs:
+  phone:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        engine: [webkit, chrome]
+    env:
+      ENGINE: ${{ matrix.engine }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-save --package-lock=false playwright
+      - if: matrix.engine == 'webkit'
+        run: npx playwright install --with-deps webkit
+      - name: Play each public film and jump by its published chapter buttons
+        run: node tools/review-public-video-players.cjs S019 S020 S022
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: public-players-${{ matrix.engine }}
+          path: build/phone
+          if-no-files-found: warn
