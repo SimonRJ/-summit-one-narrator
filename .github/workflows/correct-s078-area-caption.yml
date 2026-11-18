@@ -1,0 +1,43 @@
+name: Correct the lesson 78 area caption
+on:
+  push:
+    branches: [codex/reviewed-film-work-20261119]
+    paths:
+      - '.github/workflows/correct-s078-area-caption.yml'
+      - 'production/lesson-intros/illustrated/correct_s078_caption.py'
+permissions:
+  contents: write
+jobs:
+  caption:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install the rendering tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-dejavu-core
+          pip install pillow
+      - name: Render and verify the revised caption
+        run: |
+          mkdir -p build/s078
+          python production/lesson-intros/illustrated/correct_s078_caption.py build/s078/original.mp4 build/s078
+      - name: Publish the two versioned assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        working-directory: build/s078
+        run: |
+          set -eu
+          curl -fsSL --retry 4 "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S078-Intro-Illustrated-poster.jpg" -o S078-Intro-Illustrated-v2-poster.jpg
+          for asset in S078-Intro-Illustrated-v2.mp4 S078-Intro-Illustrated-v2-poster.jpg; do
+            if gh release view lesson-introductions --json assets --jq '.assets[].name' | grep -Fqx "$asset"; then
+              curl -fsSL --retry 4 "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/$asset" -o "$asset.public"
+              cmp "$asset" "$asset.public"
+            else
+              gh release upload lesson-introductions "$asset"
+            fi
+          done
+          sha256sum S078-Intro-Illustrated-v2.mp4
