@@ -33,6 +33,9 @@ button {
 summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+@media (orientation: landscape) and (max-height: 540px) {
+  video { width: auto; max-width: 100%; height: auto; max-height: calc(100svh - 20px); margin-inline: auto; }
+}
 </style>
 </head>
 <body>
@@ -71,15 +74,6 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <p>Half base times perpendicular height. Triangles with the same base and height have the same area. For awkward shapes, subtract from a rectangle. Notebook challenge: a triangle has base ten centimetres and area thirty-five square centimetres. What is its height?</p></details>
 <p><a href="media/T13.1.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
 </main>
-<script>
-const video = document.querySelector("#lesson");
-for (const button of document.querySelectorAll("[data-time]")) {
-  button.addEventListener("click", () => {
-    video.currentTime = Number(button.dataset.time);
-    video.play().catch(() => {});
-    video.scrollIntoView({block: "center"});
-  });
-}
-</script>
+<script src="lesson-video-chapters.js?v=seek-1"></script>
 </body>
 </html>

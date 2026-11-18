@@ -106,6 +106,9 @@ button {{
 summary {{ cursor: pointer; color: #9cdbbc; padding-block: .4rem; }}
 .transcript {{ margin-top: 1rem; }}
 button:focus-visible, a:focus-visible, summary:focus-visible {{ outline: 2px solid #9cdbbc; outline-offset: 4px; }}
+@media (orientation: landscape) and (max-height: 540px) {{
+  video {{ width: auto; max-width: 100%; height: auto; max-height: calc(100svh - 20px); margin-inline: auto; }}
+}}
 </style>
 </head>
 <body>
@@ -130,16 +133,7 @@ button:focus-visible, a:focus-visible, summary:focus-visible {{ outline: 2px sol
 <details class="transcript"><summary>Read the transcript</summary>{transcript}</details>
 <p><a href="media/{lesson}.mp4?v={version}">Open the MP4 directly</a></p>
 </main>
-<script>
-const video = document.querySelector("#lesson");
-for (const button of document.querySelectorAll("[data-time]")) {{
-  button.addEventListener("click", () => {{
-    video.currentTime = Number(button.dataset.time);
-    video.play().catch(() => {{}});
-    video.scrollIntoView({{block: "center"}});
-  }});
-}}
-</script>
+<script src="lesson-video-chapters.js?v=seek-1"></script>
 </body>
 </html>
 """
