@@ -5,15 +5,25 @@ on:
     paths: ['.github/workflows/check-film-players-20261119.yml']
 permissions:
   contents: read
-env:
-  FILMS: S041 S044 S045 S046 S047 S050 S051 S052 S054 S055 S057 S058 S059 S060 S062 S065 S083 T03.2 T12.2 T12.3 T13.3
-  ILLUSTRATED: S041 S044 S045 S046 S047 S050 S051 S052 S054 S055 S057 S058 S059 S060 S062 S065 S083
 jobs:
   chrome:
     runs-on: ubuntu-latest
     timeout-minutes: 16
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - group: 1
+            films: T02.3 T03.2 T12.1 T12.2 T12.3 T13.1 T13.2 T13.3 S001 S002 S003 S004 S005 S006 S008 S009 S010
+          - group: 2
+            films: S011 S012 S013 S015 S017 S018 S019 S020 S022 S023 S024 S025 S026 S027 S029 S030 S031
+          - group: 3
+            films: S033 S034 S036 S037 S038 S039 S040 S041 S043 S044 S045 S046 S047 S050 S051 S052 S053
+          - group: 4
+            films: S054 S055 S057 S058 S059 S060 S061 S062 S065 S078 S081 S083 S089 S090 S108 S131 S142
     env:
       ENGINE: chrome
+      FILMS: ${{ matrix.films }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -23,18 +33,43 @@ jobs:
           node-version: '22'
       - run: npm install --no-save --package-lock=false playwright@1.65.1
       - run: node tools/review-public-video-players.cjs $FILMS
+      - name: Verify the corrected area film is selected
+        if: matrix.group == 4
+        run: |
+          node - <<'JS'
+          const fs = require('node:fs');
+          const assert = require('node:assert/strict');
+          for (const orientation of ['portrait', 'landscape']) {
+            const file = 'build/phone/S078-' + process.env.ENGINE + '-' + orientation + '.json';
+            const result = JSON.parse(fs.readFileSync(file, 'utf8'));
+            assert.equal(new URL(result.courseSource).pathname.split('/').pop(), 'S078-Intro-Illustrated-v2.mp4');
+          }
+          JS
       - if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: public-players-chrome
+          name: public-players-chrome-${{ matrix.group }}
           path: build/phone
           if-no-files-found: warn
   webkit:
     runs-on: ubuntu-latest
     container: mcr.microsoft.com/playwright:v1.65.1-noble
     timeout-minutes: 16
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - group: 1
+            films: T02.3 T03.2 T12.1 T12.2 T12.3 T13.1 T13.2 T13.3 S001 S002 S003 S004 S005 S006 S008 S009 S010
+          - group: 2
+            films: S011 S012 S013 S015 S017 S018 S019 S020 S022 S023 S024 S025 S026 S027 S029 S030 S031
+          - group: 3
+            films: S033 S034 S036 S037 S038 S039 S040 S041 S043 S044 S045 S046 S047 S050 S051 S052 S053
+          - group: 4
+            films: S054 S055 S057 S058 S059 S060 S061 S062 S065 S078 S081 S083 S089 S090 S108 S131 S142
     env:
       ENGINE: webkit
+      FILMS: ${{ matrix.films }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -44,9 +79,21 @@ jobs:
           node-version: '22'
       - run: npm install --no-save --package-lock=false playwright@1.65.1
       - run: node tools/review-public-video-players.cjs $FILMS
+      - name: Verify the corrected area film is selected
+        if: matrix.group == 4
+        run: |
+          node - <<'JS'
+          const fs = require('node:fs');
+          const assert = require('node:assert/strict');
+          for (const orientation of ['portrait', 'landscape']) {
+            const file = 'build/phone/S078-' + process.env.ENGINE + '-' + orientation + '.json';
+            const result = JSON.parse(fs.readFileSync(file, 'utf8'));
+            assert.equal(new URL(result.courseSource).pathname.split('/').pop(), 'S078-Intro-Illustrated-v2.mp4');
+          }
+          JS
       - if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: public-players-webkit
+          name: public-players-webkit-${{ matrix.group }}
           path: build/phone
           if-no-files-found: warn
