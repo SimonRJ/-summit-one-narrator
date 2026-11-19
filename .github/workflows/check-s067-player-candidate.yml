@@ -1,0 +1,30 @@
+name: Verify the S067 chapter player candidate
+on:
+  push:
+    branches: [codex/reviewed-film-work-20261119]
+    paths:
+      - 'tools/player-candidates/lesson-introduction-watch.js'
+      - 'tools/test-candidate-chapter-seek.cjs'
+      - '.github/workflows/check-s067-player-candidate.yml'
+permissions:
+  contents: read
+jobs:
+  public-webkit:
+    runs-on: ubuntu-latest
+    container: mcr.microsoft.com/playwright:v1.65.1-noble
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-save --package-lock=false playwright@1.65.1
+      - run: node tools/test-candidate-chapter-seek.cjs
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: s067-player-candidate
+          path: build/s067-player-candidate
+          if-no-files-found: warn
