@@ -10,7 +10,7 @@ Summit One is an independent family project. It is not affiliated with or endors
 
 | Area | What the learner gets | Status |
 |---|---|---|
-| Lessons | 283 teaching sessions on 52 techniques: Remember, Discover, Try, Transfer, Check. Two original problems per lesson (566 in total), with an individually checked answer and worked solution for each. | Deployed |
+| Lessons | 283 teaching sessions on 52 techniques. The [55 teaching lessons through S068](docs/READ_WATCH_PRACTISE.md) use Read → Watch → Practise, with 220 new problems and 92 retained challenges. Later sessions retain the existing sequence. | Deployed |
 | Investigations | 53 visits to 20 MAWA-style investigation themes. | Deployed |
 | Original AMC practice | Part A (questions 1–20, speed and accuracy) and Part B (questions 21–30, deeper problems). | Partially complete: 4 active split papers, 60 questions |
 | Rossmoyne practice | Original Rossmoyne-style papers over 23 problem families. | Partially complete: 9 active papers, 207 questions |
@@ -46,7 +46,8 @@ More detail: [docs/PLATFORM_ARCHITECTURE.md](docs/PLATFORM_ARCHITECTURE.md).
 | Content | Source of truth | Reaches the learner via |
 |---|---|---|
 | Course map, techniques, investigations | `data/*.json` (public, answer-free) | fetched by `app-main.js` |
-| 566 lesson problems | `tools/content/build_original_lessons.py`, the public authoring prompts and diagrams, and the private solution source described in [the continuation](docs/CHATGPT_CONTINUATION.md) | rows in `content_problems`, released through Edge Functions |
+| Read → Watch → Practise through S068 | `data/read-watch-practise.json`, [rebuild notes](docs/READ_WATCH_PRACTISE.md) and private authoring archive | public openings, hints and prompts; protected grading and worked solutions |
+| 566 original lesson-bank problems | `tools/content/build_original_lessons.py`, the public authoring prompts and diagrams, and the private solution source described in [the continuation](docs/CHATGPT_CONTINUATION.md) | rows in `content_problems`, released through Edge Functions |
 | Original mock papers | `tools/papers/*.py` | rows in `exam_catalog` and `exam_questions` |
 | Authentic AMC papers | database only; frozen | exam centre |
 | Teaching-video scripts | `production/scripts/src/*.txt` | built to `production/scripts/*.json`; not yet recorded |

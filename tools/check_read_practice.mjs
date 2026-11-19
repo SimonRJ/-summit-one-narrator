@@ -1,0 +1,26 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {edition,questionOrder,readCard,phaseFor} from '../reviewed-lesson.js';
+const read = p=>JSON.parse(fs.readFileSync(new URL('../data/'+p,import.meta.url),'utf8'));
+const course=read('sessions-372.json').sessions;
+const bank=read('lesson-challenges.json').items;
+const release=read('read-watch-practise.json');
+assert.equal(release.edition,edition);
+assert.deepEqual(release.lessons.map(l=>l.slot),course.filter(s=>s.slot<=68&&s.type==='LESSON').map(s=>s.slot));
+let count=0,retained=0;const ids=new Set(),stems=new Set();
+for(const l of release.lessons){
+ const slot=String(l.slot).padStart(3,'0'), video='S'+slot;
+ assert.equal(l.videoId,video);assert(l.movie.includes(video+'-Intro'));assert(/^https:\/\//.test(l.movie));
+ assert(l.example.steps.length>=2 && l.example.steps.every(x=>x.trim()));assert(l.intro&&l.bridge&&l.recap&&l.headline);
+ const order=questionOrder(l,bank,bank);
+ assert.equal(order.length,l.retained.length+4);assert.equal(order.at(-1).id,'RWL1-'+slot+'-D');
+ assert.deepEqual(l.questions.map(q=>q.id),'ABCD'.split('').map(a=>'RWL1-'+slot+'-'+a));
+ for(const q of l.questions){
+  assert.deepEqual(Object.keys(q).sort(),['hint','id','prompt','title']);assert(q.hint&&q.title&&q.prompt);
+  const s=q.prompt.toLowerCase().replace(/\W/g,'');assert(!stems.has(s));stems.add(s);assert(!ids.has(q.id));ids.add(q.id);count++;
+ }
+ if(l.example.figure){ const fig=l.example.figure;assert(fig.alt&&/^figures\/read-practice\/S\d{3}\.svg$/.test(fig.src));assert(fs.existsSync(new URL('../'+fig.src,import.meta.url)));assert(readCard(l).includes('alt='));}
+ assert(readCard(l).includes('A small example'));retained+=l.retained.length;
+}
+assert.equal(count,220);assert.equal(phaseFor(0),'Read');assert.equal(phaseFor(1),'Watch');assert.equal(phaseFor(2),'Practise');
+console.log('PASS: '+release.lessons.length+' lessons, '+count+' new problems, '+retained+' retained; read/watch/practise order and answer protection.');
