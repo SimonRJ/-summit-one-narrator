@@ -2,7 +2,7 @@
 
 ## Current production work on 19 November 2026
 
-S066 has a newly authored eleven-scene Voice C script and diagrams on [the production branch](https://github.com/SimonRJ/-summit-one-narrator/commit/17697199bd6b94865113d2e23619b052ba938222). The [voice recording](https://github.com/SimonRJ/-summit-one-narrator/actions/runs/44419469904) feeds the [candidate render](https://github.com/SimonRJ/-summit-one-narrator/actions/runs/44421710761) for `S066-Intro-Illustrated-v2.mp4`. The revised artwork adds the exam cue, the missing-digit check, and a final four-step reminder. Finish this film first. Its original remains in the public catalogue until candidate review and release. T01.1 has a fresh nine-scene sampling and recorded-speech comparison in the teaching register. Neither film has been added to the completed count.
+[S066](https://simonrj.github.io/-summit-one-narrator/watch-lesson-intro.html?slot=66) has completed its start-to-finish review and is live. Its individual record is in the [lesson introduction review register](lesson-introduction-review-register-20261116.csv). T01.1 has a fresh nine-scene sampling and recorded-speech comparison in the teaching register. T01.1 remains under review.
 
 ## Final reviews completed on 19 November 2026
 
