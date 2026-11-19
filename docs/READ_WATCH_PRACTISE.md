@@ -1,6 +1,6 @@
 # Lesson text and practice through S068
 
-**19 November 2026 — parent and maintainer guide.** The cutoff is the film labelled **S068**, in course order. There are 55 teaching films in the first 68 slots; nine MAWA investigations and four workshops occupy the other 13 slots. S069 and later keep their existing lessons.
+**19 November 2026 — parent and maintainer guide.** The cutoff is the film labelled **S068**, in course order. There are 55 teaching films in the first 68 slots; nine MAWA investigations and four workshops occupy the other 13 slots. The [continuation through the end of the course](LATER_LESSONS.md) covers the remaining 228 teaching sessions.
 
 Each of these 55 teaching lessons has a short introduction, one worked example, a specific thing to look for in the existing film, and a practice sequence. There are four newly written problems per lesson with hints and solutions. The first asks the learner to apply the idea; later questions change the conditions or combine steps, and the last uses a less familiar setting. Selected challenges from the earlier bank sit between the new questions. The recap gives a test or question the learner can carry into the next problem. Nine opening examples also have labelled diagrams.
 

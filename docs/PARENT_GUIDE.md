@@ -2,7 +2,7 @@
 
 [Summit One](https://simonrj.github.io/-summit-one-narrator/) follows one sequence of 372 sessions, including 283 lessons, 53 MAWA-style investigation visits and 36 mixed workshops. The learner can complete multiple sessions on a day or leave gaps between sessions. Set aside about 30–60 minutes for a regular lesson, with more time available for an investigation when needed.
 
-[Lessons through S068](READ_WATCH_PRACTISE.md) now move from a small worked example to the existing film, then to four to six practice problems. For the last problem, ask “What made you think this method would work?” The recap offers a useful way to check the reasoning.
+[Lessons through S068](READ_WATCH_PRACTISE.md) and the [remaining lessons](LATER_LESSONS.md) move from a small worked example to the existing film, then to four to six practice problems. For the last problem, ask “What made you think this method would work?” The recap offers a useful way to check the reasoning.
 
 ## Review the learner’s work
 

@@ -24,3 +24,48 @@ for(const l of release.lessons){
 }
 assert.equal(count,220);assert.equal(phaseFor(0),'Read');assert.equal(phaseFor(1),'Watch');assert.equal(phaseFor(2),'Practise');
 console.log('PASS: '+release.lessons.length+' lessons, '+count+' new problems, '+retained+' retained; read/watch/practise order and answer protection.');
+
+const later = read('read-watch-practise-later.json');
+const laterSlots = course.filter(s => s.type === 'LESSON' && s.slot > 68).map(s => s.slot);
+const skills = new Map(bank.map(q => [q.session,q.skill]));
+assert.equal(later.edition,'read-watch-practise-2');
+assert.deepEqual(later.lessons.map(l => l.slot),laterSlots);
+const filmUse = {dedicated:0,technique:0};
+let laterQuestions = 0;
+for(const lesson of later.lessons){
+ const tag = String(lesson.slot).padStart(3,'0');
+ const sourceSlot = Number(lesson.videoId.slice(1));
+ assert.equal(lesson.skill,skills.get(lesson.slot));
+ assert.equal(lesson.skill,skills.get(sourceSlot));
+ assert(lesson.videoTitle && lesson.movie.includes(lesson.videoId+'-Intro'));
+ assert.equal(lesson.filmUse,sourceSlot===lesson.slot?'dedicated':'technique');
+ assert(sourceSlot <= lesson.slot);
+ filmUse[lesson.filmUse]++;
+ assert(lesson.headline && lesson.intro && lesson.bridge && lesson.recap && lesson.example.steps.length>=2);
+ const order = questionOrder(lesson,bank,bank);
+ assert.equal(order.length,4+lesson.retained.length);
+ assert.deepEqual(lesson.questions.map(q => q.id),Array.from('ABCD',k => 'RWL2-'+tag+'-'+k));
+ assert.equal(order.at(-1).id,'RWL2-'+tag+'-D');
+ for(const question of lesson.questions){
+  const allowed=['family','hint','id','prompt','title'];
+  if(question.figure){
+   allowed.push('figure');
+   assert(question.figure.alt && /^figures\/read-practice\/S\d{3}-[ABCD]\.svg$/.test(question.figure.src));
+   assert(fs.existsSync(new URL('../'+question.figure.src,import.meta.url)));
+  }
+  assert.deepEqual(Object.keys(question).sort(),allowed.sort());
+  assert(question.hint && question.family.startsWith(lesson.skill+':'));
+  const stem = question.prompt.toLowerCase().replace(/\W/g,'');
+  assert(!stems.has(stem),'Duplicate practice prompt: '+question.id);
+  stems.add(stem);
+  laterQuestions++;
+ }
+ const figure=lesson.example.figure;
+ if(figure){
+  assert(figure.alt && /^figures\/read-practice\/S\d{3}\.svg$/.test(figure.src));
+  assert(fs.existsSync(new URL('../'+figure.src,import.meta.url)));
+ }
+}
+assert.equal(laterQuestions,912);
+assert.deepEqual(filmUse,{dedicated:58,technique:170});
+console.log('PASS: all 228 later lessons, 912 protected questions and their skill-matched films.');
