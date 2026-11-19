@@ -31,7 +31,12 @@ let currentProblems=[], currentMawa=null, sessionDraft={answers:{},working:{},ev
 let attemptedProblemIds=new Set();
 let completedRecords=[],attemptHistory=[],recentExams=[];
 let editingSession=null,autosaveTimer=null,draftDirty=false;
-const draftKey=s=>`summit-draft:${user.id}:${s.slot}`;
+function courseStorageOwner(){
+ const run=progress?.state?.course_run_id;
+ return run ? `${user.id}:run:${run}` : user.id;
+}
+const draftKey=s=>`summit-draft:${courseStorageOwner()}:${s.slot}`;
+const revisionKey=slot=>`summit-revision:${courseStorageOwner()}:${slot}:${readEdition}`;
 function rememberDraft(){
  if(!editingSession)return;
  draftDirty=true;saveStatus="Changes saved on this device; syncing…";refreshSyncIndicator();
@@ -379,7 +384,7 @@ async function startSession(s){
 // Revised lessons share the same signed-in, attempt-gated marking as the original problems.
 function showReadPractice(s,l,questions,draft,locked=false){
  document.body.classList.remove('home-focus','lesson-video-review');document.body.classList.add('lesson-fullscreen');setLessonScreenTopbar();
- const reviewKey=`summit-revision:${user.id}:${s.slot}:${readEdition}`;
+ const reviewKey=revisionKey(s.slot);
  const persistReview=()=>localStorage.setItem(reviewKey,JSON.stringify(draft));
  const seen=family=>familySeen(completedRecords,family);
  restoreGradedAnswers(l,questions,draft,attemptHistory,seen);
@@ -404,7 +409,7 @@ function showReadPractice(s,l,questions,draft,locked=false){
 }
 function openRevisedCopy(slot){
  const record=completedRecords.find(x=>x.session_number===slot),l=reviewedLessons.get(slot);if(!record||!l)return;
- const s=course.find(x=>x.slot===slot),key=`summit-revision:${user.id}:${slot}:${readEdition}`;
+ const s=course.find(x=>x.slot===slot),key=revisionKey(slot);
  const stored=JSON.parse(localStorage.getItem(key)||'null');
  const draft=stored||{answers:structuredClone(record.answers||{}),working:{},evidence:structuredClone(record.evidence||{}),summary:{}};
  draft.summary.read_practice_page=0;editingSession=null;

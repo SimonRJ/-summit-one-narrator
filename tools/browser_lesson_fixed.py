@@ -9,6 +9,47 @@ SCREENSHOTS=Path(os.environ.get('SUMMIT_SCREENSHOT_DIR', ROOT/'docs'))
 SCREENSHOTS.mkdir(parents=True, exist_ok=True)
 tree=ast.parse((ROOT/'tools/browser_checks.py').read_text())
 MOCK=next(node.value.value for node in tree.body if isinstance(node,ast.Assign) and any(isinstance(t,ast.Name) and t.id=='MOCK' for t in node.targets))
+async def verify_course_restart(browser):
+ """A course restart isolates unsynced lesson work and revision practice on the same device."""
+ for review in (False,True):
+  ctx=await browser.new_context(service_workers='block')
+  await ctx.route('**/supabase-client.js*',lambda route:route.fulfill(content_type='application/javascript',body=MOCK))
+  await ctx.add_init_script("""
+   const review=new URLSearchParams(location.search).has('view');
+   const run=sessionStorage.getItem('fixture-run');
+   const record={session_number:1,immutable:true,completed_at:'2026-01-01T00:00:00Z',answers:{},evidence:{},working:{},summary:{}};
+   window.fixture={records:review?[record]:[],attempts:[],exams:[],writes:[],fail:false,
+    progress:{completed_sessions:review?1:0,current_session:review?2:1,xp:0,rank:0,state:run?{course_run_id:run}:{}}};
+  """)
+  page=await ctx.new_page()
+  page.on('dialog',lambda d:d.accept())
+  url='http://127.0.0.1:8765/'+('?view=review' if review else '')
+  await page.goto(url)
+  cases=[(None,'','original work'),(None,'original work','legacy edit'),
+         ('restart-1','','new work'),('restart-1','new work','new edit'),('restart-2','','')]
+  for index,(run,expected,entry) in enumerate(cases):
+   if index:
+    if run:await page.evaluate("run=>sessionStorage.setItem('fixture-run',run)",run)
+    await page.reload()
+   if review:
+    await page.locator('[data-review-session="1"] summary').click()
+    await page.locator('[data-revised-copy="1"]').click()
+   else:
+    await page.locator('#continue').click()
+   await page.locator('.rwl').wait_for()
+   if review or not expected:
+    await page.locator('.rwl-example').wait_for()
+    await page.locator('[data-screen-next]').click()
+    await page.locator('[data-screen-next]').click()
+   field=page.locator('.rwl-form input')
+   assert await field.input_value()==expected,(review,run,expected)
+   # Leave a real unsynced working answer on this browser across reloads.
+   await page.evaluate('fixture.fail=true')
+   if entry:await field.fill(entry)
+  await ctx.close()
+ print('PASS: legacy and current-run lesson drafts and revision copies resume; successive resets start blank.',flush=True)
+
+
 async def verify_revised_lessons(browser):
  """Exercise the published S001/002 route using a synthetic learner and grading service."""
  ctx=await browser.new_context(viewport={'width':390,'height':844}, service_workers='block')
@@ -145,6 +186,7 @@ async def verify_later_lessons(browser):
 async def main():
  async with async_playwright() as p:
   browser=await p.chromium.launch(headless=True,executable_path=shutil.which('google-chrome') or shutil.which('chromium'),args=['--no-sandbox'])
+  await verify_course_restart(browser)
   await verify_revised_lessons(browser)
   await verify_later_lessons(browser)
   ctx=await browser.new_context(viewport={'width':390,'height':844},service_workers='block')
@@ -587,4 +629,5 @@ async def main():
   assert not errors,errors
   await browser.close()
  print('PASS: responsive scrolling lessons with fixed navigation, six answer-only practice problems, read-only replay, and immutable completion.')
-asyncio.run(main())
+if __name__=='__main__':
+ asyncio.run(main())
