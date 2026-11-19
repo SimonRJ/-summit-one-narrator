@@ -1,7 +1,8 @@
 import {chromium} from 'playwright';
 import fs from 'node:fs';import path from 'node:path';import http from 'node:http';import assert from 'node:assert/strict';
 const root=process.cwd();fs.mkdirSync('qa-screenshots',{recursive:true});
-const server=http.createServer((req,res)=>{let name=decodeURIComponent(new URL(req.url,'http://localhost').pathname);if(name==='/')name='/index.html';const file=path.resolve(root,'.'+name);if(!file.startsWith(root+path.sep)){res.writeHead(403);res.end();return}try{res.setHeader('Content-Type',file.endsWith('.js')?'application/javascript':file.endsWith('.css')?'text/css':file.endsWith('.json')?'application/json':'text/html');res.end(fs.readFileSync(file))}catch{res.writeHead(404);res.end()}});await new Promise(r=>server.listen(4173,'127.0.0.1',r));
+const mimeTypes={'.js':'application/javascript','.css':'text/css','.json':'application/json','.svg':'image/svg+xml','.jpg':'image/jpeg','.png':'image/png','.mp4':'video/mp4'};
+const server=http.createServer((req,res)=>{let name=decodeURIComponent(new URL(req.url,'http://localhost').pathname);if(name==='/')name='/index.html';const file=path.resolve(root,'.'+name);if(!file.startsWith(root+path.sep)){res.writeHead(403);res.end();return}try{res.setHeader('Content-Type',mimeTypes[path.extname(file)]||'text/html');res.end(fs.readFileSync(file))}catch{res.writeHead(404);res.end()}});await new Promise(r=>server.listen(4173,'127.0.0.1',r));
 const manifest=JSON.parse(fs.readFileSync('data/lesson-challenges.json')).items;
 const fixtures=()=>{
  const exam=(id,title,part)=>({id,title,active:true,year:part==="ross"?2028:2027,source_type:part==="ross"?'original_authored_mock':'summit_amc_split_original',question_count:part==="speed"?20:part==="depth"?10:23,duration_minutes:part==="speed"?20:part==="depth"?40:60,max_score:part==="speed"?70:part==="depth"?65:100,repeatable:false,metadata:part==="ross"?{}:{amc_part:part,plan_index:1,quality_gate:"reviewed"},student_year:6});
@@ -33,7 +34,29 @@ try{
  await page.screenshot({path:`qa-screenshots/${prefix}-exam-diagnosis.png`,fullPage:true});
   await page.locator('#backTests').click();await page.getByRole('button',{name:'Review locked paper',exact:true}).click();await page.locator('.score-big').waitFor();assert.equal(await page.evaluate(()=>globalThis.__fixture.exam_sittings.filter(x=>x.exam_id==='amc-fixture-b').length),1,'locked practice paper cannot be sat again');await page.screenshot({path:`qa-screenshots/${prefix}-locked-amc-review.png`,fullPage:true});await page.locator('[data-solution="26"]').click();await page.locator('#solution-26[open]').waitFor();await page.locator('#solution-26 .exam-lesson-links a').first().click();await page.locator('.technique-review').waitFor();assert.equal(await page.evaluate(()=>globalThis.__fixture.progress_state[0].completed_sessions),0,'exam-driven revision must not advance course');
  await page.goto('http://127.0.0.1:4173/tests.html?section=rossmoyne');await page.getByRole('heading',{name:'Rossmoyne Honours Mathematics',exact:true}).waitFor();assert(await page.locator('body').evaluate(e=>e.classList.contains('rossmoyne-theme')));await page.screenshot({path:`qa-screenshots/${prefix}-rossmoyne-centre.png`,fullPage:true});
- await page.goto('http://127.0.0.1:4173/');await page.locator('#continue').click();await page.locator('.opening-film').waitFor();assert.equal(await page.locator('#openingVideo').count(),1);assert.equal(await page.locator('.lesson-stage-track .here').innerText(),'1. Video');await page.locator('[data-screen-next]').click();await page.locator('.lesson-recall-brief').waitFor();await page.locator('[data-screen-next]').click();await page.locator('#retrievalChecks').waitFor();await page.locator('[data-screen-next]').click();assert.match(await page.locator('.lesson-stage-track .here').innerText(),/Discover/);await page.screenshot({path:`qa-screenshots/${prefix}-lesson-bridge.png`,fullPage:true});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+2),false);
+ await page.goto('http://127.0.0.1:4173/');
+ await page.locator('#continue').click();
+ const phase=page.locator('.rwl-track [aria-current="step"]');
+ await page.locator('.rwl-example').waitFor();
+ assert.equal(await phase.innerText(),'1. Read');
+ assert(await page.locator('.rwl-bridge').isVisible());
+ assert.equal(await page.locator('#openingVideo,.rwl-form').count(),0);
+ await page.screenshot({path:`qa-screenshots/${prefix}-lesson-bridge.png`,fullPage:true});
+ await page.getByRole('button',{name:'Watch video',exact:true}).click();
+ await page.locator('#openingVideo').waitFor();
+ assert.equal(await phase.innerText(),'2. Watch');
+ assert.match(await page.locator('#openingVideo').getAttribute('src'),/S001-Intro\.mp4/);
+ await page.getByRole('button',{name:'Start practice',exact:true}).click();
+ await page.locator('.rwl-form').waitFor();
+ assert.equal(await phase.innerText(),'3. Practise');
+ assert(await page.locator('[data-screen-next]').isDisabled());
+ assert.equal(await page.locator('.rwl-solution').isVisible(),false);
+ await page.locator('.rwl-form input').fill('12');
+ await page.getByRole('button',{name:'Check answer',exact:true}).click();
+ await page.getByRole('button',{name:'See worked solution',exact:true}).click();
+ await page.locator('.rwl-steps').waitFor();
+ assert.match(await page.locator('.rwl-steps').innerText(),/check the original conditions/);
+ assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+2),false);
  // Exercise the complete saved repair cycle in an isolated learner account.
  await page.evaluate(async()=>{const d=globalThis.__fixture;d.learning_repairs=[{id:'repair-one',user_id:'fixture-learner',source_label:'Practice 01 · Question 26',skill_id:'ALG-01',stage:0,due_after_session:0,evidence:{},updated_at:'2026-11-12T00:00:00Z'}];const m=await import('/learning-support.js?v=recognition-20261113');await m.renderRepairs(document.querySelector('#app'),{user:{id:'fixture-learner'},done:0});});
  await page.locator('#repairList summary').click();await page.locator('[name=cause]').selectOption({label:'choosing a model'});await page.getByRole('button',{name:'Start practice'}).click();

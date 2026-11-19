@@ -1,0 +1,2659 @@
+{
+  "edition": "read-watch-practise-1",
+  "lessons": [
+    {
+      "slot": 1,
+      "headline": "What survives a whole group?",
+      "intro": "Suppose beads come in groups of five. Adding a whole group changes how many beads you have, but it does not change the number left over. That leftover, called the remainder, can be enough to solve a puzzle.",
+      "example": {
+        "prompt": "You have 29 beads. If you lay them in rows of five, how many are in the unfinished row?",
+        "steps": [
+          "Five full rows use 5 × 5 = 25 beads.",
+          "That leaves 29 − 25 = 4. The remainder must be smaller than five, or another full row would fit."
+        ]
+      },
+      "bridge": "Watch what a remainder tells you in three different settings: a digit sum, a repeating row of symbols and a number that must pass several tests.",
+      "recap": "When whole groups can be set aside, keep the remainder. Record what you divided by. In a pattern numbered from 1, remainder zero lands on the last item of a complete block.",
+      "skill": "DIV-03",
+      "videoId": "S001",
+      "videoTitle": "Divisibility tests and modular remainders",
+      "movie": "https://simonrj.github.io/-summit-one-narrator/media/S001-Intro.mp4",
+      "retained": [
+        "O001T",
+        "O001X"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-001-A",
+          "title": "A long division?",
+          "prompt": "What remainder does 6,752 leave when divided by 3?",
+          "hint": "Each ten, hundred or thousand is one more than a multiple of 3."
+        },
+        {
+          "id": "RWL1-001-B",
+          "title": "The last tile",
+          "prompt": "A path repeats the letters R, I, V, E, R, S in that order. Tile 1 shows R. Which letter is on tile 366?",
+          "hint": "Mark the last tile of the first complete group of six."
+        },
+        {
+          "id": "RWL1-001-C",
+          "title": "Packing day",
+          "prompt": "A bag holds between 30 and 90 marbles. It is one marble short of filling whole trays of 5 and also one short of filling whole trays of 8. What is the larger possible number of marbles?",
+          "hint": "Imagine putting one extra marble in the bag."
+        },
+        {
+          "id": "RWL1-001-D",
+          "title": "A box of counters",
+          "prompt": "A box contains more than 100 counters. Making groups of 5 leaves 2, making groups of 7 leaves 1, and making groups of 3 leaves none. What is the least possible number?",
+          "hint": "Find a small number passing the first two tests. How far apart are the numbers that pass both?"
+        }
+      ]
+    },
+    {
+      "slot": 2,
+      "headline": "Round it, then pay back the difference",
+      "intro": "Rounding can help you estimate, but it can also give an exact answer. Keep track of what you borrowed or left out. In a multiplication, adjusting one factor by one can change a whole row of the product.",
+      "example": {
+        "prompt": "What is 31 × 8?",
+        "steps": [
+          "Use 30 rows of eight for an easy starting point: 30 × 8 = 240.",
+          "The real rectangle has one extra row of eight, so its area is 240 + 8 = 248."
+        ]
+      },
+      "bridge": "Watch how a small correction grows from a few units in an addition to a strip of a rectangle, then to a missing square in a much larger product.",
+      "recap": "Look for a convenient central number. Mark the size and direction of each adjustment. For two factors equally far below and above the centre, their product is the centre squared minus the gap squared.",
+      "skill": "DIG-01",
+      "videoId": "S002",
+      "videoTitle": "Place-value decomposition and estimation",
+      "movie": "https://simonrj.github.io/-summit-one-narrator/media/S002-Intro.mp4",
+      "retained": [
+        "O002T",
+        "O002X"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-002-A",
+          "title": "Till receipt",
+          "prompt": "Two receipts are for 1,996 cents and 3,087 cents. How many cents is that altogether?",
+          "hint": "Start at 2,000 + 3,000."
+        },
+        {
+          "id": "RWL1-002-B",
+          "title": "A sheet of labels",
+          "prompt": "A printer makes 99 rows of 78 labels. How many labels are on the sheet?",
+          "hint": "What exactly should be removed from 100 rows?"
+        },
+        {
+          "id": "RWL1-002-C",
+          "title": "A wider mosaic",
+          "prompt": "A mosaic is 24 tiles high and 38 tiles wide. It is extended to 26 tiles high and 40 tiles wide. How many tiles are added?",
+          "hint": "Complete the two new columns first. How wide are the new rows now?"
+        },
+        {
+          "id": "RWL1-002-D",
+          "title": "Equal fencing",
+          "prompt": "Two rectangular gardens have the same perimeter. One is 196 m by 204 m; the other is 198 m by 202 m. By how many square metres do their areas differ?",
+          "hint": "Both rectangles are close to a square of side 200 m. How much area does each lose?"
+        }
+      ]
+    },
+    {
+      "slot": 3,
+      "headline": "Read the arrows backwards",
+      "intro": "If you know the finishing amount, draw the changes as arrows. Travelling back means undoing the last arrow first. The size of a pile halfway through the story can be the clue to the size it had at the start.",
+      "example": {
+        "prompt": "A number is increased by 3 and then doubled. The result is 22. What was the number?",
+        "steps": [
+          "Undo the final doubling: 22 ÷ 2 = 11.",
+          "Undo the earlier increase: 11 − 3 = 8. Check that (8 + 3) × 2 = 22."
+        ]
+      },
+      "bridge": "Follow the film’s arrows from the number machine to the ticket stations. Notice exactly what has to be put back before a pile can be doubled.",
+      "recap": "Circle the known finishing value. Undo one change at a time, in reverse order. If a fraction was taken away, rebuild the whole from the fraction left; finally, try your answer forwards.",
+      "skill": "ALG-04",
+      "videoId": "S003",
+      "videoTitle": "Working backwards through operations",
+      "movie": "https://simonrj.github.io/-summit-one-narrator/media/S003-Intro.mp4",
+      "retained": [
+        "O003T",
+        "O003X"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-003-A",
+          "title": "The machine output",
+          "prompt": "A machine subtracts 6 and then multiplies by 5. Its display reads 85. What number went in?",
+          "hint": "Which operation produced 85 last?"
+        },
+        {
+          "id": "RWL1-003-B",
+          "title": "A spool of ribbon",
+          "prompt": "A maker cuts off one quarter of a ribbon, then another 6 cm. The piece left is 21 cm long. How many centimetres long was the original ribbon?",
+          "hint": "Before the 6 cm cut, what fraction of the whole was there?"
+        },
+        {
+          "id": "RWL1-003-C",
+          "title": "Two rounds",
+          "prompt": "In each round of a game, you double your current score and then lose 7 points. After two rounds the score is 55. What was the starting score?",
+          "hint": "Build one reverse rule and use it twice."
+        },
+        {
+          "id": "RWL1-003-D",
+          "title": "Parcel weights",
+          "prompt": "Three identical empty tins are packed with clay. Each receives the same mass of clay. Half the clay is then removed from each tin. The three tins now weigh 690 g together. Each empty tin weighs 70 g. How many grams of clay originally went into one tin?",
+          "hint": "Separate what changed from what never changed."
+        }
+      ]
+    },
+    {
+      "slot": 4,
+      "headline": "Give the fussiest digit a place first",
+      "intro": "The same digit can be allowed in one place and forbidden in another. For instance, zero works in the middle of 306 but cannot start a three-digit number. When several rules compete, choose a place with the fewest options first.",
+      "example": {
+        "prompt": "Use 0, 3 and 8 once each to make the largest three-digit number ending in 3.",
+        "steps": [
+          "Reserve 3 for the units place. Only 0 and 8 remain.",
+          "The hundreds digit cannot be zero, so 8 goes first. The only possible number is 803."
+        ]
+      },
+      "bridge": "In the video, the most useful place to fill changes: the leading digit controls size, while a final digit or final pair controls divisibility.",
+      "recap": "Reserve restricted places, cross out each card used, and count the free places last. An ending such as 08 is allowed inside a longer number even though the number itself cannot begin with 0.",
+      "skill": "DIG-02",
+      "videoId": "S004",
+      "videoTitle": "Digits, zero and positional constraints",
+      "movie": "https://simonrj.github.io/-summit-one-narrator/media/S004-Intro.mp4",
+      "retained": [
+        "O004T",
+        "O004X"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-004-A",
+          "title": "The smallest score",
+          "prompt": "Arrange 0, 1, 6 and 9 exactly once to make the smallest four-digit number. What is it?",
+          "hint": "Which digit can begin a four-digit number and still make it as small as possible?"
+        },
+        {
+          "id": "RWL1-004-B",
+          "title": "A different ending",
+          "prompt": "Use 0, 3, 5 and 7 once each. How many four-digit numbers divisible by 5 can you make?",
+          "hint": "Treat endings 0 and 5 separately; the leading choices differ."
+        },
+        {
+          "id": "RWL1-004-C",
+          "title": "Reusable number stamps",
+          "prompt": "You may use the digits 0, 3, 6 and 9 more than once. How many three-digit even numbers contain exactly one zero?",
+          "hint": "Treat endings 0 and 6 separately. In which places can the one zero go?"
+        },
+        {
+          "id": "RWL1-004-D",
+          "title": "Four-card challenge",
+          "prompt": "Choose four different cards from 0, 2, 3, 5 and 8. How many four-digit numbers from 3,000 to 5,999 can you make that are divisible by 4?",
+          "hint": "Fix the first digit. List legal two-digit endings, including an ending beginning with 0."
+        }
+      ]
+    },
+    {
+      "slot": 5,
+      "headline": "Are you counting numbers or marks?",
+      "intro": "Writing 55 makes one number but uses two fives. That distinction matters when counting digits in a list. A reliable way to count marks is to follow just one place-value column at a time.",
+      "example": {
+        "prompt": "Write the whole numbers from 8 to 18 inclusive. How many eights appear?",
+        "steps": [
+          "The units digit is 8 at 8 and at 18: two marks.",
+          "No number in the range has 8 in the tens place, so the total is 2."
+        ]
+      },
+      "bridge": "The film separates tens from units, then lets a divisibility rule decide which numbers enter the tally. Pay attention to the number that earns two marks.",
+      "recap": "Underline either “numbers” or “times written”. Tally each place separately for written digits, apply any divisibility filter first, and check the endpoints. Never invent leading zeros.",
+      "skill": "DIG-03",
+      "videoId": "S005",
+      "videoTitle": "Digit sums and counting digits in ranges",
+      "movie": "https://simonrj.github.io/-summit-one-narrator/media/S005-Intro.mp4",
+      "retained": [
+        "O005T"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-005-A",
+          "title": "A missing digit",
+          "prompt": "One digit is missing from 6□45. Which digit in the box makes the number divisible by 9?",
+          "hint": "Find the sum of the three known digits."
+        },
+        {
+          "id": "RWL1-005-B",
+          "title": "Zero on the labels",
+          "prompt": "A drawer contains labels numbered 1 through 102, with no leading zeros. How many times is 0 printed?",
+          "hint": "Separate zeros in the units place from zeros in the tens place."
+        },
+        {
+          "id": "RWL1-005-C",
+          "title": "Seven on the roll",
+          "prompt": "Numbers from 40 through 79 are printed on separate slips. How many slips contain at least one 7?",
+          "hint": "This time 77 is one slip. Group the seventies together first."
+        },
+        {
+          "id": "RWL1-005-D",
+          "title": "Ticket printer",
+          "prompt": "A printer labels tickets with the positive multiples of 6 up to and including 186. How many individual digit 6s does it print?",
+          "hint": "Which multiples end in 6? Which ones lie in the sixties or the one-hundred-and-sixties?"
+        }
+      ]
+    },
+    {
+      "slot": 6,
+      "headline": "Slice a stack into floors",
+      "intro": "A cube hidden behind other cubes still takes up one position. Imagine lifting the roof off a building and looking down one level at a time. A stack contributes one cube to every level it reaches.",
+      "example": {
+        "prompt": "Three stacks stand side by side on a table. Their heights are 1, 2 and 2 cubes. How many cubes are there?",
+        "steps": [
+          "On the table level all three stacks contribute one cube. On the next level only the two taller stacks do.",
+          "That makes 3 + 2 = 5 cubes. Adding the heights, 1 + 2 + 2, agrees."
+        ],
+        "figure": {
+          "src": "figures/read-practice/S006.svg",
+          "alt": "Front view: the bottom level has three cubes; the next level has cubes above only the second and third stacks."
+        }
+      },
+      "bridge": "Watch the separate floors in the video. When a tunnel crosses an empty shaft, look for the position that has already been removed.",
+      "recap": "Choose layers or stack heights so every cube has one home in your count. For a hole, mark which levels it enters. Two cuts through one position remove just one cube there.",
+      "skill": "SOLID-01",
+      "videoId": "S006",
+      "videoTitle": "Unit-cube counting and layered solids",
+      "movie": "https://simonrj.github.io/-summit-one-narrator/media/S006-Intro.mp4",
+      "retained": [
+        "O006T",
+        "O006X"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-006-A",
+          "title": "A packing block",
+          "prompt": "A solid rectangular block is 5 cubes wide, 3 cubes deep and 2 cubes high. How many unit cubes are inside the block, including its outer cubes?",
+          "hint": "Count one whole floor first."
+        },
+        {
+          "id": "RWL1-006-B",
+          "title": "The fourth floor",
+          "prompt": "Seven solid stacks stand on a table. Their heights are 4, 1, 3, 5, 4, 2 and 6 cubes. How many cubes lie on level four, counting up from the table?",
+          "hint": "A taller stack still passes through level four."
+        },
+        {
+          "id": "RWL1-006-C",
+          "title": "A repair crate",
+          "prompt": "A 3-by-3 base has one solid stack at every position. Four stacks are 1 cube high, three are 2 high, and two are 4 high. How many cubes must be added to fill a complete block 4 cubes high?",
+          "hint": "Count the empty spaces above each kind of stack."
+        },
+        {
+          "id": "RWL1-006-D",
+          "title": "The crossing tunnels",
+          "prompt": "A solid cube is built from 5 × 5 × 5 small cubes. Three straight, one-cube-wide tunnels pass through its centre: left to right, front to back and top to bottom. How many small cubes remain?",
+          "hint": "Each tunnel is five cubes long. Which position belongs to all three tunnels?"
+        }
+      ]
+    },
+    {
+      "slot": 8,
+      "headline": "Build only half a mirror number",
+      "intro": "A palindrome reads the same forwards and backwards. Once you choose a digit on the left, you have also chosen its partner on the right. Only an unpaired centre digit is free to stand on its own.",
+      "example": {
+        "prompt": "A five-digit palindrome starts with 60 and has a 3 in the middle. What number is it?",
+        "steps": [
+          "Write the three given places: 6, 0, 3. The tens place must mirror the second digit, 0.",
+          "The last digit mirrors the first, 6. This makes 60,306; reading back gives the same five digits."
+        ]
+      },
+      "bridge": "Look for the mirror pairs in the film: first they split a four-digit number into multiples of 11, then they limit which centre digits can pass the test for 9.",
+      "recap": "Write the independent positions first. In a digit sum each mirrored pair counts twice, while the centre counts once. The leading digit cannot be zero, but a digit inside can.",
+      "skill": "DIG-04",
+      "videoId": "S008",
+      "videoTitle": "Repeated digits, palindromes and repunits",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S008-Intro-Illustrated.mp4",
+      "retained": [
+        "O008T",
+        "O008X"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-008-A",
+          "title": "Mirror postmark",
+          "prompt": "A five-digit palindrome begins with 73. Its digit sum is 24. What is the palindrome?",
+          "hint": "Put 73 at the start and its reflection at the end before filling the middle."
+        },
+        {
+          "id": "RWL1-008-B",
+          "title": "A repeated row",
+          "prompt": "The number 77,777 is divided by 11,111. What is the quotient?",
+          "hint": "Consider what happens if each place of 11,111 is multiplied by a single digit."
+        },
+        {
+          "id": "RWL1-008-C",
+          "title": "A locker number",
+          "prompt": "A four-digit locker number reads the same both ways, starts with 5 and is divisible by 9. What is the number?",
+          "hint": "Let the two matching inner digits contribute twice the same amount."
+        },
+        {
+          "id": "RWL1-008-D",
+          "title": "A mirror-code display",
+          "prompt": "How many five-digit palindromes start with 2 or 7 and have digit sum exactly 18?",
+          "hint": "Once the first digit and the second digit are chosen, the centre is forced. Keep it between 0 and 9."
+        }
+      ]
+    },
+    {
+      "slot": 9,
+      "headline": "Listen to what the carry tells you",
+      "intro": "In a letter sum, the same letter always stands for the same digit. Read two letters side by side as a two-digit number: AB has A tens and B ones. A carry from one column can reveal a digit in the next.",
+      "example": {
+        "prompt": "In 2A + 7 = 31, what digit is A?",
+        "steps": [
+          "The units have to end in 1. A + 7 cannot equal 1, so it must equal 11.",
+          "That makes A = 4 and sends one ten to the tens column. Check: 24 + 7 = 31."
+        ]
+      },
+      "bridge": "Watch where each carry comes from. A carry out of the tens column creates a new hundreds digit, which the film uses to narrow the choices before trying them.",
+      "recap": "Line up the places. Mark what each column writes and carries; ordinary addition of two two-digit numbers can carry only 1 into hundreds. Recheck every repeated letter and every distinct-digit rule.",
+      "skill": "DIG-05",
+      "videoId": "S009",
+      "videoTitle": "Cryptarithms and symbol-to-digit arithmetic",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S009-Intro-Illustrated.mp4",
+      "retained": [
+        "O009T",
+        "O009X"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-009-A",
+          "title": "The covered price",
+          "prompt": "In 2A + B8 = 73, A and B are distinct digits. What is A?",
+          "hint": "Which sum ending in 3 could come from A + 8?"
+        },
+        {
+          "id": "RWL1-009-B",
+          "title": "A repeated stamp",
+          "prompt": "PP is a two-digit number with both digits P. If PP + P = 84, what digit is P?",
+          "hint": "How many copies of P does the tens place contribute?"
+        },
+        {
+          "id": "RWL1-009-C",
+          "title": "A torn addition",
+          "prompt": "In X7 + X8 = 135, the two Xs stand for the same digit. What is X?",
+          "hint": "Start with the 7 and 8, and take their carry into the tens."
+        },
+        {
+          "id": "RWL1-009-D",
+          "title": "Three copies",
+          "prompt": "AB + AB + AB = BCD. All four letters are different digits; A and B are nonzero. What is the smallest possible AB?",
+          "hint": "The triple of a two-digit number is at most 297. Which digits could B be?"
+        }
+      ]
+    },
+    {
+      "slot": 10,
+      "headline": "The same digits in a different order",
+      "intro": "When a two-digit number is reversed, its tens digit becomes worth one tenth as much and its units digit becomes worth ten times more. That gives you a way to turn a reversal clue into a clue about the difference between two digits.",
+      "example": {
+        "prompt": "What happens when you reverse 23?",
+        "steps": [
+          "The 3 gains 27 in value, from 3 to 30. The 2 loses 18, from 20 to 2.",
+          "The net gain is 27 − 18 = 9. For any two digits, reversing changes the number by nine times their difference."
+        ]
+      },
+      "bridge": "The film combines a reversal with a digit sum. In the next puzzle, watch why a smaller answer that adds up correctly still has to be rejected.",
+      "recap": "Translate AB into tens and units. Use a reversal, a carry or a digit sum to narrow the cases, then test the full assignment. Right arithmetic alone does not make a repeated or leading digit legal.",
+      "skill": "DIG-05",
+      "videoId": "S010",
+      "videoTitle": "Cryptarithms and symbol-to-digit arithmetic",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S010-Intro-Illustrated.mp4",
+      "retained": [
+        "O010X"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-010-A",
+          "title": "The digit plaque",
+          "prompt": "A two-digit number has digit sum 11. Its tens digit is 3 more than its units digit. What is the number?",
+          "hint": "Remove the extra three from the tens digit before sharing what remains."
+        },
+        {
+          "id": "RWL1-010-B",
+          "title": "Reading backwards",
+          "prompt": "How many two-digit numbers become 54 smaller when reversed, if the reversed number must still have two digits?",
+          "hint": "How far apart are the digits if reversing changes the value by 54?"
+        },
+        {
+          "id": "RWL1-010-C",
+          "title": "A pair on a card",
+          "prompt": "A two-digit number is smaller than its reversal. Both have two digits, and their sum is 121. How many possibilities are there for the smaller number?",
+          "hint": "What does the sum of AB and BA equal in terms of A + B?"
+        },
+        {
+          "id": "RWL1-010-D",
+          "title": "The reversed total",
+          "prompt": "AB + CB = BA. Each of A, B and C is a different nonzero digit. What is the greatest possible value of AB?",
+          "hint": "Could the units column work without a carry? If it carries, start with the greatest possible B."
+        }
+      ]
+    },
+    {
+      "slot": 11,
+      "headline": "Keep a record of prime copies",
+      "intro": "A prime has exactly two positive factors: 1 and itself. Splitting a number into prime factors lets you see all the smaller products you can build from it. For square numbers, look for matching pairs of each prime.",
+      "example": {
+        "prompt": "Why is 50 not a square, even though it has two fives as factors?",
+        "steps": [
+          "Split it up: 50 = 2 × 5 × 5. The fives form a pair, but the 2 is alone.",
+          "Multiplying by one more 2 pairs every factor: 100 = (2 × 5) × (2 × 5) = 10²."
+        ]
+      },
+      "bridge": "The video uses the same prime copies for three jobs: testing primality, counting divisors and supplying exactly what a number needs to become a square.",
+      "recap": "For a factor, choose how many copies of each prime to take, including none. For a square, every prime needs an even number of copies. If a factor pair exists, its smaller member cannot exceed the square root.",
+      "skill": "DIV-01",
+      "videoId": "S011",
+      "videoTitle": "Primes, factors and factorisation",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S011-Intro-Illustrated.mp4",
+      "retained": [
+        "O011T"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-011-A",
+          "title": "Smallest prime",
+          "prompt": "What is the smallest prime factor of 143?",
+          "hint": "Check the primes below 12 in increasing order."
+        },
+        {
+          "id": "RWL1-011-B",
+          "title": "A square’s divisors",
+          "prompt": "How many positive divisors of 36 are smaller than 36 itself?",
+          "hint": "Include 1. If you use pairs, count the middle square root just once."
+        },
+        {
+          "id": "RWL1-011-C",
+          "title": "A smaller square",
+          "prompt": "What is the smallest positive whole number by which 216 can be divided to give a whole-number square?",
+          "hint": "When you divide, you remove prime copies instead of adding them."
+        },
+        {
+          "id": "RWL1-011-D",
+          "title": "Square mosaics",
+          "prompt": "All 756 tiles are to be used in identical square mosaics. Each mosaic must contain at least 4 tiles. How many different choices of mosaic side length are possible, measured in whole tiles?",
+          "hint": "A complete mosaic uses a square number of tiles, and that square must divide 756."
+        }
+      ]
+    },
+    {
+      "slot": 12,
+      "headline": "What can the previous stage tell you?",
+      "intro": "Sometimes you can build the next answer entirely from earlier answers. Write down the starting value and the rule for one change. When counting routes, you can often sort them by the last move instead of trying to draw every route.",
+      "example": {
+        "prompt": "A pattern begins at 2. Multiply by 2 and add 1 each time. What is its third term?",
+        "steps": [
+          "The starting 2 is term 1. One change gives term 2: 2 × 2 + 1 = 5.",
+          "A second change gives term 3: 2 × 5 + 1 = 11. Three terms needed only two changes."
+        ]
+      },
+      "bridge": "Watch how the video tracks a gap that doubles, then counts ladder routes by their final jump. A broken rung blocks a landing, but need not block the route.",
+      "recap": "Record the starting state and whether it counts as the first term. Sort routes into groups that cannot overlap. Give an impossible state zero ways and the empty starting route one way.",
+      "skill": "SEQ-03",
+      "videoId": "S012",
+      "videoTitle": "Recurrence relations, steps and branching",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S012-Intro-Illustrated.mp4",
+      "retained": [
+        "O012T",
+        "O012X"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-012-A",
+          "title": "A daily display",
+          "prompt": "On day 1 a display shows 7. Each day after that it increases by 4. What does it show on day 6?",
+          "hint": "How many changes separate days 1 and 6?"
+        },
+        {
+          "id": "RWL1-012-B",
+          "title": "A stubborn reading",
+          "prompt": "A dial starts at 4. Each press triples the reading and subtracts 4. What is its reading after three presses?",
+          "hint": "The value 2 would stay fixed. Try tracking the amount above 2."
+        },
+        {
+          "id": "RWL1-012-C",
+          "title": "Changing tiles",
+          "prompt": "Start with one grey tile. Each round, every grey tile is replaced by one grey and one gold; every gold tile becomes two greys. How many gold tiles are there after four rounds?",
+          "hint": "Keep a pair of counts. The number of new golds equals the number of old greys."
+        },
+        {
+          "id": "RWL1-012-D",
+          "title": "A long strip",
+          "prompt": "A strip of 11 numbered cells is covered with single-cell tiles and two-cell tiles, with no gaps or overlaps. Cells 5 and 6 must be covered by the same tile. How many tilings are possible?",
+          "hint": "Fix the required tile. Count the ways to fill each of the two remaining strips."
+        }
+      ]
+    },
+    {
+      "slot": 13,
+      "headline": "Must it divide both, or be divisible by both?",
+      "intro": "Two numbers can share a factor, such as a length that cuts them both evenly. They can also share a multiple, such as a time at which two schedules repeat. Before calculating, decide which way the division goes.",
+      "example": {
+        "prompt": "What is the longest length that fits exactly into both 12 cm and 20 cm?",
+        "steps": [
+          "The possible whole-centimetre lengths for 12 are 1, 2, 3, 4, 6 and 12.",
+          "Of those, 1, 2 and 4 also divide 20. The longest is 4 cm, the highest common factor."
+        ]
+      },
+      "bridge": "Compare the film’s repeating activities with its identical packs. Then watch how removing the highest common factor helps reconstruct an unknown pair of numbers.",
+      "recap": "For largest equal pieces, find a common factor. For a shared repeat, find a common multiple. If you divide two numbers by their full highest common factor, the remaining numbers must share no prime factor.",
+      "skill": "DIV-02",
+      "videoId": "S013",
+      "videoTitle": "Multiples, HCF and LCM",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S013-Intro-Illustrated.mp4",
+      "retained": [
+        "O013T",
+        "O013X"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-013-A",
+          "title": "Ribbon ends",
+          "prompt": "Two ribbons are 45 cm and 75 cm long. Both are cut into equal whole-centimetre lengths with no waste. What is the longest possible piece, in centimetres?",
+          "hint": "A common piece length must divide their difference too."
+        },
+        {
+          "id": "RWL1-013-B",
+          "title": "Two wheels",
+          "prompt": "Two meshed wheels have 12 and 18 teeth. Mark the two teeth touching now. After how many tooth positions pass the contact point will those marked teeth next touch each other?",
+          "hint": "Each wheel must have completed a whole number of turns."
+        },
+        {
+          "id": "RWL1-013-C",
+          "title": "A tiled sign",
+          "prompt": "An 84 cm by 60 cm sign is covered with identical square tiles, as large as possible, with no cutting or gaps. How many tiles are needed?",
+          "hint": "The highest common factor gives the tile’s side, but the question asks for a count."
+        },
+        {
+          "id": "RWL1-013-D",
+          "title": "Partners",
+          "prompt": "Two positive whole numbers have highest common factor 4 and lowest common multiple 240. What is their smallest possible sum?",
+          "hint": "Divide out the 4. Which factor pairs of 60 now share no prime?"
+        }
+      ]
+    },
+    {
+      "slot": 15,
+      "headline": "How far to the next multiple?",
+      "intro": "Leftovers tell you how far past a multiple you are. They can also tell you how close the next multiple is. If two different group sizes are both missing the same number of pieces, adding those pieces can turn two clues into one.",
+      "example": {
+        "prompt": "A pile leaves 5 counters when packed in groups of 7. How many more counters finish its partly filled group?",
+        "steps": [
+          "The next group needs 7 counters altogether; 5 are already there.",
+          "Add 7 − 5 = 2. The new total is a multiple of 7, whatever the number of full groups below it."
+        ]
+      },
+      "bridge": "The video uses both kinds of shortcut: the last two digits and digit sum test a missing digit, while shifting a whole interval makes an awkward pair of remainders disappear.",
+      "recap": "Ask how far the number lies above or below a common multiple. If you shift the number, shift the ends of the interval too, then undo the shift. A count of gaps is one less than a count of endpoints.",
+      "skill": "DIV-03",
+      "videoId": "S015",
+      "videoTitle": "Divisibility tests and modular remainders",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S015-Intro-Illustrated.mp4",
+      "retained": [
+        "O015T",
+        "O015X"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-015-A",
+          "title": "One more bundle",
+          "prompt": "A pile is divided into bundles of 11, leaving 8 loose. How many more items would fill the unfinished bundle?",
+          "hint": "Count from 8 up to the size of a bundle."
+        },
+        {
+          "id": "RWL1-015-B",
+          "title": "A hidden number",
+          "prompt": "A whole number ends in 52, and its digits add to 16. What is the smallest non-negative whole number you can add so that the new number is divisible by both 4 and 3?",
+          "hint": "The number already passes one test. Which additions keep that test true?"
+        },
+        {
+          "id": "RWL1-015-C",
+          "title": "An inclusive interval",
+          "prompt": "How many whole numbers from 58 through 148 leave remainder 4 on division by 6 and remainder 8 on division by 10?",
+          "hint": "Each number is two short of a multiple of both divisors."
+        },
+        {
+          "id": "RWL1-015-D",
+          "title": "The mail room",
+          "prompt": "A club mails the same number of envelopes on each of five days. On any one day it would need three extra envelopes to fill complete trays of 8 or complete trays of 12. In five days it mails more than 300 but fewer than 400 envelopes. How many does it mail?",
+          "hint": "Use the five-day range to find a range for a single day, then shift the daily count."
+        }
+      ]
+    },
+    {
+      "slot": 17,
+      "headline": "A rectangle is a choice of four lines",
+      "intro": "Cells are the spaces on a grid, but rectangle edges lie on the lines between them. A row of three cells has four vertical boundary lines. Once you choose the left, right, bottom and top edges, you have identified exactly one rectangle.",
+      "example": {
+        "prompt": "A grid has two cells side by side and only one row. How many rectangles have sides on its grid lines?",
+        "steps": [
+          "The top and bottom are fixed. The three vertical lines give three choices of left-right pair: the first two lines, the last two, or the outside lines.",
+          "These give the two single cells and the whole strip: 3 rectangles, including squares."
+        ],
+        "figure": {
+          "src": "figures/read-practice/S017.svg",
+          "alt": "Three labelled vertical grid lines bound two square cells side by side."
+        }
+      },
+      "bridge": "Watch the film switch from counting crossing points to choosing edge pairs. For a marked cell, notice which edges can move without losing that cell.",
+      "recap": "Decide whether the question counts cells, crossings or rectangles. Include outside lines. For a rectangle containing a cell, put each edge on the correct side of that entire cell; subtract selections that break an exclusion rule.",
+      "skill": "SPATIAL-02",
+      "videoId": "S017",
+      "videoTitle": "Grid lines, crossings and coordinates",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S017-Intro-Illustrated-v2.mp4",
+      "retained": [
+        "O017T",
+        "O017X"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-017-A",
+          "title": "Netting",
+          "prompt": "A net forms 6 columns and 2 rows of square holes. Counting the outer edges, how many meeting points of the grid lines are there?",
+          "hint": "How many boundary lines produce six columns? How many produce two rows?"
+        },
+        {
+          "id": "RWL1-017-B",
+          "title": "One storey",
+          "prompt": "A grid has 7 columns and 2 rows of cells. How many rectangles on the grid lines are exactly one cell high, with any possible width?",
+          "hint": "Choose a row and then two distinct vertical boundary lines."
+        },
+        {
+          "id": "RWL1-017-C",
+          "title": "A marked cell",
+          "prompt": "A grid has 4 columns and 3 rows. A stamp fills the cell in column 2 from the left and row 2 from the bottom. How many rectangles on the grid lines contain the whole stamp?",
+          "hint": "Count possible left, right, bottom and top edges separately."
+        },
+        {
+          "id": "RWL1-017-D",
+          "title": "Two windows",
+          "prompt": "A board has 5 columns and 4 rows. Cell A is in column 2, row 2; B is in column 4, row 3, measured from the left and bottom. How many grid-line rectangles contain exactly one of these two cells?",
+          "hint": "Count rectangles containing A, those containing B and those containing both. How many times were the last group counted?"
+        }
+      ]
+    },
+    {
+      "slot": 18,
+      "headline": "What can a move never change?",
+      "intro": "Pair up a pile of counters. An even pile has none left over; an odd pile has one. Knowing whether a move keeps or changes that leftover can tell you about a game’s finish before you play it.",
+      "example": {
+        "prompt": "A counter starts on 8 and moves either 2 or 4 spaces to the right. Can it finish on 15?",
+        "steps": [
+          "Every permitted jump adds an even number, so every landing is even.",
+          "Since 15 is odd, it is unreachable. We do not have to try different routes."
+        ]
+      },
+      "bridge": "Watch the video track two different things: the odd or even position of a counter, and the total of a list as pairs are merged. The partners may change without affecting the conclusion.",
+      "recap": "Look for a total or label you can follow through every legal move. Count how many times it changes. A wrong parity proves impossibility; a matching parity may still need a construction.",
+      "skill": "DIV-04",
+      "videoId": "S018",
+      "videoTitle": "Parity and odd/even structure",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S018-Intro-Illustrated.mp4",
+      "retained": [
+        "O018T"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-018-A",
+          "title": "The scoresheet",
+          "prompt": "Without adding the scores, decide whether 31 + 48 + 57 + 22 is odd or even. Answer odd or even.",
+          "hint": "Pair off the unpaired units from the odd terms."
+        },
+        {
+          "id": "RWL1-018-B",
+          "title": "Eight jumps",
+          "prompt": "A token starts on 7. Every jump is 1, 3 or 5 spaces in either direction. After exactly eight jumps could it be on 30? Answer yes or no.",
+          "hint": "What does any odd-sized jump do to the parity of the current position?"
+        },
+        {
+          "id": "RWL1-018-C",
+          "title": "The last slip",
+          "prompt": "Eight slips carry numbers with total 61. In one move, replace any two by a slip showing their sum minus 2. Continue until one slip remains. What number is on it?",
+          "hint": "Track the total and the number of slips, not the individual choices."
+        },
+        {
+          "id": "RWL1-018-D",
+          "title": "Fixtures",
+          "prompt": "A club has 21 players. Each must play exactly three matches against three different opponents. At least how many extra players must join for this to be possible, if every newcomer must also play three matches?",
+          "hint": "Count match appearances, then show that your proposed number actually works."
+        }
+      ]
+    },
+    {
+      "slot": 19,
+      "headline": "What a domino must cover",
+      "intro": "Colour a board in an alternating pattern like a chessboard. Wherever you put a domino across two squares sharing an edge, it covers one square of each colour. The colours reveal an obstacle that counting the squares alone can miss.",
+      "example": {
+        "prompt": "A strip has five squares, coloured blue, gold, blue, gold, blue. Can two-square dominoes cover it completely?",
+        "steps": [
+          "Three squares are blue and two are gold. Each domino needs one of each.",
+          "At most two dominoes fit, leaving a blue square. Sliding them around cannot change the colour counts."
+        ],
+        "figure": {
+          "src": "figures/read-practice/S019.svg",
+          "alt": "Five adjacent cells marked B, G, B, G, B, where B is blue and G is gold."
+        }
+      },
+      "bridge": "In the film, two boards have the same number of squares left. Watch why one can be covered and why the missing corners make the other impossible.",
+      "recap": "Count what every legal piece consumes. If the colours do not balance, stop: a domino tiling cannot exist. If they balance, check that the squares actually join up and find a legal covering when claiming one exists.",
+      "skill": "DIV-04",
+      "videoId": "S019",
+      "videoTitle": "Parity, colouring and impossible tilings",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S019-Intro-Illustrated.mp4",
+      "retained": [],
+      "questions": [
+        {
+          "id": "RWL1-019-A",
+          "title": "Weaving pattern",
+          "prompt": "A board has 5 rows and 7 columns. Its colours alternate, and the top-left square is blue. How many squares are blue?",
+          "hint": "In a row of seven, which colour gets the extra square?"
+        },
+        {
+          "id": "RWL1-019-B",
+          "title": "A missing square",
+          "prompt": "A 5-by-5 chessboard pattern has a blue top-left square. Remove the square in row 3, column 2, counted from the top left. Can 12 dominoes cover the rest? Answer yes or no.",
+          "hint": "Identify the removed colour before deciding from the area."
+        },
+        {
+          "id": "RWL1-019-C",
+          "title": "Corner pockets",
+          "prompt": "A rectangular board has five rows of six squares. All four corner squares are removed. Can the rest be tiled with dominoes? Answer yes or no.",
+          "hint": "Try completing each row on its own; colour balance alone is insufficient."
+        },
+        {
+          "id": "RWL1-019-D",
+          "title": "The gap in the board",
+          "prompt": "Start with a board of 3 rows and 8 columns. Remove all squares in columns 4 and 5. What is the greatest number of non-overlapping dominoes that can be placed on the remaining squares?",
+          "hint": "Can any domino connect the parts on opposite sides of the gap?"
+        }
+      ]
+    },
+    {
+      "slot": 20,
+      "headline": "Mark the end of one full turn",
+      "intro": "A clock returns to its starting position after a whole turn. The last digits of certain powers repeat too: multiplying by the same number sends each last digit to a predictable next one. Track a single cycle, then skip complete turns.",
+      "example": {
+        "prompt": "A sign cycles through 1, 2, 3, 4, then repeats. Reading 1 is the first reading. What number appears at reading 12?",
+        "steps": [
+          "Each block has four readings. The 12th ends the third complete block.",
+          "That reading is 4, not 1. The next reading begins a new block."
+        ]
+      },
+      "bridge": "Watch how the film changes from finding one position in a last-digit cycle to adding many positions. For a sum, the completed cycles themselves may contribute.",
+      "recap": "Write one full cycle and label its first position. A zero remainder points to the end of a complete cycle if counting starts at 1. For a sum, calculate what each whole cycle contributes before adding the tail.",
+      "skill": "DIV-05",
+      "videoId": "S020",
+      "videoTitle": "Last-digit, clock and repeating-cycle reasoning",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S020-Intro-Illustrated.mp4",
+      "retained": [
+        "O020T",
+        "O020X"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-020-A",
+          "title": "A long watch",
+          "prompt": "A 12-hour clock shows 4 o’clock. What number will the hour hand point to exactly 53 hours later?",
+          "hint": "Which multiple of 12 can you remove from 53?"
+        },
+        {
+          "id": "RWL1-020-B",
+          "title": "The final place",
+          "prompt": "What is the units digit of 8 raised to the power 72?",
+          "hint": "Build the last digits of the first four positive powers of 8 in order."
+        },
+        {
+          "id": "RWL1-020-C",
+          "title": "Adding powers",
+          "prompt": "What is the units digit of the sum of the first 34 positive powers of 2, starting with 2¹?",
+          "hint": "Does a full block of four change the units digit of the sum?"
+        },
+        {
+          "id": "RWL1-020-D",
+          "title": "An enormous exponent",
+          "prompt": "Let P be 3 raised to the power 19. What is the units digit of 7 raised to the power P?",
+          "hint": "To locate a power of 7 in its last-digit cycle, you only need the remainder of P on division by 4."
+        }
+      ]
+    },
+    {
+      "slot": 22,
+      "headline": "Which pile is the whole now?",
+      "intro": "One half of a full box and one half of a nearly empty box are very different amounts. Before using a fraction, point to the pile or length it describes. After something is removed, the next fraction may use a smaller whole.",
+      "example": {
+        "prompt": "A bowl holds 12 plums. Three are taken out. How many plums is one third of the rest?",
+        "steps": [
+          "After removing three, the new whole is 12 − 3 = 9 plums.",
+          "Divide this new whole into three equal parts: 9 ÷ 3 = 3 plums per part."
+        ]
+      },
+      "bridge": "Watch the video change the whole between the two classes sharing chalk. In the last puzzle, follow the changes backwards to rebuild the original pile.",
+      "recap": "Name the whole for each fraction and keep track of the part left, not just the part taken. If the final amount is known, rebuild one whole at a time and check by following the story forwards.",
+      "skill": "FRAC-01",
+      "videoId": "S022",
+      "videoTitle": "Parts and wholes, including remaining fractions",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S022-Intro-Illustrated.mp4",
+      "retained": [
+        "O022T",
+        "O022X"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-022-A",
+          "title": "Book tokens",
+          "prompt": "A class has 45 tokens and spends two fifths of them. How many tokens remain?",
+          "hint": "How many of the five equal parts were kept?"
+        },
+        {
+          "id": "RWL1-022-B",
+          "title": "A painted ribbon",
+          "prompt": "Two fifths of a ribbon are cut off. One third of the remaining ribbon is painted. What fraction of the original ribbon is painted? Enter a fraction in simplest form.",
+          "hint": "Imagine the original ribbon divided into five equal pieces."
+        },
+        {
+          "id": "RWL1-022-C",
+          "title": "Bookmarks",
+          "prompt": "A library sets aside one quarter of its bookmarks. It then gives away three fifths of the rest, leaving 18 bookmarks still available. How many bookmarks did it set aside at the start?",
+          "hint": "The 18 bookmarks are two fifths of which pile?"
+        },
+        {
+          "id": "RWL1-022-D",
+          "title": "Two teams",
+          "prompt": "Two teams start with the same number of counters, a multiple of 4 greater than 12. Blue gives away a quarter of its pile, then 12 counters. Gold gives away 12 first, then a quarter of what is left. How many more counters does Gold keep?",
+          "hint": "Compare the sizes of the two piles at the exact moment a quarter is taken."
+        }
+      ]
+    },
+    {
+      "slot": 23,
+      "headline": "Which objects move together?",
+      "intro": "A rule about neighbours changes what you can move when you count a line. Clip two neighbours into one block. After arranging the blocks, open each clip and count the orders its rule allows.",
+      "example": {
+        "prompt": "Three photos show a cat, an owl and a fox. The cat and owl must touch. How many rows are possible?",
+        "steps": [
+          "Treat cat–owl as one piece. Put the fox to its left or right.",
+          "The pair can face either way. There are 2 × 2 = 4 rows."
+        ]
+      },
+      "bridge": "Watch how the badge pairs can turn inside their blocks, then see what happens when two forbidden pairs occur in the same row.",
+      "recap": "Bracket required neighbours and count their allowed orders. For forbidden neighbours, count what you remove and check whether two restrictions remove the same line.",
+      "skill": "COUNT-03",
+      "videoId": "S023",
+      "videoTitle": "Restricted arrangements and neighbour rules",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S023-Intro-Illustrated.mp4",
+      "retained": [
+        "O023T",
+        "O023X"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-023-A",
+          "title": "Signal flags",
+          "prompt": "Four different flags R, B, G and Y hang in a row. R must be immediately left of B. How many orders work?",
+          "hint": "Which things can move once RB is clipped together?"
+        },
+        {
+          "id": "RWL1-023-B",
+          "title": "At the ends",
+          "prompt": "Five different singers line up. Noor must stand at an end, and Lau must stand next to Noor. How many lines are possible?",
+          "hint": "Choose Noor’s end first. Count Lau’s choices after that."
+        },
+        {
+          "id": "RWL1-023-C",
+          "title": "Three book covers",
+          "prompt": "Five different books stand in a row. The red and blue books must touch. The green book must not touch the red one. How many rows fit?",
+          "hint": "Start with every row containing the red–blue pair. In a rejected row, who must be on either side of red?"
+        },
+        {
+          "id": "RWL1-023-D",
+          "title": "A festival programme",
+          "prompt": "Six different acts fill six time slots. Three of the acts are dances, and no two dances can be consecutive. The solo dance must come before the duet dance. How many programmes work?",
+          "hint": "Arrange the three other acts first. Where could a dance go?"
+        }
+      ]
+    },
+    {
+      "slot": 24,
+      "headline": "Give each part the same size",
+      "intro": "A ratio tells you how two amounts fit together. Sketch one box for each part and give every box the same value. A scale drawing uses the same idea to connect a drawn length with a real one.",
+      "example": {
+        "prompt": "A batch of juice uses 3 cups of apple for every 2 cups of pear. How much pear goes with 9 cups of apple?",
+        "steps": [
+          "Three apple parts hold 9 cups, so each part holds 3 cups.",
+          "The pear has 2 parts. That makes 6 cups of pear."
+        ],
+        "figure": {
+          "src": "figures/read-practice/S024.svg",
+          "alt": "Apple: three equal parts. Pear: two parts of the same size."
+        }
+      },
+      "bridge": "Follow one bead group, then one centimetre on the drawing. When the counters move between trays, watch for the quantity that still has the same size.",
+      "recap": "Identify what the two numbers compare. For a fraction of the whole, combine the parts. When items move between groups, redraw both ratios using the same total.",
+      "skill": "FRAC-02",
+      "videoId": "S024",
+      "videoTitle": "Ratios on a bead strand, a scale drawing and two trays",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S024-Intro-Illustrated.mp4",
+      "retained": [
+        "O024T",
+        "O024X"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-024-A",
+          "title": "Two ribbon colours",
+          "prompt": "A roll contains purple and grey sections in the length ratio 3 to 4. The purple sections together measure 12 m. How many metres are grey?",
+          "hint": "Divide the purple length by its number of parts."
+        },
+        {
+          "id": "RWL1-024-B",
+          "title": "The blue share",
+          "prompt": "Blue and white squares cover a mosaic in the ratio 4 to 7. Each square has the same area. What fraction of the whole mosaic is white?",
+          "hint": "How many parts cover the whole mosaic?"
+        },
+        {
+          "id": "RWL1-024-C",
+          "title": "Garden path",
+          "prompt": "A rectangular garden measures 3 cm by 7 cm on a plan drawn at 1 to 2,500. A path follows the complete boundary. How long is the path in metres?",
+          "hint": "Measure the full boundary on the plan before changing its scale."
+        },
+        {
+          "id": "RWL1-024-D",
+          "title": "Sharing the seedlings",
+          "prompt": "Two classes have seedlings in the ratio 5 to 3. The larger class gives 18 of its seedlings to the smaller class. In the same class order the new ratio is 2 to 3. How many seedlings did they grow altogether?",
+          "hint": "Choose a total number of parts that both 8 and 5 divide."
+        }
+      ]
+    },
+    {
+      "slot": 25,
+      "headline": "How large is the whole?",
+      "intro": "A percentage describes a share of a particular whole. Two groups can have the same percentage and very different numbers of people. Circle the whole each time you read the word ‘of’.",
+      "example": {
+        "prompt": "A tray has 60 tiles. What is 15% of the tray?",
+        "steps": [
+          "Ten per cent of 60 is 6 tiles. Five per cent is half of that, or 3 tiles.",
+          "Together these make 15%, so 9 tiles is the requested share."
+        ]
+      },
+      "bridge": "In the film the hundred-grid shows one share. Watch how the whole changes when the two teams have different numbers of attempts and when the price changes a second time.",
+      "recap": "Put competing shares over a common whole. For each percentage change mark the amount it acts on. A discount leaves a fraction of the current price.",
+      "skill": "FRAC-03",
+      "videoId": "S025",
+      "videoTitle": "Fractions, percentages and proportional comparisons",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S025-Intro-Illustrated.mp4",
+      "retained": [
+        "O025T",
+        "O025X"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-025-A",
+          "title": "Museum drawer",
+          "prompt": "A drawer holds 84 fossils. Exactly 25% are shells. How many shells are there?",
+          "hint": "What fraction does 25 out of 100 simplify to?"
+        },
+        {
+          "id": "RWL1-025-B",
+          "title": "At the archery range",
+          "prompt": "Pip hits 11 targets in 16 shots and Bo hits 17 in 24 shots. Who has the higher hit rate? Enter Pip or Bo.",
+          "hint": "Express both scores as hits per 48 shots."
+        },
+        {
+          "id": "RWL1-025-C",
+          "title": "The display case",
+          "prompt": "A case has 50 shells, of which 40% are striped. A curator adds 10 plain shells. What percentage of the new collection is striped? Enter the percentage as a number or fraction.",
+          "hint": "Which count changes when plain shells arrive?"
+        },
+        {
+          "id": "RWL1-025-D",
+          "title": "Club membership",
+          "prompt": "A club’s membership rose by 50% one year. The following year, one fifth of the new membership left. There were then 18 more members than at the beginning. How many members did the club start with?",
+          "hint": "Work out what fraction of the original membership remains after both changes."
+        }
+      ]
+    },
+    {
+      "slot": 26,
+      "headline": "Rebuild the total behind a mean",
+      "intro": "Imagine sliding counters between piles until all the piles are equal. The new height is the mean. Multiplying that height by the number of piles reconstructs exactly how many counters you started with.",
+      "example": {
+        "prompt": "Four jars hold an average of 6 marbles. Three jars hold 3, 7 and 8. How many marbles are in the fourth jar?",
+        "steps": [
+          "The four jars hold 4 × 6 = 24 marbles in total.",
+          "The three known jars hold 18 marbles, leaving 24 − 18 = 6 in the fourth."
+        ]
+      },
+      "bridge": "Follow the beads as they level out in the film. Later, keep an eye on the reading that belongs to two groups at once.",
+      "recap": "Attach a count to each mean before combining it with another. Restore the totals and check whether any reading appeared twice.",
+      "skill": "DATA-02",
+      "videoId": "S026",
+      "videoTitle": "Averages, weighted means and simple distributions",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S026-Intro-Illustrated.mp4",
+      "retained": [
+        "O026T",
+        "O026X"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-026-A",
+          "title": "The last jump",
+          "prompt": "Five long jumps average 4 m. Four of them measure 3 m, 4 m, 4 m and 5 m. How many metres was the fifth jump?",
+          "hint": "Recover the length of all five jumps together."
+        },
+        {
+          "id": "RWL1-026-B",
+          "title": "The tray taken away",
+          "prompt": "Four trays average 10 seedlings each and six trays average 15 each. A tray is removed. The nine remaining trays now average 14 seedlings. How many seedlings were on the removed tray?",
+          "hint": "Find the total for each group before the tray was removed."
+        },
+        {
+          "id": "RWL1-026-C",
+          "title": "One run too many",
+          "prompt": "A runner records five training times with mean 18 minutes. By mistake, she copies one time again and finds a six-entry mean of 19 minutes. What time, in minutes, did she copy twice?",
+          "hint": "Compare the two totals, remembering that the copied time was added only once."
+        },
+        {
+          "id": "RWL1-026-D",
+          "title": "The missing middle pair",
+          "prompt": "Seven daily temperatures have a mean of 16°C. Days 1–5 average 15°C, and days 4–7 average 18°C. What is the mean temperature, in °C, of days 4 and 5 together?",
+          "hint": "Which positions appear in both shorter lists?"
+        }
+      ]
+    },
+    {
+      "slot": 27,
+      "headline": "Give each fraction its own group",
+      "intro": "A fraction tells you how much of its own group to take. Work out a count for each group before you bring the items together. If two groups have different sizes, they contribute different weights to the result.",
+      "example": {
+        "prompt": "Half of 8 pears and a third of 9 apples go into a basket. How many pieces of fruit go in?",
+        "steps": [
+          "The pears contribute 8 ÷ 2 = 4. The apples contribute 9 ÷ 3 = 3.",
+          "Put those pieces together. The basket holds 7 pieces of fruit."
+        ]
+      },
+      "bridge": "Watch the film’s two card grids. Once you can count their stars forwards, see how an imagined group with just one marking rate helps work backwards.",
+      "recap": "Label each size and fraction. Add the actual counts. If a group size is missing, start everyone at one rate and find what each switch to the other group changes.",
+      "skill": "FRAC-04",
+      "videoId": "S027",
+      "videoTitle": "Grouped fractions and weighted totals",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S027-Intro-Illustrated.mp4",
+      "retained": [
+        "O027T",
+        "O027X"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-027-A",
+          "title": "Seed trays",
+          "prompt": "One quarter of the 28 seedlings in tray A and two thirds of the 18 in tray B have flowers. How many seedlings have flowers?",
+          "hint": "Find the two flower counts separately."
+        },
+        {
+          "id": "RWL1-027-B",
+          "title": "Two busloads",
+          "prompt": "Half of 12 passengers on one bus and one sixth of 36 passengers on another are carrying hats. What fraction of all the passengers are carrying hats?",
+          "hint": "Count people with hats and then count all passengers."
+        },
+        {
+          "id": "RWL1-027-C",
+          "title": "Two designs",
+          "prompt": "Of 48 badges, some are round and the rest are square. Three quarters of the round badges and one quarter of the square badges are gold. There are 20 gold badges. How many badges are round?",
+          "hint": "Imagine that just a quarter of every shape is gold. What would one round badge add to this baseline?"
+        },
+        {
+          "id": "RWL1-027-D",
+          "title": "A box for the fair",
+          "prompt": "One type of packet contains 12 biscuits, a third of them ginger. A second type also contains 12 biscuits, half ginger. A box must contain exactly 17/42 ginger biscuits overall. What is the least number of whole, unopened packets it can contain?",
+          "hint": "Imagine a collection of 42 biscuits, with 17 ginger. How many of the 42 would need to come from the higher-rate packets?"
+        }
+      ]
+    },
+    {
+      "slot": 29,
+      "headline": "Can you undo a percentage change?",
+      "intro": "After a percentage change, the result is a fraction of the amount you started with. A price after a 30% discount is seven tenths of the earlier price. If you know those seven parts, you can work backwards to the full ten.",
+      "example": {
+        "prompt": "A sailing lesson costs $42 after a 30% discount. What was its usual price?",
+        "steps": [
+          "Seven tenths of the usual price equal $42, so one tenth is $6.",
+          "Ten tenths cost $60. Taking 30% off $60 removes $18 and leaves $42."
+        ]
+      },
+      "bridge": "Look for the changing base in the film’s price puzzle. To reconstruct the first price, undo the last change before the earlier one.",
+      "recap": "Write the fraction left after each change. Undo a change by dividing by its multiplier. Returning to the starting amount uses today’s whole.",
+      "skill": "FRAC-03",
+      "videoId": "S029",
+      "videoTitle": "Fractions, percentages and proportional comparisons",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S029-Intro-Illustrated.mp4",
+      "retained": [
+        "O029T",
+        "O029X"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-029-A",
+          "title": "The 80% ticket",
+          "prompt": "With a 20% discount, a theatre ticket costs $36. What is its full price in dollars?",
+          "hint": "The paid price covers four fifths of the whole."
+        },
+        {
+          "id": "RWL1-029-B",
+          "title": "A photo restored",
+          "prompt": "A photo is reduced to 80% of its original width. By what percentage must its new width increase to restore the original? Enter the percentage as a number.",
+          "hint": "Try an original width of 100 mm. Which width is the base for the increase?"
+        },
+        {
+          "id": "RWL1-029-C",
+          "title": "Where did the water go?",
+          "prompt": "During the first day, a tank loses 10% of its water. During the second day it loses one third of what remains. It then holds 54 L. How many litres did it start with?",
+          "hint": "Before the second loss, two thirds of the amount had to equal 54 L."
+        },
+        {
+          "id": "RWL1-029-D",
+          "title": "Gallery labels",
+          "prompt": "A gallery adds 20% to the cost of each print to set its label price. During a sale it reduces every label price by the same percentage. A print that cost $150 sells for $144. What sale percentage did the gallery use?",
+          "hint": "Find the label price and compare the amount taken off with that label price."
+        }
+      ]
+    },
+    {
+      "slot": 30,
+      "headline": "Count the times on the clock",
+      "intro": "An event happens at an instant, but two events are separated by an interval. Write down the first few times before counting. Keep the interval and the time window in the same units.",
+      "example": {
+        "prompt": "A bell rings at time zero and every 20 seconds after that. How many times does it ring up to and including one minute?",
+        "steps": [
+          "One minute is 60 seconds. Mark 0, 20, 40 and 60.",
+          "There are three intervals between the four rings. Both endpoints count here."
+        ]
+      },
+      "bridge": "Look at the first mark on the sensor timeline in the film. When two signals share an instant, watch how that mark is counted.",
+      "recap": "List the first event, check both ends of the window, and use a common unit. For two schedules, subtract any instants you counted on both lists.",
+      "skill": "RATE-01",
+      "videoId": "S030",
+      "videoTitle": "Unit conversion and repeated-event rates",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S030-Intro-Illustrated.mp4",
+      "retained": [
+        "O030T",
+        "O030X"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-030-A",
+          "title": "A measured pour",
+          "prompt": "A dispenser releases 250 mL every 15 seconds. Its first pour is at 15 seconds. How many litres has it released by the end of 2 minutes, including the final pour?",
+          "hint": "Convert the time to seconds, then count the pours."
+        },
+        {
+          "id": "RWL1-030-B",
+          "title": "Camera window",
+          "prompt": "A camera takes a picture at time zero and every 30 seconds after that. How many pictures have times from zero up to, but strictly before, 3 minutes?",
+          "hint": "Write the time of the last picture allowed in the window."
+        },
+        {
+          "id": "RWL1-030-C",
+          "title": "The two chimes",
+          "prompt": "Starting together at noon, one chime rings every 24 seconds and another every 36 seconds. During the next 3 minutes 36 seconds, how many distinct ringing instants occur? Exclude noon and include the finish.",
+          "hint": "Count each chime’s later rings. At what interval do they coincide?"
+        },
+        {
+          "id": "RWL1-030-D",
+          "title": "Two drum patterns",
+          "prompt": "A drum first sounds at 4 seconds, then every 12 seconds. A second drum first sounds at 10 seconds, then every 18 seconds. From time zero through 2 minutes, at how many different instants is a drum heard?",
+          "hint": "Write each drum’s first few times. Find a shared beat before using the repeat period."
+        }
+      ]
+    },
+    {
+      "slot": 31,
+      "headline": "Measure a minute’s work",
+      "intro": "Two workers can finish one job faster when each does a different part. Give the whole job a convenient size, such as 12 bundles. Then you can add what they finish in the same minute. A leak or loss takes progress away.",
+      "example": {
+        "prompt": "One tap fills a 12 L bucket in 4 minutes. A second fills it in 6 minutes. How many litres do they add together in one minute?",
+        "steps": [
+          "The first tap adds 12 ÷ 4 = 3 L per minute. The second adds 12 ÷ 6 = 2 L per minute.",
+          "Both taps run for that minute, so together they add 3 + 2 = 5 L."
+        ]
+      },
+      "bridge": "Watch the film’s machines share an 18-unit batch. On the tank timeline, notice exactly when the leak starts taking units away.",
+      "recap": "Choose a whole job, then turn each completion time into work per minute. When someone starts or stops, carry the work already done into the next stage.",
+      "skill": "RATE-02",
+      "videoId": "S031",
+      "videoTitle": "Combined work rates",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S031-Intro-Illustrated.mp4",
+      "retained": [
+        "O031T",
+        "O031X"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-031-A",
+          "title": "Painting the panels",
+          "prompt": "A painter can cover a wall in 12 minutes at a steady rate. What fraction of the wall does she cover in 5 minutes?",
+          "hint": "Split the wall into as many equal parts as there are minutes in the whole job."
+        },
+        {
+          "id": "RWL1-031-B",
+          "title": "Sorting the mail",
+          "prompt": "Two sorters can each sort a sack of letters in 8 minutes. Working alongside each other at their usual rates, how many sacks can they sort in 12 minutes?",
+          "hint": "Find the pair’s progress in a single minute."
+        },
+        {
+          "id": "RWL1-031-C",
+          "title": "The sticking label roll",
+          "prompt": "A machine labels 9 jars per minute. During the first 3 minutes all labels stick. Afterwards, 2 of every 9 labels peel off immediately. How many minutes from the start until 62 jars have labels that stay on? All jars start unlabelled and the machine labels a fresh jar each time. Treat the machine’s output as batches of 9 at the end of each minute.",
+          "hint": "Find the count already finished before the sticking rate changes."
+        },
+        {
+          "id": "RWL1-031-D",
+          "title": "The shared mural",
+          "prompt": "Ari alone can paint a mural in 18 hours. Bo starts painting it alone. After 4 hours Ari joins in, and they finish 6 hours later. Each works at a steady rate on a separate part. How many hours would Bo take alone?",
+          "hint": "Count all the hours each person actually painted. Ari’s share tells you Bo’s."
+        }
+      ]
+    },
+    {
+      "slot": 33,
+      "headline": "Test a claim against its speaker",
+      "intro": "In these puzzles a truth-teller always makes true statements and a liar always makes false ones. Try a possible assignment and read the actual words again. One contradiction is enough to cross that case out.",
+      "example": {
+        "prompt": "A token is either black or white. A known liar says, ‘The token is white.’ What colour is it?",
+        "steps": [
+          "The claim that the token is white must be false.",
+          "The only other permitted colour is black, so the token is black."
+        ]
+      },
+      "bridge": "In the film, try both possible types for Ava before the answer appears. Later, watch how a claim about another speaker links their two types.",
+      "recap": "Write exactly what would make each whole sentence true. Keep a case only if every sentence fits its speaker and every clue fits the same case.",
+      "skill": "LOGIC-01",
+      "videoId": "S033",
+      "videoTitle": "Truth-tellers, liars and contradiction",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S033-Intro-Illustrated.mp4",
+      "retained": [
+        "O033X"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-033-A",
+          "title": "Two guides",
+          "prompt": "Ash always tells the truth. Ash says, ‘Bea is a liar.’ Bea says, ‘The exit is north.’ The exit is either north or south. Which direction is it?",
+          "hint": "Use Ash’s statement to decide what Bea’s words tell you."
+        },
+        {
+          "id": "RWL1-033-B",
+          "title": "Different types",
+          "prompt": "Each of Finn and Kit either always lies or always tells the truth. Finn says, ‘Kit and I are different types.’ Is Kit truthful or lying? Enter truthful or lying.",
+          "hint": "Try Finn as a truth-teller, then as a liar. What happens to Kit each time?"
+        },
+        {
+          "id": "RWL1-033-C",
+          "title": "A chain of three",
+          "prompt": "Each of three scouts always lies or always tells the truth. Ivo says, ‘Mia tells the truth.’ Mia says, ‘Ren lies.’ Ren says, ‘Mia and I are different types.’ How many of the three scouts tell the truth?",
+          "hint": "Mia’s words give a relationship between her type and Ren’s. Test Ren’s claim using that relationship."
+        },
+        {
+          "id": "RWL1-033-D",
+          "title": "The race report",
+          "prompt": "Ari, Bo and Cy finish a race with no ties. Ari says, ‘I finished first.’ Bo says, ‘Ari finished ahead of Cy.’ Cy says, ‘Bo finished last.’ Exactly one statement is true, and Cy did not finish first. Who won? Enter a name.",
+          "hint": "Test Ari as the winner. How many statements would already have to be true?"
+        }
+      ]
+    },
+    {
+      "slot": 34,
+      "headline": "Put the whole trip on one clock",
+      "intro": "At a steady speed, distance grows by the same amount in every equal stretch of time. A timetable can mix minutes with kilometres per hour, so put the clock and the speed in matching units. On a stop, the clock keeps moving.",
+      "example": {
+        "prompt": "A ferry moves at 18 km/h for 20 minutes. How far does it travel?",
+        "steps": [
+          "Twenty minutes is one third of an hour.",
+          "One third of the one-hour distance is 18 ÷ 3 = 6 km."
+        ]
+      },
+      "bridge": "Follow the rider’s distance counter. Watch what it does during the rest and what happens to the clock over the same interval.",
+      "recap": "Work out distance or time for each leg and give a stop its own row. Average speed uses all the distance and all the elapsed time named in the question.",
+      "skill": "RATE-03",
+      "videoId": "S034",
+      "videoTitle": "Distance–speed–time reasoning",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S034-Intro-Illustrated.mp4",
+      "retained": [
+        "O034T",
+        "O034X"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-034-A",
+          "title": "Canal boat",
+          "prompt": "A boat travels at 16 km/h for 45 minutes. How many kilometres does it travel?",
+          "hint": "Forty-five minutes is what fraction of an hour?"
+        },
+        {
+          "id": "RWL1-034-B",
+          "title": "Walk from school",
+          "prompt": "Jo walks 1,800 m in 30 minutes. What is Jo’s average speed in kilometres per hour?",
+          "hint": "Convert both units before dividing."
+        },
+        {
+          "id": "RWL1-034-C",
+          "title": "The ferry stop",
+          "prompt": "A ferry’s first leg is 9 km at 18 km/h. It stops for 10 minutes, then covers 6 km at 12 km/h. How many minutes pass from leaving the first dock to reaching the last?",
+          "hint": "Find the time for each moving leg before adding the stop."
+        },
+        {
+          "id": "RWL1-034-D",
+          "title": "Time for a lookout",
+          "prompt": "A hiker plans to average 4 km/h over the entire 12 km trail, including one stop. The first 6 km take 1 hour, and the last 6 km will be walked at 4 km/h. How many minutes may the hiker stop and still finish at exactly the planned average?",
+          "hint": "The target average sets a total time budget. How much is spent walking?"
+        }
+      ]
+    },
+    {
+      "slot": 36,
+      "headline": "Let the first empty cell decide",
+      "intro": "A domino covers two squares that share a side. Fitting the first piece can force the next one. On a board two squares high, look down the first empty column and ask what would happen to its other cell.",
+      "example": {
+        "prompt": "How many ways can two identical dominoes cover a 2-by-2 board? Keep the board fixed and count different arrangements of edges.",
+        "steps": [
+          "Cover the upper-left cell. Its domino can point down or right.",
+          "Pointing down forces a second upright domino. Pointing right forces a second sideways one. There are 2 tilings."
+        ],
+        "figure": {
+          "src": "figures/read-practice/S036.svg",
+          "alt": "The fixed two-by-two board tiled in the two ways: two upright dominoes, or two sideways dominoes."
+        }
+      },
+      "bridge": "Watch the pair of sideways dominoes in the film’s two-row strip. See if you can spot the whole two-column block as soon as the first sideways piece goes down.",
+      "recap": "Check the area first. Then cover the first empty cell and follow any forced placements. With identical tiles, count each finished arrangement of edges once.",
+      "skill": "SPATIAL-03",
+      "videoId": "S036",
+      "videoTitle": "Tiling a strip with forced domino pairs",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S036-Intro-Illustrated.mp4",
+      "retained": [],
+      "questions": [
+        {
+          "id": "RWL1-036-A",
+          "title": "The garden border",
+          "prompt": "A border is 2 cells high and 7 cells long. It is fully covered with 1-by-2 dominoes. How many dominoes does it contain?",
+          "hint": "Compare the board’s area with one domino’s area."
+        },
+        {
+          "id": "RWL1-036-B",
+          "title": "Four places in a strip",
+          "prompt": "A 2-by-4 board has exactly one pair of sideways dominoes, one directly above the other. Every other domino stands upright. How many different tilings are possible? Keep the board fixed.",
+          "hint": "Where can the left edge of the sideways pair start?"
+        },
+        {
+          "id": "RWL1-036-C",
+          "title": "Across six columns",
+          "prompt": "A board is 2 cells high and 6 cells long. Exactly two dominoes stand upright, and they cannot share a side with each other. All other dominoes lie sideways. How many different tilings are there? Keep the board fixed.",
+          "hint": "Each pair of sideways dominoes makes one wide block. Place the upright blocks in different gaps between or outside the wide blocks."
+        },
+        {
+          "id": "RWL1-036-D",
+          "title": "The slot in the frame",
+          "prompt": "A 2-by-7 frame is tiled with identical dominoes. The join between the top and bottom cells in column 4 is blocked, so no upright domino may stand in that column. How many tilings are possible?",
+          "hint": "Count all strips first, then remove the ones that have an upright domino in column 4. How long are the two strips beside that upright?"
+        }
+      ]
+    },
+    {
+      "slot": 37,
+      "headline": "Follow the gap between two movers",
+      "intro": "A chase becomes simpler when you track how the gap changes in a second. Draw arrows for the two directions. If one runner starts late, measure the gap at the instant both start moving.",
+      "example": {
+        "prompt": "Two ants walk towards each other along a ruler. They begin 15 cm apart and travel at 2 cm/s and 3 cm/s. When do they meet?",
+        "steps": [
+          "In one second one ant covers 2 cm of the gap and the other covers 3 cm.",
+          "The gap shrinks by 5 cm/s, so the ants meet in 15 ÷ 5 = 3 seconds."
+        ]
+      },
+      "bridge": "Track the gap during the film’s runner’s head start. When the runners move onto a loop, see what one extra lap of combined movement means.",
+      "recap": "Mark the starting gap and the clock you are using. Add speeds for a head-on meeting and subtract them for a chase. Each extra circuit can create another meeting.",
+      "skill": "RATE-04",
+      "videoId": "S037",
+      "videoTitle": "Relative speeds, timed movement and meetings",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S037-Intro-Illustrated.mp4",
+      "retained": [
+        "O037T",
+        "O037X"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-037-A",
+          "title": "Facing each other",
+          "prompt": "Two robots approach each other on a straight rail at 6 cm/s and 4 cm/s. They start 80 cm apart. How many seconds until they meet?",
+          "hint": "How much rail between them disappears in one second?"
+        },
+        {
+          "id": "RWL1-037-B",
+          "title": "From whose start?",
+          "prompt": "Imani travels at 3 m/s. Leo sets off from the same point in the same direction 8 seconds later at 5 m/s. How many seconds after Imani started does Leo catch her?",
+          "hint": "Find the initial gap and then decide whether the head-start time belongs in your final answer."
+        },
+        {
+          "id": "RWL1-037-C",
+          "title": "The second pass",
+          "prompt": "Two runners start side by side on the same 120 m circular course. They run in the same direction at constant speeds of 7 m/s and 4 m/s and can pass each other freely. How many seconds after the start does the faster runner draw level with the slower one for the second time? Exclude the start.",
+          "hint": "Imagine unrolling the course. What lead does the faster runner need each time?"
+        },
+        {
+          "id": "RWL1-037-D",
+          "title": "A moving finish line",
+          "prompt": "A cyclist is 140 m behind the back of a moving parade and rides at 8 m/s. The entire parade moves at 3 m/s. The cyclist catches the back, then reaches the front 42 seconds after starting the chase. How long is the parade in metres?",
+          "hint": "The cyclist must gain the initial gap and the whole parade’s length relative to the moving parade."
+        }
+      ]
+    },
+    {
+      "slot": 38,
+      "headline": "Choose what your letter stands for",
+      "intro": "An unknown can be a weight, a count or a length. Give it a name you can read aloud, then turn the clues into expressions for that same story. Check the solution in the original units.",
+      "example": {
+        "prompt": "A bag and two identical books weigh 900 g altogether. The empty bag weighs 300 g. What does one book weigh?",
+        "steps": [
+          "One book weighs b grams, so 300 + 2b = 900.",
+          "The two books account for 600 g. Each weighs 300 g."
+        ]
+      },
+      "bridge": "Watch the film name the first round’s score and build the second from it. Then see how fixing the total number of tickets lets one letter describe both counts.",
+      "recap": "Name the quantity and its units. Build the other quantities from your clues. Count items for an item total and multiply by their values for a money, weight or score total.",
+      "skill": "ALG-01",
+      "videoId": "S038",
+      "videoTitle": "One- and two-variable word equations",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S038-Intro-Illustrated.mp4",
+      "retained": [
+        "O038T"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-038-A",
+          "title": "On the parcel scale",
+          "prompt": "Three identical jars and 80 g of packing weigh 530 g. How many grams does one jar weigh?",
+          "hint": "Remove the fixed packing weight first."
+        },
+        {
+          "id": "RWL1-038-B",
+          "title": "A folded strip",
+          "prompt": "A strip of paper is cut into two pieces. The long piece is 3 cm longer than twice the short piece. The strip measured 30 cm before it was cut. How long, in cm, is the short piece?",
+          "hint": "Let the short piece be x cm. What expression describes the long piece?"
+        },
+        {
+          "id": "RWL1-038-C",
+          "title": "The collection tin",
+          "prompt": "A tin holds only 10-cent and 20-cent coins. It contains 26 coins worth $4.10 altogether. How many 20-cent coins are there?",
+          "hint": "Start by imagining that all 26 are 10-cent coins. What does swapping one for a 20-cent coin change?"
+        },
+        {
+          "id": "RWL1-038-D",
+          "title": "The quiz scoreboard",
+          "prompt": "A quiz has 20 questions. A correct answer scores 4 points, a wrong answer loses 1 point, and a blank scores zero. Maya leaves 2 blank and earns 47 points. How many did she answer correctly?",
+          "hint": "She attempted 18. Compare one correct answer with one wrong answer, including the penalty."
+        }
+      ]
+    },
+    {
+      "slot": 39,
+      "headline": "What does an average speed promise?",
+      "intro": "An average speed is the steady speed that would cover the same distance in the same elapsed time. Read it both ways. A known average and time give you a distance target, and a known average and distance give you a time budget.",
+      "example": {
+        "prompt": "A tram travels an average of 24 km/h for 15 minutes, including a station stop. How far does it go?",
+        "steps": [
+          "Fifteen minutes is one quarter of an hour.",
+          "A steady 24 km/h would cover 24 ÷ 4 = 6 km in that time. The tram covered 6 km too."
+        ]
+      },
+      "bridge": "Watch the flat stretch in the rider’s distance graph. Then look at the two speed rectangles and see how each one accounts for a different part of the distance.",
+      "recap": "Add the distance covered in each time interval. A stopped interval adds time and zero distance. For a target average, compare the actual distance travelled with the distance the target demands.",
+      "skill": "RATE-03",
+      "videoId": "S039",
+      "videoTitle": "Distance–speed–time reasoning",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S039-Intro-Illustrated.mp4",
+      "retained": [
+        "O039T",
+        "O039X"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-039-A",
+          "title": "Leaving the marina",
+          "prompt": "A launch covers 3 km in its first 15 minutes and 9 km in the next 15 minutes. What is its average speed in km/h over the full trip?",
+          "hint": "How far did it go in half an hour?"
+        },
+        {
+          "id": "RWL1-039-B",
+          "title": "Waiting at the crossing",
+          "prompt": "A bus covers 9 km in 15 minutes, then stops for 5 minutes at a crossing. Up to the end of that stop, what average speed, in km/h, has it achieved?",
+          "hint": "At the stop, decide which of distance and time is still increasing."
+        },
+        {
+          "id": "RWL1-039-C",
+          "title": "The missing section",
+          "prompt": "A train’s 60 km journey takes 1 hour 30 minutes in all. It covers its first 24 km in 40 minutes of movement, stops for 10 minutes, then travels the rest without stopping. What is its average speed in km/h over that last section?",
+          "hint": "Subtract the used distance and the used time separately."
+        },
+        {
+          "id": "RWL1-039-D",
+          "title": "Back on pace",
+          "prompt": "A rider covers the first 6 km at 12 km/h, then continues at 18 km/h without a stop. At what total distance in kilometres does the average speed from the very start first reach 16 km/h?",
+          "hint": "At the change of speed, how far behind a steady 16 km/h rider would this rider be?"
+        }
+      ]
+    },
+    {
+      "slot": 40,
+      "headline": "Read two clues together",
+      "intro": "A single total can hide many different pairs. A second clue may pin down just one. When there are several groups, write their names beside every total so you can see which ones appear more than once.",
+      "example": {
+        "prompt": "Two fish weigh 14 kg together. One weighs 2 kg more than the other. What does the lighter fish weigh?",
+        "steps": [
+          "Set the heavier fish’s extra 2 kg aside. The remaining 12 kg represent two equal shares.",
+          "Each share is 6 kg, giving fish of 6 kg and 8 kg. Both clues fit."
+        ]
+      },
+      "bridge": "Watch how the notebook and ruler appear in two different orders. In the box puzzle, count how often each box turns up when all the pair totals are added.",
+      "recap": "Keep all the clues visible. When you add totals, count how often each object appears. Use the combined total to recover a missing quantity and check it against the original clues.",
+      "skill": "ALG-02",
+      "videoId": "S040",
+      "videoTitle": "Simultaneous and total-sum constraints",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S040-Intro-Illustrated.mp4",
+      "retained": [
+        "O040T",
+        "O040X"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-040-A",
+          "title": "The two shelves",
+          "prompt": "Two shelves hold 38 books altogether. The top shelf has 8 fewer books than the bottom shelf. How many books are on the top shelf?",
+          "hint": "Set the extra books aside before sharing equally."
+        },
+        {
+          "id": "RWL1-040-B",
+          "title": "Two sandwich orders",
+          "prompt": "Two rolls and one juice cost $13. One roll and two juices cost $14. How much does one roll with one juice cost, in dollars?",
+          "hint": "What does putting both orders on one tray give you?"
+        },
+        {
+          "id": "RWL1-040-C",
+          "title": "The three pets",
+          "prompt": "Three pets are weighed two at a time. Cat and rabbit weigh 9 kg, dog and rabbit 17 kg, and dog and cat 20 kg. How many kilograms does the dog weigh?",
+          "hint": "If you add the three weighings, how often has each pet been counted?"
+        },
+        {
+          "id": "RWL1-040-D",
+          "title": "Four mystery bags",
+          "prompt": "Four bags are weighed in groups of three. Leaving out a different bag each time gives 19 kg, 21 kg, 22 kg and 25 kg. How many kilograms does the heaviest bag weigh?",
+          "hint": "Count how often each bag appears. Which weighing leaves the heaviest one out?"
+        }
+      ]
+    },
+    {
+      "slot": 41,
+      "headline": "Make the matching pieces cancel",
+      "intro": "Two totals can share the same hidden amount. If the matching pieces are equal, the difference between the totals comes entirely from what is left over. Sometimes you need a second copy of an entire order to make the pieces match.",
+      "example": {
+        "prompt": "A tin with 3 identical magnets weighs 86 g. The same tin with 5 magnets weighs 112 g. How much does one magnet weigh?",
+        "steps": [
+          "Take away the matching tin and the three matching magnets from both weighings.",
+          "The extra two magnets weigh 112 − 86 = 26 g, so one weighs 13 g."
+        ]
+      },
+      "bridge": "Watch matching items slide away in the film. When the marker counts differ, follow what happens to the total price as a whole bundle is copied.",
+      "recap": "Find exactly matching quantities. If they differ, multiply every item and the total by the same factor. Subtract, find one value, then put it back into an original clue.",
+      "skill": "ALG-03",
+      "videoId": "S041",
+      "videoTitle": "Eliminating an unknown by differences",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S041-Intro-Illustrated.mp4",
+      "retained": [
+        "O041T",
+        "O041X"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-041-A",
+          "title": "Two music tracks",
+          "prompt": "A recording contains the same introduction and then 2 identical verses. It lasts 86 seconds. A version with 5 of those verses and the same introduction lasts 170 seconds. How many seconds is one verse?",
+          "hint": "Which parts of the two recordings cancel?"
+        },
+        {
+          "id": "RWL1-041-B",
+          "title": "Pottery bags",
+          "prompt": "Two identical clay pots and a bag weigh 1,100 g. Four such pots and three identical bags weigh 2,380 g. How many grams does one empty bag weigh?",
+          "hint": "Can you copy the first weighing to match the four pots?"
+        },
+        {
+          "id": "RWL1-041-C",
+          "title": "Relay drills",
+          "prompt": "Three short drills and two long drills take 33 minutes. Two short drills and three long drills take 37 minutes. How many minutes does one long drill take?",
+          "hint": "Subtract the equal-sized groups, then add them. The two calculations give different clues."
+        },
+        {
+          "id": "RWL1-041-D",
+          "title": "Parcel collection",
+          "prompt": "A delivery van starts with an unknown load. At one stop it drops off 2 identical red crates and takes on 3 identical blue crates, gaining 2 kg overall. At the next stop it drops off 3 red crates and takes on 4 blue crates, losing 1 kg overall. How many kilograms does a blue crate weigh?",
+          "hint": "Try matching the number of red crates in three copies of the first change and two of the second."
+        }
+      ]
+    },
+    {
+      "slot": 43,
+      "headline": "Which edges meet the air?",
+      "intro": "Trace a shape’s boundary with a finger. A side where two pieces meet lies inside the shape. An edge around a hole can be part of the boundary too. Decide which edges the question asks you to measure.",
+      "example": {
+        "prompt": "Two square coasters, each 4 cm on a side, touch along a whole side. What is the perimeter of the joined shape?",
+        "steps": [
+          "The two separate perimeters total 32 cm. The touching side appears once on each coaster.",
+          "Remove those two hidden lengths. The joined perimeter is 32 − 8 = 24 cm."
+        ],
+        "figure": {
+          "src": "figures/read-practice/S043.svg",
+          "alt": "Two 4 cm squares touch along the dashed middle edge. Only the solid outside boundary counts towards perimeter."
+        }
+      },
+      "bridge": "Watch the exposed edges on the L shape. Then compare the edges that appear and disappear at a corner cut with the edges around the enclosed hole.",
+      "recap": "Starting from separate pieces, subtract each shared edge twice. Starting from a cut, count the old boundary lost and the new boundary gained. Check whether the boundary includes holes.",
+      "skill": "GEO-01",
+      "videoId": "S043",
+      "videoTitle": "Perimeter, shared edges and boundary effects",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S043-Intro-Illustrated.mp4",
+      "retained": [
+        "O043T",
+        "O043X"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-043-A",
+          "title": "Three paving stones",
+          "prompt": "Three square stones, each with side 3 cm, sit in a straight row, meeting along full sides. What is the outside perimeter in centimetres?",
+          "hint": "Trace the long sides of the row and its two short ends."
+        },
+        {
+          "id": "RWL1-043-B",
+          "title": "A step in the corner",
+          "prompt": "A rectangle is 8 cm by 6 cm. A smaller 3 cm by 2 cm rectangle is cut from one corner, with two of its sides along the outer edges. What is the new perimeter in centimetres?",
+          "hint": "Match each stretch removed from the old boundary to one that has just appeared."
+        },
+        {
+          "id": "RWL1-043-C",
+          "title": "A window and a doorway",
+          "prompt": "An 8 cm by 5 cm card has a fully enclosed 2 cm square window. A rectangular notch is also cut into one outer side, away from the window and corners. Its mouth is 1 cm wide and it goes 2 cm into the card. What is the total boundary length, including the window, in centimetres?",
+          "hint": "Treat the outside notch and the inside window as separate changes."
+        },
+        {
+          "id": "RWL1-043-D",
+          "title": "The missing contact count",
+          "prompt": "An artwork contains 12 unit squares joined side to side. Its total boundary, including the edges of any holes, is 22 units long. How many full edges are shared by two squares?",
+          "hint": "Start by counting every edge of every separate square. What happened to the surplus?"
+        }
+      ]
+    },
+    {
+      "slot": 44,
+      "headline": "Read the arrows in reverse",
+      "intro": "When you know the ending, ask what the amount was just before the last step. A picture of the forward arrows can become a map back to the start. If items must be whole, check that every step you undo makes sense for those items.",
+      "example": {
+        "prompt": "A number is multiplied by 4 and then reduced by 3. The final number is 17. What was the starting number?",
+        "steps": [
+          "Undo the subtraction first. The number before it was 17 + 3 = 20.",
+          "Undo multiplication by 4 to get 5. In the forward direction, 5 × 4 − 3 = 17."
+        ]
+      },
+      "bridge": "Follow the counters as the film rebuilds the original pile. Later the machine allows several final readings. Watch which backwards steps rule some readings out.",
+      "recap": "Start at the known ending and reverse one operation at a time. For a range of endings, test which ones reverse to legal whole amounts. Run the answer forwards once to check.",
+      "skill": "ALG-04",
+      "videoId": "S044",
+      "videoTitle": "Working backwards through operations",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S044-Intro-Illustrated.mp4",
+      "retained": [
+        "O044T",
+        "O044X"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-044-A",
+          "title": "Number wheel",
+          "prompt": "A wheel triples its input, then adds 7. Its display reads 40. Which number went in?",
+          "hint": "What did the display show just before the last seven were added?"
+        },
+        {
+          "id": "RWL1-044-B",
+          "title": "The market bunch",
+          "prompt": "A florist sells two fifths of a bunch of flowers, then gives away another 3 flowers. Nine remain. How many flowers were in the original bunch?",
+          "hint": "Rebuild the amount just after the sale. What fraction of the original bunch was that?"
+        },
+        {
+          "id": "RWL1-044-C",
+          "title": "The prize pile",
+          "prompt": "A game starts with some tokens. On each of two turns you take half of the remaining tokens and then one extra token. At the end 4 remain. How many were there at the start? Each half was a whole number of tokens.",
+          "hint": "To restore the pile before one turn, undo the extra token first, then undo taking half."
+        },
+        {
+          "id": "RWL1-044-D",
+          "title": "Numbers on the tickets",
+          "prompt": "Each ticket starts with a positive whole number. A machine doubles it, adds 1, then triples the result. Only tickets whose final number has two digits and ends in 5 are kept. How many different starting numbers can be kept?",
+          "hint": "Which two-digit endings in 5 can you divide by 3 without a remainder?"
+        }
+      ]
+    },
+    {
+      "slot": 45,
+      "headline": "Does a graph show a total or a change?",
+      "intro": "A reading on a graph tells you the value at one instant. To find a change you need two readings. If you want a rate, also measure the interval between them. A crossing tells you when two quantities take exactly the same value.",
+      "example": {
+        "prompt": "At minute 2 a tap meter reads 11 L. At minute 5 it reads 23 L. How many litres per minute did the meter gain on average?",
+        "steps": [
+          "The reading rises by 23 − 11 = 12 L over 5 − 2 = 3 minutes.",
+          "The average rate over that interval is 12 ÷ 3 = 4 L per minute."
+        ]
+      },
+      "bridge": "Compare the different time gaps on the film’s chart. At the end, notice which coordinate of the price-graph crossing answers ‘how many visits?’",
+      "recap": "Read what both axes measure. Subtract readings for a change and divide by the interval for a rate. At an intersection, check both rules at the same input.",
+      "skill": "DATA-03",
+      "videoId": "S045",
+      "videoTitle": "Reading and reasoning from graphs/tables",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S045-Intro-Illustrated.mp4",
+      "retained": [],
+      "questions": [
+        {
+          "id": "RWL1-045-A",
+          "title": "Library counter",
+          "prompt": "A library’s daily entry counter reads 37 at 9 am, 56 at 10 am and 81 at 11 am. How many entries occurred from 9 am to 11 am?",
+          "hint": "Use the readings at the two ends of the requested interval."
+        },
+        {
+          "id": "RWL1-045-B",
+          "title": "Peak flow",
+          "prompt": "At minutes 0, 2, 6 and 9, a pool meter reads 3, 15, 31 and 46 litres respectively. What is the highest average flow rate, in litres per minute, over any of the three intervals between consecutive readings?",
+          "hint": "Give each rise its own number of minutes."
+        },
+        {
+          "id": "RWL1-045-C",
+          "title": "Two sand timers",
+          "prompt": "Timer A starts with 48 g of sand in its top chamber and loses 4 g each minute. Timer B starts with 30 g in its top chamber and loses 1 g each minute. After how many minutes will their top chambers hold equal amounts?",
+          "hint": "Track the initial difference and its change per minute."
+        },
+        {
+          "id": "RWL1-045-D",
+          "title": "Between two readings",
+          "prompt": "A nursery records two plants at days 0 and 4. The pine measures 14 cm and then 18 cm. The wattle measures 6 cm and then 22 cm. Each plant grows at a constant rate over those four days. How many days after day 0 are they the same height? Give an exact answer.",
+          "hint": "Work out how many centimetres the wattle gains on the pine in one day."
+        }
+      ]
+    },
+    {
+      "slot": 46,
+      "headline": "Where do the extra points go?",
+      "intro": "If you know a total and the gaps between the scores, imagine trimming the taller score bars until they are level. The equal pieces tell you the starting score. You can then put each extra piece back.",
+      "example": {
+        "prompt": "Two baskets hold 28 plums. The larger basket holds 4 more. How many are in the smaller basket?",
+        "steps": [
+          "Set the 4 extra plums aside. The two baskets now match, with 24 plums between them.",
+          "Each holds 24 ÷ 2 = 12. The original pair was 12 and 16, which adds to 28."
+        ],
+        "figure": {
+          "src": "figures/read-practice/S046.svg",
+          "alt": "The two bars have matching starting pieces; the longer has a separate piece labelled plus four."
+        }
+      },
+      "bridge": "When the film moves from two teams to three, watch how the two successive leads stack up above the lowest score.",
+      "recap": "Choose one score as the starting point. Measure every gap from that same score. When points change hands, the total stays fixed and a transfer changes both scores.",
+      "skill": "ALG-05",
+      "videoId": "S046",
+      "videoTitle": "Winner margins, shared totals and linear rules",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S046-Intro-Illustrated.mp4",
+      "retained": [
+        "O046T"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-046-A",
+          "title": "Two innings",
+          "prompt": "A batter scores 83 runs across two innings. The second innings scores 9 more than the first. How many runs came in the first innings?",
+          "hint": "Remove the extra runs before sharing the total."
+        },
+        {
+          "id": "RWL1-046-B",
+          "title": "Before the swap",
+          "prompt": "Two jars contain 54 beads altogether. Moving 5 from the fuller jar to the other makes them equal. How many were in the fuller jar at first?",
+          "hint": "Start when the jars are equal, then undo the move."
+        },
+        {
+          "id": "RWL1-046-C",
+          "title": "The medal table",
+          "prompt": "Bronze, Silver and Gold squads have 86 points altogether. Silver has 8 more than Bronze. Gold has 7 more than Silver. What is Gold’s score?",
+          "hint": "Draw three bars starting with the Bronze score. How far above Bronze is Gold?"
+        },
+        {
+          "id": "RWL1-046-D",
+          "title": "Three depots",
+          "prompt": "Three depots hold 141 crates. North has 15 more than West and South has 6 fewer than West. North sends 9 crates to South. How many crates must now move from North to West to make all three stocks equal?",
+          "hint": "Use West as the starting amount. Work out the target stock from the total."
+        }
+      ]
+    },
+    {
+      "slot": 47,
+      "headline": "Count the gaps, then pair the ends",
+      "intro": "A pattern with a fixed increase has two useful counts. A term tells you where you are in the pattern. A gap tells you how many times the increase has happened.",
+      "example": {
+        "prompt": "A ribbon has marks at 6 cm, 10 cm, 14 cm and so on. Where is the fifth mark?",
+        "steps": [
+          "Four gaps lie between the first mark and the fifth. Each gap measures 4 cm.",
+          "The fifth mark is at 6 + 4 × 4 = 22 cm."
+        ]
+      },
+      "bridge": "Look for the same gap count in the film’s theatre rows. Then watch what happens when the first row is paired with the last.",
+      "recap": "For one term, count the gaps from a known term. For a total, add the two end terms and see how many pairs you have. An odd number of terms leaves a centre to count.",
+      "skill": "SEQ-01",
+      "videoId": "S047",
+      "videoTitle": "Arithmetic sequences and fixed increments",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S047-Intro-Illustrated.mp4",
+      "retained": [
+        "O047T",
+        "O047X"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-047-A",
+          "title": "Numbered pots",
+          "prompt": "Nine pots stand in a row. Their labels begin 12, 17, 22 and keep rising by 5. Which number is on the last pot?",
+          "hint": "From the first pot to the ninth, count the spaces between pots."
+        },
+        {
+          "id": "RWL1-047-B",
+          "title": "Fading signal",
+          "prompt": "A lamp flashes every 7 seconds. Its first flash is at 5 seconds and its last at 68 seconds. How many flashes does it make?",
+          "hint": "Dividing the elapsed time by 7 counts the gaps. Does it count the first flash?"
+        },
+        {
+          "id": "RWL1-047-C",
+          "title": "A smudged label",
+          "prompt": "Seven labels carry numbers that start at 9 and rise by 4 each time. One number is smudged. The other six numbers add to 118. What number is smudged?",
+          "hint": "Find the sum of all seven by pairing the ends. What would removing the smudged label change?"
+        },
+        {
+          "id": "RWL1-047-D",
+          "title": "The missing end",
+          "prompt": "A triangular display has 11 rows. Each row has 2 more tiles than the row above, and the display uses 275 tiles. How many tiles are in the bottom row?",
+          "hint": "Which row has as many tiles as the average row?"
+        }
+      ]
+    },
+    {
+      "slot": 50,
+      "headline": "Make the shared part cancel",
+      "intro": "If two bundles have an identical part, compare what is left after removing that part from each. When the parts do not yet match, you can make several copies of a whole bundle. Its total must grow by the same factor.",
+      "example": {
+        "prompt": "A tin and a ball weigh 180 g together. The same tin and three identical balls weigh 260 g. How heavy is a ball?",
+        "steps": [
+          "The same tin appears on both scales, so the extra 80 g comes from the two extra balls.",
+          "One ball weighs 80 ÷ 2 = 40 g. The tin weighs 140 g, which fits both weighings."
+        ]
+      },
+      "bridge": "In the film, follow the marker through the two stationery orders. Watch which entire order gets doubled before the subtraction works.",
+      "recap": "Choose one kind of object to cancel. Match its count by scaling whole bundles, subtract in the same order on both sides, then put your answer back into an original bundle.",
+      "skill": "ALG-03",
+      "videoId": "S050",
+      "videoTitle": "Eliminating an unknown by differences",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S050-Intro-Illustrated.mp4",
+      "retained": [
+        "O050T",
+        "O050X"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-050-A",
+          "title": "Spools",
+          "prompt": "A box with 4 identical spools weighs 710 g. The same box with 7 of those spools weighs 995 g. What is the mass of one spool in grams?",
+          "hint": "Which items appear on only one side after matching the boxes?"
+        },
+        {
+          "id": "RWL1-050-B",
+          "title": "The printed cards",
+          "prompt": "Printing 3 large cards and 2 small cards costs 29 dollars. Printing 4 large and 4 small costs 44 dollars. What does one large card cost in dollars?",
+          "hint": "Make two copies of the first order. Which size then has the same count?"
+        },
+        {
+          "id": "RWL1-050-C",
+          "title": "Music loops",
+          "prompt": "Two drum loops and three bell loops, played end to end, last 38 seconds. Three drum loops and two bell loops last 37 seconds. Each loop of a given kind has the same length. How many seconds is one bell loop?",
+          "hint": "Compare the two recordings. Which single loop has replaced another?"
+        },
+        {
+          "id": "RWL1-050-D",
+          "title": "Two bands of seats",
+          "prompt": "A hall repeats two row sizes, wide and narrow. Four wide rows and three narrow rows seat 138 people. Six wide rows and five narrow rows seat 216. How many people fit in five wide rows and four narrow rows?",
+          "hint": "Could you make twice the seating arrangement you want by combining the two given arrangements?"
+        }
+      ]
+    },
+    {
+      "slot": 51,
+      "headline": "One day’s amount or the running total?",
+      "intro": "Doubling gives a tidy connection between a single amount and all the earlier amounts. A running total includes everything from the first day up to the day named. A day’s own amount includes just that day.",
+      "example": {
+        "prompt": "A game awards 5 shells, then 10, then 20. How many shells have you collected after the third award?",
+        "steps": [
+          "The third award alone is 20 shells. The three awards together give 5 + 10 + 20 = 35.",
+          "The next award would be 40. The total of 35 is exactly one starting award below that."
+        ]
+      },
+      "bridge": "As the film doubles a whole row of terms, look for what cancels. That cancellation explains how one more day can put a project over budget.",
+      "recap": "Mark the first term. To find one term, count doublings. To add consecutive doubling terms, subtract the first amount from the next term after the sum. A budget check needs the totals on both sides of the limit.",
+      "skill": "SEQ-02",
+      "videoId": "S051",
+      "videoTitle": "Doubling, geometric growth and finite sums",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S051-Intro-Illustrated.mp4",
+      "retained": [
+        "O051T",
+        "O051X"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-051-A",
+          "title": "Before the copier ran",
+          "prompt": "A copier doubles the number of copies on each run. After three runs there are 72 copies. How many were there before the first run?",
+          "hint": "Trace the three runs in reverse."
+        },
+        {
+          "id": "RWL1-051-B",
+          "title": "Four envelopes",
+          "prompt": "Four envelopes hold, in order, 6, 12, 24 and 48 tickets. A fifth would contain 96. How many tickets are in the first four together?",
+          "hint": "Double the sum of the first four envelopes and compare the two sums."
+        },
+        {
+          "id": "RWL1-051-C",
+          "title": "The seed grant",
+          "prompt": "A fund pays 9 dollars on its first day and doubles the payment every day. It has 560 dollars available. How many more dollars does it need to make all six daily payments?",
+          "hint": "Find the total cost through day six before comparing it with the grant."
+        },
+        {
+          "id": "RWL1-051-D",
+          "title": "Folded paper",
+          "prompt": "A strip of paper is folded in half five times. It starts as one layer. Each fold adds one new crease through every current layer, at a fresh position on the strip. Once unfolded, how many crease positions are there?",
+          "hint": "Count how many layers receive a new crease at each fold."
+        }
+      ]
+    },
+    {
+      "slot": 52,
+      "headline": "Count the ways into each position",
+      "intro": "When many paths branch and meet again, it helps to count their endings. If you know how a path can arrive at one position, you can use counts from earlier positions to build the next count.",
+      "example": {
+        "prompt": "A frog starts at stone 0 and jumps forward by one or two stones at a time. How many different ways can it reach stone 3?",
+        "steps": [
+          "There is one way to reach stone 1. Stone 2 has two routes, a jump of 2 or two jumps of 1.",
+          "To reach 3, add a jump of 1 to either route to 2, or a jump of 2 to the route to 1. There are 2 + 1 = 3 ways."
+        ]
+      },
+      "bridge": "In the film, first watch the number that stays fixed as a reading changes. On the ladder, watch which route counts survive when a rung is broken.",
+      "recap": "A repeated rule needs a starting value. For routes, give the start one empty route and count distinct kinds of last move. A forbidden landing has zero routes, even if a longer jump can pass over it.",
+      "skill": "SEQ-03",
+      "videoId": "S052",
+      "videoTitle": "Recurrence relations, steps and branching",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S052-Intro-Illustrated.mp4",
+      "retained": [
+        "O052T",
+        "O052X"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-052-A",
+          "title": "The meter",
+          "prompt": "A meter starts at 3. At every press, double its reading and add 1. What does it show after three presses?",
+          "hint": "The starting value is the reading before any press."
+        },
+        {
+          "id": "RWL1-052-B",
+          "title": "Message chain",
+          "prompt": "A number starts at 5. Each turn doubles the number and subtracts 3. What number appears after six turns?",
+          "hint": "Track how far the number is above 3."
+        },
+        {
+          "id": "RWL1-052-C",
+          "title": "The cracked tile",
+          "prompt": "A robot moves from tile 0 to tile 7 by jumps of 1 or 2. Tile 4 cannot be landed on. How many different jump sequences reach tile 7 exactly?",
+          "hint": "Fill in a route count for every tile. Put a zero at tile 4."
+        },
+        {
+          "id": "RWL1-052-D",
+          "title": "Signal words",
+          "prompt": "A transmitter fills exactly 8 time slots with short pulses lasting 1 slot and long pulses lasting 3 slots. Pulses follow one another with no gap. How many different pulse sequences can it send?",
+          "hint": "If the last pulse is long, how many slots did the earlier pulses fill?"
+        }
+      ]
+    },
+    {
+      "slot": 53,
+      "headline": "Which rectangle wins?",
+      "intro": "Two rectangles can use the same length of edging and enclose different areas. First count the lengths that actually use the edging. Then ask how far you can move the dimensions towards balance while still satisfying the rules.",
+      "example": {
+        "prompt": "An 18 cm loop of string makes a rectangle with whole-centimetre sides. Compare the 2 cm by 7 cm rectangle with the 4 cm by 5 cm rectangle.",
+        "steps": [
+          "In each case the adjacent sides add to 9 cm, so the whole perimeter is 18 cm.",
+          "The areas are 14 cm² and 20 cm². With the same side sum, bringing the two side lengths closer has gained area."
+        ],
+        "figure": {
+          "src": "figures/read-practice/S053.svg",
+          "alt": "A two-by-seven rectangle and a four-by-five rectangle drawn on the same centimetre scale."
+        }
+      },
+      "bridge": "Watch what changes in the film when one side of the pen sits against a wall. Decide which two quantities now need to balance.",
+      "recap": "Draw and count the charged or fenced edges first. For a fixed sum the closest eligible pair has the largest product. Whole-number restrictions can rule out a perfect balance or create a tie.",
+      "skill": "GEO-05",
+      "videoId": "S053",
+      "videoTitle": "Optimising areas and lengths under constraints",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S053-Intro-Illustrated.mp4",
+      "retained": [
+        "O053T",
+        "O053X"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-053-A",
+          "title": "The garden frame",
+          "prompt": "A rectangle has whole-centimetre sides and a 30 cm perimeter. What is its greatest possible area in square centimetres?",
+          "hint": "The two adjacent side lengths share half the perimeter."
+        },
+        {
+          "id": "RWL1-053-B",
+          "title": "Shelf dividers",
+          "prompt": "A rectangular display is exactly 18 cm long along one edge. Its perimeter may be at most 50 cm. What is its largest possible area in square centimetres?",
+          "hint": "Take both 18 cm edges out of the allowance first."
+        },
+        {
+          "id": "RWL1-053-C",
+          "title": "The narrow garden",
+          "prompt": "A garden borders a shed wall. A 32 m fence covers the other three sides exactly. Each of the two equal sides that run out from the wall must be at most 5 m long, in whole metres. What is the greatest possible area in square metres?",
+          "hint": "Use 32 minus two widths for the third side. Check all five allowed widths."
+        },
+        {
+          "id": "RWL1-053-D",
+          "title": "Two pens",
+          "prompt": "Two identical rectangular pens share one divider. They sit side by side to make one rectangle. The divider joins the front fence to the back fence. All fences together measure 42 m, and each pen has whole-metre sides. What is the greatest combined area in square metres?",
+          "hint": "Let each pen be w metres wide and d deep. Count two stretches of width 2w and three stretches of depth d."
+        }
+      ]
+    },
+    {
+      "slot": 54,
+      "headline": "Find where the loop begins",
+      "intro": "Imagine pausing a machine and writing down everything you need to predict its next move. That record is its state. With a fixed rule, seeing the same full state twice tells you exactly which moves will repeat.",
+      "example": {
+        "prompt": "A lamp starts white. Each press changes it to the next colour in this rule: white → red → blue → green → red. What colour is it after four presses?",
+        "steps": [
+          "The first press makes red. Presses two and three make blue and green.",
+          "The fourth press brings back red. White was a starting colour outside the three-colour loop."
+        ]
+      },
+      "bridge": "Track the pair of dials in the film. In the numbered machine, listen for the move that takes you into the loop before you start counting full laps.",
+      "recap": "Write the whole state at move zero, then stop when a full state repeats. Subtract any lead-in moves first. An exact number of laps brings you back to the loop entry.",
+      "skill": "SEQ-04",
+      "videoId": "S054",
+      "videoTitle": "Repeating transformations and finite-state patterns",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S054-Intro-Illustrated-v2.mp4",
+      "retained": [
+        "O054X"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-054-A",
+          "title": "Turn the arrow",
+          "prompt": "A pointer starts facing east. Each move turns it through a quarter turn anticlockwise. Which direction does it face after 26 moves? Enter north, east, south or west.",
+          "hint": "Four anticlockwise quarter turns restore the pointer."
+        },
+        {
+          "id": "RWL1-054-B",
+          "title": "Two wheels",
+          "prompt": "A lock has a 4-position wheel and a 6-position wheel. A click advances both by one position. After how many positive clicks do both first return to their starting positions?",
+          "hint": "Write the first few reset counts for each wheel."
+        },
+        {
+          "id": "RWL1-054-C",
+          "title": "Museum lights",
+          "prompt": "A light starts amber. After one tick it is white, then it cycles through red, green, blue and red again. What colour is the light after 100 ticks? Enter one colour.",
+          "hint": "At which tick does red first appear?"
+        },
+        {
+          "id": "RWL1-054-D",
+          "title": "A walker on a strip",
+          "prompt": "Five squares are labelled 0 to 4 in a row. A counter starts on 1 moving right. Each move advances it one square. On arriving at an end it reverses direction for its next move. Which square does it occupy after 83 moves?",
+          "hint": "List the square and the direction together. Square 1 can be visited facing either way."
+        }
+      ]
+    },
+    {
+      "slot": 55,
+      "headline": "Which digits are free to choose?",
+      "intro": "In a palindrome, choosing a digit also chooses its mirror partner. This changes both a counting problem and a divisibility test. A centre digit in an odd-length number contributes just once.",
+      "example": {
+        "prompt": "How many three-digit palindromes begin with 4 and have an even middle digit?",
+        "steps": [
+          "The last digit must be 4, leaving just the middle place to choose.",
+          "The choices 0, 2, 4, 6 and 8 give five numbers, from 404 to 484."
+        ]
+      },
+      "bridge": "When the film splits 3663 into two pairs of digits, notice the value of each pair. Later, ask when two different centre digits can both pass the divisibility test.",
+      "recap": "Write the free positions and mirror them before testing any condition. A first digit must be nonzero, but a centre may be zero. When a digit sum must be a multiple of 9, check whether both 0 and 9 fit.",
+      "skill": "DIG-04",
+      "videoId": "S055",
+      "videoTitle": "Repeated digits, palindromes and repunits",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S055-Intro-Illustrated.mp4",
+      "retained": [
+        "O055T",
+        "O055X"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-055-A",
+          "title": "Mirror total",
+          "prompt": "A five-digit palindrome begins with 28 and its middle digit is 3. What is the sum of its digits?",
+          "hint": "Write all five places before adding."
+        },
+        {
+          "id": "RWL1-055-B",
+          "title": "One free digit",
+          "prompt": "How many three-digit palindromes beginning with 9 are divisible by 9?",
+          "hint": "Try both ends of the digit range for the middle digit."
+        },
+        {
+          "id": "RWL1-055-C",
+          "title": "Four places",
+          "prompt": "How many four-digit palindromes are divisible by 3 and end in 2?",
+          "hint": "If the last digit is 2, the first digit is already fixed."
+        },
+        {
+          "id": "RWL1-055-D",
+          "title": "The vanishing digit",
+          "prompt": "A six-digit palindrome uses only digits 1 to 9. Erasing its first and last digits leaves a four-digit palindrome. The sum of all six digits is 26, and the four remaining digits sum to 18. How many original numbers are possible?",
+          "hint": "Use the lost digit sum to recover the outer pair. Then pair the free inner digits."
+        }
+      ]
+    },
+    {
+      "slot": 57,
+      "headline": "Build a list you know is complete",
+      "intro": "When several conditions interact, give the list a definite order. Fix one choice, work out all its legal endings, and only then move on. Often you only need to write a few row totals.",
+      "example": {
+        "prompt": "Which pairs of different positive whole numbers add to 9, with the smaller number written first?",
+        "steps": [
+          "Try the smaller number in order. The first four pairs are (1, 8), (2, 7), (3, 6) and (4, 5).",
+          "Starting at 5 would put the larger number first. Every allowed pair has appeared once."
+        ]
+      },
+      "bridge": "Watch how the film labels its boxes. Swapping two values can create a new answer when the labels stay fixed. Then look for the first and last legal entry in each row.",
+      "recap": "Pick a short list of first choices and keep the labels straight. Use each condition to find a row’s two endpoints. Count both endpoints and stop where the remaining choices become impossible.",
+      "skill": "COUNT-01",
+      "videoId": "S057",
+      "videoTitle": "Systematic enumeration without missing cases",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S057-Intro-Illustrated.mp4",
+      "retained": [
+        "O057T",
+        "O057X"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-057-A",
+          "title": "Small change",
+          "prompt": "Nina pays exactly 18 cents using only 2-cent and 5-cent coins. How many different combinations of coin counts are possible? The order of the coins does not matter.",
+          "hint": "Fix the number of 5-cent coins. What must be true of the amount left?"
+        },
+        {
+          "id": "RWL1-057-B",
+          "title": "Two switches",
+          "prompt": "Two labelled switches A and B each display an integer from 0 to 5. Their readings add to 6. How many different displays are possible?",
+          "hint": "Fix A. Which value of B is then forced?"
+        },
+        {
+          "id": "RWL1-057-C",
+          "title": "Archery scores",
+          "prompt": "An archery target has four scoring rings worth 2, 3, 5 or 8 points. A player hits one ring with each of three arrows and scores 13 in total. How many different lists of the three scores in shooting order are possible?",
+          "hint": "Split by whether an arrow scored 8. Within each group, find the possible three scores before ordering them."
+        },
+        {
+          "id": "RWL1-057-D",
+          "title": "Moving on the grid",
+          "prompt": "A token starts at (0, 0) and chooses a destination (x, y). Both coordinates are whole numbers from 0 to 6. The token must move at least 4 but no more than 6 steps, moving only right or up. How many different destinations are possible?",
+          "hint": "Group destinations by x + y, the number of steps. Multiple routes to one point count once."
+        }
+      ]
+    },
+    {
+      "slot": 58,
+      "headline": "What makes two choices different?",
+      "intro": "Before multiplying, describe what the finished choice looks like. A badge with a symbol and a colour has different places to fill. A group of people doing the same job stays the same group however you list their names.",
+      "example": {
+        "prompt": "A reading club has four books. You may borrow two different books as a pair. How many pairs are there?",
+        "steps": [
+          "There are 4 choices for the first book and 3 for the next, giving 12 ordered lists.",
+          "Every pair appears in two lists, one in each order. Halving 12 gives 6 pairs."
+        ]
+      },
+      "bridge": "In the film, compare choosing a flavour and a topping with choosing two helpers. Keep that distinction in mind when the four-person team has several possible mixtures of skills.",
+      "recap": "Multiply choices that together make one outcome. When several people or objects have identical roles, remove the extra orders of selection. Add alternative group patterns only after checking they are disjoint.",
+      "skill": "COUNT-02",
+      "videoId": "S058",
+      "videoTitle": "Multiplication principle and combinations",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S058-Intro-Illustrated.mp4",
+      "retained": [
+        "O058T",
+        "O058X"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-058-A",
+          "title": "Signal flags",
+          "prompt": "A flag has one of 4 background colours, one of 3 border styles and one of 2 centre symbols. Every combination is allowed. How many flags are possible?",
+          "hint": "Fix a background and count its border-and-symbol choices."
+        },
+        {
+          "id": "RWL1-058-B",
+          "title": "Two librarians",
+          "prompt": "Six students volunteer. Two different volunteers will work together doing the same library job. How many pairs can the teacher assign?",
+          "hint": "Compare a list made by choosing a first and second name with the actual pair."
+        },
+        {
+          "id": "RWL1-058-C",
+          "title": "A balanced box",
+          "prompt": "A shelf has 5 different mystery books and 4 different science books. A box must hold 3 books, including at least one from each group. How many different boxes can be packed?",
+          "hint": "The box can contain either one or two mystery books."
+        },
+        {
+          "id": "RWL1-058-D",
+          "title": "The captain’s badge",
+          "prompt": "Five hikers include two trained navigators. A team of three needs at least one navigator. One of the selected navigators must wear the captain’s badge. How many different team-and-captain choices are possible?",
+          "hint": "Choose the person who wears the badge before choosing the other two."
+        }
+      ]
+    },
+    {
+      "slot": 59,
+      "headline": "Recover a doubling pattern from its total",
+      "intro": "You can work backwards from a total when the pieces double. Write the pattern as equal starting shares, then ask how many shares the whole collection contains. That lets you recover a first term or a missing part.",
+      "example": {
+        "prompt": "Three piles double in size from left to right and contain 42 buttons altogether. How many buttons are in the smallest pile?",
+        "steps": [
+          "The piles contain 1, 2 and 4 copies of the smallest pile. In total that makes 7 equal shares.",
+          "Each share holds 42 ÷ 7 = 6 buttons. The piles 6, 12 and 24 do add to 42."
+        ]
+      },
+      "bridge": "Watch how the film lines up the doubled sum with the original and cancels the middle terms. The same relationship will let you uncover amounts even when the starting value is hidden.",
+      "recap": "Mark whether the given number is one term, several terms, or the budget. Express the needed stretch of terms in starting shares. For a stopping claim, check the next full term against the balance.",
+      "skill": "SEQ-02",
+      "videoId": "S059",
+      "videoTitle": "Doubling, geometric growth and finite sums",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S059-Intro-Illustrated.mp4",
+      "retained": [],
+      "questions": [
+        {
+          "id": "RWL1-059-A",
+          "title": "A segment of the trail",
+          "prompt": "The first trail marker has 4 stripes. Every later marker has twice as many as the previous one. How many stripes are on markers 3, 4 and 5 altogether?",
+          "hint": "Work out which marker has 16 stripes before adding."
+        },
+        {
+          "id": "RWL1-059-B",
+          "title": "Back to day one",
+          "prompt": "A courier delivers twice as many parcels each day as on the previous day. After four days she has delivered 105 parcels altogether. How many did she deliver on day one?",
+          "hint": "How many copies of the first delivery make up four days?"
+        },
+        {
+          "id": "RWL1-059-C",
+          "title": "A missing tray",
+          "prompt": "Six trays hold 5, 10, 20, 40, 80 and 160 tiles. One entire tray is removed. The remaining trays hold 235 tiles together. How many tiles were on the missing tray?",
+          "hint": "Find the total of all six using the next doubling term."
+        },
+        {
+          "id": "RWL1-059-D",
+          "title": "The badge factory",
+          "prompt": "A machine stamps twice as many badges every hour as in the hour before. Production through the end of hour 5 totals 186 badges. How many more badges are stamped in hour 7 alone than in the first five hours together?",
+          "hint": "First express the five-hour total as a number of equal first-hour batches."
+        }
+      ]
+    },
+    {
+      "slot": 60,
+      "headline": "Keep neighbours together",
+      "intro": "When two objects must be neighbours in a row, draw a bracket around them and move them as a unit. Think about what can change inside the bracket once the unit has a position.",
+      "example": {
+        "prompt": "Three different shells, amber, blue and cream, sit in a row. Amber must be immediately to the left of blue. How many rows are possible?",
+        "steps": [
+          "The ordered block amber–blue and the cream shell are two objects to arrange. Either object can come first.",
+          "This gives amber–blue–cream or cream–amber–blue. The wording fixes the order inside the block."
+        ]
+      },
+      "bridge": "In the film’s final row of cards, an arrangement can satisfy two neighbour rules at once. Watch what happens to that shared group when the question allows exactly one.",
+      "recap": "Check whether the words fix the order inside a block. For a forbidden pair, count all rows and take away rows with that pair. For two conditions, decide whether their overlap should count once or disappear.",
+      "skill": "COUNT-03",
+      "videoId": "S060",
+      "videoTitle": "Restricted arrangements and neighbour rules",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S060-Intro-Illustrated.mp4",
+      "retained": [
+        "O060X"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-060-A",
+          "title": "The new arrivals",
+          "prompt": "Three pupils are already in a queue in the order Jo, Uma, Dev. Two more pupils, Eve and Tai, join together. They must be neighbours. The original three stay in their original order. How many queues are possible?",
+          "hint": "How many gaps in and around the existing queue can hold the pair?"
+        },
+        {
+          "id": "RWL1-060-B",
+          "title": "Along the bench",
+          "prompt": "Five different musicians sit in a row. The flute and the drum players may not sit next to each other. How many seatings are possible?",
+          "hint": "Count the forbidden seatings and subtract them from all the seatings."
+        },
+        {
+          "id": "RWL1-060-C",
+          "title": "The sandwich",
+          "prompt": "Six different beads are threaded in a straight line from a marked end. The yellow bead must have the red bead and the green bead as its two immediate neighbours. How many lines are possible?",
+          "hint": "Turn all three special beads into one block. Which bead must be in its middle?"
+        },
+        {
+          "id": "RWL1-060-D",
+          "title": "Who sits beside Bea?",
+          "prompt": "Five friends, including Ana, Bea and Cal, take five seats in a row. Bea must sit next to exactly one of Ana and Cal. How many seatings work?",
+          "hint": "Count Bea beside Ana and Bea beside Cal separately. When do both descriptions apply?"
+        }
+      ]
+    },
+    {
+      "slot": 61,
+      "headline": "Find the area that is easier to see",
+      "intro": "An awkward outline may become simple if you draw the rectangle around it. The whole area can be split into non-overlapping parts. If two shaded pieces cover the same place, keep track of that shared area as well.",
+      "example": {
+        "prompt": "A 6 cm by 5 cm photograph has a 2 cm by 3 cm rectangle cut from one corner. What area remains?",
+        "steps": [
+          "The whole photograph covers 6 × 5 = 30 cm². The missing corner covers 2 × 3 = 6 cm².",
+          "The remaining L-shaped piece covers 30 − 6 = 24 cm²."
+        ],
+        "figure": {
+          "src": "figures/read-practice/S061.svg",
+          "alt": "A 6 by 5 cm rectangle with a 2 by 3 cm corner removed at the top right. Dashed lines show the missing outer corner."
+        }
+      },
+      "bridge": "Look for the corner triangle in the film and then the patch shaded twice. Watch why subtracting the two shaded rectangles needs one correction.",
+      "recap": "Draw an easy surrounding shape and label each area you remove. A shared edge has zero area. An overlapping patch has positive area and must count only once.",
+      "skill": "GEO-02",
+      "videoId": "S061",
+      "videoTitle": "Area decomposition and shaded complements",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S061-Intro-Illustrated.mp4",
+      "retained": [
+        "O061T",
+        "O061X"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-061-A",
+          "title": "The noticeboard",
+          "prompt": "A noticeboard measures 8 cm by 7 cm on a plan. Two separate cards, 2 cm by 4 cm and 3 cm by 5 cm, lie fully inside it and do not overlap. What area is uncovered in square centimetres?",
+          "hint": "Start with the whole plan area, then subtract the two card areas."
+        },
+        {
+          "id": "RWL1-061-B",
+          "title": "A diagonal corner",
+          "prompt": "A right triangle is cut from a corner of a 9 cm by 7 cm sheet. Its perpendicular sides along the sheet edges measure 5 cm and 4 cm. What area remains in square centimetres?",
+          "hint": "How much of a 5 cm by 4 cm rectangle does the triangle occupy?"
+        },
+        {
+          "id": "RWL1-061-C",
+          "title": "Crossing paths",
+          "prompt": "A rectangular park is 14 m long and 9 m wide. A 2 m wide path runs its full length. A 3 m wide path crosses it at right angles and runs the full width of the park. How many square metres of park lie outside both paths?",
+          "hint": "The crossing is a 2 m by 3 m rectangle. What happens to it if both path areas are subtracted?"
+        },
+        {
+          "id": "RWL1-061-D",
+          "title": "A tilted window",
+          "prompt": "On a 12 cm by 8 cm rectangular sheet, mark one point on each side. On the top it is 3 cm from the left corner. On the right it is 2 cm from the top. On the bottom it is 3 cm from the right. On the left it is 2 cm from the bottom. Join consecutive marks to form a window. What is the window area in square centimetres?",
+          "hint": "Draw the four corner triangles. Their perpendicular sides lie along the edges of the sheet."
+        }
+      ]
+    },
+    {
+      "slot": 62,
+      "headline": "Count what is missing",
+      "intro": "If a problem asks for at least one success, it can be easier to count outcomes with none. When two or three rules can hold at once, keep track of their shared outcomes before you subtract.",
+      "example": {
+        "prompt": "A bag can carry any two-letter label made from A, B and C, with repeats allowed. How many labels contain at least one A?",
+        "steps": [
+          "All labels together number 3 × 3 = 9. A label with no A uses only B and C, giving 2 × 2 = 4.",
+          "The other 9 − 4 = 5 labels contain at least one A. This includes AA."
+        ]
+      },
+      "bridge": "In the film, a student may appear on two lists, and a number may appear on three. Track one shared item as each list or overlap is counted.",
+      "recap": "Define the whole set and write the precise opposite condition. For overlapping lists, subtract pair overlaps once. With three lists, restore their triple overlap once before subtracting the union.",
+      "skill": "COUNT-04",
+      "videoId": "S062",
+      "videoTitle": "Complement counting and inclusion–exclusion",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S062-Intro-Illustrated.mp4",
+      "retained": [
+        "O062T",
+        "O062X"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-062-A",
+          "title": "The night display",
+          "prompt": "Each of three windows can independently show a star, a moon or a cloud. How many displays have at least one cloud?",
+          "hint": "Count displays with clear skies first."
+        },
+        {
+          "id": "RWL1-062-B",
+          "title": "A shared shelf",
+          "prompt": "Two shelves hold lists of recommended titles. The first list has 18, the second has 14, and the library finds 26 different titles across the two lists. How many titles appear on both?",
+          "hint": "By how much does the sum of the separate lengths exceed the number of different titles?"
+        },
+        {
+          "id": "RWL1-062-C",
+          "title": "Skip the markers",
+          "prompt": "Banners are numbered from 10 through 50 inclusive. A banner is marked if its number is a multiple of 4 or 6. How many banners remain unmarked?",
+          "hint": "Count multiples inside the stated interval. Common multiples of 4 and 6 repeat every 12."
+        },
+        {
+          "id": "RWL1-062-D",
+          "title": "Three stamps",
+          "prompt": "At an expo 40 visitors can choose which stamps to collect, including none. Twenty collect Shell, 18 collect Leaf and 16 collect Star. There are 9 with Shell and Leaf, 7 with Shell and Star, and 6 with Leaf and Star. Each pair count includes the 3 visitors with all three. How many visitors have no stamp?",
+          "hint": "Follow a visitor with three stamps through “add the single lists, subtract the pair lists”."
+        }
+      ]
+    },
+    {
+      "slot": 65,
+      "headline": "How often did you count each object?",
+      "intro": "A match has two players, and each player can report playing in it. If you add their reports, every match appears twice. Other problems use three people per group or different numbers in different groups. Choose one thing to count from both sides.",
+      "example": {
+        "prompt": "Four children each write a card to each of the other three. How many cards are written?",
+        "steps": [
+          "Each child writes three separate cards. Counting by writers gives 4 × 3 = 12 cards.",
+          "Each card has one writer. A card travelling the opposite way is a different card, so all 12 count."
+        ]
+      },
+      "bridge": "Compare those cards with the film’s handshakes. Then follow one helper-room booking as it is counted first by room and then by helper.",
+      "recap": "Name the object before adding reports. A match has two endpoints; a booking links one person to one place. Divide only by the number of times your counting rule records each object.",
+      "skill": "COUNT-05",
+      "videoId": "S065",
+      "videoTitle": "Double-counting and shared objects",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S065-Intro-Illustrated.mp4",
+      "retained": [
+        "O065T",
+        "O065X"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-065-A",
+          "title": "Glass triangles",
+          "prompt": "Six triangular glass pieces meet at one shared corner. All their other corners are separate. One dot marks each distinct corner position. How many dots are there?",
+          "hint": "Count the corners that belong to just one triangle, then the corner they all share."
+        },
+        {
+          "id": "RWL1-065-B",
+          "title": "Inside a wheel",
+          "prompt": "A wheel drawing has 9 points evenly spaced on its rim and one at its centre. An edge joins every pair of consecutive rim points, including the last and first. There is also one spoke from each rim point to the centre. How many edges are drawn?",
+          "hint": "Count the edges touching each rim point and the centre, or count rim edges and spokes separately."
+        },
+        {
+          "id": "RWL1-065-C",
+          "title": "Workshop rota",
+          "prompt": "At camp, 8 pupils each attend 2 workshops and 6 other pupils each attend 3. The drama workshop has 4 pupils. Every other workshop has 5. How many workshops are there altogether?",
+          "hint": "Count pupil–workshop bookings, then account for the drama bookings separately."
+        },
+        {
+          "id": "RWL1-065-D",
+          "title": "Friends at the party",
+          "prompt": "Eight people are at a party. Friendship goes both ways. Everyone has either three or four friends among the others. Altogether there are 14 different pairs of friends. How many people have four friends?",
+          "hint": "Imagine first giving everyone three reported friendships. Compare that with the number of endpoints of 14 pairs."
+        }
+      ]
+    },
+    {
+      "slot": 66,
+      "headline": "One or two short of a full group",
+      "intro": "Take 11 counters. Groups of 3 leave 2 loose, and groups of 4 leave 3 loose. In each case the loose counters are just one short of a full group. Moving every candidate by the same small amount can turn two different remainders into one common-multiple problem.",
+      "example": {
+        "prompt": "What is the smallest positive number that leaves 3 when divided by 4 and 5 when divided by 6?",
+        "steps": [
+          "Both remainders are one short of the group size. Add 1, and the new number must be divisible by both 4 and 6.",
+          "Their first positive common multiple is 12. Undo the shift to get 11, and check both remainders."
+        ]
+      },
+      "bridge": "On the film’s ruler, watch the two endpoints move with the candidates. When the marks slide back, notice whether the last one still lies inside the original interval.",
+      "recap": "Check how far each remainder is from a full group. If the same shift works for every divisor, shift both ends of the interval too. Undo the shift and include or exclude endpoints exactly as the question says.",
+      "skill": "DIV-03",
+      "videoId": "S066",
+      "videoTitle": "Divisibility tests and modular remainders",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S066-Intro-Illustrated-v2.mp4",
+      "retained": [
+        "O066T"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-066-A",
+          "title": "Two empty spaces",
+          "prompt": "A tin contains a positive number of buttons. Filling trays of 5 leaves 3 buttons loose. Filling trays of 7 leaves 5 loose. What is the smallest possible number of buttons?",
+          "hint": "Both partial trays need two more buttons."
+        },
+        {
+          "id": "RWL1-066-B",
+          "title": "The missing digit",
+          "prompt": "A three-digit number begins with 73. It is divisible by both 4 and 3. What is its final digit?",
+          "hint": "Test the last two digits for divisibility by 4, then test the digit sum."
+        },
+        {
+          "id": "RWL1-066-C",
+          "title": "Between the gates",
+          "prompt": "A number is greater than 46 and at most 118. It leaves 4 when divided by 6 and 6 when divided by 8. How many such numbers are there?",
+          "hint": "Add 2 to both ends. Is the lower gate included?"
+        },
+        {
+          "id": "RWL1-066-D",
+          "title": "The leftover marble",
+          "prompt": "A collector has between 100 and 200 marbles, including the endpoints. Packing them in trays of 7 leaves 1 marble. Packing them in trays of 9 also leaves 1 marble. The total is even. How many marbles are there?",
+          "hint": "What change would remove the identical leftover from either type of packing?"
+        }
+      ]
+    },
+    {
+      "slot": 67,
+      "headline": "Give every possibility one home",
+      "intro": "An awkward count becomes shorter when you split it into groups. Choose a feature that every outcome has exactly once, such as the position of a special item. Then count each group using just the rules that apply to it.",
+      "example": {
+        "prompt": "There are two hats, one plain and one striped, and three scarves, one plain and two different striped ones. How many hat-and-scarf outfits have exactly one striped item?",
+        "steps": [
+          "Striped hat with plain scarf makes one outfit. Plain hat with a striped scarf makes two.",
+          "The striped item is in a different place in the two groups. Add 1 + 2 to get 3 outfits."
+        ]
+      },
+      "bridge": "In the film’s exhibit puzzle, use the colour of the middle room to read each case. Notice which case has an extra restriction on exhibit B.",
+      "recap": "Name the feature that puts an outcome in a row. Check that every allowed outcome has exactly one row, then add the row counts. Read a restriction inside its own case before carrying it into another.",
+      "skill": "COUNT-06",
+      "videoId": "S067",
+      "videoTitle": "Partitioning into non-overlapping cases",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S067-Intro-Illustrated.mp4",
+      "retained": [
+        "O067T",
+        "O067X"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-067-A",
+          "title": "Biscuit box",
+          "prompt": "Choose one biscuit from each of two trays. The first tray has two different iced biscuits and one plain biscuit. The second has one iced biscuit and four different plain biscuits. How many choices give exactly one iced biscuit?",
+          "hint": "Which tray can supply the iced biscuit?"
+        },
+        {
+          "id": "RWL1-067-B",
+          "title": "At the starting line",
+          "prompt": "Four different runners line up. Ava must be either first or last. In how many different orders can they stand?",
+          "hint": "Count Ava at each end as its own case."
+        },
+        {
+          "id": "RWL1-067-C",
+          "title": "The short password",
+          "prompt": "A password is a row of three different symbols chosen from A, B, C, 1 and 2. It must start with a letter and include at least one digit. How many passwords are possible?",
+          "hint": "After the first letter, classify the last two places by how many digits they contain."
+        },
+        {
+          "id": "RWL1-067-D",
+          "title": "The three stops",
+          "prompt": "A guide chooses three different stops in order from an arch, a bridge, a cave, a dock and an orchard. The arch must be included. When the arch is the middle stop, the orchard cannot be visited. How many itineraries are allowed?",
+          "hint": "Split according to the position of the arch. Apply the orchard rule only when it is in force."
+        }
+      ]
+    },
+    {
+      "slot": 68,
+      "headline": "Follow the truth of the whole claim",
+      "intro": "In these puzzles each person either always tells the truth or always lies. A proposed assignment works only when every statement has the right truth value for its speaker. Sometimes two claims fix a relationship before you can name a single truth-teller.",
+      "example": {
+        "prompt": "Bo always lies. He says, “Mira is a liar.” What must Mira be?",
+        "steps": [
+          "Bo’s statement must be false. So the description “Mira is a liar” is false.",
+          "The only other possibility is that Mira is truthful."
+        ]
+      },
+      "bridge": "When Kai says both people are liars in the film, test the whole sentence. Then follow the links in the four-person puzzle and notice which statement becomes settled first.",
+      "recap": "Translate each speaker’s words into a condition. A truthful speaker must match it and a liar must contradict it. For “both” to be false, just one part needs to fail. Check every claim in the final assignment.",
+      "skill": "LOGIC-01",
+      "videoId": "S068",
+      "videoTitle": "Truth-tellers, liars and contradiction",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S068-Intro-Illustrated.mp4",
+      "retained": [
+        "O068T",
+        "O068X"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-068-A",
+          "title": "The sealed envelope",
+          "prompt": "Exactly one of two envelopes, red and gold, has a ticket. Tess always lies. She says, “The gold envelope is empty.” Which envelope has the ticket? Enter red or gold.",
+          "hint": "The whole claim about the gold envelope must be false."
+        },
+        {
+          "id": "RWL1-068-B",
+          "title": "The two switches",
+          "prompt": "Each of two switches is on or off. A liar says, “Both switches are on.” You can see that the left switch is on. Is the right switch on or off? Enter on or off.",
+          "hint": "With the left switch already on, what would make the whole sentence false?"
+        },
+        {
+          "id": "RWL1-068-C",
+          "title": "Is the gate open?",
+          "prompt": "Exactly one of Lee and Mo always tells the truth. The other always lies. Lee says, “Mo tells the truth and the gate is open.” Mo says, “The gate is closed.” Is the gate open or closed? Enter open or closed.",
+          "hint": "Test the two possible gate positions. Count how many speakers would be truthful in each case."
+        },
+        {
+          "id": "RWL1-068-D",
+          "title": "The lighthouse crew",
+          "prompt": "Each crew member always tells the truth or always lies. Ari says, “Bev is a liar.” Bev says, “Cy is a liar.” Cy says, “Ari and Bev are the same type.” How many of the three are truthful?",
+          "hint": "Use Ari’s statement to determine a relationship between Ari and Bev before deciding either type."
+        }
+      ]
+    }
+  ]
+}

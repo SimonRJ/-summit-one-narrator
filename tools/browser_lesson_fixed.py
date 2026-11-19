@@ -5,12 +5,118 @@ import ast,asyncio,os,shutil
 from pathlib import Path
 from playwright.async_api import async_playwright
 ROOT=Path(__file__).resolve().parents[1]
+SCREENSHOTS=Path(os.environ.get('SUMMIT_SCREENSHOT_DIR', ROOT/'docs'))
+SCREENSHOTS.mkdir(parents=True, exist_ok=True)
 tree=ast.parse((ROOT/'tools/browser_checks.py').read_text())
 MOCK=next(node.value.value for node in tree.body if isinstance(node,ast.Assign) and any(isinstance(t,ast.Name) and t.id=='MOCK' for t in node.targets))
+async def verify_revised_lessons(browser):
+ """Exercise the published S001/002 route using a synthetic learner and grading service."""
+ ctx=await browser.new_context(viewport={'width':390,'height':844}, service_workers='block')
+ calls=[]
+ async def mock_api(route):
+  await route.fulfill(content_type='application/javascript', body=MOCK.replace(
+   'functions:{invoke:async(name,{body})=>({data:',
+   'functions:{invoke:async(name,{body})=>(await window.fixtureInvoke(name,body),{data:'))
+ await ctx.expose_function('fixtureInvoke', lambda name,body: calls.append((name,body)))
+ await ctx.route('**/supabase-client.js*', mock_api)
+ page=await ctx.new_page()
+ errors=[]
+ page.on('pageerror',lambda err: errors.append(str(err)))
+ await page.goto('http://127.0.0.1:8765/')
+ await page.locator('#continue').click()
+ read=page.locator('.rwl-example')
+ await read.wait_for()
+ assert await read.locator('li').count()>=2
+ assert await page.locator('.rwl-bridge').is_visible()
+ assert not await page.locator('#openingVideo,.rwl-form').count()
+ async def fits():
+  box=await page.evaluate("""() => {
+   const el=document.querySelector('.lesson-screen-stage'), f=document.querySelector('.lesson-screen-footer').getBoundingClientRect();
+   return {windowX:document.documentElement.scrollWidth-innerWidth, stageX:el.scrollWidth-el.clientWidth,
+     footerTop:f.top, footerBottom:f.bottom, height:innerHeight};
+  }""")
+  assert box['windowX']<=2 and box['stageX']<=2 and 0<=box['footerTop']<box['footerBottom']<=box['height']+2, box
+ await fits()
+ await page.screenshot(path=str(SCREENSHOTS/'read-session-1-iphone.png'))
+ next_button=page.locator('[data-screen-next]')
+ back=page.locator('[data-screen-back]')
+ async def play_phase(slot):
+  await next_button.click()
+  video=page.locator('#openingVideo')
+  await video.wait_for()
+  assert f'S{slot:03}-Intro.mp4' in await video.get_attribute('src')
+  assert await video.get_attribute('controls') is not None
+  assert 'Watch' in await page.locator('[aria-current="step"]').inner_text()
+  await fits()
+ await play_phase(1)
+ await next_button.click()
+ await page.locator('.rwl-form').wait_for()
+ assert 'Practise' in await page.locator('[aria-current="step"]').inner_text()
+ question_ids=await page.evaluate('fixture.records[0].summary.problems')
+ assert len(question_ids)>=4 and len(set(question_ids))==len(question_ids)
+ for index,qid in enumerate(question_ids):
+  await page.locator('.rwl-form').wait_for()
+  assert not await page.locator('.rwl-solution').is_visible()
+  assert await next_button.is_disabled()
+  assert not await page.locator('.rwl-problem textarea').count()
+  if index==0:
+   await page.locator('.rwl-hint summary').click()
+   await page.locator('.rwl-hint p').wait_for()
+   await page.locator('.rwl-hint summary').click()
+  if index==len(question_ids)-1:
+   assert await page.get_by_text('UNFAMILIAR CHALLENGE',exact=True).is_visible()
+  await page.locator('.rwl-form input').fill('12')
+  await page.locator('.rwl-form button').click()
+  await page.wait_for_function("!document.querySelector('[data-screen-next]').disabled")
+  assert calls[-1][0]=='submit-problem-attempt' and calls[-1][1]['problem_id']==qid
+  if index==0:
+   assert calls[-1][1]['used_help'] is True
+   await page.locator('.rwl-solution').click()
+   await page.locator('.rwl-steps').wait_for()
+   assert calls[-1][0]=='get-problem-solution' and calls[-1][1]['problem_id']==qid
+   assert 'Six plus six' in await page.locator('.rwl-steps').inner_text()
+   await fits()
+   await back.click()
+   await next_button.click()
+   assert await page.locator('.rwl-form input').is_disabled()
+   assert await page.locator('.rwl-form input').input_value()=='12'
+  await next_button.click()
+ await page.locator('.rwl-results').wait_for()
+ assert await page.locator('[data-revisit]').count()==len(question_ids)
+ await fits()
+ await next_button.click()
+ await page.locator('#continue').wait_for()
+ assert await page.evaluate('fixture.records[0].immutable && fixture.progress.completed_sessions===1')
+ snapshot=await page.evaluate('JSON.stringify(fixture.records[0])')
+ await page.locator('#menuToggle').click()
+ await page.locator('[data-menu-action="review"]').click()
+ await page.locator('[data-review-session="1"] summary').click()
+ await page.locator('[data-revised-copy="1"]').click()
+ await read.wait_for()
+ assert await page.locator('.rwl-review-note').is_visible()
+ await back.click()
+ assert snapshot==await page.evaluate('JSON.stringify(fixture.records[0])')
+ await page.locator('#menuToggle').click()
+ await page.locator('[data-menu-action="continue"]').click()
+ await read.wait_for()
+ await play_phase(2)
+ await back.click()
+ assert await read.is_visible()
+ for width,height in [(320,568),(390,844),(820,1180),(1024,768),(1366,768)]:
+  await page.set_viewport_size({'width':width,'height':height})
+  await fits()
+ await ctx.close()
+ assert not errors,errors
+ print(f'PASS: revised S001 Read → Watch → Practise through all {len(question_ids)} attempts, gated solutions, saved results, lock and S002 opening.',flush=True)
+
 async def main():
  async with async_playwright() as p:
-  browser=await p.chromium.launch(headless=True,executable_path=shutil.which('google-chrome'),args=['--no-sandbox'])
+  browser=await p.chromium.launch(headless=True,executable_path=shutil.which('google-chrome') or shutil.which('chromium'),args=['--no-sandbox'])
+  await verify_revised_lessons(browser)
   ctx=await browser.new_context(viewport={'width':390,'height':844},service_workers='block')
+  # Feed the historical fixture its original lesson edition. Later lessons still
+  # use this renderer; the separate S094 case also checks its live manifest route.
+  await ctx.route('**/data/read-watch-practise.json*',lambda route:route.fulfill(json={'lessons':[]}))
   await ctx.route('**/supabase-client.js*',lambda route:route.fulfill(content_type='application/javascript',body=MOCK))
   page=await ctx.new_page(); errors=[]
   page.on('pageerror',lambda e:errors.append(str(e)))
@@ -77,7 +183,7 @@ async def main():
   assert 'Source Sans 3' in branding['ui'] and 'Source Serif 4' in branding['heading'],branding
   assert branding['mark']=='summit-mark.svg' and branding['markWidth']>=28,branding
 
-  await page.screenshot(path=str(ROOT/'docs/focus-learning-home-iphone.png'))
+  await page.screenshot(path=str(SCREENSHOTS/'focus-learning-home-iphone.png'))
   await page.locator('#menuToggle').click()
   assert await page.locator('#courseMenu').evaluate('(node)=>node.open')
   assert (await page.locator('#navProgress').inner_text()).strip()=='0 / 372'
@@ -91,7 +197,7 @@ async def main():
   assert await page.locator('.course-menu-session.is-locked').count()==23
   slots=await page.locator('.course-menu-session .course-menu-number').all_text_contents()
   assert [int(n) for n in slots]==sorted(int(n) for n in slots)
-  await page.screenshot(path=str(ROOT/'docs/lesson-menu-iphone.png'))
+  await page.screenshot(path=str(SCREENSHOTS/'lesson-menu-iphone.png'))
   await page.locator('[data-menu-back="sections"]').click()
   await page.locator('[data-menu-group="DIG"]').click()
   assert await page.locator('.course-menu-session.is-locked').count()==26
@@ -223,7 +329,7 @@ async def main():
   assert 'Final answer: 42' in await spatial_card.locator('.solution-panel details[open] p').text_content()
   assert await spatial_page.evaluate('document.documentElement.scrollWidth <= innerWidth+2')
   await spatial_page.locator('.lesson-screen-stage').evaluate('(stage)=>stage.scrollTop=0')
-  await spatial_page.screenshot(path=str(ROOT/'docs/spatial-solution-iphone.png'))
+  await spatial_page.screenshot(path=str(SCREENSHOTS/'spatial-solution-iphone.png'))
   await spatial_ctx.close()
 
   # Confirm ordinary arithmetic becomes semantic TeX without changing saved data.
@@ -265,7 +371,7 @@ async def main():
   assert alignment['verticalAlign']=='baseline',alignment
   assert not alignment['wrapped'] and abs(alignment['mathTop']-alignment['leftTop'])<14,alignment
   assert alignment['mathSource']=='100 − 1' and alignment['punctuation']=='.',alignment
-  await page.screenshot(path=str(ROOT/'docs/math-inline-baseline-iphone.png'))
+  await page.screenshot(path=str(SCREENSHOTS/'math-inline-baseline-iphone.png'))
   await page.locator('#math-baseline-probe').evaluate('(node)=>node.remove()')
 
   assert await page.locator('#openingVideo').count()==1
@@ -273,7 +379,7 @@ async def main():
   assert 'Video' in await page.locator('.lesson-stage-track .here').inner_text()
   await fits()
   await scroll_probe()  # Taller-than-screen lesson content must scroll; Back/Next stays fixed.
-  await page.screenshot(path=str(ROOT/'docs/video-first-session-1-iphone.png'))
+  await page.screenshot(path=str(SCREENSHOTS/'video-first-session-1-iphone.png'))
   await next_page()
   assert 'Remember' in await page.locator('.lesson-stage-track .here').inner_text()
   await fits()
@@ -283,7 +389,7 @@ async def main():
   assert 'Discover' in await page.locator('.lesson-stage-track .here').inner_text()
   await until_visible('.flash-quiz')
   await fits()
-  await page.screenshot(path=str(ROOT/'docs/lesson-flash-iphone.png'))
+  await page.screenshot(path=str(SCREENSHOTS/'lesson-flash-iphone.png'))
   for k in range(5):
    choice=await page.evaluate(f"import('./flash-cards.js?v=recognition-20261113').then(m=>m.flashDeck('DIV-03',1,1)[{k}].answer)")
    await page.locator('.flash-option').nth(choice).click()
@@ -318,7 +424,7 @@ async def main():
   assert 'Where this maths can lead' in await page.locator('.lesson-screen-progress').inner_text()
   await fits()
   await scroll_probe()
-  await page.screenshot(path=str(ROOT/'docs/advanced-connection-iphone.png'))
+  await page.screenshot(path=str(SCREENSHOTS/'advanced-connection-iphone.png'))
   await page.locator('.advanced-path-curiosity summary').click()
   assert await page.locator('.advanced-path-curiosity-body').is_visible()
   # The enrichment screen intentionally contains no video or further-reading
@@ -371,7 +477,7 @@ async def main():
   assert heading['text']=='TRANSFER · PROBLEM 1 OF 3',heading
   assert heading['mathNodes']==0 and heading['italic']=='normal',heading
   assert 'Source Sans 3' in heading['family'] and heading['scrollWidth']<=heading['width']+2,heading
-  await page.screenshot(path=str(ROOT/'docs/transfer-label-iphone.png'))
+  await page.screenshot(path=str(SCREENSHOTS/'transfer-label-iphone.png'))
   for k in range(3):
    input_sel=f'.lesson-extra-unit [data-extra-question="{k}"] .response'
    await until_visible(input_sel)
@@ -391,7 +497,7 @@ async def main():
   assert await page.locator('.lesson-check-summary').count()==1
   assert '6 / 6' in await page.locator('.lesson-check-summary').inner_text()
   await fits()
-  await page.screenshot(path=str(ROOT/'docs/lesson-final-iphone.png'))
+  await page.screenshot(path=str(SCREENSHOTS/'lesson-final-iphone.png'))
   await next_page()
   await page.locator('#continue').wait_for()
   assert await page.evaluate('fixture.records[0].immutable===true && fixture.progress.completed_sessions===1')
@@ -418,7 +524,7 @@ async def main():
   now=await page.evaluate("""() => ({writes:fixture.writes.length,done:fixture.progress.completed_sessions,
     answer:fixture.records[0].answers,working:fixture.records[0].working,immutable:fixture.records[0].immutable})""")
   assert now==snapshot,('Video replay must be completely read-only',snapshot,now)
-  await page.screenshot(path=str(ROOT/'docs/completed-lesson-intro-iphone.png'))
+  await page.screenshot(path=str(SCREENSHOTS/'completed-lesson-intro-iphone.png'))
   await page.locator('#replayBack').click()
   await page.locator('.review-detail[data-review-session="1"][open]').wait_for()
   assert await page.locator('.saved-intro[data-video-session="1"]').count()==1
@@ -429,7 +535,7 @@ async def main():
   await page.locator('#courseMenuContent [data-menu-action="continue"]').click()
   assert 'S002-Intro.mp4' in await page.locator('#openingVideo').get_attribute('src')
   await fits()
-  await page.screenshot(path=str(ROOT/'docs/video-first-session-2-iphone.png'))
+  await page.screenshot(path=str(SCREENSHOTS/'video-first-session-2-iphone.png'))
   for viewport in [
    {'width':820,'height':1180},  # iPad portrait
    {'width':1024,'height':768},  # iPad landscape
@@ -440,7 +546,7 @@ async def main():
    await page.set_viewport_size(viewport)
    await fits()
    await scroll_probe()
-  await page.screenshot(path=str(ROOT/'docs/video-first-session-2-desktop.png'))
+  await page.screenshot(path=str(SCREENSHOTS/'video-first-session-2-desktop.png'))
   await page.locator('[data-screen-back]').click()
   await page.locator('#continue').wait_for()
   assert not errors,errors

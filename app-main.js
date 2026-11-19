@@ -1,3 +1,4 @@
+import {edition as readEdition, questionOrder, renderReviewedLesson, restoreGradedAnswers} from './reviewed-lesson.js?v=read-practise-1';
 import {mixedFlashDeck} from './flash-cards.js?v=content-audit-20261113';
 import {wordingHTML} from './recognition.js?v=recognition-20261113';
 import {bridgeHTML,mountPractice} from './transfer-practice.js?v=content-audit-20261113';
@@ -23,6 +24,8 @@ const app=document.getElementById("app");
 const problemTemplate=document.getElementById("problemTemplate");
 let course=[], teaching=[], mawa=[], rossMap=[], taxonomy=null, milestones=null, problemIndex=[], progress=null, user=null, activeView="home", activeStage=-1, activeLessonPanel=0, lessonPager=null;
 let lessonManifest=[];
+let reviewedLessons=new Map(),reviewedQuestions=new Map();
+let pendingReviewedChange=Promise.resolve();
 let courseNavigation=null,mainMenu=null;
 let currentProblems=[], currentMawa=null, sessionDraft={answers:{},working:{},evidence:{},summary:{}};
 let attemptedProblemIds=new Set();
@@ -168,11 +171,12 @@ async function boot(){
     user=await currentUser();
     if(!user){location.href="login.html";return}
     const introCatalogue=loadIntroductionCatalogue();
-    const [c,t,m,h,tax,ms,lm]=await Promise.all([fetch("data/sessions-372.json").then(r=>r.json()),fetch("data/teaching-72.json").then(r=>r.json()),fetch("data/mawa-investigations-20.json").then(r=>r.json()),fetch("data/rossmoyne-h23.json").then(r=>r.json()),fetch("data/taxonomy-52.json").then(r=>r.json()),fetch("data/milestones.json").then(r=>r.json()),fetch("data/lesson-challenges.json?v=upper-primary-audit-20261114").then(r=>r.json())]);
+    const [c,t,m,h,tax,ms,lm,rl]=await Promise.all([fetch("data/sessions-372.json").then(r=>r.json()),fetch("data/teaching-72.json").then(r=>r.json()),fetch("data/mawa-investigations-20.json").then(r=>r.json()),fetch("data/rossmoyne-h23.json").then(r=>r.json()),fetch("data/taxonomy-52.json").then(r=>r.json()),fetch("data/milestones.json").then(r=>r.json()),fetch("data/lesson-challenges.json?v=upper-primary-audit-20261114").then(r=>r.json()),fetch("data/read-watch-practise.json?v=read-practise-1").then(r=>{if(!r.ok)throw Error("Lesson text could not be loaded");return r.json()})]);
+    reviewedLessons=new Map(rl.lessons.map(l=>[l.slot,l]));reviewedQuestions=new Map(rl.lessons.flatMap(l=>l.questions.map(q=>[q.id,q])));
     course=c.sessions; teaching=t.items; mawa=m.items; rossMap=h.items; taxonomy=tax; milestones=ms;lessonManifest=lm.items;courseNavigation=buildCourseNavigation(course,taxonomy);
     const {data:problems,error}=await supabase.from("content_problems_student").select("id,source_type,title,source_label,category,difficulty,prompt,unit").eq("source_type","original_authored").order("id");
     if(error)throw error; problemIndex=problems||[];
-    attemptHistory=await allRows(()=>supabase.from('problem_attempts').select('problem_id,independent_credit,is_correct,created_at').eq('user_id',user.id).not('answer_text','is',null).order('created_at').order('id'));
+    attemptHistory=await allRows(()=>supabase.from('problem_attempts').select('problem_id,session_number,answer_text,evidence_level,independent_credit,is_correct,created_at').eq('user_id',user.id).not('answer_text','is',null).order('created_at').order('id'));
     attemptedProblemIds=new Set(attemptHistory.map(x=>x.problem_id));
     progress=await loadProgress();
     if(!progress)progress=await saveProgress({current_session:0,completed_sessions:0,xp:0,rank:0,overall_percent:0,state:{}});
@@ -187,6 +191,7 @@ async function boot(){
 
 function updateNavProgress(){mainMenu?.refreshProgress()}
 async function navigateMenuView(view){
+ await pendingReviewedChange;
  const loadToken=window.SummitLoader?.beginSmall("Opening "+({home:"Learning",profile:"Progress",review:"Completed sessions",repairs:"Repairs",roadmap:"Readiness"}[view]||"section"));
  try{
  if(editingSession){
@@ -204,6 +209,7 @@ async function navigateMenuView(view){
  }finally{window.SummitLoader?.endSmall(loadToken)}
 }
 async function continueFromMenu(){
+ await pendingReviewedChange;
  const done=Number(progress?.completed_sessions)||0;
  if(done>=372){await navigateMenuView("profile");return}
  const session=courseSession();
@@ -224,6 +230,7 @@ function lessonIntroPlayer(id,title,elementId){
    aria-label="${esc(title)} · animated introduction with English captions"></video>`;
 }
 async function openLessonIntroductionFromMenu(slot){
+ await pendingReviewedChange;
  const loadToken=window.SummitLoader?.beginSmall("Preparing lesson video");
  try{
  const item=course.find(s=>s.slot===slot&&s.type==="LESSON");
@@ -340,6 +347,12 @@ async function startSession(s){
     activeLessonPanel=Math.max(0,Number(sessionDraft.summary.lesson_panel)||0);
   }else{activeStage=0;activeLessonPanel=0;}
   editingSession=s;
+  if(s.type==='LESSON'&&reviewedLessons.has(s.slot)){
+    const l=reviewedLessons.get(s.slot),previous=sessionDraft.summary.problems||[];
+    const qs=questionOrder(l,problemIndex,lessonManifest),ids=qs.map(q=>q.id);
+    sessionDraft.summary={...sessionDraft.summary,learning_version:readEdition,problems:ids,skill_id:l.skill,focus:s.focus,type:s.type,phase:s.phase,previous_problem_ids:[...new Set([...(sessionDraft.summary.previous_problem_ids||[]),...previous.filter(id=>!ids.includes(id))])]};
+    await saveDraft(s);showReadPractice(s,l,qs,sessionDraft);return;
+  }
   const previous=sessionDraft.summary.problems||[];
   currentProblems=chooseProblems(s);
   // Preserve saved answers and working, including legacy drafts, but replace the active tasks.
@@ -351,6 +364,40 @@ async function startSession(s){
  finally{window.SummitLoader?.endSmall(loadToken)}
 }
 
+// Revised lessons share the same signed-in, attempt-gated marking as the original problems.
+function showReadPractice(s,l,questions,draft,locked=false){
+ document.body.classList.remove('home-focus','lesson-video-review');document.body.classList.add('lesson-fullscreen');setLessonScreenTopbar();
+ const reviewKey=`summit-revision:${user.id}:${s.slot}:${readEdition}`;
+ const persistReview=()=>localStorage.setItem(reviewKey,JSON.stringify(draft));
+ const seen=family=>familySeen(completedRecords,family);
+ restoreGradedAnswers(l,questions,draft,attemptHistory,seen);
+ const trackChange=work=>{
+  const request=work();
+  pendingReviewedChange=request.catch(()=>{});
+  return request;
+ };
+ const invoke=async(name,body,kind)=>{const {data,error}=await supabase.functions.invoke(name,{body});if(error)throw Error(await learningFunctionError(error,kind));if(data?.error||!data)throw Error(data?.error||'No response. Please retry.');return data};
+ renderReviewedLesson({app,s,l,questions,draft,locked,figure:q=>originalFigure(q)||problemFigure(q.id),
+  video:()=>lessonIntroId(s.slot)?lessonIntroPlayer(lessonIntroId(s.slot),l.videoTitle,'openingVideo'):`<video id="openingVideo" controls playsinline preload="metadata" src="${esc(l.movie)}" aria-label="${esc(l.videoTitle)}"></video>`,
+  recordWatch:locked?()=>{}:detail=>recordVideoEvidence(s.slot,l.videoId+'-Intro','lesson_intro',detail).catch(()=>{}),
+  attempt:async(id,response,help,familiar)=>{const g=await invoke('submit-problem-attempt',{problem_id:id,session_number:s.slot,answer_text:response,used_help:help,familiar_family:locked||familiar},'attempt');attemptedProblemIds.add(id);
+   attemptHistory.push({problem_id:id,session_number:s.slot,answer_text:response,evidence_level:help?'guided':'independent',independent_credit:g.independent_credit===true,is_correct:g.correct,created_at:new Date().toISOString()});
+   return g},
+  getSolution:id=>invoke('get-problem-solution',{problem_id:id,session_number:s.slot},'solution'),
+  wasSeen:seen,trackChange,save:locked?persistReview:()=>saveDraft(s),markLocal:locked?persistReview:rememberDraft,
+  complete:async()=>{if(locked){persistReview();await openCompletedFromMenu(s.slot);return}if(!questions.every(q=>draft.answers[q.id]))throw Error('Attempt each problem before finishing.');
+   draft.summary.takeaway=l.recap;await trackChange(()=>completeSpecialSession(s))},
+  home:async()=>{if(locked){persistReview();await openCompletedFromMenu(s.slot);return}await saveDraft(s);editingSession=null;document.body.classList.remove('lesson-fullscreen');renderHome()}
+ });
+}
+function openRevisedCopy(slot){
+ const record=completedRecords.find(x=>x.session_number===slot),l=reviewedLessons.get(slot);if(!record||!l)return;
+ const s=course.find(x=>x.slot===slot),key=`summit-revision:${user.id}:${slot}:${readEdition}`;
+ const stored=JSON.parse(localStorage.getItem(key)||'null');
+ const draft=stored||{answers:structuredClone(record.answers||{}),working:{},evidence:structuredClone(record.evidence||{}),summary:{}};
+ draft.summary.read_practice_page=0;editingSession=null;
+ showReadPractice(s,l,questionOrder(l,problemIndex,lessonManifest),draft,true);
+}
 function mawaExtension(s,item){
   const ordinal=Math.floor(s.slot/7);
   const cycle=Math.floor((ordinal-1)/20);
@@ -682,11 +729,12 @@ function renderWorkshop(s){
 async function renderReview(){
  document.body.classList.remove("lesson-fullscreen","home-focus","lesson-video-review");
  activeView="review";await Promise.all([refreshEvidence(),loadIntroductionCatalogue()]);
- app.innerHTML=`<section class="panel hero-panel"><div class="eyebrow">YOUR MATHEMATICAL NOTEBOOK</div><h1>Completed sessions</h1><p class="muted">The original answers and working are locked. Use a fresh session to show new learning.</p>${[...completedRecords].reverse().map(r=>`<details class="review-detail" data-review-session="${r.session_number}"><summary>Session ${r.session_number} · ${esc(r.summary?.focus||course[r.session_number-1]?.focus||'')} <span class="type-chip">LOCKED</span></summary>${course[r.session_number-1]?.type==="LESSON"?`<button type="button" class="secondary saved-intro" data-video-session="${r.session_number}">${lessonIntroId(r.session_number)?"Watch introduction video":"Review lesson teaching"}</button>`:""}${r.summary?.takeaway?`<p><b>Key idea:</b> ${esc(r.summary.takeaway)}</p>`:""}${r.summary?.watch?`<p><b>Next time:</b> ${esc(r.summary.watch)}</p>`:""}${r.evidence?.mawa_base?.status?`<p>Mathematical investigation completed in a paper notebook. ${r.evidence.mawa_extension?.status?"Extension completed on paper.":""} Saved rubric scores are available above.</p>`:""}${Object.entries(r.answers||{}).map(([id,a])=>{
- const problem=problemIndex.find(entry=>entry.id===id);
+ app.innerHTML=`<section class="panel hero-panel"><div class="eyebrow">YOUR MATHEMATICAL NOTEBOOK</div><h1>Completed sessions</h1><p class="muted">The original answers and working are locked. Use a fresh session to show new learning.</p>${[...completedRecords].reverse().map(r=>`<details class="review-detail" data-review-session="${r.session_number}"><summary>Session ${r.session_number} · ${esc(r.summary?.focus||course[r.session_number-1]?.focus||'')} <span class="type-chip">LOCKED</span></summary>${course[r.session_number-1]?.type==="LESSON"?`<button type="button" class="secondary saved-intro" data-video-session="${r.session_number}">${lessonIntroId(r.session_number)?"Watch introduction video":"Review lesson teaching"}</button>`:""}${reviewedLessons.has(r.session_number)?`<button class="secondary" type="button" data-revised-copy="${r.session_number}">Read the lesson and revisit practice</button>`:""}${r.summary?.takeaway?`<p><b>Key idea:</b> ${esc(r.summary.takeaway)}</p>`:""}${r.summary?.watch?`<p><b>Next time:</b> ${esc(r.summary.watch)}</p>`:""}${r.evidence?.mawa_base?.status?`<p>Mathematical investigation completed in a paper notebook. ${r.evidence.mawa_extension?.status?"Extension completed on paper.":""} Saved rubric scores are available above.</p>`:""}${Object.entries(r.answers||{}).map(([id,a])=>{
+ const problem=reviewedQuestions.get(id)||problemIndex.find(entry=>entry.id===id);
  const learning=lessonManifest.find(entry=>entry.id===id);
  const figure=problem ? originalFigure({...problem,learning}) : '';
  return `<article><h3>${esc(problem?.title||id)}</h3>${figure}<p class="math-copy">${esc(problem?.prompt||'')}</p><p><b>Recorded answer:</b> ${esc(a?.response??a)}</p><p class="math-copy">${esc(r.working?.[id]||'')}</p><button class="ghost saved-solution" data-problem="${esc(id)}" data-session="${r.session_number}">Worked solution</button><div class="saved-solution-content"></div>${r.evidence?.['reasoning:'+id]?`<p><b>Recognition clue:</b> ${esc(r.evidence['reasoning:'+id].clue||'—')}</p><p><b>Plan:</b> ${esc(r.evidence['reasoning:'+id].plan||'—')}</p><p><b>Check or correction:</b> ${esc(r.evidence['reasoning:'+id].check||'—')}</p><p class="muted">${esc(applicationStatus(r.evidence?.['application:'+id]))} · explanation saved for review</p>`:''}</article>`;}).join('')}${Object.values(r.evidence||{}).filter(e=>e?.kind==='mixed_application').map(e=>`<article><h3>${esc(e.question_id)}</h3>${e.method?`<p><b>Your method:</b> ${esc(e.method)}</p>`:""}<p><b>Recorded answer:</b> ${esc(e.response)} · ${e.correct?'correct':'needs repair'}${e.used_help?' · supported':''}</p></article>`).join('')}${r.working?.mawa_base?`<div data-adult-review="${r.session_number}"></div><h3>Investigation</h3><p class="math-copy">${esc(r.working.mawa_base)}</p><h3>Extension</h3><p class="math-copy">${esc(r.working.mawa_extension||'')}</p>`:''}</details>`).join('')||'<p>No completed sessions yet.</p>'}</section>`;
+ app.querySelectorAll('[data-revised-copy]').forEach(button=>button.onclick=()=>openRevisedCopy(Number(button.dataset.revisedCopy)));
  app.querySelectorAll('.saved-intro').forEach(button=>button.onclick=()=>openLessonIntroductionFromMenu(Number(button.dataset.videoSession)).catch(error=>alert(error.message)));
  app.querySelectorAll('.saved-solution').forEach(button=>button.onclick=async()=>{button.disabled=true;const target=button.nextElementSibling;try{const {data,error}=await supabase.functions.invoke('get-problem-solution',{body:{problem_id:button.dataset.problem,session_number:Number(button.dataset.session)}});if(error||data?.error)throw error||new Error(data.error);target.className='math-copy';target.textContent=data.solution_text||data.spoken_script||'No written solution returned.'}catch(err){target.textContent=err.message;button.disabled=false}});
  app.querySelectorAll('[data-adult-review]').forEach(target=>{const details=target.closest('details');details.addEventListener('toggle',async()=>{if(!details.open||target.dataset.loaded)return;target.dataset.loaded='1';const record=completedRecords.find(r=>r.session_number===Number(target.dataset.adultReview)),item=mawa.find(x=>x.id===record.summary?.investigation_id)||mawa[(Math.floor(record.session_number/7)-1)%20];try{await mountInvestigationReview(target,{user,record,item})}catch(err){target.textContent=err.message;delete target.dataset.loaded}})});
