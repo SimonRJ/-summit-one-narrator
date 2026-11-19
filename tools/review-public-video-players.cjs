@@ -45,7 +45,15 @@ async function check(context,film,orientation,engine) {
         },true);
       }
     });
+    const expectedPlayer = process.env.CHAPTER_PLAYER_SHA256;
+    const playerResponse = expectedPlayer ? page.waitForResponse(response =>
+      new URL(response.url()).pathname.endsWith('/lesson-introduction-watch.js'), {timeout: 45000}) : null;
     await page.goto(root+film.page,{waitUntil:'domcontentloaded',timeout:45000});
+    if (playerResponse) {
+      const response = await playerResponse;
+      const digest = require('node:crypto').createHash('sha256').update(await response.body()).digest('hex');
+      assert.equal(digest, expectedPlayer, 'The watch page loaded an earlier chapter player');
+    }
     const video=page.locator('video');
     await video.waitFor({state:'visible',timeout:25000});
     await page.waitForFunction(()=>document.querySelector('video')?.readyState>=1,null,{timeout:45000});

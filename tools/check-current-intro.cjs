@@ -24,6 +24,10 @@ async function check() {
   assert.match(target.sha256, /^[0-9a-f]{64}$/);
   assert.ok(target.asset.startsWith(target.id + '-Intro') && /^[\w.-]+\.mp4$/.test(target.asset));
   assert.ok(['chrome', 'webkit'].includes(process.env.ENGINE));
+  if (target.chapterPlayerSha256) {
+    assert.match(target.chapterPlayerSha256, /^[a-f0-9]{64}$/);
+    process.env.CHAPTER_PLAYER_SHA256 = target.chapterPlayerSha256;
+  }
   await awaitCatalogueEdition(target);
   const runner = spawnSync(process.execPath, ['tools/review-public-video-players.cjs',target.id], {stdio:'inherit'});
   if (runner.error) throw runner.error;
