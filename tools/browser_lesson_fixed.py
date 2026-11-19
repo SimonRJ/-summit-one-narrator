@@ -109,10 +109,44 @@ async def verify_revised_lessons(browser):
  assert not errors,errors
  print(f'PASS: revised S001 Read → Watch → Practise through all {len(question_ids)} attempts, gated solutions, saved results, lock and S002 opening.',flush=True)
 
+async def verify_later_lessons(browser):
+ """Cover a dedicated introduction, a shared technique film and the last capstone."""
+ import json
+ volume=json.loads((ROOT/'data/read-watch-practise-later.json').read_text())
+ lessons={l['slot']:l for l in volume['lessons']}
+ for slot in (69,158,370):
+  lesson=lessons[slot]
+  ctx=await browser.new_context(viewport={'width':390,'height':844},service_workers='block')
+  await ctx.add_init_script(f"""window.fixture={{records:[],attempts:[],exams:[],
+   progress:{{completed_sessions:{slot-1},current_session:{slot},xp:0,rank:0,state:{{}}}},writes:[],fail:false}}""")
+  await ctx.route('**/supabase-client.js*',lambda route: route.fulfill(content_type='application/javascript',body=MOCK))
+  page=await ctx.new_page()
+  await page.goto('http://127.0.0.1:8765/')
+  await page.locator('#continue').click()
+  await page.locator('.rwl-example').wait_for()
+  assert lesson['headline']==await page.locator('.rwl-copy h2').inner_text()
+  forward=page.locator('[data-screen-next]')
+  await forward.click()
+  assert await page.locator('#openingVideo').get_attribute('src')==lesson['movie']
+  if lesson['filmUse']=='technique':
+   assert await page.get_by_text('Technique film from lesson '+lesson['videoId']+'.',exact=True).is_visible()
+  await forward.click()
+  await page.locator('.rwl-form').wait_for()
+  assert (await page.locator('.problem-prompt').inner_text()).strip()
+  assert await forward.is_disabled()
+  await page.locator('.rwl-form input').fill('12')
+  await page.locator('.rwl-form button').click()
+  await page.locator('.rwl-solution').click()
+  assert await page.locator('.rwl-steps').is_visible()
+  await ctx.close()
+ print('PASS: dedicated, technique-film and final capstone lessons on a phone viewport.',flush=True)
+
+
 async def main():
  async with async_playwright() as p:
   browser=await p.chromium.launch(headless=True,executable_path=shutil.which('google-chrome') or shutil.which('chromium'),args=['--no-sandbox'])
   await verify_revised_lessons(browser)
+  await verify_later_lessons(browser)
   ctx=await browser.new_context(viewport={'width':390,'height':844},service_workers='block')
   # Feed the historical fixture its original lesson edition. Later lessons still
   # use this renderer; the separate S094 case also checks its live manifest route.
@@ -308,6 +342,7 @@ async def main():
   authored_mock=authored_mock.replace("{solution_text:'Six plus six is twelve.'}",
    "{solution_text:authored.find(a=>a.id===body.problem_id)?.solution_text||'Fixture worked solution. Final answer: 42'}")
   spatial_ctx=await browser.new_context(viewport={'width':390,'height':844},service_workers='block')
+  await spatial_ctx.route('**/data/read-watch-practise-later.json*',lambda route:route.fulfill(json={'lessons':[]}))
   await spatial_ctx.add_init_script("""window.fixture={records:[{session_number:94,answers:{},working:{},
    evidence:{'guided:SPATIAL-02':{},'retrieval:SPATIAL-02':{}},summary:{lesson_stage:3,lesson_panel:5}}],
    attempts:[],exams:[],progress:{completed_sessions:93,current_session:94,xp:0,rank:0,state:{}},writes:[],fail:false}""")

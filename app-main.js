@@ -1,4 +1,4 @@
-import {edition as readEdition, questionOrder, renderReviewedLesson, restoreGradedAnswers} from './reviewed-lesson.js?v=read-practise-1';
+import {edition as readEdition, questionOrder, renderReviewedLesson, restoreGradedAnswers} from './reviewed-lesson.js?v=course-lessons-2';
 import {mixedFlashDeck} from './flash-cards.js?v=content-audit-20261113';
 import {wordingHTML} from './recognition.js?v=recognition-20261113';
 import {bridgeHTML,mountPractice} from './transfer-practice.js?v=content-audit-20261113';
@@ -171,8 +171,14 @@ async function boot(){
     user=await currentUser();
     if(!user){location.href="login.html";return}
     const introCatalogue=loadIntroductionCatalogue();
-    const [c,t,m,h,tax,ms,lm,rl]=await Promise.all([fetch("data/sessions-372.json").then(r=>r.json()),fetch("data/teaching-72.json").then(r=>r.json()),fetch("data/mawa-investigations-20.json").then(r=>r.json()),fetch("data/rossmoyne-h23.json").then(r=>r.json()),fetch("data/taxonomy-52.json").then(r=>r.json()),fetch("data/milestones.json").then(r=>r.json()),fetch("data/lesson-challenges.json?v=upper-primary-audit-20261114").then(r=>r.json()),fetch("data/read-watch-practise.json?v=read-practise-1").then(r=>{if(!r.ok)throw Error("Lesson text could not be loaded");return r.json()})]);
-    reviewedLessons=new Map(rl.lessons.map(l=>[l.slot,l]));reviewedQuestions=new Map(rl.lessons.flatMap(l=>l.questions.map(q=>[q.id,q])));
+    const [c,t,m,h,tax,ms,lm,rl,later]=await Promise.all([fetch("data/sessions-372.json").then(r=>r.json()),fetch("data/teaching-72.json").then(r=>r.json()),fetch("data/mawa-investigations-20.json").then(r=>r.json()),fetch("data/rossmoyne-h23.json").then(r=>r.json()),fetch("data/taxonomy-52.json").then(r=>r.json()),fetch("data/milestones.json").then(r=>r.json()),fetch("data/lesson-challenges.json?v=upper-primary-audit-20261114").then(r=>r.json()),fetch("data/read-watch-practise.json?v=read-practise-1").then(r=>{if(!r.ok)throw Error("Lesson text could not be loaded");return r.json()}),
+      fetch("data/read-watch-practise-later.json?v=course-lessons-2").then(r=>{
+        if(!r.ok)throw Error("The later lesson text could not be loaded");
+        return r.json();
+      })]);
+    const lessons=[...rl.lessons,...later.lessons];
+    reviewedLessons=new Map(lessons.map(l=>[l.slot,l]));
+    reviewedQuestions=new Map(lessons.flatMap(l=>l.questions.map(q=>[q.id,q])));
     course=c.sessions; teaching=t.items; mawa=m.items; rossMap=h.items; taxonomy=tax; milestones=ms;lessonManifest=lm.items;courseNavigation=buildCourseNavigation(course,taxonomy);
     const {data:problems,error}=await supabase.from("content_problems_student").select("id,source_type,title,source_label,category,difficulty,prompt,unit").eq("source_type","original_authored").order("id");
     if(error)throw error; problemIndex=problems||[];
@@ -229,6 +235,11 @@ function lessonIntroPlayer(id,title,elementId){
    poster="${media.poster}" src="${media.movie}"
    aria-label="${esc(title)} · animated introduction with English captions"></video>`;
 }
+function assignedLessonFilm(lesson, elementId){
+ const poster=lesson.movie.replace(/\.mp4$/, '-poster.jpg');
+ return `<video id="${elementId}" controls playsinline preload="metadata" poster="${esc(poster)}"
+    src="${esc(lesson.movie)}" aria-label="${esc(lesson.videoTitle)}"></video>`;
+}
 async function openLessonIntroductionFromMenu(slot){
  await pendingReviewedChange;
  const loadToken=window.SummitLoader?.beginSmall("Preparing lesson video");
@@ -247,12 +258,13 @@ async function openLessonIntroductionFromMenu(slot){
  setLessonScreenTopbar();
  activeView="lesson-intro-review";
  await loadIntroductionCatalogue();
- const introId=lessonIntroId(item.slot);
+ const assigned=reviewedLessons.get(item.slot);
+ const introId=assigned?.videoId||lessonIntroId(item.slot);
  const teaching=teachingFor(item)[0]||null;
  const openingFilm=openingConceptFilm(item.slot);
  const companion=teaching&&introId&&item.slot>=3
   ?`<details id="replayCompanion" class="opening-fallback"><summary>Watch ${esc(teaching.title)}</summary><div id="replayNarratedTeaching" class="lesson-replay-narration"></div></details>`:"";
- const media=introId?`<div class="lesson-replay-video">${lessonIntroPlayer(introId,item.focus,"replayIntroVideo")}</div>`:
+ const media=introId?`<div class="lesson-replay-video">${assigned?.filmUse?assignedLessonFilm(assigned,"replayIntroVideo"):lessonIntroPlayer(introId,item.focus,"replayIntroVideo")}</div>`:
   teaching?`<div id="replayNarratedTeaching" class="lesson-replay-narration"></div>`:
   openingFilm?"":'<p class="muted">The written lesson is available in the review below.</p>';
  app.innerHTML=`<section class="panel lesson-replay-page" aria-label="Read-only lesson video review">
@@ -350,7 +362,7 @@ async function startSession(s){
   if(s.type==='LESSON'&&reviewedLessons.has(s.slot)){
     const l=reviewedLessons.get(s.slot),previous=sessionDraft.summary.problems||[];
     const qs=questionOrder(l,problemIndex,lessonManifest),ids=qs.map(q=>q.id);
-    sessionDraft.summary={...sessionDraft.summary,learning_version:readEdition,problems:ids,skill_id:l.skill,focus:s.focus,type:s.type,phase:s.phase,previous_problem_ids:[...new Set([...(sessionDraft.summary.previous_problem_ids||[]),...previous.filter(id=>!ids.includes(id))])]};
+    sessionDraft.summary={...sessionDraft.summary,learning_version:l.filmUse?"read-watch-practise-2":readEdition,problems:ids,skill_id:l.skill,focus:s.focus,type:s.type,phase:s.phase,previous_problem_ids:[...new Set([...(sessionDraft.summary.previous_problem_ids||[]),...previous.filter(id=>!ids.includes(id))])]};
     await saveDraft(s);showReadPractice(s,l,qs,sessionDraft);return;
   }
   const previous=sessionDraft.summary.problems||[];
@@ -378,7 +390,7 @@ function showReadPractice(s,l,questions,draft,locked=false){
  };
  const invoke=async(name,body,kind)=>{const {data,error}=await supabase.functions.invoke(name,{body});if(error)throw Error(await learningFunctionError(error,kind));if(data?.error||!data)throw Error(data?.error||'No response. Please retry.');return data};
  renderReviewedLesson({app,s,l,questions,draft,locked,figure:q=>originalFigure(q)||problemFigure(q.id),
-  video:()=>lessonIntroId(s.slot)?lessonIntroPlayer(lessonIntroId(s.slot),l.videoTitle,'openingVideo'):`<video id="openingVideo" controls playsinline preload="metadata" src="${esc(l.movie)}" aria-label="${esc(l.videoTitle)}"></video>`,
+  video:()=>l.filmUse?assignedLessonFilm(l,"openingVideo"):lessonIntroId(s.slot)?lessonIntroPlayer(lessonIntroId(s.slot),l.videoTitle,'openingVideo'):`<video id="openingVideo" controls playsinline preload="metadata" src="${esc(l.movie)}" aria-label="${esc(l.videoTitle)}"></video>`,
   recordWatch:locked?()=>{}:detail=>recordVideoEvidence(s.slot,l.videoId+'-Intro','lesson_intro',detail).catch(()=>{}),
   attempt:async(id,response,help,familiar)=>{const g=await invoke('submit-problem-attempt',{problem_id:id,session_number:s.slot,answer_text:response,used_help:help,familiar_family:locked||familiar},'attempt');attemptedProblemIds.add(id);
    attemptHistory.push({problem_id:id,session_number:s.slot,answer_text:response,evidence_level:help?'guided':'independent',independent_credit:g.independent_credit===true,is_correct:g.correct,created_at:new Date().toISOString()});
@@ -729,7 +741,7 @@ function renderWorkshop(s){
 async function renderReview(){
  document.body.classList.remove("lesson-fullscreen","home-focus","lesson-video-review");
  activeView="review";await Promise.all([refreshEvidence(),loadIntroductionCatalogue()]);
- app.innerHTML=`<section class="panel hero-panel"><div class="eyebrow">YOUR MATHEMATICAL NOTEBOOK</div><h1>Completed sessions</h1><p class="muted">The original answers and working are locked. Use a fresh session to show new learning.</p>${[...completedRecords].reverse().map(r=>`<details class="review-detail" data-review-session="${r.session_number}"><summary>Session ${r.session_number} · ${esc(r.summary?.focus||course[r.session_number-1]?.focus||'')} <span class="type-chip">LOCKED</span></summary>${course[r.session_number-1]?.type==="LESSON"?`<button type="button" class="secondary saved-intro" data-video-session="${r.session_number}">${lessonIntroId(r.session_number)?"Watch introduction video":"Review lesson teaching"}</button>`:""}${reviewedLessons.has(r.session_number)?`<button class="secondary" type="button" data-revised-copy="${r.session_number}">Read the lesson and revisit practice</button>`:""}${r.summary?.takeaway?`<p><b>Key idea:</b> ${esc(r.summary.takeaway)}</p>`:""}${r.summary?.watch?`<p><b>Next time:</b> ${esc(r.summary.watch)}</p>`:""}${r.evidence?.mawa_base?.status?`<p>Mathematical investigation completed in a paper notebook. ${r.evidence.mawa_extension?.status?"Extension completed on paper.":""} Saved rubric scores are available above.</p>`:""}${Object.entries(r.answers||{}).map(([id,a])=>{
+ app.innerHTML=`<section class="panel hero-panel"><div class="eyebrow">YOUR MATHEMATICAL NOTEBOOK</div><h1>Completed sessions</h1><p class="muted">The original answers and working are locked. Use a fresh session to show new learning.</p>${[...completedRecords].reverse().map(r=>`<details class="review-detail" data-review-session="${r.session_number}"><summary>Session ${r.session_number} · ${esc(r.summary?.focus||course[r.session_number-1]?.focus||'')} <span class="type-chip">LOCKED</span></summary>${course[r.session_number-1]?.type==="LESSON"?`<button type="button" class="secondary saved-intro" data-video-session="${r.session_number}">${(reviewedLessons.has(r.session_number)||lessonIntroId(r.session_number))?"Watch introduction video":"Review lesson teaching"}</button>`:""}${reviewedLessons.has(r.session_number)?`<button class="secondary" type="button" data-revised-copy="${r.session_number}">Read the lesson and revisit practice</button>`:""}${r.summary?.takeaway?`<p><b>Key idea:</b> ${esc(r.summary.takeaway)}</p>`:""}${r.summary?.watch?`<p><b>Next time:</b> ${esc(r.summary.watch)}</p>`:""}${r.evidence?.mawa_base?.status?`<p>Mathematical investigation completed in a paper notebook. ${r.evidence.mawa_extension?.status?"Extension completed on paper.":""} Saved rubric scores are available above.</p>`:""}${Object.entries(r.answers||{}).map(([id,a])=>{
  const problem=reviewedQuestions.get(id)||problemIndex.find(entry=>entry.id===id);
  const learning=lessonManifest.find(entry=>entry.id===id);
  const figure=problem ? originalFigure({...problem,learning}) : '';
