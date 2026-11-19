@@ -3,12 +3,28 @@ const crypto = require('node:crypto');
 const fs = require('node:fs/promises');
 const {spawnSync} = require('node:child_process');
 
+// A branch commit and its public CDN response can become visible at different times.
+async function awaitCatalogueEdition(target) {
+  const url = 'https://raw.githubusercontent.com/SimonRJ/-summit-one-narrator/refs/heads/lesson-intro-catalog/data/lesson-intros-live.json';
+  const deadline = Date.now() + 6 * 60_000;
+  while (Date.now() < deadline) {
+    const response = await fetch(url, {signal: AbortSignal.timeout(15_000)});
+    if (response.ok) {
+      const entry = (await response.json()).entries.find(row => row.id === target.id);
+      if (entry?.status === 'verified' && entry.sha256 === target.sha256) return;
+    }
+    await new Promise(resolve => setTimeout(resolve, 15_000));
+  }
+  throw new Error(`The public catalogue has not yet served the reviewed ${target.id} edition`);
+}
+
 async function check() {
   const target = JSON.parse(await fs.readFile('production/lesson-intros/phone-review-target.json', 'utf8'));
   assert.match(target.id, /^S\d{3}$/);
   assert.match(target.sha256, /^[0-9a-f]{64}$/);
   assert.ok(target.asset.startsWith(target.id + '-Intro') && /^[\w.-]+\.mp4$/.test(target.asset));
   assert.ok(['chrome', 'webkit'].includes(process.env.ENGINE));
+  await awaitCatalogueEdition(target);
   const runner = spawnSync(process.execPath, ['tools/review-public-video-players.cjs',target.id], {stdio:'inherit'});
   if (runner.error) throw runner.error;
   assert.equal(runner.status, 0, 'The public phone player failed its playback or chapter seek.');

@@ -2,13 +2,16 @@ name: Check the current published introduction on phones
 on:
   push:
     branches: [codex/reviewed-film-work-20261119]
-    paths: ['production/lesson-intros/phone-review-target.json']
+    paths:
+      - 'production/lesson-intros/phone-review-target.json'
+      - 'tools/check-current-intro.cjs'
+      - '.github/workflows/check-current-intro.yml'
 permissions:
   contents: read
 jobs:
   chrome:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     env:
       ENGINE: chrome
     steps:
@@ -29,7 +32,7 @@ jobs:
   webkit:
     runs-on: ubuntu-latest
     container: mcr.microsoft.com/playwright:v1.65.1-noble
-    timeout-minutes: 10
+    timeout-minutes: 15
     env:
       ENGINE: webkit
     steps:
