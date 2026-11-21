@@ -58,7 +58,7 @@ Scripts ready: 0 of 72. Published for review: 70. Approved videos: 2. Not yet sc
 | T12.E | Use angle relationships and exact geometric facts | worked_example | published for review | 207 words, about 1.4 min | [T12.E.json](T12.E.json) |
 | T13.1 | Use bases, heights and complementary regions | concept | published for review | 320 words, about 2.1 min | [T13.1.json](T13.1.json) |
 | T13.2 | Separate boundary change from scale change | concept | published for review | 300 words, about 2.0 min | [T13.2.json](T13.2.json) |
-| T13.3 | Count hidden pieces through layers and boundaries | concept | published for review | 307 words, about 2.0 min | [T13.3.json](T13.3.json) |
+| T13.3 | Count hidden pieces through layers and boundaries | concept | published for review | 322 words, about 2.1 min | [T13.3.json](T13.3.json) |
 | T13.E | Measure the region or solid that matters | worked_example | published for review | 184 words, about 1.2 min | [T13.E.json](T13.E.json) |
 | T14.1 | Translate the movement rules exactly | concept | published for review | 292 words, about 1.9 min | [T14.1.json](T14.1.json) |
 | T14.2 | Use future obligations to reject tempting moves | concept | published for review | 339 words, about 2.3 min | [T14.2.json](T14.2.json) |

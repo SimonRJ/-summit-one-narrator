@@ -184,8 +184,8 @@ N: One layer is four by three, which is twelve cubes. There are two layers, so t
 V: A 3 by 3 by 3 cube dipped in paint. It separates into three layers. In the middle layer, the centre cube is unpainted and glows.
 N: Now a harder question. A three by three by three cube is painted all over, then cut into twenty-seven small cubes. How many have no paint at all? Only a cube that touches no outside face. Peel off the outer layer in every direction, and a single cube is left in the very centre. The answer is one.
 [DEVELOP]
-V: The 27 cubes sorted into four groups: 8 corners (three painted faces), 12 edge cubes (two faces), 6 face centres (one face), 1 centre (none). Sum 27.
-N: You can sort all twenty-seven. Eight corner cubes have three painted faces. Twelve cubes along the edges have two. Six in the middle of each face have one. One in the centre has none. Eight, twelve, six and one make twenty-seven, so nothing is missing.
+V: A cube opens into a face net. Each of the six faces has a three-by-three grid with one middle cube marked. Sort the 27 unit cubes as eight corners, twelve edge middles, six face centres and one interior cube.
+N: You can sort all twenty-seven. Eight corner cubes have three painted faces. Twelve cubes along the edges have two. One cube at the centre of each face has just one painted side. There are six faces, so there are six such cubes altogether. One in the centre has none. Eight, twelve, six and one make twenty-seven, so nothing is missing.
 [VARIATION]
 V: A staircase solid: layers of 3 by 3, 2 by 2 and 1 by 1 cubes stacked in a corner. Layer counts 9, 4, 1.
 N: Layers also handle uneven solids. A corner staircase has nine cubes on the bottom layer, four on the next and one on top: fourteen altogether. Count each layer as it really is.

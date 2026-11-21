@@ -25,6 +25,11 @@ function filterFilms(){
 }
 search.addEventListener('input',filterFilms);
 kind.addEventListener('change',filterFilms);
-document.getElementById('filmFilters').addEventListener('reset',()=>queueMicrotask(filterFilms));
+document.getElementById('filmFilters').addEventListener('reset',event=>{
+  event.preventDefault();
+  search.value = search.defaultValue;
+  kind.selectedIndex = 0;
+  filterFilms();
+});
 document.getElementById('filmFilters').hidden=false;
 filterFilms();

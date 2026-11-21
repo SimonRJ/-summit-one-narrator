@@ -21,6 +21,7 @@ VERSION = "t01-studio-v1"
 CHAPTER_VERSION = "studio-chapters-02-04-v1"
 COURSE_VERSION = "teaching-films-v1"
 REVISED_MEDIA = {
+    "T13.3": "cube-workshop",
     "T02.3": "variable-bars-20261119",
     "T04.1": "factor-tree-84",
     "T04.2": "divisor-choices-200",
@@ -29,7 +30,7 @@ REVISED_MEDIA = {
     "T05.1": "finish-tickets",
     "T05.2": "digit-case-branches",
     "T05.3": "recover-seat-gaps",
-    "T05.E": "lunch-and-outfit-grids",
+    "T05.E": "canteen-orders",
     "T06.1": "cube-edge-and-tournament",
     "T06.2": "weighed-pairs",
     "T06.3": "chess-schedule",

@@ -13,7 +13,7 @@ if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.se
 import { supabase, loadProgress, saveProgress, signOut, currentUser, upsertSession } from "./supabase-client.js?v=auth-20261112";
 import { mountNarratedPlayer } from "./lesson-player.js";
 import {methods,skillFor,recallState} from "./curriculum.js?v=recognition-20261113";
-import {lessonCard,mountCheck,mountRetrieval,readinessHTML} from "./learning-ui.js?v=geometry-20261114";
+import {lessonCard,mountCheck,mountRetrieval,readinessHTML} from "./learning-ui.js?v=study-pace-20261122";
 import {advancedConnectionHTML} from "./advanced-connections.js?v=technique-transfers-20261121";
 import { problemFigure } from "./problem-figures.js";
 import {mountLessonPager} from "./lesson-pager.js?v=responsive-20261113";
@@ -77,7 +77,7 @@ const normalize=s=>String(s??"").toLowerCase().replace(/\s+/g,"").replace(/[×·
 const rankNames=["Pathfinder","Pattern Scout","Model Builder","Logic Ranger","Number Navigator","Geometry Pilot","Counting Specialist","Invariant Hunter","Transfer Thinker","Proof Builder","Problem Solver","Strategy Captain","Olympiad Explorer","Insight Engineer","Reasoning Commander","AMC Specialist","MAWA Specialist","Rossmoyne Specialist","Summit Elite","Summit Scholar"];
 const openingFilmIds=["T01.1","T01.2","T01.3","T01.E"];
 const chapterStudioFilmIds=new Set(["T02.3","T02.E","T03.1","T03.2","T03.3","T03.E","T04.1","T04.2","T04.3","T04.E"]);
-const revisedTeachingFilms={"T13.E":"measured-edge-notch","T12.E":"exterior-angle-sectors","T11.E":"two-column-trades","T11.3":"written-threes","T11.2":"six-digit-orders","T11.1":"digit-reverse-gap","T10.E":"forty-one-new-dots","T10.3":"leave-twelve","T10.2":"triple-units-cycle","T10.1":"twenty-one-tilings","T09.E":"four-marble-bags","T09.3":"reversible-pans","T09.2":"three-denominators","T09.1":"tank-fifths","T08.E":"different-coin-faces","T08.3":"four-surviving-faces","T08.2":"successive-red-draws","T08.1":"six-matching-pairs","T07.E":"five-tray-witness","T07.3":"one-per-column","T07.2":"balanced-fence-22","T07.1":"six-on-eleven","T06.E":"seven-unit-joins","T06.3":"chess-schedule","T06.2":"weighed-pairs","T06.1":"cube-edge-and-tournament","T05.E":"lunch-and-outfit-grids","T05.3":"recover-seat-gaps","T05.2":"digit-case-branches","T05.1":"finish-tickets","T04.E":"square-900","T04.3":"prime-rows-20-30","T04.2":"divisor-choices-200","T04.1":"factor-tree-84","T03.E":"ten-remainder-boxes","T03.3":"birthday-boxes","T03.1":"bead-week-review","T02.3":"variable-bars-20261119","T03.2":"signal-timetable-20261119","T12.1":"angle-tracing-20261119","T12.2":"clock-arc-proof-20261119","T12.3":"construction-notebook-20261119","T13.1":"moving-area-20261119","T13.2":"cut-and-scale-20261119","T13.3":"hidden-cubes-20261119"};
+const revisedTeachingFilms={"T13.E":"measured-edge-notch","T12.E":"exterior-angle-sectors","T11.E":"two-column-trades","T11.3":"written-threes","T11.2":"six-digit-orders","T11.1":"digit-reverse-gap","T10.E":"forty-one-new-dots","T10.3":"leave-twelve","T10.2":"triple-units-cycle","T10.1":"twenty-one-tilings","T09.E":"four-marble-bags","T09.3":"reversible-pans","T09.2":"three-denominators","T09.1":"tank-fifths","T08.E":"different-coin-faces","T08.3":"four-surviving-faces","T08.2":"successive-red-draws","T08.1":"six-matching-pairs","T07.E":"five-tray-witness","T07.3":"one-per-column","T07.2":"balanced-fence-22","T07.1":"six-on-eleven","T06.E":"seven-unit-joins","T06.3":"chess-schedule","T06.2":"weighed-pairs","T06.1":"cube-edge-and-tournament","T05.E":"canteen-orders","T05.3":"recover-seat-gaps","T05.2":"digit-case-branches","T05.1":"finish-tickets","T04.E":"square-900","T04.3":"prime-rows-20-30","T04.2":"divisor-choices-200","T04.1":"factor-tree-84","T03.E":"ten-remainder-boxes","T03.3":"birthday-boxes","T03.1":"bead-week-review","T02.3":"variable-bars-20261119","T03.2":"signal-timetable-20261119","T12.1":"angle-tracing-20261119","T12.2":"clock-arc-proof-20261119","T12.3":"construction-notebook-20261119","T13.1":"moving-area-20261119","T13.2":"cut-and-scale-20261119","T13.3":"cube-workshop"};
 function finalVideoUrl(videoId){
   const id=String(videoId||"");
   // Only concept/worked-example T videos are public. Every challenge solution is attempt-gated.
@@ -201,7 +201,7 @@ async function saveDraft(s){
 async function refreshEvidence(){
  const [records,exams]=await Promise.all([
  allRows(()=>supabase.from('session_records').select('session_number,completed_at,summary,answers,working,evidence').eq('user_id',user.id).not('completed_at','is',null).order('session_number')),
- allRows(()=>supabase.from('exam_sittings').select('id,exam_id,score,max_score,submitted_at,metadata').eq('user_id',user.id).eq('completed',true).order('submitted_at',{ascending:false}).order('id'))]);
+ allRows(()=>supabase.from('exam_sittings').select('id,exam_id,score,max_score,submitted_at,attempt_number,metadata').eq('user_id',user.id).eq('completed',true).order('submitted_at',{ascending:false}).order('id'))]);
  completedRecords=records.map(r=>({...r,summary:{...r.summary,skill_id:r.summary?.skill_id||skillFor(course[r.session_number-1]||{},taxonomy)}}));recentExams=exams;
 }
 async function openRepairs(){document.body.classList.remove("home-focus");await refreshEvidence();await renderRepairs(app,{user,done:progress.completed_sessions||0,records:completedRecords});}

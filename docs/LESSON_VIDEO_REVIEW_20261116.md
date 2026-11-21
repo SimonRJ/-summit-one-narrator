@@ -12,6 +12,18 @@ Reading the S038 and S040 guides side by side identified three further word-for-
 
 S041 and S050 also use the same three worked scenarios in order: two bun-and-drink receipts, a doubled pen-and-marker order, and two orders for X/Y packs scaled by three and two. The numerical changes leave the reasoning progression the same, and both recordings use an identical mistakes scene. S041 also re-enters revision.
 
+### Repeated worked examples with changed values
+
+Scenes 3–8 in each group below use the same basic question, intermediate task and final challenge. The paired solutions repeat the original order of decisions and much of the wording. Comparing whole scenes literally misses these variants because the numbers differ. All nine active MP4 editions matched their recorded SHA-256 digests. A frame taken six seconds into each final challenge confirmed the pictured task.
+
+| Film group | Three worked examples in order |
+| --- | --- |
+| S022, S142 | Remove a share of tokens, take two fractions successively from a box of chalk, then recover a pile after a share is removed, a gift added and a further share removed. |
+| S031, S086, S106 | Find one labelling machine’s work in a minute, combine two machine rates, then find the filling time when two pumps run and a leak begins after a delay. |
+| S026, S092, S103, S132 | Find the mean of three readings, combine groups of different sizes, then recover a single reading shared by the first and last groups. |
+
+S022, S142, S086 and S092 had received full editorial credit. Their films remain available while replacement examples and narration are produced. The five other film reviews were already open. S102 also needs a spoken and captioned correction to scene 8. Swapping the tens and units in a three-digit multiple of nine preserves the hundreds digit and maps a written three in one of those two places to a three in the other.
+
 Two further entries require short narration and caption corrections. In S019, specify that the two **leftmost** top-row squares are removed in the pictured demonstration. Removing the two middle squares calls for different placements. In S020, say that exponent 49 starts at **position one** of the repeating pattern. Both films remain available, and the corresponding lesson readings explain these distinctions.
 
 To reproduce the snapshot, fetch the public catalogue branch and run `python tools/video/find_shared_introduction_scenes.py a576b43f9d17f16a134445973b5c2445123b4984` with the recorded-study manifest blob `88a89caa69864448d7624fbb331ade7010c13c7d`. The comparison ignores whitespace differences, preserves wording and punctuation, and requires at least two distinct identical sections of at least 20 words each. The actual matches above all exceed that threshold. The production register and review bar supersede the historical totals below.

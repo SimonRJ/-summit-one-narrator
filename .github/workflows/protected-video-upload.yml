@@ -5,11 +5,17 @@ on:
     inputs:
       artifact_run_id:
         description: "Actions run ID containing the protected AMC media artifact"
-        required: true
+        required: false
       artifact_name:
         description: "Artifact containing protected_amc/"
         required: false
         default: "summit-one-protected-challenge-media"
+      staged_film:
+        description: "Alternatively, the film identifier staged in the private database"
+        required: false
+      reviewed_sha256:
+        description: "SHA-256 of the reviewed private export"
+        required: false
 
 permissions:
   contents: read
@@ -24,12 +30,14 @@ jobs:
         with:
           node-version: "22"
       - uses: actions/download-artifact@v4
+        if: inputs.staged_film == ''
         with:
           name: ${{ inputs.artifact_name }}
           run-id: ${{ inputs.artifact_run_id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           path: incoming
       - name: Safety check
+        if: inputs.staged_film == ''
         shell: bash
         run: |
           set -euo pipefail
@@ -42,8 +50,18 @@ jobs:
       - name: Install uploader dependency
         run: npm install --no-save @supabase/supabase-js@2.78.0
       - name: Upload to private Supabase Storage
+        if: inputs.staged_film == ''
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
           PROTECTED_VIDEO_BUCKET: summit-one-protected-video
         run: node postproduction/upload_protected_media.mjs "$(dirname "$(find incoming -type f -name '*.mp4' | head -1)")"
+
+      - name: Transfer the reviewed private edition
+        if: inputs.staged_film != '' && github.ref == 'refs/heads/main'
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          FILM_ID: ${{ inputs.staged_film }}
+          MEDIA_SHA256: ${{ inputs.reviewed_sha256 }}
+        run: node postproduction/upload_protected_media.mjs --staged "$FILM_ID" "$MEDIA_SHA256"

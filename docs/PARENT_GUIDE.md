@@ -4,6 +4,8 @@
 
 [Lessons through S068](READ_WATCH_PRACTISE.md) and the [remaining lessons](LATER_LESSONS.md) move from a small worked example to the existing film, then to four to six practice problems. For the last problem, ask “What made you think this method would work?” The recap offers a useful way to check the reasoning.
 
+At three 30–60 minute sessions a week, 32 weeks provides about 96 study sessions. The first 104 course sessions introduce all 52 techniques. The Readiness page estimates how far your current position and three-session pace could take you before the AMC. An occasional practice paper can show which methods need another look.
+
 ## Review the learner’s work
 
 - **Profile** shows sessions completed and remaining. It also shows rank progress. The course sequence advances by completed sessions.

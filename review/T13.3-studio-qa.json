@@ -1,7 +1,7 @@
 {
   "id": "T13.3",
-  "duration_seconds": 119.033333,
-  "sha256": "84b56ff9e8acc7501953df44028715cb06863ff632eb82e526de7d9f64ec507d",
+  "duration_seconds": 124.8,
+  "sha256": "8692c103be7e53141525c4a51f0237fc594e92b0de1799492e05b4bc00812594",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -11,85 +11,90 @@
   "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
   "narration_speed_changed": false,
   "caption_layers": 1,
-  "match_percent": 98.68,
   "scenes": [
     {
       "number": 1,
       "start": 0.0,
-      "match_percent": 98.55
+      "match_percent": 100
     },
     {
       "number": 2,
       "start": 12.44,
-      "match_percent": 100.0
+      "match_percent": 100
     },
     {
       "number": 3,
       "start": 21.89,
-      "match_percent": 100.0
+      "match_percent": 100
     },
     {
       "number": 4,
       "start": 34.99,
-      "match_percent": 100.0
+      "match_percent": 100
     },
     {
       "number": 5,
       "start": 46.67,
-      "match_percent": 96.61
+      "match_percent": 100
     },
     {
       "number": 6,
       "start": 66.66,
-      "match_percent": 100.0
+      "match_percent": 100
     },
     {
       "number": 7,
-      "start": 84.26,
-      "match_percent": 98.46
+      "start": 90.04,
+      "match_percent": 100
     },
     {
       "number": 8,
-      "start": 97.38,
-      "match_percent": 95.83
+      "start": 103.16,
+      "match_percent": 100
     }
   ],
   "chapters": [
     {
-      "title": "Separate a block into layers",
+      "title": "See a block as horizontal layers",
       "start": 0.0
     },
     {
-      "title": "Some cubes are hidden",
+      "title": "Include cubes hidden in the drawing",
       "start": 12.44
     },
     {
-      "title": "Count the unit cubes in the block",
+      "title": "Inspect a four-by-three-by-two block",
       "start": 21.89
     },
     {
-      "title": "Two layers of twelve make twenty-four",
+      "title": "Build the block from two layers of twelve",
       "start": 34.99
     },
     {
-      "title": "Paint reaches only the outside",
+      "title": "Peel away the painted outside of a cube",
       "start": 46.67
     },
     {
-      "title": "Every cube belongs to one surface class",
+      "title": "Count one centre cube on each of the six faces",
       "start": 66.66
     },
     {
-      "title": "Count uneven layers as they are",
-      "start": 84.26
+      "title": "Stack nine, four and one into a staircase",
+      "start": 90.04
     },
     {
-      "title": "Your turn",
-      "start": 97.38
+      "title": "Find the unpainted core of a four-cube-wide block",
+      "start": 103.16
     }
   ],
   "decoded_successfully": true,
-  "source_sha256": "7fead578dafd3ef1c535d44deafad9cbcebe6d32538c5b632b64673351759d55",
-  "diagram_revision": "T13.3. Disassemble solids and carry the same cubes into their paint classes.",
-  "original_audio_packets": "SHA256=407df74930e6e246ab8c9172a815cc35ad21c30587a2385114b2b1a098ee718d"
+  "source_sha256": "84b56ff9e8acc7501953df44028715cb06863ff632eb82e526de7d9f64ec507d",
+  "frames": 3744,
+  "version": "cube-workshop",
+  "diagram_source": "production/lesson-films/cube_workshop.py",
+  "spoken_edit": "Replaced the ambiguous sentence with two full Voice C sentences. The six face centres are counted one per face.",
+  "corrected_passages_verified_against_encoded_audio": true,
+  "audio_packet_sha256": "SHA256=84e255a69353574c9801a4bb00f2b8885e63d2f96a243a76023d0eb13c273834",
+  "match_method": "Blind recognition of each complete encoded scene. Equivalent spoken readings of “4x4x4” and “all together” are accepted.",
+  "match_percent": 100
 }

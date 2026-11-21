@@ -9,7 +9,7 @@
     {"key":"investigations","item":"Published and independently checked investigations and extensions","total":53,"verified":53,"evidence":["../tools/content/check_mawa_maths.py","../data/mawa-investigations-20.json"]},
     {"key":"mixed","item":"Mixed assessment sessions and return to study","total":36,"verified":36,"evidence":["../tools/check_workshops.mjs","../tools/check_workshop_flow.py"]},
     {"key":"references","item":"Advanced technique pages, worked examples and transfer questions","total":52,"verified":52,"evidence":["../tools/content/check_advanced_examples.py","../advanced-connections.js"]},
-    {"key":"practice","item":"Original AMC speed and depth sets with end-to-end review","total":60,"verified":26,"evidence":["../tools/check_original_paper_sessions.sql","../docs/AMC_CURATED_BANK_AUDIT_20261113.md"]},
+    {"key":"practice","item":"Original AMC speed and depth sets with end-to-end review","total":60,"verified":38,"evidence":["../tools/check_original_paper_sessions.sql","../docs/AMC_CURATED_BANK_AUDIT_20261113.md","../docs/AMC_SETS_14_TO_16_VERIFICATION.md","../docs/AMC_SETS_17_TO_19_VERIFICATION.md"]},
     {"key":"rossmoyne","item":"Rossmoyne practice papers with end-to-end review","total":10,"verified":10,"evidence":["../tools/check_original_paper_sessions.sql","../tools/browser_check.mjs"]},
     {"key":"archive","item":"Authentic papers checked against the frozen archive","total":19,"verified":19,"evidence":["../docs/AUTHENTIC_AMC_FREEZE.md","../tools/check_amc_freeze.sql"]},
     {"key":"challengeFilms","item":"Attempt-gated challenge solution films in the original production queue","total":194,"verified":0},

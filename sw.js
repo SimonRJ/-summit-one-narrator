@@ -1,5 +1,5 @@
 const scope = new URL(self.registration.scope);
-const CACHE="summit-one-powers-20261122-grid-geometry";
+const CACHE="summit-one-finish-tickets-20261122";
 const cachePrefix = scope.pathname + ':summit-one-';
 const cacheName = scope.pathname + ':' + CACHE;
 const reader = new URL('offline-reader.html', scope).href;
@@ -77,7 +77,7 @@ const staticFiles = [
   "./boot-loader.css?v=cinematic-20261113",
   "./main.css?v=worked-films-20261122",
   "./summit-polish.css?v=craft-20261121",
-  "./app-main.js?v=powers-20261122-grid-geometry",
+  "./app-main.js?v=finish-tickets-20261122",
   "./workshop-studies.js?v=workshops-20261122",
   "./course-menu.js?v=menu-20261113",
   "./course-menu-ui.js?v=bridge-deck-20261122",
@@ -91,7 +91,7 @@ const staticFiles = [
   "./advanced-counting.js?v=technique-transfers-20261121",
   "./advanced-geometry.js?v=technique-transfers-20261121",
   "./curriculum.js?v=recognition-20261113",
-  "./learning-ui.js?v=geometry-20261114",
+  "./learning-ui.js?v=study-pace-20261122",
   "./session-intros.js?v=mawa-visits-20261121",
   "./lesson-journeys.js?v=recognition-20261113",
   "./problem-figures.js",
