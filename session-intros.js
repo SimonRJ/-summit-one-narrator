@@ -24,12 +24,46 @@ export function introductionHTML(s,course,taxonomy){
  const p=lessonPlan(s,course,taxonomy);
  return `<section class="session-intro" aria-label="Session introduction"><div class="eyebrow">BEFORE WE BEGIN · ${esc(p.mission)}</div><h2>${esc(p.hook)}</h2><p class="intro-goal">Today you will learn to <strong>${esc(p.goal.charAt(0).toLowerCase()+p.goal.slice(1))}</strong></p><div class="intro-grid"><div><h3>Why and when this helps</h3><p>${esc(p.when)}</p></div><div><h3>Start with what you know</h3><p>${esc(p.prerequisite)}</p></div></div>${p.secondary?`<p><b>Your second tool:</b> ${esc(p.secondary.goal)} ${esc(p.secondary.when)}</p>`:''}<p><b>Your mission${p.visit>1?' · return '+p.visit:''}:</b> ${esc(p.target)}</p><p class="muted">First see a tiny example explained → work through a second example → five quick A/B decisions → try with a hint available → solve independently → tackle a transfer challenge. About 30–60 minutes; take a break when you need one.</p>${recognitionHTML(p.id)}${wordingHTML(s.slot)}<div class="success-note"><b>Success today:</b> You can name the clue, choose a method, explain the important step and check your answer. A difficult question is a place to investigate, not a signal to rush.</div></section>`;
 }
+export const currentInvestigationEdition = 'mawa-53-v1';
+export const firstInvestigationEdition = 'mawa-20-v1';
+
+// Unversioned saved records came from the first edition, which repeated 20 themes.
+export function investigationForSession(themes, slot, edition, recordedId) {
+ const ordinal = slot / 7 - 1;
+ if (!Number.isInteger(ordinal) || ordinal < 0 || ordinal >= 53 || !themes.length) return null;
+ const theme = recordedId ? themes.find(item => item.id === recordedId) : themes[ordinal % themes.length];
+ if (!theme) return null;
+ const visit = Math.floor(ordinal / themes.length);
+ if (!edition || edition === firstInvestigationEdition) {
+  if (visit === 0) return theme;
+  return {...theme, transfer_prompt: theme.transfer_prompt + ' Then change a condition, predict the effect, and test a general rule or counterexample.'};
+ }
+ const changes = theme.visits?.[visit];
+ if (edition !== currentInvestigationEdition || !changes) return null;
+ return {...theme, ...changes, opener: {...investigationOpeners[theme.id], ...changes.opener}};
+}
+
+export function investigationRecordHTML(record, item) {
+ const rubric = record.summary?.rubric;
+ const labels = [['result','Result',3],['method','Method',3],['proof','Proof',3],['clarity','Clarity',1]];
+ const scores = rubric ? labels.filter(([key]) => Number.isInteger(rubric[key])).map(([key,label,max]) => label + ' ' + rubric[key] + '/' + max).join(' · ') : '';
+ const working = record.working || {};
+ const onPaper = record.evidence?.mawa_base?.status;
+ return `<section class="saved-investigation"><h3>${esc(item?.title || 'Investigation')}</h3>
+  ${item ? `<p class="math-copy">${esc(item.prompt)}</p><h4>Extension</h4><p class="math-copy">${esc(item.transfer_prompt)}</p>` : ''}
+  ${working.mawa_base ? `<h4>Your investigation working</h4><p class="math-copy">${esc(working.mawa_base)}</p>` : ''}
+  ${working.mawa_extension ? `<h4>Your extension working</h4><p class="math-copy">${esc(working.mawa_extension)}</p>` : ''}
+  ${onPaper ? '<p>See your paper notebook for the investigation working.</p>' : ''}
+  ${scores ? `<p><strong>Your recorded self-assessment</strong><br>${esc(scores)}</p>` : ''}
+  <div data-adult-review="${esc(record.session_number)}"></div></section>`;
+}
+
 export function investigationIntroHTML(s,item){
- const j=investigationOpeners[item.id];if(!j)throw Error('Missing investigation opener '+item.id);
+ const j=item.opener || investigationOpeners[item.id];if(!j)throw Error('Missing investigation opener '+item.id);
  const visit=1+Math.floor((Math.floor(s.slot/7)-1)/20);
  return `<section class="session-intro" aria-label="Investigation introduction"><div class="eyebrow">BEFORE WE BEGIN · MATHEMATICAL DETECTIVE</div><h2>${esc(j.hook)}</h2><p class="intro-goal">Your task: <strong>${esc(j.goal)}</strong></p><div class="intro-grid"><div><h3>Why this matters</h3><p>Investigations ask not only “what is the answer?” but “how do you know?”. Today’s focus is ${esc(item.topic.toLowerCase())}. You will turn small examples into organised evidence.</p></div><div><h3>Tools you already have</h3><p>${esc(journeys[j.skill].prerequisite)} You can draw, list cases and check a smaller version before using symbols.</p></div></div><p><b>Today’s route:</b> A small worked investigation → five quick decisions → the main question → your reasoning → a changed case → a proof check. Allow 30–60 minutes, or split the investigation across sittings.</p>${recognitionHTML(j.skill)}${wordingHTML(s.slot)}<p><b>Success today:</b> ${visit===1?'Find an answer and explain why your cases cover all possibilities.':visit===2?'Change a condition and explain which parts of your old reasoning still work.':'State a general claim, test a boundary case and justify when the claim holds.'}</p></section>`;
 }
-export function investigationWarmupHTML(item){return workedSteps(investigationOpeners[item.id],'A smaller investigation · learn the first move');}
+export function investigationWarmupHTML(item){return workedSteps(item.opener || investigationOpeners[item.id],'A smaller investigation · learn the first move');}
 export function mockIntroductionHTML(exam){
  const amc=exam.max_score===135;
  return `<section class="session-intro" aria-label="Rehearsal introduction"><h2>Today, practise choosing your own tools</h2><p>You have learnt methods one at a time. This rehearsal practises deciding which method fits when nobody names it for you.</p><div class="intro-grid"><div><h3>What you are learning</h3><p>${amc?'Read accurately, secure approachable marks, and leave time for the multi-step problems.':'Turn unfamiliar wording into a diagram, organised list or equation, and check each conclusion.'}</p></div><div><h3>When it helps</h3><p>In a mixed test, recognising a useful idea and managing time matter alongside calculating. This is practice evidence, not a prediction of an admission outcome.</p></div></div><ol><li>Before starting: prepare paper and pencil, clear distractions and close notes.</li><li>During the paper: try approachable questions first; move on when stuck and return with fresh eyes. Save each numeric answer.</li><li>Afterwards: choose one error, explain its cause, and solve a changed example in a later session.</li></ol><p><b>Success today:</b> An honest independent attempt and a clear next learning step. The timer has not started yet.</p></section>`;

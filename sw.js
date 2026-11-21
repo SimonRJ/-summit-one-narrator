@@ -1,5 +1,5 @@
 const scope = new URL(self.registration.scope);
-const CACHE="summit-one-craft-20261121-intro88-divisor-choices-200-square-900-answers-s092-podium-and-teams-digit-case-branches-lunch-and-outfit-grids-chess-schedule-seven-unit-joins-s093-one-per-column-five-tray-witness";
+const CACHE="summit-one-investigations-films-20261121-r2";
 const cachePrefix = scope.pathname + ':summit-one-';
 const cacheName = scope.pathname + ':' + CACHE;
 const reader = new URL('offline-reader.html', scope).href;
@@ -10,14 +10,14 @@ const staticFiles = [
   "./route-model.js?v=paths-20261121",
   "./route-model.css?v=paths-20261121",
   "./offline-reader.html",
-  "./offline-reader.js?v=deeper-20261121-intro88-s092-s093",
+  "./offline-reader.js?v=investigations-films-20261121-r2",
   "./domino-model.js?v=github-20261121",
   "./domino-model.css?v=github-20261121",
   "./model-claims.js?v=reasoning-20261121",
-  "./example-methods.js?v=reasoning-20261121",
+  "./example-methods.js?v=investigations-films-20261121-r2",
   "./lesson-models.js?v=deeper-20261121",
   "./lesson-models.css?v=deeper-20261121",
-  "./data/read-watch-practise-later.json?v=illustrations-93",
+  "./data/read-watch-practise-later.json?v=investigations-films-20261121-r2",
   "./figures/read-practice/S006.svg",
   "./figures/read-practice/S017.svg",
   "./figures/read-practice/S019.svg",
@@ -43,7 +43,7 @@ const staticFiles = [
   "./figures/read-practice/S362.svg",
   "./figures/read-practice/S368.svg",
   "./reviewed-lesson.js?v=deeper-20261121",
-  "./data/read-watch-practise.json?v=read-practise-1",
+  "./data/read-watch-practise.json?v=investigations-films-20261121-r2",
   "./read-practice.css?v=guided-20261121",
   "./coverage.html",
   "./coverage.js?v=recognition-20261113",
@@ -71,7 +71,7 @@ const staticFiles = [
   "./boot-loader.css?v=cinematic-20261113",
   "./main.css?v=data-audit-20261114",
   "./summit-polish.css?v=craft-20261121",
-  "./app-main.js?v=craft-20261121-intro88-divisor-choices-200-square-900-answers-s092-podium-and-teams-digit-case-branches-lunch-and-outfit-grids-chess-schedule-seven-unit-joins-s093-one-per-column-five-tray-witness",
+  "./app-main.js?v=investigations-films-20261121-r2",
   "./course-menu.js?v=menu-20261113",
   "./course-menu-ui.js?v=github-20261121",
   "./lesson-introduction-media.js?v=lesson-intros-v16",
@@ -84,7 +84,7 @@ const staticFiles = [
   "./advanced-geometry.js?v=adv-enrichment-20261113",
   "./curriculum.js?v=recognition-20261113",
   "./learning-ui.js?v=geometry-20261114",
-  "./session-intros.js?v=recognition-20261113",
+  "./session-intros.js?v=mawa-visits-20261121",
   "./lesson-journeys.js?v=recognition-20261113",
   "./problem-figures.js",
   "./login.html",
@@ -102,7 +102,7 @@ const staticFiles = [
   "./data/skill-session-links.json?v=review-20261113",
   "./data/sessions-372.json",
   "./data/teaching-72.json",
-  "./data/mawa-investigations-20.json",
+  "./data/mawa-investigations-20.json?v=mawa-visits-20261121",
   "./data/rossmoyne-h23.json",
   "./data/taxonomy-52.json",
   "./data/amc-awards.json",

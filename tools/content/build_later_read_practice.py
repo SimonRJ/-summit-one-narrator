@@ -72,6 +72,10 @@ def build(private):
             (ROOT/public_path).write_bytes(diagram.read_bytes())
             example['figure'] = {'src': str(public_path), 'alt': alt}
         lesson = {k: draft[k] for k in ('slot', 'headline', 'intro', 'bridge', 'recap')}
+        revised = revisions['openings'].get(tag, {})
+        example.update(revised.get('example', {}))
+        if 'intro' in revised:
+            lesson['intro'] = revised['intro']
         if (src['videoId'], slot) in REVISED_FILM_BRIDGES:
             lesson['bridge'] = REVISED_FILM_BRIDGES[src['videoId'], slot]
         movie = src['videoUrl']

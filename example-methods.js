@@ -40,12 +40,12 @@ export const exampleMethods = new Map([
     working: 'Imagine doing the same walk and rest twice. In 3 hours the walker covers 8 km, so the average is 8/3 km/h. Repeating the journey doubles both the distance and the time, leaving their ratio unchanged.',
     comparison: 'Including the rest is essential in both methods. Repeating the journey makes the number of hours whole, which can make the division easier.'
   }],
-  ['The sum 4 + 8 + 16 + 32 has a missing next term. What is the difference between that next term and the sum?', {
+  ['A pattern starts at 4 and doubles at each step. Add the first four terms, then compare their sum with the fifth term. How much larger is that fifth term?', {
     method: 'Add a spare 4',
     working: 'Add an extra 4 to the sum. The two 4s make 8, the two 8s make 16, and the two 16s make 32. The two 32s then make 64, the next term. The original sum was short by exactly that extra 4.',
     comparison: 'Adding up the terms checks this particular sum. Pairing equal terms shows why the same trick works if the doubling list grows longer.'
   }],
-  ['A fair coin selects a bag. Bag A contains two red tokens and bag B contains one red and one blue. What is the probability of red?', {
+  ['A fair coin picks bag A on heads and bag B on tails. Bag A contains two red tokens. Bag B contains one red and one blue token. Draw one token uniformly from the selected bag. What is the probability of red?', {
     method: 'Label the four tokens',
     working: 'Mark the tokens A1, A2, B1 and B2. Each bag has a half chance of being selected, and drawing either token from it is equally likely. The four tokens therefore have equal chances. Three are red, so the chance is 3/4.',
     comparison: 'Counting tokens directly works because the bags are equally likely and have equal sizes. If one bag held more tokens, drawing the two branches would keep the chances straight.'

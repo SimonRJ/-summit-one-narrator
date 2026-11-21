@@ -46,8 +46,11 @@ await assert.rejects(()=>runAuth({error:new Error('Network unavailable')}),/Netw
 console.log('PASS: signed-out and expired sessions, authenticated user, and genuine network error handling.');
 
 const {journeys,investigationOpeners}=await import('../lesson-journeys.js');
-const {lessonPlan,introductionHTML,investigationIntroHTML,investigationWarmupHTML,mockIntroductionHTML}=await import('../session-intros.js');
-const investigations=JSON.parse(fs.readFileSync(new URL('../data/mawa-investigations-20.json',import.meta.url))).items;
+const {lessonPlan,introductionHTML,investigationIntroHTML,investigationWarmupHTML,mockIntroductionHTML,currentInvestigationEdition,firstInvestigationEdition,investigationForSession,investigationRecordHTML}=await import('../session-intros.js');
+const investigationBank=JSON.parse(fs.readFileSync(new URL('../data/mawa-investigations-20.json',import.meta.url)));
+const investigations=investigationBank.items;
+assert.equal(investigationBank.course_edition,currentInvestigationEdition);
+const investigationExamples=[],investigationExtensions=[],investigationStarters=[];
 assert.equal(Object.keys(journeys).length,52);
 assert.equal(Object.keys(investigationOpeners).length,20);
 let covered=0;
@@ -61,14 +64,34 @@ for(const s of sessions){
   assert(p.bridge.prompt&&p.bridge.reason);
   html=introductionHTML(s,sessions,taxonomy);
  }else if(s.type==='MAWA'){
-  const item=investigations[(Math.floor(s.slot/7)-1)%20];
+  const item=investigationForSession(investigations,s.slot,currentInvestigationEdition);
+  assert(item && item.hint && item.trap && item.solution && item.transfer_solution);
+  investigationExamples.push(item.prompt);
+  investigationExtensions.push(item.transfer_prompt);
+  investigationStarters.push(item.opener.starter);
+  const original=investigations[(s.slot/7-1)%20];
+  const archived=investigationForSession(investigations,s.slot,undefined,original.id);
+  assert.equal(archived.prompt,original.prompt);
+  assert.equal(archived.solution,original.solution);
+  assert.equal(archived.transfer_solution,original.transfer_solution);
+  assert.equal(archived.transfer_prompt,original.transfer_prompt+(s.slot>140?' Then change a condition, predict the effect, and test a general rule or counterexample.':''));
+  assert.deepEqual(archived,investigationForSession(investigations,s.slot,firstInvestigationEdition));
   html=investigationIntroHTML(s,item);assert(investigationWarmupHTML(item).includes('reasoning-steps'));
  }else if(s.type==='MIXED'){html='<p>Success today: choose a method independently.</p>';}else{html=mockIntroductionHTML({max_score:s.type==='AMC MOCK'?135:100});assert(html.includes('timer has not started'));}
  assert(html.includes('Success today'));assert(!html.includes('undefined'));covered++;
 }
 assert.equal(covered,372);
 assert.equal(new Set(Object.values(journeys).map(j=>j.hook)).size,52);
-console.log('PASS: 372 tailored session openings; 52 technique starters; 20 investigation warm-ups; revisit purposes; rehearsal preparation.');
+for(const passages of [investigationExamples,investigationExtensions,investigationStarters])assert.equal(new Set(passages).size,53);
+assert.equal(investigationForSession(investigations,14,'unknown-edition'),null);
+assert.equal(investigationForSession(investigations,6,currentInvestigationEdition),null);
+const secondVisit=investigationForSession(investigations,147,currentInvestigationEdition);
+const selfScore={result:0,method:2,proof:1,clarity:1};
+const paperRecord=investigationRecordHTML({session_number:147,summary:{rubric:selfScore},evidence:{mawa_base:{status:'attempted_on_paper_unreviewed'}}},secondVisit);
+for(const piece of ['data-adult-review="147"','Result 0/3','Method 2/3','paper notebook',secondVisit.title])assert(paperRecord.includes(piece));
+const originalRecord=investigationRecordHTML({session_number:147,working:{mawa_base:'My original <table>',mawa_extension:'My extension'}},investigationForSession(investigations,147));
+for(const piece of ['My original &lt;table&gt;','My extension','The reverse-number detective'])assert(originalRecord.includes(piece));
+console.log('PASS: 372 session openings, 53 distinct investigations, extensions and warm-ups, archived versions and paper notebook review.');
 
 const {selectOriginalProblems,familySeen,reasoningReady,applicationStatus}=await import('../original-learning.js');
 const manifest=JSON.parse(fs.readFileSync(new URL('../data/lesson-challenges.json',import.meta.url))).items;

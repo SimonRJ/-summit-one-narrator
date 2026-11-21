@@ -4,7 +4,7 @@ from pathlib import Path
 
 from playwright.async_api import async_playwright, expect
 
-from browser_lesson_fixed import MOCK
+from browser_lesson_fixed import MOCK, verify_mawa_visits
 
 
 BASE = 'http://127.0.0.1:8765'
@@ -192,6 +192,7 @@ async def check_lesson_resume(page):
 async def main():
     async with async_playwright() as playwright:
         browser = await playwright.webkit.launch()
+        await verify_mawa_visits(browser)
         context = await browser.new_context(**playwright.devices['iPhone 13'], service_workers='block')
         # All assets and the learner fixture come from localhost.
         await context.route('https://**/*', lambda route: route.abort())

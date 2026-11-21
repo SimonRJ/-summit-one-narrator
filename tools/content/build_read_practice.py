@@ -24,6 +24,7 @@ def build(private):
     assert len(targets)==55 and sorted(int(f.stem[1:]) for f in (private/'drafts').glob('S*.json'))==targets
     old={q['id']:q for q in read(ROOT/'data/lesson-challenges.json')['items']}
     figures=read(ROOT/'figures/read-practice/openings.json')
+    opening_revisions=read(ROOT/'tools/content/practice-revisions-20261121.json')['openings']
     public=[]; grading=[]; stems=set()
     for n in targets:
         key=f'S{n:03}'; src=read(private/'sources'/f'{key}.json'); d=read(private/'drafts'/f'{key}.json')
@@ -32,6 +33,9 @@ def build(private):
         retained=[f'O{n:03}{s}' for s in 'TX' if f'O{n:03}{s}' not in OMIT]
         assert all(old[k]['session']==n for k in retained)
         lesson={k:d[k] for k in ('slot','headline','intro','example','bridge','recap')}
+        revised=opening_revisions.get(key,{})
+        lesson['example']={**lesson['example'],**revised.get('example',{})}
+        if 'intro' in revised: lesson['intro']=revised['intro']
         if key in figures: lesson['example']={**lesson['example'],'figure':figures[key]}
         lesson.update(skill=src['skill'],videoId=key,videoTitle=src['videoTitle'],movie=src['videoUrl'],retained=retained,questions=[])
         for i,q in enumerate(d['questions']):
