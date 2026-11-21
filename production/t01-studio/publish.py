@@ -20,6 +20,10 @@ VERSION = "t01-studio-v1"
 CHAPTER_VERSION = "studio-chapters-02-04-v1"
 COURSE_VERSION = "teaching-films-v1"
 REVIEWED_MEDIA = {
+    "T11.E": "two-column-trades",
+    "T11.3": "written-threes",
+    "T11.2": "six-digit-orders",
+    "T11.1": "digit-reverse-gap",
     "T10.E": "forty-one-new-dots",
     "T10.3": "leave-twelve",
     "T10.2": "triple-units-cycle",
