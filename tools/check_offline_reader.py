@@ -24,7 +24,7 @@ class PagesHandler(SimpleHTTPRequestHandler):
         if self.server.test_failed_update and self.path == PREFIX + 'sw.js':
             original = (ROOT / 'sw.js').read_text()
             candidate = original.replace('const staticFiles = [', "const staticFiles = [\n  './missing-reading-file.js',")
-            candidate = candidate.replace('summit-one-github-20261121', 'summit-one-failed-update')
+            candidate = candidate.replace('summit-one-deeper-20261121', 'summit-one-failed-update')
             content = candidate.encode()
             self.send_response(200)
             self.send_header('Content-Type', 'application/javascript')
@@ -74,7 +74,8 @@ async def main():
                 assert cache_info['sibling'] == 'keep this'
                 assert all(path.startswith(PREFIX) and '/media/' not in path and '/supabase/' not in path
                            for path in cache_info['files'])
-                assert PREFIX + 'figures/read-practice/S368.svg' in cache_info['files']
+                assert {PREFIX + name for name in ('figures/read-practice/S368.svg', 'figure-viewer.js',
+                        'figure-viewer.css', 'route-model.js', 'route-model.css')} <= set(cache_info['files'])
 
                 server.test_failed_update = True
                 state = await page.evaluate("""async () => {
@@ -107,6 +108,11 @@ async def main():
                 await expect(offline.locator('.rwl-full-example ol')).to_be_visible()
                 await expect(offline.locator('.rwl-opening-figure')).to_be_visible()
                 assert await offline.locator('.rwl-opening-figure').evaluate('img => img.complete && img.naturalWidth>0')
+                await offline.get_by_role('button', name='Enlarge diagram').click()
+                viewer = offline.get_by_role('dialog', name='Enlarged diagram')
+                await viewer.get_by_role('button', name='2×').click()
+                await expect(viewer.get_by_role('button', name='2×')).to_have_attribute('aria-pressed', 'true')
+                await viewer.get_by_role('button', name='Close').click()
                 await offline.locator('.lesson-model > summary').click()
                 await expect(offline.locator('.lm-drawing svg')).to_be_visible()
                 assert not await offline.locator('video,.rwl-form').count()

@@ -2,10 +2,10 @@ name: Teaching behavior checks
 on:
   pull_request:
     branches: [main]
-    paths: ['*.js', '*.html', '*.css', 'data/**', 'tools/browser_lesson_fixed.py', 'tools/check_iphone_webkit.py', 'tools/check_offline_reader.py', 'tools/check_learning.mjs', 'tools/check_model_claims.mjs', 'tools/check_domino_model.mjs', 'tools/check_repair_recall.mjs', 'tools/check_example_methods.mjs', 'tools/check_lesson_models.mjs', 'tools/content/**', 'tools/video/**', 'production/scripts/**', '.github/workflows/teaching-checks.yml']
+    paths: ['*.js', '*.html', '*.css', 'data/**', 'tools/browser_lesson_fixed.py', 'tools/check_iphone_webkit.py', 'tools/check_offline_reader.py', 'tools/check_figure_viewer.py', 'tools/check_learning.mjs', 'tools/check_model_claims.mjs', 'tools/check_domino_model.mjs', 'tools/check_route_model.mjs', 'tools/check_exam_flags.mjs', 'tools/check_repair_recall.mjs', 'tools/check_example_methods.mjs', 'tools/check_lesson_models.mjs', 'tools/content/**', 'tools/video/**', 'production/scripts/**', '.github/workflows/teaching-checks.yml']
   push:
     branches: [recognition-coverage-20261113, main, rebuild-exam-centres-20261112, draft/teaching-audit-2026-11-11]
-    paths: ['*.js', '*.html', '*.css', 'data/**', 'tools/browser_checks.py', 'tools/browser_lesson_fixed.py', 'tools/check_iphone_webkit.py', 'tools/check_offline_reader.py', 'tools/check_learning.mjs', 'tools/check_model_claims.mjs', 'tools/check_domino_model.mjs', 'tools/check_repair_recall.mjs', 'tools/check_example_methods.mjs', 'tools/check_lesson_models.mjs', 'tools/content/**', 'tools/video/**', 'production/scripts/**', '.github/workflows/teaching-checks.yml']
+    paths: ['*.js', '*.html', '*.css', 'data/**', 'tools/browser_checks.py', 'tools/browser_lesson_fixed.py', 'tools/check_iphone_webkit.py', 'tools/check_offline_reader.py', 'tools/check_figure_viewer.py', 'tools/check_learning.mjs', 'tools/check_model_claims.mjs', 'tools/check_domino_model.mjs', 'tools/check_route_model.mjs', 'tools/check_exam_flags.mjs', 'tools/check_repair_recall.mjs', 'tools/check_example_methods.mjs', 'tools/check_lesson_models.mjs', 'tools/content/**', 'tools/video/**', 'production/scripts/**', '.github/workflows/teaching-checks.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -21,6 +21,8 @@ jobs:
         with:
           python-version: '3.12'
       - run: node tools/check_learning.mjs
+      - run: node tools/check_route_model.mjs
+      - run: node tools/check_exam_flags.mjs
       - run: node tools/check_domino_model.mjs
       - run: node tools/check_repair_recall.mjs
       - run: node tools/check_model_claims.mjs
@@ -36,6 +38,7 @@ jobs:
       - run: pip install playwright==1.58.0
       - run: google-chrome --version
       - run: python tools/check_offline_reader.py
+      - run: python tools/check_figure_viewer.py
       - name: Exercise model controls and claim evidence in Chromium
         run: |
           npm install --prefix "$RUNNER_TEMP/amc-browser" --no-save playwright@1.58.0
@@ -64,6 +67,8 @@ jobs:
           server_pid=$!
           trap 'kill "$server_pid"' EXIT
           python tools/check_iphone_webkit.py
+      - name: Enlarge lesson and exam figures using iPhone WebKit
+        run: python tools/check_figure_viewer.py --webkit
       - uses: actions/upload-artifact@v4
         if: failure()
         with:

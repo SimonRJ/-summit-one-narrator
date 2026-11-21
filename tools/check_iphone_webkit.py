@@ -119,6 +119,51 @@ async def check_domino_pages(page):
     await expect(status).to_contain_text('only with A2')
 
 
+async def check_route_page(page):
+    await page.goto(BASE + '/watch-lesson-intro.html?slot=318#lessonModel', wait_until='domcontentloaded')
+    model = page.locator('#lessonModel .route-model')
+    await model.locator(':scope > summary').tap()
+    rule = model.get_by_role('combobox')
+    right = model.locator('[data-move="R"]')
+    up = model.locator('[data-move="U"]')
+    status = model.get_by_role('status')
+    await expect(rule).to_have_value('point')
+    await right.tap()
+    await up.tap()
+    await expect(status).to_contain_text('B2 is closed')
+    await expect(model.locator('svg')).to_have_attribute('aria-label', 'Route grid from A1 to D3. Close the junction B2. Current junction B1. Moves R.')
+
+    await rule.select_option('edge')
+    await up.tap()
+    await right.tap()
+    await expect(status).to_contain_text('street from A2 to B2 is closed')
+    await model.get_by_role('button', name='Undo step').tap()
+    await right.tap()
+    await up.tap()
+    await expect(status).to_contain_text('At B2')
+    await model.locator('.rm-proof > summary').tap()
+    await expect(model.locator('.rm-total')).to_have_text('7 routes from A1 to D3.')
+
+    await rule.select_option('checkpoint')
+    for step in (right, up, right, right, up):
+        await step.tap()
+    await expect(status).to_contain_text('A new route')
+    await model.locator('.rm-saved > summary').tap()
+    await expect(model.locator('.rm-saved li')).to_have_text('RURRU')
+    await model.get_by_role('button', name='New route').tap()
+    for step in (right, up, right, right, up):
+        await step.tap()
+    await expect(status).to_contain_text('already found')
+    await expect(model.locator('.rm-saved li')).to_have_count(1)
+    for width in (320, 390):
+        await page.set_viewport_size({'width': width, 'height': 780})
+        assert await model.evaluate("""el => document.documentElement.scrollWidth <= innerWidth + 1 &&
+            [...el.querySelectorAll('button,select')].every(node => {
+                const box=node.getBoundingClientRect();
+                return box.width >= 44 && box.height >= 44 && box.left >= 0 && box.right <= innerWidth + 1;
+            })"""), width
+
+
 async def check_lesson_resume(page):
     await page.goto(BASE + '/', wait_until='domcontentloaded')
     await page.locator('#continue').tap()
@@ -158,6 +203,7 @@ async def main():
         try:
             await check_cube_page(page, playwright.devices)
             await check_domino_pages(page)
+            await check_route_page(page)
             await check_lesson_resume(page)
         except Exception:
             FAILURES.mkdir(parents=True, exist_ok=True)
@@ -171,7 +217,7 @@ async def main():
         finally:
             await context.close()
             await browser.close()
-        print('PASS: iPhone WebKit cube taps, domino tilings and proof, rotation, worked steps and draft recovery.')
+        print('PASS: iPhone WebKit cube taps, domino tilings, route counting, rotation, worked steps and draft recovery.')
 
 
 if __name__ == '__main__':

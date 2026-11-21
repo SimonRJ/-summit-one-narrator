@@ -1,5 +1,6 @@
-import {readCard, readingAvailable} from './reviewed-lesson.js?v=github-20261121';
-import {mountLessonModel} from './lesson-models.js?v=github-20261121';
+import {enableFigureViewing} from './figure-viewer.js?v=deeper-20261121';
+import {readCard, readingAvailable} from './reviewed-lesson.js?v=deeper-20261121';
+import {mountLessonModel} from './lesson-models.js?v=deeper-20261121';
 
 const status = document.querySelector('#readerStatus');
 const picker = document.querySelector('#readerLesson');
@@ -62,6 +63,7 @@ async function openReader() {
   const display = () => {
     const lesson = available.find(item => item.slot === Number(picker.value));
     reading.innerHTML = readCard(lesson);
+    enableFigureViewing(reading);
     mountLessonModel(reading.querySelector('[data-lesson-model]'), lesson);
     const recap = document.createElement('p');
     recap.textContent = lesson.recap;

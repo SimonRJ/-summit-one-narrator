@@ -1,17 +1,22 @@
 const scope = new URL(self.registration.scope);
-const CACHE="summit-one-github-20261121";
+const CACHE="summit-one-deeper-20261121";
 const cachePrefix = scope.pathname + ':summit-one-';
 const cacheName = scope.pathname + ':' + CACHE;
 const reader = new URL('offline-reader.html', scope).href;
 const staticFiles = [
+  "./exam-flags.js?v=deeper-20261121",
+  "./figure-viewer.js?v=deeper-20261121",
+  "./figure-viewer.css?v=deeper-20261121",
+  "./route-model.js?v=paths-20261121",
+  "./route-model.css?v=paths-20261121",
   "./offline-reader.html",
-  "./offline-reader.js?v=github-20261121",
+  "./offline-reader.js?v=deeper-20261121",
   "./domino-model.js?v=github-20261121",
   "./domino-model.css?v=github-20261121",
   "./model-claims.js?v=reasoning-20261121",
   "./example-methods.js?v=reasoning-20261121",
-  "./lesson-models.js?v=github-20261121",
-  "./lesson-models.css?v=github-20261121",
+  "./lesson-models.js?v=deeper-20261121",
+  "./lesson-models.css?v=deeper-20261121",
   "./data/read-watch-practise-later.json?v=guided-20261121",
   "./figures/read-practice/S006.svg",
   "./figures/read-practice/S017.svg",
@@ -37,7 +42,7 @@ const staticFiles = [
   "./figures/read-practice/S355.svg",
   "./figures/read-practice/S362.svg",
   "./figures/read-practice/S368.svg",
-  "./reviewed-lesson.js?v=github-20261121",
+  "./reviewed-lesson.js?v=deeper-20261121",
   "./data/read-watch-practise.json?v=read-practise-1",
   "./read-practice.css?v=guided-20261121",
   "./coverage.html",
@@ -65,7 +70,7 @@ const staticFiles = [
   "./boot-loader.js?v=identity-math-20261113",
   "./boot-loader.css?v=cinematic-20261113",
   "./main.css?v=data-audit-20261114",
-  "./app-main.js?v=github-20261121",
+  "./app-main.js?v=deeper-20261121",
   "./course-menu.js?v=menu-20261113",
   "./course-menu-ui.js?v=github-20261121",
   "./lesson-introduction-media.js?v=lesson-intros-v16",
@@ -85,8 +90,8 @@ const staticFiles = [
   "./login.js?v=cinematic-practice-20261113",
   "./supabase-client.js?v=auth-20261112",
   "./tests.html",
-  "./tests.js?v=amc-clean-20261113",
-  "./exam.css?v=deep-audit-20261114",
+  "./tests.js?v=deeper-20261121",
+  "./exam.css?v=deeper-20261121",
   "./manifest.webmanifest",
   "./icon.svg",
   "./summit-mark.svg",

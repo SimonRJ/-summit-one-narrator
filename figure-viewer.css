@@ -1,0 +1,29 @@
+button.fv-open {
+  display: block; width: max-content; max-width: 100%; min-height: 44px;
+  margin: .4rem 0 .7rem; padding: .35rem .8rem;
+  border: 1px solid #647e8d; border-radius: .4rem; background: #f2f8fa; color: #162e3c; cursor: pointer;
+}
+.exam-visual > .fv-open { margin-inline: auto; }
+dialog.figure-viewer {
+  width: min(72rem, calc(100vw - 20px)); height: min(55rem, calc(100dvh - 20px));
+  max-width: calc(100vw - 20px); max-height: calc(100dvh - 20px); box-sizing: border-box;
+  margin: auto; padding: 0; border: 1px solid #627d8b; border-radius: .65rem;
+  background: #f6fafb; color: #162c3b; overflow: hidden;
+}
+dialog.figure-viewer[open] { display: flex; flex-direction: column; }
+.figure-viewer::backdrop { background: rgb(4 12 19 / .83); }
+.fv-toolbar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .3rem; padding: .3rem .55rem; }
+.fv-toolbar [role="group"] { display: flex; gap: .2rem; }
+.fv-toolbar button {
+  min-height: 44px; min-width: 44px; border: 1px solid #60798a; border-radius: .35rem;
+  background: #fff; color: #183647; padding: .3rem .65rem; font: inherit; cursor: pointer;
+}
+.fv-toolbar button[aria-pressed="true"] { background: #183d4b; color: #fff; font-weight: 700; }
+.fv-open:focus-visible, .figure-viewer :focus-visible { outline: 3px solid #ce7117; outline-offset: -3px; }
+.figure-viewer .fv-window { flex: 1; min-height: 0; overflow: auto; overscroll-behavior: contain; border-top: 1px solid #93a7af; }
+.figure-viewer .fv-media { width: max-content; min-width: 100%; min-height: 100%; display: grid; place-content: center; }
+.figure-viewer .fv-media > :is(img,svg) {
+  display: block; width: var(--fv-width); max-width: none; min-width: 0; height: auto; max-height: none;
+  margin: 0; padding: 0; border: 0;
+}
+.problem-figure .figure-viewer .fv-window { background: #102332; }
