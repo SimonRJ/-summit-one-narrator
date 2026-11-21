@@ -294,12 +294,14 @@ async def verify_mawa_visits(browser):
  await page.locator('#recordExt').click()
  await page.locator('#nextStage').click()
  await page.get_by_text('Compare with model reasoning').click()
- model=await page.locator('.solution-panel').evaluate("""panel => {
-  const copy = panel.cloneNode(true);
-  for (const math of copy.querySelectorAll('[data-math-source]')) math.replaceWith(math.dataset.mathSource);
-  return copy.textContent;
- }""")
- assert '73 + 37 = 110' in model and 'The equations force both digits' in model,model
+ async def verify_model(panel):
+  model=await panel.evaluate("""element => {
+   const copy = element.cloneNode(true);
+   for (const math of copy.querySelectorAll('[data-math-source]')) math.replaceWith(math.dataset.mathSource);
+   return copy.textContent;
+  }""")
+  assert '73 + 37 = 110' in model and 'The equations force both digits' in model,model
+ await verify_model(page.locator('.solution-panel'))
  for name,value in [('rResult','0'),('rMethod','2'),('rProof','1'),('rClarity','1')]:
   await page.locator('#'+name).fill(value)
  await page.locator('#completeMawa').click()
@@ -310,7 +312,7 @@ async def verify_mawa_visits(browser):
  await page.get_by_text('Your recorded self-assessment').wait_for()
  assert 'Result 0/3' in await page.locator('.saved-investigation').inner_text()
  await page.get_by_text('Open worked investigation solution').click()
- assert '73 + 37 = 110' in await page.locator('[data-adult-review]').inner_text()
+ await verify_model(page.locator('[data-adult-review]'))
  form=page.locator('.adult-review')
  await form.locator('[name=reviewer]').fill('Fixture reviewer')
  for key,value in [('result','1'),('method','2'),('proof','1'),('clarity','1')]:
