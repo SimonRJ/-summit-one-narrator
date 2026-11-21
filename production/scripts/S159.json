@@ -1,0 +1,67 @@
+{
+  "id": "S159",
+  "title": "Cut from the same sheet",
+  "voice": "VoxCPM2 — approved Voice C",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "The label press",
+      "stage": "INTRO",
+      "narration": "The label press cuts a strip of three squares in a single stroke. Every square under the blade must be good paper. On a roll eight squares long, could the printer promise three labels? How would you show the greatest number she can really make?"
+    },
+    {
+      "n": 2,
+      "title": "Two impressions and a tail",
+      "stage": "BASIC",
+      "narration": "Three labels would use nine squares. That is one more than the roll supplies. Press the first three squares together, then the next three. Two labels fit, and two squares remain. An upper bound and an actual placement have met."
+    },
+    {
+      "n": 3,
+      "title": "The stained roll",
+      "stage": "PUZZLE",
+      "narration": "Now there are two ink stains. A label cannot include either stain. The clean runs have lengths two, five and seven. Fourteen clean squares look enough for four labels of three. Can the printer actually cut four? Study the gaps before the press comes down."
+    },
+    {
+      "n": 4,
+      "title": "Three clean cuts",
+      "stage": "REVEAL",
+      "narration": "The two-square run is too short. The five-square run can supply only one label. The seven-square run can supply only two. These separate limits add to three. Cut one from the middle run and two from the last. That reaches three, so three is the maximum."
+    },
+    {
+      "n": 5,
+      "title": "The bent die",
+      "stage": "PUZZLE",
+      "narration": "A new die cuts a bent label, made of three squares in a corner. It can be turned. The fresh sheet measures three squares by three. Three labels would use exactly nine squares. Can three bent labels cover the sheet? Inspect the four outside corners."
+    },
+    {
+      "n": 6,
+      "title": "The corners object",
+      "stage": "REVEAL",
+      "narration": "A bent label fits inside a two by two window. No such window can reach two corners of this sheet. Each label can take at most one outside corner. With three labels, one of the four corners would still be blank. A complete covering is impossible."
+    },
+    {
+      "n": 7,
+      "title": "Pull two labels free",
+      "stage": "TRANSFER",
+      "narration": "Stamp one bent label into the upper left corner. Turn a second label into the lower right corner. The labels share no square. Three labels cannot fit, and these two can. The maximum is two. The three leftover squares run along a diagonal."
+    },
+    {
+      "n": 8,
+      "title": "Trace the cutting blade",
+      "stage": "TRANSFER",
+      "narration": "Turn one label over. Its three unit squares contribute twelve sides before joining. Two pairs of squares meet along full edges. Each join hides two sides, one from each square. Twelve minus four leaves eight edge units on the outside. Trace them to check."
+    },
+    {
+      "n": 9,
+      "title": "Orders separated by a seam",
+      "stage": "CHALLENGE",
+      "narration": "For this order the printer uses two-square strips. A seam separates a two by two sheet from a two by three sheet. Nothing crosses the seam. There are two tilings on the left. On the right, the first column is either upright, or two horizontal strips start there. Can you find all three tilings?"
+    },
+    {
+      "n": 10,
+      "title": "Six different orders",
+      "stage": "RECAP",
+      "narration": "Each of the two left tilings can be matched with each of the three right tilings. The six pairs make six different full sheets. A maximum asks how many pieces can fit. A perimeter asks how long the blade travels. A tiling count asks how many different finished arrangements exist."
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "id": "S162",
+  "title": "The missing name on the record sleeve",
+  "voice": "VoxCPM2 — approved Voice C",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "One recording, two credits",
+      "stage": "INTRO",
+      "narration": "A sound engineer has finished one duet. The record has one track, but there are two names on its sleeve. Ada remembers recording it. Ben does too. Count the singer credits and you count this same track twice. What is a credit actually counting?"
+    },
+    {
+      "n": 2,
+      "title": "Four voices in the booth",
+      "stage": "BASIC",
+      "narration": "Four singers will each record a duet with every other singer exactly once. Ada has three possible partners. So does each of the other three singers. There are twelve singer credits. How many distinct tracks does that make?"
+    },
+    {
+      "n": 3,
+      "title": "Read both sides of the label",
+      "stage": "REVEAL",
+      "narration": "Ada with Ben and Ben with Ada describe the same recording. Divide twelve by two to get six tracks. To check, list the three with Ada. Ben has two new partners left. The last two singers add one more. Three plus two plus one is six."
+    },
+    {
+      "n": 4,
+      "title": "A smudge in the credits",
+      "stage": "PUZZLE",
+      "narration": "A different record contains eight duets among six singers. Some pairs may return for another track. Five singers report four, three, two, three and one appearances. The last singer has a smudge over her tally. How many times does her name belong in the credits?"
+    },
+    {
+      "n": 5,
+      "title": "Restore the missing entry",
+      "stage": "REVEAL",
+      "narration": "Eight duets produce sixteen singer credits. The five readable entries have a total of thirteen. The missing entry is three. Add it back to the five known counts. The restored sleeve accounts for all sixteen credits without treating an appearance as a separate track."
+    },
+    {
+      "n": 6,
+      "title": "When three singers perform",
+      "stage": "TRANSFER",
+      "narration": "Suppose every track on another record features a trio. Its sleeve lists eighteen singer appearances. This time each track supplies three names. Eighteen divided by three gives six tracks. The divisor comes from the number of credits on each recording. What happens if the recording sizes vary?"
+    },
+    {
+      "n": 7,
+      "title": "A record with solos and duets",
+      "stage": "CHALLENGE",
+      "narration": "A short record has five tracks. Some are solos and the rest are duets. Eight names are printed across the five tracks. Give every track its first singer. That uses five names. Each of the three extra names makes a different track a duet. So there are three duets and two solos."
+    },
+    {
+      "n": 8,
+      "title": "The rehearsal sign-in sheet",
+      "stage": "PUZZLE",
+      "narration": "At a rehearsal, nine singers each sign in to two different sessions. The first three sessions have five, four and six names. A fourth sheet has lost its total. This time the entries connect a singer to a session. Can you count those entries from both directions?"
+    },
+    {
+      "n": 9,
+      "title": "Read down the other column",
+      "stage": "RECAP",
+      "narration": "Nine singers signing twice make eighteen entries. The first three session totals add to fifteen. Three singers must appear on the fourth sheet. Read across the singers or down the sessions and you count the same eighteen marks. Always say what one mark stands for before choosing a calculation."
+    }
+  ]
+}

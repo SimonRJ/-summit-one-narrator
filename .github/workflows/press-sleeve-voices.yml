@@ -1,0 +1,60 @@
+name: Record the label press and studio sleeve lessons
+on:
+  push:
+    branches: [production/press-sleeve-voice]
+    paths: ['production/scripts/S159.json', 'production/scripts/S162.json', '.github/workflows/press-sleeve-voices.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  record:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 65
+    strategy:
+      fail-fast: false
+      matrix:
+        lesson: [S159, S162]
+        first: [1, 3, 5, 7, 9]
+    env:
+      HF_HUB_DISABLE_XET: '1'
+      TOKENIZERS_PARALLELISM: 'false'
+      OMP_NUM_THREADS: '4'
+      MKL_NUM_THREADS: '4'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            production
+            media/voice-audition
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install the approved studio narrator
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg libsndfile1
+          pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install 'transformers>=4.45,<5' 'huggingface-hub<1' einops pydantic soundfile librosa safetensors tqdm numpy scipy inflect addict argbind
+          pip install --no-deps 'git+https://github.com/OpenBMB/VoxCPM.git@300e4260b509066151d623dc9c0aa922cf82232b'
+      - name: Record each authored passage
+        env:
+          LESSON: ${{ matrix.lesson }}
+          FIRST: ${{ matrix.first }}
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          lesson = os.environ['LESSON']
+          first = int(os.environ['FIRST'])
+          scenes = json.loads(Path(f'production/scripts/{lesson}.json').read_text())['scenes']
+          selected = [{'lesson': lesson, 'scene': s['n']} for s in scenes if first <= s['n'] < first + 2]
+          Path('sequence.json').write_text(json.dumps(selected))
+          PY
+          python production/t01-studio/synth.py --sequence sequence.json --threads 4
+      - uses: actions/upload-artifact@v4
+        with:
+          name: voice-${{ matrix.lesson }}-${{ matrix.first }}
+          path: build/t01-studio/${{ matrix.lesson }}-*
+          if-no-files-found: error
+          retention-days: 30
