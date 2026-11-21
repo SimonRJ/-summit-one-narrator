@@ -1,7 +1,7 @@
 """Track place value, digit remainders and trades between columns."""
 
-from series_marks import (BLUE, GOLD, MINT, MUTED, RED, RIM, WHITE, board, cards, change,
-                          chart, cue, equation, exercise, link, note, scene, tile)
+from series_marks import (BLUE, GOLD, MINT, MUTED, RIM, WHITE, board, cards,
+                          chart, cue, equation, link, note, scene, tile)
 from stage import mix
 from studio_diagrams import bead, fit
 
@@ -31,12 +31,17 @@ def place_trade(stage,s, *, tens=False):
     for i in range(n):
         y=283+72*(i//8)
         x=xx+49*(i%8-3.5)
+        if tens:
+            word="five tens" if i<5 else "six tens" if i<11 else "the carried ten"
+        else:
+            word="eight plus" if i<8 else "seven is"
+        visible=cue(s,word,duration=.28)
         if i<10:
             x,y=mix(x,dst,q),mix(y,431,q)
         if tens:
-            stage.box(x-12,y-26,24,52,edge=BLUE,fill="#264d69",radius=3,opacity=1-q if i<10 else 1)
+            stage.box(x-12,y-26,24,52,edge=BLUE,fill="#264d69",radius=3,opacity=visible*(1-q if i<10 else 1))
         else:
-            bead(stage,x,y,GOLD,1-q if i<10 else 1,17)
+            bead(stage,x,y,GOLD,visible*(1-q if i<10 else 1),17)
     tile(stage,dst,430,"100" if tens else "10",MINT,122,73,q,size=34)
     fit(stage,"Trade 10 tens for 1 hundred" if tens else "Trade 10 units for 1 ten",
         640,521,36,1050,MINT,q)
@@ -73,6 +78,123 @@ def removing_nines(stage,s):
         fit(stage,f"{n} remains" if n==1 else f"{n} remain",x,463,25,218,GOLD,p)
 
 
+def reversals(stage,s):
+    fit(stage,"Original",171,278,28,170,MUTED)
+    fit(stage,"Reversed",171,389,28,170,MUTED)
+    for i,word in enumerate(("fourteen","twenty-five","thirty-six","forty-seven","fifty-eight","sixty-nine")):
+        value=14+11*i
+        x=329+139*i
+        show=cue(s,word,duration=.25)
+        tile(stage,x,278,str(value),BLUE,99,65,show,36)
+        tile(stage,x,389,str(value)[::-1],GOLD,99,65,show,36)
+    fit(stage,"52 − 25 = 27",640,525,44,1090,MINT,cue(s,"fifty-two minus twenty-five"))
+
+
+def double_units(stage,s):
+    if s.t<s.at("notebook challenge"):
+        scene("Write the digits as tens and units",
+              note("Original: 10A + B","write numbers",y=224,colour=BLUE),
+              note("Reverse − original = 9(B − A)","reversing and subtracting",y=360,colour=GOLD),
+              note("Reverse + original = 11(A + B)","reversing and adding",y=492))(stage,s)
+        return
+    fit(stage,"Which numbers equal four times their digit sum?",640,87,44)
+    fit(stage,"10A + B = 4(A + B)",640,205,44,1000,BLUE,cue(s,"four times"))
+    fit(stage,"6A = 3B     →     B = 2A",640,289,38,1000,GOLD,cue(s,"sum of its digits"))
+    for i in range(1,5):
+        x=235+i*165
+        show=cue(s,"find all",delay=(i-1)*.12)
+        tile(stage,x,402,str(12*i),MINT,119,74,show,39)
+        fit(stage,f"4 × ({i} + {2*i})",x,482,27,161,WHITE,show)
+    fit(stage,"A = 5 would require B = 10, outside the digit range",640,561,31,1070,MUTED,cue(s,"all such numbers"))
+
+
+double_units.chapter="Your turn"
+
+
+def permutations(stage,s):
+    for i,pair in enumerate((("126","162"),("216","261"),("612","621"))):
+        x=365+275*i
+        for j,value in enumerate(pair):
+            tile(stage,x,279+j*86,value,(BLUE,GOLD,MINT)[i],175,68,
+                 cue(s,"every arrangement",delay=(2*i+j)*.12),39)
+    fit(stage,"1 + 2 + 6 = 9 in all six orders",640,480,36,1010,WHITE,cue(s,"digits one two and six"))
+    fit(stage,"Each number is also divisible by 3",640,566,30,1000,MINT,cue(s,"since nine is a multiple"))
+
+
+def missing_four(stage,s):
+    if s.t<s.at("notebook challenge"):
+        scene("Use a digit sum to check divisibility",
+              note("4,725 and 18 have the same remainder","a number and its digit sum",y=290,colour=BLUE),
+              note("18 = 2 × 9 = 6 × 3","on division by nine",y=423))(stage,s)
+        return
+    fit(stage,"Complete the four-digit multiple of nine",640,87,44)
+    result=cue(s,"a multiple of nine")
+    for i,(digit,word) in enumerate(zip("73?4",("seven","three blank","blank","four"))):
+        x=396+i*165
+        if digit=="?":
+            tile(stage,x,302,"?",GOLD,129,92,cue(s,word)*(1-result),47)
+            tile(stage,x,302,"4",MINT,129,92,result,47)
+        else:
+            tile(stage,x,302,digit,BLUE,129,92,cue(s,word),47)
+    fit(stage,"7 + 3 + 4 = 14",640,419,38,1000,WHITE,cue(s,"four"))
+    fit(stage,"14 + 4 = 18     →     7,344 = 9 × 816",640,525,36,1050,MINT,result)
+
+
+missing_four.chapter="Your turn"
+
+
+def count_threes(stage,s):
+    if s.t<s.at("notebook challenge"):
+        scene("Read what the count asks for",
+              note("77 has two written sevens","numbers or occurrences",y=247,colour=BLUE),
+              note("10 units + 10 tens = 20 occurrences","count each place",y=358,colour=GOLD),
+              note("20 − 1 overlap = 19 numbers","remove any overlap",y=473))(stage,s)
+        return
+    fit(stage,"Count the written threes from 1 to 50",640,87,44)
+    reveal=cue(s,"digit three")
+    units=cue(s,"numbers from")
+    tens=cue(s,"one to fifty")
+    for n in range(1,51):
+        r,c=divmod(n-1,10)
+        x,y=157+64*c,229+65*r
+        stage.box(x-29,y-26,58,52,edge=RIM,fill=None,radius=3,opacity=reveal)
+        for j,d in enumerate(str(n)):
+            pos=x+(j-(len(str(n))-1)/2)*17
+            active=tens if n>=10 and j==0 else units
+            colour=(GOLD if n>=10 and j==0 else BLUE) if d=="3" and active>.05 else WHITE
+            fit(stage,d,pos,y,26,29,colour,reveal)
+    fit(stage,"Units: 5 threes",991,283,33,342,BLUE,units)
+    fit(stage,"Tens: 10 threes",991,362,33,342,GOLD,tens)
+    fit(stage,"5 + 10 = 15",991,450,37,342,MINT,tens)
+    fit(stage,"Both digits of 33 count",640,558,31,1050,WHITE,tens)
+
+
+count_threes.chapter="Your turn"
+
+
+def trade_again(stage,s):
+    challenge=s.t>=s.at("then add")
+    fit(stage,"Add 76 and 89" if challenge else "How a carry changes place",640,87,45)
+    first="seventy-six" if challenge else "ten of one place"
+    second="eighty-nine" if challenge else "one of the next place"
+    total="what each carry means" if challenge else second
+    for i,label in enumerate(("Hundreds","Tens","Units")):
+        x=346+294*i
+        fit(stage,label,x,188,30,266,MUTED)
+        for j,n in enumerate((76,89) if challenge else (58,67)):
+            digs=str(n).rjust(3)
+            if digs[i]!=" ":
+                tile(stage,x,265+j*73,digs[i],(BLUE,GOLD)[j],90,61,cue(s,(first,second)[j]),33)
+        stage.line([(x-125,390),(x+125,390)],RIM,3)
+        tile(stage,x,446,str(165 if challenge else 125)[i],MINT,97,67,cue(s,total,delay=(2-i)*.18),37)
+    calc=("6 + 9 = 15 units → 1 ten and 5 units","7 + 8 + 1 = 16 tens → 1 hundred and 6 tens") if challenge else ("8 + 7 = 15 units → 1 ten and 5 units","5 + 6 + 1 = 12 tens → 1 hundred and 2 tens")
+    fit(stage,calc[0],640,530,28,1070,BLUE,cue(s,second))
+    fit(stage,calc[1],640,584,28,1100,GOLD,cue(s,total))
+
+
+trade_again.chapter="Your turn"
+
+
 FILMS = {
  "T11.1":(
     scene("A digit changes value when it moves",tens_units),
@@ -92,9 +214,7 @@ FILMS = {
           note("(10B + A) − (10A + B)", "subtract",y=218,colour=BLUE,size=44),
           note("9B − 9A = 9(B − A)", "nine b minus nine a",y=339,colour=GOLD,size=45),
           note("B − A = 27 ÷ 9 = 3", "the units digit is three more",y=479,size=45)),
-    scene("List the digit pairs three apart",
-          cards(("14","25","36","47","58","69"),337,width=108,gap=140,words="that gives fourteen"),
-          note("52 − 25 = 27", "fifty-two minus twenty-five")),
+    scene("List the digit pairs three apart",reversals),
     scene("The sum of a number and its reverse",
           note("(10A + B) + (10B + A)", "adding a number",y=213,colour=BLUE,size=44),
           note("= 11(A + B)", "eleven times the digit sum",y=347,colour=GOLD,size=46),
@@ -103,9 +223,7 @@ FILMS = {
           cards((("A can be 1 to 9",BLUE),("B can be 0 to 9",GOLD)),338,
                 width=370,gap=454,words="the first digit runs",size=35),
           note("A is the tens digit of a two-digit number", "those limits often finish")),
-    exercise((("Translate place value","write numbers using place value"),("Subtract after reversing","reversing and subtracting"),
-              ("Add after reversing","reversing and adding")),"notebook challenge",
-             ("A two-digit number is four times the sum of its digits.","Find all such numbers.")),
+    double_units,
  ),
  "T11.2":(
     scene("Each place value is one more than a multiple of nine",
@@ -131,15 +249,11 @@ FILMS = {
           cards(("5","8","3"),264,words="five hundred and eighty-three",width=113,gap=158),
           note("5 + 8 + 3 = 16", "digit sum sixteen",y=381,colour=BLUE,size=44),
           note("16 = 9 + 7, so the remainder is 7", "seven more than nine")),
-    scene("Rearrange the digits without changing the sum",
-          cards(("126","216","612","621"),323,words="every arrangement",width=169,gap=228),
-          note("1 + 2 + 6 = 9 in every order", "digits one two and six"),
-          note("The test works for 3 as well", "since nine is a multiple",y=598,size=28)),
+    scene("Rearrange the digits without changing the sum",permutations),
     scene("Use the digit sum to complete a number",
           cards((("5",BLUE),("?",GOLD),("8",BLUE)),322,width=131,gap=174,words="five blank eight"),
           equation(("13 + 5",GOLD,"the blank must be five"),("= 18",MINT,"making eighteen"))),
-    exercise((("Find the digit sum","a number and its digit sum"),("Reduce by 9 or 3","on division by nine")),
-             "notebook challenge",("What digit makes 73?4 a multiple of 9?",)),
+    missing_four,
  ),
  "T11.3":(
     scene("A number can contain the same digit twice",
@@ -164,9 +278,7 @@ FILMS = {
            (("10 to 99","90","2","180"),"two digits each")],
           y=246,row_height=89,highlight=((0,3),(1,3))),
           note("9 + 180 = 189 digits", "one hundred and eighty-nine digits")),
-    exercise((("Numbers or occurrences?","numbers or occurrences"),("Count each place","each place separately"),
-              ("Adjust for overlap","remove any overlap")),"notebook challenge",
-             ("How many times is 3 written in the numbers from 1 to 50?",)),
+    count_threes,
  ),
  "T11.E":(
     scene("Read each place in the addition",
@@ -188,7 +300,6 @@ FILMS = {
                  (("Exact","110 + 15","125"),"together they make")],
                 y=229,row_height=98,highlight=((0,2),(1,2))),
           note("50 + 60 = 110 and 8 + 7 = 15", "eight plus seven")),
-    exercise((("Group ten of one place","ten of one place"),("Trade for one in the next","one of the next place")),
-             "then add",("Add 76 and 89.", "Explain exactly what each carry means.")),
+    trade_again,
  ),
 }
