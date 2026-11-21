@@ -1,0 +1,85 @@
+name: Publish and play the checked reversal film
+on:
+  push:
+    branches: [production/carry-and-reversal]
+    paths: ['.github/workflows/s010-ready.yml']
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: read
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - name: Publish the already independently verified S010 artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          gh run download 44945707847 -n verified-S010-new-edition -D verified
+          cd verified
+          echo '05e50af3ded44b2b810007c4a1833e501700bd77f4ab6a27071cc580c50f861d  S010.mp4' | sha256sum -c
+          test "$(jq -r '.sha256' S010-qa.json)" = "$(jq -r '.sha256' S010-guide.json)"
+          tag=reversal-line-S010-20261122
+          if ! gh release view "$tag" >/dev/null 2>&1; then
+            gh release create "$tag" --draft --target "$GITHUB_SHA" --title 'The reversal line' --notes 'Six independently recorded and illustrated chapters, timed captions and verified public media.'
+          fi
+          if [[ "$(gh release view "$tag" --json isDraft --jq .isDraft)" == true ]]; then
+            gh release upload "$tag" S010* --clobber
+          fi
+          mkdir returned
+          gh release download "$tag" -D returned
+          for file in S010*; do cmp "$file" "returned/$file"; done
+          if [[ "$(gh release view "$tag" --json isDraft --jq .isDraft)" == true ]]; then
+            gh release edit "$tag" --draft=false --latest=false
+          fi
+  play:
+    needs: publish
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        engine: [chromium, webkit]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install playwright==1.58.0
+      - if: matrix.engine == 'webkit'
+        run: python -m playwright install --with-deps webkit
+      - name: Stage only the verified public film guides
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          tag=reversal-line-S010-20261122
+          gh release download "$tag" -p '*-guide.json' -p '*-qa.json' -D published
+          python - <<'PYTHON'
+          import json
+          from pathlib import Path
+          guides={}
+          for film in ('S010',):
+              g=json.loads(Path('published',film+'-guide.json').read_text())
+              qa=json.loads(Path('published',film+'-qa.json').read_text())
+              assert g['id']==film and len(g['chapters'])==len(g['transcript'])==qa['recorded_scenes_checked']==6
+              assert g['sha256']==qa['sha256'] and qa['minimum_source_audio_correlation_per_scene']>=0.992
+              guides[film]=g
+          root='https://github.com/SimonRJ/-summit-one-narrator/releases/download/reversal-line-S010-20261122/'
+          Path('data/recorded-studies.json').write_text(json.dumps(dict(release=root,lessons=guides)))
+          PYTHON
+      - name: Play real media through each staged lesson route
+        env:
+          ENGINE: ${{ matrix.engine }}
+        run: |
+          python -m http.server 8765 --bind 127.0.0.1 > "$RUNNER_TEMP/course.log" 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid"' EXIT
+          python tools/check_recorded_studies.py --engine "$ENGINE" --all-chapters

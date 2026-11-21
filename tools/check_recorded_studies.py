@@ -10,7 +10,7 @@ from playwright.async_api import async_playwright, expect
 ROOT = Path(__file__).resolve().parents[1]
 
 
-async def run(site, engine):
+async def run(site, engine, all_chapters=False):
     catalogue = json.loads((ROOT / 'data/recorded-studies.json').read_text())
     async with async_playwright() as playwright:
         browser = await (playwright.webkit.launch() if engine == 'webkit'
@@ -45,18 +45,26 @@ async def run(site, engine):
                 }""", timeout=50000)
                 duration = await film.evaluate('v => v.duration')
                 assert abs(duration - guide['seconds']) < 0.15, (lesson, duration, guide['seconds'])
-                chapter = max(1, (len(guide['chapters']) - 1) // 2)
-                await buttons.nth(chapter).tap()
-                await page.wait_for_function("""t => {
-                    const v = document.getElementById('introFilm');
-                    return !v.error && !v.paused && !v.seeking && v.currentTime > t + 0.2 && v.currentTime < t + 9;
-                }""", arg=guide['chapters'][chapter]['start'], timeout=30000)
-                await film.evaluate('v => v.pause()')
-                width = await page.evaluate('document.documentElement.scrollWidth - innerWidth')
-                assert width <= 1, (lesson, width)
-                print(lesson, engine, 'played and sought to', guide['chapters'][chapter]['title'], flush=True)
-                await page.set_viewport_size({'width': 844, 'height': 390} if index % 2 == 0
-                                             else {'width': 390, 'height': 844})
+                count = len(guide['chapters'])
+                assert count > 0, lesson
+                middle = min(count - 1, max(1, (count - 1) // 2))
+                chapter_indices = range(count) if all_chapters else [middle]
+                if all_chapters:
+                    sizes = [(390, 844), (844, 390)]
+                else:
+                    sizes = [(390, 844) if index % 2 == 0 else (844, 390)]
+                for width, height in sizes:
+                    await page.set_viewport_size({'width': width, 'height': height})
+                    for chapter in chapter_indices:
+                        await buttons.nth(chapter).tap()
+                        await page.wait_for_function("""t => {
+                            const v = document.getElementById('introFilm');
+                            return !v.error && !v.paused && !v.seeking && v.currentTime > t + 0.2 && v.currentTime < t + 9;
+                        }""", arg=guide['chapters'][chapter]['start'], timeout=30000)
+                        await film.evaluate('v => v.pause()')
+                        print(lesson, engine, width, 'played and sought to', guide['chapters'][chapter]['title'], flush=True)
+                    overflow = await page.evaluate('document.documentElement.scrollWidth - innerWidth')
+                    assert overflow <= 1, (lesson, width, overflow)
         finally:
             await browser.close()
 
@@ -65,5 +73,6 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--site', default='http://127.0.0.1:8765/')
     parser.add_argument('--engine', choices=['chromium', 'webkit'], required=True)
+    parser.add_argument('--all-chapters', action='store_true', help='Play every chapter in portrait and landscape')
     args = parser.parse_args()
-    asyncio.run(run(args.site.rstrip('/') + '/', args.engine))
+    asyncio.run(run(args.site.rstrip('/') + '/', args.engine, args.all_chapters))
