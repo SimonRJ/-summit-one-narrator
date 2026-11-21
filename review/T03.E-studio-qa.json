@@ -1,7 +1,7 @@
 {
   "id": "T03.E",
   "duration_seconds": 100.6,
-  "sha256": "407573356b24540c13cbe949ba97f639ed897f5975ec76bcaa26381d9e836ff7",
+  "sha256": "7b6a5ba8163185eb01872ef8a49903ba4e5198d4387da233ffc81ee344936828",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -15,13 +15,13 @@
   "scenes": [
     {
       "number": 1,
-      "start": 0.0,
-      "match_percent": 100.0
+      "start": 0,
+      "match_percent": 100
     },
     {
       "number": 2,
       "start": 16.09,
-      "match_percent": 100.0
+      "match_percent": 100
     },
     {
       "number": 3,
@@ -31,23 +31,23 @@
     {
       "number": 4,
       "start": 43.61,
-      "match_percent": 100.0
+      "match_percent": 100
     },
     {
       "number": 5,
       "start": 59.45,
-      "match_percent": 100.0
+      "match_percent": 100
     },
     {
       "number": 6,
       "start": 79.29,
-      "match_percent": 100.0
+      "match_percent": 100
     }
   ],
   "chapters": [
     {
       "title": "The four-number problem",
-      "start": 0.0
+      "start": 0
     },
     {
       "title": "Sort by remainder",
@@ -66,5 +66,54 @@
       "start": 79.29
     }
   ],
-  "decoded_successfully": true
+  "decoded_successfully": true,
+  "legacy_sha256": "407573356b24540c13cbe949ba97f639ed897f5975ec76bcaa26381d9e836ff7",
+  "version": "ten-remainder-boxes",
+  "compared_frames": 3018,
+  "compared_scenes": [
+    {
+      "frames": 483,
+      "worst_frame": 34,
+      "mean_max": 1.703,
+      "tile_max": 2.681,
+      "caption_max": 1.794
+    },
+    {
+      "frames": 360,
+      "worst_frame": 733,
+      "mean_max": 1.762,
+      "tile_max": 3.941,
+      "caption_max": 1.777
+    },
+    {
+      "frames": 466,
+      "worst_frame": 1115,
+      "mean_max": 1.75,
+      "tile_max": 2.736,
+      "caption_max": 1.772
+    },
+    {
+      "frames": 475,
+      "worst_frame": 1332,
+      "mean_max": 1.684,
+      "tile_max": 3.229,
+      "caption_max": 1.759
+    },
+    {
+      "frames": 595,
+      "worst_frame": 1810,
+      "mean_max": 1.707,
+      "tile_max": 2.96,
+      "caption_max": 1.771
+    },
+    {
+      "frames": 639,
+      "worst_frame": 2404,
+      "mean_max": 1.858,
+      "tile_max": 3.444,
+      "caption_max": 1.709
+    }
+  ],
+  "audio_packet_sha256": "6b5d47c1b51bae4713e354e66dd7f50a6547274d90ddb4be3122be86d89a6c3d",
+  "art_source": "e04111b2c9e00b01ee040d87ca3e73a6598d22d9"
 }
