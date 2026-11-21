@@ -345,10 +345,10 @@
       "headline": "Listen to what the carry tells you",
       "intro": "In a letter sum, the same letter always stands for the same digit. Read two letters side by side as a two-digit number: AB has A tens and B ones. A carry from one column can reveal a digit in the next.",
       "example": {
-        "prompt": "In 2A + 7 = 31, what digit is A?",
+        "prompt": "A two-digit number has 2 tens and an unknown units digit A. Adding 7 gives 31. What is A?",
         "steps": [
-          "The units have to end in 1. A + 7 cannot equal 1, so it must equal 11.",
-          "That makes A = 4 and sends one ten to the tens column. Check: 24 + 7 = 31."
+          "The units must end in 1. Since A + 7 is between 7 and 16, the only possible total ending in 1 is 11.",
+          "This makes A = 4. The 11 units supply one ten and one unit, and 24 + 7 = 31."
         ]
       },
       "bridge": "Watch where each carry comes from. A carry out of the tens column creates a new hundreds digit, which the film uses to narrow the choices before trying them.",
@@ -1746,10 +1746,10 @@
       "headline": "Does a graph show a total or a change?",
       "intro": "A reading on a graph tells you the value at one instant. To find a change you need two readings. If you want a rate, also measure the interval between them. A crossing tells you when two quantities take exactly the same value.",
       "example": {
-        "prompt": "At minute 2 a tap meter reads 11 L. At minute 5 it reads 23 L. How many litres per minute did the meter gain on average?",
+        "prompt": "A water meter records how many litres have passed through a pipe. It reads 11 L at minute 2 and 23 L at minute 5. What is the average flow rate during that interval?",
         "steps": [
-          "The reading rises by 23 − 11 = 12 L over 5 − 2 = 3 minutes.",
-          "The average rate over that interval is 12 ÷ 3 = 4 L per minute."
+          "The volume increases by 23 − 11 = 12 L. The elapsed time is 5 − 2 = 3 minutes.",
+          "The average flow rate is 12 ÷ 3 = 4 litres per minute. The flow could have varied within those three minutes."
         ]
       },
       "bridge": "Compare the different time gaps on the film’s chart. At the end, notice which coordinate of the price-graph crossing answers ‘how many visits?’",
@@ -2612,10 +2612,10 @@
       "headline": "Follow the truth of the whole claim",
       "intro": "In these puzzles each person either always tells the truth or always lies. A proposed assignment works only when every statement has the right truth value for its speaker. Sometimes two claims fix a relationship before you can name a single truth-teller.",
       "example": {
-        "prompt": "Bo always lies. He says, “Mira is a liar.” What must Mira be?",
+        "prompt": "Everyone in this puzzle either always tells the truth or always lies. Bo always lies and says, “Mira always lies.” Which kind of speaker is Mira?",
         "steps": [
-          "Bo’s statement must be false. So the description “Mira is a liar” is false.",
-          "The only other possibility is that Mira is truthful."
+          "Bo’s claim is false, so Mira cannot be someone who always lies.",
+          "The puzzle allows exactly two types. The remaining possibility is that Mira always tells the truth."
         ]
       },
       "bridge": "When Kai says both people are liars in the film, test the whole sentence. Then follow the links in the four-person puzzle and notice which statement becomes settled first.",

@@ -26,6 +26,14 @@ assert.equal(count,220);assert.equal(phaseFor(0),'Read');assert.equal(phaseFor(1
 console.log('PASS: '+release.lessons.length+' lessons, '+count+' new problems, '+retained+' retained; read/watch/practise order and answer protection.');
 
 const later = read('read-watch-practise-later.json');
+const openingEdits=JSON.parse(fs.readFileSync(new URL('../tools/content/practice-revisions-20261121.json',import.meta.url))).openings;
+for(const [id,edit] of Object.entries(openingEdits)){
+ const lesson=[...release.lessons,...later.lessons].find(item=>item.slot===Number(id.slice(1)));
+ assert(lesson,id);
+ assert.equal(lesson.example.prompt,edit.example.prompt,id);
+ assert.deepEqual(lesson.example.steps,edit.example.steps,id);
+ if(edit.intro)assert.equal(lesson.intro,edit.intro,id);
+}
 const laterSlots = course.filter(s => s.type === 'LESSON' && s.slot > 68).map(s => s.slot);
 const skills = new Map(bank.map(q => [q.session,q.skill]));
 assert.equal(later.edition,'read-watch-practise-2');

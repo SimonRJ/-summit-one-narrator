@@ -168,5 +168,242 @@
     "RWL2-276-C": "88743e8eff74e2ae2c9c3f78b3fd7331ab9afae9832c3d62ed0c52345d1c48de",
     "RWL2-317-A": "ac1b3f4a0c5aa76b136b94a5d0b8232872df269139551df658ea26dc26958918",
     "RWL2-349-A": "f772419426f85f7631e200a8e924a2b6b87696bc73d0fb6951c7de293e1c9aac"
+  },
+  "openings": {
+    "S009": {
+      "example": {
+        "prompt": "A two-digit number has 2 tens and an unknown units digit A. Adding 7 gives 31. What is A?",
+        "steps": [
+          "The units must end in 1. Since A + 7 is between 7 and 16, the only possible total ending in 1 is 11.",
+          "This makes A = 4. The 11 units supply one ten and one unit, and 24 + 7 = 31."
+        ]
+      }
+    },
+    "S045": {
+      "example": {
+        "prompt": "A water meter records how many litres have passed through a pipe. It reads 11 L at minute 2 and 23 L at minute 5. What is the average flow rate during that interval?",
+        "steps": [
+          "The volume increases by 23 − 11 = 12 L. The elapsed time is 5 − 2 = 3 minutes.",
+          "The average flow rate is 12 ÷ 3 = 4 litres per minute. The flow could have varied within those three minutes."
+        ]
+      }
+    },
+    "S068": {
+      "example": {
+        "prompt": "Everyone in this puzzle either always tells the truth or always lies. Bo always lies and says, “Mira always lies.” Which kind of speaker is Mira?",
+        "steps": [
+          "Bo’s claim is false, so Mira cannot be someone who always lies.",
+          "The puzzle allows exactly two types. The remaining possibility is that Mira always tells the truth."
+        ]
+      }
+    },
+    "S076": {
+      "example": {
+        "prompt": "Two square tiles, each 2 cm on a side, meet along one complete edge. How long is the outside boundary of the joined shape?",
+        "steps": [
+          "The two loose tiles have 8 cm of perimeter each. The shared edge contributes 2 cm from each tile to that total.",
+          "Remove those two contributions to get 16 − 4 = 12 cm. The joined shape is a rectangle measuring 4 cm by 2 cm."
+        ]
+      }
+    },
+    "S079": {
+      "example": {
+        "prompt": "A lunch order is either one sandwich on its own or one soup with one roll. There are three sandwiches, two soups and two rolls to choose from. How many different lunches are possible?",
+        "steps": [
+          "There are three sandwich lunches. Each of the two soups can go with either of two rolls, making four soup lunches.",
+          "The two groups do not overlap. Adding 3 and 4 gives seven lunches."
+        ]
+      }
+    },
+    "S095": {
+      "example": {
+        "prompt": "The larger of two bowls holds four more cherries than the smaller. It also holds twice as many as the smaller. How many cherries are in the two bowls altogether?",
+        "steps": [
+          "Draw the smaller bowl as one bar. The larger bowl can be drawn as two copies of it. The extra bar represents four cherries.",
+          "The bowls hold 4 and 8 cherries, making 12 in all. Both the four-cherry difference and the two-to-one comparison fit."
+        ]
+      },
+      "intro": "A difference can give you the size of an unknown part. Draw a bar for each amount and use the second clue to work out what the extra piece represents."
+    },
+    "S109": {
+      "example": {
+        "prompt": "A gallery has just three rooms, A, B and C. The only doorways are A–B and B–C. You start in A and walk to B. If you may never revisit a room, where can you go next?",
+        "steps": [
+          "The doors from B lead to A and C. Cross out A because you already visited it.",
+          "C is the only legal next stop. Without a record of the earlier room, both doors might look available."
+        ]
+      }
+    },
+    "S148": {
+      "example": {
+        "prompt": "Which unordered pairs of different positive integers add to 8?",
+        "steps": [
+          "Write the smaller number first. Values 1, 2 and 3 give (1,7), (2,6) and (3,5).",
+          "Using 4 would require (4,4), which breaks the different-number rule. A larger first number would merely reverse a pair already listed."
+        ]
+      }
+    },
+    "S150": {
+      "example": {
+        "prompt": "A bowl holds two plums and one pear. Pick two pieces without replacement, choosing each remaining piece with equal probability. What is the probability that both are plums?",
+        "steps": [
+          "The chance of a plum first is 2/3. After that plum is taken, just one of the two remaining pieces is a plum.",
+          "Follow the two successful draws. Their probability is (2/3) × (1/2) = 1/3."
+        ]
+      }
+    },
+    "S157": {
+      "example": {
+        "prompt": "A robot moves forward one or two tiles at a time. Five routes reach tile 4 and eight reach tile 5 from the same start. How many routes to tile 5 skip tile 4?",
+        "steps": [
+          "Every route that visits tile 4 has exactly one way to continue to tile 5. Those five routes form one final-step group.",
+          "The remaining 8 − 5 = 3 routes must finish by jumping directly from tile 3. Working backwards recovers the missing group without listing all eight routes."
+        ]
+      }
+    },
+    "S180": {
+      "example": {
+        "prompt": "A robot must move exactly four spaces forward. Each move may be 1, 2 or 3 spaces, but consecutive moves must have different lengths. List all possible move sequences.",
+        "steps": [
+          "Start with 1. The next move can be 3 to finish, or 2 followed by 1. Starting with 2 leaves two spaces, which would require either another 2 or two consecutive 1s.",
+          "Starting with 3 forces a final 1. The complete list is (1,3), (1,2,1) and (3,1). Sorting by the first move shows that no sequence is missed."
+        ]
+      }
+    },
+    "S198": {
+      "example": {
+        "prompt": "A machine starts at 8 before any button presses. Successive presses display 5, 2, 6, 2 and 6. After that the display keeps alternating between 2 and 6. After which press does it first enter the loop?",
+        "steps": [
+          "The first press gives 5. The second gives 2, and the third gives 6.",
+          "The fourth press repeats the state from press 2. The loop is 2, 6, so the machine first enters it on press 2. The earlier 8 and 5 never recur."
+        ]
+      }
+    },
+    "S200": {
+      "example": {
+        "prompt": "Every path in a network joins a red station to a blue station. A walker starts at a red station and takes three paths. What colour must the final station be?",
+        "steps": [
+          "After one path the walker is at blue, after two at red, and after three at blue.",
+          "Each pair of moves returns to the starting colour. Any odd number of moves from red ends at blue."
+        ]
+      }
+    },
+    "S201": {
+      "example": {
+        "prompt": "A number of flags from 15 to 40 inclusive is one flag short of complete rows of 3 and of complete rows of 4. Which counts are possible?",
+        "steps": [
+          "Add one flag. The adjusted count must be divisible by both 3 and 4, so it is a multiple of 12 between 16 and 41.",
+          "The adjusted counts are 24 and 36. Removing the extra flag gives 23 and 35. Both meet the two remainder clues and fall in the original interval."
+        ]
+      }
+    },
+    "S222": {
+      "example": {
+        "prompt": "In triangle ABC, angle A is 40° and angle B is 60°. Extend side BC past C to a point D. What is the exterior angle ACD?",
+        "steps": [
+          "The interior angle ACB is 180° − 40° − 60° = 80°.",
+          "Rays CB and CD point in opposite directions, so ACB and ACD complete a straight angle. The exterior angle is 180° − 80° = 100°."
+        ]
+      }
+    },
+    "S239": {
+      "example": {
+        "prompt": "Three different positive whole numbers sum to 9. What is the greatest possible value of the smallest number?",
+        "steps": [
+          "If the smallest were at least 3, the next two would be at least 4 and 5. The sum would be at least 12, exceeding 9.",
+          "The numbers 2, 3 and 4 sum to 9 and attain a smallest number of 2. The bound and this example prove 2 is the maximum."
+        ]
+      }
+    },
+    "S249": {
+      "example": {
+        "prompt": "Two positive whole numbers sum to 7. How many different pairs are there if swapping their order counts as the same pair?",
+        "steps": [
+          "Write the smaller number first. A smaller number of 4 or more would make the sum at least 8.",
+          "First numbers 1, 2 and 3 give (1,6), (2,5) and (3,4). The larger partner is forced each time, giving exactly three pairs."
+        ]
+      }
+    },
+    "S253": {
+      "example": {
+        "prompt": "Three identical square tiles each have perimeter 8 cm. They form an L shape, with two complete edge joins and no overlaps. What is the perimeter of the L?",
+        "steps": [
+          "Each tile has side length 2 cm. The three separate perimeters add to 24 cm.",
+          "Each of the two joins hides a 2 cm edge on both tiles that meet there. Remove 2 × 2 × 2 = 8 cm, leaving 16 cm of outside boundary."
+        ]
+      }
+    },
+    "S276": {
+      "example": {
+        "prompt": "Each speaker always tells the truth or always lies. Sue says, “Tom is a liar.” Tom says, “Uri is a liar.” Must Sue and Uri have the same type?",
+        "steps": [
+          "If Sue tells the truth, Tom lies. If Sue lies, Tom tells the truth. Sue and Tom have opposite types in both cases.",
+          "Tom’s statement gives the same opposite-type relationship with Uri. Reversing type twice brings us back to Sue’s type, so Sue and Uri must match."
+        ]
+      }
+    },
+    "S298": {
+      "example": {
+        "prompt": "A pattern starts at 4 and doubles at each step. Add the first four terms, then compare their sum with the fifth term. How much larger is that fifth term?",
+        "steps": [
+          "The first four terms total 4 + 8 + 16 + 32 = 60. The doubling rule gives the next term as 64.",
+          "The gap is 64 − 60 = 4. More generally, when a finite doubling sum is doubled and the original sum is subtracted, the middle terms cancel, leaving the next term minus the first."
+        ]
+      }
+    },
+    "S319": {
+      "example": {
+        "prompt": "A two-digit number has 6 tens and units digit A. Subtracting 27 gives 38. Which digit is A?",
+        "steps": [
+          "Undo the subtraction to recover the whole number. It is 38 + 27 = 65, so A is 5.",
+          "Check in columns. Regroup 65 as 5 tens and 15 units. Subtracting 2 tens and 7 units leaves 3 tens and 8 units."
+        ]
+      }
+    },
+    "S330": {
+      "example": {
+        "prompt": "Select three distinct whole numbers from 1 through 6 with sum 10. Find every set by fixing its two smallest members first.",
+        "steps": [
+          "With smallest 1, the second cannot be 2 because the third would be 7. The second can be 3 or 4, giving (1,3,6) and (1,4,5). From second 5 onward the third would be smaller.",
+          "With smallest 2, second 3 gives (2,3,5). Second 4 already gives a repeated 4. A smallest member of at least 3 would force a sum of at least 3 + 4 + 5 = 12. The three listed sets are complete."
+        ]
+      }
+    },
+    "S332": {
+      "example": {
+        "prompt": "A fair coin picks bag A on heads and bag B on tails. Bag A contains two red tokens. Bag B contains one red and one blue token. Draw one token uniformly from the selected bag. What is the probability of red?",
+        "steps": [
+          "The chance of choosing A and then red is (1/2) × 1 = 1/2. The chance of choosing B and then red is (1/2) × (1/2) = 1/4.",
+          "These two routes are disjoint. Add their probabilities to obtain 3/4."
+        ]
+      }
+    },
+    "S334": {
+      "example": {
+        "prompt": "A box contains six pieces. Each is a square, a circle or a triangle. There are two triangles and equal numbers of squares and circles. How many circles are in the box?",
+        "steps": [
+          "Set the two triangles aside. All four remaining pieces must be squares or circles.",
+          "The two groups have the same size, so each has 4 ÷ 2 = 2 pieces. There are two circles."
+        ]
+      }
+    },
+    "S342": {
+      "example": {
+        "prompt": "Two chimes sound together at minute 0. The first sounds every 4 minutes, and the next time they sound together is minute 12. Could the second chime sound every 2 minutes?",
+        "steps": [
+          "At minute 4 the first would sound again, and a chime with a two-minute interval would already sound for the second time after its start.",
+          "They would meet at minute 4, contradicting the first repeat at minute 12. A two-minute interval is impossible."
+        ]
+      }
+    },
+    "S345": {
+      "example": {
+        "prompt": "Four nonempty cube stacks fill a 2-by-2 base. The row maxima from front to back are 3 and 1. The column maxima from left to right are also 3 and 1. What is the least possible total number of cubes?",
+        "steps": [
+          "The back-row and right-column maxima of 1 force all three stacks in those positions to have height 1. Only the front-left stack can attain height 3.",
+          "Build the front row with heights 3 and 1, and the back row with heights 1 and 1. Both sets of maxima fit. The forced heights total six cubes."
+        ]
+      }
+    }
   }
 }

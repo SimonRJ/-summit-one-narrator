@@ -21,6 +21,8 @@ jobs:
         with:
           python-version: '3.12'
       - run: node tools/check_learning.mjs
+      - run: node tools/check_exact_answers.mjs
+      - run: python tools/content/check_mawa_maths.py
       - run: node tools/check_route_model.mjs
       - run: node tools/check_exam_flags.mjs
       - run: node tools/check_domino_model.mjs

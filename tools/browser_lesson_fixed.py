@@ -1,7 +1,7 @@
 """Responsive one-viewport lesson regression on iPhone, iPad, laptop and desktop.
 Uses the trusted local mock from the older comprehensive browser test; no user secrets.
 """
-import ast,asyncio,os,shutil
+import ast,asyncio,json,os,shutil
 from pathlib import Path
 from playwright.async_api import async_playwright
 ROOT=Path(__file__).resolve().parents[1]
@@ -250,9 +250,78 @@ async def verify_later_lessons(browser):
  print('PASS: dedicated, technique-film and final capstone lessons on a phone viewport.',flush=True)
 
 
+async def verify_mawa_visits(browser):
+ """Open actual MAWA screens with isolated signed-in fixture records and notebook work."""
+ service=(ROOT/'tools/browser_fixture.js').read_text()
+ async def scenario(records,local_draft=None):
+  ctx=await browser.new_context(viewport={'width':390,'height':844},service_workers='block')
+  await ctx.route('**/supabase-client.js*',lambda r:r.fulfill(content_type='application/javascript',body=service))
+  state={'counter':0,'session_records':records,'progress_state':[{'user_id':'fixture-learner','completed_sessions':146,'state':{}}]}
+  script='globalThis.__fixture = JSON.parse(sessionStorage.getItem("mawa-db") || "null") || '+json.dumps(state)+';'
+  if local_draft:
+   script+='localStorage.setItem("summit-draft:fixture-learner:147",'+json.dumps(json.dumps({'updated_at':'2099-01-01T00:00:00Z','draft':local_draft}))+');'
+  await ctx.add_init_script(script)
+  page=await ctx.new_page()
+  await page.goto('http://127.0.0.1:8765/')
+  await page.locator('#continue').click()
+  return ctx,page
+
+ def record(**fields):
+  return dict(user_id='fixture-learner',session_number=147,answers={},evidence={},**fields)
+ # Both cloud and newer local drafts predate the version field.
+ working={'mawa_base':'My original working'}
+ for local in [False,True]:
+  draft={'working':working,'answers':{},'evidence':{},'summary':{}}
+  ctx,page=await scenario([] if local else [record(working=working,summary={})],draft if local else None)
+  await page.get_by_role('heading',name='The reverse-number detective').wait_for()
+  await page.locator('[data-stage="3"]').click()
+  assert 'Then change a condition' in await page.locator('#stage').inner_text()
+  stored=await page.evaluate('__fixture.session_records[0]')
+  assert stored['summary']['investigation_edition']=='mawa-20-v1' and stored['working']==working
+  await ctx.close()
+
+ ctx,page=await scenario([])
+ await page.get_by_role('heading',name='A number filed back to front').wait_for()
+ await page.locator('[data-stage="1"]').click()
+ await page.get_by_role('heading',name='What changes when 62 becomes 26?').wait_for()
+ for _ in range(5):
+  await page.locator('.flash-option').first.click()
+  await page.locator('.flash-next').click()
+ await page.locator('#nextStage').click()
+ await page.locator('#recordMawa').click()
+ await page.locator('#nextStage').click()
+ assert 'Erase the sum clue' in await page.locator('#stage').inner_text()
+ await page.locator('#recordExt').click()
+ await page.locator('#nextStage').click()
+ await page.get_by_text('Compare with model reasoning').click()
+ assert '73 + 37 = 110' in await page.locator('.solution-panel').inner_text()
+ for name,value in [('rResult','0'),('rMethod','2'),('rProof','1'),('rClarity','1')]:
+  await page.locator('#'+name).fill(value)
+ await page.locator('#completeMawa').click()
+ await page.locator('#continue').wait_for()
+ await page.evaluate('sessionStorage.setItem("mawa-db", JSON.stringify(__fixture))')
+ await page.goto('http://127.0.0.1:8765/?view=review')
+ await page.locator('[data-review-session="147"] > summary').click()
+ await page.get_by_text('Your recorded self-assessment').wait_for()
+ assert 'Result 0/3' in await page.locator('.saved-investigation').inner_text()
+ await page.get_by_text('Open worked investigation solution').click()
+ assert '73 + 37 = 110' in await page.locator('[data-adult-review]').inner_text()
+ form=page.locator('.adult-review')
+ await form.locator('[name=reviewer]').fill('Fixture reviewer')
+ for key,value in [('result','1'),('method','2'),('proof','1'),('clarity','1')]:
+  await form.locator('[name='+key+']').select_option(value)
+ await form.locator('[name=notes]').fill('Recheck the final digit against the sum.')
+ await form.get_by_role('button').click()
+ await page.get_by_text('Fixture reviewer · parent').wait_for()
+ assert await page.evaluate('__fixture.investigation_reviews.length===1 && __fixture.session_records[0].summary.rubric.result===0')
+ assert await page.evaluate('document.documentElement.scrollWidth<=innerWidth+1')
+ await ctx.close()
+
+
 async def main():
  async with async_playwright() as p:
   browser=await p.chromium.launch(headless=True,executable_path=shutil.which('google-chrome') or shutil.which('chromium'),args=['--no-sandbox'])
+  await verify_mawa_visits(browser)
   await verify_course_restart(browser)
   await verify_revised_lessons(browser)
   await verify_later_lessons(browser)

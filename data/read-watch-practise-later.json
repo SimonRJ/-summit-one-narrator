@@ -323,10 +323,10 @@
       "bridge": "As the film cuts a hole and then a corner from a board, predict which cut will change the boundary and trace the new edges.",
       "recap": "Trace every boundary the question includes. A join removes two copies of its length.",
       "example": {
-        "prompt": "Two tiles of side 2 cm meet along a whole edge. How far is it around their outline?",
+        "prompt": "Two square tiles, each 2 cm on a side, meet along one complete edge. How long is the outside boundary of the joined shape?",
         "steps": [
-          "Separately the two squares have 8 cm of perimeter each. The 2 cm join hides one edge from each square.",
-          "The outline measures 16 − 4 = 12 cm. The joined rectangle is 4 cm by 2 cm, which gives the same result."
+          "The two loose tiles have 8 cm of perimeter each. The shared edge contributes 2 cm from each tile to that total.",
+          "Remove those two contributions to get 16 − 4 = 12 cm. The joined shape is a rectangle measuring 4 cm by 2 cm."
         ]
       },
       "skill": "GEO-01",
@@ -429,10 +429,10 @@
       "bridge": "In the exhibit puzzle, find the rule that tells you which row to use before choosing individual exhibits. Check where exhibit B is permitted.",
       "recap": "Try to place one example in two cases. If you can, repair the case rule before adding.",
       "example": {
-        "prompt": "A lunch is one sandwich or one soup with a roll. There are three sandwiches, two soups and two rolls. How many lunches are offered?",
+        "prompt": "A lunch order is either one sandwich on its own or one soup with one roll. There are three sandwiches, two soups and two rolls to choose from. How many different lunches are possible?",
         "steps": [
-          "The sandwich case gives 3 lunches. The soup case gives 2 × 2 = 4.",
-          "Every lunch belongs to just one case, so there are 7."
+          "There are three sandwich lunches. Each of the two soups can go with either of two rolls, making four soup lunches.",
+          "The two groups do not overlap. Adding 3 and 4 gives seven lunches."
         ]
       },
       "skill": "COUNT-06",
@@ -1115,14 +1115,14 @@
     {
       "slot": 95,
       "headline": "Use both clues at once",
-      "intro": "A total tells you what two amounts make together. A gap tells you how unlike they are. Removing the gap leaves two matching amounts.",
+      "intro": "A difference can give you the size of an unknown part. Draw a bar for each amount and use the second clue to work out what the extra piece represents.",
       "bridge": "Pause at the two numbers that add to eighteen and differ by four. Watch how the same habit of keeping both clues becomes useful when the objects are notebooks and rulers.",
       "recap": "Check both clues, even if your first calculation already gives the stated total.",
       "example": {
-        "prompt": "Two bowls hold 22 cherries altogether. One has 4 more. How many cherries are in the smaller bowl?",
+        "prompt": "The larger of two bowls holds four more cherries than the smaller. It also holds twice as many as the smaller. How many cherries are in the two bowls altogether?",
         "steps": [
-          "Set aside the extra four. Eighteen cherries now make two equal groups.",
-          "Each group contains 9. The original bowls held 9 and 13."
+          "Draw the smaller bowl as one bar. The larger bowl can be drawn as two copies of it. The extra bar represents four cherries.",
+          "The bowls hold 4 and 8 cherries, making 12 in all. Both the four-cherry difference and the two-to-one comparison fit."
         ],
         "figure": {
           "src": "figures/read-practice/S095.svg",
@@ -1711,10 +1711,10 @@
       "bridge": "In the alternating route, keep a record of which red or blue stops have already been used when deciding the next move.",
       "recap": "Record visited stops when repetition is forbidden. If a route must use bridges instead, track which bridges have been used.",
       "example": {
-        "prompt": "A path goes through A, B, C in that order. Start at A and never revisit a vertex. After moving to B, how many next stops are available?",
+        "prompt": "A gallery has just three rooms, A, B and C. The only doorways are A–B and B–C. You start in A and walk to B. If you may never revisit a room, where can you go next?",
         "steps": [
-          "B connects to both A and C, but A has already been used.",
-          "Only C is still allowed, leaving one choice."
+          "The doors from B lead to A and C. Cross out A because you already visited it.",
+          "C is the only legal next stop. Without a record of the earlier room, both doors might look available."
         ]
       },
       "skill": "SPATIAL-04",
@@ -3252,10 +3252,10 @@
       "bridge": "For the three labelled boxes in the film, identify the choice held fixed in one row. See how the bounds on the other boxes determine where that row stops.",
       "recap": "Choose an ordering rule and a stopping rule. The first prevents repeats and the second tells you when the list is complete.",
       "example": {
-        "prompt": "Which pairs of different positive integers add to 8?",
+        "prompt": "Which unordered pairs of different positive integers add to 8?",
         "steps": [
-          "Start with 1 + 7, then 2 + 6, then 3 + 5.",
-          "The next pair would repeat 4. Starting with 5 would reverse a pair already listed. There are 3 pairs."
+          "Write the smaller number first. Values 1, 2 and 3 give (1,7), (2,6) and (3,5).",
+          "Using 4 would require (4,4), which breaks the different-number rule. A larger first number would merely reverse a pair already listed."
         ]
       },
       "skill": "COUNT-01",
@@ -3358,10 +3358,10 @@
       "bridge": "Watch the counters come out of the bag. Before the next draw, say how many counters of each colour remain on that particular branch.",
       "recap": "Write the second fraction using the contents that remain on that branch. Combine different successful orders only after their probabilities are known.",
       "example": {
-        "prompt": "A bowl contains two plums and one pear. Two pieces are taken without replacement. What is the chance both are plums?",
+        "prompt": "A bowl holds two plums and one pear. Pick two pieces without replacement, choosing each remaining piece with equal probability. What is the probability that both are plums?",
         "steps": [
-          "The first plum has probability 2/3. After drawing it, one plum remains among two pieces.",
-          "Both draws must succeed, so multiply 2/3 by 1/2 to get 1/3."
+          "The chance of a plum first is 2/3. After that plum is taken, just one of the two remaining pieces is a plum.",
+          "Follow the two successful draws. Their probability is (2/3) × (1/2) = 1/3."
         ]
       },
       "skill": "DATA-01",
@@ -3672,10 +3672,10 @@
       "bridge": "At the broken rung, watch which earlier landing counts still contribute to the next square. A forbidden landing can be jumped over.",
       "recap": "For a last-move recurrence, label the starting position with one empty route, give forbidden landings zero, and identify all possible predecessors.",
       "example": {
-        "prompt": "A frog starts on 0 and hops forwards by 1 or 2. How many routes reach 3?",
+        "prompt": "A robot moves forward one or two tiles at a time. Five routes reach tile 4 and eight reach tile 5 from the same start. How many routes to tile 5 skip tile 4?",
         "steps": [
-          "The routes ending with a 1 come from the two routes to 2.",
-          "The route ending with a 2 comes from 1. Adding gives 2 + 1 = 3 routes."
+          "Every route that visits tile 4 has exactly one way to continue to tile 5. Those five routes form one final-step group.",
+          "The remaining 8 − 5 = 3 routes must finish by jumping directly from tile 3. Working backwards recovers the missing group without listing all eight routes."
         ]
       },
       "skill": "SEQ-03",
@@ -4623,10 +4623,10 @@
       "bridge": "The film lists two numbered counters as A and B. Notice when reversing their readings creates a new outcome and use that decision for ordered routes afterwards.",
       "recap": "Pin down the part that identifies a branch. Test whether changing the order changes the object you are counting.",
       "example": {
-        "prompt": "You may walk 1 or 2 steps at a time. Which ordered sequences reach step 3?",
+        "prompt": "A robot must move exactly four spaces forward. Each move may be 1, 2 or 3 spaces, but consecutive moves must have different lengths. List all possible move sequences.",
         "steps": [
-          "Starting with 1 gives 1–1–1 and 1–2.",
-          "Starting with 2 gives 2–1. Every route has one of these first moves, so there are 3."
+          "Start with 1. The next move can be 3 to finish, or 2 followed by 1. Starting with 2 leaves two spaces, which would require either another 2 or two consecutive 1s.",
+          "Starting with 3 forces a final 1. The complete list is (1,3), (1,2,1) and (3,1). Sorting by the first move shows that no sequence is missed."
         ]
       },
       "skill": "COUNT-01",
@@ -5303,10 +5303,10 @@
       "bridge": "In the numbered machine, mark the first repeated state. Look back to its earlier visit to decide which part of the list actually cycles.",
       "recap": "Measure a remainder from entry into the loop, not from the very first state. Count visits using the first actual visit to your target.",
       "example": {
-        "prompt": "A machine follows 8 → 5 → 2 → 6 → 2 → 6 and keeps alternating between 2 and 6. Where does the loop start?",
+        "prompt": "A machine starts at 8 before any button presses. Successive presses display 5, 2, 6, 2 and 6. After that the display keeps alternating between 2 and 6. After which press does it first enter the loop?",
         "steps": [
-          "At step 2 the state is 2, and it is 2 again at step 4.",
-          "States 2 and 6 form the loop. The opening 8 and 5 never recur."
+          "The first press gives 5. The second gives 2, and the third gives 6.",
+          "The fourth press repeats the state from press 2. The loop is 2, 6, so the machine first enters it on press 2. The earlier 8 and 5 never recur."
         ]
       },
       "skill": "SEQ-04",
@@ -5409,10 +5409,10 @@
       "bridge": "Before the film considers the missing connection, write the red-blue pattern of a route with the given endpoints. Use it to rule out impossible orders.",
       "recap": "Write the forced colour sequence first. Then place each labelled stop subject to the available links.",
       "example": {
-        "prompt": "A route starts at red and takes three moves, each to the opposite colour. Which colour does it end on?",
+        "prompt": "Every path in a network joins a red station to a blue station. A walker starts at a red station and takes three paths. What colour must the final station be?",
         "steps": [
-          "The successive colours are blue, red, blue.",
-          "Three is odd, so the finish is blue. Any odd number of such moves has the same effect."
+          "After one path the walker is at blue, after two at red, and after three at blue.",
+          "Each pair of moves returns to the starting colour. Any odd number of moves from red ends at blue."
         ]
       },
       "skill": "SPATIAL-04",
@@ -5462,10 +5462,10 @@
       "bridge": "On the film's ruler, locate the first tick that satisfies all the remainder clues. What step repeats every clue together?",
       "recap": "The common multiple belongs to the adjusted amount. Test the original number against the stated remainders and range.",
       "example": {
-        "prompt": "A positive number below 20 is one less than a multiple of both 3 and 4. What is it?",
+        "prompt": "A number of flags from 15 to 40 inclusive is one flag short of complete rows of 3 and of complete rows of 4. Which counts are possible?",
         "steps": [
-          "After adding one, the number must be a common multiple of 3 and 4.",
-          "The only suitable common multiple is 12, so the original is 11."
+          "Add one flag. The adjusted count must be divisible by both 3 and 4, so it is a multiple of 12 between 16 and 41.",
+          "The adjusted counts are 24 and 36. Removing the extra flag gives 23 and 35. Both meet the two remainder clues and fall in the original interval."
         ]
       },
       "skill": "DIV-03",
@@ -6304,10 +6304,10 @@
       "bridge": "Watch how the exterior angle in the film links the original triangle to the triangle formed by the two bisectors.",
       "recap": "Mark the shared angle or line. Use a triangle sum on one side and check which rule applies on the other.",
       "example": {
-        "prompt": "Two adjacent angles share a straight side and add to 180°. One belongs to a triangle whose other angles are 40° and 60°. What is the adjacent angle?",
+        "prompt": "In triangle ABC, angle A is 40° and angle B is 60°. Extend side BC past C to a point D. What is the exterior angle ACD?",
         "steps": [
-          "The triangle’s missing angle is 180 − 40 − 60 = 80°.",
-          "Its straight-line partner is 180 − 80 = 100°."
+          "The interior angle ACB is 180° − 40° − 60° = 80°.",
+          "Rays CB and CD point in opposite directions, so ACB and ACD complete a straight angle. The exterior angle is 180° − 80° = 100°."
         ]
       },
       "skill": "GEO-03",
@@ -6936,10 +6936,10 @@
       "bridge": "Watch the film fill its labelled boxes. For a fixed first box, try the smallest and largest possible completions before listing the middle choices.",
       "recap": "Try the smallest or largest possible completion. If even that misses the target, discard the entire row.",
       "example": {
-        "prompt": "Three different positive numbers sum to 9. How large could the smallest be?",
+        "prompt": "Three different positive whole numbers sum to 9. What is the greatest possible value of the smallest number?",
         "steps": [
-          "If the smallest were 3, the least possible total would be 3 + 4 + 5 = 12.",
-          "A smallest value of 2 works, since 2 + 3 + 4 = 9. The largest possible smallest value is 2."
+          "If the smallest were at least 3, the next two would be at least 4 and 5. The sum would be at least 12, exceeding 9.",
+          "The numbers 2, 3 and 4 sum to 9 and attain a smallest number of 2. The bound and this example prove 2 is the maximum."
         ]
       },
       "skill": "COUNT-01",
@@ -7357,10 +7357,10 @@
       "bridge": "In the rectangle example, the shorter side determines its partner. In the pair puzzle, look for how naming the smaller number avoids listing a pair twice.",
       "recap": "Give each possibility one representative, prove that you considered them all and check the original conditions.",
       "example": {
-        "prompt": "Two positive numbers add to 7. Counting reversed pairs once, how many pairs are there?",
+        "prompt": "Two positive whole numbers sum to 7. How many different pairs are there if swapping their order counts as the same pair?",
         "steps": [
-          "Use the smaller number first. It can be 1, 2 or 3.",
-          "The resulting pairs are (1,6), (2,5), (3,4). The larger partner is fixed each time."
+          "Write the smaller number first. A smaller number of 4 or more would make the sum at least 8.",
+          "First numbers 1, 2 and 3 give (1,6), (2,5) and (3,4). The larger partner is forced each time, giving exactly three pairs."
         ]
       },
       "skill": "LOGIC-04",
@@ -7515,10 +7515,10 @@
       "bridge": "The handshake example counts one meeting from both ends. Watch for the same double report in the tournament before applying the idea to two tiles sharing an edge.",
       "recap": "Convert piece counts into boundary counts by subtracting two reports for each shared full edge. Holes also have boundary edges.",
       "example": {
-        "prompt": "Two unit squares touch along a full edge. How many unit edges lie on the outside?",
+        "prompt": "Three identical square tiles each have perimeter 8 cm. They form an L shape, with two complete edge joins and no overlaps. What is the perimeter of the L?",
         "steps": [
-          "Adding both perimeters gives 8 edge reports.",
-          "Their common edge is reported twice and lies inside. Subtract 2 to get 6 outside edges."
+          "Each tile has side length 2 cm. The three separate perimeters add to 24 cm.",
+          "Each of the two joins hides a 2 cm edge on both tiles that meet there. Remove 2 × 2 × 2 = 8 cm, leaving 16 cm of outside boundary."
         ]
       },
       "skill": "COUNT-05",
@@ -8406,10 +8406,10 @@
       "bridge": "As Iris, Kai, Lia and Mo make their claims, track which pairs match or differ. Then test whether Mo’s entire claim is true.",
       "recap": "Carry equality or difference along the chain, then find a claim that fixes which type actually occurs.",
       "example": {
-        "prompt": "Sue calls Tom a liar. Tom calls Uri a liar. Must Sue and Uri have the same type?",
+        "prompt": "Each speaker always tells the truth or always lies. Sue says, “Tom is a liar.” Tom says, “Uri is a liar.” Must Sue and Uri have the same type?",
         "steps": [
-          "Sue and Tom differ. Tom and Uri also differ.",
-          "Two type changes lead back to the starting type, so Sue and Uri match."
+          "If Sue tells the truth, Tom lies. If Sue lies, Tom tells the truth. Sue and Tom have opposite types in both cases.",
+          "Tom’s statement gives the same opposite-type relationship with Uri. Reversing type twice brings us back to Sue’s type, so Sue and Uri must match."
         ]
       },
       "skill": "LOGIC-01",
@@ -9304,10 +9304,10 @@
       "bridge": "Follow the film’s daily budget until you see both the amount on the last day and the whole amount used. Which of those two numbers would need to be reversed?",
       "recap": "For doubling, the running total is the next term minus the first. With another multiplier, subtract the original sum from its shifted copy before solving.",
       "example": {
-        "prompt": "The sum 4 + 8 + 16 + 32 has a missing next term. What is the difference between that next term and the sum?",
+        "prompt": "A pattern starts at 4 and doubles at each step. Add the first four terms, then compare their sum with the fifth term. How much larger is that fifth term?",
         "steps": [
-          "The sum is 60 and the next term is 64.",
-          "The difference is 4, exactly the starting term. This relationship holds for any finite doubling sum."
+          "The first four terms total 4 + 8 + 16 + 32 = 60. The doubling rule gives the next term as 64.",
+          "The gap is 64 − 60 = 4. More generally, when a finite doubling sum is doubled and the original sum is subtracted, the middle terms cancel, leaving the next term minus the first."
         ]
       },
       "skill": "SEQ-02",
@@ -10156,10 +10156,10 @@
       "bridge": "For the film's final sum ending in zero, inspect the units column before guessing whole numbers. Its carry places a restriction on the next column.",
       "recap": "An equation alone may allow several digit assignments. Recheck the letter restrictions and any requested maximum or minimum.",
       "example": {
-        "prompt": "In 6A − 27 = 38, what is A?",
+        "prompt": "A two-digit number has 6 tens and units digit A. Subtracting 27 gives 38. Which digit is A?",
         "steps": [
-          "The original number is 38 + 27 = 65.",
-          "Hence A is 5. Check the subtraction, which borrows one ten for the units."
+          "Undo the subtraction to recover the whole number. It is 38 + 27 = 65, so A is 5.",
+          "Check in columns. Regroup 65 as 5 tens and 15 units. Subtracting 2 tens and 7 units leaves 3 tens and 8 units."
         ]
       },
       "skill": "DIG-05",
@@ -10525,10 +10525,10 @@
       "bridge": "In the film’s box problem, inspect the moment when fixing two box counts forces the third. See which apparently possible choices then fail a bound.",
       "recap": "When one value is forced, verify its range and its order. A forced answer still has to satisfy every original condition.",
       "example": {
-        "prompt": "Select three different numbers from 1 to 6 with sum 10. How can a third choice be forced?",
+        "prompt": "Select three distinct whole numbers from 1 through 6 with sum 10. Find every set by fixing its two smallest members first.",
         "steps": [
-          "Choose the two smallest, in order. With 1 and 3 the third must be 6. With 1 and 4 it must be 5.",
-          "Starting with 2 gives 2,3,5. Larger first values overshoot. There are three sets."
+          "With smallest 1, the second cannot be 2 because the third would be 7. The second can be 3 or 4, giving (1,3,6) and (1,4,5). From second 5 onward the third would be smaller.",
+          "With smallest 2, second 3 gives (2,3,5). Second 4 already gives a repeated 4. A smallest member of at least 3 would force a sum of at least 3 + 4 + 5 = 12. The three listed sets are complete."
         ]
       },
       "skill": "COUNT-01",
@@ -10635,10 +10635,10 @@
       "bridge": "At the film's bag of counters, track how different orders can produce the same final colour count. Watch the successful paths come together in the final probability.",
       "recap": "Keep the first-stage probability attached to every branch. If a later clue is supplied, compare branch weights within that event.",
       "example": {
-        "prompt": "A fair coin selects a bag. Bag A contains two red tokens and bag B contains one red and one blue. What is the probability of red?",
+        "prompt": "A fair coin picks bag A on heads and bag B on tails. Bag A contains two red tokens. Bag B contains one red and one blue token. Draw one token uniformly from the selected bag. What is the probability of red?",
         "steps": [
-          "Through bag A the red probability contributes 1/2 × 1. Through B it contributes 1/2 × 1/2.",
-          "The routes cannot both happen. Their sum is 3/4."
+          "The chance of choosing A and then red is (1/2) × 1 = 1/2. The chance of choosing B and then red is (1/2) × (1/2) = 1/4.",
+          "These two routes are disjoint. Add their probabilities to obtain 3/4."
         ]
       },
       "skill": "DATA-01",
@@ -10739,10 +10739,10 @@
       "bridge": "For the three boxes in the film, note when the third condition becomes necessary. Your collections of three types also need enough clues to separate all three counts.",
       "recap": "A complete answer must obey the head count, the weighted total, and the relationship between the types. Check all three.",
       "example": {
-        "prompt": "A box holds 6 shapes. It has equal numbers of squares and circles and exactly 2 triangles. How many circles are there?",
+        "prompt": "A box contains six pieces. Each is a square, a circle or a triangle. There are two triangles and equal numbers of squares and circles. How many circles are in the box?",
         "steps": [
-          "Set the two triangles aside.",
-          "Four shapes remain in equal square and circle groups, so there are 2 circles."
+          "Set the two triangles aside. All four remaining pieces must be squares or circles.",
+          "The two groups have the same size, so each has 4 ÷ 2 = 2 pieces. There are two circles."
         ]
       },
       "skill": "ALG-02",
@@ -11002,10 +11002,10 @@
       "bridge": "When the film works with a highest common factor and a lowest common multiple, watch how it strips off the common part before testing pairs.",
       "recap": "List possible divisors of the shared time, then test their least common multiple. Extra information may be needed for a unique interval.",
       "example": {
-        "prompt": "One chime repeats every 4 minutes. Two chimes first repeat together after 12 minutes. Could the second chime repeat every 2 minutes?",
+        "prompt": "Two chimes sound together at minute 0. The first sounds every 4 minutes, and the next time they sound together is minute 12. Could the second chime sound every 2 minutes?",
         "steps": [
-          "The least common multiple of 4 and 2 is only 4.",
-          "They would already coincide at minute 4, so an interval of 2 does not fit."
+          "At minute 4 the first would sound again, and a chime with a two-minute interval would already sound for the second time after its start.",
+          "They would meet at minute 4, contradicting the first repeat at minute 12. A two-minute interval is impossible."
         ]
       },
       "skill": "DIV-02",
@@ -11055,10 +11055,10 @@
       "bridge": "In the six-stack puzzle, check how the film confirms a minimum using an actual arrangement. A number alone cannot show that all the views can be met together.",
       "recap": "A lower bound needs a construction attaining it. Check every row, every column and the nonempty condition.",
       "example": {
-        "prompt": "On a 2-by-2 footprint all stacks are nonempty. The row maxima and column maxima are both 3,1 in that order. What minimum works?",
+        "prompt": "Four nonempty cube stacks fill a 2-by-2 base. The row maxima from front to back are 3 and 1. The column maxima from left to right are also 3 and 1. What is the least possible total number of cubes?",
         "steps": [
-          "Put 3 at the intersection of the first row and first column. This satisfies both tall maxima.",
-          "All three remaining stacks may be 1. The minimum is 6 cubes, and the proposed plan shows it can be built."
+          "The back-row and right-column maxima of 1 force all three stacks in those positions to have height 1. Only the front-left stack can attain height 3.",
+          "Build the front row with heights 3 and 1, and the back row with heights 1 and 1. Both sets of maxima fit. The forced heights total six cubes."
         ]
       },
       "skill": "SOLID-01",
