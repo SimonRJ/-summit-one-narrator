@@ -2,17 +2,17 @@
   "basis": "Each item counts once. A page, a lesson's written material and its recorded film are separate deliverables. A technical scan or a film reused from another session earns no final film credit. A group with zero recorded completions still contributes its full size to the total. The 19 genuine papers have a read-only acceptance check.",
   "additionalVerifiedIntroductions": [],
   "areas": [
-    {"key":"pages","item":"Learner-facing pages with final editorial and responsive review","total":90,"verified":0},
-    {"key":"readings","item":"Lesson openings, examples, prompts, hints and protected solutions reviewed together","total":283,"verified":0},
+    {"key":"pages","item":"Learner-facing pages with final editorial and responsive review","total":90,"verified":22,"evidence":["../tools/check_public_catalogue.py","../tools/check_recorded_studies.py","../production/t01-studio/topic_reading.py","../tools/welcome-check.mjs"]},
+    {"key":"readings","item":"Lesson openings, examples, prompts, hints and protected solutions reviewed together","total":283,"verified":11,"evidence":["written-lesson-register.csv","../tools/check_solution_clarifications.mjs"]},
     {"key":"introductions","item":"Dedicated lesson films with a completed editorial review","total":283},
     {"key":"companions","item":"Companion teaching films with a completed editorial review","total":72},
     {"key":"investigations","item":"Published and independently checked investigations and extensions","total":53,"verified":53,"evidence":["../tools/content/check_mawa_maths.py","../data/mawa-investigations-20.json"]},
-    {"key":"mixed","item":"Mixed assessment sessions and return to study","total":36,"verified":0},
+    {"key":"mixed","item":"Mixed assessment sessions and return to study","total":36,"verified":36,"evidence":["../tools/check_workshops.mjs","../tools/check_workshop_flow.py"]},
     {"key":"references","item":"Advanced technique pages, worked examples and transfer questions","total":52,"verified":52,"evidence":["../tools/content/check_advanced_examples.py","../advanced-connections.js"]},
-    {"key":"practice","item":"Original AMC speed and depth sets with end-to-end review","total":60,"verified":0},
-    {"key":"rossmoyne","item":"Rossmoyne practice papers with end-to-end review","total":10,"verified":0},
+    {"key":"practice","item":"Original AMC speed and depth sets with end-to-end review","total":60,"verified":14,"evidence":["../tools/check_original_paper_sessions.sql","../docs/AMC_CURATED_BANK_AUDIT_20261113.md"]},
+    {"key":"rossmoyne","item":"Rossmoyne practice papers with end-to-end review","total":10,"verified":10,"evidence":["../tools/check_original_paper_sessions.sql","../tools/browser_check.mjs"]},
     {"key":"archive","item":"Authentic papers checked against the frozen archive","total":19,"verified":19,"evidence":["../docs/AUTHENTIC_AMC_FREEZE.md","../tools/check_amc_freeze.sql"]},
     {"key":"challengeFilms","item":"Attempt-gated challenge solution films in the original production queue","total":194,"verified":0},
-    {"key":"standalone","item":"Course introduction and public solution pilot","total":2,"verified":0}
+    {"key":"standalone","item":"Course introduction and public solution pilot","total":2,"verified":2,"evidence":["../tools/welcome-check.mjs","AMCIntroduction-qa.json","AMC2025Q17-voice-c.json"]}
   ]
 }

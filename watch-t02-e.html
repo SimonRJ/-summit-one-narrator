@@ -34,6 +34,8 @@ summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
 </style>
+<link rel="stylesheet" href="topic-film-reading.css">
+<script defer src="topic-film-print.js"></script>
 </head>
 <body>
 <main>
@@ -48,22 +50,31 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
   <source src="media/T02.E.mp4?v=studio-chapters-02-04-v1" type="video/mp4">
 </video>
 <p class="meta">1:44 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · The two rules</button>
-<button type="button" data-time="19.290">0:19 · Copy the whole sum</button>
-<button type="button" data-time="50.330">0:50 · Compare the extras</button>
-<button type="button" data-time="67.290">1:07 · Test different inputs</button>
-<button type="button" data-time="82.330">1:22 · Your turn</button></nav>
+<nav class="chapters" aria-label="Video chapters">
+<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Try both rules with one starting number</button>
+<button type="button" data-time="19.290"><span class="chapter-clock">0:19</span> Make four copies of the sum</button>
+<button type="button" data-time="50.330"><span class="chapter-clock">0:50</span> Cancel the matching tiles</button>
+<button type="button" data-time="67.290"><span class="chapter-clock">1:07</span> Test the gap at zero and at ten</button>
+<button type="button" data-time="82.330"><span class="chapter-clock">1:22</span> Draw the two add-and-scale rules</button>
+</nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>Find the gap between &quot;add 2 then multiply by 6&quot; and &quot;multiply by 6 then add 2&quot;.</p>
 <details><summary>Check your reasoning</summary><p>6x + 12 and 6x + 2; the gap is always 10.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary><p>Start with any whole number, including zero. Rule A adds three and then multiplies by four. Rule B multiplies by four and then adds three. Which output is larger, and by how much? Sketch one example before looking for a proof.</p>
+<details class="transcript"><summary>Read the transcript</summary>
+<h2><span class="chapter-clock">0:00</span> Try both rules with one starting number</h2>
+<p>Start with any whole number, including zero. Rule A adds three and then multiplies by four. Rule B multiplies by four and then adds three. Which output is larger, and by how much? Sketch one example before looking for a proof.</p>
+<h2><span class="chapter-clock">0:19</span> Make four copies of the sum</h2>
 <p>Call the start x. Rule A forms x plus three and makes four copies of the whole amount. Look at one copy. It contains an x tile and a three tile. Four copies give four x tiles and four threes, so the result is four x plus twelve.</p>
 <p>In Rule B, the multiplication acts on the starting value. Make four copies of x. Now add the three. This time the three comes in once, after the copying step. The result is four x plus three.</p>
+<h2><span class="chapter-clock">0:50</span> Cancel the matching tiles</h2>
 <p>Line up the outputs. Each side contains four copies of the same x and one added three. Pair those tiles. There are three extra threes in Rule A. Their total is nine. Whatever whole number we pick at the start, Rule A is larger by nine.</p>
+<h2><span class="chapter-clock">1:07</span> Test the gap at zero and at ten</h2>
 <p>Check the smallest allowed input. Starting from zero gives twelve and three. Starting from ten gives fifty-two and forty-three. Each difference is nine. In both rows, the starting amount changes the two outputs by the same amount.</p>
-<p>The multiplication makes extra copies of the added amount when the addition comes first. Use that observation with two new rules. One adds two before multiplying by six. The other multiplies by six before adding two. Draw the matching pieces and find the gap.</p></details>
+<h2><span class="chapter-clock">1:22</span> Draw the two add-and-scale rules</h2>
+<p>The multiplication makes extra copies of the added amount when the addition comes first. Use that observation with two new rules. One adds two before multiplying by six. The other multiplies by six before adding two. Draw the matching pieces and find the gap.</p>
+</details>
 <p><a href="media/T02.E.mp4?v=studio-chapters-02-04-v1">Open the MP4 directly</a></p>
 </main>
 <script>

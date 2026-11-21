@@ -6,6 +6,7 @@ Run: python tools/content/build_original_lessons.py SESSION_MAP OUTPUT_DIR
 import argparse
 import json, math, itertools, os
 from pathlib import Path
+from solution_revisions import checked_solution, private_overlay
 from fractions import Fraction
 from curated_revisits import curate
 from curated_batch2 import curate2
@@ -297,6 +298,10 @@ def private_solutions(path):
     solutions = bundle['solutions']
     if any(set(row) != {'answer', 'solution_text'} for row in solutions.values()):
         raise ValueError('Each private entry must contain the answer and worked solution')
+    hashes = json.loads(Path(__file__).with_name('practice-revisions-20261121.json').read_text())['solutionHashes']
+    overlay = private_overlay(Path(path).parent)
+    for problem_id, row in solutions.items():
+        row['solution_text'] = checked_solution(problem_id, row['solution_text'], hashes, overlay)
     return solutions
 
 

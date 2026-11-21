@@ -52,7 +52,7 @@
     {
       "slot": 2,
       "headline": "Round it, then pay back the difference",
-      "intro": "Imagine a sheet with one column more than you need. You can count a tidy rectangle, then put the missing strip back or take the spare strip away. The size of that strip is the correction.",
+      "intro": "Adding a column of squares changes a rectangle’s area by the height of that column. You can work with a tidy rectangle first, then add or remove one strip to get the exact area.",
       "example": {
         "prompt": "What is 31 × 8?",
         "steps": [
@@ -155,7 +155,7 @@
     },
     {
       "slot": 4,
-      "headline": "Which digit has the fewest places?",
+      "headline": "Which place has the fewest choices?",
       "intro": "A zero in the middle of 306 is useful. Put the zero first and 036 represents just 36. When you arrange digit cards, reserve any restricted places before filling the gaps.",
       "example": {
         "prompt": "Three cards show 0, 3 and 8. Use every card once. How many three-digit numbers have the 3 at one end?",
@@ -303,16 +303,20 @@
     {
       "slot": 8,
       "headline": "Build only half a mirror number",
-      "intro": "A palindrome reads the same forwards and backwards. Once you choose a digit on the left, you have also chosen its partner on the right. Only an unpaired centre digit is free to stand on its own.",
+      "intro": "Write 6, 0 and 3 in the first three boxes of a five-digit palindrome. Reading from either end must give the same digits. Which boxes belong to the same pair, and which digit has no partner?",
       "example": {
-        "prompt": "A five-digit palindrome starts with 60 and has a 3 in the middle. What number is it?",
+        "prompt": "A five-digit palindrome starts with 60 and has a 3 in the middle. What fills the last two places?",
         "steps": [
-          "Write the three given places: 6, 0, 3. The tens place must mirror the second digit, 0.",
-          "The last digit mirrors the first, 6. This makes 60,306; reading back gives the same five digits."
-        ]
+          "The second box holds 0. Its partner, the fourth box, must also hold 0. The middle 3 stays in place.",
+          "The first box holds 6, so put 6 in the last box. Read 60306 from either end to check the five digits."
+        ],
+        "figure": {
+          "src": "figures/read-practice/S008.svg",
+          "alt": "Five boxes show 6, 0, 3, a question mark and a question mark. A solid line joins the outer boxes. A dashed line joins the second and fourth boxes."
+        }
       },
-      "bridge": "Look for the mirror pairs in the film: first they split a four-digit number into multiples of 11, then they limit which centre digits can pass the test for 9.",
-      "recap": "Write the independent positions first. In a digit sum each mirrored pair counts twice, while the centre counts once. The leading digit cannot be zero, but a digit inside can.",
+      "bridge": "When the film divides 2772 by 11, pause before the calculation. How much do the two 2s contribute together? What about the two 7s?",
+      "recap": "In a five-digit palindrome, the first and last digits match, as do the second and fourth. Count each pair twice in the digit sum and the centre once. Check whether zero is allowed in each position.",
       "skill": "DIG-04",
       "videoId": "S008",
       "videoTitle": "Repeated digits, palindromes and repunits",
@@ -338,7 +342,7 @@
           "id": "RWL1-008-C",
           "title": "A locker number",
           "prompt": "A four-digit locker number reads the same both ways, starts with 5 and is divisible by 9. What is the number?",
-          "hint": "Let the two matching inner digits contribute twice the same amount."
+          "hint": "Write the two middle digits as matching boxes. Which multiple of 9 could equal 10 plus twice the boxed digit?"
         },
         {
           "id": "RWL1-008-D",
@@ -351,7 +355,7 @@
     {
       "slot": 9,
       "headline": "Listen to what the carry tells you",
-      "intro": "In a letter sum, the same letter always stands for the same digit. Read two letters side by side as a two-digit number: AB has A tens and B ones. A carry from one column can reveal a digit in the next.",
+      "intro": "In a letter sum, AB represents a number with A tens and B ones. Every appearance of A represents the same digit. When two ones digits add to ten or more, carry one ten into the next column.",
       "example": {
         "prompt": "A two-digit number has 2 tens and an unknown units digit A. Adding 7 gives 31. What is A?",
         "steps": [
@@ -359,8 +363,8 @@
           "This makes A = 4. The 11 units supply one ten and one unit, and 24 + 7 = 31."
         ]
       },
-      "bridge": "Watch where each carry comes from. A carry out of the tens column creates a new hundreds digit, which the film uses to narrow the choices before trying them.",
-      "recap": "Line up the places. Mark what each column writes and carries; ordinary addition of two two-digit numbers can carry only 1 into hundreds. Recheck every repeated letter and every distinct-digit rule.",
+      "bridge": "In the film, follow the ten ones when two numbers ending in 5 are added. Which column receives the extra ten? Later, what does the hundreds digit tell you before you try a single tens digit?",
+      "recap": "Write the units digit and mark the carry above the tens column. When the sum of two two-digit numbers has three digits, the hundreds digit must be 1. Put the completed numbers back into the original sum and check the rules about different letters.",
       "skill": "DIG-05",
       "videoId": "S009",
       "videoTitle": "Cryptarithms and symbol-to-digit arithmetic",
@@ -392,23 +396,23 @@
           "id": "RWL1-009-D",
           "title": "Three copies",
           "prompt": "AB + AB + AB = BCD. All four letters are different digits; A and B are nonzero. What is the smallest possible AB?",
-          "hint": "The triple of a two-digit number is at most 297. Which digits could B be?"
+          "hint": "The first digit of BCD is nonzero. Which hundreds digits can three two-digit numbers reach? Test the smallest legal AB first."
         }
       ]
     },
     {
       "slot": 10,
-      "headline": "The same digits in a different order",
-      "intro": "When a two-digit number is reversed, its tens digit becomes worth one tenth as much and its units digit becomes worth ten times more. That gives you a way to turn a reversal clue into a clue about the difference between two digits.",
+      "headline": "How far does a reversal move a number?",
+      "intro": "In 23, the 2 stands for twenty. In 32, the same digit stands for two. Track what each digit gains or loses when it changes place, then combine the changes.",
       "example": {
-        "prompt": "What happens when you reverse 23?",
+        "prompt": "How much larger is 32 than 23? Explain the change by following the two digits.",
         "steps": [
-          "The 3 gains 27 in value, from 3 to 30. The 2 loses 18, from 20 to 2.",
-          "The net gain is 27 − 18 = 9. For any two digits, reversing changes the number by nine times their difference."
+          "The 3 gains 27 when it moves from 3 to 30. The 2 loses 18 when it moves from 20 to 2.",
+          "The gain is 9 more than the loss. For tens digit A and units digit B, the reversed number minus the original is 9 × (B − A). Its sign tells you which number is larger."
         ]
       },
-      "bridge": "The film combines a reversal with a digit sum. In the next puzzle, watch why a smaller answer that adds up correctly still has to be rejected.",
-      "recap": "Translate AB into tens and units. Use a reversal, a carry or a digit sum to narrow the cases, then test the full assignment. Right arithmetic alone does not make a repeated or leading digit legal.",
+      "bridge": "When the film swaps 26 and 62, which digit gains the most value? In the final addition, pause at the first candidate: its sum is correct, but which two letters would have to share a digit?",
+      "recap": "For a reversal, keep the subtraction in the order the question gives. For a letter sum, mark each carry. Finally, put the digits back into every position and check any restrictions on zero or repeated digits.",
       "skill": "DIG-05",
       "videoId": "S010",
       "videoTitle": "Cryptarithms and symbol-to-digit arithmetic",
@@ -433,7 +437,7 @@
           "id": "RWL1-010-C",
           "title": "A pair on a card",
           "prompt": "A two-digit number is smaller than its reversal. Both have two digits, and their sum is 121. How many possibilities are there for the smaller number?",
-          "hint": "What does the sum of AB and BA equal in terms of A + B?"
+          "hint": "Write each number in tens and ones before adding them. How could you count a pair just once?"
         },
         {
           "id": "RWL1-010-D",
@@ -446,16 +450,16 @@
     {
       "slot": 11,
       "headline": "Keep a record of prime copies",
-      "intro": "A prime has exactly two positive factors: 1 and itself. Splitting a number into prime factors lets you see all the smaller products you can build from it. For square numbers, look for matching pairs of each prime.",
+      "intro": "Factor 50 as 2 × 5 × 5. To make two identical whole-number factors, put one 5 on each side. What happens to the 2? Tracking each copy of a prime will tell you which numbers are squares.",
       "example": {
-        "prompt": "Why is 50 not a square, even though it has two fives as factors?",
+        "prompt": "Why is 50 not a square even though two of its prime factors are fives?",
         "steps": [
-          "Split it up: 50 = 2 × 5 × 5. The fives form a pair, but the 2 is alone.",
-          "Multiplying by one more 2 pairs every factor: 100 = (2 × 5) × (2 × 5) = 10²."
+          "Try to split 2 × 5 × 5 into two identical groups. Give each group one 5. The single 2 has no partner.",
+          "One more 2 would make two equal groups. Indeed, 2 × 50 = (2 × 5) × (2 × 5) = 100."
         ]
       },
-      "bridge": "The video uses the same prime copies for three jobs: testing primality, counting divisors and supplying exactly what a number needs to become a square.",
-      "recap": "For a factor, choose how many copies of each prime to take, including none. For a square, every prime needs an even number of copies. If a factor pair exists, its smaller member cannot exceed the square root.",
+      "bridge": "The film finds the smallest multiplier that turns 2016 into a square. Which prime factors have an unpaired copy? Explain why a smaller multiplier cannot complete both pairs.",
+      "recap": "To list divisors, choose how many copies of each prime to take. Choosing no copies gives 1. To recognise a square, check that every prime occurs an even number of times. To test whether a number greater than 1 is prime, try prime divisors up to its square root.",
       "skill": "DIV-01",
       "videoId": "S011",
       "videoTitle": "Primes, factors and factorisation",
@@ -480,7 +484,7 @@
           "id": "RWL1-011-C",
           "title": "A smaller square",
           "prompt": "What is the smallest positive whole number by which 216 can be divided to give a whole-number square?",
-          "hint": "When you divide, you remove prime copies instead of adding them."
+          "hint": "Factor 216 into primes. Which exponents must change for the quotient to be a square, and how little can you remove?"
         },
         {
           "id": "RWL1-011-D",
@@ -492,16 +496,16 @@
     },
     {
       "slot": 12,
-      "headline": "What can the previous stage tell you?",
-      "intro": "Sometimes you can build the next answer entirely from earlier answers. Write down the starting value and the rule for one change. When counting routes, you can often sort them by the last move instead of trying to draw every route.",
+      "headline": "Which earlier values do you need?",
+      "intro": "Some rules use the last value. Others need two earlier values. Write down exactly which values the rule uses and circle the given starting values before you calculate.",
       "example": {
-        "prompt": "A pattern begins at 2. Multiply by 2 and add 1 each time. What is its third term?",
+        "prompt": "A sequence begins with 2 and 5. Each new term is the sum of the previous two. What is the fifth term?",
         "steps": [
-          "The starting 2 is term 1. One change gives term 2: 2 × 2 + 1 = 5.",
-          "A second change gives term 3: 2 × 5 + 1 = 11. Three terms needed only two changes."
+          "Term 3 uses both starting values, so it is 2 + 5 = 7. For term 4, move one place along and add 5 + 7 = 12.",
+          "Term 5 is 7 + 12 = 19. Read back the five terms, 2, 5, 7, 12, 19. Each term after the first two is the sum of the two terms immediately before it."
         ]
       },
-      "bridge": "Watch how the video tracks a gap that doubles, then counts ladder routes by their final jump. A broken rung blocks a landing, but need not block the route.",
+      "bridge": "Pause when the film marks rung 3 as broken. Is rung 4 still reachable? Trace its possible final jumps before the film fills in the table.",
       "recap": "Record the starting state and whether it counts as the first term. Sort routes into groups that cannot overlap. Give an impossible state zero ways and the empty starting route one way.",
       "skill": "SEQ-03",
       "videoId": "S012",
@@ -534,7 +538,7 @@
           "id": "RWL1-012-D",
           "title": "A long strip",
           "prompt": "A strip of 11 numbered cells is covered with single-cell tiles and two-cell tiles, with no gaps or overlaps. Cells 5 and 6 must be covered by the same tile. How many tilings are possible?",
-          "hint": "Fix the required tile. Count the ways to fill each of the two remaining strips."
+          "hint": "After you fix the tile covering cells 5 and 6, sketch the cells left on each side. How can you combine one tiling of each side?"
         }
       ]
     },

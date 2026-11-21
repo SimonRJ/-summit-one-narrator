@@ -2,10 +2,10 @@ name: Teaching behavior checks
 on:
   pull_request:
     branches: [main]
-    paths: ['*.js', '*.html', '*.css', 'data/**', 'tools/browser_lesson_fixed.py', 'tools/check_iphone_webkit.py', 'tools/check_offline_reader.py', 'tools/check_figure_viewer.py', 'tools/check_learning.mjs', 'tools/check_model_claims.mjs', 'tools/check_domino_model.mjs', 'tools/check_route_model.mjs', 'tools/check_exam_flags.mjs', 'tools/check_repair_recall.mjs', 'tools/check_example_methods.mjs', 'tools/check_lesson_models.mjs', 'tools/content/**', 'tools/video/**', 'production/scripts/**', '.github/workflows/teaching-checks.yml']
+    paths: ['*.js', '*.html', '*.css', 'data/**', 'tools/browser_lesson_fixed.py', 'tools/check_iphone_webkit.py', 'tools/check_offline_reader.py', 'tools/check_figure_viewer.py', 'tools/check_learning.mjs', 'tools/check_solution_clarifications.mjs', 'supabase/functions/get-problem-solution/**', 'supabase/changes/protected_solution_clarifications.sql', 'tools/check_model_claims.mjs', 'tools/check_domino_model.mjs', 'tools/check_route_model.mjs', 'tools/check_exam_flags.mjs', 'tools/check_repair_recall.mjs', 'tools/check_example_methods.mjs', 'tools/check_lesson_models.mjs', 'tools/check_workshop_flow.py', 'tools/check_workshops.mjs', 'tools/content/**', 'tools/video/**', 'production/scripts/**', '.github/workflows/teaching-checks.yml']
   push:
     branches: [recognition-coverage-20261113, main, rebuild-exam-centres-20261112, draft/teaching-audit-2026-11-11]
-    paths: ['*.js', '*.html', '*.css', 'data/**', 'tools/browser_checks.py', 'tools/browser_lesson_fixed.py', 'tools/check_iphone_webkit.py', 'tools/check_offline_reader.py', 'tools/check_figure_viewer.py', 'tools/check_learning.mjs', 'tools/check_model_claims.mjs', 'tools/check_domino_model.mjs', 'tools/check_route_model.mjs', 'tools/check_exam_flags.mjs', 'tools/check_repair_recall.mjs', 'tools/check_example_methods.mjs', 'tools/check_lesson_models.mjs', 'tools/content/**', 'tools/video/**', 'production/scripts/**', '.github/workflows/teaching-checks.yml']
+    paths: ['*.js', '*.html', '*.css', 'data/**', 'tools/browser_checks.py', 'tools/browser_lesson_fixed.py', 'tools/check_iphone_webkit.py', 'tools/check_offline_reader.py', 'tools/check_figure_viewer.py', 'tools/check_learning.mjs', 'tools/check_solution_clarifications.mjs', 'supabase/functions/get-problem-solution/**', 'supabase/changes/protected_solution_clarifications.sql', 'tools/check_model_claims.mjs', 'tools/check_domino_model.mjs', 'tools/check_route_model.mjs', 'tools/check_exam_flags.mjs', 'tools/check_repair_recall.mjs', 'tools/check_example_methods.mjs', 'tools/check_lesson_models.mjs', 'tools/check_workshop_flow.py', 'tools/check_workshops.mjs', 'tools/content/**', 'tools/video/**', 'production/scripts/**', '.github/workflows/teaching-checks.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -20,7 +20,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - run: node tools/check_workshops.mjs
       - run: node tools/check_learning.mjs
+      - run: node tools/check_solution_clarifications.mjs
       - run: node tools/check_exact_answers.mjs
       - run: python tools/content/check_mawa_maths.py
       - run: python tools/content/check_advanced_examples.py

@@ -12,7 +12,7 @@ Deno.serve(async req=>{
     const scoped=createClient(url,anon,{global:{headers:{Authorization:auth}},auth:{persistSession:false,autoRefreshToken:false}});
     const {data:u,error:ue}=await scoped.auth.getUser(auth.slice(7));
     if(ue||!u.user)return reply({error:"Invalid session"},401);
-    const {problem_id,session_number}=await req.json();
+    const {problem_id,session_number,played_view_id}=await req.json();
     if(!problem_id)return reply({error:"Missing problem_id"},400);
     const admin=createClient(url,service,{auth:{persistSession:false,autoRefreshToken:false}});
     const {data:member}=await admin.from("profiles").select("id").eq("id",u.user.id).maybeSingle();
@@ -21,22 +21,41 @@ Deno.serve(async req=>{
       .select("id").eq("user_id",u.user.id).eq("problem_id",problem_id)
       .in("evidence_level",["independent","guided"]).not("answer_text","is",null).neq("answer_text","").limit(1).maybeSingle();
     if(!attempt)return reply({error:"Submit a final answer before opening the worked solution. A supported attempt counts."},403);
+    if(played_view_id !== undefined){
+      if(typeof played_view_id!=="string" || !/^[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}$/i.test(played_view_id))
+        return reply({error:"Invalid solution view"},400);
+      const {data:media,error:mediaError}=await admin.storage.from(PROTECTED_VIDEO_BUCKET)
+        .createSignedUrl(`${problem_id}.mp4`,60);
+      if(mediaError||!media?.signedUrl)return reply({error:"Film unavailable"},404);
+      // A view ID is issued only to the owner when a signed film is available.
+      const {error}=await admin.from("problem_attempts").update({solution_video_opened:true})
+        .eq("id",played_view_id).eq("user_id",u.user.id).eq("problem_id",problem_id)
+        .eq("evidence_level","viewed").eq("independent_credit",false).is("answer_text",null);
+      if(error)throw error;
+      return reply({ok:true});
+    }
     const {data:p,error:pe}=await admin.from("content_problems")
       .select("id,title,answer,solution_text,spoken_script,source_type").eq("id",problem_id).single();
     if(pe||!p)return reply({error:"Problem not found"},404);
-    await admin.from("problem_attempts").insert({
+    const {data:view}=await admin.from("problem_attempts").insert({
       user_id:u.user.id,problem_id,session_number:session_number||null,answer_text:null,is_correct:null,
-      evidence_level:"viewed",solution_video_opened:true,independent_credit:false
-    });
+      evidence_level:"viewed",solution_video_opened:false,independent_credit:false
+    }).select("id").single();
     let video_url:string|null=null;
     let video_expires_in:number|null=null;
     const expires=3600;
     const {data:signed,error:signedError}=await admin.storage.from(PROTECTED_VIDEO_BUCKET)
       .createSignedUrl(`${problem_id}.mp4`,expires);
     if(!signedError&&signed?.signedUrl){video_url=signed.signedUrl;video_expires_in=expires}
+    const {data:clarification}=await admin.from("solution_clarifications")
+      .select("note").eq("problem_id",p.id)
+      .order("revision",{ascending:false}).limit(1).maybeSingle();
+    const solutionText=clarification?.note
+      ? p.solution_text+"\n\nAnother way to see it\n"+clarification.note
+      : p.solution_text;
     return reply({
-      ok:true,title:p.title,answer:p.answer,solution_text:p.solution_text,spoken_script:p.spoken_script,
-      video_url,video_expires_in
+      ok:true,title:p.title,answer:p.answer,solution_text:solutionText,spoken_script:p.spoken_script,
+      video_url,video_expires_in,video_view_id:video_url ? view?.id || null : null
     });
   }catch(e){
     console.error(e);

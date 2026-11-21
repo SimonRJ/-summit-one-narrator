@@ -32,8 +32,8 @@ export function techniqueCards(id,visit=1){
  case 'DIG-05':return [
  c('In a digit puzzle, what does 4A mean?','40 + A','4 × A','A letter occupies the units place here; it is not multiplication.'),
  c('The units column totals 15. What goes in that column?','Write 5; carry 1','Write 1; carry 5','Ten units become one ten, leaving five units.'),
- c('In A7 + 7A, what is the coefficient of A?','11','2','A contributes 10A in one number and A in the other.'),
- c('In 2A + 2A = 54, what does A equal?','7','27','Remove the forty contributed by the tens, then halve the remaining fourteen.'),
+ c('A7 and 7A are two-digit numbers with digit A. In their sum, what is the coefficient of A?','11','2','A contributes 10A in one number and A in the other.'),
+ c('The two-digit number 2A has tens digit 2. If 2A + 2A = 54, what is its units digit A?','7','27','Remove the forty contributed by the tens, then halve the remaining fourteen.'),
  c('A letter puzzle says different letters mean different digits. Is a result with A = B acceptable?','No','Yes, if the sum is correct','The answer must satisfy the distinct-digit condition as well as the arithmetic.')];
  case 'DIV-01':return [
  c('Equal packs must use all 42 tokens. Which pack size is allowed?','7','8','A pack size must divide the total without a remainder.'),
@@ -45,7 +45,7 @@ export function techniqueCards(id,visit=1){
  c(`Two signals repeat every ${2*n} and ${3*n} seconds. Which tool finds their common repeat period?`,'Least common multiple','Greatest common divisor','A common repeat time must be a multiple of both periods.'),
  c('Signals start together and repeat every 6 and 8 seconds. Next shared flash?','24 seconds','48 seconds','48 is shared, but 24 is the least positive common time.'),
  c('A shared flash occurs every 12 seconds. How many occur in the next 36 seconds, excluding now but including the end?','3','4','Count 12, 24 and 36; the starting instant is excluded.'),
- c('Two signals start at different times. Is the least common multiple necessarily their first shared time?','No','Yes','Their starting offsets also matter. The common period gives a gap between shared flashes.'),
+ c('Two signals begin at different times. Must their first shared flash occur at the least common multiple of the two periods?','No','Yes','The starting times also matter. If the signals ever coincide, the least common multiple gives the time between successive shared flashes.'),
  c('Signals flash at 5,11,17,… and 9,17,25,… . After the shared flash at 17, what comes next?','41','24','Their common period is 24; add it to the shared time 17.')];
  case 'DIV-03':return [
  c(`A total is written 7 × ${x} + 3. What does the 3 tell you?`,'The remainder after division by 7','The number of complete groups','The product counts complete groups; the extra three are left over.'),
@@ -55,7 +55,7 @@ export function techniqueCards(id,visit=1){
  c('N leaves remainder 3 on division by 7. To find the remainder of N², which small calculation helps?','3², then reduce modulo 7','3 × 2','Squaring squares the remainder too; it does not double it. Nine leaves remainder two.')];
  case 'DIV-04':return [
  c('A move adds 6 to a counter. Which property definitely stays fixed?','Its remainder on division by 3','Its exact value','Six is a multiple of three, so the remainder stays unchanged.'),
- c('Exactly three lamps change colour in a move. What happens to the parity of the gold-lamp count?','It switches odd/even','It always stays the same','An odd number of flips changes parity, regardless of how many flips add or remove gold.'),
+ c('Each lamp is either gold or blue. Exactly three lamps switch to their other colour in a move. What happens to the parity of the gold-lamp count?','It switches odd/even','It always stays the same','An odd number of flips changes parity, regardless of how many flips add or remove gold.'),
  c('A counter starts at 8. Moves add 6 or subtract 9. Can it reach 10?','No','Yes','The start leaves remainder two modulo three; the target leaves remainder one.'),
  c('A proposed invariant fails for one legal move. Is it usable as an invariant?','No','Yes, if it usually holds','It must be preserved by every allowed move.'),
  c('A target passes your invariant test. Does that alone prove it is reachable?','No: a construction may still be needed','Yes: the test guarantees a route','An invariant can rule out a target; passing it is only a necessary condition.')];
@@ -88,10 +88,10 @@ export function techniqueCards(id,visit=1){
  c('A third of 18 and a half of 8 are selected. Total selected?','10','13','Convert each fraction into a count: 6 + 4.'),
  c('Two groups contain 12 and 8 people. A fraction of everyone must use which denominator?','20','2','The whole is the combined population, not the number of groups.'),
  c('Two groups have equal size. Is averaging their selected fractions valid?','Yes','No','Equal group sizes give equal weight. This shortcut fails for unequal sizes.'),
- c('Of 30 bottles, 12 are empty. What fraction are full?','3/5','2/5','Eighteen are full. The question asks for the complement of the empty fraction.')];
+ c('Each of 30 bottles is either empty or full. Twelve are empty. What fraction are full?','3/5','2/5','Eighteen are full. The question asks for the complement of the empty fraction.')];
  case 'RATE-01':return [
  c(`A bell rings ${n+2} times. How many gaps are there from first ring to last?`,n+1,n+2,'There is no waiting interval before the first ring in the measured span.'),
- c('Five posts are 6 metres apart. Distance from first to last?','24 metres','30 metres','Five posts create four intervals.'),
+ c('Five posts stand along a straight line, 6 metres between neighbours. Distance from first to last?','24 metres','30 metres','Five posts create four intervals.'),
  c('A sensor records immediately and every 8 seconds. Time of its fourth reading?','24 seconds','32 seconds','The readings occur at 0, 8, 16 and 24 seconds.'),
  c('A rover covers 36 metres in 12 seconds. What is its speed?','3 metres per second','3 seconds per metre','Distance divided by time gives metres per second; the units identify the quantity.'),
  c('Two timers take 8 and 6 readings at 5-second intervals, starting with an immediate reading. Difference between their durations?','10 seconds','15 seconds','They have seven and five gaps, a difference of two gaps.')];
@@ -109,7 +109,7 @@ export function techniqueCards(id,visit=1){
  c('A return trip covers 12 km in 2 hours and 12 km in 1 hour. Average speed?','8 km/h','9 km/h','The whole trip is 24 km in 3 hours.')];
  case 'RATE-04':return [
  c('Walkers approach each other at 3 and 2 km/h. Gap-closing speed?','5 km/h','1 km/h','Both movements reduce the gap, so add speeds.'),
- c('A runner chases another moving in the same direction at 7 and 4 m/s. Gap-closing speed?','3 m/s','11 m/s','The front runner keeps moving away, so subtract speeds.'),
+ c('A runner moves at 7 m/s behind another going the same way at 4 m/s. Gap-closing speed?','3 m/s','11 m/s','The front runner keeps moving away, so subtract speeds.'),
  c(`A gap of ${3*n} metres closes at 3 m/s. Catch-up time?`,`${n} seconds`,`${9*n} seconds`,'Time equals gap divided by the rate at which it closes.'),
  c('Two runners start together around a circular track. For their first meeting after the start, count time zero?','No','Yes','The wording excludes the starting instant.'),
  c('Opposite-direction runners on a 60-metre track have speeds 2 and 4 m/s. Time between meetings?','10 seconds','30 seconds','Together they close one full track length at 6 m/s.')];
@@ -127,7 +127,7 @@ export function techniqueCards(id,visit=1){
  c('Two whole-number counts total 25 and differ by 4. Can both conditions hold?','No','Yes','They would be (25−4)/2 and (25+4)/2, not whole numbers.')];
  case 'ALG-03':return [
  c('2 boxes + 3 lamps and 2 boxes + 5 lamps have known costs. What cancels when subtracting?','The two boxes','All the lamps','Subtract equal contributions to isolate the changed part.'),
- c('The second purchase above costs $18 more. One extra lamp costs…','$9','$18','The difference buys two extra lamps.'),
+ c('Two baskets contain the same goods except for two extra identical lamps in one basket. That basket costs $18 more. What does one lamp cost?','$9','$18','The two extra lamps cost $18 together, so each costs $18 ÷ 2 = $9.'),
  c('One equation has 3 jars; another has 6. What can make jar contributions match?','Double the first equation','Add 3 to its total only','Scaling an equation means multiplying every term on both sides.'),
  c('After doubling 3 jars + 2 mugs, the result contains…','6 jars + 4 mugs','6 jars + 2 mugs','Both item counts must be scaled.'),
  c('A recovered price satisfies the first purchase. What is the next check?','Substitute into the second too','Stop: one equation is enough','Elimination used both conditions; the answer must satisfy both.')];
@@ -138,13 +138,13 @@ export function techniqueCards(id,visit=1){
  c('Half the remaining amount is spent, leaving $12. What was there immediately before that spend?','$24','$6','The final amount is one of two equal halves.'),
  c('You worked backwards to a starting value. Best final check?','Run the original actions forwards','Repeat the same backwards arithmetic only','A forward check tests the order and each inverse operation.')];
  case 'ALG-05':return [
- c('Move one counter from a larger pile to a smaller pile. How does their gap change?','It decreases by 2','It decreases by 1','One pile loses one while the other gains one.'),
- c('Piles differ by 10. How many transfers make them equal?','5','10','Each transfer closes two units of the gap.'),
+ c('One pile has at least two more counters than the other. Move one counter from the larger pile to the smaller. How does the gap change?','It decreases by 2','It decreases by 1','One pile loses one while the other gains one.'),
+ c('Piles differ by 10. How many one-counter transfers from the larger pile to the smaller make them equal?','5','10','Each transfer closes two units of the gap.'),
  c('Counters move between two piles. Which quantity stays fixed?','The combined total','Each pile’s size','Transfers redistribute counters without adding or removing them.'),
  c('Two piles total 36. Their final ratio is 2:1. The smaller final pile is…','12','18','Equality is not the target here; use three ratio parts.'),
  c('A pile starts at 7 and must finish at 12 through transfers into it. How many arrive?','5','19','Find the change in that pile, then check the other loses the same amount.')];
  case 'SEQ-01':return [
- c('A pattern starts at 7 and gains 4 each stage. How many increases lead to stage 6?','5','6','Stage one already contains the starting amount.'),
+ c('Stage 1 has 7 blocks. Each new stage adds 4. How many increases lead to stage 6?','5','6','Stage one already contains the starting amount.'),
  c(`Term 1 is ${n}; each later term adds 3. Term 4 is…`,n+9,n+12,'Three increases separate the first and fourth terms.'),
  c('To total 4 + 7 + 10 + 13, which pairing helps?','4+13 and 7+10','4+7 and 10+13','Pairing opposite ends creates equal pair totals.'),
  c('A pattern increases by the same amount each time. Which model fits?','Add a fixed amount','Multiply by a fixed factor','Constant differences identify arithmetic growth.'),
@@ -156,17 +156,17 @@ export function techniqueCards(id,visit=1){
  c('A total is exactly 63 after six rounds. The question asks when it first exceeds 63. Is six enough?','No','Yes','Strictly exceeds rules out equality.'),
  c('For 1+2+4+8, doubling the sum and subtracting the original leaves…','16 − 1','16 + 1','The middle terms cancel; the unmatched terms are the next power and the initial one.')];
  case 'SEQ-03':return [
- c('Routes use jumps of 1 or 3. Splitting by the last jump gives earlier lengths…','k−1 and k−3','k−1 and k−2','The permitted moves determine the recurrence.'),
+ c('To travel k units, you make forward jumps of 1 or 3 units. What two distances could you have travelled just before the last jump?','k−1 and k−3','k−1 and k−2','The permitted moves determine the recurrence.'),
  c('A route has length zero. How many sequences reach it without moving?','1 empty sequence','0','This base case makes the count for a single final jump work correctly.'),
- c('Binary lamp rows cannot have adjacent ON lamps. If the last lamp is ON, the previous lamp must be…','OFF','ON','Respect the local restriction before reducing to a smaller row.'),
+ c('A row of at least two lamps cannot have adjacent ON lamps. If the last lamp is ON, the previous lamp must be…','OFF','ON','Respect the local restriction before reducing to a smaller row.'),
  c('Two recurrence cases describe different final moves. Should their counts be added or multiplied?','Added','Multiplied','The alternatives are disjoint routes, not sequential choices within one route.'),
  c('A recurrence fits three examples. What makes it reliable for later lengths?','Every route belongs to exactly one case','The next value looks plausible','Explain completeness and non-overlap; a pattern alone is not a proof.')];
  case 'SEQ-04':return [
  c('Instructions repeat Right, Right, Up, Left. Does the position return after one block?','No','Yes','The instructions repeat, but the block still moves one right and one up.'),
  c('A four-step cycle runs for 19 moves. Split this into…','4 full cycles and 3 moves','3 full cycles and 4 moves','Use quotient and remainder, with the remainder smaller than four.'),
- c('A display changes every 3 seconds and a lamp toggles every 2. Full-state repeat period?','6 seconds','3 seconds','Both components must return together.'),
- c('A pointer starts north at move zero, then turns clockwise. After one move?','East','North','Anchor the indexing at the stated initial time.'),
- c('A repeated instruction block moves a robot two metres. After five blocks, can displacement be ignored?','No: it has accumulated 10 metres','Yes: the instructions reset','A cycle in instructions is different from a cycle in complete state.')];
+ c('One light repeats its entire cycle every 3 seconds. Another repeats its entire cycle every 2 seconds. What is the shortest time for both cycles to start together again?','6 seconds','3 seconds','The first cycle restarts at 3, 6, 9, … seconds and the second at 2, 4, 6, … seconds. The first shared restart is at 6 seconds.'),
+ c('A pointer starts facing north. Each move turns it a quarter turn clockwise. Which way does it face after one move?','East','North','North is the starting direction. One quarter turn clockwise takes the pointer from north to east.'),
+ c('Each repeat of an instruction block moves a robot two metres east. After five blocks, can displacement be ignored?','No: it has accumulated 10 metres','Yes: the instructions reset','A cycle in instructions is different from a cycle in complete state.')];
  case 'COUNT-01':return [
  c('Pairs are unordered. Are (2,7) and (7,2) two different outcomes?','No','Yes','Swapping the names of an unordered pair does not create another pair.'),
  c('To list positive pairs adding to 13, which convention avoids duplicates?','Write the smaller number first','Write both orders','Each pair then has one unique entry in the list.'),
@@ -181,7 +181,7 @@ export function techniqueCards(id,visit=1){
  c('Choose an unordered pair of dishes and one dessert. Combine the pair count and dessert count by…','Multiplying','Adding','Each dish pair can be followed by any dessert choice.')];
  case 'COUNT-03':return [
  c('A and B must be neighbours in a row. Useful first representation?','Treat AB as one block','Fix A at the left end','A block preserves all possible positions of the pair.'),
- c('The AB block can have how many internal orders?','2','1','Both AB and BA satisfy adjacency unless another rule forbids one.'),
+ c('Two different pupils, A and B, must stand together. How many orders are possible within their pair?','2','1','Both AB and BA satisfy adjacency unless another rule forbids one.'),
  c('A and B must NOT be neighbours. A useful count is…','All rows minus adjacent rows','All rows minus two rows','There are many possible adjacent arrangements.'),
  c('Five numbered positions hold two identical sensors. Adjacent position pairs number…','4','5','Adjacent pairs correspond to the four gaps between positions.'),
  c('One magnet is fixed first before arranging the others. Should it remain a free choice in the factorial?','No','Yes','Apply the fixed-position restriction before counting the remaining arrangements.')];
@@ -193,10 +193,10 @@ export function techniqueCards(id,visit=1){
  c('Bad routes pass through A or B. A route through both was subtracted twice. What correction is needed?','Add it back once','Subtract it once more','Inclusion–exclusion ensures each forbidden route is removed only once.')];
  case 'COUNT-05':return [
  c('Each bridge joins two islands. Adding all island degrees counts each bridge…','Twice','Once','A bridge contributes one endpoint at each island.'),
- c('The degree sum is 18. Number of bridges?','9','18','Divide endpoint reports by two.'),
+ c('On a map, each bridge joins two islands. Adding the numbers of bridge ends on all islands gives 18. How many bridges are on the map?','9','18','Divide endpoint reports by two.'),
  c('A proposed network has total degree 13. Can it exist?','No','Yes','The sum must be twice an integer number of edges.'),
  c('12 people each join 2 workshops. Total person–workshop memberships?','24','6','Count each membership once from its person.'),
- c('Those 24 memberships are spread across workshops of 6 people. Number of workshops?','4','12','Now count the same memberships from the workshop side.')];
+ c('There are 24 person–workshop memberships and each workshop contains 6 people. Number of workshops?','4','12','Now count the same memberships from the workshop side.')];
  case 'COUNT-06':return [
  c('A code has exactly one 2. Which case split is useful?','Which position contains the 2','Whether it contains a 2','The second description does not divide the valid possibilities into useful cases.'),
  c('Two digits must include exactly one 1. Is 11 allowed?','No','Yes','Exactly one excludes two occurrences.'),
@@ -217,7 +217,7 @@ export function techniqueCards(id,visit=1){
  c('One candidate works. To prove it is the only one, you need…','To rule out the other allowed candidates','To check it again','Existence and uniqueness are different claims.')];
  case 'LOGIC-03':return [
  c('A table’s row totals sum to 43. What must its column totals sum to?','43','It depends on the number of columns','Both groupings count the same entries once.'),
- c('Rows total 18 and 24; the first column totals 15. Other column total?','27','57','The grand total is 42; subtract the known column.'),
+ c('A table has two rows and two columns. Its rows total 18 and 24. If the first column totals 15, what is the second column total?','27','57','The grand total is 42; subtract the known column.'),
  c('One table entry increases by 6. How much does the grand total change?','6','12','It appears in a row and a column, but is still only one entry.'),
  c('If a table’s row totals sum to 40 and its column totals sum to 41, can all totals be correct?','No','Yes','The two views must describe the same grand total.'),
  c('A missing column total is requested. Must every individual entry be found first?','No','Yes','The grand-total relationship can reveal the missing aggregate directly.')];
@@ -230,7 +230,7 @@ export function techniqueCards(id,visit=1){
  case 'GEO-01':return [
  c('Two shapes join along a 4-cm side. What changes in their combined outside perimeter?','Subtract 8 cm from separate perimeters','Subtract 4 cm','The shared side was counted once on each shape and becomes internal.'),
  c('A corner square is cut from a rectangle. What should you compare for perimeter?','Deleted edges and newly exposed edges','Only the removed area','Boundary length and area measure different things.'),
- c('A 2-cm-wide notch goes 3 cm inward from a straight edge. Perimeter increase?','6 cm','12 cm','The 2-cm opening is replaced by a 2-cm back edge; only the two 3-cm sides add net length.'),
+ c('A rectangular notch 2 cm wide goes 3 cm inward from a straight edge. Perimeter increase?','6 cm','12 cm','The 2-cm opening is replaced by a 2-cm back edge; only the two 3-cm sides add net length.'),
  c('A perimeter answer should use…','cm','cm²','Perimeter measures length, not area.'),
  c('A diagram has an internal join. Should it count toward the outside perimeter?','No','Yes','Trace only the exposed boundary of the whole shape.')];
  case 'GEO-02':return [
@@ -238,7 +238,7 @@ export function techniqueCards(id,visit=1){
  c('A triangle has base 10 and height 6. Area?','30','60','A triangle occupies half the corresponding base-by-height rectangle.'),
  c('Slide a triangle’s top vertex parallel to its base, keeping its height fixed. Its area…','Stays the same','Must increase','The base and perpendicular height remain unchanged.'),
  c('A triangle uses a rectangle’s entire bottom side and a vertex on its top side. Fraction of rectangle outside it?','1/2','1/3','The triangle has the same base and height as the rectangle, so takes half its area.'),
- c('Two triangles share a base; one has triple the height. Their area ratio is…','3:1','9:1','With only height scaled, area scales by that same factor.')];
+ c('Two triangles share a base. The taller triangle has three times the height of the shorter one. What is the ratio of the taller triangle’s area to the shorter triangle’s area?','3:1','9:1','With only height scaled, area scales by that same factor.')];
  case 'GEO-03':return [
  c('Two angles form a straight line. Their total is…','180°','360°','A straight angle is a half-turn.'),
  c('Angles around a point fill a complete turn. Their total is…','360°','180°','A full turn is 360 degrees.'),
@@ -248,13 +248,13 @@ export function techniqueCards(id,visit=1){
  case 'GEO-04':return [
  c('A rotation preserves an outline but swaps red and blue markings. Is it a colour-preserving symmetry?','No','Yes','Every marked feature must match, not just the outline.'),
  c('A regular hexagon has no markings. Does a 60° turn preserve it?','Yes','No','A one-vertex-step rotation maps an unmarked regular hexagon onto itself.'),
- c('Its vertices are alternately blue and gold. Does that same 60° turn preserve colours?','No','Yes','One step swaps colours; two steps restore them.'),
+ c('A regular hexagon has alternately blue and gold vertices. Does a 60° rotation about its centre preserve the colours?','No','Yes','One step swaps colours; two steps restore them.'),
  c('A reflection and a rotation are…','Different transformations','Always interchangeable','Reflection reverses orientation; rotation turns the shape.'),
  c('One vertex is uniquely red. A valid reflection must…','Keep that red vertex in place','Move it to any corner','A unique marking must map to itself.')];
  case 'GEO-05':return [
  c('You find a rectangle of area 36. Does that alone prove 36 is the largest possible?','No','Yes','An example proves attainment; a bound must exclude larger areas.'),
  c('Positive side lengths have sum 10. Which pair gives greater area?','5 and 5','2 and 8','Balanced factors give 25 instead of 16.'),
- c('A pen uses a wall for one side. With width w and length l, the fence needed is…','2w + l','2w + 2l','The wall replaces one length of fence.'),
+ c('A rectangular pen uses a wall for one entire side of length l. Its width is w. How much fencing is needed for the other three sides?','2w + l','2w + 2l','The wall replaces one length of fence.'),
  c('The best real-number side length is 4.5, but whole numbers are required. What next?','Check the permitted neighbouring integers','Use 4.5 anyway','Optimise within the allowed domain.'),
  c('A bound is 50, but your construction reaches only 48. Have you proved a maximum of 50?','No','Yes','The bound may not be attainable; a sharp result needs matching evidence.')];
  case 'SOLID-01':return [
@@ -264,8 +264,8 @@ export function techniqueCards(id,visit=1){
  c('A 1-by-2 tunnel passes through 7 layers. Cubes removed?','14','7','Each cross-section removes two cubes.'),
  c('A picture could show a hollow or a solid model. What determines the count?','The stated construction','Assuming everything unseen is filled','Hidden structure must come from the conditions, not a guess about the drawing.')];
  case 'SOLID-02':return [
- c('A cube is painted on all outer faces. A corner unit cube has how many painted faces?','3','2','Three outer planes meet at a corner.'),
- c('Which cubes have exactly two painted faces in a fully painted cuboid?','Edge cubes excluding corners','All edge cubes including corners','Corners have three, so they belong in a different category.'),
+ c('A 3-by-3-by-3 cube is painted on all outer faces and cut into unit cubes. How many painted faces does a corner unit cube have?','3','2','Three outer planes meet at a corner.'),
+ c('A solid cuboid at least three unit cubes thick in each direction is painted on all six faces. Which unit cubes have exactly two painted faces?','Edge cubes excluding corners','All edge cubes including corners','Corners have three, so they belong in a different category.'),
  c('An edge is 7 cubes long. How many are not its two corners?','5','7','Remove both endpoints.'),
  c('Only the top and bottom faces of a four-layer block are painted. Can a small cube touch both painted faces?','No','Yes','The top and bottom layers are disjoint when the height exceeds one.'),
  c('The painting instructions change. Can the same face-count formula always be reused?','No','Yes','Reclassify using the faces that are actually painted.')];
@@ -282,7 +282,7 @@ export function techniqueCards(id,visit=1){
  c('A grid point can be reached from its left or below. Its route count is…','The sum of those incoming counts','Their product','Those final approaches are alternative routes.'),
  c('Two blocked points can occur on the same route. What needs attention when subtracting?','The overlap of the two bad-route sets','Only the order of subtraction','A route through both would otherwise be removed twice.')];
  case 'SPATIAL-02':return [
- c('How many vertical boundaries define a rectangle?','2','4','Choose its left and right boundaries, then its horizontal pair.'),
+ c('How many vertical grid lines form the sides of a rectangle drawn along the grid lines?','2','4','Choose its left and right boundaries, then its horizontal pair.'),
  c('A grid has 4 vertical lines. How many pairs of vertical boundaries?','6','4','There are 4 × 3 ordered pairs; halve because order does not matter.'),
  c('Three horizontal lines offer how many top–bottom pairs?','3','2','Adjacent and non-adjacent pairs both define rectangles.'),
  c('Each vertical pair can combine with each horizontal pair. Use…','Multiplication','Addition','A rectangle needs one choice of each type.'),
@@ -301,10 +301,10 @@ export function techniqueCards(id,visit=1){
  c('A drawn crossing has no junction according to the rules. Can a route switch lines there?','No','Yes','Connections come from the stated network, not just intersecting ink.')];
  case 'DATA-01':return [
  c('A probability ratio uses equally likely outcomes. Which group belongs in the denominator?','All currently possible outcomes','Only favourable outcomes','The denominator represents the whole sample space.'),
- c('A bag has 3 gold and 5 blue tokens. Chance of gold?','3/8','3/5','Count gold out of all eight tokens.'),
- c('A gold token is drawn and not replaced. For the next draw, use…','2 gold among 7 tokens','3 gold among 8 tokens','Both the favourable count and total have changed.'),
+ c('A bag contains 3 gold and 5 blue tokens. If one token is chosen at random with all tokens equally likely, what is the chance of gold?','3/8','3/5','Count gold out of all eight tokens.'),
+ c('A bag starts with 3 gold and 5 blue tokens. One gold token is drawn and kept. For the next draw, use…','2 gold among 7 tokens','3 gold among 8 tokens','Both the favourable count and total have changed.'),
  c('You are told a chosen number is divisible by 3. Your new sample space contains…','Only the allowed multiples of 3','All the original numbers','Condition on the information before calculating the next probability.'),
- c('Two independent coin flips give HH, HT, TH, TT. Are “two heads”, “one head”, “no heads” equally likely?','No','Yes','One head has two underlying outcomes, while the other categories have one each.')];
+ c('Two independent flips of a fair coin give HH, HT, TH, TT. Are “two heads”, “one head”, “no heads” equally likely?','No','Yes','One head has two underlying outcomes, while the other categories have one each.')];
  case 'DATA-02':return [
  c(`The mean of ${n} values is 8. Their total is…`,8*n,`${n} ÷ 8`,'Mean multiplied by count recovers the total.'),
  c('Groups of 2 and 8 have different means. To find the combined mean, start with…','Their totals and counts','The unweighted mean of the two means','The larger group must contribute more weight.'),
@@ -315,7 +315,7 @@ export function techniqueCards(id,visit=1){
  c('A full picture represents 6 bikes. A half-picture represents…','3 bikes','Half a bike','Read the chart key before converting symbols into quantities.'),
  c('A chart baseline is 40. A bar rises 12 above it. Represented value?','52','12','Add the baseline when reading an absolute value.'),
  c('Two bars share baseline 40 and rise 8 and 13. Difference in values?','5','45','The common baseline cancels when subtracting.'),
- c('The same two bars represent values 48 and 53. Their sum is…','101','21','The baseline cancels for a difference, but not for a sum.'),
+ c('Two bars represent values 48 and 53. Their sum is…','101','21','The baseline cancels for a difference, but not for a sum.'),
  c('A graph asks for the total number of pupils. The vertical axis is a percentage. What else is needed?','A population count or equivalent clue','Only the tallest bar','Percentages alone do not determine the number of people.')];
  default:throw Error('Missing flash-card technique: '+id);
  }
@@ -354,14 +354,14 @@ export function investigationCards(id,visit=1){
  case 'M08':return [
  c('Two semicircles of equal radius together have the area of…','One full circle','Two full circles','Each contributes half a circle.'),
  c('A rectangle has an outward semicircle on each short end. Do the shared diameters count in its outside perimeter?','No','Yes','Those straight joins are inside the combined shape.'),
- c('The semicircles have radius 3. The rectangle between them has height…','6','3','Each short side is a diameter, twice the radius.'),
- c('The rectangle length is 10 and the end radii are 2. Overall width?','14','12','The shape extends one radius beyond each end of the rectangle.'),
+ c('A semicircular cap of radius 3 joins a rectangle along its full short side. How long is that short side?','6','3','Each short side is a diameter, twice the radius.'),
+ c('A rectangle is 10 units long with a semicircular cap of radius 2 at each end. What is the total distance from tip to tip?','14','12','The shape extends one radius beyond each end of the rectangle.'),
  c('Every length doubles. The area becomes…','Four times as large','Twice as large','Area scales in two dimensions; perimeter scales in one.')];
  case 'M09':return [
  c('A quarter-circle of radius r has area…','πr²/4','πr/4','Use one quarter of circle area, with squared radius.'),
- c('Its curved boundary has length…','πr/2','πr²/4','One quarter of circumference 2πr is πr/2; area is a different quantity.'),
+ c('A quarter-circle has radius r. What is the length of its curved edge?','πr/2','πr²/4','One quarter of circumference 2πr is πr/2; area is a different quantity.'),
  c('A quarter-circle is cut from a square corner. What happens to the two radius-length straight edges there?','They disappear from the boundary','They stay and the arc is added','The new boundary replaces those edges with the curved cut.'),
- c('Remaining area equals…','Square area minus removed area','Square perimeter minus arc length','Subtract quantities with the same units.'),
+ c('A quarter-circle is cut out of a square. How do you find the remaining area?','Square area minus removed area','Square perimeter minus arc length','Subtract quantities with the same units.'),
  c('Removing material must always reduce perimeter. Is that rule valid?','No','Yes','Cuts can introduce new edges; compare the old and new boundaries.')];
  case 'M10':return [
  c('A disc must move 2 right and 1 up, one square per move. Any route needs at least…','3 moves','2 moves','Each move changes only one coordinate by one.'),
@@ -381,7 +381,7 @@ export function investigationCards(id,visit=1){
  c('Numbers 1–9 have total 45 and fill three equal-sum rows. Each row totals…','15','45','The three rows partition all nine entries once.'),
  c('A square has equal row and column sums. Is that enough when the rules also require both diagonals?','No','Yes','Every required line must be checked.'),
  c('Add 2 to every entry of a 3-by-3 magic square. Each line total rises by…','6','2','Each line contains three changed entries.'),
- c('A transformed magic square has larger numbers. Can its centre be inferred by undoing the same entry transformation?','Yes','No','The centre is transformed like every other entry.'),
+ c('Every entry of a magic square was tripled. Can you recover the original centre by dividing the new centre by 3?','Yes','No','The centre is transformed like every other entry.'),
  c('One example has centre 5. Does it prove every valid square must have centre 5?','No','Yes','A general line-sum argument is needed to prove necessity.')];
  case 'M15':return [
  c('There are exactly five coins. Let a,b,c count the three denominations. Which equation is certain?','a+b+c=5','a+2b+5c=5','A count equation counts coins; a value equation weights them by denomination.'),

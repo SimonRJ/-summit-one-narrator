@@ -28,26 +28,62 @@ video{width:100%;height:auto;display:block;aspect-ratio:16/9;border:1px solid #3
   <link rel="stylesheet" href="design-system.css?v=math-baseline-20261113">
   <script async src="https://cdn.jsdelivr.net/npm/katex@0.16.47/dist/katex.min.js" onload="window.dispatchEvent(new Event('summit:math-ready'))"></script>
   <script type="module" src="math-typography.js?v=math-label-fix-20261113"></script>
-<link rel="icon" href="icon.svg"></head>
+<link rel="icon" href="icon.svg"><link rel="stylesheet" href="topic-film-reading.css">
+<script defer src="topic-film-print.js"></script>
+</head>
 <body><main>
 <a href="./"><img src="summit-mark.svg" class="summit-inline-mark" alt="">← Summit One</a>
 <div class="eyebrow">SUMMIT ONE  •  CHAPTER 02  •  VISUAL PROOFS</div>
 <h1>T02.1 — Find an invariant by inspecting one move</h1>
 <p>See why a single move can reveal what never changes. Follow the counters, discover the fixed total or difference, and watch the algebra prove it.</p>
-<video controls playsinline preload="metadata" poster="media/T02.1-studio-poster.jpg" controlsList="nodownload">
+<video aria-label="Find an invariant by inspecting one move" controls playsinline preload="metadata" poster="media/T02.1-studio-poster.jpg" controlsList="nodownload">
   <source src="media/T02.1.mp4?v=studio-v4" type="video/mp4">
   Your browser does not support HTML video.
 </video>
 <nav class="chapters" aria-label="Jump to a chapter">
-  <button type="button" data-time="47.059">0:47 · Transfer counters</button>
-  <button type="button" data-time="102.710">1:42 · Add to both piles</button>
-  <button type="button" data-time="129.617">2:09 · Prove the invariant</button>
-  <button type="button" data-time="170.021">2:50 · Try the targets</button>
-  <button type="button" data-time="196.415">3:16 · Recap</button>
+<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Find a quantity one move preserves</button>
+<button type="button" data-time="47.059"><span class="chapter-clock">0:47</span> Transfer counters between two piles</button>
+<button type="button" data-time="102.710"><span class="chapter-clock">1:43</span> Add two counters to each pile</button>
+<button type="button" data-time="129.617"><span class="chapter-clock">2:10</span> Prove the changes cancel</button>
+<button type="button" data-time="170.021"><span class="chapter-clock">2:50</span> Test two targets from four and nine</button>
+<button type="button" data-time="196.415"><span class="chapter-clock">3:16</span> Write an equation for one move</button>
 </nav>
 <div class="meta"><span>3:33 · Full HD 1920 × 1080 · 30 fps · Original narration</span><span>Summit One · The 135 Mission</span></div>
-<div class="mission"><strong>After watching:</strong> Draw one legal move in your notebook. Explain which total or difference remains fixed, and demonstrate why it must stay fixed after every move.</div>
-<p><a href="watch-t02-2.html?v=studio-v1">Next lesson: work backwards →</a></p></main><script>
+<section class="mission">
+<h2>Try it in your notebook</h2>
+<p>Start with 4 counters in one pile and 9 in another. Each move adds 2 to each pile. Can you reach 14 and 19 in whole moves? Could you reach 15 and 20? Both targets have the same gap. What else must you check?</p>
+<details><summary>Check your reasoning</summary><p>Five moves add 10 to both piles and reach 14 and 19. Reaching 15 and 20 would require adding 11 to each pile. Every move adds an even number, so that target is impossible even though its gap is still 5.</p></details>
+</section>
+<p><a href="watch-t02-2.html?v=studio-v1">Next lesson: work backwards →</a></p><details class="transcript"><summary>Read the transcript</summary>
+<h2><span class="chapter-clock">0:00</span> Find a quantity one move preserves</h2>
+<p>Today we&#x27;re learning one of the most useful ideas in difficult maths puzzles: an invariant. That&#x27;s the name for a quantity that stays fixed even when other things change. Sometimes it&#x27;s a total. Sometimes it&#x27;s a difference. And sometimes it&#x27;s something less obvious.</p>
+<p>Why does that matter? Imagine a game with so many legal moves that you could spend all afternoon trying different routes. You don&#x27;t need to test every path. If every move preserves one mathematical fact, that fact can tell you when a target is impossible.</p>
+<p>Here&#x27;s what we&#x27;ll do. We&#x27;ll begin with a puzzle, watch one legal move, and discover what stays the same. We&#x27;ll then change the rules, work through two examples, and prove why our shortcuts really work. Finally, you&#x27;ll try an invariant question for yourself.</p>
+<h2><span class="chapter-clock">0:47</span> Transfer counters between two piles</h2>
+<p>Let&#x27;s begin. One pile has five gold counters. The other has seven blue counters. You may transfer counters between the piles, as often as you like. Could you ever finish with ten counters in each pile?</p>
+<p>Before you try dozens of moves, ask a better question. Is there something that no legal move can change?</p>
+<p>Watch closely. Move two blue counters to the gold pile. Now there are seven on the left and five on the right. The picture has changed, but the total is still twelve.</p>
+<p>Every transfer takes some counters away from one pile and adds exactly that many to the other. Nothing is created. Nothing disappears.</p>
+<p>So ten and ten is impossible. That would require twenty counters, and we have only twelve. Six and six, however, is possible.</p>
+<p>A quantity that remains unchanged after every permitted move is called an invariant. Here, the invariant is the total number of counters.</p>
+<h2><span class="chapter-clock">1:43</span> Add two counters to each pile</h2>
+<p>But here&#x27;s the twist. Change the rule. Each move now adds two brand-new counters to both piles. What stays fixed this time?</p>
+<p>The total is growing, by four with every move. So the total is no longer an invariant. Look at the difference between the two piles instead.</p>
+<p>We begin with five and seven: a gap of two. Add two to each and we get seven and nine. Add two again, and we get nine and eleven. The gap is always two.</p>
+<h2><span class="chapter-clock">2:10</span> Prove the changes cancel</h2>
+<p>Let&#x27;s prove this, rather than just spot a pattern. Call the two pile sizes A and B. After a move, their sizes are A plus two and B plus two.</p>
+<p>Now subtract the new sizes. The positive two and negative two cancel perfectly. We are left with A minus B. So the difference cannot change.</p>
+<p>Go back to transferring counters. If the first pile loses t and the second gains t, the total becomes A minus t, plus B plus t. Again, the changes cancel.</p>
+<p>Here&#x27;s the important trap. Moving counters preserves the total, but not usually the difference. Adding the same number to both preserves their difference, but changes the total.</p>
+<h2><span class="chapter-clock">2:50</span> Test two targets from four and nine</h2>
+<p>Try one yourself. Start with four counters in one pile and nine in the other. Each move adds two counters to both. Could you reach eighteen and twenty-three?</p>
+<p>Yes. The difference starts at five and ends at five. Exactly seven moves add fourteen counters to each pile. Both target numbers work.</p>
+<p>But could you reach eighteen and twenty-two? No. Their difference is four, not five. The invariant rules that out instantly.</p>
+<h2><span class="chapter-clock">3:16</span> Write an equation for one move</h2>
+<p>This is the power of an invariant. You don&#x27;t need to simulate a hundred moves. Examine one move, identify what cancels, and use that to reason about every move.</p>
+<p>Pause here. Draw one move in your notebook, and write a single equation showing what remains unchanged.</p>
+</details>
+</main><script>
 const video = document.querySelector('video');
 for (const button of document.querySelectorAll('.chapters [data-time]')) {
   button.addEventListener('click', () => {

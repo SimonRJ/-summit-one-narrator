@@ -21,7 +21,10 @@ watch.addEventListener('click',async()=>{
     say('The video could not start. Try again, open the MP4 below, or continue to learning.',true);
   }finally{watch.disabled=false}
 });
-video.addEventListener('play',()=>{watch.textContent='Pause introduction'});
+video.addEventListener('play',()=>{
+  video.controls=true;
+  watch.textContent='Pause introduction';
+});
 video.addEventListener('pause',()=>{if(!video.ended)watch.textContent='Continue watching'});
 video.addEventListener('ended',()=>{
   watch.textContent='Watch again';skip.textContent='Start my next step';

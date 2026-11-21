@@ -77,6 +77,10 @@ for(const s of sessions){
   assert.equal(archived.transfer_prompt,original.transfer_prompt+(s.slot>140?' Then change a condition, predict the effect, and test a general rule or counterexample.':''));
   assert.deepEqual(archived,investigationForSession(investigations,s.slot,firstInvestigationEdition));
   html=investigationIntroHTML(s,item);assert(investigationWarmupHTML(item).includes('reasoning-steps'));
+  if(item.opener.readingCue){
+   assert(html.includes(item.opener.readingCue.heading) && html.includes(item.opener.readingCue.prompt));
+   assert(!investigationIntroHTML(s,archived).includes(item.opener.readingCue.heading));
+  }
  }else if(s.type==='MIXED'){html='<p>Success today: choose a method independently.</p>';}else{html=mockIntroductionHTML({max_score:s.type==='AMC MOCK'?135:100});assert(html.includes('timer has not started'));}
  assert(html.includes('Success today'));assert(!html.includes('undefined'));covered++;
 }

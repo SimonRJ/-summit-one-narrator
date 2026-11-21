@@ -9,8 +9,13 @@ if(!url||!key) throw new Error('SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY are r
 const bucket=process.env.PROTECTED_VIDEO_BUCKET||'summit-one-protected-video';
 const ids=fs.readdirSync(root).filter(f=>f.endsWith('.mp4')).map(f=>f.replace(/\.mp4$/,''));
 if(!ids.length) throw new Error('No protected challenge MP4s found');
-for(const id of ids){if(!/^A\d{3}$/.test(id))throw new Error(`SAFETY: non-AMC file in protected upload set: ${id}`)}
+const challengeId = /^(?:A\d{3}|K\d{3}|N[1-4]\.(?:26|27|28|29|30))$/;
+for(const id of ids){
+  if(!challengeId.test(id))throw new Error(`Unrecognised protected challenge: ${id}`);
+}
 const sb=createClient(url,key,{auth:{persistSession:false,autoRefreshToken:false}});
+const {data:destination,error:bucketError}=await sb.storage.getBucket(bucket);
+if(bucketError || !destination || destination.public)throw new Error('A private destination bucket is required.');
 let ok=0;
 for(const id of ids.sort()){
   const p=path.join(root,`${id}.mp4`), bytes=fs.readFileSync(p);

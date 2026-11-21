@@ -34,6 +34,8 @@ summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
 </style>
+<link rel="stylesheet" href="topic-film-reading.css">
+<script defer src="topic-film-print.js"></script>
 </head>
 <body>
 <main>
@@ -48,23 +50,32 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
   <source src="media/T03.3.mp4?v=birthday-boxes" type="video/mp4">
 </video>
 <p class="meta">1:59 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · More counters than boxes</button>
-<button type="button" data-time="31.800">0:31 · The sock puzzle</button>
-<button type="button" data-time="66.490">1:06 · Remainder boxes</button>
-<button type="button" data-time="83.930">1:23 · Pairs that sum to 11</button>
-<button type="button" data-time="99.770">1:39 · Your turn</button></nav>
+<nav class="chapters" aria-label="Video chapters">
+<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Fit four counters into three boxes</button>
+<button type="button" data-time="31.800"><span class="chapter-clock">0:32</span> Delay a matching pair of socks</button>
+<button type="button" data-time="66.490"><span class="chapter-clock">1:06</span> Sort four numbers into remainder boxes</button>
+<button type="button" data-time="83.930"><span class="chapter-clock">1:24</span> Pair the numbers that sum to eleven</button>
+<button type="button" data-time="99.770"><span class="chapter-clock">1:40</span> Force two birthdays into one month</button>
+</nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>What is the smallest group size that guarantees two people were born in the same month?</p>
 <details><summary>Check your reasoning</summary><p>Twelve people could have twelve different birth months. A thirteenth person must share one of those months, so 13 is the smallest guaranteed group.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary><p>Put four counters into three boxes. You can place the first three with one in each box. The fourth has to join a counter somewhere. If you already put two together earlier, the claim already holds. This is the pigeonhole principle.</p>
+<details class="transcript"><summary>Read the transcript</summary>
+<h2><span class="chapter-clock">0:00</span> Fit four counters into three boxes</h2>
+<p>Put four counters into three boxes. You can place the first three with one in each box. The fourth has to join a counter somewhere. If you already put two together earlier, the claim already holds. This is the pigeonhole principle.</p>
 <p>A guarantee asks what must happen in every possible case. Imagine the arrangement that delays the result for as long as possible. Its limit helps us find the smallest count that will force the result. The important decision is what the boxes represent.</p>
+<h2><span class="chapter-clock">0:32</span> Delay a matching pair of socks</h2>
 <p>A drawer contains many socks of exactly four colours. You take socks without looking. What is the smallest number you must take to guarantee two of the same colour? Try to plan a draw that delays the first matching pair.</p>
 <p>Use one box for each colour. Begin with one sock in each box. That is a possible draw of four socks with no match. The fifth sock has to go into one of the occupied boxes. Five is sufficient, and this example with four proves that five is the minimum.</p>
+<h2><span class="chapter-clock">1:06</span> Sort four numbers into remainder boxes</h2>
 <p>The boxes can stand for remainders. Take any four different whole numbers. When we divide by three, the possibilities are zero, one and two. Two of the four numbers share a remainder. Take their difference. The leftover parts cancel, leaving a multiple of three.</p>
+<h2><span class="chapter-clock">1:24</span> Pair the numbers that sum to eleven</h2>
 <p>Choose six different numbers from one to ten. Group the ten numbers into five pairs that add to eleven. A choice of six puts two numbers in one of those five pair boxes. Both members of that pair have been chosen, and they add to eleven.</p>
-<p>Choose the objects and choose the boxes. Compare their counts. When the problem asks for the smallest guarantee, show how one fewer could fail. In your notebook, how many people must be in a room to guarantee two birthdays in the same month?</p></details>
+<h2><span class="chapter-clock">1:40</span> Force two birthdays into one month</h2>
+<p>Choose the objects and choose the boxes. Compare their counts. When the problem asks for the smallest guarantee, show how one fewer could fail. In your notebook, how many people must be in a room to guarantee two birthdays in the same month?</p>
+</details>
 <p><a href="media/T03.3.mp4?v=birthday-boxes">Open the MP4 directly</a></p>
 </main>
 <script>

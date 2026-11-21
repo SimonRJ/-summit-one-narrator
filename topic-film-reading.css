@@ -1,0 +1,55 @@
+main nav.chapters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: .5rem;
+}
+main .chapters button {
+  display: grid;
+  grid-template-columns: 2.7rem 1fr;
+  gap: .5rem;
+  align-content: center;
+  align-items: baseline;
+  min-height: 48px;
+  padding: .55rem .7rem;
+  text-align: start;
+  line-height: 1.35;
+  font-size: 1rem;
+  border-radius: .65rem;
+}
+main .chapter-clock {
+  color: #a5e4c8;
+  font-variant-numeric: tabular-nums;
+  font-size: .9em;
+}
+main .transcript { margin-top: 1.4rem; }
+main .transcript h2 {
+  margin: 1.6rem 0 .4rem;
+  font-size: 1.13rem;
+  line-height: 1.35;
+}
+main .transcript h2 .chapter-clock { margin-inline-end: .4rem; }
+main .transcript p { max-width: 68ch; margin: .55rem 0; }
+main summary { min-height: 44px; padding-block: .55rem; cursor: pointer; }
+main :is(a, button, summary):focus-visible { outline: 3px solid currentColor; outline-offset: 3px; }
+@media (max-width: 36rem) {
+  main nav.chapters { grid-template-columns: 1fr; }
+  main .back a { padding-block: .4rem; }
+}
+@media print {
+  @page { margin: 16mm; }
+  :root { color-scheme: light; }
+  html, body, main, main section, main .mission { background: white !important; box-shadow: none !important; }
+  body, main, main * { color: black !important; }
+  body { min-height: auto; font: 11pt/1.42 Georgia, serif; }
+  main { padding: 0; max-width: none; }
+  main video, main nav, main > a, main .meta, main p:has(> a:only-child) { display: none !important; }
+  main h1 { font-size: 22pt; margin: 3pt 0 8pt; }
+  main .lesson, main .eyebrow { margin: 0; }
+  main .exercise, main .challenge, main .mission { padding: 8pt 10pt; border: 1px solid #888; break-inside: avoid; }
+  main summary { min-height: 0; padding: 0; font-weight: bold; list-style: none; }
+  main summary::-webkit-details-marker { display: none; }
+  main .transcript { margin-top: 12pt; }
+  main .transcript h2 { margin: 9pt 0 2pt; font-size: 12pt; break-after: avoid; }
+  main .transcript p { max-width: none; margin: 2pt 0 5pt; orphans: 2; widows: 2; }
+  main details::details-content { display: block; content-visibility: visible; }
+}

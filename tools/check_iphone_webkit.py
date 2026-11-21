@@ -70,10 +70,13 @@ async def check_cube_page(page, devices):
 
 
 async def check_domino_pages(page):
-    # The published lesson page must expose the board independently of film availability.
+    # The built-in board works even when both film catalogues are unavailable.
+    await page.route('**/data/recorded-studies.json*', lambda route: route.abort(), times=1)
     await page.goto(BASE + '/watch-lesson-intro.html?slot=36#lessonModel', wait_until='domcontentloaded')
     model = page.locator('#lessonModel .domino-model')
     await model.locator(':scope > summary').tap()
+    await expect(page.locator('#introWatch')).to_be_hidden()
+    await expect(page.locator('#introStatus')).to_contain_text('Reconnect')
     board = model.locator('.dm-board')
     cell = lambda index: board.locator(f'[data-cell="{index}"]')
     status = model.get_by_role('status')
@@ -109,7 +112,12 @@ async def check_domino_pages(page):
     await expect(board.locator('[data-mate]')).to_have_count(0)
     await expect(model.get_by_role('button', name='Undo last domino')).to_be_disabled()
 
+    # Also reach the same kind of model next to a listed film, without fetching remote media.
+    await page.route('**/lesson-intros-live.json*', lambda route: route.fulfill(json={
+        'version': 1, 'entries': [{'id': 'S333', 'title': 'Domino investigation', 'seconds': 80, 'status': 'verified'}]
+    }), times=1)
     await page.goto(BASE + '/watch-lesson-intro.html?slot=333#lessonModel', wait_until='domcontentloaded')
+    await expect(page.locator('#introWatch')).to_be_visible()
     await model.locator(':scope > summary').tap()
     await expect(board.get_by_role('button')).to_have_count(8)
     await expect(model.locator('select')).to_have_value('2')

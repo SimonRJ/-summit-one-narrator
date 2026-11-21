@@ -1,5 +1,6 @@
 """Exercise a real install, a failed update and a cold offline start on a nested Pages path."""
 import asyncio
+import json
 import re
 import shutil
 import threading
@@ -78,6 +79,9 @@ async def main():
                            for path in cache_info['files'])
                 assert {PREFIX + name for name in ('figures/read-practice/S368.svg', 'figure-viewer.js',
                         'figure-viewer.css', 'route-model.js', 'route-model.css')} <= set(cache_info['files'])
+
+                openings = json.loads((ROOT / 'figures/read-practice/openings.json').read_text())
+                assert {PREFIX + figure['src'] for figure in openings.values()} <= set(cache_info['files'])
 
                 server.test_failed_update = True
                 state = await page.evaluate("""async () => {

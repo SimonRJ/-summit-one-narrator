@@ -55,7 +55,8 @@ async def verify_revised_lessons(browser):
  ctx=await browser.new_context(viewport={'width':390,'height':844}, service_workers='block')
  calls=[]
  async def mock_api(route):
-  await route.fulfill(content_type='application/javascript', body=MOCK.replace('correct:true,independent_credit:',"correct:body.answer_text!=='fixture-miss',independent_credit:").replace(
+  solution_fixture="{solution_text:'Six plus six is twelve.',video_url:'media/AMCIntroduction.mp4',video_view_id:'00000000-0000-4000-a000-000000000001'}"
+  await route.fulfill(content_type='application/javascript', body=MOCK.replace("{solution_text:'Six plus six is twelve.'}",solution_fixture).replace('correct:true,independent_credit:',"correct:body.answer_text!=='fixture-miss',independent_credit:").replace(
    'functions:{invoke:async(name,{body})=>({data:',
    'functions:{invoke:async(name,{body})=>(await window.fixtureInvoke(name,body),{data:'))
  await ctx.expose_function('fixtureInvoke', lambda name,body: calls.append((name,body)))
@@ -158,6 +159,13 @@ async def verify_revised_lessons(browser):
    await page.locator('.rwl-steps').wait_for()
    assert calls[-1][0]=='get-problem-solution' and calls[-1][1]['problem_id']==qid
    assert 'Six plus six' in await page.locator('.rwl-steps').inner_text()
+   clip=page.locator('.rwl-steps video')
+   assert await clip.get_attribute('preload')=='none'
+   assert not any(body.get('played_view_id') for _,body in calls)
+   await clip.evaluate('v=>v.play()')
+   await page.wait_for_function("document.querySelector('.rwl-steps video').currentTime > .3")
+   await clip.evaluate('v=>v.pause()')
+   assert sum(1 for name,body in calls if name=='get-problem-solution' and body.get('played_view_id'))==1
    await fits()
    await back.click()
    await next_button.click()

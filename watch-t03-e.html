@@ -34,6 +34,8 @@ summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
 </style>
+<link rel="stylesheet" href="topic-film-reading.css">
+<script defer src="topic-film-print.js"></script>
 </head>
 <body>
 <main>
@@ -48,22 +50,31 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
   <source src="media/T03.E.mp4?v=ten-remainder-boxes" type="video/mp4">
 </video>
 <p class="meta">1:40 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · The four-number problem</button>
-<button type="button" data-time="16.090">0:16 · Sort by remainder</button>
-<button type="button" data-time="43.610">0:43 · Cancel the leftovers</button>
-<button type="button" data-time="59.450">0:59 · Check the bound</button>
-<button type="button" data-time="79.290">1:19 · Your turn</button></nav>
+<nav class="chapters" aria-label="Video chapters">
+<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Find a multiple-of-three difference</button>
+<button type="button" data-time="16.090"><span class="chapter-clock">0:16</span> Give each number a remainder box</button>
+<button type="button" data-time="43.610"><span class="chapter-clock">0:44</span> Subtract numbers from the same box</button>
+<button type="button" data-time="59.450"><span class="chapter-clock">0:59</span> Test four numbers and then three</button>
+<button type="button" data-time="79.290"><span class="chapter-clock">1:19</span> Find the guarantee for divisor ten</button>
+</nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>How many different whole numbers guarantee that two differ by a multiple of 10? Show why one fewer can fail.</p>
 <details><summary>Check your reasoning</summary><p>11. There are 10 possible remainders. For 10 choices, 0, 1, …, 9 give one per remainder and no pair with a multiple-of-10 difference.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary><p>Choose any four different whole numbers. Prove that two of them always have a difference that is a multiple of three. You can choose very large numbers if you like. How can one argument cover every possible choice?</p>
+<details class="transcript"><summary>Read the transcript</summary>
+<h2><span class="chapter-clock">0:00</span> Find a multiple-of-three difference</h2>
+<p>Choose any four different whole numbers. Prove that two of them always have a difference that is a multiple of three. You can choose very large numbers if you like. How can one argument cover every possible choice?</p>
+<h2><span class="chapter-clock">0:16</span> Give each number a remainder box</h2>
 <p>Divide a whole number by three. The remainder can be zero, one or two. A leftover of three would make another complete group. Create one box for each of the three allowable remainders.</p>
 <p>Every chosen number belongs to exactly one box. Four numbers and three boxes force at least two numbers into the same box. Those two numbers have the same remainder. We can use that single fact to show their difference is a multiple of three.</p>
+<h2><span class="chapter-clock">0:44</span> Subtract numbers from the same box</h2>
 <p>Write the larger number as three a plus r, and the smaller as three b plus the same r. On subtracting, the two r terms cancel. The result is three times the difference between a and b. It is a whole number of groups of three.</p>
+<h2><span class="chapter-clock">0:59</span> Test four numbers and then three</h2>
 <p>Try two, six, ten and thirteen. Ten and thirteen both leave remainder one. Their difference is three. Could three numbers guarantee the result? With one, two and three, the remainders all differ. Their differences are one or two. This shows four is the smallest number that guarantees a match.</p>
-<p>Choose a box for each remainder and use subtraction once two numbers share a box. Now increase the divisor to ten. How many different whole numbers guarantee that two differ by a multiple of ten? Show both why your answer works and how one fewer choice could fail.</p></details>
+<h2><span class="chapter-clock">1:19</span> Find the guarantee for divisor ten</h2>
+<p>Choose a box for each remainder and use subtraction once two numbers share a box. Now increase the divisor to ten. How many different whole numbers guarantee that two differ by a multiple of ten? Show both why your answer works and how one fewer choice could fail.</p>
+</details>
 <p><a href="media/T03.E.mp4?v=ten-remainder-boxes">Open the MP4 directly</a></p>
 </main>
 <script>

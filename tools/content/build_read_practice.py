@@ -6,6 +6,7 @@ No answer key or worked solution for a scored question is written inside the rep
 """
 import argparse, hashlib, json, re
 from pathlib import Path
+from solution_revisions import checked_solution, private_overlay
 
 ROOT = Path(__file__).resolve().parents[2]
 EDITION = 'read-watch-practise-1'
@@ -17,7 +18,9 @@ def read(p): return json.loads(p.read_text())
 def write(p,data): p.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
 def build(private):
     private=private.resolve()
-    revisions=read(ROOT/'tools/content/practice-revisions-20261121.json')['questions']
+    edits=read(ROOT/'tools/content/practice-revisions-20261121.json')
+    revisions=edits['questions']
+    overlay=private_overlay(private)
     if private.is_relative_to(ROOT): raise ValueError('The private answer source must be outside the public repository')
     course=read(ROOT/'data/sessions-372.json')['sessions']
     targets=[s['slot'] for s in course if s['type']=='LESSON' and s['slot']<=68]
@@ -43,6 +46,7 @@ def build(private):
         for i,q in enumerate(d['questions']):
             pid=f'RWL1-{n:03}-{"ABCD"[i]}'
             q={**q, **revisions.get(pid, {})}
+            q['solution']=checked_solution(pid,q['solution'],edits['solutionHashes'],overlay)
             stem=re.sub(r'\W','',q['prompt']).casefold()
             assert stem not in stems and q['hint'] and q['solution'] and q['answer'] is not None, pid
             stems.add(stem)

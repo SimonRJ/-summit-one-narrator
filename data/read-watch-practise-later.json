@@ -3407,7 +3407,7 @@
       "slot": 151,
       "headline": "Test what each domino must cover",
       "intro": "Colour neighbouring grid squares differently, as on a chessboard. A domino covering two squares that share an edge always uses one of each colour.",
-      "bridge": "In the domino film, test one move on a board with two alternating colours. What does every domino cover, and what mismatch makes a full covering impossible?",
+      "bridge": "Follow the two ends of one plate. Watch what happens when both tips of the narrow deck need the same neighbour.",
       "recap": "Unequal colour counts can prove impossibility. Equal counts are a first test; a proposed covering still needs a construction.",
       "example": {
         "prompt": "Can two dominoes cover all four cells of a 2-by-2 square?",
@@ -3417,10 +3417,10 @@
         ]
       },
       "skill": "DIV-04",
-      "videoId": "S019",
-      "videoTitle": "Parity, colouring and impossible tilings",
-      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S019-Intro-Illustrated.mp4",
-      "filmUse": "technique",
+      "videoId": "S151",
+      "videoTitle": "One socket, two plates",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/bridge-deck-S151-20261122/S151.mp4",
+      "filmUse": "dedicated",
       "retained": [],
       "questions": [
         {

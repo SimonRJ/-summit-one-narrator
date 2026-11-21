@@ -48,10 +48,9 @@ jobs:
           cp build/amc2025-q17/AMC2025Q17.vtt media/AMC2025Q17.vtt
           cp build/amc2025-q17/qa.json review/AMC2025Q17-qa.json
           cp build/amc2025-q17/timing.json build/amc2025-q17/words.json build/amc2025-q17/alignment-qa.json production/amc2025-q17/
-          cp production/amc2025-q17/watch-amc-2025-q17.html watch-amc-2025-q17.html
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add media/AMC2025Q17.mp4 media/AMC2025Q17-poster.jpg media/AMC2025Q17.vtt review/AMC2025Q17-qa.json production/amc2025-q17/timing.json production/amc2025-q17/words.json production/amc2025-q17/alignment-qa.json watch-amc-2025-q17.html
+          git add media/AMC2025Q17.mp4 media/AMC2025Q17-poster.jpg media/AMC2025Q17.vtt review/AMC2025Q17-qa.json production/amc2025-q17/timing.json production/amc2025-q17/words.json production/amc2025-q17/alignment-qa.json
           git commit -m 'Render the AMC 2025 question 17 solution pilot'
           git fetch origin "$GITHUB_REF_NAME"
           git rebase "origin/$GITHUB_REF_NAME"

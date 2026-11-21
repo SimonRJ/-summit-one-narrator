@@ -1,11 +1,11 @@
 import {enableFigureViewing} from './figure-viewer.js?v=deeper-20261121';
-import {edition as readEdition, questionOrder, renderReviewedLesson, restoreGradedAnswers} from './reviewed-lesson.js?v=course-review-20261122-a';
-import {mixedFlashDeck} from './flash-cards.js?v=content-audit-20261113';
+import {edition as readEdition, questionOrder, renderReviewedLesson, restoreGradedAnswers} from './reviewed-lesson.js?v=worked-films-20261122';
+import {mixedFlashDeck} from './flash-cards.js?v=standalone-cards-20261122';
 import {wordingHTML} from './recognition.js?v=recognition-20261113';
 import {workshopEdition,workshopStudies} from './workshop-studies.js?v=workshops-20261122';
 import {bridgeHTML,mountPractice,practice} from './transfer-practice.js?v=github-20261121';
 import {allRows,queueLessonRepairs,renderRepairs,mountInvestigationReview,rubricHTML} from './learning-support.js?v=github-20261121';
-import {mountFlashCards,flashReviewed} from './flash-ui.js?v=content-audit-20261113';
+import {mountFlashCards,flashReviewed} from './flash-ui.js?v=standalone-cards-20261122';
 import {selectOriginalProblems,familySeen,reasoningReady,applicationStatus,mountReasoning,originalFigure,LEARNING_VERSION} from './original-learning.js?v=upper-primary-audit-20261114';
 import {introductionHTML,lessonPlan,investigationIntroHTML,investigationWarmupHTML,investigationForSession,investigationRecordHTML,currentInvestigationEdition,firstInvestigationEdition} from './session-intros.js?v=mawa-visits-20261121';
 
@@ -19,8 +19,8 @@ import { problemFigure } from "./problem-figures.js";
 import {mountLessonPager} from "./lesson-pager.js?v=responsive-20261113";
 import {learningScreens} from "./lesson-screenflow.js?v=data-audit-20261114";
 import {buildCourseNavigation} from "./course-menu.js?v=menu-20261113";
-import {mountCourseMenu} from "./course-menu-ui.js?v=recorded-editions-20261122";
-import {introMediaSource,lessonIntroId,loadIntroductionCatalogue} from "./lesson-introduction-media.js?v=recorded-editions-20261122";
+import {mountCourseMenu} from "./course-menu-ui.js?v=bridge-deck-20261122";
+import {introMediaSource,lessonIntroId,loadIntroductionCatalogue} from "./lesson-introduction-media.js?v=bridge-deck-20261122";
 
 const app=document.getElementById("app");
 const problemTemplate=document.getElementById("problemTemplate");
@@ -91,6 +91,38 @@ function finalVideoUrl(videoId){
   if(teaching.some(item=>item.id===id&&item.video_url===published))return published;
   return ""; // Only verified published masters are offered; other lessons use their written/audio teaching.
 }
+function markSolutionPlayback(film, solution, problemId){
+  if(!film || !solution.video_view_id)return;
+  film.addEventListener('playing',async()=>{
+    try{
+      const result=await supabase.functions.invoke('get-problem-solution',{
+        body:{problem_id:problemId,played_view_id:solution.video_view_id}
+      });
+      if(result.error)console.warn('Solution playback could not be recorded.');
+    }catch{console.warn('Solution playback could not be recorded.')}
+  },{once:true});
+}
+function showWorkedSolution(target,solution,problemId){
+  const text=document.createElement('p');
+  text.className='math-copy';
+  text.textContent=solution.solution_text||solution.spoken_script||'No written solution returned.';
+  target.replaceChildren(text);
+  if(!solution.video_url)return;
+  const film=document.createElement('video');
+  film.controls=true;
+  film.playsInline=true;
+  film.preload='none';
+  film.className='worked-solution-film';
+  film.setAttribute('aria-label','Worked solution film');
+  film.src=solution.video_url;
+  markSolutionPlayback(film,solution,problemId);
+  const unavailable=document.createElement('p');
+  unavailable.hidden=true;
+  unavailable.textContent='The film could not be played. You can still read the worked solution above.';
+  film.addEventListener('error',()=>{unavailable.hidden=false});
+  target.append(film,unavailable);
+}
+
 async function recordVideoEvidence(sessionNumber,videoId,kind,detail={}){
   if(!sessionNumber||!videoId)return;
   const key=`video:${videoId}`;
@@ -180,7 +212,7 @@ async function boot(){
     if(!user){location.href="login.html";return}
     const introCatalogue=loadIntroductionCatalogue();
     const [c,t,m,h,tax,ms,lm,rl,later]=await Promise.all([fetch("data/sessions-372.json").then(r=>r.json()),fetch("data/teaching-72.json").then(r=>r.json()),fetch("data/mawa-investigations-20.json?v=mawa-visits-20261121").then(r=>r.json()),fetch("data/rossmoyne-h23.json").then(r=>r.json()),fetch("data/taxonomy-52.json").then(r=>r.json()),fetch("data/milestones.json").then(r=>r.json()),fetch("data/lesson-challenges.json?v=upper-primary-audit-20261114").then(r=>r.json()),fetch("data/read-watch-practise.json?v=course-review-20261122-a").then(r=>{if(!r.ok)throw Error("Lesson text could not be loaded");return r.json()}),
-      fetch("data/read-watch-practise-later.json?v=illustrations-94").then(r=>{
+      fetch("data/read-watch-practise-later.json?v=bridge-deck-20261122").then(r=>{
         if(!r.ok)throw Error("The later lesson text could not be loaded");
         return r.json();
       })]);
@@ -438,6 +470,7 @@ function showReadPractice(s,l,questions,draft,locked=false){
    attemptHistory.push({problem_id:id,session_number:s.slot,answer_text:response,evidence_level:help?'guided':'independent',independent_credit:g.independent_credit===true,is_correct:g.correct,created_at:new Date().toISOString()});
    return g},
   getSolution:id=>invoke('get-problem-solution',{problem_id:id,session_number:s.slot},'solution'),
+  showSolution:showWorkedSolution,
   wasSeen:seen,trackChange,save:locked?persistReview:()=>saveDraft(s),markLocal:locked?persistReview:rememberDraft,
   complete:async()=>{if(locked){persistReview();await openCompletedFromMenu(s.slot);return}if(!questions.every(q=>draft.answers[q.id]))throw Error('Attempt each problem before finishing.');
    draft.summary.takeaway=l.recap;await trackChange(()=>completeSpecialSession(s))},
@@ -668,10 +701,11 @@ function renderChallenge(el,s,p,mode){
         title:p.title||p.id,
         transcript,
         audioUrl:protectedAudio,
-        videoUrl:["K001","K007","K015","K022"].includes(p.id)?"":d.video_url||finalVideoUrl(p.id),
+        videoUrl:d.video_url||finalVideoUrl(p.id),
         cacheKey:p.id,
         onWatch:detail=>recordVideoEvidence(s.slot,p.id,"challenge_solution",detail)
       });
+      markSolutionPlayback(solution.querySelector('.np-video'),d,p.id);
       sessionDraft.evidence['solution:'+p.id]={seen:true,recorded_at:new Date().toISOString()};
       try{await saveDraft(s)}catch(syncError){console.warn("Solution viewed; local lesson sync pending",syncError)}
     }catch(e){
@@ -823,7 +857,7 @@ async function renderReview(){
  enableFigureViewing(app);
  app.querySelectorAll('[data-revised-copy]').forEach(button=>button.onclick=()=>openRevisedCopy(Number(button.dataset.revisedCopy)));
  app.querySelectorAll('.saved-intro').forEach(button=>button.onclick=()=>openLessonIntroductionFromMenu(Number(button.dataset.videoSession)).catch(error=>alert(error.message)));
- app.querySelectorAll('.saved-solution').forEach(button=>button.onclick=async()=>{button.disabled=true;const target=button.nextElementSibling;try{const {data,error}=await supabase.functions.invoke('get-problem-solution',{body:{problem_id:button.dataset.problem,session_number:Number(button.dataset.session)}});if(error||data?.error)throw error||new Error(data.error);target.className='math-copy';target.textContent=data.solution_text||data.spoken_script||'No written solution returned.'}catch(err){target.textContent=err.message;button.disabled=false}});
+ app.querySelectorAll('.saved-solution').forEach(button=>button.onclick=async()=>{button.disabled=true;const target=button.nextElementSibling;try{const {data,error}=await supabase.functions.invoke('get-problem-solution',{body:{problem_id:button.dataset.problem,session_number:Number(button.dataset.session)}});if(error||data?.error)throw error||new Error(data.error);target.className='math-copy';showWorkedSolution(target,data,button.dataset.problem)}catch(err){target.textContent=err.message;button.disabled=false}});
  app.querySelectorAll('[data-adult-review]').forEach(target=>{const details=target.closest('details');details.addEventListener('toggle',async()=>{if(!details.open||target.dataset.loaded)return;target.dataset.loaded='1';const record=completedRecords.find(r=>r.session_number===Number(target.dataset.adultReview)),item=investigationForSession(mawa,record.session_number,record.summary?.investigation_edition,record.summary?.investigation_id);try{await mountInvestigationReview(target,{user,record,item})}catch(err){target.textContent=err.message;delete target.dataset.loaded}})});
 }
 

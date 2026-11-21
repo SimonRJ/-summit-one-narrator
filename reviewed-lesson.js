@@ -89,7 +89,7 @@ export function restoreGradedAnswers(lesson, questions, draft, history, wasSeen)
  }
 }
 export function phaseFor(page){return page===0?'Read':page===1?'Watch':'Practise'}
-export function renderReviewedLesson({app,s,l,questions,draft,locked=false,video,extension,recordWatch,figure,attempt,getSolution,save,markLocal,complete,home,wasSeen,trackChange=fn=>fn(),changedSize}){
+export function renderReviewedLesson({app,s,l,questions,draft,locked=false,video,extension,recordWatch,figure,attempt,getSolution,showSolution,save,markLocal,complete,home,wasSeen,trackChange=fn=>fn(),changedSize}){
  rememberReading(l.slot);
  const savedPage=Number(draft.summary.read_practice_page);
  const first=Number.isInteger(savedPage)?savedPage:0;
@@ -155,7 +155,7 @@ export function renderReviewedLesson({app,s,l,questions,draft,locked=false,video
     // measures application; it cannot establish delayed independent retrieval.
     markLocal();if(stamp===generation)displayAnswer(a);try{await save()}catch{if(stamp===generation)feedback.textContent+=' Your answer is saved on this device; cloud sync is pending.'}
    }catch(err){feedback.textContent=err.message||'Could not check your answer. Try again.';check.disabled=false}finally{busy=false;syncNav()}})};
-  reveal.onclick=async()=>{reveal.disabled=true;try{const d=await getSolution(q.id);if(stamp!==generation||!stage.isConnected)return;solution.hidden=false;solution.textContent=d.solution_text||d.spoken_script||'No solution returned.';reveal.hidden=true;solution.tabIndex=-1;solution.focus({preventScroll:true});draft.evidence['solution:'+q.id]={seen:true,recorded_at:new Date().toISOString()};markLocal()}catch(err){if(stamp!==generation)return;feedback.textContent=err.message;reveal.disabled=false}};
+  reveal.onclick=async()=>{reveal.disabled=true;try{const d=await getSolution(q.id);if(stamp!==generation||!stage.isConnected)return;solution.hidden=false;showSolution(solution,d,q.id);reveal.hidden=true;solution.tabIndex=-1;solution.focus({preventScroll:true});draft.evidence['solution:'+q.id]={seen:true,recorded_at:new Date().toISOString()};markLocal()}catch(err){if(stamp!==generation)return;feedback.textContent=err.message;reveal.disabled=false}};
   if(answer)displayAnswer(answer);
  }
  function move(to){if(busy)return;stage.querySelector('video')?.pause();page=to;locate();show();const heading=stage.querySelector('h2');if(heading){heading.tabIndex=-1;heading.focus({preventScroll:true})}}
