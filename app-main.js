@@ -1,8 +1,8 @@
-import {edition as readEdition, questionOrder, renderReviewedLesson, restoreGradedAnswers} from './reviewed-lesson.js?v=reasoning-20261121';
+import {edition as readEdition, questionOrder, renderReviewedLesson, restoreGradedAnswers} from './reviewed-lesson.js?v=github-20261121';
 import {mixedFlashDeck} from './flash-cards.js?v=content-audit-20261113';
 import {wordingHTML} from './recognition.js?v=recognition-20261113';
-import {bridgeHTML,mountPractice} from './transfer-practice.js?v=content-audit-20261113';
-import {allRows,queueLessonRepairs,renderRepairs,mountInvestigationReview,rubricHTML} from './learning-support.js?v=cinematic-practice-20261113';
+import {bridgeHTML,mountPractice} from './transfer-practice.js?v=github-20261121';
+import {allRows,queueLessonRepairs,renderRepairs,mountInvestigationReview,rubricHTML} from './learning-support.js?v=github-20261121';
 import {mountFlashCards,flashReviewed} from './flash-ui.js?v=content-audit-20261113';
 import {selectOriginalProblems,familySeen,reasoningReady,applicationStatus,mountReasoning,originalFigure,LEARNING_VERSION} from './original-learning.js?v=upper-primary-audit-20261114';
 import {introductionHTML,lessonPlan,investigationIntroHTML,investigationWarmupHTML} from './session-intros.js?v=recognition-20261113';
@@ -17,7 +17,7 @@ import { problemFigure } from "./problem-figures.js";
 import {mountLessonPager} from "./lesson-pager.js?v=responsive-20261113";
 import {learningScreens} from "./lesson-screenflow.js?v=data-audit-20261114";
 import {buildCourseNavigation} from "./course-menu.js?v=menu-20261113";
-import {mountCourseMenu} from "./course-menu-ui.js?v=lesson-intros-v16";
+import {mountCourseMenu} from "./course-menu-ui.js?v=github-20261121";
 import {introMediaSource,lessonIntroId,loadIntroductionCatalogue} from "./lesson-introduction-media.js?v=lesson-intros-v16";
 
 const app=document.getElementById("app");

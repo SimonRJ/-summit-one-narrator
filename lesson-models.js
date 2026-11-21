@@ -1,3 +1,4 @@
+import { mountDominoModel } from './domino-model.js?v=github-20261121';
 import { modelClaims, mountClaimChallenge } from './model-claims.js?v=reasoning-20261121';
 
 // Each investigation is a separate worked example. It never reads or records a learner's answers.
@@ -11,7 +12,7 @@ export function mountLessonModel(container, lesson) {
   if (!container) return false;
   container.replaceChildren();
   const model = investigations.find(entry => entry.slots.includes(lesson?.slot) && (lesson.skill == null || entry.skill === lesson.skill));
-  if (!model) return false;
+  if (!model) return mountDominoModel(container, lesson);
   const details = document.createElement('details');
   details.className = 'lesson-model';
   const summary = document.createElement('summary');

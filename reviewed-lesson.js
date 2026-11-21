@@ -1,9 +1,20 @@
 import {exampleMethods} from './example-methods.js?v=reasoning-20261121';
-import {mountLessonModel} from './lesson-models.js?v=reasoning-20261121';
+import {mountLessonModel} from './lesson-models.js?v=github-20261121';
 // The published lesson text and hints are public. Answers and worked solutions are
 // versioned in content_problems and are requested only through the signed-in learner.
 export const edition='read-watch-practise-1';
 const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+// Only public lesson numbers are kept on this device for the offline reading list.
+export function readingAvailable(slot) {
+ if(slot === 1)return true;
+ try { return localStorage.getItem('summit-one-reading:'+slot) === '1'; } catch { return false; }
+}
+function rememberReading(slot) {
+ try {
+  localStorage.setItem('summit-one-reading:'+slot, '1');
+  localStorage.setItem('summit-one-reading:last', String(slot));
+ } catch { /* The signed-in lesson remains usable with storage disabled. */ }
+}
 export function readCard(lesson) {
  const { example } = lesson;
  const group = 'rwl-example-' + escape(lesson.slot);
@@ -78,6 +89,7 @@ export function restoreGradedAnswers(lesson, questions, draft, history, wasSeen)
 }
 export function phaseFor(page){return page===0?'Read':page===1?'Watch':'Practise'}
 export function renderReviewedLesson({app,s,l,questions,draft,locked=false,video,recordWatch,figure,attempt,getSolution,save,markLocal,complete,home,wasSeen,trackChange=fn=>fn(),changedSize}){
+ rememberReading(l.slot);
  const savedPage=Number(draft.summary.read_practice_page);
  const first=Number.isInteger(savedPage)?savedPage:0;
  let page=Math.max(0,Math.min(questions.length+2,first)),busy=false;

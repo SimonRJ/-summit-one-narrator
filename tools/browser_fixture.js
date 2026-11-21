@@ -2,7 +2,11 @@
 const db=globalThis.__fixture;
 class Query{
  constructor(table){this.table=table;this.filters=[];this.sort=[];this.op='read'}
- select(){return this} eq(k,v){this.filters.push(x=>x[k]===v);return this}not(k,op,v){this.filters.push(x=>x[k]!==v);return this}order(k,o={}){this.sort.push([k,o.ascending!==false]);return this}range(a,b){this.span=[a,b];return this}limit(n){this.span=[0,n-1];return this}single(){this.one=true;return this}maybeSingle(){this.one=true;return this}insert(v){this.op='insert';this.value=v;return this}upsert(v,options={}){this.op='upsert';this.value=v;this.upsertOptions=options;return this}update(v){this.op='update';this.value=v;return this}
+ select(){return this} eq(k,v){this.filters.push(x=>x[k]===v);return this}not(k,op,v){
+  if(op!=='is'||v!==null)throw Error('Unsupported fixture filter: '+op);
+  this.filters.push(row=>row[k]!=null);
+  return this
+ }order(k,o={}){this.sort.push([k,o.ascending!==false]);return this}range(a,b){this.span=[a,b];return this}limit(n){this.span=[0,n-1];return this}single(){this.one=true;return this}maybeSingle(){this.one=true;return this}insert(v){this.op='insert';this.value=v;return this}upsert(v,options={}){this.op='upsert';this.value=v;this.upsertOptions=options;return this}update(v){this.op='update';this.value=v;return this}
  then(ok,bad){return this.run().then(ok,bad)}
  async run(){let rows=(db[this.table]||[]).filter(x=>this.filters.every(f=>f(x)));if(this.op==='insert'||this.op==='upsert'){
  let row=structuredClone(this.value);if(this.op==='upsert'){const keys=this.upsertOptions.onConflict?.split(',')||(this.table==='session_records'?['user_id','session_number']:['user_id']);const prior=(db[this.table]||[]).find(x=>keys.every(k=>x[k]===row[k]));if(prior){if(!this.upsertOptions.ignoreDuplicates)Object.assign(prior,row);row=prior}else{row.id='fixture-'+(++db.counter);if(this.table==='learning_repairs')Object.assign(row,{stage:0,evidence:{},created_at:new Date().toISOString()});(db[this.table]||=[]).push(row)}}else{row.id='fixture-'+(++db.counter);row.reviewed_at=new Date().toISOString();if(this.table==='exam_sittings'){row.attempt_number=db.exam_sittings.filter(x=>x.exam_id===row.exam_id).length+1;row.started_at=new Date().toISOString();row.expires_at=new Date(Date.now()+3600000).toISOString();} (db[this.table]||=[]).push(row)}rows=[row];

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0e1e2c">
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="icon" href="./icon.svg">
+  <title>Offline lesson reader · Summit One</title>
+  <link rel="stylesheet" href="./read-practice.css?v=guided-20261121">
+  <link rel="stylesheet" href="./lesson-models.css?v=github-20261121">
+  <style>
+    :root { color-scheme: dark; font: 100%/1.55 system-ui, sans-serif; color: #edf6ff; background: #0e1e2c; }
+    * { box-sizing: border-box; }
+    body { max-width: 46rem; margin: auto; padding: clamp(1rem,4vw,2rem); }
+    h1 { font-size: clamp(1.65rem,5vw,2.3rem); line-height: 1.2; margin: .5rem 0; }
+    p { margin: .5rem 0 1rem; }
+    a { display: inline-flex; min-height: 44px; align-items: center; color: #a4e8db; }
+    label { display: block; font-weight: 650; }
+    select { width: 100%; min-height: 44px; padding: .5rem; background: #152c3c; color: #fff; border: 1px solid #7a959f; border-radius: .45rem; font: inherit; }
+    :focus-visible { outline: 3px solid #ffda86; outline-offset: 2px; }
+    #readerStatus { color: #afd7cc; font-size: .92rem; }
+    #reading { border-top: 1px solid #34515f; margin-top: 1rem; }
+    #reading .rwl-copy { padding-inline: 0; }
+    #reading .eyebrow { display: none; }
+  </style>
+  <script type="module" src="./offline-reader.js?v=github-20261121"></script>
+</head>
+<body>
+  <a href="./">Return to Summit One</a>
+  <main>
+    <h1>Offline lesson reader</h1>
+    <p>Read the opening example from session 1 or a lesson you’ve opened on this device. Return to the course when online for videos and scored practice.</p>
+    <p id="readerStatus" role="status">Preparing your readings…</p>
+    <div id="readerPicker" hidden>
+      <label for="readerLesson">Choose a lesson</label>
+      <select id="readerLesson"></select>
+    </div>
+    <div id="reading" class="rwl"></div>
+  </main>
+</body>
+</html>

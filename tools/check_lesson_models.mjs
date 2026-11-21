@@ -10,6 +10,8 @@ const lessons = manifests.flatMap(json => JSON.parse(json).lessons.map(({slot, s
 const fixture = '<meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/lesson-models.css"><main></main>';
 const resources = {
   '/': [fixture, 'text/html'],
+  '/domino-model.js': [await read('domino-model.js'), 'text/javascript'],
+  '/domino-model.css': [await read('domino-model.css'), 'text/css'],
   '/model-claims.js': [await read('model-claims.js'), 'text/javascript'],
   '/lesson-models.js': [await read('lesson-models.js'), 'text/javascript'],
   '/lesson-models.css': [await read('lesson-models.css'), 'text/css'],
@@ -28,7 +30,7 @@ try {
     window.showModel = lesson => mountLessonModel(main, lesson);
     return lessons.filter(lesson => window.showModel(lesson)).map(lesson => lesson.slot);
   }, lessons);
-  assert.deepEqual(actual, [6,17,53,72,82,85,87,94,118,122,163,213,254,286,345,359,370]);
+  assert.deepEqual(actual, [6,17,19,36,53,72,82,85,87,94,97,118,122,127,151,159,163,213,218,254,286,309,333,341,345,359,370]);
   const open = async slot => {
     await page.evaluate(lesson => window.showModel(lesson), lessons.find(lesson => lesson.slot === slot));
     assert.equal(await page.locator('.lesson-model').getAttribute('open'), null);
@@ -174,7 +176,7 @@ try {
     const result = window.showModel({slot:87,skill:'different'});
     return result === false && !document.querySelector('main').firstChild;
   }),true);
-  console.log('Passed 17 course mappings, 50 stack views, 200 grid outlines, 22 fencing configurations, claim evidence and reset, keyboard controls and three viewport widths.');
+  console.log('Passed 27 course mappings, 50 stack views, 200 grid outlines, 22 fencing configurations, claim evidence and reset, keyboard controls and three viewport widths.');
 } finally {
   await browser.close();
 }

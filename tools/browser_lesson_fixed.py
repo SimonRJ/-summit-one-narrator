@@ -209,7 +209,7 @@ async def verify_later_lessons(browser):
  import json
  volume=json.loads((ROOT/'data/read-watch-practise-later.json').read_text())
  lessons={l['slot']:l for l in volume['lessons']}
- for slot in (69,158,370):
+ for slot in (69,158,333,370):
   lesson=lessons[slot]
   ctx=await browser.new_context(viewport={'width':390,'height':844},service_workers='block')
   await ctx.add_init_script(f"""window.fixture={{records:[],attempts:[],exams:[],
@@ -220,6 +220,12 @@ async def verify_later_lessons(browser):
   await page.locator('#continue').click()
   await page.locator('.rwl-example').wait_for()
   assert lesson['headline']==await page.locator('.rwl-copy h2').inner_text()
+  if slot==333:
+   model=page.locator('.domino-model')
+   await model.locator(':scope > summary').press('Enter')
+   await model.locator('[data-action="impossible"]').click()
+   assert 'A1 and A3' in await model.locator('.dm-message').inner_text()
+   assert await page.evaluate('fixture.attempts.length === 0')
   forward=page.locator('[data-screen-next]')
   await forward.click()
   assert await page.locator('#openingVideo').get_attribute('src')==lesson['movie']
