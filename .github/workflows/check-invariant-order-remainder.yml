@@ -1,0 +1,63 @@
+name: Check the invariant, inverse, order and remainder lessons on phones
+on:
+  push:
+    branches: [codex/reviewed-film-work-20261119]
+    paths: ['.github/workflows/check-invariant-order-remainder.yml']
+permissions:
+  contents: read
+jobs:
+  chrome:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      ENGINE: chrome
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-save --package-lock=false playwright@1.65.1
+      - name: Wait for the invariant chapter controls on Pages
+        run: |
+          for attempt in $(seq 1 35); do
+            if curl -fsS "https://simonrj.github.io/-summit-one-narrator/watch-t02-1.html?chapter_review=383de38" | grep -q 'data-time="129.617"'; then exit 0; fi
+            sleep 10
+          done
+          exit 1
+      - run: node tools/review-public-video-players.cjs T02.1 T02.2 T02.E T03.1
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: invariant-order-remainder-chrome
+          path: build/phone
+          if-no-files-found: warn
+  webkit:
+    runs-on: ubuntu-latest
+    container: mcr.microsoft.com/playwright:v1.65.1-noble
+    timeout-minutes: 15
+    env:
+      ENGINE: webkit
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-save --package-lock=false playwright@1.65.1
+      - name: Wait for the invariant chapter controls on Pages
+        run: |
+          for attempt in $(seq 1 35); do
+            if curl -fsS "https://simonrj.github.io/-summit-one-narrator/watch-t02-1.html?chapter_review=383de38" | grep -q 'data-time="129.617"'; then exit 0; fi
+            sleep 10
+          done
+          exit 1
+      - run: node tools/review-public-video-players.cjs T02.1 T02.2 T02.E T03.1
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: invariant-order-remainder-webkit
+          path: build/phone
+          if-no-files-found: warn
