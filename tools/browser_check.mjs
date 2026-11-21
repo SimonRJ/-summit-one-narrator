@@ -66,6 +66,12 @@ try{
   sessionStorage.setItem('qa-repair-state',JSON.stringify(d));
  },mobile);
  await page.goto('http://127.0.0.1:4173/?view=repairs');
+ const content=page.locator('#repairList .repair-content');
+ const openRepair=async()=>{
+  await page.locator('#repairList details:not([open]) > summary').click();
+  // Browsers deliver the native details toggle after its click. Wait for that handler to render the stage.
+  await content.locator(':scope > :first-child').waitFor();
+ };
  const reopenRepair=async done=>{
   await page.evaluate(done=>{
    const db=globalThis.__fixture;
@@ -73,14 +79,16 @@ try{
    sessionStorage.setItem('qa-repair-state',JSON.stringify(db));
   },done??null);
   await page.reload();
-  await page.locator('#repairList summary').click();
+  await openRepair();
  };
- const content=page.locator('.repair-content');
  const getRepair=()=>page.evaluate(()=>globalThis.__fixture.learning_repairs[0]);
  const submitRepair=async wrong=>{
   const prompt=await content.locator('.mini-check > p').first().textContent();
-  const grams=Number(/weighs (\d+) grams/.exec(prompt)[1]);
-  await content.locator('.response').fill(wrong?'100000':String((grams-7)/5));
+  const parcel=/A parcel weighs (\d+) grams/.exec(prompt);
+  const notebooks=/notebooks and a \$4 pen cost \$(\d+)/.exec(prompt);
+  assert.ok(parcel||notebooks,'Unrecognised ALG-01 prompt: '+prompt);
+  const answer=parcel?(Number(parcel[1])-7)/5:(Number(notebooks[1])-4)/3;
+  await content.locator('.response').fill(wrong?'100000':String(answer));
   await content.getByRole('button',{name:'Check answer',exact:true}).click();
   await content.getByRole('button',{name:'Save repair step'}).waitFor();
   return prompt;
@@ -89,18 +97,20 @@ try{
   await content.getByRole('button',{name:'Save repair step'}).click();
   await page.waitForFunction(s=>globalThis.__fixture.learning_repairs[0].stage===s &&
    !globalThis.__fixture.learning_repairs[0].evidence.pending_recall,stage);
-  await page.locator('#repairList details:not([open]) > summary').click();
+  await openRepair();
  };
  const noCoaching=async()=>{
+  await content.locator('.mini-check .response:enabled').waitFor();
   assert.equal(await content.getByText('The idea:',{exact:true}).count(),0);
   assert.equal(await content.getByText('Your next step:',{exact:true}).count(),0);
   assert.equal(await content.getByText('Saved correction:',{exact:true}).count(),0);
  };
- await page.locator('#repairList summary').click();
+ await openRepair();
  await page.locator('[name=cause]').selectOption('choosing a model');
  await page.getByRole('button',{name:'Start practice'}).click();
- await page.locator('#repairList details:not([open]) > summary').click();
- assert.ok(await content.getByText('The idea:',{exact:true}).isVisible());
+ await page.waitForFunction(()=>globalThis.__fixture.learning_repairs[0].stage===1);
+ await openRepair();
+ await content.getByText('The idea:',{exact:true}).waitFor();
  const supportedPrompt=await submitRepair(false);
  await advanceRepair(2);
  await noCoaching();
@@ -118,14 +128,14 @@ try{
  assert.notEqual(assistedPrompt,supportedPrompt);
  assert.equal((await getRepair()).evidence.pending_recall.result.used_help,true);
  await reopenRepair();
- assert.ok(await content.locator('.response').isDisabled());
- assert.ok(await content.getByText('The idea:',{exact:true}).isVisible());
+ await content.locator('.response:disabled').waitFor();
+ await content.getByText('The idea:',{exact:true}).waitFor();
  await advanceRepair(2);
  assert.ok((await getRepair()).evidence.history.at(-1).used_help);
  await noCoaching();
  const lostPrompt=await submitRepair(true);
  await reopenRepair();
- assert.ok(await content.locator('.response').isDisabled());
+ await content.locator('.response:disabled').waitFor();
  assert.equal((await getRepair()).evidence.pending_recall.result.correct,false);
  await advanceRepair(2);
  const independentPrompt=await submitRepair(false);
