@@ -2,7 +2,7 @@
 
 **19 November 2026 — parent and maintainer guide.** The cutoff is the film labelled **S068**, in course order. There are 55 teaching films in the first 68 slots; nine MAWA investigations and four workshops occupy the other 13 slots. The [continuation through the end of the course](LATER_LESSONS.md) covers the remaining 228 teaching sessions.
 
-Each of these 55 teaching lessons has a short introduction, one worked example, a specific thing to look for in the existing film, and a practice sequence. There are four newly written problems per lesson with hints and solutions. The first asks the learner to apply the idea; later questions change the conditions or combine steps, and the last uses a less familiar setting. Selected challenges from the earlier bank sit between the new questions. The recap gives a test or question the learner can carry into the next problem. Nine opening examples also have labelled diagrams.
+Each of these 55 teaching lessons has a short introduction, one worked example, a specific thing to look for in the existing film, and a practice sequence. There are four newly written problems per lesson with hints and solutions. The first asks the learner to apply the idea; later questions change the conditions or combine steps, and the last uses a less familiar setting. Selected challenges from the earlier bank sit between the new questions. The recap gives a test or question the learner can carry into the next problem. Twelve opening examples also have labelled diagrams.
 
 **Worked examples across the course.** Read the problem and try a first move on paper. Choose **Show the first step** for a hint or **Show all steps** for the complete example. If a practice answer is incorrect, **Try a next step on paper** opens a question-specific hint, or the lesson reminder if the hint was already opened. The student can also go directly to the worked solution. The recap identifies correct answers that used support.
 
@@ -22,6 +22,10 @@ Ten worked examples also let students compare two approaches. In sessions 2, 13,
 
 The first six lessons have been reviewed against the published film transcripts. The review covered the introductions, examples, diagram labels, film cues, recaps, practice prompts, hints and all 35 protected worked solutions. Independent calculations agreed with all 35 marked answers, including the 11 retained questions, and with 40 explicit arithmetic equalities in the original explanations. Three explanations now show a previously implicit step. A fourth has an additional explanation shown after the usual attempt check. Its historical grading row is preserved. The six group fingerprints cover each active problem’s protected prompt, answer and worked solution in identifier order. The supplement has a separate fingerprint. See the [written lesson review register](../review/written-lesson-register.csv).
 
+S007 is a MAWA notebook investigation. Its main proof was checked across all 900 three-digit starting numbers, including the 90 with identical outside digits. Its transfer was checked across all two-digit starting numbers. The opening now shows how to read a leading zero and how to choose the order of subtraction. The investigation fingerprint covers the current edition’s ID, prompt, hint, trap, model, transfer prompt, transfer model and opener, in that order, as a JSON array.
+
+S008–S012 have 28 active protected problems. The five introductions, public examples, practice hints, recaps and film cues were read alongside their published transcripts. The review also checked each protected task’s wording, answer and worked reasoning. Independent calculations and exhaustive case counts matched all 28 marked answers. One explanation referred to an object absent from its question and now checks the two digit conditions directly. Each protected group fingerprint is the SHA-256 digest of its identifier-ordered PostgreSQL JSON arrays of ID, prompt, marked answer and solution text, joined with a newline.
+
 ## Lesson index
 
 The problem count includes both new and retained practice. Film links point to the existing media.
@@ -36,9 +40,9 @@ The problem count includes both new and retained practice. Film links point to t
 | [S006](https://simonrj.github.io/-summit-one-narrator/media/S006-Intro.mp4) | Slice a stack into floors | The crossing tunnels | 6 |
 | [S008](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S008-Intro-Illustrated.mp4) | Build only half a mirror number | A mirror-code display | 6 |
 | [S009](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S009-Intro-Illustrated.mp4) | Listen to what the carry tells you | Three copies | 6 |
-| [S010](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S010-Intro-Illustrated.mp4) | The same digits in a different order | The reversed total | 5 |
+| [S010](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S010-Intro-Illustrated.mp4) | How far does a reversal move a number? | The reversed total | 5 |
 | [S011](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S011-Intro-Illustrated.mp4) | Keep a record of prime copies | Square mosaics | 5 |
-| [S012](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S012-Intro-Illustrated.mp4) | What can the previous stage tell you? | A long strip | 6 |
+| [S012](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S012-Intro-Illustrated.mp4) | Which earlier values do you need? | A long strip | 6 |
 | [S013](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S013-Intro-Illustrated.mp4) | Must it divide both, or be divisible by both? | Partners | 6 |
 | [S015](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S015-Intro-Illustrated.mp4) | How far to the next multiple? | The mail room | 6 |
 | [S017](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S017-Intro-Illustrated-v2.mp4) | A rectangle is a choice of four lines | Two windows | 6 |
@@ -90,12 +94,12 @@ Total: **312 practice problems**: 220 new and 92 retained from the original bank
 
 The learner-facing text is [data/read-watch-practise.json](../data/read-watch-practise.json). Graded answers and worked solutions are private. To reconstruct the edition, unpack its private authoring archive outside the repository, run its three verification programs, then run `python tools/content/build_read_practice.py /path/to/private-edition` in a checkout. The generator writes the public release inside the repo and the grading rows, expected digest and a verification query in the private source directory. Run `node tools/check_read_practice.mjs` to check the edition, the order of every question, the film mapping and the absence of scored answers in the public file.
 
-The November review revised the private explanations for O003X, RWL1-002-A and RWL1-006-D. If an older authoring archive contains the original wording, use an authorised database session to run the query below. Save its returned JSON object as `practice-revision-solutions.json` beside the private originals authoring file and in the private first-edition authoring directory. Both builds verify the revised wording against published SHA-256 digests. The O001X supplement is stored separately in the protected `solution_clarifications` table.
+The November review revised the private explanations for O003X, RWL1-002-A, RWL1-006-D and RWL1-010-A. If an older authoring archive contains the original wording, use an authorised database session to run the query below. Save its returned JSON object as `practice-revision-solutions.json` beside the private originals authoring file and in the private first-edition authoring directory. Both builds verify the revised wording against published SHA-256 digests. The O001X supplement is stored separately in the protected `solution_clarifications` table.
 
 ```sql
 select jsonb_object_agg(id, solution_text) as private_solution_overlay
 from public.content_problems
-where id in ('O003X', 'RWL1-002-A', 'RWL1-006-D');
+where id in ('O003X', 'RWL1-002-A', 'RWL1-006-D', 'RWL1-010-A');
 ```
 
 New questions use versioned identifiers. Never change an attempted problem when revising a future edition. Old problems omitted from the new route remain intact in the original bank and in historical records. The existing protected grading and solution functions continue to handle submissions.

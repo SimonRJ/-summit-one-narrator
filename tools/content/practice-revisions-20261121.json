@@ -167,6 +167,21 @@
     },
     "RWL1-006-D": {
       "hint": "Sketch the three tunnels crossing at the middle cube. How many new cubes does the second tunnel remove? What about the third?"
+    },
+    "RWL1-008-C": {
+      "hint": "Write the two middle digits as matching boxes. Which multiple of 9 could equal 10 plus twice the boxed digit?"
+    },
+    "RWL1-009-D": {
+      "hint": "The first digit of BCD is nonzero. Which hundreds digits can three two-digit numbers reach? Test the smallest legal AB first."
+    },
+    "RWL1-010-C": {
+      "hint": "Write each number in tens and ones before adding them. How could you count a pair just once?"
+    },
+    "RWL1-011-C": {
+      "hint": "Factor 216 into primes. Which exponents must change for the quotient to be a square, and how little can you remove?"
+    },
+    "RWL1-012-D": {
+      "hint": "After you fix the tile covering cells 5 and 6, sketch the cells left on each side. How can you combine one tiling of each side?"
     }
   },
   "solutionHashes": {
@@ -188,7 +203,8 @@
     "RWL2-276-B": "51166a406af46bd2bc56d08e2a15f1bb40ae77bc8458d1c1c9a21d0db6922136",
     "RWL2-276-C": "88743e8eff74e2ae2c9c3f78b3fd7331ab9afae9832c3d62ed0c52345d1c48de",
     "RWL2-317-A": "ac1b3f4a0c5aa76b136b94a5d0b8232872df269139551df658ea26dc26958918",
-    "RWL2-349-A": "f772419426f85f7631e200a8e924a2b6b87696bc73d0fb6951c7de293e1c9aac"
+    "RWL2-349-A": "f772419426f85f7631e200a8e924a2b6b87696bc73d0fb6951c7de293e1c9aac",
+    "RWL1-010-A": "e6967e9943c8ac6d08e3095d43265911cd842451ba3efa33e356dca37ab3bbe0"
   },
   "openings": {
     "S001": {
@@ -266,7 +282,10 @@
           "The units must end in 1. Since A + 7 is between 7 and 16, the only possible total ending in 1 is 11.",
           "This makes A = 4. The 11 units supply one ten and one unit, and 24 + 7 = 31."
         ]
-      }
+      },
+      "intro": "In a letter sum, AB represents a number with A tens and B ones. Every appearance of A represents the same digit. When two ones digits add to ten or more, carry one ten into the next column.",
+      "recap": "Write the units digit and mark the carry above the tens column. When the sum of two two-digit numbers has three digits, the hundreds digit must be 1. Put the completed numbers back into the original sum and check the rules about different letters.",
+      "bridge": "In the film, follow the ten ones when two numbers ending in 5 are added. Which column receives the extra ten? Later, what does the hundreds digit tell you before you try a single tens digit?"
     },
     "S045": {
       "example": {
@@ -493,6 +512,55 @@
           "Build the front row with heights 3 and 1, and the back row with heights 1 and 1. Both sets of maxima fit. The forced heights total six cubes."
         ]
       }
+    },
+    "S008": {
+      "intro": "Write 6, 0 and 3 in the first three boxes of a five-digit palindrome. Reading from either end must give the same digits. Which boxes belong to the same pair, and which digit has no partner?",
+      "bridge": "When the film divides 2772 by 11, pause before the calculation. How much do the two 2s contribute together? What about the two 7s?",
+      "recap": "In a five-digit palindrome, the first and last digits match, as do the second and fourth. Count each pair twice in the digit sum and the centre once. Check whether zero is allowed in each position.",
+      "example": {
+        "prompt": "A five-digit palindrome starts with 60 and has a 3 in the middle. What fills the last two places?",
+        "steps": [
+          "The second box holds 0. Its partner, the fourth box, must also hold 0. The middle 3 stays in place.",
+          "The first box holds 6, so put 6 in the last box. Read 60306 from either end to check the five digits."
+        ]
+      }
+    },
+    "S010": {
+      "headline": "How far does a reversal move a number?",
+      "intro": "In 23, the 2 stands for twenty. In 32, the same digit stands for two. Track what each digit gains or loses when it changes place, then combine the changes.",
+      "example": {
+        "prompt": "How much larger is 32 than 23? Explain the change by following the two digits.",
+        "steps": [
+          "The 3 gains 27 when it moves from 3 to 30. The 2 loses 18 when it moves from 20 to 2.",
+          "The gain is 9 more than the loss. For tens digit A and units digit B, the reversed number minus the original is 9 × (B − A). Its sign tells you which number is larger."
+        ]
+      },
+      "recap": "For a reversal, keep the subtraction in the order the question gives. For a letter sum, mark each carry. Finally, put the digits back into every position and check any restrictions on zero or repeated digits.",
+      "bridge": "When the film swaps 26 and 62, which digit gains the most value? In the final addition, pause at the first candidate: its sum is correct, but which two letters would have to share a digit?"
+    },
+    "S011": {
+      "intro": "Factor 50 as 2 × 5 × 5. To make two identical whole-number factors, put one 5 on each side. What happens to the 2? Tracking each copy of a prime will tell you which numbers are squares.",
+      "bridge": "The film finds the smallest multiplier that turns 2016 into a square. Which prime factors have an unpaired copy? Explain why a smaller multiplier cannot complete both pairs.",
+      "recap": "To list divisors, choose how many copies of each prime to take. Choosing no copies gives 1. To recognise a square, check that every prime occurs an even number of times. To test whether a number greater than 1 is prime, try prime divisors up to its square root.",
+      "example": {
+        "prompt": "Why is 50 not a square even though two of its prime factors are fives?",
+        "steps": [
+          "Try to split 2 × 5 × 5 into two identical groups. Give each group one 5. The single 2 has no partner.",
+          "One more 2 would make two equal groups. Indeed, 2 × 50 = (2 × 5) × (2 × 5) = 100."
+        ]
+      }
+    },
+    "S012": {
+      "headline": "Which earlier values do you need?",
+      "intro": "Some rules use the last value. Others need two earlier values. Write down exactly which values the rule uses and circle the given starting values before you calculate.",
+      "example": {
+        "prompt": "A sequence begins with 2 and 5. Each new term is the sum of the previous two. What is the fifth term?",
+        "steps": [
+          "Term 3 uses both starting values, so it is 2 + 5 = 7. For term 4, move one place along and add 5 + 7 = 12.",
+          "Term 5 is 7 + 12 = 19. Read back the five terms, 2, 5, 7, 12, 19. Each term after the first two is the sum of the two terms immediately before it."
+        ]
+      },
+      "bridge": "Pause when the film marks rung 3 as broken. Is rung 4 still reachable? Trace its possible final jumps before the film fills in the table."
     }
   }
 }

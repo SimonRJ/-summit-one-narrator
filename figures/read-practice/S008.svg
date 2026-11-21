@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 328 122" role="img" aria-labelledby="title desc">
+  <title id="title">Matching positions in a five-digit palindrome</title>
+  <desc id="desc">Boxes show 6, 0, 3 and two unknown digits. Lines join the two outside boxes and the two boxes next to the centre.</desc>
+  <rect x="1" y="1" width="326" height="120" rx="12" fill="#f6fafb"/>
+  <g fill="none" stroke-linejoin="round" stroke-width="3">
+    <path d="M40 53V15H288V53" stroke="#08495a"/>
+    <path d="M102 77V101H226V77" stroke="#7f421c" stroke-dasharray="5 3"/>
+  </g>
+  <g stroke-width="2">
+    <g stroke="#08495a" fill="#d7eef2"><rect x="15" y="43" width="50" height="41" rx="5"/><rect x="263" y="43" width="50" height="41" rx="5"/></g>
+    <g stroke="#7f421c" fill="#f9e8d1"><rect x="77" y="43" width="50" height="41" rx="5"/><rect x="201" y="43" width="50" height="41" rx="5"/></g>
+    <rect x="139" y="43" width="50" height="41" rx="5" stroke="#58676f" fill="#fff"/>
+  </g>
+  <g font-family="sans-serif" font-size="23" font-weight="bold" text-anchor="middle" fill="#163740">
+    <text x="40" y="72">6</text><text x="102" y="72">0</text><text x="164" y="72">3</text><text x="226" y="72">?</text><text x="288" y="72">?</text>
+  </g>
+</svg>

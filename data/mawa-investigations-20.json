@@ -21,7 +21,19 @@
       "transfer_solution": "For digits A and B, the difference is 9|A−B|. Thus the digits differ by 3. The unordered digit pairs are (1,4),(2,5),(3,6),(4,7),(5,8),(6,9). Both orders are allowed, giving 12 starting numbers. These are all the nonzero digit pairs with difference 3.",
       "visits": [
         {
-          "solution": "For the three starting numbers the differences are 594, 297 and 693. Three further examples are 321 − 123 = 198, 530 − 035 = 495 and 901 − 109 = 792. The tens digit is 9 in each difference. The tens in the two starting numbers cancel. If their outside digits differ by d, the positive difference is 99d = 100d − d. For d from 1 to 9, subtracting d from 100d puts 9 in the tens place. If the outside digits match, the difference is 000."
+          "solution": "For the three starting numbers the differences are 594, 297 and 693. Three further examples are 321 − 123 = 198, 530 − 035 = 495 and 901 − 109 = 792. The tens digit is 9 in each difference. The tens in the two starting numbers cancel. If their outside digits differ by d, the positive difference is 99d = 100d − d. For d from 1 to 9, subtracting d from 100d puts 9 in the tens place. If the outside digits match, the difference is 000.",
+          "opener": {
+            "starter": "Compare 42 − 24 and 24 − 42. Which difference does “subtract the smaller from the larger” ask for?",
+            "steps": [
+              "The digits stay the same, but the 4 is worth 40 in one number and 4 in the other. Here 42 is larger, so subtract 24 from 42.",
+              "Write 42 − 24 as (40 − 20) + (2 − 4). The result is 20 − 2 = 18. Now predict what would change if the two digits were identical."
+            ],
+            "readingCue": {
+              "heading": "What changes when you reverse a number?",
+              "prompt": "Keep three place-value columns on the page. Write 420 in the first row and its reversal, 024, below. Which digits switch columns? Which digit stays in its column?",
+              "check": "In this investigation, keep a leading zero on the page when you reverse or subtract. It marks where a digit belongs, even though 024 has the same value as 24."
+            }
+          }
         },
         {
           "title": "A number filed back to front",
