@@ -1,0 +1,90 @@
+name: Record the flow-bench, probability, exchange and odometer lessons
+on:
+  push:
+    branches: [codex/four-original-lessons-20261121]
+    paths: ['production/scripts/S138.json', 'production/scripts/S150.json', 'production/scripts/S152.json', 'production/scripts/S155.json', '.github/workflows/four-original-lessons.yml']
+permissions:
+  contents: read
+jobs:
+  voice:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 150
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        lesson: [S138, S150, S152, S155]
+        block: [first, second]
+    env:
+      HF_HUB_DISABLE_XET: '1'
+      TOKENIZERS_PARALLELISM: 'false'
+      OMP_NUM_THREADS: '4'
+      MKL_NUM_THREADS: '4'
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install the course narrator
+        run: |
+          sudo apt-get -o Acquire::Retries=3 update -qq
+          sudo apt-get -o Acquire::Retries=3 install -y --no-install-recommends ffmpeg libsndfile1
+          pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install 'transformers>=4.45,<5' 'huggingface-hub<1' einops pydantic soundfile librosa safetensors tqdm numpy scipy inflect addict argbind
+          pip install --no-deps 'git+https://github.com/OpenBMB/VoxCPM.git@300e4260b509066151d623dc9c0aa922cf82232b'
+      - name: Record the four authored passages
+        env:
+          LESSON: ${{ matrix.lesson }}
+          BLOCK: ${{ matrix.block }}
+        run: |
+          python - <<'PY'
+          import json, os
+          start = 1 if os.environ['BLOCK'] == 'first' else 5
+          with open('sequence.json', 'w') as out:
+              json.dump([{'lesson': os.environ['LESSON'], 'scene': n} for n in range(start, min(start + 4, 1 + len(json.load(open('production/scripts/'+os.environ['LESSON']+'.json'))['scenes'])))], out)
+          PY
+          python production/t01-studio/synth.py --sequence sequence.json --threads 4
+      - uses: actions/upload-artifact@v4
+        with:
+          name: passages-${{ matrix.lesson }}-${{ matrix.block }}
+          path: build/t01-studio/${{ matrix.lesson }}-*
+          if-no-files-found: error
+          retention-days: 14
+  alignment:
+    needs: voice
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: passages-*
+          merge-multiple: true
+          path: build/t01-studio
+      - name: Align the real recordings and export the review audio
+        run: |
+          sudo apt-get -o Acquire::Retries=3 update -qq
+          sudo apt-get -o Acquire::Retries=3 install -y ffmpeg libsndfile1
+          pip install numpy soundfile num2words faster-whisper
+          mkdir -p review/four-original-films
+          for lesson in S138 S150 S152 S155; do
+            python production/t01-studio/prepare_audio.py "$lesson"
+            src="build/t01-studio/$lesson"
+            dst="review/four-original-films/$lesson"
+            mkdir -p "$dst"
+            cp "$src/timeline.json" "$src/captions.vtt" "$dst/"
+            ffmpeg -v error -i "$src/narration.wav" -c:a flac -compression_level 8 "$dst/narration.flac"
+          done
+          git config user.name github-actions
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add review/four-original-films/
+          git commit -m 'Stage original Voice C recordings with measured timelines for film review'
+          git push origin HEAD:refs/heads/codex/four-maths-voice-20261121

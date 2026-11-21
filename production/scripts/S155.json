@@ -1,0 +1,55 @@
+{
+  "id": "S155",
+  "title": "The palindrome odometer",
+  "voice": "VoxCPM2 — approved Voice C",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "The two moving wheels",
+      "stage": "INTRO",
+      "narration": "A four digit odometer reads three, four, four, three. It is a palindrome. Imagine putting a mirror between the middle wheels. Which wheels can you choose freely, and which are already determined?"
+    },
+    {
+      "n": 2,
+      "title": "Turn the prefix",
+      "stage": "WORK",
+      "narration": "The first two wheels show thirty four. Reflect them in reverse order to make thirty four, forty three. Advancing the first pair to thirty five produces three, five, five, three. The palindromes are a hundred and ten apart."
+    },
+    {
+      "n": 3,
+      "title": "Cross the carry",
+      "stage": "PUZZLE",
+      "narration": "Now the odometer shows three, nine, nine, three. Predict the next palindrome. Be careful when the nine rolls back to zero."
+    },
+    {
+      "n": 4,
+      "title": "Read the new reflection",
+      "stage": "WORK",
+      "narration": "The next possible first pair is forty. Its reflection is zero four, so the new reading is four thousand and four. Subtract three thousand nine hundred and ninety three. This time the gap is just eleven."
+    },
+    {
+      "n": 5,
+      "title": "Halfway addresses",
+      "stage": "PUZZLE",
+      "narration": "From one thousand and one through nine thousand nine hundred and ninety nine, how many whole numbers lie exactly halfway between two consecutive four digit palindromes? Count the gaps, without listing every address."
+    },
+    {
+      "n": 6,
+      "title": "Find the two kinds of gap",
+      "stage": "WORK",
+      "narration": "Hold the thousands wheel fixed. The hundreds wheel runs from zero to nine. Ten palindromes make nine gaps of one hundred and ten. Each even gap has one whole number exactly in its middle. There are nine possible nonzero thousands digits."
+    },
+    {
+      "n": 7,
+      "title": "Count and check",
+      "stage": "WORK",
+      "narration": "Nine groups of nine give eighty one halfway addresses. The eight carries between the groups each make a gap of eleven. Half of eleven is not a whole number, so those carries contribute none. Eighty one large gaps and eight small ones give eighty nine gaps among ninety palindromes."
+    },
+    {
+      "n": 8,
+      "title": "Before the next carry",
+      "stage": "RECAP",
+      "narration": "A mirror makes the last two digits follow the first two. To find the next palindrome, increase the first pair and reflect it again. When counting a pattern, test the change at a carry before assuming every step is equal."
+    }
+  ]
+}

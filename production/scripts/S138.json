@@ -1,0 +1,15 @@
+{
+  "id": "S138",
+  "title": "Read the flow bench",
+  "voice": "VoxCPM2 — approved Voice C",
+  "scenes": [
+    {"n": 1, "title": "Two meters and a pen", "stage": "INTRO", "narration": "On this flow bench, one meter counts water arriving. A second meter counts water escaping. A pen records how much water remains. The difference between the two rates tells us how quickly the pen rises or falls."},
+    {"n": 2, "title": "Seven in, two out", "stage": "BASIC", "narration": "Seven litres enter each minute and two litres leave. Pair two outgoing marks with two incoming marks. Five litres stay each minute. Starting empty, how much collects in three minutes? Three groups of five give fifteen litres."},
+    {"n": 3, "title": "Cover the leak meter", "stage": "PUZZLE", "narration": "Now nine litres enter each minute, but the leak meter is covered. The pen reads ten litres at minute one and thirty four litres at minute five. Both flow rates are steady. How fast is water escaping?"},
+    {"n": 4, "title": "Read the rise and the run", "stage": "MEDIUM", "narration": "From ten to thirty four is a rise of twenty four litres. From minute one to minute five is four minutes. Six litres stay each minute. Nine enter, so three litres per minute escape. Six litres per minute for four minutes accounts for the whole rise."},
+    {"n": 5, "title": "When did the valve close?", "stage": "PUZZLE", "narration": "Start a ten minute test with eight litres. The inlet delivers seven litres per minute throughout. The leak starts open, losing two litres each minute, then closes. The final reading is sixty six litres. At which minute did the leak close?"},
+    {"n": 6, "title": "Draw the trace without a leak", "stage": "HARD", "narration": "Imagine the leak were closed from the start. Eight litres plus seventy would give seventy eight litres. The actual finish is twelve litres lower. Each open minute accounts for two missing litres. Twelve divided by two gives six open minutes."},
+    {"n": 7, "title": "Test the bend", "stage": "HARD", "narration": "Check the bend at minute six. While the leak is open, six minutes at five litres per minute add thirty litres. The reading is now thirty eight. In the last four minutes, seven litres per minute add twenty eight more. Thirty eight plus twenty eight gives sixty six."},
+    {"n": 8, "title": "Read each interval separately", "stage": "RECAP", "narration": "One trap is to keep subtracting the leak after the valve shuts. Mark each valve change and find the net rate for each interval. If the inlet and outlet rates are equal, the trace is flat, even while both meters turn."}
+  ]
+}

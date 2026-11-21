@@ -1,0 +1,14 @@
+{
+  "id": "S150",
+  "title": "What did the sun lamp reveal?",
+  "voice": "VoxCPM2 — approved Voice C",
+  "scenes": [
+    {"n": 1, "title": "Five stamped discs", "stage": "INTRO", "narration": "Five discs feel identical. Two show a sun and three show a moon. Mix them and draw without looking. Each disc is equally likely. Leave the first disc out when you draw the next one. How does that change your chances?"},
+    {"n": 2, "title": "Two suns", "stage": "WORK", "narration": "The first disc is a sun with probability two fifths. After that sun comes out, only one sun remains among four discs. The chance of two suns is two fifths times one quarter. That is one tenth."},
+    {"n": 3, "title": "Different stamps", "stage": "PUZZLE", "narration": "Now try for one sun and one moon in either order. If a sun comes first, three of the four discs left are moons. If a moon comes first, how many of the four discs left are suns?"},
+    {"n": 4, "title": "Two routes to a mixed pair", "stage": "WORK", "narration": "Two suns remain after a moon. Sun then moon has probability two fifths times three quarters. Moon then sun has probability three fifths times two quarters. Each order contributes six twentieths. They cannot happen together on one draw of two discs, so add them. Twelve twentieths simplifies to three fifths."},
+    {"n": 5, "title": "A lamp with a secret", "stage": "PUZZLE", "narration": "The machine now draws two discs in secret. A lamp lights exactly when at least one sun appears. You see the lamp light. What is the chance that both discs show suns? The lamp never tells you which disc came first."},
+    {"n": 6, "title": "Remove the dark outcomes", "stage": "WORK", "narration": "Label the five discs so we can tell every ordered pair apart. Five choices for the first disc, then four for the second, make twenty equally likely pairs. The lamp stays dark only for two moons. Three choices followed by two give six dark pairs. Fourteen pairs are left when the lamp lights."},
+    {"n": 7, "title": "Read the surviving pairs", "stage": "RECAP", "narration": "Only two of those fourteen pairs use both suns. Either sun can come first. Two out of fourteen is one seventh. Keep the remaining discs up to date on each draw. When a competition question gives you a clue, keep only the outcomes that could have produced it."}
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "id": "S152",
+  "title": "The counter exchange",
+  "voice": "VoxCPM2 — approved Voice C",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "One move, two changes",
+      "stage": "INTRO",
+      "narration": "Two trays hold twenty counters altogether. Move three counters from the left tray to the right. The total stays twenty. Watch the gap: one side loses three at the same moment the other side gains three."
+    },
+    {
+      "n": 2,
+      "title": "A gap changes twice",
+      "stage": "WORK",
+      "narration": "Start with twelve on the left and eight on the right. Move one across. The counts become eleven and nine. The difference shrinks from four to two. A single transfer changed the gap by two."
+    },
+    {
+      "n": 3,
+      "title": "Restore the delivery",
+      "stage": "PUZZLE",
+      "narration": "Two storage cases hold forty eight badges. After six badges move from the fuller case to the other, the cases contain equal numbers. How many badges were in each case before the move?"
+    },
+    {
+      "n": 4,
+      "title": "Undo a single move",
+      "stage": "WORK",
+      "narration": "Equal shares of forty eight are twenty four each. Put the six badges back into the fuller case and remove them from the other. Thirty and eighteen are the original counts. Their difference is twelve, exactly twice the transfer."
+    },
+    {
+      "n": 5,
+      "title": "Three trays finish level",
+      "stage": "PUZZLE",
+      "narration": "Three trays contain thirty six counters. The first tray gives half its counters to the second. Then the second gives one third of its new pile to the third. All three finish equal. How many counters started in the first, second and third trays?"
+    },
+    {
+      "n": 6,
+      "title": "Undo the second exchange",
+      "stage": "WORK",
+      "narration": "Finish with twelve in every tray. The second tray kept two thirds of its pile. Those two thirds are twelve, so each third is six. Just before that transfer the second tray held eighteen, and the third held only six. The first still held twelve."
+    },
+    {
+      "n": 7,
+      "title": "Undo the first exchange",
+      "stage": "WORK",
+      "narration": "The first tray kept half and ended with twelve. It must have started with twenty four and passed twelve to the second. Remove those twelve from eighteen. The starting counts were twenty four, six and six. Run both transfers forwards to check."
+    },
+    {
+      "n": 8,
+      "title": "Follow the recipient",
+      "stage": "RECAP",
+      "narration": "The words its new pile matter. A fraction acts on the contents at that moment. Mark the total, record who gives and receives, and run transfers backwards one at a time when the final amounts are known."
+    }
+  ]
+}
