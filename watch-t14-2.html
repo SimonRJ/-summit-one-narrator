@@ -34,6 +34,8 @@ summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
 </style>
+<link rel="stylesheet" href="topic-film-reading.css">
+<script defer src="topic-film-print.js"></script>
 </head>
 <body>
 <main>
@@ -48,27 +50,39 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
   <source src="media/T14.2.mp4?v=teaching-films-v1" type="video/mp4">
 </video>
 <p class="meta">2:04 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Look at what a move leaves behind</button>
-<button type="button" data-time="15.470">0:15 · Spot dead ends early</button>
-<button type="button" data-time="25.070">0:25 · Start in a corner and finish in the centre</button>
-<button type="button" data-time="42.000">0:42 · A spiral visits every dot exactly once</button>
-<button type="button" data-time="53.520">0:53 · Every move changes chessboard colour</button>
-<button type="button" data-time="68.240">1:08 · Starting with a side dot would require five</button>
-<button type="button" data-time="85.200">1:25 · A dot with just one edge must be an endpoint</button>
-<button type="button" data-time="98.470">1:38 · Your turn</button></nav>
+<nav class="chapters" aria-label="Video chapters">
+<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Look ahead before visiting the next dot</button>
+<button type="button" data-time="15.470"><span class="chapter-clock">0:15</span> Test whether a move cuts off a dot</button>
+<button type="button" data-time="25.070"><span class="chapter-clock">0:25</span> Try a corner-to-centre path through nine dots</button>
+<button type="button" data-time="42.000"><span class="chapter-clock">0:42</span> Spiral inward to reach the centre</button>
+<button type="button" data-time="53.520"><span class="chapter-clock">0:54</span> Colour the nine dots in alternating colours</button>
+<button type="button" data-time="68.240"><span class="chapter-clock">1:08</span> Rule out a start at the middle of a side</button>
+<button type="button" data-time="85.200"><span class="chapter-clock">1:25</span> Count the possible endpoints of a route</button>
+<button type="button" data-time="98.470"><span class="chapter-clock">1:38</span> Test two top-row endpoints on a six-dot grid</button>
+</nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>On a grid of dots with 2 rows and 3 columns, can a path using horizontal and vertical steps visit every dot once, starting at one end of the top row and finishing at the other?</p>
 <details><summary>Check your reasoning</summary><p>No. Those two corners have the same chessboard colour, but a path through 6 dots must start and finish on different colours.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary><p>Some routes must visit every place exactly once. A move can be perfectly legal now and still ruin the route later, by cutting off a place you still need to visit. Good solvers look ahead at what each move leaves behind.</p>
+<details class="transcript"><summary>Read the transcript</summary>
+<h2><span class="chapter-clock">0:00</span> Look ahead before visiting the next dot</h2>
+<p>Some routes must visit every place exactly once. A move can be perfectly legal now and still ruin the route later, by cutting off a place you still need to visit. Good solvers look ahead at what each move leaves behind.</p>
+<h2><span class="chapter-clock">0:15</span> Test whether a move cuts off a dot</h2>
 <p>Without looking ahead you find out about a mistake only at the very end. Checking what remains after each move catches dead ends early and saves most of the work.</p>
+<h2><span class="chapter-clock">0:25</span> Try a corner-to-centre path through nine dots</h2>
 <p>A token moves on a three by three grid of dots, stepping to a neighbour up, down, left or right. It must visit every dot exactly once. Starting in a corner, can it finish in the centre? Pause and try to trace it.</p>
+<h2><span class="chapter-clock">0:42</span> Spiral inward to reach the centre</h2>
 <p>A spiral works. Go along the top, down the right side, along the bottom, up the left, and step into the centre. Every dot is visited once, and the path ends in the centre.</p>
+<h2><span class="chapter-clock">0:54</span> Colour the nine dots in alternating colours</h2>
 <p>Now ask a harder question: can a path start in the middle of a side? Colour the dots like a chessboard. The corners and the centre are dark: five dots. The middles of the sides are light: four dots. Every step changes colour.</p>
+<h2><span class="chapter-clock">1:08</span> Rule out a start at the middle of a side</h2>
 <p>A path through nine dots that starts on a light dot would visit light, dark, light, dark, and so on: five light dots and four dark. But there are only four light dots. So no such path exists. One simple count rules out every attempt at once.</p>
+<h2><span class="chapter-clock">1:25</span> Count the possible endpoints of a route</h2>
 <p>Here is another look-ahead rule. A dot with only one connection can only be the first or the last dot of the route, because you cannot pass through it. If there are three such dots, no route can visit them all.</p>
-<p>After each move, check that everything unvisited can still be reached. Dead ends must be endpoints. And colouring can prove impossibility. Notebook challenge: on a grid of dots with two rows and three columns, can a path with only horizontal and vertical steps visit every dot once, starting at one end of the top row and finishing at the other?</p></details>
+<h2><span class="chapter-clock">1:38</span> Test two top-row endpoints on a six-dot grid</h2>
+<p>After each move, check that everything unvisited can still be reached. Dead ends must be endpoints. And colouring can prove impossibility. Notebook challenge: on a grid of dots with two rows and three columns, can a path with only horizontal and vertical steps visit every dot once, starting at one end of the top row and finishing at the other?</p>
+</details>
 <p><a href="media/T14.2.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
 </main>
 <script>

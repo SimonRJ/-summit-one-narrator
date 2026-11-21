@@ -34,6 +34,8 @@ summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
 </style>
+<link rel="stylesheet" href="topic-film-reading.css">
+<script defer src="topic-film-print.js"></script>
 </head>
 <body>
 <main>
@@ -48,27 +50,39 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
   <source src="media/T15.2.mp4?v=teaching-films-v1" type="video/mp4">
 </video>
 <p class="meta">2:11 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Some patterns repeat after fewer turns</button>
-<button type="button" data-time="14.840">0:14 · Dividing by four assumes four copies each</button>
-<button type="button" data-time="23.970">0:23 · How many two-by-two tiles up to turning?</button>
-<button type="button" data-time="41.860">0:41 · Group the sixteen colourings by how many are black</button>
-<button type="button" data-time="52.750">0:52 · Count the rotation groups</button>
-<button type="button" data-time="70.820">1:10 · A tile’s group can contain 1, 2 or 4 pictures</button>
-<button type="button" data-time="85.380">1:25 · Five distinct seats have five possible starting places</button>
-<button type="button" data-time="109.050">1:49 · Your turn</button></nav>
+<nav class="chapters" aria-label="Video chapters">
+<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Notice which turns repeat a picture</button>
+<button type="button" data-time="14.840"><span class="chapter-clock">0:15</span> Check the number of copies before dividing</button>
+<button type="button" data-time="23.970"><span class="chapter-clock">0:24</span> Sort sixteen fixed black-and-white tiles</button>
+<button type="button" data-time="41.860"><span class="chapter-clock">0:42</span> Group colourings by the number of black cells</button>
+<button type="button" data-time="52.750"><span class="chapter-clock">0:53</span> Collect the patterns that rotate into one another</button>
+<button type="button" data-time="70.820"><span class="chapter-clock">1:11</span> Compare groups of one, two and four colourings</button>
+<button type="button" data-time="85.380"><span class="chapter-clock">1:25</span> Seat five people without marking a first chair</button>
+<button type="button" data-time="109.050"><span class="chapter-clock">1:49</span> Count the circular seatings for four people</button>
+</nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>In how many ways can 4 different people sit round a circular table, if rotations count as the same?</p>
 <details><summary>Check your reasoning</summary><p>24 / 4 = 6.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary><p>Turn a square four times and you might expect four different pictures. But a pattern with its own symmetry repeats sooner. A completely symmetrical pattern looks the same after every turn. So you cannot always divide by four.</p>
+<details class="transcript"><summary>Read the transcript</summary>
+<h2><span class="chapter-clock">0:00</span> Notice which turns repeat a picture</h2>
+<p>Turn a square four times and you might expect four different pictures. But a pattern with its own symmetry repeats sooner. A completely symmetrical pattern looks the same after every turn. So you cannot always divide by four.</p>
+<h2><span class="chapter-clock">0:15</span> Check the number of copies before dividing</h2>
 <p>Dividing a total by the number of turns is tempting and often wrong. It only works when every pattern has been counted the same number of times.</p>
+<h2><span class="chapter-clock">0:24</span> Sort sixteen fixed black-and-white tiles</h2>
 <p>Each of the four small squares in a two by two tile is black or white. Fixed on the page there are sixteen colourings. How many different tiles are there if the tile is free to turn? Pause, and resist dividing sixteen by four.</p>
+<h2><span class="chapter-clock">0:42</span> Group colourings by the number of black cells</h2>
 <p>Sort the sixteen by how many squares are black. None black: one colouring. One black: four. Two black: six. Three black: four. All black: one.</p>
+<h2><span class="chapter-clock">0:53</span> Collect the patterns that rotate into one another</h2>
 <p>Now turn them. No black is one tile. The four with one black square are all the same tile. The six with two black squares make two tiles: four are side by side, and two are diagonal. Three black gives one tile, and all black gives one. That is six tiles altogether.</p>
+<h2><span class="chapter-clock">1:11</span> Compare groups of one, two and four colourings</h2>
 <p>Look at the group sizes: one, four, four, two, four and one. They are not all four. The symmetrical tiles were counted fewer times, which is exactly why sixteen divided by four gives the wrong answer.</p>
+<h2><span class="chapter-clock">1:25</span> Seat five people without marking a first chair</h2>
 <p>When does dividing by the number of turns work? When every turn gives a different position. Seat five different people round a table, keeping clockwise order when you rotate the table. There are one hundred and twenty orders in a line. Each circular seating appears exactly five times as you choose a place to start reading. One hundred and twenty divided by five is twenty-four.</p>
-<p>Divide only when every arrangement is repeated the same number of times. Otherwise, sort the arrangements into groups and count the groups. Notebook challenge: in how many ways can four different people sit round a circular table, if turning the whole table does not count as different?</p></details>
+<h2><span class="chapter-clock">1:49</span> Count the circular seatings for four people</h2>
+<p>Divide only when every arrangement is repeated the same number of times. Otherwise, sort the arrangements into groups and count the groups. Notebook challenge: in how many ways can four different people sit round a circular table, if turning the whole table does not count as different?</p>
+</details>
 <p><a href="media/T15.2.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
 </main>
 <script>

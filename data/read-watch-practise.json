@@ -547,7 +547,7 @@
       "headline": "Must it divide both, or be divisible by both?",
       "intro": "Two bells can ring together again, and two ribbons can be cut into equal pieces. In one problem the answer must be a multiple of both numbers. In the other it must divide both numbers. Which way does the division go?",
       "example": {
-        "prompt": "A 12 cm ribbon and a 20 cm ribbon must be cut into equally long whole-centimetre pieces with no waste. How long can a piece be?",
+        "prompt": "A 12 cm ribbon and a 20 cm ribbon must be cut into equally long whole-centimetre pieces with no waste. What is the greatest possible length of a piece?",
         "steps": [
           "A piece length that fits both ribbons also fits the leftover 8 cm when 12 is taken from 20. It must also fit the 4 cm left when 8 is taken from 12.",
           "The length therefore divides 4, and 4 itself works: three pieces make 12 cm and five make 20 cm. A piece can be at most 4 cm long."
@@ -1380,8 +1380,8 @@
           "alt": "The fixed two-by-two board tiled in the two ways: two upright dominoes, or two sideways dominoes."
         }
       },
-      "bridge": "Watch the pair of sideways dominoes in the film’s two-row strip. See if you can spot the whole two-column block as soon as the first sideways piece goes down.",
-      "recap": "Check the area first. Then cover the first empty cell and follow any forced placements. With identical tiles, count each finished arrangement of edges once.",
+      "bridge": "Pause when the film places a sideways domino in the top-left corner of the two-row board. Which square would be trapped unless the next domino went directly underneath it?",
+      "recap": "Trace a finished tiling from the left. Each new column begins with either an upright domino or two sideways dominoes stacked together. On a two-row strip those choices make different tilings, and every tiling can be read back this way.",
       "skill": "SPATIAL-03",
       "videoId": "S036",
       "videoTitle": "Tiling a strip with forced domino pairs",
@@ -1425,8 +1425,8 @@
           "The gap shrinks by 5 cm/s, so the ants meet in 15 ÷ 5 = 3 seconds."
         ]
       },
-      "bridge": "Track the gap during the film’s runner’s head start. When the runners move onto a loop, see what one extra lap of combined movement means.",
-      "recap": "Mark the starting gap and the clock you are using. Add speeds for a head-on meeting and subtract them for a chase. Each extra circuit can create another meeting.",
+      "bridge": "Start a second clock when the chasing runner sets off. What gap has already opened? In the round-track puzzle, which clock does the question use for the second meeting?",
+      "recap": "Measure the gap when both movers are in motion. On a loop, identify the relative distance needed for one meeting: a lap gained in a same-direction chase, or a lap of combined movement in opposite directions. Count the requested meeting and read the correct clock.",
       "skill": "RATE-04",
       "videoId": "S037",
       "videoTitle": "Relative speeds, timed movement and meetings",
@@ -1473,8 +1473,8 @@
           "The two books account for 600 g. Each weighs 300 g."
         ]
       },
-      "bridge": "Watch the film name the first round’s score and build the second from it. Then see how fixing the total number of tickets lets one letter describe both counts.",
-      "recap": "Name the quantity and its units. Build the other quantities from your clues. Count items for an item total and multiply by their values for a money, weight or score total.",
+      "bridge": "In the film’s ticket office, there are 24 tickets in all. If x are adult tickets, why can 24 − x stand for the child tickets? Write a money total and check the units of each term.",
+      "recap": "Say what the unknown measures and attach a unit. A ticket count plus another count gives tickets. A price times a count gives money. Substitute your answer into each original condition.",
       "skill": "ALG-01",
       "videoId": "S038",
       "videoTitle": "One- and two-variable word equations",
@@ -1505,7 +1505,7 @@
           "id": "RWL1-038-D",
           "title": "The quiz scoreboard",
           "prompt": "A quiz has 20 questions. A correct answer scores 4 points, a wrong answer loses 1 point, and a blank scores zero. Maya leaves 2 blank and earns 47 points. How many did she answer correctly?",
-          "hint": "She attempted 18. Compare one correct answer with one wrong answer, including the penalty."
+          "hint": "Fix the two blank answers. If an attempted answer changes from wrong to correct, what happens to the penalty as well as the four points earned?"
         }
       ]
     },
@@ -1520,8 +1520,8 @@
           "A steady 24 km/h would cover 24 ÷ 4 = 6 km in that time. The tram covered 6 km too."
         ]
       },
-      "bridge": "Watch the flat stretch in the rider’s distance graph. Then look at the two speed rectangles and see how each one accounts for a different part of the distance.",
-      "recap": "Add the distance covered in each time interval. A stopped interval adds time and zero distance. For a target average, compare the actual distance travelled with the distance the target demands.",
+      "bridge": "The rider covers 30 km each way at different speeds. Which leg takes more time? Add the stop to the elapsed time before you decide what distance belongs in the numerator of the average.",
+      "recap": "An average speed is total distance divided by elapsed time. On a stop, time increases while distance stays fixed. To reach a target average, compare the actual and target distances after the same amount of time.",
       "skill": "RATE-03",
       "videoId": "S039",
       "videoTitle": "Distance–speed–time reasoning",
@@ -1568,7 +1568,7 @@
           "Each share is 6 kg, giving fish of 6 kg and 8 kg. Both clues fit."
         ]
       },
-      "bridge": "Watch how the notebook and ruler appear in two different orders. In the box puzzle, count how often each box turns up when all the pair totals are added.",
+      "bridge": "Add the two shop orders in the film before trying to find either price. How many identical notebook-and-ruler pairs can you see? In the box puzzle, how many times does each box appear across the three weighings?",
       "recap": "Keep all the clues visible. When you add totals, count how often each object appears. Use the combined total to recover a missing quantity and check it against the original clues.",
       "skill": "ALG-02",
       "videoId": "S040",
@@ -1601,7 +1601,7 @@
           "id": "RWL1-040-D",
           "title": "Four mystery bags",
           "prompt": "Four bags are weighed in groups of three. Leaving out a different bag each time gives 19 kg, 21 kg, 22 kg and 25 kg. How many kilograms does the heaviest bag weigh?",
-          "hint": "Count how often each bag appears. Which weighing leaves the heaviest one out?"
+          "hint": "Write a letter for each bag. Across the four three-bag weighings, how many times does each letter appear? Which weighing leaves out the heaviest bag?"
         }
       ]
     },
@@ -1616,7 +1616,7 @@
           "The extra two magnets weigh 112 − 86 = 26 g, so one weighs 13 g."
         ]
       },
-      "bridge": "Watch matching items slide away in the film. When the marker counts differ, follow what happens to the total price as a whole bundle is copied.",
+      "bridge": "In the pen-and-marker puzzle the film doubles a whole shopping order. Which items and which price must double before the markers can cancel?",
       "recap": "Find exactly matching quantities. If they differ, multiply every item and the total by the same factor. Subtract, find one value, then put it back into an original clue.",
       "skill": "ALG-03",
       "videoId": "S041",
@@ -1643,7 +1643,7 @@
           "id": "RWL1-041-C",
           "title": "Relay drills",
           "prompt": "Three short drills and two long drills take 33 minutes. Two short drills and three long drills take 37 minutes. How many minutes does one long drill take?",
-          "hint": "Subtract the equal-sized groups, then add them. The two calculations give different clues."
+          "hint": "Compare one short drill exchanged for one long drill. Then add both sessions: how many copies of one short-plus-long pair do you get?"
         },
         {
           "id": "RWL1-041-D",
@@ -1668,8 +1668,8 @@
           "alt": "Two 4 cm squares touch along the dashed middle edge. Only the solid outside boundary counts towards perimeter."
         }
       },
-      "bridge": "Watch the exposed edges on the L shape. Then compare the edges that appear and disappear at a corner cut with the edges around the enclosed hole.",
-      "recap": "Starting from separate pieces, subtract each shared edge twice. Starting from a cut, count the old boundary lost and the new boundary gained. Check whether the boundary includes holes.",
+      "bridge": "Compare the film’s corner cut with its enclosed window. Trace each old edge that disappears and each cut edge that appears. Which change adds to the total boundary?",
+      "recap": "When two pieces join along a whole side, that side was present in both separate perimeters. Remove it twice. For a cut, compare the old and new edges directly. Trace an enclosed hole separately if its boundary is asked for.",
       "skill": "GEO-01",
       "videoId": "S043",
       "videoTitle": "Perimeter, shared edges and boundary effects",
@@ -1708,7 +1708,7 @@
     {
       "slot": 44,
       "headline": "Read the arrows in reverse",
-      "intro": "When you know the ending, ask what the amount was just before the last step. A picture of the forward arrows can become a map back to the start. If items must be whole, check that every step you undo makes sense for those items.",
+      "intro": "Start at the known end of a chain of changes. Ask what the last step did, undo it, and then work back one step at a time. If the story counts whole objects, discard any result that would require part of an object.",
       "example": {
         "prompt": "A number is multiplied by 4 and then reduced by 3. The final number is 17. What was the starting number?",
         "steps": [
@@ -1716,7 +1716,7 @@
           "Undo multiplication by 4 to get 5. In the forward direction, 5 × 4 − 3 = 17."
         ]
       },
-      "bridge": "Follow the counters as the film rebuilds the original pile. Later the machine allows several final readings. Watch which backwards steps rule some readings out.",
+      "bridge": "The film’s last machine finishes with a two-digit reading in a stated range. Which reverse step requires exact division for a whole-number input? Check one surviving input by running it forwards.",
       "recap": "Start at the known ending and reverse one operation at a time. For a range of endings, test which ones reverse to legal whole amounts. Run the answer forwards once to check.",
       "skill": "ALG-04",
       "videoId": "S044",
@@ -1764,7 +1764,7 @@
           "The average flow rate is 12 ÷ 3 = 4 litres per minute. The flow could have varied within those three minutes."
         ]
       },
-      "bridge": "Compare the different time gaps on the film’s chart. At the end, notice which coordinate of the price-graph crossing answers ‘how many visits?’",
+      "bridge": "The fastest rise on the film’s chart is measured in units per minute. On the price graph, the crossing has two coordinates. Which coordinate gives a number of visits, and which gives the cost?",
       "recap": "Read what both axes measure. Subtract readings for a change and divide by the interval for a rate. At an intersection, check both rules at the same input.",
       "skill": "DATA-03",
       "videoId": "S045",
@@ -1788,7 +1788,7 @@
           "id": "RWL1-045-C",
           "title": "Two sand timers",
           "prompt": "Timer A starts with 48 g of sand in its top chamber and loses 4 g each minute. Timer B starts with 30 g in its top chamber and loses 1 g each minute. After how many minutes will their top chambers hold equal amounts?",
-          "hint": "Track the initial difference and its change per minute."
+          "hint": "Work out how many grams the gap between the top chambers loses each minute. Check that both still contain sand at the time you find."
         },
         {
           "id": "RWL1-045-D",
@@ -1813,7 +1813,7 @@
           "alt": "The two bars have matching starting pieces; the longer has a separate piece labelled plus four."
         }
       },
-      "bridge": "When the film moves from two teams to three, watch how the two successive leads stack up above the lowest score.",
+      "bridge": "The film says the middle team is ahead of the lowest, and the top team is ahead of the middle. Draw every score from the lowest team’s starting line. Which team’s extra bar includes both leads?",
       "recap": "Choose one score as the starting point. Measure every gap from that same score. When points change hands, the total stays fixed and a transfer changes both scores.",
       "skill": "ALG-05",
       "videoId": "S046",
@@ -1860,8 +1860,8 @@
           "The fifth mark is at 6 + 4 × 4 = 22 cm."
         ]
       },
-      "bridge": "Look for the same gap count in the film’s theatre rows. Then watch what happens when the first row is paired with the last.",
-      "recap": "For one term, count the gaps from a known term. For a total, add the two end terms and see how many pairs you have. An odd number of terms leaves a centre to count.",
+      "bridge": "In the film’s twelve theatre rows, pair the outer rows and then move one row in at each end. What does the new front row gain, and what does its partner lose?",
+      "recap": "To reach term n from term 1, count n − 1 gaps. For a fixed increase, the first and last terms have the same combined value as the next inward pair. With an odd number of terms, count the middle one once.",
       "skill": "SEQ-01",
       "videoId": "S047",
       "videoTitle": "Arithmetic sequences and fixed increments",
@@ -1899,16 +1899,16 @@
     },
     {
       "slot": 50,
-      "headline": "Make the shared part cancel",
-      "intro": "If two bundles have an identical part, compare what is left after removing that part from each. When the parts do not yet match, you can make several copies of a whole bundle. Its total must grow by the same factor.",
+      "headline": "What does the price difference measure?",
+      "intro": "A courier charges one fixed collection fee plus a price per kilometre. Comparing two trips cancels the fixed fee. The extra cost pays only for the extra kilometres.",
       "example": {
-        "prompt": "A tin and a ball weigh 180 g together. The same tin and three identical balls weigh 260 g. How heavy is a ball?",
+        "prompt": "The same courier charges $13 for 4 km and $19 for 7 km. The fixed fee and the price per kilometre are the same on both trips. How much is the fixed fee?",
         "steps": [
-          "The same tin appears on both scales, so the extra 80 g comes from the two extra balls.",
-          "One ball weighs 80 ÷ 2 = 40 g. The tin weighs 140 g, which fits both weighings."
+          "The extra 3 km cost $19 − $13 = $6, so each kilometre costs $2. The 4 km charge accounts for $8 of the shorter trip’s $13 price.",
+          "The collection fee is $13 − $8 = $5. In the longer trip, $5 plus 7 lots of $2 makes $19 as required."
         ]
       },
-      "bridge": "In the film, follow the marker through the two stationery orders. Watch which entire order gets doubled before the subtraction works.",
+      "bridge": "The film doubles the first stationery order to match the two markers in the second. Which pens are left after the matching items cancel? Use the result to rebuild one complete bill.",
       "recap": "Choose one kind of object to cancel. Match its count by scaling whole bundles, subtract in the same order on both sides, then put your answer back into an original bundle.",
       "skill": "ALG-03",
       "videoId": "S050",
@@ -1956,7 +1956,7 @@
           "The next award would be 40. The total of 35 is exactly one starting award below that."
         ]
       },
-      "bridge": "As the film doubles a whole row of terms, look for what cancels. That cancellation explains how one more day can put a project over budget.",
+      "bridge": "In the film, the largest single-day payment that fits the budget may still be unaffordable after earlier days have been paid. Which two consecutive running totals prove the last affordable day?",
       "recap": "Mark the first term. To find one term, count doublings. To add consecutive doubling terms, subtract the first amount from the next term after the sum. A budget check needs the totals on both sides of the limit.",
       "skill": "SEQ-02",
       "videoId": "S051",
@@ -2004,7 +2004,7 @@
           "To reach 3, add a jump of 1 to either route to 2, or a jump of 2 to the route to 1. There are 2 + 1 = 3 ways."
         ]
       },
-      "bridge": "In the film, first watch the number that stays fixed as a reading changes. On the ladder, watch which route counts survive when a rung is broken.",
+      "bridge": "In the display puzzle the reading changes, but the gap from 1 follows a simpler rule. In the ladder puzzle, why can a rung above a broken one still have a positive route count?",
       "recap": "A repeated rule needs a starting value. For routes, give the start one empty route and count distinct kinds of last move. A forbidden landing has zero routes, even if a longer jump can pass over it.",
       "skill": "SEQ-03",
       "videoId": "S052",
@@ -2056,8 +2056,8 @@
           "alt": "A two-by-seven rectangle and a four-by-five rectangle drawn on the same centimetre scale."
         }
       },
-      "bridge": "Watch what changes in the film when one side of the pen sits against a wall. Decide which two quantities now need to balance.",
-      "recap": "Draw and count the charged or fenced edges first. For a fixed sum the closest eligible pair has the largest product. Whole-number restrictions can rule out a perfect balance or create a tie.",
+      "bridge": "A wall replaces one side of the film’s pen. In the fence allowance, which length occurs twice? Find the two neighbouring legal widths that give the same largest area.",
+      "recap": "First count the sides that actually use the fixed allowance. Write the area in terms of one dimension. Check the eligible dimensions closest to the balance point and explain why moving farther away cannot improve the area.",
       "skill": "GEO-05",
       "videoId": "S053",
       "videoTitle": "Optimising areas and lengths under constraints",
@@ -2104,7 +2104,7 @@
           "The fourth press brings back red. White was a starting colour outside the three-colour loop."
         ]
       },
-      "bridge": "Track the pair of dials in the film. In the numbered machine, listen for the move that takes you into the loop before you start counting full laps.",
+      "bridge": "In the film’s numbered machine the first move is special. Which state will never be visited again? Start counting five-move laps only after the machine has entered its loop.",
       "recap": "Write the whole state at move zero, then stop when a full state repeats. Subtract any lead-in moves first. An exact number of laps brings you back to the loop entry.",
       "skill": "SEQ-04",
       "videoId": "S054",
@@ -2136,7 +2136,7 @@
           "id": "RWL1-054-D",
           "title": "A walker on a strip",
           "prompt": "Five squares are labelled 0 to 4 in a row. A counter starts on 1 moving right. Each move advances it one square. On arriving at an end it reverses direction for its next move. Which square does it occupy after 83 moves?",
-          "hint": "List the square and the direction together. Square 1 can be visited facing either way."
+          "hint": "Make a table with move number, square and next direction. A return to the same square completes a loop only if the direction also matches."
         }
       ]
     },
@@ -2151,7 +2151,7 @@
           "The choices 0, 2, 4, 6 and 8 give five numbers, from 404 to 484."
         ]
       },
-      "bridge": "When the film splits 3663 into two pairs of digits, notice the value of each pair. Later, ask when two different centre digits can both pass the divisibility test.",
+      "bridge": "In the five-digit puzzle, start with one choice of the first two digits. Why can both 0 and 9 sometimes work in the centre? Explain how to count that second choice without counting a palindrome twice.",
       "recap": "Write the free positions and mirror them before testing any condition. A first digit must be nonzero, but a centre may be zero. When a digit sum must be a multiple of 9, check whether both 0 and 9 fit.",
       "skill": "DIG-04",
       "videoId": "S055",
@@ -2199,7 +2199,7 @@
           "Starting at 5 would put the larger number first. Every allowed pair has appeared once."
         ]
       },
-      "bridge": "Watch how the film labels its boxes. Swapping two values can create a new answer when the labels stay fixed. Then look for the first and last legal entry in each row.",
+      "bridge": "When the film fixes the even number in box A, test the smallest and largest values for box B. Does each leave an allowed number for C? Explain why a triple cannot appear in two different rows.",
       "recap": "Pick a short list of first choices and keep the labels straight. Use each condition to find a row’s two endpoints. Count both endpoints and stop where the remaining choices become impossible.",
       "skill": "COUNT-01",
       "videoId": "S057",
@@ -2247,7 +2247,7 @@
           "Every pair appears in two lists, one in each order. Halving 12 gives 6 pairs."
         ]
       },
-      "bridge": "In the film, compare choosing a flavour and a topping with choosing two helpers. Keep that distinction in mind when the four-person team has several possible mixtures of skills.",
+      "bridge": "In the film’s final team problem, write down the possible numbers of artists, builders and coders before naming any individuals. What makes the rows of your list alternatives, so their counts can be added?",
       "recap": "Multiply choices that together make one outcome. When several people or objects have identical roles, remove the extra orders of selection. Add alternative group patterns only after checking they are disjoint.",
       "skill": "COUNT-02",
       "videoId": "S058",
@@ -2295,7 +2295,7 @@
           "Each share holds 42 ÷ 7 = 6 buttons. The piles 6, 12 and 24 do add to 42."
         ]
       },
-      "bridge": "Watch how the film lines up the doubled sum with the original and cancels the middle terms. The same relationship will let you uncover amounts even when the starting value is hidden.",
+      "bridge": "The film doubles a whole sum and lines it up with the original. Write the two rows so the matching terms sit above one another. Which two end terms survive the subtraction?",
       "recap": "Mark whether the given number is one term, several terms, or the budget. Express the needed stretch of terms in starting shares. For a stopping claim, check the next full term against the balance.",
       "skill": "SEQ-02",
       "videoId": "S059",
@@ -2307,7 +2307,7 @@
           "id": "RWL1-059-A",
           "title": "A segment of the trail",
           "prompt": "The first trail marker has 4 stripes. Every later marker has twice as many as the previous one. How many stripes are on markers 3, 4 and 5 altogether?",
-          "hint": "Work out which marker has 16 stripes before adding."
+          "hint": "Label the markers 1 through 5 and write only the terms whose marker numbers the question includes."
         },
         {
           "id": "RWL1-059-B",
@@ -2340,7 +2340,7 @@
           "This gives amber–blue–cream or cream–amber–blue. The wording fixes the order inside the block."
         ]
       },
-      "bridge": "In the film’s final row of cards, an arrangement can satisfy two neighbour rules at once. Watch what happens to that shared group when the question allows exactly one.",
+      "bridge": "When both named pairs are adjacent in the film’s final line, how often is that line included in the two single-pair totals? How often should it appear in a count of lines with exactly one adjacent pair?",
       "recap": "Check whether the words fix the order inside a block. For a forbidden pair, count all rows and take away rows with that pair. For two conditions, decide whether their overlap should count once or disappear.",
       "skill": "COUNT-03",
       "videoId": "S060",
@@ -2391,7 +2391,7 @@
           "alt": "A 6 by 5 cm rectangle with a 2 by 3 cm corner removed at the top right. Dashed lines show the missing outer corner."
         }
       },
-      "bridge": "Look for the corner triangle in the film and then the patch shaded twice. Watch why subtracting the two shaded rectangles needs one correction.",
+      "bridge": "Before the film gives its unshaded area, outline the patch shaded twice. If you subtract both shaded areas from the whole board, where must that patch be added back? Then check by counting the unshaded blocks.",
       "recap": "Draw an easy surrounding shape and label each area you remove. A shared edge has zero area. An overlapping patch has positive area and must count only once.",
       "skill": "GEO-02",
       "videoId": "S061",
@@ -2439,7 +2439,7 @@
           "The other 9 − 4 = 5 labels contain at least one A. This includes AA."
         ]
       },
-      "bridge": "In the film, a student may appear on two lists, and a number may appear on three. Track one shared item as each list or overlap is counted.",
+      "bridge": "In the film’s list from 1 through 84, follow the number 30. How often does it enter the three single lists, the three pair overlaps and the triple overlap? It should contribute exactly once to the excluded total.",
       "recap": "Define the whole set and write the precise opposite condition. For overlapping lists, subtract pair overlaps once. With three lists, restore their triple overlap once before subtracting the union.",
       "skill": "COUNT-04",
       "videoId": "S062",
@@ -2454,7 +2454,7 @@
           "id": "RWL1-062-A",
           "title": "The night display",
           "prompt": "Each of three windows can independently show a star, a moon or a cloud. How many displays have at least one cloud?",
-          "hint": "Count displays with clear skies first."
+          "hint": "If a display has no cloud, which symbols remain available in each window? Compare that count with all possible displays."
         },
         {
           "id": "RWL1-062-B",
@@ -2487,7 +2487,7 @@
           "Each card has one writer. A card travelling the opposite way is a different card, so all 12 count."
         ]
       },
-      "bridge": "Compare those cards with the film’s handshakes. Then follow one helper-room booking as it is counted first by room and then by helper.",
+      "bridge": "In the festival puzzle, six rooms book eight helpers each. Circle one helper-room booking. How many bookings does one helper have, and why must the booking total be divided before it can give the number of people?",
       "recap": "Name the object before adding reports. A match has two endpoints; a booking links one person to one place. Divide only by the number of times your counting rule records each object.",
       "skill": "COUNT-05",
       "videoId": "S065",
@@ -2535,7 +2535,7 @@
           "Their first positive common multiple is 12. Undo the shift to get 11, and check both remainders."
         ]
       },
-      "bridge": "On the film’s ruler, watch the two endpoints move with the candidates. When the marks slide back, notice whether the last one still lies inside the original interval.",
+      "bridge": "When the ruler shifts right, the endpoints and every candidate move together. Later the film lowers the original upper limit to 198. Which previously valid number is just outside that new limit?",
       "recap": "Check how far each remainder is from a full group. If the same shift works for every divisor, shift both ends of the interval too. Undo the shift and include or exclude endpoints exactly as the question says.",
       "skill": "DIV-03",
       "videoId": "S066",
@@ -2582,7 +2582,7 @@
           "The striped item is in a different place in the two groups. Add 1 + 2 to get 3 outfits."
         ]
       },
-      "bridge": "In the film’s exhibit puzzle, use the colour of the middle room to read each case. Notice which case has an extra restriction on exhibit B.",
+      "bridge": "Write the colour pattern for all three rooms in each permitted case. The middle room is red both when all three exhibits are red and when A sits between two blues. In which pattern is exhibit B forbidden?",
       "recap": "Name the feature that puts an outcome in a row. Check that every allowed outcome has exactly one row, then add the row counts. Read a restriction inside its own case before carrying it into another.",
       "skill": "COUNT-06",
       "videoId": "S067",
@@ -2630,8 +2630,8 @@
           "The puzzle allows exactly two types. The remaining possibility is that Mira always tells the truth."
         ]
       },
-      "bridge": "When Kai says both people are liars in the film, test the whole sentence. Then follow the links in the four-person puzzle and notice which statement becomes settled first.",
-      "recap": "Translate each speaker’s words into a condition. A truthful speaker must match it and a liar must contradict it. For “both” to be false, just one part needs to fail. Check every claim in the final assignment.",
+      "bridge": "Kai says both people are liars. If Kai lies, does that force both parts of his claim to be false? Try one true part and one false part before moving to the four-speaker puzzle.",
+      "recap": "Judge the whole sentence. A claim joined by “and” is true only if both parts are true. One false part makes the whole claim false. Once you have assigned the speakers’ types, test every sentence again.",
       "skill": "LOGIC-01",
       "videoId": "S068",
       "videoTitle": "Truth-tellers, liars and contradiction",

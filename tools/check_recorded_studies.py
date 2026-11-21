@@ -6,8 +6,60 @@ from pathlib import Path
 
 from playwright.async_api import async_playwright, expect
 
+from browser_lesson_fixed import MOCK
+
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+async def check_course_players(browser, site, lesson, guide, release):
+    """Use the course and the immutable notebook with the same published movie."""
+    slot = int(lesson[1:])
+    context = await browser.new_context(viewport={'width':390, 'height':844}, has_touch=True,
+                                        is_mobile=True, service_workers='block')
+    try:
+        await context.route('**/supabase-client.js*',
+                            lambda route: route.fulfill(content_type='application/javascript', body=MOCK))
+        await context.route('https://raw.githubusercontent.com/**', lambda route: route.abort())
+        await context.add_init_script("""
+            const route = new URLSearchParams(location.search);
+            const slot = Number(route.get('fixtureSlot'));
+            const replay = route.get('view') === 'review';
+            const completed = replay ? slot : slot - 1;
+            window.fixture = {
+                records: replay ? [{session_number:slot, immutable:true, completed_at:'2026-01-01T00:00:00Z',
+                          answers:{}, evidence:{}, working:{}, summary:{}}] : [],
+                attempts:[], exams:[], writes:[], fail:false,
+                progress:{completed_sessions:completed, current_session:completed+1, xp:0, rank:0, state:{}}
+            };
+        """)
+        page = await context.new_page()
+        for replay in (False, True):
+            path = f'?fixtureSlot={slot}' + ('&view=review' if replay else '')
+            await page.goto(site + path, wait_until='domcontentloaded')
+            if replay:
+                await page.locator(f'[data-review-session="{slot}"] > summary').tap()
+                before = await page.evaluate('JSON.stringify(window.fixture.records)')
+                await page.locator(f'button[data-video-session="{slot}"]').tap()
+                player = page.locator('#replayIntroVideo')
+            else:
+                await page.locator('#continue').tap()
+                await expect(page.locator('.rwl-bridge')).to_contain_text(guide['bridge'])
+                await page.locator('[data-screen-next]').tap()
+                player = page.locator('#openingVideo')
+            await expect(player).to_have_attribute('src', release + lesson + '.mp4')
+            await expect(player).to_have_attribute('poster', release + lesson + '-poster.jpg')
+            await player.evaluate('async video => { video.muted = true; await video.play(); }')
+            await page.wait_for_function("""id => {
+                const v = document.getElementById(id);
+                return !v.error && v.videoWidth === 1920 && !v.paused && v.currentTime > .2;
+            }""", arg=await player.get_attribute('id'), timeout=35000)
+            await player.evaluate('video => video.pause()')
+            if replay:
+                assert await page.evaluate('JSON.stringify(window.fixture.records)') == before
+                assert await page.evaluate('window.fixture.progress.completed_sessions') == slot
+    finally:
+        await context.close()
 
 
 async def run(site, engine):
@@ -54,6 +106,7 @@ async def run(site, engine):
                 await film.evaluate('v => v.pause()')
                 width = await page.evaluate('document.documentElement.scrollWidth - innerWidth')
                 assert width <= 1, (lesson, width)
+                await check_course_players(browser, site, lesson, guide, release)
                 print(lesson, engine, 'played and sought to', guide['chapters'][chapter]['title'], flush=True)
                 await page.set_viewport_size({'width': 844, 'height': 390} if index % 2 == 0
                                              else {'width': 390, 'height': 844})

@@ -1,0 +1,111 @@
+name: Produce the bridge-deck colouring lesson
+on:
+  push:
+    branches: [production/bridge-deck-S151]
+    paths: ['production/scripts/S151.json', 'production/lesson-films/bridge_plates.py', '.github/workflows/bridge-deck-film.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: bridge-deck-film
+  cancel-in-progress: false
+jobs:
+  voice:
+    strategy:
+      fail-fast: false
+      matrix:
+        scene: [1,2,3,4,5,6,7,8]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 55
+    env:
+      HF_HUB_DISABLE_XET: '1'
+      TOKENIZERS_PARALLELISM: 'false'
+      OMP_NUM_THREADS: '4'
+      MKL_NUM_THREADS: '4'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            production
+            data
+            media/voice-audition
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install the established narrator
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg libsndfile1
+          pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install 'transformers>=4.45,<5' 'huggingface-hub<1' einops pydantic soundfile librosa safetensors tqdm numpy scipy inflect addict argbind
+          pip install --no-deps 'git+https://github.com/OpenBMB/VoxCPM.git@300e4260b509066151d623dc9c0aa922cf82232b'
+      - name: Record a scene with its approved voice
+        env:
+          SCENE: ${{ matrix.scene }}
+        run: |
+          python -c 'import json,os;json.dump([{"lesson":"S151","scene":int(os.environ["SCENE"])}],open("sequence.json","w"))'
+          python production/t01-studio/synth.py --sequence sequence.json --threads 4
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bridge-voice-${{ matrix.scene }}
+          path: build/t01-studio/S151-*
+          if-no-files-found: error
+          retention-days: 14
+  film:
+    needs: voice
+    runs-on: ubuntu-24.04
+    timeout-minutes: 65
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            production
+            data
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: bridge-voice-*
+          merge-multiple: true
+          path: build/t01-studio
+      - name: Align the performance and draw the tested decks
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-open-sans fonts-dejavu-core libsndfile1
+          pip install numpy==2.2.6 soundfile num2words faster-whisper pillow==11.3.0
+          python production/t01-studio/prepare_audio.py S151
+          voice=build/t01-studio/S151
+          cp production/scripts/S151.json "$voice/script.json"
+          ffmpeg -loglevel error -i "$voice/narration.wav" -c:a flac "$voice/narration.flac"
+          python production/lesson-films/render_recorded.py S151 "$voice"
+          python production/lesson-films/verify_recorded.py S151 "$voice"
+          mkdir release
+          cp media/lesson-films/S151* release/
+          cp production/lesson-films/S151/guide.json release/S151-guide.json
+          cp production/lesson-films/S151/qa.json release/S151-qa.json
+          cp "$voice/captions.vtt" release/S151.vtt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bridge-film-review
+          path: |
+            build/t01-studio/S151/timeline.json
+            build/t01-studio/S151/narration.flac
+            release/
+          retention-days: 14
+      - name: Publish the independently checked film
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag=bridge-deck-S151-20261122
+          if gh release view "$tag" >/dev/null 2>&1; then
+            if [[ "$(gh release view "$tag" --json isDraft --jq .isDraft)" == false ]]; then exit 0; fi
+          else
+            gh release create "$tag" --draft --target "$GITHUB_SHA" --title 'One socket, two plates' --notes 'A narrated domino-tiling investigation for lesson 151.'
+          fi
+          gh release upload "$tag" release/* --clobber
+          gh release edit "$tag" --draft=false --latest=false

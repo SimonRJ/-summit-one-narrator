@@ -225,6 +225,11 @@ li a {{ display: block; min-height: 44px; padding: .7rem .3rem; text-decoration:
 li a:hover span {{ text-decoration: underline; }}
 small {{ display: block; color: #bac4cf; margin-top: .16rem; }}
 a:focus-visible {{ outline: 2px solid #9cdbbc; outline-offset: 3px; }}
+#filmFilters{{display:flex;align-items:end;gap:.6rem 1rem;flex-wrap:wrap;margin:1.2rem 0}}
+#filmFilters[hidden],.chapters [hidden]{{display:none}}
+#filmFilters label{{display:grid;gap:.25rem;font-weight:600}}
+#filmFilters :is(input,select,button){{min-height:44px;max-width:100%;padding:.45rem .65rem;font:inherit;border:1px solid #72838a;border-radius:.4rem;color:#102d39;background:#fff}}
+#filmMatches{{align-self:center}}
 </style>
 </head>
 <body>
@@ -232,6 +237,11 @@ a:focus-visible {{ outline: 2px solid #9cdbbc; outline-offset: 3px; }}
 <a href="./">← Summit One</a>
 <h1>Teaching videos</h1>
 <p class="progress">{len(available)} of {len(videos)} videos available</p>
+<form id="filmFilters" hidden aria-label="Filter teaching films" onsubmit="return false">
+<label>Find a film <input id="filmSearch" type="search" placeholder="Topic, title or lesson number"></label>
+<label>Film type <select id="filmKind"><option value="">All films</option><option>Concept</option><option>Worked example</option></select></label>
+<button type="reset">Clear filters</button><output id="filmMatches" aria-live="polite"></output></form>
+<script type="module" src="teaching-search.js?v=study-index-20261122"></script>
 <div class="chapters">
 {blocks}
 </div>

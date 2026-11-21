@@ -37,6 +37,8 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
   video { width: auto; max-width: 100%; height: auto; max-height: calc(100svh - 20px); margin-inline: auto; }
 }
 </style>
+<link rel="stylesheet" href="topic-film-reading.css">
+<script defer src="topic-film-print.js"></script>
 </head>
 <body>
 <main>
@@ -51,27 +53,39 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
   <source src="media/T17.2.mp4?v=teaching-films-v1" type="video/mp4">
 </video>
 <p class="meta">2:03 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Test a claim with a counterexample or contradiction</button>
-<button type="button" data-time="14.840">0:14 · Decide what would prove a possibility</button>
-<button type="button" data-time="25.720">0:25 · Does multiplying always make a number bigger?</button>
-<button type="button" data-time="40.090">0:40 · Any one of these three cases breaks the claim</button>
-<button type="button" data-time="51.450">0:51 · State the conditions of the claim precisely</button>
-<button type="button" data-time="69.680">1:09 · Flip exactly two of nine coins</button>
-<button type="button" data-time="86.320">1:26 · An odd head count can never become zero</button>
-<button type="button" data-time="100.560">1:40 · Your turn</button></nav>
+<nav class="chapters" aria-label="Video chapters">
+<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Distinguish a counterexample from a contradiction</button>
+<button type="button" data-time="14.840"><span class="chapter-clock">0:15</span> Choose evidence for a possibility claim</button>
+<button type="button" data-time="25.720"><span class="chapter-clock">0:26</span> Test the claim that multiplication increases a number</button>
+<button type="button" data-time="40.090"><span class="chapter-clock">0:40</span> Try multiplying six by a half, one and zero</button>
+<button type="button" data-time="51.450"><span class="chapter-clock">0:51</span> Repair the claim by stating its conditions</button>
+<button type="button" data-time="69.680"><span class="chapter-clock">1:10</span> Flip pairs of coins starting from nine heads</button>
+<button type="button" data-time="86.320"><span class="chapter-clock">1:26</span> Compare the starting and target numbers of heads</button>
+<button type="button" data-time="100.560"><span class="chapter-clock">1:41</span> Decide whether seven cups can all turn upside down</button>
+</nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>Seven cups are upright; each move turns over exactly two. Can all seven end upside down?</p>
-<details><summary>Check your reasoning</summary><p>No: the number of upright cups stays odd, and 0 is even.</p></details>
+<details><summary>Check your reasoning</summary><p>Each move turns two upright cups down, two upside-down cups up, or one of each. The number upright therefore changes by −2, +2 or 0. Starting at 7, it stays odd and can never reach 0. There is always at least one upright cup.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary><p>A counterexample is one case that breaks a claim about everything. A proof by contradiction starts with a supposition and follows what it would imply. If it leads to two facts that cannot both hold, the supposition fails.</p>
+<details class="transcript"><summary>Read the transcript</summary>
+<h2><span class="chapter-clock">0:00</span> Distinguish a counterexample from a contradiction</h2>
+<p>A counterexample is one case that breaks a claim about everything. A proof by contradiction starts with a supposition and follows what it would imply. If it leads to two facts that cannot both hold, the supposition fails.</p>
+<h2><span class="chapter-clock">0:15</span> Choose evidence for a possibility claim</h2>
 <p>Competitions often ask whether something is possible. If it is, show it. If it is not, you need an argument, and contradiction is the standard way to build one.</p>
+<h2><span class="chapter-clock">0:26</span> Test the claim that multiplication increases a number</h2>
 <p>A student says: multiplying always makes a number bigger. Five times three is fifteen, which is bigger than five. Is the claim true? Pause and hunt for a case that breaks it.</p>
+<h2><span class="chapter-clock">0:40</span> Try multiplying six by a half, one and zero</h2>
 <p>Six times one half is three, which is smaller. Six times one is still six. Six times zero is zero. Any one of these is a counterexample, so the claim is false.</p>
+<h2><span class="chapter-clock">0:51</span> Repair the claim by stating its conditions</h2>
 <p>A counterexample must obey the claim&#x27;s own conditions. If the claim were about multiplying a positive number by a number greater than one, then a half and zero would not be allowed, and the repaired claim would be true. Failed claims often become true once the conditions are stated properly.</p>
+<h2><span class="chapter-clock">1:10</span> Flip pairs of coins starting from nine heads</h2>
 <p>Now a contradiction. Nine coins all show heads. Each move flips exactly two coins. Can all nine show tails? Suppose it could be done. Each move changes the number of heads by two, or not at all. So the number of heads stays odd for ever.</p>
+<h2><span class="chapter-clock">1:26</span> Compare the starting and target numbers of heads</h2>
 <p>It starts at nine, which is odd. All tails would mean zero heads, which is even. An odd number can never become zero this way. Our supposition has led to something impossible, so the task cannot be done.</p>
-<p>A counterexample is one allowed case that breaks a claim. A contradiction supposes something is possible and shows that leads to nonsense. Notebook challenge: seven cups stand upright. Each move turns over exactly two cups. Can all seven end upside down?</p></details>
+<h2><span class="chapter-clock">1:41</span> Decide whether seven cups can all turn upside down</h2>
+<p>A counterexample is one allowed case that breaks a claim. A contradiction supposes something is possible and shows that leads to nonsense. Notebook challenge: seven cups stand upright. Each move turns over exactly two cups. Can all seven end upside down?</p>
+</details>
 <p><a href="media/T17.2.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
 </main>
 <script src="lesson-video-chapters.js?v=seek-1"></script>

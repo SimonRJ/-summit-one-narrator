@@ -275,6 +275,160 @@ CHAPTERS = {
         3: "Follow the extension from B through C", 4: "Compare the exterior angle with the two far angles",
         5: "Test the shortcut with 60° and 55°", 6: "Use 35° and 80° to find the exterior angle",
     },
+    "T13.1": {
+        1: "Double a triangle to find its area", 2: "Distinguish a sloping side from a height",
+        3: "Compare three triangles on an 8 cm base", 4: "Slide the vertex along a parallel line",
+        5: "Find the three corners outside a tilted triangle", 6: "Subtract the corners from the rectangle",
+        7: "Join a top-edge point to both bottom corners", 8: "Work backwards from an area of 35 cm²",
+    },
+    "T13.2": {
+        1: "Predict how a cut changes the boundary", 2: "Choose a measure for a cut or an enlargement",
+        3: "Cut a unit square from a corner", 4: "Match the two lost edges to the two new edges",
+        5: "Move the cut to the middle of a side", 6: "Double the sides of a two-by-three rectangle",
+        7: "Double or triple the edges of a cube", 8: "Scale a photograph by a factor of three",
+    },
+    "T13.3": {
+        1: "See a block as horizontal layers", 2: "Include cubes hidden in the drawing",
+        3: "Inspect a four-by-three-by-two block", 4: "Build the block from two layers of twelve",
+        5: "Peel away the painted outside of a cube", 6: "Count one centre cube on each of the six faces",
+        7: "Stack nine, four and one into a staircase", 8: "Find the unpainted core of a four-cube-wide block",
+    },
+    "T13.E": {
+        1: "Compare two cuts in matching rectangles", 2: "Trace the original 6 cm by 4 cm boundary",
+        3: "Replace the two edges lost at a corner", 4: "Trace the three new edges of a notch",
+        5: "Compare perimeters after equal areas are removed", 6: "Cut a notch 2 cm wide and 1 cm deep",
+    },
+    "T14.1": {
+        1: "Read the permitted junctions and directions", 2: "Replace a list of routes with point labels",
+        3: "Walk right or up across two blocks each way", 4: "Label the bottom and left borders",
+        5: "Add the routes from the left and below", 6: "Close the centre junction",
+        7: "Decide whether paths meet at a bridge", 8: "Count the routes across three blocks and up two",
+    },
+    "T14.2": {
+        1: "Look ahead before visiting the next dot", 2: "Test whether a move cuts off a dot",
+        3: "Try a corner-to-centre path through nine dots", 4: "Spiral inward to reach the centre",
+        5: "Colour the nine dots in alternating colours", 6: "Rule out a start at the middle of a side",
+        7: "Count the possible endpoints of a route", 8: "Test two top-row endpoints on a six-dot grid",
+    },
+    "T14.3": {
+        1: "Draw a network of shared meetings", 2: "Read a clash in the network",
+        3: "Schedule all the pairs of four players", 4: "Bound the rounds by games per round",
+        5: "Pair four players in three rounds", 6: "Allow a resting player in a group of five",
+        7: "Use the busiest person to bound the slots", 8: "Schedule fifteen games for six players",
+    },
+    "T14.E": {
+        1: "Place five meetings for A, B, C, D and E", 2: "Count the meetings A has to attend",
+        3: "Fit the five pairs into three slots", 4: "Check each pupil appears once per slot they attend",
+        5: "Check how many pairs fit among five pupils", 6: "Add the meeting between D and E",
+    },
+    "T15.1": {
+        1: "Follow a coloured corner as a tile turns", 2: "Decide whether a tile is fixed or loose",
+        3: "Shade one cell in a two-by-two square", 4: "Count the four fixed window patterns",
+        5: "Turn a loose tile through all four positions", 6: "Compare neighbouring and diagonal shaded pairs",
+        7: "Distinguish a flip from a turn", 8: "Turn a tile with one unshaded corner",
+    },
+    "T15.2": {
+        1: "Notice which turns repeat a picture", 2: "Check the number of copies before dividing",
+        3: "Sort sixteen fixed black-and-white tiles", 4: "Group colourings by the number of black cells",
+        5: "Collect the patterns that rotate into one another", 6: "Compare groups of one, two and four colourings",
+        7: "Seat five people without marking a first chair", 8: "Count the circular seatings for four people",
+    },
+    "T15.3": {
+        1: "Match each object with an opposite-type partner", 2: "Explain why a pairing gives equal counts",
+        3: "Count even settings of three switches", 4: "Flip the first switch to find a partner",
+        5: "Compare odd and even settings within a pair", 6: "Apply the switch pairing to ten switches",
+        7: "Pair the ends of the list from 1 to 100", 8: "Find the factor of 36 that pairs with itself",
+        9: "Pair the numbers from 1 to 40",
+    },
+    "T15.E": {
+        1: "Choose groups from A, B and C", 2: "Count all the in-or-out choices",
+        3: "Add or remove A to make partners", 4: "Compare the two sizes in each pair",
+        5: "List the four even groups including the empty group", 6: "Count odd groups chosen from five objects",
+    },
+    "T16.1": {
+        1: "Interpret three parts for every two", 2: "Find the value of one equal part",
+        3: "Share forty stickers in the ratio 3 to 2", 4: "Distribute five equal parts between Ana and Ben",
+        5: "Use a difference of nine instead of a total", 6: "Match B before joining two ratios",
+        7: "Express the first share as a fraction of the whole", 8: "Recover the total from sixteen extra red beads",
+    },
+    "T16.2": {
+        1: "Convert ten minutes per tank into a rate", 2: "Combine the water delivered in one minute",
+        3: "Start a six-minute tap and a three-minute tap", 4: "Model each tap with sixths of a tank",
+        5: "Check the time for both taps together", 6: "Subtract a leak from the filling rate",
+        7: "Close a 100 m gap between two runners", 8: "Combine the rates of two painters",
+    },
+    "T16.3": {
+        1: "Recover the total hidden in a mean", 2: "Give each group its correct weight",
+        3: "Add a fifth score to change a mean of seven", 4: "Compare the four-score and five-score totals",
+        5: "Explain the extra points in the fifth score", 6: "Combine groups of two and three people",
+        7: "Compare the mean and median of five values", 8: "Recover the score removed from six numbers",
+    },
+    "T16.E": {
+        1: "Combine the scores of two groups of learners", 2: "Total the sevens and the nines separately",
+        3: "Share 41 points equally among five learners", 4: "Explain why the mean moves towards nine",
+        5: "Balance the groups with equal numbers of learners", 6: "Find the mean of four fives and one ten",
+    },
+    "T17.1": {
+        1: "Decide what evidence a claim needs", 2: "Look for a pattern that could break",
+        3: "Test a claim about adding two odd numbers", 4: "Represent any odd number with pairs and a spare",
+        5: "Put the two spare counters together", 6: "Use nine to test a claim about odd primes",
+        7: "Test whether being even guarantees a multiple of six", 8: "Prove what happens when three odd numbers are added",
+    },
+    "T17.2": {
+        1: "Distinguish a counterexample from a contradiction", 2: "Choose evidence for a possibility claim",
+        3: "Test the claim that multiplication increases a number", 4: "Try multiplying six by a half, one and zero",
+        5: "Repair the claim by stating its conditions", 6: "Flip pairs of coins starting from nine heads",
+        7: "Compare the starting and target numbers of heads", 8: "Decide whether seven cups can all turn upside down",
+    },
+    "T17.3": {
+        1: "Decide when checking cases covers every possibility", 2: "Identify a possible gap in a case proof",
+        3: "Try the small totals with 3-cent and 5-cent stamps", 4: "List which totals up to twelve can be made",
+        5: "Extend three consecutive totals by adding a stamp", 6: "Show why seven cents is impossible",
+        7: "Test all possible last digits of a square", 8: "Find the last impossible total with 4-cent and 5-cent stamps",
+    },
+    "T17.E": {
+        1: "Test products of consecutive whole numbers", 2: "Split the argument by the first number’s parity",
+        3: "Pair the product when the first factor is even", 4: "Use the second factor when the first is odd",
+        5: "Divide a rectangle into two equal staircases", 6: "Prove a result about three consecutive factors",
+    },
+    "T18.1": {
+        1: "Find the condition that narrows the search", 2: "Compare the sizes of possible starting lists",
+        3: "Find a two-digit square with digit sum ten", 4: "Compare the digit-sum list with the six squares",
+        5: "Test the digit sums of the six candidates", 6: "Use area to list possible rectangle sides",
+        7: "Match factors, totals and cycles to question clues", 8: "Find the odd multiples of thirteen in the interval",
+    },
+    "T18.2": {
+        1: "Leave a record that another attempt can use", 2: "Plan a check that can catch an error",
+        3: "Count the border of a five-by-five grid", 4: "Subtract the unshaded inner square",
+        5: "Split the border into four disjoint strips", 6: "Correct a count that repeats the corners",
+        7: "Mark finished cases and a next step", 8: "Check a seven-by-seven border in two ways",
+    },
+    "T18.3": {
+        1: "Use the answer choices as test cases", 2: "Spot options that match unfinished working",
+        3: "Look for a multiple of both four and nine", 4: "Rule out choices that fail the test for four",
+        5: "Check the last two options using digit sums", 6: "Read whether the price is for one pen or two",
+        7: "Try six and seven in the given equation", 8: "Test four choices for divisibility by four and five",
+    },
+    "T18.E": {
+        1: "Choose two different numbers with sum at least nine", 2: "Organise the pairs by their larger number",
+        3: "Try six, five and four as the larger number", 4: "List the four qualifying pairs",
+        5: "Regroup the pairs by sums of nine, ten and eleven", 6: "Count unordered pairs with sum at most five",
+    },
+}
+
+
+# Companion notes clarify points in the recording without altering its transcript.
+READING_NOTES = {
+    ("T05.1", 2): (
+        "Why two orders?",
+        "In the opening example, two distinct players can exchange places. There are two orders for that pair. "
+        "For three distinct players there are 3 × 2 × 1 = 6 orders, so an unordered group of three needs a different divisor.",
+    ),
+    ("T16.3", 7): (
+        "What if there are two middle values?",
+        "Put the numbers in order. With an odd number of values, use the single middle one. With an even number, "
+        "average the middle two. In 2, 3, 9, 31, the median is (3 + 9) ÷ 2 = 6.",
+    ),
 }
 
 
@@ -294,12 +448,11 @@ def reading_sections(lesson, starts, paragraphs):
             )
             transcript.append(f'<h2><span class="chapter-clock">{clock}</span> {title}</h2>')
         transcript.append(f'<p>{escape(paragraph)}</p>')
-        if lesson == "T05.1" and number == 2:
+        if (lesson, number) in READING_NOTES:
+            heading, note = READING_NOTES[lesson, number]
             transcript.append(
                 '<aside class="reading-note" aria-label="Written clarification">'
-                '<strong>Why two orders?</strong> In the opening example, two distinct players can exchange places. '
-                'There are two orders for that pair. For three distinct players there are 3 × 2 × 1 = 6 orders, '
-                'so an unordered group of three needs a different divisor.</aside>'
+                f'<strong>{escape(heading)}</strong> {escape(note)}</aside>'
             )
     return "\n".join(buttons), "\n".join(transcript)
 
@@ -313,4 +466,11 @@ NOTEBOOK_CHECKS = {
     "T06.1": "Each of the eight teams plays seven opponents. The 8 × 7 = 56 team appearances include both teams in every game. Pair the appearances to get 56 ÷ 2 = 28 games.",
     "T06.2": "The readings add to 17 + 20 + 23 = 60. Each number appears twice, so the three numbers add to 30. Subtract each pair sum from 30 to get the missing numbers 13, 10 and 7. Their pair sums are 7 + 10 = 17, 7 + 13 = 20 and 10 + 13 = 23.",
     "T06.E": "Six separate tiles contribute 24 unit edges. Each of the two rows has two joins, and three more joins run between the rows. These seven joins each hide two edges, leaving 24 − 2 × 7 = 10 units of perimeter. Tracing the outside gives 3 + 2 + 3 + 2 = 10.",
+    "T16.1": "Five red parts minus three blue parts leaves two parts. Those two parts contain 16 beads, so each part contains 8. There are eight parts altogether, giving 8 × 8 = 64 beads. Check the shares of 40 red and 24 blue differ by 16.",
+    "T16.3": "The six numbers total 6 × 9 = 54. After one is removed, the five left total 5 × 8 = 40. Only the removed number can account for the difference, so it was 54 − 40 = 14.",
+    "T16.E": "The four scores of 5 contribute 20 points. The other score brings the total to 30. Sharing those 30 points across all five learners gives a mean of 6 points.",
+    "T17.2": "Each move turns two upright cups down, two upside-down cups up, or one of each. The number upright therefore changes by −2, +2 or 0. Starting at 7, it stays odd and can never reach 0. There is always at least one upright cup.",
+    "T17.E": "When consecutive whole numbers are divided by 3, the remainders cycle through 0, 1 and 2. Any three in a row include one with remainder 0. The product therefore contains a factor of 3, including when one number is 0.",
+    "T18.2": "The inner 5 × 5 square contains every unshaded cell, leaving 7 × 7 − 5 × 5 = 24 on the border. Independently, walk along each side and count its starting corner, stopping before the next corner. Each of the four sides contributes six cells, again giving 24.",
+    "T18.3": "All four choices end in 0 or 5, so all pass the test for 5. A multiple of 4 must be even, leaving 60 and 90. Dividing by 2 gives 30 and 45. Only 30 can be halved again to give a whole number, so 60 is the only choice divisible by both 4 and 5.",
 }

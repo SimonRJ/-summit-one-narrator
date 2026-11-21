@@ -34,6 +34,8 @@ summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
 </style>
+<link rel="stylesheet" href="topic-film-reading.css">
+<script defer src="topic-film-print.js"></script>
 </head>
 <body>
 <main>
@@ -48,27 +50,39 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
   <source src="media/T13.3.mp4?v=hidden-cubes-20261119" type="video/mp4">
 </video>
 <p class="meta">1:59 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Separate a block into layers</button>
-<button type="button" data-time="12.440">0:12 · Some cubes are hidden</button>
-<button type="button" data-time="21.890">0:21 · Count the unit cubes in the block</button>
-<button type="button" data-time="34.990">0:34 · Two layers of twelve make twenty-four</button>
-<button type="button" data-time="46.670">0:46 · Paint reaches only the outside</button>
-<button type="button" data-time="66.660">1:06 · Every cube belongs to one surface class</button>
-<button type="button" data-time="84.260">1:24 · Count uneven layers as they are</button>
-<button type="button" data-time="97.380">1:37 · Your turn</button></nav>
+<nav class="chapters" aria-label="Video chapters">
+<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> See a block as horizontal layers</button>
+<button type="button" data-time="12.440"><span class="chapter-clock">0:12</span> Include cubes hidden in the drawing</button>
+<button type="button" data-time="21.890"><span class="chapter-clock">0:22</span> Inspect a four-by-three-by-two block</button>
+<button type="button" data-time="34.990"><span class="chapter-clock">0:35</span> Build the block from two layers of twelve</button>
+<button type="button" data-time="46.670"><span class="chapter-clock">0:47</span> Peel away the painted outside of a cube</button>
+<button type="button" data-time="66.660"><span class="chapter-clock">1:07</span> Count one centre cube on each of the six faces</button>
+<button type="button" data-time="84.260"><span class="chapter-clock">1:24</span> Stack nine, four and one into a staircase</button>
+<button type="button" data-time="97.380"><span class="chapter-clock">1:37</span> Find the unpainted core of a four-cube-wide block</button>
+</nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>A 4 by 4 by 4 cube is painted and cut into unit cubes. How many have no paint?</p>
 <details><summary>Check your reasoning</summary><p>The inner 2 by 2 by 2 block: 8.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary><p>A drawing of a solid only shows some of its cubes. The rest are hidden behind or underneath. To count them all, slice the solid into layers. Count one layer, then count the layers.</p>
+<details class="transcript"><summary>Read the transcript</summary>
+<h2><span class="chapter-clock">0:00</span> See a block as horizontal layers</h2>
+<p>A drawing of a solid only shows some of its cubes. The rest are hidden behind or underneath. To count them all, slice the solid into layers. Count one layer, then count the layers.</p>
+<h2><span class="chapter-clock">0:12</span> Include cubes hidden in the drawing</h2>
 <p>Counting only visible cubes can miss part of a solid. Counting layer by layer is reliable, and it also answers questions about which cubes are on the outside.</p>
+<h2><span class="chapter-clock">0:22</span> Inspect a four-by-three-by-two block</h2>
 <p>A solid block is four cubes long, three cubes wide and two cubes high. How many small cubes does it contain? Pause and picture one layer.</p>
+<h2><span class="chapter-clock">0:35</span> Build the block from two layers of twelve</h2>
 <p>One layer is four by three, which is twelve cubes. There are two layers, so the block contains twenty-four cubes. Half of them are in the bottom layer, including some that were hidden in the drawing.</p>
+<h2><span class="chapter-clock">0:47</span> Peel away the painted outside of a cube</h2>
 <p>Now a harder question. A three by three by three cube is painted all over, then cut into twenty-seven small cubes. How many have no paint at all? Only a cube that touches no outside face. Peel off the outer layer in every direction, and a single cube is left in the very centre. The answer is one.</p>
+<h2><span class="chapter-clock">1:07</span> Count one centre cube on each of the six faces</h2>
 <p>You can sort all twenty-seven. Eight corner cubes have three painted faces. Twelve cubes along the edges have two. Six in the middle of each face have one. One in the centre has none. Eight, twelve, six and one make twenty-seven, so nothing is missing.</p>
+<h2><span class="chapter-clock">1:24</span> Stack nine, four and one into a staircase</h2>
 <p>Layers also handle uneven solids. A corner staircase has nine cubes on the bottom layer, four on the next and one on top: fourteen altogether. Count each layer as it really is.</p>
-<p>Slice the solid into layers. Include the hidden cubes. If you sort the cubes into types, check that the types add up to the total. Notebook challenge: a four by four by four cube is painted and cut into small cubes. How many small cubes have no paint?</p></details>
+<h2><span class="chapter-clock">1:37</span> Find the unpainted core of a four-cube-wide block</h2>
+<p>Slice the solid into layers. Include the hidden cubes. If you sort the cubes into types, check that the types add up to the total. Notebook challenge: a four by four by four cube is painted and cut into small cubes. How many small cubes have no paint?</p>
+</details>
 <p><a href="media/T13.3.mp4?v=hidden-cubes-20261119">Open the MP4 directly</a></p>
 </main>
 <script src="lesson-video-chapters.js?v=seek-1"></script>

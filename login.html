@@ -38,25 +38,27 @@
     <h1>Welcome back</h1>
     <p id="subtitle">Sign in to continue your maths training.</p>
 
+    <form id="learnerSignIn" method="post">
     <div class="field">
       <label for="loginName">Login name</label>
-      <input id="loginName" autocomplete="username" autocapitalize="none" spellcheck="false">
+      <input required id="loginName" autocomplete="username" autocapitalize="none" spellcheck="false">
     </div>
 
     <div class="field">
       <label for="password">PIN / password</label>
-      <input id="password" type="password" autocomplete="current-password">
+      <input required id="password" type="password" autocomplete="current-password">
     </div>
 
     <div class="auth-actions">
-      <button id="signIn">Sign in</button>
-      <button id="createAccount" class="secondary" hidden>Create learner account</button>
+      <button id="signIn" type="submit" disabled>Sign in</button>
     </div>
 
-    <div id="message" class="msg"></div>
+    </form>
+    <noscript>Enable JavaScript to sign in.</noscript>
+    <div id="message" class="msg" role="status" aria-live="polite"></div>
     <a class="small-link" href="./offline-reader.html">Open offline lesson reader</a>
   </main>
 
-  <script type="module" src="login.js?v=cinematic-practice-20261113"></script>
+  <script type="module" src="login.js?v=accessible-form-20261122"></script>
 </body>
 </html>

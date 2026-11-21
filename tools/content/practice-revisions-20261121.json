@@ -216,6 +216,27 @@
     },
     "RWL1-033-B": {
       "hint": "Make two rows, one with Finn truthful and one with Finn lying. In each row, decide whether the whole claim about different types must be true or false."
+    },
+    "RWL1-038-D": {
+      "hint": "Fix the two blank answers. If an attempted answer changes from wrong to correct, what happens to the penalty as well as the four points earned?"
+    },
+    "RWL1-040-D": {
+      "hint": "Write a letter for each bag. Across the four three-bag weighings, how many times does each letter appear? Which weighing leaves out the heaviest bag?"
+    },
+    "RWL1-041-C": {
+      "hint": "Compare one short drill exchanged for one long drill. Then add both sessions: how many copies of one short-plus-long pair do you get?"
+    },
+    "RWL1-045-C": {
+      "hint": "Work out how many grams the gap between the top chambers loses each minute. Check that both still contain sand at the time you find."
+    },
+    "RWL1-054-D": {
+      "hint": "Make a table with move number, square and next direction. A return to the same square completes a loop only if the direction also matches."
+    },
+    "RWL1-059-A": {
+      "hint": "Label the markers 1 through 5 and write only the terms whose marker numbers the question includes."
+    },
+    "RWL1-062-A": {
+      "hint": "If a display has no cloud, which symbols remain available in each window? Compare that count with all possible displays."
     }
   },
   "solutionHashes": {
@@ -329,7 +350,8 @@
           "The volume increases by 23 − 11 = 12 L. The elapsed time is 5 − 2 = 3 minutes.",
           "The average flow rate is 12 ÷ 3 = 4 litres per minute. The flow could have varied within those three minutes."
         ]
-      }
+      },
+      "bridge": "The fastest rise on the film’s chart is measured in units per minute. On the price graph, the crossing has two coordinates. Which coordinate gives a number of visits, and which gives the cost?"
     },
     "S068": {
       "example": {
@@ -338,7 +360,9 @@
           "Bo’s claim is false, so Mira cannot be someone who always lies.",
           "The puzzle allows exactly two types. The remaining possibility is that Mira always tells the truth."
         ]
-      }
+      },
+      "bridge": "Kai says both people are liars. If Kai lies, does that force both parts of his claim to be false? Try one true part and one false part before moving to the four-speaker puzzle.",
+      "recap": "Judge the whole sentence. A claim joined by “and” is true only if both parts are true. One false part makes the whole claim false. Once you have assigned the speakers’ types, test every sentence again."
     },
     "S076": {
       "example": {
@@ -600,7 +624,7 @@
     "S013": {
       "intro": "Two bells can ring together again, and two ribbons can be cut into equal pieces. In one problem the answer must be a multiple of both numbers. In the other it must divide both numbers. Which way does the division go?",
       "example": {
-        "prompt": "A 12 cm ribbon and a 20 cm ribbon must be cut into equally long whole-centimetre pieces with no waste. How long can a piece be?",
+        "prompt": "A 12 cm ribbon and a 20 cm ribbon must be cut into equally long whole-centimetre pieces with no waste. What is the greatest possible length of a piece?",
         "steps": [
           "A piece length that fits both ribbons also fits the leftover 8 cm when 12 is taken from 20. It must also fit the 4 cm left when 8 is taken from 12.",
           "The length therefore divides 4, and 4 itself works: three pieces make 12 cm and five make 20 cm. A piece can be at most 4 cm long."
@@ -706,6 +730,98 @@
     "S034": {
       "bridge": "On the film’s out-and-back ride, the distance counter stops for twelve minutes. Does the elapsed-time counter stop too? Decide which total belongs under the total distance.",
       "recap": "Put the distance and elapsed time for every leg in the same units. A stop adds time and zero distance. Divide the trip’s total distance by its total elapsed time to find the average speed."
+    },
+    "S036": {
+      "bridge": "Pause when the film places a sideways domino in the top-left corner of the two-row board. Which square would be trapped unless the next domino went directly underneath it?",
+      "recap": "Trace a finished tiling from the left. Each new column begins with either an upright domino or two sideways dominoes stacked together. On a two-row strip those choices make different tilings, and every tiling can be read back this way."
+    },
+    "S037": {
+      "bridge": "Start a second clock when the chasing runner sets off. What gap has already opened? In the round-track puzzle, which clock does the question use for the second meeting?",
+      "recap": "Measure the gap when both movers are in motion. On a loop, identify the relative distance needed for one meeting: a lap gained in a same-direction chase, or a lap of combined movement in opposite directions. Count the requested meeting and read the correct clock."
+    },
+    "S038": {
+      "bridge": "In the film’s ticket office, there are 24 tickets in all. If x are adult tickets, why can 24 − x stand for the child tickets? Write a money total and check the units of each term.",
+      "recap": "Say what the unknown measures and attach a unit. A ticket count plus another count gives tickets. A price times a count gives money. Substitute your answer into each original condition."
+    },
+    "S039": {
+      "bridge": "The rider covers 30 km each way at different speeds. Which leg takes more time? Add the stop to the elapsed time before you decide what distance belongs in the numerator of the average.",
+      "recap": "An average speed is total distance divided by elapsed time. On a stop, time increases while distance stays fixed. To reach a target average, compare the actual and target distances after the same amount of time."
+    },
+    "S040": {
+      "bridge": "Add the two shop orders in the film before trying to find either price. How many identical notebook-and-ruler pairs can you see? In the box puzzle, how many times does each box appear across the three weighings?"
+    },
+    "S041": {
+      "bridge": "In the pen-and-marker puzzle the film doubles a whole shopping order. Which items and which price must double before the markers can cancel?"
+    },
+    "S043": {
+      "bridge": "Compare the film’s corner cut with its enclosed window. Trace each old edge that disappears and each cut edge that appears. Which change adds to the total boundary?",
+      "recap": "When two pieces join along a whole side, that side was present in both separate perimeters. Remove it twice. For a cut, compare the old and new edges directly. Trace an enclosed hole separately if its boundary is asked for."
+    },
+    "S044": {
+      "intro": "Start at the known end of a chain of changes. Ask what the last step did, undo it, and then work back one step at a time. If the story counts whole objects, discard any result that would require part of an object.",
+      "bridge": "The film’s last machine finishes with a two-digit reading in a stated range. Which reverse step requires exact division for a whole-number input? Check one surviving input by running it forwards."
+    },
+    "S046": {
+      "bridge": "The film says the middle team is ahead of the lowest, and the top team is ahead of the middle. Draw every score from the lowest team’s starting line. Which team’s extra bar includes both leads?"
+    },
+    "S047": {
+      "bridge": "In the film’s twelve theatre rows, pair the outer rows and then move one row in at each end. What does the new front row gain, and what does its partner lose?",
+      "recap": "To reach term n from term 1, count n − 1 gaps. For a fixed increase, the first and last terms have the same combined value as the next inward pair. With an odd number of terms, count the middle one once."
+    },
+    "S050": {
+      "headline": "What does the price difference measure?",
+      "intro": "A courier charges one fixed collection fee plus a price per kilometre. Comparing two trips cancels the fixed fee. The extra cost pays only for the extra kilometres.",
+      "example": {
+        "prompt": "The same courier charges $13 for 4 km and $19 for 7 km. The fixed fee and the price per kilometre are the same on both trips. How much is the fixed fee?",
+        "steps": [
+          "The extra 3 km cost $19 − $13 = $6, so each kilometre costs $2. The 4 km charge accounts for $8 of the shorter trip’s $13 price.",
+          "The collection fee is $13 − $8 = $5. In the longer trip, $5 plus 7 lots of $2 makes $19 as required."
+        ]
+      },
+      "bridge": "The film doubles the first stationery order to match the two markers in the second. Which pens are left after the matching items cancel? Use the result to rebuild one complete bill."
+    },
+    "S051": {
+      "bridge": "In the film, the largest single-day payment that fits the budget may still be unaffordable after earlier days have been paid. Which two consecutive running totals prove the last affordable day?"
+    },
+    "S052": {
+      "bridge": "In the display puzzle the reading changes, but the gap from 1 follows a simpler rule. In the ladder puzzle, why can a rung above a broken one still have a positive route count?"
+    },
+    "S053": {
+      "bridge": "A wall replaces one side of the film’s pen. In the fence allowance, which length occurs twice? Find the two neighbouring legal widths that give the same largest area.",
+      "recap": "First count the sides that actually use the fixed allowance. Write the area in terms of one dimension. Check the eligible dimensions closest to the balance point and explain why moving farther away cannot improve the area."
+    },
+    "S054": {
+      "bridge": "In the film’s numbered machine the first move is special. Which state will never be visited again? Start counting five-move laps only after the machine has entered its loop."
+    },
+    "S055": {
+      "bridge": "In the five-digit puzzle, start with one choice of the first two digits. Why can both 0 and 9 sometimes work in the centre? Explain how to count that second choice without counting a palindrome twice."
+    },
+    "S057": {
+      "bridge": "When the film fixes the even number in box A, test the smallest and largest values for box B. Does each leave an allowed number for C? Explain why a triple cannot appear in two different rows."
+    },
+    "S058": {
+      "bridge": "In the film’s final team problem, write down the possible numbers of artists, builders and coders before naming any individuals. What makes the rows of your list alternatives, so their counts can be added?"
+    },
+    "S059": {
+      "bridge": "The film doubles a whole sum and lines it up with the original. Write the two rows so the matching terms sit above one another. Which two end terms survive the subtraction?"
+    },
+    "S060": {
+      "bridge": "When both named pairs are adjacent in the film’s final line, how often is that line included in the two single-pair totals? How often should it appear in a count of lines with exactly one adjacent pair?"
+    },
+    "S061": {
+      "bridge": "Before the film gives its unshaded area, outline the patch shaded twice. If you subtract both shaded areas from the whole board, where must that patch be added back? Then check by counting the unshaded blocks."
+    },
+    "S062": {
+      "bridge": "In the film’s list from 1 through 84, follow the number 30. How often does it enter the three single lists, the three pair overlaps and the triple overlap? It should contribute exactly once to the excluded total."
+    },
+    "S065": {
+      "bridge": "In the festival puzzle, six rooms book eight helpers each. Circle one helper-room booking. How many bookings does one helper have, and why must the booking total be divided before it can give the number of people?"
+    },
+    "S066": {
+      "bridge": "When the ruler shifts right, the endpoints and every candidate move together. Later the film lowers the original upper limit to 198. Which previously valid number is just outside that new limit?"
+    },
+    "S067": {
+      "bridge": "Write the colour pattern for all three rooms in each permitted case. The middle room is red both when all three exhibits are red and when A sits between two blues. In which pattern is exhibit B forbidden?"
     }
   }
 }

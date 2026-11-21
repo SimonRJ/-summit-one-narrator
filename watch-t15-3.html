@@ -34,6 +34,8 @@ summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
 </style>
+<link rel="stylesheet" href="topic-film-reading.css">
+<script defer src="topic-film-print.js"></script>
 </head>
 <body>
 <main>
@@ -48,29 +50,42 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
   <source src="media/T15.3.mp4?v=teaching-films-v1" type="video/mp4">
 </video>
 <p class="meta">2:01 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Match each object to one of the other type</button>
-<button type="button" data-time="11.160">0:11 · A pairing gives a reason for half</button>
-<button type="button" data-time="19.970">0:19 · How many of eight settings have even parity?</button>
-<button type="button" data-time="34.500">0:34 · Flip the first switch to find the partner</button>
-<button type="button" data-time="47.780">0:47 · Flipping one switch changes parity</button>
-<button type="button" data-time="62.490">1:02 · Use the same proof for ten switches</button>
-<button type="button" data-time="76.090">1:16 · Pair the first and last numbers</button>
-<button type="button" data-time="90.010">1:30 · Check for an object that pairs with itself</button>
-<button type="button" data-time="104.730">1:44 · Your turn</button></nav>
+<nav class="chapters" aria-label="Video chapters">
+<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Match each object with an opposite-type partner</button>
+<button type="button" data-time="11.160"><span class="chapter-clock">0:11</span> Explain why a pairing gives equal counts</button>
+<button type="button" data-time="19.970"><span class="chapter-clock">0:20</span> Count even settings of three switches</button>
+<button type="button" data-time="34.500"><span class="chapter-clock">0:35</span> Flip the first switch to find a partner</button>
+<button type="button" data-time="47.780"><span class="chapter-clock">0:48</span> Compare odd and even settings within a pair</button>
+<button type="button" data-time="62.490"><span class="chapter-clock">1:02</span> Apply the switch pairing to ten switches</button>
+<button type="button" data-time="76.090"><span class="chapter-clock">1:16</span> Pair the ends of the list from 1 to 100</button>
+<button type="button" data-time="90.010"><span class="chapter-clock">1:30</span> Find the factor of 36 that pairs with itself</button>
+<button type="button" data-time="104.730"><span class="chapter-clock">1:45</span> Pair the numbers from 1 to 40</button>
+</nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>What is the sum of the whole numbers from 1 to 40?</p>
 <details><summary>Check your reasoning</summary><p>20 pairs each adding to 41: 820.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary><p>If you can match every object with exactly one partner of the opposite type, then exactly half the objects are of each type. A good pairing lets you count without listing anything.</p>
+<details class="transcript"><summary>Read the transcript</summary>
+<h2><span class="chapter-clock">0:00</span> Match each object with an opposite-type partner</h2>
+<p>If you can match every object with exactly one partner of the opposite type, then exactly half the objects are of each type. A good pairing lets you count without listing anything.</p>
+<h2><span class="chapter-clock">0:11</span> Explain why a pairing gives equal counts</h2>
 <p>Pairing arguments are short and they are proofs. They explain why the answer is half, instead of just noticing it in a few examples.</p>
+<h2><span class="chapter-clock">0:20</span> Count even settings of three switches</h2>
 <p>Three light switches can each be on or off, giving eight settings. In how many of them is an even number of switches on? Zero counts as even. Pause and try to predict the answer.</p>
+<h2><span class="chapter-clock">0:35</span> Flip the first switch to find a partner</h2>
 <p>Pair each setting with the one you get by flipping the first switch. Flip it again and you return, so the settings really are in pairs. No setting is its own partner, because flipping always changes something.</p>
+<h2><span class="chapter-clock">0:48</span> Compare odd and even settings within a pair</h2>
 <p>Flipping one switch changes the number of switches that are on by exactly one. So in each pair, one setting has an even number on and the other has an odd number. Four pairs, so four settings are even and four are odd.</p>
+<h2><span class="chapter-clock">1:02</span> Apply the switch pairing to ten switches</h2>
 <p>The same argument works whenever there is at least one switch to flip. With ten switches there are one thousand and twenty-four settings, and exactly half, five hundred and twelve, have an even number on. No listing needed.</p>
+<h2><span class="chapter-clock">1:16</span> Pair the ends of the list from 1 to 100</h2>
 <p>Pairing also adds. To add the numbers from one to one hundred, pair one with one hundred, two with ninety-nine, and so on. There are fifty pairs, each adding to one hundred and one. The total is five thousand and fifty.</p>
+<h2><span class="chapter-clock">1:30</span> Find the factor of 36 that pairs with itself</h2>
 <p>Always check that nothing is left without a partner, or paired with itself. The factors of thirty-six pair up to multiply to thirty-six, except six, which pairs with itself. That is why thirty-six has an odd number of factors.</p>
-<p>Find a rule that pairs every object with a different partner. If each pair has one of each type, the types occur equally often. Notebook challenge: what is the sum of the whole numbers from one to forty?</p></details>
+<h2><span class="chapter-clock">1:45</span> Pair the numbers from 1 to 40</h2>
+<p>Find a rule that pairs every object with a different partner. If each pair has one of each type, the types occur equally often. Notebook challenge: what is the sum of the whole numbers from one to forty?</p>
+</details>
 <p><a href="media/T15.3.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
 </main>
 <script>

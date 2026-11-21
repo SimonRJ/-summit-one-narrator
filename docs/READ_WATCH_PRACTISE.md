@@ -32,6 +32,16 @@ S022–S027 add 36 independently verified graded questions. The film cues and op
 
 The five teaching lessons from S029 to S034 have 29 active graded questions. Independent checks included exact clock instants, work rates, all possible truth assignments and all six race orders. The film cues now identify the starting flash, the moment the tank starts leaking and the time spent at rest. S032 is a separate strategy workshop.
 
+S036–S040 add 27 independently verified marked questions. Full domino-tiling enumeration, relative-position checks, exact calculations and substitution confirmed the keys. The readings distinguish a clock started after a head start, a ticket count from a price, elapsed time from moving time, and how many times each item appears in a combined weighing.
+
+S041, S043, S044, S045, S046 and S047 contain 33 independently verified protected questions. The review checked cancellation, measured boundaries, reversible whole-number operations, time-interval rates, transfers and the pairing of arithmetic-series terms. The labels and geometry on both opening figures agree with the written examples.
+
+The six lessons S050–S055 have 35 independently verified active problems. Checks included exhaustive jump sequences, bounded fence dimensions and palindrome enumeration. S050 now uses a courier’s fixed charge to explain cancellation, and the other cues distinguish running totals, route counts, allowed dimensions, cycle entry and free digit positions.
+
+S057–S062 add 33 independently verified marked questions on lists, teams, doubling, neighbour restrictions, areas and overlaps. Checks enumerated ordered outcomes and unordered teams separately and computed the four-sided window area directly from its coordinates.
+
+The four teaching sessions S065–S068 add 23 verified questions. Their reviewed cues distinguish bookings from people, inclusive endpoints, the full three-room colour pattern, and the truth of a whole compound statement. All 55 first-edition written teaching lessons are now individually recorded in the review register.
+
 
 ## Lesson index
 
@@ -78,7 +88,7 @@ The problem count includes both new and retained practice. Film links point to t
 | [S045](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S045-Intro-Illustrated.mp4) | Does a graph show a total or a change? | Between two readings | 4 |
 | [S046](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S046-Intro-Illustrated.mp4) | Where do the extra points go? | Three depots | 5 |
 | [S047](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S047-Intro-Illustrated.mp4) | Count the gaps, then pair the ends | The missing end | 6 |
-| [S050](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S050-Intro-Illustrated.mp4) | Make the shared part cancel | Two bands of seats | 6 |
+| [S050](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S050-Intro-Illustrated.mp4) | What does the price difference measure? | Two bands of seats | 6 |
 | [S051](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S051-Intro-Illustrated.mp4) | One day’s amount or the running total? | Folded paper | 6 |
 | [S052](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S052-Intro-Illustrated.mp4) | Count the ways into each position | Signal words | 6 |
 | [S053](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S053-Intro-Illustrated.mp4) | Which rectangle wins? | Two pens | 6 |

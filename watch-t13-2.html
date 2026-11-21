@@ -37,6 +37,8 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
   video { width: auto; max-width: 100%; height: auto; max-height: calc(100svh - 20px); margin-inline: auto; }
 }
 </style>
+<link rel="stylesheet" href="topic-film-reading.css">
+<script defer src="topic-film-print.js"></script>
 </head>
 <body>
 <main>
@@ -51,27 +53,39 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
   <source src="media/T13.2.mp4?v=cut-and-scale-20261119" type="video/mp4">
 </video>
 <p class="meta">1:58 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Cuts affect area and perimeter differently</button>
-<button type="button" data-time="12.600">0:12 · The same area can have different perimeters</button>
-<button type="button" data-time="22.050">0:22 · Cut a unit square from the corner</button>
-<button type="button" data-time="34.660">0:34 · Two old edges are replaced by two new edges</button>
-<button type="button" data-time="51.620">0:51 · An edge notch adds two to the perimeter</button>
-<button type="button" data-time="66.500">1:06 · Doubling lengths quadruples the area</button>
-<button type="button" data-time="84.100">1:24 · Volume scales in three directions</button>
-<button type="button" data-time="94.510">1:34 · Your turn</button></nav>
+<nav class="chapters" aria-label="Video chapters">
+<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Predict how a cut changes the boundary</button>
+<button type="button" data-time="12.600"><span class="chapter-clock">0:13</span> Choose a measure for a cut or an enlargement</button>
+<button type="button" data-time="22.050"><span class="chapter-clock">0:22</span> Cut a unit square from a corner</button>
+<button type="button" data-time="34.660"><span class="chapter-clock">0:35</span> Match the two lost edges to the two new edges</button>
+<button type="button" data-time="51.620"><span class="chapter-clock">0:52</span> Move the cut to the middle of a side</button>
+<button type="button" data-time="66.500"><span class="chapter-clock">1:07</span> Double the sides of a two-by-three rectangle</button>
+<button type="button" data-time="84.100"><span class="chapter-clock">1:24</span> Double or triple the edges of a cube</button>
+<button type="button" data-time="94.510"><span class="chapter-clock">1:35</span> Scale a photograph by a factor of three</button>
+</nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>Every length of a photograph is tripled. How many times as large is its area?</p>
 <details><summary>Check your reasoning</summary><p>3 x 3 = 9 times.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary><p>Cutting a piece out of a shape always reduces its area. But the perimeter might stay the same, or even grow. Area and perimeter respond to changes in completely different ways.</p>
+<details class="transcript"><summary>Read the transcript</summary>
+<h2><span class="chapter-clock">0:00</span> Predict how a cut changes the boundary</h2>
+<p>Cutting a piece out of a shape always reduces its area. But the perimeter might stay the same, or even grow. Area and perimeter respond to changes in completely different ways.</p>
+<h2><span class="chapter-clock">0:13</span> Choose a measure for a cut or an enlargement</h2>
 <p>Questions often ask about perimeter after a cut, or area after an enlargement. Each needs its own reasoning, and mixing them up is a common mistake.</p>
+<h2><span class="chapter-clock">0:22</span> Cut a unit square from a corner</h2>
 <p>A five by three rectangle has a one by one square cut from a corner. What is its perimeter now? Pause and compare the old boundary with the new.</p>
+<h2><span class="chapter-clock">0:35</span> Match the two lost edges to the two new edges</h2>
 <p>The original perimeter is sixteen. The cut removes two short pieces of boundary, each of length one. But it exposes two new pieces, also each of length one. The perimeter is still sixteen. The new edges can be slid out to replace the old ones exactly.</p>
+<h2><span class="chapter-clock">0:52</span> Move the cut to the middle of a side</h2>
 <p>Now cut the same square from the middle of a side instead. One piece of length one is removed, but three new pieces appear. The perimeter rises by two, to eighteen. Same area removed, different effect on the boundary.</p>
+<h2><span class="chapter-clock">1:07</span> Double the sides of a two-by-three rectangle</h2>
 <p>Scaling is a different kind of change. Double every length of a two by three rectangle and you get four by six. The perimeter doubles, from ten to twenty. But the area becomes four times as big, from six to twenty-four, because both the length and the width were doubled.</p>
+<h2><span class="chapter-clock">1:24</span> Double or triple the edges of a cube</h2>
 <p>For solids, three directions are scaled. Doubling every length of a cube makes its volume eight times as large. Tripling makes it twenty-seven times as large.</p>
-<p>For a cut, compare the boundary removed with the boundary created. For scaling by a factor, lengths multiply by the factor, areas by its square, and volumes by its cube. Notebook challenge: a photograph is enlarged so that every length is three times as long. How many times as large is its area?</p></details>
+<h2><span class="chapter-clock">1:35</span> Scale a photograph by a factor of three</h2>
+<p>For a cut, compare the boundary removed with the boundary created. For scaling by a factor, lengths multiply by the factor, areas by its square, and volumes by its cube. Notebook challenge: a photograph is enlarged so that every length is three times as long. How many times as large is its area?</p>
+</details>
 <p><a href="media/T13.2.mp4?v=cut-and-scale-20261119">Open the MP4 directly</a></p>
 </main>
 <script src="lesson-video-chapters.js?v=seek-1"></script>

@@ -34,6 +34,8 @@ summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
 </style>
+<link rel="stylesheet" href="topic-film-reading.css">
+<script defer src="topic-film-print.js"></script>
 </head>
 <body>
 <main>
@@ -48,23 +50,33 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
   <source src="media/T13.E.mp4?v=teaching-films-v1" type="video/mp4">
 </video>
 <p class="meta">1:18 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Two equal cuts in different places</button>
-<button type="button" data-time="16.720">0:16 · The original boundary measures twenty</button>
-<button type="button" data-time="23.930">0:23 · A corner cut gives two edges back</button>
-<button type="button" data-time="34.820">0:34 · An edge notch gives three edges back</button>
-<button type="button" data-time="46.500">0:46 · Same area removed, different boundary</button>
-<button type="button" data-time="59.460">0:59 · Your turn</button></nav>
+<nav class="chapters" aria-label="Video chapters">
+<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Compare two cuts in matching rectangles</button>
+<button type="button" data-time="16.720"><span class="chapter-clock">0:17</span> Trace the original 6 cm by 4 cm boundary</button>
+<button type="button" data-time="23.930"><span class="chapter-clock">0:24</span> Replace the two edges lost at a corner</button>
+<button type="button" data-time="34.820"><span class="chapter-clock">0:35</span> Trace the three new edges of a notch</button>
+<button type="button" data-time="46.500"><span class="chapter-clock">0:47</span> Compare perimeters after equal areas are removed</button>
+<button type="button" data-time="59.460"><span class="chapter-clock">0:59</span> Cut a notch 2 cm wide and 1 cm deep</button>
+</nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>A rectangular card measures 6 cm by 4 cm. Cut a rectangular notch 2 cm wide and 1 cm deep into the middle of one edge. What is the perimeter now?</p>
 <details><summary>Check your reasoning</summary><p>The old perimeter is 20 cm. A 2 cm section of edge disappears and is replaced by the three sides of the notch, measuring 1, 2 and 1 cm. The perimeter grows by 2 cm, to 22 cm.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary><p>Start with two rectangles, each six centimetres by four. Cut a one centimetre square from a corner of the first, and a one centimetre square from the middle of an edge of the second. What are the two new perimeters?</p>
+<details class="transcript"><summary>Read the transcript</summary>
+<h2><span class="chapter-clock">0:00</span> Compare two cuts in matching rectangles</h2>
+<p>Start with two rectangles, each six centimetres by four. Cut a one centimetre square from a corner of the first, and a one centimetre square from the middle of an edge of the second. What are the two new perimeters?</p>
+<h2><span class="chapter-clock">0:17</span> Trace the original 6 cm by 4 cm boundary</h2>
 <p>Each original rectangle has perimeter six plus four plus six plus four: twenty centimetres.</p>
+<h2><span class="chapter-clock">0:24</span> Replace the two edges lost at a corner</h2>
 <p>The corner cut removes two one-centimetre pieces of the old boundary, and exposes two new one-centimetre pieces. The change is zero. The perimeter is still twenty centimetres.</p>
+<h2><span class="chapter-clock">0:35</span> Trace the three new edges of a notch</h2>
 <p>The cut in the middle of an edge removes only one piece of old boundary, but exposes three new pieces. The change is plus two. The perimeter is twenty-two centimetres.</p>
+<h2><span class="chapter-clock">0:47</span> Compare perimeters after equal areas are removed</h2>
 <p>Both shapes have lost the same area. Each has area twenty-three square centimetres. Yet their perimeters differ. The area removed does not decide the change in perimeter; the position of the cut does.</p>
-<p>New perimeter equals old perimeter, minus the boundary removed, plus the boundary created. Rebuild this, then find the perimeter when a two by one rectangle is cut from the middle of an edge, with its long side along the edge.</p></details>
+<h2><span class="chapter-clock">0:59</span> Cut a notch 2 cm wide and 1 cm deep</h2>
+<p>New perimeter equals old perimeter, minus the boundary removed, plus the boundary created. Rebuild this, then find the perimeter when a two by one rectangle is cut from the middle of an edge, with its long side along the edge.</p>
+</details>
 <p><a href="media/T13.E.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
 </main>
 <script>

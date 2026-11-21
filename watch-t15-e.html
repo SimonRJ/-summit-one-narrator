@@ -34,6 +34,8 @@ summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
 </style>
+<link rel="stylesheet" href="topic-film-reading.css">
+<script defer src="topic-film-print.js"></script>
 </head>
 <body>
 <main>
@@ -48,23 +50,33 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
   <source src="media/T15.E.mp4?v=teaching-films-v1" type="video/mp4">
 </video>
 <p class="meta">1:14 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Choose any subset of A, B and C</button>
-<button type="button" data-time="14.970">0:14 · Every object has two choices</button>
-<button type="button" data-time="22.820">0:22 · Toggle A to pair each group</button>
-<button type="button" data-time="38.180">0:38 · In each pair, sizes differ by one</button>
-<button type="button" data-time="50.820">0:50 · Check the even-sized groups by listing</button>
-<button type="button" data-time="59.630">0:59 · Your turn</button></nav>
+<nav class="chapters" aria-label="Video chapters">
+<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Choose groups from A, B and C</button>
+<button type="button" data-time="14.970"><span class="chapter-clock">0:15</span> Count all the in-or-out choices</button>
+<button type="button" data-time="22.820"><span class="chapter-clock">0:23</span> Add or remove A to make partners</button>
+<button type="button" data-time="38.180"><span class="chapter-clock">0:38</span> Compare the two sizes in each pair</button>
+<button type="button" data-time="50.820"><span class="chapter-clock">0:51</span> List the four even groups including the empty group</button>
+<button type="button" data-time="59.630"><span class="chapter-clock">1:00</span> Count odd groups chosen from five objects</button>
+</nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>From five different objects, how many subsets have an odd number of objects?</p>
 <details><summary>Check your reasoning</summary><p>There are 2 × 2 × 2 × 2 × 2 = 32 subsets. Choose one special object. Pair each subset without it with the same subset plus that object. Each pair has one odd-sized subset and one even-sized subset, giving 16 odd-sized subsets.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary><p>From three objects, A, B and C, choose any group, including the empty group with nothing in it. Explain why exactly half of the groups have an even number of members.</p>
+<details class="transcript"><summary>Read the transcript</summary>
+<h2><span class="chapter-clock">0:00</span> Choose groups from A, B and C</h2>
+<p>From three objects, A, B and C, choose any group, including the empty group with nothing in it. Explain why exactly half of the groups have an even number of members.</p>
+<h2><span class="chapter-clock">0:15</span> Count all the in-or-out choices</h2>
 <p>Each object is either in the group or out of it. Two choices, three times over, gives eight groups.</p>
+<h2><span class="chapter-clock">0:23</span> Add or remove A to make partners</h2>
 <p>Pair each group with the group you get by changing A: put A in if it is out, and take A out if it is in. The empty group pairs with the group containing only A. The group B, C pairs with the group A, B, C.</p>
+<h2><span class="chapter-clock">0:38</span> Compare the two sizes in each pair</h2>
 <p>Changing A changes the size of the group by exactly one. So each pair has one group of even size and one of odd size. Four pairs give four even groups and four odd groups.</p>
+<h2><span class="chapter-clock">0:51</span> List the four even groups including the empty group</h2>
 <p>Check by listing. The even groups are the empty group, A with B, A with C, and B with C. That is four, exactly half of eight.</p>
-<p>Toggling one member pairs every even group with an odd one. Rebuild this argument, then say how many groups chosen from five objects have an odd number of members.</p></details>
+<h2><span class="chapter-clock">1:00</span> Count odd groups chosen from five objects</h2>
+<p>Toggling one member pairs every even group with an odd one. Rebuild this argument, then say how many groups chosen from five objects have an odd number of members.</p>
+</details>
 <p><a href="media/T15.E.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
 </main>
 <script>

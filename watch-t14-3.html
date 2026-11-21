@@ -34,6 +34,8 @@ summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
 </style>
+<link rel="stylesheet" href="topic-film-reading.css">
+<script defer src="topic-film-print.js"></script>
 </head>
 <body>
 <main>
@@ -48,27 +50,39 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
   <source src="media/T14.3.mp4?v=teaching-films-v1" type="video/mp4">
 </video>
 <p class="meta">2:03 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · A meeting is an edge between two people</button>
-<button type="button" data-time="15.800">0:15 · A network makes conflicts visible</button>
-<button type="button" data-time="25.730">0:25 · Schedule all games for four players</button>
-<button type="button" data-time="40.740">0:40 · Six games take at least three rounds</button>
-<button type="button" data-time="52.740">0:52 · Build three rounds without clashes</button>
-<button type="button" data-time="68.420">1:08 · Five players also fit at most two games per round</button>
-<button type="button" data-time="86.330">1:26 · The busiest player gives another lower bound</button>
-<button type="button" data-time="99.130">1:39 · Your turn</button></nav>
+<nav class="chapters" aria-label="Video chapters">
+<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Draw a network of shared meetings</button>
+<button type="button" data-time="15.800"><span class="chapter-clock">0:16</span> Read a clash in the network</button>
+<button type="button" data-time="25.730"><span class="chapter-clock">0:26</span> Schedule all the pairs of four players</button>
+<button type="button" data-time="40.740"><span class="chapter-clock">0:41</span> Bound the rounds by games per round</button>
+<button type="button" data-time="52.740"><span class="chapter-clock">0:53</span> Pair four players in three rounds</button>
+<button type="button" data-time="68.420"><span class="chapter-clock">1:08</span> Allow a resting player in a group of five</button>
+<button type="button" data-time="86.330"><span class="chapter-clock">1:26</span> Use the busiest person to bound the slots</button>
+<button type="button" data-time="99.130"><span class="chapter-clock">1:39</span> Schedule fifteen games for six players</button>
+</nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>Six players each play every other player once. A round has at most 3 games and no player plays twice in a round. What is the fewest rounds?</p>
 <details><summary>Check your reasoning</summary><p>There are 15 games, so at least 5 rounds. One schedule is AF, BE, CD; BF, AC, DE; CF, BD, AE; DF, CE, AB; EF, AD, BC.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary><p>A timetable can be drawn as a network. Each person is a dot, and each meeting that must happen is a line between two dots. Meetings in the same time slot must not share a person. So a time slot is a set of lines with no dot in common.</p>
+<details class="transcript"><summary>Read the transcript</summary>
+<h2><span class="chapter-clock">0:00</span> Draw a network of shared meetings</h2>
+<p>A timetable can be drawn as a network. Each person is a dot, and each meeting that must happen is a line between two dots. Meetings in the same time slot must not share a person. So a time slot is a set of lines with no dot in common.</p>
+<h2><span class="chapter-clock">0:16</span> Read a clash in the network</h2>
 <p>Drawing it this way turns &quot;avoid clashes&quot; into something you can see. It also gives quick lower limits on the number of slots, before you build anything.</p>
+<h2><span class="chapter-clock">0:26</span> Schedule all the pairs of four players</h2>
 <p>Four players each play one game against every other player. A player can play at most one game per round. What is the smallest number of rounds needed? Pause and count the games.</p>
+<h2><span class="chapter-clock">0:41</span> Bound the rounds by games per round</h2>
 <p>There are six games. A round uses each player at most once, so it holds at most two games. Six divided by two is three. At least three rounds are needed.</p>
+<h2><span class="chapter-clock">0:53</span> Pair four players in three rounds</h2>
 <p>Can three be reached? Round one: A plays B, and C plays D. Round two: A plays C, and B plays D. Round three: A plays D, and B plays C. All six games are played. Three rounds is the answer.</p>
+<h2><span class="chapter-clock">1:08</span> Allow a resting player in a group of five</h2>
 <p>With five players there are ten games. In any round one player must rest, so again at most two games fit. That takes at least five rounds, even though each player plays only four games. The five-day pairing schedule from the earlier lesson shows that five rounds can be reached.</p>
+<h2><span class="chapter-clock">1:26</span> Use the busiest person to bound the slots</h2>
 <p>There is a second kind of limit. A person who is in three meetings needs at least three slots, whatever everyone else is doing. Use whichever limit is stronger, and then show a timetable that reaches it.</p>
-<p>Draw people as dots and meetings as lines. A slot is a set of lines sharing no dot. Find a limit, then build a timetable that reaches it. Notebook challenge: six players each play every other player once, with at most three games per round and no player playing twice in a round. What is the fewest rounds?</p></details>
+<h2><span class="chapter-clock">1:39</span> Schedule fifteen games for six players</h2>
+<p>Draw people as dots and meetings as lines. A slot is a set of lines sharing no dot. Find a limit, then build a timetable that reaches it. Notebook challenge: six players each play every other player once, with at most three games per round and no player playing twice in a round. What is the fewest rounds?</p>
+</details>
 <p><a href="media/T14.3.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
 </main>
 <script>

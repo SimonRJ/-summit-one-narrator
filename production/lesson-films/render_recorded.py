@@ -28,6 +28,7 @@ LESSONS = {
     "S141": "creek_readings",
     "S149": "area_atelier",
     "S150": "sun_lamp",
+    "S151": "bridge_plates",
     "S152": "counter_exchange",
     "S155": "palindrome_odometer",
 }

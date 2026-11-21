@@ -252,7 +252,17 @@ try{
  await page.evaluate(()=>sessionStorage.removeItem('qa-repair-state'));
  await page.evaluate(async()=>{const m=await import('/learning-support.js?v=recognition-20261113');await m.mountInvestigationReview(document.querySelector('#app'),{user:{id:'fixture-learner'},record:{session_number:7},item:{solution:'A complete model argument.',transfer_solution:'Test the general rule in a new setting.'}});});
  await page.locator('[name=reviewer]').fill('QA Parent');for(const k of ['result','method','proof'])await page.locator(`[name=${k}]`).selectOption('2');await page.locator('[name=clarity]').selectOption('1');await page.locator('[name=notes]').fill('The pattern is clear. Next, explain why the missing cases cannot occur.');await page.getByRole('button',{name:'Save adult review'}).click();await page.getByText('QA Parent · parent').waitFor();assert.equal(await page.evaluate(()=>globalThis.__fixture.investigation_reviews.length),1);await page.screenshot({path:`qa-screenshots/${prefix}-adult-review.png`,fullPage:true});
- await page.goto('http://127.0.0.1:4173/coverage.html');await page.getByRole('heading',{name:'Coverage across the complete archive'}).waitFor();assert.equal(await page.locator('.coverage-table tbody tr').count(),13);await page.screenshot({path:`qa-screenshots/${prefix}-coverage.png`,fullPage:true});
+ await page.goto('http://127.0.0.1:4173/coverage.html');await page.getByRole('heading',{name:'Coverage across the complete archive'}).waitFor();assert.equal(await page.locator('.coverage-table tbody tr').count(),13);
+ await page.getByText('Explore 52 problem-solving tools',{exact:true}).click();
+ assert.equal(await page.locator('.tool-list article').count(),52);
+ await page.getByLabel('Teaching area',{exact:true}).selectOption({index:1});
+ const topic=await page.locator('#toolTopic').inputValue();
+ const count=await page.locator('.tool-list article').count();
+ assert(count>0 && count<52);
+ assert((await page.locator('.tool-list article p:first-of-type').allInnerTexts()).every(t=>t.startsWith(topic)));
+ await page.getByLabel('Teaching area',{exact:true}).selectOption('');
+ await page.getByText('Explore 52 problem-solving tools',{exact:true}).click();
+ await page.screenshot({path:`qa-screenshots/${prefix}-coverage.png`,fullPage:true});
  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+2),false,'horizontal overflow');
  await page.goto('http://127.0.0.1:4173/');await page.locator('#continue').waitFor();
  await page.evaluate(async()=>{const {mountPractice}=await import('/transfer-practice.js?v=recognition-20261113');mountPractice(document.querySelector('#app'),{id:'ALG-01',seed:2,key:'independent',draft:{evidence:{},working:{}},save:async()=>{}});});assert.equal(await page.locator('.mini-check svg').count(),0,'independent diagram must not reveal worked steps');

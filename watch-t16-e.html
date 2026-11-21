@@ -37,6 +37,8 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
   video { width: auto; max-width: 100%; height: auto; max-height: calc(100svh - 20px); margin-inline: auto; }
 }
 </style>
+<link rel="stylesheet" href="topic-film-reading.css">
+<script defer src="topic-film-print.js"></script>
 </head>
 <body>
 <main>
@@ -51,23 +53,33 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
   <source src="media/T16.E.mp4?v=teaching-films-v1" type="video/mp4">
 </video>
 <p class="meta">1:15 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Find the mean score of all five learners</button>
-<button type="button" data-time="11.460">0:11 · Add up the points each group contributes</button>
-<button type="button" data-time="20.750">0:20 · Share all forty-one points among five learners</button>
-<button type="button" data-time="30.680">0:30 · The larger group has more weight</button>
-<button type="button" data-time="48.120">0:48 · Equal group sizes have an equal weight</button>
-<button type="button" data-time="60.120">1:00 · Your turn</button></nav>
+<nav class="chapters" aria-label="Video chapters">
+<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Combine the scores of two groups of learners</button>
+<button type="button" data-time="11.460"><span class="chapter-clock">0:11</span> Total the sevens and the nines separately</button>
+<button type="button" data-time="20.750"><span class="chapter-clock">0:21</span> Share 41 points equally among five learners</button>
+<button type="button" data-time="30.680"><span class="chapter-clock">0:31</span> Explain why the mean moves towards nine</button>
+<button type="button" data-time="48.120"><span class="chapter-clock">0:48</span> Balance the groups with equal numbers of learners</button>
+<button type="button" data-time="60.120"><span class="chapter-clock">1:00</span> Find the mean of four fives and one ten</button>
+</nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>Four learners score 5 each and one learner scores 10. What is the mean?</p>
-<details><summary>Check your reasoning</summary><p>(20 + 10) / 5 = 6.</p></details>
+<details><summary>Check your reasoning</summary><p>The four scores of 5 contribute 20 points. The other score brings the total to 30. Sharing those 30 points across all five learners gives a mean of 6 points.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary><p>Two learners each score seven points, and three learners each score nine points. What is the mean score for all five learners?</p>
+<details class="transcript"><summary>Read the transcript</summary>
+<h2><span class="chapter-clock">0:00</span> Combine the scores of two groups of learners</h2>
+<p>Two learners each score seven points, and three learners each score nine points. What is the mean score for all five learners?</p>
+<h2><span class="chapter-clock">0:11</span> Total the sevens and the nines separately</h2>
 <p>Find the totals. The first group scores two times seven: fourteen points. The second group scores three times nine: twenty-seven points.</p>
+<h2><span class="chapter-clock">0:21</span> Share 41 points equally among five learners</h2>
 <p>Together that is forty-one points for five learners. Forty-one divided by five is eight point two. The mean score is eight point two.</p>
+<h2><span class="chapter-clock">0:31</span> Explain why the mean moves towards nine</h2>
 <p>Why is the mean above eight, halfway between seven and nine? Three learners score nine and two score seven, so the balance point is pulled towards nine. If you add one extra score of nine to four scores averaging eight, the mean moves one fifth of the way from eight to nine.</p>
+<h2><span class="chapter-clock">0:48</span> Balance the groups with equal numbers of learners</h2>
 <p>If the groups were the same size, two learners at seven and two at nine, the mean would be exactly eight. The two group means now carry equal weight, so their simple average works.</p>
-<p>Combine the totals, then divide by the total number of people. Rebuild this, then find the mean score when four learners score five each and one learner scores ten.</p></details>
+<h2><span class="chapter-clock">1:00</span> Find the mean of four fives and one ten</h2>
+<p>Combine the totals, then divide by the total number of people. Rebuild this, then find the mean score when four learners score five each and one learner scores ten.</p>
+</details>
 <p><a href="media/T16.E.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
 </main>
 <script src="lesson-video-chapters.js?v=seek-1"></script>

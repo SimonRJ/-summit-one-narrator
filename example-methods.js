@@ -5,10 +5,10 @@ export const exampleMethods = new Map([
     working: 'Double 31 to get 62. Double again to get 124, then once more to get 248. Three doubles multiply by 2 × 2 × 2, which is 8.',
     comparison: 'The area method uses the fact that 31 is close to 30. Doubling uses the structure of the other factor, 8. Which would you try for 47 × 8?'
   }],
-  ['What is the longest length that fits exactly into both 12 cm and 20 cm?', {
-    method: 'Use the leftover length',
-    working: 'Lay 12 cm along 20 cm. There are 8 cm left. Lay that 8 cm along 12 cm and 4 cm remain. Any length that fits both originals must also fit each leftover, so it cannot exceed 4 cm. Four fits both, three times and five times.',
-    comparison: 'Listing factors works quickly for short lengths. Taking differences lets you keep cutting the problem down even when a list of factors would be long.'
+  ['A 12 cm ribbon and a 20 cm ribbon must be cut into equally long whole-centimetre pieces with no waste. What is the greatest possible length of a piece?', {
+    method: 'List the possible cuts',
+    working: 'The whole-centimetre lengths that divide 12 are 1, 2, 3, 4, 6 and 12. Test these against 20. Only 1, 2 and 4 work, so the greatest length is 4 cm.',
+    comparison: 'The list lets you see every possible piece length. Using successive leftovers reaches the greatest length quickly even when the original ribbons are long.'
   }],
   ['Four jars hold an average of 6 marbles. Three jars hold 3, 7 and 8. How many marbles are in the fourth jar?', {
     method: 'Level the jars',

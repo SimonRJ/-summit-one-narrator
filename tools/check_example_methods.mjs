@@ -14,7 +14,7 @@ const redChance = (1 / 2) * (2 / 2) + (1 / 2) * (1 / 2);
 // Calculate each result independently of the explanation and match the answer in the rendered alternative.
 const solutions = new Map([
   [2, `to get ${31 * 8}.`],
-  [13, `cannot exceed ${Math.max(...commonLengths)} cm`],
+  [13, `greatest length is ${Math.max(...commonLengths)} cm`],
   [26, `must already hold ${possibleJar}.`],
   [43, `sum is ${2 * (4 * 4) - 2 * 4} cm`],
   [62, `= ${labels.filter(label => label.includes('A')).length}.`],

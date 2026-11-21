@@ -1,7 +1,7 @@
 import {chromium} from 'playwright';
 import fs from 'node:fs';import path from 'node:path';import http from 'node:http';import assert from 'node:assert/strict';
 const root=process.cwd();fs.mkdirSync('qa-screenshots',{recursive:true});
-const mime={'.js':'application/javascript','.css':'text/css','.json':'application/json','.mp4':'video/mp4','.jpg':'image/jpeg','.html':'text/html','.svg':'image/svg+xml','.vtt':'text/vtt'};
+const mime={'.js':'application/javascript','.css':'text/css','.json':'application/json','.mp4':'video/mp4','.jpg':'image/jpeg','.html':'text/html','.svg':'image/svg+xml','.vtt':'text/vtt','.mp3':'audio/mpeg'};
 const server=http.createServer((req,res)=>{
  const url=new URL(req.url,'http://localhost');const file=path.resolve(root,'.'+(url.pathname==='/'?'/index.html':url.pathname));
  if(!file.startsWith(root+path.sep)){res.writeHead(403);res.end();return}
@@ -58,7 +58,7 @@ try{
   assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth+1));
   await page.screenshot({path:`qa-screenshots/${mobile?'mobile':'desktop'}-pyramid-review.png`,fullPage:true});
   // Real login module with an isolated SDK stub; no learner credentials or records.
-  await page.goto('http://127.0.0.1:4181/login.html');await page.locator('#loginName').fill('fixture');await page.locator('#password').fill('fixture-only');await page.locator('#signIn').click();await page.waitForURL('**/welcome.html?from=login');
+  await page.goto('http://127.0.0.1:4181/login.html');await page.locator('#loginName').fill('fixture');await page.locator('#password').fill('fixture-only');await page.locator('#password').press('Enter');await page.waitForURL('**/welcome.html?from=login');
   await page.locator('#skipWelcome').click();await page.waitForURL('http://127.0.0.1:4181/');
   await page.goto('http://127.0.0.1:4181/login.html');await page.waitForURL('http://127.0.0.1:4181/');
   await page.evaluate(()=>sessionStorage.clear());await page.goto('http://127.0.0.1:4181/login.html?next=tests.html%3Fsection%3Drossmoyne');await page.locator('#loginName').fill('fixture');await page.locator('#password').fill('fixture-only');await page.locator('#signIn').click();await page.waitForURL('**/tests.html?section=rossmoyne');
@@ -66,6 +66,25 @@ try{
   const broken=await browser.newContext({viewport:mobile?{width:390,height:844}:{width:1440,height:1000},serviceWorkers:'block'}),bp=await broken.newPage();
   await bp.route('**/media/AMCIntroduction.mp4*',r=>r.abort());await bp.route('http://127.0.0.1:4181/',r=>r.fulfill({contentType:'text/html',body:'<h1>Learning destination fixture</h1>'}));
   await bp.goto('http://127.0.0.1:4181/welcome.html');await bp.locator('#watchWelcome').click();await bp.waitForFunction(()=>document.querySelector('#welcomeStatus').classList.contains('error'));assert(await bp.locator('#watchWelcome').isEnabled());await bp.locator('#skipWelcome').click();await bp.waitForURL('http://127.0.0.1:4181/');await broken.close();
+  await page.goto('http://127.0.0.1:4181/teaching-videos.html');
+  const search=page.getByRole('searchbox',{name:'Find a film'});
+  await search.fill('remainder');
+  assert(await page.locator('.chapters li:visible').count()>0);
+  await page.getByLabel('Film type').selectOption('Worked example');
+  assert((await page.locator('.chapters li:visible small').allTextContents()).every(t=>t.endsWith('Worked example')));
+  await search.fill('a word absent from every lesson title');
+  await page.getByText('No films match.',{exact:false}).waitFor();
+  await page.getByRole('button',{name:'Clear filters'}).click();
+  assert.equal(await page.locator('.chapters li:visible').count(),72);
+  await page.goto('http://127.0.0.1:4181/voice-audition.html');
+  const samples=page.locator('audio');
+  assert.equal(await samples.count(),2);
+  for(const sample of await samples.all()) {
+    await sample.evaluate(el=>el.play());
+    await page.waitForFunction(()=>Array.from(document.querySelectorAll('audio')).some(el=>!el.paused && el.currentTime>.1));
+  }
+  assert(await samples.first().evaluate(el=>el.paused));
+  assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
   assert.deepEqual(errors,[]);await context.close();
  }
  console.log('PASS: desktop/mobile welcome, no autoplay/download, real video decode/play/pause/replay, new login, existing session, exam return, optional skip, error fallback, no overflow or learner data writes.');

@@ -1,7 +1,58 @@
-const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const el=document.querySelector('#coverage');
-try{
- const response=await fetch('data/amc-coverage.json?v=recognition-20261113');if(!response.ok)throw Error('Coverage data could not load.');const d=await response.json();
- el.innerHTML=`<h2>Coverage across the complete archive</h2><p>${esc(d.basis)}</p><div class="coverage-scroll"><table class="coverage-table"><thead><tr><th>Primary teaching area</th><th>All 570</th><th>Q1–10</th><th>Q11–20</th><th>Q21–25</th><th>Q26–30</th><th>Range per paper</th></tr></thead><tbody>${d.topics.map(t=>`<tr><td>${esc(t.topic)}</td><td>${t.questions}</td>${['Q1–10','Q11–20','Q21–25','Q26–30'].map(b=>`<td>${t.bands[b]||0}</td>`).join('')}<td>${t.minimum_per_paper}–${t.maximum_per_paper}</td></tr>`).join('')}</tbody></table></div><p class="muted">A question receives one primary teaching area so the total is 570. Supporting skills may cross several areas. A zero means no primary label in this classification, not that a skill never helps solve those questions.</p><details><summary>Explore all 52 tools and their boundaries</summary><div class="tool-list">${d.skills.map(s=>`<article><h3>${esc(s.strategy)}</h3><p><b>${esc(s.topic)}</b> · ${esc(s.id)}</p><p>${s.questions} primary archive mappings</p><p><b>Watch for:</b> ${esc(s.avoid)}</p><p><b>Check:</b> ${esc(s.check)}</p></article>`).join('')}</div></details><h2>How the practice papers use this</h2><p>Ten original AMC mocks keep the 30-question, 135-mark structure and the multiple-choice/integer-answer split. Nearby topic positions vary between papers. The final questions include counting, number, geometry, rates and algebra; they do not follow one repeated topic template.</p><p>${esc(d.limitations)}</p><p><a href="https://amt.edu.au/amc" target="_blank" rel="noopener">Check current AMC information with AMT ↗</a></p>`;
- el.removeAttribute('role');
-}catch(error){el.textContent=error.message+' Please reload to try again.';}
+const host = document.querySelector('#coverage');
+const bands = ['Q1–10', 'Q11–20', 'Q21–25', 'Q26–30'];
+const escape = value => String(value ?? '').replace(/[&<>"']/g, ch => ({
+  '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'
+})[ch]);
+
+function strategyCard(skill) {
+  return `<article><h3>${escape(skill.strategy)}</h3><p>${escape(skill.topic)} · ${escape(skill.id)}</p>
+    <p><b>Watch for</b> · ${escape(skill.avoid)}</p><p><b>Check</b> · ${escape(skill.check)}</p></article>`;
+}
+
+async function loadCoverage() {
+  host.setAttribute('role','status');
+  host.textContent = 'Loading the coverage map…';
+  try {
+    const response = await fetch('data/amc-coverage.json?v=recognition-20261113');
+    if (!response.ok) throw Error('Archive map unavailable');
+    const archive = await response.json();
+    const topics = [...new Set(archive.skills.map(skill => skill.topic))].sort();
+    host.innerHTML = `<h2 id="archiveTopics">Coverage across the complete archive</h2>
+      <p>Each question has one primary teaching area. A method can also help with questions listed in another area.</p>
+      <div class="coverage-scroll" tabindex="0" role="region" aria-labelledby="archiveTopics"><table class="coverage-table">
+      <thead><tr><th scope="col">Teaching area</th><th scope="col">All questions</th>
+      ${bands.map(band => `<th scope="col">${band}</th>`).join('')}<th scope="col">Range per paper</th></tr></thead>
+      <tbody>${archive.topics.map(topic => `<tr><th scope="row">${escape(topic.topic)}</th>
+      <td>${topic.questions}</td>${bands.map(band => `<td>${topic.bands[band] || 0}</td>`).join('')}
+      <td>${topic.minimum_per_paper}–${topic.maximum_per_paper}</td></tr>`).join('')}</tbody>
+      <tfoot><tr><th scope="row">All areas</th><td>${archive.questions}</td>
+      ${bands.map(band => `<td>${archive.topics.reduce((sum,topic) => sum+(topic.bands[band] || 0),0)}</td>`).join('')}<td>30</td></tr></tfoot></table></div>
+      <details><summary>Explore ${archive.skills.length} problem-solving tools</summary>
+      <label class="tool-filter">Teaching area <select id="toolTopic"><option value="">All areas</option>
+      ${topics.map(topic => `<option>${escape(topic)}</option>`).join('')}</select></label>
+      <p id="toolCount" role="status"></p><div class="tool-list"></div></details>
+      <h2>Choose a practice set</h2>
+      <p><a href="tests.html?section=speed">Part A · Questions 1–20</a> gives you 20 multiple-choice problems to practise speed and accuracy.
+      <a href="tests.html?section=depth">Part B · Questions 21–30</a> gives you 40 minutes for five multiple-choice problems and five whole-number answers.</p>
+      <p>The table describes past papers. The mix of topics can change each year.</p>
+      <p><a href="https://amt.edu.au/amc" target="_blank" rel="noopener">Australian Maths Trust competition information</a></p>`;
+    const select = host.querySelector('#toolTopic');
+    function displayTools() {
+      const skills = archive.skills.filter(skill => !select.value || select.value === skill.topic);
+      host.querySelector('.tool-list').innerHTML = skills.map(strategyCard).join('');
+      host.querySelector('#toolCount').textContent = `${skills.length} ${skills.length === 1 ? 'tool' : 'tools'}`;
+    }
+    select.addEventListener('change',displayTools);
+    displayTools();
+    host.removeAttribute('role');
+  } catch {
+    host.textContent = 'The coverage map could not load. ';
+    const retry = document.createElement('button');
+    retry.type = 'button';
+    retry.className = 'secondary';
+    retry.textContent = 'Try again';
+    retry.onclick = loadCoverage;
+    host.append(retry);
+  }
+}
+loadCoverage();

@@ -34,6 +34,8 @@ summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
 </style>
+<link rel="stylesheet" href="topic-film-reading.css">
+<script defer src="topic-film-print.js"></script>
 </head>
 <body>
 <main>
@@ -48,27 +50,40 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
   <source src="media/T16.3.mp4?v=teaching-films-v1" type="video/mp4">
 </video>
 <p class="meta">1:57 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · The mean is the result of sharing equally</button>
-<button type="button" data-time="13.720">0:13 · Different group sizes carry different weight</button>
-<button type="button" data-time="24.770">0:24 · What is the fifth score?</button>
-<button type="button" data-time="37.390">0:37 · The mean and number of scores give the total</button>
-<button type="button" data-time="43.960">0:43 · The added score is the difference</button>
-<button type="button" data-time="61.080">1:01 · Combine group totals before dividing</button>
-<button type="button" data-time="77.560">1:17 · The median reads the middle of the sorted list</button>
-<button type="button" data-time="95.630">1:35 · Your turn</button></nav>
+<nav class="chapters" aria-label="Video chapters">
+<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Recover the total hidden in a mean</button>
+<button type="button" data-time="13.720"><span class="chapter-clock">0:14</span> Give each group its correct weight</button>
+<button type="button" data-time="24.770"><span class="chapter-clock">0:25</span> Add a fifth score to change a mean of seven</button>
+<button type="button" data-time="37.390"><span class="chapter-clock">0:37</span> Compare the four-score and five-score totals</button>
+<button type="button" data-time="43.960"><span class="chapter-clock">0:44</span> Explain the extra points in the fifth score</button>
+<button type="button" data-time="61.080"><span class="chapter-clock">1:01</span> Combine groups of two and three people</button>
+<button type="button" data-time="77.560"><span class="chapter-clock">1:18</span> Compare the mean and median of five values</button>
+<button type="button" data-time="95.630"><span class="chapter-clock">1:36</span> Recover the score removed from six numbers</button>
+</nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>The mean of 6 numbers is 9. One is removed and the mean of the rest is 8. Which number was removed?</p>
-<details><summary>Check your reasoning</summary><p>54 - 40 = 14.</p></details>
+<details><summary>Check your reasoning</summary><p>The six numbers total 6 × 9 = 54. After one is removed, the five left total 5 × 8 = 40. Only the removed number can account for the difference, so it was 54 − 40 = 14.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary><p>The mean is what everyone would have if the total were shared equally. So a mean always hides a total: the mean multiplied by the number of items. Whenever a question mentions an average, recover the total first.</p>
+<details class="transcript"><summary>Read the transcript</summary>
+<h2><span class="chapter-clock">0:00</span> Recover the total hidden in a mean</h2>
+<p>The mean is what everyone would have if the total were shared equally. So a mean always hides a total: the mean multiplied by the number of items. Whenever a question mentions an average, recover the total first.</p>
+<h2><span class="chapter-clock">0:14</span> Give each group its correct weight</h2>
 <p>When groups have different sizes, their averages carry different weight. Recover the total in each group before combining them. Then each individual item makes the right contribution.</p>
+<h2><span class="chapter-clock">0:25</span> Add a fifth score to change a mean of seven</h2>
 <p>Four scores have a mean of seven. A fifth score is added and the mean becomes eight. What is the fifth score? Pause and find the totals.</p>
+<h2><span class="chapter-clock">0:37</span> Compare the four-score and five-score totals</h2>
 <p>Four scores with mean seven total twenty-eight. Five scores with mean eight total forty.</p>
+<h2><span class="chapter-clock">0:44</span> Explain the extra points in the fifth score</h2>
 <p>The fifth score supplies the difference: forty minus twenty-eight is twelve. To average eight, the original four scores would need thirty-two points. They have twenty-eight, so they are four points short. The fifth score supplies its own eight points and those four extra points.</p>
+<h2><span class="chapter-clock">1:01</span> Combine groups of two and three people</h2>
 <p>Combining groups works the same way. Two people average six and three people average ten. The totals are twelve and thirty, forty-two for five people. The combined mean is eight point four, not eight. It leans towards the larger group.</p>
+<h2><span class="chapter-clock">1:18</span> Compare the mean and median of five values</h2>
 <p>The mean is not the only average. The median is the middle value when the list is in order. For two, three, five, nine and thirty-one, the median is five, while the mean is ten. One very large value pulls the mean up but leaves the median alone.</p>
-<p>The total is the mean times the number of items. Do your reasoning with totals. And the median is the middle value. Notebook challenge: the mean of six numbers is nine. One number is removed and the mean of the rest is eight. Which number was removed?</p></details>
+<aside class="reading-note" aria-label="Written clarification"><strong>What if there are two middle values?</strong> Put the numbers in order. With an odd number of values, use the single middle one. With an even number, average the middle two. In 2, 3, 9, 31, the median is (3 + 9) ÷ 2 = 6.</aside>
+<h2><span class="chapter-clock">1:36</span> Recover the score removed from six numbers</h2>
+<p>The total is the mean times the number of items. Do your reasoning with totals. And the median is the middle value. Notebook challenge: the mean of six numbers is nine. One number is removed and the mean of the rest is eight. Which number was removed?</p>
+</details>
 <p><a href="media/T16.3.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
 </main>
 <script>

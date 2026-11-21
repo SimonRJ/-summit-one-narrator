@@ -34,6 +34,8 @@ summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
 </style>
+<link rel="stylesheet" href="topic-film-reading.css">
+<script defer src="topic-film-print.js"></script>
 </head>
 <body>
 <main>
@@ -48,23 +50,33 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
   <source src="media/T14.E.mp4?v=teaching-films-v1" type="video/mp4">
 </video>
 <p class="meta">1:24 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Schedule only the five required meetings</button>
-<button type="button" data-time="19.290">0:19 · Three meetings use the same pupil</button>
-<button type="button" data-time="26.180">0:26 · Build a schedule with three slots</button>
-<button type="button" data-time="38.500">0:38 · Each pupil appears at most once in a slot</button>
-<button type="button" data-time="54.340">0:54 · The total meeting count gives the same lower bound</button>
-<button type="button" data-time="68.740">1:08 · Your turn</button></nav>
+<nav class="chapters" aria-label="Video chapters">
+<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Place five meetings for A, B, C, D and E</button>
+<button type="button" data-time="19.290"><span class="chapter-clock">0:19</span> Count the meetings A has to attend</button>
+<button type="button" data-time="26.180"><span class="chapter-clock">0:26</span> Fit the five pairs into three slots</button>
+<button type="button" data-time="38.500"><span class="chapter-clock">0:39</span> Check each pupil appears once per slot they attend</button>
+<button type="button" data-time="54.340"><span class="chapter-clock">0:54</span> Check how many pairs fit among five pupils</button>
+<button type="button" data-time="68.740"><span class="chapter-clock">1:09</span> Add the meeting between D and E</button>
+</nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>Six meetings are needed, one for each pair AB, AC, AD, BE, CE and DE. Meetings may share a time slot if nobody has two meetings at once. What is the fewest slots needed?</p>
 <details><summary>Check your reasoning</summary><p>A attends three meetings and needs three separate slots. Three suffice. Put AB with DE, AC with BE, and AD with CE. In each slot all four participants are different.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary><p>Five pupils, A, B, C, D and E, need only these meetings: A with B, A with C, A with D, B with E, and C with E. A pupil can attend at most one meeting in a time slot. What is the smallest number of slots?</p>
+<details class="transcript"><summary>Read the transcript</summary>
+<h2><span class="chapter-clock">0:00</span> Place five meetings for A, B, C, D and E</h2>
+<p>Five pupils, A, B, C, D and E, need only these meetings: A with B, A with C, A with D, B with E, and C with E. A pupil can attend at most one meeting in a time slot. What is the smallest number of slots?</p>
+<h2><span class="chapter-clock">0:19</span> Count the meetings A has to attend</h2>
 <p>Pupil A is in three meetings. Those three cannot share a slot. So at least three slots are needed.</p>
+<h2><span class="chapter-clock">0:26</span> Fit the five pairs into three slots</h2>
 <p>Now try to manage with three. Slot one: A meets B, and C meets E. Slot two: A meets C, and B meets E. Slot three: A meets D.</p>
+<h2><span class="chapter-clock">0:39</span> Check each pupil appears once per slot they attend</h2>
 <p>Check each slot. In slot one, the pupils are A, B, C and E, each once. In slot two, the same four, each once. In slot three, only A and D. All five meetings are scheduled with no clashes.</p>
+<h2><span class="chapter-clock">0:54</span> Check how many pairs fit among five pupils</h2>
 <p>A second limit agrees. There are five meetings, and a slot holds at most two of them, since five pupils cannot form three pairs. Five meetings need at least three slots. Both limits say three, and three works.</p>
-<p>The busiest person gives a limit. Then build a timetable and check every slot. Rebuild this, then decide how many slots are needed if a sixth meeting, D with E, is added.</p></details>
+<h2><span class="chapter-clock">1:09</span> Add the meeting between D and E</h2>
+<p>The busiest person gives a limit. Then build a timetable and check every slot. Rebuild this, then decide how many slots are needed if a sixth meeting, D with E, is added.</p>
+</details>
 <p><a href="media/T14.E.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
 </main>
 <script>

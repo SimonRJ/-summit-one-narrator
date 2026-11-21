@@ -34,6 +34,8 @@ summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
 </style>
+<link rel="stylesheet" href="topic-film-reading.css">
+<script defer src="topic-film-print.js"></script>
 </head>
 <body>
 <main>
@@ -48,27 +50,39 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
   <source src="media/T14.1.mp4?v=teaching-films-v1" type="video/mp4">
 </video>
 <p class="meta">1:49 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · The movement rules define a route</button>
-<button type="button" data-time="15.160">0:15 · Write one count at each point</button>
-<button type="button" data-time="24.770">0:24 · Move only right or up</button>
-<button type="button" data-time="40.580">0:40 · The edges have only one way in</button>
-<button type="button" data-time="50.180">0:50 · Add the routes from the left and below</button>
-<button type="button" data-time="66.500">1:06 · A blocked corner contributes zero</button>
-<button type="button" data-time="78.500">1:18 · A bridge crossing is not a junction</button>
-<button type="button" data-time="89.220">1:29 · Your turn</button></nav>
+<nav class="chapters" aria-label="Video chapters">
+<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Read the permitted junctions and directions</button>
+<button type="button" data-time="15.160"><span class="chapter-clock">0:15</span> Replace a list of routes with point labels</button>
+<button type="button" data-time="24.770"><span class="chapter-clock">0:25</span> Walk right or up across two blocks each way</button>
+<button type="button" data-time="40.580"><span class="chapter-clock">0:41</span> Label the bottom and left borders</button>
+<button type="button" data-time="50.180"><span class="chapter-clock">0:50</span> Add the routes from the left and below</button>
+<button type="button" data-time="66.500"><span class="chapter-clock">1:07</span> Close the centre junction</button>
+<button type="button" data-time="78.500"><span class="chapter-clock">1:19</span> Decide whether paths meet at a bridge</button>
+<button type="button" data-time="89.220"><span class="chapter-clock">1:29</span> Count the routes across three blocks and up two</button>
+</nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>Streets form a rectangular grid three blocks wide and two blocks high. How many routes go from the bottom-left corner to the top-right corner using only single-block steps to the right or upwards?</p>
 <details><summary>Check your reasoning</summary><p>Every route has five steps, including exactly two upward steps. Choose the positions of the two upward steps. There are 5 × 4 ordered choices, and each pair has been counted twice. This gives 5 × 4 ÷ 2 = 10 routes.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary><p>A route problem is defined by its rules: which points are joined, and which directions are allowed. Before counting anything, read those rules exactly. Two lines that cross in a drawing are not a junction unless the problem says so.</p>
+<details class="transcript"><summary>Read the transcript</summary>
+<h2><span class="chapter-clock">0:00</span> Read the permitted junctions and directions</h2>
+<p>A route problem is defined by its rules: which points are joined, and which directions are allowed. Before counting anything, read those rules exactly. Two lines that cross in a drawing are not a junction unless the problem says so.</p>
+<h2><span class="chapter-clock">0:15</span> Replace a list of routes with point labels</h2>
 <p>Tracing every route by hand is slow and you lose track. There is a method that counts all routes at once, by writing one number on each point.</p>
+<h2><span class="chapter-clock">0:25</span> Walk right or up across two blocks each way</h2>
 <p>A walker goes from the bottom-left corner to the top-right corner of a two by two block of streets, moving only right or up. How many different routes are there? Pause and think about how you could arrive at each corner.</p>
+<h2><span class="chapter-clock">0:41</span> Label the bottom and left borders</h2>
 <p>Write on each corner the number of ways to reach it. Along the bottom row and up the left side there is only one way: straight along. Write one on each.</p>
+<h2><span class="chapter-clock">0:50</span> Add the routes from the left and below</h2>
 <p>To reach any other corner, your last step came either from the left or from below. So its number is the sum of those two neighbours. The middle corner gets one plus one: two. The next corners get three. The final corner gets three plus three: six routes.</p>
+<h2><span class="chapter-clock">1:07</span> Close the centre junction</h2>
 <p>The method copes with obstacles. If the centre corner is closed, write zero there and carry on adding. Now only two routes remain: all the way round one side or the other.</p>
+<h2><span class="chapter-clock">1:19</span> Decide whether paths meet at a bridge</h2>
 <p>Always check what counts as a connection. If one path crosses over another on a bridge, you cannot turn there. Only the connections the rules give you are real.</p>
-<p>Read the rules exactly. Label each point with the number of ways to reach it, adding the points that lead into it. A blocked point gets zero. Notebook challenge: how many right-and-up routes cross a block of streets three wide and two high?</p></details>
+<h2><span class="chapter-clock">1:29</span> Count the routes across three blocks and up two</h2>
+<p>Read the rules exactly. Label each point with the number of ways to reach it, adding the points that lead into it. A blocked point gets zero. Notebook challenge: how many right-and-up routes cross a block of streets three wide and two high?</p>
+</details>
 <p><a href="media/T14.1.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
 </main>
 <script>

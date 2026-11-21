@@ -1,4 +1,4 @@
-import { supabase, usernameToEmail, SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, currentUser } from "./supabase-client.js?v=auth-20261112";
+import { supabase, usernameToEmail, currentUser } from "./supabase-client.js?v=auth-20261112";
 
 const $ = id => document.getElementById(id);
 const msg = (text, kind="") => {
@@ -9,7 +9,7 @@ const msg = (text, kind="") => {
 // Only allow known local destinations, never arbitrary redirect URLs.
 const requestedNext = new URLSearchParams(location.search).get("next") || "";
 const destination = /^tests\.html(?:\?[^#]*)?$/.test(requestedNext) ? "./"+requestedNext : "./";
-if(destination.startsWith("./tests.html")) $("subtitle").textContent="Sign in to open the AMC Test Centre.";
+if(destination.startsWith("./tests.html")) $("subtitle").textContent="Sign in to open the Test Centre.";
 async function redirectIfSignedIn(){
   try { if(await currentUser()) location.replace(destination); }
   catch(e) { msg(e.message || "Unable to check your sign-in. Please try again.","error"); }
@@ -24,7 +24,9 @@ async function signIn(){
   if(error) throw error;
 }
 
-$("signIn").onclick=async()=>{
+$("learnerSignIn").addEventListener("submit",async event=>{
+  event.preventDefault();
+  if($("signIn").disabled)return;
   try{
     $("signIn").disabled=true;
     msg("Signing in…");
@@ -35,11 +37,8 @@ $("signIn").onclick=async()=>{
   }finally{
     $("signIn").disabled=false;
   }
-};
-
-$("password").addEventListener("keydown",e=>{
-  if(e.key==="Enter") $("signIn").click();
 });
+$("signIn").disabled=false;
 
 redirectIfSignedIn().finally(()=>window.SummitLoader?.ready());
 

@@ -37,6 +37,8 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
   video { width: auto; max-width: 100%; height: auto; max-height: calc(100svh - 20px); margin-inline: auto; }
 }
 </style>
+<link rel="stylesheet" href="topic-film-reading.css">
+<script defer src="topic-film-print.js"></script>
 </head>
 <body>
 <main>
@@ -51,27 +53,39 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
   <source src="media/T13.1.mp4?v=moving-area-20261119" type="video/mp4">
 </video>
 <p class="meta">2:12 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Two equal triangles give a parallelogram</button>
-<button type="button" data-time="17.560">0:17 · The height is perpendicular to the base</button>
-<button type="button" data-time="30.360">0:30 · Three triangles share a base and height</button>
-<button type="button" data-time="48.250">0:48 · Sliding the top corner preserves the area</button>
-<button type="button" data-time="66.490">1:06 · Use an enclosing rectangle</button>
-<button type="button" data-time="82.650">1:22 · Remove the three outer triangles</button>
-<button type="button" data-time="95.620">1:35 · A triangle can be half the rectangle</button>
-<button type="button" data-time="109.860">1:49 · Your turn</button></nav>
+<nav class="chapters" aria-label="Video chapters">
+<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Double a triangle to find its area</button>
+<button type="button" data-time="17.560"><span class="chapter-clock">0:18</span> Distinguish a sloping side from a height</button>
+<button type="button" data-time="30.360"><span class="chapter-clock">0:30</span> Compare three triangles on an 8 cm base</button>
+<button type="button" data-time="48.250"><span class="chapter-clock">0:48</span> Slide the vertex along a parallel line</button>
+<button type="button" data-time="66.490"><span class="chapter-clock">1:06</span> Find the three corners outside a tilted triangle</button>
+<button type="button" data-time="82.650"><span class="chapter-clock">1:23</span> Subtract the corners from the rectangle</button>
+<button type="button" data-time="95.620"><span class="chapter-clock">1:36</span> Join a top-edge point to both bottom corners</button>
+<button type="button" data-time="109.860"><span class="chapter-clock">1:50</span> Work backwards from an area of 35 cm²</button>
+</nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>A triangle has base 10 cm and area 35 square cm. Find its height.</p>
 <details><summary>Check your reasoning</summary><p>Half of 10 times height is 35, so the height is 7 cm.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary><p>Two identical triangles fit together to make a parallelogram, and a parallelogram has the same area as a rectangle with the same base and height. So a triangle&#x27;s area is half its base times its height. The height must be measured straight up from the base, at a right angle.</p>
+<details class="transcript"><summary>Read the transcript</summary>
+<h2><span class="chapter-clock">0:00</span> Double a triangle to find its area</h2>
+<p>Two identical triangles fit together to make a parallelogram, and a parallelogram has the same area as a rectangle with the same base and height. So a triangle&#x27;s area is half its base times its height. The height must be measured straight up from the base, at a right angle.</p>
+<h2><span class="chapter-clock">0:18</span> Distinguish a sloping side from a height</h2>
 <p>The most common error is using a slanted side as the height. The second most common is trying to measure an awkward shape directly, when it would be far easier to subtract simple shapes from a rectangle.</p>
+<h2><span class="chapter-clock">0:30</span> Compare three triangles on an 8 cm base</h2>
 <p>Three triangles share a base of eight centimetres. Their top corners lie at different places along a line parallel to the base, five centimetres above it. Which triangle has the largest area? Pause and think about the height of each.</p>
+<h2><span class="chapter-clock">0:48</span> Slide the vertex along a parallel line</h2>
 <p>Every one of them has height five, because the top corners are all five centimetres above the base. Half of eight times five is twenty. All three have the same area: twenty square centimetres. Sliding the top corner along a parallel line changes the shape, but not the area.</p>
+<h2><span class="chapter-clock">1:06</span> Find the three corners outside a tilted triangle</h2>
 <p>Now an awkward triangle inside a six by four rectangle. Its sides are all slanted. Do not attack it directly. The rectangle has area twenty-four. Around the triangle are three right-angled triangles, with areas nine, four and two.</p>
+<h2><span class="chapter-clock">1:23</span> Subtract the corners from the rectangle</h2>
 <p>Those three take up fifteen. Twenty-four minus fifteen leaves nine. The awkward triangle has area nine square centimetres. Subtracting the surroundings is called using the complement.</p>
+<h2><span class="chapter-clock">1:36</span> Join a top-edge point to both bottom corners</h2>
 <p>One more useful fact. Join any point on the top edge of a rectangle to both bottom corners. The triangle has the rectangle&#x27;s base and the rectangle&#x27;s height, so it is always exactly half the rectangle, wherever the point is.</p>
-<p>Half base times perpendicular height. Triangles with the same base and height have the same area. For awkward shapes, subtract from a rectangle. Notebook challenge: a triangle has base ten centimetres and area thirty-five square centimetres. What is its height?</p></details>
+<h2><span class="chapter-clock">1:50</span> Work backwards from an area of 35 cm²</h2>
+<p>Half base times perpendicular height. Triangles with the same base and height have the same area. For awkward shapes, subtract from a rectangle. Notebook challenge: a triangle has base ten centimetres and area thirty-five square centimetres. What is its height?</p>
+</details>
 <p><a href="media/T13.1.mp4?v=moving-area-20261119">Open the MP4 directly</a></p>
 </main>
 <script src="lesson-video-chapters.js?v=seek-1"></script>
