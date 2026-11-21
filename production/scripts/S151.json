@@ -1,0 +1,55 @@
+{
+  "id": "S151",
+  "title": "One socket, two plates",
+  "voice": "VoxCPM2 — approved Voice C",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "Can the plates meet?",
+      "stage": "INTRO",
+      "narration": "Imagine rebuilding a bridge deck out of rectangular plates. Each plate spans exactly two squares that share an edge. No gaps and no overlaps are allowed. Turning a plate changes its direction. What does it always keep?"
+    },
+    {
+      "n": 2,
+      "title": "A mark on each end",
+      "stage": "BASIC",
+      "narration": "Paint neighbouring squares in different colours. Put a dot on gold and a ring on blue. A horizontal plate covers one of each. Turn it upright. Still one of each. On this two by three deck, three upright plates give a complete covering."
+    },
+    {
+      "n": 3,
+      "title": "Two inspection openings",
+      "stage": "PUZZLE",
+      "narration": "The next deck is four squares by four. Leave the top left and bottom right corners open for inspection. Fourteen squares remain. Seven plates have the right area. Can seven plates actually cover this deck?"
+    },
+    {
+      "n": 4,
+      "title": "An account that will not balance",
+      "stage": "REVEAL",
+      "narration": "Before the openings, the deck had eight dots and eight rings. Both missing corners carried dots. Six dots and eight rings remain. Seven plates would need seven of each. One colour runs out early, whichever way you turn the plates."
+    },
+    {
+      "n": 5,
+      "title": "Move one opening",
+      "stage": "TRANSFER",
+      "narration": "Slide the lower opening up to the top right corner. This time one dot and one ring are missing. The counts balance. Can you prove that the plates fit? Cover the middle two squares of the top row. Put two horizontal plates in each row below. All seven fit."
+    },
+    {
+      "n": 6,
+      "title": "An eight-square footbridge",
+      "stage": "PUZZLE",
+      "narration": "Here is a different footbridge. Its rows hold three squares, one square, one square, then three squares. The narrow part runs down the middle. There are four dots and four rings. Is there room for four plates? Try to decide before any plate drops."
+    },
+    {
+      "n": 7,
+      "title": "One socket, two requests",
+      "stage": "REVEAL",
+      "narration": "Look at the upper left tip. Its only neighbour is the top middle square. Covering that tip uses up the middle square. Now look at the upper right tip. It needs exactly the same neighbour. Two different plates cannot both use that square. The bridge cannot be covered, even though its colours balance."
+    },
+    {
+      "n": 8,
+      "title": "What would count as proof?",
+      "stage": "RECAP",
+      "narration": "Count the squares, then check the colours a single plate must cover. Unequal totals prove a covering impossible. When the counts balance, look for squares with just one neighbour. To prove that a covering exists, show a placement that fills every square exactly once."
+    }
+  ]
+}
