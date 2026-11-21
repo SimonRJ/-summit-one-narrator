@@ -92,7 +92,8 @@
       "type": "concept",
       "chapter": "Remainders turn long lists into short systems",
       "transcript": "Put four counters into three boxes. You can place the first three with one in each box. The fourth has to join a counter somewhere. If you already put two together earlier, the claim already holds. This is the pigeonhole principle. A guarantee asks what must happen in every possible case. Imagine the arrangement that delays the result for as long as possible. Its limit helps us find the smallest count that will force the result. The important decision is what the boxes represent. A drawer contains many socks of exactly four colours. You take socks without looking. What is the smallest number you must take to guarantee two of the same colour? Try to plan a draw that delays the first matching pair. Use one box for each colour. Begin with one sock in each box. That is a possible draw of four socks with no match. The fifth sock has to go into one of the occupied boxes. Five is sufficient, and this example with four proves that five is the minimum. The boxes can stand for remainders. Take any four different whole numbers. When we divide by three, the possibilities are zero, one and two. Two of the four numbers share a remainder. Take their difference. The leftover parts cancel, leaving a multiple of three. Choose six different numbers from one to ten. Group the ten numbers into five pairs that add to eleven. A choice of six puts two numbers in one of those five pair boxes. Both members of that pair have been chosen, and they add to eleven. Choose the objects and choose the boxes. Compare their counts. When the problem asks for the smallest guarantee, show how one fewer could fail. In your notebook, how many people must be in a room to guarantee two birthdays in the same month?",
-      "audio_url": ""
+      "audio_url": "",
+      "video_url": "media/T03.3.mp4?v=birthday-boxes"
     },
     {
       "id": "T03.E",

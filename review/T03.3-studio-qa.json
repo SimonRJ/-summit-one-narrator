@@ -1,7 +1,7 @@
 {
   "id": "T03.3",
-  "duration_seconds": 119.0,
-  "sha256": "214e1967f53b9c4eb5d669633ddb55f5bea4becf52f8ab7adc66c2f53ef8f866",
+  "duration_seconds": 119,
+  "sha256": "562e5d746e3e96491e95ca6ee528cab6602550bcb53bfdd13578e52033539082",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -15,13 +15,13 @@
   "scenes": [
     {
       "number": 1,
-      "start": 0.0,
-      "match_percent": 100.0
+      "start": 0,
+      "match_percent": 100
     },
     {
       "number": 2,
       "start": 16.12,
-      "match_percent": 100.0
+      "match_percent": 100
     },
     {
       "number": 3,
@@ -31,28 +31,28 @@
     {
       "number": 4,
       "start": 48.73,
-      "match_percent": 98.0
+      "match_percent": 98
     },
     {
       "number": 5,
       "start": 66.49,
-      "match_percent": 100.0
+      "match_percent": 100
     },
     {
       "number": 6,
       "start": 83.93,
-      "match_percent": 100.0
+      "match_percent": 100
     },
     {
       "number": 7,
       "start": 99.77,
-      "match_percent": 100.0
+      "match_percent": 100
     }
   ],
   "chapters": [
     {
       "title": "More counters than boxes",
-      "start": 0.0
+      "start": 0
     },
     {
       "title": "The sock puzzle",
@@ -71,5 +71,61 @@
       "start": 99.77
     }
   ],
-  "decoded_successfully": true
+  "decoded_successfully": true,
+  "legacy_sha256": "214e1967f53b9c4eb5d669633ddb55f5bea4becf52f8ab7adc66c2f53ef8f866",
+  "version": "birthday-boxes",
+  "compared_frames": 3570,
+  "compared_scenes": [
+    {
+      "frames": 484,
+      "worst_frame": 214,
+      "mean_max": 1.759,
+      "tile_max": 3.92,
+      "caption_max": 1.763
+    },
+    {
+      "frames": 470,
+      "worst_frame": 793,
+      "mean_max": 1.713,
+      "tile_max": 4.073,
+      "caption_max": 1.725
+    },
+    {
+      "frames": 508,
+      "worst_frame": 988,
+      "mean_max": 1.788,
+      "tile_max": 3.616,
+      "caption_max": 1.765
+    },
+    {
+      "frames": 533,
+      "worst_frame": 1550,
+      "mean_max": 1.91,
+      "tile_max": 4.019,
+      "caption_max": 1.77
+    },
+    {
+      "frames": 523,
+      "worst_frame": 2193,
+      "mean_max": 1.682,
+      "tile_max": 2.705,
+      "caption_max": 1.753
+    },
+    {
+      "frames": 476,
+      "worst_frame": 2953,
+      "mean_max": 1.795,
+      "tile_max": 4.234,
+      "caption_max": 1.778
+    },
+    {
+      "frames": 576,
+      "worst_frame": 3406,
+      "mean_max": 1.956,
+      "tile_max": 4.137,
+      "caption_max": 1.77
+    }
+  ],
+  "audio_packet_sha256": "f712564bcba638fd2d5626b955e86ec630c8ae921e71190365ee33451ca2dd51",
+  "art_source": "e04111b2c9e00b01ee040d87ca3e73a6598d22d9"
 }
