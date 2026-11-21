@@ -1,7 +1,7 @@
 {
   "id": "T14.3",
   "duration_seconds": 123.8,
-  "sha256": "f584ae6ee71e47b937a7336e8caa3cc205f39c54ba73e05e8032fe83f92a49d8",
+  "sha256": "a2a374cb64cc3211d4fe3eb7a34a42f3ad05dcfb3b9ec66f29259f482cb26f8f",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -88,5 +88,68 @@
       "start": 99.13
     }
   ],
-  "decoded_successfully": true
+  "decoded_successfully": true,
+  "legacy_sha256": "f584ae6ee71e47b937a7336e8caa3cc205f39c54ba73e05e8032fe83f92a49d8",
+  "compared_frames": 3714,
+  "compared_scenes": [
+    {
+      "frames": 474,
+      "worst_frame": 298,
+      "mean_max": 1.755,
+      "tile_max": 3.297,
+      "caption_max": 1.735
+    },
+    {
+      "frames": 298,
+      "worst_frame": 723,
+      "mean_max": 1.82,
+      "tile_max": 3.828,
+      "caption_max": 1.645
+    },
+    {
+      "frames": 451,
+      "worst_frame": 775,
+      "mean_max": 1.761,
+      "tile_max": 3.438,
+      "caption_max": 1.781
+    },
+    {
+      "frames": 360,
+      "worst_frame": 1223,
+      "mean_max": 1.767,
+      "tile_max": 3.422,
+      "caption_max": 1.675
+    },
+    {
+      "frames": 470,
+      "worst_frame": 1747,
+      "mean_max": 1.891,
+      "tile_max": 4.165,
+      "caption_max": 1.762
+    },
+    {
+      "frames": 537,
+      "worst_frame": 2553,
+      "mean_max": 1.707,
+      "tile_max": 2.441,
+      "caption_max": 1.774
+    },
+    {
+      "frames": 384,
+      "worst_frame": 2805,
+      "mean_max": 1.799,
+      "tile_max": 3.134,
+      "caption_max": 1.787
+    },
+    {
+      "frames": 740,
+      "worst_frame": 3122,
+      "mean_max": 1.77,
+      "tile_max": 3.302,
+      "caption_max": 1.789
+    }
+  ],
+  "audio_packet_sha256": "7b15a9449962910f5462047688044a9171fb2d67f1405c23b7a10589ddd81470",
+  "art_source": "b05f19f59b8582a6415de11d259478de13e4ac95",
+  "version": "six-player-rounds"
 }

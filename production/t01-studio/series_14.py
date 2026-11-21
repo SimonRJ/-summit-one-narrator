@@ -3,7 +3,7 @@
 from itertools import combinations
 
 from series_marks import (BLUE, GOLD, MINT, MUTED, RED, RIM, WHITE, cards, chart, cue, equation,
-                          exercise, link, network, note, ring, scene, tile)
+                          link, network, note, ring, scene, tile)
 from studio_diagrams import bead, fit
 
 
@@ -27,7 +27,7 @@ def streets(stage,s,mode):
         if mode=="base":
             words="write one on each"
         elif mode=="block":
-            words="write zero there"
+            words="write zero there" if i==4 else "carry on adding" if i in (1,2,5) else None
         else:
             words={4:"the middle corner",1:"the next corners",5:"the next corners",2:"the final corner"}.get(i)
         tile(stage,x,y,result[i],RED if mode=="block" and i==4 else MINT if i==2 else BLUE,
@@ -102,6 +102,104 @@ def coloured_schedule(stage,s, meeting=False):
         fit(stage,f"{'Slot' if meeting else 'Round'} {i+1}",753,y,25,147,WHITE,p)
 
 
+def street_counts(stage,s):
+    challenge=s.t>=s.at("notebook challenge")
+    width=3 if challenge else 2
+    fit(stage,"Count the routes across three blocks and up two" if challenge else "Label each legal arrival",640,87,42)
+    counts={}
+    for y in range(3):
+        for x in range(width+1):
+            xx,yy=381+150*x,492-139*y
+            if x:
+                stage.arrow((xx-123,yy),(xx-29,yy),RIM,1,3)
+            if y:
+                stage.arrow((xx,yy+111),(xx,yy+28),RIM,1,3)
+            blocked=not challenge and (x,y)==(1,1) and s.t>=s.at("a blocked point")
+            counts[x,y]=0 if blocked else (int((x,y)==(0,0))+counts.get((x-1,y),0)+counts.get((x,y-1),0))
+            show=cue(s,("three wide" if challenge else "label each point"),delay=(x+y)*.13)
+            tile(stage,xx,yy,str(counts[x,y]),RED if blocked else MINT if (x,y)==(width,2) else BLUE,69,51,show,29)
+    fit(stage,"Start",294,492,26,125,MUTED)
+    fit(stage,"Finish",381+150*width+109,214,26,144,MUTED)
+    if challenge:
+        fit(stage,"6 from the left + 4 from below = 10",640,580,36,1080,MINT,cue(s,"two high"))
+    else:
+        fit(stage,"A closed crossing contributes zero",640,580,33,1080,RED,cue(s,"a blocked point"))
+
+
+street_counts.chapter="Your turn"
+
+
+def ends_grid(stage,s):
+    if s.t<s.at("notebook challenge"):
+        fit(stage,"Which dots are still reachable?",640,87,45)
+        pts=corners((487,201),140)
+        visited=(0,1,4,7)
+        move=cue(s,"after each move")
+        left=cue(s,"everything unvisited")
+        for i,p in enumerate(pts):
+            for j in (i+1,i+3):
+                if j<len(pts) and (j==i+3 or i//3==j//3):
+                    stage.line((p,pts[j]),RIM,3)
+        for a,b in zip(visited,visited[1:]):
+            stage.line((pts[a],pts[b]),BLUE,5,move)
+        for i,p in enumerate(pts):
+            bead(stage,*p,BLUE if i in visited else GOLD if i in (3,6) else MINT,1,20)
+            if i in visited:
+                x,y=p
+                stage.line(((x-8,y-8),(x+8,y+8)),WHITE,3,move)
+                stage.line(((x-8,y+8),(x+8,y-8)),WHITE,3,move)
+        fit(stage,"The visited path separates the remaining dots into two groups",640,567,30,1130,WHITE,left)
+        return
+    fit(stage,"Can the two top corners be the endpoints?",640,87,43)
+    pts=[(439+197*(i%3),270+133*(i//3)) for i in range(6)]
+    for i,p in enumerate(pts):
+        for j in (i+1,i+3):
+            if j<6 and (j==i+3 or i//3==j//3):stage.line((p,pts[j]),RIM,4)
+    for i,p in enumerate(pts):
+        bead(stage,*p,BLUE if i%2==0 else GOLD,cue(s,"two rows"),25)
+    fit(stage,"Start",439,210,29,180,BLUE,cue(s,"starting at one end"))
+    fit(stage,"Finish?",833,210,29,180,BLUE,cue(s,"finishing at the other"))
+    for i in range(6):
+        bead(stage,445+78*i,500,BLUE if i%2==0 else GOLD,cue(s,"every dot once",delay=i*.07),15)
+    fit(stage,"Five steps switch colour five times. The endpoints must differ.",640,576,30,1120,WHITE,cue(s,"finishing at the other"))
+
+
+ends_grid.chapter="Your turn"
+
+
+def six_player_schedule(stage,s):
+    if s.t<s.at("notebook challenge"):
+        fit(stage,"A round is a set of disjoint games",640,87,44)
+        meeting_net(stage,s,reveal=("sharing no dot",)*3,groups=(("AB","CD"),(),()))
+        fit(stage,"AB and CD can take place together",640,565,36,1050,MINT,cue(s,"sharing no dot"))
+        return
+    fit(stage,"Schedule six players in the fewest rounds",640,87,43)
+    rounds=(("AF","BE","CD"),("BF","AC","DE"),("CF","BD","AE"),("DF","CE","AB"),("EF","AD","BC"))
+    chart(("Round","Game 1","Game 2","Game 3"),[((str(i+1),*row),"no player playing twice") for i,row in enumerate(rounds)],
+          y=201,row_height=53,width=895,font=27)(stage,s)
+    fit(stage,"15 different pairs ÷ 3 games per round = 5 rounds",640,563,34,1090,MINT,cue(s,"fewest rounds"))
+
+
+six_player_schedule.chapter="Your turn"
+
+
+def sixth_meeting(stage,s):
+    challenge=s.t>=s.at("then decide")
+    fit(stage,"Add one more meeting without adding a slot" if challenge else "Check one slot at a time",640,87,44)
+    pairs=(("AB","DE"),("AC","BE"),("AD","CE")) if challenge else MEET
+    words="d with e" if challenge else "build a timetable"
+    for i,row in enumerate(pairs):
+        y=240+94*i;show=cue(s,words,delay=i*.12)
+        fit(stage,f"Slot {i+1}",395,y,31,190,WHITE,show)
+        for j,pair in enumerate(row):
+            tile(stage,602+j*235,y,pair,GOLD if pair=="DE" else (BLUE,MINT)[j],148,62,show,32)
+    fit(stage,"A attends AB, AC and AD, so at least three slots are needed",640,546,29,1100,WHITE,cue(s,"sixth meeting" if challenge else "busiest person"))
+    if challenge:fit(stage,"All six meetings fit",640,597,28,1000,MINT,cue(s,"is added"))
+
+
+sixth_meeting.chapter="Your turn"
+
+
 FILMS={
  "T14.1":(
     scene("The movement rules define a route",bridge),
@@ -118,9 +216,7 @@ FILMS={
     scene("A blocked corner contributes zero",lambda stage,s:streets(stage,s,"block"),
           note("Only the two outside routes remain", "only two routes remain",y=572)),
     scene("A bridge crossing is not a junction",bridge),
-    exercise((("Follow the allowed moves","read the rules exactly"),("Add ways into each point","adding the points"),
-              ("Mark a blocked point 0","a blocked point")),"notebook challenge",
-             ("A grid of streets is 3 blocks wide and 2 high.","How many right-and-up routes cross it?")),
+    street_counts,
  ),
  "T14.2":(
     scene("Look at what a move leaves behind",
@@ -148,14 +244,11 @@ FILMS={
           network(((640,340),(337,264),(927,264),(642,498)),"ABCD",
                   ((0,1,BLUE,"first or the last"),(0,2,BLUE,"first or the last"),(0,3,BLUE,"three such dots"))),
           note("Three required endpoints cannot fit on one path", "no route can visit them all",y=578,size=34)),
-    exercise((("Check every unvisited dot","everything unvisited"),("Dead ends are endpoints","dead ends"),
-              ("Try colouring","colouring can prove")),"notebook challenge",
-             ("Visit each dot of a 2 × 3 grid using horizontal or vertical steps.",
-              "Can you start and finish at opposite ends of its top row?")),
+    ends_grid,
  ),
  "T14.3":(
     scene("A meeting is an edge between two people",
-          lambda stage,s:meeting_net(stage,s,reveal=("the same time slot","the same time slot","the same time slot")),
+          lambda stage,s:meeting_net(stage,s,groups=(("AB","CD"),(),()),reveal=("the same time slot",)*3),
           note("In one slot, the meetings share no person", "no dot in common")),
     scene("A network makes conflicts visible",
           network(FOUR,"ABCD",((0,1,GOLD,"avoid clashes"),(0,2,GOLD,"avoid clashes"))),
@@ -178,10 +271,7 @@ FILMS={
           network(((640,339),(327,251),(951,255),(638,477)),"ABCD",
                   ((0,1,BLUE,None),(0,2,GOLD,None),(0,3,MINT,None))),
           note("Three meetings for A need three distinct slots", "needs at least three slots")),
-    exercise((("People and meetings","people as dots"),("No shared endpoint","no dot"),
-              ("Prove and build","find a limit")),"notebook challenge",
-             ("Six players each play every other player once.",
-              "At most three games per round. What is the fewest rounds?")),
+    six_player_schedule,
  ),
  "T14.E":(
     scene("Schedule only the five required meetings",
@@ -203,8 +293,6 @@ FILMS={
           cards((("2 slots hold at most 4 meetings",BLUE),("There are 5 meetings",GOLD)),343,
                 width=404,gap=456,words="a slot holds at most",size=27),
           note("At least 3 slots, and our construction reaches 3", "both limits say three")),
-    exercise((("Find the busiest pupil","busiest person"),("Build and check","build a timetable")),
-             "then decide",("Add the meeting D with E to the other five.",
-                            "Can you still schedule all meetings in three slots?")),
+    sixth_meeting,
  ),
 }

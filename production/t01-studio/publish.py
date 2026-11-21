@@ -58,7 +58,11 @@ REVISED_MEDIA = {
     "T12.E": "exterior-angle-sectors",
     "T13.1": "moving-area-20261119",
     "T13.2": "cut-and-scale-20261119",
-    "T13.E": "measured-edge-notch"
+    "T13.E": "measured-edge-notch",
+    "T14.1": "street-arrivals",
+    "T14.2": "endpoint-colours",
+    "T14.3": "six-player-rounds",
+    "T14.E": "sixth-meeting"
 }
 VOICE_SHA = "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362"
 
