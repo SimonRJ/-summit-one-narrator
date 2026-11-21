@@ -294,7 +294,12 @@ async def verify_mawa_visits(browser):
  await page.locator('#recordExt').click()
  await page.locator('#nextStage').click()
  await page.get_by_text('Compare with model reasoning').click()
- assert '73 + 37 = 110' in await page.locator('.solution-panel').inner_text()
+ model=await page.locator('.solution-panel').evaluate("""panel => {
+  const copy = panel.cloneNode(true);
+  for (const math of copy.querySelectorAll('[data-math-source]')) math.replaceWith(math.dataset.mathSource);
+  return copy.textContent;
+ }""")
+ assert '73 + 37 = 110' in model and 'The equations force both digits' in model,model
  for name,value in [('rResult','0'),('rMethod','2'),('rProof','1'),('rClarity','1')]:
   await page.locator('#'+name).fill(value)
  await page.locator('#completeMawa').click()
