@@ -143,7 +143,9 @@ try{
  await advanceRepair(3);
  await page.getByText('Continue learning. This check unlocks after 3 more completed sessions; calendar days do not matter.').waitFor();
  await page.screenshot({path:`qa-screenshots/${prefix}-repair-delay.png`,fullPage:true});
- await reopenRepair(3);
+ const firstDue=(await getRepair()).due_after_session;
+ assert.equal(firstDue,await page.evaluate(()=>globalThis.__fixture.progress_state[0].completed_sessions+3));
+ await reopenRepair(firstDue);
  await noCoaching();
  await content.locator('.hint').click();
  await page.waitForFunction(()=>globalThis.__fixture.learning_repairs[0].evidence.pending_recall?.helped);
@@ -153,8 +155,9 @@ try{
  assert.equal((await getRepair()).evidence.history.at(-1).used_help,true);
  await submitRepair(false);
  await advanceRepair(3);
- assert.equal((await getRepair()).due_after_session,6);
- await reopenRepair(6);
+ const nextDue=(await getRepair()).due_after_session;
+ assert.equal(nextDue,firstDue+3);
+ await reopenRepair(nextDue);
  await noCoaching();
  await submitRepair(false);
  await advanceRepair(4);
