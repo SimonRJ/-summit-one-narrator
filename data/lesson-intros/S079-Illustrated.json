@@ -1,0 +1,123 @@
+{
+  "id": "S079",
+  "duration_seconds": 190.933333,
+  "sha256": "68eb97380d0dbe13485e1c8388071027f4f507c633a0b063436b0b7858640eae",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 99.66,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0,
+      "match_percent": 100
+    },
+    {
+      "number": 2,
+      "start": 16.92,
+      "match_percent": 100
+    },
+    {
+      "number": 3,
+      "start": 34.68,
+      "match_percent": 100
+    },
+    {
+      "number": 4,
+      "start": 48.73,
+      "match_percent": 100
+    },
+    {
+      "number": 5,
+      "start": 61.53,
+      "match_percent": 100
+    },
+    {
+      "number": 6,
+      "start": 74.63,
+      "match_percent": 100
+    },
+    {
+      "number": 7,
+      "start": 88.55,
+      "match_percent": 100
+    },
+    {
+      "number": 8,
+      "start": 114.27,
+      "match_percent": 100
+    },
+    {
+      "number": 9,
+      "start": 137.78,
+      "match_percent": 100
+    },
+    {
+      "number": 10,
+      "start": 153.14,
+      "match_percent": 100
+    },
+    {
+      "number": 11,
+      "start": 170.1,
+      "match_percent": 96.3
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Give every outcome one home",
+      "start": 0
+    },
+    {
+      "title": "Choose a rule that separates cases",
+      "start": 16.92
+    },
+    {
+      "title": "Odd and even from 20 to 30",
+      "start": 34.68
+    },
+    {
+      "title": "Badge pairs with exactly one star",
+      "start": 61.53
+    },
+    {
+      "title": "Three colours-in-order cases",
+      "start": 88.55
+    },
+    {
+      "title": "Exactly one or at least one?",
+      "start": 153.14
+    },
+    {
+      "title": "Test coverage and uniqueness",
+      "start": 170.1
+    }
+  ],
+  "decoded_successfully": true,
+  "title": "Partitioning into non-overlapping cases",
+  "seconds": 190.933333,
+  "art_revision": 2,
+  "script_sha256": "4bb2def3a6c06bc3111fa00461d235f6f751584408f0ee0a2b3fa3acada72160",
+  "transcript": [
+    "A partition splits a set into cases that do not overlap. Each allowed outcome must belong in exactly one of your cases. Look for a choice with natural alternatives, such as a first digit, a position, or whether a specific object is used.",
+    "A late AMC problem can hide several different arrangements in one question. A short case table turns them into smaller counts. A Rossmoyne style solution may require you to justify why every possibility is covered. State a rule that forces each candidate into one row.",
+    "Consider consecutive integers from twenty to thirty, including both ends. How many are odd and how many are even? Start each list with the first eligible number. Go up by two.",
+    "The even list has six entries. Every even number differs from the previous even number by two. The whole list contains eleven numbers. The rest are odd, giving five odd numbers.",
+    "Choose one of five red badges and one of six blue badges. Each colour has a single star badge. How many pairs contain exactly one star badge?",
+    "If the star is red, the blue badge has five plain choices. If the star is blue, there are four plain red choices. The two cases cannot describe the same pair. Add to get nine choices.",
+    "There are six red exhibits, including A and B, and five blue exhibits. Three distinct exhibits fill left, middle and right rooms. A must be used. You may use three reds with B excluded, or a blue in the middle and one red on either end. A third option is A in the middle between two blues. Count arrangements.",
+    "With three reds, A has three room choices. The other two reds come in order from the four remaining eligible reds. With a blue in the middle and red ends, A can go at either end. Choose any other red, including B, and any blue. With A in the middle and two blues, there are five choices for the left and four for the right. The three colour patterns are different.",
+    "The three row totals are thirty-six, fifty and twenty. Add them to get one hundred and six arrangements. Check the rule about B applies to the all-red case only. Read each row against the conditions for its exact colour pattern.",
+    "At least one and exactly one accept different outcomes. If each group supplies a star, both-star pairs are excluded when the rule says exactly one. Cases that overlap can count one outcome twice. Name the property that distinguishes a row from every other row.",
+    "Write a clean split before counting. Check that an arbitrary valid arrangement has a home in your table. Confirm that no outcome has two homes, calculate each row, and add the subtotals. Read the final question for its required units."
+  ],
+  "legacy_sha256": "da2f2dd65ff100684d42718722c8d9f7f0c1581a50c4262d5523aec82d2887b4",
+  "audio_packet_hash": "601946d763a22475e9e1d6f4b893d36545ba8c9d259a3cdb758648ea3bb64e1e",
+  "illustrated_revision": 1
+}
