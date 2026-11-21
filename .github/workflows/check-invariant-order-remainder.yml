@@ -19,10 +19,13 @@ jobs:
         with:
           node-version: '22'
       - run: npm install --no-save --package-lock=false playwright@1.65.1
-      - name: Wait for the invariant chapter controls on Pages
+      - name: Wait for the checked remainder movie on Pages
         run: |
           for attempt in $(seq 1 35); do
-            if curl -fsS "https://simonrj.github.io/-summit-one-narrator/watch-t02-1.html?chapter_review=383de38" | grep -q 'data-time="129.617"'; then exit 0; fi
+            if curl -fsS "https://simonrj.github.io/-summit-one-narrator/watch-t03-1.html" | grep -q 'T03.1.mp4?v=bead-week-review'; then
+              curl -fsS "https://simonrj.github.io/-summit-one-narrator/media/T03.1.mp4?v=bead-week-review" -o "$RUNNER_TEMP/remainder.mp4"
+              echo "d5f41b3400ae38c694853dd8d91609ffa8ab502e3277dc589488bd56752749db  $RUNNER_TEMP/remainder.mp4" | sha256sum -c - && exit 0
+            fi
             sleep 10
           done
           exit 1
@@ -47,10 +50,13 @@ jobs:
         with:
           node-version: '22'
       - run: npm install --no-save --package-lock=false playwright@1.65.1
-      - name: Wait for the invariant chapter controls on Pages
+      - name: Wait for the checked remainder movie on Pages
         run: |
           for attempt in $(seq 1 35); do
-            if curl -fsS "https://simonrj.github.io/-summit-one-narrator/watch-t02-1.html?chapter_review=383de38" | grep -q 'data-time="129.617"'; then exit 0; fi
+            if curl -fsS "https://simonrj.github.io/-summit-one-narrator/watch-t03-1.html" | grep -q 'T03.1.mp4?v=bead-week-review'; then
+              curl -fsS "https://simonrj.github.io/-summit-one-narrator/media/T03.1.mp4?v=bead-week-review" -o "$RUNNER_TEMP/remainder.mp4"
+              echo "d5f41b3400ae38c694853dd8d91609ffa8ab502e3277dc589488bd56752749db  $RUNNER_TEMP/remainder.mp4" | sha256sum -c - && exit 0
+            fi
             sleep 10
           done
           exit 1

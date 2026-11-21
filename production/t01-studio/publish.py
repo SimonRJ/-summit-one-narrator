@@ -19,6 +19,7 @@ TEACHING_SEQUENCE = (*OPENING_SEQUENCE, *COURSE_FILMS)
 VERSION = "t01-studio-v1"
 CHAPTER_VERSION = "studio-chapters-02-04-v1"
 COURSE_VERSION = "teaching-films-v1"
+REVIEWED_MEDIA = {"T03.1": "bead-week-review"}
 VOICE_SHA = "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362"
 
 
@@ -51,7 +52,7 @@ def make_watch_page(lesson, source, report, *, available=OPENING_SEQUENCE):
     chapter_link = ""
     version = VERSION
     if lesson in (*CHAPTER_FILMS, *COURSE_FILMS):
-        version = COURSE_VERSION if lesson in COURSE_FILMS else CHAPTER_VERSION
+        version = REVIEWED_MEDIA.get(lesson, COURSE_VERSION if lesson in COURSE_FILMS else CHAPTER_VERSION)
         chapter_link = '<a href="teaching-videos.html">Teaching videos</a>'
         index = available.index(lesson)
         if index + 1 < len(available):
@@ -248,8 +249,8 @@ def install(lessons=IDS):
         page.write_text(make_watch_page(lesson, source, report, available=available))
         row = entries[lesson]
         row["transcript"] = " ".join(scene["narration"] for scene in source["scenes"])
-        if course_release:
-            row["video_url"] = f"media/{lesson}.mp4?v={COURSE_VERSION}"
+        if course_release or lesson in REVIEWED_MEDIA:
+            row["video_url"] = f"media/{lesson}.mp4?v={REVIEWED_MEDIA.get(lesson, COURSE_VERSION)}"
     teaching_file.write_text(json.dumps(teaching, ensure_ascii=False, indent=2) + "\n")
     if course_release:
         source = json.loads((ROOT / f"production/scripts/{previous}.json").read_text())

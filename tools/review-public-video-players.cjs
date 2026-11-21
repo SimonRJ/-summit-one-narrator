@@ -4,7 +4,7 @@ const fs = require('node:fs/promises');
 const root = 'https://simonrj.github.io/-summit-one-narrator/';
 const registry = 'https://raw.githubusercontent.com/SimonRJ/-summit-one-narrator/refs/heads/lesson-intro-catalog/data/lesson-intros-live.json';
 const teachingRevisions = {
-  'T02.3':'variable-bars', 'T03.2':'signal-timetable',
+  'T02.3':'variable-bars', 'T03.1':'bead-week-review', 'T03.2':'signal-timetable',
   'T12.1':'angle-tracing', 'T12.2':'clock-arc-proof', 'T12.3':'construction-notebook',
   'T13.1':'moving-area', 'T13.2':'cut-and-scale', 'T13.3':'hidden-cubes',
 };
