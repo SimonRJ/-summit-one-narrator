@@ -23,7 +23,7 @@ The continuation contains 912 new questions with hints and protected worked solu
 | S085 | Keep the constraint on the page | [S085](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S085-Intro-Illustrated.mp4) · Its own introduction | Space for a sign | 5 |
 | S086 | Add the work finished in one minute | [S086](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S086-Intro-Illustrated.mp4) · Its own introduction | A secret speed | 6 |
 | S087 | What does the silhouette force? | [S087](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S087-Intro-Illustrated.mp4) · Its own introduction | Reconstruct the storeroom | 6 |
-| S088 | Reserve a gap for neighbours | [S088](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S088-Intro.mp4) · Its own introduction | Cabin assignments | 6 |
+| S088 | Reserve a gap for neighbours | [S088](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S088-Intro-Illustrated.mp4) · Its own introduction | Cabin assignments | 6 |
 | S089 | Classify a cube by its position | [S089](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S089-Intro-Illustrated.mp4) · Its own introduction | The bottom stays clean | 6 |
 | S090 | Unfold the box in your head | [S090](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S090-Intro-Illustrated.mp4) · Its own introduction | A light open crate | 5 |
 | S092 | Put back the total behind the mean | [S092](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S092-Intro.mp4) · Its own introduction | Damaged logbook | 6 |
@@ -88,7 +88,7 @@ The continuation contains 912 new questions with hints and protected worked solu
 | S167 | Use the most restrictive comparison | [S135](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S135-Intro.mp4) · Technique film | Two unbroken pairs | 6 |
 | S169 | Restrict a search to one remainder class | [S110](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S110-Intro.mp4) · Technique film | Striped fence | 5 |
 | S170 | Give the unknown a clear meaning | [S038](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S038-Intro-Illustrated.mp4) · Technique film | When two tickets match | 5 |
-| S171 | Find the cases that break the rule | [S088](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S088-Intro.mp4) · Technique film | Two twin pairs | 6 |
+| S171 | Find the cases that break the rule | [S088](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S088-Intro-Illustrated.mp4) · Technique film | Two twin pairs | 6 |
 | S172 | Count groups that move together | [S083](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S083-Intro-Illustrated.mp4) · Technique film | Paired lamps | 6 |
 | S173 | Compare rates on unequal intervals | [S045](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S045-Intro-Illustrated.mp4) · Technique film | Recover a timestamp | 6 |
 | S174 | Build the whole from what survived | [S142](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S142-Intro-Illustrated.mp4) · Technique film | Open the middle crate | 5 |
