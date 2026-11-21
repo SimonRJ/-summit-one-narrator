@@ -11,7 +11,7 @@ The continuation contains 912 new questions with hints and protected worked solu
 | S069 | Choose roles or choose a group | [S069](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S069-Intro-Illustrated.mp4) · Its own introduction | Photo assignment | 4 |
 | S071 | Start with the clue that fixes a place | [S071](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S071-Intro-Illustrated.mp4) · Its own introduction | Place the end pieces | 4 |
 | S072 | Read one floor at a time | [S072](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S072-Intro-Illustrated.mp4) · Its own introduction | Match two silhouettes | 6 |
-| S073 | Use the line total | [S073](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S073-Intro.mp4) · Its own introduction | The centre of the grid | 6 |
+| S073 | Use the line total | [S073](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S073-Intro-Illustrated.mp4) · Its own introduction | The centre of the grid | 6 |
 | S074 | Explain why a list is complete | [S074](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S074-Intro.mp4) · Its own introduction | A parity condition on pairs | 5 |
 | S075 | Grow the whole recipe | [S075](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S075-Intro.mp4) · Its own introduction | Matching a second batch | 6 |
 | S076 | Trace the cut edge | [S076](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S076-Intro.mp4) · Its own introduction | Recover the joins | 6 |
@@ -185,7 +185,7 @@ The continuation contains 912 new questions with hints and protected worked solu
 | S296 | Use a second rule before counting | [S102](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S102-Intro.mp4) · Technique film | An unseen printing roll | 5 |
 | S297 | Use a target fraction to balance groups | [S027](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S027-Intro-Illustrated.mp4) · Technique film | Two seed trays | 6 |
 | S298 | Use the missing end term | [S059](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S059-Intro-Illustrated.mp4) · Technique film | A broken ledger | 6 |
-| S299 | Add lines to reveal the shared entries | [S073](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S073-Intro.mp4) · Technique film | Recover the corner from a block total | 6 |
+| S299 | Add lines to reveal the shared entries | [S073](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S073-Intro-Illustrated.mp4) · Technique film | Recover the corner from a block total | 6 |
 | S300 | Read a crossing event once | [S017](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S017-Intro-Illustrated-v2.mp4) · Technique film | Two diagonal beams | 6 |
 | S302 | Combine clues that overlap | [S120](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S120-Intro.mp4) · Technique film | Four voices | 5 |
 | S303 | Account for three lists | [S121](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S121-Intro.mp4) · Technique film | Missing centre | 6 |

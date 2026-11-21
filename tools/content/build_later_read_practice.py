@@ -63,7 +63,7 @@ def build(private):
         lesson = {k: draft[k] for k in ('slot', 'headline', 'intro', 'bridge', 'recap')}
         movie = src['videoUrl']
         # The illustrated releases retain the recording used to write each lesson bridge.
-        if src['videoId'] in {'S069', 'S071', 'S072'} and movie.endswith(src['videoId'] + '-Intro.mp4'):
+        if src['videoId'] in {'S069', 'S071', 'S072', 'S073'} and movie.endswith(src['videoId'] + '-Intro.mp4'):
             movie = movie.removesuffix('.mp4') + '-Illustrated.mp4'
         lesson.update(example=example, skill=src['skill'], videoId=src['videoId'],
                       videoTitle=src['videoTitle'], movie=movie, filmUse=src['mode'],
