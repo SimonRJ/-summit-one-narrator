@@ -1,7 +1,7 @@
 """Compare and pair copies of primes to prove divisibility and minimality."""
 
 from stage import BLUE, GOLD, MINT, MUTED, RED, RIM, WHITE, mix
-from studio_diagrams import PRIME_COLOURS, fit, join, prime, rail, recap, tile
+from studio_diagrams import PRIME_COLOURS, fit, join, prime, rail, tile
 
 
 PRIMES = (2, 3)
@@ -148,11 +148,25 @@ def paired_square(stage, s):
 
 
 def conditions_recap(stage, s):
-    recap(stage, s, (("HCF uses smaller counts", "use the smaller"),
-                     ("LCM uses larger counts", "use the larger"),
-                     ("Squares use even counts", "a square has even counts")),
-          "in your notebook", ("Find the highest common factor", "and lowest common multiple of 20 and 30."),
-          sub="Start by writing both prime factorisations.")
+    if s.reveal("in your notebook"):
+        stage.heading("Compare 20 and 30")
+        for i, (value, factors) in enumerate(((20, (2, 2, 5)), (30, (2, 3, 5)))):
+            y = 258 + i*109
+            fit(stage, str(value), 326, y, 50, 200)
+            for j, p in enumerate(factors):
+                prime(stage, 525+j*139, y, p, s.reveal("twenty and thirty", offset=i*.22+j*.15), 79)
+        fit(stage, "Which copies fit both rows? Which cover both?", 640, 541, 34, 1120, MINT,
+            s.reveal("twenty and thirty"))
+        return
+    stage.heading("Compare the copies prime by prime")
+    headers(stage)
+    source_rows(stage, ys=(247, 333))
+    smaller = s.reveal("use the smaller")
+    larger = s.reveal("use the larger")
+    fit(stage, "HCF   2 × 3 = 6", 365, 469, 37, 520, BLUE, smaller)
+    fit(stage, "LCM   2² × 3² = 36", 887, 469, 37, 535, GOLD, larger)
+    fit(stage, "36 = (2 × 3) × (2 × 3)", 640, 552, 37, 960, MINT,
+        s.reveal("a square has even counts"))
 
 
 def missing_number(stage, s):
@@ -217,12 +231,18 @@ def two_thirties(stage, s):
     square = s.reveal("so the new number is a square")
     fit(stage, "30 × 30 = 900", mix(640, 494, square), 535, 53, 820, MINT,
         s.reveal("thirty times thirty"))
-    for i in range(3):
-        for j in range(3):
-            stage.box(900 + 47 * j, 438 + 47 * i, 43, 43, radius=3, edge=MINT,
-                      fill="#284b49", opacity=square)
-    fit(stage, "30", 970, 602, 26, 150, MINT, square)
-    fit(stage, "30", 1079, 507, 26, 140, MINT, square)
+    # Each fine interval represents one unit. Heavy lines separate blocks of ten.
+    if square:
+        left, top, side = 896, 429, 150
+        stage.box(left, top, side, side, radius=0, fill="#284b49", edge=MINT, opacity=square)
+        for k in range(31):
+            delta = k * side / 30
+            colour = MINT if k % 10 == 0 else RIM
+            width = 2 if k % 10 == 0 else 1
+            stage.line([(left+delta, top), (left+delta, top+side)], colour, width, square)
+            stage.line([(left, top+delta), (left+side, top+delta)], colour, width, square)
+        fit(stage, "30", left+side/2, 604, 27, 140, MINT, square)
+        fit(stage, "30", 1092, top+side/2, 27, 80, MINT, square)
 
 
 def minimum_multiplier(stage, s):
@@ -245,12 +265,26 @@ def minimum_multiplier(stage, s):
 
 
 def partners_recap(stage, s):
-    recap(stage, s, (("Split into primes", "for a square"),
-                     ("Pair each prime", "pair every prime"),
-                     ("Fill odd counts", "choose one partner")),
-          "try the same proof with sixty",
-          ("What is the smallest positive multiplier", "that makes 60 a perfect square?"),
-          sub="Check that your prime tiles split into two equal groups.")
+    exercise = s.reveal("try the same proof with sixty")
+    stage.heading("Which partners does 60 need?" if exercise else "Pair the prime pieces of 90")
+    groups = ((2, 2), (3, 1), (5, 1)) if exercise else ((2, 1), (3, 2), (5, 1))
+    show = s.reveal("try the same proof with sixty") if exercise else s.reveal("pair every prime")
+    for i, (p, count) in enumerate(groups):
+        x = 399 + i*241
+        prime(stage, x, 269, p, show, 86)
+        if count == 2:
+            prime(stage, x, 406, p, show, 86)
+            join(stage, x, 306, 373, PRIME_COLOURS[p], show)
+        else:
+            appear = s.reveal("choose one partner") if not exercise else show
+            stage.box(x-42, 374, 84, 64, fill=None, edge=GOLD, opacity=appear)
+            fit(stage, "?", x, 406, 30, 60, GOLD, appear)
+    if exercise:
+        fit(stage, "Smallest multiplier for 60?", 640, 542, 41, 1000, WHITE,
+            s.reveal("smallest positive whole number"))
+    else:
+        fit(stage, "Missing partners for 90     2 × 5", 640, 542, 38, 1000, MINT,
+            s.reveal("whose count is odd"))
 
 
 SCENES = {

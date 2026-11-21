@@ -23,6 +23,8 @@ REVISED_MEDIA = {
     "T02.3": "variable-bars-20261119",
     "T04.1": "factor-tree-84",
     "T04.2": "divisor-choices-200",
+    "T04.3": "prime-rows-20-30",
+    "T04.E": "square-900",
     "T12.1": "angle-tracing-20261119",
     "T13.1": "moving-area-20261119",
     "T13.2": "cut-and-scale-20261119",
