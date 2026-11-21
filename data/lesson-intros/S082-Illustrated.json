@@ -1,0 +1,123 @@
+{
+  "id": "S082",
+  "duration_seconds": 192.7,
+  "sha256": "3623bec30f76716076029303497fe2cca66b095aa2211495da8cbc70c39002f1",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 100,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0,
+      "match_percent": 100
+    },
+    {
+      "number": 2,
+      "start": 14.36,
+      "match_percent": 100
+    },
+    {
+      "number": 3,
+      "start": 31.96,
+      "match_percent": 100
+    },
+    {
+      "number": 4,
+      "start": 45.37,
+      "match_percent": 100
+    },
+    {
+      "number": 5,
+      "start": 57.38,
+      "match_percent": 100
+    },
+    {
+      "number": 6,
+      "start": 71.91,
+      "match_percent": 100
+    },
+    {
+      "number": 7,
+      "start": 93.03,
+      "match_percent": 100
+    },
+    {
+      "number": 8,
+      "start": 118.59,
+      "match_percent": 100
+    },
+    {
+      "number": 9,
+      "start": 142.42,
+      "match_percent": 100
+    },
+    {
+      "number": 10,
+      "start": 157.94,
+      "match_percent": 100
+    },
+    {
+      "number": 11,
+      "start": 173.62,
+      "match_percent": 100
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Lines, cells and crossing points",
+      "start": 0
+    },
+    {
+      "title": "Mark what the question counts",
+      "start": 14.36
+    },
+    {
+      "title": "Count every crossing in a 4 by 2 grid",
+      "start": 31.96
+    },
+    {
+      "title": "Choose the four edges of a rectangle",
+      "start": 57.38
+    },
+    {
+      "title": "Contain A while avoiding B",
+      "start": 93.03
+    },
+    {
+      "title": "Count each pair of lines once",
+      "start": 157.94
+    },
+    {
+      "title": "Subtract the unwanted frames",
+      "start": 173.62
+    }
+  ],
+  "decoded_successfully": true,
+  "title": "Grid lines, crossings and coordinates",
+  "seconds": 192.7,
+  "art_revision": 2,
+  "script_sha256": "6a1eb046bb6f63f6541a26aa293f7112ad97a1044fcdf8244b2e221a4320f365",
+  "transcript": [
+    "A grid is made from lines, spaces between the lines, and points where the lines meet. These are three different things to count. For a rectangle on a grid, choose the two lines that form each pair of opposite edges.",
+    "An AMC Upper Primary question can ask for intersections, paths, or shapes cut out by grid lines. Mark the object being counted. A Rossmoyne style grid problem can require a shape to include one marked cell while avoiding another. Count by the possible boundaries.",
+    "The grid has four columns and two rows of squares. How many points where vertical and horizontal lines meet are there? Count the lines along the outside edges too.",
+    "four columns need five vertical lines. two rows need three horizontal lines. Each vertical line crosses all three horizontal lines. Multiply to get fifteen crossing points.",
+    "A sheet has five columns and four rows of cells. Count all rectangles whose sides lie along its grid lines. Rectangles can have any size. A square counts too.",
+    "Choose two of the six vertical lines. An unordered pair makes the left and right edge. There are fifteen choices. There are ten horizontal pairs. Choose one vertical pair and one horizontal pair independently. The four selected lines specify a unique rectangle. Multiply the counts to get one hundred and fifty.",
+    "On a seven column by five row grid, cell A is in column three, row three. Rows are numbered from the bottom. Cell B is in column six, row two. Count the grid-line rectangles containing all of A but none of the interior of B. One way to begin is to count every rectangle containing A. Then identify the unwanted ones.",
+    "To contain A, the left and right edges have three and five choices respectively. The lower and upper edges have three and three choices. That is one hundred and thirty-five rectangles. Each rectangle is counted once by the locations of its four sides. Now require it to contain both cells. Each side must sit outside the smallest block that contains A and B.",
+    "The edge counts for a rectangle enclosing both are three, two, two and three. Their product is thirty-six. Subtract those from the count containing A. Exactly ninety-nine rectangles contain A and avoid B.",
+    "The outside boundary contributes two edge lines in each direction. A row of five cells sits between six lines. For a rectangle, the pair of left and right lines has no order to choose twice. Choosing the lines fixes their order automatically.",
+    "Mark whether you are choosing lines, crossing points or cells. Count the outer boundaries before using a formula. Set constraints on one edge choice at a time. For a cell to be excluded, subtract exactly the choices that include it."
+  ],
+  "legacy_sha256": "56bb62b632b1fa518679be9d7023cddfdeef57f270e1387dffcc4ea0fc08098f",
+  "audio_packet_hash": "6de76b72e57dbae32af3fdc27fe08bebcf17fdaa4de6b6a9ac40dea37b688fe4",
+  "illustrated_revision": 1
+}
