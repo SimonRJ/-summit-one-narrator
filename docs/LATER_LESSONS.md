@@ -8,9 +8,9 @@ The continuation contains 912 new questions with hints and protected worked solu
 
 | Session | Opening | Assigned film | Final problem | Problems |
 |---|---|---|---|---:|
-| S069 | Choose roles or choose a group | [S069](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S069-Intro.mp4) · Its own introduction | Photo assignment | 4 |
-| S071 | Start with the clue that fixes a place | [S071](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S071-Intro.mp4) · Its own introduction | Place the end pieces | 4 |
-| S072 | Read one floor at a time | [S072](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S072-Intro.mp4) · Its own introduction | Match two silhouettes | 6 |
+| S069 | Choose roles or choose a group | [S069](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S069-Intro-Illustrated.mp4) · Its own introduction | Photo assignment | 4 |
+| S071 | Start with the clue that fixes a place | [S071](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S071-Intro-Illustrated.mp4) · Its own introduction | Place the end pieces | 4 |
+| S072 | Read one floor at a time | [S072](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S072-Intro-Illustrated.mp4) · Its own introduction | Match two silhouettes | 6 |
 | S073 | Use the line total | [S073](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S073-Intro.mp4) · Its own introduction | The centre of the grid | 6 |
 | S074 | Explain why a list is complete | [S074](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S074-Intro.mp4) · Its own introduction | A parity condition on pairs | 5 |
 | S075 | Grow the whole recipe | [S075](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S075-Intro.mp4) · Its own introduction | Matching a second batch | 6 |
@@ -106,7 +106,7 @@ The continuation contains 912 new questions with hints and protected worked solu
 | S191 | Separate frequency from value | [S132](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S132-Intro.mp4) · Technique film | Two possible scores | 4 |
 | S193 | Subtract equal parts to expose a difference | [S050](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S050-Intro-Illustrated.mp4) · Technique film | A fee disappears | 5 |
 | S194 | Change the unit you count | [S065](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S065-Intro-Illustrated.mp4) · Technique film | The garden tags | 5 |
-| S195 | Account for removed cubes once | [S072](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S072-Intro.mp4) · Technique film | Two one-cube tunnels | 6 |
+| S195 | Account for removed cubes once | [S072](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S072-Intro-Illustrated.mp4) · Technique film | Two one-cube tunnels | 6 |
 | S197 | Split work into active intervals | [S086](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S086-Intro.mp4) · Technique film | One machine removed | 5 |
 | S198 | Find the part that actually repeats | [S139](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S139-Intro.mp4) · Technique film | Visit count | 6 |
 | S199 | Reconstruct a shared boundary | [S108](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S108-Intro-Illustrated.mp4) · Technique film | Read a footprint backwards | 6 |
@@ -129,7 +129,7 @@ The continuation contains 912 new questions with hints and protected worked solu
 | S221 | Count by choosing the unused objects | [S130](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S130-Intro.mp4) · Technique film | Lab kits | 6 |
 | S222 | Link two small triangles | [S081](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S081-Intro-Illustrated.mp4) · Technique film | The surveyor’s unequal split | 6 |
 | S223 | Undo a replacement or removal | [S103](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S103-Intro.mp4) · Technique film | Swap between crews | 5 |
-| S226 | Keep all surviving arrangements | [S071](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S071-Intro.mp4) · Technique film | Place the end pieces | 5 |
+| S226 | Keep all surviving arrangements | [S071](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S071-Intro-Illustrated.mp4) · Technique film | Place the end pieces | 5 |
 | S227 | Split the walk at a checkpoint | [S093](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S093-Intro.mp4) · Technique film | An authorised river crossing | 6 |
 | S228 | Track the carry as a second clue | [S009](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S009-Intro-Illustrated.mp4) · Technique film | Leading digit forced | 6 |
 | S229 | Infer a worker from two teams | [S031](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S031-Intro-Illustrated.mp4) · Technique film | Minutes for the third worker | 5 |
@@ -195,10 +195,10 @@ The continuation contains 912 new questions with hints and protected worked solu
 | S309 | Count a chosen kind of domino | [S127](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S127-Intro.mp4) · Technique film | A tiling that crosses a seam | 6 |
 | S310 | Count overlaps of repeating lists | [S013](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S013-Intro-Illustrated.mp4) · Technique film | Unmarked posts | 6 |
 | S311 | Reverse a meeting story | [S037](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S037-Intro-Illustrated.mp4) · Technique film | Two measured meetings | 6 |
-| S312 | Distinguish the team from the assignment | [S069](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S069-Intro.mp4) · Technique film | Three relay heats | 6 |
+| S312 | Distinguish the team from the assignment | [S069](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S069-Intro-Illustrated.mp4) · Technique film | Three relay heats | 6 |
 | S313 | Recover what a fold preserves | [S081](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S081-Intro-Illustrated.mp4) · Technique film | Two mirror lines at one point | 6 |
 | S314 | Use bounds to test an average | [S026](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S026-Intro-Illustrated.mp4) · Technique film | Can the average be right? | 4 |
-| S317 | Combine facts before making cases | [S071](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S071-Intro.mp4) · Technique film | The five speakers | 6 |
+| S317 | Combine facts before making cases | [S071](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S071-Intro-Illustrated.mp4) · Technique film | The five speakers | 6 |
 | S318 | Block a point or a single edge? | [S093](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S093-Intro.mp4) · Technique film | Visit exactly one checkpoint | 6 |
 | S319 | Filter digit assignments column by column | [S010](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S010-Intro-Illustrated.mp4) · Technique film | The mirror receipt | 6 |
 | S321 | Count hits in a shifted cycle | [S139](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S139-Intro.mp4) · Technique film | The joint warning | 6 |
@@ -217,7 +217,7 @@ The continuation contains 912 new questions with hints and protected worked solu
 | S339 | Give a reason for the recurrence | [S052](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S052-Intro-Illustrated.mp4) · Technique film | No return to the broken rung | 6 |
 | S341 | Cut the board into manageable pieces | [S097](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S097-Intro.mp4) · Technique film | Which tiles straddle a boundary? | 6 |
 | S342 | Recover a hidden cycle from common returns | [S013](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S013-Intro-Illustrated.mp4) · Technique film | Missing gear | 6 |
-| S345 | Prove the minimum can be built | [S072](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S072-Intro.mp4) · Technique film | The least material for a skyline | 6 |
+| S345 | Prove the minimum can be built | [S072](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S072-Intro-Illustrated.mp4) · Technique film | The least material for a skyline | 6 |
 | S346 | Combine an order rule with a digit rule | [S004](https://simonrj.github.io/-summit-one-narrator/media/S004-Intro.mp4) · Technique film | Divisible by six | 6 |
 | S347 | Compare successive percentage changes | [S025](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S025-Intro-Illustrated.mp4) · Technique film | Same sale price | 5 |
 | S348 | Work backwards from a sequence total | [S134](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S134-Intro.mp4) · Technique film | Two theatre wings | 6 |
