@@ -13,7 +13,7 @@ The continuation contains 912 new questions with hints and protected worked solu
 | S072 | Read one floor at a time | [S072](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S072-Intro-Illustrated.mp4) · Its own introduction | Match two silhouettes | 6 |
 | S073 | Use the line total | [S073](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S073-Intro-Illustrated.mp4) · Its own introduction | The centre of the grid | 6 |
 | S074 | Explain why a list is complete | [S074](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S074-Intro-Illustrated.mp4) · Its own introduction | A parity condition on pairs | 5 |
-| S075 | Grow the whole recipe | [S075](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S075-Intro.mp4) · Its own introduction | Matching a second batch | 6 |
+| S075 | Grow the whole recipe | [S075](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S075-Intro-Illustrated.mp4) · Its own introduction | Matching a second batch | 6 |
 | S076 | Trace the cut edge | [S076](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S076-Intro.mp4) · Its own introduction | Recover the joins | 6 |
 | S078 | Use an easier outline | [S078](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S078-Intro-Illustrated-v2.mp4) · Its own introduction | The kerb cuts a corner | 6 |
 | S079 | Give each outcome an address | [S079](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S079-Intro.mp4) · Its own introduction | Parcel route | 6 |
@@ -121,7 +121,7 @@ The continuation contains 912 new questions with hints and protected worked solu
 | S211 | Match a repeated component | [S095](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S095-Intro.mp4) · Technique film | A new hamper | 6 |
 | S213 | Look for the turning point | [S122](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S122-Intro.mp4) · Technique film | The display must be wider | 6 |
 | S214 | Split numbers to compare products | [S123](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S123-Intro.mp4) · Technique film | Invisible centre | 5 |
-| S215 | A transfer changes two parts | [S075](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S075-Intro.mp4) · Technique film | Borrowed players | 4 |
+| S215 | A transfer changes two parts | [S075](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S075-Intro-Illustrated.mp4) · Technique film | Borrowed players | 4 |
 | S216 | A transfer has a double effect on the lead | [S125](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S125-Intro.mp4) · Technique film | Back past level | 6 |
 | S218 | Use colour as a test | [S097](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S097-Intro.mp4) · Technique film | Two missing floorboards | 6 |
 | S219 | Choose between a shared factor and a shared multiple | [S013](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S013-Intro-Illustrated.mp4) · Technique film | A rectangle of squares | 6 |
