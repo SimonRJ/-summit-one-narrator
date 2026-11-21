@@ -110,7 +110,8 @@
       "type": "concept",
       "chapter": "Use prime factors as the building blocks",
       "transcript": "Whole numbers bigger than one are made by multiplying primes. A prime has exactly two positive factors, one and itself. Take sixty. Split it into six and ten, then split those again. The prime pieces are two, three, two and five. Start another way. Write sixty as four times fifteen. Four gives two twos, and fifteen gives a three and a five. Rearrange the pieces in increasing order and both trees give the same list. That fixed prime factorisation is why we can work with the pieces. Is ninety-one prime? Decide which small primes you would try first, and think about how far the search needs to go. Ninety-one is odd, so two fails. Its digits add to ten, so three fails. Its last digit is one, so five fails. Try seven. Seven times thirteen equals ninety-one. These two factors show that ninety-one is composite. If both factors were bigger than the square root, multiplying them would give too much. So a composite number has a prime factor at or below its square root. For ninety-seven that root lies between nine and ten. Try two, three, five and seven. All leave a remainder, so ninety-seven is prime. Three different whole numbers, each bigger than one, multiply to sixty-six. Which numbers are they? Sixty-six has exactly three prime pieces, two, three and eleven. Each of the three numbers needs a piece. Each gets exactly one, so those three primes are the answer. Split a number until all its pieces are prime. When you test whether a number is prime, use the small primes up to its square root. One has only one positive factor. In your notebook, write eighty-four as a product of primes.",
-      "audio_url": ""
+      "audio_url": "",
+      "video_url": "media/T04.1.mp4?v=factor-tree-84"
     },
     {
       "id": "T04.2",
@@ -118,7 +119,8 @@
       "type": "concept",
       "chapter": "Use prime factors as the building blocks",
       "transcript": "Twelve has six positive factors: one, two, three, four, six and twelve. We can list those by finding the products that make twelve. For a larger number, it is easier to count choices from its prime factorisation. Three hundred and sixty factorises into two cubed, three squared and five. Its full factor list has twenty-four entries. We can account for them through three small counts, one for each prime. Let's see how this works with twelve first. Twelve is two times two times three. A factor of twelve is made from some of those prime tiles. Think about how many twos you can use. Then think about your choices for the three. How many different products are possible? Use zero, one or two twos. That gives three choices. For each of them, either include the three or leave it out. That gives two choices. Three times two makes six products. Taking no tiles gives one. Taking all the tiles gives twelve. Every cell makes a different factor. Seventy-two is two cubed times three squared. Choose zero, one, two or three twos. For each choice there are three possibilities for the threes. Four times three gives twelve factors. For three hundred and sixty, the extra choice about the five doubles that count to twenty-four. For thirty-six, the factor pairs are one and thirty-six, two and eighteen, three and twelve, and four and nine. Six pairs with itself, so it appears just once in the list. A factor pairs with itself exactly when its square is the number. That is why square numbers have an odd count of positive factors. For each prime, include the choice to use zero copies. Add one to the prime's exponent, and multiply the resulting counts. In your notebook, find the number of positive factors of two hundred, then explain why your method counts each factor once.",
-      "audio_url": ""
+      "audio_url": "",
+      "video_url": "media/T04.2.mp4?v=divisor-choices-200"
     },
     {
       "id": "T04.3",

@@ -19,7 +19,14 @@ TEACHING_SEQUENCE = (*OPENING_SEQUENCE, *COURSE_FILMS)
 VERSION = "t01-studio-v1"
 CHAPTER_VERSION = "studio-chapters-02-04-v1"
 COURSE_VERSION = "teaching-films-v1"
-REVISED_MEDIA = {"T02.3": "variable-bars-20261119", "T12.1": "angle-tracing-20261119", "T13.1": "moving-area-20261119", "T13.2": "cut-and-scale-20261119"}
+REVISED_MEDIA = {
+    "T02.3": "variable-bars-20261119",
+    "T04.1": "factor-tree-84",
+    "T04.2": "divisor-choices-200",
+    "T12.1": "angle-tracing-20261119",
+    "T13.1": "moving-area-20261119",
+    "T13.2": "cut-and-scale-20261119",
+}
 VOICE_SHA = "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362"
 
 
@@ -243,7 +250,7 @@ def install(lessons=IDS):
         page.write_text(make_watch_page(lesson, source, report, available=available))
         row = entries[lesson]
         row["transcript"] = " ".join(scene["narration"] for scene in source["scenes"])
-        if course_release:
+        if course_release or lesson in REVISED_MEDIA:
             row["video_url"] = f"media/{lesson}.mp4?v={REVISED_MEDIA.get(lesson, COURSE_VERSION)}"
     teaching_file.write_text(json.dumps(teaching, ensure_ascii=False, indent=2) + "\n")
     if course_release:
