@@ -4,6 +4,7 @@ on:
     branches: [codex/reviewed-film-work-20261119]
     paths: ['production/scripts/S094.json', '.github/workflows/s094-corrected-passages.yml']
 permissions:
+  actions: read
   contents: read
 jobs:
   record:
@@ -13,7 +14,7 @@ jobs:
       fail-fast: false
       max-parallel: 5
       matrix:
-        group: ['6', '7', '8', '9', '11']
+        group: ['8']
     env:
       HF_HUB_DISABLE_XET: '1'
       TOKENIZERS_PARALLELISM: 'false'
@@ -60,6 +61,18 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - name: Reuse the four unchanged readings from the first S094 recording
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p build/t01-studio
+          for scene in 6 7 9 11; do
+            for attempt in {1..55}; do
+              if gh run download 44907294848 --name "s094-original-speech-$scene" --dir build/t01-studio; then break; fi
+              sleep 15
+            done
+            test -s "build/t01-studio/S094-$(printf '%02d' "$scene").wav"
+          done
       - uses: actions/download-artifact@v4
         with:
           pattern: s094-original-speech-*
