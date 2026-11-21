@@ -14,7 +14,7 @@ The continuation contains 912 new questions with hints and protected worked solu
 | S073 | Use the line total | [S073](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S073-Intro-Illustrated.mp4) · Its own introduction | The centre of the grid | 6 |
 | S074 | Explain why a list is complete | [S074](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S074-Intro-Illustrated.mp4) · Its own introduction | A parity condition on pairs | 5 |
 | S075 | Grow the whole recipe | [S075](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S075-Intro-Illustrated.mp4) · Its own introduction | Matching a second batch | 6 |
-| S076 | Trace the cut edge | [S076](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S076-Intro.mp4) · Its own introduction | Recover the joins | 6 |
+| S076 | Trace the cut edge | [S076](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S076-Intro-Illustrated.mp4) · Its own introduction | Recover the joins | 6 |
 | S078 | Use an easier outline | [S078](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S078-Intro-Illustrated-v2.mp4) · Its own introduction | The kerb cuts a corner | 6 |
 | S079 | Give each outcome an address | [S079](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S079-Intro.mp4) · Its own introduction | Parcel route | 6 |
 | S081 | Which angles fill the line? | [S081](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S081-Intro-Illustrated.mp4) · Its own introduction | The inside bisectors | 6 |
@@ -178,7 +178,7 @@ The continuation contains 912 new questions with hints and protected worked solu
 | S285 | Recover a missing group size | [S065](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S065-Intro-Illustrated.mp4) · Technique film | The seven-stop routes | 6 |
 | S286 | Count the change across floors | [S087](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S087-Intro.mp4) · Technique film | How different can two skyline models be? | 6 |
 | S289 | Use a pair when one entry cannot predict the next | [S054](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S054-Intro-Illustrated-v2.mp4) · Technique film | A three-remainder clock | 6 |
-| S290 | Read the boundary as evidence | [S076](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S076-Intro.mp4) · Technique film | Rebuild the hidden seams | 6 |
+| S290 | Read the boundary as evidence | [S076](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S076-Intro-Illustrated.mp4) · Technique film | Rebuild the hidden seams | 6 |
 | S291 | Count the effect of one closed link | [S100](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S100-Intro.mp4) · Technique film | Round trips lost to a closure | 6 |
 | S293 | Model a change with one unknown | [S038](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S038-Intro-Illustrated.mp4) · Technique film | A partly used voucher | 5 |
 | S295 | Read the paint count backwards | [S113](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S113-Intro.mp4) · Technique film | What shape could the painted block have been? | 6 |
