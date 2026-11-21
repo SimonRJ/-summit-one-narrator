@@ -14,6 +14,10 @@ p{color:#bdd0df;max-width:780px}
 video{width:100%;height:auto;display:block;aspect-ratio:16/9;border:1px solid #30506c;background:#07101f;border-radius:16px;box-shadow:0 28px 75px #01070f99}
 .meta{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-top:18px;color:#9db4c6;font-size:.94rem}
 .mission{margin-top:26px;padding:18px 22px;border:1px solid #314d69;border-radius:12px;background:#111f31}
+
+.chapters{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}
+.chapters button{min-height:44px;padding:7px 13px;border:1px solid #4a6578;border-radius:12px;background:#142537;color:#edf7ff;font:inherit;cursor:pointer}
+.chapters button:focus-visible{outline:2px solid #60d9db;outline-offset:2px}
 </style>
 
   <!-- Summit One editorial identity and genuine TeX mathematics -->
@@ -34,6 +38,22 @@ video{width:100%;height:auto;display:block;aspect-ratio:16/9;border:1px solid #3
   <source src="media/T02.1.mp4?v=studio-v4" type="video/mp4">
   Your browser does not support HTML video.
 </video>
+<nav class="chapters" aria-label="Jump to a chapter">
+  <button type="button" data-time="47.059">0:47 · Transfer counters</button>
+  <button type="button" data-time="102.710">1:42 · Add to both piles</button>
+  <button type="button" data-time="129.617">2:09 · Prove the invariant</button>
+  <button type="button" data-time="170.021">2:50 · Try the targets</button>
+  <button type="button" data-time="196.415">3:16 · Recap</button>
+</nav>
 <div class="meta"><span>3:33 · Full HD 1920 × 1080 · 30 fps · Original narration</span><span>Summit One · The 135 Mission</span></div>
 <div class="mission"><strong>After watching:</strong> Draw one legal move in your notebook. Explain which total or difference remains fixed, and demonstrate why it must stay fixed after every move.</div>
-<p><a href="watch-t02-2.html?v=studio-v1">Next lesson: work backwards →</a></p></main></body></html>
+<p><a href="watch-t02-2.html?v=studio-v1">Next lesson: work backwards →</a></p></main><script>
+const video = document.querySelector('video');
+for (const button of document.querySelectorAll('.chapters [data-time]')) {
+  button.addEventListener('click', () => {
+    video.currentTime = Number(button.dataset.time);
+    video.play().catch(() => {});
+  });
+}
+</script>
+</body></html>
