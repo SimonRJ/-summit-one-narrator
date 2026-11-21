@@ -1,7 +1,7 @@
 {
   "id": "T05.2",
   "duration_seconds": 112.466667,
-  "sha256": "b3049b29cecac11ec46a1979bf9786f1ccb97f8f647d53d35702574a92f1d2e1",
+  "sha256": "319b5d1491e4f7a122ff9247f57672cbff6d77a9677211a6a550c9d78c8f20ba",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -88,5 +88,68 @@
       "start": 97.21
     }
   ],
-  "decoded_successfully": true
+  "decoded_successfully": true,
+  "legacy_sha256": "b3049b29cecac11ec46a1979bf9786f1ccb97f8f647d53d35702574a92f1d2e1",
+  "version": "digit-case-branches",
+  "compared_frames": 3374,
+  "compared_scenes": [
+    {
+      "frames": 383,
+      "worst_frame": 141,
+      "mean_max": 1.769,
+      "tile_max": 3.877,
+      "caption_max": 1.744
+    },
+    {
+      "frames": 403,
+      "worst_frame": 579,
+      "mean_max": 1.85,
+      "tile_max": 4.17,
+      "caption_max": 1.776
+    },
+    {
+      "frames": 422,
+      "worst_frame": 1206,
+      "mean_max": 1.743,
+      "tile_max": 3.016,
+      "caption_max": 1.657
+    },
+    {
+      "frames": 422,
+      "worst_frame": 1581,
+      "mean_max": 1.833,
+      "tile_max": 3.993,
+      "caption_max": 1.776
+    },
+    {
+      "frames": 590,
+      "worst_frame": 2187,
+      "mean_max": 1.799,
+      "tile_max": 3.365,
+      "caption_max": 1.783
+    },
+    {
+      "frames": 236,
+      "worst_frame": 2387,
+      "mean_max": 1.701,
+      "tile_max": 3.321,
+      "caption_max": 1.718
+    },
+    {
+      "frames": 461,
+      "worst_frame": 2883,
+      "mean_max": 1.772,
+      "tile_max": 4.257,
+      "caption_max": 1.768
+    },
+    {
+      "frames": 457,
+      "worst_frame": 2930,
+      "mean_max": 1.81,
+      "tile_max": 3.406,
+      "caption_max": 1.795
+    }
+  ],
+  "audio_packet_sha256": "497b9a7bbbaf2337e8bac57c30c42ddbcaf7e8a59c1784c9ce7fbd1a11946fe9",
+  "art_source": "2a44be33537b16e65fe99d4c72989a3e1b4db5f4"
 }

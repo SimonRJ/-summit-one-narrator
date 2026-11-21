@@ -80,7 +80,7 @@ def build(private):
             lesson['bridge'] = REVISED_FILM_BRIDGES[src['videoId'], slot]
         movie = src['videoUrl']
         # The illustrated releases retain the recording used to write each lesson bridge.
-        if src['videoId'] in {'S069', 'S071', 'S072', 'S073', 'S074', 'S075', 'S076', 'S079', 'S082', 'S085', 'S086', 'S087', 'S088'} and movie.endswith(src['videoId'] + '-Intro.mp4'):
+        if src['videoId'] in {'S069', 'S071', 'S072', 'S073', 'S074', 'S075', 'S076', 'S079', 'S082', 'S085', 'S086', 'S087', 'S088', 'S092'} and movie.endswith(src['videoId'] + '-Intro.mp4'):
             movie = movie.removesuffix('.mp4') + '-Illustrated.mp4'
         lesson.update(example=example, skill=src['skill'], videoId=src['videoId'],
                       videoTitle=src['videoTitle'], movie=movie, filmUse=src['mode'],

@@ -6,8 +6,8 @@ const status = document.querySelector('#readerStatus');
 const picker = document.querySelector('#readerLesson');
 const reading = document.querySelector('#reading');
 const editions = [
-  './data/read-watch-practise.json?v=worked-examples-20261121',
-  './data/read-watch-practise-later.json?v=worked-examples-20261121',
+  './data/read-watch-practise.json?v=matched-investigations-20261121',
+  './data/read-watch-practise-later.json?v=matched-investigations-20261121',
 ];
 
 async function prepareOffline() {

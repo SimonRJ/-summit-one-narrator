@@ -1,7 +1,7 @@
 {
   "id": "T05.E",
   "duration_seconds": 73.433333,
-  "sha256": "0ab1d12b7a8a551274c1c60e445f0f2d674cca49dbdc3ab303a55a54c8951c5c",
+  "sha256": "c74b76ab2ad1e2d56c8feb484ea4d52a046c8d2e047fa22d44fb97bf73e43bc5",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -70,5 +70,54 @@
       "start": 52.61
     }
   ],
-  "decoded_successfully": true
+  "decoded_successfully": true,
+  "legacy_sha256": "0ab1d12b7a8a551274c1c60e445f0f2d674cca49dbdc3ab303a55a54c8951c5c",
+  "version": "lunch-and-outfit-grids",
+  "compared_frames": 2203,
+  "compared_scenes": [
+    {
+      "frames": 407,
+      "worst_frame": 257,
+      "mean_max": 1.874,
+      "tile_max": 4.299,
+      "caption_max": 1.766
+    },
+    {
+      "frames": 288,
+      "worst_frame": 553,
+      "mean_max": 1.723,
+      "tile_max": 2.837,
+      "caption_max": 1.683
+    },
+    {
+      "frames": 288,
+      "worst_frame": 784,
+      "mean_max": 1.814,
+      "tile_max": 3.288,
+      "caption_max": 1.704
+    },
+    {
+      "frames": 226,
+      "worst_frame": 1032,
+      "mean_max": 1.896,
+      "tile_max": 3.856,
+      "caption_max": 1.743
+    },
+    {
+      "frames": 370,
+      "worst_frame": 1209,
+      "mean_max": 1.777,
+      "tile_max": 3.533,
+      "caption_max": 1.695
+    },
+    {
+      "frames": 624,
+      "worst_frame": 1581,
+      "mean_max": 1.93,
+      "tile_max": 3.599,
+      "caption_max": 1.775
+    }
+  ],
+  "audio_packet_sha256": "d551b0a9ad1a12314c6d462571cade40fd5e7c726d7ae300d732c6964493db28",
+  "art_source": "2a44be33537b16e65fe99d4c72989a3e1b4db5f4"
 }

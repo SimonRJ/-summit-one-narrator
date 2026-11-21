@@ -3,7 +3,7 @@
 from itertools import combinations
 
 from series_marks import (BLUE, GOLD, MINT, MUTED, RED, WHITE, cards,
-                          chart, cue, equation, exercise, link, move, note, outline, scene, tile)
+                          chart, cue, equation, link, move, note, outline, scene, tile)
 from stage import mix
 from studio_diagrams import fit
 
@@ -58,6 +58,176 @@ def triples(stage, s):
              cue(s, "ten groups", delay=.07*i), 29)
 
 
+def pair_challenge(stage, s):
+    if s.t < s.at("notebook challenge"):
+        fit(stage, "Count the roles, then the teams", 640, 90, 48)
+        cards((("AB", BLUE), ("BA", GOLD)), 265, words="positions or roles differ", gap=220)(stage, s)
+        link((530, 306), (625, 400), "only membership matters")(stage, s)
+        link((750, 306), (655, 400), "only membership matters")(stage, s)
+        tile(stage, 640, 446, "{A, B}", MINT, 180, 70, cue(s, "divide by the number"))
+        return
+    fit(stage, "Six players", 640, 90, 48)
+    for i, name in enumerate("ABCDEF"):
+        tile(stage, 265 + 150*i, 208, name, BLUE, 105, 66, cue(s, "from six players", delay=.06*i))
+    for y, label, detail, words, colour in (
+        (358, "Captain and vice-captain", "6 × 5 = 30", "a captain and a vice-captain", GOLD),
+        (484, "Two equipment carriers", "30 ÷ 2 = 15", "carry the equipment", MINT),
+    ):
+        p = cue(s, words)
+        fit(stage, label, 405, y, 36, 570, colour, p)
+        fit(stage, detail, 925, y, 40, 405, colour, p)
+
+
+pair_challenge.chapter = "Your turn"
+
+
+def hundreds_choices(stage, s):
+    fit(stage, "Even numbers made from 0, 1, 2, 3, 4 without repeats", 640, 173, 32, 1140)
+    for y, last, digits, words, colour in (
+        (321, 0, "1234", "the number of choices", BLUE),
+        (452, 2, "134", "when a restriction changes", GOLD),
+    ):
+        p = cue(s, words)
+        fit(stage, f"Last digit {last}", 295, y, 36, 325, colour, p)
+        for i, digit in enumerate(digits):
+            tile(stage, 593 + 122*i, y, digit, colour, 97, 68, p)
+    fit(stage, "Possible hundreds digits", 769, 240, 27, 620, MUTED)
+
+
+def case_counts(stage, s):
+    xs = (251, 511, 783, 1035)
+    for x, title in zip(xs, ("Last digit", "Hundreds", "Tens", "Numbers")):
+        fit(stage, title, x, 215, 30, 230, MUTED)
+    rows = (
+        (("0", "last digit is zero"), ("4", "four choices"), ("3", "middle has three"), ("12", "twelve numbers")),
+        (("2", "last digit is two or four"), ("3", "leaving three choices"), ("3", "three that is two times"), ("9", "two times three times three")),
+        (("4", "last digit is two or four"), ("3", "leaving three choices"), ("3", "three that is two times"), ("9", "two times three times three")),
+    )
+    for row, entries in enumerate(rows):
+        for x, (label, words) in zip(xs, entries):
+            tile(stage, x, 299 + 84*row, label, (BLUE, GOLD, MINT)[row], 126, 60, cue(s, words))
+
+
+def digit_challenge(stage, s):
+    if s.t < s.at("notebook challenge"):
+        fit(stage, "Count by last digit", 640, 90, 48)
+        for i, (last, product, colour) in enumerate((("0", "4 × 3", BLUE), ("2", "3 × 3", GOLD), ("4", "3 × 3", MINT))):
+            x = 320 + 320*i
+            tile(stage, x, 266, "Last " + last, colour, 214, 74, cue(s, "split at the feature"))
+            fit(stage, product, x, 386, 43, 245, colour, cue(s, "multiply within a case"))
+        fit(stage, "12 + 9 + 9 = 30", 640, 534, 44, 800, MINT, cue(s, "add the cases"))
+        return
+    fit(stage, "Two-digit numbers with different digits", 640, 90, 44)
+    p = cue(s, "two-digit numbers")
+    q = cue(s, "two different digits")
+    fit(stage, "Tens", 177, 221, 29, 147, BLUE, p)
+    fit(stage, "Units digit", 677, 157, 29, 420, GOLD, p)
+    for unit in range(10):
+        fit(stage, str(unit), 321 + 77*unit, 219, 27, 70, GOLD, p)
+    for tens in range(1, 10):
+        y = 251 + 34*(tens-1)
+        fit(stage, str(tens), 177, y, 25, 80, BLUE, p)
+        for unit in range(10):
+            x = 321 + 77*unit
+            stage.box(x-25, y-13, 50, 26, radius=3, edge=MUTED, fill=None, opacity=p)
+            if unit == tens:
+                stage.line(((x-14,y+9),(x+14,y-9)), RED, 4, q)
+    fit(stage, "9 tens choices × 9 allowed units = 81", 640, 584, 33, 1090, MINT, q)
+
+
+digit_challenge.chapter = "Your turn"
+
+
+SEATING = ("G1", "B1", "G2", "G3", "B2")
+
+
+def seated_row(stage, y, words, s):
+    for i, pupil in enumerate(SEATING):
+        tile(stage, 280 + 180*i, y, pupil, BLUE if pupil.startswith("G") else GOLD,
+             125, 68, cue(s, words, delay=.06*i))
+
+
+def seat_address(stage, s):
+    seated_row(stage, 242, "every outcome", s)
+    for y, text, words, colour in (
+        (360, "Girls from left to right   G1, G2, G3", "from the outcome", BLUE),
+        (434, "B1 uses gap 2     ·     B2 uses gap 4", "which choices made it", GOLD),
+        (535, "Put each boy back in his gap to recover the same row", "a real outcome", MINT),
+    ):
+        fit(stage, text, 640, y, 36, 1130, colour, cue(s, words))
+
+
+def repeat_or_miss(stage, s):
+    fit(stage, "Place B1 in gap 2 and B2 in gap 4", 640, 174, 35)
+    for y, txt in ((247, "Insert B1, then B2"), (314, "Insert B2, then B1")):
+        fit(stage, txt, 640, y, 29, 850, GOLD, cue(s, "double counting"))
+    seated_row(stage, 410, "double counting", s)
+    fit(stage, "Both insertion orders produce this one row", 640, 487, 31, 1080, MINT, cue(s, "double counting"))
+    fit(stage, "Ignoring either end gap would miss legal rows", 640, 556, 31, 1120, RED, cue(s, "missed cases"))
+
+
+def shelf_challenge(stage, s):
+    if s.t < s.at("notebook challenge"):
+        fit(stage, "Rebuild the same seating", 640, 89, 46)
+        seated_row(stage, 265, "recover the choices", s)
+        fit(stage, "G1, G2, G3     ·     B1 in gap 2     ·     B2 in gap 4",
+            640, 398, 33, 1150, BLUE, cue(s, "recover the choices"))
+        fit(stage, "Different gaps keep the boys apart", 640, 501, 34, 1040, MINT, cue(s, "give a legal outcome"))
+        return
+    fit(stage, "Arrange four different books", 640, 89, 46)
+    for i, title in enumerate("ACBD"):
+        tile(stage, 320 + 214*i, 297, title, GOLD if title in "AB" else BLUE,
+             143, 134, cue(s, "four different books", delay=.08*i), 49)
+    stage.line(((202,367),(1078,367)), MUTED, 5, cue(s, "stand on a shelf"))
+    fit(stage, "A and B need a book between them", 640, 445, 37, 1100, GOLD, cue(s, "must not be next to each other"))
+    fit(stage, "24 total − 2 × 6 with A and B together = 12", 640, 542, 34, 1130, MINT,
+        cue(s, "next to each other", delay=.65))
+
+
+shelf_challenge.chapter = "Your turn"
+
+
+def lunch_check(stage, s):
+    for c, name in enumerate(("Apple", "Pear", "Plum")):
+        fit(stage, name, 490 + 231*c, 205, 32, 200, GOLD)
+    for r, name in enumerate(("Cheese", "Bean")):
+        y = 318 + 107*r
+        fit(stage, name, 230, y, 34, 214, (BLUE, MINT)[r])
+        for c in range(3):
+            x = 490 + 231*c
+            tile(stage, x, y, "1", (BLUE, MINT)[r], 153, 70, cue(s, "without the rule"))
+            if (r, c) == (0, 2):
+                p = cue(s, "cheese with plum")
+                stage.line(((x-51,y+23),(x+51,y-23)), RED, 6, p)
+
+
+def outfit_challenge(stage, s):
+    if s.t < s.at("then try this"):
+        fit(stage, "Count the lunches branch by branch", 640, 89, 47)
+        lunch_tree(stage, s, "recap")
+        fit(stage, "2 cheese lunches + 3 bean lunches = 5", 640, 574, 37, 1120, MINT,
+            cue(s, "add them"))
+        return
+    fit(stage, "Three shirts and four pairs of shorts", 640, 89, 45)
+    for i, shorts in enumerate(("Orange 1", "Orange 2", "Navy", "Grey")):
+        x = 440 + 195*i
+        fit(stage, shorts, x, 192, 29, 181, GOLD if i < 2 else MUTED, cue(s, "four pairs of shorts"))
+        for j, shirt in enumerate(("Red", "Blue", "Green")):
+            y = 284 + 91*j
+            colour = (RED, BLUE, MINT)[j]
+            if i == 0:
+                fit(stage, shirt + " shirt", 221, y, 33, 248, colour, cue(s, "three shirts"))
+            p = cue(s, "four pairs of shorts", delay=.055*(4*j+i))
+            tile(stage, x, y, "1", colour, 139, 64, p)
+            if j == 0 and i < 2:
+                stage.line(((x-51,y+19),(x+51,y-19)), RED, 6, cue(s, "two orange pairs", delay=.13*i))
+    fit(stage, "12 possible pairs − 2 forbidden = 10 outfits", 640, 572, 36, 1150, MINT,
+        cue(s, "how many outfits", delay=.5))
+
+
+outfit_challenge.chapter = "Your turn"
+
+
 FILMS = {
     "T05.1": (
         scene("Does order matter?", podium,
@@ -66,6 +236,7 @@ FILMS = {
         scene("The wording decides whether to count a swap", cards((("AB",BLUE),("BA",GOLD)), 251, gap=200),
               link((540,295),(640,410),"or halves it",colour=MINT),
               link((740,295),(640,410),"or halves it",colour=MINT),
+              note("Two distinct people · two podium orders", x=640, y=155, size=31),
               cards((("{A, B}",MINT),), 452, words="or halves it", width=171),
               note("Two orders can describe one team", "decide about order")),
         scene("Three runners, two different counts", cards((A, B, C), 237, words="ava ben and cal"),
@@ -84,10 +255,7 @@ FILMS = {
               cards((("Captain", BLUE), ("Scorer", GOLD), ("Timekeeper", MINT)), 421,
                     words="captain scorer and timekeeper", gap=285, width=254),
               note("5 × 4 × 3 = 60 assignments", "the answer is sixty")),
-        exercise((("Positions or roles", "if positions or roles differ"), ("Only the members", "if only membership matters")),
-                 "notebook challenge", ("Six players. How many captain and vice-captain choices?",
-                                        "How many pairs of equipment carriers?"),
-                 sub="Which decisions give each pair a different job?"),
+        pair_challenge,
     ),
     "T05.2": (
         scene("Split a difficult count into cases",
@@ -99,9 +267,7 @@ FILMS = {
                 for i, letter in enumerate("ABCDEFGHI")),
               note("Every outcome goes in exactly one case", "every outcome belongs to one")),
         scene("Does the restriction change the count?",
-              chart(("First decision", "Choices available next"),
-                    [(("Case A", "4"), "the number of choices"), (("Case B", "3"), "when a restriction changes")],
-                    y=245, row_height=88),
+              hundreds_choices,
               note("Count each case using its own choices", "splitting at the restriction")),
         scene("How many even three-digit numbers?",
               cards(tuple("01234"), 228, words="zero one two three and four", gap=143),
@@ -110,16 +276,13 @@ FILMS = {
         scene("Split by the last digit",
               cards((("0", BLUE), ("2", GOLD), ("4", GOLD)), 241, words="zero two or four", gap=155),
               link((485,280),(354,382),"split by the last digit",colour=BLUE,arrow=True),
-              link((719,280),(925,382),"or it is two or four",colour=GOLD,arrow=True),
+              link((640,280),(892,382),"or it is two or four",colour=GOLD,arrow=True),
+              link((795,280),(957,382),"or it is two or four",colour=GOLD,arrow=True),
               cards((("Last is 0", BLUE),), 430, words="either it is zero", x=354, width=290),
               cards((("Last is 2 or 4", GOLD),), 430, words="or it is two or four", x=925, width=355),
               note("A three-digit number cannot start with 0", "cannot start with zero", y=555)),
         scene("Count inside each class",
-              chart(("Last digit", "Choices for first", "Choices for middle", "Number of results"),
-                    [(("0","4","3","12"),"if the last digit is zero"),
-                     (("2","3","3","9"),"if the last digit is two or four"),
-                     (("4","3","3","9"),"if the last digit is two or four")],
-                    y=219, row_height=76, width=1112, highlight=((0,3),(1,3),(2,3))),
+              case_counts,
               equation(("Last 0: 12", BLUE, "twelve numbers"),
                        ("    Last 2 or 4: 18", GOLD, "eighteen numbers"), y=562, size=37)),
         scene("A number belongs to just one class",
@@ -134,24 +297,11 @@ FILMS = {
                     y=204,row_height=62),
               note("Subtract the forbidden pair", "subtract that one", y=532, size=34, colour=RED),
               equation(("4 − 1", WHITE, "subtract that one"),("= 3", MINT,"leaving three"),y=586,size=38)),
-        exercise((("Split at the restriction","split at the feature"),
-                   ("Multiply within a case","multiply within a case"),("Add the cases","add the cases")),
-                 "notebook challenge",("How many two-digit numbers have different digits?",),
-                 sub="Try counting all two-digit numbers and removing the repeats."),
+        digit_challenge,
     ),
     "T05.3": (
-        scene("Give each outcome one address",
-              *(outline(267+i*275,370,196,94,"every outcome has exactly") for i in range(3)),
-              *(move(label,(365+i*275,219),(365+i*275,418),"from the outcome",
-                     colour=(BLUE,GOLD,MINT)[i], width=148,delay=.13*i)
-                for i,label in enumerate(("Outcome A","Outcome B","Outcome C"))),
-              note("Outcome and choices recover each other","tell which choices made it",y=555)),
-        scene("Look for repeats and omissions",
-              outline(245,351,342,99),outline(692,351,343,99),
-              move("A", (285,239),(348,400),"double counting",colour=BLUE),
-              move("A", (558,239),(466,400),"double counting",colour=RED),
-              note("Same outcome twice", "double counting", x=410,y=498, width=470, colour=RED, size=30),
-              note("An outcome missing", "missed cases", x=864,y=498,width=470,colour=GOLD,size=30)),
+        scene("Give each outcome one address", seat_address),
+        scene("Look for repeats and omissions", repeat_or_miss),
         scene("Seat five different people",cards((("G1",BLUE),("G2",BLUE),("G3",BLUE),
               ("B1",GOLD),("B2",GOLD)),243,words="three are girls",gap=155),
               cards(("","","","",""),393,width=111,gap=129),
@@ -179,9 +329,7 @@ FILMS = {
               note("Arrange 4 objects, then 2 orders inside the block","times two for the boys swapping",y=477,size=32),
               equation(("120",BLUE,"one hundred and twenty ways"),("− 48",GOLD,"forty-eight unwanted rows"),
                        ("= 72",MINT,"is seventy-two"),y=562)),
-        exercise((("Recover the choices","recover the choices"),("Check every choice is legal","give a legal outcome")),
-                 "notebook challenge",("Arrange four different books on a shelf.",
-                                        "Two particular books cannot sit together. How many orders?")),
+        shelf_challenge,
     ),
 }
 
@@ -191,10 +339,14 @@ def lunch_tree(stage, s, branch=None):
     for x, text, colour in ((339,"Cheese",BLUE),(941,"Bean",MINT)):
         stage.arrow((640,239),(x,305),colour,1)
         tile(stage,x,341,text,colour,205,63)
-        if branch not in ("both", text):
+        if branch not in ("recap", "both", text):
             continue
-        when="the allowed fruits" if text=="Cheese" and branch=="Cheese" else "all three fruits" if text=="Bean" else None
         for i, fruit in enumerate(("Apple","Pear","Plum")):
+            when = None
+            if branch == "Cheese":
+                when = "plum is not allowed" if fruit == "Plum" else "the allowed fruits"
+            elif branch == "both" and text == "Bean":
+                when = "all three fruits"
             p=cue(s,when,delay=.15*i)
             xx=x+145*(i-1)
             forbidden=text=="Cheese" and fruit=="Plum"
@@ -219,11 +371,7 @@ FILMS["T05.E"] = (
           equation(("2",BLUE,"add the cases"),("+",WHITE,"add the cases"),("3",GOLD,"three lunches"),
                    ("= 5 lunches",MINT,"is five"),y=573,size=40)),
     scene("Check by removing the forbidden pair",
-          chart(("Sandwich","Apple","Pear","Plum"),
-                [(("Cheese","Yes","Yes",("No",RED)),"without the rule"),(("Bean","Yes","Yes","Yes"),"without the rule")],
-                y=249,row_height=95,highlight=((0,1),(0,2),(1,1),(1,2),(1,3))),
+          lunch_check,
           equation(("6",BLUE,"six lunches"),("− 1",RED,"exactly one"),("= 5",MINT,"six minus one is five"))),
-    exercise((("Add unequal branches","different sizes"),("Check the missing case","rebuild the tree")),
-             "then try this",("Three shirts and four pairs of shorts.","The red shirt cannot go with either orange pair."),
-             sub="How many outfits can you make?"),
+    outfit_challenge,
 )

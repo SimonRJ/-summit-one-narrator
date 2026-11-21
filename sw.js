@@ -1,5 +1,5 @@
 const scope = new URL(self.registration.scope);
-const CACHE="summit-one-course-investigations-20261121";
+const CACHE="summit-one-matched-investigations-20261121";
 const cachePrefix = scope.pathname + ':summit-one-';
 const cacheName = scope.pathname + ':' + CACHE;
 const reader = new URL('offline-reader.html', scope).href;
@@ -10,14 +10,14 @@ const staticFiles = [
   "./route-model.js?v=paths-20261121",
   "./route-model.css?v=paths-20261121",
   "./offline-reader.html",
-  "./offline-reader.js?v=worked-examples-20261121",
+  "./offline-reader.js?v=matched-investigations-20261121",
   "./domino-model.js?v=github-20261121",
   "./domino-model.css?v=github-20261121",
   "./model-claims.js?v=reasoning-20261121",
-  "./example-methods.js?v=worked-examples-20261121",
+  "./example-methods.js?v=matched-investigations-20261121",
   "./lesson-models.js?v=deeper-20261121",
   "./lesson-models.css?v=deeper-20261121",
-  "./data/read-watch-practise-later.json?v=worked-examples-20261121",
+  "./data/read-watch-practise-later.json?v=matched-investigations-20261121",
   "./figures/read-practice/S006.svg",
   "./figures/read-practice/S017.svg",
   "./figures/read-practice/S019.svg",
@@ -43,7 +43,7 @@ const staticFiles = [
   "./figures/read-practice/S362.svg",
   "./figures/read-practice/S368.svg",
   "./reviewed-lesson.js?v=deeper-20261121",
-  "./data/read-watch-practise.json?v=worked-examples-20261121",
+  "./data/read-watch-practise.json?v=matched-investigations-20261121",
   "./read-practice.css?v=guided-20261121",
   "./coverage.html",
   "./coverage.js?v=recognition-20261113",
@@ -71,7 +71,7 @@ const staticFiles = [
   "./boot-loader.css?v=cinematic-20261113",
   "./main.css?v=data-audit-20261114",
   "./summit-polish.css?v=craft-20261121",
-  "./app-main.js?v=course-investigations-20261121",
+  "./app-main.js?v=matched-investigations-20261121",
   "./course-menu.js?v=menu-20261113",
   "./course-menu-ui.js?v=github-20261121",
   "./lesson-introduction-media.js?v=lesson-intros-v16",
