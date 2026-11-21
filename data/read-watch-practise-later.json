@@ -2826,7 +2826,7 @@
       "slot": 137,
       "headline": "A reversed digit changes its job",
       "intro": "In AB the digit A contributes ten times A, while in BA it contributes just A. This gives a reliable equation for a reversal even if the symbols look much alike.",
-      "bridge": "When AB becomes BA in the film, write the two different values of the same digit A. Watch how the digit-sum clue narrows the possible digits.",
+      "bridge": "Watch what each digit gains or loses when it moves one place. In the lock, look for the digit that stays put.",
       "recap": "A positive two-digit reversal difference is a multiple of 9. The digit sum and any leading-zero rule then limit possible answers.",
       "example": {
         "prompt": "A two-digit number has tens digit 5 and units digit 2. By how much does it exceed its reverse?",
@@ -2836,10 +2836,10 @@
         ]
       },
       "skill": "DIG-05",
-      "videoId": "S010",
-      "videoTitle": "Cryptarithms and symbol-to-digit arithmetic",
-      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S010-Intro-Illustrated.mp4",
-      "filmUse": "technique",
+      "videoId": "S137",
+      "videoTitle": "Digit detectives",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/recorded-course-studies-20261121/S137.mp4",
+      "filmUse": "dedicated",
       "retained": [
         "O137T",
         "O137X"
@@ -2879,7 +2879,7 @@
       "slot": 138,
       "headline": "A rate can take work away",
       "intro": "A leaking tank combines a rate that adds water with one that takes it away. Count the net change per minute, using the same volume unit for both.",
-      "bridge": "In the film, track the two pumps until one stops. Both pumps there add water. For the practice problems, use the same one-minute accounting when a drain takes water away.",
+      "bridge": "Follow the pen until the valve closes. What changes at the bend, and which flow keeps its old rate?",
       "recap": "Draw arrows into and out of the container. Apply the net rate only while both processes run.",
       "example": {
         "prompt": "Water enters a tub at 9 litres per minute and drains at 3 litres per minute. How much water accumulates in 4 minutes?",
@@ -2889,10 +2889,10 @@
         ]
       },
       "skill": "RATE-02",
-      "videoId": "S106",
-      "videoTitle": "Combined work rates",
-      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S106-Intro.mp4",
-      "filmUse": "technique",
+      "videoId": "S138",
+      "videoTitle": "Read the flow bench",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/recorded-course-studies-20261121/S138.mp4",
+      "filmUse": "dedicated",
       "retained": [
         "O138X"
       ],
@@ -2984,7 +2984,7 @@
       "slot": 141,
       "headline": "Read the scale before the height",
       "intro": "A bar can start above zero. Its top still gives the value on the axis. To compare two values subtract their readings, and to compare ratios use the full readings.",
-      "bridge": "As the film reads its cumulative chart, notice how a total is taken from the axis. Keep the same habit when your own chart starts above zero.",
+      "bridge": "Read the first number on the vertical axis. Then watch what changes when the chart reveals the rest of each bar.",
       "recap": "Write the axis values in a tiny table before calculating. A truncated baseline preserves differences but can distort visual ratios.",
       "example": {
         "prompt": "A water-level chart starts its axis at 20 cm. The tops for Monday and Tuesday are at 24 and 28. How much deeper is Tuesday?",
@@ -2998,10 +2998,10 @@
         }
       },
       "skill": "DATA-03",
-      "videoId": "S104",
-      "videoTitle": "Reading and reasoning from graphs/tables",
-      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S104-Intro.mp4",
-      "filmUse": "technique",
+      "videoId": "S141",
+      "videoTitle": "Where the bars begin",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/recorded-course-studies-20261121/S141.mp4",
+      "filmUse": "dedicated",
       "retained": [
         "O141X"
       ],
@@ -3302,7 +3302,7 @@
       "slot": 149,
       "headline": "Compare areas through height",
       "intro": "Triangles can look quite different and still have matching areas. Look for a common perpendicular height before trying to measure their sloping sides.",
-      "bridge": "The film measures shaded rectangles by their footprints. Watch how it accounts for their shared area before moving on to regions with triangular edges.",
+      "bridge": "Follow the perpendicular line from the moving corner to the base. Use that distance to compare the areas.",
       "recap": "A common height lets you use the ratio of the bases. For the portion left over, account for the whole region.",
       "example": {
         "prompt": "Two triangles have bases 3 cm and 6 cm on the same line and share a vertex 4 cm above it. How do their areas compare?",
@@ -3312,10 +3312,10 @@
         ]
       },
       "skill": "GEO-02",
-      "videoId": "S078",
-      "videoTitle": "Area decomposition and shaded complements",
-      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S078-Intro-Illustrated-v2.mp4",
-      "filmUse": "technique",
+      "videoId": "S149",
+      "videoTitle": "How far can the apex travel?",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/recorded-course-studies-20261121/S149.mp4",
+      "filmUse": "dedicated",
       "retained": [
         "O149T",
         "O149X"
@@ -3355,7 +3355,7 @@
       "slot": 150,
       "headline": "Follow what stays in the bag",
       "intro": "In a series of draws, the first result can change the second probability. Keep both the total number of objects and the number of favourable objects up to date.",
-      "bridge": "Watch the counters come out of the bag. Before the next draw, say how many counters of each colour remain on that particular branch.",
+      "bridge": "When the lamp lights, find the pairs you can cross out before choosing the denominator.",
       "recap": "Write the second fraction using the contents that remain on that branch. Combine different successful orders only after their probabilities are known.",
       "example": {
         "prompt": "A bowl holds two plums and one pear. Pick two pieces without replacement, choosing each remaining piece with equal probability. What is the probability that both are plums?",
@@ -3365,10 +3365,10 @@
         ]
       },
       "skill": "DATA-01",
-      "videoId": "S101",
-      "videoTitle": "Elementary probability and favourable outcomes",
-      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S101-Intro.mp4",
-      "filmUse": "technique",
+      "videoId": "S150",
+      "videoTitle": "What did the sun lamp reveal?",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/recorded-course-studies-20261121/S150.mp4",
+      "filmUse": "dedicated",
       "retained": [
         "O150T"
       ],
@@ -3457,7 +3457,7 @@
       "slot": 152,
       "headline": "What stays fixed when items move?",
       "intro": "A transfer can change both holdings without changing the total. Use a second clue about the final holdings, then trace the transfer back.",
-      "bridge": "The film reconstructs three boxes from overlapping two-box counts. Notice how a known combined amount helps pin down an unknown holding before you return to transfers.",
+      "bridge": "When you undo a move, follow the same counters back to their original tray. Which pile was the fraction taken from?",
       "recap": "Label each number as before or after. Do not pair a final ratio or difference with an opening amount.",
       "example": {
         "prompt": "Two jars share 30 beads. After a transfer they are equal. What does the total alone tell you?",
@@ -3467,10 +3467,10 @@
         ]
       },
       "skill": "ALG-02",
-      "videoId": "S120",
-      "videoTitle": "Simultaneous and total-sum constraints",
-      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S120-Intro.mp4",
-      "filmUse": "technique",
+      "videoId": "S152",
+      "videoTitle": "The counter exchange",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/recorded-course-studies-20261121/S152.mp4",
+      "filmUse": "dedicated",
       "retained": [
         "O152T",
         "O152X"
@@ -3563,7 +3563,7 @@
       "slot": 155,
       "headline": "Build a mirror from its free half",
       "intro": "A palindrome reads the same in both directions. Choose only the independent places, then reflect them to fill the matching positions.",
-      "bridge": "Watch how the film builds a palindrome by choosing some digits and reflecting them. Look for which digit in a five-digit palindrome is used just once.",
+      "bridge": "Predict the display after 3993. Watch the gap on the number line when the hundreds wheel carries.",
       "recap": "Mark the mirrored pairs before trying digit choices. For an odd length, the centre digit is unpaired.",
       "example": {
         "prompt": "What four-digit palindrome begins with 54?",
@@ -3573,10 +3573,10 @@
         ]
       },
       "skill": "DIG-04",
-      "videoId": "S055",
-      "videoTitle": "Repeated digits, palindromes and repunits",
-      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S055-Intro-Illustrated.mp4",
-      "filmUse": "technique",
+      "videoId": "S155",
+      "videoTitle": "The palindrome odometer",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/recorded-course-studies-20261121/S155.mp4",
+      "filmUse": "dedicated",
       "retained": [
         "O155T",
         "O155X"

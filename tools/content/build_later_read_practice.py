@@ -49,6 +49,7 @@ def build(private):
     overlay_path = private/'practice-revision-solutions.json'
     solution_overlay = read(overlay_path) if overlay_path.exists() else {}
     lessons, rows = [], []
+    recorded = read(ROOT/'data/recorded-studies.json')
     existing = read(ROOT/'data/read-watch-practise.json')['lessons']
     normalise = lambda s: re.sub(r'[^a-z0-9]', '', s.casefold())
     stems = {normalise(q['prompt']) for l in existing for q in l['questions']}
@@ -85,6 +86,10 @@ def build(private):
         lesson.update(example=example, skill=src['skill'], videoId=src['videoId'],
                       videoTitle=src['videoTitle'], movie=movie, filmUse=src['mode'],
                       retained=retained, questions=[])
+        if tag in recorded['lessons']:
+            guide = recorded['lessons'][tag]
+            lesson.update(videoId=tag, videoTitle=guide['title'], movie=recorded['release'] + tag + '.mp4',
+                          filmUse='dedicated', bridge=guide['bridge'])
         assert len(draft['questions']) == 4, tag
         for i, q in enumerate(draft['questions']):
             id = f'RWL2-{slot:03}-{"ABCD"[i]}'

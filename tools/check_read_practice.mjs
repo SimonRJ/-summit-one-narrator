@@ -38,6 +38,7 @@ const laterSlots = course.filter(s => s.type === 'LESSON' && s.slot > 68).map(s 
 const skills = new Map(bank.map(q => [q.session,q.skill]));
 assert.equal(later.edition,'read-watch-practise-2');
 assert.deepEqual(later.lessons.map(l => l.slot),laterSlots);
+const recorded = read('recorded-studies.json');
 const filmUse = {dedicated:0,technique:0};
 let laterQuestions = 0;
 for(const lesson of later.lessons){
@@ -45,7 +46,19 @@ for(const lesson of later.lessons){
  const sourceSlot = Number(lesson.videoId.slice(1));
  assert.equal(lesson.skill,skills.get(lesson.slot));
  assert.equal(lesson.skill,skills.get(sourceSlot));
- assert(lesson.videoTitle && lesson.movie.includes(lesson.videoId+'-Intro'));
+ const guide = recorded.lessons[lesson.videoId];
+ if (guide) {
+  assert.equal(lesson.movie, recorded.release + lesson.videoId + '.mp4');
+  assert.equal(lesson.slot, sourceSlot);
+  assert.equal(lesson.videoTitle,guide.title);
+  assert.equal(lesson.bridge,guide.bridge);
+  assert.equal(guide.chapters.length,guide.transcript.length);
+  assert(guide.chapters.length >= 7);
+  assert.equal(guide.chapters[0].start,0);
+  assert(guide.chapters.every((ch,i) => ch.start < guide.seconds && (!i || ch.start > guide.chapters[i-1].start)));
+ } else {
+  assert(lesson.videoTitle && lesson.movie.includes(lesson.videoId+'-Intro'));
+ }
  assert.equal(lesson.filmUse,sourceSlot===lesson.slot?'dedicated':'technique');
  assert(sourceSlot <= lesson.slot);
  filmUse[lesson.filmUse]++;
@@ -75,7 +88,10 @@ for(const lesson of later.lessons){
  }
 }
 assert.equal(laterQuestions,912);
-assert.deepEqual(filmUse,{dedicated:58,technique:170});
+const studyCount = Object.keys(recorded.lessons).length;
+assert.deepEqual(filmUse,{dedicated:58+studyCount,technique:170-studyCount});
+for (const id of Object.keys(recorded.lessons))
+ assert(later.lessons.some(lesson=>lesson.videoId===id && lesson.filmUse==='dedicated'));
 console.log('PASS: all 228 later lessons, 912 protected questions and their skill-matched films.');
 
 // Catch questions that only swap numbers or rename the same participants.

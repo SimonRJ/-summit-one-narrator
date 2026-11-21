@@ -1,5 +1,25 @@
 const localSlots = new Set([1, 2, 3, 4, 5, 6]);
 const online = new Map();
+const recorded = new Map();
+let recordedCatalogue;
+
+function loadRecordedStudies() {
+  if (recordedCatalogue) return recordedCatalogue;
+  recordedCatalogue = fetch(new URL("./data/recorded-studies.json?v=course-studies-1", import.meta.url))
+    .then(response => {
+      if (!response.ok) throw Error("Recorded lesson guides are unavailable");
+      return response.json();
+    })
+    .then(catalogue => {
+      for (const [id, guide] of Object.entries(catalogue.lessons)) {
+        const slot = Number(id.slice(1));
+        const base = catalogue.release + id;
+        recorded.set(slot, {id, slot, status: "verified", ...guide,
+          movie: base + ".mp4", poster: base + "-poster.jpg"});
+      }
+    }).catch(() => { recordedCatalogue = undefined; });
+  return recordedCatalogue;
+}
 const repository = "SimonRJ/-summit-one-narrator";
 const catalogueRoot = "https://raw.githubusercontent.com/" + repository
   + "/refs/heads/lesson-intro-catalog/data/";
@@ -12,13 +32,17 @@ let loadedAt = -Infinity;
 
 export function lessonIntroId(slot) {
   const number = Number(slot);
-  return localSlots.has(number) || online.get(number)?.status === "verified"
+  return localSlots.has(number) || recorded.has(number) || online.get(number)?.status === "verified"
     ? "S" + String(number).padStart(3, "0") : null;
 }
 
 export function introMediaSource(id) {
   if (!/^S[0-9]{3}$/.test(id)) throw new TypeError("Invalid lesson ID");
   const slot = Number(id.slice(1));
+  if (recorded.has(slot)) {
+    const {movie, poster} = recorded.get(slot);
+    return {movie, poster};
+  }
   const base = localSlots.has(slot) ? "media/" : releaseRoot;
   const entry = localSlots.has(slot) ? null : online.get(slot);
   // Keep illustration=1 for older app versions, which can still play v1.
@@ -50,8 +74,9 @@ function normaliseEntry(entry) {
 }
 
 export function loadIntroductionCatalogue() {
-  const latest = () => [...online.values()].sort((a,b) => a.slot - b.slot);
-  if (Date.now() - loadedAt < 30_000) return Promise.resolve(latest());
+  const latest = () => [...new Map([...online, ...recorded]).values()].sort((a,b) => a.slot - b.slot);
+  const studies = loadRecordedStudies();
+  if (Date.now() - loadedAt < 30_000) return studies.then(latest);
   loading ??= readJson("lesson-intros-live.json")
     .then(catalogue => {
       if (catalogue.version !== 1 || !Array.isArray(catalogue.entries)) return;
@@ -63,13 +88,16 @@ export function loadIntroductionCatalogue() {
       loadedAt = Date.now();
     })
     .catch(() => {})
-    .then(latest)
+    .then(() => studies).then(latest)
     .finally(() => { loading = undefined; });
   return loading;
 }
 
 export async function loadIntroductionDetails(id) {
   if (!/^S[0-9]{3}$/.test(id)) throw new TypeError("Invalid lesson ID");
+  await loadRecordedStudies();
+  const study = recorded.get(Number(id.slice(1)));
+  if (study) return study;
   const edition = online.get(Number(id.slice(1)))?.detailsEdition === 1 ? "-Illustrated" : "";
   return readJson("lesson-intros/" + id + edition + ".json");
 }

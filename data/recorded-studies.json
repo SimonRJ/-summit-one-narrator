@@ -1,0 +1,343 @@
+{
+  "release": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/recorded-course-studies-20261121/",
+  "lessons": {
+    "S137": {
+      "title": "Digit detectives",
+      "seconds": 124.733333,
+      "chapters": [
+        {
+          "title": "The moving digits",
+          "start": 0.0
+        },
+        {
+          "title": "The exchange",
+          "start": 11.96
+        },
+        {
+          "title": "Two clues for one ticket",
+          "start": 24.6
+        },
+        {
+          "title": "Finding the pair",
+          "start": 38.33
+        },
+        {
+          "title": "A three-digit lock",
+          "start": 54.97
+        },
+        {
+          "title": "The unmoving column",
+          "start": 70.62
+        },
+        {
+          "title": "Four equal parts",
+          "start": 87.74
+        },
+        {
+          "title": "Check the lock",
+          "start": 103.58
+        }
+      ],
+      "transcript": [
+        "A train ticket reads seventy three. Turn its two digit cards around and it reads thirty seven. The same two digits are still here. Why did the value change by thirty six?",
+        "The seven loses nine groups of itself when it moves from tens to ones. The three gains nine groups of itself on the return trip. The net loss is nine times four, which is thirty six.",
+        "Here is another ticket. Its digits add to eleven. Its number exceeds its reverse by twenty seven. Before trying numbers, what do those clues tell you about the two digits?",
+        "Twenty seven is nine times three, so the tens digit is three larger. Set those three aside from the total of eleven. The remaining eight splits equally. The digits are seven and four. Seventy four minus forty seven really is twenty seven.",
+        "A three digit code exceeds its reverse by three hundred and ninety six. The middle digit is twice the last digit. All three digits add to sixteen. Which code opens the lock?",
+        "The middle digit stays in the tens column. Subtracting cancels it. Each unit of difference between the outside digits changes the number by ninety nine. Three hundred and ninety six is four groups of ninety nine. The first digit is four larger than the last.",
+        "Call the last digit one part. The middle takes two parts. The first takes one part and four extra. Remove four from sixteen. Four equal parts share twelve, so the last digit is three. The code is seven, six, three.",
+        "Seven hundred and sixty three minus three hundred and sixty seven is three hundred and ninety six. The middle digit cancels in the subtraction, but still counts in the digit sum. In a new digit puzzle, track which positions change and which clues still use every digit."
+      ],
+      "bridge": "Watch what each digit gains or loses when it moves one place. In the lock, look for the digit that stays put."
+    },
+    "S138": {
+      "title": "Read the flow bench",
+      "seconds": 135.466667,
+      "chapters": [
+        {
+          "title": "Two meters and a pen",
+          "start": 0.0
+        },
+        {
+          "title": "Seven in, two out",
+          "start": 15.16
+        },
+        {
+          "title": "Cover the leak meter",
+          "start": 31.64
+        },
+        {
+          "title": "Read the rise and the run",
+          "start": 48.25
+        },
+        {
+          "title": "When did the valve close?",
+          "start": 65.05
+        },
+        {
+          "title": "Draw the trace without a leak",
+          "start": 84.22
+        },
+        {
+          "title": "Test the bend",
+          "start": 99.74
+        },
+        {
+          "title": "Read each interval separately",
+          "start": 116.7
+        }
+      ],
+      "transcript": [
+        "On this flow bench, one meter counts water arriving. A second meter counts water escaping. A pen records how much water remains. The difference between the two rates tells us how quickly the pen rises or falls.",
+        "Seven litres enter each minute and two litres leave. Pair two outgoing marks with two incoming marks. Five litres stay each minute. Starting empty, how much collects in three minutes? Three groups of five give fifteen litres.",
+        "Now nine litres enter each minute, but the leak meter is covered. The pen reads ten litres at minute one and thirty four litres at minute five. Both flow rates are steady. How fast is water escaping?",
+        "From ten to thirty four is a rise of twenty four litres. From minute one to minute five is four minutes. Six litres stay each minute. Nine enter, so three litres per minute escape. Six litres per minute for four minutes accounts for the whole rise.",
+        "Start a ten minute test with eight litres. The inlet delivers seven litres per minute throughout. The leak starts open, losing two litres each minute, then closes. The final reading is sixty six litres. At which minute did the leak close?",
+        "Imagine the leak were closed from the start. Eight litres plus seventy would give seventy eight litres. The actual finish is twelve litres lower. Each open minute accounts for two missing litres. Twelve divided by two gives six open minutes.",
+        "Check the bend at minute six. While the leak is open, six minutes at five litres per minute add thirty litres. The reading is now thirty eight. In the last four minutes, seven litres per minute add twenty eight more. Thirty eight plus twenty eight gives sixty six.",
+        "One trap is to keep subtracting the leak after the valve shuts. Mark each valve change and find the net rate for each interval. If the inlet and outlet rates are equal, the trace is flat, even while both meters turn."
+      ],
+      "bridge": "Follow the pen until the valve closes. What changes at the bend, and which flow keeps its old rate?"
+    },
+    "S141": {
+      "title": "Where the bars begin",
+      "seconds": 123.0,
+      "chapters": [
+        {
+          "title": "Two heights in a creek",
+          "start": 0.0
+        },
+        {
+          "title": "Restore the waterline",
+          "start": 11.64
+        },
+        {
+          "title": "A different scale",
+          "start": 29.24
+        },
+        {
+          "title": "Build the readings",
+          "start": 46.49
+        },
+        {
+          "title": "The erased label",
+          "start": 63.61
+        },
+        {
+          "title": "Use the difference",
+          "start": 78.78
+        },
+        {
+          "title": "Put the label back",
+          "start": 92.22
+        },
+        {
+          "title": "What survives cropping?",
+          "start": 105.18
+        }
+      ],
+      "transcript": [
+        "These creek readings look dramatic. One blue bar seems twice as tall as the other. Before deciding that the water is twice as deep, read the number at the bottom of the scale.",
+        "The axis starts at thirty centimetres. The water was thirty six centimetres deep on Monday and forty two on Tuesday. The rise is six centimetres. Restoring the missing thirty shows why twice the visible height is only seven sixths of the original depth.",
+        "Two tanks are shown on a second chart. The bottom line means twelve litres. Every interval adds two litres. One bar rises three intervals and the other rises seven. What is the ratio of the fuller tank to the other?",
+        "Three intervals add six litres, so the smaller tank contains eighteen. Seven intervals add fourteen litres, so the larger one contains twenty six. Twenty six to eighteen simplifies to thirteen to nine. Seven to three compares the visible pieces alone.",
+        "The bottom label has rubbed off a chart. The values at the tops are thirty six and forty eight. The longer bar looks exactly three times as tall as the shorter bar. What number was on the bottom line?",
+        "Imagine sliding the short bar beside the long one. Their tops are twelve units apart. That gap is two short bars, because the long bar contains three of them. Each short bar therefore represents six units.",
+        "The shorter bar ends at thirty six. Step down six and the erased label must be thirty. Check the long bar. Forty eight minus thirty gives eighteen, which is exactly three times six.",
+        "Cropping the same amount from two bars preserves the difference between their tops. A ratio uses the whole readings. On an unfamiliar chart, write the baseline and tick interval before trusting what your eye sees."
+      ],
+      "bridge": "Read the first number on the vertical axis. Then watch what changes when the chart reveals the rest of each bar."
+    },
+    "S149": {
+      "title": "How far can the apex travel?",
+      "seconds": 129.866667,
+      "chapters": [
+        {
+          "title": "A sliding tent peg",
+          "start": 0.0
+        },
+        {
+          "title": "A perpendicular ruler",
+          "start": 13.56
+        },
+        {
+          "title": "Two plots, one fence",
+          "start": 30.2
+        },
+        {
+          "title": "Share by base length",
+          "start": 50.17
+        },
+        {
+          "title": "A point inside the rectangle",
+          "start": 65.85
+        },
+        {
+          "title": "Pair the opposite sides",
+          "start": 82.94
+        },
+        {
+          "title": "Check with a second route",
+          "start": 97.34
+        },
+        {
+          "title": "What to mark first",
+          "start": 111.74
+        }
+      ],
+      "transcript": [
+        "Imagine sliding the top corner of a triangular sail sideways along a horizontal rail. The sail can look taller or more slanted. Can its area change while the base and the rail stay fixed?",
+        "The base is six centimetres long. The rail is four centimetres above it, measured at a right angle. Half of six times four is twelve. The sloping side grows as the peg travels, but the perpendicular height stays four, even beyond the end of the base.",
+        "A triangular field has a fence nine metres long along its base. A gate splits the fence into lengths four and five. Paths from the opposite corner divide the field into two triangles. The whole field is thirty six square metres. Find the area beside the longer fence.",
+        "Both triangles reach the same perpendicular height. Their areas are in the ratio four to five. Nine equal parts share thirty six square metres, so each part is four. The longer fence belongs to five parts, or twenty square metres.",
+        "A rectangle is twelve metres wide and eight metres high. Pick any point inside it and draw a line to each corner. The triangle along the bottom has an area of eighteen square metres. What is the area of the triangle along the top?",
+        "The top and bottom triangles each use a base of twelve. Their two perpendicular heights add to eight, however far sideways the point moves. Together their areas are half of twelve times eight, or forty eight square metres.",
+        "Subtract the bottom area of eighteen. The top area is thirty. To check, the bottom height must be three metres, since half of twelve times three is eighteen. The height left for the top is five, giving thirty again.",
+        "Mark the base and draw the height at a right angle, extending the base line when necessary. Triangles with a shared height divide area in the ratio of their bases. Equal parallel bases can be paired by adding their heights."
+      ],
+      "bridge": "Follow the perpendicular line from the moving corner to the base. Use that distance to compare the areas."
+    },
+    "S150": {
+      "title": "What did the sun lamp reveal?",
+      "seconds": 124.1,
+      "chapters": [
+        {
+          "title": "Five stamped discs",
+          "start": 0.0
+        },
+        {
+          "title": "Two suns",
+          "start": 15.0
+        },
+        {
+          "title": "Different stamps",
+          "start": 28.76
+        },
+        {
+          "title": "Two routes to a mixed pair",
+          "start": 44.25
+        },
+        {
+          "title": "A lamp with a secret",
+          "start": 65.53
+        },
+        {
+          "title": "Remove the dark outcomes",
+          "start": 82.94
+        },
+        {
+          "title": "Read the surviving pairs",
+          "start": 103.1
+        }
+      ],
+      "transcript": [
+        "Five discs feel identical. Two show a sun and three show a moon. Mix them and draw without looking. Each disc is equally likely. Leave the first disc out when you draw the next one. How does that change your chances?",
+        "The first disc is a sun with probability two fifths. After that sun comes out, only one sun remains among four discs. The chance of two suns is two fifths times one quarter. That is one tenth.",
+        "Now try for one sun and one moon in either order. If a sun comes first, three of the four discs left are moons. If a moon comes first, how many of the four discs left are suns?",
+        "Two suns remain after a moon. Sun then moon has probability two fifths times three quarters. Moon then sun has probability three fifths times two quarters. Each order contributes six twentieths. They cannot happen together on one draw of two discs, so add them. Twelve twentieths simplifies to three fifths.",
+        "The machine now draws two discs in secret. A lamp lights exactly when at least one sun appears. You see the lamp light. What is the chance that both discs show suns? The lamp never tells you which disc came first.",
+        "Label the five discs so we can tell every ordered pair apart. Five choices for the first disc, then four for the second, make twenty equally likely pairs. The lamp stays dark only for two moons. Three choices followed by two give six dark pairs. Fourteen pairs are left when the lamp lights.",
+        "Only two of those fourteen pairs use both suns. Either sun can come first. Two out of fourteen is one seventh. Keep the remaining discs up to date on each draw. When a competition question gives you a clue, keep only the outcomes that could have produced it."
+      ],
+      "bridge": "When the lamp lights, find the pairs you can cross out before choosing the denominator."
+    },
+    "S152": {
+      "title": "The counter exchange",
+      "seconds": 125.533333,
+      "chapters": [
+        {
+          "title": "One move, two changes",
+          "start": 0.0
+        },
+        {
+          "title": "A gap changes twice",
+          "start": 14.36
+        },
+        {
+          "title": "Restore the delivery",
+          "start": 26.36
+        },
+        {
+          "title": "Undo a single move",
+          "start": 41.05
+        },
+        {
+          "title": "Three trays finish level",
+          "start": 56.25
+        },
+        {
+          "title": "Undo the second exchange",
+          "start": 74.78
+        },
+        {
+          "title": "Undo the first exchange",
+          "start": 91.74
+        },
+        {
+          "title": "Follow the recipient",
+          "start": 108.38
+        }
+      ],
+      "transcript": [
+        "Two trays hold twenty counters altogether. Move three counters from the left tray to the right. The total stays twenty. Watch the gap: one side loses three at the same moment the other side gains three.",
+        "Start with twelve on the left and eight on the right. Move one across. The counts become eleven and nine. The difference shrinks from four to two. A single transfer changed the gap by two.",
+        "Two storage cases hold forty eight badges. After six badges move from the fuller case to the other, the cases contain equal numbers. How many badges were in each case before the move?",
+        "Equal shares of forty eight are twenty four each. Put the six badges back into the fuller case and remove them from the other. Thirty and eighteen are the original counts. Their difference is twelve, exactly twice the transfer.",
+        "Three trays contain thirty six counters. The first tray gives half its counters to the second. Then the second gives one third of its new pile to the third. All three finish equal. How many counters started in the first, second and third trays?",
+        "Finish with twelve in every tray. The second tray kept two thirds of its pile. Those two thirds are twelve, so each third is six. Just before that transfer the second tray held eighteen, and the third held only six. The first still held twelve.",
+        "The first tray kept half and ended with twelve. It must have started with twenty four and passed twelve to the second. Remove those twelve from eighteen. The starting counts were twenty four, six and six. Run both transfers forwards to check.",
+        "The words its new pile matter. A fraction acts on the contents at that moment. Mark the total, record who gives and receives, and run transfers backwards one at a time when the final amounts are known."
+      ],
+      "bridge": "When you undo a move, follow the same counters back to their original tray. Which pile was the fraction taken from?"
+    },
+    "S155": {
+      "title": "The palindrome odometer",
+      "seconds": 122.033333,
+      "chapters": [
+        {
+          "title": "The two moving wheels",
+          "start": 0.0
+        },
+        {
+          "title": "Turn the prefix",
+          "start": 12.92
+        },
+        {
+          "title": "Cross the carry",
+          "start": 27.8
+        },
+        {
+          "title": "Read the new reflection",
+          "start": 39.46
+        },
+        {
+          "title": "Halfway addresses",
+          "start": 53.86
+        },
+        {
+          "title": "Find the two kinds of gap",
+          "start": 70.31
+        },
+        {
+          "title": "Count and check",
+          "start": 85.83
+        },
+        {
+          "title": "Before the next carry",
+          "start": 103.91
+        }
+      ],
+      "transcript": [
+        "A four digit odometer reads three, four, four, three. It is a palindrome. Imagine putting a mirror between the middle wheels. Which wheels can you choose freely, and which are already determined?",
+        "The first two wheels show thirty four. Reflect them in reverse order to make thirty four, forty three. Advancing the first pair to thirty five produces three, five, five, three. The palindromes are a hundred and ten apart.",
+        "Now the odometer shows three, nine, nine, three. Predict the next palindrome. Be careful when the nine rolls back to zero.",
+        "The next possible first pair is forty. Its reflection is zero four, so the new reading is four thousand and four. Subtract three thousand nine hundred and ninety three. This time the gap is just eleven.",
+        "From one thousand and one through nine thousand nine hundred and ninety nine, how many whole numbers lie exactly halfway between two consecutive four digit palindromes? Count the gaps, without listing every address.",
+        "Hold the thousands wheel fixed. The hundreds wheel runs from zero to nine. Ten palindromes make nine gaps of one hundred and ten. Each even gap has one whole number exactly in its middle. There are nine possible nonzero thousands digits.",
+        "Nine groups of nine give eighty one halfway addresses. The eight carries between the groups each make a gap of eleven. Half of eleven is not a whole number, so those carries contribute none. Eighty one large gaps and eight small ones give eighty nine gaps among ninety palindromes.",
+        "A mirror makes the last two digits follow the first two. To find the next palindrome, increase the first pair and reflect it again. When counting a pattern, test the change at a carry before assuming every step is equal."
+      ],
+      "bridge": "Predict the display after 3993. Watch the gap on the number line when the hundreds wheel carries."
+    }
+  }
+}

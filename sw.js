@@ -1,5 +1,5 @@
 const scope = new URL(self.registration.scope);
-const CACHE="summit-one-investigations-films-20261121-offline-3-different-coin-faces";
+const CACHE="summit-one-recorded-studies-20261121";
 const cachePrefix = scope.pathname + ':summit-one-';
 const cacheName = scope.pathname + ':' + CACHE;
 const reader = new URL('offline-reader.html', scope).href;
@@ -10,14 +10,14 @@ const staticFiles = [
   "./route-model.js?v=paths-20261121",
   "./route-model.css?v=paths-20261121",
   "./offline-reader.html",
-  "./offline-reader.js?v=investigations-films-20261121-r2",
+  "./offline-reader.js?v=recorded-studies-20261121",
   "./domino-model.js?v=github-20261121",
   "./domino-model.css?v=github-20261121",
   "./model-claims.js?v=reasoning-20261121",
   "./example-methods.js?v=worked-examples-20261121",
   "./lesson-models.js?v=deeper-20261121",
   "./lesson-models.css?v=deeper-20261121",
-  "./data/read-watch-practise-later.json?v=investigations-films-20261121-r2",
+  "./data/read-watch-practise-later.json?v=recorded-studies-20261121",
   "./figures/read-practice/S006.svg",
   "./figures/read-practice/S017.svg",
   "./figures/read-practice/S019.svg",
@@ -65,16 +65,17 @@ const staticFiles = [
   "./teaching-videos.html",
   "./lesson-introduction-videos.html",
   "./watch-lesson-intro.html",
-  "./lesson-introduction-library.js?v=lesson-intros-v16",
+  "./lesson-introduction-library.js?v=recorded-studies-20261121",
   "./lesson-introduction-watch.js?v=lesson-intros-v7",
   "./boot-loader.js?v=identity-math-20261113",
   "./boot-loader.css?v=cinematic-20261113",
   "./main.css?v=data-audit-20261114",
   "./summit-polish.css?v=craft-20261121",
-  "./app-main.js?v=investigations-films-20261121-r2-different-coin-faces",
+  "./app-main.js?v=recorded-studies-20261121",
   "./course-menu.js?v=menu-20261113",
-  "./course-menu-ui.js?v=github-20261121",
-  "./lesson-introduction-media.js?v=lesson-intros-v16",
+  "./course-menu-ui.js?v=recorded-studies-20261121",
+  "./data/recorded-studies.json?v=course-studies-1",
+  "./lesson-introduction-media.js?v=recorded-studies-20261121",
   "./lesson-pager.js?v=responsive-20261113",
   "./lesson-screenflow.js?v=data-audit-20261114",
   "./lesson-player.js",

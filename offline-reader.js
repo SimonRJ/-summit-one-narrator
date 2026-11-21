@@ -7,7 +7,7 @@ const picker = document.querySelector('#readerLesson');
 const reading = document.querySelector('#reading');
 const editions = [
   './data/read-watch-practise.json?v=investigations-films-20261121-r2',
-  './data/read-watch-practise-later.json?v=investigations-films-20261121-r2',
+  './data/read-watch-practise-later.json?v=recorded-studies-20261121',
 ];
 
 async function prepareOffline() {
