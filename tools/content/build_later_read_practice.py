@@ -8,6 +8,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 EDITION = 'read-watch-practise-2'
 REVISED_FILM_BRIDGES = {
+    ('S086', 197): "Pause when the leak opens at minute three. How much water is already in the tank, and what rate applies to the nine units still needed?",
     ('S074', 74): "Watch the rectangle grow from 8 by 14 to 9 by 15. What proves that every other positive integer width misses the target area?",
     ('S074', 158): "As the shorter side increases by one, watch what happens to the longer side and the area. Why can the target be reached only once?",
     ('S074', 249): "In the rectangle example, the shorter side determines its partner. In the pair puzzle, look for how naming the smaller number avoids listing a pair twice.",
@@ -70,7 +71,7 @@ def build(private):
             lesson['bridge'] = REVISED_FILM_BRIDGES[src['videoId'], slot]
         movie = src['videoUrl']
         # The illustrated releases retain the recording used to write each lesson bridge.
-        if src['videoId'] in {'S069', 'S071', 'S072', 'S073', 'S074', 'S075', 'S076', 'S079', 'S082', 'S085'} and movie.endswith(src['videoId'] + '-Intro.mp4'):
+        if src['videoId'] in {'S069', 'S071', 'S072', 'S073', 'S074', 'S075', 'S076', 'S079', 'S082', 'S085', 'S086'} and movie.endswith(src['videoId'] + '-Intro.mp4'):
             movie = movie.removesuffix('.mp4') + '-Illustrated.mp4'
         lesson.update(example=example, skill=src['skill'], videoId=src['videoId'],
                       videoTitle=src['videoTitle'], movie=movie, filmUse=src['mode'],

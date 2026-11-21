@@ -21,7 +21,7 @@ The continuation contains 912 new questions with hints and protected worked solu
 | S082 | A cell is bounded by lines | [S082](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S082-Intro-Illustrated.mp4) · Its own introduction | One marker inside | 6 |
 | S083 | Find the partners in a mirror | [S083](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S083-Intro-Illustrated.mp4) · Its own introduction | Two fold lines | 6 |
 | S085 | Keep the constraint on the page | [S085](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S085-Intro-Illustrated.mp4) · Its own introduction | Space for a sign | 5 |
-| S086 | Add the work finished in one minute | [S086](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S086-Intro.mp4) · Its own introduction | A secret speed | 6 |
+| S086 | Add the work finished in one minute | [S086](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S086-Intro-Illustrated.mp4) · Its own introduction | A secret speed | 6 |
 | S087 | What does the silhouette force? | [S087](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S087-Intro.mp4) · Its own introduction | Reconstruct the storeroom | 6 |
 | S088 | Reserve a gap for neighbours | [S088](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S088-Intro.mp4) · Its own introduction | Cabin assignments | 6 |
 | S089 | Classify a cube by its position | [S089](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S089-Intro-Illustrated.mp4) · Its own introduction | The bottom stays clean | 6 |
@@ -107,7 +107,7 @@ The continuation contains 912 new questions with hints and protected worked solu
 | S193 | Subtract equal parts to expose a difference | [S050](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S050-Intro-Illustrated.mp4) · Technique film | A fee disappears | 5 |
 | S194 | Change the unit you count | [S065](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S065-Intro-Illustrated.mp4) · Technique film | The garden tags | 5 |
 | S195 | Account for removed cubes once | [S072](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S072-Intro-Illustrated.mp4) · Technique film | Two one-cube tunnels | 6 |
-| S197 | Split work into active intervals | [S086](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S086-Intro.mp4) · Technique film | One machine removed | 5 |
+| S197 | Split work into active intervals | [S086](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S086-Intro-Illustrated.mp4) · Technique film | One machine removed | 5 |
 | S198 | Find the part that actually repeats | [S139](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S139-Intro.mp4) · Technique film | Visit count | 6 |
 | S199 | Reconstruct a shared boundary | [S108](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S108-Intro-Illustrated.mp4) · Technique film | Read a footprint backwards | 6 |
 | S200 | Use the pattern of colours | [S109](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S109-Intro.mp4) · Technique film | The guided tour | 6 |
