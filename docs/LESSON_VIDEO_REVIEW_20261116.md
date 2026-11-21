@@ -1,5 +1,9 @@
 # Summit One lesson video reviews
 
+## 21 November 2026
+
+S069, S071 and S072 are live in their lessons and in the five later sessions that reuse these films. The [introduction register](lesson-introduction-review-register-20261116.csv) records the mathematical checks and exact media hashes. The [published-file comparison](https://github.com/SimonRJ/-summit-one-narrator/actions/runs/44850633362) checked 16,916 caption frames and 1,128 timed drawings. The public chapter controls passed playback and seeking in portrait and landscape for [S069](https://github.com/SimonRJ/-summit-one-narrator/actions/runs/44850416843), [S071](https://github.com/SimonRJ/-summit-one-narrator/actions/runs/44850466457) and [S072](https://github.com/SimonRJ/-summit-one-narrator/actions/runs/44850653762). The [watch list](../lesson-video-review-list.html) now includes 66 reviewed lesson introductions. S073 is the next introduction in teaching order awaiting revision and review.
+
 ## Current production work on 19 November 2026
 
 [S066](https://simonrj.github.io/-summit-one-narrator/watch-lesson-intro.html?slot=66) has completed its start-to-finish review and is live. Its individual record is in the [lesson introduction review register](lesson-introduction-review-register-20261116.csv). T01.1 has a fresh nine-scene sampling and recorded-speech comparison in the teaching register. T01.1 remains under review.
