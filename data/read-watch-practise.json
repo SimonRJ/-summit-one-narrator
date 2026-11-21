@@ -269,7 +269,7 @@
         {
           "id": "RWL1-006-A",
           "title": "A packing block",
-          "prompt": "A solid rectangular block is 5 cubes wide, 3 cubes deep and 2 cubes high. How many unit cubes are inside the block, including its outer cubes?",
+          "prompt": "A solid block of unit cubes measures 5 cubes across, 3 cubes deep and 2 cubes high. How many unit cubes make up the block?",
           "hint": "Count one whole floor first."
         },
         {
@@ -365,7 +365,7 @@
         {
           "id": "RWL1-009-A",
           "title": "The covered price",
-          "prompt": "In 2A + B8 = 73, A and B are distinct digits. What is A?",
+          "prompt": "Two price tags show two-digit numbers. One number has tens digit 2 and units digit A. The other has tens digit B and units digit 8. The two numbers add to 73. Which digit is A?",
           "hint": "Which sum ending in 3 could come from A + 8?"
         },
         {
@@ -1814,7 +1814,7 @@
         {
           "id": "RWL1-046-A",
           "title": "Two innings",
-          "prompt": "A batter scores 83 runs across two innings. The second innings scores 9 more than the first. How many runs came in the first innings?",
+          "prompt": "A batter scores 83 runs over two innings. The batter scores 9 more runs in the second innings than in the first. How many runs did the batter score in the first innings?",
           "hint": "Remove the extra runs before sharing the total."
         },
         {
@@ -2005,8 +2005,8 @@
       "questions": [
         {
           "id": "RWL1-052-A",
-          "title": "The meter",
-          "prompt": "A meter starts at 3. At every press, double its reading and add 1. What does it show after three presses?",
+          "title": "Three button presses",
+          "prompt": "A machine displays 3. Each time you press its button, it doubles the displayed number and then adds 1. What number does it display after three presses?",
           "hint": "The starting value is the reading before any press."
         },
         {
