@@ -1,5 +1,5 @@
 const scope = new URL(self.registration.scope);
-const CACHE="summit-one-recorded-studies-20261121-four-marble-bags-forty-one-new-dots";
+const CACHE="summit-one-technique-transfers-20261121";
 const cachePrefix = scope.pathname + ':summit-one-';
 const cacheName = scope.pathname + ':' + CACHE;
 const reader = new URL('offline-reader.html', scope).href;
@@ -10,7 +10,7 @@ const staticFiles = [
   "./route-model.js?v=paths-20261121",
   "./route-model.css?v=paths-20261121",
   "./offline-reader.html",
-  "./offline-reader.js?v=recorded-studies-20261121",
+  "./offline-reader.js?v=technique-transfers-20261121",
   "./domino-model.js?v=github-20261121",
   "./domino-model.css?v=github-20261121",
   "./model-claims.js?v=reasoning-20261121",
@@ -42,9 +42,9 @@ const staticFiles = [
   "./figures/read-practice/S355.svg",
   "./figures/read-practice/S362.svg",
   "./figures/read-practice/S368.svg",
-  "./reviewed-lesson.js?v=deeper-20261121",
+  "./reviewed-lesson.js?v=technique-transfers-20261121",
   "./data/read-watch-practise.json?v=investigations-films-20261121-r2",
-  "./read-practice.css?v=guided-20261121",
+  "./read-practice.css?v=technique-transfers-20261121",
   "./coverage.html",
   "./coverage.js?v=recognition-20261113",
   "./data/amc-coverage.json?v=recognition-20261113",
@@ -71,7 +71,7 @@ const staticFiles = [
   "./boot-loader.css?v=cinematic-20261113",
   "./main.css?v=data-audit-20261114",
   "./summit-polish.css?v=craft-20261121",
-  "./app-main.js?v=recorded-studies-20261121-four-marble-bags-forty-one-new-dots",
+  "./app-main.js?v=technique-transfers-20261121",
   "./course-menu.js?v=menu-20261113",
   "./course-menu-ui.js?v=recorded-studies-20261121",
   "./data/recorded-studies.json?v=course-studies-1",
@@ -79,10 +79,10 @@ const staticFiles = [
   "./lesson-pager.js?v=responsive-20261113",
   "./lesson-screenflow.js?v=data-audit-20261114",
   "./lesson-player.js",
-  "./advanced-connections.js?v=adv-enrichment-20261113",
-  "./advanced-number.js?v=adv-enrichment-20261113",
-  "./advanced-counting.js?v=adv-enrichment-20261113",
-  "./advanced-geometry.js?v=adv-enrichment-20261113",
+  "./advanced-connections.js?v=technique-transfers-20261121",
+  "./advanced-number.js?v=technique-transfers-20261121",
+  "./advanced-counting.js?v=technique-transfers-20261121",
+  "./advanced-geometry.js?v=technique-transfers-20261121",
   "./curriculum.js?v=recognition-20261113",
   "./learning-ui.js?v=geometry-20261114",
   "./session-intros.js?v=mawa-visits-20261121",

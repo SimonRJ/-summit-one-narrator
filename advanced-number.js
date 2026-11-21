@@ -3,16 +3,16 @@ export const advancedNumber = [
  [
   "DIG-01",
   "Difference of squares",
-  "Compensating around 100 is the seed of an algebraic identity.",
+  "The same middle number appears in both factors. How far away on either side are they?",
   "Calculate 998 × 1002 mentally.",
   [
    "Write it as (1000 − 2)(1000 + 2).",
    "The middle terms cancel: (a − b)(a + b) = a² − b².",
    "So 998 × 1002 = 1000² − 2² = 999996."
   ],
-  "This pattern later helps with factorisation, large-number comparisons and Junior AMC algebra.",
-  "Can you calculate 997 × 1003 the same way?",
-  "It is 1000² − 3² = 999991."
+  "Look for factors equally far from a convenient middle number.",
+  "Which is larger, 48 × 52 or 49 × 51, and by how much?",
+  "Both products sit just below 50². The first is 2500 − 4 and the second is 2500 − 1, so 49 × 51 is larger by 3."
  ],
  [
   "DIG-02",
@@ -24,9 +24,9 @@ export const advancedNumber = [
    "Ending 0: 5 choices for the first digit, then 4 and 3; total 60.",
    "Ending 5: 4 choices for the first digit, then 4 and 3; total 48. Answer 108."
   ],
-  "This case method appears in restricted permutations and olympiad counting.",
-  "What changes if digits may repeat?",
-  "Each ending has 5 × 6 × 6 = 180 possibilities, so total 360."
+  "Pick the most restricted position first. A leading zero and a zero in the middle play different roles.",
+  "How many of the four-digit numbers in the example contain a zero?",
+  "All 60 that end in zero qualify. If the last digit is 5, the first has four choices, zero has two middle positions and the final free digit has three choices. That adds 24, giving 84."
  ],
  [
   "DIG-03",
@@ -35,82 +35,82 @@ export const advancedNumber = [
   "How many 7s occur in the integers from 1 to 999?",
   [
    "Imagine all strings from 000 to 999; padding with zeroes adds no 7s.",
-   "A 7 appears in the units place 100 times; exactly the same applies to tens and hundreds.",
+   "A 7 in the units column leaves 10 × 10 choices for the other two digits, giving 100 appearances. The same count works for tens and hundreds.",
    "The total is 100 + 100 + 100 = 300. The number 777 counts three times."
   ],
-  "This leads to digit-sum identities and expected values in probability.",
-  "What is the average count of 7s in one random three-digit string?",
-  "Three positions each have probability 1/10 of holding 7, so the average count is 3/10."
+  "Count a digit by position and check the final incomplete block.",
+  "Pages 1 to 275 are numbered. How many times must the printer use the digit 7?",
+  "There are 27 sevens in the units column, from 7 to 267. The tens column has ten each in 70–79 and 170–179, then six in 270–275. The total is 27 + 20 + 6 = 53."
  ],
  [
   "DIG-04",
   "Repunits and divisibility by 11",
-  "A string of repeated 1s hides a useful alternating remainder pattern.",
+  "Since 10 leaves remainder −1 on division by 11, successive place values alternate between remainders +1 and −1.",
   "Explain why 111111 is divisible by 11 without dividing.",
   [
    "For divisibility by 11, alternate plus and minus signs between successive digits.",
    "Here the alternating sum is 1 − 1 + 1 − 1 + 1 − 1 = 0.",
    "Therefore 11 divides 111111. Every repunit with an even number of digits has this property."
   ],
-  "This opens the door to modular arithmetic and repeating decimal arguments.",
-  "Does the same test succeed for 11111?",
-  "No: its alternating sum is 1, which is not divisible by 11."
+  "A missing digit often turns a divisibility test into a short equation.",
+  "In the four-digit number 6□48, which digit makes the number divisible by 11?",
+  "The alternating sum is 6 − □ + 4 − 8 = 2 − □. As the digit runs from 0 to 9, the only attainable multiple of 11 is zero. The missing digit is 2."
  ],
  [
   "DIG-05",
   "Cryptarithms become algebra",
   "When a letter stands for a digit, its place gives the coefficient.",
-  "Find all ordered nonzero distinct digits A and B satisfying AB + BA = 99.",
+  "AB and BA are two-digit numbers written with nonzero, different digits. Find every ordered pair (A, B) for which AB + BA = 99.",
   [
    "By place value, AB = 10A + B and BA = 10B + A.",
    "So AB + BA = 11(A + B) = 99, hence A + B = 9.",
    "The valid pairs are (1,8), (2,7), (3,6), (4,5) and their reversals: 8 in total."
   ],
-  "Harder letter puzzles combine algebra, carrying and unique-digit constraints.",
-  "What if the target sum were 88?",
-  "A + B = 8 gives 6 nonzero distinct ordered pairs."
+  "Write down the value of each place before combining letters that appear more than once.",
+  "The three-digit numbers ABA and BAB differ by 273, with ABA larger. Their two different digits add to 11. What is ABA?",
+  "Subtracting the place values gives 91 × (A − B) = 273. The digits differ by 3 and add to 11, so A = 7 and B = 4. Check that 747 − 474 = 273."
  ],
  [
   "DIV-01",
   "Divisors as choices of prime powers",
   "Prime factorisation can count all divisors without listing them.",
-  "How many divisors does 360 have, and how many are even?",
+  "How many positive divisors does 360 have? How many of them are even?",
   [
    "Factor 360 = 2³ × 3² × 5.",
    "A divisor chooses the exponent of 2 in 4 ways, of 3 in 3 ways and of 5 in 2 ways: 4 × 3 × 2 = 24.",
    "For an even divisor, the power of 2 cannot be zero: 3 × 3 × 2 = 18."
   ],
-  "This technique appears in number-theory problems involving perfect squares and divisor counts.",
-  "How many divisors of 360 are odd?",
-  "There are 24 − 18 = 6; equivalently choose no factor of 2."
+  "A restriction on the divisor usually becomes a restriction on one or more prime exponents.",
+  "How many positive divisors of 360 are perfect squares?",
+  "Each prime needs an even exponent. For 2 choose 0 or 2, for 3 choose 0 or 2, and for 5 choose 0. The four square divisors are 1, 4, 9 and 36."
  ],
  [
   "DIV-02",
   "Synchronising several repeating events",
-  "A repeating situation can itself have a repeating pattern governed by the LCM.",
-  "Lights flash every 12 and 18 seconds. How many simultaneous flashes occur after time 0 up to 180 seconds?",
+  "Two repeating events can have a common repeat interval.",
+  "Two lights flash together at 0 seconds, then every 12 and 18 seconds respectively. How many more times do they flash together up to and including 180 seconds?",
   [
    "LCM(12,18) = 36 seconds.",
    "Common flash times are 36, 72, 108, 144 and 180 seconds.",
    "There are 5 such times; starting time 0 is excluded."
   ],
-  "Later you can combine unequal remainder conditions, not just matching cycles.",
-  "What if a third light flashes every 15 seconds?",
-  "The first time all three coincide is LCM(12,18,15) = 180 seconds."
+  "Find one shared moment before using the repeat interval when the starting times differ.",
+  "One light starts at 0 seconds and flashes every 12 seconds. Another starts at 6 seconds and flashes every 18 seconds. When do they flash together in the first 100 seconds?",
+  "The second light flashes at 6, 24, 42, 60, 78 and 96 seconds. Of these, 24, 60 and 96 are multiples of 12. The spacing is still 36 seconds, although the first coincidence is at 24."
  ],
  [
   "DIV-03",
   "Combining two remainder clues",
-  "Congruence clues can locate a number that ordinary arithmetic seems unable to pin down.",
+  "Each remainder clue gives a list. A solution belongs to both lists.",
   "Find the smallest positive integer leaving remainder 2 on division by 5 and remainder 1 on division by 3.",
   [
    "The first condition gives numbers 2, 7, 12, 17, 22, ...",
    "Check the second: 2 leaves remainder 2; 7 leaves remainder 1.",
    "The smallest is 7. Solutions repeat every LCM(5,3) = 15: 7, 22, 37, ..."
   ],
-  "Combining congruences develops into the Chinese remainder theorem in advanced number theory.",
-  "Find the smallest solution greater than 100.",
-  "The pattern is 7 + 15k; the first above 100 is 112."
+  "Keep the whole sequence of solutions until every clue has been applied.",
+  "Which numbers between 100 and 200 satisfy both remainder clues and are also multiples of 4?",
+  "The candidates start at 112 and rise by 15. Adding 15 changes the remainder modulo 4 by 3, so it takes four steps to return to a multiple of 4. The only answers are 112 and 172."
  ],
  [
   "DIV-04",
@@ -122,9 +122,9 @@ export const advancedNumber = [
    "Opposite corners share one colour, so removal leaves counts 30 and 32.",
    "Every domino covers one black and one white square, so tiling is impossible."
   ],
-  "Colouring invariants are common in WAJO-style non-routine proofs.",
-  "Why is checking only that 62 squares remain insufficient?",
-  "62 is even, but parity of area misses the unequal colours."
+  "A colour imbalance can rule out a tiling even when the area divides exactly.",
+  "A 5 by 5 board loses the square immediately to the right of its top-left corner. Can twelve dominoes cover the rest?",
+  "Colour the top-left corner black. There are initially 13 black and 12 white squares. The removed square is white, leaving 13 black and 11 white. Twelve dominoes would need 12 of each."
  ],
  [
   "DIV-05",
@@ -136,23 +136,23 @@ export const advancedNumber = [
    "Since 2027 = 4 × 506 + 3, choose the third position.",
    "The final digit is 3, without computing the power."
   ],
-  "This is modular arithmetic with a finite cycle, useful in difficult number problems.",
-  "What is the last digit of 7^2028?",
-  "Exponent 2028 is divisible by 4, so the final digit is 1."
+  "You can add or multiply the final digits after reducing very large exponents to positions in a cycle.",
+  "What is the units digit of 7²⁰²⁷ + 7²⁰²⁸?",
+  "The first power ends in 3. Multiplying by 7 gives the next power a final digit of 1. The sum ends in 4."
  ],
  [
   "FRAC-01",
   "The whole changes when a fraction is taken",
   "A second fraction often refers to what is left, not the original amount.",
-  "A third of a tank is emptied, then a quarter of what remains is used. What fraction is left?",
+  "A tank starts full. A third of its water is poured away, then a quarter of what remains is used. What fraction of the full tank is left?",
   [
    "After the first action, 2/3 remains.",
    "Keeping 3/4 of that leaves (2/3) × (3/4).",
    "The remaining fraction of the original tank is 1/2."
   ],
-  "Changing reference wholes underlies compound percentages and conditional probability.",
-  "What if half the remainder were used?",
-  "Then (2/3) × (1/2) = 1/3 of the original would remain."
+  "Label the amount that each fraction acts on before going forwards or backwards.",
+  "After a third of the water is poured away and a quarter of the remainder is used, 18 litres remain. How much water was there at first?",
+  "The 18 litres are three quarters of the middle amount, so there were 24 litres after the first pour. That was two thirds of the starting amount, which was 36 litres."
  ],
  [
   "FRAC-02",
@@ -164,23 +164,23 @@ export const advancedNumber = [
    "Their areas are 3² = 9 and 5² = 25.",
    "The area ratio is 9:25 because area multiplies two lengths."
   ],
-  "Similarity leads to geometry problems involving area and volume scaling.",
-  "What is the volume ratio for similar cubes with side ratio 3:5?",
-  "3³:5³ = 27:125."
+  "Choose a convenient starting square when only a percentage or ratio is given.",
+  "The area of a square grows by 69%. By what percentage does its side length grow?",
+  "A square of area 100 has side 10. An area of 169 gives side 13. The side grows by 3 out of 10, or 30%."
  ],
  [
   "FRAC-03",
   "Compare nearby fractions without decimals",
-  "Multiplying across denominators avoids dangerous rounding.",
+  "Putting fractions over the same positive denominator preserves their order.",
   "Which is greater: 17/29 or 23/39?",
   [
-   "Both denominators are positive, so compare cross-products.",
+   "Use 29 × 39 as the common denominator. Compare the two new numerators.",
    "17 × 39 = 663, while 23 × 29 = 667.",
    "Because 663 < 667, 17/29 < 23/39."
   ],
-  "Exact comparisons matter when olympiad bounds are extremely close.",
-  "Why avoid rounding both to two decimal places?",
-  "They might appear equal after rounding even though they are not."
+  "Check strict inequalities exactly whenever two rounded values look identical.",
+  "Find a fraction strictly between 17/29 and 23/39 without using decimals.",
+  "Add the numerators and add the denominators to get 40/68 = 10/17. Check both sides exactly. The first cross-products are 289 and 290, and the second are 390 and 391."
  ],
  [
   "FRAC-04",
@@ -192,9 +192,9 @@ export const advancedNumber = [
    "The combined total is 2200 among 30 students.",
    "The mean is 2200/30 = 73 and 1/3, not the unweighted average 70."
   ],
-  "Weighted means appear in mixture problems and expected-value puzzles.",
-  "When would averaging 60 and 80 directly work?",
-  "When both groups have the same number of students."
+  "Recover the total from each mean before combining or removing a group.",
+  "Two students join the combined group in the example. The mean of all 32 is now 75 points. What is the mean of the two newcomers?",
+  "The new total is 32 × 75 = 2400 points. The original students contributed 2200 points. The two newcomers contributed 200 between them, so their mean is 100."
  ],
  [
   "RATE-01",
@@ -206,23 +206,23 @@ export const advancedNumber = [
    "Convert: 72 × 1000/3600 m/s.",
    "The answer is 20 m/s."
   ],
-  "Rates with changing units lead to more advanced time-distance problems.",
-  "How far does 20 m/s cover in 45 seconds?",
-  "20 × 45 = 900 metres."
+  "Draw the start and finish positions of the same point on a moving object.",
+  "A 120-metre train travels at 72 km/h. How long passes between its front reaching a 180-metre bridge and its last carriage clearing it?",
+  "The front travels 180 + 120 = 300 metres before the rear clears the bridge. At 20 metres per second, this takes 15 seconds."
  ],
  [
   "RATE-02",
   "Combined work rates add",
   "The time to finish and the fraction finished per hour are not the same thing.",
-  "One pipe fills a tank in 6 hours, another in 4. How long together?",
+  "Two pipes fill an empty tank at constant rates. On its own, one takes 6 hours and the other takes 4 hours. How long do they take together?",
   [
    "Hourly filling rates are 1/6 and 1/4 of a tank.",
    "Together the rate is 1/6 + 1/4 = 5/12 tanks per hour.",
    "Time is 1 ÷ (5/12) = 12/5 hours = 2 hours 24 minutes."
   ],
-  "The same reasoning applies to teams, machines and emptying tanks.",
-  "What changes if the second pipe drains the tank?",
-  "Subtract its rate rather than adding it."
+  "Decide whether the amount grows or shrinks before dividing by the net rate.",
+  "The tank starts half full. One pipe can fill a tank in 6 hours and a drain can empty it in 4 hours. Both are open at their constant rates. When does the tank become empty?",
+  "Each hour the tank loses 1/4 − 1/6 = 1/12 of its full capacity. Half a tank is six twelfths, so it empties in 6 hours."
  ],
  [
   "RATE-03",
@@ -234,23 +234,23 @@ export const advancedNumber = [
    "Total distance is 120 km over 3 hours.",
    "The average speed is 40 km/h, not 45 km/h."
   ],
-  "This points towards the harmonic mean in later competition mathematics.",
-  "Why is 40 closer to the slower speed?",
-  "More time was spent travelling at 30 km/h."
+  "Convert the target average into a time budget for the whole trip.",
+  "A cyclist rides the first half of a route at 24 km/h. What speed on the second half would give an overall average of 36 km/h?",
+  "Use 72 km for each half. A 144 km trip at an average of 36 km/h must take 4 hours. The first half uses 3 hours, leaving 1 hour for 72 km. The required speed is 72 km/h."
  ],
  [
   "RATE-04",
-  "Think about the gap, not the trains",
+  "Measure the closing speed",
   "Two moving objects may be replaced by one closing-rate calculation.",
-  "Trains approach each other at 70 and 50 km/h, starting 180 km apart. When do they meet?",
+  "Two trains travel towards each other at constant speeds of 70 and 50 km/h. Their fronts start 180 km apart. When do their fronts meet?",
   [
    "The gap shrinks at 70 + 50 = 120 km/h.",
    "Time = distance ÷ closing speed = 180/120 hours.",
    "They meet after 1.5 hours."
   ],
-  "Relative motion later introduces delayed starts and changing directions.",
-  "If both travel the same way, what is the relative speed?",
-  "Use the difference 70 − 50 = 20 km/h."
+  "Choose a pair of matching points and ask how their separation changes each hour.",
+  "Two trains travel in the same direction at 70 and 50 km/h. The faster train starts 12 km behind. How many minutes until their fronts are level?",
+  "The faster train gains 20 km each hour. It needs 12/20 of an hour to close the gap, which is 36 minutes."
  ],
  [
   "ALG-01",
@@ -262,9 +262,9 @@ export const advancedNumber = [
    "Then 3x + 3 = 99, giving x = 32.",
    "The integers are 32, 33, 34."
   ],
-  "The same method can prove general facts about consecutive-number sums.",
-  "Why is the sum of any three consecutive integers divisible by 3?",
-  "Their total is 3(x + 1)."
+  "A symmetric list has its mean at the centre.",
+  "Five consecutive odd numbers add to 155. What is the smallest?",
+  "The middle number is the mean, 155 ÷ 5 = 31. Two steps of size 2 to its left give 27. The five numbers are 27, 29, 31, 33 and 35."
  ],
  [
   "ALG-02",
@@ -276,9 +276,9 @@ export const advancedNumber = [
    "Each rabbit replaces a hen and adds two more legs.",
    "There are 34 − 24 = 10 extra legs, hence 5 rabbits."
   ],
-  "This is a visual introduction to solving simultaneous equations.",
-  "How many hens are there?",
-  "12 − 5 = 7 hens."
+  "Pretend every item is the cheaper kind and count how much one replacement adds.",
+  "Ten tickets are sold for a total of $46. Child tickets cost $3 and adult tickets cost $7. How many adult tickets were sold?",
+  "Ten child tickets would bring in $30. Each replacement with an adult ticket adds $4. The extra $16 needs four replacements, so four adults bought tickets."
  ],
  [
   "ALG-03",
@@ -290,9 +290,9 @@ export const advancedNumber = [
    "Add them to cancel y: 2x = 58, so x = 29.",
    "Then y = 21. Both constraints check."
   ],
-  "This is the starting point for systems of linear equations.",
-  "What parity must the sum and difference have for integer answers?",
-  "Both must be even or both odd."
+  "Look for a collection shared by two measurements and work out its value once.",
+  "Two apples and one pear weigh 17 units. One apple and two pears weigh 19 units. All apples have the same weight and all pears have the same weight. How heavy is each?",
+  "Combining both weighings gives three of each fruit weighing 36 units, so one apple and one pear weigh 12. Remove that pair from each weighing. An apple weighs 5 units and a pear weighs 7."
  ],
  [
   "ALG-04",
@@ -304,22 +304,22 @@ export const advancedNumber = [
    "Undo subtracting 5: add 5 to get 27.",
    "Undo tripling: divide by 3 to find 9."
   ],
-  "This opens the door to inverse functions and reversible transformations.",
-  "Can squaring always be reversed uniquely?",
-  "Not over all real numbers: 3 and −3 both square to 9."
+  "Undo one entire pass before undoing another.",
+  "A machine doubles its input and subtracts 1. After the same number passes through twice, the output is 29. What was the starting number?",
+  "To undo one pass, add 1 and divide by 2. The first undoing gives 15 and the second gives 8. Sending 8 through twice gives 15, then 29."
  ],
  [
   "ALG-05",
   "A total and a margin give two equations",
   "Winner-margin problems hide a sum and a difference.",
-  "Two players score 63 altogether; one beats the other by 7. What are the scores?",
+  "Two players score 63 points altogether. One finishes 7 points ahead. What are their scores?",
   [
    "Call the scores H and L: H + L = 63 and H − L = 7.",
    "Adding the equations gives 2H = 70 and H = 35.",
    "So L = 28. The difference is indeed 7."
   ],
-  "This reasoning appears in vote counts, sports scores and more involved linear puzzles.",
-  "Why can a total 64 with difference 7 not give whole-number scores?",
-  "They have opposite parity, so the calculated scores would contain halves."
+  "A transferred point changes the gap on both sides while leaving the total fixed.",
+  "The players have scores of 35 and 28. Two points are transferred from the leader to the other player. What is the new winning margin?",
+  "The new scores are 33 and 30, a margin of 3. Moving two points across removes two from one score and adds two to the other, so the old margin of 7 shrinks by 4."
  ]
 ];

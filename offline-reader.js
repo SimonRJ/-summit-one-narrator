@@ -1,5 +1,5 @@
 import {enableFigureViewing} from './figure-viewer.js?v=deeper-20261121';
-import {readCard, readingAvailable} from './reviewed-lesson.js?v=deeper-20261121';
+import {readCard, readingAvailable} from './reviewed-lesson.js?v=technique-transfers-20261121';
 import {mountLessonModel} from './lesson-models.js?v=deeper-20261121';
 
 const status = document.querySelector('#readerStatus');

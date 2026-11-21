@@ -1,5 +1,5 @@
 import {enableFigureViewing} from './figure-viewer.js?v=deeper-20261121';
-import {edition as readEdition, questionOrder, renderReviewedLesson, restoreGradedAnswers} from './reviewed-lesson.js?v=deeper-20261121';
+import {edition as readEdition, questionOrder, renderReviewedLesson, restoreGradedAnswers} from './reviewed-lesson.js?v=technique-transfers-20261121';
 import {mixedFlashDeck} from './flash-cards.js?v=content-audit-20261113';
 import {wordingHTML} from './recognition.js?v=recognition-20261113';
 import {bridgeHTML,mountPractice} from './transfer-practice.js?v=github-20261121';
@@ -13,7 +13,7 @@ import { supabase, loadProgress, saveProgress, signOut, currentUser, upsertSessi
 import { mountNarratedPlayer } from "./lesson-player.js";
 import {methods,skillFor,recallState} from "./curriculum.js?v=recognition-20261113";
 import {lessonCard,mountCheck,mountRetrieval,readinessHTML} from "./learning-ui.js?v=geometry-20261114";
-import {advancedConnectionHTML} from "./advanced-connections.js?v=adv-enrichment-20261113";
+import {advancedConnectionHTML} from "./advanced-connections.js?v=technique-transfers-20261121";
 import { problemFigure } from "./problem-figures.js";
 import {mountLessonPager} from "./lesson-pager.js?v=responsive-20261113";
 import {learningScreens} from "./lesson-screenflow.js?v=data-audit-20261114";
@@ -425,6 +425,7 @@ function showReadPractice(s,l,questions,draft,locked=false){
  };
  const invoke=async(name,body,kind)=>{const {data,error}=await supabase.functions.invoke(name,{body});if(error)throw Error(await learningFunctionError(error,kind));if(data?.error||!data)throw Error(data?.error||'No response. Please retry.');return data};
  renderReviewedLesson({app,s,l,questions,draft,locked,figure:q=>originalFigure(q)||problemFigure(q.id),
+  extension:()=>advancedConnectionHTML(skillFor(s,taxonomy),{visit:lessonPlan(s,course,taxonomy).visit}),
   video:()=>l.filmUse?assignedLessonFilm(l,"openingVideo"):lessonIntroId(s.slot)?lessonIntroPlayer(lessonIntroId(s.slot),l.videoTitle,'openingVideo'):`<video id="openingVideo" controls playsinline preload="metadata" src="${esc(l.movie)}" aria-label="${esc(l.videoTitle)}"></video>`,
   recordWatch:locked?()=>{}:detail=>recordVideoEvidence(s.slot,l.videoId+'-Intro','lesson_intro',detail).catch(()=>{}),
   attempt:async(id,response,help,familiar)=>{const g=await invoke('submit-problem-attempt',{problem_id:id,session_number:s.slot,answer_text:response,used_help:help,familiar_family:locked||familiar},'attempt');attemptedProblemIds.add(id);

@@ -3,7 +3,7 @@ Uses the trusted local mock from the older comprehensive browser test; no user s
 """
 import ast,asyncio,json,os,shutil
 from pathlib import Path
-from playwright.async_api import async_playwright
+from playwright.async_api import async_playwright, expect
 ROOT=Path(__file__).resolve().parents[1]
 SCREENSHOTS=Path(os.environ.get('SUMMIT_SCREENSHOT_DIR', ROOT/'docs'))
 SCREENSHOTS.mkdir(parents=True, exist_ok=True)
@@ -165,6 +165,13 @@ async def verify_revised_lessons(browser):
    assert await page.locator('.rwl-form input').input_value()=='12'
   await next_button.click()
  await page.locator('.rwl-results').wait_for()
+ extension=page.locator('.rwl-extension')
+ await extension.locator(':scope > summary').click()
+ await expect(extension.locator('.advanced-path-horizon h4')).to_have_text('Try this on paper')
+ await expect(extension.locator('.advanced-path-curiosity-body')).to_be_hidden()
+ await extension.locator('.advanced-path-curiosity summary').click()
+ await expect(extension.locator('.advanced-path-curiosity-body')).to_be_visible()
+ await extension.locator(':scope > summary').click()
  assert await page.locator('[data-revisit]').count()==len(question_ids)
  assert await page.locator('[data-revisit] b').all_text_contents()==['Correct with support','Try again on paper','Try again on paper',*['Correct']*(len(question_ids)-3)]
  await fits()

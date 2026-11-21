@@ -17,3 +17,7 @@
 .rwl-example details + details {
   border-top: 1px solid #36535d;
 }
+
+.rwl-extension{margin-top:1rem}
+.rwl-extension>summary{cursor:pointer;font-weight:650;padding:.7rem 0}
+.rwl-extension>summary:focus-visible{outline:2px solid currentColor;outline-offset:3px}

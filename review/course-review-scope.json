@@ -8,7 +8,7 @@
     {"key":"companions","item":"Companion teaching films with a completed editorial review","total":72},
     {"key":"investigations","item":"Published and independently checked investigations and extensions","total":53,"verified":53,"evidence":["../tools/content/check_mawa_maths.py","../data/mawa-investigations-20.json"]},
     {"key":"mixed","item":"Mixed assessment sessions and return to study","total":36,"verified":0},
-    {"key":"references","item":"Advanced technique pages and examples","total":52,"verified":0},
+    {"key":"references","item":"Advanced technique pages, worked examples and transfer questions","total":52,"verified":52,"evidence":["../tools/content/check_advanced_examples.py","../advanced-connections.js"]},
     {"key":"practice","item":"Original AMC speed and depth sets with end-to-end review","total":60,"verified":0},
     {"key":"rossmoyne","item":"Rossmoyne practice papers with end-to-end review","total":10,"verified":0},
     {"key":"archive","item":"Authentic papers checked against the frozen archive","total":19,"verified":19,"evidence":["../docs/AUTHENTIC_AMC_FREEZE.md","../tools/check_amc_freeze.sql"]},
