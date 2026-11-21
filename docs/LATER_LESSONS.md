@@ -20,7 +20,7 @@ The continuation contains 912 new questions with hints and protected worked solu
 | S081 | Which angles fill the line? | [S081](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S081-Intro-Illustrated.mp4) · Its own introduction | The inside bisectors | 6 |
 | S082 | A cell is bounded by lines | [S082](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S082-Intro-Illustrated.mp4) · Its own introduction | One marker inside | 6 |
 | S083 | Find the partners in a mirror | [S083](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S083-Intro-Illustrated.mp4) · Its own introduction | Two fold lines | 6 |
-| S085 | Keep the constraint on the page | [S085](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S085-Intro.mp4) · Its own introduction | Space for a sign | 5 |
+| S085 | Keep the constraint on the page | [S085](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S085-Intro-Illustrated.mp4) · Its own introduction | Space for a sign | 5 |
 | S086 | Add the work finished in one minute | [S086](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S086-Intro.mp4) · Its own introduction | A secret speed | 6 |
 | S087 | What does the silhouette force? | [S087](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S087-Intro.mp4) · Its own introduction | Reconstruct the storeroom | 6 |
 | S088 | Reserve a gap for neighbours | [S088](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S088-Intro.mp4) · Its own introduction | Cabin assignments | 6 |
@@ -235,7 +235,7 @@ The continuation contains 912 new questions with hints and protected worked solu
 | S366 | State exactly what a route may remember | [S093](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S093-Intro.mp4) · Technique film | Dispatch with priority gates | 6 |
 | S367 | Choose a region whose parity you can track | [S018](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S018-Intro-Illustrated.mp4) · Technique film | The smallest beacon | 5 |
 | S368 | Rebuild a journey from its finish | [S039](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S039-Intro-Illustrated.mp4) · Technique film | Recover the first speed | 5 |
-| S370 | Show that no better shape exists | [S085](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S085-Intro.mp4) · Technique film | A shelter beside the rock wall | 6 |
+| S370 | Show that no better shape exists | [S085](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S085-Intro-Illustrated.mp4) · Technique film | A shelter beside the rock wall | 6 |
 
 ## Maintenance
 
