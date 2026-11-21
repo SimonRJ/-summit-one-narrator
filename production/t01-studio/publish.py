@@ -123,7 +123,7 @@ def make_watch_page(lesson, source, report, *, available=OPENING_SEQUENCE):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#10151d">
+<meta name="theme-color" content="#f6f7f4">
 <link rel="icon" href="icon.svg">
 <title>{lesson} · {title} · Summit One</title>
 <style>
@@ -158,6 +158,7 @@ button:focus-visible, a:focus-visible, summary:focus-visible {{ outline: 2px sol
 }}
 </style>
 {reading_assets}
+<link rel="stylesheet" href="public-study-theme.css">
 </head>
 <body>
 <main>
@@ -208,7 +209,7 @@ def make_video_index(teaching, available=OPENING_SEQUENCE):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#10151d">
+<meta name="theme-color" content="#f6f7f4">
 <link rel="icon" href="icon.svg">
 <title>Teaching videos · Summit One</title>
 <style>
@@ -235,6 +236,7 @@ a:focus-visible {{ outline: 2px solid #9cdbbc; outline-offset: 3px; }}
 #filmFilters :is(input,select,button){{min-height:44px;max-width:100%;padding:.45rem .65rem;font:inherit;border:1px solid #72838a;border-radius:.4rem;color:#102d39;background:#fff}}
 #filmMatches{{align-self:center}}
 </style>
+<link rel="stylesheet" href="public-study-theme.css">
 </head>
 <body>
 <main>

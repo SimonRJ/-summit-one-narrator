@@ -37,11 +37,12 @@ mountLessonModel(document.getElementById('lessonModel'), {{slot: {int(model_slot
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0e1621">
+<meta name="theme-color" content="#f6f7f4">
 <title>{escape(title)} · Summit One</title>
 <link rel="icon" href="icon.svg">
 <link rel="stylesheet" href="lesson-introduction-videos.css?v={VERSION}">
 {script}
+<link rel="stylesheet" href="public-study-theme.css">
 </head>
 <body><main>
 {body}

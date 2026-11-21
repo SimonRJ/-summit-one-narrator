@@ -1,0 +1,23 @@
+@import url("design-system.css?v=advanced-20261113");
+@import url("summit-polish.css?v=craft-20261121");
+
+@media screen {
+  html:root { color-scheme: light; background: #f6f7f4; }
+  body:not(.exam-mode) { min-height: 100vh; font: 1rem/1.57 var(--summit-ui); }
+  body:not(.exam-mode) h1 { color: var(--s-ink); font: 500 clamp(1.95rem,5vw,3.45rem)/1.14 var(--summit-editorial); letter-spacing: -.035em; }
+  body:not(.exam-mode) :is(h2,h3,th,strong,.equation) { color: var(--s-ink); }
+  body:not(.exam-mode) :is(p,small,.meta,.note,.transcript,.chapter-clock,.reading-note,.lesson,.lead,.passage) { color: var(--s-muted); }
+  body:not(.exam-mode) :is(a,summary) { color: var(--s-brand); }
+  body:not(.exam-mode) a:hover { color: var(--cyan2); text-decoration: underline; }
+  body:not(.exam-mode) :is(.mission,.exercise,.challenge,.voice-card,.comparison,.equation,.lesson-model) { color: var(--s-ink); background: var(--s-paper); border: 1px solid var(--s-line); border-radius: var(--radius); }
+  body:not(.exam-mode) :is(.chapters button,.jump button,#introRetry,.lm-controls select,.lm-claims select,.lm-claims button) { color-scheme: light; color: var(--s-ink); background: var(--s-paper); border: 1px solid var(--s-line); min-height: 44px; }
+  body:not(.exam-mode) :is(.chapters button,.jump button,#introRetry):hover { background: var(--s-quiet); border-color: var(--s-brand); }
+  body:not(.exam-mode) :is(.lm-controls label,.lm-controls b,.lm-result,.lm-verdict) { color: var(--s-ink); }
+  body:not(.exam-mode) :is(details,thead,td,th) { border-color: var(--s-line); }
+  body:not(.exam-mode) :is(thead,tbody tr:nth-child(even)) { color: var(--s-ink); background: var(--s-quiet); }
+  body:not(.exam-mode) :is(a,button,select,input,summary):focus-visible { outline: 3px solid var(--s-brand); outline-offset: 3px; }
+  body:not(.exam-mode) video { border-color: var(--s-line); }
+  body:not(.exam-mode) progress, body:not(.exam-mode) progress::-webkit-progress-bar { background: var(--s-line); }
+  body:not(.exam-mode) progress::-webkit-progress-value { background: var(--s-brand); }
+  body:not(.exam-mode) progress::-moz-progress-bar { background: var(--s-brand); }
+}
