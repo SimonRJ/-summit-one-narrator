@@ -149,6 +149,24 @@
     },
     "RWL2-349-C": {
       "prompt": "Three bags contain different numbers of marbles, chosen from 2, 3, 5 and 7. The bags hold 12 marbles altogether. The yellow bag contains fewer marbles than either of the other two. How many marbles are in the yellow bag?"
+    },
+    "RWL1-001-B": {
+      "hint": "Mark positions 1 to 6 on one repeat. Which position in the pattern do tiles 6 and 12 share?"
+    },
+    "RWL1-002-C": {
+      "hint": "Draw the extra columns beside the original rectangle. Then draw the new rows across the enlarged width. Which tiles sit in the new corner?"
+    },
+    "RWL1-003-D": {
+      "hint": "Draw one filled tin. Mark the mass of the tin separately from the clay before reversing what was removed."
+    },
+    "RWL1-004-D": {
+      "hint": "Choose the thousands digit first. In the last two positions, which pairs of unused cards form a multiple of four?"
+    },
+    "RWL1-005-D": {
+      "hint": "Make separate tallies for the units, tens and hundreds places. In each column, count only tickets the printer actually labels."
+    },
+    "RWL1-006-D": {
+      "hint": "Sketch the three tunnels crossing at the middle cube. How many new cubes does the second tunnel remove? What about the third?"
     }
   },
   "solutionHashes": {
@@ -170,6 +188,74 @@
     "RWL2-349-A": "f772419426f85f7631e200a8e924a2b6b87696bc73d0fb6951c7de293e1c9aac"
   },
   "openings": {
+    "S001": {
+      "intro": "Put 14 beads into groups of five and four beads stay loose. What happens to the loose beads if you add another full group? This leftover is the remainder.",
+      "example": {
+        "prompt": "You have 29 beads. If you lay them in rows of five, how many are in the unfinished row?",
+        "steps": [
+          "Set aside five full rows. They use 5 × 5 = 25 beads.",
+          "Four beads remain because 29 − 25 = 4. Adding another five beads would make one more full row and leave the same four loose."
+        ]
+      },
+      "bridge": "In the repeating row of symbols, where does an exact multiple of six land? Look for what a remainder of zero tells you about the final symbol."
+    },
+    "S002": {
+      "intro": "Imagine a sheet with one column more than you need. You can count a tidy rectangle, then put the missing strip back or take the spare strip away. The size of that strip is the correction.",
+      "example": {
+        "prompt": "What is 31 × 8?",
+        "steps": [
+          "Split the array after column 30. The blue rectangle has 30 columns with eight squares in each, giving 30 × 8 = 240 squares.",
+          "The gold column contributes eight more squares. The entire array has 240 + 8 = 248."
+        ]
+      },
+      "bridge": "The film uses a rectangle that is too wide instead. Watch which strip has to come off, and why its whole area matters."
+    },
+    "S003": {
+      "intro": "At the end of a number machine you know the output. Ask which operation produced it. Undo that operation first, then follow the arrows back to the input.",
+      "example": {
+        "prompt": "A number is increased by 3 and then doubled. The result is 22. What was the number?",
+        "steps": [
+          "Work back from 22. The last arrow doubles the middle number, so the middle box must contain 22 ÷ 2 = 11.",
+          "The first arrow adds 3. The starting box therefore holds 11 − 3 = 8. Run the machine forwards to check that (8 + 3) × 2 = 22."
+        ]
+      },
+      "bridge": "Follow one pile of tickets through the stations. As you rewind each station, ask what the pile held just before that change.",
+      "recap": "Start with the known finish. Undo the changes in reverse order. If some fraction was removed, identify the fraction left and use it to recover the whole. Replay the changes forwards to check."
+    },
+    "S004": {
+      "headline": "Which digit has the fewest places?",
+      "intro": "A zero in the middle of 306 is useful. Put the zero first and 036 represents just 36. When you arrange digit cards, reserve any restricted places before filling the gaps.",
+      "example": {
+        "prompt": "Three cards show 0, 3 and 8. Use every card once. How many three-digit numbers have the 3 at one end?",
+        "steps": [
+          "If 3 is first, the other two cards can sit in either order. The numbers are 308 and 380.",
+          "If 3 is last, 0 cannot go first. Only 803 works. The two cases give 2 + 1 = 3 numbers altogether."
+        ]
+      },
+      "bridge": "In the harder question, the first digit decides the size of the number while the last two decide divisibility by four. Which choices can you rule out before arranging the remaining cards?"
+    },
+    "S005": {
+      "intro": "A printer uses two copies of the digit 5 to print a single ticket numbered 55. Before starting a tally, decide what one tally mark should stand for.",
+      "example": {
+        "prompt": "Tickets are numbered from 48 through 58. How many tickets contain a 5? How many copies of the digit 5 does the printer use?",
+        "steps": [
+          "The tickets from 50 through 58 each contain a 5. There are nine such tickets. Neither 48 nor 49 contains one.",
+          "The tens column contributes nine fives. Ticket 55 supplies one more in its units column. That makes ten printed fives on nine tickets."
+        ]
+      },
+      "bridge": "Watch the film tally one place-value column at a time. When a number qualifies in two columns, decide whether the question calls for one mark or two."
+    },
+    "S006": {
+      "intro": "Think of lifting off the top floor of a cube building. A stack three cubes high leaves a square on each of three floor plans, even when you cannot see it from the front.",
+      "example": {
+        "prompt": "Three solid stacks stand side by side on a table. Their heights are 1, 2 and 2 cubes. How many cubes are there?",
+        "steps": [
+          "Start at the table. All three stacks reach the bottom level, but only the second and third stacks reach the next level.",
+          "The floor counts give 3 + 2 = 5 cubes. Adding the stack heights gives 1 + 2 + 2 = 5 as well. Each little cube belongs to one floor and one stack."
+        ]
+      },
+      "bridge": "When the tunnel meets the vertical shaft, which cube appears in both plans for removal? Follow it on the middle floor before subtracting."
+    },
     "S009": {
       "example": {
         "prompt": "A two-digit number has 2 tens and an unknown units digit A. Adding 7 gives 31. What is A?",

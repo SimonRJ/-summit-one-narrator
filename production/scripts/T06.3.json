@@ -52,6 +52,6 @@
    "narration": "Find the limited supply. Divide to get a ceiling. Then either build an example that reaches it, or explain why it cannot be reached. Notebook challenge: six students play chess, one game per pair at most. Each day three games are played. What is the largest possible number of days?"
   }
  ],
- "notebook_exercise": "Six students; each day 3 games; no pair plays twice. Largest number of days?",
- "notebook_answer": "15 pairs / 3 per day = 5 days. One schedule for A to F is AF, BE, CD / AE, DF, BC / AD, CE, BF / AC, BD, EF / AB, CF, DE. Each day's games are disjoint and each pair appears once."
+ "notebook_exercise": "Six students play in pairs. Every day each student plays one game, and no pair may meet twice. For how many days can the games continue?",
+ "notebook_answer": "There are 6 × 5 ÷ 2 = 15 pairs and three games each day, so five days is the limit. It is achievable. Label the players A to F. Day 1 has AF, BE, CD. Day 2 has AE, DF, BC. Day 3 has AD, CE, BF. Day 4 has AC, BD, EF. Day 5 has AB, CF, DE."
 }

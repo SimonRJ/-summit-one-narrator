@@ -58,6 +58,6 @@
    "narration": "Update the situation after each step. Multiply along a route. Add separate routes. Notebook challenge: a bag has three red counters and one blue. Two are drawn without replacement. What is the probability both are red?"
   }
  ],
- "notebook_exercise": "A bag has 3 red and 1 blue. Two are drawn without replacement. Probability both red?",
- "notebook_answer": "3/4 x 2/3 = 1/2."
+ "notebook_exercise": "A bag contains 3 red counters and 1 blue counter. Draw two at random without putting the first back. What is the probability that both are red?",
+ "notebook_answer": "The first counter is red with probability 3/4. If it is red, two red counters remain among three counters. Multiply the two probabilities to get 3/4 × 2/3 = 1/2."
 }

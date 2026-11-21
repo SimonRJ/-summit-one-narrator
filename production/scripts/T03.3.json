@@ -52,6 +52,6 @@
    "narration": "Choose the objects and choose the boxes. Compare their counts. When the problem asks for the smallest guarantee, show how one fewer could fail. In your notebook, how many people must be in a room to guarantee two birthdays in the same month?"
   }
  ],
- "notebook_exercise": "How many people guarantee two with birthdays in the same month?",
- "notebook_answer": "13. Twelve people could all have different months."
+ "notebook_exercise": "What is the smallest group size that guarantees two people were born in the same month?",
+ "notebook_answer": "Twelve people could have twelve different birth months. A thirteenth person must share one of those months, so 13 is the smallest guaranteed group."
 }

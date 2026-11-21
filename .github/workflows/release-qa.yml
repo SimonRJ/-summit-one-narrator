@@ -77,7 +77,9 @@ jobs:
       - name: Recognition and coverage checks
         run: node tools/check_recognition.mjs
       - name: New practice checks
-        run: node tools/check_practice.mjs
+        run: |
+          node tools/check_practice.mjs
+          node tools/check_workshops.mjs
       - name: Public-content safety
         run: |
           test ! -f data/challenges-amc-001-040.json

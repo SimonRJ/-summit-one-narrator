@@ -2,10 +2,16 @@ const localSlots = new Set([1, 2, 3, 4, 5, 6]);
 const online = new Map();
 const recorded = new Map();
 let recordedCatalogue;
+let studiesLoaded = false;
+let remoteLoaded = false;
+
+export function introductionCatalogueComplete() {
+  return studiesLoaded && remoteLoaded;
+}
 
 function loadRecordedStudies() {
   if (recordedCatalogue) return recordedCatalogue;
-  recordedCatalogue = fetch(new URL("./data/recorded-studies.json?v=course-studies-1", import.meta.url))
+  recordedCatalogue = fetch(new URL("./data/recorded-studies.json?v=course-studies-1", import.meta.url), {signal: AbortSignal.timeout(5500)})
     .then(response => {
       if (!response.ok) throw Error("Recorded lesson guides are unavailable");
       return response.json();
@@ -13,10 +19,11 @@ function loadRecordedStudies() {
     .then(catalogue => {
       for (const [id, guide] of Object.entries(catalogue.lessons)) {
         const slot = Number(id.slice(1));
-        const base = catalogue.release + id;
+        const base = (guide.release || catalogue.release) + id;
         recorded.set(slot, {id, slot, status: "verified", ...guide,
           movie: base + ".mp4", poster: base + "-poster.jpg"});
       }
+      studiesLoaded = true;
     }).catch(() => { recordedCatalogue = undefined; });
   return recordedCatalogue;
 }
@@ -79,15 +86,16 @@ export function loadIntroductionCatalogue() {
   if (Date.now() - loadedAt < 30_000) return studies.then(latest);
   loading ??= readJson("lesson-intros-live.json")
     .then(catalogue => {
-      if (catalogue.version !== 1 || !Array.isArray(catalogue.entries)) return;
+      if (catalogue.version !== 1 || !Array.isArray(catalogue.entries)) throw Error("Invalid lesson catalogue");
       online.clear();
       for (const raw of catalogue.entries) {
         const entry = normaliseEntry(raw);
         if (entry) online.set(entry.slot, entry);
       }
+      remoteLoaded = true;
       loadedAt = Date.now();
     })
-    .catch(() => {})
+    .catch(() => { remoteLoaded = false; })
     .then(() => studies).then(latest)
     .finally(() => { loading = undefined; });
   return loading;

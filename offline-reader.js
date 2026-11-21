@@ -1,12 +1,12 @@
 import {enableFigureViewing} from './figure-viewer.js?v=deeper-20261121';
-import {readCard, readingAvailable} from './reviewed-lesson.js?v=technique-transfers-20261121';
+import {readCard, readingAvailable} from './reviewed-lesson.js?v=course-review-20261122-a';
 import {mountLessonModel} from './lesson-models.js?v=deeper-20261121';
 
 const status = document.querySelector('#readerStatus');
 const picker = document.querySelector('#readerLesson');
 const reading = document.querySelector('#reading');
 const editions = [
-  './data/read-watch-practise.json?v=investigations-films-20261121-r2',
+  './data/read-watch-practise.json?v=course-review-20261122-a',
   './data/read-watch-practise-later.json?v=illustrations-94',
 ];
 

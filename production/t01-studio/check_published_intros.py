@@ -46,9 +46,15 @@ def check(site):
     lessons = read_plan()["lessons"]
     tag = f"?v={VERSION}"
     root = read(site, "index.html" + tag)[2].decode()
-    app = read(site, "app-main.js" + tag)[2].decode()
-    menu = read(site, "course-menu-ui.js" + tag)[2].decode()
-    if not re.search(r"app-main\.js\?v=lesson-intros-v[0-9]+", root) or "lessonIntroId(s.slot)" not in app or "lesson-introduction-videos.html" not in menu:
+    entry = re.search(r'\bsrc="(app-main\.js\?v=[a-zA-Z0-9-]+)"', root)
+    if not entry:
+        raise ValueError("The published app entry point could not be found")
+    app = read(site, entry[1])[2].decode()
+    menu_import = re.search(r'from "\./(course-menu-ui\.js\?v=[a-zA-Z0-9-]+)"', app)
+    if not menu_import:
+        raise ValueError("The published course menu could not be found")
+    menu = read(site, menu_import[1])[2].decode()
+    if "lessonIntroId(s.slot)" not in app or "lesson-introduction-videos.html" not in menu:
         raise ValueError("The revised lesson modules are waiting for deployment")
     published = sorted(path.name[:4] for path in (ROOT / "review").glob("S[0-9][0-9][0-9]-Intro-qa.json"))
     index = WatchPage(read(site, "lesson-introduction-videos.html" + tag)[2].decode())

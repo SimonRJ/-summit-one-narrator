@@ -32,7 +32,9 @@ for(const [id,edit] of Object.entries(openingEdits)){
  assert(lesson,id);
  assert.equal(lesson.example.prompt,edit.example.prompt,id);
  assert.deepEqual(lesson.example.steps,edit.example.steps,id);
- if(edit.intro)assert.equal(lesson.intro,edit.intro,id);
+ for (const field of ['headline','intro','bridge','recap']) {
+  if (field in edit) assert.equal(lesson[field],edit[field],id+' '+field);
+ }
 }
 const laterSlots = course.filter(s => s.type === 'LESSON' && s.slot > 68).map(s => s.slot);
 const skills = new Map(bank.map(q => [q.session,q.skill]));
@@ -48,7 +50,7 @@ for(const lesson of later.lessons){
  assert.equal(lesson.skill,skills.get(sourceSlot));
  const guide = recorded.lessons[lesson.videoId];
  if (guide) {
-  assert.equal(lesson.movie, recorded.release + lesson.videoId + '.mp4');
+  assert.equal(lesson.movie, (guide.release || recorded.release) + lesson.videoId + '.mp4');
   assert.equal(lesson.slot, sourceSlot);
   assert.equal(lesson.videoTitle,guide.title);
   assert.equal(lesson.bridge,guide.bridge);

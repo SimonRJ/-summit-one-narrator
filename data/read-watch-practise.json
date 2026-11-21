@@ -4,15 +4,15 @@
     {
       "slot": 1,
       "headline": "What survives a whole group?",
-      "intro": "Suppose beads come in groups of five. Adding a whole group changes how many beads you have, but it does not change the number left over. That leftover, called the remainder, can be enough to solve a puzzle.",
+      "intro": "Put 14 beads into groups of five and four beads stay loose. What happens to the loose beads if you add another full group? This leftover is the remainder.",
       "example": {
         "prompt": "You have 29 beads. If you lay them in rows of five, how many are in the unfinished row?",
         "steps": [
-          "Five full rows use 5 × 5 = 25 beads.",
-          "That leaves 29 − 25 = 4. The remainder must be smaller than five, or another full row would fit."
+          "Set aside five full rows. They use 5 × 5 = 25 beads.",
+          "Four beads remain because 29 − 25 = 4. Adding another five beads would make one more full row and leave the same four loose."
         ]
       },
-      "bridge": "Watch what a remainder tells you in three different settings: a digit sum, a repeating row of symbols and a number that must pass several tests.",
+      "bridge": "In the repeating row of symbols, where does an exact multiple of six land? Look for what a remainder of zero tells you about the final symbol.",
       "recap": "When whole groups can be set aside, keep the remainder. Record what you divided by. In a pattern numbered from 1, remainder zero lands on the last item of a complete block.",
       "skill": "DIV-03",
       "videoId": "S001",
@@ -33,7 +33,7 @@
           "id": "RWL1-001-B",
           "title": "The last tile",
           "prompt": "A path repeats the letters R, I, V, E, R, S in that order. Tile 1 shows R. Which letter is on tile 366?",
-          "hint": "Mark the last tile of the first complete group of six."
+          "hint": "Mark positions 1 to 6 on one repeat. Which position in the pattern do tiles 6 and 12 share?"
         },
         {
           "id": "RWL1-001-C",
@@ -52,15 +52,19 @@
     {
       "slot": 2,
       "headline": "Round it, then pay back the difference",
-      "intro": "Rounding can help you estimate, but it can also give an exact answer. Keep track of what you borrowed or left out. In a multiplication, adjusting one factor by one can change a whole row of the product.",
+      "intro": "Imagine a sheet with one column more than you need. You can count a tidy rectangle, then put the missing strip back or take the spare strip away. The size of that strip is the correction.",
       "example": {
         "prompt": "What is 31 × 8?",
         "steps": [
-          "Use 30 rows of eight for an easy starting point: 30 × 8 = 240.",
-          "The real rectangle has one extra row of eight, so its area is 240 + 8 = 248."
-        ]
+          "Split the array after column 30. The blue rectangle has 30 columns with eight squares in each, giving 30 × 8 = 240 squares.",
+          "The gold column contributes eight more squares. The entire array has 240 + 8 = 248."
+        ],
+        "figure": {
+          "src": "figures/read-practice/S002.svg",
+          "alt": "Eight rows of 31 squares. A dashed line separates 30 blue columns from one gold column."
+        }
       },
-      "bridge": "Watch how a small correction grows from a few units in an addition to a strip of a rectangle, then to a missing square in a much larger product.",
+      "bridge": "The film uses a rectangle that is too wide instead. Watch which strip has to come off, and why its whole area matters.",
       "recap": "Look for a convenient central number. Mark the size and direction of each adjustment. For two factors equally far below and above the centre, their product is the centre squared minus the gap squared.",
       "skill": "DIG-01",
       "videoId": "S002",
@@ -87,7 +91,7 @@
           "id": "RWL1-002-C",
           "title": "A wider mosaic",
           "prompt": "A mosaic is 24 tiles high and 38 tiles wide. It is extended to 26 tiles high and 40 tiles wide. How many tiles are added?",
-          "hint": "Complete the two new columns first. How wide are the new rows now?"
+          "hint": "Draw the extra columns beside the original rectangle. Then draw the new rows across the enlarged width. Which tiles sit in the new corner?"
         },
         {
           "id": "RWL1-002-D",
@@ -100,16 +104,20 @@
     {
       "slot": 3,
       "headline": "Read the arrows backwards",
-      "intro": "If you know the finishing amount, draw the changes as arrows. Travelling back means undoing the last arrow first. The size of a pile halfway through the story can be the clue to the size it had at the start.",
+      "intro": "At the end of a number machine you know the output. Ask which operation produced it. Undo that operation first, then follow the arrows back to the input.",
       "example": {
         "prompt": "A number is increased by 3 and then doubled. The result is 22. What was the number?",
         "steps": [
-          "Undo the final doubling: 22 ÷ 2 = 11.",
-          "Undo the earlier increase: 11 − 3 = 8. Check that (8 + 3) × 2 = 22."
-        ]
+          "Work back from 22. The last arrow doubles the middle number, so the middle box must contain 22 ÷ 2 = 11.",
+          "The first arrow adds 3. The starting box therefore holds 11 − 3 = 8. Run the machine forwards to check that (8 + 3) × 2 = 22."
+        ],
+        "figure": {
+          "src": "figures/read-practice/S003.svg",
+          "alt": "Forward machine. An unknown input passes through add three, then multiply by two, producing 22."
+        }
       },
-      "bridge": "Follow the film’s arrows from the number machine to the ticket stations. Notice exactly what has to be put back before a pile can be doubled.",
-      "recap": "Circle the known finishing value. Undo one change at a time, in reverse order. If a fraction was taken away, rebuild the whole from the fraction left; finally, try your answer forwards.",
+      "bridge": "Follow one pile of tickets through the stations. As you rewind each station, ask what the pile held just before that change.",
+      "recap": "Start with the known finish. Undo the changes in reverse order. If some fraction was removed, identify the fraction left and use it to recover the whole. Replay the changes forwards to check.",
       "skill": "ALG-04",
       "videoId": "S003",
       "videoTitle": "Working backwards through operations",
@@ -141,22 +149,22 @@
           "id": "RWL1-003-D",
           "title": "Parcel weights",
           "prompt": "Three identical empty tins are packed with clay. Each receives the same mass of clay. Half the clay is then removed from each tin. The three tins now weigh 690 g together. Each empty tin weighs 70 g. How many grams of clay originally went into one tin?",
-          "hint": "Separate what changed from what never changed."
+          "hint": "Draw one filled tin. Mark the mass of the tin separately from the clay before reversing what was removed."
         }
       ]
     },
     {
       "slot": 4,
-      "headline": "Give the fussiest digit a place first",
-      "intro": "The same digit can be allowed in one place and forbidden in another. For instance, zero works in the middle of 306 but cannot start a three-digit number. When several rules compete, choose a place with the fewest options first.",
+      "headline": "Which digit has the fewest places?",
+      "intro": "A zero in the middle of 306 is useful. Put the zero first and 036 represents just 36. When you arrange digit cards, reserve any restricted places before filling the gaps.",
       "example": {
-        "prompt": "Use 0, 3 and 8 once each to make the largest three-digit number ending in 3.",
+        "prompt": "Three cards show 0, 3 and 8. Use every card once. How many three-digit numbers have the 3 at one end?",
         "steps": [
-          "Reserve 3 for the units place. Only 0 and 8 remain.",
-          "The hundreds digit cannot be zero, so 8 goes first. The only possible number is 803."
+          "If 3 is first, the other two cards can sit in either order. The numbers are 308 and 380.",
+          "If 3 is last, 0 cannot go first. Only 803 works. The two cases give 2 + 1 = 3 numbers altogether."
         ]
       },
-      "bridge": "In the video, the most useful place to fill changes: the leading digit controls size, while a final digit or final pair controls divisibility.",
+      "bridge": "In the harder question, the first digit decides the size of the number while the last two decide divisibility by four. Which choices can you rule out before arranging the remaining cards?",
       "recap": "Reserve restricted places, cross out each card used, and count the free places last. An ending such as 08 is allowed inside a longer number even though the number itself cannot begin with 0.",
       "skill": "DIG-02",
       "videoId": "S004",
@@ -189,22 +197,22 @@
           "id": "RWL1-004-D",
           "title": "Four-card challenge",
           "prompt": "Choose four different cards from 0, 2, 3, 5 and 8. How many four-digit numbers from 3,000 to 5,999 can you make that are divisible by 4?",
-          "hint": "Fix the first digit. List legal two-digit endings, including an ending beginning with 0."
+          "hint": "Choose the thousands digit first. In the last two positions, which pairs of unused cards form a multiple of four?"
         }
       ]
     },
     {
       "slot": 5,
       "headline": "Are you counting numbers or marks?",
-      "intro": "Writing 55 makes one number but uses two fives. That distinction matters when counting digits in a list. A reliable way to count marks is to follow just one place-value column at a time.",
+      "intro": "A printer uses two copies of the digit 5 to print a single ticket numbered 55. Before starting a tally, decide what one tally mark should stand for.",
       "example": {
-        "prompt": "Write the whole numbers from 8 to 18 inclusive. How many eights appear?",
+        "prompt": "Tickets are numbered from 48 through 58. How many tickets contain a 5? How many copies of the digit 5 does the printer use?",
         "steps": [
-          "The units digit is 8 at 8 and at 18: two marks.",
-          "No number in the range has 8 in the tens place, so the total is 2."
+          "The tickets from 50 through 58 each contain a 5. There are nine such tickets. Neither 48 nor 49 contains one.",
+          "The tens column contributes nine fives. Ticket 55 supplies one more in its units column. That makes ten printed fives on nine tickets."
         ]
       },
-      "bridge": "The film separates tens from units, then lets a divisibility rule decide which numbers enter the tally. Pay attention to the number that earns two marks.",
+      "bridge": "Watch the film tally one place-value column at a time. When a number qualifies in two columns, decide whether the question calls for one mark or two.",
       "recap": "Underline either “numbers” or “times written”. Tally each place separately for written digits, apply any divisibility filter first, and check the endpoints. Never invent leading zeros.",
       "skill": "DIG-03",
       "videoId": "S005",
@@ -236,26 +244,26 @@
           "id": "RWL1-005-D",
           "title": "Ticket printer",
           "prompt": "A printer labels tickets with the positive multiples of 6 up to and including 186. How many individual digit 6s does it print?",
-          "hint": "Which multiples end in 6? Which ones lie in the sixties or the one-hundred-and-sixties?"
+          "hint": "Make separate tallies for the units, tens and hundreds places. In each column, count only tickets the printer actually labels."
         }
       ]
     },
     {
       "slot": 6,
       "headline": "Slice a stack into floors",
-      "intro": "A cube hidden behind other cubes still takes up one position. Imagine lifting the roof off a building and looking down one level at a time. A stack contributes one cube to every level it reaches.",
+      "intro": "Think of lifting off the top floor of a cube building. A stack three cubes high leaves a square on each of three floor plans, even when you cannot see it from the front.",
       "example": {
-        "prompt": "Three stacks stand side by side on a table. Their heights are 1, 2 and 2 cubes. How many cubes are there?",
+        "prompt": "Three solid stacks stand side by side on a table. Their heights are 1, 2 and 2 cubes. How many cubes are there?",
         "steps": [
-          "On the table level all three stacks contribute one cube. On the next level only the two taller stacks do.",
-          "That makes 3 + 2 = 5 cubes. Adding the heights, 1 + 2 + 2, agrees."
+          "Start at the table. All three stacks reach the bottom level, but only the second and third stacks reach the next level.",
+          "The floor counts give 3 + 2 = 5 cubes. Adding the stack heights gives 1 + 2 + 2 = 5 as well. Each little cube belongs to one floor and one stack."
         ],
         "figure": {
           "src": "figures/read-practice/S006.svg",
           "alt": "Front view: the bottom level has three cubes; the next level has cubes above only the second and third stacks."
         }
       },
-      "bridge": "Watch the separate floors in the video. When a tunnel crosses an empty shaft, look for the position that has already been removed.",
+      "bridge": "When the tunnel meets the vertical shaft, which cube appears in both plans for removal? Follow it on the middle floor before subtracting.",
       "recap": "Choose layers or stack heights so every cube has one home in your count. For a hole, mark which levels it enters. Two cuts through one position remove just one cube there.",
       "skill": "SOLID-01",
       "videoId": "S006",
@@ -288,7 +296,7 @@
           "id": "RWL1-006-D",
           "title": "The crossing tunnels",
           "prompt": "A solid cube is built from 5 × 5 × 5 small cubes. Three straight, one-cube-wide tunnels pass through its centre: left to right, front to back and top to bottom. How many small cubes remain?",
-          "hint": "Each tunnel is five cubes long. Which position belongs to all three tunnels?"
+          "hint": "Sketch the three tunnels crossing at the middle cube. How many new cubes does the second tunnel remove? What about the third?"
         }
       ]
     },

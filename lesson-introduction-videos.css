@@ -28,6 +28,7 @@ video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #0d141d; 
 details { margin-top: 1.2rem; border-top: 1px solid #395168; padding-top: 1rem; }
 summary { min-height: 44px; cursor: pointer; color: #ace0fa; }
 .transcript { max-width: 70ch; }
+#introRetry { min-height: 44px; border: 1px solid #395168; border-radius: 8px; padding: .4em .9em; background: #172637; color: #f2f5f8; font: inherit; cursor: pointer; }
 .next { display: flex; flex-wrap: wrap; gap: 12px 28px; margin-top: 1.35rem; }
 .next a { display: flex; align-items: center; min-height: 44px; }
 @media (max-width: 440px) {

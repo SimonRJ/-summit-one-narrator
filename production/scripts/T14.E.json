@@ -46,6 +46,6 @@
    "narration": "The busiest person gives a limit. Then build a timetable and check every slot. Rebuild this, then decide how many slots are needed if a sixth meeting, D with E, is added."
   }
  ],
- "notebook_exercise": "Add the meeting DE to the list AB, AC, AD, BE, CE. How many slots are needed now?",
- "notebook_answer": "Still 3. For example: AB with DE, then AC with BE, then AD with CE."
+ "notebook_exercise": "Six meetings are needed, one for each pair AB, AC, AD, BE, CE and DE. Meetings may share a time slot if nobody has two meetings at once. What is the fewest slots needed?",
+ "notebook_answer": "A attends three meetings and needs three separate slots. Three suffice. Put AB with DE, AC with BE, and AD with CE. In each slot all four participants are different."
 }

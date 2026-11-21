@@ -35,7 +35,9 @@ async def run(site, engine):
                 buttons = page.locator('#introChapters button')
                 await expect(buttons).to_have_count(len(guide['chapters']))
                 film = page.locator('#introFilm')
-                await expect(film.locator('source')).to_have_attribute('src', catalogue['release'] + lesson + '.mp4')
+                release = guide.get('release') or catalogue['release']
+                await expect(film.locator('source')).to_have_attribute('src', release + lesson + '.mp4')
+                await expect(film).to_have_attribute('poster', release + lesson + '-poster.jpg')
                 await film.evaluate('v => { v.muted = true; }')
                 await page.wait_for_function("""() => {
                     const v = document.getElementById('introFilm');

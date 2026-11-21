@@ -46,6 +46,6 @@
    "narration": "Fix an order so nothing is counted twice, sort into cases, then check another way. Rebuild this, then count the pairs from one to six whose sum is at most five."
   }
  ],
- "notebook_exercise": "How many pairs of different numbers from 1 to 6 have a sum of at most 5?",
- "notebook_answer": "1+2, 1+3, 1+4, 2+3: 4 pairs."
+ "notebook_exercise": "Choose two different whole numbers from 1 to 6 inclusive. How many unordered pairs have a sum of at most 5?",
+ "notebook_answer": "Fix the smaller number. With 1, the larger number can be 2, 3 or 4. With 2, only 3 fits. With 3 or more, even the smallest possible partner is too large. That gives four pairs."
 }

@@ -24,8 +24,8 @@ N: Read the wording carefully. If the three chosen people get different jobs, su
 [RECAP]
 V: Lines: "Different roles or places: order matters", "Just a group: divide by the arrangements".
 N: If positions or roles differ, count in order. If only membership matters, divide by the number of arrangements of the chosen group. Notebook challenge: from six players, how many ways are there to choose a captain and a vice-captain? And how many ways to choose two players to carry the equipment?
-TRY: From 6 players: how many ways to choose a captain and vice-captain? How many ways to choose 2 equipment carriers?
-ANS: 6 x 5 = 30 with roles; 30 / 2 = 15 as an unordered pair.
+TRY: Six players are available. How many ways can you choose a captain and a different vice-captain? How many ways can you choose two of the players to carry equipment together?
+ANS: For the two roles there are 6 × 5 = 30 choices. For the equipment team, choosing A then B gives the same team as choosing B then A. Each team has been counted twice, so there are 15 teams.
 
 @@ T05.2
 GOAL: Split a count into cases using the restriction that changes the number of choices.
@@ -82,8 +82,8 @@ N: A second method confirms it. Five people can sit in one hundred and twenty wa
 [RECAP]
 V: Lines: "Can I rebuild the choices from the outcome?", "Does every choice give a legal outcome?".
 N: Ask two questions of any counting method. Can I recover the choices from every legal outcome? And does every choice give a legal outcome? Notebook challenge: in how many ways can four different books stand on a shelf if two particular books must not be next to each other?
-TRY: Four different books on a shelf; two particular books must not be adjacent. How many arrangements?
-ANS: 24 total minus 12 with them together = 12.
+TRY: Four different books stand in a row. Two particular books must be kept apart. How many arrangements are possible?
+ANS: There are 4 × 3 × 2 × 1 = 24 orders altogether. Temporarily join the two specified books into a block. The block and the other books have 6 orders, with 2 orders inside the block. Removing those 12 adjacent arrangements leaves 12.
 
 @@ T05.E
 GOAL: Worked example: a restriction that affects only one branch.
@@ -105,8 +105,8 @@ N: Check another way. Without the rule there would be two times three, six lunch
 [RECAP]
 V: Line: "unequal branches: add, do not multiply". Notebook prompt.
 N: When branches have different sizes, add them rather than multiplying. Rebuild the tree yourself, then try this: there are three shirts and four pairs of shorts, but the red shirt cannot be worn with the two orange pairs. How many outfits are possible?
-TRY: 3 shirts and 4 pairs of shorts; the red shirt cannot go with the 2 orange pairs. How many outfits?
-ANS: 12 - 2 = 10.
+TRY: A wardrobe holds three different shirts and four different pairs of shorts. One shirt is red and two pairs of shorts are orange. How many outfits use one of each item and avoid pairing red with orange?
+ANS: Without the restriction there are 3 × 4 = 12 outfits. Only the red shirt paired with either orange pair is forbidden. Removing those two outfits leaves 10.
 
 @@ T06.1
 GOAL: Count the same set of meetings in two ways to find a hidden number.
@@ -189,8 +189,8 @@ N: What if each group has three people? Counting pairs gives a ceiling of three 
 [RECAP]
 V: Lines: "Find what is used up", "Divide to get a ceiling", "Build an example, or show the ceiling fails".
 N: Find the limited supply. Divide to get a ceiling. Then either build an example that reaches it, or explain why it cannot be reached. Notebook challenge: six students play chess, one game per pair at most. Each day three games are played. What is the largest possible number of days?
-TRY: Six students; each day 3 games; no pair plays twice. Largest number of days?
-ANS: 15 pairs / 3 per day = 5 days. One schedule for A to F is AF, BE, CD / AE, DF, BC / AD, CE, BF / AC, BD, EF / AB, CF, DE. Each day's games are disjoint and each pair appears once.
+TRY: Six students play in pairs. Every day each student plays one game, and no pair may meet twice. For how many days can the games continue?
+ANS: There are 6 × 5 ÷ 2 = 15 pairs and three games each day, so five days is the limit. It is achievable. Label the players A to F. Day 1 has AF, BE, CD. Day 2 has AE, DF, BC. Day 3 has AD, CE, BF. Day 4 has AC, BD, EF. Day 5 has AB, CF, DE.
 
 @@ T06.E
 GOAL: Worked example: find a perimeter by removing edges that were counted twice.
@@ -241,8 +241,8 @@ N: For a smallest-number question, turn the idea around: ask what every arrangem
 [RECAP]
 V: Lines: "Find the limited resource", "Prove the limit", "Show an arrangement that reaches it".
 N: Find what is limited. Use it to prove a limit. Then show an arrangement that reaches the limit. Notebook challenge: what is the largest number of counters in a row of eleven cells with no two neighbours?
-TRY: Largest number of counters in a row of 11 cells with no two in neighbouring cells?
-ANS: 6 (five pairs plus one single cell; cells 1, 3, 5, 7, 9, 11).
+TRY: A row has 11 cells. Place at most one counter in each cell and leave a gap between any two counters. How many counters can you place?
+ANS: Group the first ten cells into five adjacent pairs. Each pair holds at most one counter and cell 11 holds at most one more, giving a limit of six. The odd-numbered cells achieve six.
 
 @@ T07.2
 GOAL: Explain why balanced parts give the largest product, and handle restrictions.
@@ -270,8 +270,8 @@ N: The number of parts matters too. Three fours give a product of sixty-four. Fo
 [RECAP]
 V: Lines: "Fixed sum: balance for the biggest product", "If balance is forbidden, get as close as allowed".
 N: For two positive parts with a fixed total, the most balanced pair gives the largest product. When a rule forbids perfect balance, get as close as the rule allows. Notebook challenge: a rectangle with whole-number sides has perimeter twenty-two. What is its largest possible area?
-TRY: A rectangle with whole-number sides has perimeter 22. Largest possible area?
-ANS: Sides add to 11; 5 and 6 give area 30.
+TRY: A rectangle has positive whole-number side lengths in centimetres and a perimeter of 22 cm. What is the greatest area it can have?
+ANS: The two side lengths add to 11. The possible shorter sides are 1, 2, 3, 4 and 5. Their areas are 10, 18, 24, 28 and 30 square centimetres. The 5 by 6 rectangle gives the maximum.
 
 @@ T07.3
 GOAL: Use the places where a bound is tight to design the arrangement that reaches it.
@@ -299,8 +299,8 @@ N: Always check the finished arrangement against every rule, not only the total.
 [RECAP]
 V: Lines: "Prove the limit", "Ask what must be full to reach it", "Build, then check every rule".
 N: Prove the limit. Ask what must be full to reach it. Build the arrangement, then check every rule. Notebook challenge: on a three by three board with at most one counter per row and per column, what is the largest number of counters, and where could they go?
-TRY: 3 by 3 board, at most one counter in each row and each column. Largest number, and an arrangement?
-ANS: 3, for example along a diagonal.
+TRY: On a 3 by 3 board, each row and each column may hold at most one counter. How many counters fit? Show one arrangement that reaches your answer.
+ANS: The three rows can hold at most three counters. A counter in each square of the main diagonal uses three different rows and columns, so three fit.
 
 @@ T07.E
 GOAL: Worked example: two different limits, and why the tighter one decides.
@@ -322,8 +322,8 @@ N: So four trays are enough, and three are not. The answer is four. Notice that 
 [RECAP]
 V: Three steps: "Find each lower bound", "Use the strongest bound", "Build a packing that reaches it". Notebook prompt.
 N: Check each rule for a lower bound. Take the strongest bound, then build a packing that reaches it. Try it with nine red counters and three blue counters.
-TRY: Same rules with 9 red and 3 blue counters. Smallest number of trays?
-ANS: At least 5 trays are needed, since 4 trays hold at most 8 reds. Use three trays with 2 red and 1 blue each, one tray with 2 reds, and one tray with 1 red.
+TRY: Pack 9 red and 3 blue counters into trays. Each tray holds at most 4 counters, including at most 2 red counters. What is the smallest number of trays you need?
+ANS: Four trays can hold only 8 red counters, so at least 5 trays are needed. Put 2 red and 1 blue in each of the first three trays. Put 2 red in the fourth tray and the last red in the fifth. All 12 counters fit.
 
 @@ T08.1
 GOAL: List equally likely outcomes honestly before finding a probability.
@@ -348,8 +348,8 @@ N: Roll two fair dice separately. There are thirty-six equally likely pairs. A t
 [RECAP]
 V: Lines: "Label the objects", "List equally likely outcomes", "Favourable out of total".
 N: Label the objects so each outcome is visible. Check the outcomes are equally likely. Then count favourable out of total. Notebook challenge: two dice are rolled. What is the probability that the two numbers are the same?
-TRY: Two fair dice are rolled independently. What is the probability that both show the same number?
-ANS: 6 out of 36 = 1/6.
+TRY: Two fair six-sided dice, each numbered 1 to 6, are rolled independently. What is the probability that they show the same number?
+ANS: Whatever the first die shows, exactly one of the six equally likely faces on the second die matches it. The probability is 1/6.
 
 @@ T08.2
 GOAL: Follow a probability tree when the first choice changes the second.
@@ -377,8 +377,8 @@ N: What is the chance of one of each colour? That happens on two different route
 [RECAP]
 V: Lines: "Update after each step", "Multiply along a route", "Add different routes".
 N: Update the situation after each step. Multiply along a route. Add separate routes. Notebook challenge: a bag has three red counters and one blue. Two are drawn without replacement. What is the probability both are red?
-TRY: A bag has 3 red and 1 blue. Two are drawn without replacement. Probability both red?
-ANS: 3/4 x 2/3 = 1/2.
+TRY: A bag contains 3 red counters and 1 blue counter. Draw two at random without putting the first back. What is the probability that both are red?
+ANS: The first counter is red with probability 3/4. If it is red, two red counters remain among three counters. Multiply the two probabilities to get 3/4 × 2/3 = 1/2.
 
 @@ T08.3
 GOAL: When given information, cross out impossible outcomes and recount.
@@ -406,8 +406,8 @@ N: Crossing out works because outcomes that were equally likely before the infor
 [RECAP]
 V: Lines: "Cross out what the information rules out", "Count favourable among the survivors".
 N: Cross out what the information rules out. Then count favourable outcomes among the survivors. Notebook challenge: a die is rolled and you are told the number is greater than two. What is the probability that it is odd?
-TRY: A die is rolled; you are told the number is greater than 2. Probability it is odd?
-ANS: Survivors 3, 4, 5, 6; odd are 3 and 5; 2/4 = 1/2.
+TRY: A fair six-sided die numbered 1 to 6 has been rolled. You learn that the result is greater than 2. What is the probability that it is odd?
+ANS: The clue leaves four equally likely results, 3, 4, 5 and 6. Two of them are odd, so the conditional probability is 2/4 = 1/2.
 
 @@ T08.E
 GOAL: Worked example: "at least one head" shrinks the comparison group.

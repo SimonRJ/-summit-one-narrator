@@ -58,6 +58,6 @@
    "narration": "Ask whether objects are fixed, can be turned, or can also be flipped. Two arrangements are the same only if an allowed move takes one to the other. Notebook challenge: three of the four small squares are shaded. How many patterns are there if the square is free to turn?"
   }
  ],
- "notebook_exercise": "A 2 by 2 square has three of its four small squares shaded. How many patterns, if it is free to turn?",
- "notebook_answer": "1 (it is the same as choosing the single unshaded square)."
+ "notebook_exercise": "Shade three of the four cells of a 2 by 2 square. Patterns that match after a rotation count as the same. How many different patterns are there?",
+ "notebook_answer": "Each pattern leaves one corner unshaded. A quarter-turn can move that corner to the next corner, so all four drawings represent the same pattern. There is one."
 }

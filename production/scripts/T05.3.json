@@ -58,6 +58,6 @@
    "narration": "Ask two questions of any counting method. Can I recover the choices from every legal outcome? And does every choice give a legal outcome? Notebook challenge: in how many ways can four different books stand on a shelf if two particular books must not be next to each other?"
   }
  ],
- "notebook_exercise": "Four different books on a shelf; two particular books must not be adjacent. How many arrangements?",
- "notebook_answer": "24 total minus 12 with them together = 12."
+ "notebook_exercise": "Four different books stand in a row. Two particular books must be kept apart. How many arrangements are possible?",
+ "notebook_answer": "There are 4 × 3 × 2 × 1 = 24 orders altogether. Temporarily join the two specified books into a block. The block and the other books have 6 orders, with 2 orders inside the block. Removing those 12 adjacent arrangements leaves 12."
 }

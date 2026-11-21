@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 312 86" role="img" aria-labelledby="title">
+  <title id="title">Forward machine. An unknown input passes through add three, then multiply by two, producing 22.</title>
+  <rect width="312" height="86" rx="8" fill="#faf6e9"/>
+  <rect x="6" y="26" width="54" height="42" rx="7" fill="#e0edf2" stroke="#466272"/>
+  <rect x="129" y="26" width="54" height="42" rx="7" fill="#fff6dc" stroke="#806332"/>
+  <rect x="252" y="26" width="54" height="42" rx="7" fill="#d8eee2" stroke="#3d6855"/>
+  <path d="M65 47h56m-7-6 7 6-7 6m74-6h56m-7-6 7 6-7 6" fill="none" stroke="#314956" stroke-width="2.5"/>
+  <g fill="#172b38" font-family="system-ui,sans-serif" font-size="16" text-anchor="middle">
+    <text x="33" y="53">?</text><text x="156" y="53">?</text><text x="279" y="53">22</text>
+    <text x="93" y="36">+ 3</text><text x="216" y="36">× 2</text>
+  </g>
+</svg>

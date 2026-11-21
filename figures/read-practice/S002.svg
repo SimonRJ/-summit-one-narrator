@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 292 110" role="img" aria-labelledby="title">
+  <title id="title">Eight rows of 31 squares. A dashed line separates 30 blue columns from one gold column.</title>
+  <rect width="292" height="110" rx="8" fill="#faf6e9"/>
+  <defs>
+    <pattern id="cells" x="28" y="29" width="8" height="8" patternUnits="userSpaceOnUse">
+      <path d="M0 8V0H8" fill="none" stroke="#486474" stroke-width=".8"/>
+    </pattern>
+  </defs>
+  <rect x="28" y="29" width="240" height="64" fill="#c4e4e7"/>
+  <rect x="268" y="29" width="8" height="64" fill="#f5c765"/>
+  <rect x="28" y="29" width="248" height="64" fill="url(#cells)" stroke="#1d3444" stroke-width="1.5"/>
+  <path d="M268 29V93" fill="none" stroke="#1d3444" stroke-width="1.75" stroke-dasharray="4 2"/>
+  <g fill="#172b38" font-family="system-ui,sans-serif" font-size="14" text-anchor="middle">
+    <text x="148" y="21">30 columns</text><text x="272" y="21">1</text><text x="16" y="67">8</text>
+  </g>
+</svg>

@@ -58,6 +58,6 @@
    "narration": "Prove the limit. Ask what must be full to reach it. Build the arrangement, then check every rule. Notebook challenge: on a three by three board with at most one counter per row and per column, what is the largest number of counters, and where could they go?"
   }
  ],
- "notebook_exercise": "3 by 3 board, at most one counter in each row and each column. Largest number, and an arrangement?",
- "notebook_answer": "3, for example along a diagonal."
+ "notebook_exercise": "On a 3 by 3 board, each row and each column may hold at most one counter. How many counters fit? Show one arrangement that reaches your answer.",
+ "notebook_answer": "The three rows can hold at most three counters. A counter in each square of the main diagonal uses three different rows and columns, so three fit."
 }

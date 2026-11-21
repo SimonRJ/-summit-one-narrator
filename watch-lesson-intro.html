@@ -6,9 +6,9 @@
 <meta name="theme-color" content="#0e1621">
 <title>Lesson introduction · Summit One</title>
 <link rel="icon" href="icon.svg">
-<link rel="stylesheet" href="lesson-introduction-videos.css?v=lesson-intros-v2">
+<link rel="stylesheet" href="lesson-introduction-videos.css?v=public-catalogue-20261122">
 <script defer src="lesson-introduction-watch.js?v=lesson-intros-v7"></script>
-<script type="module" src="lesson-introduction-library.js?v=recorded-studies-20261121"></script>
+<script type="module" src="lesson-introduction-library.js?v=recorded-editions-20261122"></script>
 <link rel="stylesheet" href="lesson-models.css?v=deeper-20261121">
 <script type="module">
 import {mountLessonModel} from './lesson-models.js?v=deeper-20261121';
@@ -21,9 +21,11 @@ mountLessonModel(document.getElementById('lessonModel'), {slot: Number(new URLSe
 <div id="introWatch" hidden>
 <p id="introLessonNumber" class="lesson-number"></p>
 <h1 id="introTitle">Lesson introduction</h1>
-<video id="introFilm" controls playsinline preload="metadata"></video>
-</div>
+<video id="introFilm" controls playsinline preload="metadata" aria-label="Lesson introduction"></video>
 <div id="lessonModel"></div>
+</div>
+<p id="introGuideStatus" role="status" hidden></p>
+<button id="introRetry" type="button" hidden>Reload lesson</button>
 <div id="introContents" hidden>
 <h2>Jump to a chapter</h2>
 <ol id="introChapters" class="jump"></ol>

@@ -3,7 +3,7 @@ export const exampleMethods = new Map([
   ['What is 31 × 8?', {
     method: 'Double three times',
     working: 'Double 31 to get 62. Double again to get 124, then once more to get 248. Three doubles multiply by 2 × 2 × 2, which is 8.',
-    comparison: 'The row method uses the fact that 31 is close to 30. Doubling uses the structure of the other factor, 8. Which would you try for 47 × 8?'
+    comparison: 'The area method uses the fact that 31 is close to 30. Doubling uses the structure of the other factor, 8. Which would you try for 47 × 8?'
   }],
   ['What is the longest length that fits exactly into both 12 cm and 20 cm?', {
     method: 'Use the leftover length',

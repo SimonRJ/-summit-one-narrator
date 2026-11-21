@@ -1,8 +1,9 @@
 import {enableFigureViewing} from './figure-viewer.js?v=deeper-20261121';
-import {edition as readEdition, questionOrder, renderReviewedLesson, restoreGradedAnswers} from './reviewed-lesson.js?v=technique-transfers-20261121';
+import {edition as readEdition, questionOrder, renderReviewedLesson, restoreGradedAnswers} from './reviewed-lesson.js?v=course-review-20261122-a';
 import {mixedFlashDeck} from './flash-cards.js?v=content-audit-20261113';
 import {wordingHTML} from './recognition.js?v=recognition-20261113';
-import {bridgeHTML,mountPractice} from './transfer-practice.js?v=github-20261121';
+import {workshopEdition,workshopStudies} from './workshop-studies.js?v=workshops-20261122';
+import {bridgeHTML,mountPractice,practice} from './transfer-practice.js?v=github-20261121';
 import {allRows,queueLessonRepairs,renderRepairs,mountInvestigationReview,rubricHTML} from './learning-support.js?v=github-20261121';
 import {mountFlashCards,flashReviewed} from './flash-ui.js?v=content-audit-20261113';
 import {selectOriginalProblems,familySeen,reasoningReady,applicationStatus,mountReasoning,originalFigure,LEARNING_VERSION} from './original-learning.js?v=upper-primary-audit-20261114';
@@ -18,8 +19,8 @@ import { problemFigure } from "./problem-figures.js";
 import {mountLessonPager} from "./lesson-pager.js?v=responsive-20261113";
 import {learningScreens} from "./lesson-screenflow.js?v=data-audit-20261114";
 import {buildCourseNavigation} from "./course-menu.js?v=menu-20261113";
-import {mountCourseMenu} from "./course-menu-ui.js?v=recorded-studies-20261121";
-import {introMediaSource,lessonIntroId,loadIntroductionCatalogue} from "./lesson-introduction-media.js?v=recorded-studies-20261121";
+import {mountCourseMenu} from "./course-menu-ui.js?v=recorded-editions-20261122";
+import {introMediaSource,lessonIntroId,loadIntroductionCatalogue} from "./lesson-introduction-media.js?v=recorded-editions-20261122";
 
 const app=document.getElementById("app");
 const problemTemplate=document.getElementById("problemTemplate");
@@ -178,7 +179,7 @@ async function boot(){
     user=await currentUser();
     if(!user){location.href="login.html";return}
     const introCatalogue=loadIntroductionCatalogue();
-    const [c,t,m,h,tax,ms,lm,rl,later]=await Promise.all([fetch("data/sessions-372.json").then(r=>r.json()),fetch("data/teaching-72.json").then(r=>r.json()),fetch("data/mawa-investigations-20.json?v=mawa-visits-20261121").then(r=>r.json()),fetch("data/rossmoyne-h23.json").then(r=>r.json()),fetch("data/taxonomy-52.json").then(r=>r.json()),fetch("data/milestones.json").then(r=>r.json()),fetch("data/lesson-challenges.json?v=upper-primary-audit-20261114").then(r=>r.json()),fetch("data/read-watch-practise.json?v=investigations-films-20261121-r2").then(r=>{if(!r.ok)throw Error("Lesson text could not be loaded");return r.json()}),
+    const [c,t,m,h,tax,ms,lm,rl,later]=await Promise.all([fetch("data/sessions-372.json").then(r=>r.json()),fetch("data/teaching-72.json").then(r=>r.json()),fetch("data/mawa-investigations-20.json?v=mawa-visits-20261121").then(r=>r.json()),fetch("data/rossmoyne-h23.json").then(r=>r.json()),fetch("data/taxonomy-52.json").then(r=>r.json()),fetch("data/milestones.json").then(r=>r.json()),fetch("data/lesson-challenges.json?v=upper-primary-audit-20261114").then(r=>r.json()),fetch("data/read-watch-practise.json?v=course-review-20261122-a").then(r=>{if(!r.ok)throw Error("Lesson text could not be loaded");return r.json()}),
       fetch("data/read-watch-practise-later.json?v=illustrations-94").then(r=>{
         if(!r.ok)throw Error("The later lesson text could not be loaded");
         return r.json();
@@ -379,6 +380,11 @@ async function startSession(s){
   sessionDraft={answers:existing?.answers||{},working:existing?.working||{},evidence:existing?.evidence||{},summary:existing?.summary||{}};
   const local=JSON.parse(localStorage.getItem(draftKey(s))||'null');
   if(local?.draft&&(!existing?.updated_at||local.updated_at>existing.updated_at))sessionDraft=local.draft;
+  if(s.type==="MIXED" && !existing && !local?.draft){
+    const study=workshopStudies.get(s.slot);
+    sessionDraft.summary.workshop_edition=workshopEdition;
+    sessionDraft.summary.mixed_skills=[...study.recall.map(([id])=>id),study.id];
+  }
   if(s.type==="MAWA"){
     sessionDraft.summary ||= {};
     const saved=Boolean(existing || local?.draft);
@@ -751,23 +757,60 @@ function mixedSkills(s,count){
  const ids=candidates.length?candidates:taught;
  return Array.from({length:count},(_,i)=>ids[(s.slot*3+i*Math.max(1,Math.floor(ids.length/count)))%ids.length]); // Repeat a taught skill with new numbers if fewer distinct skills are available.
 }
-function mountMixed(el,s,count){
+function mountMixed(el,s,count,{study,save=()=>saveDraft(s),onDone=()=>{}}={}){
  const ids=sessionDraft.summary.mixed_skills||(sessionDraft.summary.mixed_skills=mixedSkills(s,count));
- el.innerHTML=`<h3>Which tool fits?</h3><p class="muted">These questions draw on earlier lessons. Choose a method before opening a hint. This is untimed practice with written feedback.</p>${ids.map((id,i)=>`<div data-mixed="${i}"></div>`).join('')}`;
- ids.forEach((id,i)=>mountPractice(el.querySelector(`[data-mixed="${i}"]`),{id,seed:s.slot+i*5,key:'mixed:'+i,draft:sessionDraft,save:()=>saveDraft(s),label:`MIXED QUESTION ${i+1}`}));
+ el.innerHTML=`<h3>Which tool fits?</h3><p class="muted">Choose a method before opening a hint. After checking your answer, compare your working with the solution.</p>${ids.map((_,i)=>`<div data-mixed="${i}"></div>`).join('')}`;
+ ids.forEach((id,i)=>{
+  const transfer=study && i===study.recall.length;
+  const seed=study && !transfer ? study.recall[i][1] : s.slot+i*5;
+  const label=transfer ? 'New challenge · '+study.title : 'Mixed question '+(i+1);
+  mountPractice(el.querySelector(`[data-mixed="${i}"]`),{id,seed,key:'mixed:'+i,draft:sessionDraft,
+   question:transfer?study:practice(id,seed),label,save,onDone});
+ });
 }
 function renderWorkshop(s){
- app.innerHTML=`<section class="session-page panel stage"><div class="eyebrow">SESSION ${s.slot} · STRATEGY WORKSHOP</div><h1>Mixed problem solving</h1><p>Each question may need a different method. Work out your answer on paper, enter the final result, and study the solution after checking.</p><p class="muted">Six problems plus five quick decisions. No written explanations or reflections required.</p>${wordingHTML(s.slot)}<div id="workshopFlash"></div><div id="workshopQuestions"></div><button id="completeWorkshop" class="primary">Complete and lock workshop</button></section>`;
+ const study=sessionDraft.summary.workshop_edition===workshopEdition?workshopStudies.get(s.slot):null;
  const ids=sessionDraft.summary.mixed_skills||(sessionDraft.summary.mixed_skills=mixedSkills(s,6));
- mountFlashCards(app.querySelector('#workshopFlash'),{id:'mixed-'+s.slot,slot:s.slot,deck:mixedFlashDeck(ids,s.slot),draft:sessionDraft,save:()=>saveDraft(s)});
- mountMixed(app.querySelector('#workshopQuestions'),s,6);
- app.querySelector('#completeWorkshop').onclick=async event=>{
-  if(!flashReviewed(sessionDraft,'mixed-'+s.slot)){alert('Finish the five quick decisions first.');return}
-  if((sessionDraft.summary.mixed_skills||[]).some((id,i)=>!sessionDraft.evidence['mixed:'+i])){alert('Check your answer on each of the six problems first.');return}
-  event.target.disabled=true;
-  try{sessionDraft.summary.type='MIXED';await completeSpecialSession(s)}
-  catch(error){alert(error.message);event.target.disabled=false}
+ app.innerHTML=`<section class="session-page panel stage"><div class="eyebrow">SESSION ${s.slot} · STRATEGY WORKSHOP</div><h1>${esc(study?.title||'Mixed problem solving')}</h1><p>${study?'Start with five quick decisions. Solve five problems from earlier lessons, then try the new challenge on paper.':'Start with five quick decisions, then work through the mixed problems on paper.'}</p>${wordingHTML(s.slot)}<div id="workshopFlash"></div><div id="workshopQuestions"></div><p id="workshopStatus" class="muted" role="status"></p><button id="completeWorkshop" class="primary" disabled>Complete and lock workshop</button></section>`;
+ const button=app.querySelector('#completeWorkshop'),status=app.querySelector('#workshopStatus');
+ let pending=Promise.resolve(),locking=false;
+ const save=()=>{
+  const result=pending.then(()=>saveDraft(s));
+  pending=result.catch(()=>{});
+  return result;
  };
+ const update=()=>{
+  const attempted=ids.filter((_,i)=>sessionDraft.evidence['mixed:'+i]).length;
+  const reviewed=flashReviewed(sessionDraft,'mixed-'+s.slot);
+  status.textContent=`${attempted} of ${ids.length} problems checked. ${reviewed?'Five quick decisions reviewed.':'Finish the five quick decisions and read their recap.'}`;
+  button.disabled=locking || !reviewed || attempted!==ids.length;
+ };
+ mountFlashCards(app.querySelector('#workshopFlash'),{id:'mixed-'+s.slot,slot:s.slot,deck:mixedFlashDeck(ids,s.slot),draft:sessionDraft,save,onComplete:update});
+ mountMixed(app.querySelector('#workshopQuestions'),s,ids.length,{study,save,onDone:update});
+ update();
+ button.onclick=async()=>{
+  if(button.disabled)return;
+  locking=true;update();
+  try{
+   await pending;
+   sessionDraft.summary.type='MIXED';
+   if(study)sessionDraft.summary.focus=study.title;
+   await completeSpecialSession(s);
+  }catch(error){locking=false;update();alert(error.message)}
+ };
+}
+function savedMixedAnswer(record,e){
+ const study=record.summary?.workshop_edition===workshopEdition?workshopStudies.get(record.session_number):null;
+ let question;
+ if(study?.prompt===e.question_id)question=study;
+ else if(methods[e.skill_id] && Number.isInteger(e.seed)){
+  const variant=practice(e.skill_id,e.seed);
+  if(variant.prompt===e.question_id)question=variant;
+ }
+ const previous=course[record.session_number-1]?.type==='MIXED' && completedRecords.findLast(r=>
+  r.session_number<record.session_number && r.summary?.skill_id===e.skill_id && reviewedLessons.has(r.session_number));
+ const solution=question?`<details><summary>See the worked solution</summary><ol>${question.steps.map(step=>`<li>${esc(step)}</li>`).join('')}</ol><p>${esc(question.contrast)}</p></details>`:'';
+ return `<article><h3>${esc(e.question_id)}</h3>${e.method?`<p><b>Your method:</b> ${esc(e.method)}</p>`:''}<p><b>Recorded answer:</b> ${esc(e.response)} · ${e.correct?'correct':'needs repair'}${e.used_help?' · supported':''}</p>${solution}${previous?`<button class="ghost" type="button" data-revised-copy="${previous.session_number}">Revisit lesson ${previous.session_number} · ${esc(course[previous.session_number-1].focus)}</button>`:''}</article>`;
 }
 async function renderReview(){
  document.body.classList.remove("lesson-fullscreen","home-focus","lesson-video-review");
@@ -776,7 +819,7 @@ async function renderReview(){
  const problem=reviewedQuestions.get(id)||problemIndex.find(entry=>entry.id===id);
  const learning=lessonManifest.find(entry=>entry.id===id);
  const figure=problem ? originalFigure({...problem,learning}) : '';
- return `<article><h3>${esc(problem?.title||id)}</h3>${figure}<p class="math-copy">${esc(problem?.prompt||'')}</p><p><b>Recorded answer:</b> ${esc(a?.response??a)}</p><p class="math-copy">${esc(r.working?.[id]||'')}</p><button class="ghost saved-solution" data-problem="${esc(id)}" data-session="${r.session_number}">Worked solution</button><div class="saved-solution-content"></div>${r.evidence?.['reasoning:'+id]?`<p><b>Recognition clue:</b> ${esc(r.evidence['reasoning:'+id].clue||'—')}</p><p><b>Plan:</b> ${esc(r.evidence['reasoning:'+id].plan||'—')}</p><p><b>Check or correction:</b> ${esc(r.evidence['reasoning:'+id].check||'—')}</p><p class="muted">${esc(applicationStatus(r.evidence?.['application:'+id]))} · explanation saved for review</p>`:''}</article>`;}).join('')}${Object.values(r.evidence||{}).filter(e=>e?.kind==='mixed_application').map(e=>`<article><h3>${esc(e.question_id)}</h3>${e.method?`<p><b>Your method:</b> ${esc(e.method)}</p>`:""}<p><b>Recorded answer:</b> ${esc(e.response)} · ${e.correct?'correct':'needs repair'}${e.used_help?' · supported':''}</p></article>`).join('')}${course[r.session_number-1]?.type==="MAWA"?investigationRecordHTML(r,investigationForSession(mawa,r.session_number,r.summary?.investigation_edition,r.summary?.investigation_id)):""}</details>`).join('')||'<p>No completed sessions yet.</p>'}</section>`;
+ return `<article><h3>${esc(problem?.title||id)}</h3>${figure}<p class="math-copy">${esc(problem?.prompt||'')}</p><p><b>Recorded answer:</b> ${esc(a?.response??a)}</p><p class="math-copy">${esc(r.working?.[id]||'')}</p><button class="ghost saved-solution" data-problem="${esc(id)}" data-session="${r.session_number}">Worked solution</button><div class="saved-solution-content"></div>${r.evidence?.['reasoning:'+id]?`<p><b>Recognition clue:</b> ${esc(r.evidence['reasoning:'+id].clue||'—')}</p><p><b>Plan:</b> ${esc(r.evidence['reasoning:'+id].plan||'—')}</p><p><b>Check or correction:</b> ${esc(r.evidence['reasoning:'+id].check||'—')}</p><p class="muted">${esc(applicationStatus(r.evidence?.['application:'+id]))} · explanation saved for review</p>`:''}</article>`;}).join('')}${Object.values(r.evidence||{}).filter(e=>e?.kind==='mixed_application').map(e=>savedMixedAnswer(r,e)).join('')}${course[r.session_number-1]?.type==="MAWA"?investigationRecordHTML(r,investigationForSession(mawa,r.session_number,r.summary?.investigation_edition,r.summary?.investigation_id)):""}</details>`).join('')||'<p>No completed sessions yet.</p>'}</section>`;
  enableFigureViewing(app);
  app.querySelectorAll('[data-revised-copy]').forEach(button=>button.onclick=()=>openRevisedCopy(Number(button.dataset.revisedCopy)));
  app.querySelectorAll('.saved-intro').forEach(button=>button.onclick=()=>openLessonIntroductionFromMenu(Number(button.dataset.videoSession)).catch(error=>alert(error.message)));

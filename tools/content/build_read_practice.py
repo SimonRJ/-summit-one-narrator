@@ -35,7 +35,9 @@ def build(private):
         lesson={k:d[k] for k in ('slot','headline','intro','example','bridge','recap')}
         revised=opening_revisions.get(key,{})
         lesson['example']={**lesson['example'],**revised.get('example',{})}
-        if 'intro' in revised: lesson['intro']=revised['intro']
+        for field in ('headline', 'intro', 'bridge', 'recap'):
+            if field in revised:
+                lesson[field] = revised[field]
         if key in figures: lesson['example']={**lesson['example'],'figure':figures[key]}
         lesson.update(skill=src['skill'],videoId=key,videoTitle=src['videoTitle'],movie=src['videoUrl'],retained=retained,questions=[])
         for i,q in enumerate(d['questions']):

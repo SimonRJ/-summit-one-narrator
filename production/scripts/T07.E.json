@@ -46,6 +46,6 @@
    "narration": "Check each rule for a lower bound. Take the strongest bound, then build a packing that reaches it. Try it with nine red counters and three blue counters."
   }
  ],
- "notebook_exercise": "Same rules with 9 red and 3 blue counters. Smallest number of trays?",
- "notebook_answer": "At least 5 trays are needed, since 4 trays hold at most 8 reds. Use three trays with 2 red and 1 blue each, one tray with 2 reds, and one tray with 1 red."
+ "notebook_exercise": "Pack 9 red and 3 blue counters into trays. Each tray holds at most 4 counters, including at most 2 red counters. What is the smallest number of trays you need?",
+ "notebook_answer": "Four trays can hold only 8 red counters, so at least 5 trays are needed. Put 2 red and 1 blue in each of the first three trays. Put 2 red in the fourth tray and the last red in the fifth. All 12 counters fit."
 }

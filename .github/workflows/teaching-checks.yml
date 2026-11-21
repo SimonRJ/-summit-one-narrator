@@ -50,6 +50,7 @@ jobs:
         run: |
           python -m http.server 8765 > /tmp/server.log 2>&1 &
           python tools/browser_lesson_fixed.py
+          python tools/check_workshop_flow.py --all
       - uses: actions/upload-artifact@v4
         if: always()
         with:

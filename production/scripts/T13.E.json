@@ -46,6 +46,6 @@
    "narration": "New perimeter equals old perimeter, minus the boundary removed, plus the boundary created. Rebuild this, then find the perimeter when a two by one rectangle is cut from the middle of an edge, with its long side along the edge."
   }
  ],
- "notebook_exercise": "From a 6 by 4 rectangle, a 2 by 1 rectangle is cut from the middle of an edge, its long side along the edge. New perimeter?",
- "notebook_answer": "Remove 2, add 1 + 2 + 1 = 4: 20 + 2 = 22 cm."
+ "notebook_exercise": "A rectangular card measures 6 cm by 4 cm. Cut a rectangular notch 2 cm wide and 1 cm deep into the middle of one edge. What is the perimeter now?",
+ "notebook_answer": "The old perimeter is 20 cm. A 2 cm section of edge disappears and is replaced by the three sides of the notch, measuring 1, 2 and 1 cm. The perimeter grows by 2 cm, to 22 cm."
 }

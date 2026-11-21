@@ -7,9 +7,53 @@ const manifest=JSON.parse(fs.readFileSync('data/lesson-challenges.json')).items;
 const fixtures=()=>{
  const exam=(id,title,part)=>({id,title,active:true,year:part==="ross"?2028:2027,source_type:part==="ross"?'original_authored_mock':'summit_amc_split_original',question_count:part==="speed"?20:part==="depth"?10:23,duration_minutes:part==="speed"?20:part==="depth"?40:60,max_score:part==="speed"?70:part==="depth"?65:100,repeatable:false,metadata:part==="ross"?{}:{amc_part:part,plan_index:1,quality_gate:"reviewed"},student_year:6});
  const catalog=[exam('amc-fixture-a','AMC Part A · Set 01','speed'),exam('amc-fixture-b','AMC Part B · Set 01','depth'),exam('ross-fixture','Rossmoyne Honours Practice 01','ross')];
- const questions=catalog.flatMap(e=>Array.from({length:e.question_count},(_,i)=>{const n=e.metadata?.amc_part==='depth'?i+21:i+1;const mc=e.metadata?.amc_part==='speed'||e.metadata?.amc_part==='depth'&&n<=25||e.max_score===100&&i<18;return {exam_id:e.id,question_number:n,question_type:mc?'multiple_choice':'integer',category:'ALG-01',metadata:{skill_id:'ALG-01',learning_map:{topic:'Algebra and equations',strategy:'Represent an unknown with a bar or equation'}},stem:'A training fixture asks for the missing total. Use the stated relationship.',choices:mc?['First','Second','Third','Fourth','Fifth']:[],marks:e.max_score===100?(i<7?3:i<13?4:i<18?5:6):e.max_score===70?(n<=10?3:4):(n<=25?5:n-20),figure_svg:i===0?'<svg viewBox="0 0 400 140"><rect x="30" y="20" width="340" height="100" fill="#b6dcd6"/></svg>':''}}));
+ const questions=catalog.flatMap(e=>Array.from({length:e.question_count},(_,i)=>{const n=e.metadata?.amc_part==='depth'?i+21:i+1;const mc=e.metadata?.amc_part==='speed'||e.metadata?.amc_part==='depth'&&n<=25||e.max_score===100&&i<18;return {exam_id:e.id,question_number:n,question_type:mc?'multiple_choice':'integer',category:'ALG-01',metadata:{skill_id:'ALG-01',learning_map:{topic:'Algebra and equations',strategy:'Represent an unknown with a bar or equation'}},stem:'A training fixture asks for the missing total. Use the stated relationship.',choices:mc?(e.id==='ross-fixture'&&i===1?['First','Second','Third','Fourth','Fifth','Sixth']:['First','Second','Third','Fourth','Fifth']):[],marks:e.max_score===100?(i<7?3:i<13?4:i<18?5:6):e.max_score===70?(n<=10?3:4):(n<=25?5:n-20),figure_svg:i===0?'<svg viewBox="0 0 400 140"><rect x="30" y="20" width="340" height="100" fill="#b6dcd6"/></svg>':''}}));
  return {counter:0,exam_catalog:catalog,exam_questions_student:questions,exam_sittings:[],progress_state:[{user_id:'fixture-learner',completed_sessions:0,rank:0,xp:0}],session_records:[],problem_attempts:[],learning_repairs:[],investigation_reviews:[],content_problems_student:manifest.map(x=>({id:x.id,source_type:'original_authored',title:'An original learning challenge',prompt:'A test fixture asks you to recognise a useful structure and explain a method.'}))};
 };
+async function checkRossmoyneReview(page,mobile,prefix){
+ const questionMenu=async index=>{
+  if(mobile)await page.locator('#menuToggle').click();
+  await page.locator('#questionMenu [data-q="'+index+'"]').click();
+ };
+ const waitForSaved=(number,answer)=>page.waitForFunction(([number,answer])=>
+  globalThis.__fixture.exam_sittings.find(s=>s.exam_id==='ross-fixture')?.responses[number]===answer,[number,answer]);
+ await page.getByRole('button',{name:'Prepare to start',exact:true}).click();
+ await page.getByRole('button',{name:'Start my only attempt',exact:true}).click();
+ await page.getByRole('button',{name:'CLICK HERE TO GO TO FIRST QUESTION'}).click();
+ assert.equal(await page.locator('[data-ross-section]').innerText(),'Section 1 of 4 · 3 marks · Choose one answer');
+ await page.locator('[data-choice="A"]').click();
+ await waitForSaved(1,'A');
+ await questionMenu(1);
+ await page.locator('[data-choice="F"]').click();
+ await waitForSaved(2,'F');
+ for(const [index,section,marks,type] of [[7,2,4,'Choose one answer'],[13,3,5,'Choose one answer'],[18,4,6,'Enter a whole number']]){
+  await questionMenu(index);
+  assert.equal(await page.locator('[data-ross-section]').innerText(),`Section ${section} of 4 · ${marks} marks · ${type}`);
+ }
+ await page.locator('#integerInput').fill('12');
+ await page.locator('#saveInteger').click();
+ await waitForSaved(19,'12');
+ if(mobile)await page.locator('#menuToggle').click();
+ await page.locator('#finish').click();
+ assert.match(await page.locator('#missingAnswers').innerText(),/20 unanswered/);
+ await page.locator('#confirmFinish').click();
+ await page.locator('.score-big').waitFor();
+ assert.match(await page.locator('.score-big').innerText(),/6\s*\/\s*100/);
+ const sectionOne=page.getByRole('group',{name:'Revisit Section 1 questions'});
+ await sectionOne.getByRole('button',{name:'Q1 · Incorrect',exact:true}).click();
+ assert.match(await page.locator('#solution-1[open]').innerText(),/A · First/);
+ assert.match(await page.locator('#solution-1').innerText(),/B · Second/);
+ await sectionOne.getByRole('button',{name:'Q2 · Incorrect',exact:true}).click();
+ assert.match(await page.locator('#solution-2[open]').innerText(),/F · Sixth/);
+ await sectionOne.getByRole('button',{name:'Q3 · Not answered',exact:true}).click();
+ assert.match(await page.locator('#solution-3[open]').innerText(),/Your answer:\s*—/);
+ assert.equal(await page.getByRole('group',{name:'Revisit Section 4 questions'}).getByRole('button',{name:/Q19/}).count(),0);
+ await page.screenshot({path:`qa-screenshots/${prefix}-rossmoyne-review.png`,fullPage:true});
+ await page.locator('#backTests').click();
+ await page.getByRole('button',{name:'Review locked paper',exact:true}).click();
+ await page.locator('.score-big').waitFor();
+ assert.equal(await page.evaluate(()=>globalThis.__fixture.exam_sittings.filter(s=>s.exam_id==='ross-fixture').length),1);
+}
 const browser=await chromium.launch({headless:true,...(process.env.CHROMIUM_PATH?{executablePath:process.env.CHROMIUM_PATH}:{})});let failures=[];
 try{
  for(const mobile of [false,true]){
@@ -68,6 +112,7 @@ try{
  await page.screenshot({path:`qa-screenshots/${prefix}-exam-diagnosis.png`,fullPage:true});
   await page.locator('#backTests').click();await page.getByRole('button',{name:'Review locked paper',exact:true}).click();await page.locator('.score-big').waitFor();assert.equal(await page.evaluate(()=>globalThis.__fixture.exam_sittings.filter(x=>x.exam_id==='amc-fixture-b').length),1,'locked practice paper cannot be sat again');await page.screenshot({path:`qa-screenshots/${prefix}-locked-amc-review.png`,fullPage:true});await page.locator('[data-solution="26"]').click();await page.locator('#solution-26[open]').waitFor();await page.locator('#solution-26 .exam-lesson-links a').first().click();await page.locator('.technique-review').waitFor();assert.equal(await page.evaluate(()=>globalThis.__fixture.progress_state[0].completed_sessions),0,'exam-driven revision must not advance course');
  await page.goto('http://127.0.0.1:4173/tests.html?section=rossmoyne');await page.getByRole('heading',{name:'Rossmoyne Honours Mathematics',exact:true}).waitFor();assert(await page.locator('body').evaluate(e=>e.classList.contains('rossmoyne-theme')));await page.screenshot({path:`qa-screenshots/${prefix}-rossmoyne-centre.png`,fullPage:true});
+ await checkRossmoyneReview(page,mobile,prefix);
  await page.goto('http://127.0.0.1:4173/');
  await page.locator('#continue').click();
  const phase=page.locator('.rwl-track [aria-current="step"]');

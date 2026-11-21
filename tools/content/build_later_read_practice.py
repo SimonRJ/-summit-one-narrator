@@ -88,7 +88,8 @@ def build(private):
                       retained=retained, questions=[])
         if tag in recorded['lessons']:
             guide = recorded['lessons'][tag]
-            lesson.update(videoId=tag, videoTitle=guide['title'], movie=recorded['release'] + tag + '.mp4',
+            release = guide.get('release') or recorded['release']
+            lesson.update(videoId=tag, videoTitle=guide['title'], movie=release + tag + '.mp4',
                           filmUse='dedicated', bridge=guide['bridge'])
         assert len(draft['questions']) == 4, tag
         for i, q in enumerate(draft['questions']):

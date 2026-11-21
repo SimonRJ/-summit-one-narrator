@@ -83,6 +83,8 @@ python tools/papers/build_all.py /tmp/summit-papers && python tools/papers/audit
 python tools/video/build_scripts.py --check       # validates the 70 video scripts
 ```
 
+This command builds archived practice-paper fixtures. To rebuild the current Rossmoyne papers, add `--rossmoyne-review /private/path/review.json` to the build command. Export the four current rows from the private `exam_questions` table as a JSON array containing `exam_id`, `question_number`, `stem` and `explanation`. The affected items are Q11 of practice 05, Q21 of practice 08, and Q11 and Q21 of practice 09. The build applies the student's current wording and worked solutions while preserving the original answer keys and marks.
+
 See [current status](docs/CURRENT_STATUS.md#verification-commands) for check coverage and the private-source commands.
 
 ## Deployment

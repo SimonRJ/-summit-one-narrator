@@ -58,6 +58,6 @@
    "narration": "If positions or roles differ, count in order. If only membership matters, divide by the number of arrangements of the chosen group. Notebook challenge: from six players, how many ways are there to choose a captain and a vice-captain? And how many ways to choose two players to carry the equipment?"
   }
  ],
- "notebook_exercise": "From 6 players: how many ways to choose a captain and vice-captain? How many ways to choose 2 equipment carriers?",
- "notebook_answer": "6 x 5 = 30 with roles; 30 / 2 = 15 as an unordered pair."
+ "notebook_exercise": "Six players are available. How many ways can you choose a captain and a different vice-captain? How many ways can you choose two of the players to carry equipment together?",
+ "notebook_answer": "For the two roles there are 6 × 5 = 30 choices. For the equipment team, choosing A then B gives the same team as choosing B then A. Each team has been counted twice, so there are 15 teams."
 }

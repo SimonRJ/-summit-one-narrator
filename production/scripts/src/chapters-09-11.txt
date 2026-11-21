@@ -53,8 +53,8 @@ N: Decimals also hide divisibility. Nought point two five is a quarter, so multi
 [RECAP]
 V: Lines: "Simplify the fraction", "Bottom has only 2s and 5s: the decimal stops", "Any other prime: it repeats forever".
 N: Simplify the fraction. If the bottom is built only from twos and fives, the decimal stops. If any other prime remains, it repeats forever. Notebook challenge: which of these stop: seven twentieths, five twelfths, nine seventy-fifths?
-TRY: Which stop as decimals: 7/20, 5/12, 9/75?
-ANS: 7/20 = 0.35 stops; 5/12 does not (factor 3); 9/75 = 3/25 = 0.12 stops.
+TRY: Which of 7/20, 5/12 and 9/75 have decimal expansions that terminate?
+ANS: 7/20 = 35/100 = 0.35. The reduced fraction 5/12 has a factor of 3 in the denominator, so it cannot be written with a power of 10 as its denominator. Reduce the last fraction first. It becomes 3/25 = 12/100 = 0.12.
 
 @@ T09.3
 GOAL: Change an equation only in ways that keep both sides balanced.
@@ -85,8 +85,8 @@ N: One caution. Before dividing by an unknown number, check whether it could be 
 [RECAP]
 V: Lines: "Do the same to both sides", "Undo operations in a sensible order", "Check in the original".
 N: Do the same to both sides. Undo one operation at a time. Check your answer in the original equation. Notebook challenge: three pouches and four counters balance one pouch and eighteen counters. How many counters are in each pouch?
-TRY: Three pouches and 4 counters balance one pouch and 18 counters. How many per pouch?
-ANS: Two pouches balance 14 counters, so 7 each.
+TRY: Every counter weighs the same. Each pouch contains the same number of counters. Three pouches and 4 loose counters balance one pouch and 18 loose counters. The empty pouches have negligible weight. How many counters does each pouch contain?
+ANS: Remove one pouch and four loose counters from both sides. Two pouches then balance 14 counters. Since every counter weighs the same, each pouch contains 7.
 
 @@ T09.E
 GOAL: Worked example: equal trays, each with a pouch and loose counters.
@@ -108,8 +108,8 @@ N: There is a second route. Take away all six loose counters first. Fifteen coun
 [RECAP]
 V: Line: "share first, or remove the extras first". Notebook prompt.
 N: You can share first, or remove the extras first. Rebuild both routes, then try this: four identical bags each hold one box and three loose marbles, making forty marbles altogether. How many marbles are in each box?
-TRY: Four bags each hold one box and 3 loose marbles; 40 marbles altogether. How many in each box?
-ANS: 40 / 4 = 10 per bag; 10 - 3 = 7 per box.
+TRY: Four identical bags each contain one box and 3 loose marbles. The boxes contain equal numbers of marbles. There are 40 marbles in total. How many are in each box?
+ANS: Each bag holds 40 ÷ 4 = 10 marbles altogether. Three are outside the box, leaving 10 − 3 = 7 marbles in each box.
 
 @@ T10.1
 GOAL: Count large cases by building them from smaller cases.
@@ -195,8 +195,8 @@ N: Change the rule to taking one, two or three. One, two and three are winning, 
 [RECAP]
 V: Lines: "Winning: some move reaches a losing position", "Losing: every move reaches a winning position", "Label from the smallest case".
 N: A position is winning if you can move to a losing one. It is losing if every move goes to a winning one. Start labelling from the end. Notebook challenge: with the take one or two rule and a pile of fourteen, what should the first player take?
-TRY: Take 1 or 2; last counter wins; pile of 14. What should the first player take?
-ANS: Take 2, leaving 12, a multiple of 3.
+TRY: Two players share a pile of 14 counters. They take turns removing 1 or 2, and the player who takes the last counter wins. How can the first player guarantee a win?
+ANS: Take 2 to leave 12. From then on, answer a move of 1 with 2 and a move of 2 with 1. Each pair of moves uses 3 counters, leaving 9, then 6, then 3, then 0 after your turns.
 
 @@ T10.E
 GOAL: Worked example: explain how a square of dots grows.
@@ -282,8 +282,8 @@ N: It solves missing digits too. Five, blank, eight is a multiple of nine. The k
 [RECAP]
 V: Lines: "Digit sum and number: same remainder on division by 9", "Works for 3 as well", "Rearranging digits keeps it".
 N: A number and its digit sum have the same remainder on division by nine, and on division by three. Notebook challenge: what digit makes seven, three, blank, four a multiple of nine?
-TRY: What digit makes 73_4 a multiple of 9?
-ANS: 7 + 3 + 4 = 14; the digit is 4, making 18.
+TRY: One digit is missing from the four-digit number 73□4. Which digit makes the number divisible by 9?
+ANS: The known digits add to 14. The digit sum can range from 14 to 23, which contains only one multiple of 9. It must be 18, so the missing digit is 4.
 
 @@ T11.3
 GOAL: Count digits place by place, and know whether you are counting numbers or occurrences.

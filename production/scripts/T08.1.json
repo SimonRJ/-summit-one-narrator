@@ -52,6 +52,6 @@
    "narration": "Label the objects so each outcome is visible. Check the outcomes are equally likely. Then count favourable out of total. Notebook challenge: two dice are rolled. What is the probability that the two numbers are the same?"
   }
  ],
- "notebook_exercise": "Two fair dice are rolled independently. What is the probability that both show the same number?",
- "notebook_answer": "6 out of 36 = 1/6."
+ "notebook_exercise": "Two fair six-sided dice, each numbered 1 to 6, are rolled independently. What is the probability that they show the same number?",
+ "notebook_answer": "Whatever the first die shows, exactly one of the six equally likely faces on the second die matches it. The probability is 1/6."
 }

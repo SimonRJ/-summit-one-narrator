@@ -53,8 +53,8 @@ N: A special case is worth remembering. If the arc is exactly half the circle, t
 [RECAP]
 V: Lines: "Equal spacing: 360 shared equally", "Count gaps, not points", "Angle on the circle is half the angle at the centre".
 N: Share three hundred and sixty among the gaps. Count gaps, not points. The angle on the circle is half the angle at the centre. Notebook challenge: on the clock circle, what is the angle at the centre between the points at two and seven?
-TRY: On a clock circle, what is the smaller angle at the centre between the points at 2 and 7?
-ANS: 5 gaps x 30 = 150 degrees.
+TRY: On a clock face, what is the smaller angle at the centre between the hour marks labelled 2 and 7?
+ANS: Twelve equal gaps divide a full turn, so each gap is 360° ÷ 12 = 30°. The shorter route from 2 to 7 crosses five gaps, giving 150°.
 
 @@ T12.3
 GOAL: Add one helpful line, or use a grid, to make a hidden relationship visible.
@@ -215,8 +215,8 @@ N: Both shapes have lost the same area. Each has area twenty-three square centim
 [RECAP]
 V: Line: "new perimeter = old perimeter - removed boundary + new boundary". Notebook prompt.
 N: New perimeter equals old perimeter, minus the boundary removed, plus the boundary created. Rebuild this, then find the perimeter when a two by one rectangle is cut from the middle of an edge, with its long side along the edge.
-TRY: From a 6 by 4 rectangle, a 2 by 1 rectangle is cut from the middle of an edge, its long side along the edge. New perimeter?
-ANS: Remove 2, add 1 + 2 + 1 = 4: 20 + 2 = 22 cm.
+TRY: A rectangular card measures 6 cm by 4 cm. Cut a rectangular notch 2 cm wide and 1 cm deep into the middle of one edge. What is the perimeter now?
+ANS: The old perimeter is 20 cm. A 2 cm section of edge disappears and is replaced by the three sides of the notch, measuring 1, 2 and 1 cm. The perimeter grows by 2 cm, to 22 cm.
 
 @@ T14.1
 GOAL: Count routes by following exactly the moves the rules allow.
@@ -244,8 +244,8 @@ N: Always check what counts as a connection. If one path crosses over another on
 [RECAP]
 V: Lines: "Read the allowed moves exactly", "Number of ways in = sum of the ways into its feeders", "Blocked point: write 0".
 N: Read the rules exactly. Label each point with the number of ways to reach it, adding the points that lead into it. A blocked point gets zero. Notebook challenge: how many right-and-up routes cross a block of streets three wide and two high?
-TRY: How many right-and-up routes cross a grid of streets 3 blocks wide and 2 blocks high?
-ANS: Filling in the corners gives 10.
+TRY: Streets form a rectangular grid three blocks wide and two blocks high. How many routes go from the bottom-left corner to the top-right corner using only single-block steps to the right or upwards?
+ANS: Every route has five steps, including exactly two upward steps. Choose the positions of the two upward steps. There are 5 × 4 ordered choices, and each pair has been counted twice. This gives 5 × 4 ÷ 2 = 10 routes.
 
 @@ T14.2
 GOAL: Reject a move now if it makes the rest of the route impossible.
@@ -325,5 +325,5 @@ N: A second limit agrees. There are five meetings, and a slot holds at most two 
 [RECAP]
 V: Line: "busiest person gives a limit; then build and check". Notebook prompt.
 N: The busiest person gives a limit. Then build a timetable and check every slot. Rebuild this, then decide how many slots are needed if a sixth meeting, D with E, is added.
-TRY: Add the meeting DE to the list AB, AC, AD, BE, CE. How many slots are needed now?
-ANS: Still 3. For example: AB with DE, then AC with BE, then AD with CE.
+TRY: Six meetings are needed, one for each pair AB, AC, AD, BE, CE and DE. Meetings may share a time slot if nobody has two meetings at once. What is the fewest slots needed?
+ANS: A attends three meetings and needs three separate slots. Three suffice. Put AB with DE, AC with BE, and AD with CE. In each slot all four participants are different.

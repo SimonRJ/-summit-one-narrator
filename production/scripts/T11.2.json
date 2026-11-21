@@ -64,6 +64,6 @@
    "narration": "A number and its digit sum have the same remainder on division by nine, and on division by three. Notebook challenge: what digit makes seven, three, blank, four a multiple of nine?"
   }
  ],
- "notebook_exercise": "What digit makes 73_4 a multiple of 9?",
- "notebook_answer": "7 + 3 + 4 = 14; the digit is 4, making 18."
+ "notebook_exercise": "One digit is missing from the four-digit number 73□4. Which digit makes the number divisible by 9?",
+ "notebook_answer": "The known digits add to 14. The digit sum can range from 14 to 23, which contains only one multiple of 9. It must be 18, so the missing digit is 4."
 }

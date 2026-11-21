@@ -58,6 +58,6 @@
    "narration": "Simplify the fraction. If the bottom is built only from twos and fives, the decimal stops. If any other prime remains, it repeats forever. Notebook challenge: which of these stop: seven twentieths, five twelfths, nine seventy-fifths?"
   }
  ],
- "notebook_exercise": "Which stop as decimals: 7/20, 5/12, 9/75?",
- "notebook_answer": "7/20 = 0.35 stops; 5/12 does not (factor 3); 9/75 = 3/25 = 0.12 stops."
+ "notebook_exercise": "Which of 7/20, 5/12 and 9/75 have decimal expansions that terminate?",
+ "notebook_answer": "7/20 = 35/100 = 0.35. The reduced fraction 5/12 has a factor of 3 in the denominator, so it cannot be written with a power of 10 as its denominator. Reduce the last fraction first. It becomes 3/25 = 12/100 = 0.12."
 }

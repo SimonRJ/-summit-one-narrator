@@ -58,6 +58,6 @@
    "narration": "Read the rules exactly. Label each point with the number of ways to reach it, adding the points that lead into it. A blocked point gets zero. Notebook challenge: how many right-and-up routes cross a block of streets three wide and two high?"
   }
  ],
- "notebook_exercise": "How many right-and-up routes cross a grid of streets 3 blocks wide and 2 blocks high?",
- "notebook_answer": "Filling in the corners gives 10."
+ "notebook_exercise": "Streets form a rectangular grid three blocks wide and two blocks high. How many routes go from the bottom-left corner to the top-right corner using only single-block steps to the right or upwards?",
+ "notebook_answer": "Every route has five steps, including exactly two upward steps. Choose the positions of the two upward steps. There are 5 × 4 ordered choices, and each pair has been counted twice. This gives 5 × 4 ÷ 2 = 10 routes."
 }

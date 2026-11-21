@@ -24,8 +24,8 @@ N: Turning over is different from turning round. This marked tile cannot match i
 [RECAP]
 V: Lines: "Fixed, turnable, or flippable?", "Same means: one can be moved onto the other by an allowed move".
 N: Ask whether objects are fixed, can be turned, or can also be flipped. Two arrangements are the same only if an allowed move takes one to the other. Notebook challenge: three of the four small squares are shaded. How many patterns are there if the square is free to turn?
-TRY: A 2 by 2 square has three of its four small squares shaded. How many patterns, if it is free to turn?
-ANS: 1 (it is the same as choosing the single unshaded square).
+TRY: Shade three of the four cells of a 2 by 2 square. Patterns that match after a rotation count as the same. How many different patterns are there?
+ANS: Each pattern leaves one corner unshaded. A quarter-turn can move that corner to the next corner, so all four drawings represent the same pattern. There is one.
 
 @@ T15.2
 GOAL: Know when dividing by the number of rotations works, and when it fails.
@@ -108,8 +108,8 @@ N: Check by listing. The even groups are the empty group, A with B, A with C, an
 [RECAP]
 V: Line: "toggle one member to pair even with odd". Notebook prompt.
 N: Toggling one member pairs every even group with an odd one. Rebuild this argument, then say how many groups chosen from five objects have an odd number of members.
-TRY: How many groups chosen from 5 objects have an odd number of members?
-ANS: Half of 32: 16.
+TRY: From five different objects, how many subsets have an odd number of objects?
+ANS: There are 2 × 2 × 2 × 2 × 2 = 32 subsets. Choose one special object. Pair each subset without it with the same subset plus that object. Each pair has one odd-sized subset and one even-sized subset, giving 16 odd-sized subsets.
 
 @@ T16.1
 GOAL: Treat a ratio as a number of equal parts, and find the size of one part.
@@ -166,8 +166,8 @@ N: Moving objects follow the same rule. Two runners start one hundred metres apa
 [RECAP]
 V: Lines: "Express the job as a rate in a shared unit of time", "Add rates that help; subtract rates that hinder", "Total job divided by the combined rate".
 N: Convert each time into a rate. Use the same time unit for each rate. Add rates that help and subtract rates that hinder. Divide the job by the combined rate. Notebook challenge: one painter paints a fence in four hours, another in twelve hours. How long do they take together?
-TRY: One painter takes 4 hours, another 12 hours. How long together?
-ANS: 3/12 + 1/12 = 4/12 per hour, so 3 hours.
+TRY: One painter can paint a wall in 4 hours and another can paint the same wall in 12 hours. They start together and work at their usual constant rates without getting in each other’s way. How long does one wall take?
+ANS: In one hour the painters complete 1/4 + 1/12 = 4/12 = 1/3 of the wall. At that combined rate, the whole wall takes 3 hours.
 
 @@ T16.3
 GOAL: Turn an average back into a total before doing anything else.
@@ -438,5 +438,5 @@ N: Check a different way, by the sum. Nine comes from three and six, or four and
 [RECAP]
 V: Line: "fix an order, sort into cases, check another way". Notebook prompt.
 N: Fix an order so nothing is counted twice, sort into cases, then check another way. Rebuild this, then count the pairs from one to six whose sum is at most five.
-TRY: How many pairs of different numbers from 1 to 6 have a sum of at most 5?
-ANS: 1+2, 1+3, 1+4, 2+3: 4 pairs.
+TRY: Choose two different whole numbers from 1 to 6 inclusive. How many unordered pairs have a sum of at most 5?
+ANS: Fix the smaller number. With 1, the larger number can be 2, 3 or 4. With 2, only 3 fits. With 3 or more, even the smallest possible partner is too large. That gives four pairs.

@@ -1,4 +1,4 @@
-import {introMediaSource,loadIntroductionCatalogue,loadIntroductionDetails} from "./lesson-introduction-media.js?v=recorded-studies-20261121";
+import {introductionCatalogueComplete,introMediaSource,loadIntroductionCatalogue,loadIntroductionDetails} from "./lesson-introduction-media.js?v=recorded-editions-20261122";
 
 const formatTime = value => Math.floor(value / 60) + ":" + String(Math.floor(value % 60)).padStart(2,"0");
 const watchHref = slot => "watch-lesson-intro.html?slot=" + slot;
@@ -20,7 +20,14 @@ async function addToGallery(gallery) {
     if (!slots.has(slot)) row.remove();
   }
   for (const entry of remote) {
-    if (present.has(entry.slot)) continue;
+    const existing = present.get(entry.slot);
+    if (existing) {
+      const title = existing.querySelector("strong");
+      const time = existing.querySelector("small");
+      if (title.textContent !== entry.title) title.textContent = entry.title;
+      if (time.textContent !== formatTime(entry.seconds)) time.textContent = formatTime(entry.seconds);
+      continue;
+    }
     const li = element("li");
     li.dataset.introSlot = String(entry.slot);
     const link = element("a");
@@ -32,17 +39,34 @@ async function addToGallery(gallery) {
       .find(row => Number(row.dataset.introSlot) > entry.slot);
     gallery.insertBefore(li, following ?? null);
   }
-  const count = gallery.children.length + " of 283 lesson introductions available";
+  const count = introductionCatalogueComplete()
+    ? gallery.children.length + " of 283 lesson introductions available"
+    : "Showing " + gallery.children.length + " lesson introductions. The full catalogue could not be loaded.";
   if (status && status.textContent !== count) status.textContent = count;
 }
 
 async function showVideo(route) {
   const number = new URLSearchParams(window.location.search).get("slot") || "";
   const status = document.getElementById("introStatus");
+  const slot = Number(number);
+  if (!/^[0-9]{1,3}$/.test(number) || slot < 1 || slot > 372) {
+    status.textContent = "Choose a lesson from the video library.";
+    return;
+  }
+  if (slot <= 6) {
+    window.location.replace("watch-intro-s" + String(slot).padStart(3, "0") + ".html" + window.location.hash);
+    return;
+  }
+  const retry = document.getElementById("introRetry");
+  retry.addEventListener("click", () => window.location.reload());
   const catalogue = await loadIntroductionCatalogue();
-  const entry = /^[0-9]{1,3}$/.test(number) && catalogue.find(item => item.slot === Number(number));
+  const entry = catalogue.find(item => item.slot === slot && item.status === "verified");
   if (!entry) {
-    status.textContent = "This lesson introduction is awaiting publication.";
+    const complete = introductionCatalogueComplete();
+    status.textContent = complete
+      ? "No lesson introduction is published for session " + slot + "."
+      : "The full catalogue could not be loaded. Reconnect and try again.";
+    retry.hidden = complete;
     return;
   }
   const title = document.getElementById("introTitle");
@@ -56,6 +80,13 @@ async function showVideo(route) {
   const source = element("source");
   source.src = media.movie;
   source.type = "video/mp4";
+  function playbackUnavailable() {
+    status.textContent = "The video could not load. Check your connection and try again.";
+    status.hidden = false;
+    retry.hidden = false;
+  }
+  player.addEventListener("error", playbackUnavailable, {once: true});
+  source.addEventListener("error", playbackUnavailable, {once: true});
   player.append(source);
   player.load();
   route.hidden = false;
@@ -80,7 +111,10 @@ async function showVideo(route) {
     document.getElementById("introTranscript").append(...details.transcript.map(line => element("p", line)));
     document.getElementById("introContents").hidden = false;
   } catch {
-    // The captioned video remains playable if chapter metadata is temporarily unavailable.
+    const guideStatus = document.getElementById("introGuideStatus");
+    guideStatus.textContent = "Chapters and transcript could not load.";
+    guideStatus.hidden = false;
+    retry.hidden = false;
   }
 
   const next = catalogue.find(item => item.slot > entry.slot && item.status === "verified");
@@ -96,6 +130,7 @@ if (gallery) {
   addToGallery(gallery);
   const refresh = () => { if (!document.hidden) addToGallery(gallery); };
   document.addEventListener("visibilitychange", refresh);
+  window.addEventListener("online", refresh);
   setInterval(refresh, 45_000);
 }
 const route = document.getElementById("introWatch");

@@ -226,10 +226,10 @@ async def main():
      await sp.locator('.flash-summary').wait_for()
      assert await sp.evaluate("Object.values(fixture.records[0].evidence).some(e=>e.investigation_id==='M01' && e.reviewed)")
    else:
-    await sp.get_by_role('heading',name='Recognise, choose, explain').wait_for()
-    assert await sp.locator('#workshopQuestions .mini-check').count()==4
+    await sp.get_by_role('heading',name='The two signal flags').wait_for()
+    assert await sp.locator('#workshopQuestions .mini-check').count()==6
     assert await sp.locator('#confirmStart').count()==0
-    assert 'untimed lesson' in await sp.locator('.session-page').inner_text()
+    assert await sp.locator('#completeWorkshop').is_disabled()
    await special.close()
   legacy=await browser.new_context(service_workers='block')
   await legacy.route('**/supabase-client.js*',lambda route:route.fulfill(content_type='application/javascript',body=MOCK))

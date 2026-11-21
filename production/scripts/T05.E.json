@@ -46,6 +46,6 @@
    "narration": "When branches have different sizes, add them rather than multiplying. Rebuild the tree yourself, then try this: there are three shirts and four pairs of shorts, but the red shirt cannot be worn with the two orange pairs. How many outfits are possible?"
   }
  ],
- "notebook_exercise": "3 shirts and 4 pairs of shorts; the red shirt cannot go with the 2 orange pairs. How many outfits?",
- "notebook_answer": "12 - 2 = 10."
+ "notebook_exercise": "A wardrobe holds three different shirts and four different pairs of shorts. One shirt is red and two pairs of shorts are orange. How many outfits use one of each item and avoid pairing red with orange?",
+ "notebook_answer": "Without the restriction there are 3 × 4 = 12 outfits. Only the red shirt paired with either orange pair is forbidden. Removing those two outfits leaves 10."
 }

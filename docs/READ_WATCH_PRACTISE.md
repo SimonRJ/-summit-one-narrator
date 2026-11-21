@@ -20,6 +20,8 @@ Ten worked examples also let students compare two approaches. In sessions 2, 13,
 
 **Review evidence.** The written material was matched to the published narration and scene frames from every target film. The first six used the final media transcripts; the later films used the illustrated lesson catalog. All 220 new answers were independently recomputed. The live grading records matched the complete authored release fingerprint `332fe7074b6131240d7bfe87104393ed`. No existing problem was overwritten. The authentic paper and prior-attempt fingerprints were identical before and after this insertion.
 
+The [reading review register](../review/written-lesson-register.csv) records the first six lessons in the November course review. Their openings and film cues were checked against the published transcripts. Independent calculations matched all 35 active protected answers, including the 11 retained questions. Every worked solution contained its independently verified conclusion. Forty explicit arithmetic equalities in those solutions were checked directly. The six group fingerprints cover the protected prompt, answer and worked solution for each active problem in identifier order.
+
 ## Lesson index
 
 The problem count includes both new and retained practice. Film links point to the existing media.
@@ -29,7 +31,7 @@ The problem count includes both new and retained practice. Film links point to t
 | [S001](https://simonrj.github.io/-summit-one-narrator/media/S001-Intro.mp4) | What survives a whole group? | A box of counters | 6 |
 | [S002](https://simonrj.github.io/-summit-one-narrator/media/S002-Intro.mp4) | Round it, then pay back the difference | Equal fencing | 6 |
 | [S003](https://simonrj.github.io/-summit-one-narrator/media/S003-Intro.mp4) | Read the arrows backwards | Parcel weights | 6 |
-| [S004](https://simonrj.github.io/-summit-one-narrator/media/S004-Intro.mp4) | Give the fussiest digit a place first | Four-card challenge | 6 |
+| [S004](https://simonrj.github.io/-summit-one-narrator/media/S004-Intro.mp4) | Which digit has the fewest places? | Four-card challenge | 6 |
 | [S005](https://simonrj.github.io/-summit-one-narrator/media/S005-Intro.mp4) | Are you counting numbers or marks? | Ticket printer | 5 |
 | [S006](https://simonrj.github.io/-summit-one-narrator/media/S006-Intro.mp4) | Slice a stack into floors | The crossing tunnels | 6 |
 | [S008](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S008-Intro-Illustrated.mp4) | Build only half a mirror number | A mirror-code display | 6 |

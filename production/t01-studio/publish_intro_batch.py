@@ -94,15 +94,17 @@ def write_gallery(lessons, scripts, reports):
         f'<small>{watch_time(reports[lesson]["duration_seconds"])}</small></a></li>'
         for lesson in lessons
     )
-    body = f'''<a href="./">← Summit One</a>
-<h1>Lesson introduction videos</h1>
-<p class="intro">Learn the technique, work through three examples and review the mistakes to watch for in exams.</p>
-<ol class="gallery">
-{rows}
-</ol>'''
-    (ROOT / "lesson-introduction-videos.html").write_text(
-        html_document("Lesson introduction videos", body)
+    gallery = ROOT / "lesson-introduction-videos.html"
+    # Keep the live catalogue module, status and page styling when publishing
+    # the six local film links. Remote introductions are added by the module.
+    html, replacements = re.subn(
+        r'(<ol id="introGallery" class="gallery">)[\s\S]*?(</ol>)',
+        lambda match: match[1] + "\n" + rows + "\n" + match[2],
+        gallery.read_text(),
     )
+    if replacements != 1:
+        raise ValueError("Could not identify the public lesson gallery")
+    gallery.write_text(html)
 
 
 def read_plan():
@@ -144,7 +146,26 @@ def install():
             scripts[lesson] = json.loads((ROOT / f"production/scripts/{lesson}.json").read_text())
     for index, lesson in enumerate(published):
         following = published[index + 1] if index + 1 < len(published) else None
-        write_watch(lesson, scripts[lesson], reports[lesson], following)
+        if lesson in lessons:
+            write_watch(lesson, scripts[lesson], reports[lesson], following)
+        elif following:
+            # Older watch pages can have individually edited chapter names and a
+            # different QA format. Extend their navigation without regenerating them.
+            page = ROOT / watch_page(lesson)
+            existing = page.read_text()
+            next_link = f'<a rel="next" href="{watch_page(following)}">Next lesson →</a>'
+            link_pattern = r'<a rel="next" href="[^"]+">[^<]+</a>'
+            if re.search(link_pattern, existing):
+                updated = re.sub(link_pattern, next_link, existing, count=1)
+            else:
+                updated, matches = re.subn(
+                    r'(<nav class="next" aria-label="Lesson navigation">[\s\S]*?)(</nav>)',
+                    lambda match: match[1] + next_link + "\n" + match[2], existing, count=1,
+                )
+                if matches != 1:
+                    raise ValueError(f"{lesson}: could not identify lesson navigation")
+            if updated != existing:
+                page.write_text(updated)
     write_gallery(published, scripts, reports)
 
 
