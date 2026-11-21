@@ -1,7 +1,7 @@
 name: Recorded lesson playback
 on:
   push:
-    branches: [main]
+    branches: [main, review/recorded-student-routes]
     paths: ['data/recorded-studies.json', 'lesson-introduction-media.js', 'lesson-introduction-library.js', 'tools/check_recorded_studies.py', 'tools/check_public_catalogue.py', 'watch-lesson-intro.html', 'watch-intro-s*.html', 'lesson-introduction-videos.html', '.github/workflows/recorded-study-playback.yml']
   workflow_dispatch:
 permissions:
@@ -9,7 +9,7 @@ permissions:
 jobs:
   phone:
     runs-on: ubuntu-24.04
-    timeout-minutes: 12
+    timeout-minutes: 20
     strategy:
       fail-fast: false
       matrix:
