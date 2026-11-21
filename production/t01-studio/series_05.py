@@ -81,6 +81,63 @@ def pair_challenge(stage, s):
 pair_challenge.chapter = "Your turn"
 
 
+def hundreds_choices(stage, s):
+    fit(stage, "Even numbers made from 0, 1, 2, 3, 4 without repeats", 640, 173, 32, 1140)
+    for y, last, digits, words, colour in (
+        (321, 0, "1234", "the number of choices", BLUE),
+        (452, 2, "134", "when a restriction changes", GOLD),
+    ):
+        p = cue(s, words)
+        fit(stage, f"Last digit {last}", 295, y, 36, 325, colour, p)
+        for i, digit in enumerate(digits):
+            tile(stage, 593 + 122*i, y, digit, colour, 97, 68, p)
+    fit(stage, "Possible hundreds digits", 769, 240, 27, 620, MUTED)
+
+
+def case_counts(stage, s):
+    xs = (251, 511, 783, 1035)
+    for x, title in zip(xs, ("Last digit", "Hundreds", "Tens", "Numbers")):
+        fit(stage, title, x, 215, 30, 230, MUTED)
+    rows = (
+        (("0", "last digit is zero"), ("4", "four choices"), ("3", "middle has three"), ("12", "twelve numbers")),
+        (("2", "last digit is two or four"), ("3", "leaving three choices"), ("3", "three that is two times"), ("9", "two times three times three")),
+        (("4", "last digit is two or four"), ("3", "leaving three choices"), ("3", "three that is two times"), ("9", "two times three times three")),
+    )
+    for row, entries in enumerate(rows):
+        for x, (label, words) in zip(xs, entries):
+            tile(stage, x, 299 + 84*row, label, (BLUE, GOLD, MINT)[row], 126, 60, cue(s, words))
+
+
+def digit_challenge(stage, s):
+    if s.t < s.at("notebook challenge"):
+        fit(stage, "Count by last digit", 640, 90, 48)
+        for i, (last, product, colour) in enumerate((("0", "4 × 3", BLUE), ("2", "3 × 3", GOLD), ("4", "3 × 3", MINT))):
+            x = 320 + 320*i
+            tile(stage, x, 266, "Last " + last, colour, 214, 74, cue(s, "split at the feature"))
+            fit(stage, product, x, 386, 43, 245, colour, cue(s, "multiply within a case"))
+        fit(stage, "12 + 9 + 9 = 30", 640, 534, 44, 800, MINT, cue(s, "add the cases"))
+        return
+    fit(stage, "Two-digit numbers with different digits", 640, 90, 44)
+    p = cue(s, "two-digit numbers")
+    q = cue(s, "two different digits")
+    fit(stage, "Tens", 177, 221, 29, 147, BLUE, p)
+    fit(stage, "Units digit", 677, 157, 29, 420, GOLD, p)
+    for unit in range(10):
+        fit(stage, str(unit), 321 + 77*unit, 219, 27, 70, GOLD, p)
+    for tens in range(1, 10):
+        y = 251 + 34*(tens-1)
+        fit(stage, str(tens), 177, y, 25, 80, BLUE, p)
+        for unit in range(10):
+            x = 321 + 77*unit
+            stage.box(x-25, y-13, 50, 26, radius=3, edge=MUTED, fill=None, opacity=p)
+            if unit == tens:
+                stage.line(((x-14,y+9),(x+14,y-9)), RED, 4, q)
+    fit(stage, "9 tens choices × 9 allowed units = 81", 640, 584, 33, 1090, MINT, q)
+
+
+digit_challenge.chapter = "Your turn"
+
+
 FILMS = {
     "T05.1": (
         scene("Does order matter?", podium,
@@ -120,9 +177,7 @@ FILMS = {
                 for i, letter in enumerate("ABCDEFGHI")),
               note("Every outcome goes in exactly one case", "every outcome belongs to one")),
         scene("Does the restriction change the count?",
-              chart(("First decision", "Choices available next"),
-                    [(("Case A", "4"), "the number of choices"), (("Case B", "3"), "when a restriction changes")],
-                    y=245, row_height=88),
+              hundreds_choices,
               note("Count each case using its own choices", "splitting at the restriction")),
         scene("How many even three-digit numbers?",
               cards(tuple("01234"), 228, words="zero one two three and four", gap=143),
@@ -131,16 +186,13 @@ FILMS = {
         scene("Split by the last digit",
               cards((("0", BLUE), ("2", GOLD), ("4", GOLD)), 241, words="zero two or four", gap=155),
               link((485,280),(354,382),"split by the last digit",colour=BLUE,arrow=True),
-              link((719,280),(925,382),"or it is two or four",colour=GOLD,arrow=True),
+              link((640,280),(892,382),"or it is two or four",colour=GOLD,arrow=True),
+              link((795,280),(957,382),"or it is two or four",colour=GOLD,arrow=True),
               cards((("Last is 0", BLUE),), 430, words="either it is zero", x=354, width=290),
               cards((("Last is 2 or 4", GOLD),), 430, words="or it is two or four", x=925, width=355),
               note("A three-digit number cannot start with 0", "cannot start with zero", y=555)),
         scene("Count inside each class",
-              chart(("Last digit", "Choices for first", "Choices for middle", "Number of results"),
-                    [(("0","4","3","12"),"if the last digit is zero"),
-                     (("2","3","3","9"),"if the last digit is two or four"),
-                     (("4","3","3","9"),"if the last digit is two or four")],
-                    y=219, row_height=76, width=1112, highlight=((0,3),(1,3),(2,3))),
+              case_counts,
               equation(("Last 0: 12", BLUE, "twelve numbers"),
                        ("    Last 2 or 4: 18", GOLD, "eighteen numbers"), y=562, size=37)),
         scene("A number belongs to just one class",
@@ -155,10 +207,7 @@ FILMS = {
                     y=204,row_height=62),
               note("Subtract the forbidden pair", "subtract that one", y=532, size=34, colour=RED),
               equation(("4 − 1", WHITE, "subtract that one"),("= 3", MINT,"leaving three"),y=586,size=38)),
-        exercise((("Split at the restriction","split at the feature"),
-                   ("Multiply within a case","multiply within a case"),("Add the cases","add the cases")),
-                 "notebook challenge",("How many two-digit numbers have different digits?",),
-                 sub="Try counting all two-digit numbers and removing the repeats."),
+        digit_challenge,
     ),
     "T05.3": (
         scene("Give each outcome one address",
