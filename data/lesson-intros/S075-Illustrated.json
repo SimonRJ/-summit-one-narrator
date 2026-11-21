@@ -1,0 +1,123 @@
+{
+  "id": "S075",
+  "duration_seconds": 179.766667,
+  "sha256": "7b45655e30a1ad18a7592b8748971b4ae970ebe0ae2d1053a66edb03668a41bd",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 99.88,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0,
+      "match_percent": 100
+    },
+    {
+      "number": 2,
+      "start": 18.04,
+      "match_percent": 100
+    },
+    {
+      "number": 3,
+      "start": 34.52,
+      "match_percent": 100
+    },
+    {
+      "number": 4,
+      "start": 47.94,
+      "match_percent": 100
+    },
+    {
+      "number": 5,
+      "start": 61.22,
+      "match_percent": 100
+    },
+    {
+      "number": 6,
+      "start": 75.27,
+      "match_percent": 100
+    },
+    {
+      "number": 7,
+      "start": 94.95,
+      "match_percent": 100
+    },
+    {
+      "number": 8,
+      "start": 110.44,
+      "match_percent": 100
+    },
+    {
+      "number": 9,
+      "start": 131.24,
+      "match_percent": 98.67
+    },
+    {
+      "number": 10,
+      "start": 146.28,
+      "match_percent": 100
+    },
+    {
+      "number": 11,
+      "start": 161.32,
+      "match_percent": 100
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Ratios, parts and wholes",
+      "start": 0
+    },
+    {
+      "title": "Spot a scale or a transfer",
+      "start": 18.04
+    },
+    {
+      "title": "Four identical bead batches",
+      "start": 34.52
+    },
+    {
+      "title": "A 1 : 200 wall drawing",
+      "start": 61.22
+    },
+    {
+      "title": "Fourteen counters change piles",
+      "start": 94.95
+    },
+    {
+      "title": "A part compared with the whole",
+      "start": 146.28
+    },
+    {
+      "title": "Choose the fixed quantity",
+      "start": 161.32
+    }
+  ],
+  "decoded_successfully": true,
+  "title": "Ratio and scale factors",
+  "seconds": 179.766667,
+  "art_revision": 2,
+  "script_sha256": "df6f050fbe55875f388db90b6fa6b4f809b24c713876659a34b01b3c23a2269d",
+  "transcript": [
+    "A ratio compares amounts measured in consistent units. To keep the same ratio, multiply or divide all the parts by the same factor. A proportion of the whole uses the sum of the ratio parts. A transfer changes the parts while leaving that whole fixed.",
+    "In AMC practice, look for scale drawings, recipes, or quantities mixed in the same proportion. Check that the units agree. In a Rossmoyne style puzzle, the ratio can change after something moves. Look for a total that stays constant.",
+    "One mixture uses three red beads for every six blue beads. Find the quantities for four identical batches. Which scale factor applies to each count?",
+    "Multiply the red count and the blue count by four. That preserves the comparison per batch. The new counts are twelve reds and twenty-four blues. Dividing both by four recovers the original ratio.",
+    "On a one to two hundred drawing, a wall is five centimetres long. Find the actual wall length in metres. First decide what one centimetre on the drawing represents.",
+    "One centimetre represents two hundred centimetres. Multiply by five to get the real length in centimetres. There are one hundred centimetres in one metre. Divide the centimetre result by one hundred. The length is ten metres. The factor from drawing to real length is the same before converting units.",
+    "A box initially has red and blue counters in ratio five to three. Move fourteen from the red pile to the blue pile. The new ratio is three to five. How many counters are there in all?",
+    "The total stays the same. In both ratios there are eight equal parts of that same total. Blue goes from three parts to five parts. That increase of two parts consists of exactly the fourteen transferred counters. One part is seven. Multiply by the full eight parts. The box contains fifty-six counters.",
+    "The original piles have thirty-five and twenty-one. The transfer changes them to twenty-one and thirty-five. Reduce both pairs by the same part size. The two given ratios return, and the total is unchanged.",
+    "Multiplying just one ratio term changes the comparison. Apply the same scale factor to every term. When you need a fraction of the whole, add both ratio terms first. A three to five ratio gives three eighths for the first group.",
+    "Check that both sides use consistent units before calculating. Name one ratio part and write what it represents. For a change from one ratio to another, identify what stays fixed. Compare the same fraction of that fixed quantity."
+  ],
+  "legacy_sha256": "48edad3b6e3b0ca99e3f007bd689a9d589bd63e1ed0da5ca636ba719cb0e6543",
+  "audio_packet_hash": "001823ac8b7b1d70a176098fc034ccf4dd5c1fafefa4301029242004cfb7816c",
+  "illustrated_revision": 1
+}
