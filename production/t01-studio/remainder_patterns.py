@@ -148,12 +148,37 @@ def two_conditions(stage, s):
 
 
 def remainder_recap(stage, s):
-    recap(stage, s, (("Find the full groups", "how far you are past a multiple"),
-                     ("Check the leftover", "smaller than the divisor"),
-                     ("Locate remainder zero", "which position sits at remainder zero")),
-          "here is your notebook challenge",
-          ("Today is Tuesday.", "What day will it be 100 days from now?"),
-          sub="Group the days into whole weeks.")
+    challenge = s.at("here is your notebook challenge")
+    if s.t < challenge:
+        stage.heading("What does the remainder measure?")
+        groups = s.reveal("how far you are past a multiple")
+        for i in range(17):
+            x = 235 + (i // 5) * 220 + (i % 5) * 30
+            bead(stage, x, 257, BLUE if i < 15 else GOLD, groups, 11)
+        for i in range(3):
+            x = 215 + i * 220
+            stage.box(x, 225, 161, 64, radius=9, fill=None, edge=BLUE, opacity=groups)
+        fit(stage, "17 = 3 × 5 + 2", 640, 351, 43, colour=WHITE, opacity=groups)
+        bound = s.reveal("smaller than the divisor")
+        fit(stage, "2 < 5", 640, 421, 35, colour=GOLD, opacity=bound)
+        last = s.reveal("which position sits at remainder zero")
+        for i, colour in enumerate(BEAD_COLOURS):
+            bead(stage, 393 + i * 86, 528, colour, last, 17)
+            fit(stage, str(i + 1), 393 + i * 86, 574, 22, colour=WHITE, opacity=last)
+        fit(stage, "4th bead: remainder 0", 905, 529, 27, colour=GOLD, opacity=last)
+        return
+
+    stage.heading("Your turn: count whole weeks")
+    begin = s.reveal("today is tuesday")
+    question = s.reveal("one hundred days", 0.5)
+    days = ("Tue", "Wed", "Thu", "Fri", "Sat", "Sun", "Mon", "Tue")
+    for i, day in enumerate(days):
+        x = 153 + 139 * i
+        opacity = begin if i == 0 else question
+        tile(stage, x, 345, day, GOLD if i in (0, 7) else BLUE, 106, 72, opacity, size=30)
+        fit(stage, f"Day {i}", x, 420, 22, colour=MUTED, opacity=opacity)
+    stage.bracket(153, 1126, 467, "7 days return to Tuesday", MINT, question)
+    fit(stage, "What day will it be 100 days from now?", 640, 558, 34, colour=WHITE, opacity=question)
 
 
 FLASH_Y = (296, 420)
