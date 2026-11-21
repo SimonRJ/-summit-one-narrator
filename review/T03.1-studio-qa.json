@@ -1,7 +1,7 @@
 {
   "id": "T03.1",
   "duration_seconds": 136.3,
-  "sha256": "7f50c4c6c9bb400a0bffd5c618f85f61c936514fcf62d9b30861da64b1fb6c64",
+  "sha256": "d5f41b3400ae38c694853dd8d91609ffa8ab502e3277dc589488bd56752749db",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -80,5 +80,68 @@
       "start": 114.96
     }
   ],
-  "decoded_successfully": true
+  "decoded_successfully": true,
+  "legacy_sha256": "7f50c4c6c9bb400a0bffd5c618f85f61c936514fcf62d9b30861da64b1fb6c64",
+  "version": "bead-week-review",
+  "compared_frames": 4089,
+  "compared_scenes": [
+    {
+      "frames": 484,
+      "worst_frame": 66,
+      "mean_max": 1.81,
+      "tile_max": 3.931,
+      "caption_max": 1.758
+    },
+    {
+      "frames": 456,
+      "worst_frame": 694,
+      "mean_max": 1.866,
+      "tile_max": 4.168,
+      "caption_max": 1.748
+    },
+    {
+      "frames": 426,
+      "worst_frame": 984,
+      "mean_max": 1.812,
+      "tile_max": 3.422,
+      "caption_max": 1.752
+    },
+    {
+      "frames": 466,
+      "worst_frame": 1785,
+      "mean_max": 1.858,
+      "tile_max": 3.913,
+      "caption_max": 1.708
+    },
+    {
+      "frames": 437,
+      "worst_frame": 2216,
+      "mean_max": 1.875,
+      "tile_max": 6.262,
+      "caption_max": 1.667
+    },
+    {
+      "frames": 643,
+      "worst_frame": 2282,
+      "mean_max": 1.757,
+      "tile_max": 2.958,
+      "caption_max": 1.797
+    },
+    {
+      "frames": 537,
+      "worst_frame": 3271,
+      "mean_max": 1.732,
+      "tile_max": 2.977,
+      "caption_max": 1.732
+    },
+    {
+      "frames": 640,
+      "worst_frame": 3495,
+      "mean_max": 1.812,
+      "tile_max": 3.55,
+      "caption_max": 1.766
+    }
+  ],
+  "audio_packet_sha256": "6638d268dff662bb207441764f8954869599503597b6498ede9991e50bb81a5c",
+  "art_source": "968a622ee11700b85f80c907e51c654844a32251"
 }
