@@ -2,7 +2,9 @@
 
 ## 21 November 2026
 
-**116 of 185 published films have completed individual review.** The registers contain 78 of 113 published introductions and 38 of 72 teaching films, including the two earlier approvals. The remaining published work is 35 introductions and 34 teaching films.
+**123 of 192 published films have completed individual review.** The registers contain 85 of 120 published introductions and 38 of 72 teaching films, including the two earlier approvals. The remaining published work is 35 introductions and 34 teaching films.
+
+Seven individually authored introductions entered the published inventory on 21 November. They serve sessions 137, 138, 141, 149, 150, 152 and 155. The [production comparison](https://github.com/SimonRJ/-summit-one-narrator/actions/runs/44907208686) checked the encoded drawings, captions and complete scene audio. The released movie and poster for each title matched its checked files. Both [public phone players](https://github.com/SimonRJ/-summit-one-narrator/actions/runs/44908161289) resumed at the chosen chapter in portrait and landscape.
 
 S094 is the active introduction for sessions 94 and 209. The original public file has SHA-256 `e6b0ac4ddea3e101008c625ed8842a5b17611037484574d5d051a0ff44b21278`. The grid stays fixed as the narration counts possible boundaries. The original hard explanation also says the sides must sit outside the marked strip, although a side can coincide with its boundary. Reviewed the original 5,781 frames, the eleven recorded scenes and both assigned opening and practice sets. Independent enumeration gives 24 crossings, 315 rectangles on the medium grid, and 126 − 72 = 54 admissible rectangles on the hard grid. Three legal right edges also give 2 × 3 × 3 × 3 = 54. [Revised Voice C recording](https://github.com/SimonRJ/-summit-one-narrator/actions/runs/44907350162) and [eleven word-cued grid scenes](https://github.com/SimonRJ/-summit-one-narrator/actions/runs/44907517775) are staged. Published-file comparison, the catalogue and course switches, and public phone chapter checks remain open.
 
