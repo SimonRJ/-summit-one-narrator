@@ -1063,14 +1063,18 @@
       "slot": 94,
       "headline": "Build a rectangle from four choices",
       "intro": "Two different vertical lines and two different horizontal lines give exactly one rectangle. Restrictions fix some of those choices or rule out certain pairs.",
-      "bridge": "The two marked cells share a row. After the film counts all rectangles around A, find the last vertical line where a right edge can sit without entering B. Check the direct count against subtraction.",
+      "bridge": "The two marked cells share a row. Watch the right edge touch B without entering it. In the pen problem, fix the top and bottom first and list the possible left and right edges.",
       "recap": "Give every rectangle one left, right, top and bottom boundary. Put restrictions on those choices before multiplying.",
       "example": {
         "prompt": "A square is divided into two horizontal strips by one full line. How many grid-line rectangles are there?",
         "steps": [
           "The left and right sides are fixed. Choose two horizontal lines from the three.",
           "The three choices give each single strip and the full square: 3 rectangles."
-        ]
+        ],
+        "figure": {
+          "src": "figures/read-practice/S094.svg",
+          "alt": "Three copies of a square split horizontally. The outlines select the top strip, the bottom strip and the whole square."
+        }
       },
       "skill": "SPATIAL-02",
       "videoId": "S094",
@@ -5776,14 +5780,18 @@
       "slot": 209,
       "headline": "Count an outline by its size",
       "intro": "If a frame must be square, its width and height are linked. Count positions of each possible size separately before adding their totals.",
-      "bridge": "Watch the film use the grid lines as choices of sides. When you later require a square, consider which two of those choices become linked.",
+      "bridge": "Watch the closing grid: once a square has a width, its height is fixed. In the worked example, follow its bottom-left corner to count positions one size at a time.",
       "recap": "Choose a size first when dimensions must match. Within that size, count positions of one representative corner.",
       "example": {
         "prompt": "How many squares fit along the lines of a 2-by-2 grid?",
         "steps": [
           "Four are unit squares, each at a different position.",
           "The outside lines form one more square of side 2. The total is 5."
-        ]
+        ],
+        "figure": {
+          "src": "figures/read-practice/S209.svg",
+          "alt": "Two copies of a two-by-two grid. The first numbers the four unit squares. The second outlines the single square made from all four."
+        }
       },
       "skill": "SPATIAL-02",
       "videoId": "S094",

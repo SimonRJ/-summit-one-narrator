@@ -16,6 +16,10 @@ Two further entries require short narration and caption corrections. In S019, sp
 
 To reproduce the snapshot, fetch the public catalogue branch and run `python tools/video/find_shared_introduction_scenes.py a576b43f9d17f16a134445973b5c2445123b4984` with the recorded-study manifest blob `88a89caa69864448d7624fbb331ade7010c13c7d`. The comparison ignores whitespace differences, preserves wording and punctuation, and requires at least two distinct identical sections of at least 20 words each. The actual matches above all exceed that threshold. The production register and review bar supersede the historical totals below.
 
+## 22 November 2026
+
+T11.1, T11.2, T11.3 and T11.E passed the [deployed player checks](https://github.com/SimonRJ/-summit-one-narrator/actions/runs/44909522545). Their per-film register records the individual frame counts and independent mathematical checks. S094 is live in sessions 94 and 209. Three shared passages remain open in its introduction register.
+
 ## 21 November 2026
 
 **131 of 192 published films have completed individual review.** The registers contain 85 of 120 published introductions and 46 of 72 teaching films, including the two earlier approvals. The remaining published work is 35 introductions and 26 teaching films.

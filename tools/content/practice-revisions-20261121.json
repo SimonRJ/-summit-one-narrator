@@ -909,7 +909,13 @@
       "recap": "Check what the closure removes. At a closed intersection write zero. At a closed edge cross out only the incoming step it blocks, since another step may still reach the same point."
     },
     "S094": {
-      "bridge": "The two marked cells share a row. After the film counts all rectangles around A, find the last vertical line where a right edge can sit without entering B. Check the direct count against subtraction."
+      "bridge": "The two marked cells share a row. Watch the right edge touch B without entering it. In the pen problem, fix the top and bottom first and list the possible left and right edges.",
+      "example": {
+        "figure": {
+          "src": "figures/read-practice/S094.svg",
+          "alt": "Three copies of a square split horizontally. The outlines select the top strip, the bottom strip and the whole square."
+        }
+      }
     },
     "S097": {
       "bridge": "With the leftmost column empty, draw one horizontal domino in its top row. Look at the square immediately below its left end. Which placement is still possible there, and how many columns does the pair fill?"
@@ -924,6 +930,15 @@
           "To finish in the bottom row after two steps, one move must be down. The other move must be left or right.",
           "The bottom-left and bottom-right cells both work. The bottom-middle cell needs one downward move, and no second move can leave you there."
         ]
+      }
+    },
+    "S209": {
+      "bridge": "Watch the closing grid: once a square has a width, its height is fixed. In the worked example, follow its bottom-left corner to count positions one size at a time.",
+      "example": {
+        "figure": {
+          "src": "figures/read-practice/S209.svg",
+          "alt": "Two copies of a two-by-two grid. The first numbers the four unit squares. The second outlines the single square made from all four."
+        }
       }
     }
   }
