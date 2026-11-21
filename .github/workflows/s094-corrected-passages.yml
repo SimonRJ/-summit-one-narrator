@@ -14,7 +14,7 @@ jobs:
       fail-fast: false
       max-parallel: 5
       matrix:
-        group: ['8']
+        group: ['1', '2', '10']
     env:
       HF_HUB_DISABLE_XET: '1'
       TOKENIZERS_PARALLELISM: 'false'
@@ -61,14 +61,16 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Reuse the four unchanged readings from the first S094 recording
+      - name: Reuse the checked readings for scenes six through nine and eleven
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           mkdir -p build/t01-studio
-          for scene in 6 7 9 11; do
+          for scene in 6 7 8 9 11; do
+            prior=44907294848
+            if [ "$scene" = 8 ]; then prior=44907350162; fi
             for attempt in {1..55}; do
-              if gh run download 44907294848 --name "s094-original-speech-$scene" --dir build/t01-studio; then break; fi
+              if gh run download "$prior" --name "s094-original-speech-$scene" --dir build/t01-studio; then break; fi
               sleep 15
             done
             test -s "build/t01-studio/S094-$(printf '%02d' "$scene").wav"

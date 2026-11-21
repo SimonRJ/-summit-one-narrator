@@ -6,12 +6,12 @@
     {
       "n": 1,
       "stage": "INTRO",
-      "narration": "A grid is made from lines, spaces between the lines, and points where the lines meet. These are three different things to count. For a rectangle on a grid, choose the two lines that form each pair of opposite edges."
+      "narration": "Put two square stamps side by side. To print a frame round just the first stamp, put a pin at each corner. Slide the two right pins one square across. The frame now surrounds both stamps. Its top and bottom stayed still. Changing just the right boundary changed which cells were inside."
     },
     {
       "n": 2,
       "stage": "EXAM",
-      "narration": "An AMC Upper Primary question can ask for intersections, paths, or shapes cut out by grid lines. Mark the object being counted. A Rossmoyne style grid problem can require a shape to include one marked cell while avoiding another. Count by the possible boundaries."
+      "narration": "Read the noun in an AMC grid question. If it asks for crossings, put your pencil where two lines meet. If it asks for rectangles, trace four sides. On this grid one crossing can belong to several outlines. For a Rossmoyne-style restriction, mark the required cell before choosing the sides. Then test the cell the frame must miss."
     },
     {
       "n": 3,
@@ -51,7 +51,7 @@
     {
       "n": 10,
       "stage": "MISTAKES",
-      "narration": "The outside boundary contributes two edge lines in each direction. A row of five cells sits between six lines. For a rectangle, the pair of left and right lines has no order to choose twice. Choosing the lines fixes their order automatically."
+      "narration": "Suppose the red cell starts at line four and ends at line five. Slide the right edge to line four. It touches the red cell, but none of the cell is inside. Move that edge to line five. Now the whole red cell is inside. Reject the second outline. Rejecting the first one as well would lose a valid case."
     },
     {
       "n": 11,
