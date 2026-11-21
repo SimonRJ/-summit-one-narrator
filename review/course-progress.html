@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#11171c">
+  <title>Summit One · Course review progress</title>
+  <style>
+    :root { color-scheme: dark; font-family: system-ui, sans-serif; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; min-height: 100svh; display: grid; place-items: center; background: #11171c; color: #eef5f4; }
+    main { width: min(32rem, 83vw); display: grid; grid-template-columns: 1fr 4ch; align-items: center; gap: 1rem; }
+    progress { width: 100%; height: .75rem; border: 0; border-radius: 1rem; overflow: hidden; background: #2d3942; color: #87d4bd; appearance: none; }
+    progress::-webkit-progress-bar { background: #2d3942; border-radius: 1rem; }
+    progress::-webkit-progress-value { background: #87d4bd; border-radius: 1rem; }
+    progress::-moz-progress-bar { background: #87d4bd; border-radius: 1rem; }
+    output { font-size: 1.125rem; font-variant-numeric: tabular-nums; text-align: right; }
+  </style>
+</head>
+<body>
+  <main aria-label="Verified course review progress">
+    <progress id="completion" max="100" aria-label="Course review complete"></progress>
+    <output for="completion" id="number" aria-live="polite">…</output>
+  </main>
+  <script type="module">
+    import { readProgress } from './course-progress.js';
+    const bar = document.getElementById('completion');
+    const label = document.getElementById('number');
+    let running = false;
+    async function refresh() {
+      if (running || document.hidden) return;
+      running = true;
+      try {
+        const {completed, total, percent} = await readProgress();
+        bar.value = percent;
+        bar.setAttribute('aria-valuetext', percent + '% · ' + completed + ' of ' + total + ' review items');
+        if (label.textContent !== percent + '%') label.textContent = percent + '%';
+      } catch {
+        if (!bar.hasAttribute('value')) {
+          label.textContent = '—';
+          bar.setAttribute('aria-valuetext', 'Waiting for verified progress');
+        }
+      } finally { running = false; }
+    }
+    refresh();
+    setInterval(refresh, 30000);
+    document.addEventListener('visibilitychange', refresh);
+    window.addEventListener('online', refresh);
+  </script>
+</body>
+</html>

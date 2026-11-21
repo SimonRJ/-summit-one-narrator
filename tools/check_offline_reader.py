@@ -1,5 +1,6 @@
 """Exercise a real install, a failed update and a cold offline start on a nested Pages path."""
 import asyncio
+import re
 import shutil
 import threading
 from functools import partial
@@ -24,7 +25,8 @@ class PagesHandler(SimpleHTTPRequestHandler):
         if self.server.test_failed_update and self.path == PREFIX + 'sw.js':
             original = (ROOT / 'sw.js').read_text()
             candidate = original.replace('const staticFiles = [', "const staticFiles = [\n  './missing-reading-file.js',")
-            candidate = candidate.replace('summit-one-deeper-20261121', 'summit-one-failed-update')
+            candidate, changed = re.subn(r'const CACHE="[^"]+";', 'const CACHE="summit-one-failed-update";', candidate, count=1)
+            assert changed == 1
             content = candidate.encode()
             self.send_response(200)
             self.send_header('Content-Type', 'application/javascript')

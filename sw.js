@@ -1,5 +1,5 @@
 const scope = new URL(self.registration.scope);
-const CACHE="summit-one-investigations-films-20261121-r2";
+const CACHE="summit-one-investigations-films-20261121-offline-3";
 const cachePrefix = scope.pathname + ':summit-one-';
 const cacheName = scope.pathname + ':' + CACHE;
 const reader = new URL('offline-reader.html', scope).href;
@@ -14,7 +14,7 @@ const staticFiles = [
   "./domino-model.js?v=github-20261121",
   "./domino-model.css?v=github-20261121",
   "./model-claims.js?v=reasoning-20261121",
-  "./example-methods.js?v=investigations-films-20261121-r2",
+  "./example-methods.js?v=worked-examples-20261121",
   "./lesson-models.js?v=deeper-20261121",
   "./lesson-models.css?v=deeper-20261121",
   "./data/read-watch-practise-later.json?v=investigations-films-20261121-r2",

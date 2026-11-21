@@ -1,0 +1,18 @@
+{
+  "basis": "Each item counts once. A page, a lesson's written material and its recorded film are separate deliverables. A technical scan or a film reused from another session earns no final film credit. A group with zero recorded completions still contributes its full size to the total. The 19 genuine papers have a read-only acceptance check.",
+  "additionalVerifiedIntroductions": [],
+  "areas": [
+    {"key":"pages","item":"Learner-facing pages with final editorial and responsive review","total":90,"verified":0},
+    {"key":"readings","item":"Lesson openings, examples, prompts, hints and protected solutions reviewed together","total":283,"verified":0},
+    {"key":"introductions","item":"Dedicated lesson films with a completed editorial review","total":283},
+    {"key":"companions","item":"Companion teaching films with a completed editorial review","total":72},
+    {"key":"investigations","item":"Published and independently checked investigations and extensions","total":53,"verified":53,"evidence":["../tools/content/check_mawa_maths.py","../data/mawa-investigations-20.json"]},
+    {"key":"mixed","item":"Mixed assessment sessions and return to study","total":36,"verified":0},
+    {"key":"references","item":"Advanced technique pages and examples","total":52,"verified":0},
+    {"key":"practice","item":"Original AMC speed and depth sets with end-to-end review","total":60,"verified":0},
+    {"key":"rossmoyne","item":"Rossmoyne practice papers with end-to-end review","total":10,"verified":0},
+    {"key":"archive","item":"Authentic papers checked against the frozen archive","total":19,"verified":19,"evidence":["../docs/AUTHENTIC_AMC_FREEZE.md","../tools/check_amc_freeze.sql"]},
+    {"key":"challengeFilms","item":"Attempt-gated challenge solution films in the original production queue","total":194,"verified":0},
+    {"key":"standalone","item":"Course introduction and public solution pilot","total":2,"verified":0}
+  ]
+}
