@@ -1,0 +1,62 @@
+{
+  "id": "S092",
+  "title": "Averages, weighted means and simple distributions",
+  "voice": "VoxCPM2 — approved Voice C",
+  "scenes": [
+    {
+      "n": 1,
+      "stage": "INTRO",
+      "narration": "Picture three trays holding two, five and five counters. Move one spare counter from each tall stack onto the short stack. All three trays now hold four. Four is the mean: the equal share of twelve counters. Multiply a mean by its count to get the total back."
+    },
+    {
+      "n": 2,
+      "stage": "EXAM",
+      "narration": "In an AMC question, underline how many scores or days each average represents. Four days at the same average contribute four copies of that average to the total. A Rossmoyne-style puzzle may describe the first five days and the last four days of an eight-day record. Which day belongs to both groups?"
+    },
+    {
+      "n": 3,
+      "stage": "BASIC",
+      "narration": "Find the mean of three readings: eight, fourteen and seventeen. State what a mean represents for these readings. Imagine redistributing the total to three equal amounts."
+    },
+    {
+      "n": 4,
+      "stage": "EXPLANATION",
+      "narration": "The three readings sum to thirty-nine. Keep all three values when finding the total. Divide by three. Each equal share is thirteen, so that is the mean."
+    },
+    {
+      "n": 5,
+      "stage": "MEDIUM",
+      "narration": "One group has four values with mean twenty-seven. A second group has six values with mean seven. Find the mean after combining the two groups. They contain different numbers of readings."
+    },
+    {
+      "n": 6,
+      "stage": "EXPLANATION",
+      "narration": "The first total is one hundred and eight. The second is forty-two. Compute each by multiplying its mean by its count. The combined total is one hundred and fifty from ten readings. Divide this total by the combined count. The combined mean is fifteen. It lies between the two means and closer to the larger group's mean."
+    },
+    {
+      "n": 7,
+      "stage": "PUZZLE",
+      "narration": "There are eight readings with mean one hundred and one over eight. The first five have mean thirteen. The last four have mean fifty-one over four. Exactly one reading is in both groups. Find it."
+    },
+    {
+      "n": 8,
+      "stage": "EXPLANATION",
+      "narration": "Recover the first and last totals by multiplying the means by their counts. The first total is sixty-five and the last is fifty-one. The total of the full list is one hundred and one. Adding the first and last totals counts the shared reading twice. The excess above the whole list is fifteen. This is the one shared reading."
+    },
+    {
+      "n": 9,
+      "stage": "CHECK",
+      "narration": "Check the shared reading a different way. The first four readings total sixty-five minus fifteen, or fifty. The last three total fifty-one minus fifteen, or thirty-six. Put the pieces back in order: fifty, then the shared fifteen, then thirty-six. They sum to one hundred and one across eight positions, exactly as required."
+    },
+    {
+      "n": 10,
+      "stage": "MISTAKES",
+      "narration": "A tempting shortcut is to average twenty-seven and seven. That gives seventeen and treats the two groups as equally large. But four readings contribute the higher mean and six contribute the lower one. The weighted answer is fifteen. There is another trap with overlapping windows: adding both totals gives two copies of the shared reading. Keep it once."
+    },
+    {
+      "n": 11,
+      "stage": "RECAP",
+      "narration": "On an unfamiliar average problem, write the count beside the mean. Four readings averaging twenty-seven contribute one hundred and eight to a total. Before combining groups, mark their positions. Combine disjoint totals directly. If groups overlap, remove the extra copy before dividing by the number of distinct readings."
+    }
+  ]
+}
