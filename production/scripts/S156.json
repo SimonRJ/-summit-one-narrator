@@ -1,0 +1,55 @@
+{
+  "id": "S156",
+  "title": "What the beacon tape measures",
+  "voice": "VoxCPM2 — approved Voice C",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "A flash leaves a mark",
+      "stage": "INTRO",
+      "narration": "A light sensor beside a harbour entrance draws a sharp peak whenever the beacon flashes. Imagine starting a stopwatch on the first peak. The instant it appears, how much time has passed? Zero. The stopwatch measures the spaces between peaks."
+    },
+    {
+      "n": 2,
+      "title": "Five flashes on the paper",
+      "stage": "BASIC",
+      "narration": "The beacon flashes every four seconds. Start on the first flash and stop on the fifth. Slide a finger along the strip. From one to two, two to three, three to four, four to five. Four gaps, each four seconds long. The stopwatch reads sixteen seconds."
+    },
+    {
+      "n": 3,
+      "title": "A torn strip",
+      "stage": "PUZZLE",
+      "narration": "Part of the next strip has torn away. The pulse numbers are still printed above the peaks. It takes twenty one seconds to travel from pulse four to pulse eleven. The spacing is constant. What is the time between neighbouring pulses?"
+    },
+    {
+      "n": 4,
+      "title": "Join the strip back up",
+      "stage": "METHOD",
+      "narration": "Subtract the pulse numbers. Eleven minus four gives seven gaps. Each gap takes three seconds. Now fit the paper back together. From pulse one to pulse sixteen there are fifteen gaps. Fifteen lots of three give forty five seconds."
+    },
+    {
+      "n": 5,
+      "title": "A beacon changes speed",
+      "stage": "PUZZLE",
+      "narration": "One recording contains nineteen flashes. The first and last are one minute and ten seconds apart. At first, gaps last five seconds. Then they shorten to three seconds and stay that way. Which pulse comes immediately before the first short gap?"
+    },
+    {
+      "n": 6,
+      "title": "Compare two lengths of paper",
+      "stage": "METHOD",
+      "narration": "Imagine every gap were short. Nineteen marks leave eighteen gaps. At three seconds each, the strip would span fifty four seconds. The real strip spans seventy. It is sixteen seconds longer. Changing one short gap to a long one adds just two seconds."
+    },
+    {
+      "n": 7,
+      "title": "Put the long spaces back",
+      "stage": "CHECK",
+      "narration": "Eight long gaps supply the missing sixteen seconds. Starting at pulse one, eight gaps lead to pulse nine, where the shorter spacing begins. Check the timing. Eight gaps of five use forty seconds. Ten gaps of three use thirty more. The final peak lands at seventy seconds."
+    },
+    {
+      "n": 8,
+      "title": "When is the clock started?",
+      "stage": "RECAP",
+      "narration": "If a beacon gives its first flash four seconds after switch on, the clock starts before the first peak. Six flashes at four second intervals then take twenty four seconds from switch on, but only twenty seconds from the first flash. Mark the starting instant before counting any gaps."
+    }
+  ]
+}

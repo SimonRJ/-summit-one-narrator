@@ -1,0 +1,121 @@
+name: Record and verify the S156 harbour beacon film
+on:
+  push:
+    branches: [production/s156-beacon-tape]
+    paths: ['production/scripts/S156.json', 'production/lesson-films/beacon_tape.py', 'production/lesson-films/render_recorded.py', '.github/workflows/record-beacon-tape.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: s156-beacon-production
+  cancel-in-progress: false
+jobs:
+  record:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 65
+    strategy:
+      fail-fast: false
+      matrix:
+        start: [1, 3, 5, 7]
+    env:
+      HF_HUB_DISABLE_XET: '1'
+      TOKENIZERS_PARALLELISM: 'false'
+      OMP_NUM_THREADS: '4'
+      MKL_NUM_THREADS: '4'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            production/scripts
+            production/t01-studio
+            production/voice-audition
+            media/voice-audition
+            data
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install the approved Voice C engine
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg libsndfile1
+          pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install 'transformers>=4.45,<5' 'huggingface-hub<1' einops pydantic soundfile librosa safetensors tqdm numpy scipy inflect addict argbind
+          pip install --no-deps 'git+https://github.com/OpenBMB/VoxCPM.git@300e4260b509066151d623dc9c0aa922cf82232b'
+      - name: Record two original scenes
+        env:
+          FIRST: ${{ matrix.start }}
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          start = int(os.environ['FIRST'])
+          Path('sequence.json').write_text(json.dumps([{'lesson':'S156','scene':i} for i in (start,start+1)]))
+          PY
+          python production/t01-studio/synth.py --sequence sequence.json --threads 4
+      - uses: actions/upload-artifact@v4
+        with:
+          name: beacon-voice-${{ matrix.start }}
+          path: build/t01-studio/S156-*
+          if-no-files-found: error
+          retention-days: 14
+  film:
+    needs: record
+    runs-on: ubuntu-24.04
+    timeout-minutes: 55
+    env:
+      HF_HUB_DISABLE_XET: '1'
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            production/scripts
+            production/t01-studio
+            production/lesson-films
+            data
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: beacon-voice-*
+          merge-multiple: true
+          path: build/t01-studio/
+      - name: Align the actual recording, draw all eight scenes and check the encoded film
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg libsndfile1 fonts-open-sans fonts-dejavu-core
+          pip install 'pillow==11.3.0' 'numpy==2.2.6' soundfile num2words faster-whisper
+          python production/t01-studio/prepare_audio.py S156
+          voice=build/t01-studio/S156
+          ffmpeg -hide_banner -loglevel error -i "$voice/narration.wav" -c:a flac "$voice/narration.flac"
+          cp production/scripts/S156.json "$voice/script.json"
+          python production/lesson-films/render_recorded.py S156 "$voice"
+          python production/lesson-films/verify_recorded.py S156 "$voice"
+          mkdir edition
+          cp media/lesson-films/S156.mp4 media/lesson-films/S156-poster.jpg edition/
+          cp "$voice/timeline.json" edition/S156-timing.json
+          cp "$voice/captions.vtt" edition/S156.vtt
+          cp production/lesson-films/S156/guide.json edition/S156-guide.json
+          cp production/lesson-films/S156/qa.json edition/S156-qa.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: s156-verified-edition
+          path: edition/
+          if-no-files-found: error
+      - name: Stage all checked assets together for editorial playback
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          tag=s156-harbour-beacon-20261122
+          if gh release view "$tag" > /dev/null 2>&1; then
+            [[ "$(gh release view "$tag" --json isDraft --jq .isDraft)" == true ]] || exit 0
+          else
+            gh release create "$tag" --target "$GITHUB_SHA" --draft --title 'What the beacon tape measures' --notes 'S156. Original harbour-beacon teaching animation with its approved Voice C performance, timed English captions and independent interval checks.'
+          fi
+          gh release upload "$tag" edition/* --clobber
+          gh release edit "$tag" --draft=false --latest=false
