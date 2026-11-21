@@ -1,0 +1,43 @@
+{
+  "id": "S010",
+  "title": "The reversal line",
+  "voice": "VoxCPM2 — approved Voice C",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "Turn a number ticket",
+      "stage": "INTRO",
+      "narration": "A ticket printer puts the same digit in two boxes. Together those digits add to eight, so each box shows four. Turning that ticket would change nothing. What changes when a ticket carries two different digits?"
+    },
+    {
+      "n": 2,
+      "title": "What a swap buys",
+      "stage": "METHOD",
+      "narration": "Slide the larger digit from units to tens. Each extra unit of digit difference now gains ten in one place and loses one in the other. The net gain is nine. A reversal that gains thirty six therefore moves a digit four larger into the tens place."
+    },
+    {
+      "n": 3,
+      "title": "Two clues, one ticket",
+      "stage": "REVEAL",
+      "narration": "Our two digits also add to eight. Set four counters aside for the difference. The four left split into two matching pairs. The smaller digit is two and the larger is six. Print twenty six, then reverse it. Sixty two minus twenty six is thirty six."
+    },
+    {
+      "n": 4,
+      "title": "The inspector’s rule",
+      "stage": "PUZZLE",
+      "narration": "Inspect a different pair of tickets. A B plus A C ends in zero, with hundreds digit B and tens digit D. All four letters use different digits. Find the smallest A B. Two two digit numbers cannot reach two hundred, so the new hundreds digit is one. B is one."
+    },
+    {
+      "n": 5,
+      "title": "A correct sum gets rejected",
+      "stage": "DECISION",
+      "narration": "One plus C must end in zero. Only nine can complete the ten. Carry one. The tens total is twice A plus one. Four would give only nine, so the first candidate is five. Fifty one plus fifty nine equals one hundred and ten. Look at the hundreds and tens. Two different letters would both be one. Reject that ticket."
+    },
+    {
+      "n": 6,
+      "title": "Admit the next ticket",
+      "stage": "CHECK",
+      "narration": "Move up one tens digit to six. Sixty one plus sixty nine makes one hundred and thirty. Read the four letters in order: six, one, nine, three. None collides. We have checked the only smaller candidate that could reach a hundred. The smallest legal first ticket is sixty one."
+    }
+  ]
+}
