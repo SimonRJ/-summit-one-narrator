@@ -13,17 +13,48 @@
   <link rel="stylesheet" href="design-system.css?v=math-baseline-20261113">
   <script async src="https://cdn.jsdelivr.net/npm/katex@0.16.47/dist/katex.min.js" onload="window.dispatchEvent(new Event('summit:math-ready'))"></script>
   <script type="module" src="math-typography.js?v=math-label-fix-20261113"></script>
-<link rel="icon" href="icon.svg"></head>
+<link rel="icon" href="icon.svg"><link rel="stylesheet" href="topic-film-reading.css">
+<script defer src="topic-film-print.js"></script>
+</head>
 <body><main>
 <nav class="back" aria-label="Lesson navigation"><a href="./"><img src="summit-mark.svg" class="summit-inline-mark" alt="">← Summit One</a><a href="watch-t02-1.html?v=studio-v4">Previous: find an invariant</a><a href="watch-t02-3.html">Next · Compare operation orders →</a></nav>
 <div class="eyebrow">T02.2 · VISUAL MATHEMATICS</div>
 <h1>Work backwards.<br>Undo the last move first.</h1>
 <p>Recover a hidden starting number, rebuild a collection from its remaining fraction, and discover why every intermediate state must be checked.</p>
-<video id="lesson" controls playsinline preload="metadata" poster="media/T02.2-studio-poster.jpg"><source src="media/T02.2.mp4?v=studio-v1" type="video/mp4">Your browser does not support HTML video.</video>
+<video aria-label="Work backwards" id="lesson" controls playsinline preload="metadata" poster="media/T02.2-studio-poster.jpg"><source src="media/T02.2.mp4?v=studio-v1" type="video/mp4">Your browser does not support HTML video.</video>
 <div class="meta">3:31 · Full HD 1920 × 1080 · 30 fps · Three worked examples</div>
 <nav class="chapters" aria-label="Video chapters">
-<button type="button" data-time="26.999">0:27 · Number machine</button><button type="button" data-time="95.345">1:35 · Fractions</button><button type="button" data-time="144.004">2:24 · Whole counters</button><button type="button" data-time="199.556">3:19 · Your turn</button>
+<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Undo the last operation first</button>
+<button type="button" data-time="26.999"><span class="chapter-clock">0:27</span> Recover the machine’s input from 23</button>
+<button type="button" data-time="61.625"><span class="chapter-clock">1:02</span> Check the reversed steps forwards</button>
+<button type="button" data-time="95.345"><span class="chapter-clock">1:35</span> Rebuild the pile from eight counters</button>
+<button type="button" data-time="144.004"><span class="chapter-clock">2:24</span> Check that each pile contains whole counters</button>
+<button type="button" data-time="199.556"><span class="chapter-clock">3:20</span> Trace the route back from 17</button>
 </nav>
 <section class="challenge"><strong>Try it in your notebook</strong><p>A number is multiplied by 3, then 4 is subtracted. The result is 17. What was the starting number?</p><p>Draw the backward journey, then check every step forwards.</p><details><summary>Check your reasoning after trying</summary><p>Undo the last operation first: add 4 to get 21. Then divide by 3 to get <strong>7</strong>.</p><p class="equation">Backwards: 17 → 21 → 7<br>Forwards: 7 × 3 − 4 = 17</p><p>Both inverse steps are valid, and the forward check returns to the stated result.</p></details></section>
 <p><a href="media/T02.2.mp4?v=studio-v1">Open the MP4 directly</a></p>
+<details class="transcript"><summary>Read the transcript</summary>
+<h2><span class="chapter-clock">0:00</span> Undo the last operation first</h2>
+<p>Sometimes a maths puzzle tells you the finish, but hides the start. Working backwards means beginning with that finish and undoing the moves. There is one crucial rule: undo the last move first. Like taking off your shoes before your socks, the order matters.</p>
+<p>This is useful when guessing the starting number would take ages. If each move can be undone, we can follow a clear route back to the start. Then we check the answer by travelling forwards again.</p>
+<h2><span class="chapter-clock">0:27</span> Recover the machine’s input from 23</h2>
+<p>Let&#x27;s try a number machine. It multiplies a secret number by four, then adds three. The machine finishes at twenty-three. What number went in? Notice the order: multiply first, then add.</p>
+<p>Start at twenty-three. The last thing the machine did was add three, so undo that first. Twenty-three minus three is twenty. We have recovered the amount just before the final addition.</p>
+<p>Only now do we undo the multiplication. Twenty divided by four is five. Check the whole journey: five times four is twenty, and twenty plus three is twenty-three. Five works.</p>
+<h2><span class="chapter-clock">1:02</span> Check the reversed steps forwards</h2>
+<p>What if we undo the operations in the wrong order? Twenty-three divided by four is five point seven five. Subtract three, and we get two point seven five. That is not five. The order is part of the method.</p>
+<p>Here is why the correct order works for any starting number. Call the start x. The machine makes four x plus three. Subtracting three leaves four x. Dividing by four leaves x. We peel away the outside operation first. Multiplying by zero would lose the starting information, so that move cannot be undone uniquely.</p>
+<h2><span class="chapter-clock">1:35</span> Rebuild the pile from eight counters</h2>
+<p>Now try a different kind of puzzle. A child keeps half of a collection of counters. Then they keep two thirds of what remains. At the end, there are eight counters. How many were there at the start?</p>
+<p>Work backwards from eight. These eight counters are two thirds of the previous pile. Split them into two equal groups of four. Restore the missing third, another group of four. The previous pile had twelve counters.</p>
+<p>Twelve was half of the original collection. Double it to recover twenty-four. Now check forwards. Half of twenty-four is twelve. Two thirds of twelve is eight. Every stage agrees.</p>
+<p>The common trap is using the wrong whole. Two thirds of what remains means two thirds of twelve, not two thirds of the original twenty-four. Write the amount after every stage so the whole stays clear.</p>
+<h2><span class="chapter-clock">2:24</span> Check that each pile contains whole counters</h2>
+<p>There is one more check when a puzzle uses whole counters. Every intermediate pile must also be whole. Suppose a rule halves the pile, adds one counter, then doubles it. Could the final pile contain seven?</p>
+<p>Undo the steps. Seven divided by two is three point five. Subtract one to get two point five. Double it to get five. The starting number is whole, but the intermediate piles are not. You cannot have half a counter in this puzzle.</p>
+<p>So seven is impossible under these rules. Try eight instead. Backwards, eight becomes four, then three, then six. Forwards, six becomes three, then four, then eight. Every pile is whole, and every move is legal.</p>
+<p>Remember the method. Reverse the order. Undo each operation. Check every intermediate state. Then check the complete forward journey. A backward calculation finds a candidate; the checks show whether it really works.</p>
+<h2><span class="chapter-clock">3:20</span> Trace the route back from 17</h2>
+<p>Your turn. A number is multiplied by three, then four is subtracted. The result is seventeen. Pause here. Recover the starting number, then draw the forward journey to prove your answer.</p>
+</details>
 </main><script>const video=document.getElementById('lesson');document.querySelectorAll('[data-time]').forEach(button=>button.addEventListener('click',()=>{video.currentTime=Number(button.dataset.time);video.play().catch(()=>{});video.scrollIntoView({behavior:'smooth',block:'center'});}));</script></body></html>

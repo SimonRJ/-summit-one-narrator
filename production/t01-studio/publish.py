@@ -9,6 +9,7 @@ import re
 import shutil
 
 from chapter_films import CHAPTER_FILMS, COURSE_FILMS
+from topic_reading import CHAPTERS as READING_CHAPTERS, reading_sections
 
 ROOT = Path(__file__).resolve().parents[2]
 BUILD = ROOT / "build/t01-studio"
@@ -109,6 +110,11 @@ def make_watch_page(lesson, source, report, *, available=OPENING_SEQUENCE):
     title = escape(source["title"])
     label = f"{lesson} · Worked example" if source.get("type") == "worked_example" else lesson
     transcript = "\n".join(f'<p>{escape(scene["narration"])}</p>' for scene in source["scenes"])
+    reading_assets = ""
+    if lesson in READING_CHAPTERS:
+        chapter_buttons, transcript = reading_sections(lesson, [scene["start"] for scene in report["scenes"]],
+                                                       [scene["narration"] for scene in source["scenes"]])
+        reading_assets = '<link rel="stylesheet" href="topic-film-reading.css">\n<script defer src="topic-film-print.js"></script>'
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -148,6 +154,7 @@ button:focus-visible, a:focus-visible, summary:focus-visible {{ outline: 2px sol
   video {{ width: auto; max-width: 100%; height: auto; max-height: calc(100svh - 20px); margin-inline: auto; }}
 }}
 </style>
+{reading_assets}
 </head>
 <body>
 <main>

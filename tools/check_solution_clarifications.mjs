@@ -6,13 +6,15 @@ import vm from 'node:vm';
 const filename = new URL('../supabase/functions/get-problem-solution/index.ts', import.meta.url);
 const source = readFileSync(filename, 'utf8').replace(/^import .*?;\n/, '');
 
-async function request({signedIn = true, member = true, attempt = true, note = null, noteError = false} = {}) {
+const viewId = "00000000-0000-4000-a000-000000000001";
+async function request({signedIn = true, member = true, attempt = true, note = null, noteError = false, film = false, playedId} = {}) {
   const reads = [], writes = [];
   const original = 'Original checked reasoning.';
   const student = {id: 'test-learner'};
   const problem = {id:'test-problem', title:'Test problem', solution_text:original};
   const from = table => {
     const filters = [];
+    let newView = false;
     const data = () => {
       reads.push(table);
       switch (table) {
@@ -43,19 +45,31 @@ async function request({signedIn = true, member = true, attempt = true, note = n
       order(k,options){assert(k==='revision' && options.ascending===false);filters.push(['order','latest revision']);return chain;},
       not(k,op,v){assert(op==='is' && v===null);filters.push([k,'not null']);return chain;},
       neq(k,v){assert(v==='');filters.push([k,'nonempty']);return chain;},
-      async single(){return {data:data()};},
+      async single(){return {data:newView ? {id:viewId} : data()};},
       async maybeSingle(){return {data:data(),error:noteError && table==='solution_clarifications' ? {message:'unavailable'} : null};},
-      async insert(row){writes.push([table,row.user_id]);},
+      insert(row){
+        assert.equal(row.solution_video_opened,false);
+        assert.equal(row.independent_credit,false);
+        writes.push([table,row.user_id]); newView=true; return chain;
+      },
+      update(row){assert.equal(row.solution_video_opened,true);return chain;},
+      async is(key,val){
+        assert.equal(key,'answer_text');assert.equal(val,null);
+        for(const [name,expected] of Object.entries({id:viewId,user_id:student.id,problem_id:problem.id,evidence_level:'viewed',independent_credit:false})){
+          assert(filters.some(([k,v])=>k===name && v===expected));
+        }
+        writes.push(['film-played',student.id]);return {error:null};
+      },
     };
     return chain;
   };
   let handler;
   const client = {auth:{getUser:async()=>({data:{user:student}})},from,
-    storage:{from:()=>({createSignedUrl:async()=>({data:null,error:null})})}};
+    storage:{from:()=>({createSignedUrl:async()=>({data:film ? {signedUrl:"https://example.test/signed"} : null,error:null})})}};
   vm.runInNewContext(stripTypeScriptTypes(source), {Deno:{env:{get:()=>''},serve:fn=>{handler=fn;}},createClient:()=>client,Response,console});
   const response = await handler(new Request('http://example.test', {method:'POST',
     headers:signedIn ? {Authorization:'Bearer test-token'} : {},
-    body:JSON.stringify({problem_id:problem.id})}));
+    body:JSON.stringify({problem_id:problem.id,played_view_id:playedId})}));
   return {status:response.status,output:await response.json(),reads,writes,original};
 }
 
@@ -73,4 +87,13 @@ for (const options of [{},{note:'Private test note'},{note:'Private test note',n
   assert.equal(check.output.solution_text, expected);
   assert.deepEqual(check.writes,[['problem_attempts','test-learner']]);
 }
-console.log('Verified attempt-gated clarifications and original explanations.');
+assert.equal((await request()).output.video_view_id,null);
+assert.equal((await request({film:true})).output.video_view_id,viewId);
+assert.equal((await request({film:true,playedId:'invalid'})).status,400);
+assert.equal((await request({playedId:viewId})).status,404);
+assert.equal((await request({film:true,playedId:viewId,attempt:false})).status,403);
+const played=await request({film:true,playedId:viewId});
+assert.equal(played.status,200);
+assert.deepEqual(played.writes,[['film-played','test-learner']]);
+assert(!played.reads.includes('content_problems'));
+console.log('Verified protected worked solutions, private film playback and distinct viewing records.');

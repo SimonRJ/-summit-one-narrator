@@ -34,6 +34,8 @@ summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
 </style>
+<link rel="stylesheet" href="topic-film-reading.css">
+<script defer src="topic-film-print.js"></script>
 </head>
 <body>
 <main>
@@ -48,25 +50,37 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
   <source src="media/T02.3.mp4?v=variable-bars-20261119" type="video/mp4">
 </video>
 <p class="meta">2:17 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Compare two orders</button>
-<button type="button" data-time="29.240">0:29 · Find the gap</button>
-<button type="button" data-time="45.690">0:45 · Build both outputs</button>
-<button type="button" data-time="61.530">1:01 · Prove the gap is fixed</button>
-<button type="button" data-time="99.120">1:39 · When can steps swap?</button>
-<button type="button" data-time="114.480">1:54 · Your turn</button></nav>
+<nav class="chapters" aria-label="Video chapters">
+<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Swap addition and doubling</button>
+<button type="button" data-time="29.240"><span class="chapter-clock">0:29</span> Predict which rule gives more</button>
+<button type="button" data-time="45.690"><span class="chapter-clock">0:46</span> Make two copies of the whole bar</button>
+<button type="button" data-time="61.530"><span class="chapter-clock">1:02</span> Pair the matching parts</button>
+<button type="button" data-time="77.840"><span class="chapter-clock">1:18</span> Compare the rules with a negative multiplier</button>
+<button type="button" data-time="99.120"><span class="chapter-clock">1:39</span> Decide which steps can swap</button>
+<button type="button" data-time="114.480"><span class="chapter-clock">1:54</span> Compare tripling before and after subtraction</button>
+</nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>Compare subtracting 4 then multiplying by 3 with multiplying by 3 then subtracting 4. Which gives the greater result, and by how much?</p>
 <details><summary>Check your reasoning</summary><p>3(x − 4) = 3x − 12 and 3x − 4. The second is always larger by 8.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary><p>Start with three. Add two and then double. Five becomes ten. Try the same start with the operations swapped. Double three first, then add two. Six becomes eight. The same steps can give different results when their order changes.</p>
+<details class="transcript"><summary>Read the transcript</summary>
+<h2><span class="chapter-clock">0:00</span> Swap addition and doubling</h2>
+<p>Start with three. Add two and then double. Five becomes ten. Try the same start with the operations swapped. Double three first, then add two. Six becomes eight. The same steps can give different results when their order changes.</p>
 <p>Testing more starting numbers might help us guess a pattern. A letter lets us explain the pattern for every starting number. We&#x27;ll compare the two operation orders side by side and look for the part that changes.</p>
+<h2><span class="chapter-clock">0:29</span> Predict which rule gives more</h2>
 <p>Choose any starting number. Order A adds five and then doubles. Order B doubles and then adds five. Which order gives the bigger result, and by how much? Try one starting number before we compare them all.</p>
+<h2><span class="chapter-clock">0:46</span> Make two copies of the whole bar</h2>
 <p>Call the starting number x. In Order A, adding five makes a bar with an x part and a five part. Doubling makes two copies of that whole bar. Collect its parts. Two copies of x and two fives give two x plus ten.</p>
+<h2><span class="chapter-clock">1:02</span> Pair the matching parts</h2>
 <p>Order B doubles x first. That gives two copies of x. Add five once. Both orders now show two copies of the starting value and at least one five. Pair those matching pieces. The extra five in Order A is the entire difference.</p>
+<h2><span class="chapter-clock">1:18</span> Compare the rules with a negative multiplier</h2>
 <p>What if we multiply by negative two instead? In Order A, the five is multiplied too, so its contribution is negative ten. Order B still adds positive five. The common part is negative two x in both orders. Positive five is fifteen more than negative ten, so Order B now wins by fifteen.</p>
+<h2><span class="chapter-clock">1:39</span> Decide which steps can swap</h2>
 <p>Two additions can swap because we still add the same total. Two multiplications can swap because their combined scale is the same. When you mix the two types of step, look closely at whether an amount added later gets scaled at all.</p>
-<p>Give the start a letter. Write the two orders separately. Compare the parts that match and calculate the difference. In your notebook, compare subtracting four and then multiplying by three with multiplying by three and then subtracting four. Which gives the greater result, and by how much?</p></details>
+<h2><span class="chapter-clock">1:54</span> Compare tripling before and after subtraction</h2>
+<p>Give the start a letter. Write the two orders separately. Compare the parts that match and calculate the difference. In your notebook, compare subtracting four and then multiplying by three with multiplying by three and then subtracting four. Which gives the greater result, and by how much?</p>
+</details>
 <p><a href="media/T02.3.mp4?v=variable-bars-20261119">Open the MP4 directly</a></p>
 </main>
 <script>

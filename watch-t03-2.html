@@ -34,6 +34,8 @@ summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
 </style>
+<link rel="stylesheet" href="topic-film-reading.css">
+<script defer src="topic-film-print.js"></script>
 </head>
 <body>
 <main>
@@ -48,24 +50,34 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
   <source src="media/T03.2.mp4?v=signal-timetable-20261119" type="video/mp4">
 </video>
 <p class="meta">2:04 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Two flashing lights</button>
-<button type="button" data-time="31.000">0:31 · Start together</button>
-<button type="button" data-time="46.810">0:46 · Find the period</button>
-<button type="button" data-time="68.400">1:08 · Shift one start</button>
-<button type="button" data-time="86.320">1:26 · When clocks never meet</button>
-<button type="button" data-time="102.310">1:42 · Your turn</button></nav>
+<nav class="chapters" aria-label="Video chapters">
+<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Compare the four- and six-second lights</button>
+<button type="button" data-time="31.000"><span class="chapter-clock">0:31</span> Start both lights at zero</button>
+<button type="button" data-time="46.810"><span class="chapter-clock">0:47</span> Find the gap between shared flashes</button>
+<button type="button" data-time="68.400"><span class="chapter-clock">1:08</span> Give the second light a two-second delay</button>
+<button type="button" data-time="86.320"><span class="chapter-clock">1:26</span> Use parity to rule out a meeting</button>
+<button type="button" data-time="102.310"><span class="chapter-clock">1:42</span> Find the next shared bus departure</button>
+</nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>Buses leave every 8 minutes and every 12 minutes, both at 9:00. When do they next leave together?</p>
 <details><summary>Check your reasoning</summary><p>The lowest common multiple of 8 and 12 is 24, so at 9:24.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary><p>Two lights repeat at different speeds. One flashes every four seconds and the other every six. We can ask when they first flash together after starting. We can also ask how much time separates one meeting from the next.</p>
+<details class="transcript"><summary>Read the transcript</summary>
+<h2><span class="chapter-clock">0:00</span> Compare the four- and six-second lights</h2>
+<p>Two lights repeat at different speeds. One flashes every four seconds and the other every six. We can ask when they first flash together after starting. We can also ask how much time separates one meeting from the next.</p>
 <p>Twenty-four is a multiple of both four and six. A smaller common multiple may also work. First mark where each light starts. Then add its own period each time. A timeline shows both the starting positions and the repeated jumps.</p>
+<h2><span class="chapter-clock">0:31</span> Start both lights at zero</h2>
 <p>Both lights flash at time zero. One repeats every four seconds. The other repeats every six seconds. When do they next flash together? List a few times for each light, and line up the lists.</p>
+<h2><span class="chapter-clock">0:47</span> Find the gap between shared flashes</h2>
 <p>The first light flashes at four, eight, twelve and sixteen. The second flashes at six, twelve and eighteen. Their first positive meeting is at twelve seconds. Twelve is the lowest common multiple of four and six. A gap between meetings has to be a multiple of both periods, so the next meeting is twelve seconds later.</p>
+<h2><span class="chapter-clock">1:08</span> Give the second light a two-second delay</h2>
 <p>Let the second light start at time two. Its times are two, eight, fourteen and twenty. The first light&#x27;s times stay on the multiples of four. The first meeting moves to eight seconds, and the next is at twenty. The starting offset changed the first meeting. The twelve-second gap stayed the same.</p>
+<h2><span class="chapter-clock">1:26</span> Use parity to rule out a meeting</h2>
 <p>Now start the second light at time one. Its jumps of six keep all its times odd. Starting from zero and moving in jumps of four keeps the other times even. An odd time and an even time cannot match, so these two lights never flash together.</p>
-<p>When meetings are possible, the lowest common multiple gives the gap between them. The starting positions decide when the first meeting happens. In your notebook, one bus leaves every eight minutes and another every twelve. They both leave at nine o&#x27;clock. When do they next leave together?</p></details>
+<h2><span class="chapter-clock">1:42</span> Find the next shared bus departure</h2>
+<p>When meetings are possible, the lowest common multiple gives the gap between them. The starting positions decide when the first meeting happens. In your notebook, one bus leaves every eight minutes and another every twelve. They both leave at nine o&#x27;clock. When do they next leave together?</p>
+</details>
 <p><a href="media/T03.2.mp4?v=signal-timetable-20261119">Open the MP4 directly</a></p>
 </main>
 <script src="lesson-video-chapters.js?v=seek-1"></script>
