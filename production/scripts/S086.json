@@ -1,0 +1,62 @@
+{
+  "id": "S086",
+  "title": "Combined work rates",
+  "voice": "VoxCPM2 — approved Voice C",
+  "scenes": [
+    {
+      "n": 1,
+      "stage": "INTRO",
+      "narration": "Imagine a tank with twenty-four marks up its side. Choose one minute on the clock. If the water rises three marks in that minute, three out of twenty-four units have been added. A work rate connects a change in the job to a change in time."
+    },
+    {
+      "n": 2,
+      "stage": "EXAM",
+      "narration": "When an AMC question gives the time for a whole batch, draw a strip for the batch. Ask how much one machine completes in one minute. In a Rossmoyne-style problem, listen for a change such as a leak opening. Mark its starting time before you combine any rates."
+    },
+    {
+      "n": 3,
+      "stage": "BASIC",
+      "narration": "A machine labels a whole batch of boxes in eight minutes at a steady rate. What fraction of the batch does it label in one minute? Use equal parts of the job."
+    },
+    {
+      "n": 4,
+      "stage": "EXPLANATION",
+      "narration": "Divide the batch into eight equal portions. One minute is one of those portions. The rate is one over eight of a batch per minute. Multiply this fraction by eight minutes to check it gives one batch."
+    },
+    {
+      "n": 5,
+      "stage": "MEDIUM",
+      "narration": "Machine A can finish one batch in eight minutes. Machine B takes twelve minutes to finish a batch of the same size. How long does one batch take if they work together at their full rates?"
+    },
+    {
+      "n": 6,
+      "stage": "EXPLANATION",
+      "narration": "Represent one batch by twenty-four units. A completes three units per minute, and B completes two. The combined rate is five units per minute. Both machines contribute during the same minute. The time is twenty-four divided by five. That is twenty-four over five minutes."
+    },
+    {
+      "n": 7,
+      "stage": "PUZZLE",
+      "narration": "Two pumps together fill a tank. Alone, one would take eight minutes and the other twelve minutes. After three minutes a leak opens which would empty a full tank in twenty-four minutes by itself. How long from the start until the tank is full?"
+    },
+    {
+      "n": 8,
+      "stage": "EXPLANATION",
+      "narration": "Use twenty-four units for a full tank. The pumps initially fill five units per minute, so they add fifteen before the leak. That leaves nine units. The leak removes one unit each minute, so the new net rate is four units per minute. Divide the remaining work by four, then add the initial three minutes. The answer is twenty-one over four minutes."
+    },
+    {
+      "n": 9,
+      "stage": "CHECK",
+      "narration": "At minute three the tank holds fifteen units. Nine more units are needed. Two minutes at the new rate add eight units. One last quarter of a minute adds the final unit. The tank is full after five and a quarter minutes from the start."
+    },
+    {
+      "n": 10,
+      "stage": "MISTAKES",
+      "narration": "Eight plus twelve would give twenty minutes. That cannot be the shared time: the faster machine finishes alone in eight. For the tank, cover the drain on your diagram until minute three. Taking water away earlier would erase work the pumps really did."
+    },
+    {
+      "n": 11,
+      "stage": "RECAP",
+      "narration": "For an unfamiliar job, pick a full scale first. Here, twenty-four units made the pump rates three and two. Put a mark on the clock whenever the team changes. Carry the amount already finished across that mark. For the last section, divide the work left by the new rate."
+    }
+  ]
+}
