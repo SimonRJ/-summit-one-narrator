@@ -255,7 +255,7 @@
       "chapter": "Let the experiment determine the probability",
       "transcript": "A probability compares favourable outcomes with all outcomes, but only if the outcomes are equally likely. A bag holds two red counters and one blue. There are two colours, but red is not a one in two chance. There are three counters, each equally likely, and two of them are red. Counting names instead of real outcomes is the most common probability mistake. The fix is to list outcomes that genuinely are equally likely, then count. Toss two fair coins separately, so one result cannot affect the other. What is the probability of getting exactly one head? Someone says there are three results, two heads, one head or no heads, so the answer is one third. Pause and decide whether that is right. Give the coins names: first coin and second coin. Now there are four outcomes: head head, head tail, tail head, and tail tail. These four are equally likely. Exactly one head happens in two of the four: head tail, and tail head. So the probability is two out of four, which is one half, not one third. The three results in the earlier list were not equally likely. Roll two fair dice separately. There are thirty-six equally likely pairs. A total of seven comes from six of them, so its probability is six out of thirty-six, one sixth. A total of two comes from only one pair. The totals are not equally likely, but the pairs are. Label the objects so each outcome is visible. Check the outcomes are equally likely. Then count favourable out of total. Notebook challenge: two dice are rolled. What is the probability that the two numbers are the same?",
       "audio_url": "",
-      "video_url": "media/T08.1.mp4?v=teaching-films-v1"
+      "video_url": "media/T08.1.mp4?v=six-matching-pairs"
     },
     {
       "id": "T08.2",
@@ -264,7 +264,7 @@
       "chapter": "Let the experiment determine the probability",
       "transcript": "When you take something out and do not put it back, the situation changes. The second draw is from a different bag. To keep track, follow each possible route step by step. Using the original bag for both draws is a common error. Updating after each step is what makes the answer right. A bag holds two red counters and two blue counters. Draw two counters at random, one after the other, without putting the first back. What is the probability that both are red? Pause and think about the bag after the first draw. On the first draw, two of the four counters are red. The chance of red is two out of four, which is one half. If the first was red, the bag now has one red and two blue. The chance of red again is one out of three. Along one route, multiply: one half times one third is one sixth. So the probability of two reds is one sixth. Complete the tree. Red then blue is one half times two thirds, one third. Blue then red is also one third. Blue then blue is one sixth. The four routes add to one, which is a good check. What is the chance of one of each colour? That happens on two different routes: red then blue, or blue then red. Different routes are added: one third plus one third is two thirds. Update the situation after each step. Multiply along a route. Add separate routes. Notebook challenge: a bag has three red counters and one blue. Two are drawn without replacement. What is the probability both are red?",
       "audio_url": "",
-      "video_url": "media/T08.2.mp4?v=teaching-films-v1"
+      "video_url": "media/T08.2.mp4?v=successive-red-draws"
     },
     {
       "id": "T08.3",
@@ -273,7 +273,7 @@
       "chapter": "Let the experiment determine the probability",
       "transcript": "New information changes a probability. When you are told something about the result, cross out every outcome that no longer fits. What is left is your new, smaller world, and you count inside it. The usual mistake is to keep the old total on the bottom of the fraction. After information arrives, the total is the number of outcomes that survive. A fair die is rolled. You are told the result is even. What is the probability that it is greater than three? Pause and cross out what cannot have happened. The die shows one to six. \"Even\" removes one, three and five. Three outcomes survive: two, four and six. They are still equally likely. Of those three, the numbers greater than three are four and six. So the probability is two out of three. Without the information it would have been three out of six, one half. The information changed the answer. Roll two fair dice separately. You are told the total is eight. Five pairs survive: two and six, three and five, four and four, five and three, six and two. What is the chance that both dice show the same number? Only four and four works: one out of five. Crossing out works because outcomes that were equally likely before the information are still equally likely afterwards. If the outcomes are not equally likely, you compare their probabilities rather than just counting them. Cross out what the information rules out. Then count favourable outcomes among the survivors. Notebook challenge: a die is rolled and you are told the number is greater than two. What is the probability that it is odd?",
       "audio_url": "",
-      "video_url": "media/T08.3.mp4?v=teaching-films-v1"
+      "video_url": "media/T08.3.mp4?v=four-surviving-faces"
     },
     {
       "id": "T08.E",
@@ -282,7 +282,7 @@
       "chapter": "Let the experiment determine the probability",
       "transcript": "Two fair coins are tossed independently. You know that at least one of them shows heads. What is the probability that both show heads? Name the coins first and second. There are four equally likely outcomes: head head, head tail, tail head, tail tail. \"At least one head\" rules out tail tail. Three outcomes survive: head head, head tail and tail head. They are still equally likely. Only one of the three survivors has two heads. The probability is one out of three. Compare a slightly different piece of information. Suppose you are told the first coin shows heads. Now only head head and head tail survive, and the probability of two heads is one half. The exact wording of the information matters. Information removes outcomes, and the survivors become the new total. Rebuild this example, then try: two coins are tossed and you are told they do not show the same face. What is the probability the first coin is heads?",
       "audio_url": "",
-      "video_url": "media/T08.E.mp4?v=teaching-films-v1"
+      "video_url": "media/T08.E.mp4?v=different-coin-faces"
     },
     {
       "id": "T09.1",

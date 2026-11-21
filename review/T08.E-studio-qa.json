@@ -1,7 +1,7 @@
 {
   "id": "T08.E",
   "duration_seconds": 70.1,
-  "sha256": "2ce3c917f2884b74532a9d9ab32a8da7e00080ede896d214fc4c18883facec8c",
+  "sha256": "2d47e6831ff1916e07fc4e4ba6d89ae37f1bdbb13d453576882431137cbc91bf",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -70,5 +70,54 @@
       "start": 51.33
     }
   ],
-  "decoded_successfully": true
+  "decoded_successfully": true,
+  "legacy_sha256": "2ce3c917f2884b74532a9d9ab32a8da7e00080ede896d214fc4c18883facec8c",
+  "version": "different-coin-faces",
+  "compared_frames": 2103,
+  "compared_scenes": [
+    {
+      "frames": 359,
+      "worst_frame": 229,
+      "mean_max": 1.731,
+      "tile_max": 2.927,
+      "caption_max": 1.753
+    },
+    {
+      "frames": 254,
+      "worst_frame": 612,
+      "mean_max": 1.795,
+      "tile_max": 3.707,
+      "caption_max": 1.713
+    },
+    {
+      "frames": 289,
+      "worst_frame": 613,
+      "mean_max": 1.761,
+      "tile_max": 3.7,
+      "caption_max": 1.747
+    },
+    {
+      "frames": 178,
+      "worst_frame": 915,
+      "mean_max": 1.744,
+      "tile_max": 3.722,
+      "caption_max": 1.66
+    },
+    {
+      "frames": 460,
+      "worst_frame": 1369,
+      "mean_max": 1.762,
+      "tile_max": 3.734,
+      "caption_max": 1.674
+    },
+    {
+      "frames": 563,
+      "worst_frame": 1859,
+      "mean_max": 1.815,
+      "tile_max": 4.019,
+      "caption_max": 1.784
+    }
+  ],
+  "audio_packet_sha256": "88a81257f82406b435967375b08652eca202cecd438646dd4a1f90c13f297361",
+  "art_source": "d10dd076fb57dc906fbe29d54c092d349faa543d"
 }
