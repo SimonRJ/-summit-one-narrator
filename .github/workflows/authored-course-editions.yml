@@ -1,0 +1,160 @@
+name: Narrate and publish authored course editions
+on:
+  push:
+    branches: ['production/voice/**', 'production/film/**']
+    paths: ['production/lesson-films/**', 'production/scripts/**', '.github/workflows/authored-course-editions.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  plan:
+    runs-on: ubuntu-24.04
+    outputs:
+      phase: ${{ steps.config.outputs.phase }}
+      voices: ${{ steps.config.outputs.voices }}
+      films: ${{ steps.config.outputs.films }}
+      recording_run: ${{ steps.config.outputs.recording_run }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: production
+      - id: config
+        run: python production/lesson-films/edition_matrix.py
+  record:
+    needs: plan
+    if: needs.plan.outputs.phase == 'voice'
+    strategy:
+      fail-fast: false
+      matrix:
+        include: ${{ fromJSON(needs.plan.outputs.voices) }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 80
+    env:
+      HF_HUB_DISABLE_XET: '1'
+      TOKENIZERS_PARALLELISM: 'false'
+      OMP_NUM_THREADS: '4'
+      MKL_NUM_THREADS: '4'
+      SLOT: ${{ matrix.slot }}
+      FIRST: ${{ matrix.first }}
+      LAST: ${{ matrix.last }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            production
+            data
+            media/voice-audition
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install the approved voice model
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg libsndfile1
+          pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install 'transformers>=4.45,<5' 'huggingface-hub<1' einops pydantic soundfile librosa safetensors tqdm numpy scipy inflect addict argbind
+          pip install --no-deps 'git+https://github.com/OpenBMB/VoxCPM.git@300e4260b509066151d623dc9c0aa922cf82232b'
+      - name: Record the individual scripts
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          scenes = range(int(os.environ['FIRST']), int(os.environ['LAST']) + 1)
+          Path('sequence.json').write_text(json.dumps([{'lesson':os.environ['SLOT'],'scene':n} for n in scenes]))
+          PY
+          python production/t01-studio/synth.py --sequence sequence.json --threads 4
+      - uses: actions/upload-artifact@v4
+        with:
+          name: voice-${{ matrix.slot }}-${{ matrix.first }}
+          path: build/t01-studio/${{ matrix.slot }}-*
+          if-no-files-found: error
+          retention-days: 30
+  await-recordings:
+    needs: plan
+    if: needs.plan.outputs.phase == 'film'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 125
+    steps:
+      - name: Verify this edition's recorded performances
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN: ${{ needs.plan.outputs.recording_run }}
+        run: |
+          for n in {1..235}; do
+            result=$(gh run view "$RUN" -R "$GITHUB_REPOSITORY" --json status,conclusion --jq '[.status,.conclusion] | join(" ")')
+            if [[ "$result" == 'completed success' ]]; then exit 0; fi
+            if [[ "$result" == completed* ]]; then echo "$result"; exit 1; fi
+            sleep 30
+          done
+          exit 1
+  render:
+    needs: [plan, await-recordings]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 65
+    strategy:
+      fail-fast: false
+      matrix:
+        include: ${{ fromJSON(needs.plan.outputs.films) }}
+    permissions:
+      contents: write
+      actions: read
+    env:
+      SLOT: ${{ matrix.slot }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            production
+            data
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: ${{ needs.plan.outputs.recording_run }}
+          pattern: voice-${{ matrix.slot }}-*
+          merge-multiple: true
+          path: build/t01-studio
+      - name: Render, decode and compare narration, captions and mathematical artwork
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-open-sans fonts-dejavu-core libsndfile1
+          pip install numpy==2.2.6 soundfile num2words faster-whisper pillow==11.3.0
+          python production/t01-studio/prepare_audio.py "$SLOT"
+          voice="build/t01-studio/$SLOT"
+          cp "production/scripts/$SLOT.json" "$voice/script.json"
+          ffmpeg -loglevel error -i "$voice/narration.wav" -c:a flac "$voice/narration.flac"
+          python production/lesson-films/render_recorded.py "$SLOT" "$voice"
+          python production/lesson-films/verify_recorded.py "$SLOT" "$voice"
+          mkdir release
+          cp media/lesson-films/"$SLOT"* release/
+          cp "production/lesson-films/$SLOT/guide.json" "release/$SLOT-guide.json"
+          cp "production/lesson-films/$SLOT/qa.json" "release/$SLOT-qa.json"
+          cp "$voice/captions.vtt" release/"$SLOT.vtt"
+      - name: Retain original performance and proof
+        uses: actions/upload-artifact@v4
+        with:
+          name: checked-edition-${{ matrix.slot }}
+          path: |
+            build/t01-studio/${{ matrix.slot }}/timeline.json
+            build/t01-studio/${{ matrix.slot }}/narration.flac
+            release/
+          retention-days: 30
+      - name: Publish the independently verified assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ matrix.tag }}
+          TITLE: ${{ matrix.title }}
+        run: |
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            if [[ "$(gh release view "$TAG" --json isDraft --jq .isDraft)" == false ]]; then exit 0; fi
+          else
+            gh release create "$TAG" --draft --target "$GITHUB_SHA" --title "$TITLE" --notes 'A newly narrated and illustrated mathematics investigation.'
+          fi
+          gh release upload "$TAG" release/* --clobber
+          gh release edit "$TAG" --draft=false --latest=false

@@ -1,0 +1,61 @@
+{
+  "id": "S166",
+  "title": "The loom remembers its steps",
+  "voice": "VoxCPM2 — approved Voice C",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "Two stripes survived",
+      "stage": "INTRO",
+      "narration": "A weaver is restoring a pattern in which each successive stripe gains the same number of stitches. The third stripe has fourteen stitches. The seventh stripe has twenty-six. Two surviving stripes are enough to reconstruct the rest. Where would you start?"
+    },
+    {
+      "n": 2,
+      "title": "Count movements between stripes",
+      "stage": "BASIC",
+      "narration": "Mark stripe three, four, five, six and seven. Those are five stripe numbers but only four jumps between them. The stitch count rises by twelve across those four jumps. Each jump adds three. Check each step from fourteen until you reach twenty-six."
+    },
+    {
+      "n": 3,
+      "title": "Rewind the loom",
+      "stage": "PUZZLE",
+      "narration": "The pattern book also needs the first stripe and the tenth. Start at stripe three with fourteen stitches. How many jumps take you back to stripe one? In which direction must the stitch count change? Find both missing widths before unfolding the cloth."
+    },
+    {
+      "n": 4,
+      "title": "Two back, three forward",
+      "stage": "REVEAL",
+      "narration": "Two jumps backwards remove six stitches, leaving eight on stripe one. From stripe seven to stripe ten there are three jumps forwards. Add nine stitches to twenty-six, giving thirty-five. These numbers satisfy the same step on both sides of the surviving sample."
+    },
+    {
+      "n": 5,
+      "title": "A pattern that narrows",
+      "stage": "TRANSFER",
+      "narration": "A second textile narrows. Stripe two has twenty-nine stitches, and stripe eight has eleven. The width changes by negative eighteen across six jumps. Each new stripe loses three stitches. Stripe six is four jumps after stripe two. Twenty-nine minus twelve leaves seventeen stitches there."
+    },
+    {
+      "n": 6,
+      "title": "Align the two shuttles",
+      "stage": "PUZZLE",
+      "narration": "Two looms begin a trial. On stripe one, the red loom makes ten stitches and the blue loom makes nineteen. Red gains five per stripe. Blue gains two. Can a later stripe have the same width on both looms? Track the gap between them."
+    },
+    {
+      "n": 7,
+      "title": "Watch the difference close",
+      "stage": "REVEAL",
+      "narration": "Blue starts nine stitches ahead. Every move to the next stripe closes the gap by three, because red gains five while blue gains two. Three moves close the nine-stitch gap. Three moves after stripe one means stripe four. Both looms make twenty-five stitches on that stripe."
+    },
+    {
+      "n": 8,
+      "title": "Can two widths pass without meeting?",
+      "stage": "CHALLENGE",
+      "narration": "Try a different pair. Red begins at ten stitches and gains four per stripe. Blue begins at seventeen and gains two. The initial gap is seven and it closes by two each move. After three moves blue still leads by one. After four moves red leads by one. No whole stripe has equal widths."
+    },
+    {
+      "n": 9,
+      "title": "What the two landmarks tell you",
+      "stage": "RECAP",
+      "narration": "The distance between stripe numbers counts jumps. The change in width divided by those jumps gives the step, including its sign. When comparing two patterns, their difference has its own step. Check that any predicted meeting falls on a whole stripe and satisfies both patterns."
+    }
+  ]
+}
