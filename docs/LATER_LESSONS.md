@@ -26,7 +26,7 @@ The continuation contains 912 new questions with hints and protected worked solu
 | S088 | Reserve a gap for neighbours | [S088](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S088-Intro-Illustrated.mp4) · Its own introduction | Cabin assignments | 6 |
 | S089 | Classify a cube by its position | [S089](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S089-Intro-Illustrated.mp4) · Its own introduction | The bottom stays clean | 6 |
 | S090 | Unfold the box in your head | [S090](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S090-Intro-Illustrated.mp4) · Its own introduction | A light open crate | 5 |
-| S092 | Put back the total behind the mean | [S092](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S092-Intro.mp4) · Its own introduction | Damaged logbook | 6 |
+| S092 | Put back the total behind the mean | [S092](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S092-Intro-Illustrated.mp4) · Its own introduction | Damaged logbook | 6 |
 | S093 | Add the ways into a point | [S093](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S093-Intro.mp4) · Its own introduction | Two loading bays | 5 |
 | S094 | Build a rectangle from four choices | [S094](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S094-Intro.mp4) · Its own introduction | Add a vertical line | 6 |
 | S095 | Use both clues at once | [S095](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S095-Intro.mp4) · Its own introduction | The changed lead | 6 |
@@ -172,7 +172,7 @@ The continuation contains 912 new questions with hints and protected worked solu
 | S278 | A mirror doubles some digit contributions | [S008](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S008-Intro-Illustrated.mp4) · Technique film | Two possible centres | 6 |
 | S279 | Count departures and arrivals separately | [S030](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S030-Intro-Illustrated.mp4) · Technique film | Count passengers ashore | 5 |
 | S281 | Follow halved angles | [S131](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S131-Intro-Illustrated.mp4) · Technique film | Two bisectors inside a courtyard | 6 |
-| S282 | Compare totals over overlapping windows | [S092](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S092-Intro.mp4) · Technique film | Recovered finish | 4 |
+| S282 | Compare totals over overlapping windows | [S092](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S092-Intro-Illustrated.mp4) · Technique film | Recovered finish | 4 |
 | S283 | Index one full cycle | [S020](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S020-Intro-Illustrated.mp4) · Technique film | The lamp changes hourly | 6 |
 | S284 | Scale before subtracting | [S041](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S041-Intro-Illustrated.mp4) · Technique film | Weight of a pair | 5 |
 | S285 | Recover a missing group size | [S065](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S065-Intro-Illustrated.mp4) · Technique film | The seven-stop routes | 6 |
