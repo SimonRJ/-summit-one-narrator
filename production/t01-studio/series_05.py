@@ -100,8 +100,8 @@ def case_counts(stage, s):
         fit(stage, title, x, 215, 30, 230, MUTED)
     rows = (
         (("0", "last digit is zero"), ("4", "four choices"), ("3", "middle has three"), ("12", "twelve numbers")),
-        (("2", "last digit is two or four"), ("3", "leaving three choices"), ("3", "and the middle has three"), ("9", "two times three times three")),
-        (("4", "last digit is two or four"), ("3", "leaving three choices"), ("3", "and the middle has three"), ("9", "two times three times three")),
+        (("2", "last digit is two or four"), ("3", "leaving three choices"), ("3", "three that is two times"), ("9", "two times three times three")),
+        (("4", "last digit is two or four"), ("3", "leaving three choices"), ("3", "three that is two times"), ("9", "two times three times three")),
     )
     for row, entries in enumerate(rows):
         for x, (label, words) in zip(xs, entries):
