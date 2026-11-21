@@ -1,0 +1,112 @@
+name: Draw and verify The carry counter and The reversal line
+on:
+  push:
+    branches: [production/carry-and-reversal]
+    paths: ['production/lesson-films/carry_counter.py', 'production/lesson-films/reversal_line.py', '.github/workflows/carry-reversal-films.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: carry-reversal-films
+  cancel-in-progress: false
+jobs:
+  draw:
+    strategy:
+      fail-fast: false
+      matrix:
+        film: [S009, S010]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 140
+    env:
+      GH_TOKEN: ${{ github.token }}
+      FILM: ${{ matrix.film }}
+      VOICE_RUN: '44942982195'
+      VOICE_SHA: 'aa0bb189315159a540081649d0f45d417e02a326'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            production
+            data
+            tools/content
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compare the two scripts and their supporting mathematics
+        run: |
+          python - <<'PYTHON'
+          import json, sys, tempfile
+          from pathlib import Path
+          sys.path.insert(0,'tools/content')
+          from check_shared_film_sections import overlaps
+          scripts=[json.loads(Path('production/scripts',f'S{i:03}.json').read_text()) for i in (9,10)]
+          assert not overlaps([dict(id=s['id'],transcript=[x['narration'] for x in s['scenes']]) for s in scripts])
+          PYTHON
+      - name: Install the drawing, encoding and speech alignment tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-open-sans fonts-dejavu-core libsndfile1
+          pip install numpy==2.2.6 soundfile num2words faster-whisper pillow==11.3.0
+      - name: Recover the six performances for this film
+        run: |
+          set -eu
+          test "$(gh run view "$VOICE_RUN" --json headSha --jq .headSha)" = "$VOICE_SHA"
+          gh run watch "$VOICE_RUN" --interval 45 --exit-status
+          gh run download "$VOICE_RUN" --pattern "$FILM-fresh-voice-*" --dir build/performances
+          test "$(find build/performances -name "$FILM-*.wav" | wc -l)" = 6
+          mkdir -p build/t01-studio
+          find build/performances -type f \( -name '*.wav' -o -name '*.json' \) -exec cp -t build/t01-studio {} +
+      - name: Align the speech and render its own illustrated lesson
+        run: |
+          set -eu
+          python production/t01-studio/prepare_audio.py "$FILM"
+          voice="build/t01-studio/$FILM"
+          cp "production/scripts/$FILM.json" "$voice/script.json"
+          ffmpeg -loglevel error -i "$voice/narration.wav" -c:a flac "$voice/narration.flac"
+          python production/lesson-films/render_recorded.py "$FILM" "$voice"
+          python production/lesson-films/verify_recorded.py "$FILM" "$voice"
+          mkdir release
+          cp "media/lesson-films/$FILM.mp4" "media/lesson-films/$FILM-poster.jpg" release/
+          cp "production/lesson-films/$FILM/guide.json" "release/$FILM-guide.json"
+          cp "production/lesson-films/$FILM/qa.json" "release/$FILM-qa.json"
+          cp "$voice/captions.vtt" "release/$FILM.vtt"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: verified-${{ matrix.film }}-new-edition
+          path: release/
+          if-no-files-found: error
+          retention-days: 30
+  publish:
+    needs: draw
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: verified-S0*-new-edition
+          merge-multiple: true
+          path: verified/
+      - name: Publish the verified two-film edition
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          tag=carry-and-reversal-20261122
+          if ! gh release view "$tag" >/dev/null 2>&1; then
+            gh release create "$tag" --draft --target "$GITHUB_SHA" --title 'The carry counter and The reversal line' --notes 'Two individually illustrated investigations with verified speech, captions and chapter guides.'
+          fi
+          if [[ "$(gh release view "$tag" --json isDraft --jq .isDraft)" == true ]]; then
+            gh release upload "$tag" verified/* --clobber
+          fi
+          mkdir received
+          gh release download "$tag" --dir received
+          for file in verified/*; do cmp "$file" "received/${file##*/}"; done
+          if [[ "$(gh release view "$tag" --json isDraft --jq .isDraft)" == true ]]; then
+            gh release edit "$tag" --draft=false --latest=false
+          fi
