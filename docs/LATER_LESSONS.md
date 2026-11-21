@@ -12,7 +12,7 @@ The continuation contains 912 new questions with hints and protected worked solu
 | S071 | Start with the clue that fixes a place | [S071](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S071-Intro-Illustrated.mp4) · Its own introduction | Place the end pieces | 4 |
 | S072 | Read one floor at a time | [S072](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S072-Intro-Illustrated.mp4) · Its own introduction | Match two silhouettes | 6 |
 | S073 | Use the line total | [S073](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S073-Intro-Illustrated.mp4) · Its own introduction | The centre of the grid | 6 |
-| S074 | Explain why a list is complete | [S074](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S074-Intro.mp4) · Its own introduction | A parity condition on pairs | 5 |
+| S074 | Explain why a list is complete | [S074](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S074-Intro-Illustrated.mp4) · Its own introduction | A parity condition on pairs | 5 |
 | S075 | Grow the whole recipe | [S075](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S075-Intro.mp4) · Its own introduction | Matching a second batch | 6 |
 | S076 | Trace the cut edge | [S076](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S076-Intro.mp4) · Its own introduction | Recover the joins | 6 |
 | S078 | Use an easier outline | [S078](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S078-Intro-Illustrated-v2.mp4) · Its own introduction | The kerb cuts a corner | 6 |
@@ -78,7 +78,7 @@ The continuation contains 912 new questions with hints and protected worked solu
 | S155 | Build a mirror from its free half | [S055](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S055-Intro-Illustrated.mp4) · Technique film | A missing digit sum | 6 |
 | S156 | Count time between events | [S030](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S030-Intro-Illustrated.mp4) · Technique film | A row of lamps | 6 |
 | S157 | Work back one move | [S052](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S052-Intro-Illustrated.mp4) · Technique film | The password strip | 5 |
-| S158 | Find a bound before testing | [S074](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S074-Intro.mp4) · Technique film | Check every triangle | 5 |
+| S158 | Find a bound before testing | [S074](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S074-Intro-Illustrated.mp4) · Technique film | Check every triangle | 5 |
 | S159 | A bound needs a placement | [S127](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S127-Intro.mp4) · Technique film | Do not cross the seam | 6 |
 | S162 | Count the ends, then the links | [S065](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S065-Intro-Illustrated.mp4) · Technique film | The sign-up board | 6 |
 | S163 | Change between a plan and its layers | [S087](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S087-Intro.mp4) · Technique film | Solid staircase | 5 |
@@ -147,7 +147,7 @@ The continuation contains 912 new questions with hints and protected worked solu
 | S246 | Locate a palindrome by its prefix | [S055](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S055-Intro-Illustrated.mp4) · Technique film | A different distance at the turn | 6 |
 | S247 | Read an operating cycle | [S030](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S030-Intro-Illustrated.mp4) · Technique film | Which signal first? | 6 |
 | S248 | Remember how a route ended | [S012](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S012-Intro-Illustrated.mp4) · Technique film | Beacon strings | 6 |
-| S249 | Make each case stand for one outcome | [S074](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S074-Intro.mp4) · Technique film | Choose the archive shelves | 6 |
+| S249 | Make each case stand for one outcome | [S074](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S074-Intro-Illustrated.mp4) · Technique film | Choose the archive shelves | 6 |
 | S250 | Distinguish crossing a seam from touching it | [S036](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S036-Intro-Illustrated.mp4) · Technique film | Only one join may disappear | 6 |
 | S251 | Find the first positive shared return | [S013](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S013-Intro-Illustrated.mp4) · Technique film | Shifted calendar | 5 |
 | S253 | Count a shared boundary | [S065](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S065-Intro-Illustrated.mp4) · Technique film | Tiled ring | 4 |

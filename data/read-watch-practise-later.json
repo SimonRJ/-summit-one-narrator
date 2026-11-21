@@ -211,7 +211,7 @@
       "slot": 74,
       "headline": "Explain why a list is complete",
       "intro": "Finding one solution and showing that it is the only solution are different tasks. Choose a bounded feature, list its possible values in order and show which pass.",
-      "bridge": "In the rectangle puzzle, follow the list of factor pairs and notice where the speaker can stop without overlooking another solution.",
+      "bridge": "Watch the rectangle grow from 8 by 14 to 9 by 15. What proves that every other positive integer width misses the target area?",
       "recap": "Name the first and last cases and the step between them, so another solver can see what the list covers.",
       "example": {
         "prompt": "How many positive-integer pairs x ≤ y have xy = 6?",
@@ -223,7 +223,7 @@
       "skill": "LOGIC-04",
       "videoId": "S074",
       "videoTitle": "Proving all cases and unique solutions",
-      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S074-Intro.mp4",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S074-Intro-Illustrated.mp4",
       "filmUse": "dedicated",
       "retained": [
         "O074X"
@@ -3721,7 +3721,7 @@
       "slot": 158,
       "headline": "Find a bound before testing",
       "intro": "A bound cuts down the search and makes a completeness argument possible. For a factor pair, only the smaller factor needs to be tested up to the square root.",
-      "bridge": "Listen for the reason the rectangle’s factor search is complete. A bound on the smaller side can replace many unproductive trials.",
+      "bridge": "As the shorter side increases by one, watch what happens to the longer side and the area. Why can the target be reached only once?",
       "recap": "Prove your stopping point first and distinguish a valid example from a unique solution.",
       "example": {
         "prompt": "A rectangle has area 20 and integer sides. Can the shorter side exceed 4?",
@@ -3733,7 +3733,7 @@
       "skill": "LOGIC-04",
       "videoId": "S074",
       "videoTitle": "Proving all cases and unique solutions",
-      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S074-Intro.mp4",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S074-Intro-Illustrated.mp4",
       "filmUse": "technique",
       "retained": [
         "O158T"
@@ -7354,7 +7354,7 @@
       "slot": 249,
       "headline": "Make each case stand for one outcome",
       "intro": "If a problem asks about unordered pairs or shapes, swapping their labels may leave the same outcome. Choose a fixed convention before counting.",
-      "bridge": "Follow the film’s rectangle search with the smaller side listed first. Notice how that convention keeps the same rectangle from appearing twice.",
+      "bridge": "In the rectangle example, the shorter side determines its partner. In the pair puzzle, look for how naming the smaller number avoids listing a pair twice.",
       "recap": "Give each possibility one representative, prove that you considered them all and check the original conditions.",
       "example": {
         "prompt": "Two positive numbers add to 7. Counting reversed pairs once, how many pairs are there?",
@@ -7366,7 +7366,7 @@
       "skill": "LOGIC-04",
       "videoId": "S074",
       "videoTitle": "Proving all cases and unique solutions",
-      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S074-Intro.mp4",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S074-Intro-Illustrated.mp4",
       "filmUse": "technique",
       "retained": [
         "O249T",
