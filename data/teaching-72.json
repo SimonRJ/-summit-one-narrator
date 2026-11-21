@@ -363,7 +363,7 @@
       "chapter": "Make every digit obey both its jobs",
       "transcript": "The digit four in forty-two is worth forty, because of where it stands. Swap the digits and the same four is worth only four. A digit's position multiplies its value, and writing that down turns digit puzzles into simple algebra. Digit puzzles look like guessing games. But if you write a two-digit number as ten times its first digit plus its second, most of the guessing disappears. A two-digit number is reversed, and the new number is twenty-seven bigger. What can you say about its digits? Pause and write both numbers using place value. Call the tens digit A and the units digit B. The number is ten A plus B. The reverse is ten B plus A. Subtract. The difference is nine B minus nine A, which is nine times the gap between the digits. Twenty-seven is nine times three. So the units digit is three more than the tens digit. That gives fourteen, twenty-five, thirty-six, forty-seven, fifty-eight and sixty-nine. Check one: fifty-two minus twenty-five is twenty-seven. Adding a number to its reverse gives eleven A plus eleven B: eleven times the digit sum. Forty-seven plus seventy-four is one hundred and twenty-one, which is eleven times eleven. Remember that a digit is not just any number. The first digit runs from one to nine, and the others from zero to nine. Those limits often finish a puzzle. Write numbers using place value. Reversing and subtracting gives a multiple of nine. Reversing and adding gives a multiple of eleven. Notebook challenge: a two-digit number is four times the sum of its digits. Find all such numbers.",
       "audio_url": "",
-      "video_url": "media/T11.1.mp4?v=teaching-films-v1"
+      "video_url": "media/T11.1.mp4?v=digit-reverse-gap"
     },
     {
       "id": "T11.2",
@@ -372,7 +372,7 @@
       "chapter": "Make every digit obey both its jobs",
       "transcript": "Ten is one more than nine. A hundred is one more than ninety-nine. A thousand is one more than nine hundred and ninety-nine. Every place value is one more than a multiple of nine. That is why digit sums work. This gives a test for multiples of nine, and of three, that takes seconds, even for enormous numbers. It also survives when digits are rearranged. Is four thousand seven hundred and twenty-five a multiple of nine? Pause and add its digits. Each thousand leaves one over after removing nines. So four thousands leave four. Seven hundreds leave seven. Two tens leave two. The five units stay. What is left over is exactly the digit sum. Four plus seven plus two plus five is eighteen. Eighteen is a multiple of nine, so the number is too. In general, a number and its digit sum leave the same remainder when divided by nine. The digit sum lets us find the remainder, too. Five hundred and eighty-three has digit sum sixteen. Remove as many complete groups of nine from sixteen as you can. Sixteen is seven more than nine. So five hundred and eighty-three leaves remainder seven when divided by nine. Rearranging digits does not change their sum. So every arrangement of the digits one, two and six is a multiple of nine. And since nine is a multiple of three, the same digit-sum test works for three. It solves missing digits too. Five, blank, eight is a multiple of nine. The known digits add to thirteen, so the blank must be five, making eighteen. A number and its digit sum have the same remainder on division by nine, and on division by three. Notebook challenge: what digit makes seven, three, blank, four a multiple of nine?",
       "audio_url": "",
-      "video_url": "media/T11.2.mp4?v=teaching-films-v1"
+      "video_url": "media/T11.2.mp4?v=six-digit-orders"
     },
     {
       "id": "T11.3",
@@ -381,7 +381,7 @@
       "chapter": "Make every digit obey both its jobs",
       "transcript": "\"How many numbers contain a two?\" and \"How many twos are written?\" are different questions. Twenty-two is one number, but it contains two twos. Decide which you are counting, then count one place at a time. Counting straight through a long list is slow and error-prone. Counting each place separately is quick, and repeated digits take care of themselves. All the whole numbers from one to one hundred are written out. How many times is the digit seven written? Pause and think about the units place first. In the units place, seven appears once in every ten numbers: seven, seventeen, twenty-seven, up to ninety-seven. That is ten times. In the tens place, seven appears in seventy to seventy-nine: ten times. Altogether the digit seven is written twenty times. Seventy-seven was counted once in each place, which is correct, because it has two sevens. Now the other question: how many numbers contain a seven? The column has ten numbers and the row has ten, but seventy-seven is in both. Ten plus ten minus one is nineteen. A related skill is counting all the digits. Numbering pages one to ninety-nine uses nine digits for the single-digit pages, and two digits each for the ninety pages from ten to ninety-nine. That is nine plus one hundred and eighty: one hundred and eighty-nine digits. Decide whether you are counting numbers or occurrences. Count each place separately. For numbers, remove any overlap. Notebook challenge: how many times is the digit three written in the numbers from one to fifty?",
       "audio_url": "",
-      "video_url": "media/T11.3.mp4?v=teaching-films-v1"
+      "video_url": "media/T11.3.mp4?v=written-threes"
     },
     {
       "id": "T11.E",
@@ -390,7 +390,7 @@
       "chapter": "Make every digit obey both its jobs",
       "transcript": "Add fifty-eight and sixty-seven, and explain what each carry really means. In the units column, eight plus seven is fifteen units. Ten of those units make one ten. Carry that ten to the next column, and five units remain. In the tens column there are five tens, six tens, and the carried ten: twelve tens. Ten of those tens make one hundred. Carry it, and two tens remain. The answer is one hundred, two tens and five units: one hundred and twenty-five. Neither starting number has a hundreds digit. The hundreds digit in the answer exists only because of the second carry. Check two ways. Roughly, sixty plus seventy is one hundred and thirty, which is close. Exactly, fifty plus sixty is one hundred and ten, eight plus seven is fifteen, and together they make one hundred and twenty-five. A carry is ten of one place traded for one of the next place. Rebuild this explanation, then add seventy-six and eighty-nine, saying what each carry means.",
       "audio_url": "",
-      "video_url": "media/T11.E.mp4?v=teaching-films-v1"
+      "video_url": "media/T11.E.mp4?v=two-column-trades"
     },
     {
       "id": "T12.1",
