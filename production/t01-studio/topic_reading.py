@@ -89,7 +89,7 @@ CHAPTERS = {
         5: "Show that every valid multiplier is a multiple of ten", 6: "Find the least multiplier for 60",
     },
     "T05.1": {
-        1: "Swap two runners on a podium and on a team", 2: "Check what a swap changes",
+        1: "Swap two runners on a podium and on a team", 2: "Match two finish tickets to one team",
         3: "Compare both selections from Ava, Ben and Cal", 4: "Assign first place and second place",
         5: "Merge two orders that pick the same team", 6: "Count the six orders of each group of three",
         7: "Assign captain, scorer and timekeeper", 8: "Choose captains or equipment carriers",

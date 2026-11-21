@@ -24,7 +24,7 @@ Scripts ready: 0 of 72. Published for review: 70. Approved videos: 2. Not yet sc
 | T04.2 | Count divisors by making independent choices | concept | published for review | 310 words, about 2.1 min | [T04.2.json](T04.2.json) |
 | T04.3 | Track prime copies through several conditions | concept | published for review | 335 words, about 2.2 min | [T04.3.json](T04.3.json) |
 | T04.E | Use prime factors as the building blocks | worked_example | published for review | 261 words, about 1.7 min | [T04.E.json](T04.E.json) |
-| T05.1 | Decide whether order belongs to the outcome | concept | published for review | 299 words, about 2.0 min | [T05.1.json](T05.1.json) |
+| T05.1 | Decide whether order belongs to the outcome | concept | published for review | 269 words, about 1.8 min | [T05.1.json](T05.1.json) |
 | T05.2 | Split by the restriction that changes the choices | concept | published for review | 276 words, about 1.8 min | [T05.2.json](T05.2.json) |
 | T05.3 | Prove that the classification is reversible | concept | published for review | 319 words, about 2.1 min | [T05.3.json](T05.3.json) |
 | T05.E | Count outcomes once, using complete cases | worked_example | published for review | 167 words, about 1.1 min | [T05.E.json](T05.E.json) |

@@ -26,7 +26,7 @@ REVISED_MEDIA = {
     "T04.2": "divisor-choices-200",
     "T04.3": "prime-rows-20-30",
     "T04.E": "square-900",
-    "T05.1": "podium-and-teams",
+    "T05.1": "finish-tickets",
     "T05.2": "digit-case-branches",
     "T05.3": "recover-seat-gaps",
     "T05.E": "lunch-and-outfit-grids",

@@ -1,7 +1,7 @@
 {
   "id": "T05.1",
   "duration_seconds": 117.733333,
-  "sha256": "1c0ca597aa6f9f5821b3c9b2bba42799749b28af36be5de3fab26d05806b62d6",
+  "sha256": "71e513a64aaf66600ce13d91b31ce3cf9e5d6d5df7cd7feb6e1266669f3d76d6",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -11,145 +11,87 @@
   "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
   "narration_speed_changed": false,
   "caption_layers": 1,
-  "match_percent": 99.65,
+  "match_percent": 100,
   "scenes": [
     {
       "number": 1,
       "start": 0.0,
-      "match_percent": 100.0
+      "match_percent": 100
     },
     {
       "number": 2,
       "start": 16.28,
-      "match_percent": 100.0
+      "match_percent": 100
     },
     {
       "number": 3,
       "start": 27.0,
-      "match_percent": 97.22
+      "match_percent": 100
     },
     {
       "number": 4,
       "start": 41.85,
-      "match_percent": 100.0
+      "match_percent": 100
     },
     {
       "number": 5,
       "start": 50.98,
-      "match_percent": 100.0
+      "match_percent": 100
     },
     {
       "number": 6,
       "start": 64.1,
-      "match_percent": 100.0
+      "match_percent": 100
     },
     {
       "number": 7,
       "start": 83.77,
-      "match_percent": 100.0
+      "match_percent": 100
     },
     {
       "number": 8,
       "start": 94.82,
-      "match_percent": 100.0
+      "match_percent": 100
     }
   ],
   "chapters": [
     {
-      "title": "Does order matter?",
+      "title": "Swap two runners on a podium and on a team",
       "start": 0.0
     },
     {
-      "title": "The wording decides whether to count a swap",
+      "title": "Match two finish tickets to one team",
       "start": 16.28
     },
     {
-      "title": "Three runners, two different counts",
+      "title": "Compare both selections from Ava, Ben and Cal",
       "start": 27.0
     },
     {
-      "title": "Choose first place, then second",
+      "title": "Assign first place and second place",
       "start": 41.85
     },
     {
-      "title": "Pair the orders that name the same team",
+      "title": "Merge two orders that pick the same team",
       "start": 50.98
     },
     {
-      "title": "Choose three of five people",
+      "title": "Count the six orders of each group of three",
       "start": 64.1
     },
     {
-      "title": "Different jobs make order matter",
+      "title": "Assign captain, scorer and timekeeper",
       "start": 83.77
     },
     {
-      "title": "Your turn",
+      "title": "Choose captains or equipment carriers",
       "start": 94.82
     }
   ],
   "decoded_successfully": true,
-  "legacy_sha256": "8b15e5c4f401a1ebce6a8c9310e7c92b4805745f1b9c76953b3cccac0fba77c8",
-  "version": "podium-and-teams",
-  "compared_frames": 3532,
-  "compared_scenes": [
-    {
-      "frames": 489,
-      "worst_frame": 332,
-      "mean_max": 1.738,
-      "tile_max": 3.418,
-      "caption_max": 1.686
-    },
-    {
-      "frames": 321,
-      "worst_frame": 739,
-      "mean_max": 1.778,
-      "tile_max": 2.738,
-      "caption_max": 1.768
-    },
-    {
-      "frames": 446,
-      "worst_frame": 942,
-      "mean_max": 1.848,
-      "tile_max": 3.759,
-      "caption_max": 1.73
-    },
-    {
-      "frames": 274,
-      "worst_frame": 1482,
-      "mean_max": 1.774,
-      "tile_max": 3.078,
-      "caption_max": 1.706
-    },
-    {
-      "frames": 393,
-      "worst_frame": 1688,
-      "mean_max": 1.749,
-      "tile_max": 4.208,
-      "caption_max": 1.764
-    },
-    {
-      "frames": 591,
-      "worst_frame": 2341,
-      "mean_max": 1.77,
-      "tile_max": 3.241,
-      "caption_max": 1.773
-    },
-    {
-      "frames": 331,
-      "worst_frame": 2796,
-      "mean_max": 1.754,
-      "tile_max": 3.189,
-      "caption_max": 1.697
-    },
-    {
-      "frames": 687,
-      "worst_frame": 3239,
-      "mean_max": 1.814,
-      "tile_max": 4.385,
-      "caption_max": 1.75
-    }
-  ],
-  "audio_packet_sha256": "ad94c98f73426fada8a9ecd7b576bbe87905e59cf560e68aa47b24e2a7f8f272",
-  "art_source": "2a44be33537b16e65fe99d4c72989a3e1b4db5f4"
+  "version": "finish-tickets",
+  "source_sha256": "1c0ca597aa6f9f5821b3c9b2bba42799749b28af36be5de3fab26d05806b62d6",
+  "diagram_source": "production/lesson-films/finish_tickets.py",
+  "frames": 3532,
+  "spoken_edit": "Two intact utterances moved from scenes 5 and 6 into scene 2. The original scene 2 is removed. All other source voice passages retain their original speed and time."
 }

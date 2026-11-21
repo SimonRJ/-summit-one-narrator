@@ -6,8 +6,8 @@
  "status": "published_for_review",
  "voice": "Voice C (VoxCPM2), natural speed (see docs/VIDEO_PRODUCTION.md)",
  "goal": "Decide whether swapping two chosen objects makes a new outcome.",
- "narration_words": 299,
- "estimated_minutes": 2.0,
+ "narration_words": 269,
+ "estimated_minutes": 1.8,
  "scenes": [
   {
    "n": 1,
@@ -18,8 +18,8 @@
   {
    "n": 2,
    "stage": "WHY",
-   "visual": "Two ordered outcomes AB and BA link to the same team of A and B.",
-   "narration": "Getting this wrong doubles your answer, or halves it. It is one of the most common counting mistakes, and the cure is to decide about order before you start multiplying."
+   "visual": "Two finish tickets show Ava then Ben and Ben then Ava. Both fit the same two-person roster. For three runners, six orderings surround one team.",
+   "narration": "We divide by two because each team was counted in two orders. The number you divide by is the number of ways to arrange the chosen objects."
   },
   {
    "n": 3,
@@ -36,14 +36,14 @@
   {
    "n": 5,
    "stage": "DEVELOP",
-   "visual": "The six ordered pairs slide together in twos: AB with BA, AC with CA, BC with CB. Three merged tiles remain.",
-   "narration": "For a team, Ava then Ben is the same team as Ben then Ava. The six ordered results merge in pairs, leaving three teams. We divide by two because each team was counted in two orders."
+   "visual": "Watch all six finishes arrive in three team envelopes. Pause to read one pair of tickets in reverse.",
+   "narration": "For a team, Ava then Ben is the same team as Ben then Ava. The six ordered results merge in pairs, leaving three teams."
   },
   {
    "n": 6,
    "stage": "VARIATION",
-   "visual": "Five counters. A row of three places gives 5, 4, 3. Then groups of six orderings collapse into one tile each; ten tiles remain.",
-   "narration": "Now choose three people from five. In order, that is five times four times three, which is sixty. As an unordered group, each set of three people can be arranged in six orders, so sixty divided by six gives ten groups. The number you divide by is the number of ways to arrange the chosen objects."
+   "visual": "Collect the six ways to order A, B and C. Match the 60 finishes to ten different three-person rosters.",
+   "narration": "Now choose three people from five. In order, that is five times four times three, which is sixty. As an unordered group, each set of three people can be arranged in six orders, so sixty divided by six gives ten groups."
   },
   {
    "n": 7,
