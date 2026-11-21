@@ -1,0 +1,79 @@
+name: Render and verify seven original maths studies
+on:
+  push:
+    branches: [production/recorded-course-studies]
+    paths: ['production/lesson-films/**', '.github/workflows/recorded-course-studies.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: recorded-course-studies
+  cancel-in-progress: false
+jobs:
+  render:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 55
+    strategy:
+      fail-fast: false
+      matrix:
+        lesson: [S137, S138, S141, S149, S150, S152, S155]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-open-sans fonts-dejavu-core
+          python -m pip install 'pillow==11.3.0' 'numpy==2.2.6'
+      - name: Draw, record and check the maths and narration
+        env:
+          LESSON: ${{ matrix.lesson }}
+        run: python production/lesson-films/release_studies.py "$LESSON" "$RUNNER_TEMP/output"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: course-study-${{ matrix.lesson }}
+          path: ${{ runner.temp }}/output/
+          if-no-files-found: error
+  publish:
+    needs: render
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: course-study-*
+          merge-multiple: true
+          path: verified
+      - name: Publish the complete checked edition
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          tag=recorded-course-studies-20261121
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          files = Path('verified')
+          for lesson in ('S137','S138','S141','S149','S150','S152','S155'):
+              film = files / (lesson+'.mp4')
+              guide = json.loads((files/(lesson+'-guide.json')).read_text())
+              qa = json.loads((files/(lesson+'-qa.json')).read_text())
+              with film.open('rb') as handle:
+                  digest = hashlib.file_digest(handle,'sha256').hexdigest()
+              assert digest == qa['sha256'] == guide['sha256']
+              assert len(guide['chapters']) >= 6
+              assert all((files/(lesson+suffix)).stat().st_size > 0 for suffix in ('.vtt','-poster.jpg'))
+          PY
+          if gh release view "$tag" >/dev/null 2>&1; then
+            if [[ "$(gh release view "$tag" --json isDraft --jq .isDraft)" == false ]]; then
+              echo "This edition has already been published."
+              exit 0
+            fi
+          else
+            gh release create "$tag" --draft --target "$GITHUB_SHA" --title 'Seven original maths studies' --notes 'Seven narrated and captioned lessons with their word-aligned diagrams and mathematical checks.'
+          fi
+          gh release upload "$tag" verified/* --clobber
+          gh release edit "$tag" --draft=false --latest=false
