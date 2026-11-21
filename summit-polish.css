@@ -315,3 +315,14 @@ body:not(.exam-mode) :is(.primary,.secondary,.ghost,.menu-trigger):active{transf
 @media(prefers-reduced-motion:reduce){
  body:not(.exam-mode) :is(.primary,.secondary,.ghost,.menu-trigger,.exam-hub-card){transition:none!important;transform:none!important}
 }
+
+/* Study controls around embedded films and mathematical models. */
+body:not(.exam-mode) :is(.lesson-model,.narrated-player,.opening-fallback){
+  color:var(--s-ink);background:var(--s-paper);border-color:var(--s-line);
+}
+body:not(.exam-mode) :is(.lesson-model summary,.opening-fallback summary){color:var(--s-brand)}
+body:not(.exam-mode) :is(.lesson-replay-note,.lm-controls label,.lm-result,.lm-verdict){color:var(--s-muted)}
+body:not(.exam-mode) .lm-controls b{color:var(--s-brand)}
+body:not(.exam-mode) :is(.lm-controls select,.lm-claims select,.lm-claims button){
+  color-scheme:light;color:var(--s-ink);background:var(--s-paper);border-color:var(--s-line);
+}

@@ -85,6 +85,13 @@ try{
   }
   assert(await samples.first().evaluate(el=>el.paused));
   assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
+  const filmTab=await context.newPage();
+  for(const filmPage of ['watch-t05-1.html','watch-t02-1.html','watch-lesson-intro.html?slot=1','watch-amc-2025-q17.html']){
+    await filmTab.goto('http://127.0.0.1:4181/'+filmPage,{waitUntil:'domcontentloaded'});
+    await filmTab.waitForFunction(()=>getComputedStyle(document.body).colorScheme==='light');
+    assert.equal(await filmTab.locator('body').evaluate(el=>getComputedStyle(el).backgroundColor),'rgb(246, 247, 244)',filmPage);
+  }
+  await filmTab.close();
   assert.deepEqual(errors,[]);await context.close();
  }
  console.log('PASS: desktop/mobile welcome, no autoplay/download, real video decode/play/pause/replay, new login, existing session, exam return, optional skip, error fallback, no overflow or learner data writes.');
