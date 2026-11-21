@@ -53,7 +53,15 @@ jobs:
         run: |
           set -eu
           test "$(gh run view "$VOICE_RUN" --json headSha --jq .headSha)" = "$VOICE_SHA"
-          gh run watch "$VOICE_RUN" --interval 45 --exit-status
+          # A slow scene in the other film does not hold up this one.
+          for attempt in $(seq 1 75); do
+            count=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$VOICE_RUN/artifacts?per_page=100" \
+              --jq "[.artifacts[] | select(.expired == false) | .name | select(test(\"^${FILM}-fresh-voice-[1-6]$\"))] | unique | length")
+            if [[ "$count" == 6 ]]; then break; fi
+            if [[ "$(gh run view "$VOICE_RUN" --json status --jq .status)" == completed ]]; then break; fi
+            sleep 45
+          done
+          test "$count" = 6
           gh run download "$VOICE_RUN" --pattern "$FILM-fresh-voice-*" --dir build/performances
           test "$(find build/performances -name "$FILM-*.wav" | wc -l)" = 6
           mkdir -p build/t01-studio
