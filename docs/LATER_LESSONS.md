@@ -18,7 +18,7 @@ The continuation contains 912 new questions with hints and protected worked solu
 | S078 | Use an easier outline | [S078](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S078-Intro-Illustrated-v2.mp4) · Its own introduction | The kerb cuts a corner | 6 |
 | S079 | Give each outcome an address | [S079](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S079-Intro-Illustrated.mp4) · Its own introduction | Parcel route | 6 |
 | S081 | Which angles fill the line? | [S081](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S081-Intro-Illustrated.mp4) · Its own introduction | The inside bisectors | 6 |
-| S082 | A cell is bounded by lines | [S082](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S082-Intro.mp4) · Its own introduction | One marker inside | 6 |
+| S082 | A cell is bounded by lines | [S082](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S082-Intro-Illustrated.mp4) · Its own introduction | One marker inside | 6 |
 | S083 | Find the partners in a mirror | [S083](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S083-Intro-Illustrated.mp4) · Its own introduction | Two fold lines | 6 |
 | S085 | Keep the constraint on the page | [S085](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S085-Intro.mp4) · Its own introduction | Space for a sign | 5 |
 | S086 | Add the work finished in one minute | [S086](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S086-Intro.mp4) · Its own introduction | A secret speed | 6 |
@@ -161,7 +161,7 @@ The continuation contains 912 new questions with hints and protected worked solu
 | S263 | Apply transformations in order | [S083](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S083-Intro-Illustrated.mp4) · Technique film | Recover the starting pin | 6 |
 | S265 | Compare shares of different wholes | [S142](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S142-Intro-Illustrated.mp4) · Technique film | Ribbons after cutting | 5 |
 | S267 | Carry a symbol’s value between lines | [S117](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S117-Intro.mp4) · Technique film | Repair the recorder | 6 |
-| S268 | Choose the unwanted frames carefully | [S082](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S082-Intro.mp4) · Technique film | Machining around two faults | 6 |
+| S268 | Choose the unwanted frames carefully | [S082](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S082-Intro-Illustrated.mp4) · Technique film | Machining around two faults | 6 |
 | S269 | Choose prime copies to build a divisor | [S011](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S011-Intro-Illustrated.mp4) · Technique film | Square choices | 5 |
 | S270 | Compare travel plans against a deadline | [S034](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S034-Intro-Illustrated.mp4) · Technique film | The amended schedule | 6 |
 | S271 | Make a list that reveals collisions | [S057](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S057-Intro-Illustrated.mp4) · Technique film | Mixing paints | 5 |
