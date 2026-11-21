@@ -61,6 +61,26 @@ async def check_lessons(browser, base, device):
         await check_viewer(page, 'Enlarge diagram', 'img', bool(device))
         await expect(image).to_have_attribute('alt', alt)
         assert await page.evaluate('fixture.attempts.length === 0')
+        # Check an actual retained practice diagram whose description is the adjacent caption.
+        authored = next(item for item in json.loads((ROOT / 'tools/content/reviewed/geo.json').read_text())
+                        if item['id'] == 'O043T')
+        await page.evaluate("""async item => {
+            const {originalFigure} = await import('./original-learning.js');
+            const {enableFigureViewing} = await import('./figure-viewer.js?v=deeper-20261121');
+            const {items} = await (await fetch('./data/lesson-challenges.json')).json();
+            const host = document.querySelector('#stage');
+            host.innerHTML = originalFigure({...item, learning:items.find(entry=>entry.id===item.id)});
+            enableFigureViewing(host);
+        }""", authored)
+        caption = await page.locator('.original-figure figcaption').inner_text()
+        await page.get_by_role('button', name='Enlarge diagram').click()
+        authored_view = page.get_by_role('dialog')
+        await expect(authored_view).to_have_accessible_description(caption)
+        await expect(authored_view.locator('.fv-caption')).to_have_text(caption)
+        assert await authored_view.locator('.fv-window').evaluate(
+            "el => getComputedStyle(el).backgroundColor === 'rgb(16, 35, 50)'")
+        await authored_view.get_by_role('button', name='Close').click()
+        await expect(page.locator('.original-figure figcaption')).to_have_text(caption)
         await page.goto(base + 'offline-reader.html?slot=6')
         await expect(page.locator('#readerLesson')).to_have_value('6')
         await check_viewer(page, 'Enlarge diagram', 'img', bool(device))

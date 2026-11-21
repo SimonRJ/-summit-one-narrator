@@ -26,4 +26,5 @@ dialog.figure-viewer[open] { display: flex; flex-direction: column; }
   display: block; width: var(--fv-width); max-width: none; min-width: 0; height: auto; max-height: none;
   margin: 0; padding: 0; border: 0;
 }
-.problem-figure .figure-viewer .fv-window { background: #102332; }
+.original-figure .figure-viewer .fv-window, .problem-figure .figure-viewer .fv-window { background: #102332; }
+.figure-viewer .fv-caption { margin: 0; padding: .45rem .75rem; max-height: 22%; overflow: auto; color: #183647; line-height: 1.4; }

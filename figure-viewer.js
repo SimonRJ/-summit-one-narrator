@@ -1,6 +1,7 @@
 // Enlarge only the figure already visible on this question. Native scrolling also works with touch.
 const figures = '.rwl-opening-figure, .original-figure svg, .problem-figure svg, .exam-visual svg, .exam-visual img';
 const wired = new WeakSet();
+let nextCaption = 0;
 
 export function enableFigureViewing(root) {
   for (const figure of root.querySelectorAll(figures)) {
@@ -36,6 +37,15 @@ function openViewer(figure, trigger, scan) {
   <div class="fv-window" tabindex="0" role="region" aria-label="Figure. Scroll to explore when enlarged.">
     <div class="fv-media"></div>
   </div>`;
+  const caption = figure.closest('figure')?.querySelector(':scope > figcaption')?.textContent.trim();
+  if (caption) {
+    const description = document.createElement('p');
+    description.className = 'fv-caption';
+    description.id = 'fv-caption-' + (++nextCaption);
+    description.textContent = caption;
+    dialog.append(description);
+    dialog.setAttribute('aria-describedby', description.id);
+  }
   // Keep the dialog in the owning question. A timed paper can replace that question while it is open.
   trigger.after(dialog);
   const viewport = dialog.querySelector('.fv-window');
