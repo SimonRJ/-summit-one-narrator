@@ -1,0 +1,123 @@
+{
+  "id": "S069",
+  "duration_seconds": 183.433333,
+  "sha256": "9c3123d590b9c00dda7628801d0bb1eeae6c5fafb529c807bb8a2bc0e8fd2b18",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 97.64,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0,
+      "match_percent": 100
+    },
+    {
+      "number": 2,
+      "start": 17.24,
+      "match_percent": 100
+    },
+    {
+      "number": 3,
+      "start": 35.32,
+      "match_percent": 92.59
+    },
+    {
+      "number": 4,
+      "start": 47.62,
+      "match_percent": 87.88
+    },
+    {
+      "number": 5,
+      "start": 61.86,
+      "match_percent": 96.55
+    },
+    {
+      "number": 6,
+      "start": 75.11,
+      "match_percent": 96.97
+    },
+    {
+      "number": 7,
+      "start": 87.91,
+      "match_percent": 100
+    },
+    {
+      "number": 8,
+      "start": 106.92,
+      "match_percent": 100
+    },
+    {
+      "number": 9,
+      "start": 131.07,
+      "match_percent": 100
+    },
+    {
+      "number": 10,
+      "start": 147.71,
+      "match_percent": 100
+    },
+    {
+      "number": 11,
+      "start": 163.87,
+      "match_percent": 100
+    }
+  ],
+  "chapters": [
+    {
+      "title": "The technique",
+      "start": 0
+    },
+    {
+      "title": "Where it shows up",
+      "start": 17.24
+    },
+    {
+      "title": "Basic example",
+      "start": 35.32
+    },
+    {
+      "title": "Medium example",
+      "start": 61.86
+    },
+    {
+      "title": "Exam-style challenge",
+      "start": 87.91
+    },
+    {
+      "title": "Common mistakes",
+      "start": 147.71
+    },
+    {
+      "title": "Exam checklist",
+      "start": 163.87
+    }
+  ],
+  "decoded_successfully": true,
+  "title": "Multiplication principle and combinations",
+  "seconds": 183.433333,
+  "art_revision": 2,
+  "script_sha256": "434d6845e4b740f27a04c930c6232138b0459ddb43eb881fbbaad87b6ce3f515",
+  "transcript": [
+    "For a recipe with several separate choices, multiply the numbers of choices when every choice in one stage can go with every choice in the next. For a team the order of selection usually does not matter. Use a list or divide out the orders that describe the same team.",
+    "AMC Upper Primary practice may ask how many designs or teams can be made. Look for distinct stages of choice, then ask what makes a final outcome different. A Rossmoyne style challenge can restrict the number chosen from each group. Split by group totals before multiplying.",
+    "A stall has four flavours and three toppings. You order one of each, and every pairing is allowed. How many different flavour-and-topping orders are possible?",
+    "For each flavour there are three different toppings. Listing one row per flavour creates equal row lengths. Multiply by the four flavours, giving twelve combinations. Each order has one flavour and one topping.",
+    "Pick an unlabelled pair of helpers from six students. The two students have the same job and no student can be chosen twice. How many different pairs are possible?",
+    "Count an ordered first and second pick. There are six first choices and five second choices after each one. Every team appears in two orders. Halve the ordered count to get fifteen teams.",
+    "There are five artists, four builders and four coders. Choose four people with either two or three artists and at most one coder. People belong to one group each, and the team has no named roles. How many different teams are possible?",
+    "With two artists, the other two can be two builders or one builder and one coder. There are ten artist pairs in either case. With three artists, the fourth can be a builder or a coder. There are ten ways to choose the three artists. Within one row, multiply the choices from different groups. Between rows, add, because each team fits exactly one group pattern.",
+    "The four row totals are sixty, one hundred and sixty, forty and forty. Their sum is three hundred teams. Check that selecting zero coders was allowed, and that you used both allowed artist totals. Those choices account for all four patterns.",
+    "Switching two people on a team without named jobs leaves the same team. Count both orders only when the roles differ. You can multiply choices that make up one outcome. Distinct allowable patterns for a whole team are alternatives, so add them.",
+    "Decide whether the objects have named positions. Write a short group pattern before calculating individual choices. Multiply the compatible choices within a pattern. Then add the pattern totals after checking each team can fit only one."
+  ],
+  "legacy_sha256": "4f6c55622bd900860b4385567f975375f2c605ba4ff5c9719f00eae993f9ba7c",
+  "audio_packet_hash": "db2f9156aab1ae547ef3e034486d06b96af1b8ddfef6eeaaa92ed9ccf9747396",
+  "illustrated_revision": 1
+}
