@@ -343,14 +343,14 @@
           "id": "RWL2-076-A",
           "family": "GEO-01:continuation:A",
           "title": "The projecting porch",
-          "prompt": "A 8 m by 5 m hall has a square porch of side 3 m attached outside along one whole porch edge. What is the perimeter in metres of the combined floor plan?",
+          "prompt": "A rectangular hall measures 8 m by 5 m. A square porch with sides of 3 m is attached along one full porch edge. How many metres is the perimeter of the combined floor plan?",
           "hint": "Trace the old edge covered by the porch."
         },
         {
           "id": "RWL2-076-B",
           "family": "GEO-01:continuation:B",
           "title": "Corner of the label",
-          "prompt": "A 8 cm by 5 cm label loses a 3 cm by 2 cm rectangle from a corner. What is the perimeter of the remaining L-shape in centimetres?",
+          "prompt": "A rectangular label measures 8 cm by 5 cm. A 3 cm by 2 cm rectangle is cut from one corner. What is the perimeter of the remaining L-shape in centimetres?",
           "hint": "Pair the missing outside edges with the two fresh cut edges."
         },
         {
@@ -1515,21 +1515,21 @@
           "id": "RWL2-104-A",
           "family": "DATA-03:continuation:A",
           "title": "Morning gate",
-          "prompt": "A counter shows 35 at 8 am, 46 at 9 am and 64 at 10 am. How many people pass between 8 and 10?",
+          "prompt": "A turnstile counts each person who enters a pool. Its total is 35 at 8 am, 46 at 9 am and 64 at 10 am. How many people entered between 8 am and 10 am?",
           "hint": "Use just the start and end readings."
         },
         {
           "id": "RWL2-104-B",
           "family": "DATA-03:continuation:B",
           "title": "Highest hourly gain",
-          "prompt": "At hours 0,1,2,3,4 a tank meter reads 4,13,20,35,41 litres in total. What is the greatest gain in a single hour, in litres?",
+          "prompt": "A tank holds 4 litres at noon. At the end of each of the next four hours it holds 13, 20, 35 and 41 litres, in that order. What is the largest increase in any one of those hours, in litres?",
           "hint": "Compare four differences."
         },
         {
           "id": "RWL2-104-C",
           "family": "DATA-03:continuation:C",
-          "title": "Find the blank",
-          "prompt": "A meter reads 12 at noon, an unknown amount at 1 pm and 39 at 2 pm. The second hour's gain is twice the first hour's gain. What is the 1 pm reading?",
+          "title": "The covered rainfall reading",
+          "prompt": "A rain gauge collects 12 mm of rain by noon and 39 mm by 2 pm. Twice as much rain falls in the second hour as in the first. What did the gauge read at 1 pm, in millimetres?",
           "hint": "Split the total gain in the ratio 1 to 2."
         },
         {
@@ -1909,7 +1909,7 @@
           "id": "RWL2-114-D",
           "family": "DIG-03:continuation:D",
           "title": "Codes with two sevens",
-          "prompt": "A three-digit display uses all digits 0–9 and allows leading zeros. How many displays have exactly two 7s?",
+          "prompt": "A locker display has three digit positions. Each position can show any digit from 0 to 9, including a zero at the start. How many displays show exactly two 7s?",
           "hint": "Choose the position that does not contain 7."
         }
       ]
@@ -2553,8 +2553,8 @@
         {
           "id": "RWL2-129-D",
           "family": "RATE-04:continuation:D",
-          "title": "Return to the whistle",
-          "prompt": "Two cyclists leave a whistle together in opposite directions on a 180 m circular track at 7 m/s and 5 m/s. After how many seconds do they first meet again?",
+          "title": "Meeting on the track",
+          "prompt": "When the whistle blows, two cyclists set off from the same point on a 180 m circular track. They ride in opposite directions at constant speeds of 7 m/s and 5 m/s. How many seconds pass before they first meet again?",
           "hint": "Together they have to account for one complete lap."
         }
       ]
@@ -3166,8 +3166,8 @@
         {
           "id": "RWL2-145-A",
           "family": "SOLID-02:continuation:A",
-          "title": "A cube on one painted edge",
-          "prompt": "A solid cube has edge length 8 unit cubes. One large edge is marked from corner to corner. How many of its unit cubes touch a corner of the large cube?",
+          "title": "Along one cube edge",
+          "prompt": "A large cube is built from unit cubes, eight along each edge. Look only at the eight unit cubes along one marked edge. How many of those eight contain a corner of the large cube?",
           "hint": "An edge has two endpoints, whatever its length."
         },
         {
@@ -3915,7 +3915,7 @@
           "id": "RWL2-163-C",
           "family": "SOLID-01:continuation:C",
           "title": "An erased height",
-          "prompt": "A plan has two rows and three columns of solid stacks. Four stacks have height 3, one has height 3, and one height is unreadable. The model contains 22 cubes. What was the missing height?",
+          "prompt": "Six stacks of unit cubes stand in two rows of three. Five of the stacks are each 3 cubes high. The six stacks contain 22 cubes altogether. How many cubes high is the sixth stack?",
           "hint": "Subtract every known column, including repeated heights."
         },
         {
@@ -4379,8 +4379,8 @@
         {
           "id": "RWL2-173-A",
           "family": "DATA-03:continuation:A",
-          "title": "Hourly rate",
-          "prompt": "A reading rises from 14 to 35 between hours 2 and 5. What is the average increase per hour?",
+          "title": "Visitors per hour",
+          "prompt": "A visitor counter at a gallery shows 14 at 10 am and 35 at 1 pm. On average, how many visitors entered per hour during that time?",
           "hint": "Use elapsed time, not the ending hour."
         },
         {
@@ -4431,8 +4431,8 @@
         {
           "id": "RWL2-174-A",
           "family": "FRAC-01:continuation:A",
-          "title": "Before the refill",
-          "prompt": "A tank is emptied by one fifth of the water it contains. There are 32 litres left. How many litres were there first?",
+          "title": "Before the water was drawn",
+          "prompt": "A gardener draws one fifth of the water from a tank. The tank now holds 32 litres. How many litres did it hold before the gardener drew any water?",
           "hint": "The remaining water fills four equal fifths."
         },
         {
@@ -9864,7 +9864,7 @@
           "id": "RWL2-311-B",
           "family": "RATE-04:continuation:B",
           "title": "Unknown head start",
-          "prompt": "A 6 m/s runner catches a 4 m/s runner 18 seconds after the faster runner begins. How many metres ahead was the slower runner at that moment?",
+          "prompt": "Two runners travel in the same direction at constant speeds of 6 m/s and 4 m/s. The faster runner catches the slower runner 18 seconds after setting off. How many metres apart were they when the faster runner set off?",
           "hint": "Find the gain during those 18 seconds."
         },
         {
@@ -10619,7 +10619,7 @@
           "id": "RWL2-331-D",
           "family": "GEO-02:continuation:D",
           "title": "The band between two outlines",
-          "prompt": "A parallelogram banner has area 96 cm². Join the midpoints of its four sides in order to form an inner parallelogram. Join the midpoints of that inner parallelogram to form a second one. What area, in square centimetres, lies inside the first outline but outside the second?",
+          "prompt": "A parallelogram banner has area 96 cm². Join the midpoints of its four sides in order to form an inner parallelogram. Join the midpoints of that inner parallelogram to form a second one. How many square centimetres lie inside the first midpoint parallelogram but outside the second?",
           "hint": "Compare each corner triangle with one half of the parallelogram before adding the four corners.",
           "figure": {
             "src": "figures/read-practice/S331-D.svg",
@@ -11299,7 +11299,7 @@
           "id": "RWL2-349-C",
           "family": "LOGIC-02:continuation:C",
           "title": "A bag in every solution",
-          "prompt": "Three bags each contain a different number of marbles from the set 2, 3, 5 and 7. Together they contain 12 marbles. The yellow bag is lighter than both other bags. How many marbles must the yellow bag contain?",
+          "prompt": "Three bags contain different numbers of marbles, chosen from 2, 3, 5 and 7. The bags hold 12 marbles altogether. The yellow bag contains fewer marbles than either of the other two. How many marbles are in the yellow bag?",
           "hint": "Find which triple can total 12, then ask which of its values can be the smallest."
         },
         {

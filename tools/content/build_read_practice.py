@@ -17,6 +17,7 @@ def read(p): return json.loads(p.read_text())
 def write(p,data): p.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
 def build(private):
     private=private.resolve()
+    revisions=read(ROOT/'tools/content/practice-revisions-20261121.json')['questions']
     if private.is_relative_to(ROOT): raise ValueError('The private answer source must be outside the public repository')
     course=read(ROOT/'data/sessions-372.json')['sessions']
     targets=[s['slot'] for s in course if s['type']=='LESSON' and s['slot']<=68]
@@ -35,6 +36,7 @@ def build(private):
         lesson.update(skill=src['skill'],videoId=key,videoTitle=src['videoTitle'],movie=src['videoUrl'],retained=retained,questions=[])
         for i,q in enumerate(d['questions']):
             pid=f'RWL1-{n:03}-{"ABCD"[i]}'
+            q={**q, **revisions.get(pid, {})}
             stem=re.sub(r'\W','',q['prompt']).casefold()
             assert stem not in stems and q['hint'] and q['solution'] and q['answer'] is not None, pid
             stems.add(stem)
