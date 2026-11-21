@@ -20,6 +20,8 @@ VERSION = "t01-studio-v1"
 CHAPTER_VERSION = "studio-chapters-02-04-v1"
 COURSE_VERSION = "teaching-films-v1"
 REVIEWED_MEDIA = {
+    "T13.E": "measured-edge-notch",
+    "T12.E": "exterior-angle-sectors",
     "T11.E": "two-column-trades",
     "T11.3": "written-threes",
     "T11.2": "six-digit-orders",
