@@ -13,7 +13,7 @@ def coins(*, show=None, reject=None, remove=(), select=None, chosen=()):
         for r in range(2):
             for c in range(2):
                 i=2*r+c
-                marks.append((r,c,"HT"[r]+"HT"[c],RED if i in remove else WHITE,show))
+                marks.append((r,c,"HT"[r]+"HT"[c],RED if i in remove and reject and s.t >= s.at(reject) else WHITE,show))
                 if i in chosen:
                     cells.append((r,c,MINT,select))
         board(2,2,width=122,x=662,y=348,cells=cells,marks=marks)(stage,s)
@@ -68,7 +68,12 @@ def die(stage,x,y,n,colour=BLUE,opacity=1,width=97):
 
 def roll_filter(stage,s, *, question=False, filter_word=None, favour=None):
     if question:
-        tile(stage,640,318,"?",GOLD,119,119,size=58)
+        for value in range(1, 7):
+            x = 640 + (value-3.5)*149
+            drop = cue(s, "the result is even") if value % 2 else 0
+            die(stage, x, 331, value, BLUE, 1-.8*drop, width=106)
+            if value % 2:
+                stage.line([(x-42,370),(x+42,292)], RED, 4, drop)
         return
     drop=cue(s,filter_word) if filter_word else 0
     chosen=cue(s,favour) if favour else 0
@@ -200,7 +205,10 @@ def draw_again(stage, s):
             bead(stage, 397 + j*91, y, colour, p, 26)
         fit(stage, ("3 red / 4" if challenge else "2 red / 4") if row == 0 else
             ("2 red / 3" if challenge else "1 red / 3"), 954, y, 36, 389, RED, p)
-    if challenge:
+    if not challenge and s.t >= s.at("add separate routes"):
+        fit(stage, "RB or BR: 1/3 + 1/3 = 2/3", 640, 551, 37, 1070, MINT,
+            cue(s, "add separate routes"))
+    elif challenge:
         fit(stage, "(3/4) × (2/3) = 1/2", 640, 551, 40, 1010, MINT, cue(s, "both are red"))
     else:
         fit(stage, "RR: (2/4) × (1/3) = 1/6", 640, 551, 39, 1020, MINT, cue(s, after))
