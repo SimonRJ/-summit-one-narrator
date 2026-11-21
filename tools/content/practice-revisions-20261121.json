@@ -1,0 +1,112 @@
+{
+  "questions": {
+    "RWL2-087-A": {
+      "title": "Which stack heights stay hidden?",
+      "prompt": "Two nonempty vertical stacks of identical unit cubes stand on the same level, one directly behind the other. The front stack is 4 cubes high. How many different whole-number heights can the back stack have without changing the front silhouette?",
+      "hint": "Consider the whole-number heights that leave the visible outline four cubes high."
+    },
+    "RWL2-194-B": {
+      "title": "Triangles sharing a side",
+      "prompt": "Mark four points with no three on a straight line. Join each pair. Choose one of the segments. How many triangles with vertices among the four marked points have that entire segment as a side?",
+      "hint": "The chosen side fixes two vertices. Which marked points could be the third vertex?"
+    },
+    "RWL2-135-A": {
+      "title": "The bus at the gates",
+      "prompt": "A bus visits four gates once each. Yellow comes first. Blue comes immediately after Green. Red is exactly two stops after Green. At which stop does the bus reach Blue?",
+      "hint": "Work backwards from the latest stop Red could occupy."
+    },
+    "RWL2-135-B": {
+      "title": "The borrowed books",
+      "prompt": "Gus, Hiro and Ira each borrow a different book. The books are an atlas, a book of poems and a book about Mars. Gus takes the Mars book. Ira chooses a book with no maps, and the atlas is full of maps. Who takes the atlas?",
+      "hint": "Cross out the books that Gus and Ira could not have taken."
+    },
+    "RWL2-167-D": {
+      "title": "Two unbroken pairs",
+      "prompt": "Five dancers enter the stage one at a time. Mo enters immediately after Liv. Paz enters immediately after Oli. Nia enters after Liv and before Paz. In which position must Nia enter?",
+      "hint": "Treat each consecutive pair as a block. Where can Nia enter without splitting either block?"
+    },
+    "RWL2-185-A": {
+      "title": "Conflicting reports",
+      "prompt": "Three people describe the same lamp at the same moment. Ira says it was on. Jia says it was off. Kir says both reports are correct. How many of the three reports must be false?",
+      "hint": "Check the two possible states of the lamp. What happens to the first two reports in each case?"
+    },
+    "RWL2-226-A": {
+      "title": "The final act",
+      "prompt": "Four distinct acts perform once each: a choir, a pianist, a drummer and a finale. The finale must be last, and the pianist must perform after the choir. How many running orders are possible?",
+      "hint": "Ignore the finale for a moment. Pair each order with the order obtained by swapping the choir and the pianist."
+    },
+    "RWL2-226-B": {
+      "title": "Switching halls",
+      "prompt": "Three shows use halls 1, 2 and 3, one show per hall. Last year Art used hall 1, Music used hall 2 and Dance used hall 3. This year every show must change hall. How many complete assignments are possible?",
+      "hint": "Try each allowable hall for Art. Check the placement of both remaining shows."
+    },
+    "RWL2-226-C": {
+      "title": "The matching cards",
+      "prompt": "Mo, Nia and Oli turn over one card each. One card shows a circle and two cards show triangles. Mo and Oli turn over matching shapes. Who turns over the circle?",
+      "hint": "Which shape occurs often enough for two cards to match?"
+    },
+    "RWL2-226-D": {
+      "title": "Which clue is sufficient?",
+      "prompt": "Tia, Uma, Vik, Wes and Yara fill positions 1 to 5. Vik is third. Uma immediately follows Tia. Which single extra clue would force Uma into fifth position? Enter the clue number. (1) Wes is after Uma. (2) Yara is fifth. (3) Wes is before Yara. (4) Tia is before Vik. (5) Yara is before Tia.",
+      "hint": "Try the Tia–Uma pair in each possible block of positions. Which clue rules out the earlier block?"
+    },
+    "RWL2-258-A": {
+      "title": "Orders at four stations",
+      "prompt": "A torch visits stations A, B, C and D once each. Both A and B must be visited before C. Station D must be visited after C. How many complete routes obey these instructions?",
+      "hint": "Which stations can change places without breaking an instruction?"
+    },
+    "RWL2-258-B": {
+      "title": "Joining the line",
+      "prompt": "Rae, Tia and Uma stand in that order. A newcomer may join at either end or between two people, but Rae and Tia must remain next to one another. How many places can the newcomer take?",
+      "hint": "Count the gaps in the original line, including both ends. Which gap splits the required pair?"
+    },
+    "RWL2-258-C": {
+      "title": "The dispatch position",
+      "prompt": "Five different parcels leave a depot one at a time. The parcel labelled Art must leave before Music, and Music must leave before Maps. The other two parcels can leave at any time. How many different positions can Music occupy?",
+      "hint": "Bound the position first, then see if each allowed position can actually occur."
+    },
+    "RWL2-276-A": {
+      "title": "A false label",
+      "prompt": "A label says that both coins in a drawer are silver. The label is false. Must the drawer contain at least one coin that is not silver? Answer yes or no.",
+      "hint": "What would make the original label true?"
+    },
+    "RWL2-276-B": {
+      "title": "The signal lights",
+      "prompt": "A true report says that the red light, the blue light or both are on. You can see that the red light is on. Must the blue light be off? Answer yes or no.",
+      "hint": "Try both possible states of the blue light while keeping the red one on."
+    },
+    "RWL2-276-C": {
+      "title": "Five number notices",
+      "prompt": "An envelope holds a positive whole number. Five notices describe that number: (1) it is even, (2) it is odd, (3) it exceeds 5, (4) it is at most 5, (5) it is a whole number. Whatever number was chosen, what is the total number of true notices?",
+      "hint": "Look for pairs in which exactly one notice must be true."
+    },
+    "RWL2-317-A": {
+      "title": "The missing boxes",
+      "prompt": "Four boxes labelled Ana, Yara, Zed and Bea all have different weights. An unordered list of the three heaviest reads Yara, Bea, Zed. An unordered list of the three lightest reads Zed, Ana, Yara. Zed is heavier than Yara. Which box is second lightest?",
+      "hint": "The box missing from each list must occupy an extreme position."
+    },
+    "RWL2-349-A": {
+      "title": "Finding a place from a ratio",
+      "prompt": "Seven runners finish a race, with no ties. Twice as many runners finish behind Bea as finish ahead of her. In which position does Bea finish?",
+      "hint": "Set Bea aside and split the other runners into the two groups described."
+    }
+  },
+  "solutionHashes": {
+    "RWL2-135-A": "178bcb761b74e81be35d81db5ad08c975b13f935f97152b82ae65dd0d6c7ca62",
+    "RWL2-135-B": "6efae8d1059157db5416d2af0dc3bc649e875e62b03bd024147335ec4919c4b4",
+    "RWL2-167-D": "73d30fa783eb76340cf4fc435e19032a17dc2768477d24d21f61b78b80e3a664",
+    "RWL2-185-A": "7b3f07f469b5256ba458de2bd17949acbab19e4f726191d8de1190ea486b2dcd",
+    "RWL2-226-A": "cb09acc64a7b1b82887083dc778c52067ff875eda6e914ec36303975d22f66bf",
+    "RWL2-226-B": "75afb850257abbf7ba01cd7242f518d203a9fcc82284caec80b4ab19a8ebbdfc",
+    "RWL2-226-C": "37556058cd801aa84fe76a3e89f02a87461420dd14a324b40d9b987898270052",
+    "RWL2-226-D": "0517fb9d033e7362cf66545c83a96a89e3a290c80e8fa9ddedf49dcec98e385c",
+    "RWL2-258-A": "ac7c40c81ead3341c0315876f4525f973ae322127528c496ebf0df20eabfb998",
+    "RWL2-258-B": "858d4c299069cefce8491f03d1de4e974fe5c9824c49e7c84b5b55941a50c2b6",
+    "RWL2-258-C": "9eb7b8998700eeef45ea65b0aaad55129915fa49763102702932cac00f1d70e3",
+    "RWL2-276-A": "cce43e95546de3b7487d2e9125c76483df459afc0d116dd56cf4d32e4dadf35a",
+    "RWL2-276-B": "51166a406af46bd2bc56d08e2a15f1bb40ae77bc8458d1c1c9a21d0db6922136",
+    "RWL2-276-C": "88743e8eff74e2ae2c9c3f78b3fd7331ab9afae9832c3d62ed0c52345d1c48de",
+    "RWL2-317-A": "ac1b3f4a0c5aa76b136b94a5d0b8232872df269139551df658ea26dc26958918",
+    "RWL2-349-A": "f772419426f85f7631e200a8e924a2b6b87696bc73d0fb6951c7de293e1c9aac"
+  }
+}

@@ -8,6 +8,11 @@
 <link rel="icon" href="icon.svg">
 <link rel="stylesheet" href="lesson-introduction-videos.css?v=lesson-intros-v2">
 <script defer src="lesson-introduction-watch.js?v=lesson-intros-v2"></script>
+<link rel="stylesheet" href="lesson-models.css?v=guided-20261121">
+<script type="module">
+import {mountLessonModel} from './lesson-models.js?v=guided-20261121';
+mountLessonModel(document.getElementById('lessonModel'), {slot: 6});
+</script>
 </head>
 <body><main>
 <a href="lesson-introduction-videos.html">← Lesson introduction videos</a>
@@ -18,6 +23,7 @@
   <source src="media/S006-Intro.mp4?v=intro-20261116-illustrated" type="video/mp4">
   <a href="media/S006-Intro.mp4?v=intro-20261116-illustrated">Open the video</a>
 </video>
+<div id="lessonModel"></div>
 <h2>Jump to a chapter</h2>
 <ol class="jump">
 <li><button type="button" data-time="0.000">The technique <span>0:00</span></button></li>

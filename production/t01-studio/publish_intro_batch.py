@@ -23,8 +23,15 @@ def watch_time(seconds):
     return f"{minutes}:{seconds:02}"
 
 
-def html_document(title, body, *, player=False):
+def html_document(title, body, *, player=False, model_slot=None):
     script = f'<script defer src="lesson-introduction-watch.js?v={VERSION}"></script>' if player else ""
+    if model_slot is not None:
+        script += f"""
+<link rel="stylesheet" href="lesson-models.css?v=guided-20261121">
+<script type="module">
+import {{mountLessonModel}} from './lesson-models.js?v=guided-20261121';
+mountLessonModel(document.getElementById('lessonModel'), {{slot: {int(model_slot)}}});
+</script>"""
     return f'''<!doctype html>
 <html lang="en">
 <head>
@@ -55,6 +62,9 @@ def write_watch(lesson, script, report, following):
     next_link = ""
     if following:
         next_link = f'<a rel="next" href="{watch_page(following)}">Next lesson →</a>'
+    # The original six local films include one with a companion cube model.
+    model_slot = 6 if lesson == 'S006' else None
+    model = '<div id="lessonModel"></div>\n' if model_slot else ''
     body = f'''<a href="lesson-introduction-videos.html">← Lesson introduction videos</a>
 <p class="lesson-number">Lesson {script["course_slot"]} · {watch_time(report["duration_seconds"])}</p>
 <h1>{title}</h1>
@@ -63,7 +73,7 @@ def write_watch(lesson, script, report, following):
   <source src="{stem}.mp4?v={VERSION}" type="video/mp4">
   <a href="{stem}.mp4?v={VERSION}">Open the video</a>
 </video>
-<h2>Jump to a chapter</h2>
+{model}<h2>Jump to a chapter</h2>
 <ol class="jump">
 {chapters}
 </ol>
@@ -74,7 +84,7 @@ def write_watch(lesson, script, report, following):
   <a href="./">Summit One app</a>
 {next_link}
 </nav>'''
-    (ROOT / watch_page(lesson)).write_text(html_document(script["title"], body, player=True))
+    (ROOT / watch_page(lesson)).write_text(html_document(script["title"], body, player=True, model_slot=model_slot))
 
 
 def write_gallery(lessons, scripts, reports):

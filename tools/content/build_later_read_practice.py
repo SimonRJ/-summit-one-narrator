@@ -43,6 +43,11 @@ def build(private):
     skills = {q['session']: q['skill'] for q in manifest}
     original_ids = {q['id']: q['session'] for q in manifest}
     assert len(slots) == 228 and sorted(int(f.stem[1:]) for f in (private/'drafts').glob('S*.json')) == slots
+    revisions = read(ROOT/'tools/content/practice-revisions-20261121.json')
+    # Already updated drafts can be rebuilt directly. An older private archive
+    # gets the worked solutions for its revised questions from the private overlay.
+    overlay_path = private/'practice-revision-solutions.json'
+    solution_overlay = read(overlay_path) if overlay_path.exists() else {}
     lessons, rows = [], []
     existing = read(ROOT/'data/read-watch-practise.json')['lessons']
     normalise = lambda s: re.sub(r'[^a-z0-9]', '', s.casefold())
@@ -79,6 +84,14 @@ def build(private):
         assert len(draft['questions']) == 4, tag
         for i, q in enumerate(draft['questions']):
             id = f'RWL2-{slot:03}-{"ABCD"[i]}'
+            if id in revisions['questions']:
+                q.update(revisions['questions'][id])
+                expected_digest = revisions['solutionHashes'].get(id)
+                if expected_digest:
+                    solution = solution_overlay.get(id, q['solution'])
+                    if hashlib.sha256(solution.encode()).hexdigest() != expected_digest:
+                        raise ValueError(f'{id}: refresh the private solution overlay as described in docs/LATER_LESSONS.md')
+                    q['solution'] = solution
             assert all(isinstance(q[k], str) and q[k].strip() for k in ('title','prompt','hint','solution')), id
             assert isinstance(q['answer'], (int, float, str)) and not isinstance(q['answer'], bool), id
             if isinstance(q['answer'], str):

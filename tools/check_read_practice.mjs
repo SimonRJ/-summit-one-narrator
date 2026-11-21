@@ -69,3 +69,34 @@ for(const lesson of later.lessons){
 assert.equal(laterQuestions,912);
 assert.deepEqual(filmUse,{dedicated:58,technique:170});
 console.log('PASS: all 228 later lessons, 912 protected questions and their skill-matched films.');
+
+// Catch questions that only swap numbers or rename the same participants.
+// Only title-case words observed inside a sentence can be treated as names;
+// repeated names retain their identities within a particular puzzle.
+const practice = [...release.lessons, ...later.lessons].flatMap(lesson => lesson.questions);
+const possibleNames = new Set();
+for (const {prompt} of practice) {
+  for (const match of prompt.matchAll(/\b[A-Z][a-z]+\b/g)) {
+    const prefix = prompt.slice(0, match.index).trimEnd();
+    if (prefix && !/[.!?]$/.test(prefix)) possibleNames.add(match[0]);
+  }
+}
+function promptPattern(prompt) {
+  const names = new Map();
+  const numbers = new Map();
+  return prompt.replace(/\b(?:[A-Z][a-z]+|\d+)\b/g, token => {
+    const numeric = /^\d+$/.test(token);
+    if (!numeric && !possibleNames.has(token)) return token;
+    const values = numeric ? numbers : names;
+    if (!values.has(token)) values.set(token, values.size + 1);
+    return (numeric ? '{number' : '{name') + values.get(token) + '}';
+  }).toLowerCase().replace(/\s+/g, ' ').trim();
+}
+const byPattern = new Map();
+for (const question of practice) {
+  const pattern = promptPattern(question.prompt);
+  assert(!byPattern.has(pattern),
+    'Practice prompts differ only in labels or values: ' + byPattern.get(pattern) + ' and ' + question.id);
+  byPattern.set(pattern, question.id);
+}
+console.log('PASS: ' + practice.length + ' practice prompts screened across both editions for renamed or renumbered copies.');

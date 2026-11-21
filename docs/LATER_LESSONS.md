@@ -4,7 +4,7 @@ The 228 teaching sessions from S069 through S370 follow Read → Watch → Pract
 
 Each lesson opens with a short explanation, a worked example and a prompt about its assigned film. The 58 lessons with a published session introduction use that introduction. At the other 170 lessons, the Watch screen credits the earlier film that teaches that session’s technique. For a capstone, the film revisits the main technique and practice combines it with a second one. The final problem asks the learner to choose and apply a method in a less familiar setting.
 
-The continuation contains 912 new questions with hints and protected worked solutions and 362 selected challenges from the existing bank. Each new answer was independently checked. The protected grader release has fingerprint `fb1a1b773b29d16205f98fb547963fb1`.
+The continuation contains 912 new questions with hints and protected worked solutions and 362 selected challenges from the existing bank. Each new answer was independently checked. The protected grader release has fingerprint `cdef4cbe1788bea9735184f9b26c5710`.
 
 | Session | Opening | Assigned film | Final problem | Problems |
 |---|---|---|---|---:|
@@ -85,7 +85,7 @@ The continuation contains 912 new questions with hints and protected worked solu
 | S164 | Give the front position its own rule | [S004](https://simonrj.github.io/-summit-one-narrator/media/S004-Intro.mp4) · Technique film | A zero and a boundary | 6 |
 | S165 | Choose a common basis for comparison | [S029](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S029-Intro-Illustrated.mp4) · Technique film | Buy three or buy four | 6 |
 | S166 | Recover the step from two landmarks | [S134](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S134-Intro.mp4) · Technique film | Two production lines | 6 |
-| S167 | Use the most restrictive comparison | [S135](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S135-Intro.mp4) · Technique film | Two seats apart | 6 |
+| S167 | Use the most restrictive comparison | [S135](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S135-Intro.mp4) · Technique film | Two unbroken pairs | 6 |
 | S169 | Restrict a search to one remainder class | [S110](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S110-Intro.mp4) · Technique film | Striped fence | 5 |
 | S170 | Give the unknown a clear meaning | [S038](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S038-Intro-Illustrated.mp4) · Technique film | When two tickets match | 5 |
 | S171 | Find the cases that break the rule | [S088](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S088-Intro.mp4) · Technique film | Two twin pairs | 6 |
@@ -129,7 +129,7 @@ The continuation contains 912 new questions with hints and protected worked solu
 | S221 | Count by choosing the unused objects | [S130](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S130-Intro.mp4) · Technique film | Lab kits | 6 |
 | S222 | Link two small triangles | [S081](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S081-Intro-Illustrated.mp4) · Technique film | The surveyor’s unequal split | 6 |
 | S223 | Undo a replacement or removal | [S103](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S103-Intro.mp4) · Technique film | Swap between crews | 5 |
-| S226 | Keep all surviving arrangements | [S071](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S071-Intro-Illustrated.mp4) · Technique film | Place the end pieces | 5 |
+| S226 | Keep all surviving arrangements | [S071](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S071-Intro-Illustrated.mp4) · Technique film | Which clue is sufficient? | 5 |
 | S227 | Split the walk at a checkpoint | [S093](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S093-Intro.mp4) · Technique film | An authorised river crossing | 6 |
 | S228 | Track the carry as a second clue | [S009](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S009-Intro-Illustrated.mp4) · Technique film | Leading digit forced | 6 |
 | S229 | Infer a worker from two teams | [S031](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S031-Intro-Illustrated.mp4) · Technique film | Minutes for the third worker | 5 |
@@ -242,3 +242,16 @@ The continuation contains 912 new questions with hints and protected worked solu
 The answer-free [course text](../data/read-watch-practise-later.json) records the film used when the bridge was written. When a dedicated film becomes available or its examples change, review the reading and practice against that film and update the assignment together.
 
 With the private continuation authoring archive extracted outside a checkout, run `python tools/content/build_later_read_practice.py /path/to/continuation-private` to produce the course text and private grading rows. The new questions have versioned IDs. The student’s earlier attempts can still be reviewed. The private archive includes the independent mathematical checks and the scene records used for film alignment.
+
+The 21 November editorial revision clarifies two items and replaces 16 repeated puzzles. The [public revision list](../tools/content/practice-revisions-20261121.json) provides the learner wording. Updated private drafts rebuild directly. If using the original drafts, save the JSON object returned by the query below as `practice-revision-solutions.json` in the **private** authoring directory. The compiler validates the worked solutions against their published checksums before generating grader rows.
+
+```sql
+select jsonb_object_agg(id, solution_text order by id) as private_solution_overlay
+from public.content_problems
+where source_type = 'original_lesson_practice' and id in (
+  'RWL2-135-A', 'RWL2-135-B', 'RWL2-167-D', 'RWL2-185-A',
+  'RWL2-226-A', 'RWL2-226-B', 'RWL2-226-C', 'RWL2-226-D',
+  'RWL2-258-A', 'RWL2-258-B', 'RWL2-258-C', 'RWL2-276-A',
+  'RWL2-276-B', 'RWL2-276-C', 'RWL2-317-A', 'RWL2-349-A'
+);
+```

@@ -769,9 +769,9 @@
         {
           "id": "RWL2-087-A",
           "family": "SOLID-01:continuation:A",
-          "title": "Two ways to hide a shorter stack",
-          "prompt": "Two nonempty solid stacks stand one behind the other. The front stack has height 4 and the back stack cannot rise above it. How many different positive back-stack heights leave the front silhouette unchanged?",
-          "hint": "List the heights that do not exceed the visible stack."
+          "title": "Which stack heights stay hidden?",
+          "prompt": "Two nonempty vertical stacks of identical unit cubes stand on the same level, one directly behind the other. The front stack is 4 cubes high. How many different whole-number heights can the back stack have without changing the front silhouette?",
+          "hint": "Consider the whole-number heights that leave the visible outline four cubes high."
         },
         {
           "id": "RWL2-087-B",
@@ -2795,16 +2795,16 @@
         {
           "id": "RWL2-135-A",
           "family": "LOGIC-02:continuation:A",
-          "title": "Two seats apart",
-          "prompt": "Four children sit in seats 1 to 4: Ira, Jia, Kir and Liv. Ira is exactly two seat numbers before Jia. Liv is in seat 1. Which seat number belongs to Kir?",
-          "hint": "Write every possible pair for the two numbered seats."
+          "title": "The bus at the gates",
+          "prompt": "A bus visits four gates once each. Yellow comes first. Blue comes immediately after Green. Red is exactly two stops after Green. At which stop does the bus reach Blue?",
+          "hint": "Work backwards from the latest stop Red could occupy."
         },
         {
           "id": "RWL2-135-B",
           "family": "LOGIC-02:continuation:B",
-          "title": "Who stands in the middle?",
-          "prompt": "Gus, Hiro and Ira stand in three places. Gus is next to both other people and Ira stands to the left of Gus. Who is on the right?",
-          "hint": "Only the middle place has two neighbours."
+          "title": "The borrowed books",
+          "prompt": "Gus, Hiro and Ira each borrow a different book. The books are an atlas, a book of poems and a book about Mars. Gus takes the Mars book. Ira chooses a book with no maps, and the atlas is full of maps. Who takes the atlas?",
+          "hint": "Cross out the books that Gus and Ira could not have taken."
         },
         {
           "id": "RWL2-135-C",
@@ -4133,9 +4133,9 @@
         {
           "id": "RWL2-167-D",
           "family": "LOGIC-02:continuation:D",
-          "title": "Two seats apart",
-          "prompt": "Four children sit in seats 1 to 4: Liv, Mo, Nia and Oli. Liv is exactly two seat numbers before Mo. Oli is in seat 1. Which seat number belongs to Nia?",
-          "hint": "Write every possible pair for the two numbered seats."
+          "title": "Two unbroken pairs",
+          "prompt": "Five dancers enter the stage one at a time. Mo enters immediately after Liv. Paz enters immediately after Oli. Nia enters after Liv and before Paz. In which position must Nia enter?",
+          "hint": "Treat each consecutive pair as a block. Where can Nia enter without splitting either block?"
         }
       ]
     },
@@ -4800,9 +4800,9 @@
         {
           "id": "RWL2-185-A",
           "family": "LOGIC-01:continuation:A",
-          "title": "Two claims in sequence",
-          "prompt": "Every person either always tells the truth or always lies. Ira says Jia is truthful. Jia says Kir is a liar. If Kir is truthful, how many of these three lie?",
-          "hint": "Start with the person whose type is given."
+          "title": "Conflicting reports",
+          "prompt": "Three people describe the same lamp at the same moment. Ira says it was on. Jia says it was off. Kir says both reports are correct. How many of the three reports must be false?",
+          "hint": "Check the two possible states of the lamp. What happens to the first two reports in each case?"
         },
         {
           "id": "RWL2-185-B",
@@ -5171,9 +5171,9 @@
         {
           "id": "RWL2-194-B",
           "family": "COUNT-05:continuation:B",
-          "title": "Triangles per edge",
-          "prompt": "Draw all edges joining four points, no three on a line. How many triangles contain one particular edge?",
-          "hint": "Choose a third point outside the edge."
+          "title": "Triangles sharing a side",
+          "prompt": "Mark four points with no three on a straight line. Join each pair. Choose one of the segments. How many triangles with vertices among the four marked points have that entire segment as a side?",
+          "hint": "The chosen side fixes two vertices. Which marked points could be the third vertex?"
         },
         {
           "id": "RWL2-194-C",
@@ -6427,30 +6427,30 @@
         {
           "id": "RWL2-226-A",
           "family": "LOGIC-02:continuation:A",
-          "title": "A short screening schedule",
-          "prompt": "Four distinct films named Pia, Quin, Rae and Tia fill four successive slots. Quin immediately follows Pia. Rae is later than Quin. How many complete schedules are possible?",
-          "hint": "Treat the consecutive pair as one item when listing orders."
+          "title": "The final act",
+          "prompt": "Four distinct acts perform once each: a choir, a pianist, a drummer and a finale. The finale must be last, and the pianist must perform after the choir. How many running orders are possible?",
+          "hint": "Ignore the finale for a moment. Pair each order with the order obtained by swapping the choir and the pianist."
         },
         {
           "id": "RWL2-226-B",
           "family": "LOGIC-02:continuation:B",
-          "title": "The timetable window",
-          "prompt": "Three talks Rae, Tia and Uma start at different whole hours from 8 through 11 inclusive. Tia is two hours after Rae; Uma is strictly between them. How many schedules are possible?",
-          "hint": "List possible start times of the first talk only."
+          "title": "Switching halls",
+          "prompt": "Three shows use halls 1, 2 and 3, one show per hall. Last year Art used hall 1, Music used hall 2 and Dance used hall 3. This year every show must change hall. How many complete assignments are possible?",
+          "hint": "Try each allowable hall for Art. Check the placement of both remaining shows."
         },
         {
           "id": "RWL2-226-C",
           "family": "LOGIC-02:continuation:C",
-          "title": "Who stands in the middle?",
-          "prompt": "Mo, Nia and Oli stand in three places. Mo is next to both other people and Oli stands to the left of Mo. Who is on the right?",
-          "hint": "Only the middle place has two neighbours."
+          "title": "The matching cards",
+          "prompt": "Mo, Nia and Oli turn over one card each. One card shows a circle and two cards show triangles. Mo and Oli turn over matching shapes. Who turns over the circle?",
+          "hint": "Which shape occurs often enough for two cards to match?"
         },
         {
           "id": "RWL2-226-D",
           "family": "LOGIC-02:continuation:D",
-          "title": "Place the end pieces",
-          "prompt": "Five distinct cards in a row read Tia, Uma, Vik, Wes and Yara in some order. Vik must be exactly in the middle. Uma immediately follows Tia. Yara is before Tia. Which position from the left must Uma occupy?",
-          "hint": "Can the consecutive pair straddle the occupied middle?"
+          "title": "Which clue is sufficient?",
+          "prompt": "Tia, Uma, Vik, Wes and Yara fill positions 1 to 5. Vik is third. Uma immediately follows Tia. Which single extra clue would force Uma into fifth position? Enter the clue number. (1) Wes is after Uma. (2) Yara is fifth. (3) Wes is before Yara. (4) Tia is before Vik. (5) Yara is before Tia.",
+          "hint": "Try the Tia–Uma pair in each possible block of positions. Which clue rules out the earlier block?"
         }
       ]
     },
@@ -7742,23 +7742,23 @@
         {
           "id": "RWL2-258-A",
           "family": "LOGIC-02:continuation:A",
-          "title": "The timetable window",
-          "prompt": "Three talks Vik, Wes and Yara start at different whole hours from 9 through 12 inclusive. Wes is two hours after Vik; Yara is strictly between them. How many schedules are possible?",
-          "hint": "List possible start times of the first talk only."
+          "title": "Orders at four stations",
+          "prompt": "A torch visits stations A, B, C and D once each. Both A and B must be visited before C. Station D must be visited after C. How many complete routes obey these instructions?",
+          "hint": "Which stations can change places without breaking an instruction?"
         },
         {
           "id": "RWL2-258-B",
           "family": "LOGIC-02:continuation:B",
-          "title": "Two seats apart",
-          "prompt": "Four children sit in seats 1 to 4: Rae, Tia, Uma and Vik. Rae is exactly two seat numbers before Tia. Vik is in seat 1. Which seat number belongs to Uma?",
-          "hint": "Write every possible pair for the two numbered seats."
+          "title": "Joining the line",
+          "prompt": "Rae, Tia and Uma stand in that order. A newcomer may join at either end or between two people, but Rae and Tia must remain next to one another. How many places can the newcomer take?",
+          "hint": "Count the gaps in the original line, including both ends. Which gap splits the required pair?"
         },
         {
           "id": "RWL2-258-C",
           "family": "LOGIC-02:continuation:C",
-          "title": "A short screening schedule",
-          "prompt": "Four distinct films named Tia, Uma, Vik and Wes fill four successive slots. Uma immediately follows Tia. Vik is later than Uma. How many complete schedules are possible?",
-          "hint": "Treat the consecutive pair as one item when listing orders."
+          "title": "The dispatch position",
+          "prompt": "Five different parcels leave a depot one at a time. The parcel labelled Art must leave before Music, and Music must leave before Maps. The other two parcels can leave at any time. How many different positions can Music occupy?",
+          "hint": "Bound the position first, then see if each allowed position can actually occur."
         },
         {
           "id": "RWL2-258-D",
@@ -8425,23 +8425,23 @@
         {
           "id": "RWL2-276-A",
           "family": "LOGIC-01:continuation:A",
-          "title": "A true observation",
-          "prompt": "Every person either always tells the truth or always lies. Jia calls Kir a liar. We know Jia always lies. Is Kir truthful? Answer yes or no.",
-          "hint": "Evaluate what the sentence would say if it were true."
+          "title": "A false label",
+          "prompt": "A label says that both coins in a drawer are silver. The label is false. Must the drawer contain at least one coin that is not silver? Answer yes or no.",
+          "hint": "What would make the original label true?"
         },
         {
           "id": "RWL2-276-B",
           "family": "LOGIC-01:continuation:B",
-          "title": "A claim about two people",
-          "prompt": "Every person either always tells the truth or always lies. Oli says, “Pia is a liar and Quin is truthful.” We know Pia is truthful. Can Oli be truthful? Answer yes or no.",
-          "hint": "What is required for a sentence containing “and” to be true?"
+          "title": "The signal lights",
+          "prompt": "A true report says that the red light, the blue light or both are on. You can see that the red light is on. Must the blue light be off? Answer yes or no.",
+          "hint": "Try both possible states of the blue light while keeping the red one on."
         },
         {
           "id": "RWL2-276-C",
           "family": "LOGIC-01:continuation:C",
-          "title": "Who called whom truthful?",
-          "prompt": "Every person either always tells the truth or always lies. Nia calls Oli truthful. Oli calls Pia truthful. Pia says Nia and Oli are the same type. How many are truthful?",
-          "hint": "The first two descriptions link what types can agree."
+          "title": "Five number notices",
+          "prompt": "An envelope holds a positive whole number. Five notices describe that number: (1) it is even, (2) it is odd, (3) it exceeds 5, (4) it is at most 5, (5) it is a whole number. Whatever number was chosen, what is the total number of true notices?",
+          "hint": "Look for pairs in which exactly one notice must be true."
         },
         {
           "id": "RWL2-276-D",
@@ -10065,9 +10065,9 @@
         {
           "id": "RWL2-317-A",
           "family": "LOGIC-02:continuation:A",
-          "title": "The weight order",
-          "prompt": "Four boxes labelled Yara, Zed, Ana and Bea have different weights. Yara is heavier than Ana. Zed is lighter than Bea but heavier than Yara. Which box is second lightest?",
-          "hint": "Join the comparisons into one chain from lightest to heaviest."
+          "title": "The missing boxes",
+          "prompt": "Four boxes labelled Ana, Yara, Zed and Bea all have different weights. An unordered list of the three heaviest reads Yara, Bea, Zed. An unordered list of the three lightest reads Zed, Ana, Yara. Zed is heavier than Yara. Which box is second lightest?",
+          "hint": "The box missing from each list must occupy an extreme position."
         },
         {
           "id": "RWL2-317-B",
@@ -11284,9 +11284,9 @@
         {
           "id": "RWL2-349-A",
           "family": "LOGIC-02:continuation:A",
-          "title": "Two seats apart",
-          "prompt": "Four children sit in seats 1 to 4: Zed, Ana, Bea and Cleo. Zed is exactly two seat numbers before Ana. Cleo is in seat 1. Which seat number belongs to Bea?",
-          "hint": "Write every possible pair for the two numbered seats."
+          "title": "Finding a place from a ratio",
+          "prompt": "Seven runners finish a race, with no ties. Twice as many runners finish behind Bea as finish ahead of her. In which position does Bea finish?",
+          "hint": "Set Bea aside and split the other runners into the two groups described."
         },
         {
           "id": "RWL2-349-B",

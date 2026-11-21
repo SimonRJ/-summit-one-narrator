@@ -84,3 +84,5 @@ try{
  }
  assert.deepEqual(failures,[]);console.log('PASS: desktop/mobile exams, repair cycle, delayed check, adult reviews and lesson bridge; no page errors or horizontal overflow.');
 }finally{await browser.close();server.close()}
+
+await import('./check_lesson_models.mjs');
