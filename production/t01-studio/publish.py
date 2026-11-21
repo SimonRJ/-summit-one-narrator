@@ -20,6 +20,7 @@ VERSION = "t01-studio-v1"
 CHAPTER_VERSION = "studio-chapters-02-04-v1"
 COURSE_VERSION = "teaching-films-v1"
 REVIEWED_MEDIA = {
+    "T05.2": "digit-case-branches",
     "T05.1": "podium-and-teams",
     "T04.1": "factor-tree-84",
     "T04.2": "divisor-choices-200",
