@@ -1,7 +1,7 @@
 """Build and count prime factorizations using trees, factor pairs and choice grids."""
 
 from stage import BLUE, GOLD, MINT, MUTED, RED, RIM, WHITE, mix
-from studio_diagrams import fit, prime, recap, tile
+from studio_diagrams import fit, prime, tile
 
 
 def branch(stage, x, y, xs, lower, amount):
@@ -40,7 +40,7 @@ def first_tree(stage, s):
         bottom = s.reveal("then split those again")
         # The first tree enters after the definition clears.
         if start > 0.2:
-            tree(stage, 640, middle, (6, 10), (bottom, s.reveal("and five")), top=210)
+            tree(stage, 640, middle, (6, 10), (bottom, bottom), top=210)
         fit(stage, "2 × 3 × 2 × 5", 640, 555, 48, 680, MINT, s.reveal("two and five"))
 
 
@@ -130,11 +130,26 @@ def distribute_sixty_six(stage, s):
 
 
 def factor_recap(stage, s):
-    recap(stage, s, (("Split into primes", "split a number"),
-                     ("Test up to √n", "when you test"),
-                     ("1 has one factor", "one has only one")),
-          "in your notebook", ("Write 84 as a product of primes.",),
-          sub="Choose any first split. Keep splitting until every piece is prime.")
+    if s.reveal("in your notebook"):
+        stage.heading("Build a factor tree for 84")
+        tile(stage, 640, 205, 84, WHITE, 120, 66, size=40)
+        show = s.reveal("write eighty-four")
+        branch(stage, 640, 205, (463, 817), 365, show)
+        for x in (463, 817):
+            tile(stage, x, 365, "?", GOLD, 115, 65, show)
+        fit(stage, "Keep splitting until every leaf is prime.", 640, 535, 38, 1060,
+            MINT, s.reveal("as a product of primes"))
+        return
+    stage.heading("Prime pieces and prime tests")
+    tree(stage, 335, 1, (6, 10), (1, 1), top=177)
+    test = s.reveal("when you test")
+    fit(stage, "97", 924, 199, 54, 280, WHITE, test)
+    fit(stage, "9² < 97 < 10²", 924, 275, 37, 475, BLUE, test)
+    limit = s.reveal("up to its square root", 0.8)
+    for i, value in enumerate((2, 3, 5, 7)):
+        prime(stage, 763+i*107, 371, value, min(1, max(0, limit*4-i)), 73)
+    fit(stage, "1 has just one positive factor.", 640, 557, 34, 1050,
+        GOLD, s.reveal("one has only one"))
 
 
 def pair_chart(stage, s, pairs, cues, *, y=243, step=81, x=640):
@@ -235,16 +250,33 @@ def square_pairs(stage, s):
                       fill="#284b49", opacity=self_pair)
     stage.bracket(725, 978, 517, "6 columns", MINT, self_pair)
     fit(stage, "6 rows", 1054, 361, 30, 143, MINT, self_pair)
-    fit(stage, "4 pairs + 1 = 9 factors", 640, 596, 37, 1040, MINT,
+    fit(stage, "2 × 4 + 1 = 9 factors", 640, 596, 37, 1040, MINT,
         s.reveal("an odd count"))
 
 
 def count_recap(stage, s):
-    recap(stage, s, (("Allow zero copies", "for each prime"),
-                     ("Add 1 to each power", "add one to the"),
-                     ("Multiply choices", "multiply the resulting")),
-          "in your notebook", ("How many positive factors does 200 have?",),
-          sub="Explain why each factor is counted once.")
+    if s.reveal("in your notebook"):
+        stage.heading("How many factors does 200 have?")
+        fit(stage, "200 = 2³ × 5²", 640, 199, 48, 880, WHITE,
+            s.reveal("two hundred"))
+        show = s.reveal("then explain why")
+        fit(stage, "Copies of 5", 755, 276, 29, 445, GOLD, show)
+        fit(stage, "Copies of 2", 420, 364, 26, 205, BLUE, show)
+        for row in range(4):
+            fit(stage, str(row), 552, 362+48*row, 28, 64, BLUE, show)
+            for col in range(3):
+                x = 590+112*col
+                stage.box(x, 340+48*row, 101, 42, fill=None, edge=RIM, opacity=show)
+                if not row:
+                    fit(stage, str(col), x+50, 315, 27, 60, GOLD, show)
+        fit(stage, "Fill one product in each cell.", 640, 577, 32, 990, MINT, show)
+        return
+    stage.heading("Two independent prime choices")
+    fit(stage, "12 = 2² × 3", 640, 185, 43, 850)
+    choice_grid(stage, 2, 1, s.reveal("for each prime"), s.reveal("zero copies"),
+                s.reveal("multiply the resulting"), y=340)
+    fit(stage, "(2 + 1) × (1 + 1) = 6", 640, 554, 40, 990, MINT,
+        s.reveal("multiply the resulting"))
 
 
 SCENES = {
