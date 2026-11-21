@@ -16,7 +16,7 @@ The continuation contains 912 new questions with hints and protected worked solu
 | S075 | Grow the whole recipe | [S075](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S075-Intro-Illustrated.mp4) · Its own introduction | Matching a second batch | 6 |
 | S076 | Trace the cut edge | [S076](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S076-Intro-Illustrated.mp4) · Its own introduction | Recover the joins | 6 |
 | S078 | Use an easier outline | [S078](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S078-Intro-Illustrated-v2.mp4) · Its own introduction | The kerb cuts a corner | 6 |
-| S079 | Give each outcome an address | [S079](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S079-Intro.mp4) · Its own introduction | Parcel route | 6 |
+| S079 | Give each outcome an address | [S079](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S079-Intro-Illustrated.mp4) · Its own introduction | Parcel route | 6 |
 | S081 | Which angles fill the line? | [S081](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S081-Intro-Illustrated.mp4) · Its own introduction | The inside bisectors | 6 |
 | S082 | A cell is bounded by lines | [S082](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S082-Intro.mp4) · Its own introduction | One marker inside | 6 |
 | S083 | Find the partners in a mirror | [S083](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S083-Intro-Illustrated.mp4) · Its own introduction | Two fold lines | 6 |
@@ -137,7 +137,7 @@ The continuation contains 912 new questions with hints and protected worked solu
 | S232 | Find the crossover between two plans | [S104](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S104-Intro.mp4) · Technique film | A capped fare | 4 |
 | S233 | Reassemble overlapping descriptions | [S022](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S022-Intro-Illustrated.mp4) · Technique film | Matching leftovers | 6 |
 | S234 | Undo repeated rules without guessing | [S143](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S143-Intro.mp4) · Technique film | Two possible orders | 5 |
-| S235 | Choose the first point of difference | [S079](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S079-Intro.mp4) · Technique film | Break in the fence | 5 |
+| S235 | Choose the first point of difference | [S079](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S079-Intro-Illustrated.mp4) · Technique film | Break in the fence | 5 |
 | S237 | Several columns share one ink supply | [S114](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S114-Intro.mp4) · Technique film | A covered drum | 6 |
 | S239 | Use a boundary to shorten the list | [S057](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S057-Intro-Illustrated.mp4) · Technique film | Weather readings | 6 |
 | S241 | Use what the clue tells you | [S101](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S101-Intro.mp4) · Technique film | The inspected pair | 5 |
@@ -229,7 +229,7 @@ The continuation contains 912 new questions with hints and protected worked solu
 | S358 | Reconstruct a consistent grid | [S117](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S117-Intro.mp4) · Technique film | Ink over a rectangle of entries | 6 |
 | S359 | Recover the choices behind a total | [S118](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S118-Intro.mp4) · Technique film | The two changes to a grid | 6 |
 | S360 | Pair prime factors to make a square | [S011](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S011-Intro-Illustrated.mp4) · Technique film | The smallest square shipment | 6 |
-| S361 | Partition by a remainder, then check the cases | [S079](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S079-Intro.mp4) · Technique film | Counterexample audit | 6 |
+| S361 | Partition by a remainder, then check the cases | [S079](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S079-Intro-Illustrated.mp4) · Technique film | Counterexample audit | 6 |
 | S362 | Eliminate first, then compare by ratio | [S050](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S050-Intro-Illustrated.mp4) · Technique film | A counterweight box | 5 |
 | S365 | Use a fraction of a known area | [S061](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S061-Intro-Illustrated.mp4) · Technique film | The field beyond the triangle | 6 |
 | S366 | State exactly what a route may remember | [S093](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S093-Intro.mp4) · Technique film | Dispatch with priority gates | 6 |
