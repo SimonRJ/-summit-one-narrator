@@ -55,7 +55,7 @@ async def verify_revised_lessons(browser):
  ctx=await browser.new_context(viewport={'width':390,'height':844}, service_workers='block')
  calls=[]
  async def mock_api(route):
-  await route.fulfill(content_type='application/javascript', body=MOCK.replace(
+  await route.fulfill(content_type='application/javascript', body=MOCK.replace('correct:true,independent_credit:',"correct:body.answer_text!=='fixture-miss',independent_credit:").replace(
    'functions:{invoke:async(name,{body})=>({data:',
    'functions:{invoke:async(name,{body})=>(await window.fixtureInvoke(name,body),{data:'))
  await ctx.expose_function('fixtureInvoke', lambda name,body: calls.append((name,body)))
@@ -79,6 +79,41 @@ async def verify_revised_lessons(browser):
   assert box['windowX']<=2 and box['stageX']<=2 and 0<=box['footerTop']<box['footerBottom']<=box['height']+2, box
  await fits()
  await page.screenshot(path=str(SCREENSHOTS/'read-session-1-iphone.png'))
+ first=read.locator('.rwl-first-step')
+ full=read.locator('.rwl-full-example')
+ assert not await first.locator('p').is_visible()
+ assert not await full.locator('ol').is_visible()
+ # Full working is available immediately and both disclosures work from the keyboard.
+ await full.locator('summary').press('Enter')
+ assert await full.locator('ol').is_visible()
+ await first.locator('summary').press('Space')
+ assert await first.locator('p').is_visible()
+ assert not await full.locator('ol').is_visible()
+ await full.locator('summary').click()
+ assert await full.locator('ol').is_visible() and not await first.locator('p').is_visible()
+ await fits()
+ assert not any(name in ('submit-problem-attempt','get-problem-solution') for name,_ in calls)
+ # Check the shared renderer against every authored example, including symbols and figures.
+ count=await page.evaluate("""async () => {
+   const {readCard}=await import('./reviewed-lesson.js');
+   const volumes=await Promise.all(['read-watch-practise','read-watch-practise-later']
+     .map(async name=>(await fetch('./data/'+name+'.json')).json()));
+   const lessons=volumes.flatMap(volume=>volume.lessons);
+   const template=document.createElement('template');
+   for(const lesson of lessons){
+     template.innerHTML=readCard(lesson);
+     const card=template.content.querySelector('.rwl-example'), example=lesson.example;
+     const first=card.querySelector('.rwl-first-step p'), full=card.querySelector('.rwl-full-example');
+     const steps=Array.from(full.querySelectorAll('li'),item=>item.textContent);
+     if(card.querySelector('details[open]') || card.querySelector('p').textContent!==example.prompt
+        || first.textContent!==example.steps[0] || JSON.stringify(steps)!==JSON.stringify(example.steps)
+        || card.querySelector('img')?.getAttribute('alt')!==example.figure?.alt){
+       throw Error('Worked example changed in session '+lesson.slot);
+     }
+   }
+   return lessons.length;
+ }""")
+ assert count==283,count
  next_button=page.locator('[data-screen-next]')
  back=page.locator('[data-screen-back]')
  async def play_phase(slot):
@@ -106,10 +141,17 @@ async def verify_revised_lessons(browser):
    await page.locator('.rwl-hint summary').click()
   if index==len(question_ids)-1:
    assert await page.get_by_text('UNFAMILIAR CHALLENGE',exact=True).is_visible()
-  await page.locator('.rwl-form input').fill('12')
+  await page.locator('.rwl-form input').fill('fixture-miss' if index in (1,2) else '12')
   await page.locator('.rwl-form button').click()
   await page.wait_for_function("!document.querySelector('[data-screen-next]').disabled")
   assert calls[-1][0]=='submit-problem-attempt' and calls[-1][1]['problem_id']==qid
+  if index in (1,2):
+   rethink=page.locator('.rwl-rethink')
+   await rethink.locator('summary').click()
+   assert (await rethink.locator('p').inner_text()).strip()
+   assert await page.locator('.rwl-solution').is_visible()
+   assert await page.locator('.rwl-form input').is_disabled()
+   assert calls[-1][0]=='submit-problem-attempt'
   if index==0:
    assert calls[-1][1]['used_help'] is True
    await page.locator('.rwl-solution').click()
@@ -124,6 +166,7 @@ async def verify_revised_lessons(browser):
   await next_button.click()
  await page.locator('.rwl-results').wait_for()
  assert await page.locator('[data-revisit]').count()==len(question_ids)
+ assert await page.locator('[data-revisit] b').all_text_contents()==['Correct with support','Try again on paper','Try again on paper',*['Correct']*(len(question_ids)-3)]
  await fits()
  await next_button.click()
  await page.locator('#continue').wait_for()

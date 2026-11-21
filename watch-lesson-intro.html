@@ -9,6 +9,11 @@
 <link rel="stylesheet" href="lesson-introduction-videos.css?v=lesson-intros-v2">
 <script defer src="lesson-introduction-watch.js?v=lesson-intros-v7"></script>
 <script type="module" src="lesson-introduction-library.js?v=lesson-intros-v16"></script>
+<link rel="stylesheet" href="lesson-models.css?v=guided-20261121">
+<script type="module">
+import {mountLessonModel} from './lesson-models.js?v=guided-20261121';
+mountLessonModel(document.getElementById('lessonModel'), {slot: Number(new URLSearchParams(location.search).get('slot'))});
+</script>
 </head>
 <body><main>
 <a href="lesson-introduction-videos.html">← Lesson introduction videos</a>
@@ -17,6 +22,7 @@
 <p id="introLessonNumber" class="lesson-number"></p>
 <h1 id="introTitle">Lesson introduction</h1>
 <video id="introFilm" controls playsinline preload="metadata"></video>
+<div id="lessonModel"></div>
 <div id="introContents" hidden>
 <h2>Jump to a chapter</h2>
 <ol id="introChapters" class="jump"></ol>

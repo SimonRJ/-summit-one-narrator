@@ -1,0 +1,47 @@
+.lesson-model {
+  margin: .75rem auto;
+  max-width: 44rem;
+  color: #e9f4fa;
+  background: #102532;
+  border: 1px solid #446370;
+  border-radius: .7rem;
+  overflow-wrap: anywhere;
+}
+.lesson-model > summary {
+  padding: .65rem .8rem;
+  min-height: 44px;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-weight: 650;
+  line-height: 1.45;
+  color: #bceee2;
+}
+.lesson-model summary:focus-visible,
+.lesson-model select:focus-visible,
+.lesson-model input:focus-visible { outline: 3px solid #ffdf92; outline-offset: 2px; }
+.lesson-model-body { padding: 0 .8rem .7rem; }
+.lesson-model-body > p { margin: .4rem 0 .65rem; line-height: 1.45; }
+.lm-controls { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); gap: .4rem 1rem; }
+.lm-controls label { display: grid; align-content: start; gap: .15rem; margin: 0; min-width: 0; color: #edf7fb; font-size: .95rem; }
+.lm-controls select, .lm-controls input { font: inherit; width: 100%; min-width: 0; min-height: 44px; box-sizing: border-box; }
+.lm-controls select { color-scheme: dark; background: #152f3c; color: #fff; border: 1px solid #658793; border-radius: .35rem; padding: .3rem .45rem; }
+.lm-controls input[type=range] { accent-color: #82dac4; cursor: pointer; margin: 0; padding: 0; }
+.lm-controls b { font-variant-numeric: tabular-nums; color: #8ce6d2; padding-left: .25em; }
+.lm-drawing { display: grid; justify-items: center; margin: .4rem 0; background: #0a1a25; border-radius: .4rem; }
+.lm-drawing svg { width: 100%; max-width: 23rem; height: auto; display: block; }
+.lm-drawing text { font-family: inherit; }
+.lm-caption, .lm-number, .lm-small { fill: #eff6fa; }
+.lm-caption { font-size: 13px; font-weight: 600; }
+.lm-small { font-size: 11px; }
+.lm-number, .lm-active-number { font-weight: 700; font-size: 17px; }
+.lm-active-number, .lm-dot { fill: #092b2c; }
+.lm-present { fill: #78d9bd; stroke: #0d4651; }
+.lm-cube { fill: #355569; stroke: #c5dce2; }
+.lm-empty { fill: #193343; stroke: #90aaba; }
+.lm-grid { stroke: #7895a2; fill: none; stroke-width: 1; }
+.lm-outline { fill: none; stroke: #ffd880; stroke-width: 4; stroke-linejoin: round; }
+.lm-pen { fill: #27594f; }
+.lm-unit { stroke: #6fa198; fill: none; stroke-width: .7; }
+.lm-fence { stroke: #ffd880; stroke-width: 2.5; fill: none; }
+.lm-wall { stroke: #d2e7ef; stroke-width: 3; stroke-dasharray: 3 2; fill: none; }
+.lm-result { color: #daeaf0; }
