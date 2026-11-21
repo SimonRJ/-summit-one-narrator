@@ -1,0 +1,123 @@
+{
+  "id": "S074",
+  "duration_seconds": 186.633333,
+  "sha256": "abb5a784da1090665a299512d44eca9e2a535e7fe0d85ad56570328638b320bb",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 99.42,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0,
+      "match_percent": 100
+    },
+    {
+      "number": 2,
+      "start": 14.36,
+      "match_percent": 97.73
+    },
+    {
+      "number": 3,
+      "start": 32.6,
+      "match_percent": 96.97
+    },
+    {
+      "number": 4,
+      "start": 48.25,
+      "match_percent": 100
+    },
+    {
+      "number": 5,
+      "start": 62.65,
+      "match_percent": 100
+    },
+    {
+      "number": 6,
+      "start": 78.78,
+      "match_percent": 100
+    },
+    {
+      "number": 7,
+      "start": 93.02,
+      "match_percent": 100
+    },
+    {
+      "number": 8,
+      "start": 110.75,
+      "match_percent": 100
+    },
+    {
+      "number": 9,
+      "start": 128.51,
+      "match_percent": 98.9
+    },
+    {
+      "number": 10,
+      "start": 147.39,
+      "match_percent": 100
+    },
+    {
+      "number": 11,
+      "start": 164.99,
+      "match_percent": 100
+    }
+  ],
+  "chapters": [
+    {
+      "title": "What proves uniqueness?",
+      "start": 0
+    },
+    {
+      "title": "Bound a set of candidates",
+      "start": 14.36
+    },
+    {
+      "title": "Multiples in a closed interval",
+      "start": 32.6
+    },
+    {
+      "title": "All pairs that sum to 17",
+      "start": 62.65
+    },
+    {
+      "title": "Can a second rectangle work?",
+      "start": 93.02
+    },
+    {
+      "title": "A witness and an exclusion",
+      "start": 147.39
+    },
+    {
+      "title": "Choose a complete proof",
+      "start": 164.99
+    }
+  ],
+  "decoded_successfully": true,
+  "title": "Proving all cases and unique solutions",
+  "seconds": 186.633333,
+  "art_revision": 2,
+  "script_sha256": "a089fc7474e0cae65817607ba8d6922a4ad73083624e40da8e15b687da000ee5",
+  "transcript": [
+    "A proof needs reasons that cover every allowed case. To prove a unique answer, show that it works and that every different answer fails. A bound or an increasing pattern can eliminate an entire range in one step.",
+    "AMC practice may ask for the only integer satisfying a clue. Use the constraint to get a narrow range before testing candidates. Mawa application practice rewards clear reasons. A proof can use inequalities, a complete list, or a pattern you justify for all values.",
+    "List the multiples of five from twenty through thirty-two, counting both endpoints. Explain how you know the list is complete. Find the first eligible multiple and step forward by the divisor.",
+    "The first eligible value is twenty. The preceding multiple is fifteen, below the lower limit. The full list is twenty, twenty-five and thirty. The next multiple is thirty-five, which is already above the upper limit.",
+    "Two positive whole numbers add to seventeen. Neither can exceed twelve. List all pairs, counting a swapped pair only once. Call the smaller number x and use this to bound x from both sides.",
+    "The larger number is seventeen minus x, so x is at least five. Since x is the smaller, it is at most eight. Each integer in that range gives exactly one partner. There are four pairs. All of them meet the cap.",
+    "An integer-sided rectangle has area one hundred and thirty-five square units. Its longer side is six units greater than its shorter side. Find its two side lengths and prove that no second pair of positive integer lengths works.",
+    "Let x be the shorter side. The area is x times x plus six, with both terms positive. Try eight for x and check the area. The next integer, nine, gives nine times fifteen, exactly one hundred and thirty-five. That proves this pair exists.",
+    "Every increase in x increases both positive factors. The area increases strictly. Any x below nine gives too little area and any x above gives too much. The dimensions are therefore uniquely nine and fifteen units. They check both the area and the side difference.",
+    "One candidate that works proves existence only. Give a bound, exhaustive list or increasing rule to exclude every other candidate. When working with a closed interval, its boundary values are eligible. Test whether the inequality is strict before dropping an endpoint.",
+    "State what you need to prove: all answers, at least one answer, or exactly one answer. List the restrictions that define a legal candidate. Use a complete range or a justified relationship. Verify the survivor or survivors in the original problem before writing your answer."
+  ],
+  "legacy_sha256": "f3b1f1067928303c06af68f231cc4a0668af9d96837c3a6c4a8955590d66b8cc",
+  "audio_packet_hash": "aa86af8c5a585f8770e85623d23e99b269b43adf2d60afdb6441781296e9bd66",
+  "illustrated_revision": 1
+}
