@@ -15,7 +15,7 @@ async function publicJson(url) {
   return response.json();
 }
 async function course() {
-  const [catalogue, teaching] = await Promise.all([publicJson(registry),publicJson(root+'data/teaching-72.json')]);
+  const [catalogue, teaching] = await Promise.all([publicJson(registry + '?v=' + Math.floor(Date.now() / 20000)),publicJson(root+'data/teaching-72.json')]);
   const films = [];
   for (let slot=1;slot<=6;slot++) {
     const id='S'+String(slot).padStart(3,'0');

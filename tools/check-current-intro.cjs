@@ -8,7 +8,7 @@ async function awaitCatalogueEdition(target) {
   const url = 'https://raw.githubusercontent.com/SimonRJ/-summit-one-narrator/refs/heads/lesson-intro-catalog/data/lesson-intros-live.json';
   const deadline = Date.now() + 6 * 60_000;
   while (Date.now() < deadline) {
-    const response = await fetch(url, {signal: AbortSignal.timeout(15_000)});
+    const response = await fetch(url + '?v=' + Math.floor(Date.now() / 20000), {signal: AbortSignal.timeout(15_000)});
     if (response.ok) {
       const entry = (await response.json()).entries.find(row => row.id === target.id);
       if (entry?.status === 'verified' && entry.sha256 === target.sha256) return;
@@ -16,6 +16,31 @@ async function awaitCatalogueEdition(target) {
     await new Promise(resolve => setTimeout(resolve, 15_000));
   }
   throw new Error(`The public catalogue has not yet served the reviewed ${target.id} edition`);
+}
+
+async function awaitCourseAssignment(target) {
+  if (!target.assignedSlots?.length) return;
+  const site = 'https://simonrj.github.io/-summit-one-narrator/';
+  const asset = 'https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/' + target.asset;
+  const deadline = Date.now() + 6 * 60_000;
+  while (Date.now() < deadline) {
+    const home = await fetch(site, {signal: AbortSignal.timeout(15000)});
+    const script = (await home.text()).match(/src="(app-main\.js\?v=[^"]+)"/)?.[1];
+    if (home.ok && script) {
+      const module = await fetch(new URL(script, site), {signal: AbortSignal.timeout(15000)});
+      const data = (await module.text()).match(/fetch\("(data\/read-watch-practise-later\.json\?v=[^"]+)"/)?.[1];
+      if (module.ok && data) {
+        const response = await fetch(new URL(data, site), {signal: AbortSignal.timeout(15000)});
+        if (response.ok) {
+          const lessons = (await response.json()).lessons.filter(l => l.videoId === target.id);
+          if (target.assignedSlots.every(slot => lessons.some(l => l.slot === slot))
+              && lessons.every(l => l.movie === asset)) return;
+        }
+      }
+    }
+    await new Promise(resolve => setTimeout(resolve, 15000));
+  }
+  throw new Error('The deployed Read-Watch-Practise lessons still select an earlier film.');
 }
 
 async function check() {
@@ -28,7 +53,7 @@ async function check() {
     assert.match(target.chapterPlayerSha256, /^[a-f0-9]{64}$/);
     process.env.CHAPTER_PLAYER_SHA256 = target.chapterPlayerSha256;
   }
-  await awaitCatalogueEdition(target);
+  await Promise.all([awaitCatalogueEdition(target), awaitCourseAssignment(target)]);
   const runner = spawnSync(process.execPath, ['tools/review-public-video-players.cjs',target.id], {stdio:'inherit'});
   if (runner.error) throw runner.error;
   assert.equal(runner.status, 0, 'The public phone player failed its playback or chapter seek.');
