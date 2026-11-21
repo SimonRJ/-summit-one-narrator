@@ -1,5 +1,6 @@
+import {enableFigureViewing} from './figure-viewer.js?v=deeper-20261121';
 import {exampleMethods} from './example-methods.js?v=reasoning-20261121';
-import {mountLessonModel} from './lesson-models.js?v=github-20261121';
+import {mountLessonModel} from './lesson-models.js?v=deeper-20261121';
 // The published lesson text and hints are public. Answers and worked solutions are
 // versioned in content_problems and are requested only through the signed-in learner.
 export const edition='read-watch-practise-1';
@@ -103,6 +104,7 @@ export function renderReviewedLesson({app,s,l,questions,draft,locked=false,video
   app.querySelector('[data-screen-count]').textContent=`${page+1} / ${questions.length+3}`;back.textContent=page===0?(locked?'Saved lesson':'Home'):'Back';next.textContent=page===0?'Watch video':page===1?'Start practice':page===questions.length+2?(locked?'Saved lesson':'Finish lesson'):page===questions.length+1?'Recap':'Next';
   if(page===0) {
    stage.innerHTML=(locked?'<p class="rwl-review-note" role="note">Revision practice. Your original answers, score and completion stay locked.</p>':'')+readCard(l);
+   enableFigureViewing(stage);
    mountLessonModel(stage.querySelector('[data-lesson-model]'), l);
   }
   else if(page===1){stage.innerHTML=`<article class="opening-film rwl-film"><div class="eyebrow">WATCH THE IDEA IN ACTION</div><h2>${escape(l.videoTitle||s.focus)}</h2>${l.filmUse==="technique"?`<p class="muted">Technique film from lesson ${escape(l.videoId)}.</p>`:""}<div class="opening-video-wrap">${video()}</div><p class="muted rwl-video-note">Pause when a problem appears and try a first step on paper.</p></article>`;const film=stage.querySelector('video');if(film){let watched=0,last=null,marked=false;film.addEventListener('timeupdate',()=>{const t=film.currentTime;if(!film.paused&&last!==null&&t>=last&&t-last<2)watched+=t-last;last=t;if(!marked&&film.duration>0&&watched>=.8*film.duration){marked=true;recordWatch({position_seconds:t,duration_seconds:film.duration,completed_80_percent:true,media_mode:'finished_video'})}});film.addEventListener('error',()=>{if(!stage.contains(film))return;stage.querySelector('.rwl-video-note').textContent='The film could not be loaded. Check your connection and reopen this screen to retry.'})}}
@@ -113,6 +115,7 @@ export function renderReviewedLesson({app,s,l,questions,draft,locked=false,video
  function mountProblem(q){
   const i=page-2,last=i===questions.length-1,key='rwl-hint:'+q.id,answer=draft.answers[q.id],prompt=q.prompt,stamp=generation;
   const hint=q.hint;stage.innerHTML=`<article class="rwl-copy rwl-problem"><div class="eyebrow">${i===0?'FIRST PRACTICE':last?'UNFAMILIAR CHALLENGE':'YOUR TURN'}</div><h2>${escape(q.title)}</h2>${q.learning?figure(q):''}<p class="problem-prompt math-copy">${escape(prompt)}</p>${q.figure?`<img class="rwl-opening-figure" src="${escape(q.figure.src)}" alt="${escape(q.figure.alt)}">`:''}<form class="rwl-form"><label class="answer-label">Final answer<input type="text" class="final-answer-input" maxlength="90" autocomplete="off" autocapitalize="none" spellcheck="false" required></label><button type="submit" class="primary">Check answer</button></form><label class="support-choice rwl-help"><input type="checkbox"> I used help with this question</label>${hint?`<details class="rwl-hint"><summary>A first hint</summary><p class="math-copy">${escape(hint)}</p></details>`:''}<p class="rwl-feedback" role="status"></p><details class="rwl-rethink" hidden><summary>Try a next step on paper</summary><p class="math-copy"></p></details><button class="secondary rwl-solution" type="button" hidden>See worked solution</button><div class="rwl-steps math-copy" hidden></div></article>`;
+  enableFigureViewing(stage);
   const form=stage.querySelector('form'),field=form.querySelector('input'),check=form.querySelector('button'),feedback=stage.querySelector('.rwl-feedback'),reveal=stage.querySelector('.rwl-solution'),solution=stage.querySelector('.rwl-steps'),details=stage.querySelector('.rwl-hint'),helpLabel=stage.querySelector('.rwl-help'),helpBox=helpLabel.querySelector('input');
   const keep='draft-answer:'+q.id;field.value=answer?.response||draft.working[keep]||'';field.oninput=()=>{draft.working[keep]=field.value;markLocal()};
   const displayAnswer = a => {

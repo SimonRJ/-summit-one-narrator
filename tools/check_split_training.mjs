@@ -52,7 +52,8 @@ for(const [skill,entry] of Object.entries(map.skills)){
  }
 }
 assert(index.includes("main.css?v=data-audit-20261114"));
-assert(testsPage.includes("tests.js?v=amc-clean-20261113"));
+const examModule=testsPage.match(/src="(tests\.js\?v=[a-z0-9-]+)"/)?.[1];
+assert(examModule && worker.includes('"./'+examModule+'"'),"Precache the version actually loaded by the exam centre");
 assert(src.includes('source-choice-strip') && src.includes('sourceScan='));
 assert(style.includes(".amc-pending-sets"));
 const appRevision=index.match(/\bsrc="app-main\.js\?v=([a-z0-9-]+)"/)?.[1];

@@ -1,4 +1,5 @@
-import {edition as readEdition, questionOrder, renderReviewedLesson, restoreGradedAnswers} from './reviewed-lesson.js?v=github-20261121';
+import {enableFigureViewing} from './figure-viewer.js?v=deeper-20261121';
+import {edition as readEdition, questionOrder, renderReviewedLesson, restoreGradedAnswers} from './reviewed-lesson.js?v=deeper-20261121';
 import {mixedFlashDeck} from './flash-cards.js?v=content-audit-20261113';
 import {wordingHTML} from './recognition.js?v=recognition-20261113';
 import {bridgeHTML,mountPractice} from './transfer-practice.js?v=github-20261121';
@@ -599,7 +600,8 @@ function renderChallenge(el,s,p,mode){
   const node=problemTemplate.content.firstElementChild.cloneNode(true);node.classList.add('lesson-problem-unit');
   node.querySelector(".problem-meta").textContent=`ORIGINAL LEARNING PROBLEM · ${mode==="try"?"APPLY THE IDEA":"CHOOSE YOUR METHOD"}`;
   node.querySelector(".problem-title").textContent=p.title||p.id;
-  const promptEl=node.querySelector(".problem-prompt"); promptEl.textContent=p.prompt; const figure=originalFigure(p)||problemFigure(p.id); if(figure)promptEl.insertAdjacentHTML("beforebegin",figure);
+  const promptEl=node.querySelector(".problem-prompt"); promptEl.textContent=p.prompt; const figure=originalFigure(p)||problemFigure(p.id);
+  if(figure){promptEl.insertAdjacentHTML("beforebegin",figure);enableFigureViewing(node)}
   const box=node.querySelector(".answer-box"),submit=node.querySelector(".submit-answer"),reveal=node.querySelector(".reveal-solution"),feedback=node.querySelector(".attempt-feedback"),solution=node.querySelector(".solution-panel");
   const familiar=familySeen(completedRecords,p.learning.family);
   const reason=mountReasoning(node,{p,draft:sessionDraft,save:()=>saveDraft(s),showHint:()=>methods[p.learning.skill].idea});
@@ -751,6 +753,7 @@ async function renderReview(){
  const learning=lessonManifest.find(entry=>entry.id===id);
  const figure=problem ? originalFigure({...problem,learning}) : '';
  return `<article><h3>${esc(problem?.title||id)}</h3>${figure}<p class="math-copy">${esc(problem?.prompt||'')}</p><p><b>Recorded answer:</b> ${esc(a?.response??a)}</p><p class="math-copy">${esc(r.working?.[id]||'')}</p><button class="ghost saved-solution" data-problem="${esc(id)}" data-session="${r.session_number}">Worked solution</button><div class="saved-solution-content"></div>${r.evidence?.['reasoning:'+id]?`<p><b>Recognition clue:</b> ${esc(r.evidence['reasoning:'+id].clue||'—')}</p><p><b>Plan:</b> ${esc(r.evidence['reasoning:'+id].plan||'—')}</p><p><b>Check or correction:</b> ${esc(r.evidence['reasoning:'+id].check||'—')}</p><p class="muted">${esc(applicationStatus(r.evidence?.['application:'+id]))} · explanation saved for review</p>`:''}</article>`;}).join('')}${Object.values(r.evidence||{}).filter(e=>e?.kind==='mixed_application').map(e=>`<article><h3>${esc(e.question_id)}</h3>${e.method?`<p><b>Your method:</b> ${esc(e.method)}</p>`:""}<p><b>Recorded answer:</b> ${esc(e.response)} · ${e.correct?'correct':'needs repair'}${e.used_help?' · supported':''}</p></article>`).join('')}${r.working?.mawa_base?`<div data-adult-review="${r.session_number}"></div><h3>Investigation</h3><p class="math-copy">${esc(r.working.mawa_base)}</p><h3>Extension</h3><p class="math-copy">${esc(r.working.mawa_extension||'')}</p>`:''}</details>`).join('')||'<p>No completed sessions yet.</p>'}</section>`;
+ enableFigureViewing(app);
  app.querySelectorAll('[data-revised-copy]').forEach(button=>button.onclick=()=>openRevisedCopy(Number(button.dataset.revisedCopy)));
  app.querySelectorAll('.saved-intro').forEach(button=>button.onclick=()=>openLessonIntroductionFromMenu(Number(button.dataset.videoSession)).catch(error=>alert(error.message)));
  app.querySelectorAll('.saved-solution').forEach(button=>button.onclick=async()=>{button.disabled=true;const target=button.nextElementSibling;try{const {data,error}=await supabase.functions.invoke('get-problem-solution',{body:{problem_id:button.dataset.problem,session_number:Number(button.dataset.session)}});if(error||data?.error)throw error||new Error(data.error);target.className='math-copy';target.textContent=data.solution_text||data.spoken_script||'No written solution returned.'}catch(err){target.textContent=err.message;button.disabled=false}});
