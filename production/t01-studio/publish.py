@@ -20,6 +20,7 @@ VERSION = "t01-studio-v1"
 CHAPTER_VERSION = "studio-chapters-02-04-v1"
 COURSE_VERSION = "teaching-films-v1"
 REVIEWED_MEDIA = {
+    "T07.E": "five-tray-witness",
     "T07.3": "one-per-column",
     "T07.2": "balanced-fence-22",
     "T07.1": "six-on-eleven",
