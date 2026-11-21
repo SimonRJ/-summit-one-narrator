@@ -30,6 +30,17 @@ async def open_fixture(browser, base, slot, records, width):
     return context, page
 
 
+async def authored_text(locator):
+    """Read each typeset expression once, using the source carried by its visual span."""
+    return await locator.evaluate("""element => {
+        const copy = element.cloneNode(true);
+        for (const formula of copy.querySelectorAll('[data-math-source]')) {
+            formula.replaceWith(document.createTextNode(formula.dataset.mathSource));
+        }
+        return copy.textContent.trim();
+    }""")
+
+
 async def solve_visit(browser, base, study, index):
     slot = study['slot']
     earlier = dict(session_number=study['prior'], completed_at='2026-01-01', immutable=True,
@@ -43,10 +54,10 @@ async def solve_visit(browser, base, study, index):
         assert await page.evaluate('document.documentElement.scrollWidth <= innerWidth + 1')
         for i, question in enumerate(study['questions']):
             card = forms.nth(i)
-            await expect(card.locator(':scope > p').first).to_have_text(question['prompt'])
+            assert await authored_text(card.locator(':scope > p').first) == question['prompt']
             if i == 5:
                 await card.locator('button.hint').click()
-                await expect(card.locator('.feedback')).to_have_text(study['hint'])
+                assert await authored_text(card.locator('.feedback')) == study['hint']
             await card.locator('input').fill(str(question['value']))
             await card.locator('form .primary').click()
             await expect(card.locator('.feedback ol li')).to_have_count(3)

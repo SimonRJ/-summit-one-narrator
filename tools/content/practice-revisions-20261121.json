@@ -170,6 +170,9 @@
     }
   },
   "solutionHashes": {
+    "O003X": "e3bc1fb1a738f5666c93d442b696b4ef583c225cb45aefcf396a5ce82586bb54",
+    "RWL1-002-A": "bc20b4dd47352c840e593410aeed078213e1e76621f95618cc4e9f710427e765",
+    "RWL1-006-D": "10b5773e8dc557ab1bf6a473116e444f831a51088eb6d3fb2431ae1f0a8bfd19",
     "RWL2-135-A": "178bcb761b74e81be35d81db5ad08c975b13f935f97152b82ae65dd0d6c7ca62",
     "RWL2-135-B": "6efae8d1059157db5416d2af0dc3bc649e875e62b03bd024147335ec4919c4b4",
     "RWL2-167-D": "73d30fa783eb76340cf4fc435e19032a17dc2768477d24d21f61b78b80e3a664",
@@ -200,7 +203,7 @@
       "bridge": "In the repeating row of symbols, where does an exact multiple of six land? Look for what a remainder of zero tells you about the final symbol."
     },
     "S002": {
-      "intro": "Imagine a sheet with one column more than you need. You can count a tidy rectangle, then put the missing strip back or take the spare strip away. The size of that strip is the correction.",
+      "intro": "Adding a column of squares changes a rectangle’s area by the height of that column. You can work with a tidy rectangle first, then add or remove one strip to get the exact area.",
       "example": {
         "prompt": "What is 31 × 8?",
         "steps": [
@@ -223,7 +226,7 @@
       "recap": "Start with the known finish. Undo the changes in reverse order. If some fraction was removed, identify the fraction left and use it to recover the whole. Replay the changes forwards to check."
     },
     "S004": {
-      "headline": "Which digit has the fewest places?",
+      "headline": "Which place has the fewest choices?",
       "intro": "A zero in the middle of 306 is useful. Put the zero first and 036 represents just 36. When you arrange digit cards, reserve any restricted places before filling the gaps.",
       "example": {
         "prompt": "Three cards show 0, 3 and 8. Use every card once. How many three-digit numbers have the 3 at one end?",

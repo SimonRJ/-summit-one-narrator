@@ -4,6 +4,7 @@ import hashlib
 import json
 import re
 from pathlib import Path
+from solution_revisions import checked_solution, private_overlay
 
 ROOT = Path(__file__).resolve().parents[2]
 EDITION = 'read-watch-practise-2'
@@ -46,8 +47,7 @@ def build(private):
     revisions = read(ROOT/'tools/content/practice-revisions-20261121.json')
     # Already updated drafts can be rebuilt directly. An older private archive
     # gets the worked solutions for its revised questions from the private overlay.
-    overlay_path = private/'practice-revision-solutions.json'
-    solution_overlay = read(overlay_path) if overlay_path.exists() else {}
+    solution_overlay = private_overlay(private)
     lessons, rows = [], []
     recorded = read(ROOT/'data/recorded-studies.json')
     existing = read(ROOT/'data/read-watch-practise.json')['lessons']
@@ -96,12 +96,7 @@ def build(private):
             id = f'RWL2-{slot:03}-{"ABCD"[i]}'
             if id in revisions['questions']:
                 q.update(revisions['questions'][id])
-                expected_digest = revisions['solutionHashes'].get(id)
-                if expected_digest:
-                    solution = solution_overlay.get(id, q['solution'])
-                    if hashlib.sha256(solution.encode()).hexdigest() != expected_digest:
-                        raise ValueError(f'{id}: refresh the private solution overlay as described in docs/LATER_LESSONS.md')
-                    q['solution'] = solution
+            q['solution'] = checked_solution(id, q['solution'], revisions['solutionHashes'], solution_overlay)
             assert all(isinstance(q[k], str) and q[k].strip() for k in ('title','prompt','hint','solution')), id
             assert isinstance(q['answer'], (int, float, str)) and not isinstance(q['answer'], bool), id
             if isinstance(q['answer'], str):

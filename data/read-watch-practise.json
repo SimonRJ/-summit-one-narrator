@@ -52,7 +52,7 @@
     {
       "slot": 2,
       "headline": "Round it, then pay back the difference",
-      "intro": "Imagine a sheet with one column more than you need. You can count a tidy rectangle, then put the missing strip back or take the spare strip away. The size of that strip is the correction.",
+      "intro": "Adding a column of squares changes a rectangle’s area by the height of that column. You can work with a tidy rectangle first, then add or remove one strip to get the exact area.",
       "example": {
         "prompt": "What is 31 × 8?",
         "steps": [
@@ -155,7 +155,7 @@
     },
     {
       "slot": 4,
-      "headline": "Which digit has the fewest places?",
+      "headline": "Which place has the fewest choices?",
       "intro": "A zero in the middle of 306 is useful. Put the zero first and 036 represents just 36. When you arrange digit cards, reserve any restricted places before filling the gaps.",
       "example": {
         "prompt": "Three cards show 0, 3 and 8. Use every card once. How many three-digit numbers have the 3 at one end?",

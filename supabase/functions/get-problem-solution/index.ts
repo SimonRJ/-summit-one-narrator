@@ -34,8 +34,14 @@ Deno.serve(async req=>{
     const {data:signed,error:signedError}=await admin.storage.from(PROTECTED_VIDEO_BUCKET)
       .createSignedUrl(`${problem_id}.mp4`,expires);
     if(!signedError&&signed?.signedUrl){video_url=signed.signedUrl;video_expires_in=expires}
+    const {data:clarification}=await admin.from("solution_clarifications")
+      .select("note").eq("problem_id",p.id)
+      .order("revision",{ascending:false}).limit(1).maybeSingle();
+    const solutionText=clarification?.note
+      ? p.solution_text+"\n\nAnother way to see it\n"+clarification.note
+      : p.solution_text;
     return reply({
-      ok:true,title:p.title,answer:p.answer,solution_text:p.solution_text,spoken_script:p.spoken_script,
+      ok:true,title:p.title,answer:p.answer,solution_text:solutionText,spoken_script:p.spoken_script,
       video_url,video_expires_in
     });
   }catch(e){

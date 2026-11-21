@@ -1,11 +1,11 @@
 import {enableFigureViewing} from './figure-viewer.js?v=deeper-20261121';
 import {edition as readEdition, questionOrder, renderReviewedLesson, restoreGradedAnswers} from './reviewed-lesson.js?v=course-review-20261122-a';
-import {mixedFlashDeck} from './flash-cards.js?v=content-audit-20261113';
+import {mixedFlashDeck} from './flash-cards.js?v=standalone-cards-20261122';
 import {wordingHTML} from './recognition.js?v=recognition-20261113';
 import {workshopEdition,workshopStudies} from './workshop-studies.js?v=workshops-20261122';
 import {bridgeHTML,mountPractice,practice} from './transfer-practice.js?v=github-20261121';
 import {allRows,queueLessonRepairs,renderRepairs,mountInvestigationReview,rubricHTML} from './learning-support.js?v=github-20261121';
-import {mountFlashCards,flashReviewed} from './flash-ui.js?v=content-audit-20261113';
+import {mountFlashCards,flashReviewed} from './flash-ui.js?v=standalone-cards-20261122';
 import {selectOriginalProblems,familySeen,reasoningReady,applicationStatus,mountReasoning,originalFigure,LEARNING_VERSION} from './original-learning.js?v=upper-primary-audit-20261114';
 import {introductionHTML,lessonPlan,investigationIntroHTML,investigationWarmupHTML,investigationForSession,investigationRecordHTML,currentInvestigationEdition,firstInvestigationEdition} from './session-intros.js?v=mawa-visits-20261121';
 

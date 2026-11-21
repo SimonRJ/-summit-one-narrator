@@ -20,7 +20,7 @@ Ten worked examples also let students compare two approaches. In sessions 2, 13,
 
 **Review evidence.** The written material was matched to the published narration and scene frames from every target film. The first six used the final media transcripts; the later films used the illustrated lesson catalog. All 220 new answers were independently recomputed. The live grading records matched the complete authored release fingerprint `332fe7074b6131240d7bfe87104393ed`. No existing problem was overwritten. The authentic paper and prior-attempt fingerprints were identical before and after this insertion.
 
-The [reading review register](../review/written-lesson-register.csv) records the first six lessons in the November course review. Their openings and film cues were checked against the published transcripts. Independent calculations matched all 35 active protected answers, including the 11 retained questions. Every worked solution contained its independently verified conclusion. Forty explicit arithmetic equalities in those solutions were checked directly. The six group fingerprints cover the protected prompt, answer and worked solution for each active problem in identifier order.
+The first six lessons have been reviewed against the published film transcripts. The review covered the introductions, examples, diagram labels, film cues, recaps, practice prompts, hints and all 35 protected worked solutions. Independent calculations agreed with all 35 marked answers, including the 11 retained questions, and with 40 explicit arithmetic equalities in the original explanations. Three explanations now show a previously implicit step. A fourth has an additional explanation shown after the usual attempt check. Its historical grading row is preserved. The six group fingerprints cover each active problem’s protected prompt, answer and worked solution in identifier order. The supplement has a separate fingerprint. See the [written lesson review register](../review/written-lesson-register.csv).
 
 ## Lesson index
 
@@ -31,7 +31,7 @@ The problem count includes both new and retained practice. Film links point to t
 | [S001](https://simonrj.github.io/-summit-one-narrator/media/S001-Intro.mp4) | What survives a whole group? | A box of counters | 6 |
 | [S002](https://simonrj.github.io/-summit-one-narrator/media/S002-Intro.mp4) | Round it, then pay back the difference | Equal fencing | 6 |
 | [S003](https://simonrj.github.io/-summit-one-narrator/media/S003-Intro.mp4) | Read the arrows backwards | Parcel weights | 6 |
-| [S004](https://simonrj.github.io/-summit-one-narrator/media/S004-Intro.mp4) | Which digit has the fewest places? | Four-card challenge | 6 |
+| [S004](https://simonrj.github.io/-summit-one-narrator/media/S004-Intro.mp4) | Which place has the fewest choices? | Four-card challenge | 6 |
 | [S005](https://simonrj.github.io/-summit-one-narrator/media/S005-Intro.mp4) | Are you counting numbers or marks? | Ticket printer | 5 |
 | [S006](https://simonrj.github.io/-summit-one-narrator/media/S006-Intro.mp4) | Slice a stack into floors | The crossing tunnels | 6 |
 | [S008](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S008-Intro-Illustrated.mp4) | Build only half a mirror number | A mirror-code display | 6 |
@@ -89,5 +89,13 @@ Total: **312 practice problems**: 220 new and 92 retained from the original bank
 ## Rebuilding or extending
 
 The learner-facing text is [data/read-watch-practise.json](../data/read-watch-practise.json). Graded answers and worked solutions are private. To reconstruct the edition, unpack its private authoring archive outside the repository, run its three verification programs, then run `python tools/content/build_read_practice.py /path/to/private-edition` in a checkout. The generator writes the public release inside the repo and the grading rows, expected digest and a verification query in the private source directory. Run `node tools/check_read_practice.mjs` to check the edition, the order of every question, the film mapping and the absence of scored answers in the public file.
+
+The November review revised the private explanations for O003X, RWL1-002-A and RWL1-006-D. If an older authoring archive contains the original wording, use an authorised database session to run the query below. Save its returned JSON object as `practice-revision-solutions.json` beside the private originals authoring file and in the private first-edition authoring directory. Both builds verify the revised wording against published SHA-256 digests. The O001X supplement is stored separately in the protected `solution_clarifications` table.
+
+```sql
+select jsonb_object_agg(id, solution_text) as private_solution_overlay
+from public.content_problems
+where id in ('O003X', 'RWL1-002-A', 'RWL1-006-D');
+```
 
 New questions use versioned identifiers. Never change an attempted problem when revising a future edition. Old problems omitted from the new route remain intact in the original bank and in historical records. The existing protected grading and solution functions continue to handle submissions.

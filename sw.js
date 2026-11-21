@@ -1,5 +1,5 @@
 const scope = new URL(self.registration.scope);
-const CACHE="summit-one-course-review-20261122-a";
+const CACHE="summit-one-standalone-cards-20261122";
 const cachePrefix = scope.pathname + ':summit-one-';
 const cacheName = scope.pathname + ':' + CACHE;
 const reader = new URL('offline-reader.html', scope).href;
@@ -58,8 +58,8 @@ const staticFiles = [
   "./transfer-practice.js?v=github-20261121",
   "./learning-support.js?v=github-20261121",
   "./exam-rules.js?v=split-20261113",
-  "./flash-cards.js?v=content-audit-20261113",
-  "./flash-ui.js?v=content-audit-20261113",
+  "./flash-cards.js?v=standalone-cards-20261122",
+  "./flash-ui.js?v=standalone-cards-20261122",
   "./original-learning.js?v=upper-primary-audit-20261114",
   "./data/lesson-challenges.json?v=upper-primary-audit-20261114",
   "./",
@@ -73,7 +73,7 @@ const staticFiles = [
   "./boot-loader.css?v=cinematic-20261113",
   "./main.css?v=data-audit-20261114",
   "./summit-polish.css?v=craft-20261121",
-  "./app-main.js?v=course-review-20261122-a",
+  "./app-main.js?v=standalone-cards-20261122",
   "./workshop-studies.js?v=workshops-20261122",
   "./course-menu.js?v=menu-20261113",
   "./course-menu-ui.js?v=recorded-editions-20261122",

@@ -1,5 +1,9 @@
 # Summit One — curated AMC practice audit
-Reviewed 13 November 2026.
+## Published practice bank, 22 November 2026
+
+Five Part A papers and five Part B papers are available, with 150 original questions in total. The marked values, workings and diagrams for sets 01–05 were checked. In sets A01–A04, all 80 marked values stayed the same through copy, distractor-order and skill-link corrections. Each new paper was exercised with a full-score submission and an incomplete submission through the same marking functions the app uses. Results included the question-by-question feedback and remained locked on review. The repeatable administrative check in `tools/check_original_paper_sessions.sql` rolls its synthetic attempts back.
+
+## Historical inventory, 13 November 2026
 
 ## Intended learner experience
 AMC has exactly three student-facing options: **Practice Part A (Q1–20)**, **Practice Part B (Q21–30)**, **Real AMC past papers**. Rossmoyne Honours and MAWA continue in the Exams hub as distinct mathematics pathways. The old full-length authored AMC mock centre is retired from active selection; historical saved sittings remain accessible.
