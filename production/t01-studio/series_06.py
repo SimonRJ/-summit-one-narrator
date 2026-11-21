@@ -4,7 +4,7 @@ from itertools import combinations
 import math
 
 from series_marks import (BLUE, GOLD, MINT, MUTED, RED, RIM, WHITE, balance, board, cards,
-                          change, chart, cue, equation, exercise, link, move, network,
+                          change, chart, cue, equation, link, move, network,
                           note, outline, ring, scene, tile)
 from stage import mix
 from studio_diagrams import bead, fit
@@ -42,14 +42,20 @@ def cube_faces(stage,s):
                 coords[(x,y,z)]=(635+104*a,357-104*b)
     for (p,a),(q,b) in combinations(coords.items(),2):
         if sum(x!=y for x,y in zip(p,q))==1:
-            incident=p[0]==q[0]==1 and p[1]==q[1]==1
-            stage.line([a,b],MINT if incident else BLUE,6 if incident else 3)
-    for p, label, colour in (((-1,1,-1),"Top face",GOLD),((1,-1,1),"Side face",BLUE)):
-        a=coords[p]
-        x = 320 if p[0] < 0 else 936
-        y = 245 if p[0] < 0 else 399
-        stage.arrow((x,y+25),a,colour,cue(s,"each face has four"),2)
-        fit(stage,label,x,y,28,235,colour,cue(s,"each face has four"))
+            stage.line([a,b],RIM,3)
+    faces = (
+        ("Top face", GOLD, [(-1,1,-1),(1,1,-1),(1,1,1),(-1,1,1)], (320,245)),
+        ("Side face", BLUE, [(-1,-1,-1),(-1,1,-1),(-1,1,1),(-1,-1,1)], (304,419)),
+    )
+    for label,colour,face,(x,y) in faces:
+        points=[coords[p] for p in face]
+        progress=cue(s,"each face has four")
+        stage.line([*points,points[0]],colour,4,progress)
+        centre=tuple(sum(p[k] for p in points)/4 for k in (0,1))
+        stage.arrow((x+88,y),centre,colour,progress,3)
+        fit(stage,label,x,y,30,202,colour,progress)
+    stage.line([coords[(-1,1,-1)],coords[(-1,1,1)]],MINT,8,cue(s,"every edge belongs"))
+
 
 
 def handshake_proof(stage,s):
@@ -61,10 +67,119 @@ def handshake_proof(stage,s):
 
 
 def report_five(stage,s):
-    network(SIX,"ABCDEF",tuple((0,i,BLUE,"five others") for i in range(1,6)))(stage,s)
+    network(SIX,"ABCDEF",tuple((i,j,BLUE if i==0 else RIM,"five others" if i==0 else "each person reports five") for i,j in combinations(range(6),2)))(stage,s)
     for x,y in SIX:
         a,b = 582+(x-582)*1.21, 350+(y-350)*1.21
         fit(stage,"5",a,b,27,73,GOLD,cue(s,"each person reports five"))
+
+
+def tournament(stage, s):
+    if s.t < s.at("notebook challenge"):
+        fit(stage, "Two reports per handshake", 640, 88, 46)
+        pos = ((427,320),(853,320))
+        network(pos,"AB",((0,1,MINT,None),),radius=38)(stage,s)
+        for x in (427,853):
+            fit(stage,"1 report",x,415,32,210,GOLD,cue(s,"add the reports"))
+        fit(stage,"2 reports ÷ 2 = 1 handshake",640,534,40,1030,MINT,cue(s,"then divide"))
+        return
+    fit(stage,"Eight teams play every other team once",640,88,45)
+    pos=ring(8,x=386,y=360,radius=172)
+    edges=tuple((i,j,BLUE if i==0 else RIM,"each play every other team") for i,j in combinations(range(8),2))
+    network(pos,"ABCDEFGH",edges,radius=23)(stage,s)
+    fit(stage,"7 opponents per team",895,284,34,470,GOLD,cue(s,"every other team once"))
+    fit(stage,"8 × 7 = 56 reports",895,387,34,490,BLUE,cue(s,"how many games"))
+    fit(stage,"56 ÷ 2 = 28 games",895,486,34,490,MINT,cue(s,"games are played"))
+
+
+tournament.chapter = "Your turn"
+
+
+def weigh_pair_boxes(stage,s):
+    for col,(first,second) in enumerate(("AB","BC","AC")):
+        x=313+327*col
+        p=cue(s,"totals of pairs",delay=.18*col)
+        for xoff,letter in ((-48,first),(48,second)):
+            tile(stage,x+xoff,330,letter,{"A":BLUE,"B":GOLD,"C":MINT}[letter],84,76,p,35)
+        stage.line([(x-106,378),(x+106,378)],RIM,5,p)
+    counts=cue(s,"how many times each unknown")
+    fit(stage,"A appears twice     ·     B appears twice     ·     C appears twice",
+        640,480,31,1170,WHITE,counts)
+
+
+def paired_challenge(stage,s):
+    if s.t < s.at("notebook challenge"):
+        fit(stage,"Rebuild the three box masses",640,88,44)
+        fit(stage,"10 + 14 + 12 = 36 kg",640,249,39,1070,BLUE,cue(s,"add the measurements"))
+        fit(stage,"Each box occurs twice    ·    total = 18 kg",640,353,35,1120,GOLD,cue(s,"count how often"))
+        fit(stage,"18 − 14 = 4 kg for the first box",640,467,37,1090,MINT,cue(s,"then subtract"))
+        return
+    fit(stage,"Reconstruct three numbers from their pair totals",640,88,42)
+    for i,(value,words) in enumerate(((17,"seventeen"),(20,"twenty and"),(23,"twenty-three"))):
+        tile(stage,330+310*i,242,str(value),[BLUE,GOLD,MINT][i],163,76,cue(s,words),43)
+    if s.t >= s.at("what are the three numbers"):
+        fit(stage,"(17 + 20 + 23) ÷ 2 = 30",640,371,41,1070,WHITE)
+        fit(stage,"30 − 17 = 13      30 − 20 = 10      30 − 23 = 7",
+            640,476,34,1160,MINT,cue(s,"what are the three numbers",delay=.3))
+
+
+paired_challenge.chapter = "Your turn"
+
+
+SIX_TEAM_ROUNDS=(("AF","BE","CD"),("AE","DF","BC"),("AD","CE","BF"),("AC","BD","EF"),("AB","CF","DE"))
+
+
+def chess_challenge(stage,s):
+    if s.t < s.at("notebook challenge"):
+        fit(stage,"Match the bound to a real schedule",640,89,45)
+        fit(stage,"Five students supply 10 different pairs",640,268,37,1100,BLUE,cue(s,"limited supply"))
+        fit(stage,"10 pairs ÷ 2 games per day = 5 days at most",640,386,35,1120,GOLD,cue(s,"divide to get a ceiling"))
+        fit(stage,"Five rows of the schedule use every pair once",640,502,33,1130,MINT,cue(s,"build an example"))
+        return
+    fit(stage,"Six players · three games a day",640,89,46)
+    fit(stage,"Day",272,189,29,125,MUTED)
+    fit(stage,"Three disjoint games",698,189,31,720,MUTED)
+    for j,row in enumerate(SIX_TEAM_ROUNDS):
+        y=247+60*j
+        p=cue(s,"each day three games",delay=.12*j)
+        fit(stage,str(j+1),272,y,31,90,WHITE,p)
+        for i,pair in enumerate(row):
+            tile(stage,487+210*i,y,pair,(BLUE,GOLD,MINT)[i],147,46,p,27)
+    fit(stage,"15 distinct pairs ÷ 3 games = 5 days",640,558,36,1120,MINT,cue(s,"largest possible number of days"))
+
+
+chess_challenge.chapter = "Your turn"
+
+
+def rectangle_challenge(stage,s):
+    question=s.t>=s.at("then find the perimeter")
+    cols=3 if question else 2
+    w=103;left=640-cols*w/2;top=225
+    fit(stage,"Six unit squares in two rows" if question else "Count the outside once",
+        640,88,46)
+    for row in range(2):
+        for col in range(cols):
+            stage.box(left+col*w,top+row*w,w,w,radius=0,fill="#223948",edge=BLUE,stroke=3)
+    p=cue(s,"two by three rectangle") if question else cue(s,"minus two for every join")
+    for col in range(1,cols):
+        for row in range(2):
+            xx=left+col*w;yy=top+row*w
+            stage.line([(xx,yy+4),(xx,yy+w-4)],GOLD,5,p)
+            stage.dot(xx,yy+w/2,6,GOLD,p)
+    for col in range(cols):
+        xx=left+col*w;yy=top+w
+        stage.line([(xx+4,yy),(xx+w-4,yy)],GOLD,5,p)
+        stage.dot(xx+w/2,yy,6,GOLD,p)
+    stage.box(left,top,cols*w,2*w,radius=0,fill=None,edge=MINT,stroke=5,opacity=p)
+    if question:
+        fit(stage,"3 units",640,176,31,360,MINT,p)
+        fit(stage,"2 units",left-108,top+w,31,200,MINT,p)
+        fit(stage,"4 vertical joins + 3 horizontal joins = 7",640,491,31,1110,GOLD,p)
+        fit(stage,"24 − 2 × 7 = 10 units",640,567,39,1110,MINT,p)
+    else:
+        fit(stage,"16 edge reports − 2 × 4 joins = 8 units",640,529,38,1110,MINT,p)
+
+
+rectangle_challenge.chapter = "Your turn"
 
 
 FILMS = {
@@ -88,15 +203,10 @@ FILMS = {
         scene("Two faces share each cube edge",cube_faces,
               equation(("6 × 4",BLUE,"each face has four edges"),("÷ 2",GOLD,"belongs to two faces"),
                        ("= 12 edges",MINT,"twelve edges"),y=566,size=42)),
-        exercise((("Add the reports","add the reports"),("Find the repeat count","how many times"),
-                  ("Divide","then divide")),"notebook challenge",
-                 ("Eight teams each play every other team once.", "How many games are played?")),
+        tournament,
     ),
     "T06.2": (
-        scene("Measure boxes in pairs",
-              cards((("A + B",BLUE),("B + C",GOLD),("A + C",MINT)),324,
-                    words="totals of pairs",width=222,gap=260),
-              note("How often does each box appear?", "how many times each unknown")),
+        scene("Measure boxes in pairs",weigh_pair_boxes),
         scene("Find the total first",balance("Three pair readings","Twice the total",words="find their total"),
               note("Subtract a pair to find the third box", "follows by subtraction")),
         scene("What does each box weigh?",
@@ -131,9 +241,7 @@ FILMS = {
               cards((("Corners × 2",BLUE),("Side middles × 1",GOLD)),539,
                     words="counts corners twice",gap=325,width=296),
               note("Track the two types separately", "keep track of that difference",y=597,size=29)),
-        exercise((("Add the readings","add the measurements"),("Count appearances","how often"),
-                  ("Subtract a pair","then subtract")),"notebook challenge",
-                 ("Three numbers give pair totals of 17, 20 and 23.","Find the three numbers.")),
+        paired_challenge,
     ),
 }
 
@@ -180,10 +288,16 @@ def squares(stage,s, *, motion=None, row=False, joins=None, boundary=None,
         stage.box(cx-w/2,cy-w/2,w,w,radius=2,fill="#223948",edge=BLUE,stroke=2)
     if joins:
         p=cue(s,joins)
-        stage.line([(640,245),(640,449)],GOLD,5,p)
-        stage.line([(537,347),(743,347)],GOLD,5,p)
-        for x,y in ((640,295),(640,397),(589,347),(692,347)):
-            stage.dot(x,y,7,GOLD,p)
+        vertical = cue(s,"two along the vertical") if joins=="four inside joins" else p
+        horizontal = cue(s,"two along the horizontal") if joins=="four inside joins" else p
+        for row in range(2):
+            y=244+row*103
+            stage.line([(640,y+2),(640,y+101)],GOLD,5,vertical)
+            stage.dot(640,y+51.5,7,GOLD,vertical)
+        for col in range(2):
+            x=537+col*103
+            stage.line([(x+2,347),(x+101,347)],GOLD,5,horizontal)
+            stage.dot(x+51.5,347,7,GOLD,horizontal)
     if boundary:
         p=cue(s,boundary)
         stage.box(537,244,206,206,radius=1,fill=None,edge=MINT,stroke=6,opacity=p)
@@ -212,9 +326,7 @@ FILMS["T06.3"]=(
           note("Every pair appears exactly once", "all ten pairs appear",y=572)),
     scene("Three-person groups change the limit",groups_of_three,
           note("Pair count alone allows at most 3 groups","ceiling of three groups",y=166,colour=BLUE,size=28)),
-    exercise((("Find the supply","find the limited supply"),("Prove a ceiling","divide to get a ceiling"),
-              ("Try to reach it","build an example")),"notebook challenge",
-             ("Six students play three chess games each day.","No pair repeats. How many days are possible?")),
+    chess_challenge,
 )
 
 
@@ -225,7 +337,7 @@ FILMS["T06.E"]=(
           equation(("4 tiles",BLUE,"four tiles"),("× 4 edges",GOLD,"each tile has four edges"),
                    ("= 16 reports",MINT,"sixteen edges"))),
     scene("Find the four inside joins",lambda stage,s:squares(stage,s,joins="four inside joins"),
-          note("2 vertical + 2 horizontal","two along the vertical",colour=GOLD)),
+          equation(("2 vertical",GOLD,"two along the vertical"),("+ 2 horizontal",GOLD,"two along the horizontal"),size=36)),
     scene("Remove the two reports at each join",
           lambda stage,s:squares(stage,s,joins="both tiles beside it",boundary="the perimeter is eight"),
           equation(("16",BLUE,"sixteen minus eight"),("− 2 × 4",GOLD,"remove two reports"),
@@ -235,7 +347,5 @@ FILMS["T06.E"]=(
               (lambda stage,s:squares(stage,s,boundary="the big square"),note("4 × 2 = 8","times two is eight")),
               (lambda stage,s:squares(stage,s,motion="rearrange the tiles",row=True,from_square=True),
                equation(("16 − 2 × 3",GOLD,"three joins"),("= 10",MINT,"which is ten"))))),
-    exercise((("Count all tile edges","the total of all tile edges"),("Remove 2 per join","minus two for every join")),
-             "then find the perimeter",("Arrange six unit squares in a 2 × 3 rectangle.",
-                                        "What is the perimeter?"),sub="Count the joins as well as the tiles."),
+    rectangle_challenge,
 )

@@ -1,7 +1,7 @@
 {
   "id": "T06.1",
   "duration_seconds": 105.433333,
-  "sha256": "2d4ce278680f195689421495c8c74869b669fc59494153d7c916e0b582cc7cc2",
+  "sha256": "9d7a37ccf5ae5baf483cb67e2adc8e1190bf1e6efae984ede85e3a77beea7e36",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -88,5 +88,68 @@
       "start": 86.2
     }
   ],
-  "decoded_successfully": true
+  "decoded_successfully": true,
+  "legacy_sha256": "2d4ce278680f195689421495c8c74869b669fc59494153d7c916e0b582cc7cc2",
+  "version": "cube-edge-and-tournament",
+  "compared_frames": 3163,
+  "compared_scenes": [
+    {
+      "frames": 446,
+      "worst_frame": 445,
+      "mean_max": 1.804,
+      "tile_max": 3.873,
+      "caption_max": 1.775
+    },
+    {
+      "frames": 316,
+      "worst_frame": 696,
+      "mean_max": 1.841,
+      "tile_max": 3.576,
+      "caption_max": 1.78
+    },
+    {
+      "frames": 379,
+      "worst_frame": 912,
+      "mean_max": 1.762,
+      "tile_max": 3.507,
+      "caption_max": 1.745
+    },
+    {
+      "frames": 260,
+      "worst_frame": 1259,
+      "mean_max": 1.842,
+      "tile_max": 4.615,
+      "caption_max": 1.71
+    },
+    {
+      "frames": 293,
+      "worst_frame": 1468,
+      "mean_max": 1.794,
+      "tile_max": 4.474,
+      "caption_max": 1.68
+    },
+    {
+      "frames": 528,
+      "worst_frame": 2141,
+      "mean_max": 1.749,
+      "tile_max": 2.877,
+      "caption_max": 1.78
+    },
+    {
+      "frames": 364,
+      "worst_frame": 2585,
+      "mean_max": 1.795,
+      "tile_max": 3.493,
+      "caption_max": 1.766
+    },
+    {
+      "frames": 577,
+      "worst_frame": 2922,
+      "mean_max": 1.981,
+      "tile_max": 4.568,
+      "caption_max": 1.757
+    }
+  ],
+  "audio_packet_sha256": "22c64da71ca85725fee6996c287431ce9dd7397d9ac9914a46efbad8b375d493",
+  "art_source": "5d03f90f863cc84479918c10f5fb0185dacd4439"
 }
