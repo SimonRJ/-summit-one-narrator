@@ -22,7 +22,7 @@ The continuation contains 912 new questions with hints and protected worked solu
 | S083 | Find the partners in a mirror | [S083](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S083-Intro-Illustrated.mp4) · Its own introduction | Two fold lines | 6 |
 | S085 | Keep the constraint on the page | [S085](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S085-Intro-Illustrated.mp4) · Its own introduction | Space for a sign | 5 |
 | S086 | Add the work finished in one minute | [S086](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S086-Intro-Illustrated.mp4) · Its own introduction | A secret speed | 6 |
-| S087 | What does the silhouette force? | [S087](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S087-Intro.mp4) · Its own introduction | Reconstruct the storeroom | 6 |
+| S087 | What does the silhouette force? | [S087](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S087-Intro-Illustrated.mp4) · Its own introduction | Reconstruct the storeroom | 6 |
 | S088 | Reserve a gap for neighbours | [S088](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S088-Intro.mp4) · Its own introduction | Cabin assignments | 6 |
 | S089 | Classify a cube by its position | [S089](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S089-Intro-Illustrated.mp4) · Its own introduction | The bottom stays clean | 6 |
 | S090 | Unfold the box in your head | [S090](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S090-Intro-Illustrated.mp4) · Its own introduction | A light open crate | 5 |
@@ -81,7 +81,7 @@ The continuation contains 912 new questions with hints and protected worked solu
 | S158 | Find a bound before testing | [S074](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S074-Intro-Illustrated.mp4) · Technique film | Check every triangle | 5 |
 | S159 | A bound needs a placement | [S127](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S127-Intro.mp4) · Technique film | Do not cross the seam | 6 |
 | S162 | Count the ends, then the links | [S065](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S065-Intro-Illustrated.mp4) · Technique film | The sign-up board | 6 |
-| S163 | Change between a plan and its layers | [S087](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S087-Intro.mp4) · Technique film | Solid staircase | 5 |
+| S163 | Change between a plan and its layers | [S087](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S087-Intro-Illustrated.mp4) · Technique film | Solid staircase | 5 |
 | S164 | Give the front position its own rule | [S004](https://simonrj.github.io/-summit-one-narrator/media/S004-Intro.mp4) · Technique film | A zero and a boundary | 6 |
 | S165 | Choose a common basis for comparison | [S029](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S029-Intro-Illustrated.mp4) · Technique film | Buy three or buy four | 6 |
 | S166 | Recover the step from two landmarks | [S134](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S134-Intro.mp4) · Technique film | Two production lines | 6 |
@@ -176,7 +176,7 @@ The continuation contains 912 new questions with hints and protected worked solu
 | S283 | Index one full cycle | [S020](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S020-Intro-Illustrated.mp4) · Technique film | The lamp changes hourly | 6 |
 | S284 | Scale before subtracting | [S041](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S041-Intro-Illustrated.mp4) · Technique film | Weight of a pair | 5 |
 | S285 | Recover a missing group size | [S065](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S065-Intro-Illustrated.mp4) · Technique film | The seven-stop routes | 6 |
-| S286 | Count the change across floors | [S087](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S087-Intro.mp4) · Technique film | How different can two skyline models be? | 6 |
+| S286 | Count the change across floors | [S087](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S087-Intro-Illustrated.mp4) · Technique film | How different can two skyline models be? | 6 |
 | S289 | Use a pair when one entry cannot predict the next | [S054](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S054-Intro-Illustrated-v2.mp4) · Technique film | A three-remainder clock | 6 |
 | S290 | Read the boundary as evidence | [S076](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S076-Intro-Illustrated.mp4) · Technique film | Rebuild the hidden seams | 6 |
 | S291 | Count the effect of one closed link | [S100](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S100-Intro.mp4) · Technique film | Round trips lost to a closure | 6 |
