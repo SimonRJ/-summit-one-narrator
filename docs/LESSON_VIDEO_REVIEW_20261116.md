@@ -2,7 +2,11 @@
 
 ## 21 November 2026
 
-**94 of 185 published films have completed individual review.** The registers contain 76 of 113 published introductions and 18 of 72 teaching films, including the two earlier approvals. The remaining published work is 37 introductions and 54 teaching films.
+**96 of 185 published films have completed individual review.** The registers contain 76 of 113 published introductions and 20 of 72 teaching films, including the two earlier approvals. The remaining published work is 37 introductions and 52 teaching films.
+
+[T04.1 is live](https://simonrj.github.io/-summit-one-narrator/watch-t04-1.html). Checked both factor trees for 60, the 7-by-13 array for 91 and all four prime remainders for 97. The only distinct triple greater than one with product 66 is 2, 3, 11. The revised recap builds a fresh factor tree rooted at 84, whose leaves are 2, 2, 3 and 7. All 3,575 final frames matched the timed artwork and captions. [Public chapter playback](https://github.com/SimonRJ/-summit-one-narrator/actions/runs/44901042937).
+
+[T04.2 is live](https://simonrj.github.io/-summit-one-narrator/watch-t04-2.html). The choice grids generate the exact divisor lists for 12, 72, 360 and 200 with no duplicates. The nine divisors of 36 comprise four two-member pairs and the single factor 6. The revised equation shows 2 × 4 + 1 = 9 and the notebook grid has four possible powers of 2 and three of 5. All 3,772 final frames matched the timed artwork and captions. [Public chapter playback](https://github.com/SimonRJ/-summit-one-narrator/actions/runs/44901042937).
 
 [S088 is live](https://simonrj.github.io/-summit-one-narrator/watch-lesson-intro.html?slot=88) in sessions 88 and 171. Two rows fit the ordered clip and 240 fit the reversible pair. Enumerating all 5,040 seven-key rows confirms 960 with only the first pair touching, 480 with both touching, 960 with only the second touching, and 2,640 with neither touching. The [release comparison](https://github.com/SimonRJ/-summit-one-narrator/actions/runs/44898123544) checked all 6,122 caption frames and 525 spoken words. A second comparison checked every drawing frame. The [deployed phone checks](https://github.com/SimonRJ/-summit-one-narrator/actions/runs/44900241887) matched the reviewed movie digest and confirmed playback resumed after tapping the 92.13-second chapter in portrait and landscape in both browsers.
 
