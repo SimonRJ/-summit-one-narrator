@@ -1,0 +1,49 @@
+name: Check reviewed teaching editions on phones
+on:
+  push:
+    branches: [codex/reviewed-film-work-20261119]
+    paths: ['.github/workflows/check-reviewed-teaching-editions.yml', 'production/reviewed-teaching-editions.json', 'tools/check-released-teaching.cjs']
+permissions:
+  contents: read
+jobs:
+  chrome:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      ENGINE: chrome
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-save --package-lock=false playwright@1.65.1
+      - run: node tools/check-released-teaching.cjs
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reviewed-teaching-chrome
+          path: build/phone
+          if-no-files-found: warn
+  webkit:
+    runs-on: ubuntu-latest
+    container: mcr.microsoft.com/playwright:v1.65.1-noble
+    timeout-minutes: 15
+    env:
+      ENGINE: webkit
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-save --package-lock=false playwright@1.65.1
+      - run: node tools/check-released-teaching.cjs
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reviewed-teaching-webkit
+          path: build/phone
+          if-no-files-found: warn

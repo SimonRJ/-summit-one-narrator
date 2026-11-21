@@ -19,7 +19,11 @@ TEACHING_SEQUENCE = (*OPENING_SEQUENCE, *COURSE_FILMS)
 VERSION = "t01-studio-v1"
 CHAPTER_VERSION = "studio-chapters-02-04-v1"
 COURSE_VERSION = "teaching-films-v1"
-REVIEWED_MEDIA = {"T03.1": "bead-week-review"}
+REVIEWED_MEDIA = {
+    "T03.1": "bead-week-review",
+    "T03.3": "birthday-boxes",
+    "T03.E": "ten-remainder-boxes",
+}
 VOICE_SHA = "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362"
 
 
