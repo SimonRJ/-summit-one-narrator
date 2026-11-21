@@ -1,0 +1,62 @@
+{
+  "id": "S094",
+  "title": "Grid lines, crossings and coordinates",
+  "voice": "VoxCPM2 — approved Voice C",
+  "scenes": [
+    {
+      "n": 1,
+      "stage": "INTRO",
+      "narration": "A grid is made from lines, spaces between the lines, and points where the lines meet. These are three different things to count. For a rectangle on a grid, choose the two lines that form each pair of opposite edges."
+    },
+    {
+      "n": 2,
+      "stage": "EXAM",
+      "narration": "An AMC Upper Primary question can ask for intersections, paths, or shapes cut out by grid lines. Mark the object being counted. A Rossmoyne style grid problem can require a shape to include one marked cell while avoiding another. Count by the possible boundaries."
+    },
+    {
+      "n": 3,
+      "stage": "BASIC",
+      "narration": "The grid has five columns and three rows of squares. How many points where vertical and horizontal lines meet are there? Count the lines along the outside edges too."
+    },
+    {
+      "n": 4,
+      "stage": "EXPLANATION",
+      "narration": "five columns need six vertical lines. three rows need four horizontal lines. Each vertical line crosses all four horizontal lines. Multiply to get twenty-four crossing points."
+    },
+    {
+      "n": 5,
+      "stage": "MEDIUM",
+      "narration": "A sheet has six columns and five rows of cells. Count all rectangles whose sides lie along its grid lines. Rectangles can have any size. A square counts too."
+    },
+    {
+      "n": 6,
+      "stage": "EXPLANATION",
+      "narration": "Number the seven vertical lines from zero to six. If the left edge is on line zero, the right edge has six choices. Move the left edge across. Five choices remain, then four, three, two and one. That makes twenty-one vertical pairs. The six horizontal lines give five plus four plus three plus two plus one, or fifteen pairs. Each vertical pair goes with every horizontal pair. Twenty-one times fifteen gives three hundred and fifteen rectangles."
+    },
+    {
+      "n": 7,
+      "stage": "PUZZLE",
+      "narration": "This grid has eight columns and five rows of unit cells. Count columns from the left and rows from the bottom. Mark cell A in column two, row three. Mark cell B in column five, row three. How many grid-line rectangles cover A without covering B? A side may touch B. First count all rectangles covering A, then remove the ones that also cover B."
+    },
+    {
+      "n": 8,
+      "stage": "EXPLANATION",
+      "narration": "Look at A. Its left edge can sit on either of the two lines at or to the left of A. For the right edge there are seven lines at or to the right of A. Three lines can be the bottom edge, and three can be the top edge. Multiply two times seven times three times three. There are one hundred and twenty-six rectangles containing A. Each has exactly one set of four boundaries."
+    },
+    {
+      "n": 9,
+      "stage": "CHECK",
+      "narration": "To cover both cells, the rectangle must span the strip from A to B. Keep the two left choices and the three bottom choices and the three top choices. The right edge must now reach B, leaving four choices. Two times four times three times three gives seventy-two. Subtract seventy-two from one hundred and twenty-six to get fifty-four. Check it directly. Three right edges cover A and stop before entering B. Two times three times three times three also gives fifty-four."
+    },
+    {
+      "n": 10,
+      "stage": "MISTAKES",
+      "narration": "The outside boundary contributes two edge lines in each direction. A row of five cells sits between six lines. For a rectangle, the pair of left and right lines has no order to choose twice. Choosing the lines fixes their order automatically."
+    },
+    {
+      "n": 11,
+      "stage": "RECAP",
+      "narration": "On a new diagram, first decide whether the question counts cells, crossings or outlines. Mark the outer lines. For a rectangle, choose its left and right sides, then its bottom and top. For a square, the chosen width fixes the height. Count its possible positions one size at a time. For a forbidden cell, you can often restrict one boundary directly and check by subtraction."
+    }
+  ]
+}
