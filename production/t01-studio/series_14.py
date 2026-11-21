@@ -131,14 +131,24 @@ street_counts.chapter="Your turn"
 
 def ends_grid(stage,s):
     if s.t<s.at("notebook challenge"):
-        fit(stage,"Cross off the visited dots",640,87,45)
+        fit(stage,"Which dots are still reachable?",640,87,45)
         pts=corners((487,201),140)
+        visited=(0,1,4,7)
+        move=cue(s,"after each move")
+        left=cue(s,"everything unvisited")
         for i,p in enumerate(pts):
             for j in (i+1,i+3):
                 if j<len(pts) and (j==i+3 or i//3==j//3):
                     stage.line((p,pts[j]),RIM,3)
-            bead(stage,*p,BLUE if (i//3+i%3)%2==0 else GOLD,cue(s,"colouring can prove"),19)
-        fit(stage,"Check that every remaining dot is reachable",640,567,34,1080,WHITE,cue(s,"everything unvisited"))
+        for a,b in zip(visited,visited[1:]):
+            stage.line((pts[a],pts[b]),BLUE,5,move)
+        for i,p in enumerate(pts):
+            bead(stage,*p,BLUE if i in visited else GOLD if i in (3,6) else MINT,1,20)
+            if i in visited:
+                x,y=p
+                stage.line(((x-8,y-8),(x+8,y+8)),WHITE,3,move)
+                stage.line(((x-8,y+8),(x+8,y-8)),WHITE,3,move)
+        fit(stage,"The visited path separates the remaining dots into two groups",640,567,30,1130,WHITE,left)
         return
     fit(stage,"Can the two top corners be the endpoints?",640,87,43)
     pts=[(439+197*(i%3),270+133*(i//3)) for i in range(6)]
