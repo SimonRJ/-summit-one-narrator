@@ -1,0 +1,62 @@
+{
+  "id": "S093",
+  "title": "Counting paths by dynamic totals",
+  "voice": "VoxCPM2 — approved Voice C",
+  "scenes": [
+    {
+      "n": 1,
+      "stage": "INTRO",
+      "narration": "On a grid with steps only right or up, each route to a point has a last step. It came from the left or from below. Add the route totals from those two starting points for the last step. Filling the grid in a useful order saves repeated work."
+    },
+    {
+      "n": 2,
+      "stage": "EXAM",
+      "narration": "AMC practice may ask how many shortest routes reach a point. Check whether shortest forces the allowed directions before counting. A Rossmoyne style extension might block intersections. Put zero at a closed position, then keep adding the available incoming totals."
+    },
+    {
+      "n": 3,
+      "stage": "BASIC",
+      "narration": "Go from grid intersection zero, zero to two, one. Each move is one step right or one step up. How many routes are there? Think of your walk as a sequence of steps."
+    },
+    {
+      "n": 4,
+      "stage": "EXPLANATION",
+      "narration": "Each route uses two right steps and one up step. The up step can go in any of the three step positions. Choosing where the up step goes fixes the whole route. There are three routes."
+    },
+    {
+      "n": 5,
+      "stage": "MEDIUM",
+      "narration": "Walk right or up along a grid from zero, zero to three, two. Use a one-step move each time. How many routes reach the end? Set the starting total to one, for the route that has made no moves yet."
+    },
+    {
+      "n": 6,
+      "stage": "EXPLANATION",
+      "narration": "Each point on the bottom edge or the left edge has one route to it. For an interior point, add the counts immediately to its left and below. At one, one, one plus one gives two. Continue along each row. At the finish, six routes arrive from the left and four arrive from below. Six plus four gives ten different routes."
+    },
+    {
+      "n": 7,
+      "stage": "PUZZLE",
+      "narration": "Walk from zero, zero to five, four, moving right or up one step at a time. The intersections two, two and three, three are closed. No route may enter either closed intersection. How many routes are possible?"
+    },
+    {
+      "n": 8,
+      "stage": "EXPLANATION",
+      "narration": "Put a zero at each closed intersection. The paths that would enter it stop there, so they cannot contribute to a later point. Fill the grid starting at the bottom left. At every other point add the number from the left and the number from below. The finish has eighteen routes entering from the left and twenty-four from below. The total is forty-two."
+    },
+    {
+      "n": 9,
+      "stage": "CHECK",
+      "narration": "Check the answer by lifting both barriers. There are one hundred and twenty-six unrestricted walks. Six ways to the first crossing and ten ways onward give sixty walks through it. Twenty ways to the second crossing and three ways onward give another sixty. But walks through both were subtracted twice. Six choices up to the first crossing, two between the crossings, and three after the second give thirty-six. Add those back once. One hundred and twenty-six minus sixty minus sixty plus thirty-six leaves forty-two."
+    },
+    {
+      "n": 10,
+      "stage": "MISTAKES",
+      "narration": "The start total is one: there is one way to be at the start without moving. Using zero there would make every count zero. A grid intersection is a point. Blocking it forbids entering that point, even when surrounding unit squares are drawn."
+    },
+    {
+      "n": 11,
+      "stage": "RECAP",
+      "narration": "On an unfamiliar grid, mark the start, finish and permitted steps. A blocked intersection gets a zero. For a closed edge, cross out just that arrow; its endpoint might still be reachable. Put one at the start and add the available incoming counts in order. If a route must visit a checkpoint, multiply the ways to reach it by the ways to finish from there, provided every continuation is allowed."
+    }
+  ]
+}
