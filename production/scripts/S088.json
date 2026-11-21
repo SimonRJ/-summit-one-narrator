@@ -1,0 +1,62 @@
+{
+  "id": "S088",
+  "title": "Restricted arrangements and neighbour rules",
+  "voice": "VoxCPM2 — approved Voice C",
+  "scenes": [
+    {
+      "n": 1,
+      "stage": "INTRO",
+      "narration": "An arrangement depends on order. When two named objects must stay next to each other, treat them as one movable block first. Once you place the block, restore the allowed orders inside it. That internal choice is part of the count."
+    },
+    {
+      "n": 2,
+      "stage": "EXAM",
+      "narration": "Look for the exact words in an exam question. Immediately before fixes the order inside a block. Next to allows either order. If two named pairs must both stay apart, draw one row that breaks both rules. You will need to count that overlap."
+    },
+    {
+      "n": 3,
+      "stage": "BASIC",
+      "narration": "Three different keys, A, B and C, hang in a row. A must hang immediately before B. How many different rows fit? Try sliding the two neighbours along the rail without turning them around."
+    },
+    {
+      "n": 4,
+      "stage": "EXPLANATION",
+      "narration": "Clip A and B together in that order. Place the clip before C to get A B C. Place it after C to get C A B. Those are the two possible rows. Turning the clip around would put B first and break the rule."
+    },
+    {
+      "n": 5,
+      "stage": "MEDIUM",
+      "narration": "There are six distinct keys in a row. A and B must be adjacent. How many arrangements are possible? A might sit before or after B. Take both possibilities into account."
+    },
+    {
+      "n": 6,
+      "stage": "EXPLANATION",
+      "narration": "Compress A and B into one block. Now there are just five objects to arrange. Those objects can be ordered in one hundred and twenty ways. In each arrangement the pair can be A B or B A. Multiply by two, giving two hundred and forty original arrangements. The block can be identified in each one."
+    },
+    {
+      "n": 7,
+      "stage": "PUZZLE",
+      "narration": "Line up seven distinct keys, including A, B, C and D. Consider two pairs: A with B, and C with D. How many orders leave both of those pairs nonadjacent? Draw the two possible adjacency conditions as overlapping sets."
+    },
+    {
+      "n": 8,
+      "stage": "EXPLANATION",
+      "narration": "Seven different keys give five thousand and forty rows. Clip A and B together. Six objects can move, and the clip can turn either way. That gives one thousand four hundred and forty rows. The same count applies to C and D. Now use both clips. Five objects can move. Two choices inside each clip give four times one hundred and twenty, or four hundred and eighty rows with both pairs touching."
+    },
+    {
+      "n": 9,
+      "stage": "CHECK",
+      "narration": "Each square stands for two hundred and forty rows. The first bracket spans six squares and the second spans six. They share two squares. Together the brackets cover ten different squares, or two thousand four hundred rows with a forbidden pair. Eleven squares remain. Eleven times two hundred and forty gives two thousand six hundred and forty rows with neither pair touching."
+    },
+    {
+      "n": 10,
+      "stage": "MISTAKES",
+      "narration": "Check what your subtraction does to one actual row. In alphabetical order both pairs touch. Subtract it for A beside B, then subtract it again for C beside D. You have removed the same row twice. Put it back once so that it contributes zero to the allowed count."
+    },
+    {
+      "n": 11,
+      "stage": "RECAP",
+      "narration": "On an unfamiliar problem, underline the words that decide whether a clip can turn. Count the objects left after clipping. If two pairs are forbidden, mark the rows that break each rule and find their overlap. Finally test an allowed row: A, C, E, B, F, D, G. Neither named pair touches."
+    }
+  ]
+}
