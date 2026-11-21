@@ -20,6 +20,10 @@ VERSION = "t01-studio-v1"
 CHAPTER_VERSION = "studio-chapters-02-04-v1"
 COURSE_VERSION = "teaching-films-v1"
 REVIEWED_MEDIA = {
+    "T09.E": "four-marble-bags",
+    "T09.3": "reversible-pans",
+    "T09.2": "three-denominators",
+    "T09.1": "tank-fifths",
     "T08.E": "different-coin-faces",
     "T08.3": "four-surviving-faces",
     "T08.2": "successive-red-draws",
