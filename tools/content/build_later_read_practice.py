@@ -65,15 +65,19 @@ def build(private):
         retained = draft['retained']
         assert len(retained) == len(set(retained)) and all(original_ids[id] == slot for id in retained)
         example = {k: draft['example'][k] for k in ('prompt', 'steps')}
+        revised = revisions['openings'].get(tag, {})
+        reviewed_figure = revised.get('example', {}).get('figure')
         diagram = private/'figures'/f'{tag}.svg'
-        if diagram.exists():
+        if reviewed_figure:
+            assert reviewed_figure['src'] == f'figures/read-practice/{tag}.svg', tag
+            assert reviewed_figure['alt'] and (ROOT/reviewed_figure['src']).is_file(), tag
+        elif diagram.exists():
             alt = draft['example'].get('figureAlt') or draft.get('figureAlt')
             assert alt, tag
             public_path = Path('figures/read-practice') / f'{tag}.svg'
             (ROOT/public_path).write_bytes(diagram.read_bytes())
             example['figure'] = {'src': str(public_path), 'alt': alt}
         lesson = {k: draft[k] for k in ('slot', 'headline', 'intro', 'bridge', 'recap')}
-        revised = revisions['openings'].get(tag, {})
         example.update(revised.get('example', {}))
         if (src['videoId'], slot) in REVISED_FILM_BRIDGES:
             lesson['bridge'] = REVISED_FILM_BRIDGES[src['videoId'], slot]

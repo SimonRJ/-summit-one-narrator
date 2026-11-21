@@ -108,4 +108,16 @@ for (let depth = 1; depth <= 11; depth++) {
 }
 assert.equal(pens, 22);
 checkVerdicts(penClaims, penTotals, pens, [12, 22, 0]);
-console.log('PASS: 9 claims, classifications and saved example quantities across 5 stacks, 200 marked outlines and 22 pens.');
+const digitClaims = modelClaims['DIV-05'];
+const powerTotals = [0, 0, 0];
+for (let base = 1; base < 10; base++) {
+  const last = n => Number(BigInt(base) ** BigInt(n) % 10n);
+  for (let exponent = 1; exponent <= 12; exponent++) {
+    const digit = last(exponent), next = last(exponent + 1), afterFour = last(exponent + 4);
+    checkExamples(digitClaims, {base, exponent, digit, next, afterFour},
+      [true, digit !== next, false],
+      [[base, exponent, exponent + 4, digit, afterFour], [base, digit, next], [base, exponent, digit]], powerTotals);
+  }
+}
+checkVerdicts(digitClaims, powerTotals, 108, [108, 72, 0]);
+console.log('PASS: 12 claims, classifications and saved example quantities across 108 powers, 5 stacks, 200 marked outlines and 22 pens.');

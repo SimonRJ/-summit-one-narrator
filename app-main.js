@@ -1,5 +1,5 @@
 import {enableFigureViewing} from './figure-viewer.js?v=deeper-20261121';
-import {edition as readEdition, questionOrder, renderReviewedLesson, restoreGradedAnswers} from './reviewed-lesson.js?v=worked-films-20261122';
+import {edition as readEdition, questionOrder, renderReviewedLesson, restoreGradedAnswers} from './reviewed-lesson.js?v=powers-20261122';
 import {mixedFlashDeck} from './flash-cards.js?v=standalone-cards-20261122';
 import {wordingHTML} from './recognition.js?v=recognition-20261113';
 import {workshopEdition,workshopStudies} from './workshop-studies.js?v=workshops-20261122';

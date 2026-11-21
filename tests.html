@@ -9,7 +9,7 @@
   <meta name="robots" content="noindex,nofollow,noarchive">
   <title>Summit One · Exams</title><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon.svg">
   <link rel="stylesheet" href="main.css?v=curated-20261113">
-  <link rel="stylesheet" href="exam.css?v=phone-nav-20261122">
+  <link rel="stylesheet" href="exam.css?v=deeper-20261121">
 
   <!-- Summit One editorial identity and genuine TeX mathematics -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,6 +21,20 @@
   <script type="module" src="math-typography.js?v=math-label-fix-20261113"></script>
 <link rel="stylesheet" href="./figure-viewer.css?v=deeper-20261121">
   <link rel="stylesheet" href="summit-polish.css?v=craft-20261121">
+<style>
+@media (max-width: 540px) {
+  body:not(.exam-mode) .topbar .topnav[aria-label="Primary navigation"] {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  body:not(.exam-mode) .topbar .topnav[aria-label="Primary navigation"] > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 44px;
+    padding-inline: 2px;
+  }
+}
+</style>
 </head>
 <body>
   <div id="summitBoot" class="summit-boot" data-mode="compact" role="status" aria-label="Summit One loading" aria-live="polite"><span class="sb-first-frame" aria-hidden="true"><img src="summit-mark.svg" alt="" width="104" height="104"></span></div>

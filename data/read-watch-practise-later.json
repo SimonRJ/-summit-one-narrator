@@ -638,7 +638,7 @@
       "slot": 85,
       "headline": "Keep the constraint on the page",
       "intro": "To maximise an area, list what must stay fixed while the sides vary. With a fixed rectangular perimeter the neighbouring sides have a fixed sum.",
-      "bridge": "At the wall-side pen, count the fenced sides on the picture before working out which dimensions might give the greatest area.",
+      "bridge": "The wall replaces one side of the pen. Once the film chooses the end-fence length, calculate the length of the front fence too. Check that all three fenced lengths add to the allowance.",
       "recap": "List legal dimensions and compare their areas. Check which sides actually need fencing.",
       "example": {
         "prompt": "A rectangle has perimeter 12 m and whole-metre sides. Which area is largest?",
@@ -689,8 +689,8 @@
     {
       "slot": 86,
       "headline": "Add the work finished in one minute",
-      "intro": "Two machines can work on the same job. Find what each finishes in one minute before putting their work together.",
-      "bridge": "Watch the labelling machine for just its first minute. See how that one-minute fraction lets two differently paced machines share the next batch.",
+      "intro": "Compare work rates using the same size job and the same length of time. At a steady rate, a machine that needs six minutes for one batch finishes one sixth of it each minute. When two machines work together, add their contributions during the same minute.",
+      "bridge": "Mark the instant when the leak opens. How much is already in the tank? Only the water still needed is affected by the new filling rate.",
       "recap": "Check the units on a rate. If the answer tells you batches per minute, its reciprocal tells you minutes per batch.",
       "example": {
         "prompt": "One machine finishes a batch in 6 minutes. A second takes 3 minutes. What fraction can they finish together in one minute?",
@@ -748,7 +748,7 @@
       "headline": "What does the silhouette force?",
       "intro": "A front view tells you the height of the tallest stack in each column of sight. Shorter stacks behind it can change without changing the outline.",
       "bridge": "Watch the row and column maxima in the film’s model. Can one tall stack account for two of those maxima?",
-      "recap": "Distinguish a required maximum height from a count of all the cubes behind a view.",
+      "recap": "For a minimum, show one arrangement that reaches your proposed cube count and produces both views. For a maximum, check each stack against both the row cap and the column cap.",
       "example": {
         "prompt": "Two nonempty stacks line up behind each other. Their common silhouette is 3 cubes high. What is the smallest possible total?",
         "steps": [
@@ -800,7 +800,7 @@
       "slot": 88,
       "headline": "Reserve a gap for neighbours",
       "intro": "Two objects that have to touch can travel as a block. Two objects that must stay apart can use gaps between other objects. Draw the row before deciding which view is shorter.",
-      "bridge": "Watch how the film keeps track of A beside B. When a second pair is introduced, sketch a row in which both pairs touch.",
+      "bridge": "Start with the alphabetical order of the seven keys. When you subtract the rows with A next to B and then those with C next to D, count how many times that same row disappears.",
       "recap": "Check the order inside a block as well as its place. At the ends of a row there are gaps too.",
       "example": {
         "prompt": "Place A and B together in a row with C. How many orders are possible?",
@@ -853,7 +853,7 @@
       "slot": 89,
       "headline": "Classify a cube by its position",
       "intro": "Paint reaches only exposed faces of the large solid. A corner, an edge away from a corner and the middle of a face have different numbers of painted faces.",
-      "bridge": "Pay attention when the film leaves the top unpainted. Predict what that changes at the top corners and along the vertical edges.",
+      "bridge": "Keep your eye on one top corner as the film changes which surfaces receive paint. Then follow its vertical edge down to the bottom corner. Which positions belong together now?",
       "recap": "Decide which outside faces were painted and classify positions before multiplying.",
       "example": {
         "prompt": "A 3-by-3-by-3 cube is painted all over and taken apart. Which small cube has no paint?",
@@ -907,7 +907,7 @@
       "headline": "Unfold the box in your head",
       "intro": "A box’s capacity counts cubic units inside. Its net counts square units of card on the surface. Sketch the base and a rectangle for each wall before adding areas.",
       "bridge": "When the film turns a volume into an open box, watch which measurement it can fix immediately and which face is missing from the card net.",
-      "recap": "List actual panels when calculating card. For capacity, multiply the base area by the height.",
+      "recap": "Use cubic units for the volume inside the box. For card area, flatten the base and walls into a net, label their dimensions and decide whether the lid belongs in the total.",
       "example": {
         "prompt": "A box with a 3 by 2 cm base is 1 cm high and has no lid. What card area does it use?",
         "steps": [
@@ -958,7 +958,7 @@
       "slot": 92,
       "headline": "Put back the total behind the mean",
       "intro": "An average tells you how the total would look if it were shared equally. Multiplying the mean by the number of observations recovers that total.",
-      "bridge": "When the film combines two group means, pause before the calculation and work out what total each group contributes.",
+      "bridge": "For the two groups, write the count beneath each mean. Which group pulls the combined mean closer to its own? For the eight-day record, mark the day that enters both totals.",
       "recap": "Before combining or changing averages, write down both the total and the count.",
       "example": {
         "prompt": "Four tubs contain an average of 7 marbles. Three tubs hold 3, 6 and 10. What is in the last tub?",
@@ -1012,7 +1012,7 @@
       "headline": "Add the ways into a point",
       "intro": "When every step moves right or up, the last step into a grid point has just two possible directions. Label a point with the number of routes that reach it.",
       "bridge": "Follow the two closed intersections. Notice which route totals become zero and which neighbouring totals can still grow.",
-      "recap": "Place 1 at the start and 0 at any blocked point, then work across the grid in an order that respects the steps.",
+      "recap": "Check what the closure removes. At a closed intersection write zero. At a closed edge cross out only the incoming step it blocks, since another step may still reach the same point.",
       "example": {
         "prompt": "A grid point has two ways in from the left and three ways in from below. How many routes reach it?",
         "steps": [
@@ -1063,7 +1063,7 @@
       "slot": 94,
       "headline": "Build a rectangle from four choices",
       "intro": "Two different vertical lines and two different horizontal lines give exactly one rectangle. Restrictions fix some of those choices or rule out certain pairs.",
-      "bridge": "In the film’s marked-cell problem, look for the moment when choosing four boundary lines counts a rectangle exactly once.",
+      "bridge": "The two marked cells share a row. After the film counts all rectangles around A, find the last vertical line where a right edge can sit without entering B. Check the direct count against subtraction.",
       "recap": "Give every rectangle one left, right, top and bottom boundary. Put restrictions on those choices before multiplying.",
       "example": {
         "prompt": "A square is divided into two horizontal strips by one full line. How many grid-line rectangles are there?",
@@ -1126,7 +1126,7 @@
         ],
         "figure": {
           "src": "figures/read-practice/S095.svg",
-          "alt": "Two bowls share the same base number of cherries. The larger bowl has an additional four."
+          "alt": "One equal bar represents the smaller bowl. Two bars of the same length represent the larger bowl. Its extra bar is labelled 4 cherries."
         }
       },
       "skill": "ALG-02",
@@ -1173,7 +1173,7 @@
       "slot": 97,
       "headline": "Let the first uncovered cell decide",
       "intro": "A tiling covers every cell once with no overlap. Start at an exposed corner: one possible placement may force the next piece, turning a large problem into a shorter strip.",
-      "bridge": "When the first domino goes sideways in the two-row board, pause and locate the piece that must go beside it.",
+      "bridge": "With the leftmost column empty, draw one horizontal domino in its top row. Look at the square immediately below its left end. Which placement is still possible there, and how many columns does the pair fill?",
       "recap": "Find a corner with few options. Count complete continuations separately for each legal first placement.",
       "example": {
         "prompt": "How many ways do dominoes cover a fixed strip one cell high and four cells long?",
@@ -1227,7 +1227,7 @@
       "headline": "Test the speaker and the claim together",
       "intro": "In a truth-teller puzzle, a statement and its speaker must agree: a truthful speaker’s full claim is true, and a liar’s full claim is false. Try writing one short row for each possible world.",
       "bridge": "As Noor and Oli describe the next speaker, mark whether each link means “same type” or “different type”. Check the final claim only after following those links.",
-      "recap": "Test the whole statement against the assigned speaker type. Then recheck every claim in the surviving case.",
+      "recap": "If a claim joins two conditions with “and”, one false part makes the entire claim false. For the final assignment, check the truth of each complete sentence against its speaker.",
       "example": {
         "prompt": "Pia says “The coin is in the jar.” You know Pia always lies and that the coin is in the jar or the bag. Where is it?",
         "steps": [
@@ -1282,10 +1282,10 @@
       "bridge": "Watch how the film moves from neighbours on a board to red and blue stops. What stays fixed about the colour of the next stop?",
       "recap": "Draw connections explicitly when a side, bridge or colour determines the next possible stop.",
       "example": {
-        "prompt": "On a two-row, three-column board, how many side-neighbours does a corner cell have?",
+        "prompt": "On a board with two rows and three columns, start in the middle of the top row. Which cells of the bottom row can you reach in exactly two steps, crossing a full side each time?",
         "steps": [
-          "From that corner there is one step along the row and one into the next row.",
-          "There are 2 side-neighbours. The diagonally touching cell is excluded."
+          "To finish in the bottom row after two steps, one move must be down. The other move must be left or right.",
+          "The bottom-left and bottom-right cells both work. The bottom-middle cell needs one downward move, and no second move can leave you there."
         ]
       },
       "skill": "SPATIAL-04",
@@ -1316,7 +1316,7 @@
           "id": "RWL2-100-C",
           "family": "SPATIAL-04:continuation:C",
           "title": "Alternating stations",
-          "prompt": "There are 4 red stations and 4 blue stations. Every red station joins every blue station. Starting at a specified red station, take two moves without revisiting the start. How many different ordered routes are possible?",
+          "prompt": "A rail network has 4 red stations and 4 blue stations. Each red station links to every blue station. Only opposite colours are linked. Starting at a specified red station, take two moves without revisiting the start. How many different ordered routes are possible?",
           "hint": "Choose the middle station first."
         },
         {

@@ -1,6 +1,6 @@
 import {enableFigureViewing} from './figure-viewer.js?v=deeper-20261121';
 import {exampleMethods} from './example-methods.js?v=course-review-20261122-a';
-import {mountLessonModel} from './lesson-models.js?v=deeper-20261121';
+import {mountLessonModel} from './lesson-models.js?v=powers-20261122';
 // The published lesson text and hints are public. Answers and worked solutions are
 // versioned in content_problems and are requested only through the signed-in learner.
 export const edition='read-watch-practise-1';

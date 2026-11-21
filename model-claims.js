@@ -1,5 +1,25 @@
 // These investigations use the example currently drawn in the lesson model.
 export const modelClaims = {
+  'DIV-05': [
+    {
+      name: 'Four more powers', claim: 'Increasing the exponent by four leaves the last digit unchanged.',
+      test: s => s.digit === s.afterFour, example: s => `For base ${s.base}, powers ${s.exponent} and ${s.exponent + 4} end in ${s.digit} and ${s.afterFour}.`,
+      verdict: 'Always', clue: 'Count how many positions belong to each cycle. How many turns make four steps?',
+      reason: 'With the bases in this model, each cycle has one, two or four positions. Four steps always make a whole number of turns.'
+    },
+    {
+      name: 'One more power', claim: 'Multiplying by the base changes the last digit.',
+      test: s => s.digit !== s.next, example: s => `For base ${s.base}, the last digit goes from ${s.digit} to ${s.next}.`,
+      verdict: 'Sometimes', clue: 'Compare a base with just one position to one with four positions.',
+      reason: 'Every positive power of 5 ends in 5. Powers of 3, however, move through 3, 9, 7 and 1.'
+    },
+    {
+      name: 'Odd or even', claim: 'The last digit of a positive power has the opposite parity to its base.',
+      test: s => s.base % 2 !== s.digit % 2, example: s => `Base ${s.base} raised to power ${s.exponent} ends in ${s.digit}.`,
+      verdict: 'Never', clue: 'Think about multiplying only odd factors, and then only even factors.',
+      reason: 'A product of odd factors is odd. A product with an even factor is even. The final digit tells you the parity of the whole product.'
+    }
+  ],
   'SOLID-01': [
     {
       name: 'Hidden cubes', claim: 'From the front, the entire back-left stack is hidden behind the front-left stack.',

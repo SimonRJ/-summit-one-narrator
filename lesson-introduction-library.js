@@ -77,6 +77,12 @@ async function showVideo(route) {
   const media = introMediaSource(entry.id);
   player.setAttribute("aria-label", entry.title + " with English captions");
   player.poster = media.poster;
+  const chapterNote = {
+    "S019-Intro-Illustrated.mp4": "At 0:45 the two squares removed are the two leftmost squares of the top row. The domino shown fits the two squares that remain in that row.",
+    "S020-Intro-Illustrated.mp4": "At 2:18, twelve full cycles account for powers 1 to 48. The next exponent is 49. It occupies position 1 in the next cycle."
+  }[new URL(media.movie, document.baseURI).pathname.split("/").pop()];
+  if (chapterNote) player.after(element("p", chapterNote));
+
   const source = element("source");
   source.src = media.movie;
   source.type = "video/mp4";

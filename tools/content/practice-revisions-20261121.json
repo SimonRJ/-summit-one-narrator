@@ -248,6 +248,9 @@
     "RWL2-082-A": {
       "prompt": "A grid has 5 columns and 7 rows. A horizontal seam follows a grid line with 2 rows below it. How many grid-line rectangles have part of their interior above the seam and part below?",
       "hint": "Sketch the seam. Which horizontal lines can be the bottom and top of a rectangle that crosses it?"
+    },
+    "RWL2-100-C": {
+      "prompt": "A rail network has 4 red stations and 4 blue stations. Each red station links to every blue station. Only opposite colours are linked. Starting at a specified red station, take two moves without revisiting the start. How many different ordered routes are possible?"
     }
   },
   "solutionHashes": {
@@ -274,7 +277,8 @@
     "RWL1-013-D": "3b692e28b876b3fbfe0fc6360b37315dee25a06a46a63a3a10d211b1562ef138",
     "RWL2-069-B": "68ccfe6448a3ae3adb516b1dfe389d771f3efec6537409c25c96e761f26178ff",
     "RWL2-082-A": "75ec300305789b04396c7b48cb726a3b72032b3efee2fcab5baa4dab0b290e67",
-    "RWL2-083-D": "94dfc9f0ff4a6020b641d7b17e72c2ce36aa4e0b4317b582324b8cbb9592aeca"
+    "RWL2-083-D": "94dfc9f0ff4a6020b641d7b17e72c2ce36aa4e0b4317b582324b8cbb9592aeca",
+    "RWL2-085-C": "b0e89d40ce6b482e96145ac5194a661ed65dfe681cfb8ca9feac26000677fc08"
   },
   "openings": {
     "S001": {
@@ -404,7 +408,11 @@
         "steps": [
           "Draw the smaller bowl as one bar. The larger bowl can be drawn as two copies of it. The extra bar represents four cherries.",
           "The bowls hold 4 and 8 cherries, making 12 in all. Both the four-cherry difference and the two-to-one comparison fit."
-        ]
+        ],
+        "figure": {
+          "src": "figures/read-practice/S095.svg",
+          "alt": "One equal bar represents the smaller bowl. Two bars of the same length represent the larger bowl. Its extra bar is labelled 4 cherries."
+        }
       },
       "intro": "A difference can give you the size of an unknown part. Draw a bar for each amount and use the second clue to work out what the extra piece represents."
     },
@@ -874,6 +882,49 @@
     },
     "S083": {
       "recap": "Trace a coloured cell under each required reflection. On a centre line it may have one partner. Away from both centre lines, find all three partners before you count the group."
+    },
+    "S085": {
+      "bridge": "The wall replaces one side of the pen. Once the film chooses the end-fence length, calculate the length of the front fence too. Check that all three fenced lengths add to the allowance."
+    },
+    "S086": {
+      "intro": "Compare work rates using the same size job and the same length of time. At a steady rate, a machine that needs six minutes for one batch finishes one sixth of it each minute. When two machines work together, add their contributions during the same minute.",
+      "bridge": "Mark the instant when the leak opens. How much is already in the tank? Only the water still needed is affected by the new filling rate."
+    },
+    "S087": {
+      "recap": "For a minimum, show one arrangement that reaches your proposed cube count and produces both views. For a maximum, check each stack against both the row cap and the column cap."
+    },
+    "S088": {
+      "bridge": "Start with the alphabetical order of the seven keys. When you subtract the rows with A next to B and then those with C next to D, count how many times that same row disappears."
+    },
+    "S089": {
+      "bridge": "Keep your eye on one top corner as the film changes which surfaces receive paint. Then follow its vertical edge down to the bottom corner. Which positions belong together now?"
+    },
+    "S090": {
+      "recap": "Use cubic units for the volume inside the box. For card area, flatten the base and walls into a net, label their dimensions and decide whether the lid belongs in the total."
+    },
+    "S092": {
+      "bridge": "For the two groups, write the count beneath each mean. Which group pulls the combined mean closer to its own? For the eight-day record, mark the day that enters both totals."
+    },
+    "S093": {
+      "recap": "Check what the closure removes. At a closed intersection write zero. At a closed edge cross out only the incoming step it blocks, since another step may still reach the same point."
+    },
+    "S094": {
+      "bridge": "The two marked cells share a row. After the film counts all rectangles around A, find the last vertical line where a right edge can sit without entering B. Check the direct count against subtraction."
+    },
+    "S097": {
+      "bridge": "With the leftmost column empty, draw one horizontal domino in its top row. Look at the square immediately below its left end. Which placement is still possible there, and how many columns does the pair fill?"
+    },
+    "S099": {
+      "recap": "If a claim joins two conditions with “and”, one false part makes the entire claim false. For the final assignment, check the truth of each complete sentence against its speaker."
+    },
+    "S100": {
+      "example": {
+        "prompt": "On a board with two rows and three columns, start in the middle of the top row. Which cells of the bottom row can you reach in exactly two steps, crossing a full side each time?",
+        "steps": [
+          "To finish in the bottom row after two steps, one move must be down. The other move must be left or right.",
+          "The bottom-left and bottom-right cells both work. The bottom-middle cell needs one downward move, and no second move can leave you there."
+        ]
+      }
     }
   }
 }

@@ -1,6 +1,6 @@
 import {enableFigureViewing} from './figure-viewer.js?v=deeper-20261121';
-import {readCard, readingAvailable} from './reviewed-lesson.js?v=worked-films-20261122';
-import {mountLessonModel} from './lesson-models.js?v=deeper-20261121';
+import {readCard, readingAvailable} from './reviewed-lesson.js?v=powers-20261122';
+import {mountLessonModel} from './lesson-models.js?v=powers-20261122';
 
 const status = document.querySelector('#readerStatus');
 const picker = document.querySelector('#readerLesson');

@@ -1,5 +1,9 @@
 # Teaching lessons after S068
 
+Individual review of S092–S095, S097, S099 and S100 covered all active grading, actual film cues and the S095 diagram. Route enumeration, grid-line choice, algebraic substitution, tiling constructions and truth assignments checked the answers. The S095 bowl diagram now draws its two equal quantities to the same scale. S100 explicitly limits station links to opposite colours and starts with a two-step reachability example.
+
+Individual written review of S085–S090 covered every active problem, each dedicated film transcript and the S086 rate diagram. Integer dimension searches, net filling rates, front-row enumeration, ordered arrangements, voxel-by-voxel paint counts and factor-pair checks confirmed the grading. The S085 fenced-garden solution now checks all legal whole-metre ends without requiring algebraic completion of the square.
+
 The individual written review of S075, S076, S078, S079 and S081–S083 covered 42 active problems. Ratio parts, exposed tile boundaries, painted intersections, ordered cases, bisected angles, rectangle bounds and colour-preserving symmetries were checked independently. S082 now tests a rectangle crossing a seam after the film demonstrates counting all rectangles. The private S083 quilt explanation identifies a single representative of every reflection group.
 
 Individual written review covered S069 and S071–S074. All 25 active graded problems were checked against independent calculations and enumerations, including deductions over complete seating orders, minimum cube counts consistent with both views, magic-square constraints and bounded integer searches.
@@ -256,7 +260,7 @@ The 21 November editorial revision clarifies two items and replaces 16 repeated 
 select jsonb_object_agg(id, solution_text order by id) as private_solution_overlay
 from public.content_problems
 where source_type = 'original_lesson_practice' and id in (
-  'RWL2-069-B', 'RWL2-082-A', 'RWL2-083-D', 'RWL2-135-A', 'RWL2-135-B', 'RWL2-167-D', 'RWL2-185-A',
+  'RWL2-069-B', 'RWL2-082-A', 'RWL2-083-D', 'RWL2-085-C', 'RWL2-135-A', 'RWL2-135-B', 'RWL2-167-D', 'RWL2-185-A',
   'RWL2-226-A', 'RWL2-226-B', 'RWL2-226-C', 'RWL2-226-D',
   'RWL2-258-A', 'RWL2-258-B', 'RWL2-258-C', 'RWL2-276-A',
   'RWL2-276-B', 'RWL2-276-C', 'RWL2-317-A', 'RWL2-349-A'

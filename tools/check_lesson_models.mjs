@@ -32,7 +32,7 @@ try {
     window.showModel = lesson => mountLessonModel(main, lesson);
     return lessons.filter(lesson => window.showModel(lesson)).map(lesson => lesson.slot);
   }, lessons);
-  assert.deepEqual(actual, [6,17,19,36,52,53,72,82,85,87,93,94,97,118,122,127,151,159,163,213,218,227,248,254,286,309,318,333,341,345,359,366,370]);
+  assert.deepEqual(actual, [6,17,19,20,36,52,53,72,82,85,87,93,94,97,118,122,127,151,159,163,213,218,227,248,254,283,286,309,318,333,341,345,359,366,370]);
   const open = async slot => {
     await page.evaluate(lesson => window.showModel(lesson), lessons.find(lesson => lesson.slot === slot));
     assert.equal(await page.locator('.lesson-model').getAttribute('open'), null);
@@ -74,6 +74,24 @@ try {
     return checked;
   });
   assert.equal(stackStates,50);
+  await open(20);
+  const digitStates = await page.evaluate(() => {
+    let count = 0;
+    const selected = document.querySelector('[data-key=exponent]');
+    for (let base = 1; base <= 9; base++) {
+      for (const option of selected.options) {
+        const exponent = Number(option.value);
+        window.setControl('base', base);
+        window.setControl('exponent', exponent);
+        const answer = (BigInt(base) ** BigInt(exponent) % 10n).toString();
+        const digit = document.querySelector('.lm-drawing .lm-active-number').textContent;
+        if (digit !== answer || !document.querySelector('.lm-result').textContent.startsWith(`${base} raised to the power ${exponent} ends in ${answer}.`)) throw Error('Incorrect power ' + [base, exponent]);
+        count++;
+      }
+    }
+    return count;
+  });
+  assert.equal(digitStates, 153);
   await open(17);
   const frames = await page.evaluate(() => {
     let total = 0;
@@ -161,7 +179,7 @@ try {
 
   for (const width of [320,390,768]) {
     await page.setViewportSize({width,height:716});
-    for (const slot of [87,17,85]) {
+    for (const slot of [87,17,85,20]) {
       await open(slot);
       await openChallenge();
       await saveCase.click();
@@ -178,7 +196,7 @@ try {
     const result = window.showModel({slot:87,skill:'different'});
     return result === false && !document.querySelector('main').firstChild;
   }),true);
-  console.log('Passed 33 course mappings, 50 stack views, 200 grid outlines, 22 fencing configurations, claim evidence and reset, keyboard controls and three viewport widths.');
+  console.log('Passed 35 course mappings, 50 stack views, 200 grid outlines, 22 fencing configurations, claim evidence and reset, keyboard controls and three viewport widths.');
 } finally {
   await browser.close();
 }

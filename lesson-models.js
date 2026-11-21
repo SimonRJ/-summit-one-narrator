@@ -1,9 +1,10 @@
 import { mountRouteModel } from './route-model.js?v=paths-20261121';
 import { mountDominoModel } from './domino-model.js?v=github-20261121';
-import { modelClaims, mountClaimChallenge } from './model-claims.js?v=reasoning-20261121';
+import { modelClaims, mountClaimChallenge } from './model-claims.js?v=powers-20261122';
 
 // Each investigation is a separate worked example. It never reads or records a learner's answers.
 const investigations = [
+  { skill: 'DIV-05', slots: [20, 283], title: 'Trace the last digit of a power', build: buildPowerDigits },
   { skill: 'SOLID-01', slots: [6, 72, 87, 163, 254, 286, 345], title: 'Explore cube layers and views', build: buildStacks },
   { skill: 'SPATIAL-02', slots: [17, 82, 94, 118, 359], title: 'Explore rectangles around a cell', build: buildRectangles },
   { skill: 'GEO-05', slots: [53, 85, 122, 213, 370], title: 'Explore a fixed length of fencing', build: buildFencing },
@@ -58,6 +59,41 @@ function connectControls(body, draw) {
   body.querySelector('.lm-controls').addEventListener('input', update);
   update();
   return () => example;
+}
+
+function buildPowerDigits(body) {
+  const bases = Array.from({length: 9}, (_, i) => i + 1);
+  const powers = [...Array.from({length: 12}, (_, i) => i + 1), 100, 101, 997, 1000, 2027];
+  const options = (values, start) => values.map(n => `<option value="${n}"${n === start ? ' selected' : ''}>${n}</option>`).join('');
+  body.innerHTML = `<p>Start with 3. Multiply by 3 for each new power, keeping just the last digit. Predict the next digit, then change the exponent to check it.</p>
+    <div class="lm-controls"><label>Base<select data-key="base">${options(bases, 3)}</select></label><label>Exponent<select data-key="exponent">${options(powers, 1)}</select></label></div>${outputArea()}`;
+  return connectControls(body, ({ base, exponent }, canvas, result) => {
+    const digits = [base];
+    let next = base * base % 10;
+    while (next !== base) {
+      digits.push(next);
+      next = next * base % 10;
+    }
+    const length = digits.length;
+    const index = (exponent - 1) % length;
+    const current = digits[index];
+    const following = digits[(index + 1) % length];
+    const xStart = (280 - 58 * length) / 2;
+    let drawing = label(140, 19, 'Last digits in one cycle');
+    digits.forEach((digit, i) => {
+      const x = xStart + i * 58;
+      drawing += `<rect x="${x + 3}" y="32" width="49" height="39" rx="5" class="${i === index ? 'lm-present' : 'lm-empty'}"/>`;
+      drawing += label(x + 28, 58, digit, i === index ? 'lm-active-number' : 'lm-number');
+      drawing += label(x + 28, 91, String(i + 1), 'lm-small');
+    });
+    drawing += label(140, 111, 'Position in the cycle');
+    const description = `The last digits repeat in the order ${digits.join(', ')}. Position ${index + 1} is selected.`;
+    canvas.innerHTML = graphic(280, 119, description, drawing);
+    const remainder = exponent % length;
+    const position = remainder === 0 ? `The exponent ends a complete cycle, so use its last position (${length}).` : `Dividing ${exponent} by ${length} leaves ${remainder}, so use position ${remainder}.`;
+    result.textContent = `${base} raised to the power ${exponent} ends in ${current}. ${position} For the next power, ${current} × ${base} = ${current * base}, which ends in ${following}.`;
+    return {base, exponent, digit: current, next: following, afterFour: digits[(index + 4) % length]};
+  });
 }
 
 function buildStacks(body) {

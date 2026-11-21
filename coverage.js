@@ -28,7 +28,7 @@ async function loadCoverage() {
       <tfoot><tr><th scope="row">All areas</th><td>${archive.questions}</td>
       ${bands.map(band => `<td>${archive.topics.reduce((sum,topic) => sum+(topic.bands[band] || 0),0)}</td>`).join('')}<td>30</td></tr></tfoot></table></div>
       <details><summary>Explore ${archive.skills.length} problem-solving tools</summary>
-      <label class="tool-filter">Teaching area <select id="toolTopic"><option value="">All areas</option>
+      <label class="tool-filter"><span id="teachingAreaLabel">Teaching area</span> <select id="toolTopic" aria-labelledby="teachingAreaLabel"><option value="">All areas</option>
       ${topics.map(topic => `<option>${escape(topic)}</option>`).join('')}</select></label>
       <p id="toolCount" role="status"></p><div class="tool-list"></div></details>
       <h2>Choose a practice set</h2>
