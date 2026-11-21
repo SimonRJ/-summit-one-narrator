@@ -1,7 +1,7 @@
 """Keep track of the whole, decimal place value and equation balance."""
 
 from series_marks import (BLUE, GOLD, MINT, MUTED, RED, RIM, WHITE, balance, blocks, board,
-                          cards, change, chart, cue, equation, exercise, link, move, note, scene, tile)
+                          cards, change, chart, cue, equation, link, move, note, scene, tile)
 from stage import mix
 from studio_diagrams import bead, fit, prime
 
@@ -24,7 +24,7 @@ def marbles(n, *, prompt=None, take=None, owner=""):
             xx=centre+34*((k%5)-2)
             yy=325+42*(k//5)
             bead(stage,mix(xx,225+34*((k%5)-2),q),mix(yy,470+32*(k//5),q),
-                 (GOLD,BLUE,MINT,BLUE)[j],p,13)
+                 (GOLD,BLUE,MINT,BLUE)[j + (n==30)],p,13)
         if take:
             fit(stage,owner,229,547,27,270,GOLD,cue(s,take))
             if n==40:
@@ -81,8 +81,9 @@ def pan(stage,s, pouches, counters, *, y=368, remove=None, opened=False):
             tile(stage,ix,y-101-74*p,"7" if opened else "P",BLUE,89,61,1-p,30)
         for i in range(n):
             p=progress if i>=n-rem_count else 0
-            ix=x+32*((i%6)-2.5)
-            iy=y-31+29*(i//6)
+            cols = 10 if n > 12 else 6
+            ix=x+32*((i%cols)-(cols-1)/2)
+            iy=y-31+29*(i//cols)
             bead(stage,ix,iy-118*p,GOLD,1-p,11)
 
 
@@ -101,6 +102,115 @@ def tray_pouches(stage,s, *, reveal=None):
         tile(stage,x-47,340,"P",BLUE,78,73,p)
         for dx in (25,76):
             bead(stage,x+dx,339,GOLD,p,17)
+
+
+
+def tank_left(stage, s):
+    challenge = s.t >= s.at("notebook challenge")
+    fit(stage, "Use the amount that remains" if not challenge else "Track fifths of the original tank",
+        640, 87, 44)
+    if not challenge:
+        marbles(30, take="update the whole", owner="Bea takes 10")(stage,s)
+        fit(stage,"One third of 30 is 10",640,219,35,830,MINT,cue(s,"fraction of what"))
+        return
+    monday=cue(s,"one fifth is used",duration=.85)
+    tuesday=cue(s,"one quarter of the remainder",duration=.85)
+    start=cue(s,"a tank is full")
+    x,y,w,h=234,248,810,171
+    stage.box(x,y,w,h,radius=0,fill="#17303c",edge=RIM,opacity=start)
+    filled=w*(1-monday/5-tuesday/5)
+    stage.box(x,y,filled,h,radius=0,fill="#3a7287",edge=BLUE,opacity=start)
+    for i in range(1,5):
+        stage.line([(x+w*i/5,y),(x+w*i/5,y+h)],WHITE,2,start)
+    fit(stage,"Monday: 4 fifths remain",640,479,34,900,BLUE,monday)
+    fit(stage,"Tuesday: 3 of the original 5 fifths remain",640,552,35,1100,MINT,tuesday)
+
+
+tank_left.chapter = "Your turn"
+
+
+def decimal_decisions(stage, s):
+    challenge = s.t >= s.at("notebook challenge")
+    fit(stage,"Which decimals stop?" if challenge else "Look at the reduced denominator",640,87,44)
+    if challenge:
+        cases=[("7/20","20 = 2² × 5","0.35","seven twentieths",MINT),
+               ("5/12","12 = 2² × 3","repeats","five twelfths",GOLD),
+               ("9/75 = 3/25","25 = 5²","0.12","nine seventy-fifths",MINT)]
+    else:
+        cases=[("6/15 = 2/5","5","0.4","simplify the fraction",MINT),
+               ("3/40","40 = 2³ × 5","0.075","built only from",MINT),
+               ("1/6","6 = 2 × 3","repeats","any other prime",GOLD)]
+    for x,heading in zip((292,654,1000),("Fraction","Denominator","Decimal")):
+        fit(stage,heading,x,210,27,330,MUTED)
+    for i,(fraction_text,factors,result,when,colour) in enumerate(cases):
+        y=292+94*i
+        p=cue(s,when)
+        fit(stage,fraction_text,292,y,35,365,WHITE,p)
+        fit(stage,factors,654,y,34,345,BLUE,p)
+        fit(stage,result,1000,y,36,310,colour,cue(s,when,delay=.24))
+
+
+decimal_decisions.chapter = "Your turn"
+
+
+def reversible_balance(stage,s):
+    if s.t >= s.at("doubling takes us back"):
+        pouches,counts=(2,0),(6,20)
+        rule="Double both sides";expression="2P + 6 = 20"
+    elif s.t >= s.at("halve both sides"):
+        pouches,counts=(1,0),(3,10)
+        rule="Halve both sides";expression="P + 3 = 10"
+    elif s.t >= s.at("addition takes us back"):
+        pouches,counts=(2,0),(6,20)
+        rule="Add 3 to both sides";expression="2P + 6 = 20"
+    elif s.t >= s.at("take three from both sides"):
+        pouches,counts=(2,0),(3,17)
+        rule="Take 3 from both sides";expression="2P + 3 = 17"
+    else:
+        pouches,counts=(2,0),(6,20)
+        rule="A level balance";expression="2P + 6 = 20"
+    pan(stage,s,pouches,counts,y=353)
+    fit(stage,rule,640,178,34,990,GOLD)
+    fit(stage,expression,640,554,41,1000,MINT)
+
+
+def three_pouches(stage,s):
+    challenge=s.t>=s.at("notebook challenge")
+    fit(stage,"Find the seven counters in each pouch" if not challenge else "Three pouches against one",
+        640,87,44)
+    if not challenge:
+        pan(stage,s,(2,1),(5,12),opened=s.t>=s.at("check your answer"))
+        fit(stage,"2 × 7 + 5 = 7 + 12 = 19",640,550,36,1120,MINT,cue(s,"check your answer"))
+        return
+    if s.t>=s.at("three pouches"):
+        pan(stage,s,(3,1),(4,18),y=344)
+    fit(stage,"3P + 4 = P + 18",640,500,36,810,WHITE,cue(s,"eighteen counters"))
+    fit(stage,"2P = 14     P = 7",640,564,38,870,MINT,cue(s,"each pouch"))
+
+
+three_pouches.chapter = "Your turn"
+
+
+def four_bags(stage,s):
+    challenge=s.t>=s.at("then try this")
+    fit(stage,"Share 21 or remove six loose counters" if not challenge else "Four bags, forty marbles",640,87,44)
+    if challenge:
+        for i in range(4):
+            x=256+i*256
+            p=cue(s,"four identical bags",delay=.08*i)
+            stage.box(x-105,239,210,164,radius=13,fill=None,edge=RIM,opacity=p)
+            tile(stage,x-38,319,"B",BLUE,76,75,cue(s,"one box"))
+            for v in range(3):
+                bead(stage,x+35+(v%2)*29,305+30*(v//2),GOLD,cue(s,"three loose marbles",delay=.07*v),10)
+        fit(stage,"40 ÷ 4 = 10 per bag",640,471,35,992,WHITE,cue(s,"forty marbles altogether"))
+        fit(stage,"10 − 3 = 7 in each box",640,554,38,994,MINT,cue(s,"in each box"))
+    else:
+        tray_pouches(stage,s)
+        fit(stage,"21 ÷ 3 − 2 = 5",640,478,34,950,MINT,cue(s,"share first"))
+        fit(stage,"(21 − 6) ÷ 3 = 5",640,550,34,950,GOLD,cue(s,"remove the extras"))
+
+
+four_bags.chapter = "Your turn"
 
 
 FILMS = {
@@ -126,10 +236,7 @@ FILMS = {
               equation(("2/3 × 3/4",BLUE,"two thirds of three quarters"),("= 6/12",GOLD,"six cells"),
                        ("= 1/2",MINT,"one half"),y=539)),
         scene("Up 10 percent and down 10 percent",price_bar),
-        exercise((("Name the whole","fraction of what"),("Update the whole","update the whole")),
-                 "notebook challenge",("One fifth of a full tank is used on Monday.",
-                                       "On Tuesday, one quarter of the remainder is used."),
-                 sub="What fraction of the full tank is left?"),
+        tank_left,
     ),
     "T09.2": (
         scene("Decimal places are powers of ten",
@@ -158,14 +265,10 @@ FILMS = {
         scene("Find a multiplier that makes a whole number",
               equation_rows((("0.25 = 1/4","is a quarter"),("0.25 × 4 = 1","multiplying by four"),
                              ("0.25 × 100 = 25","multiplied by one hundred")))),
-        exercise((("Simplify first","simplify the fraction"),("Factor the denominator","built only from"),
-                  ("Look for 2s and 5s","the decimal stops")),"notebook challenge",
-                 ("Which stop as decimals?", "7/20, 5/12 and 9/75")),
+        decimal_decisions,
     ),
     "T09.3": (
-        scene("Use moves that you can undo",
-              lambda stage,s:pan(stage,s,(1,0),(3,10),remove=(0,3,"take three from both sides")),
-              note("Subtract 3 from both pans; adding 3 reverses it", "addition takes us back",y=551,size=34)),
+        scene("Use moves that you can undo",reversible_balance),
         scene("A reversible move preserves the solutions",
               cards((("Subtract 3",BLUE),("Add 3",MINT)),312,gap=336,width=241,
                     words="reversible moves",size=34),
@@ -195,10 +298,7 @@ FILMS = {
               cards((("0 × 0 = 5 × 0",MINT),),346,x=389,width=338,
                     words="zero times zero",size=34),
               note("Both 0 and 5 satisfy the original equation", "all possibilities")),
-        exercise((("Do the same to both sides","do the same"),("Undo one step","undo one operation"),
-                  ("Check the original","check your answer")),"notebook challenge",
-                 ("Three pouches and 4 counters balance one pouch and 18 counters.",
-                  "How many counters are in each pouch?")),
+        three_pouches,
     ),
     "T09.E": (
         scene("Three equal trays contain 21 counters",lambda stage,s:tray_pouches(stage,s,reveal="three identical trays"),
@@ -218,8 +318,6 @@ FILMS = {
                      words="fifteen counters remain",y=338),
               equation(("21 − 6",GOLD,"take away all six loose counters"),
                        ("= 15",WHITE,"fifteen counters remain"),("   15 ÷ 3 = 5",MINT,"five each"),y=555,size=39)),
-        exercise((("Share first","you can share first"),("Or remove extras first","remove the extras")),
-                 "then try this",("Four bags each hold a box and 3 loose marbles.",
-                                  "There are 40 marbles in all. How many are in each box?")),
+        four_bags,
     ),
 }
