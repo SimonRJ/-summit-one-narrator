@@ -20,6 +20,10 @@ VERSION = "t01-studio-v1"
 CHAPTER_VERSION = "studio-chapters-02-04-v1"
 COURSE_VERSION = "teaching-films-v1"
 REVIEWED_MEDIA = {
+    "T04.1": "factor-tree-84",
+    "T04.2": "divisor-choices-200",
+    "T04.3": "prime-rows-20-30",
+    "T04.E": "square-900",
     "T03.1": "bead-week-review",
     "T03.3": "birthday-boxes",
     "T03.E": "ten-remainder-boxes",
