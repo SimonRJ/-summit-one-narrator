@@ -55,7 +55,11 @@ def digit_board(which=None, words=None, *, selected=None):
         marks=[(r,c,str(10*r+c),WHITE,None) for r in range(10) for c in range(10) if r or c]
         tint=[]
         if which in ("units","both"):
-            tint += [(r,7,BLUE,words) for r in range(10)]
+            if which=="units":
+                spoken=("ten numbers seven","seventeen","twenty-seven",*("up to ninety-seven",)*7)
+                tint += [(r,7,BLUE,word) for r,word in enumerate(spoken)]
+            else:
+                tint += [(r,7,BLUE,words) for r in range(10)]
         if which in ("tens","both"):
             tint += [(7,c,GOLD,words) for c in range(10)]
         if selected:
@@ -119,6 +123,17 @@ def permutations(stage,s):
                  cue(s,"every arrangement",delay=(2*i+j)*.12),39)
     fit(stage,"1 + 2 + 6 = 9 in all six orders",640,480,36,1010,WHITE,cue(s,"digits one two and six"))
     fit(stage,"Each number is also divisible by 3",640,566,30,1000,MINT,cue(s,"since nine is a multiple"))
+
+
+def fill_five(stage,s):
+    given=cue(s,"five blank eight")
+    answer=cue(s,"the blank must be five")
+    for x,d in ((466,"5"),(814,"8")):
+        tile(stage,x,315,d,BLUE,131,78,given,44)
+    tile(stage,640,315,"?",GOLD,131,78,given*(1-answer),44)
+    tile(stage,640,315,"5",MINT,131,78,answer,44)
+    fit(stage,"5 + 8 = 13",640,444,36,1050,WHITE,cue(s,"known digits add to thirteen"))
+    fit(stage,"13 + 5 = 18    →    558 = 9 × 62",640,552,36,1060,MINT,cue(s,"making eighteen"))
 
 
 def missing_four(stage,s):
@@ -250,9 +265,7 @@ FILMS = {
           note("5 + 8 + 3 = 16", "digit sum sixteen",y=381,colour=BLUE,size=44),
           note("16 = 9 + 7, so the remainder is 7", "seven more than nine")),
     scene("Rearrange the digits without changing the sum",permutations),
-    scene("Use the digit sum to complete a number",
-          cards((("5",BLUE),("?",GOLD),("8",BLUE)),322,width=131,gap=174,words="five blank eight"),
-          equation(("13 + 5",GOLD,"the blank must be five"),("= 18",MINT,"making eighteen"))),
+    scene("Use the digit sum to complete a number",fill_five),
     missing_four,
  ),
  "T11.3":(
