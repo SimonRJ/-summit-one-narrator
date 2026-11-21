@@ -1,0 +1,59 @@
+name: Stage the S094 grid boundaries film for review
+on:
+  push:
+    branches: [codex/reviewed-film-work-20261119]
+    paths: ['production/lesson-intros/illustrated/grid_boundaries_voiced.py', '.github/workflows/stage-s094-grid-boundaries.yml']
+permissions:
+  actions: read
+  contents: write
+jobs:
+  stage:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 95
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Wait for the checked Voice C recording
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VOICE_RUN: '44907350162'
+        run: |
+          for attempt in $(seq 1 160); do
+            state=$(gh run view "$VOICE_RUN" --json status --jq .status)
+            if [ "$state" = completed ]; then break; fi
+            sleep 20
+          done
+          test "$(gh run view "$VOICE_RUN" --json conclusion --jq .conclusion)" = success
+          gh run download "$VOICE_RUN" --name s094-checked-voice-and-timing --dir build/voice
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install drawing and encoding tools
+        run: |
+          python production/lesson-intros/illustrated/install_media_tools.py
+          pip install numpy
+      - name: Render the revised introduction
+        run: |
+          python production/lesson-intros/illustrated/render_voiced_board.py S094 --audio build/voice --out build/staged
+          cp build/voice/timeline.json build/staged/
+      - name: Stage exact video and poster bytes for the final review
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p build/returned
+          for asset in S094-Intro-Illustrated.mp4 S094-Intro-Illustrated-poster.jpg; do
+            if ! gh release download lesson-introductions --pattern "$asset" --dir build/returned; then
+              gh release upload lesson-introductions "build/staged/$asset"
+              gh release download lesson-introductions --pattern "$asset" --dir build/returned
+            fi
+            cmp "build/staged/$asset" "build/returned/$asset"
+          done
+      - name: Check the released movie against every caption and the measured artwork
+        run: python production/lesson-intros/illustrated/check_recorded_timeline.py S094 build/voice build/returned/S094-Intro-Illustrated.mp4 --report build/staged/S094-comparison.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: s094-grid-boundaries-film
+          path: build/staged
+          if-no-files-found: error
+          retention-days: 30

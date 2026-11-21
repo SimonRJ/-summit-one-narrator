@@ -9,7 +9,7 @@ from PIL import Image,ImageDraw
 from captioned_film import Canvas,ease,font
 from visuals import Cues
 ROOT=Path(__file__).resolve().parents[3]
-MODULES={'S093':'grid_paths_voiced','S092':'reading_windows_voiced','S088':'neighbour_keys','S087':'skyline_stacks','S086':'tank_clock','S024':'bead_scale_trays','S036':'forced_dominoes','S083':'mirror_mosaics','S041':'shop_comparison','S066':'remainder_ruler'}
+MODULES={'S094':'grid_boundaries_voiced','S093':'grid_paths_voiced','S092':'reading_windows_voiced','S088':'neighbour_keys','S087':'skyline_stacks','S086':'tank_clock','S024':'bead_scale_trays','S036':'forced_dominoes','S083':'mirror_mosaics','S041':'shop_comparison','S066':'remainder_ruler'}
 PAPER='#172336';INK='#f6f1e6'
 def groups(timeline):
     words=[word for scene in timeline['scenes'] for word in scene['words']]
