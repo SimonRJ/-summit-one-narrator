@@ -1,5 +1,12 @@
 # Lesson introduction video review — 16 November 2026
 
+## Current production handoff · 22 November
+
+S094 edition 1 serves lessons 94 and 209. It remains open for shared narration in scenes 1, 2 and 10. The [three new Voice C readings](https://github.com/SimonRJ/-summit-one-narrator/actions/runs/44946050393) feed the [separate v2 release comparison](https://github.com/SimonRJ/-summit-one-narrator/actions/runs/44946176613). Inspect the returned recording and timed diagrams before moving either course assignment or the catalogue. The other eight scenes reuse their checked readings.
+
+The revised T12.E and T13.E movies and posters are committed on main at 48e9e3446173df5d51a2a68d9865127a134854ea. Both retained their original Voice C packets. Compare the public files with the per-film SHA-256 and check both orientations in the [phone playback run](https://github.com/SimonRJ/-summit-one-narrator/actions/runs/44945830873) before awarding credit. The [four T14 films](https://github.com/SimonRJ/-summit-one-narrator/tree/codex/network-films-reviewed-20261122) have reviewed renders, posters, measured frame comparisons and prepared player changes based on main at 5f5b4d8aa0243a3903161c7257f733ee8e83b093. Reconcile the latest app and service-worker files before publishing these four films. Each still needs public playback evidence.
+
+
 This is an ongoing review, not a declaration that the course has been audited.
 
 ## Scope and status
