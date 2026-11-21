@@ -1,12 +1,14 @@
 # Summit One current status
 
-**19 November 2026 course completion.** All 283 teaching lessons now use Read → Watch → Practise. The [later lesson index](LATER_LESSONS.md) records the video assignment and problems for the remaining 228 lessons.
+The [live progress bar](../review/course-progress.html) reads the current [review scope](../review/course-review-scope.json), [lesson film register](lesson-introduction-review-register-20261116.csv) and [companion film register](teaching-video-review-register-20261116.csv). Signed-in learners can see every released practice set in [the exam centre](../tests.html).
+
+**19 November 2026 lesson structure.** All 283 teaching lessons now use Read → Watch → Practise. The [later lesson index](LATER_LESSONS.md) records the video assignment and problems for the remaining 228 lessons.
 
 **First release through S068.** The [55 teaching sessions through S068](READ_WATCH_PRACTISE.md) now use Read → Watch → Practise. This adds a separate versioned bank of 220 protected questions, alongside 92 selected challenges from the original bank.
 
 **14 November 2026 baseline.** The repository, public site and live database are verified separately. See [the lesson audit register](CONTENT_AUDIT_REGISTER.md) for the editorial checks and [the continuation](CHATGPT_CONTINUATION.md) for the release procedure.
 
-## Content inventory
+## Content inventory on 14 November
 
 | Item | Count |
 |---|---:|
@@ -49,7 +51,7 @@ A single guarded database update revised 469 unattempted rows. All 566 live stan
 
 A phone-width browser fixture used a local copy of the verified Pages assets to exercise submission, diagram rendering and solution reveal with test data. The actual learner’s progress was preserved.
 
-## Examination papers
+## Examination papers on 14 November
 
 | Category | Active | Inactive | Notes |
 |---|---|---|---|
@@ -61,7 +63,7 @@ A phone-width browser fixture used a local copy of the verified Pages assets to 
 | Earlier Rossmoyne-authored mocks | none | 11 papers, 253 questions | Retired. |
 | User-supplied original sample | 1 paper, 23 questions | none | |
 
-## Videos and guides
+## Videos and guides on 15 November
 
 | Item | Status |
 |---|---|

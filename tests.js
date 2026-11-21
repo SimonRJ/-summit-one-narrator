@@ -128,25 +128,38 @@ function partReport(rows,timeSeconds){
  if(!part)return "";
  const choices=rows.filter(r=>r.question_number<=25),integers=rows.filter(r=>r.question_number>=26);
  const mc=choices.filter(r=>r.correct).length,ic=integers.filter(r=>r.correct).length,total=mc+ic;
- const perfect=total===20;
- const depthBenchmark=part==="depth"&&mc===5&&ic>=1;
- const target=part==="speed"?`${perfect?"Perfect accuracy · ":""}${total}/20 correct`:`${total}/10 correct · ${mc}/5 multiple choice · ${ic}/5 integer`;
- const info=part==="speed"?(perfect?`All 20 correct in ${formatElapsedSeconds(timeSeconds)}. The first-attempt result is the meaningful speed benchmark.`:"Accuracy comes first. Review any missed ideas before trying a faster time on new questions."):(depthBenchmark?"Initial benchmark achieved: all five choices and at least one integer answer correct.":"An initial goal is all five multiple-choice answers plus one integer answer. Check each method carefully.");
- return `<section class="panel exam-part-report"><span class="eyebrow">${part==="speed"?"FLUENCY REPORT":"CHALLENGE REPORT"}</span><h2>${target}</h2><p>${info}</p><p class="muted">Elapsed time: ${formatElapsedSeconds(timeSeconds)} · Limit: ${activeExam.duration_minutes}:00 · This part result is not an official AMC award.</p></section>`;
+ const limit=part==="speed"?20:10;
+ const target=part==="speed"?`${total}/20 correct`:`${total}/10 correct · ${mc}/5 multiple choice · ${ic}/5 integer`;
+ const missed=rows.find(row=>!row.correct);
+ let message;
+ if(total===limit){
+  message=`Every answer correct in ${formatElapsedSeconds(timeSeconds)}. Use an unopened set to see whether you can repeat this result.`;
+ }else if(part==="speed"){
+  message="Rework a missed question on paper. Once you can explain the shortcut, try a fresh set against the clock.";
+ }else if(mc===5){
+  message="You solved all five multiple-choice questions. Choose one unfinished integer problem, derive its answer and check it against every condition.";
+ }else if(ic===5){
+  message="You solved all five integer questions. Revisit a missed multiple-choice problem and work out why the closest alternative fails.";
+ }else{
+  message="Pick one missed problem. Try a diagram, a small case or working backwards before reading its solution.";
+ }
+ const next=missed?`<button type="button" class="exam-text-link" data-solution="${Number(missed.question_number)}">Revisit Q${Number(missed.question_number)}</button>`:"";
+ return `<section class="panel exam-part-report"><span class="eyebrow">${part==="speed"?"FLUENCY REPORT":"CHALLENGE REPORT"}</span><h2>${target}</h2><p>${message}</p>${next}<p class="muted">Time used: ${formatElapsedSeconds(timeSeconds)} of ${activeExam.duration_minutes}:00.</p></section>`;
 }
 function renderExamHub(){
  const count=id=>catalog.filter(e=>belongs(e,id)).length;
  const last=allSittings.filter(r=>r.completed).slice(0,5);
  const cards=[
   {id:"speed",num:"01",title:"AMC practice · Part A",tag:"Q1–20",time:"20-minute limit",summary:"Twenty multiple-choice questions. Aim for 20 correct, then improve the time. Clock counts up from zero.",count:count("speed"),target:"20 / 20 · 70 marks",featured:true},
-  {id:"depth",num:"02",title:"AMC practice · Part B",tag:"Q21–30",time:"40-minute limit",summary:"Five multiple-choice and five integer-answer problems. An excellent first benchmark is all five choices plus one integer.",count:count("depth"),target:"First benchmark · 6 / 10",featured:true},
+  {id:"depth",num:"02",title:"AMC practice · Part B",tag:"Q21–30",time:"40-minute limit",summary:"Five multiple-choice and five integer-answer problems. Aim to solve all ten within 40 minutes.",count:count("depth"),target:"10 / 10 · 65 marks",featured:true},
   {id:"amc",num:"03",title:"Real AMC papers",tag:"Upper Primary",time:"60 minutes",summary:"Authentic historical papers. One sitting per paper; reserve some for unseen progress checks.",count:count("amc"),target:"Official-format questions"},
   {id:"rossmoyne",num:"04",title:"Rossmoyne Honours",tag:"School entry",time:"Practice setting",summary:"Four-section specialist mathematics practice papers with written solutions and a permanent record.",count:count("rossmoyne"),target:"100 marks"},
   {id:"mawa",num:"05",title:"MAWA investigations",tag:"Mathematical reasoning",time:"Work at your own pace",summary:"Every seventh session gives you an untimed investigation. Explore a pattern, find a counterexample or write a proof.",count:null,target:"53 scheduled investigations"}
  ];
- app.innerHTML=`<section class="panel exam-hub-intro"><div class="eyebrow">SUMMIT ONE · ASSESSMENT AND PRACTICE</div><h1>Exams</h1><p>Practise accuracy, speed and unfamiliar problem solving separately—then test the complete skill in full-length exams. Your score and time history remains attached to every sitting.</p><div class="exam-hub-metrics"><span>${allSittings.filter(x=>x.completed).length} completed sittings</span><span>Progress saved to your account</span><span>Full reports after submission</span></div></section>
+ const completedCount = allSittings.filter(sitting => sitting.completed).length;
+ app.innerHTML=`<section class="panel exam-hub-intro"><div class="eyebrow">SUMMIT ONE · ASSESSMENT AND PRACTICE</div><h1>Exams</h1><p>Practise accuracy, speed and unfamiliar problem solving separately—then test the complete skill in full-length exams. Each sitting keeps its own score and time history.</p><div class="exam-hub-metrics"><span>${completedCount} completed ${completedCount === 1 ? "sitting" : "sittings"}</span><span>Progress saved to your account</span><span>Full reports after submission</span></div></section>
  <section class="exam-hub-heading"><div><h2>Choose a training mode</h2><p class="muted">The first two modes isolate the skills needed for an efficient AMC sitting.</p></div></section>
- <div class="exam-hub-grid">${cards.map(c=>`<a href="tests.html?section=${c.id}" class="panel exam-hub-card ${c.featured?"exam-hub-featured":""}"><span class="exam-hub-number">${c.num} / TRAINING</span><div class="exam-hub-card-title"><h3>${c.title}</h3><span class="exam-hub-chevron" aria-hidden="true">↗</span></div><div class="exam-hub-labels"><span class="phase-chip">${c.tag}</span><span class="phase-chip">${c.time}</span></div><p>${c.summary}</p><div class="exam-hub-foot"><b>${c.target}</b><span>${c.count===null?"Learning pathway":`${c.count} available sets`}</span></div></a>`).join("")}</div>
+ <div class="exam-hub-grid">${cards.map(c=>`<a href="tests.html?section=${c.id}" class="panel exam-hub-card ${c.featured?"exam-hub-featured":""}"><span class="exam-hub-number">${c.num} / TRAINING</span><div class="exam-hub-card-title"><h3>${c.title}</h3><span class="exam-hub-chevron" aria-hidden="true">↗</span></div><div class="exam-hub-labels"><span class="phase-chip">${c.tag}</span><span class="phase-chip">${c.time}</span></div><p>${c.summary}</p><div class="exam-hub-foot"><b>${c.target}</b><span>${c.count===null?"Learning pathway":`${c.count} available ${c.count === 1 ? "set" : "sets"}`}</span></div></a>`).join("")}</div>
  <section class="panel result-card exam-hub-history"><h2>Recent exam results</h2><p class="muted">First-attempt accuracy on new material matters most. Repeated papers are useful for fluency but may become familiar.</p><div id="savedSittings" class="history-list"></div></section>`;
  loadResultHistory().catch(showExamError);
 }
@@ -182,9 +195,9 @@ function practicePerformanceHTML(part){
  const recent=rows[0];
  const value=recent?((recent.score||0)+"/"+recent.max_score+" · "+formatElapsedSeconds(sittingElapsed(recent))):"No first sitting yet";
  return `<section class="exam-performance" aria-label="First attempt results on new original papers">
- <div class="exam-performance-card"><span class="eyebrow">NEW-QUESTION ACCURACY</span><strong>${avg===null?"—":avg+"%"}</strong><small>Average first-sitting accuracy across ${rows.length} original ${rows.length===1?"paper":"papers"}</small></div>
+ <div class="exam-performance-card"><span class="eyebrow">FIRST-ATTEMPT MARKS</span><strong>${avg===null?"—":avg+"%"}</strong><small>Average percentage of available marks across ${rows.length} original ${rows.length===1?"paper":"papers"}</small></div>
  <div class="exam-performance-card"><span class="eyebrow">FASTEST FIRST-TRY PERFECT</span><strong>${fastest===null?"—":formatElapsedSeconds(fastest)}</strong><small>Only ${part==="speed"?"20/20":"10/10"} scores on unseen original sets count</small></div>
- <div class="exam-performance-card"><span class="eyebrow">MOST RECENT ORIGINAL</span><strong class="exam-performance-recent">${value}</strong><small>First submissions only · no result from replaying a memorised set</small></div>
+ <div class="exam-performance-card"><span class="eyebrow">MOST RECENT ORIGINAL</span><strong class="exam-performance-recent">${value}</strong><small>Marks and time on your latest first attempt</small></div>
  </section>`;
 }
 function renderLibrary(){
@@ -195,7 +208,7 @@ function renderLibrary(){
  const titles={speed:"AMC Practice · Part A (Q1–20)",depth:"AMC Practice · Part B (Q21–30)",amc:"Real AMC past papers",rossmoyne:"Rossmoyne Honours Mathematics"};
  const introductions={
    speed:"Part A: 20 multiple-choice questions, 70 marks, 20-minute count-up. Aim for 20/20 on new problems. Each set allows one scored attempt, then locks permanently for study.",
-   depth:"Part B: Q21–25 multiple choice and Q26–30 integer answer (0–999). Ten questions, 65 marks, 40-minute count-up. Build from six correct toward ten; each set is one attempt only.",
+   depth:"Q21–25 are multiple choice. For Q26–30, enter a whole number from 0 to 999. Aim for ten correct within 40 minutes. Each set allows one scored attempt.",
    amc:"Authentic Upper Primary papers from 2007–2025, where available. Keep some unopened for later independent checks. Each authentic paper has one attempt and permanent written-solution review.",
    rossmoyne:"Start with an original practice paper, or choose the school’s sample when you want to measure your independent score. Each of the ten papers has four sections, 100 marks and a saved review."
  };
@@ -205,7 +218,7 @@ function renderLibrary(){
  const pendingSets=plannedSets.filter(i=>!availableIndices.has(i));
  app.innerHTML=`<section class="panel test-hero"><div class="eyebrow">${centre==="rossmoyne"?"HONOURS MATHEMATICS":"SUMMIT ONE · EXAMS"}</div><h1>${titles[centre]}</h1><p class="muted">${introductions[centre]}</p><nav class="exam-centre-tabs" aria-label="Exam sections">${EXAM_SECTIONS.map(([id,label])=>`<a href="tests.html${id==="hub"?"":`?section=${id}`}" ${centre===id?'aria-current="page"':""}>${label}</a>`).join("")}</nav>${centre==="amc"?`<label class="year-select">School year for estimated award bands <select id="awardYear"><option value="5" ${awardYear===5?"selected":""}>Year 5</option><option value="6" ${awardYear===6?"selected":""}>Year 6</option></select></label>`:""}</section>
  ${centre==="rossmoyne"?`<details class="panel"><summary>How should I interpret my sample score?</summary><p>Rossmoyne advises Year 6 applicants that an independent score of at least 50 on its published sample is competitive. This guidance applies to the school’s sample. Use the nine Summit One papers to find methods to practise.</p><a href="https://www.rossmoyne.wa.edu.au/enrolment/specialist-programs/specialist-mathematics-program/" target="_blank" rel="noopener">Rossmoyne Specialist Mathematics entry information</a></details>`:""}
- ${isPart?`<section class="exam-benchmark-row"><div><span class="eyebrow">BENCHMARK</span><strong>${centre==="speed"?"20 / 20 correct":"5 / 5 multiple choice + 1 integer"}</strong></div><div><span class="eyebrow">TIME LIMIT</span><strong>${centre==="speed"?"20:00":"40:00"} · counting up</strong></div><div><span class="eyebrow">SCORING</span><strong>${centre==="speed"?"70 available marks":"65 available marks"}</strong></div></section>`:""}
+ ${isPart?`<section class="exam-benchmark-row"><div><span class="eyebrow">BENCHMARK</span><strong>${centre==="speed"?"20 / 20 correct":"10 / 10 correct"}</strong></div><div><span class="eyebrow">TIME LIMIT</span><strong>${centre==="speed"?"20:00":"40:00"} · counting up</strong></div><div><span class="eyebrow">SCORING</span><strong>${centre==="speed"?"70 available marks":"65 available marks"}</strong></div></section>`:""}
  ${isPart?practicePerformanceHTML(centre):""}
  ${isPart?`<section class="amc-set-summary"><h2>${papers.length} of 30 reviewed sets available</h2><p class="muted">Only original AMC-style papers with independently checked answers and worked explanations become available. The remaining ${pendingSets.length} sets are still being authored and reviewed; they cannot be started.</p></section>`:""}
  <div class="test-grid">${papers.map(exam=>`<article class="panel test-card"><div class="eyebrow">${exam.metadata?.originality==="reused_from_existing_full_mock"?"EXISTING MOCK · SPLIT FAMILIARISATION":exam.source_type==="authentic_amc_past_paper"?"AUTHENTIC AMC PAST PAPER":exam.source_type==="summit_amc_split_original"?"NEW ORIGINAL · INDEPENDENTLY CHECKED":exam.metadata?.original_sample?"UPLOADED ORIGINAL SAMPLE · TRANSCRIBED":"SUMMIT ONE AUTHORED PRACTICE"}</div><h2>${esc(exam.title)}</h2><div class="test-meta"><span class="phase-chip">${exam.question_count} questions</span><span class="phase-chip">${exam.duration_minutes} min</span><span class="phase-chip">${exam.max_score} marks</span></div><p class="muted">${esc(exam.metadata?.card_summary||"Full written solutions available after submission.")}</p>${paperAction(exam)}</article>`).join("")}</div>

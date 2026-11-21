@@ -1,5 +1,10 @@
 # Teaching lessons after S068
 
+The individual written review of S075, S076, S078, S079 and S081–S083 covered 42 active problems. Ratio parts, exposed tile boundaries, painted intersections, ordered cases, bisected angles, rectangle bounds and colour-preserving symmetries were checked independently. S082 now tests a rectangle crossing a seam after the film demonstrates counting all rectangles. The private S083 quilt explanation identifies a single representative of every reflection group.
+
+Individual written review covered S069 and S071–S074. All 25 active graded problems were checked against independent calculations and enumerations, including deductions over complete seating orders, minimum cube counts consistent with both views, magic-square constraints and bounded integer searches.
+
+
 The 228 teaching sessions from S069 through S370 follow Read → Watch → Practise. S371 is an investigation and S372 is a mixed workshop. The [earlier lesson guide](READ_WATCH_PRACTISE.md) covers the first 55 teaching sessions.
 
 Each lesson opens with a short explanation, a worked example and a prompt about its assigned film. The 58 lessons with a published session introduction use that introduction. At the other 170 lessons, the Watch screen credits the earlier film that teaches that session’s technique. For a capstone, the film revisits the main technique and practice combines it with a second one. The final problem asks the learner to choose and apply a method in a less familiar setting.
@@ -243,13 +248,15 @@ The answer-free [course text](../data/read-watch-practise-later.json) records th
 
 With the private continuation authoring archive extracted outside a checkout, run `python tools/content/build_later_read_practice.py /path/to/continuation-private` to produce the course text and private grading rows. The new questions have versioned IDs. The student’s earlier attempts can still be reviewed. The private archive includes the independent mathematical checks and the scene records used for film alignment.
 
+The S069 duet question formerly repeated the helper-pair example demonstrated by its film. The revised duet requires a singer who knows the harmony part. Older private archives can recover its reviewed explanation in the same private overlay as the later revisions.
+
 The 21 November editorial revision clarifies two items and replaces 16 repeated puzzles. The [public revision list](../tools/content/practice-revisions-20261121.json) provides the learner wording. Updated private drafts rebuild directly. If using the original drafts, save the JSON object returned by the query below as `practice-revision-solutions.json` in the **private** authoring directory. The compiler validates the worked solutions against their published checksums before generating grader rows.
 
 ```sql
 select jsonb_object_agg(id, solution_text order by id) as private_solution_overlay
 from public.content_problems
 where source_type = 'original_lesson_practice' and id in (
-  'RWL2-135-A', 'RWL2-135-B', 'RWL2-167-D', 'RWL2-185-A',
+  'RWL2-069-B', 'RWL2-082-A', 'RWL2-083-D', 'RWL2-135-A', 'RWL2-135-B', 'RWL2-167-D', 'RWL2-185-A',
   'RWL2-226-A', 'RWL2-226-B', 'RWL2-226-C', 'RWL2-226-D',
   'RWL2-258-A', 'RWL2-258-B', 'RWL2-258-C', 'RWL2-276-A',
   'RWL2-276-B', 'RWL2-276-C', 'RWL2-317-A', 'RWL2-349-A'

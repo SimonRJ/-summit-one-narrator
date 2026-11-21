@@ -1,5 +1,5 @@
 const scope = new URL(self.registration.scope);
-const CACHE="summit-one-bridge-deck-20261122";
+const CACHE="summit-one-full-marks-20261122";
 const cachePrefix = scope.pathname + ':summit-one-';
 const cacheName = scope.pathname + ':' + CACHE;
 const reader = new URL('offline-reader.html', scope).href;
@@ -75,7 +75,7 @@ const staticFiles = [
   "./boot-loader.css?v=cinematic-20261113",
   "./main.css?v=worked-films-20261122",
   "./summit-polish.css?v=craft-20261121",
-  "./app-main.js?v=bridge-deck-20261122",
+  "./app-main.js?v=full-marks-20261122",
   "./workshop-studies.js?v=workshops-20261122",
   "./course-menu.js?v=menu-20261113",
   "./course-menu-ui.js?v=bridge-deck-20261122",
@@ -97,8 +97,8 @@ const staticFiles = [
   "./login.js?v=accessible-form-20261122",
   "./supabase-client.js?v=auth-20261112",
   "./tests.html",
-  "./tests.js?v=entries-20261122",
-  "./exam.css?v=deeper-20261121",
+  "./tests.js?v=full-marks-20261122",
+  "./exam.css?v=phone-nav-20261122",
   "./manifest.webmanifest",
   "./icon.svg",
   "./summit-mark.svg",

@@ -259,3 +259,16 @@ a.exam-hub-card:hover,a.exam-hub-card:focus-visible{transform:translateY(-2px);b
 .exam-mode .flagged-questions { margin:1rem 0; padding:.75rem; border-left:3px solid #a47912; background:#fff7dc; color:#302700; }
 .exam-mode .flag-links { display:flex; flex-wrap:wrap; gap:2px 6px; }
 .exam-mode .flag-links button { min-width:44px; min-height:44px; }
+
+@media (max-width: 540px) {
+  .topbar .topnav[aria-label="Primary navigation"] {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .topbar .topnav[aria-label="Primary navigation"] > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 44px;
+    padding-inline: 2px;
+  }
+}

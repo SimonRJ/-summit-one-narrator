@@ -237,6 +237,17 @@
     },
     "RWL1-062-A": {
       "hint": "If a display has no cloud, which symbols remain available in each window? Compare that count with all possible displays."
+    },
+    "RWL2-069-B": {
+      "prompt": "Seven singers are available for a duet. Three know the harmony part. A pair qualifies if at least one of its singers knows that part. How many different pairs qualify? Count the singers chosen, regardless of which part each sings.",
+      "hint": "Which pairs would have to be left out of a list of all possible duets?"
+    },
+    "RWL2-081-B": {
+      "prompt": "Two paths of equal length run from a beacon to two posts. The paths and the straight line between the posts form a triangle. The inside angle at one post is 26°. What is the angle at the beacon, in degrees?"
+    },
+    "RWL2-082-A": {
+      "prompt": "A grid has 5 columns and 7 rows. A horizontal seam follows a grid line with 2 rows below it. How many grid-line rectangles have part of their interior above the seam and part below?",
+      "hint": "Sketch the seam. Which horizontal lines can be the bottom and top of a rectangle that crosses it?"
     }
   },
   "solutionHashes": {
@@ -260,7 +271,10 @@
     "RWL2-317-A": "ac1b3f4a0c5aa76b136b94a5d0b8232872df269139551df658ea26dc26958918",
     "RWL2-349-A": "f772419426f85f7631e200a8e924a2b6b87696bc73d0fb6951c7de293e1c9aac",
     "RWL1-010-A": "e6967e9943c8ac6d08e3095d43265911cd842451ba3efa33e356dca37ab3bbe0",
-    "RWL1-013-D": "3b692e28b876b3fbfe0fc6360b37315dee25a06a46a63a3a10d211b1562ef138"
+    "RWL1-013-D": "3b692e28b876b3fbfe0fc6360b37315dee25a06a46a63a3a10d211b1562ef138",
+    "RWL2-069-B": "68ccfe6448a3ae3adb516b1dfe389d771f3efec6537409c25c96e761f26178ff",
+    "RWL2-082-A": "75ec300305789b04396c7b48cb726a3b72032b3efee2fcab5baa4dab0b290e67",
+    "RWL2-083-D": "94dfc9f0ff4a6020b641d7b17e72c2ce36aa4e0b4317b582324b8cbb9592aeca"
   },
   "openings": {
     "S001": {
@@ -371,7 +385,8 @@
           "The two loose tiles have 8 cm of perimeter each. The shared edge contributes 2 cm from each tile to that total.",
           "Remove those two contributions to get 16 − 4 = 12 cm. The joined shape is a rectangle measuring 4 cm by 2 cm."
         ]
-      }
+      },
+      "bridge": "Trace two loops on the board with the hole, one around the outside and one around the opening. When the corner comes off, match each lost edge with a newly exposed edge."
     },
     "S079": {
       "example": {
@@ -380,7 +395,8 @@
           "There are three sandwich lunches. Each of the two soups can go with either of two rolls, making four soup lunches.",
           "The two groups do not overlap. Adding 3 and 4 gives seven lunches."
         ]
-      }
+      },
+      "bridge": "Make a row for each permitted arrangement of colours in the exhibit rooms. Mark which rows allow B and which positions can hold A before multiplying choices."
     },
     "S095": {
       "example": {
@@ -822,6 +838,42 @@
     },
     "S067": {
       "bridge": "Write the colour pattern for all three rooms in each permitted case. The middle room is red both when all three exhibits are red and when A sits between two blues. In which pattern is exhibit B forbidden?"
+    },
+    "S069": {
+      "bridge": "The film contrasts a flavour plus a topping with a pair of helpers. In which choice would exchanging the two people change nothing? In the team puzzle, first list the allowed roles by group."
+    },
+    "S071": {
+      "bridge": "In the five-painting puzzle, which clues turn Ada, Ben and Chloe into a single block? Test both possible positions of that block against the clue about Eva."
+    },
+    "S072": {
+      "bridge": "In the film’s six-stack model, the front and side views each give the tallest stack in a line. For the smallest build, can one tall stack meet two requirements? For the largest, which of the two views limits each position?"
+    },
+    "S073": {
+      "bridge": "The film gives the top-left and top-right corners. Use the line total and the centre to find their opposite corners. Which row then has only one empty space?",
+      "recap": "Write the required sum beside the grid. Complete a line with one unknown, then check where that entry also appears. In a magic square, verify both long diagonals as well as every row and column."
+    },
+    "S074": {
+      "bridge": "In the film, increasing the width from 8 to 9 also increases the length. Once one rectangle fits the required area, why must every smaller width give too little area and every larger width give too much?"
+    },
+    "S075": {
+      "bridge": "Before the bead transfer, mark the total number of beads. Decide whether a ratio part still represents the same number after the move. Then compare that argument with the scale factor in the wall drawing."
+    },
+    "S078": {
+      "recap": "Colour a square in the overlap. Count how many times your calculation includes it, then check that this matches whether the question asks for painted or unpainted area."
+    },
+    "S081": {
+      "bridge": "At the exterior angle, pause and write the sum of the two remote interior angles. In the small triangle formed by the bisectors, mark which halves of that sum you can use."
+    },
+    "S082": {
+      "example": {
+        "steps": [
+          "The row has a line at each end and two grid lines between the cells.",
+          "Four vertical lines form three spaces. To draw a rectangle in this row, choose two distinct vertical lines for its sides."
+        ]
+      }
+    },
+    "S083": {
+      "recap": "Trace a coloured cell under each required reflection. On a centre line it may have one partner. Away from both centre lines, find all three partners before you count the group."
     }
   }
 }

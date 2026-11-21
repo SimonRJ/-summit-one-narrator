@@ -17,4 +17,4 @@ Use Part A for speed and accuracy over questions 1–20 and Part B for harder qu
 
 Save authentic AMC papers for planned sittings. Confirm the learner has enough time before pressing Start, as each authentic paper has a single attempt. Any award estimate displayed by the app should be read as an estimate for practice.
 
-The [current status](CURRENT_STATUS.md) records the number of available papers, the extent of the lesson audit and the video production status. The [student guide](STUDENT_GUIDE.md) gives the learner the steps to follow on an iPhone.
+The [exam centre](../tests.html) shows the practice sets currently open. The [course review bar](../review/course-progress.html) tracks checked lessons, films and other materials. The [student guide](STUDENT_GUIDE.md) gives the learner the steps to follow on an iPhone.

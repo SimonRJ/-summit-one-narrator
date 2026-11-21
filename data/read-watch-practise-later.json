@@ -5,7 +5,7 @@
       "slot": 69,
       "headline": "Choose roles or choose a group",
       "intro": "A named job makes the person doing it important. An ordinary pair has no first member. Decide which kind of choice you need before multiplying.",
-      "bridge": "Watch the film shift from ordering at a stall to choosing two helpers. Ask whether swapping the two chosen people creates a new outcome in each problem.",
+      "bridge": "The film contrasts a flavour plus a topping with a pair of helpers. In which choice would exchanging the two people change nothing? In the team puzzle, first list the allowed roles by group.",
       "recap": "Multiply along a chain of choices. Check whether swapping two selections really creates another outcome.",
       "example": {
         "prompt": "From Kim, Jo and Lin, how many pairs can carry a banner together?",
@@ -32,8 +32,8 @@
           "id": "RWL2-069-B",
           "family": "COUNT-02:continuation:B",
           "title": "One duet",
-          "prompt": "Six singers choose two of their number for a duet. Both sing the same part. How many duets are possible?",
-          "hint": "How often would listing a first and a second singer count a duet?"
+          "prompt": "Seven singers are available for a duet. Three know the harmony part. A pair qualifies if at least one of its singers knows that part. How many different pairs qualify? Count the singers chosen, regardless of which part each sings.",
+          "hint": "Which pairs would have to be left out of a list of all possible duets?"
         },
         {
           "id": "RWL2-069-C",
@@ -55,7 +55,7 @@
       "slot": 71,
       "headline": "Start with the clue that fixes a place",
       "intro": "A puzzle may describe many possible orders. Put in any clue that fixes one place, then use neighbouring and earlier-or-later clues around it.",
-      "bridge": "When the paintings must be put in order, watch how a pair that must stay adjacent shrinks the possible positions.",
+      "bridge": "In the five-painting puzzle, which clues turn Ada, Ben and Chloe into a single block? Test both possible positions of that block against the clue about Eva.",
       "recap": "Place fixed entries, then test remaining positions against all the clues, including exclusions.",
       "example": {
         "prompt": "Three books sit on a shelf. The red book is between the other two and the green book is at the right. Where is the blue book?",
@@ -105,7 +105,7 @@
       "slot": 72,
       "headline": "Read one floor at a time",
       "intro": "A view from the side can hide cubes. Imagine lifting off one horizontal floor at a time, or label each floor position with the height of its complete stack.",
-      "bridge": "In the film’s six-stack model, look for the difference between what a silhouette requires and what it merely allows.",
+      "bridge": "In the film’s six-stack model, the front and side views each give the tallest stack in a line. For the smallest build, can one tall stack meet two requirements? For the largest, which of the two views limits each position?",
       "recap": "Add complete stack heights or add horizontal floors. In either method, include hidden cubes.",
       "example": {
         "prompt": "Two stacks beside each other are 3 and 1 cubes high. How many cubes are on the second floor or higher?",
@@ -158,8 +158,8 @@
       "slot": 73,
       "headline": "Use the line total",
       "intro": "A grid with equal row or column sums gives a short equation every time a line is almost full. After placing a value, check the other lines it touches.",
-      "bridge": "Watch the two given corner values in the magic square. Notice how filling one line supplies information to its neighbours.",
-      "recap": "Find a line with one unknown, solve it, and transfer the result into the crossing line.",
+      "bridge": "The film gives the top-left and top-right corners. Use the line total and the centre to find their opposite corners. Which row then has only one empty space?",
+      "recap": "Write the required sum beside the grid. Complete a line with one unknown, then check where that entry also appears. In a magic square, verify both long diagonals as well as every row and column.",
       "example": {
         "prompt": "A row must total 12 and currently reads 3, blank, 5. Find the missing number.",
         "steps": [
@@ -211,7 +211,7 @@
       "slot": 74,
       "headline": "Explain why a list is complete",
       "intro": "Finding one solution and showing that it is the only solution are different tasks. Choose a bounded feature, list its possible values in order and show which pass.",
-      "bridge": "Watch the rectangle grow from 8 by 14 to 9 by 15. What proves that every other positive integer width misses the target area?",
+      "bridge": "In the film, increasing the width from 8 to 9 also increases the length. Once one rectangle fits the required area, why must every smaller width give too little area and every larger width give too much?",
       "recap": "Name the first and last cases and the step between them, so another solver can see what the list covers.",
       "example": {
         "prompt": "How many positive-integer pairs x ≤ y have xy = 6?",
@@ -263,7 +263,7 @@
       "slot": 75,
       "headline": "Grow the whole recipe",
       "intro": "A ratio gives a recipe you can resize. Draw one box for each part, then use the size of a single box to find either ingredient.",
-      "bridge": "Ask how the bead quantities and the wall drawing both preserve a ratio when the physical units look quite different.",
+      "bridge": "Before the bead transfer, mark the total number of beads. Decide whether a ratio part still represents the same number after the move. Then compare that argument with the scale factor in the wall drawing.",
       "recap": "Check your new recipe by dividing both amounts by the same number. They should return to the original pair.",
       "example": {
         "prompt": "A string of flags has two green flags for every three yellow flags. It has 8 green flags. How many are yellow?",
@@ -320,7 +320,7 @@
       "slot": 76,
       "headline": "Trace the cut edge",
       "intro": "Perimeter measures the length of a boundary. When two pieces meet, the joined edges are hidden inside. A cut can expose new edges, even when it removes very little material.",
-      "bridge": "As the film cuts a hole and then a corner from a board, predict which cut will change the boundary and trace the new edges.",
+      "bridge": "Trace two loops on the board with the hole, one around the outside and one around the opening. When the corner comes off, match each lost edge with a newly exposed edge.",
       "recap": "Trace every boundary the question includes. A join removes two copies of its length.",
       "example": {
         "prompt": "Two square tiles, each 2 cm on a side, meet along one complete edge. How long is the outside boundary of the joined shape?",
@@ -374,7 +374,7 @@
       "headline": "Use an easier outline",
       "intro": "Area counts the space a region covers. Sometimes one subtraction from a larger rectangle is shorter than cutting the region into several pieces.",
       "bridge": "Watch where the two shaded rectangles overlap. Decide which tiles would get counted twice if you simply added their areas.",
-      "recap": "Check that pieces cover the region exactly once and that you report square units.",
+      "recap": "Colour a square in the overlap. Count how many times your calculation includes it, then check that this matches whether the question asks for painted or unpainted area.",
       "example": {
         "prompt": "A rectangle covers 4 by 3 squares. Two squares at its upper-right corner are white and all others blue. How much is blue?",
         "steps": [
@@ -426,7 +426,7 @@
       "slot": 79,
       "headline": "Give each outcome an address",
       "intro": "Split a count by a feature that every allowed outcome has exactly once. Inside a case you can multiply choices. Across disjoint cases you add.",
-      "bridge": "In the exhibit puzzle, find the rule that tells you which row to use before choosing individual exhibits. Check where exhibit B is permitted.",
+      "bridge": "Make a row for each permitted arrangement of colours in the exhibit rooms. Mark which rows allow B and which positions can hold A before multiplying choices.",
       "recap": "Try to place one example in two cases. If you can, repair the case rule before adding.",
       "example": {
         "prompt": "A lunch order is either one sandwich on its own or one soup with one roll. There are three sandwiches, two soups and two rolls to choose from. How many different lunches are possible?",
@@ -479,7 +479,7 @@
       "slot": 81,
       "headline": "Which angles fill the line?",
       "intro": "Angles measure turns. Start with a straight line, a full turn or a triangle whose total is known. Mark only the angles belonging to that total.",
-      "bridge": "When the exterior angle appears, follow its value into the two remote angles. Watch how the bisectors use that information together.",
+      "bridge": "At the exterior angle, pause and write the sum of the two remote interior angles. In the small triangle formed by the bisectors, mark which halves of that sum you can use.",
       "recap": "Use a geometrical reason for every total before subtracting.",
       "example": {
         "prompt": "A ray splits a straight angle into 48° and an unknown angle. Find the unknown angle.",
@@ -509,7 +509,7 @@
           "id": "RWL2-081-B",
           "family": "GEO-03:continuation:B",
           "title": "Reflecting beacon",
-          "prompt": "Two rays from a beacon to two posts form the equal sides of an isosceles triangle. The inside angle at one post is 26°. What is the angle between the rays at the beacon, in degrees?",
+          "prompt": "Two paths of equal length run from a beacon to two posts. The paths and the straight line between the posts form a triangle. The inside angle at one post is 26°. What is the angle at the beacon, in degrees?",
           "hint": "Which angles stand opposite the equal sides?"
         },
         {
@@ -537,8 +537,8 @@
       "example": {
         "prompt": "A row has three square cells. How many vertical grid lines touch the row?",
         "steps": [
-          "There are two outside boundaries and two dividers.",
-          "Four lines make three spaces. Any rectangle uses two of these lines as sides."
+          "The row has a line at each end and two grid lines between the cells.",
+          "Four vertical lines form three spaces. To draw a rectangle in this row, choose two distinct vertical lines for its sides."
         ]
       },
       "skill": "SPATIAL-02",
@@ -555,8 +555,8 @@
           "id": "RWL2-082-A",
           "family": "SPATIAL-02:continuation:A",
           "title": "Four boundary lines",
-          "prompt": "A rectangular grid has 5 columns and 4 rows of unit squares. How many rectangles with sides along grid lines can you draw, including squares?",
-          "hint": "Choose two vertical lines and two horizontal lines."
+          "prompt": "A grid has 5 columns and 7 rows. A horizontal seam follows a grid line with 2 rows below it. How many grid-line rectangles have part of their interior above the seam and part below?",
+          "hint": "Sketch the seam. Which horizontal lines can be the bottom and top of a rectangle that crosses it?"
         },
         {
           "id": "RWL2-082-B",
@@ -586,7 +586,7 @@
       "headline": "Find the partners in a mirror",
       "intro": "A reflection pairs positions at equal perpendicular distances from its mirror. Positions on the mirror stay where they are.",
       "bridge": "In the coloured-board puzzle, follow one chosen cell through both mirrors. Look for cells that need fewer partners than the others.",
-      "recap": "Test both distance and side of the mirror. Count points on the mirror separately.",
+      "recap": "Trace a coloured cell under each required reflection. On a centre line it may have one partner. Away from both centre lines, find all three partners before you count the group.",
       "example": {
         "prompt": "On a number line, reflect 2 across the mark at 5. Where is its partner?",
         "steps": [

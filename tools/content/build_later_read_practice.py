@@ -75,10 +75,11 @@ def build(private):
         lesson = {k: draft[k] for k in ('slot', 'headline', 'intro', 'bridge', 'recap')}
         revised = revisions['openings'].get(tag, {})
         example.update(revised.get('example', {}))
-        if 'intro' in revised:
-            lesson['intro'] = revised['intro']
         if (src['videoId'], slot) in REVISED_FILM_BRIDGES:
             lesson['bridge'] = REVISED_FILM_BRIDGES[src['videoId'], slot]
+        for field in ('headline', 'intro', 'bridge', 'recap'):
+            if field in revised:
+                lesson[field] = revised[field]
         movie = src['videoUrl']
         # The illustrated releases retain the recording used to write each lesson bridge.
         if src['videoId'] in {'S069', 'S071', 'S072', 'S073', 'S074', 'S075', 'S076', 'S079', 'S082', 'S085', 'S086', 'S087', 'S088', 'S092', 'S093', 'S094'} and movie.endswith(src['videoId'] + '-Intro.mp4'):

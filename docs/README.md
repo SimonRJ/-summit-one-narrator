@@ -9,7 +9,7 @@
 | [CHATGPT_CONTINUATION.md](CHATGPT_CONTINUATION.md) | Verified checkpoint, private authoring source and release checks. |
 | [LATER_LESSONS.md](LATER_LESSONS.md) | Film assignments, practice counts and the final challenge for all 228 teaching lessons after S068. |
 | [READ_WATCH_PRACTISE.md](READ_WATCH_PRACTISE.md) | Current guide and ordered film index for the 55 teaching sessions through S068. |
-| [CURRENT_STATUS.md](CURRENT_STATUS.md) | Verified counts, what is released, what the tests prove, known limitations. Updated 14 November 2026. |
+| [CURRENT_STATUS.md](CURRENT_STATUS.md) | Current release registers, dated inventory and the checks used for each release. |
 | [AUTHENTIC_AMC_FREEZE.md](AUTHENTIC_AMC_FREEZE.md) | What is frozen, its fingerprint, and how to prove it is unchanged. |
 | [CONTENT_AUDIT_REGISTER.md](CONTENT_AUDIT_REGISTER.md) | Per-problem audit status for the 566 lesson problems, and the log of content changes. Data in [content-audit-register.csv](content-audit-register.csv). |
 | [VIDEO_PRODUCTION.md](VIDEO_PRODUCTION.md) | Video registry, script status, and how scripts become videos. |

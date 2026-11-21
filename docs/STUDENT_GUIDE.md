@@ -9,6 +9,8 @@ Open [Summit One](https://simonrj.github.io/-summit-one-narrator/) on your iPhon
 3. **Practise.** Work through one problem at a time. Use a hint if you need a first step. After checking your answer, open the worked solution and compare it with your reasoning. The last problem asks you to recognise the method in a different setting.
 4. Read the recap and tap **Finish lesson**. In **Completed sessions**, choose **Read the lesson and revisit practice** to return to this material.
 
+In the [teaching film library](../teaching-videos.html), search for a topic such as “symmetry”. On the watch page, tap the chapter you need. Try the question under the player before opening its explanation.
+
 A lesson usually takes 30–60 minutes. Follow the session order at your own pace. The path includes a MAWA-style investigation every seventh session. Use a notebook for its diagrams, cases and explanations.
 
 When a figure is hard to read, tap **Enlarge diagram** or **Enlarge original question**. Choose **2×** or **3×**, then swipe to see another part of the figure. **Close** returns you to the same question. Exam time keeps running while the figure is enlarged.
@@ -26,6 +28,6 @@ While online, open **Menu → Offline lesson reader** and wait for **Ready to re
 | Real AMC exams | Full authentic Upper Primary papers. Read the warning before starting your single attempt. |
 | Rossmoyne Honours | Practice papers for specialist mathematics entrance preparation. Check the instructions on the paper you choose. |
 
-During a paper, use **Mark for review** on any question you want to revisit. The overview and submission screen list your marked questions. The marks stay on this device until you submit the paper. Press **Save** after typing an integer answer. Before submitting, check the list of unanswered questions and unsaved answers. After a paper, use the results to choose one or two problems to solve again in your notebook.
+During a paper, use **Mark for review** on any question you want to revisit. The overview and submission screen list your marked questions. The marks stay on this device until you submit the paper. Press **Save** after typing an integer answer. Before submitting, check the list of unanswered questions and unsaved answers. After a practice set, tap **Revisit** to open a missed question. Cover the worked solution and have another go in your notebook. Use an unopened set when you want to measure your progress against the clock.
 
 In **Repair and remember**, the first example shows the method. For the changed example and the delayed check, try your answer before opening **Show one step**. Opening the step counts as help even if you close and reopen the repair. After an independent success, the delayed check opens after three more completed sessions.

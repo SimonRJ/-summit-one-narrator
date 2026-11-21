@@ -12,13 +12,13 @@ Summit One is an independent family project. It is not affiliated with or endors
 |---|---|---|
 | Lessons | 283 teaching sessions on 52 techniques. All follow Read → Watch → Practise. The [first 55 lessons](docs/READ_WATCH_PRACTISE.md) and [remaining 228 lessons](docs/LATER_LESSONS.md) offer 1,132 newly authored problems and 454 selected earlier challenges. | Deployed |
 | Investigations | 53 visits to 20 MAWA-style investigation themes. | Deployed |
-| Original AMC practice | Part A (questions 1–20, speed and accuracy) and Part B (questions 21–30, deeper problems). | Partially complete: 4 active split papers, 60 questions |
-| Rossmoyne practice | Original Rossmoyne-style papers over 23 problem families. | Partially complete: 9 active papers, 207 questions |
+| Original AMC practice | Part A (questions 1–20, speed and accuracy) and Part B (questions 21–30, deeper problems). | [Available original sets](tests.html?section=speed) · 30 planned per part |
+| Rossmoyne practice | Original Rossmoyne-style papers over 23 problem families. | 9 original practice papers and the school sample, 230 questions in total |
 | Authentic AMC centre | 19 genuine Upper Primary papers, 2007–2025, one attempt each. | Deployed and frozen |
-| Teaching videos | 72 concept and worked-example videos planned. [Watch in teaching order](teaching-videos.html). | 2 approved, 70 published for review, 0 scripted |
+| Teaching videos | 72 companion lessons, each with a searchable watch page, chapter guide and printable transcript. [Watch in teaching order](teaching-videos.html). | All 72 available · [editorial review register](docs/teaching-video-review-register-20261116.csv) |
 | Optional advanced maths | "Where this maths can lead" pages for the 52 techniques; not assessed. | Deployed |
 
-Exact, dated numbers are in [docs/CURRENT_STATUS.md](docs/CURRENT_STATUS.md).
+[Course review progress](review/course-progress.html) uses the current release registers. Earlier inventory counts are dated in [the project history](docs/CURRENT_STATUS.md).
 
 ## How it is built
 
@@ -51,7 +51,7 @@ More detail: [docs/PLATFORM_ARCHITECTURE.md](docs/PLATFORM_ARCHITECTURE.md).
 | 566 original lesson-bank problems | `tools/content/build_original_lessons.py`, the public authoring prompts and diagrams, and the private solution source described in [the continuation](docs/CHATGPT_CONTINUATION.md) | rows in `content_problems`, released through Edge Functions |
 | Original mock papers | `tools/papers/*.py` | rows in `exam_catalog` and `exam_questions` |
 | Authentic AMC papers | database only; frozen | exam centre |
-| Teaching-video scripts | `production/scripts/src/*.txt` | built to `production/scripts/*.json`; not yet recorded |
+| Teaching-video scripts | `production/scripts/src/*.txt` | built to `production/scripts/*.json` and recorded in the 72-film companion catalogue |
 
 The generator and the database must agree. Changing one without the other lets a later rebuild silently restore old content.
 
