@@ -36,6 +36,7 @@ REVISED_MEDIA = {
     "T07.1": "six-on-eleven",
     "T07.2": "balanced-fence-22",
     "T07.3": "one-per-column",
+    "T07.E": "five-tray-witness",
     "T12.1": "angle-tracing-20261119",
     "T13.1": "moving-area-20261119",
     "T13.2": "cut-and-scale-20261119",

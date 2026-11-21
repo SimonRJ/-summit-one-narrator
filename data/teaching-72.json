@@ -246,7 +246,7 @@
       "chapter": "Prove a limit, then build an example",
       "transcript": "Pack seven red counters and four blue counters into trays. A tray holds at most four counters, and at most two of them may be red. What is the smallest number of trays needed? There are eleven counters. Each tray holds at most four, so two trays are not enough. At least three trays are needed. But that is only a first limit. Now look at the red counters alone. Each tray takes at most two reds. Three trays could hold only six reds, and there are seven. So at least four trays are needed. This limit is stronger. Can four trays work? Fill them like this: two reds and two blues; two reds and one blue; two reds and one blue; and one red. All eleven counters are packed and every rule is obeyed. So four trays are enough, and three are not. The answer is four. Notice that some spaces are left empty. That is fine: the red rule, not the total space, decided the answer. Check each rule for a lower bound. Take the strongest bound, then build a packing that reaches it. Try it with nine red counters and three blue counters.",
       "audio_url": "",
-      "video_url": "media/T07.E.mp4?v=teaching-films-v1"
+      "video_url": "media/T07.E.mp4?v=five-tray-witness"
     },
     {
       "id": "T08.1",
