@@ -34,6 +34,8 @@ summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
 </style>
+<link rel="stylesheet" href="topic-film-reading.css">
+<script defer src="topic-film-print.js"></script>
 </head>
 <body>
 <main>
@@ -48,29 +50,42 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
   <source src="media/T11.1.mp4?v=digit-reverse-gap" type="video/mp4">
 </video>
 <p class="meta">1:56 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · A digit changes value when it moves</button>
-<button type="button" data-time="15.960">0:15 · Use tens and units instead of guessing</button>
-<button type="button" data-time="26.210">0:26 · The reversed number is 27 bigger</button>
-<button type="button" data-time="39.150">0:39 · Write each number with place value</button>
-<button type="button" data-time="48.280">0:48 · Subtract the original from its reverse</button>
-<button type="button" data-time="61.560">1:01 · List the digit pairs three apart</button>
-<button type="button" data-time="74.050">1:14 · The sum of a number and its reverse</button>
-<button type="button" data-time="87.010">1:27 · Each digit has a limited range</button>
-<button type="button" data-time="96.770">1:36 · Your turn</button></nav>
+<nav class="chapters" aria-label="Video chapters">
+<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Compare the value of 4 in 42 and 24</button>
+<button type="button" data-time="15.960"><span class="chapter-clock">0:16</span> Write a two-digit number using place value</button>
+<button type="button" data-time="26.210"><span class="chapter-clock">0:26</span> Reverse a number to gain 27</button>
+<button type="button" data-time="39.150"><span class="chapter-clock">0:39</span> Express both digit orders with A and B</button>
+<button type="button" data-time="48.280"><span class="chapter-clock">0:48</span> Factor the difference between the numbers</button>
+<button type="button" data-time="61.560"><span class="chapter-clock">1:02</span> List and check the possible originals</button>
+<button type="button" data-time="74.050"><span class="chapter-clock">1:14</span> Add a number to its reverse</button>
+<button type="button" data-time="87.010"><span class="chapter-clock">1:27</span> Use the limits on each digit</button>
+<button type="button" data-time="96.770"><span class="chapter-clock">1:37</span> Find numbers four times their digit sum</button>
+</nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>A two-digit number equals 4 times the sum of its digits. Find all such numbers.</p>
 <details><summary>Check your reasoning</summary><p>10A + B = 4A + 4B gives B = 2A: 12, 24, 36, 48.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary><p>The digit four in forty-two is worth forty, because of where it stands. Swap the digits and the same four is worth only four. A digit&#x27;s position multiplies its value, and writing that down turns digit puzzles into simple algebra.</p>
+<details class="transcript"><summary>Read the transcript</summary>
+<h2><span class="chapter-clock">0:00</span> Compare the value of 4 in 42 and 24</h2>
+<p>The digit four in forty-two is worth forty, because of where it stands. Swap the digits and the same four is worth only four. A digit&#x27;s position multiplies its value, and writing that down turns digit puzzles into simple algebra.</p>
+<h2><span class="chapter-clock">0:16</span> Write a two-digit number using place value</h2>
 <p>Digit puzzles look like guessing games. But if you write a two-digit number as ten times its first digit plus its second, most of the guessing disappears.</p>
+<h2><span class="chapter-clock">0:26</span> Reverse a number to gain 27</h2>
 <p>A two-digit number is reversed, and the new number is twenty-seven bigger. What can you say about its digits? Pause and write both numbers using place value.</p>
+<h2><span class="chapter-clock">0:39</span> Express both digit orders with A and B</h2>
 <p>Call the tens digit A and the units digit B. The number is ten A plus B. The reverse is ten B plus A.</p>
+<h2><span class="chapter-clock">0:48</span> Factor the difference between the numbers</h2>
 <p>Subtract. The difference is nine B minus nine A, which is nine times the gap between the digits. Twenty-seven is nine times three. So the units digit is three more than the tens digit.</p>
+<h2><span class="chapter-clock">1:02</span> List and check the possible originals</h2>
 <p>That gives fourteen, twenty-five, thirty-six, forty-seven, fifty-eight and sixty-nine. Check one: fifty-two minus twenty-five is twenty-seven.</p>
+<h2><span class="chapter-clock">1:14</span> Add a number to its reverse</h2>
 <p>Adding a number to its reverse gives eleven A plus eleven B: eleven times the digit sum. Forty-seven plus seventy-four is one hundred and twenty-one, which is eleven times eleven.</p>
+<h2><span class="chapter-clock">1:27</span> Use the limits on each digit</h2>
 <p>Remember that a digit is not just any number. The first digit runs from one to nine, and the others from zero to nine. Those limits often finish a puzzle.</p>
-<p>Write numbers using place value. Reversing and subtracting gives a multiple of nine. Reversing and adding gives a multiple of eleven. Notebook challenge: a two-digit number is four times the sum of its digits. Find all such numbers.</p></details>
+<h2><span class="chapter-clock">1:37</span> Find numbers four times their digit sum</h2>
+<p>Write numbers using place value. Reversing and subtracting gives a multiple of nine. Reversing and adding gives a multiple of eleven. Notebook challenge: a two-digit number is four times the sum of its digits. Find all such numbers.</p>
+</details>
 <p><a href="media/T11.1.mp4?v=digit-reverse-gap">Open the MP4 directly</a></p>
 </main>
 <script>

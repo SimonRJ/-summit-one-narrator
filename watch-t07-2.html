@@ -34,6 +34,8 @@ summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
 </style>
+<link rel="stylesheet" href="topic-film-reading.css">
+<script defer src="topic-film-print.js"></script>
 </head>
 <body>
 <main>
@@ -48,27 +50,39 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
   <source src="media/T07.2.mp4?v=balanced-fence-22" type="video/mp4">
 </video>
 <p class="meta">2:00 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Equal sides enclose more area</button>
-<button type="button" data-time="12.920">0:12 · A pattern needs a reason</button>
-<button type="button" data-time="23.000">0:23 · Find the largest product with sum 12</button>
-<button type="button" data-time="33.380">0:33 · Products grow as their factors get closer</button>
-<button type="button" data-time="49.220">0:49 · The unequal rectangle loses a square</button>
-<button type="button" data-time="70.490">1:10 · If the numbers differ, try the closest pair</button>
-<button type="button" data-time="82.490">1:22 · Changing the number of parts changes the comparison</button>
-<button type="button" data-time="98.810">1:38 · Your turn</button></nav>
+<nav class="chapters" aria-label="Video chapters">
+<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Compare rectangles with the same fence</button>
+<button type="button" data-time="12.920"><span class="chapter-clock">0:13</span> Separate a pattern from a proof</button>
+<button type="button" data-time="23.000"><span class="chapter-clock">0:23</span> Split twelve into two whole-number parts</button>
+<button type="button" data-time="33.380"><span class="chapter-clock">0:33</span> Compare the six possible products</button>
+<button type="button" data-time="49.220"><span class="chapter-clock">0:49</span> Identify the missing square of side d</button>
+<button type="button" data-time="70.490"><span class="chapter-clock">1:10</span> Keep the two parts different</button>
+<button type="button" data-time="82.490"><span class="chapter-clock">1:22</span> Compare three fours with four threes</button>
+<button type="button" data-time="98.810"><span class="chapter-clock">1:39</span> Find the greatest area with 22 cm of fence</button>
+</nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>A rectangle has positive whole-number side lengths in centimetres and a perimeter of 22 cm. What is the greatest area it can have?</p>
 <details><summary>Check your reasoning</summary><p>The two side lengths add to 11. The possible shorter sides are 1, 2, 3, 4 and 5. Their areas are 10, 18, 24, 28 and 30 square centimetres. The 5 by 6 rectangle gives the maximum.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary><p>Take a fixed length of fence and make a rectangle. A long thin rectangle encloses very little. As the sides become more equal, the area grows. Balanced parts give bigger products.</p>
+<details class="transcript"><summary>Read the transcript</summary>
+<h2><span class="chapter-clock">0:00</span> Compare rectangles with the same fence</h2>
+<p>Take a fixed length of fence and make a rectangle. A long thin rectangle encloses very little. As the sides become more equal, the area grows. Balanced parts give bigger products.</p>
+<h2><span class="chapter-clock">0:13</span> Separate a pattern from a proof</h2>
 <p>You could discover this by trying examples. But in a competition you need to know it is always true, and what to do when perfect balance is not allowed.</p>
+<h2><span class="chapter-clock">0:23</span> Split twelve into two whole-number parts</h2>
 <p>Two positive whole numbers add to twelve. What is the largest their product can be? Pause and try a few pairs.</p>
+<h2><span class="chapter-clock">0:33</span> Compare the six possible products</h2>
 <p>One and eleven give eleven. Two and ten give twenty. Three and nine, twenty-seven. Four and eight, thirty-two. Five and seven, thirty-five. Six and six give thirty-six. The product climbs as the numbers get closer.</p>
+<h2><span class="chapter-clock">0:49</span> Identify the missing square of side d</h2>
 <p>Here is why. Write the two numbers as six minus d and six plus d. Start with a six by six square. Move a strip from one side to the other. The pieces no longer fit: a small square of side d is missing. So the product is thirty-six minus d squared. The further from balance, the more you lose.</p>
+<h2><span class="chapter-clock">1:10</span> Keep the two parts different</h2>
 <p>Now add a restriction: the two numbers must be different. Six and six is no longer allowed. Choose the most balanced pair that is allowed, five and seven, giving thirty-five.</p>
+<h2><span class="chapter-clock">1:22</span> Compare three fours with four threes</h2>
 <p>The number of parts matters too. Three fours give a product of sixty-four. Four threes give eighty-one. Both splits are balanced within their own number of parts, but the second product is bigger. Check how many parts the question actually allows.</p>
-<p>For two positive parts with a fixed total, the most balanced pair gives the largest product. When a rule forbids perfect balance, get as close as the rule allows. Notebook challenge: a rectangle with whole-number sides has perimeter twenty-two. What is its largest possible area?</p></details>
+<h2><span class="chapter-clock">1:39</span> Find the greatest area with 22 cm of fence</h2>
+<p>For two positive parts with a fixed total, the most balanced pair gives the largest product. When a rule forbids perfect balance, get as close as the rule allows. Notebook challenge: a rectangle with whole-number sides has perimeter twenty-two. What is its largest possible area?</p>
+</details>
 <p><a href="media/T07.2.mp4?v=balanced-fence-22">Open the MP4 directly</a></p>
 </main>
 <script>

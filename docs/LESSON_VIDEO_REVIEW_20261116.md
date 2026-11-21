@@ -1,5 +1,17 @@
 # Summit One lesson video reviews
 
+## Complete scenes shared between lesson introductions
+
+The comparison uses 111 catalogue guides and seven independently recorded study guides. It selects the same edition-specific transcript as the player. Of these 118 guides, 114 are available through the normal route and four are still being checked. The local six opening films are outside this catalogue comparison.
+
+The [scene register](../review/shared-introduction-scenes.csv) lists 65 pairs across 86 lesson IDs. Each pair shares three to six complete sections, amounting to 126–264 words. There are 153 distinct repeated passages. The shortest is 31 words. Every affected pair repeats a whole exam-context section and a whole discussion of mistakes, in addition to its opening teaching passage. Fifty-nine pairs involve two currently available guides. The other six include a guide still being checked.
+
+The [individual review register](lesson-introduction-review-register-20261116.csv) preserves the earlier maths, display and playback observations and reopens the films that had received credit despite these repeated passages. For example, S089, S113 and S145 share six sections apiece. Replacing the repeated explanations, classroom illustrations and film structure takes priority over changing their colours. A new recording changes the evidence for both members of its former pair. Recompare the currently selected public editions before closing either review.
+
+Two further entries require short narration and caption corrections. In S019, specify that the two **leftmost** top-row squares are removed in the pictured demonstration. Removing the two middle squares calls for different placements. In S020, say that exponent 49 starts at **position one** of the repeating pattern. Both films remain available, and the corresponding lesson readings explain these distinctions.
+
+To reproduce the snapshot, fetch the public catalogue branch and run `python tools/video/find_shared_introduction_scenes.py a576b43f9d17f16a134445973b5c2445123b4984` with the recorded-study manifest blob `88a89caa69864448d7624fbb331ade7010c13c7d`. The comparison ignores whitespace differences, preserves wording and punctuation, and requires at least two distinct identical sections of at least 20 words each. The actual matches above all exceed that threshold. The production register and review bar supersede the historical totals below.
+
 ## 21 November 2026
 
 **131 of 192 published films have completed individual review.** The registers contain 85 of 120 published introductions and 46 of 72 teaching films, including the two earlier approvals. The remaining published work is 35 introductions and 26 teaching films.

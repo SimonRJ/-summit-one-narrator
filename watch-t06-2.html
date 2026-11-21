@@ -34,6 +34,8 @@ summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
 </style>
+<link rel="stylesheet" href="topic-film-reading.css">
+<script defer src="topic-film-print.js"></script>
 </head>
 <body>
 <main>
@@ -48,27 +50,39 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
   <source src="media/T06.2.mp4?v=weighed-pairs" type="video/mp4">
 </video>
 <p class="meta">1:53 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Measure boxes in pairs</button>
-<button type="button" data-time="11.960">0:11 · Find the total first</button>
-<button type="button" data-time="22.370">0:22 · What does each box weigh?</button>
-<button type="button" data-time="40.580">0:40 · Add the readings and count each box</button>
-<button type="button" data-time="56.420">0:56 · Subtract the pair that excludes the box</button>
-<button type="button" data-time="68.420">1:08 · Check all three original weighings</button>
-<button type="button" data-time="76.750">1:16 · Sometimes the counts are unequal</button>
-<button type="button" data-time="95.140">1:35 · Your turn</button></nav>
+<nav class="chapters" aria-label="Video chapters">
+<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Weigh three boxes two at a time</button>
+<button type="button" data-time="11.960"><span class="chapter-clock">0:12</span> Find their combined weight first</button>
+<button type="button" data-time="22.370"><span class="chapter-clock">0:22</span> Record the three pair weights</button>
+<button type="button" data-time="40.580"><span class="chapter-clock">0:41</span> Count each box twice in the total of 36 kg</button>
+<button type="button" data-time="56.420"><span class="chapter-clock">0:56</span> Recover each box from the other pair</button>
+<button type="button" data-time="68.420"><span class="chapter-clock">1:08</span> Check all three weights on the scales</button>
+<button type="button" data-time="76.750"><span class="chapter-clock">1:17</span> Distinguish triangle corners from edge middles</button>
+<button type="button" data-time="95.140"><span class="chapter-clock">1:35</span> Recover three numbers from their pair sums</button>
+</nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>Three numbers added in pairs give 17, 20 and 23. Find them.</p>
-<details><summary>Check your reasoning</summary><p>Total (17 + 20 + 23) / 2 = 30; the numbers are 7, 10 and 13.</p></details>
+<details><summary>Check your reasoning</summary><p>The readings add to 17 + 20 + 23 = 60. Each number appears twice, so the three numbers add to 30. Subtract each pair sum from 30 to get the missing numbers 13, 10 and 7. Their pair sums are 7 + 10 = 17, 7 + 13 = 20 and 10 + 13 = 23.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary><p>Sometimes you cannot measure things one at a time. You only know totals of pairs. The useful trick is to add all the measurements and ask how many times each unknown has been counted.</p>
+<details class="transcript"><summary>Read the transcript</summary>
+<h2><span class="chapter-clock">0:00</span> Weigh three boxes two at a time</h2>
+<p>Sometimes you cannot measure things one at a time. You only know totals of pairs. The useful trick is to add all the measurements and ask how many times each unknown has been counted.</p>
+<h2><span class="chapter-clock">0:12</span> Find their combined weight first</h2>
 <p>This replaces trial and error with one clean step. Instead of guessing the three values, you find their total first, and everything else follows by subtraction.</p>
+<h2><span class="chapter-clock">0:22</span> Record the three pair weights</h2>
 <p>Three boxes are weighed in pairs. The first and second weigh ten kilograms together. The second and third weigh fourteen. The first and third weigh twelve. How heavy is each box? Pause and try adding all three readings.</p>
+<h2><span class="chapter-clock">0:41</span> Count each box twice in the total of 36 kg</h2>
 <p>Add the three readings: ten plus fourteen plus twelve is thirty-six. Look at the table. Each box was on the scales exactly twice. So thirty-six is twice the total weight, and the three boxes weigh eighteen kilograms altogether.</p>
+<h2><span class="chapter-clock">0:56</span> Recover each box from the other pair</h2>
 <p>Now subtract. The second and third weigh fourteen, so the first weighs eighteen minus fourteen, which is four. In the same way the second weighs six and the third weighs eight.</p>
+<h2><span class="chapter-clock">1:08</span> Check all three weights on the scales</h2>
 <p>Check every reading. Four and six make ten. Six and eight make fourteen. Four and eight make twelve.</p>
+<h2><span class="chapter-clock">1:17</span> Distinguish triangle corners from edge middles</h2>
 <p>Watch for unequal counting. In a triangle puzzle where each side has a total, the corner numbers lie on two sides, but the middle numbers lie on only one. Adding the three side totals counts corners twice and middles once. You must keep track of that difference, not ignore it.</p>
-<p>Add the measurements. Count how often each unknown appears. Then subtract to separate them. Notebook challenge: three numbers are added in pairs to give seventeen, twenty and twenty-three. What are the three numbers?</p></details>
+<h2><span class="chapter-clock">1:35</span> Recover three numbers from their pair sums</h2>
+<p>Add the measurements. Count how often each unknown appears. Then subtract to separate them. Notebook challenge: three numbers are added in pairs to give seventeen, twenty and twenty-three. What are the three numbers?</p>
+</details>
 <p><a href="media/T06.2.mp4?v=weighed-pairs">Open the MP4 directly</a></p>
 </main>
 <script>

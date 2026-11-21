@@ -34,6 +34,8 @@ summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
 </style>
+<link rel="stylesheet" href="topic-film-reading.css">
+<script defer src="topic-film-print.js"></script>
 </head>
 <body>
 <main>
@@ -48,23 +50,33 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
   <source src="media/T10.E.mp4?v=forty-one-new-dots" type="video/mp4">
 </video>
 <p class="meta">1:13 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Grow a square from 3 × 3 to 4 × 4</button>
-<button type="button" data-time="13.050">0:13 · The new bottom row has four dots</button>
-<button type="button" data-time="21.700">0:21 · Count the right column without its corner</button>
-<button type="button" data-time="30.830">0:30 · Add the new row and column</button>
-<button type="button" data-time="38.040">0:38 · Any larger square adds an odd number of dots</button>
-<button type="button" data-time="53.720">0:53 · Your turn</button></nav>
+<nav class="chapters" aria-label="Video chapters">
+<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Grow a three-by-three dot square</button>
+<button type="button" data-time="13.050"><span class="chapter-clock">0:13</span> Add a bottom row of four dots</button>
+<button type="button" data-time="21.700"><span class="chapter-clock">0:22</span> Count the corner only once</button>
+<button type="button" data-time="30.830"><span class="chapter-clock">0:31</span> Check the increase from nine to sixteen</button>
+<button type="button" data-time="38.040"><span class="chapter-clock">0:38</span> Grow a square of side n</button>
+<button type="button" data-time="53.720"><span class="chapter-clock">0:54</span> Find the next border for twenty rows</button>
+</nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>How many dots are added when a 20 by 20 square grows to 21 by 21?</p>
 <details><summary>Check your reasoning</summary><p>2 x 20 + 1 = 41.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary><p>A square of dots grows from three rows of three to four rows of four. How many dots are added? And what is the rule for growing any square to the next one?</p>
+<details class="transcript"><summary>Read the transcript</summary>
+<h2><span class="chapter-clock">0:00</span> Grow a three-by-three dot square</h2>
+<p>A square of dots grows from three rows of three to four rows of four. How many dots are added? And what is the rule for growing any square to the next one?</p>
+<h2><span class="chapter-clock">0:13</span> Add a bottom row of four dots</h2>
 <p>Keep the nine original dots. Add a new bottom row. The new row belongs to the bigger square, so it has four dots.</p>
+<h2><span class="chapter-clock">0:22</span> Count the corner only once</h2>
 <p>Now add the new right-hand column. Its bottom dot is already there, as part of the new row. So only three more dots are needed.</p>
+<h2><span class="chapter-clock">0:31</span> Check the increase from nine to sixteen</h2>
 <p>Four plus three is seven dots added. Nine plus seven is sixteen, which is four times four.</p>
+<h2><span class="chapter-clock">0:38</span> Grow a square of side n</h2>
 <p>The same picture works for any size. To grow a square of side n, add a row of n plus one dots and a column of n dots. That is two n plus one dots. So from ten by ten to eleven by eleven you add twenty-one dots.</p>
-<p>That is why the gaps between square numbers are the odd numbers: three, five, seven, nine. Rebuild this argument, then answer: how many dots are added when a twenty by twenty square grows to twenty-one by twenty-one?</p></details>
+<h2><span class="chapter-clock">0:54</span> Find the next border for twenty rows</h2>
+<p>That is why the gaps between square numbers are the odd numbers: three, five, seven, nine. Rebuild this argument, then answer: how many dots are added when a twenty by twenty square grows to twenty-one by twenty-one?</p>
+</details>
 <p><a href="media/T10.E.mp4?v=forty-one-new-dots">Open the MP4 directly</a></p>
 </main>
 <script>

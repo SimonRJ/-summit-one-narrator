@@ -34,6 +34,8 @@ summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
 </style>
+<link rel="stylesheet" href="topic-film-reading.css">
+<script defer src="topic-film-print.js"></script>
 </head>
 <body>
 <main>
@@ -48,25 +50,36 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
   <source src="media/T08.1.mp4?v=six-matching-pairs" type="video/mp4">
 </video>
 <p class="meta">1:49 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Count equally likely outcomes</button>
-<button type="button" data-time="18.840">0:18 · Colours are names, counters are outcomes</button>
-<button type="button" data-time="28.610">0:28 · Two fair coins, exactly one head?</button>
-<button type="button" data-time="48.100">0:48 · Keep the coins distinct</button>
-<button type="button" data-time="59.150">0:59 · Two outcomes have exactly one head</button>
-<button type="button" data-time="72.750">1:12 · On two dice, the pairs are equally likely</button>
-<button type="button" data-time="91.620">1:31 · Your turn</button></nav>
+<nav class="chapters" aria-label="Video chapters">
+<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Decide which outcomes have equal chances</button>
+<button type="button" data-time="18.840"><span class="chapter-clock">0:19</span> Distinguish a colour from an individual counter</button>
+<button type="button" data-time="28.610"><span class="chapter-clock">0:29</span> Test the three proposed head counts</button>
+<button type="button" data-time="48.100"><span class="chapter-clock">0:48</span> Distinguish the first toss from the second</button>
+<button type="button" data-time="59.150"><span class="chapter-clock">0:59</span> Identify both routes to exactly one head</button>
+<button type="button" data-time="72.750"><span class="chapter-clock">1:13</span> Compare dice totals using ordered pairs</button>
+<button type="button" data-time="91.620"><span class="chapter-clock">1:32</span> Find the chance of matching dice</button>
+</nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>Two fair six-sided dice, each numbered 1 to 6, are rolled independently. What is the probability that they show the same number?</p>
 <details><summary>Check your reasoning</summary><p>Whatever the first die shows, exactly one of the six equally likely faces on the second die matches it. The probability is 1/6.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary><p>A probability compares favourable outcomes with all outcomes, but only if the outcomes are equally likely. A bag holds two red counters and one blue. There are two colours, but red is not a one in two chance. There are three counters, each equally likely, and two of them are red.</p>
+<details class="transcript"><summary>Read the transcript</summary>
+<h2><span class="chapter-clock">0:00</span> Decide which outcomes have equal chances</h2>
+<p>A probability compares favourable outcomes with all outcomes, but only if the outcomes are equally likely. A bag holds two red counters and one blue. There are two colours, but red is not a one in two chance. There are three counters, each equally likely, and two of them are red.</p>
+<h2><span class="chapter-clock">0:19</span> Distinguish a colour from an individual counter</h2>
 <p>Counting names instead of real outcomes is the most common probability mistake. The fix is to list outcomes that genuinely are equally likely, then count.</p>
+<h2><span class="chapter-clock">0:29</span> Test the three proposed head counts</h2>
 <p>Toss two fair coins separately, so one result cannot affect the other. What is the probability of getting exactly one head? Someone says there are three results, two heads, one head or no heads, so the answer is one third. Pause and decide whether that is right.</p>
+<h2><span class="chapter-clock">0:48</span> Distinguish the first toss from the second</h2>
 <p>Give the coins names: first coin and second coin. Now there are four outcomes: head head, head tail, tail head, and tail tail. These four are equally likely.</p>
+<h2><span class="chapter-clock">0:59</span> Identify both routes to exactly one head</h2>
 <p>Exactly one head happens in two of the four: head tail, and tail head. So the probability is two out of four, which is one half, not one third. The three results in the earlier list were not equally likely.</p>
+<h2><span class="chapter-clock">1:13</span> Compare dice totals using ordered pairs</h2>
 <p>Roll two fair dice separately. There are thirty-six equally likely pairs. A total of seven comes from six of them, so its probability is six out of thirty-six, one sixth. A total of two comes from only one pair. The totals are not equally likely, but the pairs are.</p>
-<p>Label the objects so each outcome is visible. Check the outcomes are equally likely. Then count favourable out of total. Notebook challenge: two dice are rolled. What is the probability that the two numbers are the same?</p></details>
+<h2><span class="chapter-clock">1:32</span> Find the chance of matching dice</h2>
+<p>Label the objects so each outcome is visible. Check the outcomes are equally likely. Then count favourable out of total. Notebook challenge: two dice are rolled. What is the probability that the two numbers are the same?</p>
+</details>
 <p><a href="media/T08.1.mp4?v=six-matching-pairs">Open the MP4 directly</a></p>
 </main>
 <script>

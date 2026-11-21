@@ -34,6 +34,8 @@ summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
 </style>
+<link rel="stylesheet" href="topic-film-reading.css">
+<script defer src="topic-film-print.js"></script>
 </head>
 <body>
 <main>
@@ -48,24 +50,36 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
   <source src="media/T04.1.mp4?v=factor-tree-84" type="video/mp4">
 </video>
 <p class="meta">1:59 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Build two factor trees</button>
-<button type="button" data-time="35.320">0:35 · Is 91 prime?</button>
-<button type="button" data-time="45.700">0:45 · Test small primes</button>
-<button type="button" data-time="62.500">1:02 · Stop at the square root</button>
-<button type="button" data-time="82.010">1:22 · Three factors of 66</button>
-<button type="button" data-time="99.770">1:39 · Your turn</button></nav>
+<nav class="chapters" aria-label="Video chapters">
+<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Split 60 into 6 and 10</button>
+<button type="button" data-time="17.880"><span class="chapter-clock">0:18</span> Start again with 4 and 15</button>
+<button type="button" data-time="35.320"><span class="chapter-clock">0:35</span> Choose primes to test against 91</button>
+<button type="button" data-time="45.700"><span class="chapter-clock">0:46</span> Find the factor that divides 91</button>
+<button type="button" data-time="62.500"><span class="chapter-clock">1:03</span> Decide when the search for a factor of 97 ends</button>
+<button type="button" data-time="82.010"><span class="chapter-clock">1:22</span> Share the prime factors of 66 among three numbers</button>
+<button type="button" data-time="99.770"><span class="chapter-clock">1:40</span> Build a factor tree for 84</button>
+</nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>Write 84 as a product of primes.</p>
-<details><summary>Check your reasoning</summary><p>84 = 2 x 2 x 3 x 7.</p></details>
+<details><summary>Check your reasoning</summary><p>Split 84 into 12 × 7. Then 12 = 3 × 4 and 4 = 2 × 2. The leaves are all prime, so 84 = 2² × 3 × 7. Multiplying them gives 4 × 21 = 84.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary><p>Whole numbers bigger than one are made by multiplying primes. A prime has exactly two positive factors, one and itself. Take sixty. Split it into six and ten, then split those again. The prime pieces are two, three, two and five.</p>
+<details class="transcript"><summary>Read the transcript</summary>
+<h2><span class="chapter-clock">0:00</span> Split 60 into 6 and 10</h2>
+<p>Whole numbers bigger than one are made by multiplying primes. A prime has exactly two positive factors, one and itself. Take sixty. Split it into six and ten, then split those again. The prime pieces are two, three, two and five.</p>
+<h2><span class="chapter-clock">0:18</span> Start again with 4 and 15</h2>
 <p>Start another way. Write sixty as four times fifteen. Four gives two twos, and fifteen gives a three and a five. Rearrange the pieces in increasing order and both trees give the same list. That fixed prime factorisation is why we can work with the pieces.</p>
+<h2><span class="chapter-clock">0:35</span> Choose primes to test against 91</h2>
 <p>Is ninety-one prime? Decide which small primes you would try first, and think about how far the search needs to go.</p>
+<h2><span class="chapter-clock">0:46</span> Find the factor that divides 91</h2>
 <p>Ninety-one is odd, so two fails. Its digits add to ten, so three fails. Its last digit is one, so five fails. Try seven. Seven times thirteen equals ninety-one. These two factors show that ninety-one is composite.</p>
+<h2><span class="chapter-clock">1:03</span> Decide when the search for a factor of 97 ends</h2>
 <p>If both factors were bigger than the square root, multiplying them would give too much. So a composite number has a prime factor at or below its square root. For ninety-seven that root lies between nine and ten. Try two, three, five and seven. All leave a remainder, so ninety-seven is prime.</p>
+<h2><span class="chapter-clock">1:22</span> Share the prime factors of 66 among three numbers</h2>
 <p>Three different whole numbers, each bigger than one, multiply to sixty-six. Which numbers are they? Sixty-six has exactly three prime pieces, two, three and eleven. Each of the three numbers needs a piece. Each gets exactly one, so those three primes are the answer.</p>
-<p>Split a number until all its pieces are prime. When you test whether a number is prime, use the small primes up to its square root. One has only one positive factor. In your notebook, write eighty-four as a product of primes.</p></details>
+<h2><span class="chapter-clock">1:40</span> Build a factor tree for 84</h2>
+<p>Split a number until all its pieces are prime. When you test whether a number is prime, use the small primes up to its square root. One has only one positive factor. In your notebook, write eighty-four as a product of primes.</p>
+</details>
 <p><a href="media/T04.1.mp4?v=factor-tree-84">Open the MP4 directly</a></p>
 </main>
 <script>

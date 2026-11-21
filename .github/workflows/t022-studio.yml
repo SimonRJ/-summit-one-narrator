@@ -6,8 +6,6 @@ on:
       - 'production/t022-studio/render_reverse.py'
       - 'production/t022-studio/verify_reverse.py'
       - 'production/t022-studio/publish_integration.py'
-      - 'production/t022-studio/watch-t02-2.html'
-      - '.github/workflows/t022-studio.yml'
   workflow_dispatch:
 permissions:
   contents: write
@@ -54,7 +52,6 @@ jobs:
           cp build/t022-studio/final.mp4 media/T02.2.mp4
           cp build/t022-studio/poster.jpg media/T02.2-studio-poster.jpg
           cp build/t022-studio/qa.json review/T02.2-studio-qa.json
-          cp production/t022-studio/watch-t02-2.html watch-t02-2.html
           python production/t022-studio/publish_integration.py
           python - <<'PY'
           import json,pathlib
@@ -66,6 +63,7 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add media/T02.2.mp4 media/T02.2-studio-poster.jpg review/T02.2-studio-qa.json watch-t02-2.html watch-t02-1.html app-main.js index.html sw.js data/teaching-72.json
+          if git diff --cached --quiet; then exit 0; fi
           git commit -m 'Publish T02.2 studio video and connect the lesson in Summit One'
           git fetch origin main
           git rebase origin/main

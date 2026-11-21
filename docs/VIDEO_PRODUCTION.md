@@ -41,3 +41,7 @@ The release workflow stages the next five consecutive films, or the final one, w
 ## Review status of the scripts
 
 The mathematics in all 70 scripts was checked by the author while writing; two errors found in notebook answers were corrected before release. The scripts have not been read by a second reviewer or tried with the learner. Treat them as ready for storyboarding, and expect small wording changes when they are recorded.
+
+## Protected challenge media review, 22 November 2026
+
+All 194 recovered visual masters decoded from beginning to end. The files had 194 distinct sampled frame sequences. Of these masters, 193 were silent 720p animations and one included narration at 1080p. They are earlier editions: none of their file hashes matched the 194 entries in the later private finished-film manifest. A separately recovered narrated file matched the final manifest for its own ID. Matching a hash verifies identity; each film still needs its own spoken-maths, timing and visual review. At this checkpoint the private delivery bucket contained zero objects. The student-facing review total for protected films remains zero.

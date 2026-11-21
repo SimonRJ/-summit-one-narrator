@@ -182,6 +182,40 @@
     },
     "RWL1-012-D": {
       "hint": "After you fix the tile covering cells 5 and 6, sketch the cells left on each side. How can you combine one tiling of each side?"
+    },
+    "RWL1-013-D": {
+      "hint": "After dividing out the highest common factor, could the two smaller numbers share any prime? List the factor pairs that pass that check."
+    },
+    "RWL1-015-C": {
+      "hint": "Shift the lowest and highest numbers by the same amount as the candidate. Which multiples belong to that new interval, including its ends?"
+    },
+    "RWL1-017-D": {
+      "hint": "Draw a rectangle enclosing both cells. Would it have appeared once or twice if you added the two single-cell counts?"
+    },
+    "RWL1-018-C": {
+      "hint": "Write down the number of slips and their total before and after one merge. How often must you repeat that change?"
+    },
+    "RWL1-019-D": {
+      "hint": "Treat each side of the gap as its own board. Find an upper bound for one side, then draw dominoes to see whether it can be attained."
+    },
+    "RWL1-020-D": {
+      "hint": "Write the first few powers of 7 as last digits. What information about the exponent determines the position in that cycle?"
+    },
+    "RWL1-024-D": {
+      "hint": "The total number of seedlings stays fixed. Can you divide the total into equal parts so both the old and new ratios use whole numbers of those parts?"
+    },
+    "RWL1-026-D": {
+      "hint": "Draw seven boxes for the days. Bracket days 1–5 above them and days 4–7 below them. What does the extra amount represent when you add the two group totals?"
+    },
+    "RWL1-027-D": {
+      "prompt": "One type of packet contains 12 biscuits, a third of them ginger. A second type also contains 12 biscuits, half ginger. The ginger biscuits must make up exactly 17/42 of all the biscuits in a box. What is the least number of whole, unopened packets it can contain?",
+      "hint": "How many ginger biscuits does each whole packet contribute? Compare the two packet counts with the required fraction of the box."
+    },
+    "RWL1-030-D": {
+      "hint": "Mark both starting offsets on one timeline, then locate the first shared beat. The repeat period tells you how far from there to the next shared beat."
+    },
+    "RWL1-033-B": {
+      "hint": "Make two rows, one with Finn truthful and one with Finn lying. In each row, decide whether the whole claim about different types must be true or false."
     }
   },
   "solutionHashes": {
@@ -204,7 +238,8 @@
     "RWL2-276-C": "88743e8eff74e2ae2c9c3f78b3fd7331ab9afae9832c3d62ed0c52345d1c48de",
     "RWL2-317-A": "ac1b3f4a0c5aa76b136b94a5d0b8232872df269139551df658ea26dc26958918",
     "RWL2-349-A": "f772419426f85f7631e200a8e924a2b6b87696bc73d0fb6951c7de293e1c9aac",
-    "RWL1-010-A": "e6967e9943c8ac6d08e3095d43265911cd842451ba3efa33e356dca37ab3bbe0"
+    "RWL1-010-A": "e6967e9943c8ac6d08e3095d43265911cd842451ba3efa33e356dca37ab3bbe0",
+    "RWL1-013-D": "3b692e28b876b3fbfe0fc6360b37315dee25a06a46a63a3a10d211b1562ef138"
   },
   "openings": {
     "S001": {
@@ -561,6 +596,116 @@
         ]
       },
       "bridge": "Pause when the film marks rung 3 as broken. Is rung 4 still reachable? Trace its possible final jumps before the film fills in the table."
+    },
+    "S013": {
+      "intro": "Two bells can ring together again, and two ribbons can be cut into equal pieces. In one problem the answer must be a multiple of both numbers. In the other it must divide both numbers. Which way does the division go?",
+      "example": {
+        "prompt": "A 12 cm ribbon and a 20 cm ribbon must be cut into equally long whole-centimetre pieces with no waste. How long can a piece be?",
+        "steps": [
+          "A piece length that fits both ribbons also fits the leftover 8 cm when 12 is taken from 20. It must also fit the 4 cm left when 8 is taken from 12.",
+          "The length therefore divides 4, and 4 itself works: three pieces make 12 cm and five make 20 cm. A piece can be at most 4 cm long."
+        ]
+      },
+      "bridge": "The film first times two activities, then packs red and blue markers. In which example must the answer divide both starting numbers? In which must both numbers divide the answer?"
+    },
+    "S015": {
+      "bridge": "When the film adds 1 to make a number divisible by both 4 and 6, pause. Where must the two ends of the search interval move? After finding a common multiple, how will you get back to the original number?",
+      "example": {
+        "prompt": "A jar leaves 5 counters loose when you make groups of 7. What is the smallest number of counters to add so no counters are loose?",
+        "steps": [
+          "A full group needs 7 counters. The unfinished group already has 5, so add 7 − 5 = 2.",
+          "Try two different jar sizes to check the rule: 12 becomes 14, and 19 becomes 21. The full groups already in the jar never need to change."
+        ]
+      }
+    },
+    "S017": {
+      "bridge": "In the film’s marked grid, first count rectangles containing cell A. To remove the unwanted ones, which four boundary choices guarantee a rectangle contains both A and B?",
+      "example": {
+        "prompt": "The drawing has two square cells in one row. Use the three numbered lines to name every rectangle, including squares.",
+        "steps": [
+          "The top and bottom edges are fixed. Lines 1 and 2 bound the left square. Lines 2 and 3 bound the right square.",
+          "Lines 1 and 3 enclose the whole strip. These are all three pairs of distinct vertical lines, so there are exactly 3 rectangles."
+        ]
+      }
+    },
+    "S018": {
+      "intro": "If a move changes a score by an even number, its odd-or-even status stays the same. If every move changes the score by an odd number, that status flips each time. Try to predict what happens after two moves.",
+      "example": {
+        "prompt": "A counter starts on 8 and moves either 2 or 4 places right each turn. Can it land on 15?",
+        "steps": [
+          "Both jumps add whole pairs, so the counter starts even and stays even after each jump.",
+          "The target 15 is odd. That rules it out, regardless of the order or number of jumps."
+        ]
+      },
+      "bridge": "When the film merges two entries into their sum plus 1, watch two totals: how many entries remain, and what all the entries add to. Which of these tells you how many moves are left?"
+    },
+    "S019": {
+      "bridge": "In the film’s first 4-by-4 example, the crosses mark the two leftmost squares in the top row. Which domino covers the two top squares that remain? What would you have to change if the middle two had been removed instead?",
+      "example": {
+        "prompt": "Five squares in one row are coloured blue, gold, blue, gold, blue. Could edge-to-edge dominoes cover the strip completely?",
+        "steps": [
+          "The row has three blue squares and two gold squares. A domino over any pair of neighbours uses one of each colour.",
+          "There are only two gold squares, so at most two dominoes can fit. Even when both fit, a blue square stays uncovered."
+        ]
+      },
+      "recap": "To show a covering is impossible, compare the available colours with what each domino needs. To show a covering exists, describe the actual placements. If the middle two squares of the film’s top row are removed instead, cover each top corner and the square immediately below it with a vertical domino. Cover the middle two squares of row 2 with one horizontal domino. Each of the two full lower rows takes two horizontal dominoes."
+    },
+    "S020": {
+      "bridge": "For the sum in the film, 12 complete blocks use exponents 1 to 48. The next exponent is 49: which position is that in the repeating pattern of last digits?",
+      "example": {
+        "prompt": "A sign repeats the four readings 1, 2, 3, 4, beginning with 1. What does it show on the 12th reading?",
+        "steps": [
+          "Readings 1–4 make the first full block. Readings 5–8 make the second, and 9–12 the third.",
+          "The 12th reading is the last one in its block, so it shows 4. Reading 13 then goes back to 1."
+        ]
+      },
+      "recap": "Number the positions in a cycle from 1. A multiple of the cycle length lands on the last position. In a sum, add the contribution of every full block before the tail. An exponent keeps increasing even when its last-digit position goes back to 1."
+    },
+    "S022": {
+      "intro": "One half of a box depends on what is in it when you take that half. Sketch a line for the starting pile. After the first removal, draw a bracket around the part that the next fraction describes.",
+      "bridge": "When the second class takes half the chalk that is left, pause. Which pieces belong inside the new whole? In the final puzzle, which change would you undo first?"
+    },
+    "S023": {
+      "example": {
+        "prompt": "Three different photos show a cat, an owl and a fox. The cat and owl photos must be beside each other. How many rows can you make?",
+        "steps": [
+          "Clip the cat and owl photos together. The fox can go to the left or to the right of the clip.",
+          "For either position of the fox, the pair can read cat–owl or owl–cat. That gives 2 × 2 = 4 different rows."
+        ]
+      },
+      "bridge": "In the five-badge puzzle, first count the rejected rows in which A touches B. Which of them will be counted a second time when you count rows in which C touches D?"
+    },
+    "S024": {
+      "recap": "Label the two quantities in order. A ratio compares one group with the other. To find a fraction of the whole, count every group in the denominator. When items move between groups, the total number of items stays fixed even when the number of ratio parts changes."
+    },
+    "S025": {
+      "bridge": "When the two teams have different numbers of attempts, put their results over a common denominator. In the price puzzle, which price is the base for the second change?",
+      "recap": "Write the base amount beside each percentage. To compare two rates, use equal denominators. For two successive price changes, apply the second multiplier to the price after the first change."
+    },
+    "S026": {
+      "bridge": "The film uses two overlapping lists: the first four readings and the last three of a list of six. Mark their positions from 1 to 6. Which reading contributes to both totals?"
+    },
+    "S027": {
+      "bridge": "In the final card puzzle, imagine giving every item the lower marking rate first. What extra share does each item in the higher-rate group then contribute?"
+    },
+    "S029": {
+      "bridge": "In the film, the final price is $360 after a 25% sale. What fraction of the price immediately before the sale is $360? Rebuild that price before undoing the earlier increase.",
+      "recap": "A discount of 30% leaves 70% of the old amount. To recover the old amount, divide what remains by 0.7. If asked for a percentage increase from the reduced price, measure the increase against that reduced price."
+    },
+    "S030": {
+      "intro": "A flash marks one instant on a timeline. The gap between two flashes is a length of time. Mark the start and finish, and check whether an event at either boundary counts.",
+      "bridge": "The film’s sensor waits 35 seconds before its first flash. The two signals in the next puzzle both flash at time zero. How does that change the first mark on each timeline?"
+    },
+    "S031": {
+      "bridge": "After the pumps have run for two minutes, the film opens a leak. Sketch a line at that instant. How much water is already in the tank, and which rates apply only after the line?",
+      "recap": "Write each rate as work per unit of time. Add rates that move the work forward and subtract any that undo it. When the rate changes, start the next interval with the work already completed."
+    },
+    "S033": {
+      "bridge": "Ava says she is a liar. Try each possible type and check whether her sentence fits. In the later four-person puzzle, can two linked claims force a type before you guess anyone’s identity?"
+    },
+    "S034": {
+      "bridge": "On the film’s out-and-back ride, the distance counter stops for twelve minutes. Does the elapsed-time counter stop too? Decide which total belongs under the total distance.",
+      "recap": "Put the distance and elapsed time for every leg in the same units. A stop adds time and zero distance. Divide the trip’s total distance by its total elapsed time to find the average speed."
     }
   }
 }

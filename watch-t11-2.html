@@ -34,6 +34,8 @@ summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
 </style>
+<link rel="stylesheet" href="topic-film-reading.css">
+<script defer src="topic-film-print.js"></script>
 </head>
 <body>
 <main>
@@ -48,29 +50,42 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
   <source src="media/T11.2.mp4?v=six-digit-orders" type="video/mp4">
 </video>
 <p class="meta">2:00 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Each place value is one more than a multiple of nine</button>
-<button type="button" data-time="14.040">0:14 · Digit sums test multiples of nine and three</button>
-<button type="button" data-time="23.810">0:23 · Is 4,725 divisible by nine?</button>
-<button type="button" data-time="33.070">0:33 · Remove the nines from each place</button>
-<button type="button" data-time="47.150">0:47 · Collect the digit sum</button>
-<button type="button" data-time="60.270">1:00 · Reduce the digit sum to find the remainder</button>
-<button type="button" data-time="77.860">1:17 · Rearrange the digits without changing the sum</button>
-<button type="button" data-time="90.980">1:30 · Use the digit sum to complete a number</button>
-<button type="button" data-time="102.510">1:42 · Your turn</button></nav>
+<nav class="chapters" aria-label="Video chapters">
+<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Compare each place value with a multiple of 9</button>
+<button type="button" data-time="14.040"><span class="chapter-clock">0:14</span> Use digit sums after rearranging digits</button>
+<button type="button" data-time="23.810"><span class="chapter-clock">0:24</span> Test 4725 for divisibility by 9</button>
+<button type="button" data-time="33.070"><span class="chapter-clock">0:33</span> Remove groups of nine from each place</button>
+<button type="button" data-time="47.150"><span class="chapter-clock">0:47</span> Explain why a digit sum of 18 works</button>
+<button type="button" data-time="60.270"><span class="chapter-clock">1:00</span> Find the remainder when 583 is divided by 9</button>
+<button type="button" data-time="77.860"><span class="chapter-clock">1:18</span> Rearrange 1, 2 and 6 and test for 3</button>
+<button type="button" data-time="90.980"><span class="chapter-clock">1:31</span> Fill the missing digit between 5 and 8</button>
+<button type="button" data-time="102.510"><span class="chapter-clock">1:43</span> Choose the missing digit in 73□4</button>
+</nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>One digit is missing from the four-digit number 73□4. Which digit makes the number divisible by 9?</p>
 <details><summary>Check your reasoning</summary><p>The known digits add to 14. The digit sum can range from 14 to 23, which contains only one multiple of 9. It must be 18, so the missing digit is 4.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary><p>Ten is one more than nine. A hundred is one more than ninety-nine. A thousand is one more than nine hundred and ninety-nine. Every place value is one more than a multiple of nine. That is why digit sums work.</p>
+<details class="transcript"><summary>Read the transcript</summary>
+<h2><span class="chapter-clock">0:00</span> Compare each place value with a multiple of 9</h2>
+<p>Ten is one more than nine. A hundred is one more than ninety-nine. A thousand is one more than nine hundred and ninety-nine. Every place value is one more than a multiple of nine. That is why digit sums work.</p>
+<h2><span class="chapter-clock">0:14</span> Use digit sums after rearranging digits</h2>
 <p>This gives a test for multiples of nine, and of three, that takes seconds, even for enormous numbers. It also survives when digits are rearranged.</p>
+<h2><span class="chapter-clock">0:24</span> Test 4725 for divisibility by 9</h2>
 <p>Is four thousand seven hundred and twenty-five a multiple of nine? Pause and add its digits.</p>
+<h2><span class="chapter-clock">0:33</span> Remove groups of nine from each place</h2>
 <p>Each thousand leaves one over after removing nines. So four thousands leave four. Seven hundreds leave seven. Two tens leave two. The five units stay. What is left over is exactly the digit sum.</p>
+<h2><span class="chapter-clock">0:47</span> Explain why a digit sum of 18 works</h2>
 <p>Four plus seven plus two plus five is eighteen. Eighteen is a multiple of nine, so the number is too. In general, a number and its digit sum leave the same remainder when divided by nine.</p>
+<h2><span class="chapter-clock">1:00</span> Find the remainder when 583 is divided by 9</h2>
 <p>The digit sum lets us find the remainder, too. Five hundred and eighty-three has digit sum sixteen. Remove as many complete groups of nine from sixteen as you can. Sixteen is seven more than nine. So five hundred and eighty-three leaves remainder seven when divided by nine.</p>
+<h2><span class="chapter-clock">1:18</span> Rearrange 1, 2 and 6 and test for 3</h2>
 <p>Rearranging digits does not change their sum. So every arrangement of the digits one, two and six is a multiple of nine. And since nine is a multiple of three, the same digit-sum test works for three.</p>
+<h2><span class="chapter-clock">1:31</span> Fill the missing digit between 5 and 8</h2>
 <p>It solves missing digits too. Five, blank, eight is a multiple of nine. The known digits add to thirteen, so the blank must be five, making eighteen.</p>
-<p>A number and its digit sum have the same remainder on division by nine, and on division by three. Notebook challenge: what digit makes seven, three, blank, four a multiple of nine?</p></details>
+<h2><span class="chapter-clock">1:43</span> Choose the missing digit in 73□4</h2>
+<p>A number and its digit sum have the same remainder on division by nine, and on division by three. Notebook challenge: what digit makes seven, three, blank, four a multiple of nine?</p>
+</details>
 <p><a href="media/T11.2.mp4?v=six-digit-orders">Open the MP4 directly</a></p>
 </main>
 <script>

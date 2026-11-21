@@ -34,6 +34,8 @@ summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
 </style>
+<link rel="stylesheet" href="topic-film-reading.css">
+<script defer src="topic-film-print.js"></script>
 </head>
 <body>
 <main>
@@ -48,27 +50,39 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
   <source src="media/T12.2.mp4?v=clock-arc-proof-20261119" type="video/mp4">
 </video>
 <p class="meta">2:17 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Twelve equal gaps share a full turn</button>
-<button type="button" data-time="17.230">0:17 · Choose where the angle is measured</button>
-<button type="button" data-time="29.390">0:29 · Join twelve and four to the centre</button>
-<button type="button" data-time="41.360">0:41 · Count four gaps, not five points</button>
-<button type="button" data-time="54.480">0:54 · View the same arc from the edge</button>
-<button type="button" data-time="70.950">1:10 · Two isosceles triangles explain the half</button>
-<button type="button" data-time="98.610">1:38 · The angle in a semicircle is a right angle</button>
-<button type="button" data-time="116.840">1:56 · Your turn</button></nav>
+<nav class="chapters" aria-label="Video chapters">
+<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Divide a clock face into twelve gaps</button>
+<button type="button" data-time="17.230"><span class="chapter-clock">0:17</span> Compare a view from the centre with one from the rim</button>
+<button type="button" data-time="29.390"><span class="chapter-clock">0:29</span> Trace the arc from twelve to four</button>
+<button type="button" data-time="41.360"><span class="chapter-clock">0:41</span> Count four gaps across five hour marks</button>
+<button type="button" data-time="54.480"><span class="chapter-clock">0:54</span> View the same arc from eight o’clock</button>
+<button type="button" data-time="70.950"><span class="chapter-clock">1:11</span> Use two equal-radius triangles to prove the angle rule</button>
+<button type="button" data-time="98.610"><span class="chapter-clock">1:39</span> Put one side of a triangle on a diameter</button>
+<button type="button" data-time="116.840"><span class="chapter-clock">1:57</span> Find the smaller centre angle from two to seven</button>
+</nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>On a clock face, what is the smaller angle at the centre between the hour marks labelled 2 and 7?</p>
 <details><summary>Check your reasoning</summary><p>Twelve equal gaps divide a full turn, so each gap is 360° ÷ 12 = 30°. The shorter route from 2 to 7 crosses five gaps, giving 150°.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary><p>Put twelve points equally spaced round a circle, like the hours on a clock. From the centre, the full turn of three hundred and sixty degrees is shared into twelve equal angles of thirty degrees. Counting gaps between points tells you an angle at the centre.</p>
+<details class="transcript"><summary>Read the transcript</summary>
+<h2><span class="chapter-clock">0:00</span> Divide a clock face into twelve gaps</h2>
+<p>Put twelve points equally spaced round a circle, like the hours on a clock. From the centre, the full turn of three hundred and sixty degrees is shared into twelve equal angles of thirty degrees. Counting gaps between points tells you an angle at the centre.</p>
+<h2><span class="chapter-clock">0:17</span> Compare a view from the centre with one from the rim</h2>
 <p>Clock problems, wheels and regular shapes all use this idea. And there is a second fact, about angles drawn from a point on the circle itself, that unlocks many harder problems.</p>
+<h2><span class="chapter-clock">0:29</span> Trace the arc from twelve to four</h2>
 <p>On the clock circle, join the centre to the point at twelve and to the point at four. What angle is made at the centre? Pause and count carefully.</p>
+<h2><span class="chapter-clock">0:41</span> Count four gaps across five hour marks</h2>
 <p>From twelve to four there are four gaps. Four times thirty is one hundred and twenty degrees. Count the gaps, not the points. There are five points from twelve to four, but only four gaps.</p>
+<h2><span class="chapter-clock">0:54</span> View the same arc from eight o’clock</h2>
 <p>Now stand at a point on the circle instead, at eight, and look at the same arc from twelve to four. The angle you see is exactly half the angle at the centre: sixty degrees. An angle on the circle is half the angle at the centre standing on the same arc.</p>
+<h2><span class="chapter-clock">1:11</span> Use two equal-radius triangles to prove the angle rule</h2>
 <p>Why half here? Draw the radius to eight. It splits the angle at eight into two parts, a and b. Since the radii are equal, the two small triangles have equal base angles. Their angles at the centre are one hundred and eighty minus two a, and one hundred and eighty minus two b. Subtract both from a full turn. The centre angle over the arc is two a plus two b, twice the whole angle at eight.</p>
+<h2><span class="chapter-clock">1:39</span> Put one side of a triangle on a diameter</h2>
 <p>A special case is worth remembering. If the arc is exactly half the circle, the angle at the centre is one hundred and eighty, so the angle on the circle is ninety. Any triangle drawn with a diameter as one side, and its third corner on the circle, has a right angle.</p>
-<p>Share three hundred and sixty among the gaps. Count gaps, not points. The angle on the circle is half the angle at the centre. Notebook challenge: on the clock circle, what is the angle at the centre between the points at two and seven?</p></details>
+<h2><span class="chapter-clock">1:57</span> Find the smaller centre angle from two to seven</h2>
+<p>Share three hundred and sixty among the gaps. Count gaps, not points. The angle on the circle is half the angle at the centre. Notebook challenge: on the clock circle, what is the angle at the centre between the points at two and seven?</p>
+</details>
 <p><a href="media/T12.2.mp4?v=clock-arc-proof-20261119">Open the MP4 directly</a></p>
 </main>
 <script src="lesson-video-chapters.js?v=seek-1"></script>

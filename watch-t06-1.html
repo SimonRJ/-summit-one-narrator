@@ -34,6 +34,8 @@ summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
 </style>
+<link rel="stylesheet" href="topic-film-reading.css">
+<script defer src="topic-film-print.js"></script>
 </head>
 <body>
 <main>
@@ -48,27 +50,39 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
   <source src="media/T06.1.mp4?v=cube-edge-and-tournament" type="video/mp4">
 </video>
 <p class="meta">1:45 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Every handshake has two ends</button>
-<button type="button" data-time="14.840">0:14 · Count something in two ways</button>
-<button type="button" data-time="25.400">0:25 · Six people all shake hands once</button>
-<button type="button" data-time="38.020">0:38 · Every person reports five</button>
-<button type="button" data-time="46.670">0:46 · Two reports count one handshake</button>
-<button type="button" data-time="56.440">0:56 · An odd report total cannot happen</button>
-<button type="button" data-time="74.040">1:14 · Two faces share each cube edge</button>
-<button type="button" data-time="86.200">1:26 · Your turn</button></nav>
+<nav class="chapters" aria-label="Video chapters">
+<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Trace a handshake to its two people</button>
+<button type="button" data-time="14.840"><span class="chapter-clock">0:15</span> Connect the reports to the objects counted</button>
+<button type="button" data-time="25.400"><span class="chapter-clock">0:25</span> Arrange handshakes among six people</button>
+<button type="button" data-time="38.020"><span class="chapter-clock">0:38</span> Add the six reports of five handshakes</button>
+<button type="button" data-time="46.670"><span class="chapter-clock">0:47</span> Pair the two reports of each handshake</button>
+<button type="button" data-time="56.440"><span class="chapter-clock">0:56</span> Test seven people making three handshakes each</button>
+<button type="button" data-time="74.040"><span class="chapter-clock">1:14</span> Count a cube’s edges from its faces</button>
+<button type="button" data-time="86.200"><span class="chapter-clock">1:26</span> Count the games in an eight-team tournament</button>
+</nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>Eight teams each play every other team once. How many games?</p>
-<details><summary>Check your reasoning</summary><p>8 x 7 / 2 = 28.</p></details>
+<details><summary>Check your reasoning</summary><p>Each of the eight teams plays seven opponents. The 8 × 7 = 56 team appearances include both teams in every game. Pair the appearances to get 56 ÷ 2 = 28 games.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary><p>Every handshake has two hands in it. That small fact is surprisingly powerful. If each person reports how many hands they shook, and you add up the reports, every handshake has been counted twice, once by each person.</p>
+<details class="transcript"><summary>Read the transcript</summary>
+<h2><span class="chapter-clock">0:00</span> Trace a handshake to its two people</h2>
+<p>Every handshake has two hands in it. That small fact is surprisingly powerful. If each person reports how many hands they shook, and you add up the reports, every handshake has been counted twice, once by each person.</p>
+<h2><span class="chapter-clock">0:15</span> Connect the reports to the objects counted</h2>
 <p>Counting something in two different ways gives you an equation for free. It lets you count lines by counting ends, or faces by counting edges, without drawing the whole picture.</p>
+<h2><span class="chapter-clock">0:25</span> Arrange handshakes among six people</h2>
 <p>Six people meet, and everyone shakes hands once with everyone else. How many handshakes take place? Pause and think about what each person would report.</p>
+<h2><span class="chapter-clock">0:38</span> Add the six reports of five handshakes</h2>
 <p>Each person shakes hands with the five others, so each person reports five. Six reports of five add to thirty.</p>
+<h2><span class="chapter-clock">0:47</span> Pair the two reports of each handshake</h2>
 <p>But each handshake was reported by both of the people in it. So thirty counts every handshake twice. Thirty divided by two is fifteen handshakes.</p>
+<h2><span class="chapter-clock">0:56</span> Test seven people making three handshakes each</h2>
 <p>The same idea can prove something is impossible. Can seven people each shake hands with exactly three others? The reports would add to twenty-one. But the total of the reports is always twice the number of handshakes, so it must be even. Twenty-one is odd. It cannot be done.</p>
+<h2><span class="chapter-clock">1:14</span> Count a cube’s edges from its faces</h2>
 <p>It works for solids too. A cube has six faces, and each face has four edges: twenty-four reports. Every edge belongs to two faces, so there are twelve edges.</p>
-<p>Let each object report what it touches. Add the reports. Then divide by how many times each item was reported. Notebook challenge: in a tournament, eight teams each play every other team once. How many games are played?</p></details>
+<h2><span class="chapter-clock">1:26</span> Count the games in an eight-team tournament</h2>
+<p>Let each object report what it touches. Add the reports. Then divide by how many times each item was reported. Notebook challenge: in a tournament, eight teams each play every other team once. How many games are played?</p>
+</details>
 <p><a href="media/T06.1.mp4?v=cube-edge-and-tournament">Open the MP4 directly</a></p>
 </main>
 <script>

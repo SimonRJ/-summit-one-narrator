@@ -34,6 +34,8 @@ summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
 </style>
+<link rel="stylesheet" href="topic-film-reading.css">
+<script defer src="topic-film-print.js"></script>
 </head>
 <body>
 <main>
@@ -48,27 +50,39 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
   <source src="media/T08.3.mp4?v=four-surviving-faces" type="video/mp4">
 </video>
 <p class="meta">1:49 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · New information rules out outcomes</button>
-<button type="button" data-time="12.920">0:12 · The denominator changes</button>
-<button type="button" data-time="22.050">0:22 · The die result is known to be even</button>
-<button type="button" data-time="34.660">0:34 · Keep only 2, 4 and 6</button>
-<button type="button" data-time="44.910">0:44 · Two of the three survivors fit</button>
-<button type="button" data-time="59.310">0:59 · Condition on the total of two dice</button>
-<button type="button" data-time="78.020">1:18 · Count only when each survivor is equally likely</button>
-<button type="button" data-time="91.140">1:31 · Your turn</button></nav>
+<nav class="chapters" aria-label="Video chapters">
+<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Cross out outcomes the clue rules out</button>
+<button type="button" data-time="12.920"><span class="chapter-clock">0:13</span> Find the total after filtering the list</button>
+<button type="button" data-time="22.050"><span class="chapter-clock">0:22</span> Roll an even number on a fair die</button>
+<button type="button" data-time="34.660"><span class="chapter-clock">0:35</span> Keep only the even faces</button>
+<button type="button" data-time="44.910"><span class="chapter-clock">0:45</span> Count faces above three in the reduced list</button>
+<button type="button" data-time="59.310"><span class="chapter-clock">0:59</span> List the dice pairs that total eight</button>
+<button type="button" data-time="78.020"><span class="chapter-clock">1:18</span> Check whether the survivors are equally likely</button>
+<button type="button" data-time="91.140"><span class="chapter-clock">1:31</span> Use the clue that a roll exceeded two</button>
+</nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>A fair six-sided die numbered 1 to 6 has been rolled. You learn that the result is greater than 2. What is the probability that it is odd?</p>
 <details><summary>Check your reasoning</summary><p>The clue leaves four equally likely results, 3, 4, 5 and 6. Two of them are odd, so the conditional probability is 2/4 = 1/2.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary><p>New information changes a probability. When you are told something about the result, cross out every outcome that no longer fits. What is left is your new, smaller world, and you count inside it.</p>
+<details class="transcript"><summary>Read the transcript</summary>
+<h2><span class="chapter-clock">0:00</span> Cross out outcomes the clue rules out</h2>
+<p>New information changes a probability. When you are told something about the result, cross out every outcome that no longer fits. What is left is your new, smaller world, and you count inside it.</p>
+<h2><span class="chapter-clock">0:13</span> Find the total after filtering the list</h2>
 <p>The usual mistake is to keep the old total on the bottom of the fraction. After information arrives, the total is the number of outcomes that survive.</p>
+<h2><span class="chapter-clock">0:22</span> Roll an even number on a fair die</h2>
 <p>A fair die is rolled. You are told the result is even. What is the probability that it is greater than three? Pause and cross out what cannot have happened.</p>
+<h2><span class="chapter-clock">0:35</span> Keep only the even faces</h2>
 <p>The die shows one to six. &quot;Even&quot; removes one, three and five. Three outcomes survive: two, four and six. They are still equally likely.</p>
+<h2><span class="chapter-clock">0:45</span> Count faces above three in the reduced list</h2>
 <p>Of those three, the numbers greater than three are four and six. So the probability is two out of three. Without the information it would have been three out of six, one half. The information changed the answer.</p>
+<h2><span class="chapter-clock">0:59</span> List the dice pairs that total eight</h2>
 <p>Roll two fair dice separately. You are told the total is eight. Five pairs survive: two and six, three and five, four and four, five and three, six and two. What is the chance that both dice show the same number? Only four and four works: one out of five.</p>
+<h2><span class="chapter-clock">1:18</span> Check whether the survivors are equally likely</h2>
 <p>Crossing out works because outcomes that were equally likely before the information are still equally likely afterwards. If the outcomes are not equally likely, you compare their probabilities rather than just counting them.</p>
-<p>Cross out what the information rules out. Then count favourable outcomes among the survivors. Notebook challenge: a die is rolled and you are told the number is greater than two. What is the probability that it is odd?</p></details>
+<h2><span class="chapter-clock">1:31</span> Use the clue that a roll exceeded two</h2>
+<p>Cross out what the information rules out. Then count favourable outcomes among the survivors. Notebook challenge: a die is rolled and you are told the number is greater than two. What is the probability that it is odd?</p>
+</details>
 <p><a href="media/T08.3.mp4?v=four-surviving-faces">Open the MP4 directly</a></p>
 </main>
 <script>

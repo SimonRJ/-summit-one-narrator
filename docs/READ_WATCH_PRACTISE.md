@@ -26,6 +26,13 @@ S007 is a MAWA notebook investigation. Its main proof was checked across all 900
 
 S008–S012 have 28 active protected problems. The five introductions, public examples, practice hints, recaps and film cues were read alongside their published transcripts. The review also checked each protected task’s wording, answer and worked reasoning. Independent calculations and exhaustive case counts matched all 28 marked answers. One explanation referred to an object absent from its question and now checks the two digit conditions directly. Each protected group fingerprint is the SHA-256 digest of its identifier-ordered PostgreSQL JSON arrays of ID, prompt, marked answer and solution text, joined with a newline.
 
+The six teaching sessions S013, S015, S017, S018, S019 and S020 cover 33 active graded questions. Every marked answer was independently recomputed, including rectangle counts, legal domino placements and a schedule with three opponents per player. The reviewed S013 explanation now justifies the product rule for two numbers with no common prime factor. S019’s reading distinguishes the pictured end pair from two missing middle squares. S020’s reading distinguishes an exponent from its position in a repeating cycle. S014, S016 and S021 belong to separate workshop and investigation reviews.
+
+S022–S027 add 36 independently verified graded questions. The film cues and opening examples were checked against the six published guides. The packet-mixture question now specifies that the target fraction applies to every biscuit in the box. Its original marked answer and protected solution were retained.
+
+The five teaching lessons from S029 to S034 have 29 active graded questions. Independent checks included exact clock instants, work rates, all possible truth assignments and all six race orders. The film cues now identify the starting flash, the moment the tank starts leaking and the time spent at rest. S032 is a separate strategy workshop.
+
+
 ## Lesson index
 
 The problem count includes both new and retained practice. Film links point to the existing media.
@@ -94,12 +101,12 @@ Total: **312 practice problems**: 220 new and 92 retained from the original bank
 
 The learner-facing text is [data/read-watch-practise.json](../data/read-watch-practise.json). Graded answers and worked solutions are private. To reconstruct the edition, unpack its private authoring archive outside the repository, run its three verification programs, then run `python tools/content/build_read_practice.py /path/to/private-edition` in a checkout. The generator writes the public release inside the repo and the grading rows, expected digest and a verification query in the private source directory. Run `node tools/check_read_practice.mjs` to check the edition, the order of every question, the film mapping and the absence of scored answers in the public file.
 
-The November review revised the private explanations for O003X, RWL1-002-A, RWL1-006-D and RWL1-010-A. If an older authoring archive contains the original wording, use an authorised database session to run the query below. Save its returned JSON object as `practice-revision-solutions.json` beside the private originals authoring file and in the private first-edition authoring directory. Both builds verify the revised wording against published SHA-256 digests. The O001X supplement is stored separately in the protected `solution_clarifications` table.
+The November review revised the private explanations for O003X, RWL1-002-A, RWL1-006-D, RWL1-010-A and RWL1-013-D. If an older authoring archive contains the original wording, use an authorised database session to run the query below. Save its returned JSON object as `practice-revision-solutions.json` beside the private originals authoring file and in the private first-edition authoring directory. Both builds verify the revised wording against published SHA-256 digests. The O001X supplement is stored separately in the protected `solution_clarifications` table.
 
 ```sql
 select jsonb_object_agg(id, solution_text) as private_solution_overlay
 from public.content_problems
-where id in ('O003X', 'RWL1-002-A', 'RWL1-006-D', 'RWL1-010-A');
+where id in ('O003X', 'RWL1-002-A', 'RWL1-006-D', 'RWL1-010-A', 'RWL1-013-D');
 ```
 
 New questions use versioned identifiers. Never change an attempted problem when revising a future edition. Old problems omitted from the new route remain intact in the original bank and in historical records. The existing protected grading and solution functions continue to handle submissions.

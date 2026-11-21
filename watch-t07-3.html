@@ -34,6 +34,8 @@ summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
 </style>
+<link rel="stylesheet" href="topic-film-reading.css">
+<script defer src="topic-film-print.js"></script>
 </head>
 <body>
 <main>
@@ -48,27 +50,39 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
   <source src="media/T07.3.mp4?v=one-per-column" type="video/mp4">
 </video>
 <p class="meta">1:48 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · A tight bound tells you how to build</button>
-<button type="button" data-time="13.400">0:13 · Use the bound to direct your search</button>
-<button type="button" data-time="23.000">0:23 · Place counters on a 4 × 4 board</button>
-<button type="button" data-time="40.730">0:40 · The row rule gives a ceiling</button>
-<button type="button" data-time="48.900">0:48 · Filling the rows can still break the column rule</button>
-<button type="button" data-time="61.700">1:01 · Spread the rows across the columns</button>
-<button type="button" data-time="74.020">1:14 · Check every rule</button>
-<button type="button" data-time="87.300">1:27 · Your turn</button></nav>
+<nav class="chapters" aria-label="Video chapters">
+<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Work back from equality in a bound</button>
+<button type="button" data-time="13.400"><span class="chapter-clock">0:13</span> Use a tight bound to choose a layout</button>
+<button type="button" data-time="23.000"><span class="chapter-clock">0:23</span> Fill a four-by-four board under two rules</button>
+<button type="button" data-time="40.730"><span class="chapter-clock">0:41</span> Get a limit from the four rows</button>
+<button type="button" data-time="48.900"><span class="chapter-clock">0:49</span> Check the columns of a full-row arrangement</button>
+<button type="button" data-time="61.700"><span class="chapter-clock">1:02</span> Build two diagonal blocks of four</button>
+<button type="button" data-time="74.020"><span class="chapter-clock">1:14</span> Inspect every row and column</button>
+<button type="button" data-time="87.300"><span class="chapter-clock">1:27</span> Place three counters on a three-by-three board</button>
+</nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>On a 3 by 3 board, each row and each column may hold at most one counter. How many counters fit? Show one arrangement that reaches your answer.</p>
 <details><summary>Check your reasoning</summary><p>The three rows can hold at most three counters. A counter in each square of the main diagonal uses three different rows and columns, so three fit.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary><p>A proof of a limit is also a set of instructions. To reach the limit exactly, nothing in the proof may be wasted. Looking at where the proof is tight tells you how the best arrangement must be built.</p>
+<details class="transcript"><summary>Read the transcript</summary>
+<h2><span class="chapter-clock">0:00</span> Work back from equality in a bound</h2>
+<p>A proof of a limit is also a set of instructions. To reach the limit exactly, nothing in the proof may be wasted. Looking at where the proof is tight tells you how the best arrangement must be built.</p>
+<h2><span class="chapter-clock">0:13</span> Use a tight bound to choose a layout</h2>
 <p>Searching for the best arrangement by trial can take a long time. Letting the proof guide you is faster, and it shows whether the limit can be reached at all.</p>
+<h2><span class="chapter-clock">0:23</span> Fill a four-by-four board under two rules</h2>
 <p>Counters are placed on a four by four board, at most one per square. Each row may contain at most two counters, and each column at most two. What is the largest number of counters? Pause and find the limit first.</p>
+<h2><span class="chapter-clock">0:41</span> Get a limit from the four rows</h2>
 <p>There are four rows, and each holds at most two counters. So there are at most eight counters. That is the limit.</p>
+<h2><span class="chapter-clock">0:49</span> Check the columns of a full-row arrangement</h2>
 <p>To reach eight, every row must be completely full, with exactly two counters. And the counters must be spread so that no column gets more than two. Putting them all in the first two columns would break the column rule.</p>
+<h2><span class="chapter-clock">1:02</span> Build two diagonal blocks of four</h2>
 <p>So share the columns. Rows one and two use columns one and two. Rows three and four use columns three and four. Every row has two, and every column has two. Eight is reached.</p>
+<h2><span class="chapter-clock">1:14</span> Inspect every row and column</h2>
 <p>Always check the finished arrangement against every rule, not only the total. An arrangement can have the right number and still break a rule somewhere. Here every row, every column and every square passes.</p>
-<p>Prove the limit. Ask what must be full to reach it. Build the arrangement, then check every rule. Notebook challenge: on a three by three board with at most one counter per row and per column, what is the largest number of counters, and where could they go?</p></details>
+<h2><span class="chapter-clock">1:27</span> Place three counters on a three-by-three board</h2>
+<p>Prove the limit. Ask what must be full to reach it. Build the arrangement, then check every rule. Notebook challenge: on a three by three board with at most one counter per row and per column, what is the largest number of counters, and where could they go?</p>
+</details>
 <p><a href="media/T07.3.mp4?v=one-per-column">Open the MP4 directly</a></p>
 </main>
 <script>

@@ -34,6 +34,8 @@ summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
 </style>
+<link rel="stylesheet" href="topic-film-reading.css">
+<script defer src="topic-film-print.js"></script>
 </head>
 <body>
 <main>
@@ -48,27 +50,39 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
   <source src="media/T10.2.mp4?v=triple-units-cycle" type="video/mp4">
 </video>
 <p class="meta">1:55 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · A state decides the next step</button>
-<button type="button" data-time="16.270">0:16 · Replace a long list with one cycle</button>
-<button type="button" data-time="25.880">0:25 · Double, then keep only the last digit</button>
-<button type="button" data-time="42.170">0:42 · The cycle starts at position two</button>
-<button type="button" data-time="52.900">0:52 · Index the repeated block</button>
-<button type="button" data-time="64.900">1:04 · One number can be too little information</button>
-<button type="button" data-time="79.290">1:19 · A robot may need to remember its direction</button>
-<button type="button" data-time="92.570">1:32 · Your turn</button></nav>
+<nav class="chapters" aria-label="Video chapters">
+<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Decide what a state must remember</button>
+<button type="button" data-time="16.270"><span class="chapter-clock">0:16</span> Use a cycle to reach a distant term</button>
+<button type="button" data-time="25.880"><span class="chapter-clock">0:26</span> Double 3 and track the last digit</button>
+<button type="button" data-time="42.170"><span class="chapter-clock">0:42</span> Find where the cycle begins</button>
+<button type="button" data-time="52.900"><span class="chapter-clock">0:53</span> Locate the 50th term after the initial 3</button>
+<button type="button" data-time="64.900"><span class="chapter-clock">1:05</span> Remember two digits for a sum recurrence</button>
+<button type="button" data-time="79.290"><span class="chapter-clock">1:19</span> Track a robot’s previous direction</button>
+<button type="button" data-time="92.570"><span class="chapter-clock">1:33</span> Triple 7 and find the 30th last digit</button>
+</nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>The first number is 7. Triple each number and keep only its last digit to get the next. What is the 30th number?</p>
 <details><summary>Check your reasoning</summary><p>7, 1, 3, 9 repeats; 30 = 4 x 7 + 2, so the 30th is 1.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary><p>In a process with a fixed rule, the state is everything you need to work out the next step. The same state must lead to the same next state. So once a state repeats, the whole path repeats from there. Finding the state is the key to long-run questions.</p>
+<details class="transcript"><summary>Read the transcript</summary>
+<h2><span class="chapter-clock">0:00</span> Decide what a state must remember</h2>
+<p>In a process with a fixed rule, the state is everything you need to work out the next step. The same state must lead to the same next state. So once a state repeats, the whole path repeats from there. Finding the state is the key to long-run questions.</p>
+<h2><span class="chapter-clock">0:16</span> Use a cycle to reach a distant term</h2>
 <p>Questions about the hundredth or thousandth step look impossible. But if the states repeat in a short cycle, you only need the position inside the cycle.</p>
+<h2><span class="chapter-clock">0:26</span> Double 3 and track the last digit</h2>
 <p>Start with three. Each time, double the number and keep only its last digit. The list begins three, six, two, four, eight, six. What is the fiftieth number? Pause and look for a repeat.</p>
+<h2><span class="chapter-clock">0:42</span> Find where the cycle begins</h2>
 <p>After the first number, the list repeats six, two, four, eight. Notice that three itself never comes back. The cycle starts at the second number, not the first.</p>
+<h2><span class="chapter-clock">0:53</span> Locate the 50th term after the initial 3</h2>
 <p>From the second number to the fiftieth there are forty-nine numbers. Forty-nine is twelve complete cycles and one more. So the fiftieth number is the first in the cycle: six.</p>
+<h2><span class="chapter-clock">1:05</span> Remember two digits for a sum recurrence</h2>
 <p>Sometimes one number is not enough to be the state. If each number is the last digit of the sum of the previous two, then seeing a one does not tell you what comes next. You need the last two numbers. The state is a pair.</p>
+<h2><span class="chapter-clock">1:19</span> Track a robot’s previous direction</h2>
 <p>In the same way, if a robot may not reverse its last move, its position alone is not the state. You must also remember which way it just moved. Remember enough to know what can happen next, and no more.</p>
-<p>Decide what the state is. Find where a state first repeats. Then use a remainder to locate the position in the cycle. Notebook challenge: start with seven as the first number. To get each next number, triple the current one and keep only the last digit. What is the thirtieth number?</p></details>
+<h2><span class="chapter-clock">1:33</span> Triple 7 and find the 30th last digit</h2>
+<p>Decide what the state is. Find where a state first repeats. Then use a remainder to locate the position in the cycle. Notebook challenge: start with seven as the first number. To get each next number, triple the current one and keep only the last digit. What is the thirtieth number?</p>
+</details>
 <p><a href="media/T10.2.mp4?v=triple-units-cycle">Open the MP4 directly</a></p>
 </main>
 <script>

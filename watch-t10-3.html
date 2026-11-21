@@ -34,6 +34,8 @@ summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
 </style>
+<link rel="stylesheet" href="topic-film-reading.css">
+<script defer src="topic-film-print.js"></script>
 </head>
 <body>
 <main>
@@ -48,27 +50,39 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
   <source src="media/T10.3.mp4?v=leave-twelve" type="video/mp4">
 </video>
 <p class="meta">2:04 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Label positions for the player about to move</button>
-<button type="button" data-time="13.080">0:13 · Work up from small positions</button>
-<button type="button" data-time="22.840">0:22 · Choose whether to move first</button>
-<button type="button" data-time="38.170">0:38 · Three leaves a winning position for the opponent</button>
-<button type="button" data-time="50.650">0:50 · Winning moves leave a losing position</button>
-<button type="button" data-time="68.730">1:08 · Start at ten and leave nine</button>
-<button type="button" data-time="83.930">1:23 · Taking up to three changes the losing piles</button>
-<button type="button" data-time="105.200">1:45 · Your turn</button></nav>
+<nav class="chapters" aria-label="Video chapters">
+<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Label a game from its smallest positions</button>
+<button type="button" data-time="13.080"><span class="chapter-clock">0:13</span> Use a label to find a winning move</button>
+<button type="button" data-time="22.840"><span class="chapter-clock">0:23</span> Choose who starts with ten counters</button>
+<button type="button" data-time="38.170"><span class="chapter-clock">0:38</span> Compare piles of one, two and three</button>
+<button type="button" data-time="50.650"><span class="chapter-clock">0:51</span> Decide when every move helps the opponent</button>
+<button type="button" data-time="68.730"><span class="chapter-clock">1:09</span> Leave nine and complete pairs of moves</button>
+<button type="button" data-time="83.930"><span class="chapter-clock">1:24</span> Allow a third counter on each turn</button>
+<button type="button" data-time="105.200"><span class="chapter-clock">1:45</span> Plan a winning first move from fourteen</button>
+</nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>Two players share a pile of 14 counters. They take turns removing 1 or 2, and the player who takes the last counter wins. How can the first player guarantee a win?</p>
 <details><summary>Check your reasoning</summary><p>Take 2 to leave 12. From then on, answer a move of 1 with 2 and a move of 2 with 1. Each pair of moves uses 3 counters, leaving 9, then 6, then 3, then 0 after your turns.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary><p>In many two-player games, you can work out who should win before the game starts. Label each position as winning or losing for the player about to move, beginning with the smallest positions and working up.</p>
+<details class="transcript"><summary>Read the transcript</summary>
+<h2><span class="chapter-clock">0:00</span> Label a game from its smallest positions</h2>
+<p>In many two-player games, you can work out who should win before the game starts. Label each position as winning or losing for the player about to move, beginning with the smallest positions and working up.</p>
+<h2><span class="chapter-clock">0:13</span> Use a label to find a winning move</h2>
 <p>Playing out every possible game is hopeless. Labelling positions needs only a little work for each one, and it tells you the best move as well as the winner.</p>
+<h2><span class="chapter-clock">0:23</span> Choose who starts with ten counters</h2>
 <p>Two players take turns removing one or two counters from a pile of ten. Whoever takes the last counter wins. Would you rather go first or second? Pause and think about very small piles.</p>
+<h2><span class="chapter-clock">0:38</span> Compare piles of one, two and three</h2>
 <p>With one or two counters, you take them all and win. Those are winning positions. With three, whatever you take, you leave one or two, and your opponent wins. Three is a losing position.</p>
+<h2><span class="chapter-clock">0:51</span> Decide when every move helps the opponent</h2>
 <p>The rule is: a position is winning if some move leads to a losing position, and losing if every move leads to a winning position. From four or five you can move to three, so they are winning. Six is losing. The losing positions are the multiples of three: three, six and nine.</p>
+<h2><span class="chapter-clock">1:09</span> Leave nine and complete pairs of moves</h2>
 <p>Ten is not a multiple of three, so go first and take one, leaving nine. After that, whatever your opponent takes, you take the amount that makes three altogether. You always leave a multiple of three, and you take the last counter.</p>
+<h2><span class="chapter-clock">1:24</span> Allow a third counter on each turn</h2>
 <p>Change the rule to taking one, two or three. One, two and three are winning, since you can take them all. Four is losing. From a multiple of four, any move lets the next player finish a total removal of four. From any other size, take enough to reach a multiple of four. The losing positions are the multiples of four.</p>
-<p>A position is winning if you can move to a losing one. It is losing if every move goes to a winning one. Start labelling from the end. Notebook challenge: with the take one or two rule and a pile of fourteen, what should the first player take?</p></details>
+<h2><span class="chapter-clock">1:45</span> Plan a winning first move from fourteen</h2>
+<p>A position is winning if you can move to a losing one. It is losing if every move goes to a winning one. Start labelling from the end. Notebook challenge: with the take one or two rule and a pile of fourteen, what should the first player take?</p>
+</details>
 <p><a href="media/T10.3.mp4?v=leave-twelve">Open the MP4 directly</a></p>
 </main>
 <script>

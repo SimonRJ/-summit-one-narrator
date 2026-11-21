@@ -4,8 +4,8 @@ on:
   push:
     branches: [main]
     paths:
-      - 'production/t021-studio/**'
-      - '.github/workflows/t021-studio.yml'
+      - 'production/t021-studio/*.py'
+      - 'production/t021-studio/assets/**'
   workflow_dispatch:
 
 permissions:
@@ -48,10 +48,10 @@ jobs:
           cp build/t021-studio/final.mp4 media/T02.1.mp4
           cp build/t021-studio/poster.jpg media/T02.1-studio-poster.jpg
           cp build/t021-studio/qa.json review/T02.1-studio-qa.json
-          cp production/t021-studio/watch-t02-1.html watch-t02-1.html
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add media/T02.1.mp4 media/T02.1-studio-poster.jpg review/T02.1-studio-qa.json watch-t02-1.html
+          if git diff --cached --quiet; then exit 0; fi
           git commit -m 'Publish T02.1 studio edition with clean visuals and unchanged audio'
           git fetch origin main
           git rebase origin/main

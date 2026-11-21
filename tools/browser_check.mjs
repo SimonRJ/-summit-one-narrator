@@ -112,7 +112,13 @@ try{
  await page.screenshot({path:`qa-screenshots/${prefix}-exam-diagnosis.png`,fullPage:true});
   await page.locator('#backTests').click();await page.getByRole('button',{name:'Review locked paper',exact:true}).click();await page.locator('.score-big').waitFor();assert.equal(await page.evaluate(()=>globalThis.__fixture.exam_sittings.filter(x=>x.exam_id==='amc-fixture-b').length),1,'locked practice paper cannot be sat again');await page.screenshot({path:`qa-screenshots/${prefix}-locked-amc-review.png`,fullPage:true});await page.locator('[data-solution="26"]').click();await page.locator('#solution-26[open]').waitFor();await page.locator('#solution-26 .exam-lesson-links a').first().click();await page.locator('.technique-review').waitFor();assert.equal(await page.evaluate(()=>globalThis.__fixture.progress_state[0].completed_sessions),0,'exam-driven revision must not advance course');
  await page.goto('http://127.0.0.1:4173/tests.html?section=rossmoyne');await page.getByRole('heading',{name:'Rossmoyne Honours Mathematics',exact:true}).waitFor();assert(await page.locator('body').evaluate(e=>e.classList.contains('rossmoyne-theme')));await page.screenshot({path:`qa-screenshots/${prefix}-rossmoyne-centre.png`,fullPage:true});
+ await page.getByText('How should I interpret my sample score?',{exact:true}).click();
+ assert((await page.locator('details[open]').innerText()).includes('independent score of at least 50'));
  await checkRossmoyneReview(page,mobile,prefix);
+ await page.goto('http://127.0.0.1:4173/tests.html?section=mawa');
+ await page.getByText('How do students apply to MAWA?',{exact:true}).click();
+ assert((await page.locator('details[open]').innerText()).includes('primary and secondary application questions'));
+ assert.equal(await page.getByRole('link',{name:'Continue Learning'}).count(),1);
  await page.goto('http://127.0.0.1:4173/');
  await page.locator('#continue').click();
  const phase=page.locator('.rwl-track [aria-current="step"]');

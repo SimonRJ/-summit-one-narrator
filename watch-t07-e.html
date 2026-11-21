@@ -34,6 +34,8 @@ summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
 </style>
+<link rel="stylesheet" href="topic-film-reading.css">
+<script defer src="topic-film-print.js"></script>
 </head>
 <body>
 <main>
@@ -48,23 +50,33 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
   <source src="media/T07.E.mp4?v=five-tray-witness" type="video/mp4">
 </video>
 <p class="meta">1:18 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Pack 7 red and 4 blue counters</button>
-<button type="button" data-time="14.970">0:14 · First bound from the total space</button>
-<button type="button" data-time="25.850">0:25 · A stronger bound from the red places</button>
-<button type="button" data-time="38.330">0:38 · Four trays can hold all eleven</button>
-<button type="button" data-time="51.610">0:51 · The red limit decides</button>
-<button type="button" data-time="64.090">1:04 · Your turn</button></nav>
+<nav class="chapters" aria-label="Video chapters">
+<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Pack seven red and four blue counters</button>
+<button type="button" data-time="14.970"><span class="chapter-clock">0:15</span> Estimate the trays from eleven places</button>
+<button type="button" data-time="25.850"><span class="chapter-clock">0:26</span> Limit red counters to two per tray</button>
+<button type="button" data-time="38.330"><span class="chapter-clock">0:38</span> Build a legal four-tray packing</button>
+<button type="button" data-time="51.610"><span class="chapter-clock">0:52</span> Compare the two capacity bounds</button>
+<button type="button" data-time="64.090"><span class="chapter-clock">1:04</span> Pack nine reds with three blues</button>
+</nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>Pack 9 red and 3 blue counters into trays. Each tray holds at most 4 counters, including at most 2 red counters. What is the smallest number of trays you need?</p>
 <details><summary>Check your reasoning</summary><p>Four trays can hold only 8 red counters, so at least 5 trays are needed. Put 2 red and 1 blue in each of the first three trays. Put 2 red in the fourth tray and the last red in the fifth. All 12 counters fit.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary><p>Pack seven red counters and four blue counters into trays. A tray holds at most four counters, and at most two of them may be red. What is the smallest number of trays needed?</p>
+<details class="transcript"><summary>Read the transcript</summary>
+<h2><span class="chapter-clock">0:00</span> Pack seven red and four blue counters</h2>
+<p>Pack seven red counters and four blue counters into trays. A tray holds at most four counters, and at most two of them may be red. What is the smallest number of trays needed?</p>
+<h2><span class="chapter-clock">0:15</span> Estimate the trays from eleven places</h2>
 <p>There are eleven counters. Each tray holds at most four, so two trays are not enough. At least three trays are needed. But that is only a first limit.</p>
+<h2><span class="chapter-clock">0:26</span> Limit red counters to two per tray</h2>
 <p>Now look at the red counters alone. Each tray takes at most two reds. Three trays could hold only six reds, and there are seven. So at least four trays are needed. This limit is stronger.</p>
+<h2><span class="chapter-clock">0:38</span> Build a legal four-tray packing</h2>
 <p>Can four trays work? Fill them like this: two reds and two blues; two reds and one blue; two reds and one blue; and one red. All eleven counters are packed and every rule is obeyed.</p>
+<h2><span class="chapter-clock">0:52</span> Compare the two capacity bounds</h2>
 <p>So four trays are enough, and three are not. The answer is four. Notice that some spaces are left empty. That is fine: the red rule, not the total space, decided the answer.</p>
-<p>Check each rule for a lower bound. Take the strongest bound, then build a packing that reaches it. Try it with nine red counters and three blue counters.</p></details>
+<h2><span class="chapter-clock">1:04</span> Pack nine reds with three blues</h2>
+<p>Check each rule for a lower bound. Take the strongest bound, then build a packing that reaches it. Try it with nine red counters and three blue counters.</p>
+</details>
 <p><a href="media/T07.E.mp4?v=five-tray-witness">Open the MP4 directly</a></p>
 </main>
 <script>

@@ -9,7 +9,7 @@ import re
 import shutil
 
 from chapter_films import CHAPTER_FILMS, COURSE_FILMS
-from topic_reading import CHAPTERS as READING_CHAPTERS, reading_sections
+from topic_reading import CHAPTERS as READING_CHAPTERS, NOTEBOOK_CHECKS, reading_sections
 
 ROOT = Path(__file__).resolve().parents[2]
 BUILD = ROOT / "build/t01-studio"
@@ -173,7 +173,7 @@ button:focus-visible, a:focus-visible, summary:focus-visible {{ outline: 2px sol
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>{escape(source["notebook_exercise"])}</p>
-<details><summary>Check your reasoning</summary><p>{escape(source["notebook_answer"])}</p></details>
+<details><summary>Check your reasoning</summary><p>{escape(NOTEBOOK_CHECKS.get(lesson, source["notebook_answer"]))}</p></details>
 </section>
 <details class="transcript"><summary>Read the transcript</summary>{transcript}</details>
 <p><a href="media/{lesson}.mp4?v={version}">Open the MP4 directly</a></p>

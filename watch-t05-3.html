@@ -34,6 +34,8 @@ summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
 </style>
+<link rel="stylesheet" href="topic-film-reading.css">
+<script defer src="topic-film-print.js"></script>
 </head>
 <body>
 <main>
@@ -48,27 +50,39 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
   <source src="media/T05.3.mp4?v=recover-seat-gaps" type="video/mp4">
 </video>
 <p class="meta">2:00 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Give each outcome one address</button>
-<button type="button" data-time="16.110">0:16 · Look for repeats and omissions</button>
-<button type="button" data-time="24.920">0:24 · Seat five different people</button>
-<button type="button" data-time="42.970">0:42 · Seat the girls first</button>
-<button type="button" data-time="52.260">0:52 · Choose two gaps in order</button>
-<button type="button" data-time="63.780">1:03 · Recover the choices from the row</button>
-<button type="button" data-time="79.610">1:19 · Check by grouping the neighbours</button>
-<button type="button" data-time="98.640">1:38 · Your turn</button></nav>
+<nav class="chapters" aria-label="Video chapters">
+<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Match each result to the choices that made it</button>
+<button type="button" data-time="16.110"><span class="chapter-clock">0:16</span> Check for missing or repeated rows</button>
+<button type="button" data-time="24.920"><span class="chapter-clock">0:25</span> Seat five students with two kept apart</button>
+<button type="button" data-time="42.970"><span class="chapter-clock">0:43</span> Arrange three students to create four gaps</button>
+<button type="button" data-time="52.260"><span class="chapter-clock">0:52</span> Fill two different gaps in order</button>
+<button type="button" data-time="63.780"><span class="chapter-clock">1:04</span> Read the choices back from a finished row</button>
+<button type="button" data-time="79.610"><span class="chapter-clock">1:20</span> Subtract rows with the two students together</button>
+<button type="button" data-time="98.640"><span class="chapter-clock">1:39</span> Keep two named books apart on a shelf</button>
+</nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>Four different books stand in a row. Two particular books must be kept apart. How many arrangements are possible?</p>
 <details><summary>Check your reasoning</summary><p>There are 4 × 3 × 2 × 1 = 24 orders altogether. Temporarily join the two specified books into a block. The block and the other books have 6 orders, with 2 orders inside the block. Removing those 12 adjacent arrangements leaves 12.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary><p>A counting method is correct when every outcome has exactly one address. From the outcome you can tell which choices made it, and every set of choices makes a real outcome. If both are true, nothing is missed and nothing is counted twice.</p>
+<details class="transcript"><summary>Read the transcript</summary>
+<h2><span class="chapter-clock">0:00</span> Match each result to the choices that made it</h2>
+<p>A counting method is correct when every outcome has exactly one address. From the outcome you can tell which choices made it, and every set of choices makes a real outcome. If both are true, nothing is missed and nothing is counted twice.</p>
+<h2><span class="chapter-clock">0:16</span> Check for missing or repeated rows</h2>
 <p>Double counting and missed cases are invisible if you only look at the final number. Checking the addresses is the way to trust a count without redoing it.</p>
+<h2><span class="chapter-clock">0:25</span> Seat five students with two kept apart</h2>
 <p>Five different students sit in a row of five seats. Three are girls and two are boys. The two boys must not sit next to each other. In how many ways can they be seated? Pause and look for a way to build every legal row exactly once.</p>
+<h2><span class="chapter-clock">0:43</span> Arrange three students to create four gaps</h2>
 <p>Seat the girls first. Three girls can be arranged in six orders. Around them are four gaps: one at each end and two between.</p>
+<h2><span class="chapter-clock">0:52</span> Fill two different gaps in order</h2>
 <p>Put each boy into a different gap. The first boy has four gaps to choose from, and the second has three. That is twelve ways, so there are six times twelve, seventy-two seatings.</p>
+<h2><span class="chapter-clock">1:04</span> Read the choices back from a finished row</h2>
 <p>Now check the addresses. Take any legal row. Remove the boys and you see the girls&#x27; order. Look where the boys were and you see which gaps they used. So each legal row comes from exactly one set of choices. The count is complete and has no repeats.</p>
+<h2><span class="chapter-clock">1:20</span> Subtract rows with the two students together</h2>
 <p>A second method confirms it. Five people can sit in one hundred and twenty ways. Glue the boys together as one block: four objects in twenty-four orders, times two for the boys swapping. That is forty-eight unwanted rows. One hundred and twenty minus forty-eight is seventy-two.</p>
-<p>Ask two questions of any counting method. Can I recover the choices from every legal outcome? And does every choice give a legal outcome? Notebook challenge: in how many ways can four different books stand on a shelf if two particular books must not be next to each other?</p></details>
+<h2><span class="chapter-clock">1:39</span> Keep two named books apart on a shelf</h2>
+<p>Ask two questions of any counting method. Can I recover the choices from every legal outcome? And does every choice give a legal outcome? Notebook challenge: in how many ways can four different books stand on a shelf if two particular books must not be next to each other?</p>
+</details>
 <p><a href="media/T05.3.mp4?v=recover-seat-gaps">Open the MP4 directly</a></p>
 </main>
 <script>

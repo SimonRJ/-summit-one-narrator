@@ -34,6 +34,8 @@ summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
 </style>
+<link rel="stylesheet" href="topic-film-reading.css">
+<script defer src="topic-film-print.js"></script>
 </head>
 <body>
 <main>
@@ -48,25 +50,37 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
   <source src="media/T04.3.mp4?v=prime-rows-20-30" type="video/mp4">
 </video>
 <p class="meta">2:18 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Sort prime copies</button>
-<button type="button" data-time="34.040">0:34 · Compare 12 and 18</button>
-<button type="button" data-time="49.850">0:49 · Highest common factor</button>
-<button type="button" data-time="66.650">1:06 · Lowest common multiple</button>
-<button type="button" data-time="98.970">1:38 · Make a square</button>
-<button type="button" data-time="118.490">1:58 · Your turn</button></nav>
+<nav class="chapters" aria-label="Video chapters">
+<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Line up the prime copies in 12 and 18</button>
+<button type="button" data-time="34.040"><span class="chapter-clock">0:34</span> Compare a shared factor with a shared multiple</button>
+<button type="button" data-time="49.850"><span class="chapter-clock">0:50</span> Take the smaller count in each prime column</button>
+<button type="button" data-time="66.650"><span class="chapter-clock">1:07</span> Cover both rows with the larger counts</button>
+<button type="button" data-time="82.490"><span class="chapter-clock">1:22</span> Check why the two products agree</button>
+<button type="button" data-time="98.970"><span class="chapter-clock">1:39</span> Give the lone three in 48 a partner</button>
+<button type="button" data-time="118.490"><span class="chapter-clock">1:58</span> Find the HCF and LCM of 20 and 30</button>
+</nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>Find the highest common factor and lowest common multiple of 20 and 30.</p>
-<details><summary>Check your reasoning</summary><p>20 = 2 x 2 x 5 and 30 = 2 x 3 x 5: HCF 10, LCM 60.</p></details>
+<details><summary>Check your reasoning</summary><p>Write 20 = 2² × 5 and 30 = 2 × 3 × 5. Both supply one 2 and one 5, giving a highest common factor of 10. To cover both numbers, take two twos, a three and a five. The lowest common multiple is 2² × 3 × 5 = 60.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary><p>Write twelve as two times two times three. Write eighteen as two times three times three. Group copies of the same prime vertically. One column holds the twos. Another holds the threes. We can see exactly how many of each prime each number uses.</p>
+<details class="transcript"><summary>Read the transcript</summary>
+<h2><span class="chapter-clock">0:00</span> Line up the prime copies in 12 and 18</h2>
+<p>Write twelve as two times two times three. Write eighteen as two times three times three. Group copies of the same prime vertically. One column holds the twos. Another holds the threes. We can see exactly how many of each prime each number uses.</p>
 <p>We can solve three problems using these counts. To divide into both numbers, a factor needs to fit inside both rows. A common multiple has to contain both rows. For a square, the tiles must split into two matching sets.</p>
+<h2><span class="chapter-clock">0:34</span> Compare a shared factor with a shared multiple</h2>
 <p>Find the largest positive number that divides both twelve and eighteen. Then find the smallest positive number that is a multiple of both. Use the tiles, and decide how many copies of each prime you need.</p>
+<h2><span class="chapter-clock">0:50</span> Take the smaller count in each prime column</h2>
 <p>A common factor can use only the copies both numbers can supply. Eighteen can supply one two and twelve can supply one three. Those are the smaller counts in the two columns. The highest common factor is two times three, which is six.</p>
+<h2><span class="chapter-clock">1:07</span> Cover both rows with the larger counts</h2>
 <p>A common multiple needs enough copies to cover either number. Twelve needs two twos. Eighteen needs two threes. Take the larger count in each column. Two twos and two threes multiply to thirty-six. It is the lowest common multiple.</p>
+<h2><span class="chapter-clock">1:22</span> Check why the two products agree</h2>
 <p>For each prime, the smaller count plus the larger count equals the original two counts added together. So the factors of six and thirty-six together use exactly the same prime copies as twelve and eighteen together. Both products are two hundred and sixteen.</p>
+<h2><span class="chapter-clock">1:39</span> Give the lone three in 48 a partner</h2>
 <p>A square needs two matching groups of prime tiles. Thirty-six splits into two sixes. Forty-eight has four twos and one three. The three has no partner. Multiply by another three and the tiles can split evenly. The new total is one hundred and forty-four, or twelve squared.</p>
-<p>Use the smaller prime counts for a highest common factor. Use the larger counts for a lowest common multiple. A square has even counts of every prime. In your notebook, find the highest common factor and lowest common multiple of twenty and thirty.</p></details>
+<h2><span class="chapter-clock">1:58</span> Find the HCF and LCM of 20 and 30</h2>
+<p>Use the smaller prime counts for a highest common factor. Use the larger counts for a lowest common multiple. A square has even counts of every prime. In your notebook, find the highest common factor and lowest common multiple of twenty and thirty.</p>
+</details>
 <p><a href="media/T04.3.mp4?v=prime-rows-20-30">Open the MP4 directly</a></p>
 </main>
 <script>

@@ -34,6 +34,8 @@ summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
 </style>
+<link rel="stylesheet" href="topic-film-reading.css">
+<script defer src="topic-film-print.js"></script>
 </head>
 <body>
 <main>
@@ -48,27 +50,39 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
   <source src="media/T08.2.mp4?v=successive-red-draws" type="video/mp4">
 </video>
 <p class="meta">1:46 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · A draw changes the bag</button>
-<button type="button" data-time="11.800">0:11 · Update the bag after the first draw</button>
-<button type="button" data-time="19.490">0:19 · What is the chance of two reds?</button>
-<button type="button" data-time="37.060">0:37 · Start with the first draw</button>
-<button type="button" data-time="44.590">0:44 · Follow the red, then red route</button>
-<button type="button" data-time="60.590">1:00 · Every possible route belongs in the tree</button>
-<button type="button" data-time="74.990">1:14 · One of each colour can happen two ways</button>
-<button type="button" data-time="86.990">1:26 · Your turn</button></nav>
+<nav class="chapters" aria-label="Video chapters">
+<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Follow a draw without replacement</button>
+<button type="button" data-time="11.800"><span class="chapter-clock">0:12</span> Recount the bag after removing one counter</button>
+<button type="button" data-time="19.490"><span class="chapter-clock">0:19</span> Try drawing two reds from four counters</button>
+<button type="button" data-time="37.060"><span class="chapter-clock">0:37</span> Set the chance of the first red</button>
+<button type="button" data-time="44.590"><span class="chapter-clock">0:45</span> Follow the red branch a second time</button>
+<button type="button" data-time="60.590"><span class="chapter-clock">1:01</span> Check all four colour routes sum to one</button>
+<button type="button" data-time="74.990"><span class="chapter-clock">1:15</span> Combine red–blue and blue–red</button>
+<button type="button" data-time="86.990"><span class="chapter-clock">1:27</span> Draw from three reds and one blue</button>
+</nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>A bag contains 3 red counters and 1 blue counter. Draw two at random without putting the first back. What is the probability that both are red?</p>
 <details><summary>Check your reasoning</summary><p>The first counter is red with probability 3/4. If it is red, two red counters remain among three counters. Multiply the two probabilities to get 3/4 × 2/3 = 1/2.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary><p>When you take something out and do not put it back, the situation changes. The second draw is from a different bag. To keep track, follow each possible route step by step.</p>
+<details class="transcript"><summary>Read the transcript</summary>
+<h2><span class="chapter-clock">0:00</span> Follow a draw without replacement</h2>
+<p>When you take something out and do not put it back, the situation changes. The second draw is from a different bag. To keep track, follow each possible route step by step.</p>
+<h2><span class="chapter-clock">0:12</span> Recount the bag after removing one counter</h2>
 <p>Using the original bag for both draws is a common error. Updating after each step is what makes the answer right.</p>
+<h2><span class="chapter-clock">0:19</span> Try drawing two reds from four counters</h2>
 <p>A bag holds two red counters and two blue counters. Draw two counters at random, one after the other, without putting the first back. What is the probability that both are red? Pause and think about the bag after the first draw.</p>
+<h2><span class="chapter-clock">0:37</span> Set the chance of the first red</h2>
 <p>On the first draw, two of the four counters are red. The chance of red is two out of four, which is one half.</p>
+<h2><span class="chapter-clock">0:45</span> Follow the red branch a second time</h2>
 <p>If the first was red, the bag now has one red and two blue. The chance of red again is one out of three. Along one route, multiply: one half times one third is one sixth. So the probability of two reds is one sixth.</p>
+<h2><span class="chapter-clock">1:01</span> Check all four colour routes sum to one</h2>
 <p>Complete the tree. Red then blue is one half times two thirds, one third. Blue then red is also one third. Blue then blue is one sixth. The four routes add to one, which is a good check.</p>
+<h2><span class="chapter-clock">1:15</span> Combine red–blue and blue–red</h2>
 <p>What is the chance of one of each colour? That happens on two different routes: red then blue, or blue then red. Different routes are added: one third plus one third is two thirds.</p>
-<p>Update the situation after each step. Multiply along a route. Add separate routes. Notebook challenge: a bag has three red counters and one blue. Two are drawn without replacement. What is the probability both are red?</p></details>
+<h2><span class="chapter-clock">1:27</span> Draw from three reds and one blue</h2>
+<p>Update the situation after each step. Multiply along a route. Add separate routes. Notebook challenge: a bag has three red counters and one blue. Two are drawn without replacement. What is the probability both are red?</p>
+</details>
 <p><a href="media/T08.2.mp4?v=successive-red-draws">Open the MP4 directly</a></p>
 </main>
 <script>

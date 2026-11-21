@@ -34,6 +34,8 @@ summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
 </style>
+<link rel="stylesheet" href="topic-film-reading.css">
+<script defer src="topic-film-print.js"></script>
 </head>
 <body>
 <main>
@@ -48,27 +50,39 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
   <source src="media/T05.2.mp4?v=digit-case-branches" type="video/mp4">
 </video>
 <p class="meta">1:52 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Split a difficult count into cases</button>
-<button type="button" data-time="12.760">0:12 · Does the restriction change the count?</button>
-<button type="button" data-time="26.200">0:26 · How many even three-digit numbers?</button>
-<button type="button" data-time="40.250">0:40 · Split by the last digit</button>
-<button type="button" data-time="54.330">0:54 · Count inside each class</button>
-<button type="button" data-time="74.000">1:14 · A number belongs to just one class</button>
-<button type="button" data-time="81.850">1:21 · Count the complement when it is shorter</button>
-<button type="button" data-time="97.210">1:37 · Your turn</button></nav>
+<nav class="chapters" aria-label="Video chapters">
+<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Choose cases that cover every outcome once</button>
+<button type="button" data-time="12.760"><span class="chapter-clock">0:13</span> Find the choice that changes the branch size</button>
+<button type="button" data-time="26.200"><span class="chapter-clock">0:26</span> Build an even number from five available digits</button>
+<button type="button" data-time="40.250"><span class="chapter-clock">0:40</span> Separate a zero ending from a 2 or 4</button>
+<button type="button" data-time="54.330"><span class="chapter-clock">0:54</span> Count the legal hundreds and tens digits</button>
+<button type="button" data-time="74.000"><span class="chapter-clock">1:14</span> Combine the two last-digit counts</button>
+<button type="button" data-time="81.850"><span class="chapter-clock">1:22</span> Remove the forbidden switch setting</button>
+<button type="button" data-time="97.210"><span class="chapter-clock">1:37</span> Count two-digit numbers with distinct digits</button>
+</nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>How many two-digit numbers have two different digits?</p>
-<details><summary>Check your reasoning</summary><p>90 two-digit numbers minus 9 with equal digits (11, 22, ..., 99) = 81.</p></details>
+<details><summary>Check your reasoning</summary><p>The tens digit has 9 choices, from 1 to 9. For each one, the units digit can be any of the ten digits except the tens digit, leaving 9 choices. This gives 9 × 9 = 81 numbers. As a check, remove the nine doubles, 11 through 99, from the 90 two-digit numbers.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary><p>Some counting problems are too awkward to do in one go. The trick is to split them into cases. Good cases have two properties: no outcome belongs to two cases, and every outcome belongs to one.</p>
+<details class="transcript"><summary>Read the transcript</summary>
+<h2><span class="chapter-clock">0:00</span> Choose cases that cover every outcome once</h2>
+<p>Some counting problems are too awkward to do in one go. The trick is to split them into cases. Good cases have two properties: no outcome belongs to two cases, and every outcome belongs to one.</p>
+<h2><span class="chapter-clock">0:13</span> Find the choice that changes the branch size</h2>
 <p>Multiplying choices only works when the number of choices does not depend on what you chose earlier. When a restriction changes the choices, a single multiplication breaks. Splitting at the restriction repairs it.</p>
+<h2><span class="chapter-clock">0:26</span> Build an even number from five available digits</h2>
 <p>Using the digits zero, one, two, three and four, with no digit repeated, how many even three-digit numbers can be made? Pause and think about which place causes the trouble.</p>
+<h2><span class="chapter-clock">0:40</span> Separate a zero ending from a 2 or 4</h2>
 <p>The number must be even, so the last digit is zero, two or four. But zero is special, because a number cannot start with zero. So split by the last digit: either it is zero, or it is two or four.</p>
+<h2><span class="chapter-clock">0:54</span> Count the legal hundreds and tens digits</h2>
 <p>If the last digit is zero, the first digit has four choices and the middle has three: twelve numbers. If the last digit is two or four, the first digit cannot be zero or the last digit, leaving three choices, and the middle has three. That is two times three times three: eighteen numbers.</p>
+<h2><span class="chapter-clock">1:14</span> Combine the two last-digit counts</h2>
 <p>The cases cannot overlap, because a number has only one last digit. Add them: twelve plus eighteen is thirty.</p>
+<h2><span class="chapter-clock">1:22</span> Remove the forbidden switch setting</h2>
 <p>Sometimes it is quicker to count what is forbidden. Two switches have four settings altogether. If &quot;both on&quot; is not allowed, subtract that one, leaving three. Counting everything and subtracting the unwanted part is called using the complement.</p>
-<p>Split at the feature that changes the choices. Multiply within a case. Add the cases. Notebook challenge: how many two-digit numbers have two different digits?</p></details>
+<h2><span class="chapter-clock">1:37</span> Count two-digit numbers with distinct digits</h2>
+<p>Split at the feature that changes the choices. Multiply within a case. Add the cases. Notebook challenge: how many two-digit numbers have two different digits?</p>
+</details>
 <p><a href="media/T05.2.mp4?v=digit-case-branches">Open the MP4 directly</a></p>
 </main>
 <script>

@@ -29,6 +29,7 @@ main .transcript h2 {
 }
 main .transcript h2 .chapter-clock { margin-inline-end: .4rem; }
 main .transcript p { max-width: 68ch; margin: .55rem 0; }
+main .reading-note { max-width: 68ch; margin-block: 1em; padding-inline-start: .9em; border-inline-start: 3px solid currentColor; }
 main summary { min-height: 44px; padding-block: .55rem; cursor: pointer; }
 main :is(a, button, summary):focus-visible { outline: 3px solid currentColor; outline-offset: 3px; }
 @media (max-width: 36rem) {

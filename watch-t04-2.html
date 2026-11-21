@@ -34,6 +34,8 @@ summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
 </style>
+<link rel="stylesheet" href="topic-film-reading.css">
+<script defer src="topic-film-print.js"></script>
 </head>
 <body>
 <main>
@@ -48,24 +50,34 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
   <source src="media/T04.2.mp4?v=divisor-choices-200" type="video/mp4">
 </video>
 <p class="meta">2:05 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Pair factors of 12</button>
-<button type="button" data-time="30.520">0:30 · Count prime choices</button>
-<button type="button" data-time="47.450">0:47 · Fill the grid</button>
-<button type="button" data-time="66.970">1:06 · Count factors of 72 and 360</button>
-<button type="button" data-time="85.210">1:25 · Why squares have odd counts</button>
-<button type="button" data-time="105.360">1:45 · Your turn</button></nav>
+<nav class="chapters" aria-label="Video chapters">
+<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Pair the positive factors of twelve</button>
+<button type="button" data-time="30.520"><span class="chapter-clock">0:31</span> Choose the twos and threes in a factor</button>
+<button type="button" data-time="47.450"><span class="chapter-clock">0:47</span> Find 1 and 12 in the choices grid</button>
+<button type="button" data-time="66.970"><span class="chapter-clock">1:07</span> Extend the count from 72 to 360</button>
+<button type="button" data-time="85.210"><span class="chapter-clock">1:25</span> Find the unpaired factor of 36</button>
+<button type="button" data-time="105.360"><span class="chapter-clock">1:45</span> Count the factors of 200</button>
+</nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>How many positive factors does 200 have?</p>
-<details><summary>Check your reasoning</summary><p>200 = 2³ × 5². Choose 0–3 twos and 0–2 fives, giving 4 × 3 = 12 factors.</p></details>
+<details><summary>Check your reasoning</summary><p>Since 200 = 2³ × 5², a factor uses 0, 1, 2 or 3 twos and 0, 1 or 2 fives. That gives 4 × 3 = 12 positive factors, including 1 when both counts are zero. Each pair of exponents gives a different prime factorisation.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary><p>Twelve has six positive factors: one, two, three, four, six and twelve. We can list those by finding the products that make twelve. For a larger number, it is easier to count choices from its prime factorisation.</p>
+<details class="transcript"><summary>Read the transcript</summary>
+<h2><span class="chapter-clock">0:00</span> Pair the positive factors of twelve</h2>
+<p>Twelve has six positive factors: one, two, three, four, six and twelve. We can list those by finding the products that make twelve. For a larger number, it is easier to count choices from its prime factorisation.</p>
 <p>Three hundred and sixty factorises into two cubed, three squared and five. Its full factor list has twenty-four entries. We can account for them through three small counts, one for each prime. Let&#x27;s see how this works with twelve first.</p>
+<h2><span class="chapter-clock">0:31</span> Choose the twos and threes in a factor</h2>
 <p>Twelve is two times two times three. A factor of twelve is made from some of those prime tiles. Think about how many twos you can use. Then think about your choices for the three. How many different products are possible?</p>
+<h2><span class="chapter-clock">0:47</span> Find 1 and 12 in the choices grid</h2>
 <p>Use zero, one or two twos. That gives three choices. For each of them, either include the three or leave it out. That gives two choices. Three times two makes six products. Taking no tiles gives one. Taking all the tiles gives twelve. Every cell makes a different factor.</p>
+<h2><span class="chapter-clock">1:07</span> Extend the count from 72 to 360</h2>
 <p>Seventy-two is two cubed times three squared. Choose zero, one, two or three twos. For each choice there are three possibilities for the threes. Four times three gives twelve factors. For three hundred and sixty, the extra choice about the five doubles that count to twenty-four.</p>
+<h2><span class="chapter-clock">1:25</span> Find the unpaired factor of 36</h2>
 <p>For thirty-six, the factor pairs are one and thirty-six, two and eighteen, three and twelve, and four and nine. Six pairs with itself, so it appears just once in the list. A factor pairs with itself exactly when its square is the number. That is why square numbers have an odd count of positive factors.</p>
-<p>For each prime, include the choice to use zero copies. Add one to the prime&#x27;s exponent, and multiply the resulting counts. In your notebook, find the number of positive factors of two hundred, then explain why your method counts each factor once.</p></details>
+<h2><span class="chapter-clock">1:45</span> Count the factors of 200</h2>
+<p>For each prime, include the choice to use zero copies. Add one to the prime&#x27;s exponent, and multiply the resulting counts. In your notebook, find the number of positive factors of two hundred, then explain why your method counts each factor once.</p>
+</details>
 <p><a href="media/T04.2.mp4?v=divisor-choices-200">Open the MP4 directly</a></p>
 </main>
 <script>

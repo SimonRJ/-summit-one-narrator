@@ -34,6 +34,8 @@ summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
 </style>
+<link rel="stylesheet" href="topic-film-reading.css">
+<script defer src="topic-film-print.js"></script>
 </head>
 <body>
 <main>
@@ -48,27 +50,39 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
   <source src="media/T07.1.mp4?v=six-on-eleven" type="video/mp4">
 </video>
 <p class="meta">2:03 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · What resource limits the arrangement?</button>
-<button type="button" data-time="14.680">0:14 · Making four fit is only half the proof</button>
-<button type="button" data-time="25.720">0:25 · How many counters can fit?</button>
-<button type="button" data-time="43.450">0:43 · Each pair has room for at most one</button>
-<button type="button" data-time="57.370">0:57 · Reach the bound with separated counters</button>
-<button type="button" data-time="68.890">1:08 · An extra cell creates an extra place</button>
-<button type="button" data-time="84.250">1:24 · For a minimum, count what each counter covers</button>
-<button type="button" data-time="107.120">1:47 · Your turn</button></nav>
+<nav class="chapters" aria-label="Video chapters">
+<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Find a limit every placement must respect</button>
+<button type="button" data-time="14.680"><span class="chapter-clock">0:15</span> Test what one arrangement proves</button>
+<button type="button" data-time="25.720"><span class="chapter-clock">0:26</span> Place separated counters in eight cells</button>
+<button type="button" data-time="43.450"><span class="chapter-clock">0:43</span> Pair the eight cells from left to right</button>
+<button type="button" data-time="57.370"><span class="chapter-clock">0:57</span> Fill the odd-numbered cells</button>
+<button type="button" data-time="68.890"><span class="chapter-clock">1:09</span> Handle the ninth unpaired cell</button>
+<button type="button" data-time="84.250"><span class="chapter-clock">1:24</span> Cover eight cells with the fewest counters</button>
+<button type="button" data-time="107.120"><span class="chapter-clock">1:47</span> Find the largest placement in eleven cells</button>
+</nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>A row has 11 cells. Place at most one counter in each cell and leave a gap between any two counters. How many counters can you place?</p>
 <details><summary>Check your reasoning</summary><p>Group the first ten cells into five adjacent pairs. Each pair holds at most one counter and cell 11 holds at most one more, giving a limit of six. The odd-numbered cells achieve six.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary><p>When a question asks for the largest possible number, trying examples is not enough. You need a reason why nobody could ever do better. That reason usually comes from something limited that every arrangement has to use.</p>
+<details class="transcript"><summary>Read the transcript</summary>
+<h2><span class="chapter-clock">0:00</span> Find a limit every placement must respect</h2>
+<p>When a question asks for the largest possible number, trying examples is not enough. You need a reason why nobody could ever do better. That reason usually comes from something limited that every arrangement has to use.</p>
+<h2><span class="chapter-clock">0:15</span> Test what one arrangement proves</h2>
 <p>Finding a good arrangement shows what is possible. It does not show that it is the best. Without a proof of the limit, there is always the worry that a cleverer arrangement exists.</p>
+<h2><span class="chapter-clock">0:26</span> Place separated counters in eight cells</h2>
 <p>Counters are placed in a row of eight cells, at most one per cell. No two counters may be in neighbouring cells. What is the largest number of counters that can be placed? Pause and try to find both an arrangement and a reason.</p>
+<h2><span class="chapter-clock">0:43</span> Pair the eight cells from left to right</h2>
 <p>Split the row into four pairs of neighbouring cells. Each pair can hold at most one counter, because two counters in a pair would be neighbours. Four pairs means at most four counters. That is the limit.</p>
+<h2><span class="chapter-clock">0:57</span> Fill the odd-numbered cells</h2>
 <p>Now reach the limit. Put counters in cells one, three, five and seven. No two are neighbours. So four is possible, and more than four is impossible. The largest number is four.</p>
+<h2><span class="chapter-clock">1:09</span> Handle the ninth unpaired cell</h2>
 <p>With nine cells, there are four pairs and one cell left over. Each pair holds at most one counter and the extra cell holds at most one: at most five. And cells one, three, five, seven and nine achieve it.</p>
+<h2><span class="chapter-clock">1:24</span> Cover eight cells with the fewest counters</h2>
 <p>For a smallest-number question, turn the idea around: ask what every arrangement must cover. If every empty cell must be next to a counter, each counter can look after at most three cells, itself and its two neighbours. Eight cells need at least three counters. Cells two, five and eight give that coverage, so three is enough.</p>
-<p>Find what is limited. Use it to prove a limit. Then show an arrangement that reaches the limit. Notebook challenge: what is the largest number of counters in a row of eleven cells with no two neighbours?</p></details>
+<h2><span class="chapter-clock">1:47</span> Find the largest placement in eleven cells</h2>
+<p>Find what is limited. Use it to prove a limit. Then show an arrangement that reaches the limit. Notebook challenge: what is the largest number of counters in a row of eleven cells with no two neighbours?</p>
+</details>
 <p><a href="media/T07.1.mp4?v=six-on-eleven">Open the MP4 directly</a></p>
 </main>
 <script>

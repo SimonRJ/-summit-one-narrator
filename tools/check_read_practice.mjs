@@ -30,8 +30,9 @@ const openingEdits=JSON.parse(fs.readFileSync(new URL('../tools/content/practice
 for(const [id,edit] of Object.entries(openingEdits)){
  const lesson=[...release.lessons,...later.lessons].find(item=>item.slot===Number(id.slice(1)));
  assert(lesson,id);
- assert.equal(lesson.example.prompt,edit.example.prompt,id);
- assert.deepEqual(lesson.example.steps,edit.example.steps,id);
+ for(const [field,value] of Object.entries(edit.example || {})) {
+  assert.deepEqual(lesson.example[field],value,id+' example '+field);
+ }
  for (const field of ['headline','intro','bridge','recap']) {
   if (field in edit) assert.equal(lesson[field],edit[field],id+' '+field);
  }

@@ -34,6 +34,8 @@ summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
 </style>
+<link rel="stylesheet" href="topic-film-reading.css">
+<script defer src="topic-film-print.js"></script>
 </head>
 <body>
 <main>
@@ -48,23 +50,33 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
   <source src="media/T05.E.mp4?v=lunch-and-outfit-grids" type="video/mp4">
 </video>
 <p class="meta">1:13 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Pick one sandwich and one fruit</button>
-<button type="button" data-time="13.540">0:13 · The sandwich determines the case</button>
-<button type="button" data-time="23.150">0:23 · Cheese allows two fruit choices</button>
-<button type="button" data-time="32.760">0:32 · Bean allows all three choices</button>
-<button type="button" data-time="40.290">0:40 · Check by removing the forbidden pair</button>
-<button type="button" data-time="52.610">0:52 · Your turn</button></nav>
+<nav class="chapters" aria-label="Video chapters">
+<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Choose a sandwich and a fruit</button>
+<button type="button" data-time="13.540"><span class="chapter-clock">0:14</span> Sort the lunches by sandwich</button>
+<button type="button" data-time="23.150"><span class="chapter-clock">0:23</span> List the fruits allowed with cheese</button>
+<button type="button" data-time="32.760"><span class="chapter-clock">0:33</span> Add the lunches with a bean sandwich</button>
+<button type="button" data-time="40.290"><span class="chapter-clock">0:40</span> Remove cheese with plum from the full menu</button>
+<button type="button" data-time="52.610"><span class="chapter-clock">0:53</span> Exclude the red-and-orange outfits</button>
+</nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>A wardrobe holds three different shirts and four different pairs of shorts. One shirt is red and two pairs of shorts are orange. How many outfits use one of each item and avoid pairing red with orange?</p>
 <details><summary>Check your reasoning</summary><p>Without the restriction there are 3 × 4 = 12 outfits. Only the red shirt paired with either orange pair is forbidden. Removing those two outfits leaves 10.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary><p>A lunch has one sandwich, cheese or bean, and one fruit, apple, pear or plum. Cheese may not be paired with plum. How many different lunches are possible?</p>
+<details class="transcript"><summary>Read the transcript</summary>
+<h2><span class="chapter-clock">0:00</span> Choose a sandwich and a fruit</h2>
+<p>A lunch has one sandwich, cheese or bean, and one fruit, apple, pear or plum. Cheese may not be paired with plum. How many different lunches are possible?</p>
+<h2><span class="chapter-clock">0:14</span> Sort the lunches by sandwich</h2>
 <p>The restriction only mentions cheese, so split by sandwich. A lunch has exactly one sandwich, so these two cases cannot overlap.</p>
+<h2><span class="chapter-clock">0:23</span> List the fruits allowed with cheese</h2>
 <p>With cheese, plum is not allowed, so the allowed fruits are apple and pear. That is two lunches: cheese with apple, and cheese with pear.</p>
+<h2><span class="chapter-clock">0:33</span> Add the lunches with a bean sandwich</h2>
 <p>With bean, all three fruits are allowed. That is three lunches. Add the cases: two plus three is five.</p>
+<h2><span class="chapter-clock">0:40</span> Remove cheese with plum from the full menu</h2>
 <p>Check another way. Without the rule there would be two times three, six lunches. Exactly one of them, cheese with plum, is forbidden. Six minus one is five. Two methods agree.</p>
-<p>When branches have different sizes, add them rather than multiplying. Rebuild the tree yourself, then try this: there are three shirts and four pairs of shorts, but the red shirt cannot be worn with the two orange pairs. How many outfits are possible?</p></details>
+<h2><span class="chapter-clock">0:53</span> Exclude the red-and-orange outfits</h2>
+<p>When branches have different sizes, add them rather than multiplying. Rebuild the tree yourself, then try this: there are three shirts and four pairs of shorts, but the red shirt cannot be worn with the two orange pairs. How many outfits are possible?</p>
+</details>
 <p><a href="media/T05.E.mp4?v=lunch-and-outfit-grids">Open the MP4 directly</a></p>
 </main>
 <script>

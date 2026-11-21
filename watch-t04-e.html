@@ -34,6 +34,8 @@ summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
 </style>
+<link rel="stylesheet" href="topic-film-reading.css">
+<script defer src="topic-film-print.js"></script>
 </head>
 <body>
 <main>
@@ -48,22 +50,33 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
   <source src="media/T04.E.mp4?v=square-900" type="video/mp4">
 </video>
 <p class="meta">1:43 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · The perfect square problem</button>
-<button type="button" data-time="17.690">0:17 · Find unpaired primes</button>
-<button type="button" data-time="46.010">0:46 · Check the square</button>
-<button type="button" data-time="62.010">1:02 · Prove the multiplier is smallest</button>
-<button type="button" data-time="80.090">1:20 · Your turn</button></nav>
+<nav class="chapters" aria-label="Video chapters">
+<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Turn 90 into a square</button>
+<button type="button" data-time="17.690"><span class="chapter-clock">0:18</span> Find the two primes without partners</button>
+<button type="button" data-time="32.890"><span class="chapter-clock">0:33</span> Supply one more two and one more five</button>
+<button type="button" data-time="46.010"><span class="chapter-clock">0:46</span> Split 900 into matching groups</button>
+<button type="button" data-time="62.010"><span class="chapter-clock">1:02</span> Show that every valid multiplier is a multiple of ten</button>
+<button type="button" data-time="80.090"><span class="chapter-clock">1:20</span> Find the least multiplier for 60</button>
+</nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>Find the smallest positive whole number that multiplies 60 to make a perfect square.</p>
-<details><summary>Check your reasoning</summary><p>60 = 2 x 2 x 3 x 5, so multiply by 3 x 5 = 15, giving 900.</p></details>
+<details><summary>Check your reasoning</summary><p>In 60 = 2² × 3 × 5, the two twos already form a pair. Any multiplier that makes a square must supply at least one 3 and one 5, so it is a multiple of 15. The first positive choice works because 60 × 15 = 900 = 30².</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary><p>What is the smallest positive whole number that you can multiply ninety by to make a perfect square? Try to think of ninety as a collection of prime pieces. A square will let those pieces split into two identical groups.</p>
+<details class="transcript"><summary>Read the transcript</summary>
+<h2><span class="chapter-clock">0:00</span> Turn 90 into a square</h2>
+<p>What is the smallest positive whole number that you can multiply ninety by to make a perfect square? Try to think of ninety as a collection of prime pieces. A square will let those pieces split into two identical groups.</p>
+<h2><span class="chapter-clock">0:18</span> Find the two primes without partners</h2>
 <p>Ninety factorises into two times three times three times five. Each prime needs an even number of copies in a square. The threes already make a pair. The two and the five each appear once. Put a space for a partner beside each of them.</p>
+<h2><span class="chapter-clock">0:33</span> Supply one more two and one more five</h2>
 <p>Supply one more two and one more five. Those are the missing tiles. Their product is ten, so multiplying ninety by ten adds just the two partners we need. Now each prime has an even count.</p>
+<h2><span class="chapter-clock">0:46</span> Split 900 into matching groups</h2>
 <p>Ninety times ten is nine hundred. Split its tiles into two identical groups, each with a two, a three and a five. Each group multiplies to thirty. Thirty times thirty is nine hundred, so the new number is a square.</p>
+<h2><span class="chapter-clock">1:02</span> Show that every valid multiplier is a multiple of ten</h2>
 <p>Could a smaller positive multiplier work? Any multiplier that works must supply a two and a five, because those counts start odd. A number divisible by the two distinct primes two and five is a multiple of ten. Ten is the first positive multiple and we have shown it works.</p>
-<p>For a square, pair every prime. Choose one partner for each prime whose count is odd. Try the same proof with sixty. Find the smallest positive whole number to multiply sixty by to make a square, and check your answer by splitting the new prime tiles into two equal groups.</p></details>
+<h2><span class="chapter-clock">1:20</span> Find the least multiplier for 60</h2>
+<p>For a square, pair every prime. Choose one partner for each prime whose count is odd. Try the same proof with sixty. Find the smallest positive whole number to multiply sixty by to make a square, and check your answer by splitting the new prime tiles into two equal groups.</p>
+</details>
 <p><a href="media/T04.E.mp4?v=square-900">Open the MP4 directly</a></p>
 </main>
 <script>

@@ -51,7 +51,8 @@ for(const [skill,entry] of Object.entries(map.skills)){
   assert(actual&&actual.focus===item.focus,"Incorrect lesson mapping "+skill+" @ "+item.slot);
  }
 }
-assert(index.includes("main.css?v=data-audit-20261114"));
+const appStyle=index.match(/href="(main\.css\?v=[a-z0-9-]+)"/)?.[1];
+assert(appStyle && worker.includes('"./'+appStyle+'"'),"Precache the stylesheet actually used by the learning path");
 const examModule=testsPage.match(/src="(tests\.js\?v=[a-z0-9-]+)"/)?.[1];
 assert(examModule && worker.includes('"./'+examModule+'"'),"Precache the version actually loaded by the exam centre");
 assert(src.includes('source-choice-strip') && src.includes('sourceScan='));

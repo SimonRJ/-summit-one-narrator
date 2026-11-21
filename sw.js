@@ -1,5 +1,5 @@
 const scope = new URL(self.registration.scope);
-const CACHE="summit-one-studio-t022-v1";
+const CACHE="summit-one-entry-guidance-20261122";
 const cachePrefix = scope.pathname + ':summit-one-';
 const cacheName = scope.pathname + ':' + CACHE;
 const reader = new URL('offline-reader.html', scope).href;
@@ -10,7 +10,7 @@ const staticFiles = [
   "./route-model.js?v=paths-20261121",
   "./route-model.css?v=paths-20261121",
   "./offline-reader.html",
-  "./offline-reader.js?v=course-review-20261122-a",
+  "./offline-reader.js?v=worked-films-20261122",
   "./domino-model.js?v=github-20261121",
   "./domino-model.css?v=github-20261121",
   "./model-claims.js?v=reasoning-20261121",
@@ -75,7 +75,7 @@ const staticFiles = [
   "./boot-loader.css?v=cinematic-20261113",
   "./main.css?v=worked-films-20261122",
   "./summit-polish.css?v=craft-20261121",
-  "./app-main.js?v=studio-t022-v1",
+  "./app-main.js?v=entry-guidance-20261122",
   "./workshop-studies.js?v=workshops-20261122",
   "./course-menu.js?v=menu-20261113",
   "./course-menu-ui.js?v=recorded-editions-20261122",
@@ -97,7 +97,7 @@ const staticFiles = [
   "./login.js?v=cinematic-practice-20261113",
   "./supabase-client.js?v=auth-20261112",
   "./tests.html",
-  "./tests.js?v=ross-review-20261122",
+  "./tests.js?v=entries-20261122",
   "./exam.css?v=deeper-20261121",
   "./manifest.webmanifest",
   "./icon.svg",

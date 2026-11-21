@@ -34,6 +34,8 @@ summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
 </style>
+<link rel="stylesheet" href="topic-film-reading.css">
+<script defer src="topic-film-print.js"></script>
 </head>
 <body>
 <main>
@@ -48,23 +50,33 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
   <source src="media/T08.E.mp4?v=different-coin-faces" type="video/mp4">
 </video>
 <p class="meta">1:10 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000">0:00 · Two coins and at least one head</button>
-<button type="button" data-time="11.940">0:11 · Make the four outcomes visible</button>
-<button type="button" data-time="20.430">0:20 · At least one head rules out tail–tail</button>
-<button type="button" data-time="30.040">0:30 · One of the survivors is head–head</button>
-<button type="button" data-time="35.970">0:35 · Knowing the first coin gives a different total</button>
-<button type="button" data-time="51.330">0:51 · Your turn</button></nav>
+<nav class="chapters" aria-label="Video chapters">
+<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Compare two heads with at least one head</button>
+<button type="button" data-time="11.940"><span class="chapter-clock">0:12</span> Label the two coins and list four results</button>
+<button type="button" data-time="20.430"><span class="chapter-clock">0:20</span> Remove the outcome with two tails</button>
+<button type="button" data-time="30.040"><span class="chapter-clock">0:30</span> Find two heads among the surviving results</button>
+<button type="button" data-time="35.970"><span class="chapter-clock">0:36</span> Change the clue to a head on the first coin</button>
+<button type="button" data-time="51.330"><span class="chapter-clock">0:51</span> Condition on the coins showing different faces</button>
+</nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>Two fair coins are tossed independently and show different faces. What is the probability the first is heads?</p>
 <details><summary>Check your reasoning</summary><p>Survivors HT, TH; one of two: 1/2.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary><p>Two fair coins are tossed independently. You know that at least one of them shows heads. What is the probability that both show heads?</p>
+<details class="transcript"><summary>Read the transcript</summary>
+<h2><span class="chapter-clock">0:00</span> Compare two heads with at least one head</h2>
+<p>Two fair coins are tossed independently. You know that at least one of them shows heads. What is the probability that both show heads?</p>
+<h2><span class="chapter-clock">0:12</span> Label the two coins and list four results</h2>
 <p>Name the coins first and second. There are four equally likely outcomes: head head, head tail, tail head, tail tail.</p>
+<h2><span class="chapter-clock">0:20</span> Remove the outcome with two tails</h2>
 <p>&quot;At least one head&quot; rules out tail tail. Three outcomes survive: head head, head tail and tail head. They are still equally likely.</p>
+<h2><span class="chapter-clock">0:30</span> Find two heads among the surviving results</h2>
 <p>Only one of the three survivors has two heads. The probability is one out of three.</p>
+<h2><span class="chapter-clock">0:36</span> Change the clue to a head on the first coin</h2>
 <p>Compare a slightly different piece of information. Suppose you are told the first coin shows heads. Now only head head and head tail survive, and the probability of two heads is one half. The exact wording of the information matters.</p>
-<p>Information removes outcomes, and the survivors become the new total. Rebuild this example, then try: two coins are tossed and you are told they do not show the same face. What is the probability the first coin is heads?</p></details>
+<h2><span class="chapter-clock">0:51</span> Condition on the coins showing different faces</h2>
+<p>Information removes outcomes, and the survivors become the new total. Rebuild this example, then try: two coins are tossed and you are told they do not show the same face. What is the probability the first coin is heads?</p>
+</details>
 <p><a href="media/T08.E.mp4?v=different-coin-faces">Open the MP4 directly</a></p>
 </main>
 <script>
