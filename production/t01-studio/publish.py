@@ -20,6 +20,10 @@ VERSION = "t01-studio-v1"
 CHAPTER_VERSION = "studio-chapters-02-04-v1"
 COURSE_VERSION = "teaching-films-v1"
 REVIEWED_MEDIA = {
+    "T10.E": "forty-one-new-dots",
+    "T10.3": "leave-twelve",
+    "T10.2": "triple-units-cycle",
+    "T10.1": "twenty-one-tilings",
     "T09.E": "four-marble-bags",
     "T09.3": "reversible-pans",
     "T09.2": "three-denominators",
