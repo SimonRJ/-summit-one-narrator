@@ -1,7 +1,7 @@
 # Summit One — curated AMC practice audit
 ## Published practice bank, 22 November 2026
 
-Five Part A papers and five Part B papers are available, with 150 original questions in total. The marked values, workings and diagrams for sets 01–05 were checked. In sets A01–A04, all 80 marked values stayed the same through copy, distractor-order and skill-link corrections. Each new paper was exercised with a full-score submission and an incomplete submission through the same marking functions the app uses. Results included the question-by-question feedback and remained locked on review. The repeatable administrative check in `tools/check_original_paper_sessions.sql` rolls its synthetic attempts back.
+Six Part A papers and six Part B papers are available, with 180 original questions in total. The marked values, workings and diagrams for sets 01–06 were checked. In sets A01–A04, all 80 marked values stayed the same through copy, distractor-order and skill-link corrections. Each new paper was exercised with a full-score submission and an incomplete submission through the same marking functions the app uses. Results included the question-by-question feedback and remained locked on review. All 22 released AMC practice and Rossmoyne papers passed 44 full-score and skipped-answer checks across 410 questions. The repeatable administrative check in `tools/check_original_paper_sessions.sql` rolls its synthetic attempts back.
 
 ## Historical inventory, 13 November 2026
 

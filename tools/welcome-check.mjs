@@ -1,7 +1,7 @@
 import {chromium} from 'playwright';
 import fs from 'node:fs';import path from 'node:path';import http from 'node:http';import assert from 'node:assert/strict';
 const root=process.cwd();fs.mkdirSync('qa-screenshots',{recursive:true});
-const mime={'.js':'application/javascript','.css':'text/css','.json':'application/json','.mp4':'video/mp4','.jpg':'image/jpeg','.html':'text/html','.svg':'image/svg+xml'};
+const mime={'.js':'application/javascript','.css':'text/css','.json':'application/json','.mp4':'video/mp4','.jpg':'image/jpeg','.html':'text/html','.svg':'image/svg+xml','.vtt':'text/vtt'};
 const server=http.createServer((req,res)=>{
  const url=new URL(req.url,'http://localhost');const file=path.resolve(root,'.'+(url.pathname==='/'?'/index.html':url.pathname));
  if(!file.startsWith(root+path.sep)){res.writeHead(403);res.end();return}
@@ -33,6 +33,30 @@ try{
   assert.equal(await page.locator('#skipWelcome').innerText(),'Start my next step');assert.equal(await page.locator('#watchWelcome').innerText(),'Watch again');
   await page.locator('#watchWelcome').click();await page.waitForFunction(()=>document.querySelector('video').currentTime<5&&!document.querySelector('video').paused);
   await page.locator('#skipWelcome').click();await page.waitForURL('http://127.0.0.1:4181/');
+  await page.goto('http://127.0.0.1:4181/welcome.html');
+  const chapters = page.getByRole('navigation', {name:'Jump to a chapter'}).getByRole('button');
+  assert.equal(await chapters.count(), 5);
+  for (const button of await chapters.all()) {
+    const time = Number(await button.getAttribute('data-time'));
+    await button.click();
+    await page.waitForFunction(target => {
+      const film = document.querySelector('#welcomeVideo');
+      return film.controls && !film.paused && !film.seeking && Math.abs(film.currentTime-target)<2;
+    }, time);
+  }
+
+  await page.goto('http://127.0.0.1:4181/watch-amc-2025-q17.html');
+  const pyramid = page.locator('video');
+  await pyramid.evaluate(film => film.play());
+  await page.waitForFunction(() => document.querySelector('video').currentTime > .5);
+  assert.equal(await pyramid.evaluate(film => film.videoWidth), 1920);
+  await pyramid.evaluate(film => { film.pause(); film.textTracks[0].mode = 'hidden'; film.currentTime=33; });
+  await page.waitForFunction(() => document.querySelector('video').textTracks[0].cues?.length > 0);
+  assert(await pyramid.evaluate(film => film.currentSrc.includes('AMC2025Q17-voice-c.mp4')));
+  await page.getByText('Check your count', {exact:true}).click();
+  assert((await page.locator('details[open]').innerText()).includes('2 × 2 = 4'));
+  assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth+1));
+  await page.screenshot({path:`qa-screenshots/${mobile?'mobile':'desktop'}-pyramid-review.png`,fullPage:true});
   // Real login module with an isolated SDK stub; no learner credentials or records.
   await page.goto('http://127.0.0.1:4181/login.html');await page.locator('#loginName').fill('fixture');await page.locator('#password').fill('fixture-only');await page.locator('#signIn').click();await page.waitForURL('**/welcome.html?from=login');
   await page.locator('#skipWelcome').click();await page.waitForURL('http://127.0.0.1:4181/');
