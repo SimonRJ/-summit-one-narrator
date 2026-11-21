@@ -41,6 +41,8 @@ jobs:
           node --check login.js
           node --check supabase-client.js
           node --check sw.js
+      - name: Design boundary and stylesheet checks
+        run: node tools/check_design_boundary.mjs
       - name: Canonical data invariants
         run: |
           node --input-type=module <<'NODE'

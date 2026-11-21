@@ -331,23 +331,42 @@ function renderTechniqueRefresher(){
  videos.forEach((t,i)=>mountNarratedPlayer(document.getElementById("techniqueVideo"+i),{title:t.title,transcript:t.transcript,audioUrl:t.audio_url,videoUrl:finalVideoUrl(t.id),cacheKey:t.id}));
 }
 function renderHome(){
- document.body.classList.remove("lesson-fullscreen","lesson-video-review");
- document.body.classList.add("home-focus");
- setLessonScreenTopbar();
- activeView="home";
- updateNavProgress();
- const session=courseSession(),done=Number(progress?.completed_sessions)||0,finished=done>=372;
- app.innerHTML=`<section class="learning-focus" aria-label="Continue mathematics learning">
-   <article class="panel focus-session-card">
-     <div class="eyebrow">YOUR LEARNING PATH</div>
-     <span class="session-kicker">${finished?"ALL SESSIONS COMPLETE":`SESSION ${session.slot}`}</span>
-     <h1>${finished?"Course completed":esc(session.focus)}</h1>
-     <p class="muted">${finished?"Review your progress and completed work.":"Continue with the next part of your lesson."}</p>
-     <button id="continue" type="button" class="primary cta">${finished?"View progress":`Continue Session ${session.slot}`}</button>
-   </article>
- </section>`;
- document.getElementById("continue").onclick=()=>finished?renderProfile():startSession(session);
+  document.body.classList.remove("lesson-fullscreen","lesson-video-review");
+  document.body.classList.add("home-focus");
+  setLessonScreenTopbar();
+  activeView="home";
+  updateNavProgress();
+  const session=courseSession();
+  const done=Math.max(0,Math.min(372,Number(progress?.completed_sessions)||0));
+  const finished=done>=372;
+  const percentage=Math.round(done/372*100);
+  const description=finished
+    ?"Revisit your completed work or explore your assessment results."
+    :session.type==="LESSON"
+      ?"Read the idea, watch it unfold, and try unfamiliar problems at your own pace."
+      :session.type==="MAWA"
+        ?"Explore an unfamiliar problem and build a convincing mathematical solution."
+        :"Choose a useful method, apply it, and check your reasoning.";
+  app.innerHTML=`<section class="learning-focus" aria-label="Continue mathematics learning">
+    <article class="panel focus-session-card">
+      <header class="focus-hero-meta"><span>SUMMIT ONE / LEARNING PATH</span><strong>${String(done).padStart(3,"0")} / 372</strong></header>
+      <div class="focus-hero-body">
+        <div class="eyebrow">${finished?"YOUR LEARNING RECORD":"YOUR NEXT CHALLENGE"}</div>
+        <span class="session-kicker">${finished?"FULL PATH COMPLETED":`SESSION ${String(session.slot).padStart(3,"0")} · ${esc(session.phase||session.type)}`}</span>
+        <h1>${finished?"Course completed":esc(session.focus)}</h1>
+        <p class="muted">${description}</p>
+      </div>
+      <footer class="focus-hero-footer">
+        <div class="focus-course-meta"><strong>${percentage}% complete</strong><span>${done} of 372 sessions</span></div>
+        <div class="focus-course-progress" role="progressbar" aria-label="Learning sessions completed" aria-valuemin="0" aria-valuemax="372" aria-valuenow="${done}"><span style="width:${(done/372*100).toFixed(2)}%"></span></div>
+        <button id="continue" type="button" class="primary cta">${finished?"View progress":`Continue session ${session.slot}`}</button>
+        <p class="focus-course-note">Your progress follows completed sessions, not calendar days.</p>
+      </footer>
+    </article>
+  </section>`;
+  document.getElementById("continue").onclick=()=>finished?renderProfile():startSession(session);
 }
+
 async function startSession(s){
  document.body.classList.remove("home-focus");
  const loadToken=window.SummitLoader?.beginSmall("Opening Session "+s.slot);

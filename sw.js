@@ -1,5 +1,5 @@
 const scope = new URL(self.registration.scope);
-const CACHE="summit-one-deeper-20261121";
+const CACHE="summit-one-polished-20261121";
 const cachePrefix = scope.pathname + ':summit-one-';
 const cacheName = scope.pathname + ':' + CACHE;
 const reader = new URL('offline-reader.html', scope).href;
@@ -70,6 +70,7 @@ const staticFiles = [
   "./boot-loader.js?v=identity-math-20261113",
   "./boot-loader.css?v=cinematic-20261113",
   "./main.css?v=data-audit-20261114",
+  "./summit-polish.css?v=craft-20261121",
   "./app-main.js?v=deeper-20261121",
   "./course-menu.js?v=menu-20261113",
   "./course-menu-ui.js?v=github-20261121",
