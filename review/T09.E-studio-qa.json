@@ -1,7 +1,7 @@
 {
   "id": "T09.E",
   "duration_seconds": 81.266667,
-  "sha256": "13d55c1e224fc8924e45ce85deba10d3cf10e59d02b42ce328aefcf2a44f259a",
+  "sha256": "2ddf7239c3e67e8df0f19d3e3c8befb0ef9639d00102c39dad3e7353b3c2fb2e",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -70,5 +70,54 @@
       "start": 62.03
     }
   ],
-  "decoded_successfully": true
+  "decoded_successfully": true,
+  "legacy_sha256": "13d55c1e224fc8924e45ce85deba10d3cf10e59d02b42ce328aefcf2a44f259a",
+  "version": "four-marble-bags",
+  "compared_frames": 2438,
+  "compared_scenes": [
+    {
+      "frames": 522,
+      "worst_frame": 39,
+      "mean_max": 1.803,
+      "tile_max": 4.465,
+      "caption_max": 1.778
+    },
+    {
+      "frames": 317,
+      "worst_frame": 769,
+      "mean_max": 1.675,
+      "tile_max": 2.955,
+      "caption_max": 1.76
+    },
+    {
+      "frames": 278,
+      "worst_frame": 997,
+      "mean_max": 1.713,
+      "tile_max": 2.747,
+      "caption_max": 1.722
+    },
+    {
+      "frames": 351,
+      "worst_frame": 1268,
+      "mean_max": 1.721,
+      "tile_max": 3.976,
+      "caption_max": 1.755
+    },
+    {
+      "frames": 393,
+      "worst_frame": 1543,
+      "mean_max": 1.705,
+      "tile_max": 3.274,
+      "caption_max": 1.777
+    },
+    {
+      "frames": 577,
+      "worst_frame": 1861,
+      "mean_max": 1.781,
+      "tile_max": 4.304,
+      "caption_max": 1.754
+    }
+  ],
+  "audio_packet_sha256": "58bb074382d89076fd04947cbd99f32d6d02c602cb0ee4b1f01f36f735a52e21",
+  "art_source": "dbc177a89f7341999f550fe13f640148deeff8d9"
 }
