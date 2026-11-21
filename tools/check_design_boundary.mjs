@@ -54,7 +54,7 @@ assert(fs.readFileSync("tests.js","utf8").includes('classList.add("exam-mode")')
 // The official-style question-taking stylesheet must remain byte-for-byte frozen.
 const bytes=fs.readFileSync("exam.css");
 const blobHash=createHash("sha1")
-  .update(Buffer.from("blob "+bytes.length+"\\0"))
+  .update(Buffer.from("blob "+bytes.length+"\0"))
   .update(bytes)
   .digest("hex");
 assert.equal(blobHash,"17953e7757a605a334ea1c46c13ed7bb9ebb0338",
