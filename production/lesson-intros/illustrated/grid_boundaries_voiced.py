@@ -34,7 +34,7 @@ def label(c, text, y, colour=INK, size=29):
 class Grid:
     def __init__(self, c, w, h):
         self.c, self.w, self.h = c, w, h
-        self.step = min(91, 478 / w, 298 / h)
+        self.step = min(165 if (w,h)==(2,1) else 91, 478 / w, 298 / h)
         self.x = 343 - self.step*w/2
         self.y = 336 + self.step*h/2
 
@@ -89,38 +89,39 @@ class Grid:
 
 
 def opening(c,q):
-    title(c,'What does the question count?')
-    g=Grid(c,4,3); g.base()
-    if q.after('choose the two lines'):
-        g.vertical(0,BLUE);g.vertical(3,BLUE);label(c,'Choose 2 vertical lines',230,BLUE)
-        if q.after('pair of opposite edges'):
-            g.horizontal(0,GOLD);g.horizontal(2,GOLD)
-            g.area(0,3,0,2,AQUA);label(c,'Choose 2 horizontal lines',326,GOLD)
-            label(c,'These sides give 1 rectangle',431,AQUA,27)
-        return
-    if q.after('made from lines'):
-        g.vertical(1,BLUE);label(c,'A line',199,BLUE)
-    if q.after('spaces between the lines'):
-        g.cell(2,2,'',GOLD);label(c,'A cell',266,GOLD)
-    if q.after('where the lines meet'):
-        g.point(3,2);label(c,'A crossing',333,AQUA)
-
+    title(c,'Which stamps does the frame surround?')
+    g=Grid(c,2,1)
+    g.base()
+    g.cell(1,1,'1',BLUE)
+    g.cell(2,1,'2',GOLD)
+    if q.after('a pin at each corner'):
+        slide=q.after('slide the two right pins')
+        right=1+slide
+        g.area(0,right,0,1,AQUA)
+        for x in (0,right):
+            for y in (0,1): g.point(x,y,AQUA)
+        label(c,'4 corner pins',230,AQUA)
+    if q.after('surrounds both stamps'):
+        label(c,'1 extra cell inside',315,GOLD)
+    if q.after('top and bottom stayed still'):
+        label(c,'Only the right side moved',400,INK,26)
 
 
 def exam(c,q):
-    title(c,'Mark the object before counting')
-    g=Grid(c,5,3);g.base()
-    if q.after('one marked cell'):
+    title(c,'What should your pencil mark?')
+    g=Grid(c,4,3);g.base()
+    if q.after('required cell'):
         g.cell(2,2,'A',AQUA)
-        if q.after('avoiding another'):g.cell(4,2,'B',RED)
-        if q.after('possible boundaries'):g.area(0,3,1,3,GOLD);label(c,'Cover A and leave B out',357,GOLD)
-    elif q.after('shapes cut out'):
-        g.area(1,4,0,2,GOLD);label(c,'An outline',297,GOLD)
-    elif q.after('paths'):
-        c.line([g.pos(0,0),g.pos(2,0),g.pos(2,2),g.pos(4,2)],BLUE,6)
-        label(c,'A path along lines',297,BLUE)
-    elif q.after('intersections'):
-        g.point(2,1);label(c,'A crossing',297,AQUA)
+        if q.after('cell the frame must miss'):
+            g.cell(4,2,'B',RED);g.area(0,3,1,3,GOLD)
+            label(c,'A inside, B outside',318,GOLD)
+    elif q.after('trace four sides'):
+        g.area(1,3,1,2,GOLD)
+        if q.after('several outlines'):
+            g.area(0,1,0,1,BLUE);label(c,'One crossing, two outlines',318,INK,26)
+        g.point(1,1,AQUA)
+    elif q.after('crossings'):
+        g.point(1,1,AQUA);label(c,'Mark a point',318,AQUA)
 
 
 def easy(c,q):
@@ -225,15 +226,21 @@ def exclude(c,q):
 
 
 def mistakes(c,q):
-    title(c,'Count the outer lines and use each pair once')
-    g=Grid(c,5,1);g.base()
-    if q.after('outside boundary'):g.area(0,5,0,1,GOLD)
-    if q.after('six lines'):g.lines('x',range(6),BLUE,1);label(c,'5 cells have 6 edge lines',235,BLUE,28)
-    if q.after('left and right lines'):
-        g.vertical(1,AQUA);g.vertical(4,AQUA);g.area(1,4,0,1,AQUA)
-        label(c,'Lines 1 and 4',336,AQUA)
-    if q.after('fixes their order'):
-        label(c,'Left = 1     Right = 4',418,GOLD,29)
+    title(c,'Does touching B count as covering it?')
+    g=Grid(c,8,5);g.base();g.cell(*A,'A',AQUA);g.cell(*B,'B',RED)
+    if q.after('line four'):
+        g.lines('x',(4,),GOLD,1)
+    if q.after('ends at line five'):
+        g.lines('x',(5,),RED,1)
+    if q.after('slide the right edge'):
+        right=3+q.after('slide the right edge')+q.after('move that edge to line five')
+        g.area(1,right,2,3,AQUA,None,5)
+        if q.after('whole red cell is inside'):
+            label(c,'Right edge 5: covers B',298,RED,28)
+            label(c,'Reject this rectangle',394,RED,27)
+        elif q.after('it touches the red cell'):
+            label(c,'Right edge 4: touches B',298,GOLD,28)
+            label(c,'Keep this rectangle',394,AQUA,27)
 
 
 def transfer(c,q):
