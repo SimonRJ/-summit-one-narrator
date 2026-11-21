@@ -2,7 +2,7 @@
 
 ## 21 November 2026
 
-**100 of 185 published films have completed individual review.** The registers contain 77 of 113 published introductions and 23 of 72 teaching films, including the two earlier approvals. The remaining published work is 36 introductions and 49 teaching films.
+**101 of 185 published films have completed individual review.** The registers contain 77 of 113 published introductions and 24 of 72 teaching films, including the two earlier approvals. The remaining published work is 36 introductions and 48 teaching films.
 
 S093 is the active introduction for sessions 93, 227, 318 and 366. Its public movie has SHA-256 `f756fd38492cafd1ca5446673c767918531dbb5aeee575730b12e580f2d4a0c7`. The original easy board leaves the three routes undrawn. The medium answer 10 appears in print, while the narration ends with “Add these.” Independent enumeration gives 3, 10 and 42 routes in the three examples. On the hard grid, 18 routes enter from the left and 24 from below. The revised recording, word-timed grids, release comparison and public phone checks are pending.
 
@@ -17,6 +17,8 @@ S093 is the active introduction for sessions 93, 227, 318 and 366. Its public mo
 [T04.E is live](https://simonrj.github.io/-summit-one-narrator/watch-t04-e.html). Checked every smaller positive multiplier for 90 and 60. The respective minima are 10 and 15, each producing 900. The revised square has exactly 30 rows and 30 columns. The final comparison shows 90 missing a 2 and a 5, then 60 missing a 3 and a 5. All 3,090 final frames matched the timed artwork and captions. [Public chapter playback](https://github.com/SimonRJ/-summit-one-narrator/actions/runs/44901323796).
 
 [T05.1 is live](https://simonrj.github.io/-summit-one-narrator/watch-t05-1.html). Enumerated the six two-place podiums and three teams. Choosing three of five gives 60 role assignments or ten groups. The revised illustration shows the two orders for one pair and distinguishes 30 captain/vice-captain choices from 15 equipment teams. All 3,532 final frames matched the timed artwork and captions. [Public chapter playback](https://github.com/SimonRJ/-summit-one-narrator/actions/runs/44905041659).
+
+[T05.2 is live](https://simonrj.github.io/-summit-one-narrator/watch-t05-2.html). Enumerated the three-digit even numbers from 0 through 4 with distinct digits. The last digits 0, 2 and 4 give 12, 9 and 9 numbers. The revised branches show each allowed hundreds digit, and the final grid removes all nine repeated-digit numbers from the 90 two-digit numbers. All 3,374 final frames matched the timed artwork and captions. [Public chapter playback](https://github.com/SimonRJ/-summit-one-narrator/actions/runs/44905335641).
 
 [S088 is live](https://simonrj.github.io/-summit-one-narrator/watch-lesson-intro.html?slot=88) in sessions 88 and 171. Two rows fit the ordered clip and 240 fit the reversible pair. Enumerating all 5,040 seven-key rows confirms 960 with only the first pair touching, 480 with both touching, 960 with only the second touching, and 2,640 with neither touching. The [release comparison](https://github.com/SimonRJ/-summit-one-narrator/actions/runs/44898123544) checked all 6,122 caption frames and 525 spoken words. A second comparison checked every drawing frame. The [deployed phone checks](https://github.com/SimonRJ/-summit-one-narrator/actions/runs/44900241887) matched the reviewed movie digest and confirmed playback resumed after tapping the 92.13-second chapter in portrait and landscape in both browsers.
 
