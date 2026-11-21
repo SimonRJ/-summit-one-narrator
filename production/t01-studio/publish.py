@@ -20,6 +20,9 @@ VERSION = "t01-studio-v1"
 CHAPTER_VERSION = "studio-chapters-02-04-v1"
 COURSE_VERSION = "teaching-films-v1"
 REVIEWED_MEDIA = {
+    "T06.3": "chess-schedule",
+    "T06.2": "weighed-pairs",
+    "T06.1": "cube-edge-and-tournament",
     "T05.E": "lunch-and-outfit-grids",
     "T05.3": "recover-seat-gaps",
     "T05.2": "digit-case-branches",
