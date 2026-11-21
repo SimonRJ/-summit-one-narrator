@@ -1,0 +1,123 @@
+{
+  "id": "S071",
+  "duration_seconds": 193.5,
+  "sha256": "e0597844ff4914ec9eed5791739c1b1a50d3d8272209b46ec214b68f3a3190aa",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio_streams": 1,
+  "narration": "Approved synthetic Voice C",
+  "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "narration_speed_changed": false,
+  "caption_layers": 1,
+  "match_percent": 98.32,
+  "scenes": [
+    {
+      "number": 1,
+      "start": 0,
+      "match_percent": 100
+    },
+    {
+      "number": 2,
+      "start": 16.92,
+      "match_percent": 100
+    },
+    {
+      "number": 3,
+      "start": 34.52,
+      "match_percent": 100
+    },
+    {
+      "number": 4,
+      "start": 49.85,
+      "match_percent": 91.8
+    },
+    {
+      "number": 5,
+      "start": 62.33,
+      "match_percent": 92.86
+    },
+    {
+      "number": 6,
+      "start": 77.19,
+      "match_percent": 100
+    },
+    {
+      "number": 7,
+      "start": 92.39,
+      "match_percent": 100
+    },
+    {
+      "number": 8,
+      "start": 115.07,
+      "match_percent": 96.88
+    },
+    {
+      "number": 9,
+      "start": 140.02,
+      "match_percent": 100
+    },
+    {
+      "number": 10,
+      "start": 157.3,
+      "match_percent": 100
+    },
+    {
+      "number": 11,
+      "start": 172.98,
+      "match_percent": 100
+    }
+  ],
+  "chapters": [
+    {
+      "title": "The technique",
+      "start": 0
+    },
+    {
+      "title": "Where it shows up",
+      "start": 16.92
+    },
+    {
+      "title": "Basic example",
+      "start": 34.52
+    },
+    {
+      "title": "Medium example",
+      "start": 62.33
+    },
+    {
+      "title": "Exam-style challenge",
+      "start": 92.39
+    },
+    {
+      "title": "Common mistakes",
+      "start": 157.3
+    },
+    {
+      "title": "Exam checklist",
+      "start": 172.98
+    }
+  ],
+  "decoded_successfully": true,
+  "title": "Constraint elimination and logical deduction",
+  "seconds": 193.5,
+  "art_revision": 2,
+  "script_sha256": "0059e6480a0e7f6c5991fa2ed81cf16710bf0502c770671425be5c4b8d43d1b7",
+  "transcript": [
+    "In a deduction puzzle, each clue rules out some possibilities. Put positions and candidates in view so that you can see what a clue changes. Combine clues about the same position or person. A small forced block can determine most of the arrangement.",
+    "AMC practice may ask who finished first or which option has to be true. Build a short order diagram and mark fixed positions. A Rossmoyne style puzzle may ask for a unique arrangement. Show where the alternatives fail before checking that the survivor works.",
+    "Three people line up. Ada is not at either end. Ben stands before Ada. In what order do Ada, Ben and Chloe stand? Start with the clue that fixes an exact position.",
+    "Ada must go in position two. The only position earlier than two is position one, so Ben goes there. The final position takes Chloe. Check the order obeys both clues.",
+    "Arrange Ada, Ben, Chloe and Dylan in four positions. Ben is immediately after Ada, and Dylan is at one end. Chloe is first. What is the only order?",
+    "Chloe is first, so Dylan cannot use that end and must be fourth. The remaining two positions are two and three. Put Ada in two and Ben in three, because Ben immediately follows Ada. That fixes every name.",
+    "Five distinct paintings have numbered places one to five, with names Ada, Ben, Chloe, Dylan and Eva. Ben is immediately before Chloe, and Ada is two places before Chloe. Dylan is at one end and earlier than Ada. Eva is not in position two. Find the complete order.",
+    "The first two clues force a consecutive block in the order Ada, Ben, Chloe. Because Dylan is before the block and at an end, Dylan can only be first. The block can start in position two or three. Starting in three leaves position two for Eva, which the last clue excludes. Start at two. The final order is Dylan, Ada, Ben, Chloe and Eva.",
+    "The gap between Ada and Chloe is two places and Ben sits immediately before Chloe. Dylan is first, before Ada, and Eva is fifth. The block had just two starting positions after the end clue. One failed, so the order that passed is unique.",
+    "Immediately before means the two positions touch. Earlier than only compares order, so a gap between the names can still be allowed. Finish by checking the arrangement against the original constraints. A solution may look plausible even when it violates an exclusion.",
+    "Turn each clue into a fixed place, order or distance. Apply the strongest clues to shrink the possible positions first. If more than one case remains, write each one and identify the clue that accepts or rejects it. Verify the final survivor."
+  ],
+  "legacy_sha256": "5e4c1d79bf953e4379cbeecf4119588e302b2219dc4e62e606b3437f829d852c",
+  "audio_packet_hash": "6e4db0ef271297e50be2cc06689fd04b950d0b5ccec86d04915a723d92fe0fce",
+  "illustrated_revision": 1
+}
