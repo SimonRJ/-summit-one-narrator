@@ -1,0 +1,81 @@
+name: Record the individually explained stack heights and sight lines for S087
+on:
+  push:
+    branches: [codex/reviewed-film-work-20261119]
+    paths: ['production/scripts/S087.json', '.github/workflows/s087-corrected-passages.yml']
+permissions:
+  contents: read
+jobs:
+  record:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 48
+    strategy:
+      fail-fast: false
+      max-parallel: 5
+      matrix:
+        group: ['2','4','7','8','10','11']
+    env:
+      HF_HUB_DISABLE_XET: '1'
+      TOKENIZERS_PARALLELISM: 'false'
+      OMP_NUM_THREADS: '2'
+      MKL_NUM_THREADS: '2'
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install the pinned approved narrator
+        run: |
+          opts=(-o Acquire::Retries=2 -o Acquire::http::Timeout=15 -o Acquire::https::Timeout=15 -o Acquire::ForceIPv4=true)
+          sudo apt-get "${opts[@]}" update -qq
+          sudo apt-get "${opts[@]}" install --no-install-recommends -y ffmpeg libsndfile1
+          pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install 'transformers>=4.45,<5' 'huggingface-hub<1' einops pydantic soundfile librosa safetensors tqdm numpy scipy inflect addict argbind
+          pip install --no-deps 'git+https://github.com/OpenBMB/VoxCPM.git@300e4260b509066151d623dc9c0aa922cf82232b'
+      - name: Record the new lesson-specific passage
+        env:
+          SCENES: ${{ matrix.group }}
+        run: |
+          python - <<'PYTHON'
+          import json,os
+          with open('sequence.json','w') as f: json.dump([{'lesson':'S087','scene':int(n)} for n in os.environ['SCENES'].split(',')],f)
+          PYTHON
+          python production/t01-studio/synth.py --sequence sequence.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: s087-original-speech-${{ matrix.group }}
+          path: |
+            build/t01-studio/S087-*.wav
+            build/t01-studio/S087-*.json
+          if-no-files-found: error
+          retention-days: 14
+          compression-level: 1
+  align:
+    needs: record
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: s087-original-speech-*
+          merge-multiple: true
+          path: build/t01-studio
+      - name: Align the recording and verify every scene against the new script
+        run: |
+          opts=(-o Acquire::Retries=2 -o Acquire::http::Timeout=15 -o Acquire::https::Timeout=15 -o Acquire::ForceIPv4=true)
+          sudo apt-get "${opts[@]}" update -qq
+          sudo apt-get "${opts[@]}" install --no-install-recommends -y ffmpeg libsndfile1
+          pip install numpy soundfile num2words faster-whisper
+          python production/lesson-intros/illustrated/reuse_recorded_intro_scenes.py S087 33688070fe463a89c5194ef4bbd1230b891dc91250d11f97f968366bd846f359
+          python production/t01-studio/prepare_audio.py S087
+      - uses: actions/upload-artifact@v4
+        with:
+          name: s087-checked-voice-and-timing
+          path: build/t01-studio/S087/
+          if-no-files-found: error
+          retention-days: 30

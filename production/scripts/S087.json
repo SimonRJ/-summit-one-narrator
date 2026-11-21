@@ -1,0 +1,62 @@
+{
+  "id": "S087",
+  "title": "Unit-cube counting and layered solids",
+  "voice": "VoxCPM2 — approved Voice C",
+  "scenes": [
+    {
+      "n": 1,
+      "stage": "INTRO",
+      "narration": "A solid made of unit cubes can be described by the height of each stack. Add the heights to count cubes, even where a view hides some stacks. If you know only the views, several solids may fit. Maxima tell you how tall at least one stack must be in a row or column."
+    },
+    {
+      "n": 2,
+      "stage": "EXAM",
+      "narration": "If an AMC problem gives the height of every stack, mark the heights on a floor plan. You can count by stacks or by horizontal layers. A Rossmoyne-style puzzle might give just a front view and a side view. Then look for one stack that can explain a peak in both views."
+    },
+    {
+      "n": 3,
+      "stage": "BASIC",
+      "narration": "A solid block is four cubes wide, two deep and two high. How many unit cubes are inside it altogether? Count the cells of one layer before multiplying by the height."
+    },
+    {
+      "n": 4,
+      "stage": "EXPLANATION",
+      "narration": "Count four positions across the front and four across the back. That gives eight cubes on the bottom layer. Lift the top layer. It has the same eight positions. Eight plus eight gives sixteen cubes, including the ones the corner view hides."
+    },
+    {
+      "n": 5,
+      "stage": "MEDIUM",
+      "narration": "The heights of six stacks in two rows of three are one, three and four in the first row, and two, four and one in the second. Every stack rests on the floor. Count the cubes in all the stacks."
+    },
+    {
+      "n": 6,
+      "stage": "EXPLANATION",
+      "narration": "For every level, count one cube above each footprint cell whose stack reaches it. The level counts are six, four, three and two from the floor up. Add those counts, giving fifteen. Adding the six heights directly confirms the same total."
+    },
+    {
+      "n": 7,
+      "stage": "PUZZLE",
+      "narration": "Six nonempty stacks stand in two rows of three, with no gaps inside a stack. From the front, the three peaks read two, six, two from left to right. From the side, the front row peaks at six and the back row at two. What are the least and greatest possible totals?"
+    },
+    {
+      "n": 8,
+      "stage": "EXPLANATION",
+      "narration": "The three front-view peaks require separate stacks of two, six and two cubes. The other three stacks need at least one cube each. That gives a lower bound of thirteen. Put the six in the front middle. Put a two at the back left and a two at the front right. Fill the remaining cells with ones. Both views fit, so thirteen is attainable."
+    },
+    {
+      "n": 9,
+      "stage": "CHECK",
+      "narration": "For the maximum, every stack is capped by both its row and column. Use the smaller of those two limits at every location. That gives two, six, two in the first row and two in every position of the second. Both views still fit, so the maximum is sixteen cubes."
+    },
+    {
+      "n": 10,
+      "stage": "MISTAKES",
+      "narration": "Suppose you copy the front outline into both rows. The back middle stack would be six cubes high. Look from the side. The back row is allowed only two. Remove four cubes from that stack. The front peak stays six because the front middle stack already supplies it."
+    },
+    {
+      "n": 11,
+      "stage": "RECAP",
+      "narration": "On a new problem, draw one square for each stack. If the heights are known, count each stack once or count one floor at a time. If only the views are known, mark the peaks at the edges. For a minimum, let a stack serve two peaks where possible. For a maximum, use both height limits. Check your model from both directions."
+    }
+  ]
+}
