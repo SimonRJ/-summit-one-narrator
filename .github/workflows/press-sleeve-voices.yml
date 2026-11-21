@@ -26,6 +26,7 @@ jobs:
           persist-credentials: false
           sparse-checkout: |
             production
+            data
             media/voice-audition
       - uses: actions/setup-python@v5
         with:
