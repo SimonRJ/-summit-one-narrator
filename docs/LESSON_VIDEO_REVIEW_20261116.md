@@ -2,6 +2,8 @@
 
 ## 21 November 2026
 
+T03.3 is live. Verified the four ways to place a fifth sock after one of each colour. Enumerated all 210 choices of six distinct integers from one to ten. Each includes a pair summing to eleven. The revised recap shows all twelve months with one person each. Thirteen people force a shared month. Both phone browsers returned the reviewed movie digest and resumed after chapter taps in portrait and landscape. [Public playback evidence](https://github.com/SimonRJ/-summit-one-narrator/actions/runs/44867578276). The registers now record 74 introductions and 17 teaching films with full individual reviews, including both previously approved films. 94 of 185 published films remain open.
+
 T03.1 is live with an illustrated remainder recap and a Tuesday-to-Tuesday calendar. The [phone tests](https://github.com/SimonRJ/-summit-one-narrator/actions/runs/44867158229) checked the public movie digest, tapped the chapter controls and verified resumed playback. The final review compared all 4,089 frames, including captions, and verified identical audio packets. With 74 introductions and 16 teaching films fully reviewed, 95 of the 185 published titles remain open.
 
 The existing T02.1, T02.2 and T02.E films passed their individual reviews. Both earlier user approvals are confirmed. T02.1 now has five chapter buttons at the spoken teaching steps. All three titles resumed after real chapter-button taps in [Chrome and WebKit, portrait and landscape](https://github.com/SimonRJ/-summit-one-narrator/actions/runs/44866741582). Current full reviews cover 74 published introductions and 15 teaching films, including both earlier approvals. Of 185 published films, 96 remain open. The review identified overlapping recap labels in T03.1.
