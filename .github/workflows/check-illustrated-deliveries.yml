@@ -1,0 +1,45 @@
+name: Compare published illustrations and caption frames
+on:
+  push:
+    branches: [codex/reviewed-film-work-20261119]
+    paths: ['.github/workflows/check-illustrated-deliveries.yml']
+permissions:
+  contents: read
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { id: S069, module: festival_teams }
+          - { id: S071, module: gallery_order }
+          - { id: S072, module: silhouette_stacks }
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install the film comparison tools
+        run: |
+          python production/lesson-intros/illustrated/install_media_tools.py
+          pip install numpy
+      - name: Compare the release with its timed artwork and original recording
+        env:
+          FILM: ${{ matrix.id }}
+          MODULE: ${{ matrix.module }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p build/verification
+          gh release download lesson-introductions -p "$FILM-Intro.mp4" -p "$FILM-Intro-Illustrated.mp4" -D build/verification
+          python production/lesson-intros/illustrated/check_encoded_timeline.py "$MODULE" \
+            "build/verification/$FILM-Intro.mp4" "build/verification/$FILM-Intro-Illustrated.mp4" \
+            --report "build/verification/$FILM.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: timeline-${{ matrix.id }}
+          path: build/verification/*.json
+          if-no-files-found: error
