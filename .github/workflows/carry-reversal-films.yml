@@ -9,7 +9,7 @@ permissions:
   actions: read
 concurrency:
   group: carry-reversal-films
-  cancel-in-progress: false
+  cancel-in-progress: true
 jobs:
   draw:
     strategy:

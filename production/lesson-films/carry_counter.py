@@ -60,6 +60,7 @@ def draw(a,n,t):
             counter(a,mix(492+i*55,cx,f),mix(172,322,f))
         equation(a,'3 + 3 = 6',t.reveal('Three on this tray'))
     elif n==2:
+        a.text('A5 + A5 = 7B',640,160,40,INK,bold=True)
         tray(a,94,205,495,248,'TENS')
         tray(a,693,205,495,248,'UNITS')
         gather=t.reveal('All ten fit',1.3)
