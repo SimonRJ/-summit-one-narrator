@@ -28,7 +28,7 @@ The continuation contains 912 new questions with hints and protected worked solu
 | S090 | Unfold the box in your head | [S090](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S090-Intro-Illustrated.mp4) · Its own introduction | A light open crate | 5 |
 | S092 | Put back the total behind the mean | [S092](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S092-Intro-Illustrated.mp4) · Its own introduction | Damaged logbook | 6 |
 | S093 | Add the ways into a point | [S093](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S093-Intro-Illustrated.mp4) · Its own introduction | Two loading bays | 5 |
-| S094 | Build a rectangle from four choices | [S094](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S094-Intro.mp4) · Its own introduction | Add a vertical line | 6 |
+| S094 | Build a rectangle from four choices | [S094](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S094-Intro-Illustrated.mp4) · Its own introduction | Add a vertical line | 6 |
 | S095 | Use both clues at once | [S095](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S095-Intro.mp4) · Its own introduction | The changed lead | 6 |
 | S097 | Let the first uncovered cell decide | [S097](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S097-Intro.mp4) · Its own introduction | An odd panel with an extension | 6 |
 | S099 | Test the speaker and the claim together | [S099](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S099-Intro.mp4) · Its own introduction | Who called whom truthful? | 6 |
@@ -117,7 +117,7 @@ The continuation contains 912 new questions with hints and protected worked solu
 | S205 | Keep occurrences separate from labels | [S146](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S146-Intro.mp4) · Technique film | Lost ink total | 6 |
 | S206 | Weight a fraction by the number behind it | [S115](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S115-Intro.mp4) · Technique film | How many voted? | 6 |
 | S207 | Change the multiplier, keep track of the terms | [S116](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S116-Intro.mp4) · Technique film | A branching budget | 6 |
-| S209 | Count an outline by its size | [S094](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S094-Intro.mp4) · Technique film | Adjoining display windows | 6 |
+| S209 | Count an outline by its size | [S094](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S094-Intro-Illustrated.mp4) · Technique film | Adjoining display windows | 6 |
 | S211 | Match a repeated component | [S095](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S095-Intro.mp4) · Technique film | A new hamper | 6 |
 | S213 | Look for the turning point | [S122](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S122-Intro.mp4) · Technique film | The display must be wider | 6 |
 | S214 | Split numbers to compare products | [S123](https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S123-Intro.mp4) · Technique film | Invisible centre | 5 |

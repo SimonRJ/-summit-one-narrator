@@ -179,7 +179,7 @@ async function boot(){
     if(!user){location.href="login.html";return}
     const introCatalogue=loadIntroductionCatalogue();
     const [c,t,m,h,tax,ms,lm,rl,later]=await Promise.all([fetch("data/sessions-372.json").then(r=>r.json()),fetch("data/teaching-72.json").then(r=>r.json()),fetch("data/mawa-investigations-20.json?v=mawa-visits-20261121").then(r=>r.json()),fetch("data/rossmoyne-h23.json").then(r=>r.json()),fetch("data/taxonomy-52.json").then(r=>r.json()),fetch("data/milestones.json").then(r=>r.json()),fetch("data/lesson-challenges.json?v=upper-primary-audit-20261114").then(r=>r.json()),fetch("data/read-watch-practise.json?v=investigations-films-20261121-r2").then(r=>{if(!r.ok)throw Error("Lesson text could not be loaded");return r.json()}),
-      fetch("data/read-watch-practise-later.json?v=recorded-studies-20261121").then(r=>{
+      fetch("data/read-watch-practise-later.json?v=illustrations-94").then(r=>{
         if(!r.ok)throw Error("The later lesson text could not be loaded");
         return r.json();
       })]);
