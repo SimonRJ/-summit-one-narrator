@@ -2,10 +2,10 @@ name: Teaching behavior checks
 on:
   pull_request:
     branches: [main]
-    paths: ['*.js', '*.html', '*.css', 'data/**', 'tools/browser_lesson_fixed.py', 'tools/check_learning.mjs', 'tools/content/**', 'tools/video/**', 'production/scripts/**', '.github/workflows/teaching-checks.yml']
+    paths: ['*.js', '*.html', '*.css', 'data/**', 'tools/browser_lesson_fixed.py', 'tools/check_iphone_webkit.py', 'tools/check_learning.mjs', 'tools/check_model_claims.mjs', 'tools/check_example_methods.mjs', 'tools/check_lesson_models.mjs', 'tools/content/**', 'tools/video/**', 'production/scripts/**', '.github/workflows/teaching-checks.yml']
   push:
     branches: [recognition-coverage-20261113, main, rebuild-exam-centres-20261112, draft/teaching-audit-2026-11-11]
-    paths: ['*.js', '*.html', '*.css', 'data/**', 'tools/browser_checks.py', 'tools/browser_lesson_fixed.py', 'tools/check_learning.mjs', 'tools/content/**', 'tools/video/**', 'production/scripts/**', '.github/workflows/teaching-checks.yml']
+    paths: ['*.js', '*.html', '*.css', 'data/**', 'tools/browser_checks.py', 'tools/browser_lesson_fixed.py', 'tools/check_iphone_webkit.py', 'tools/check_learning.mjs', 'tools/check_model_claims.mjs', 'tools/check_example_methods.mjs', 'tools/check_lesson_models.mjs', 'tools/content/**', 'tools/video/**', 'production/scripts/**', '.github/workflows/teaching-checks.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -21,6 +21,9 @@ jobs:
         with:
           python-version: '3.12'
       - run: node tools/check_learning.mjs
+      - run: node tools/check_model_claims.mjs
+      - run: node tools/check_example_methods.mjs
+      - run: python -m unittest discover -s tools/content/reviewer_benchmark
       - run: python tools/content/check_original_lessons.py
       - run: python tools/content/audit_all_lessons.py
       - run: python tools/content/check_curated_batch2.py
@@ -30,6 +33,10 @@ jobs:
       - run: python tools/video/build_scripts.py --check
       - run: pip install playwright==1.58.0
       - run: google-chrome --version
+      - name: Exercise model controls and claim evidence in Chromium
+        run: |
+          npm install --prefix "$RUNNER_TEMP/amc-browser" --no-save playwright@1.58.0
+          NODE_PATH="$RUNNER_TEMP/amc-browser/node_modules" CHROMIUM_PATH="$(command -v google-chrome)" node tools/check_lesson_models.mjs
       - name: Browser behavior and responsive layout
         run: |
           python -m http.server 8765 > /tmp/server.log 2>&1 &
@@ -39,3 +46,24 @@ jobs:
         with:
           name: teaching-screenshots
           path: docs/*-*.png
+  iphone-webkit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install playwright==1.58.0
+      - run: python -m playwright install --with-deps webkit
+      - name: iPhone touch interactions and lesson resume
+        run: |
+          python -m http.server 8765 --bind 127.0.0.1 > /tmp/iphone-lesson-server.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid"' EXIT
+          python tools/check_iphone_webkit.py
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: iphone-webkit-failure
+          path: qa-screenshots/iphone-webkit/
+          if-no-files-found: ignore

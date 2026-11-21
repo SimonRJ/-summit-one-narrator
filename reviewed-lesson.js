@@ -1,4 +1,5 @@
-import {mountLessonModel} from './lesson-models.js?v=guided-20261121';
+import {exampleMethods} from './example-methods.js?v=reasoning-20261121';
+import {mountLessonModel} from './lesson-models.js?v=reasoning-20261121';
 // The published lesson text and hints are public. Answers and worked solutions are
 // versioned in content_problems and are requested only through the signed-in learner.
 export const edition='read-watch-practise-1';
@@ -9,6 +10,12 @@ export function readCard(lesson) {
  const figure = example.figure
   ? `<img class="rwl-opening-figure" src="${escape(example.figure.src)}" alt="${escape(example.figure.alt)}">`
   : '';
+ const alternative = exampleMethods.get(example.prompt);
+ const secondMethod = alternative ? `<details class="rwl-second-method">
+  <summary>Another way — ${escape(alternative.method)}</summary>
+  <p class="math-copy">${escape(alternative.working)}</p>
+  <p class="math-copy">${escape(alternative.comparison)}</p>
+ </details>` : '';
  const steps = example.steps.map(step => `<li class="math-copy">${escape(step)}</li>`).join('');
  return `<article class="rwl-copy">
   <div class="eyebrow">THE IDEA</div>
@@ -26,6 +33,7 @@ export function readCard(lesson) {
    <details name="${group}" class="rwl-full-example">
     <summary>Show all steps</summary>
     <ol>${steps}</ol>
+    ${secondMethod}
    </details>
   </section>
   <div data-lesson-model></div>

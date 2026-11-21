@@ -1,0 +1,10 @@
+{
+  "M14": {"verdict": "unclear", "reason": "Using only named corners gives two triangles. Counting every drawn triangle gives three, since the diagonals cross at a possible third vertex. The question needs to specify which vertices count."},
+  "M23": {"verdict": "ready", "reason": "Unit cubes force whole-number heights. Heights 1 through 6 all stay hidden, including a far column as tall as the near one."},
+  "M35": {"verdict": "ready", "reason": "The adjacency question has 2 × 5! = 240 arrangements. For one runner between the pair, there are 4 choices of the earlier position, 2 orders of the pair and 4! orders of the other runners, giving 192. The gap condition changes the counting argument."},
+  "M46": {"verdict": "incorrect", "reason": "Two counters of each colour are six with no triple. The seventh counter guarantees a triple, since at most six can be drawn with every colour appearing at most twice."},
+  "M52": {"verdict": "unclear", "reason": "The far post may be 4.5 cm high, for example. The continuous interval of possible heights is greater than 0 and at most 5 cm. Five answers require whole centimetres or a construction that enforces that constraint."},
+  "M67": {"verdict": "ready", "reason": "The side fixes two pegs. Each of the three remaining pegs gives a distinct nondegenerate triangle. The explicit condition excludes intersections as vertices."},
+  "M71": {"verdict": "repeat", "reason": "Renaming A, B, C, D as W, X, Y, Z preserves both clues, the possible orders and the quantity requested. Both allow three orders."},
+  "M89": {"verdict": "ready", "reason": "Adding 3 and subtracting 6 both preserve the remainder modulo 3. The difference 50 − 4 = 46 is not divisible by 3."}
+}

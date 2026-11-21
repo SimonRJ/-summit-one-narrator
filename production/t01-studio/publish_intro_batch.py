@@ -27,9 +27,9 @@ def html_document(title, body, *, player=False, model_slot=None):
     script = f'<script defer src="lesson-introduction-watch.js?v={VERSION}"></script>' if player else ""
     if model_slot is not None:
         script += f"""
-<link rel="stylesheet" href="lesson-models.css?v=guided-20261121">
+<link rel="stylesheet" href="lesson-models.css?v=reasoning-20261121">
 <script type="module">
-import {{mountLessonModel}} from './lesson-models.js?v=guided-20261121';
+import {{mountLessonModel}} from './lesson-models.js?v=reasoning-20261121';
 mountLessonModel(document.getElementById('lessonModel'), {{slot: {int(model_slot)}}});
 </script>"""
     return f'''<!doctype html>

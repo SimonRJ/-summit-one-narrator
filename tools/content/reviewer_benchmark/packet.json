@@ -1,0 +1,37 @@
+{
+  "instructions": "Review each case for an upper-primary competition learner. Use 'unclear' if the question leaves a counting convention, domain or other essential condition unstated. Use 'incorrect' if the mathematical claim is false under clearly stated conditions. For paired questions use 'repeat' if the supposed new challenge only relabels the same task. Otherwise use 'ready'. Judge each case independently. Return one JSON object keyed by the case IDs. Each value must have a 'verdict' and a short 'reason' with mathematical evidence, such as a counterexample or an explanation of what changed. No other files are part of this review.",
+  "cases": [
+    {
+      "id": "M14",
+      "material": "A rectangle is drawn with both diagonals. Only its four corners are named. How many triangles have the whole bottom edge as a side? The answer key says two."
+    },
+    {
+      "id": "M23",
+      "material": "Two nonempty vertical columns of identical unit cubes stand directly one behind the other on a level base. Viewed head-on, the near column is six cubes high and hides the far column completely. How many different heights can the far column have? The answer key says six."
+    },
+    {
+      "id": "M35",
+      "material": "Earlier practice: Six different runners line up. In how many orders are Ada and Bo next to each other? New challenge: Six different runners line up. In how many orders is there exactly one runner between Ada and Bo?"
+    },
+    {
+      "id": "M46",
+      "material": "A bag contains red, blue and green counters, with at least four of each colour. What is the fewest number of counters you must take without looking to guarantee three of the same colour? Proposed solution: Six counters are enough. With only three colours, one of the colours must already have appeared three times."
+    },
+    {
+      "id": "M52",
+      "material": "Two solid posts of equal width stand directly one behind the other on a level floor. The near post is five centimetres high. Looking straight on, the near post hides the far post completely. How many different positive heights could the far post have? The answer key says five."
+    },
+    {
+      "id": "M67",
+      "material": "Five pegs stand at the corners of a regular pentagon. A triangle must use exactly three of the five pegs as its vertices. How many such triangles have one particular side of the pentagon as a side? Proposed solution: Its two endpoints are fixed. Each of the other three pegs makes a different triangle, giving three."
+    },
+    {
+      "id": "M71",
+      "material": "Earlier practice: Four talks A, B, C and D fill four time slots. A is before B. C is immediately before D. How many running orders are possible? New challenge: Four races W, X, Y and Z fill four time slots. W is before X. Y is immediately before Z. How many running orders are possible?"
+    },
+    {
+      "id": "M89",
+      "material": "A machine starts at 4. Each move either adds 3 or subtracts 6. Could its display ever show 50? Proposed solution: Every move preserves the remainder on division by 3. The starting remainder is 1 and the target remainder is 2, so 50 cannot be reached."
+    }
+  ]
+}

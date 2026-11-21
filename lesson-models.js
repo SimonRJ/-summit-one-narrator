@@ -1,3 +1,5 @@
+import { modelClaims, mountClaimChallenge } from './model-claims.js?v=reasoning-20261121';
+
 // Each investigation is a separate worked example. It never reads or records a learner's answers.
 const investigations = [
   { skill: 'SOLID-01', slots: [6, 72, 87, 163, 254, 286, 345], title: 'Explore cube layers and views', build: buildStacks },
@@ -18,7 +20,8 @@ export function mountLessonModel(container, lesson) {
   body.className = 'lesson-model-body';
   details.append(summary, body);
   container.append(details);
-  model.build(body);
+  const readExample = model.build(body);
+  mountClaimChallenge(body, modelClaims[model.skill], readExample, model.slots.indexOf(lesson.slot));
   return true;
 }
 
@@ -40,6 +43,7 @@ function label(x, y, value, className = 'lm-caption', anchor = 'middle') {
 }
 
 function connectControls(body, draw) {
+  let example;
   const update = () => {
     const state = {};
     for (const control of body.querySelectorAll('[data-key]')) {
@@ -47,17 +51,18 @@ function connectControls(body, draw) {
       const display = body.querySelector(`[data-value="${control.dataset.key}"]`);
       if (display) display.textContent = control.value;
     }
-    draw(state, body.querySelector('.lm-drawing'), body.querySelector('.lm-result'));
+    example = draw(state, body.querySelector('.lm-drawing'), body.querySelector('.lm-result'));
   };
-  body.addEventListener('input', update);
+  body.querySelector('.lm-controls').addEventListener('input', update);
   update();
+  return () => example;
 }
 
 function buildStacks(body) {
   body.innerHTML = `<p>Look from the front of this four-stack building. Predict how tall the back-left stack must grow before the outline changes. On the plan, the numbers are heights. Shading marks stacks that reach your chosen layer.</p>
     <div class="lm-controls">${slider('Back-left stack height', 'height', 1, 5)}${slider('Layer to inspect', 'layer', 2, 5)}<label>View<select data-key="side"><option value="0">From the front</option><option value="1">From the right</option></select></label></div>${outputArea()}`;
 
-  connectControls(body, ({ height, layer, side }, canvas, result) => {
+  return connectControls(body, ({ height, layer, side }, canvas, result) => {
     // Each row in the plan runs from left to right. The back row is drawn first.
     const back = [height, 4];
     const front = [3, 2];
@@ -84,6 +89,8 @@ function buildStacks(body) {
     canvas.innerHTML = graphic(280, 137, description, plan + elevation);
     const locations = words.filter((word, i) => stacks[i] >= layer).join(', ');
     result.textContent = `The ${side ? 'right-side' : 'front'} outline shows ${outline[0]} cubes (${sides[0]}) and ${outline[1]} (${sides[1]}). Layer ${layer} has ${occupied} of the four positions filled${occupied ? ' (' + locations + ')' : ''}. The full building has ${stacks.reduce((sum, h) => sum + h, 0)} cubes.`;
+    return { height, rightHeight: Math.max(front[1], back[1]),
+      second: stacks.filter(h => h >= 2).length, third: stacks.filter(h => h >= 3).length };
   });
 }
 
@@ -108,7 +115,7 @@ function buildRectangles(body) {
     ${slider('Outline to inspect', 'frame', 1, 12)}</div>${outputArea()}`;
   const control = body.querySelector('[data-key="frame"]');
   let lastCell = null;
-  connectControls(body, ({ cell }, canvas, result) => {
+  return connectControls(body, ({ cell }, canvas, result) => {
     const column = cell % 4;
     const row = Math.floor(cell / 4);
     const frames = framesAround(column, row);
@@ -134,6 +141,9 @@ function buildRectangles(body) {
     const description = `A four-column, three-row grid. The marked cell is ${cellName}. The outline runs from cell ${lowCell} at the bottom left to cell ${highCell} at the top right.`;
     canvas.innerHTML = graphic(280, 143, description, drawing);
     result.textContent = `For ${cellName}, there are ${column + 1} left, ${4 - column} right, ${row + 1} bottom and ${3 - row} top edge choices. That makes ${column + 1} × ${4 - column} × ${row + 1} × ${3 - row} = ${frames.length} rectangles. This outline spans cells ${lowCell} to ${highCell}.`;
+    const partner = columns[3-column] + (3-row);
+    return { cell: cellName, frame: number, width: right-left, height: top-bottom, count: frames.length,
+      partner, partnerCount: framesAround(3-column, 2-row).length };
   });
 }
 
@@ -141,7 +151,7 @@ function buildFencing(body) {
   body.innerHTML = `<p>You have 24 metres of fencing. Predict the depth that gives the largest area, then move the fence to test your idea. Try again with a wall along the back.</p>
     <div class="lm-controls"><label>Boundary<select data-key="wall"><option value="0">Fence on all four sides</option><option value="1">Wall along the back</option></select></label>
     ${slider('Depth in metres', 'depth', 2, 11)}</div>${outputArea()}`;
-  connectControls(body, ({ wall, depth }, canvas, result) => {
+  return connectControls(body, ({ wall, depth }, canvas, result) => {
     const width = wall ? 24 - 2 * depth : 12 - depth;
     const area = width * depth;
     // Equal units on both axes, with a 1 m grid clipped by the pen endpoints.
@@ -158,5 +168,6 @@ function buildFencing(body) {
     canvas.innerHTML = graphic(280, 144, description, drawing);
     const fence = wall ? `${width} + 2 × ${depth}` : `2 × ${width} + 2 × ${depth}`;
     result.textContent = `${wall ? 'The dashed back wall uses no fencing. ' : ''}The fence measures ${fence} = 24 m. The area is ${width} × ${depth} = ${area} m².`;
+    return { wall, width, depth, closedWidth: 12-depth, wallWidth: 24-2*depth };
   });
 }

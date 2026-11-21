@@ -10,6 +10,7 @@ const lessons = manifests.flatMap(json => JSON.parse(json).lessons.map(({slot, s
 const fixture = '<meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/lesson-models.css"><main></main>';
 const resources = {
   '/': [fixture, 'text/html'],
+  '/model-claims.js': [await read('model-claims.js'), 'text/javascript'],
   '/lesson-models.js': [await read('lesson-models.js'), 'text/javascript'],
   '/lesson-models.css': [await read('lesson-models.css'), 'text/css'],
 };
@@ -30,10 +31,10 @@ try {
   assert.deepEqual(actual, [6,17,53,72,82,85,87,94,118,122,163,213,254,286,345,359,370]);
   const open = async slot => {
     await page.evaluate(lesson => window.showModel(lesson), lessons.find(lesson => lesson.slot === slot));
-    assert.equal(await page.locator('details').getAttribute('open'), null);
-    await page.locator('summary').focus();
+    assert.equal(await page.locator('.lesson-model').getAttribute('open'), null);
+    await page.locator('.lesson-model > summary').focus();
     await page.keyboard.press('Enter');
-    assert.equal(await page.locator('details').getAttribute('open'), '');
+    assert.equal(await page.locator('.lesson-model').getAttribute('open'), '');
   };
   await open(87);
   const slider = page.locator('[data-key=height]');
@@ -55,8 +56,8 @@ try {
       const first = cubes.filter(c => side ? c.row === 1 : c.col === 0);
       const other = cubes.filter(c => side ? c.row === 0 : c.col === 1);
       const visible = [first,other].map(column => new Set(column.map(c => c.z)).size);
-      const summary = document.querySelector('[role=status]').textContent;
-      const drawing = document.querySelector('svg');
+      const summary = document.querySelector('.lm-result').textContent;
+      const drawing = document.querySelector('.lm-drawing svg');
       const drawnCubes = [...drawing.querySelectorAll('rect')].slice(4);
       if (!summary.includes(`Layer ${level} has ${occupied}`) || !summary.includes(`${cubes.length} cubes.`) ||
           !drawing.getAttribute('aria-label').includes(`shows ${visible.join(' and ')}`) ||
@@ -105,7 +106,7 @@ try {
       const candidateWidths = Array.from({length:24}, (_,j)=>j+1).filter(w =>
         2*depth + (wall ? w : 2*w) === 24);
       const [width] = candidateWidths;
-      const text = document.querySelector('[role=status]').textContent;
+      const text = document.querySelector('.lm-result').textContent;
       const grid = document.querySelector('.lm-pen');
       if(candidateWidths.length!==1 || !text.includes(`= ${width*depth} m²`) ||
          grid.width.baseVal.value !== 9*width || grid.height.baseVal.value !== 9*depth ||
@@ -115,21 +116,65 @@ try {
     return checked;
   });
   assert.equal(fences,22);
+  // Use the learner controls so the example, classification and graph share the same live state.
+  await open(6);
+  const challenge = page.locator('.lm-claims');
+  const openChallenge = async () => {
+    assert.equal(await challenge.getAttribute('open'), null);
+    await challenge.locator(':scope > summary').press('Enter');
+    assert.equal(await challenge.getAttribute('open'), '');
+  };
+  await openChallenge();
+  const saveCase = challenge.getByRole('button', {name: 'Use this example'});
+  const cases = challenge.locator('.lm-cases li');
+  const verdict = challenge.getByRole('status', {includeHidden: true});
+  const sometimes = challenge.getByRole('button', {name: 'Sometimes', exact: true});
+  await sometimes.press('Enter');
+  assert.match(await verdict.innerText(), /example.*counterexample/i);
+  await saveCase.press('Space');
+  assert.equal(await cases.count(), 1);
+  assert.match(await cases.first().innerText(), /Claim holds.*Back left: 1/s);
+  // Saving a different supporting example replaces the first one; it cannot count as a counterexample.
+  await slider.press('ArrowRight');
+  await slider.press('ArrowRight');
+  await saveCase.press('Enter');
+  assert.equal(await cases.count(), 1);
+  assert.match(await cases.first().innerText(), /Claim holds.*Back left: 3/s);
+  await slider.press('ArrowRight');
+  await saveCase.press('Enter');
+  assert.equal(await cases.count(), 2);
+  assert.match(await cases.last().innerText(), /Counterexample.*Back left: 4/s);
+  await sometimes.press('Enter');
+  assert.match(await verdict.innerText(), /^Sometimes\./);
+
+  await challenge.getByRole('combobox').selectOption({label: 'The right column'});
+  assert.equal(await cases.count(), 0);
+  assert.equal(await verdict.innerText(), '');
+  await challenge.getByRole('button', {name: 'Never', exact: true}).press('Enter');
+  assert.match(await verdict.innerText(), /right column/i);
+  await challenge.getByRole('button', {name: 'Always', exact: true}).press('Enter');
+  assert.match(await verdict.innerText(), /^Always\./);
+
   for (const width of [320,390,768]) {
     await page.setViewportSize({width,height:716});
-    for(const slot of [87,17,85]){
+    for (const slot of [87,17,85]) {
       await open(slot);
-      assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth),true);
-      assert.equal(await page.evaluate(() => [...document.querySelectorAll('summary,input,select')].every(el =>
-        el.getBoundingClientRect().height >= 44 && el.labels?.length !== 0)),true);
+      await openChallenge();
+      await saveCase.click();
+      assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
+      assert.equal(await page.evaluate(() => [...document.querySelectorAll('summary,input,select,button')].every(el => {
+        const box = el.getBoundingClientRect();
+        const labelled = el.matches('input,select') ? el.labels.length > 0 : Boolean(el.textContent.trim());
+        return box.height >= 44 && box.left >= 0 && box.right <= innerWidth && labelled;
+      })), true);
     }
   }
   assert.equal(await page.evaluate(() => {
-    if (!window.showModel({slot:87}) || !document.querySelector('details')) return false;
+    if (!window.showModel({slot:87}) || !document.querySelector('.lesson-model')) return false;
     const result = window.showModel({slot:87,skill:'different'});
     return result === false && !document.querySelector('main').firstChild;
   }),true);
-  console.log('Passed 17 course mappings, 50 stack views, 200 grid outlines, 22 fencing configurations, keyboard controls and three viewport widths.');
+  console.log('Passed 17 course mappings, 50 stack views, 200 grid outlines, 22 fencing configurations, claim evidence and reset, keyboard controls and three viewport widths.');
 } finally {
   await browser.close();
 }
