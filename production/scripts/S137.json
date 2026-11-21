@@ -1,0 +1,55 @@
+{
+  "id": "S137",
+  "title": "Digit detectives",
+  "voice": "VoxCPM2 — approved Voice C",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "The moving digits",
+      "stage": "INTRO",
+      "narration": "A train ticket reads seventy three. Turn its two digit cards around and it reads thirty seven. The same two digits are still here. Why did the value change by thirty six?"
+    },
+    {
+      "n": 2,
+      "title": "The exchange",
+      "stage": "WORK",
+      "narration": "The seven loses nine groups of itself when it moves from tens to ones. The three gains nine groups of itself on the return trip. The net loss is nine times four, which is thirty six."
+    },
+    {
+      "n": 3,
+      "title": "Two clues for one ticket",
+      "stage": "PUZZLE",
+      "narration": "Here is another ticket. Its digits add to eleven. Its number exceeds its reverse by twenty seven. Before trying numbers, what do those clues tell you about the two digits?"
+    },
+    {
+      "n": 4,
+      "title": "Finding the pair",
+      "stage": "WORK",
+      "narration": "Twenty seven is nine times three, so the tens digit is three larger. Set those three aside from the total of eleven. The remaining eight splits equally. The digits are seven and four. Seventy four minus forty seven really is twenty seven."
+    },
+    {
+      "n": 5,
+      "title": "A three-digit lock",
+      "stage": "PUZZLE",
+      "narration": "A three digit code exceeds its reverse by three hundred and ninety six. The middle digit is twice the last digit. All three digits add to sixteen. Which code opens the lock?"
+    },
+    {
+      "n": 6,
+      "title": "The unmoving column",
+      "stage": "WORK",
+      "narration": "The middle digit stays in the tens column. Subtracting cancels it. Each unit of difference between the outside digits changes the number by ninety nine. Three hundred and ninety six is four groups of ninety nine. The first digit is four larger than the last."
+    },
+    {
+      "n": 7,
+      "title": "Four equal parts",
+      "stage": "WORK",
+      "narration": "Call the last digit one part. The middle takes two parts. The first takes one part and four extra. Remove four from sixteen. Four equal parts share twelve, so the last digit is three. The code is seven, six, three."
+    },
+    {
+      "n": 8,
+      "title": "Check the lock",
+      "stage": "RECAP",
+      "narration": "Seven hundred and sixty three minus three hundred and sixty seven is three hundred and ninety six. The middle digit cancels in the subtraction, but still counts in the digit sum. In a new digit puzzle, track which positions change and which clues still use every digit."
+    }
+  ]
+}

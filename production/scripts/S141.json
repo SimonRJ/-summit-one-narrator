@@ -1,0 +1,55 @@
+{
+  "id": "S141",
+  "title": "Where the bars begin",
+  "voice": "VoxCPM2 — approved Voice C",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "Two heights in a creek",
+      "stage": "INTRO",
+      "narration": "These creek readings look dramatic. One blue bar seems twice as tall as the other. Before deciding that the water is twice as deep, read the number at the bottom of the scale."
+    },
+    {
+      "n": 2,
+      "title": "Restore the waterline",
+      "stage": "WORK",
+      "narration": "The axis starts at thirty centimetres. The water was thirty six centimetres deep on Monday and forty two on Tuesday. The rise is six centimetres. Restoring the missing thirty shows why twice the visible height is only seven sixths of the original depth."
+    },
+    {
+      "n": 3,
+      "title": "A different scale",
+      "stage": "PUZZLE",
+      "narration": "Two tanks are shown on a second chart. The bottom line means twelve litres. Every interval adds two litres. One bar rises three intervals and the other rises seven. What is the ratio of the fuller tank to the other?"
+    },
+    {
+      "n": 4,
+      "title": "Build the readings",
+      "stage": "WORK",
+      "narration": "Three intervals add six litres, so the smaller tank contains eighteen. Seven intervals add fourteen litres, so the larger one contains twenty six. Twenty six to eighteen simplifies to thirteen to nine. Seven to three compares the visible pieces alone."
+    },
+    {
+      "n": 5,
+      "title": "The erased label",
+      "stage": "PUZZLE",
+      "narration": "The bottom label has rubbed off a chart. The values at the tops are thirty six and forty eight. The longer bar looks exactly three times as tall as the shorter bar. What number was on the bottom line?"
+    },
+    {
+      "n": 6,
+      "title": "Use the difference",
+      "stage": "WORK",
+      "narration": "Imagine sliding the short bar beside the long one. Their tops are twelve units apart. That gap is two short bars, because the long bar contains three of them. Each short bar therefore represents six units."
+    },
+    {
+      "n": 7,
+      "title": "Put the label back",
+      "stage": "WORK",
+      "narration": "The shorter bar ends at thirty six. Step down six and the erased label must be thirty. Check the long bar. Forty eight minus thirty gives eighteen, which is exactly three times six."
+    },
+    {
+      "n": 8,
+      "title": "What survives cropping?",
+      "stage": "RECAP",
+      "narration": "Cropping the same amount from two bars preserves the difference between their tops. A ratio uses the whole readings. On an unfamiliar chart, write the baseline and tick interval before trusting what your eye sees."
+    }
+  ]
+}

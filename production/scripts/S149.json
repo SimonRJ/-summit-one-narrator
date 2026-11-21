@@ -1,0 +1,55 @@
+{
+  "id": "S149",
+  "title": "How far can the apex travel?",
+  "voice": "VoxCPM2 — approved Voice C",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "A sliding tent peg",
+      "stage": "INTRO",
+      "narration": "Imagine sliding the top corner of a triangular sail sideways along a horizontal rail. The sail can look taller or more slanted. Can its area change while the base and the rail stay fixed?"
+    },
+    {
+      "n": 2,
+      "title": "A perpendicular ruler",
+      "stage": "WORK",
+      "narration": "The base is six centimetres long. The rail is four centimetres above it, measured at a right angle. Half of six times four is twelve. The sloping side grows as the peg travels, but the perpendicular height stays four, even beyond the end of the base."
+    },
+    {
+      "n": 3,
+      "title": "Two plots, one fence",
+      "stage": "PUZZLE",
+      "narration": "A triangular field has a fence nine metres long along its base. A gate splits the fence into lengths four and five. Paths from the opposite corner divide the field into two triangles. The whole field is thirty six square metres. Find the area beside the longer fence."
+    },
+    {
+      "n": 4,
+      "title": "Share by base length",
+      "stage": "WORK",
+      "narration": "Both triangles reach the same perpendicular height. Their areas are in the ratio four to five. Nine equal parts share thirty six square metres, so each part is four. The longer fence belongs to five parts, or twenty square metres."
+    },
+    {
+      "n": 5,
+      "title": "A point inside the rectangle",
+      "stage": "PUZZLE",
+      "narration": "A rectangle is twelve metres wide and eight metres high. Pick any point inside it and draw a line to each corner. The triangle along the bottom has an area of eighteen square metres. What is the area of the triangle along the top?"
+    },
+    {
+      "n": 6,
+      "title": "Pair the opposite sides",
+      "stage": "WORK",
+      "narration": "The top and bottom triangles each use a base of twelve. Their two perpendicular heights add to eight, however far sideways the point moves. Together their areas are half of twelve times eight, or forty eight square metres."
+    },
+    {
+      "n": 7,
+      "title": "Check with a second route",
+      "stage": "WORK",
+      "narration": "Subtract the bottom area of eighteen. The top area is thirty. To check, the bottom height must be three metres, since half of twelve times three is eighteen. The height left for the top is five, giving thirty again."
+    },
+    {
+      "n": 8,
+      "title": "What to mark first",
+      "stage": "RECAP",
+      "narration": "Mark the base and draw the height at a right angle, extending the base line when necessary. Triangles with a shared height divide area in the ratio of their bases. Equal parallel bases can be paired by adding their heights."
+    }
+  ]
+}
