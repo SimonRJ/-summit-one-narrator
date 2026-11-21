@@ -1,0 +1,28 @@
+name: Verify and assemble the rung routes master
+on:
+  push:
+    branches: [codex/film-transport-s157-20261121]
+    paths: ['production/transport/rung-routes/**']
+permissions:
+  contents: write
+jobs:
+  assemble:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            production/transport/rung-routes
+            media
+      - name: Assemble verified master
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat production/transport/rung-routes/part-* > media/S157-Intro-Rung-Routes.mp4
+          echo "c66cf9456ab8018712d3231902e5e06310e2ca0eaa1754e6803f23e10ed0770c  media/S157-Intro-Rung-Routes.mp4" | sha256sum -c -
+          test "$(git hash-object media/S157-Intro-Rung-Routes.mp4)" = 14124765c5d54247c5744ee121493cbea2d740d9
+          git config user.name github-actions
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add media/S157-Intro-Rung-Routes.mp4
+          git commit -m "Assemble the checked S157 film master"
+          git push origin HEAD:refs/heads/codex/film-transport-s157-20261121
