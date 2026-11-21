@@ -84,12 +84,12 @@ async def verify_revised_lessons(browser):
  assert not await first.locator('p').is_visible()
  assert not await full.locator('ol').is_visible()
  # Full working is available immediately and both disclosures work from the keyboard.
- await full.locator('summary').press('Enter')
+ await full.locator(':scope > summary').press('Enter')
  assert await full.locator('ol').is_visible()
  await first.locator('summary').press('Space')
  assert await first.locator('p').is_visible()
  assert not await full.locator('ol').is_visible()
- await full.locator('summary').click()
+ await full.locator(':scope > summary').click()
  assert await full.locator('ol').is_visible() and not await first.locator('p').is_visible()
  await fits()
  assert not any(name in ('submit-problem-attempt','get-problem-solution') for name,_ in calls)
@@ -104,7 +104,7 @@ async def verify_revised_lessons(browser):
      template.innerHTML=readCard(lesson);
      const card=template.content.querySelector('.rwl-example'), example=lesson.example;
      const first=card.querySelector('.rwl-first-step p'), full=card.querySelector('.rwl-full-example');
-     const steps=Array.from(full.querySelectorAll('li'),item=>item.textContent);
+     const steps=Array.from(full.querySelectorAll(':scope > ol > li'),item=>item.textContent);
      if(card.querySelector('details[open]') || card.querySelector('p').textContent!==example.prompt
         || first.textContent!==example.steps[0] || JSON.stringify(steps)!==JSON.stringify(example.steps)
         || card.querySelector('img')?.getAttribute('alt')!==example.figure?.alt){
@@ -183,6 +183,17 @@ async def verify_revised_lessons(browser):
  await page.locator('#menuToggle').click()
  await page.locator('[data-menu-action="continue"]').click()
  await read.wait_for()
+ second_method=read.locator('.rwl-second-method')
+ assert not await second_method.is_visible()
+ await read.locator('.rwl-full-example > summary').click()
+ assert await second_method.is_visible() and not await second_method.locator('p').first.is_visible()
+ await second_method.locator('summary').press('Enter')
+ assert '248' in await second_method.locator('p').first.inner_text()
+ comparison=second_method.locator('p').last
+ assert 'Which would you try' in await comparison.inner_text()
+ assert await comparison.evaluate("""p => p.textContent.includes('47 × 8') ||
+   Boolean(p.querySelector('[data-math-source="47 × 8"]'))""")
+ await fits()
  await play_phase(2)
  await back.click()
  assert await read.is_visible()

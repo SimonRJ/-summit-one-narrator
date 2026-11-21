@@ -45,3 +45,23 @@
 .lm-fence { stroke: #ffd880; stroke-width: 2.5; fill: none; }
 .lm-wall { stroke: #d2e7ef; stroke-width: 3; stroke-dasharray: 3 2; fill: none; }
 .lm-result { color: #daeaf0; }
+
+.lm-claims {
+  border-top: 1px solid #446370; margin-top: .8rem; padding-top: .35rem;
+}
+.lm-claims > summary { cursor: pointer; min-height: 44px; padding: .6rem 0; box-sizing: border-box; font-weight: 650; color: #bceee2; }
+.lm-claims label { display: grid; gap: .25rem; }
+.lm-claims select, .lm-claims button {
+  box-sizing: border-box; min-height: 44px; font: inherit; border-radius: .4rem;
+  border: 1px solid #658793; padding: .4rem .65rem; color: #edf7fb; background: #152f3c;
+}
+.lm-claims select { max-width: 100%; color-scheme: dark; }
+.lm-claims button { cursor: pointer; }
+.lm-claims button:focus-visible { outline: 3px solid #ffdf92; outline-offset: 2px; }
+.lm-claims .lm-claim-text { font-weight: 650; margin-top: .7rem; }
+.lm-claims fieldset { border: 0; margin: .6rem 0 0; padding: 0; min-width: 0; }
+.lm-claims legend { padding: 0; margin-bottom: .35rem; }
+.lm-claims fieldset button { margin: .1rem .3rem .2rem 0; }
+.lm-cases:empty, .lm-verdict:empty { display: none; }
+.lm-cases { padding-left: 1.3rem; }
+.lm-verdict { color: #bceee2; }

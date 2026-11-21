@@ -1,4 +1,4 @@
-import {edition as readEdition, questionOrder, renderReviewedLesson, restoreGradedAnswers} from './reviewed-lesson.js?v=guided-20261121';
+import {edition as readEdition, questionOrder, renderReviewedLesson, restoreGradedAnswers} from './reviewed-lesson.js?v=reasoning-20261121';
 import {mixedFlashDeck} from './flash-cards.js?v=content-audit-20261113';
 import {wordingHTML} from './recognition.js?v=recognition-20261113';
 import {bridgeHTML,mountPractice} from './transfer-practice.js?v=content-audit-20261113';
