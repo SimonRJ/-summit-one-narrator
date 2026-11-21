@@ -131,12 +131,34 @@ def pairs_of_eleven(stage, s):
 
 
 def guarantee_recap(stage, s):
-    recap(stage, s, (("Choose the boxes", "choose the objects and choose the boxes"),
-                     ("Compare the counts", "compare their counts"),
-                     ("Test one fewer", "one fewer could fail")),
-          "in your notebook",
-          ("How many people guarantee", "two birthdays in the same month?"),
-          sub="Show how one fewer person could still avoid a match.")
+    if s.t < s.at("in your notebook"):
+        stage.heading("How long can a pair be delayed?")
+        boxes = s.reveal("choose the boxes")
+        counts = s.reveal("compare their counts")
+        fewer = s.reveal("one fewer could fail")
+        for i, (x, colour, label) in enumerate(zip(SOCK_X, BEAD_COLOURS, COLOUR_NAMES)):
+            bin_outline(stage, x, 365, 201, label, edge=colour, opacity=boxes)
+            sock(stage, x, 365, colour, counts)
+        fit(stage, "4 colours", 640, 500, 32, colour=WHITE, opacity=counts)
+        fit(stage, "One of each colour: four draws can miss.", 640, 560, 30,
+            colour=MINT, opacity=fewer)
+        return
+
+    stage.heading("Birthdays in the same month")
+    months = ("Jan", "Feb", "Mar", "Apr", "May", "Jun",
+              "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
+    begin = s.at("how many people")
+    for i, month in enumerate(months):
+        x = 208 + 172 * (i % 6)
+        y = 250 + 142 * (i // 6)
+        box = between(s.t, begin + i * .045, .42)
+        stage.box(x - 66, y - 48, 132, 106, radius=12, fill=None, edge=BLUE, opacity=box)
+        fit(stage, month, x, y - 22, 23, colour=WHITE, opacity=box)
+        bead(stage, x, y + 23, GOLD, between(s.t, s.at("two birthdays") + i * .1, .42), 12)
+    fit(stage, "One person per month delays a match.", 640, 505, 30, colour=GOLD,
+        opacity=s.reveal("in the same month"))
+    fit(stage, "How many people force a shared month?", 640, 565, 34, colour=WHITE,
+        opacity=s.reveal("in the same month"))
 
 
 def difference_claim(stage, s):
@@ -191,15 +213,17 @@ def examples_of_difference(stage, s):
     stage.heading("Check the example and the minimum")
     fewer = s.at("could three numbers guarantee")
     transition = between(s.t, fewer, 0.55)
+    first_opacity = max(0.0, 1 - 2 * transition)
+    next_opacity = max(0.0, 2 * transition - 1)
     display = s.reveal("try two, six, ten and thirteen")
     focus = s.reveal("ten and thirteen both leave remainder one")
     residue_bins(stage, tuple((n, n % 3) for n in (2, 6, 10, 13)), s.t,
                  s.at("try two, six, ten and thirteen") + 0.35, focus=1,
-                 opacity=display * (1 - transition), accent=focus)
+                 opacity=display * first_opacity, accent=focus)
     fit(stage, "13 − 10 = 3", 640, 560, 43, colour=MINT,
-        opacity=s.reveal("their difference is three") * (1 - transition))
+        opacity=s.reveal("their difference is three") * first_opacity)
     residue_bins(stage, tuple((n, n % 3) for n in (1, 2, 3)), s.t,
-                 s.at("with one, two and three") + 0.25, opacity=transition)
+                 s.at("with one, two and three") + 0.25, opacity=next_opacity)
     fit(stage, "1, 2 and 3 all have different remainders.", 640, 553, 36, colour=WHITE,
         opacity=s.reveal("the remainders all differ"))
     fit(stage, "Four is the minimum guarantee.", 640, 599, 30, colour=MINT,
@@ -207,12 +231,37 @@ def examples_of_difference(stage, s):
 
 
 def difference_recap(stage, s):
-    recap(stage, s, (("Use remainder boxes", "choose a box for each remainder"),
-                     ("Subtract the pair", "use subtraction")),
-          "now increase the divisor to ten",
-          ("How many different whole numbers guarantee",
-           "two differ by a multiple of 10?"),
-          sub="Show how one fewer choice could fail.")
+    if s.t < s.at("now increase the divisor to ten"):
+        stage.heading("Subtract two numbers from the same box")
+        group = s.reveal("a box for each remainder")
+        cancel = s.reveal("use subtraction")
+        for y, n in ((278, 10), (410, 13)):
+            fit(stage, str(n), 255, y, 36, colour=WHITE, opacity=group)
+            for i in range(n):
+                x = 350 + 133 * (i // 3) + 31 * (i % 3) if i < n - 1 else 1015
+                colour = GOLD if i == n - 1 else MINT if i >= 9 else BLUE
+                keep = n == 13 and 9 <= i < 12
+                bead(stage, x, y, colour, group * (1 if keep else 1 - .66 * cancel), 12)
+            for i in range(n // 3):
+                stage.box(329 + 133 * i, y - 27, 106, 54, radius=9, fill=None, edge=BLUE, opacity=group)
+        fit(stage, "13 − 10 = one group of 3", 640, 545, 34, colour=MINT, opacity=cancel)
+        return
+
+    stage.heading("Change the divisor to ten")
+    start = s.at("increase the divisor to ten")
+    witness = s.at("one fewer choice")
+    for r in range(10):
+        x = 245 + (r % 5) * 197
+        y = 268 + (r // 5) * 135
+        appear = between(s.t, start + r * .07, .45)
+        stage.box(x - 73, y - 56, 146, 110, radius=11, fill=None, edge=BLUE, opacity=appear)
+        fit(stage, f"Rem. {r}", x, y - 27, 23, colour=WHITE, opacity=appear)
+        tile(stage, x, y + 16, str(r), GOLD, 56, 42,
+             between(s.t, witness + r * .07, .42), size=24)
+    fit(stage, "How many choices guarantee a shared remainder?", 640, 515, 32, colour=WHITE,
+        opacity=s.reveal("how many different whole numbers"))
+    fit(stage, "0 through 9: one number per box", 640, 574, 27, colour=GOLD,
+        opacity=s.reveal("one fewer choice"))
 
 
 SCENES = {
