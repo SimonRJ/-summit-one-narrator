@@ -1,0 +1,96 @@
+name: Produce the label press and studio sleeve editions
+on:
+  push:
+    branches: [production/press-sleeve-films]
+    paths: ['production/lesson-films/label_press.py', 'production/lesson-films/record_sleeve.py', '.github/workflows/press-sleeve-films.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+env:
+  VOICE_RUN: '44944733268'
+jobs:
+  recordings:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 100
+    steps:
+      - name: Wait for the approved individual performances
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for n in {1..170}; do
+            status=$(gh run view "$VOICE_RUN" --repo "$GITHUB_REPOSITORY" --json status,conclusion --jq '[.status,.conclusion] | join(" ")')
+            if [[ "$status" == 'completed success' ]]; then exit 0; fi
+            if [[ "$status" == completed* ]]; then echo "$status"; exit 1; fi
+            sleep 30
+          done
+          exit 1
+  film:
+    needs: recordings
+    runs-on: ubuntu-24.04
+    timeout-minutes: 65
+    permissions:
+      actions: read
+      contents: write
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {slot: S159, release: label-press-S159-20261122, title: Cut from the same sheet}
+          - {slot: S162, release: record-sleeve-S162-20261122, title: The missing name on the record sleeve}
+    env:
+      SLOT: ${{ matrix.slot }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            production
+            data
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: ${{ env.VOICE_RUN }}
+          github-token: ${{ github.token }}
+          pattern: voice-${{ matrix.slot }}-*
+          merge-multiple: true
+          path: build/t01-studio
+      - name: Align, render, decode and verify the original lesson
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-open-sans fonts-dejavu-core libsndfile1
+          pip install numpy==2.2.6 soundfile num2words faster-whisper pillow==11.3.0
+          python production/t01-studio/prepare_audio.py "$SLOT"
+          voice=build/t01-studio/$SLOT
+          cp "production/scripts/$SLOT.json" "$voice/script.json"
+          ffmpeg -loglevel error -i "$voice/narration.wav" -c:a flac "$voice/narration.flac"
+          python production/lesson-films/render_recorded.py "$SLOT" "$voice"
+          python production/lesson-films/verify_recorded.py "$SLOT" "$voice"
+          mkdir release
+          cp media/lesson-films/"$SLOT"* release/
+          cp "production/lesson-films/$SLOT/guide.json" "release/$SLOT-guide.json"
+          cp "production/lesson-films/$SLOT/qa.json" "release/$SLOT-qa.json"
+          cp "$voice/captions.vtt" "release/$SLOT.vtt"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: checked-edition-${{ matrix.slot }}
+          path: |
+            build/t01-studio/${{ matrix.slot }}/timeline.json
+            build/t01-studio/${{ matrix.slot }}/narration.flac
+            release/
+          retention-days: 30
+      - name: Publish the verified recording, captions and chapter guide
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ matrix.release }}
+          TITLE: ${{ matrix.title }}
+        run: |
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            if [[ "$(gh release view "$TAG" --json isDraft --jq .isDraft)" == false ]]; then exit 0; fi
+          else
+            gh release create "$TAG" --draft --target "$GITHUB_SHA" --title "$TITLE" --notes "An individually authored and recorded mathematics investigation."
+          fi
+          gh release upload "$TAG" release/* --clobber
+          gh release edit "$TAG" --draft=false --latest=false
