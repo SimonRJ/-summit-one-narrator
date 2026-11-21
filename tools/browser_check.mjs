@@ -14,7 +14,7 @@ const browser=await chromium.launch({headless:true,...(process.env.CHROMIUM_PATH
 try{
  for(const mobile of [false,true]){
  const context=await browser.newContext({viewport:mobile?{width:390,height:844}:{width:1440,height:1000},serviceWorkers:'block'});const page=await context.newPage();page.on('pageerror',e=>failures.push(e.message));
- await page.addInitScript(db=>{globalThis.__fixture=db},fixtures());
+ await page.addInitScript(db=>{globalThis.__fixture=JSON.parse(sessionStorage.getItem('qa-repair-state')||'null')||db},fixtures());
  await page.route('**/supabase-client.js*',route=>route.fulfill({contentType:'application/javascript',body:fs.readFileSync('tools/browser_fixture.js','utf8')}));
  await page.route('**/functions/v1/grade-exam',async route=>{
  const input=route.request().postDataJSON();const result=await page.evaluate(id=>{const d=globalThis.__fixture,s=d.exam_sittings.find(x=>x.id===id),e=d.exam_catalog.find(x=>x.id===s.exam_id);const rows=d.exam_questions_student.filter(q=>q.exam_id===e.id).map(q=>{const correct_answer=q.question_type==='integer'?'12':'B',response=s.responses[q.question_number]??null,correct=response===correct_answer||q.question_type==='integer'&&Number(response)===12;return {...q,response,correct,correct_answer,earned:correct?q.marks:0,explanation:'First identify the total and the missing part. Subtract the known amount. Finally substitute the result to check the relationship.'}});s.completed=true;s.score=rows.reduce((n,q)=>n+q.earned,0);s.submitted_at=new Date().toISOString();return {exam:e,rows,score:s.score,original_score:s.score,max_score:e.max_score,submitted_at:s.submitted_at,award:{label:e.max_score===135?'Participation':null,estimated:true},time_used_seconds:90}},input.sitting_id);await route.fulfill({contentType:'application/json',body:JSON.stringify(result)});
@@ -57,15 +57,101 @@ try{
  await page.locator('.rwl-steps').waitFor();
  assert.match(await page.locator('.rwl-steps').innerText(),/check the original conditions/);
  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+2),false);
- // Exercise the complete saved repair cycle in an isolated learner account.
- await page.evaluate(async()=>{const d=globalThis.__fixture;d.learning_repairs=[{id:'repair-one',user_id:'fixture-learner',source_label:'Practice 01 · Question 26',skill_id:'ALG-01',stage:0,due_after_session:0,evidence:{},updated_at:'2026-11-12T00:00:00Z'}];const m=await import('/learning-support.js?v=recognition-20261113');await m.renderRepairs(document.querySelector('#app'),{user:{id:'fixture-learner'},done:0});});
- await page.locator('#repairList summary').click();await page.locator('[name=cause]').selectOption({label:'choosing a model'});await page.getByRole('button',{name:'Start practice'}).click();
- const repairAnswer=async()=>{await page.locator('#repairList summary').click();const answer=await page.evaluate(async()=>{const r=globalThis.__fixture.learning_repairs[0],h=[...r.id].reduce((a,c)=>(Math.imul(a,31)+c.charCodeAt(0))>>>0,7),m=await import('/transfer-practice.js?v=recognition-20261113');return String(m.practice(r.skill_id,h%52+(r.evidence.history||[]).length+r.stage*7).value)});await page.locator('.repair-content .response').fill(answer);await page.getByRole('button',{name:'Check answer',exact:true}).click();await page.getByRole('button',{name:'Save repair step'}).click();};
- await repairAnswer();assert.equal(await page.evaluate(()=>globalThis.__fixture.learning_repairs[0].stage),2);
- await repairAnswer();assert.equal(await page.evaluate(()=>globalThis.__fixture.learning_repairs[0].stage),3);
- await page.locator('#repairList summary').click();await page.getByText('Continue learning. This check unlocks after 3 more completed sessions; calendar days do not matter.').waitFor();
+ // Exercise the repair link and hard reload using a synthetic exam or lesson record.
+ await page.evaluate(mobile=>{
+  const d=globalThis.__fixture;
+  d.learning_repairs=[{id:'repair-one',user_id:'fixture-learner',source_type:mobile?'lesson':'exam',
+   source_ref:mobile?'12:application:fixture':'exam:26',source_label:mobile?'Session 12 · Practice':'Paper 01 · Q26',
+   skill_id:'ALG-01',stage:0,due_after_session:0,evidence:{},updated_at:'2026-11-12T00:00:00Z'}];
+  sessionStorage.setItem('qa-repair-state',JSON.stringify(d));
+ },mobile);
+ await page.goto('http://127.0.0.1:4173/?view=repairs');
+ const reopenRepair=async done=>{
+  await page.evaluate(done=>{
+   const db=globalThis.__fixture;
+   if(done!==null)db.progress_state[0].completed_sessions=done;
+   sessionStorage.setItem('qa-repair-state',JSON.stringify(db));
+  },done??null);
+  await page.reload();
+  await page.locator('#repairList summary').click();
+ };
+ const content=page.locator('.repair-content');
+ const getRepair=()=>page.evaluate(()=>globalThis.__fixture.learning_repairs[0]);
+ const submitRepair=async wrong=>{
+  const prompt=await content.locator('.mini-check > p').first().textContent();
+  const grams=Number(/weighs (\d+) grams/.exec(prompt)[1]);
+  await content.locator('.response').fill(wrong?'100000':String((grams-7)/5));
+  await content.getByRole('button',{name:'Check answer',exact:true}).click();
+  await content.getByRole('button',{name:'Save repair step'}).waitFor();
+  return prompt;
+ };
+ const advanceRepair=async stage=>{
+  await content.getByRole('button',{name:'Save repair step'}).click();
+  await page.waitForFunction(s=>globalThis.__fixture.learning_repairs[0].stage===s &&
+   !globalThis.__fixture.learning_repairs[0].evidence.pending_recall,stage);
+  await page.locator('#repairList details:not([open]) > summary').click();
+ };
+ const noCoaching=async()=>{
+  assert.equal(await content.getByText('The idea:',{exact:true}).count(),0);
+  assert.equal(await content.getByText('Your next step:',{exact:true}).count(),0);
+  assert.equal(await content.getByText('Saved correction:',{exact:true}).count(),0);
+ };
+ await page.locator('#repairList summary').click();
+ await page.locator('[name=cause]').selectOption('choosing a model');
+ await page.getByRole('button',{name:'Start practice'}).click();
+ await page.locator('#repairList details:not([open]) > summary').click();
+ assert.ok(await content.getByText('The idea:',{exact:true}).isVisible());
+ const supportedPrompt=await submitRepair(false);
+ await advanceRepair(2);
+ await noCoaching();
+ // Reject an obsolete hint write; no clue is exposed until it can be recorded.
+ await page.evaluate(()=>globalThis.__fixture.learning_repairs[0].updated_at='2026-11-13T00:00:00Z');
+ await content.locator('.hint').click();
+ await content.getByText(/The hint could not be saved/).waitFor();
+ assert.equal((await getRepair()).evidence.pending_recall,undefined);
+ await reopenRepair();
+ await content.locator('.hint').click();
+ await page.waitForFunction(()=>globalThis.__fixture.learning_repairs[0].evidence.pending_recall?.helped);
+ await reopenRepair();
+ await noCoaching();
+ const assistedPrompt=await submitRepair(false);
+ assert.notEqual(assistedPrompt,supportedPrompt);
+ assert.equal((await getRepair()).evidence.pending_recall.result.used_help,true);
+ await reopenRepair();
+ assert.ok(await content.locator('.response').isDisabled());
+ assert.ok(await content.getByText('The idea:',{exact:true}).isVisible());
+ await advanceRepair(2);
+ assert.ok((await getRepair()).evidence.history.at(-1).used_help);
+ await noCoaching();
+ const lostPrompt=await submitRepair(true);
+ await reopenRepair();
+ assert.ok(await content.locator('.response').isDisabled());
+ assert.equal((await getRepair()).evidence.pending_recall.result.correct,false);
+ await advanceRepair(2);
+ const independentPrompt=await submitRepair(false);
+ assert.notEqual(independentPrompt,lostPrompt);
+ await advanceRepair(3);
+ await page.getByText('Continue learning. This check unlocks after 3 more completed sessions; calendar days do not matter.').waitFor();
  await page.screenshot({path:`qa-screenshots/${prefix}-repair-delay.png`,fullPage:true});
- await page.evaluate(async()=>{const m=await import('/learning-support.js?v=recognition-20261113');await m.renderRepairs(document.querySelector('#app'),{user:{id:'fixture-learner'},done:3});});await repairAnswer();assert.equal(await page.evaluate(()=>globalThis.__fixture.learning_repairs[0].stage),4);
+ await reopenRepair(3);
+ await noCoaching();
+ await content.locator('.hint').click();
+ await page.waitForFunction(()=>globalThis.__fixture.learning_repairs[0].evidence.pending_recall?.helped);
+ await reopenRepair();
+ await submitRepair(false);
+ await advanceRepair(2);
+ assert.equal((await getRepair()).evidence.history.at(-1).used_help,true);
+ await submitRepair(false);
+ await advanceRepair(3);
+ assert.equal((await getRepair()).due_after_session,6);
+ await reopenRepair(6);
+ await noCoaching();
+ await submitRepair(false);
+ await advanceRepair(4);
+ const finished=await getRepair();
+ assert.ok(finished.evidence.history.at(-1).correct&&!finished.evidence.history.at(-1).used_help);
+ assert.equal(finished.evidence.pending_recall,undefined);
+ await page.evaluate(()=>sessionStorage.removeItem('qa-repair-state'));
  await page.evaluate(async()=>{const m=await import('/learning-support.js?v=recognition-20261113');await m.mountInvestigationReview(document.querySelector('#app'),{user:{id:'fixture-learner'},record:{session_number:7},item:{solution:'A complete model argument.',transfer_solution:'Test the general rule in a new setting.'}});});
  await page.locator('[name=reviewer]').fill('QA Parent');for(const k of ['result','method','proof'])await page.locator(`[name=${k}]`).selectOption('2');await page.locator('[name=clarity]').selectOption('1');await page.locator('[name=notes]').fill('The pattern is clear. Next, explain why the missing cases cannot occur.');await page.getByRole('button',{name:'Save adult review'}).click();await page.getByText('QA Parent · parent').waitFor();assert.equal(await page.evaluate(()=>globalThis.__fixture.investigation_reviews.length),1);await page.screenshot({path:`qa-screenshots/${prefix}-adult-review.png`,fullPage:true});
  await page.goto('http://127.0.0.1:4173/coverage.html');await page.getByRole('heading',{name:'Coverage across the complete archive'}).waitFor();assert.equal(await page.locator('.coverage-table tbody tr').count(),13);await page.screenshot({path:`qa-screenshots/${prefix}-coverage.png`,fullPage:true});

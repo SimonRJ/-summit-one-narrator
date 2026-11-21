@@ -1,7 +1,7 @@
 import {causes} from './exam-diagnostics.js?v=recognition-20261113';
 import {supabase} from './supabase-client.js?v=auth-20261112';
-import {methods,exercise} from './curriculum.js?v=recognition-20261113';
-import {practice,mountPractice,escapeHTML as esc} from './transfer-practice.js?v=recognition-20261113';
+import {methods,exercise,checkAnswer} from './curriculum.js?v=recognition-20261113';
+import {practice,mountPractice,escapeHTML as esc} from './transfer-practice.js?v=github-20261121';
 export async function allRows(makeQuery){const all=[];for(let start=0;;start+=500){const {data,error}=await makeQuery().range(start,start+499);if(error)throw error;all.push(...data);if(data.length<500)return all;}}
 export async function queueRepair({userId,sourceType,sourceRef,sourceLabel,skillId,done=0}){
  if(!methods[skillId])return;
@@ -24,11 +24,62 @@ export async function renderRepairs(el,{user,done,records=[]}){
   if(new URLSearchParams(location.search).get('repair')===row.source_ref){card.open=true;card.ontoggle();card.scrollIntoView({block:'start'});}
  }
 }
+function recallQuestion(id, seed) {
+ const q = exercise(id, seed);
+ return {...q, source:'recall', steps:[q.reason], hint:methods[id].idea, contrast:methods[id].trap, figure:''};
+}
+
+function chooseRepairQuestion(row, history, pending) {
+ const id = row.skill_id;
+ if (pending && Number.isInteger(pending.seed) && pending.stage === row.stage) {
+  return pending.source === 'recall' ? recallQuestion(id,pending.seed) : practice(id,pending.seed);
+ }
+ const first = hash(row.id)%52 + history.length + row.stage*7;
+ if (row.stage === 1 || !history.length) return practice(id,first);
+ const previous = new Map();
+ const solved = new Set();
+ for (const [index, attempt] of history.entries()) {
+  const prompt = attempt.prompt || attempt.question_id;
+  previous.set(prompt,index);
+  if (attempt.correct && !attempt.used_help) solved.add(prompt);
+ }
+ // Both existing generators cycle. Search their distinct questions, including the other
+ // generator when a change of numbers would still give the same memorised answer.
+ const last = history.at(-1);
+ let firstUnseen, oldestUnsolved, oldest;
+ const candidates = [
+  ...Array.from({length:52}, (_,i) => practice(id,first+i)),
+  ...Array.from({length:7}, (_,i) => recallQuestion(id,first+i))
+ ];
+ for (const q of candidates) {
+  if (!previous.has(q.prompt)) {
+   firstUnseen ??= q;
+   if (!last.correct || !checkAnswer(q.value,String(last.response))) return q;
+  } else {
+   if (!oldest || previous.get(q.prompt) < previous.get(oldest.prompt)) oldest=q;
+   if (q.prompt !== (last.prompt||last.question_id) && !solved.has(q.prompt) && (!oldestUnsolved || previous.get(q.prompt) < previous.get(oldestUnsolved.prompt))) oldestUnsolved=q;
+  }
+ }
+ return firstUnseen || oldestUnsolved || oldest;
+}
+
 function renderRepair(el,row,{user,done,reload}){
  const m=methods[row.skill_id];if(!m){el.textContent='This item needs a technique mapping before practice can be shown.';return}
- const save=async patch=>{const {data,error}=await supabase.from('learning_repairs').update({...patch,updated_at:new Date().toISOString()}).eq('id',row.id).eq('user_id',user.id).eq('updated_at',row.updated_at).select('id');if(error)throw error;if(!data?.length)throw Error('This repair changed on another device. Reopen it to load the latest step.');await reload()};
- el.innerHTML=`<p><b>The idea:</b> ${esc(m.idea)}</p><p><b>Common trap:</b> ${esc(m.trap)}</p>`;
- if(row.classification&&causes[row.classification])el.insertAdjacentHTML('beforeend',`<p class="success-note"><b>Your next step:</b> ${esc(causes[row.classification][1])}</p>`);
+ const evidence=row.evidence||{};
+ const update=async patch=>{
+  const lastTime=Date.parse(row.updated_at)||0;
+  const updated_at=new Date(Math.max(Date.now(),lastTime+1)).toISOString();
+  const {data,error}=await supabase.from('learning_repairs').update({...patch,updated_at}).eq('id',row.id).eq('user_id',user.id).eq('updated_at',row.updated_at).select('updated_at');
+  if(error)throw error;
+  if(!data?.length)throw Error('This repair changed on another device. Reopen it to load the latest step.');
+  Object.assign(row,patch,{updated_at:data[0].updated_at});
+ };
+ const save=async patch=>{await update(patch);await reload()};
+ const correction=causes[row.classification]?.[1];
+ const notes=`<p><b>The idea:</b> ${esc(m.idea)}</p><p><b>Common trap:</b> ${esc(m.trap)}</p>`+
+  (correction?`<p><b>Your next step:</b> ${esc(correction)}</p>`:'')+
+  (evidence.correction&&evidence.correction!==correction?`<p><b>Saved correction:</b> ${esc(evidence.correction)}</p>`:'');
+ el.innerHTML=row.stage===0||row.stage===1||row.stage===4?notes:'';
  if(row.stage===0){
   el.insertAdjacentHTML('beforeend',`<form class="repair-form"><label class="answer-label">Where did you get stuck?<select name="cause" required><option value="">Choose the main difficulty</option>${Object.entries(causes).map(([x,[label]])=>`<option value="${x}" ${row.classification===x?'selected':''}>${esc(x)}</option>`).join('')}</select></label><button class="primary">Start practice</button><p role="status"></p></form>`);
   el.querySelector('form').onsubmit=async event=>{
@@ -37,25 +88,41 @@ function renderRepair(el,row,{user,done,reload}){
    const classification=form.elements.cause.value;
    if(!causes[classification])return;
    button.disabled=true;
-   try{await save({classification,stage:1,evidence:{...row.evidence,correction:causes[classification][1],correction_source:'suggested_by_app'}})}
+   try{await save({classification,stage:1,evidence:{...evidence,correction:causes[classification][1],correction_source:'suggested_by_app'}})}
    catch(error){form.querySelector('[role=status]').textContent=error.message;button.disabled=false}
   };
   return;
  }
- if(row.evidence.correction){
-  el.insertAdjacentHTML('beforeend',`<p><b>${row.evidence.correction_source==='suggested_by_app'?'Suggested starting method':'Saved correction'}:</b> ${esc(row.evidence.correction)}</p>`);
- }
  if(row.stage===4){el.insertAdjacentHTML('beforeend','<p class="success-note">Supported correction, an independent changed example and a delayed check are recorded. Keep testing the idea in unfamiliar problems.</p>');return}
  if(row.stage===3&&done<row.due_after_session){el.insertAdjacentHTML('beforeend',`<p>Continue learning. This check unlocks after ${row.due_after_session-done} more completed sessions; calendar days do not matter.</p>`);return}
- const history=row.evidence.history||[],seed=(hash(row.id)%52)+history.length+row.stage*7,q=practice(row.skill_id,seed);
- const panel=document.createElement('div');el.append(panel);const draft={evidence:{},working:{}};
- mountPractice(panel,{id:row.skill_id,seed,key:'repair',draft,save:async()=>{},supported:row.stage===1,label:row.stage===1?'FINISH THE WORKED EXAMPLE':row.stage===2?'CHANGED VALUES · WITHOUT NOTES':'DELAYED CHECK · WITHOUT NOTES',onDone:async e=>{
+ const history=evidence.history||[];
+ const pending=evidence.pending_recall?.stage===row.stage?evidence.pending_recall:null;
+ const q=chooseRepairQuestion(row,history,pending);
+ const panel=document.createElement('div');el.append(panel);
+ const draft={evidence:{'help:repair':pending?.helped===true,repair:pending?.result},working:{}};
+ const savePending=()=>update({evidence:{...evidence,pending_recall:{
+  stage:row.stage,source:q.source||'practice',seed:q.seed,helped:draft.evidence['help:repair']===true,
+  result:draft.evidence.repair||null
+ }}});
+ const finish=e=>{
+  if(row.stage!==1)panel.insertAdjacentHTML('beforeend',notes);
   const success=e.correct&&!e.used_help;
   const next=row.stage===1?2:success?(row.stage===2?3:4):2;
-  const message=document.createElement('p');message.textContent=next===3?'Independent answer saved. Return after three more completed sessions.':next===4?'Delayed check passed.':row.stage===1?'Now try changed values without help.':'Read the correction, then try another changed example. Help is useful; an unassisted answer is still needed.';panel.append(message);
+  const message=document.createElement('p');
+  message.textContent=next===3?'Return for a delayed check after three more completed sessions.':next===4?'Delayed check passed.':row.stage===1?'Now try a changed example without help.':'Read the correction, then try another example without help.';
+  panel.append(message);
   const button=document.createElement('button');button.className='primary';button.textContent='Save repair step';panel.append(button);
-  button.onclick=async()=>{button.disabled=true;try{await save({stage:next,due_after_session:next===3?done+3:done,evidence:{...row.evidence,history:[...history,{...e,session:done,prompt:q.prompt}]}})}catch(err){message.textContent=err.message;button.disabled=false}};
- }});
+  button.onclick=async()=>{
+   button.disabled=true;
+   const {pending_recall,...completedEvidence}=row.evidence;
+   try{await save({stage:next,due_after_session:next===3?done+3:done,evidence:{...completedEvidence,history:[...history,{...e,session:done,prompt:q.prompt}]}})}
+   catch(err){message.textContent=err.message;button.disabled=false}
+  };
+ };
+ const seen=history.some(e=>(e.prompt||e.question_id)===q.prompt);
+ const label=row.stage===1?'FINISH THE WORKED EXAMPLE':row.stage===3?'DELAYED CHECK · WITHOUT NOTES':seen?'RECALL AN EARLIER EXAMPLE · WITHOUT NOTES':'CHANGED EXAMPLE · WITHOUT NOTES';
+ mountPractice(panel,{id:row.skill_id,seed:q.seed,question:q,key:'repair',draft,save:savePending,supported:row.stage===1,label,onDone:finish});
+ if(pending?.result)finish(pending.result);
 }
 export const rubricAnchors={result:['No justified result yet','Some useful cases; major gaps remain','Main result correct; one part incomplete','All requested results correct and checked'],method:['No usable strategy recorded','Relevant idea but incomplete execution','Coherent method with a small gap','Efficient, reproducible method throughout'],proof:['Examples only, or no justification','Some reasons; missing cases or a claim assumed','Nearly complete; one justification needs repair','Every case covered; bound and construction or general claim justified'],clarity:['Reasoning difficult to follow','Labels, order and explanations let another reader follow']};
 export function rubricHTML(){return `<details class="rubric-guide"><summary>What each rubric score means</summary>${Object.entries(rubricAnchors).map(([key,anchors])=>`<h4>${esc(key)}</h4><ol start="0">${anchors.map(a=>`<li>${esc(a)}</li>`).join('')}</ol>`).join('')}</details>`;}

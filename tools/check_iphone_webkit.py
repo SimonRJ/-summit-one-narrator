@@ -69,6 +69,56 @@ async def check_cube_page(page, devices):
     await page.set_viewport_size(devices['iPhone 13']['viewport'])
 
 
+async def check_domino_pages(page):
+    # The published lesson page must expose the board independently of film availability.
+    await page.goto(BASE + '/watch-lesson-intro.html?slot=36#lessonModel', wait_until='domcontentloaded')
+    model = page.locator('#lessonModel .domino-model')
+    await model.locator(':scope > summary').tap()
+    board = model.locator('.dm-board')
+    cell = lambda index: board.locator(f'[data-cell="{index}"]')
+    status = model.get_by_role('status')
+    await expect(board.get_by_role('button')).to_have_count(6)
+    for width in (320, 390):
+        await page.set_viewport_size({'width': width, 'height': 780})
+        assert await board.evaluate("""el => {
+            const max = document.documentElement.clientWidth;
+            return document.documentElement.scrollWidth <= max + 1 &&
+                [...el.querySelectorAll('button')].every(button => {
+                    const r = button.getBoundingClientRect();
+                    return r.width >= 44 && r.height >= 44 && r.left >= 0 && r.right <= max + 1;
+                });
+        }"""), width
+    # A diagonal tap is rejected. The original corner stays selected for the next valid tap.
+    await cell(0).tap()
+    await cell(4).tap()
+    await expect(status).to_contain_text('do not share an edge')
+    await expect(cell(0)).to_have_attribute('aria-pressed', 'true')
+    await cell(1).tap()
+    await expect(cell(0)).to_have_attribute('data-mate', 'right')
+    await expect(cell(1)).to_have_attribute('data-mate', 'left')
+    assert await cell(0).evaluate("el => getComputedStyle(el, '::after').width") == '3px'
+    await model.get_by_role('button', name='Undo last domino').tap()
+    await expect(board.locator('[data-mate]')).to_have_count(0)
+    for top, bottom in ((0, 3), (1, 4), (2, 5)):
+        await cell(top).tap()
+        await cell(bottom).tap()
+        await expect(cell(top)).to_have_attribute('data-mate', 'below')
+        await expect(cell(bottom)).to_have_attribute('data-mate', 'above')
+    await expect(status).to_contain_text('cover every square')
+    await model.get_by_role('button', name='Start over').tap()
+    await expect(board.locator('[data-mate]')).to_have_count(0)
+    await expect(model.get_by_role('button', name='Undo last domino')).to_be_disabled()
+
+    await page.goto(BASE + '/watch-lesson-intro.html?slot=333#lessonModel', wait_until='domcontentloaded')
+    await model.locator(':scope > summary').tap()
+    await expect(board.get_by_role('button')).to_have_count(8)
+    await expect(model.locator('select')).to_have_value('2')
+    await model.get_by_label('Show checkerboard colours').tap()
+    await expect(model.locator('.dm-count')).to_contain_text('4 dark (●) and 4 light (○)')
+    await model.get_by_role('button', name='No', exact=True).tap()
+    await expect(status).to_contain_text('only with A2')
+
+
 async def check_lesson_resume(page):
     await page.goto(BASE + '/', wait_until='domcontentloaded')
     await page.locator('#continue').tap()
@@ -107,6 +157,7 @@ async def main():
         page.on('dialog', lambda dialog: dialog.accept())
         try:
             await check_cube_page(page, playwright.devices)
+            await check_domino_pages(page)
             await check_lesson_resume(page)
         except Exception:
             FAILURES.mkdir(parents=True, exist_ok=True)
@@ -120,7 +171,7 @@ async def main():
         finally:
             await context.close()
             await browser.close()
-        print('PASS: iPhone WebKit cube taps, silhouette, rotation, worked steps and draft recovery.')
+        print('PASS: iPhone WebKit cube taps, domino tilings and proof, rotation, worked steps and draft recovery.')
 
 
 if __name__ == '__main__':

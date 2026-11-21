@@ -84,8 +84,8 @@ export function practice(id,seed=0){
  return {id,seed,prompt,value,steps,reason:steps.join(' '),hint:steps[0],contrast:methods[id].trap,figure};
 }
 export function bridgeHTML(id,visit=1){const q=practice(id,visit-1),e=escapeHTML;return `<article class="method-card bridge-example"><div class="eyebrow">BRIDGE · ADD ONE NEW IDEA</div><h3>${e(q.prompt)}</h3>${q.figure}<ol>${q.steps.map(s=>`<li>${e(s)}</li>`).join('')}</ol><p><b>Where the method changes:</b> ${e(q.contrast)}</p><p>Notice which condition makes this method appropriate, then continue when ready.</p></article>`;}
-export function mountPractice(el,{id,seed,key,draft,save,label='Solve the problem',supported=false,onDone=()=>{}}){
- const q=practice(id,seed),old=draft.evidence[key],e=escapeHTML;
+export function mountPractice(el,{id,seed,key,draft,save,label='Solve the problem',supported=false,onDone=()=>{},question=practice(id,seed)}){
+ const q=question,old=draft.evidence[key],e=escapeHTML;
  let helped=old?.used_help||draft.evidence['help:'+key]===true;
  el.innerHTML=`<article class="mini-check"><div class="eyebrow">${e(label)}</div><p>${e(q.prompt)}</p>${supported?q.figure:''}${supported?`<p><b>First step supplied:</b> ${e(q.steps[0])}</p>`:''}<form><label class="answer-label">Final answer<input class="answer-box response" value="${e(old?.response||draft.working[key+':answer']||'')}" autocomplete="off" inputmode="text" placeholder="Enter your answer"></label><div class="problem-actions"><button class="primary">Check answer</button><button class="ghost hint" type="button">Show one step</button></div></form><div class="feedback" role="status"></div></article>`;
  const form=el.querySelector('form'),feedback=el.querySelector('.feedback');
@@ -95,12 +95,22 @@ export function mountPractice(el,{id,seed,key,draft,save,label='Solve the proble
  };
  if(old)show(old);
  form.querySelector('.response').oninput=x=>{draft.working[key+':answer']=x.target.value};
- form.querySelector('.hint').onclick=async()=>{
-  helped=true;draft.evidence['help:'+key]=true;feedback.textContent=q.hint;
-  try{await save()}catch(err){feedback.textContent+=' Save failed: '+err.message}
+ const hintButton=form.querySelector('.hint');
+ const checkButton=form.querySelector('.primary');
+ let savingHint=false;
+ hintButton.onclick=async()=>{
+  if(savingHint||draft.evidence[key])return;
+  savingHint=true;hintButton.disabled=true;checkButton.disabled=true;
+  const previousHelp=helped;
+  helped=true;draft.evidence['help:'+key]=true;
+  try{await save();feedback.textContent=q.hint}
+  catch(err){
+   helped=previousHelp;draft.evidence['help:'+key]=previousHelp;
+   feedback.textContent='The hint could not be saved. Try again. '+err.message;
+  }finally{savingHint=false;hintButton.disabled=false;checkButton.disabled=false}
  };
  form.onsubmit=async event=>{
-  event.preventDefault();const response=form.querySelector('.response').value.trim();
+  event.preventDefault();if(savingHint||draft.evidence[key])return;const response=form.querySelector('.response').value.trim();
   if(!response){feedback.textContent='Enter your final answer before checking.';return}
   const r={kind:'mixed_application',skill_id:id,question_id:q.prompt,seed,response,method:'',correct:checkAnswer(q.value,response),used_help:helped||supported,recorded_at:new Date().toISOString()};
   draft.evidence[key]=r;form.querySelectorAll('button').forEach(x=>x.disabled=true);

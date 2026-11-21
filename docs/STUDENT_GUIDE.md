@@ -11,6 +11,10 @@ Open [Summit One](https://simonrj.github.io/-summit-one-narrator/) on your iPhon
 
 A lesson usually takes 30–60 minutes. Follow the session order at your own pace. The path includes a MAWA-style investigation every seventh session. Use a notebook for its diagrams, cases and explanations.
 
+## Read on an iPhone without a connection
+
+While online, open **Menu → Offline lesson reader** and wait for **Ready to read offline on this device**. The reader includes session 1 and lesson readings you open on that device from this update onward. You can revisit their worked examples and interactive diagrams. Reconnect for films, scored practice and exams. [Open the reader](https://simonrj.github.io/-summit-one-narrator/offline-reader.html)
+
 ## Practice and exams
 
 | Menu item | What to expect |
@@ -21,3 +25,5 @@ A lesson usually takes 30–60 minutes. Follow the session order at your own pac
 | Rossmoyne Honours | Practice papers for specialist mathematics entrance preparation. Check the instructions on the paper you choose. |
 
 Press **Save** after typing an integer answer. Before submitting, check the list of unanswered questions and unsaved answers. After a paper, use the results to choose one or two problems to solve again in your notebook.
+
+In **Repair and remember**, the first example shows the method. For the changed example and the delayed check, try your answer before opening **Show one step**. Opening the step counts as help even if you close and reopen the repair. After an independent success, the delayed check opens after three more completed sessions.

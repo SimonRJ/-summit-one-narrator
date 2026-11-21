@@ -2,10 +2,10 @@ name: Teaching behavior checks
 on:
   pull_request:
     branches: [main]
-    paths: ['*.js', '*.html', '*.css', 'data/**', 'tools/browser_lesson_fixed.py', 'tools/check_iphone_webkit.py', 'tools/check_learning.mjs', 'tools/check_model_claims.mjs', 'tools/check_example_methods.mjs', 'tools/check_lesson_models.mjs', 'tools/content/**', 'tools/video/**', 'production/scripts/**', '.github/workflows/teaching-checks.yml']
+    paths: ['*.js', '*.html', '*.css', 'data/**', 'tools/browser_lesson_fixed.py', 'tools/check_iphone_webkit.py', 'tools/check_offline_reader.py', 'tools/check_learning.mjs', 'tools/check_model_claims.mjs', 'tools/check_domino_model.mjs', 'tools/check_repair_recall.mjs', 'tools/check_example_methods.mjs', 'tools/check_lesson_models.mjs', 'tools/content/**', 'tools/video/**', 'production/scripts/**', '.github/workflows/teaching-checks.yml']
   push:
     branches: [recognition-coverage-20261113, main, rebuild-exam-centres-20261112, draft/teaching-audit-2026-11-11]
-    paths: ['*.js', '*.html', '*.css', 'data/**', 'tools/browser_checks.py', 'tools/browser_lesson_fixed.py', 'tools/check_iphone_webkit.py', 'tools/check_learning.mjs', 'tools/check_model_claims.mjs', 'tools/check_example_methods.mjs', 'tools/check_lesson_models.mjs', 'tools/content/**', 'tools/video/**', 'production/scripts/**', '.github/workflows/teaching-checks.yml']
+    paths: ['*.js', '*.html', '*.css', 'data/**', 'tools/browser_checks.py', 'tools/browser_lesson_fixed.py', 'tools/check_iphone_webkit.py', 'tools/check_offline_reader.py', 'tools/check_learning.mjs', 'tools/check_model_claims.mjs', 'tools/check_domino_model.mjs', 'tools/check_repair_recall.mjs', 'tools/check_example_methods.mjs', 'tools/check_lesson_models.mjs', 'tools/content/**', 'tools/video/**', 'production/scripts/**', '.github/workflows/teaching-checks.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -21,6 +21,8 @@ jobs:
         with:
           python-version: '3.12'
       - run: node tools/check_learning.mjs
+      - run: node tools/check_domino_model.mjs
+      - run: node tools/check_repair_recall.mjs
       - run: node tools/check_model_claims.mjs
       - run: node tools/check_example_methods.mjs
       - run: python -m unittest discover -s tools/content/reviewer_benchmark
@@ -33,6 +35,7 @@ jobs:
       - run: python tools/video/build_scripts.py --check
       - run: pip install playwright==1.58.0
       - run: google-chrome --version
+      - run: python tools/check_offline_reader.py
       - name: Exercise model controls and claim evidence in Chromium
         run: |
           npm install --prefix "$RUNNER_TEMP/amc-browser" --no-save playwright@1.58.0
