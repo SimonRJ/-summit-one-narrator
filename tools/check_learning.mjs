@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
+import {numericResponse} from '../supabase/functions/submit-problem-attempt/answer-value.js';
 import {stripTypeScriptTypes} from 'node:module';
 import {methods,exercise,checkAnswer,recallState,skillFor} from '../curriculum.js';
 const taxonomy=JSON.parse(fs.readFileSync(new URL('../data/taxonomy-52.json',import.meta.url)));
@@ -28,8 +29,8 @@ for(let seed=0;seed<7;seed++){
  let maxArea=0;for(let a=1;a<2*n;a++)maxArea=Math.max(maxArea,a*(2*n-a));assert.equal(exercise('GEO-05',seed).value,maxArea);
 }
 const loadBackend=name=>{
- let source=fs.readFileSync(new URL('../supabase/functions/'+name+'/index.ts',import.meta.url),'utf8').replace(/^import .*;\n/m,'').replace(/export /g,'');
- source=stripTypeScriptTypes(source);const ctx={Deno:{env:{get:()=>''},serve:()=>{}},Response,console};vm.createContext(ctx);vm.runInContext(source,ctx);return ctx;
+ let source=fs.readFileSync(new URL('../supabase/functions/'+name+'/index.ts',import.meta.url),'utf8').replace(/^import .*;\n/gm,'').replace(/export /g,'');
+ source=stripTypeScriptTypes(source);const ctx={Deno:{env:{get:()=>''},serve:()=>{}},Response,console,numericResponse};vm.createContext(ctx);vm.runInContext(source,ctx);return ctx;
 };
 const attempt=loadBackend('submit-problem-attempt');assert.equal(attempt.grade(12,'12'),true);assert.equal(attempt.grade(12,'120'),false);assert.equal(attempt.grade(12,'12 or 15'),null);assert.equal(attempt.grade('1/2','2/4'),true);assert.equal(attempt.grade('a long proof answer','12'),null);
 const exam=loadBackend('grade-exam');assert(exam.correctFor({question_type:'integer',answer:'12'},'012'));assert(!exam.correctFor({question_type:'integer',answer:'12'},'12abc'));assert.equal(exam.awardFor(83,{max_score:135},{metadata:{student_year:5}}).label,'High Distinction');assert.equal(exam.awardFor(83,{max_score:135},{metadata:{student_year:6}}).label,'Distinction');

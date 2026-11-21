@@ -64,6 +64,7 @@ async function learningFunctionError(error,kind="solution"){
  if(status===401)return "Your sign-in has expired. Sign in again, then reopen this lesson.";
  if(status===403)return detail||(kind==="solution"?"Submit your final answer before opening the worked solution. Using a hint is allowed.":"You are not authorised to record this attempt.");
  if(status===404)return kind==="solution"?"This worked solution is unavailable. Please reopen the lesson.":"This problem is unavailable. Please reopen the lesson.";
+ if(status===422 && kind==="attempt" && detail)return detail;
  if(status===429)return "The service is busy. Please try again in a moment.";
  if(kind==="solution")return "The worked solution could not be loaded. Your submitted answer remains saved. Tap Compare with solution to retry.";
  return "Your attempt could not be sent. Your typed answer is still here; check your connection and try again.";
