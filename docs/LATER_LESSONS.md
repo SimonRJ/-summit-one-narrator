@@ -4,7 +4,7 @@ The 228 teaching sessions from S069 through S370 follow Read → Watch → Pract
 
 Each lesson opens with a short explanation, a worked example and a prompt about its assigned film. The 58 lessons with a published session introduction use that introduction. At the other 170 lessons, the Watch screen credits the earlier film that teaches that session’s technique. For a capstone, the film revisits the main technique and practice combines it with a second one. The final problem asks the learner to choose and apply a method in a less familiar setting.
 
-The continuation contains 912 new questions with hints and protected worked solutions and 362 selected challenges from the existing bank. Each new answer was independently checked. The protected grader release has fingerprint `428a303082793274d81db0325af82bdd`.
+The continuation contains 912 new questions with hints and protected worked solutions and 362 selected challenges from the existing bank. Each new answer was independently checked. The protected grader release has fingerprint `cdef4cbe1788bea9735184f9b26c5710`.
 
 | Session | Opening | Assigned film | Final problem | Problems |
 |---|---|---|---|---:|

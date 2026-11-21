@@ -2,8 +2,8 @@
   "questions": {
     "RWL2-087-A": {
       "title": "Which stack heights stay hidden?",
-      "prompt": "Two nonempty solid stacks stand one behind the other. The front stack has height 4 and the back stack cannot rise above it. How many different positive back-stack heights leave the front silhouette unchanged?",
-      "hint": "List the heights that do not exceed the visible stack."
+      "prompt": "Two nonempty vertical stacks of identical unit cubes stand on the same level, one directly behind the other. The front stack is 4 cubes high. How many different whole-number heights can the back stack have without changing the front silhouette?",
+      "hint": "Consider the whole-number heights that leave the visible outline four cubes high."
     },
     "RWL2-194-B": {
       "title": "Triangles sharing a side",
