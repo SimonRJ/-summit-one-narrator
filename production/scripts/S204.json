@@ -1,0 +1,43 @@
+{
+  "id": "S204",
+  "title": "Inside the painted block",
+  "voice": "VoxCPM2 — approved Voice C",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "Take off the roof",
+      "stage": "INTRO",
+      "narration": "Stack four cubes across, three deep and two high. Paint only the roof. Lift off the painted layer. Four rows of three make twelve painted cubes. The twelve cubes underneath are all clean. A face gets paint only where the brush can reach."
+    },
+    {
+      "n": 2,
+      "title": "Paint the four walls",
+      "stage": "PUZZLE",
+      "narration": "Build a new block five across, four deep and three high. Paint its four upright walls, leaving the roof and floor clean. Picture the centre of one horizontal slice. How many completely clean cubes pass through the whole block?"
+    },
+    {
+      "n": 3,
+      "title": "Lift the clean tower",
+      "stage": "WORK",
+      "narration": "The left and right walls remove one column at each side. Five across becomes three. Front and back turn four deep into two. No horizontal layer is painted, so keep all three layers. The clean tower holds three times two times three, or eighteen cubes."
+    },
+    {
+      "n": 4,
+      "title": "Exactly one painted face",
+      "stage": "PUZZLE",
+      "narration": "Start again with the same five-by-four-by-three solid. This time paint all six faces. Count the little cubes with exactly one painted face. A corner or an edge touches too many faces. Which part of each face can you keep?"
+    },
+    {
+      "n": 5,
+      "title": "Six face centres",
+      "stage": "WORK",
+      "narration": "On the roof, leaving its border gives a three-by-two patch. The floor gives another six. Front and back each have a three-by-one strip. Left and right each have a two-by-one strip. These patches do not overlap. Add twelve, six and four to get twenty-two cubes."
+    },
+    {
+      "n": 6,
+      "title": "Two different questions",
+      "stage": "RECAP",
+      "narration": "For no paint, lift out an entire clean core. For exactly one painted face, count the centre of each painted face and leave its shared edges out. Turn the block until you can name the dimensions you are using."
+    }
+  ]
+}

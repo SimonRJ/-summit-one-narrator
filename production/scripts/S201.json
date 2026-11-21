@@ -1,0 +1,43 @@
+{
+  "id": "S201",
+  "title": "One step before the bells",
+  "voice": "VoxCPM2 — approved Voice C",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "A bell every four beats",
+      "stage": "INTRO",
+      "narration": "Imagine a bell ringing on every fourth beat. It rings at four, eight and twelve. Beat seven sits one step before eight. Adding one to seven lands on a bell. Keep that one-step move in your pocket."
+    },
+    {
+      "n": 2,
+      "title": "When two bells ring",
+      "stage": "PUZZLE",
+      "narration": "A second bell rings on every sixth beat. Both bells start at zero. Which beat after twenty comes first just one step before both bells ring together?"
+    },
+    {
+      "n": 3,
+      "title": "Look for the shared beat",
+      "stage": "WORK",
+      "narration": "The four-beat bell rings at four, eight and twelve. The six-beat bell rings at six and twelve. The two meet every twelve beats. After twenty, their next shared beat is twenty-four. Step back to twenty-three. Its remainders are three when divided by four and five when divided by six."
+    },
+    {
+      "n": 4,
+      "title": "Two beats early",
+      "stage": "PUZZLE",
+      "narration": "Change the bells to six and ten beats. Count the beats from fifty to one hundred and twenty-five, including both ends, that come two beats before a simultaneous ring. How could you find all of them without testing every beat?"
+    },
+    {
+      "n": 5,
+      "title": "Move the interval too",
+      "stage": "WORK",
+      "narration": "Add two to both ends of the interval. The shared rings must lie between fifty-two and one hundred and twenty-seven. Six and ten first meet at thirty, then repeat every thirty beats. Sixty, ninety and one hundred and twenty are the only multiples of thirty inside the shifted interval."
+    },
+    {
+      "n": 6,
+      "title": "Return to the question",
+      "stage": "RECAP",
+      "narration": "Now step back two beats from each ring. Fifty-eight, eighty-eight and one hundred and eighteen all work. There are three beats. If the question asks for the beat before a ring, return to the original scale before answering."
+    }
+  ]
+}

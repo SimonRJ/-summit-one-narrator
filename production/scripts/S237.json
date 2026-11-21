@@ -1,0 +1,43 @@
+{
+  "id": "S237",
+  "title": "The zero that uses ink",
+  "voice": "VoxCPM2 — approved Voice C",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "Read the counter wheels",
+      "stage": "INTRO",
+      "narration": "A ticket printer stamps the numbers seventeen through twenty-two. How many copies of the digit two does it print? Twenty has one, twenty-one has one, and twenty-two has two. Four copies, on just three tickets. A digit can use ink twice on one label."
+    },
+    {
+      "n": 2,
+      "title": "The printer keeps its leading zero",
+      "stage": "PUZZLE",
+      "narration": "A different printer stamps two-digit codes from zero one through twenty-four. Its first wheel always prints, even when it shows zero. How many zeros end up on the paper?"
+    },
+    {
+      "n": 3,
+      "title": "Count by wheel",
+      "stage": "WORK",
+      "narration": "The left wheel shows zero on the nine codes from zero one through zero nine. The right wheel shows zero on ten and twenty. That makes eleven zeros. An ordinary page-number printer drops the nine leading zeros and prints only two."
+    },
+    {
+      "n": 4,
+      "title": "Three wheels, incomplete run",
+      "stage": "PUZZLE",
+      "narration": "Now the printer stamps three-digit codes from zero zero one through one hundred and twenty. Every wheel prints. No ticket says zero zero zero. How many copies of zero are printed over the entire run?"
+    },
+    {
+      "n": 5,
+      "title": "Separate the three counters",
+      "stage": "WORK",
+      "narration": "The hundreds wheel prints zero on the first ninety-nine tickets. The tens wheel prints zero from zero zero one to zero zero nine, then from one hundred to one hundred and nine. That gives nine plus ten, or nineteen. The units wheel prints zero on every tenth ticket, giving twelve."
+    },
+    {
+      "n": 6,
+      "title": "Check the endpoints",
+      "stage": "RECAP",
+      "narration": "Add ninety-nine, nineteen and twelve. The printer uses one hundred and thirty zeros. Before counting, read the first and last labels exactly as printed. Count a column at a time, including zeros at the front only when the printer actually makes them."
+    }
+  ]
+}

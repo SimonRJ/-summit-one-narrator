@@ -1,0 +1,43 @@
+{
+  "id": "S220",
+  "title": "The clock on a circular track",
+  "voice": "VoxCPM2 — approved Voice C",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "Watch the gap",
+      "stage": "INTRO",
+      "narration": "Two model cars start side by side on a twenty-four-metre track. Blue travels four metres each second. Gold travels two. They go the same way. Watch the gap open. How much track must blue gain to draw level again?"
+    },
+    {
+      "n": 2,
+      "title": "One lap of gain",
+      "stage": "WORK",
+      "narration": "Blue gains two metres every second. To gain twenty-four metres takes twelve seconds. By then blue has covered forty-eight metres and gold twenty-four. They meet because the difference in their distances is one whole lap."
+    },
+    {
+      "n": 3,
+      "title": "Reverse one car",
+      "stage": "PUZZLE",
+      "narration": "Start again, but send gold in the opposite direction. How long until the first meeting now? Freeze the cars after one second and look at how much of the gap they have closed."
+    },
+    {
+      "n": 4,
+      "title": "Close the gap together",
+      "stage": "WORK",
+      "narration": "In one second blue covers four metres towards gold and gold covers two towards blue. Together they close six metres. Twenty-four divided by six gives four seconds. Their distances add to one full lap."
+    },
+    {
+      "n": 5,
+      "title": "Three runners",
+      "stage": "PUZZLE",
+      "narration": "Three runners start together on a sixty-metre loop and run the same way at nine, seven and four metres per second. When are all three together again for the first time? Use the fastest runner as your reference."
+    },
+    {
+      "n": 6,
+      "title": "Two meeting clocks",
+      "stage": "RECAP",
+      "narration": "Against the middle runner, the fastest gains two metres each second and meets every thirty seconds. Against the slowest, the gain is five metres each second, so they meet every twelve seconds. The first common positive time is sixty seconds. A pair meeting is only half the evidence when three runners must coincide."
+    }
+  ]
+}

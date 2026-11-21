@@ -1,0 +1,43 @@
+{
+  "id": "S214",
+  "title": "The missing corner",
+  "voice": "VoxCPM2 — approved Voice C",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "Two products on the cutting mat",
+      "stage": "INTRO",
+      "narration": "Which has more tiles, a ten-by-ten square or a nine-by-eleven rectangle? Multiplication works, but a single cut shows the difference. Watch the narrow strip on the right of the square."
+    },
+    {
+      "n": 2,
+      "title": "Turn the strip",
+      "stage": "WORK",
+      "narration": "Cut off one column of ten. Rotate it and lay it above the nine columns that remain. Only nine tiles fit across the top. Set the last tile aside. The nine-by-eleven rectangle uses ninety-nine tiles, exactly one fewer than the square."
+    },
+    {
+      "n": 3,
+      "title": "A wider strip",
+      "stage": "PUZZLE",
+      "narration": "How many tiles would make a twenty-eight-by-thirty-two rectangle? Its side lengths sit two steps either side of thirty. Start with a thirty-by-thirty square. Predict the shape of the offcut."
+    },
+    {
+      "n": 4,
+      "title": "Find the offcut",
+      "stage": "WORK",
+      "narration": "Cut off a strip two tiles wide. Turn it across the shorter side. Two rows of twenty-eight fit, leaving a two-by-two corner. The square held nine hundred tiles. Subtract four to get eight hundred and ninety-six."
+    },
+    {
+      "n": 5,
+      "title": "Compare without multiplying",
+      "stage": "PUZZLE",
+      "narration": "Two trays measure forty-six by fifty-four and forty-seven by fifty-three. Both pairs of sides have midpoint fifty. How many more squares of chocolate fit in the larger tray?"
+    },
+    {
+      "n": 6,
+      "title": "Compare the corners",
+      "stage": "RECAP",
+      "narration": "The first tray leaves a four-by-four corner from a square fifty tiles on each side. The second leaves a three-by-three corner. The second tray has the smaller loss and so the larger area. Sixteen minus nine is seven. This cutting trick works when the two changes from the midpoint are equal in size and opposite in direction."
+    }
+  ]
+}
