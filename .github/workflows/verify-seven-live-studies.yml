@@ -1,0 +1,63 @@
+name: Verify the seven registered course studies on public phone players
+on:
+  push:
+    branches: [codex/reviewed-film-work-20261119]
+    paths: ['.github/workflows/verify-seven-live-studies.yml']
+permissions:
+  contents: read
+jobs:
+  public:
+    strategy:
+      fail-fast: false
+      matrix:
+        engine: [chromium, webkit]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install the public player check
+        run: |
+          pip install playwright==1.58.0
+          if [[ "${{ matrix.engine }}" == webkit ]]; then python -m playwright install --with-deps webkit; fi
+          mkdir -p tools data
+          base='https://raw.githubusercontent.com/SimonRJ/-summit-one-narrator/b72c59e2a4022d3b4d9dfdd1d2bfa591797f8ca2'
+          curl --fail --retry 3 "$base/tools/check_recorded_studies.py" -o tools/check_recorded_studies.py
+          curl --fail --retry 3 "$base/data/recorded-studies.json" -o data/recorded-studies.json
+      - name: Play and seek each deployed movie in both orientations
+        env:
+          ENGINE: ${{ matrix.engine }}
+          SITE: https://simonrj.github.io/-summit-one-narrator/
+        run: |
+          python - <<'PYTHON'
+          import json, os
+          from pathlib import Path
+          from urllib.request import urlopen
+          from time import sleep
+          source=Path('tools/check_recorded_studies.py').read_text()
+          start=source.index('                await page.set_viewport_size(')
+          end=source.index('\n        finally:',start)
+          source=source[:start]+source[end:]
+          source='\n'.join(line for line in source.splitlines() if 'await page.route(' not in line)
+          for rotation,width,height in [('portrait',390,844),('landscape',844,390)]:
+              path=Path(f'tools/check_{rotation}.py')
+              path.write_text(source.replace("'width': 390, 'height': 844",f"'width': {width}, 'height': {height}"))
+          expected=json.loads(Path('data/recorded-studies.json').read_text())
+          for attempt in range(36):
+              try:
+                  with urlopen(os.environ['SITE']+'data/recorded-studies.json?verified_seven',timeout=20) as f:
+                      if json.load(f)==expected: break
+              except OSError: pass
+              sleep(10)
+          else: raise RuntimeError('The public catalogue has not reached this release')
+          PYTHON
+          for rotation in portrait landscape; do
+            python "tools/check_$rotation.py" --engine "$ENGINE" --site "$SITE" | tee "$ENGINE-$rotation.txt"
+            test "$(grep -c 'played and sought to' "$ENGINE-$rotation.txt")" -eq 7
+          done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: seven-public-studies-${{ matrix.engine }}
+          path: '*.txt'
+          if-no-files-found: error
