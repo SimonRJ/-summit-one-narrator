@@ -20,6 +20,10 @@ VERSION = "t01-studio-v1"
 CHAPTER_VERSION = "studio-chapters-02-04-v1"
 COURSE_VERSION = "teaching-films-v1"
 REVIEWED_MEDIA = {
+    "T08.E": "different-coin-faces",
+    "T08.3": "four-surviving-faces",
+    "T08.2": "successive-red-draws",
+    "T08.1": "six-matching-pairs",
     "T07.E": "five-tray-witness",
     "T07.3": "one-per-column",
     "T07.2": "balanced-fence-22",
