@@ -7,7 +7,7 @@ const picker = document.querySelector('#readerLesson');
 const reading = document.querySelector('#reading');
 const editions = [
   './data/read-watch-practise.json?v=read-practise-1',
-  './data/read-watch-practise-later.json?v=illustrations-92',
+  './data/read-watch-practise-later.json?v=illustrations-93',
 ];
 
 async function prepareOffline() {
