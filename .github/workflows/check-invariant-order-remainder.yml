@@ -2,7 +2,7 @@ name: Check the invariant, inverse, order and remainder lessons on phones
 on:
   push:
     branches: [codex/reviewed-film-work-20261119]
-    paths: ['.github/workflows/check-invariant-order-remainder.yml']
+    paths: ['.github/workflows/check-invariant-order-remainder.yml', 'tools/review-public-video-players.cjs']
 permissions:
   contents: read
 jobs:

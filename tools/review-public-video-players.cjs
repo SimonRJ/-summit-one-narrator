@@ -79,19 +79,13 @@ async function check(context,film,orientation,engine) {
     assert.equal(courseSource,source);
     await video.evaluate(v=>{v.muted=true;return v.play()});
     await page.waitForFunction(()=>document.querySelector('video').currentTime>.15,null,{timeout:20000});
-    let target,method;
-    if (id==='T02.1') {
-      // This approved film uses native controls and has no chapter buttons.
-      target=await video.evaluate(v=>{const t=v.duration*.53;v.currentTime=t;return t});
-      method='native seek';
-    } else {
-      const chapters=page.locator('[data-time]');
-      await chapters.first().waitFor({timeout:18000});
-      const chapter=chapters.nth(Math.min(id.startsWith('S')?4:3,await chapters.count()-1));
-      target=Number(await chapter.getAttribute('data-time'));
-      assert.ok(target>0);
-      await chapter.tap();method='chapter button';
-    }
+    const chapters=page.locator('[data-time]');
+    await chapters.first().waitFor({timeout:18000});
+    const chapter=chapters.nth(Math.min(id.startsWith('S')?4:3,await chapters.count()-1));
+    const target=Number(await chapter.getAttribute('data-time'));
+    assert.ok(target>0);
+    await chapter.tap();
+    const method='chapter button';
     await page.waitForFunction(t=>{const v=document.querySelector('video');return !v.seeking&&v.readyState>=2&&Math.abs(v.currentTime-t)<2},target,{timeout:25000});
     const afterSeek=await video.evaluate(v=>v.currentTime);
     await page.waitForFunction(([t,after])=>{const v=document.querySelector('video');return v.currentTime>Math.max(t+.75,after+.12)&&v.currentTime<t+4},[target,afterSeek],{timeout:15000});
