@@ -53,6 +53,14 @@ jobs:
         run: python production/lesson-intros/illustrated/install_media_tools.py
       - name: Render and verify the original audio packets and caption track
         run: python production/lesson-intros/illustrated/render_captioned_lesson.py "$FILM" --out build/diagrams
+      - name: Review the encoded illustrations, captions and narration against the timed artwork
+        run: |
+          pip install numpy
+          art=production/lesson-intros/illustrated
+          module=$(PYTHONPATH="$art" python -c "import os; from render_captioned_lesson import MODULES; print(MODULES[os.environ['FILM']])")
+          movies=(build/diagrams/"$FILM"-Intro-Illustrated*.mp4)
+          test "${#movies[@]}" -eq 1
+          python "$art/check_encoded_timeline.py" "$module" "build/diagrams/$FILM-original.mp4" "${movies[0]}" --report "build/diagrams/$FILM-comparison.json"
       - name: Stage the film and poster for playback review
         run: |
           mkdir -p build/remote
@@ -67,4 +75,6 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: public-video-digest-${{ matrix.id }}
-          path: build/diagrams/*-qa.json
+          path: |
+            build/diagrams/*-qa.json
+            build/diagrams/*-comparison.json
