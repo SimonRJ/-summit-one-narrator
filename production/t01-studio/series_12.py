@@ -178,11 +178,12 @@ def exterior(stage,s, *, mode):
     dx=length*tc/(tb+tc)
     a=(400+dx,497-dx*tb)
     region(stage,(a,b,c),BLUE,tint=.11)
-    stage.line([b,d],WHITE,4)
+    extension=cue(s,"extended beyond") if mode=="question" else 1
+    stage.line([b,(mix(c[0],d[0],extension),b[1])],WHITE,4)
     for point,label,delta in ((a,"A",(0,-23)),(b,"B",(-28,14)),(c,"C",(0,30)),(d,"D",(18,23))):
-        fit(stage,label,point[0]+delta[0],point[1]+delta[1],26,94,WHITE)
-    corner(stage,a,b,c,55,BLUE,label=f"{round(115-angle_b)}°")
-    corner(stage,b,a,c,51,GOLD,label=f"{round(angle_b)}°")
+        fit(stage,label,point[0]+delta[0],point[1]+delta[1],26,94,WHITE,extension if label=="D" else 1)
+    corner(stage,a,b,c,55,BLUE,label=f"{round(115-angle_b)}°",opacity=cue(s,"forty-eight degrees") if mode=="question" else 1)
+    corner(stage,b,a,c,51,GOLD,label=f"{round(angle_b)}°",opacity=cue(s,"sixty-seven degrees") if mode=="question" else 1)
     if mode!="question":
         corner(stage,c,a,b,46,BLUE,label="65°",opacity=cue(s,"sixty-five degrees") if mode=="inside" else 1)
     if mode=="sum":
@@ -190,8 +191,36 @@ def exterior(stage,s, *, mode):
         sector(stage,c,-115,48,88,BLUE,opacity=q,label="48°")
         sector(stage,c,-67,67,88,GOLD,opacity=q,label="67°")
     elif mode!="inside":
-        q=cue(s,"outside angle is") if mode=="outside" else 1
+        q=cue(s,"outside angle is") if mode=="outside" else cue(s,"the angle outside") if mode=="question" else 1
         corner(stage,c,a,d,79,MINT,opacity=q,label="?" if mode=="question" else "115°")
+
+
+def far_angle_challenge(stage,s):
+    challenge=s.t>=s.at("then find")
+    fit(stage,"Find the exterior angle" if challenge else "Build the exterior angle from the two far corners",640,87,43)
+    angle_a,angle_b=(35,80) if challenge else (48,67)
+    left,base_y,length=393,490,205
+    b=(left,base_y);c=(left+length,base_y);d=(915,base_y)
+    slope_b=math.tan(math.radians(angle_b))
+    slope_c=math.tan(math.radians(180-angle_a-angle_b))
+    dx=length*slope_c/(slope_b+slope_c)
+    a=(left+dx,base_y-dx*slope_b)
+    region(stage,(a,b,c),BLUE,tint=.14)
+    stage.line([b,d],WHITE,4)
+    for v,lab,off in ((a,"A",(0,-29)),(b,"B",(-18,22)),(c,"C",(0,27)),(d,"D",(15,20))):
+        fit(stage,lab,v[0]+off[0],v[1]+off[1],25,80,WHITE)
+    when_a="thirty-five" if challenge else "the sum"
+    when_b="eighty degrees" if challenge else "two far inside angles"
+    p,q=cue(s,when_a),cue(s,when_b)
+    corner(stage,a,b,c,57,GOLD,label=f"{angle_a}°",opacity=p)
+    corner(stage,b,a,c,48,MINT,label=f"{angle_b}°",opacity=q)
+    sector(stage,c,-115,angle_a,80,GOLD,opacity=p)
+    sector(stage,c,-angle_b,angle_b,80,MINT,opacity=q)
+    fit(stage,f"{angle_a}° + {angle_b}° = 115°",897,321,36,440,WHITE,q)
+    fit(stage,"Interior 65° + exterior 115° = 180°",640,578,30,1050,BLUE,q)
+
+
+far_angle_challenge.chapter="Your turn"
 
 
 FILMS={
@@ -263,7 +292,6 @@ FILMS={
           equation(("48° + 67°",WHITE,"forty-eight plus sixty-seven"),("= 115°",MINT,"one hundred and fifteen"),y=579)),
     scene("Change the shape and check the relationship",lambda stage,s:exterior(stage,s,mode="change"),
           equation(("60° + 55°",WHITE,"sixty and fifty-five"),("= 115°",MINT,"one hundred and fifteen"),y=579)),
-    exercise((("Locate the far inside angles","the sum of the two far"),("Add them","the outside angle equals")),
-             "then find",("The two far interior angles are 35° and 80°.","Find the exterior angle.")),
+    far_angle_challenge,
  ),
 }

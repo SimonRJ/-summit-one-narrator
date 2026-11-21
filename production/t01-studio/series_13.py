@@ -73,7 +73,7 @@ def half_rectangle(stage,s):
     stage.dot(x,top,7,MINT)
 
 
-def cut_shape(stage,s, *, x=431,y=235,u=78,a=5,b=3,mode="corner",mark=None,slide=None):
+def cut_shape(stage,s, *, x=431,y=235,u=78,a=5,b=3,mode="corner",mark=None,slide=None,exposed=None):
     right,bottom=x+a*u,y+b*u
     if mode=="uncut":
         region(stage,((x,y),(right,y),(right,bottom),(x,bottom)),BLUE,tint=.16)
@@ -94,7 +94,7 @@ def cut_shape(stage,s, *, x=431,y=235,u=78,a=5,b=3,mode="corner",mark=None,slide
     for q,r in old:
         dashed(stage,q,r,RED,p)
     for q,r in new:
-        stage.line([q,r],MINT,6,p)
+        stage.line([q,r],MINT,6,cue(s,exposed) if exposed else p)
     if slide:
         t=cue(s,slide,duration=.85)
         for i,(q,r) in enumerate(new):
@@ -157,6 +157,40 @@ def painted(stage,s):
 def both_cut(stage,s):
     cut_shape(stage,s,x=201,y=229,u=61,a=6,b=4,mode="corner")
     cut_shape(stage,s,x=725,y=229,u=61,a=6,b=4,mode="edge")
+
+
+def measured_notch(stage,s):
+    challenge=s.t>=s.at("then find")
+    width=2 if challenge else 1
+    fit(stage,"Cut a 2 cm by 1 cm notch" if challenge else "Trace the replacement boundary",640,87,43)
+    u=66;x,y=335,223
+    m=x+(6-width)*u/2;end=m+width*u
+    marked=cue(s,"cut from the middle" if challenge else "minus the boundary removed")
+    new=cue(s,"long side along the edge" if challenge else "plus the boundary created")
+    notch=u*marked
+    path=((x,y),(m,y),(m,y+notch),(end,y+notch),(end,y),(x+6*u,y),(x+6*u,y+4*u),(x,y+4*u))
+    region(stage,path,BLUE,tint=.15)
+    fit(stage,"6 cm",x+3*u,y+4*u+32,30,228,BLUE)
+    fit(stage,"4 cm",x-65,y+2*u,30,105,BLUE)
+    dashed(stage,(m,y),(end,y),RED,marked)
+    for a,b in zip(path[1:4],path[2:5]):
+        stage.line([a,b],MINT,5,new)
+    fit(stage,f"{width} cm",(m+end)/2,y-30,25,136,RED,marked)
+    fit(stage,"1 cm",m-48,y+u/2,21,86,MINT,new)
+    fit(stage,"1 cm",end+48,y+u/2,21,86,MINT,new)
+    fit(stage,f"{width} cm",(m+end)/2,y+u+29,23,108,MINT,new)
+    fit(stage,f"Remove {width} cm",985,278,32,385,RED,marked)
+    fit(stage,f"Add 1 + {width} + 1 cm",985,363,32,407,MINT,new)
+    fit(stage,f"20 − {width} + {width+2} = 22 cm",640,584,36,1080,WHITE,new)
+
+
+measured_notch.chapter="Your turn"
+
+
+def opening_cut(stage,s):
+    for x,mode,word in ((201,"corner","from a corner"),(725,"edge","middle of an edge")):
+        chosen=mode if s.t>=s.at(word) else "uncut"
+        cut_shape(stage,s,x=x,y=229,u=61,a=6,b=4,mode=chosen)
 
 
 FILMS={
@@ -238,24 +272,23 @@ FILMS={
               "How many small cubes have no paint?")),
  ),
  "T13.E":(
-    scene("Two equal cuts in different places",both_cut,
+    scene("Two equal cuts in different places",opening_cut,
           note("Each original rectangle is 6 cm by 4 cm", "six centimetres by four",y=536,size=33),
           note("Find the two new perimeters", "what are the two new perimeters",y=587,size=33)),
     scene("The original boundary measures twenty",
           lambda stage,s:cut_shape(stage,s,x=408,y=211,u=74,a=6,b=4,mode="uncut"),
+          note("6 cm","six plus four",x=630,y=176,size=30),
+          note("4 cm","four plus six",x=320,y=359,size=30),
           equation(("6 + 4 + 6 + 4",BLUE,"six plus four"),("= 20 cm",MINT,"twenty centimetres"),y=570)),
     scene("A corner cut gives two edges back",
-          lambda stage,s:cut_shape(stage,s,x=408,y=211,u=74,a=6,b=4,mark="removes two"),
+          lambda stage,s:cut_shape(stage,s,x=408,y=211,u=74,a=6,b=4,mark="removes two",exposed="exposes two new"),
           equation(("20 − 2 + 2",WHITE,"the change is zero"),("= 20 cm",MINT,"still twenty"),y=570)),
     scene("An edge notch gives three edges back",
-          lambda stage,s:cut_shape(stage,s,x=408,y=211,u=74,a=6,b=4,mode="edge",mark="removes only one"),
+          lambda stage,s:cut_shape(stage,s,x=408,y=211,u=74,a=6,b=4,mode="edge",mark="removes only one",exposed="exposes three new"),
           equation(("20 − 1 + 3",WHITE,"exposes three"),("= 22 cm",MINT,"twenty-two centimetres"),y=570)),
     scene("Same area removed, different boundary",both_cut,
           note("Each area is 24 − 1 = 23 cm²", "each has area twenty-three",y=533),
           note("The perimeters are 20 cm and 22 cm", "their perimeters differ",y=589,size=33)),
-    exercise((("Start with the old perimeter","old perimeter"),("Subtract removed edges","minus the boundary removed"),
-              ("Add exposed edges","plus the boundary created")),"then find",
-             ("Cut a 2 × 1 notch from the middle of a 6 × 4 rectangle’s edge.",
-              "The long side of the notch is along the edge. Find the perimeter.")),
+    measured_notch,
  ),
 }

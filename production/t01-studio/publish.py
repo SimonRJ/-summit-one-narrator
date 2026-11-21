@@ -55,8 +55,10 @@ REVISED_MEDIA = {
     "T11.3": "written-threes",
     "T11.E": "two-column-trades",
     "T12.1": "angle-tracing-20261119",
+    "T12.E": "exterior-angle-sectors",
     "T13.1": "moving-area-20261119",
     "T13.2": "cut-and-scale-20261119",
+    "T13.E": "measured-edge-notch"
 }
 VOICE_SHA = "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362"
 
