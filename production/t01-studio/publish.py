@@ -25,6 +25,7 @@ REVISED_MEDIA = {
     "T04.2": "divisor-choices-200",
     "T04.3": "prime-rows-20-30",
     "T04.E": "square-900",
+    "T05.1": "podium-and-teams",
     "T12.1": "angle-tracing-20261119",
     "T13.1": "moving-area-20261119",
     "T13.2": "cut-and-scale-20261119",

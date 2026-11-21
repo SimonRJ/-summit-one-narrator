@@ -58,6 +58,29 @@ def triples(stage, s):
              cue(s, "ten groups", delay=.07*i), 29)
 
 
+def pair_challenge(stage, s):
+    if s.t < s.at("notebook challenge"):
+        fit(stage, "Count the roles, then the teams", 640, 90, 48)
+        cards((("AB", BLUE), ("BA", GOLD)), 265, words="positions or roles differ", gap=220)(stage, s)
+        link((530, 306), (625, 400), "only membership matters")(stage, s)
+        link((750, 306), (655, 400), "only membership matters")(stage, s)
+        tile(stage, 640, 446, "{A, B}", MINT, 180, 70, cue(s, "divide by the number"))
+        return
+    fit(stage, "Six players", 640, 90, 48)
+    for i, name in enumerate("ABCDEF"):
+        tile(stage, 265 + 150*i, 208, name, BLUE, 105, 66, cue(s, "from six players", delay=.06*i))
+    for y, label, detail, words, colour in (
+        (358, "Captain and vice-captain", "6 × 5 = 30", "a captain and a vice-captain", GOLD),
+        (484, "Two equipment carriers", "30 ÷ 2 = 15", "carry the equipment", MINT),
+    ):
+        p = cue(s, words)
+        fit(stage, label, 405, y, 36, 570, colour, p)
+        fit(stage, detail, 925, y, 40, 405, colour, p)
+
+
+pair_challenge.chapter = "Your turn"
+
+
 FILMS = {
     "T05.1": (
         scene("Does order matter?", podium,
@@ -66,6 +89,7 @@ FILMS = {
         scene("The wording decides whether to count a swap", cards((("AB",BLUE),("BA",GOLD)), 251, gap=200),
               link((540,295),(640,410),"or halves it",colour=MINT),
               link((740,295),(640,410),"or halves it",colour=MINT),
+              note("Two distinct people · two podium orders", x=640, y=155, size=31),
               cards((("{A, B}",MINT),), 452, words="or halves it", width=171),
               note("Two orders can describe one team", "decide about order")),
         scene("Three runners, two different counts", cards((A, B, C), 237, words="ava ben and cal"),
@@ -84,10 +108,7 @@ FILMS = {
               cards((("Captain", BLUE), ("Scorer", GOLD), ("Timekeeper", MINT)), 421,
                     words="captain scorer and timekeeper", gap=285, width=254),
               note("5 × 4 × 3 = 60 assignments", "the answer is sixty")),
-        exercise((("Positions or roles", "if positions or roles differ"), ("Only the members", "if only membership matters")),
-                 "notebook challenge", ("Six players. How many captain and vice-captain choices?",
-                                        "How many pairs of equipment carriers?"),
-                 sub="Which decisions give each pair a different job?"),
+        pair_challenge,
     ),
     "T05.2": (
         scene("Split a difficult count into cases",
