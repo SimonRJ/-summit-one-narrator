@@ -210,7 +210,7 @@
       "chapter": "Count the same structure from two directions",
       "transcript": "Four square tiles, each with side one, are pushed together to make a two by two square. What is the perimeter of the large square? We will find it by counting tile edges. Separately, each tile has four edges. Four tiles report sixteen edges altogether. When the tiles are joined, some edges end up inside. There are four inside joins: two along the vertical middle line and two along the horizontal middle line. Each inside join was reported by both tiles beside it. So remove two reports for each of the four joins. Sixteen minus eight is eight. The perimeter is eight. Check directly: the big square has side two, and four times two is eight. Now rearrange the tiles in a single row. There are only three joins, so the perimeter is sixteen minus six, which is ten. Fewer joins means a longer perimeter. The outside perimeter is the total of all tile edges, minus two for every join. Rebuild this argument, then find the perimeter of six unit squares arranged in a two by three rectangle.",
       "audio_url": "",
-      "video_url": "media/T06.E.mp4?v=teaching-films-v1"
+      "video_url": "media/T06.E.mp4?v=seven-unit-joins"
     },
     {
       "id": "T07.1",
