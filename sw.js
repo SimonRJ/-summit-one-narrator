@@ -1,5 +1,5 @@
 const scope = new URL(self.registration.scope);
-const CACHE="summit-one-craft-20261121-intro88-divisor-choices-200-reader-square-900-answers";
+const CACHE="summit-one-craft-20261121-intro88-divisor-choices-200-square-900-answers";
 const cachePrefix = scope.pathname + ':summit-one-';
 const cacheName = scope.pathname + ':' + CACHE;
 const reader = new URL('offline-reader.html', scope).href;
