@@ -189,7 +189,10 @@ async def verify_revised_lessons(browser):
  assert await second_method.is_visible() and not await second_method.locator('p').first.is_visible()
  await second_method.locator('summary').press('Enter')
  assert '248' in await second_method.locator('p').first.inner_text()
- assert '47 × 8' in await second_method.locator('p').last.inner_text()
+ comparison=second_method.locator('p').last
+ assert 'Which would you try' in await comparison.inner_text()
+ assert await comparison.evaluate("""p => p.textContent.includes('47 × 8') ||
+   Boolean(p.querySelector('[data-math-source="47 × 8"]'))""")
  await fits()
  await play_phase(2)
  await back.click()
