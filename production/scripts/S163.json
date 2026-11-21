@@ -1,0 +1,61 @@
+{
+  "id": "S163",
+  "title": "Floodlights at the cube yard",
+  "voice": "VoxCPM2 — approved Voice C",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "A lamp level with a cube",
+      "stage": "INTRO",
+      "narration": "At the model yard a lamp travels straight up a mast. Its beam lights just one horizontal layer of cubes. A stack five cubes high meets the beam on level three. How many cubes does that one stack contribute to the lit layer?"
+    },
+    {
+      "n": 2,
+      "title": "From a model to its height plan",
+      "stage": "BASIC",
+      "narration": "One cube from that stack meets the beam. Read this new yard from directly above. The far row of stacks has heights one, four and two. The near row has heights three, zero and four. Zero marks an empty bay. No stack has a gap underneath."
+    },
+    {
+      "n": 3,
+      "title": "Slide the lamp to level two",
+      "stage": "PUZZLE",
+      "narration": "Move the lamp to the second level, counting up from the ground. On the plan, a bay lights up whenever its height is at least two. Which bays survive this test? Count the lit positions before looking at the model from the side."
+    },
+    {
+      "n": 4,
+      "title": "Stack the illuminated plans",
+      "stage": "REVEAL",
+      "narration": "Four bays reach level two. Run the beam up from the floor. Five bays reach the first level. Four reach the second, three reach the third and two reach the fourth. Those layer counts add to fourteen cubes. Adding the six original stack heights gives the same total."
+    },
+    {
+      "n": 5,
+      "title": "The water rises",
+      "stage": "PUZZLE",
+      "narration": "Rain fills the yard to the top of level two. Imagine the water hides every cube in the lowest two layers. The taller stacks still poke out. How many individual cubes remain visible above water? Is counting the stacks that poke out enough?"
+    },
+    {
+      "n": 6,
+      "title": "Count every cube above the line",
+      "stage": "REVEAL",
+      "narration": "Three stacks poke out, but two of them rise two cubes above the water. The other rises one cube above it. That makes five visible cubes. From the side, level three contributes three cubes and level four contributes two more. Both counts give five."
+    },
+    {
+      "n": 7,
+      "title": "The lost height tag",
+      "stage": "TRANSFER",
+      "narration": "A smaller yard has four occupied bays and twelve cubes altogether. The readable height tags say one, two and four. They account for seven cubes. All five remaining cubes belong to the bay with the lost tag. Check that its restored height brings the total back to twelve."
+    },
+    {
+      "n": 8,
+      "title": "A staircase in the floodlights",
+      "stage": "CHALLENGE",
+      "narration": "Two matching strips stand side by side to make a solid staircase. Along either strip the heights are one, two, three, four and five. Count one strip first. The first and last heights make six. The second and fourth also make six. The middle adds three. Two strips each contain fifteen cubes."
+    },
+    {
+      "n": 9,
+      "title": "Choose the view that counts the object",
+      "stage": "RECAP",
+      "narration": "The staircase has thirty cubes. A plan counts occupied positions at one level. A side view can show how many layers remain above a line. To count the entire solid, use each stack height once, or add the occupied positions on every layer. Both methods count each cube exactly once."
+    }
+  ]
+}

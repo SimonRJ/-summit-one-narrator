@@ -1,0 +1,61 @@
+{
+  "id": "S164",
+  "title": "Set the tram destination blind",
+  "voice": "VoxCPM2 — approved Voice C",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "When leading zero vanishes",
+      "stage": "INTRO",
+      "narration": "The tram depot writes each route as an ordinary number. A blind showing zero then four still names route four. It does not create a two-digit number. With cards zero, four and seven, what is the smallest genuine two-digit route number you can display without using a card twice?"
+    },
+    {
+      "n": 2,
+      "title": "Set the front drum first",
+      "stage": "BASIC",
+      "narration": "The tens drum needs the smallest nonzero card. That is four. The units drum may use zero. The route is forty. Starting with seven would make a larger number. Treat the leading position separately whenever the number must have a specified length."
+    },
+    {
+      "n": 3,
+      "title": "Five cards at the depot",
+      "stage": "PUZZLE",
+      "narration": "Open the larger drawer. It holds zero, two, three, six and nine. Use three different cards to display an ordinary three-digit number. How many numbers are possible? Think about the hundreds drum first. Which cards are still in the drawer when it is set?"
+    },
+    {
+      "n": 4,
+      "title": "Return zero to the drawer",
+      "stage": "REVEAL",
+      "narration": "There are four choices for hundreds because zero cannot lead. With that card out, four choices remain for tens, including zero. Three cards then remain for units. Four times four times three makes forty-eight different numbers. Every number fixes just one ordered set of drum settings."
+    },
+    {
+      "n": 5,
+      "title": "Find the routes that contain zero",
+      "stage": "PUZZLE",
+      "narration": "The depot wants to flag every one of those numbers that contains zero. It is easier to turn the question round. How many of the forty-eight numbers contain no zero at all? What changes if the zero card stays in the drawer throughout?"
+    },
+    {
+      "n": 6,
+      "title": "Subtract a complete group",
+      "stage": "REVEAL",
+      "narration": "Use just the four nonzero cards. Hundreds has four choices, tens has three and units has two. That gives twenty-four numbers with no zero. Subtract these from forty-eight. The other twenty-four contain zero. The two groups cover every route and have no number in common."
+    },
+    {
+      "n": 7,
+      "title": "The late service rule",
+      "stage": "CHALLENGE",
+      "narration": "A late service must show an even three-digit number greater than five hundred. The same five cards are available, without repeats. Only six or nine can lead. Does each of those leading cards leave the same number of even cards for the final position?"
+    },
+    {
+      "n": 8,
+      "title": "Sort by the leading card",
+      "stage": "REVEAL",
+      "narration": "If six leads, the final card can be zero or two. Three unused cards can fill the middle. This gives six routes. If nine leads, the final card can be zero, two or six. Three choices for the middle then give nine routes. The two cases add to fifteen."
+    },
+    {
+      "n": 9,
+      "title": "Run one route through the drums",
+      "stage": "RECAP",
+      "narration": "Take nine, three, zero. The number is greater than five hundred, even, and free of repeated digits. It belongs only to the case beginning with nine. When restrictions meet, set a position that changes the later choices. Count each possible beginning and add the separate cases."
+    }
+  ]
+}
