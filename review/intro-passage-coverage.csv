@@ -1,0 +1,284 @@
+lesson,title,player,transcript_source,baseline_availability,movie_sha256,guide_digest_matches_movie,scene_count,editorial_next_step,unique_scene_numbers_3_to_9,exact_matches_to_other_lessons,basic_near_matches,medium_near_matches,challenge_near_matches
+S001,Divisibility tests and modular remainders,watch-intro-s001.html,bundled local film,verified,,,12,individual structure; review its own chapters,,,,,
+S002,Place-value decomposition and estimation,watch-intro-s002.html,bundled local film,verified,,,11,individual structure; review its own chapters,,,,,
+S003,Working backwards through operations,watch-intro-s003.html,bundled local film,verified,,,11,individual structure; review its own chapters,,,,,
+S004,"Digits, zero and positional constraints",watch-intro-s004.html,bundled local film,verified,,,12,individual structure; review its own chapters,,,,,
+S005,Digit sums and counting digits in ranges,watch-intro-s005.html,bundled local film,verified,,,12,individual structure; review its own chapters,,,,,
+S006,Unit-cube counting and layered solids,watch-intro-s006.html,bundled local film,verified,,,11,individual structure; review its own chapters,,,,,
+S008,The folding number press,watch-lesson-intro.html?slot=8,recorded study,verified,9caf72d51d6c44b9e6e4296113418236b734387e8d1861db313b68092d909365,yes,8,individual structure; review its own chapters,,,,,
+S009,Cryptarithms and symbol-to-digit arithmetic,watch-lesson-intro.html?slot=9,catalogue,verified,5dda46e75b5b137215178270c27f0c26e7cf744d2209e9afc941113b028a941d,no,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S010/basic,,
+S010,Cryptarithms and symbol-to-digit arithmetic,watch-lesson-intro.html?slot=10,catalogue,verified,c35ddda2981d1ee595365d8ca958324b64acb5056a2da6d28b702fa571af104a,no,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S009/basic,,
+S011,"Primes, factors and factorisation",watch-lesson-intro.html?slot=11,catalogue,verified,066b935c7e20573e07ba698a099af2735708d3034dd9423ef29daacea2193726,no,11,seven unique passages; no near matches detected,3 4 5 6 7 8 9,,,,
+S012,"Recurrence relations, steps and branching",watch-lesson-intro.html?slot=12,catalogue,verified,c0c16a8ab799892cc4a43485a4f0d578b8e3a564609a851bf6428926e9ce88f5,no,11,rewrite repeated spoken passages,3 4 5 6 7 8,"{""9"":[""S052/9""]}",S052/basic,S052/medium,S052/challenge
+S013,"Multiples, HCF and LCM",watch-lesson-intro.html?slot=13,catalogue,verified,b7cd76152b526f0064e81093cf0c86c27d945b7996bce0f1111097421a965e54,no,11,seven unique passages; no near matches detected,3 4 5 6 7 8 9,,,,
+S015,Divisibility tests and modular remainders,watch-lesson-intro.html?slot=15,catalogue,verified,a4a7c05120c8213e6e54e3409ed6855ac85e687ed501bfa59c1bf768099da52d,no,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S110/basic,S110/medium,S110/challenge
+S017,"Grid lines, crossings and coordinates",watch-lesson-intro.html?slot=17,catalogue,verified,33030c73b7bb94f417f126ab2eddb19d91c51b08b99f2f24cfa6bb2430917d72,no,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S082/basic S094/basic S118/basic,S082/medium S094/medium S118/medium,S082/challenge S118/challenge
+S018,Parity and odd/even structure,watch-lesson-intro.html?slot=18,catalogue,verified,1c49e802216781ce394de912801100a6fd85948f527dc3a8b8223b91cd645a70,no,11,seven unique passages; no near matches detected,3 4 5 6 7 8 9,,,,
+S019,"Parity, colouring and impossible tilings",watch-lesson-intro.html?slot=19,catalogue,verified,c08c020ccb192987a2339e27a328248cb43b8b00753ba3fdf6d6c83cbdedc086,yes,11,seven unique passages; no near matches detected,3 4 5 6 7 8 9,,,,
+S020,"Last-digit, clock and repeating-cycle reasoning",watch-lesson-intro.html?slot=20,catalogue,verified,393ec2fbd79e93259b2cdf512eeeea947644745b4078069f977b301360be62bc,yes,11,seven unique passages; no near matches detected,3 4 5 6 7 8 9,,,,
+S022,"Parts and wholes, including remaining fractions",watch-lesson-intro.html?slot=22,catalogue,verified,9dac847c1037f7077f584403dfb4550a89f5eba51f7248dba179bc8098247835,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S142/basic,S142/medium,S142/challenge
+S023,Restricted arrangements and neighbour rules,watch-lesson-intro.html?slot=23,catalogue,verified,e5bdbfa05b85b5cf8cda90542cdcc45d80f22e1ee749dad1949d171f67437ddc,yes,11,rewrite repeated spoken passages,3 5 6 7 8 9,"{""4"":[""S060/4""]}",S060/basic,S060/medium S088/medium,S060/challenge
+S024,"Ratios on a bead strand, a scale drawing and two trays",watch-lesson-intro.html?slot=24,catalogue,verified,36db44d0eab8b38e818e86fa2bfea927f641a71c04da98683aa7b36c283250ea,yes,11,seven unique passages; no near matches detected,3 4 5 6 7 8 9,,,,
+S025,"Fractions, percentages and proportional comparisons",watch-lesson-intro.html?slot=25,catalogue,verified,c9cd47cc03e448cdeed5a08a839817e1395a9bdc711c979b751c9dbaeee67f66,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S029/basic,S029/medium,S029/challenge
+S026,"Averages, weighted means and simple distributions",watch-lesson-intro.html?slot=26,catalogue,verified,52c0575bc26ef2b2c50316478d39efec6803ae4920a0df861a09d3f3cbca0cb5,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S092/basic S103/basic S132/basic,S092/medium S103/medium S132/medium,S092/challenge S103/challenge S132/challenge
+S027,Grouped fractions and weighted totals,watch-lesson-intro.html?slot=27,catalogue,verified,e43719e111a227d400a457758b618a6de42a26b39d315099e27fbbda73b54044,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S115/basic,S115/medium,S115/challenge
+S029,"Fractions, percentages and proportional comparisons",watch-lesson-intro.html?slot=29,catalogue,verified,2f83735d13968536602d6f35e98c5e13ddd9da1082da9501df9404f78877e2cc,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S025/basic,S025/medium,S025/challenge
+S030,Unit conversion and repeated-event rates,watch-lesson-intro.html?slot=30,catalogue,verified,beee1f5301c3145138e13bfebfbe7be2e7a085c0d767010fbe872f846df71713,yes,11,seven unique passages; no near matches detected,3 4 5 6 7 8 9,,,,
+S031,Combined work rates,watch-lesson-intro.html?slot=31,catalogue,verified,de85494d4eb9b35d0d6d5c19c364eb9a966f2b38a99ccfa8b8037f777d837f9b,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S086/basic S106/basic,S086/medium S106/medium,S086/challenge S106/challenge
+S033,"Truth-tellers, liars and contradiction",watch-lesson-intro.html?slot=33,catalogue,verified,a1e4487786e1971bd69865958d498fc9168e639a24c83e237a806ba92bb0487f,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S068/basic S099/basic,S068/medium S099/medium,S099/challenge
+S034,Distance–speed–time reasoning,watch-lesson-intro.html?slot=34,catalogue,verified,32d56344b3f79f76cd22bf15458c17183b1f3474d3db14d3d3de9734c48add32,yes,11,rewrite repeated spoken passages,3 4 5 6 7 8,"{""9"":[""S039/9""]}",S039/basic,S039/medium,S039/challenge
+S036,Tiling a strip with forced domino pairs,watch-lesson-intro.html?slot=36,catalogue,verified,907131720841627d7405986d5330b5900844d06f0ee3b36f4226b41979e2dadb,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,,,S097/challenge S127/challenge
+S037,"Relative speeds, timed movement and meetings",watch-lesson-intro.html?slot=37,catalogue,verified,06093f6891a7ba0b5630f91c84d123c2b7f2ea4f27cab5e2f325cc9aef3d2202,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S129/basic,S129/medium,S129/challenge
+S038,One- and two-variable word equations,watch-lesson-intro.html?slot=38,catalogue,verified,d7bd8ab585314e3c19f48ff819fee4b82d545175d5444bbd0e301be63a655467,yes,11,seven unique passages; no near matches detected,3 4 5 6 7 8 9,,,,
+S039,Distance–speed–time reasoning,watch-lesson-intro.html?slot=39,catalogue,verified,d0713a88a011a51532b421f1c1726a009fb5fadcb642ab8dbfaf0250ffa7a95b,yes,11,rewrite repeated spoken passages,3 4 5 6 7 8,"{""9"":[""S034/9""]}",S034/basic,S034/medium,S034/challenge
+S040,Simultaneous and total-sum constraints,watch-lesson-intro.html?slot=40,catalogue,verified,e8737ac4665ebb5184ad73a6917179940ca22b2ca37a7345bd131191f397ac1a,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S095/basic S120/basic,S095/medium S120/medium,S095/challenge S120/challenge
+S041,Eliminating an unknown by differences,watch-lesson-intro.html?slot=41,catalogue,verified,761ecd228f5eb2291a336a6952098ec8ed5c56559ee092e48f75f3bd02c0e874,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S050/basic,S050/medium,S050/challenge
+S043,"Perimeter, shared edges and boundary effects",watch-lesson-intro.html?slot=43,catalogue,verified,812872e54341e2c92003781d90fc9ccee6915c605d8b4b89e6c405cf3c295251,yes,11,rewrite repeated spoken passages,3 4 5 6 7 8,"{""9"":[""S076/9"",""S108/9""]}",S076/basic S108/basic,S076/medium S108/medium,S076/challenge S108/challenge
+S044,Working backwards through operations,watch-lesson-intro.html?slot=44,catalogue,verified,a1ceb7398e0aa3a126199513c73254c481dfe1529cb81a434ebf4c94c0a3031e,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S143/basic,S143/medium,S143/challenge
+S045,Reading and reasoning from graphs/tables,watch-lesson-intro.html?slot=45,catalogue,verified,fc34bdcb6b70f5b839d006e3afca5bb30b20456141e43c6b121a07652c048fcc,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S104/basic,S104/medium,S104/challenge
+S046,"Winner margins, shared totals and linear rules",watch-lesson-intro.html?slot=46,catalogue,verified,6c9dd59ff9f81985153cbc0e293446d64e5fb6e9fef753eef16aad2a6737260d,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S125/basic,S125/medium,S125/challenge
+S047,Arithmetic sequences and fixed increments,watch-lesson-intro.html?slot=47,catalogue,verified,fdb7ed2a7658ec047aceda9ed4f4f29615388c28aff8349b1dcea6aa40c6aefe,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S134/basic,S134/medium,S134/challenge
+S050,Eliminating an unknown by differences,watch-lesson-intro.html?slot=50,catalogue,verified,c3eb83cba4c11e67de9bcc0e871bfccb79f3c93d1bd1fe8ad793043f8bdf1bc4,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S041/basic,S041/medium,S041/challenge
+S051,"Doubling, geometric growth and finite sums",watch-lesson-intro.html?slot=51,catalogue,verified,22802ca8103bf2771a66552ca3ec5ad4451bb17a89af3d74e53003888f56aa39,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S059/basic S116/basic,S059/medium S116/medium,S059/challenge S116/challenge
+S052,"Recurrence relations, steps and branching",watch-lesson-intro.html?slot=52,catalogue,verified,4178da2ad5489a45f4ebbaca41d165a8f83b19e1ba8080b51fd68ea22f1ec3d2,yes,11,rewrite repeated spoken passages,3 4 5 6 7 8,"{""9"":[""S012/9""]}",S012/basic,S012/medium,S012/challenge
+S053,Optimising areas and lengths under constraints,watch-lesson-intro.html?slot=53,catalogue,verified,a78519df871737426d3d00eef832bc7538f77ed022016f2c995577cf7cfde2cc,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S085/basic S122/basic,S085/medium S122/medium,S085/challenge S122/challenge
+S054,Repeating transformations and finite-state patterns,watch-lesson-intro.html?slot=54,catalogue,verified,a3d90a565cd190a3bd1bc4fb3b1ca578a01f60acdb23bf4bfca93e91e5b126a4,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S107/basic S139/basic,S107/medium S139/medium,S107/challenge S139/challenge
+S055,"Repeated digits, palindromes and repunits",watch-lesson-intro.html?slot=55,catalogue,verified,3bbac53a9e3f058ebf62b03d1816dfa01797835c60767b38182266fb730e02cd,yes,11,seven unique passages; no near matches detected,3 4 5 6 7 8 9,,,,
+S057,Systematic enumeration without missing cases,watch-lesson-intro.html?slot=57,catalogue,verified,a6dd374cc78381342761047333823fdaed23574ababfd8435a908a0119e2e295,yes,11,seven unique passages; no near matches detected,3 4 5 6 7 8 9,,,,
+S058,Multiplication principle and combinations,watch-lesson-intro.html?slot=58,catalogue,verified,2ee5dc4b0bb7d72a5d19fdb7f2e09f03adc6f6d6d3b8ab04a4c67e76e0241f2c,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S069/basic S130/basic,S069/medium S130/medium,S069/challenge S130/challenge
+S059,"Doubling, geometric growth and finite sums",watch-lesson-intro.html?slot=59,catalogue,verified,1a7ec8dcd8cdd854c39a5d75827704a8e7384c61beb9854cde4b2faedca1e535,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S051/basic S116/basic,S051/medium S116/medium,S051/challenge S116/challenge
+S060,Restricted arrangements and neighbour rules,watch-lesson-intro.html?slot=60,catalogue,verified,fb25b5788f1e64268b728908080782467f0e3135ebb19ea566644670fdf80675,yes,11,rewrite repeated spoken passages,3 5 6 7 8 9,"{""4"":[""S023/4""]}",S023/basic,S023/medium S088/medium,S023/challenge
+S061,Area decomposition and shaded complements,watch-lesson-intro.html?slot=61,catalogue,verified,e0cf00bd2852c9859a0720c9d687e412361c6e700c07a6c9f1a5dbb53a346611,yes,11,rewrite repeated spoken passages,3 4 5 6 7 8,"{""9"":[""S078/9""]}",S078/basic,S078/medium,S078/challenge
+S062,Complement counting and inclusion–exclusion,watch-lesson-intro.html?slot=62,catalogue,verified,b23c72a5d84a782811ebd807b5810474dd2d0e3bb5f88b297ae5523acf3aec67,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S121/basic,S121/medium,S121/challenge
+S065,Double-counting and shared objects,watch-lesson-intro.html?slot=65,catalogue,verified,40665d2bd546ec4438b8dd7d738d1b9fe31e281f694cded43156fd6850e5241b,yes,11,seven unique passages; no near matches detected,3 4 5 6 7 8 9,,,,
+S066,Divisibility tests and modular remainders,watch-lesson-intro.html?slot=66,catalogue,verified,3793d2a0e99a4f1c4242c424309944913755e95bf09ca9d1ea31e37a69502fde,yes,11,seven unique passages; no near matches detected,3 4 5 6 7 8 9,,,,
+S067,Partitioning into non-overlapping cases,watch-lesson-intro.html?slot=67,catalogue,verified,061c4f6aa16e9230936deb9ca832fce167367158e771729d251217c3b19033cf,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S079/basic,S079/medium,S079/challenge
+S068,"Truth-tellers, liars and contradiction",watch-lesson-intro.html?slot=68,catalogue,verified,c742adb84b372626ddc5508484b7222568df32cba4e2c168fa62f78a215f5fdf,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S033/basic S099/basic,S033/medium S099/medium,
+S069,Multiplication principle and combinations,watch-lesson-intro.html?slot=69,catalogue,verified,9c3123d590b9c00dda7628801d0bb1eeae6c5fafb529c807bb8a2bc0e8fd2b18,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S058/basic S130/basic,S058/medium S130/medium,S058/challenge S130/challenge
+S071,Constraint elimination and logical deduction,watch-lesson-intro.html?slot=71,catalogue,verified,e0597844ff4914ec9eed5791739c1b1a50d3d8272209b46ec214b68f3a3190aa,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S135/basic,,S135/challenge
+S072,Unit-cube counting and layered solids,watch-lesson-intro.html?slot=72,catalogue,verified,d123498a9b1b2351fcbb11213b2e075ac979a3313a5bb6f9b895381e59560f9c,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S087/basic,S087/medium,
+S073,"Magic grids, symbolic rules and consistency",watch-lesson-intro.html?slot=73,catalogue,verified,38cf8d3440e0999b10ff9d2a2b7bb542a128a7692ce6f0b8beb43e42e69b816a,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S117/basic,S117/medium,S117/challenge
+S074,Proving all cases and unique solutions,watch-lesson-intro.html?slot=74,catalogue,verified,abb5a784da1090665a299512d44eca9e2a535e7fe0d85ad56570328638b320bb,yes,11,seven unique passages; no near matches detected,3 4 5 6 7 8 9,,,,
+S075,Ratio and scale factors,watch-lesson-intro.html?slot=75,catalogue,verified,7b45655e30a1ad18a7592b8748971b4ae970ebe0ae2d1053a66edb03668a41bd,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S124/basic,S124/medium,S124/challenge
+S076,"Perimeter, shared edges and boundary effects",watch-lesson-intro.html?slot=76,catalogue,verified,fea7634049da6cd07f34e6096eb6e90f02d2d69a7bac3b2c4c9aedb95dce4723,yes,11,rewrite repeated spoken passages,3 4 5 6 7 8,"{""9"":[""S043/9"",""S108/9""]}",S043/basic S108/basic,S043/medium S108/medium,S043/challenge S108/challenge
+S078,Area decomposition and shaded complements,watch-lesson-intro.html?slot=78,catalogue,verified,e4ceedbf0cdf449512433c0666d09765860e9d7124afc5c32b1668e2892f9ad3,yes,11,rewrite repeated spoken passages,3 4 5 6 7 8,"{""9"":[""S061/9""]}",S061/basic,S061/medium,S061/challenge
+S079,Partitioning into non-overlapping cases,watch-lesson-intro.html?slot=79,catalogue,verified,68eb97380d0dbe13485e1c8388071027f4f507c633a0b063436b0b7858640eae,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S067/basic,S067/medium,S067/challenge
+S081,Angle and polygon reasoning,watch-lesson-intro.html?slot=81,catalogue,verified,5ee92c8292d8d47dc0c20b2b63827027cc8b6d2c75e517cbc3b4c23a4405400e,yes,11,rewrite repeated spoken passages,3 4 5 6 7 8,"{""9"":[""S131/9""]}",S131/basic,S131/medium,S131/challenge
+S082,"Grid lines, crossings and coordinates",watch-lesson-intro.html?slot=82,catalogue,verified,3623bec30f76716076029303497fe2cca66b095aa2211495da8cbc70c39002f1,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S017/basic S094/basic S118/basic,S017/medium S094/medium S118/medium,S017/challenge S118/challenge
+S083,"Symmetry, transformations and tessellation",watch-lesson-intro.html?slot=83,catalogue,verified,dc50f0a7bf6da90fa7ad998297c2d00ac0df6d84123204aa1e637dde8b39ee4d,yes,11,seven unique passages; no near matches detected,3 4 5 6 7 8 9,,,,
+S085,Optimising areas and lengths under constraints,watch-lesson-intro.html?slot=85,catalogue,verified,0cfb98ad152601cb749394b0d80a3e18437626d68035f30618bfbcf0fb0d6559,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S053/basic S122/basic,S053/medium S122/medium,S053/challenge S122/challenge
+S086,Combined work rates,watch-lesson-intro.html?slot=86,catalogue,verified,666bed23d0e6df5048a31af4f29382f4167cc7a8d6fa1c642abd60be55e7fb6b,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S031/basic S106/basic,S031/medium S106/medium,S031/challenge S106/challenge
+S087,Unit-cube counting and layered solids,watch-lesson-intro.html?slot=87,catalogue,verified,13672880cabffc637962ded9418f882b0137cd39d83d694547ef4a9a5b713a6d,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S072/basic,S072/medium,
+S088,Restricted arrangements and neighbour rules,watch-lesson-intro.html?slot=88,catalogue,verified,b519ae689063618dff31307c1d00a3be130aca1875748904a30b43451cc5b30d,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,,S023/medium S060/medium,
+S089,"Painted faces, boundary and hidden cubes",watch-lesson-intro.html?slot=89,catalogue,verified,085dc1bb5db2a297414031c0d6fbd6e0f9d96fb526e5892c15ae3341f87fbafc,yes,11,rewrite repeated spoken passages,3 5 6 7 8,"{""4"":[""S113/4"",""S145/4""],""9"":[""S113/9"",""S145/9""]}",S113/basic S145/basic,S113/medium S145/medium,S113/challenge S145/challenge
+S090,"Nets, surface area, volume and 3D views",watch-lesson-intro.html?slot=90,catalogue,verified,8235c0266d78fd174964ef3dca67eef54e80aef5b63eddf9e17e3da4cd60084d,yes,11,seven unique passages; no near matches detected,3 4 5 6 7 8 9,,,,
+S092,"Averages, weighted means and simple distributions",watch-lesson-intro.html?slot=92,catalogue,verified,bfaf837fddf2dd104480ce412896e5a3c9954d2dedf7a70423ec14276d7259cd,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S026/basic S103/basic S132/basic,S026/medium S103/medium S132/medium,S026/challenge S103/challenge S132/challenge
+S093,Counting paths by dynamic totals,watch-lesson-intro.html?slot=93,catalogue,verified,bc96d294dc6827b17d4245f235ccd119bce2e9f068fb994db939128a5e5db6c5,yes,11,seven unique passages; no near matches detected,3 4 5 6 7 8 9,,,,
+S094,"Grid lines, crossings and coordinates",watch-lesson-intro.html?slot=94,catalogue,verified,99ce3b563a0e8c9486176434ce6062bc7eceea33f591a74df2c0d228cf5b9c57,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S017/basic S082/basic S118/basic,S017/medium S082/medium S118/medium,
+S095,Simultaneous and total-sum constraints,watch-lesson-intro.html?slot=95,catalogue,verified,e8bd6b2ccfe6b9b9710891a6941b3b74eb6d7412a05057c928d57fc694221fd5,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S040/basic S120/basic,S040/medium S120/medium,S040/challenge S120/challenge
+S097,"Polyominoes, tiling and shape assembly",watch-lesson-intro.html?slot=97,catalogue,verified,f2316e3ca388c9afef383a360c8ef667e04fd2e398a13704ccc71b61e27d3b9d,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S127/basic,S127/medium,S036/challenge S127/challenge
+S099,"Truth-tellers, liars and contradiction",watch-lesson-intro.html?slot=99,catalogue,verified,4fa97539f36ca98c89b8a5ed1203b6bc904171e255f33220005c3fd6b65ede93,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S033/basic S068/basic,S033/medium S068/medium,S033/challenge
+S100,Restricted routes and spatial adjacency,watch-lesson-intro.html?slot=100,catalogue,verified,81062244906c72840077bcab464447dbf523e2728395545f762d5efe4a133376,yes,11,rewrite repeated spoken passages,3 5 6 7 8 9,"{""4"":[""S109/4""]}",S109/basic,S109/medium,S109/challenge
+S101,Elementary probability and favourable outcomes,watch-lesson-intro.html?slot=101,catalogue,verified,cd71dd989f84ceb2efa01d435f593347b7df557d55d9f16daa99e2f92fd00352,yes,11,seven unique passages; no near matches detected,3 4 5 6 7 8 9,,,,
+S102,Digit sums and counting digits in ranges,watch-lesson-intro.html?slot=102,catalogue,verified,538f9142a5113e5d14d3a35b6a7851e8dd331e16aba7d98224a7d0c294601612,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S114/basic S146/basic,S114/medium S146/medium,S114/challenge S146/challenge
+S103,"Averages, weighted means and simple distributions",watch-lesson-intro.html?slot=103,catalogue,verified,79c155896b07e88478efd5e8c6cc3923b632e56fa13c374172832324bdeb3b82,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S026/basic S092/basic S132/basic,S026/medium S092/medium S132/medium,S026/challenge S092/challenge S132/challenge
+S104,Reading and reasoning from graphs/tables,watch-lesson-intro.html?slot=104,catalogue,verified,a50f53058499b90fa6807b50a2a6f66965ea200ac30a498bc703ad82fd9edf03,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S045/basic,S045/medium,S045/challenge
+S106,Combined work rates,watch-lesson-intro.html?slot=106,catalogue,verified,79924bf5b841ff8c5b930759679105343b987869ef2b127ff098c4e1eb3f95cf,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S031/basic S086/basic,S031/medium S086/medium,S031/challenge S086/challenge
+S107,Repeating transformations and finite-state patterns,watch-lesson-intro.html?slot=107,catalogue,verified,5229cc601bb6224d636551929f1172d12526969a1b6e824745b049b03a17e6ea,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S054/basic S139/basic,S054/medium S139/medium,S054/challenge S139/challenge
+S108,"Perimeter, shared edges and boundary effects",watch-lesson-intro.html?slot=108,catalogue,verified,3e2221b807bc630f47436fe79280cd81af2e7d3d36063ee8ef525763a1f4d42d,no,11,rewrite repeated spoken passages,3 4 5 6 7 8,"{""9"":[""S043/9"",""S076/9""]}",S043/basic S076/basic,S043/medium S076/medium,S043/challenge S076/challenge
+S109,Restricted routes and spatial adjacency,watch-lesson-intro.html?slot=109,catalogue,verified,ed3312342e0a7e7cfc1e4aebeef3935acf9f5b13aaf7c7b63e4d8c491a723049,yes,11,rewrite repeated spoken passages,3 5 6 7 8 9,"{""4"":[""S100/4""]}",S100/basic,S100/medium,S100/challenge
+S110,Divisibility tests and modular remainders,watch-lesson-intro.html?slot=110,catalogue,verified,7b8ed0b7c56470437a5566881ef4c7c985f01f73516662783f5db0873d7d7ef3,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S015/basic,S015/medium,S015/challenge
+S113,"Painted faces, boundary and hidden cubes",watch-lesson-intro.html?slot=113,catalogue,verified,ca6b8aa6c82d3aa5e46649a2352b59df0cccdf1a2769561fc2a874186e11ebd5,yes,11,rewrite repeated spoken passages,3 5 6 7 8,"{""4"":[""S089/4"",""S145/4""],""9"":[""S089/9"",""S145/9""]}",S089/basic S145/basic,S089/medium S145/medium,S089/challenge S145/challenge
+S114,Digit sums and counting digits in ranges,watch-lesson-intro.html?slot=114,catalogue,verified,300643e274a9d8e6945773e3e3caaa02a6fbfc6f7128359dde83f80eee49ad34,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S102/basic S146/basic,S102/medium S146/medium,S102/challenge S146/challenge
+S115,Grouped fractions and weighted totals,watch-lesson-intro.html?slot=115,catalogue,verified,50c70f1ab93e1b57b6e8aa9fdad92136065b1ba8111130f422e503c432f1f040,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S027/basic,S027/medium,S027/challenge
+S116,"Doubling, geometric growth and finite sums",watch-lesson-intro.html?slot=116,catalogue,verified,d6fa02e3d3d21915552b9fe166b463f1b158899be70268d9afc534c5fc798006,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S051/basic S059/basic,S051/medium S059/medium,S051/challenge S059/challenge
+S117,"Magic grids, symbolic rules and consistency",watch-lesson-intro.html?slot=117,catalogue,verified,85be3f0b97ac42c7046f735811a9190401c303d695acf517e193330ea5d85c78,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S073/basic,S073/medium,S073/challenge
+S118,"Grid lines, crossings and coordinates",watch-lesson-intro.html?slot=118,catalogue,verified,ed598db403b29717143432d3c744ce343b2c3b9adf91ccae90101eb4b8953e71,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S017/basic S082/basic S094/basic,S017/medium S082/medium S094/medium,S017/challenge S082/challenge
+S120,Simultaneous and total-sum constraints,watch-lesson-intro.html?slot=120,catalogue,verified,3ba73963ae640a329df74b54156b89af2bf94874dd2e4587f1ffd0252aa921f5,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S040/basic S095/basic,S040/medium S095/medium,S040/challenge S095/challenge
+S121,Complement counting and inclusion–exclusion,watch-lesson-intro.html?slot=121,catalogue,verified,e7ad7dff8e3fe770dbec8c76b5ac7da44bdb4803076d2718df54e09b8e25781c,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S062/basic,S062/medium,S062/challenge
+S122,Optimising areas and lengths under constraints,watch-lesson-intro.html?slot=122,catalogue,verified,b50f2f6d0df8668bca7a033e3fdbb1ed7e5914b10422b90b5e7b900479b63861,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S053/basic S085/basic,S053/medium S085/medium,S053/challenge S085/challenge
+S123,Place-value decomposition and estimation,watch-lesson-intro.html?slot=123,catalogue,verified,d46d13dda004c68338c11f6cee0e2b6f8e1a3b328ddf079a8d4b9d60e7cea09b,yes,11,seven unique passages; no near matches detected,3 4 5 6 7 8 9,,,,
+S124,Ratio and scale factors,watch-lesson-intro.html?slot=124,catalogue,verified,690953e5301f332a2bf56302142f160bd65b45e46071604eacd8af8bc8fc26b7,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S075/basic,S075/medium,S075/challenge
+S125,"Winner margins, shared totals and linear rules",watch-lesson-intro.html?slot=125,catalogue,verified,f7974e1536506edde1bef053110556315993e1b4d62f582432293da1ae7db265,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S046/basic,S046/medium,S046/challenge
+S127,"Polyominoes, tiling and shape assembly",watch-lesson-intro.html?slot=127,catalogue,verified,9f42ed723d349b5e4ccf3f7ce237169cc8b8961fa5b3d7a250e723388b51b7b1,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S097/basic,S097/medium,S036/challenge S097/challenge
+S129,"Relative speeds, timed movement and meetings",watch-lesson-intro.html?slot=129,catalogue,verified,f980f76a2fb978507081300137a4d9349417ef280a9f3bd6f487dcbd81b50f4e,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S037/basic,S037/medium,S037/challenge
+S130,Multiplication principle and combinations,watch-lesson-intro.html?slot=130,catalogue,verified,dc3976fdc32e2e701317c80291eeb388a62dd05c69255ab034d97c8cbdfd885d,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S058/basic S069/basic,S058/medium S069/medium,S058/challenge S069/challenge
+S131,Angle and polygon reasoning,watch-lesson-intro.html?slot=131,catalogue,verified,8060229dd47c754c6fbd6a30834eeaa0bc290317c5e598570f5cec412e9a2314,yes,11,rewrite repeated spoken passages,3 4 5 6 7 8,"{""9"":[""S081/9""]}",S081/basic,S081/medium,S081/challenge
+S132,"Averages, weighted means and simple distributions",watch-lesson-intro.html?slot=132,catalogue,verified,89095924db5c958ed01396aef8328b16740b0ea4a6aef23021481b6d2237a5e6,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S026/basic S092/basic S103/basic,S026/medium S092/medium S103/medium,S026/challenge S092/challenge S103/challenge
+S134,Arithmetic sequences and fixed increments,watch-lesson-intro.html?slot=134,catalogue,verified,88e71263974c4080ba24afe27be0ee132bbbba7ce84bb95655820b840e4ee97e,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S047/basic,S047/medium,S047/challenge
+S135,Constraint elimination and logical deduction,watch-lesson-intro.html?slot=135,catalogue,verified,66a796a958f334c9e76ddc3d4597d90a41718efce127c225297af902a1f5fafe,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S071/basic,,S071/challenge
+S137,Digit detectives,watch-lesson-intro.html?slot=137,recorded study,verified,,,8,individual structure; review its own chapters,,,,,
+S138,Read the flow bench,watch-lesson-intro.html?slot=138,recorded study,verified,,,8,individual structure; review its own chapters,,,,,
+S139,Repeating transformations and finite-state patterns,watch-lesson-intro.html?slot=139,catalogue,verified,892ade094dc1d67655e378b4ecbd86cd7295419cdcd7fe122c13631f564057a0,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S054/basic S107/basic,S054/medium S107/medium,S054/challenge S107/challenge
+S141,Where the bars begin,watch-lesson-intro.html?slot=141,recorded study,verified,,,8,individual structure; review its own chapters,,,,,
+S142,"Parts and wholes, including remaining fractions",watch-lesson-intro.html?slot=142,catalogue,verified,b14cb396544c271e673d0dd1da99a3cb63ed55da51dd1317c4fa6e3c90b924e3,no,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S022/basic,S022/medium,S022/challenge
+S143,Working backwards through operations,watch-lesson-intro.html?slot=143,catalogue,verified,4f118663eea36df0b803157b040143e1e758f12132ab95e234e8940402e7e7f2,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S044/basic,S044/medium,S044/challenge
+S145,"Painted faces, boundary and hidden cubes",watch-lesson-intro.html?slot=145,catalogue,verified,37b3b63251a077eec8ede294753a94d9bcd17ee3559c42e2970becc70c757566,yes,11,rewrite repeated spoken passages,3 5 6 7 8,"{""4"":[""S089/4"",""S113/4""],""9"":[""S089/9"",""S113/9""]}",S089/basic S113/basic,S089/medium S113/medium,S089/challenge S113/challenge
+S146,Digit sums and counting digits in ranges,watch-lesson-intro.html?slot=146,catalogue,verified,409839500b5b2b93c156ca8125dffc1517cb3e301c0989e745cc2e1d94963bb0,yes,11,seven unique passages; compare numerical or scenario variants,3 4 5 6 7 8 9,,S102/basic S114/basic,S102/medium S114/medium,S102/challenge S114/challenge
+S148,Systematic enumeration without missing cases,watch-lesson-intro.html?slot=148,catalogue,checking,a58952f1335518485eeed746224b5a31320d4f156bce1d25247f025a89931077,yes,11,checking in the catalogue,,,,,
+S149,How far can the apex travel?,watch-lesson-intro.html?slot=149,recorded study,verified,,,8,individual structure; review its own chapters,,,,,
+S150,What did the sun lamp reveal?,watch-lesson-intro.html?slot=150,recorded study,verified,,,7,individual structure; review its own chapters,,,,,
+S151,"One socket, two plates",watch-lesson-intro.html?slot=151,recorded study,verified,,,8,individual structure; review its own chapters,,,,,
+S152,The counter exchange,watch-lesson-intro.html?slot=152,recorded study,verified,,,8,individual structure; review its own chapters,,,,,
+S153,Complement counting and inclusion–exclusion,watch-lesson-intro.html?slot=153,catalogue,checking,2e1d18d23b16a93098cf1c2d9db35ecf5eafa272873063b1293b908967ff82db,yes,11,checking in the catalogue,,,,,
+S155,The palindrome odometer,watch-lesson-intro.html?slot=155,recorded study,verified,,,8,individual structure; review its own chapters,,,,,
+S156,Unit conversion and repeated-event rates,,,,,,,no listed dedicated introduction,,,,,
+S157,"Recurrence relations, steps and branching",watch-lesson-intro.html?slot=157,catalogue,checking,c65907d646ca73a3d22dff9255a413d25ce70385869b6883464df23126f12c4d,yes,11,checking in the catalogue,,,,,
+S158,Proving all cases and unique solutions,watch-lesson-intro.html?slot=158,catalogue,checking,66baaf6fb8c13dabeb676644d998c8f9e52d7e2124701ad3e367446ecbd5a0a8,yes,11,checking in the catalogue,,,,,
+S159,"Polyominoes, tiling and shape assembly",,,,,,,no listed dedicated introduction,,,,,
+S162,Double-counting and shared objects,,,,,,,no listed dedicated introduction,,,,,
+S163,Unit-cube counting and layered solids,,,,,,,no listed dedicated introduction,,,,,
+S164,"Digits, zero and positional constraints",,,,,,,no listed dedicated introduction,,,,,
+S165,"Fractions, percentages and proportional comparisons",,,,,,,no listed dedicated introduction,,,,,
+S166,Arithmetic sequences and fixed increments,,,,,,,no listed dedicated introduction,,,,,
+S167,Constraint elimination and logical deduction,,,,,,,no listed dedicated introduction,,,,,
+S169,Divisibility tests and modular remainders,,,,,,,no listed dedicated introduction,,,,,
+S170,One- and two-variable word equations,,,,,,,no listed dedicated introduction,,,,,
+S171,Restricted arrangements and neighbour rules,,,,,,,no listed dedicated introduction,,,,,
+S172,"Symmetry, transformations and tessellation",,,,,,,no listed dedicated introduction,,,,,
+S173,Reading and reasoning from graphs/tables,,,,,,,no listed dedicated introduction,,,,,
+S174,"Parts and wholes, including remaining fractions",,,,,,,no listed dedicated introduction,,,,,
+S177,"Grid lines, crossings and coordinates",,,,,,,no listed dedicated introduction,,,,,
+S178,"Primes, factors and factorisation",,,,,,,no listed dedicated introduction,,,,,
+S179,Distance–speed–time reasoning,,,,,,,no listed dedicated introduction,,,,,
+S180,Systematic enumeration without missing cases,,,,,,,no listed dedicated introduction,,,,,
+S181,Area decomposition and shaded complements,,,,,,,no listed dedicated introduction,,,,,
+S183,Ratio and scale factors,,,,,,,no listed dedicated introduction,,,,,
+S185,"Truth-tellers, liars and contradiction",,,,,,,no listed dedicated introduction,,,,,
+S186,"Nets, surface area, volume and 3D views",,,,,,,no listed dedicated introduction,,,,,
+S187,"Repeated digits, palindromes and repunits",,,,,,,no listed dedicated introduction,,,,,
+S188,Unit conversion and repeated-event rates,,,,,,,no listed dedicated introduction,,,,,
+S190,Angle and polygon reasoning,,,,,,,no listed dedicated introduction,,,,,
+S191,"Averages, weighted means and simple distributions",,,,,,,no listed dedicated introduction,,,,,
+S193,Eliminating an unknown by differences,,,,,,,no listed dedicated introduction,,,,,
+S194,Double-counting and shared objects,,,,,,,no listed dedicated introduction,,,,,
+S195,Unit-cube counting and layered solids,,,,,,,no listed dedicated introduction,,,,,
+S197,Combined work rates,,,,,,,no listed dedicated introduction,,,,,
+S198,Repeating transformations and finite-state patterns,,,,,,,no listed dedicated introduction,,,,,
+S199,"Perimeter, shared edges and boundary effects",,,,,,,no listed dedicated introduction,,,,,
+S200,Restricted routes and spatial adjacency,,,,,,,no listed dedicated introduction,,,,,
+S201,Divisibility tests and modular remainders,,,,,,,no listed dedicated introduction,,,,,
+S202,One- and two-variable word equations,,,,,,,no listed dedicated introduction,,,,,
+S204,"Painted faces, boundary and hidden cubes",,,,,,,no listed dedicated introduction,,,,,
+S205,Digit sums and counting digits in ranges,,,,,,,no listed dedicated introduction,,,,,
+S206,Grouped fractions and weighted totals,,,,,,,no listed dedicated introduction,,,,,
+S207,"Doubling, geometric growth and finite sums",,,,,,,no listed dedicated introduction,,,,,
+S209,"Grid lines, crossings and coordinates",,,,,,,no listed dedicated introduction,,,,,
+S211,Simultaneous and total-sum constraints,,,,,,,no listed dedicated introduction,,,,,
+S213,Optimising areas and lengths under constraints,,,,,,,no listed dedicated introduction,,,,,
+S214,Place-value decomposition and estimation,,,,,,,no listed dedicated introduction,,,,,
+S215,Ratio and scale factors,,,,,,,no listed dedicated introduction,,,,,
+S216,"Winner margins, shared totals and linear rules",,,,,,,no listed dedicated introduction,,,,,
+S218,"Polyominoes, tiling and shape assembly",,,,,,,no listed dedicated introduction,,,,,
+S219,"Multiples, HCF and LCM",,,,,,,no listed dedicated introduction,,,,,
+S220,"Relative speeds, timed movement and meetings",,,,,,,no listed dedicated introduction,,,,,
+S221,Multiplication principle and combinations,,,,,,,no listed dedicated introduction,,,,,
+S222,Angle and polygon reasoning,,,,,,,no listed dedicated introduction,,,,,
+S223,"Averages, weighted means and simple distributions",,,,,,,no listed dedicated introduction,,,,,
+S226,Constraint elimination and logical deduction,,,,,,,no listed dedicated introduction,,,,,
+S227,Counting paths by dynamic totals,,,,,,,no listed dedicated introduction,,,,,
+S228,Cryptarithms and symbol-to-digit arithmetic,,,,,,,no listed dedicated introduction,,,,,
+S229,Combined work rates,,,,,,,no listed dedicated introduction,,,,,
+S230,Repeating transformations and finite-state patterns,,,,,,,no listed dedicated introduction,,,,,
+S232,Reading and reasoning from graphs/tables,,,,,,,no listed dedicated introduction,,,,,
+S233,"Parts and wholes, including remaining fractions",,,,,,,no listed dedicated introduction,,,,,
+S234,Working backwards through operations,,,,,,,no listed dedicated introduction,,,,,
+S235,Partitioning into non-overlapping cases,,,,,,,no listed dedicated introduction,,,,,
+S237,Digit sums and counting digits in ranges,,,,,,,no listed dedicated introduction,,,,,
+S239,Systematic enumeration without missing cases,,,,,,,no listed dedicated introduction,,,,,
+S241,Elementary probability and favourable outcomes,,,,,,,no listed dedicated introduction,,,,,
+S242,Parity and odd/even structure,,,,,,,no listed dedicated introduction,,,,,
+S243,Simultaneous and total-sum constraints,,,,,,,no listed dedicated introduction,,,,,
+S244,Complement counting and inclusion–exclusion,,,,,,,no listed dedicated introduction,,,,,
+S246,"Repeated digits, palindromes and repunits",,,,,,,no listed dedicated introduction,,,,,
+S247,Unit conversion and repeated-event rates,,,,,,,no listed dedicated introduction,,,,,
+S248,"Recurrence relations, steps and branching",,,,,,,no listed dedicated introduction,,,,,
+S249,Proving all cases and unique solutions,,,,,,,no listed dedicated introduction,,,,,
+S250,"Polyominoes, tiling and shape assembly",,,,,,,no listed dedicated introduction,,,,,
+S251,"Multiples, HCF and LCM",,,,,,,no listed dedicated introduction,,,,,
+S253,Double-counting and shared objects,,,,,,,no listed dedicated introduction,,,,,
+S254,Unit-cube counting and layered solids,,,,,,,no listed dedicated introduction,,,,,
+S255,"Digits, zero and positional constraints",,,,,,,no listed dedicated introduction,,,,,
+S257,Arithmetic sequences and fixed increments,,,,,,,no listed dedicated introduction,,,,,
+S258,Constraint elimination and logical deduction,,,,,,,no listed dedicated introduction,,,,,
+S260,Divisibility tests and modular remainders,,,,,,,no listed dedicated introduction,,,,,
+S261,One- and two-variable word equations,,,,,,,no listed dedicated introduction,,,,,
+S262,Restricted arrangements and neighbour rules,,,,,,,no listed dedicated introduction,,,,,
+S263,"Symmetry, transformations and tessellation",,,,,,,no listed dedicated introduction,,,,,
+S265,"Parts and wholes, including remaining fractions",,,,,,,no listed dedicated introduction,,,,,
+S267,"Magic grids, symbolic rules and consistency",,,,,,,no listed dedicated introduction,,,,,
+S268,"Grid lines, crossings and coordinates",,,,,,,no listed dedicated introduction,,,,,
+S269,"Primes, factors and factorisation",,,,,,,no listed dedicated introduction,,,,,
+S270,Distance–speed–time reasoning,,,,,,,no listed dedicated introduction,,,,,
+S271,Systematic enumeration without missing cases,,,,,,,no listed dedicated introduction,,,,,
+S274,Ratio and scale factors,,,,,,,no listed dedicated introduction,,,,,
+S275,"Winner margins, shared totals and linear rules",,,,,,,no listed dedicated introduction,,,,,
+S276,"Truth-tellers, liars and contradiction",,,,,,,no listed dedicated introduction,,,,,
+S277,"Nets, surface area, volume and 3D views",,,,,,,no listed dedicated introduction,,,,,
+S278,"Repeated digits, palindromes and repunits",,,,,,,no listed dedicated introduction,,,,,
+S279,Unit conversion and repeated-event rates,,,,,,,no listed dedicated introduction,,,,,
+S281,Angle and polygon reasoning,,,,,,,no listed dedicated introduction,,,,,
+S282,"Averages, weighted means and simple distributions",,,,,,,no listed dedicated introduction,,,,,
+S283,"Last-digit, clock and repeating-cycle reasoning",,,,,,,no listed dedicated introduction,,,,,
+S284,Eliminating an unknown by differences,,,,,,,no listed dedicated introduction,,,,,
+S285,Double-counting and shared objects,,,,,,,no listed dedicated introduction,,,,,
+S286,Unit-cube counting and layered solids,,,,,,,no listed dedicated introduction,,,,,
+S289,Repeating transformations and finite-state patterns,,,,,,,no listed dedicated introduction,,,,,
+S290,"Perimeter, shared edges and boundary effects",,,,,,,no listed dedicated introduction,,,,,
+S291,Restricted routes and spatial adjacency,,,,,,,no listed dedicated introduction,,,,,
+S293,One- and two-variable word equations,,,,,,,no listed dedicated introduction,,,,,
+S295,"Painted faces, boundary and hidden cubes",,,,,,,no listed dedicated introduction,,,,,
+S296,Digit sums and counting digits in ranges,,,,,,,no listed dedicated introduction,,,,,
+S297,Grouped fractions and weighted totals,,,,,,,no listed dedicated introduction,,,,,
+S298,"Doubling, geometric growth and finite sums",,,,,,,no listed dedicated introduction,,,,,
+S299,"Magic grids, symbolic rules and consistency",,,,,,,no listed dedicated introduction,,,,,
+S300,"Grid lines, crossings and coordinates",,,,,,,no listed dedicated introduction,,,,,
+S302,Simultaneous and total-sum constraints,,,,,,,no listed dedicated introduction,,,,,
+S303,Complement counting and inclusion–exclusion,,,,,,,no listed dedicated introduction,,,,,
+S305,Place-value decomposition and estimation,,,,,,,no listed dedicated introduction,,,,,
+S306,Ratio and scale factors,,,,,,,no listed dedicated introduction,,,,,
+S307,"Winner margins, shared totals and linear rules",,,,,,,no listed dedicated introduction,,,,,
+S309,"Polyominoes, tiling and shape assembly",,,,,,,no listed dedicated introduction,,,,,
+S310,"Multiples, HCF and LCM",,,,,,,no listed dedicated introduction,,,,,
+S311,"Relative speeds, timed movement and meetings",,,,,,,no listed dedicated introduction,,,,,
+S312,Multiplication principle and combinations,,,,,,,no listed dedicated introduction,,,,,
+S313,Angle and polygon reasoning,,,,,,,no listed dedicated introduction,,,,,
+S314,"Averages, weighted means and simple distributions",,,,,,,no listed dedicated introduction,,,,,
+S317,Constraint elimination and logical deduction,,,,,,,no listed dedicated introduction,,,,,
+S318,Counting paths by dynamic totals,,,,,,,no listed dedicated introduction,,,,,
+S319,Cryptarithms and symbol-to-digit arithmetic,,,,,,,no listed dedicated introduction,,,,,
+S321,Repeating transformations and finite-state patterns,,,,,,,no listed dedicated introduction,,,,,
+S323,Reading and reasoning from graphs/tables,,,,,,,no listed dedicated introduction,,,,,
+S324,"Parts and wholes, including remaining fractions",,,,,,,no listed dedicated introduction,,,,,
+S325,Working backwards through operations,,,,,,,no listed dedicated introduction,,,,,
+S326,Partitioning into non-overlapping cases,,,,,,,no listed dedicated introduction,,,,,
+S327,"Painted faces, boundary and hidden cubes",,,,,,,no listed dedicated introduction,,,,,
+S330,Systematic enumeration without missing cases,,,,,,,no listed dedicated introduction,,,,,
+S331,Area decomposition and shaded complements,,,,,,,no listed dedicated introduction,,,,,
+S332,Elementary probability and favourable outcomes,,,,,,,no listed dedicated introduction,,,,,
+S333,Parity and odd/even structure,,,,,,,no listed dedicated introduction,,,,,
+S334,Simultaneous and total-sum constraints,,,,,,,no listed dedicated introduction,,,,,
+S335,Complement counting and inclusion–exclusion,,,,,,,no listed dedicated introduction,,,,,
+S338,Unit conversion and repeated-event rates,,,,,,,no listed dedicated introduction,,,,,
+S339,"Recurrence relations, steps and branching",,,,,,,no listed dedicated introduction,,,,,
+S341,"Polyominoes, tiling and shape assembly",,,,,,,no listed dedicated introduction,,,,,
+S342,"Multiples, HCF and LCM",,,,,,,no listed dedicated introduction,,,,,
+S345,Unit-cube counting and layered solids,,,,,,,no listed dedicated introduction,,,,,
+S346,"Digits, zero and positional constraints",,,,,,,no listed dedicated introduction,,,,,
+S347,"Fractions, percentages and proportional comparisons",,,,,,,no listed dedicated introduction,,,,,
+S348,Arithmetic sequences and fixed increments,,,,,,,no listed dedicated introduction,,,,,
+S349,Constraint elimination and logical deduction,,,,,,,no listed dedicated introduction,,,,,
+S351,Divisibility tests and modular remainders,,,,,,,no listed dedicated introduction,,,,,
+S353,Restricted arrangements and neighbour rules,,,,,,,no listed dedicated introduction,,,,,
+S354,"Symmetry, transformations and tessellation",,,,,,,no listed dedicated introduction,,,,,
+S355,Reading and reasoning from graphs/tables,,,,,,,no listed dedicated introduction,,,,,
+S358,"Magic grids, symbolic rules and consistency",,,,,,,no listed dedicated introduction,,,,,
+S359,"Grid lines, crossings and coordinates",,,,,,,no listed dedicated introduction,,,,,
+S360,"Primes, factors and factorisation",,,,,,,no listed dedicated introduction,,,,,
+S361,Rossmoyne method combinations and evidence-based review,,,,,,,no listed dedicated introduction,,,,,
+S362,Rossmoyne method combinations and evidence-based review,,,,,,,no listed dedicated introduction,,,,,
+S365,Rossmoyne method combinations and evidence-based review,,,,,,,no listed dedicated introduction,,,,,
+S366,Rossmoyne method combinations and evidence-based review,,,,,,,no listed dedicated introduction,,,,,
+S367,Rossmoyne method combinations and evidence-based review,,,,,,,no listed dedicated introduction,,,,,
+S368,Rossmoyne method combinations and evidence-based review,,,,,,,no listed dedicated introduction,,,,,
+S370,Rossmoyne method combinations and evidence-based review,,,,,,,no listed dedicated introduction,,,,,
