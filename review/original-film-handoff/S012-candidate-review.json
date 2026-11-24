@@ -1,0 +1,258 @@
+{
+  "lesson": "S012",
+  "title": "The missing rung",
+  "source_voice_run": 45487082602,
+  "independent_local_encoding": {
+    "sha256": "79c78059ee4c46a6f2d4c0c9dab65ba2bc53188d13d4540abb78a7e3a4876349",
+    "decoded_reference_comparisons": 138,
+    "picture_comparison_period_seconds": 1,
+    "maximum_picture_mean_channel_error_0_to_255": 1.946,
+    "maximum_caption_region_mean_channel_error_0_to_255": 2.145,
+    "minimum_source_audio_correlation_per_scene": 0.99957,
+    "recorded_scenes_checked": 8,
+    "timed_caption_phrases": 51,
+    "spoken_words": 351,
+    "source_voice_reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+    "source_word_alignment_percent": 99.52
+  },
+  "all_source_recording_audit": [
+    {
+      "scene": 1,
+      "natural_recording_seconds": 11.51,
+      "word_match_percent": 100.0,
+      "recognized_speech": "A beetle can climb one rung or two rungs in a jump, it starts on the ground. To reach rung 2, it can jump straight there, or visit rung 1 first. Draw both roots with your finger."
+    },
+    {
+      "scene": 2,
+      "natural_recording_seconds": 15.66,
+      "word_match_percent": 100.0,
+      "recognized_speech": "How many routes reach Rung 3? Look backwards. The last jump came from Rung 2 or Rung 1. Each route to Rung 2 has one way to finish with a short jump. The single route to Rung 1 can finish with a long jump. That makes 3."
+    },
+    {
+      "scene": 3,
+      "natural_recording_seconds": 11.51,
+      "word_match_percent": 100.0,
+      "recognized_speech": "Now the third rung breaks. The beetle may fly over the gap, but it cannot land there. Does rung 4 become unreachable. Find the last safe place the beetle could have landed."
+    },
+    {
+      "scene": 4,
+      "natural_recording_seconds": 13.43,
+      "word_match_percent": 100.0,
+      "recognized_speech": "To land on four, the beetle must come from two. A jump from three is impossible. Both routes to two can cross the gap. Trace their different beginnings and their identical last jump. Write two routes beside four."
+    },
+    {
+      "scene": 5,
+      "natural_recording_seconds": 18.55,
+      "word_match_percent": 98.08,
+      "recognized_speech": "At every safe rung, add the counts at the two previous positions. Beside rung 5 right 2. At 6, the counts are 2 and 2 giving 4. At 7, they give 6. At 8, 6 plus 4 gives 10. The zero stays in the log, holding the place of the broken rung."
+    },
+    {
+      "scene": 6,
+      "natural_recording_seconds": 12.79,
+      "word_match_percent": 100.0,
+      "recognized_speech": "A brass bell hangs on rung 5. This time the beetle must land on that rung and ring the bell on its way to 8. Which of the 10 routes count now? Imagine cutting a successful route into two pieces at the bell."
+    },
+    {
+      "scene": 7,
+      "natural_recording_seconds": 17.26,
+      "word_match_percent": 100.0,
+      "recognized_speech": "Two roots arrive at the bell. From five to eight, the remaining climb is three rungs. The jumps can be three singles, a single followed by a double or a double followed by a single. Each beginning accepts all three endings. Two groups of three give six bell roots."
+    },
+    {
+      "scene": 8,
+      "natural_recording_seconds": 17.9,
+      "word_match_percent": 98.11,
+      "recognized_speech": "Why did we add at a landing and multiply at the bell? Different final jumps put the roads in separate piles. At a compulsory stop, each beginning joins to each possible ending. Keep a zero for a forbidden landing. If a rule restricts the next jump, record how the route arrived as well."
+    }
+  ],
+  "scene_review": [
+    "Two individually drawn routes arrive at rung 2.",
+    "The final jump into 3 gives two routes from 2 and one from 1.",
+    "The beetle may jump over 3 and may never land on it.",
+    "Both legal ways to 2 reach 4 via the gap.",
+    "Counts at rungs 0–8 are 1, 1, 2, 0, 2, 2, 4, 6, 10.",
+    "The bell on 5 imposes a stop on a trip from 0 to 8.",
+    "Two valid starts combine with three distinct endings, yielding six.",
+    "The final comparison distinguishes disjoint arrivals from independent pieces."
+  ],
+  "timed_frames_inspected": 16,
+  "captions_checked": 51,
+  "duration_seconds": 137.333333,
+  "publication_candidate": {
+    "sha256": "87e71ca9ae8e3355f9f092f05a7e4c0678313aa569bbc3b4cc63a200ff2cedd7",
+    "decoded_reference_comparisons": 138,
+    "picture_comparison_period_seconds": 1,
+    "maximum_picture_mean_channel_error_0_to_255": 1.945,
+    "maximum_caption_region_mean_channel_error_0_to_255": 2.147,
+    "minimum_source_audio_correlation_per_scene": 0.999556,
+    "recorded_scenes_checked": 8,
+    "timed_caption_phrases": 51,
+    "spoken_words": 351,
+    "source_voice_reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+    "source_word_alignment_percent": 99.52
+  },
+  "publication_candidate_encoded_stills_reviewed": 16,
+  "local_browser_candidate_results": [
+    {
+      "profile": "ipad-landscape",
+      "engine": "webkit",
+      "viewport": {
+        "width": 1080,
+        "height": 810
+      },
+      "site": "http://127.0.0.1:8823/",
+      "sha256": "87e71ca9ae8e3355f9f092f05a7e4c0678313aa569bbc3b4cc63a200ff2cedd7",
+      "film": "http://127.0.0.1:8823/candidate/S012.mp4",
+      "duration": 137.333333,
+      "chapters": 8,
+      "normal_speed_unmuted_to_ended": false,
+      "practice_grading": "isolated fixture",
+      "immutable_replay": true,
+      "active_frame_css_pixels": {
+        "width": 597.390625,
+        "height": 336.03125,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "notebook_frame_css_pixels": {
+        "width": 958,
+        "height": 384.328125,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "worked_example": {
+        "chapter": "Pair the pieces",
+        "decoded_media_time": 110.333333
+      }
+    },
+    {
+      "profile": "ipad-portrait",
+      "engine": "webkit",
+      "viewport": {
+        "width": 810,
+        "height": 1080
+      },
+      "site": "http://127.0.0.1:8823/",
+      "sha256": "87e71ca9ae8e3355f9f092f05a7e4c0678313aa569bbc3b4cc63a200ff2cedd7",
+      "film": "http://127.0.0.1:8823/candidate/S012.mp4",
+      "duration": 137.333333,
+      "chapters": 8,
+      "normal_speed_unmuted_to_ended": false,
+      "practice_grading": "isolated fixture",
+      "immutable_replay": true,
+      "active_frame_css_pixels": {
+        "width": 663.125,
+        "height": 373,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "notebook_frame_css_pixels": {
+        "width": 733.125,
+        "height": 667.5,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "worked_example": {
+        "chapter": "Pair the pieces",
+        "decoded_media_time": 110.233333
+      }
+    },
+    {
+      "profile": "iphone-landscape",
+      "engine": "webkit",
+      "viewport": {
+        "width": 664,
+        "height": 390
+      },
+      "site": "http://127.0.0.1:8823/",
+      "sha256": "87e71ca9ae8e3355f9f092f05a7e4c0678313aa569bbc3b4cc63a200ff2cedd7",
+      "film": "http://127.0.0.1:8823/candidate/S012.mp4",
+      "duration": 137.333333,
+      "chapters": 8,
+      "normal_speed_unmuted_to_ended": false,
+      "practice_grading": "isolated fixture",
+      "immutable_replay": true,
+      "active_frame_css_pixels": {
+        "width": 357.109375,
+        "height": 200.859375,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "notebook_frame_css_pixels": {
+        "width": 395.515625,
+        "height": 222.46875,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "worked_example": {
+        "chapter": "Pair the pieces",
+        "decoded_media_time": 110.366666
+      }
+    },
+    {
+      "profile": "iphone-portrait",
+      "engine": "webkit",
+      "viewport": {
+        "width": 390,
+        "height": 664
+      },
+      "site": "http://127.0.0.1:8823/",
+      "sha256": "87e71ca9ae8e3355f9f092f05a7e4c0678313aa569bbc3b4cc63a200ff2cedd7",
+      "film": "http://127.0.0.1:8823/candidate/S012.mp4",
+      "duration": 137.333333,
+      "chapters": 8,
+      "normal_speed_unmuted_to_ended": true,
+      "practice_grading": "isolated fixture",
+      "immutable_replay": true,
+      "active_frame_css_pixels": {
+        "width": 333.21875,
+        "height": 187.421875,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "notebook_frame_css_pixels": {
+        "width": 340,
+        "height": 275.46875,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "worked_example": {
+        "chapter": "Pair the pieces",
+        "decoded_media_time": 110.233333
+      }
+    },
+    {
+      "profile": "pc",
+      "engine": "chromium",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "site": "http://127.0.0.1:8823/",
+      "sha256": "87e71ca9ae8e3355f9f092f05a7e4c0678313aa569bbc3b4cc63a200ff2cedd7",
+      "film": "http://127.0.0.1:8823/candidate/S012.mp4",
+      "duration": 137.333333,
+      "chapters": 8,
+      "normal_speed_unmuted_to_ended": false,
+      "practice_grading": "isolated fixture",
+      "immutable_replay": true,
+      "active_frame_css_pixels": {
+        "width": 654,
+        "height": 367.875,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "notebook_frame_css_pixels": {
+        "width": 958,
+        "height": 462.65625,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "worked_example": {
+        "chapter": "Pair the pieces",
+        "decoded_media_time": 110.233333
+      }
+    }
+  ],
+  "publication_candidate_seconds": 137.333333
+}

@@ -1,0 +1,47 @@
+{
+  "lesson": "S055",
+  "public_sha256": "3bbac53a9e3f058ebf62b03d1816dfa01797835c60767b38182266fb730e02cd",
+  "seconds": 196.533333,
+  "chapters": 7,
+  "editorial_scenes": 11,
+  "whole_second_picture_checks": 197,
+  "independently_transcribed_scenes": 11,
+  "mean_word_match_percent": 98.59,
+  "timed_phrases_in_independent_transcription": 70,
+  "verified_equations": [
+    "1111 × 4 = 4444",
+    "3663 = 3 × 1001 + 6 × 110 = 11 × 333",
+    "The free positions A, B, C have digit sum 2A + 2B + C."
+  ],
+  "base_outer_pairs": 50,
+  "second_centre_pairs": [
+    [
+      1,
+      8
+    ],
+    [
+      2,
+      7
+    ],
+    [
+      3,
+      6
+    ],
+    [
+      4,
+      5
+    ],
+    [
+      5,
+      4
+    ]
+  ],
+  "valid_palindromes": 55,
+  "decoded_illustration_samples": 22,
+  "live_browser_run": 45493693667,
+  "current_guide_commit": "a576b43f9d17f16a134445973b5c2445123b4984",
+  "updated_guide": "S055-guide.json",
+  "current_title": "Repeated digits, palindromes and repunits",
+  "current_guide_navigation": 7,
+  "updated_guide_navigation": 11
+}
