@@ -1,0 +1,40 @@
+name: S008 learner device review
+on:
+  push:
+    branches: ['qa/s008-device-live-*']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  routes:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        profile: [iphone-portrait, iphone-landscape, ipad-portrait, ipad-landscape, pc]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            tools
+            data/recorded-studies.json
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install playwright==1.58.0
+      - if: matrix.profile != 'pc'
+        run: python -m playwright install --with-deps webkit
+      - name: Open the released film through the student routes
+        env:
+          PROFILE: ${{ matrix.profile }}
+        run: |
+          python tools/check_lesson_film_routes.py --lesson S008 --profile "$PROFILE" \
+            --site 'https://simonrj.github.io/-summit-one-narrator/' --output "$RUNNER_TEMP/device"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: s008-${{ matrix.profile }}
+          path: ${{ runner.temp }}/device/
+          if-no-files-found: ignore
