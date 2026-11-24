@@ -1,7 +1,7 @@
 {
   "id": "T09.3",
   "duration_seconds": 117.133333,
-  "sha256": "5420b9a76a6dde44f7af9c1bf7159175c6c53e90c22f9897b77d0895f0b1839a",
+  "sha256": "ba2ae321f30bce0d7ceaf1df99f6fb406c01460671b7f83c8a60d9fb65962d4c",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -167,5 +167,60 @@
     }
   ],
   "audio_packet_sha256": "264762bf5a744498a850c0ebd60a484f00bf614e4538b4e5a99ab20a868dffc2",
-  "art_source": "dbc177a89f7341999f550fe13f640148deeff8d9"
+  "art_source": "dbc177a89f7341999f550fe13f640148deeff8d9",
+  "native_chapters": {
+    "prior_mp4_sha256": "5420b9a76a6dde44f7af9c1bf7159175c6c53e90c22f9897b77d0895f0b1839a",
+    "sha256": "ba2ae321f30bce0d7ceaf1df99f6fb406c01460671b7f83c8a60d9fb65962d4c",
+    "packet_timing_and_payload_sha256": {
+      "v:0": "01a52aa14edbcb0ac3a186a764ce1d403e653ae6c4826d34d867f55aff678731",
+      "a:0": "2f9a0a4829b41e6b12968f48d96e4e3e6b7b4f3ba8c838d561536cb5937eb5cb"
+    },
+    "chapters": [
+      {
+        "start_ms": 0,
+        "end_ms": 16120,
+        "title": "Undo the same move on both pans"
+      },
+      {
+        "start_ms": 16120,
+        "end_ms": 24930,
+        "title": "Preserve every possible solution"
+      },
+      {
+        "start_ms": 24930,
+        "end_ms": 40740,
+        "title": "Balance the pouches and loose counters"
+      },
+      {
+        "start_ms": 40740,
+        "end_ms": 48430,
+        "title": "Remove one pouch from each side"
+      },
+      {
+        "start_ms": 48430,
+        "end_ms": 55480,
+        "title": "Clear five loose counters from each pan"
+      },
+      {
+        "start_ms": 55480,
+        "end_ms": 64130,
+        "title": "Substitute seven into the original balance"
+      },
+      {
+        "start_ms": 64130,
+        "end_ms": 77410,
+        "title": "Clear a half in an equation"
+      },
+      {
+        "start_ms": 77410,
+        "end_ms": 97400,
+        "title": "Check zero before dividing by the unknown"
+      },
+      {
+        "start_ms": 97400,
+        "end_ms": 117133,
+        "title": "Solve the balance with three pouches"
+      }
+    ]
+  }
 }

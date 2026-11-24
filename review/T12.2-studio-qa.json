@@ -1,7 +1,7 @@
 {
   "id": "T12.2",
   "duration_seconds": 137.2,
-  "sha256": "93e188dc7afab9e0d69ed617c5711cfada3c6096948ea0afa8a5567202e8b668",
+  "sha256": "0736167a5fd92c51dfa2f1315a83e1cfbef86d3d94e158d3736eb092d9545815",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -91,5 +91,55 @@
   "decoded_successfully": true,
   "source_sha256": "705a213376bf556e664ab405ceda90b52960bd3a1d4df851055ba9764b0f0890",
   "diagram_revision": "T12.2. Trace twelve exact clock gaps, move the observer and build the two-triangle proof.",
-  "original_audio_packets": "SHA256=5a32530d72d8f376e2d9bdd51b91252bd2df5e08847775a6eff1fe058136c2f6"
+  "original_audio_packets": "SHA256=5a32530d72d8f376e2d9bdd51b91252bd2df5e08847775a6eff1fe058136c2f6",
+  "native_chapters": {
+    "prior_mp4_sha256": "93e188dc7afab9e0d69ed617c5711cfada3c6096948ea0afa8a5567202e8b668",
+    "sha256": "0736167a5fd92c51dfa2f1315a83e1cfbef86d3d94e158d3736eb092d9545815",
+    "packet_timing_and_payload_sha256": {
+      "v:0": "5b302c922ed2fb697efea11f0c4cd00d8fdac1622d885aef5d5e964f67c06fb9",
+      "a:0": "5a27ec11bd43cd7c81b0a182da2f3133761cae0d2541a49ce6d4e3fd4ba8336f"
+    },
+    "chapters": [
+      {
+        "start_ms": 0,
+        "end_ms": 17230,
+        "title": "Divide a clock face into twelve gaps"
+      },
+      {
+        "start_ms": 17230,
+        "end_ms": 29390,
+        "title": "Compare a view from the centre with one from the rim"
+      },
+      {
+        "start_ms": 29390,
+        "end_ms": 41360,
+        "title": "Trace the arc from twelve to four"
+      },
+      {
+        "start_ms": 41360,
+        "end_ms": 54480,
+        "title": "Count four gaps across five hour marks"
+      },
+      {
+        "start_ms": 54480,
+        "end_ms": 70950,
+        "title": "View the same arc from eight o’clock"
+      },
+      {
+        "start_ms": 70950,
+        "end_ms": 98610,
+        "title": "Use two equal-radius triangles to prove the angle rule"
+      },
+      {
+        "start_ms": 98610,
+        "end_ms": 116840,
+        "title": "Put one side of a triangle on a diameter"
+      },
+      {
+        "start_ms": 116840,
+        "end_ms": 137200,
+        "title": "Find the smaller centre angle from two to seven"
+      }
+    ]
+  }
 }

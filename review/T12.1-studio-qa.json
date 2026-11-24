@@ -1,7 +1,7 @@
 {
   "id": "T12.1",
   "duration_seconds": 121.9,
-  "sha256": "023532153408d51595faee3355f6dd7b9bf35010000c8ac5c38d2501dadace1b",
+  "sha256": "c76ac24679fb1882a8b7d342bf17a79dd575b6bac9620460e049a3d1d9486d18",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -91,5 +91,55 @@
   "decoded_successfully": true,
   "source_sha256": "ef0a6580ad766664ad876d76a753afd7239d39bc0595af732fefdb06192c846b",
   "diagram_revision": "The 65-degree tracing slides rigidly down the transversal and the marked base angles move onto a parallel through the apex. Both isosceles drawings match the stated angles.",
-  "original_audio_packets": "SHA256=b9bb7ff353c1ab60fdcae336ac8aa9e63ec4ab994d46f471a7d9a6cfef74663b"
+  "original_audio_packets": "SHA256=b9bb7ff353c1ab60fdcae336ac8aa9e63ec4ab994d46f471a7d9a6cfef74663b",
+  "native_chapters": {
+    "prior_mp4_sha256": "023532153408d51595faee3355f6dd7b9bf35010000c8ac5c38d2501dadace1b",
+    "sha256": "c76ac24679fb1882a8b7d342bf17a79dd575b6bac9620460e049a3d1d9486d18",
+    "packet_timing_and_payload_sha256": {
+      "v:0": "a7ec306f0f037fd10aef053198e3e4b0aa57ec6e886fa5afdabc5eda938f14c1",
+      "a:0": "ad1a5ea830a6cde3e4bdef1721d539b57c0d39853504df84e05c301599b99691"
+    },
+    "chapters": [
+      {
+        "start_ms": 0,
+        "end_ms": 19320,
+        "title": "Link facts about a straight line and a turn"
+      },
+      {
+        "start_ms": 19320,
+        "end_ms": 28770,
+        "title": "Justify an angle without measuring"
+      },
+      {
+        "start_ms": 28770,
+        "end_ms": 43300,
+        "title": "Locate the marked angle below the 65° crossing"
+      },
+      {
+        "start_ms": 43300,
+        "end_ms": 59140,
+        "title": "Match corresponding angles"
+      },
+      {
+        "start_ms": 59140,
+        "end_ms": 73220,
+        "title": "Use a straight line to get the marked angle"
+      },
+      {
+        "start_ms": 73220,
+        "end_ms": 91290,
+        "title": "Draw a parallel through a triangle’s vertex"
+      },
+      {
+        "start_ms": 91290,
+        "end_ms": 105210,
+        "title": "Split the angles opposite equal sides"
+      },
+      {
+        "start_ms": 105210,
+        "end_ms": 121900,
+        "title": "Find the third angle from two 55° angles"
+      }
+    ]
+  }
 }

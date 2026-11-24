@@ -1,7 +1,7 @@
 {
   "id": "T08.E",
   "duration_seconds": 70.1,
-  "sha256": "2d47e6831ff1916e07fc4e4ba6d89ae37f1bdbb13d453576882431137cbc91bf",
+  "sha256": "9b6989cf4cbe181bc42996acf47ed81d6745c390f3f4f78e4ddaac1864450960",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -119,5 +119,45 @@
     }
   ],
   "audio_packet_sha256": "88a81257f82406b435967375b08652eca202cecd438646dd4a1f90c13f297361",
-  "art_source": "d10dd076fb57dc906fbe29d54c092d349faa543d"
+  "art_source": "d10dd076fb57dc906fbe29d54c092d349faa543d",
+  "native_chapters": {
+    "prior_mp4_sha256": "2d47e6831ff1916e07fc4e4ba6d89ae37f1bdbb13d453576882431137cbc91bf",
+    "sha256": "9b6989cf4cbe181bc42996acf47ed81d6745c390f3f4f78e4ddaac1864450960",
+    "packet_timing_and_payload_sha256": {
+      "v:0": "bd98f9f99ae8bcd0d3795d406523b2095f52118549e5874e748192a885f00072",
+      "a:0": "b7dd991316a5c4f9c4d173826208afc722dff3b5c64d7b112774f5b95cf89188"
+    },
+    "chapters": [
+      {
+        "start_ms": 0,
+        "end_ms": 11940,
+        "title": "Compare two heads with at least one head"
+      },
+      {
+        "start_ms": 11940,
+        "end_ms": 20430,
+        "title": "Label the two coins and list four results"
+      },
+      {
+        "start_ms": 20430,
+        "end_ms": 30040,
+        "title": "Remove the outcome with two tails"
+      },
+      {
+        "start_ms": 30040,
+        "end_ms": 35970,
+        "title": "Find two heads among the surviving results"
+      },
+      {
+        "start_ms": 35970,
+        "end_ms": 51330,
+        "title": "Change the clue to a head on the first coin"
+      },
+      {
+        "start_ms": 51330,
+        "end_ms": 70100,
+        "title": "Condition on the coins showing different faces"
+      }
+    ]
+  }
 }

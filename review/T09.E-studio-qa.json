@@ -1,7 +1,7 @@
 {
   "id": "T09.E",
   "duration_seconds": 81.266667,
-  "sha256": "2ddf7239c3e67e8df0f19d3e3c8befb0ef9639d00102c39dad3e7353b3c2fb2e",
+  "sha256": "ab68a1834ba9f3e9406d4ed4e56ff09dafdc82fc0eb51c5f1d1a458c3d2c1585",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -119,5 +119,45 @@
     }
   ],
   "audio_packet_sha256": "58bb074382d89076fd04947cbd99f32d6d02c602cb0ee4b1f01f36f735a52e21",
-  "art_source": "dbc177a89f7341999f550fe13f640148deeff8d9"
+  "art_source": "dbc177a89f7341999f550fe13f640148deeff8d9",
+  "native_chapters": {
+    "prior_mp4_sha256": "2ddf7239c3e67e8df0f19d3e3c8befb0ef9639d00102c39dad3e7353b3c2fb2e",
+    "sha256": "ab68a1834ba9f3e9406d4ed4e56ff09dafdc82fc0eb51c5f1d1a458c3d2c1585",
+    "packet_timing_and_payload_sha256": {
+      "v:0": "d58fd213099ac20912ec3c9049112b05b31871c2519357f7ad8028176d208db9",
+      "a:0": "185fdcd9bed28d34f1854ff3d7340b7c5a248a35f213dccb90f76e266b6e66d6"
+    },
+    "chapters": [
+      {
+        "start_ms": 0,
+        "end_ms": 17370,
+        "title": "Share 21 counters across three trays"
+      },
+      {
+        "start_ms": 17370,
+        "end_ms": 27940,
+        "title": "Find the total on each tray"
+      },
+      {
+        "start_ms": 27940,
+        "end_ms": 37230,
+        "title": "Separate five counters inside the pouch"
+      },
+      {
+        "start_ms": 37230,
+        "end_ms": 48910,
+        "title": "Write the tray story as an equation"
+      },
+      {
+        "start_ms": 48910,
+        "end_ms": 62030,
+        "title": "Remove all six loose counters first"
+      },
+      {
+        "start_ms": 62030,
+        "end_ms": 81267,
+        "title": "Find the marbles inside each of four boxes"
+      }
+    ]
+  }
 }

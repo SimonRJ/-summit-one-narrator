@@ -1,7 +1,7 @@
 {
   "id": "T10.E",
   "duration_seconds": 73.133333,
-  "sha256": "bbfb728e774795def6c781e47b57c70eae6de7baa2c7fbf64fcdf3943386b20e",
+  "sha256": "afffbe1645dd1f1428d9a48a8b6372ddb2c189204e74e61696c51c6d5586ebde",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -119,5 +119,45 @@
     }
   ],
   "audio_packet_sha256": "ba4d25c0ae25216e3d7855dae9998593c089547d9eabd4f193bb8df8debf1127",
-  "art_source": "f058ad7f7273378d62748a57dc96a645804a7f07"
+  "art_source": "f058ad7f7273378d62748a57dc96a645804a7f07",
+  "native_chapters": {
+    "prior_mp4_sha256": "bbfb728e774795def6c781e47b57c70eae6de7baa2c7fbf64fcdf3943386b20e",
+    "sha256": "afffbe1645dd1f1428d9a48a8b6372ddb2c189204e74e61696c51c6d5586ebde",
+    "packet_timing_and_payload_sha256": {
+      "v:0": "7da0c2894c981312e3ea35b67ae9f7f1e590861d31cd60cca73f605558ad2f09",
+      "a:0": "a97e02a9f06c5f01ae6aff59b6ec28445a0f8ab12ea144a7450c8a6c39bb4d94"
+    },
+    "chapters": [
+      {
+        "start_ms": 0,
+        "end_ms": 13050,
+        "title": "Grow a three-by-three dot square"
+      },
+      {
+        "start_ms": 13050,
+        "end_ms": 21700,
+        "title": "Add a bottom row of four dots"
+      },
+      {
+        "start_ms": 21700,
+        "end_ms": 30830,
+        "title": "Count the corner only once"
+      },
+      {
+        "start_ms": 30830,
+        "end_ms": 38040,
+        "title": "Check the increase from nine to sixteen"
+      },
+      {
+        "start_ms": 38040,
+        "end_ms": 53720,
+        "title": "Grow a square of side n"
+      },
+      {
+        "start_ms": 53720,
+        "end_ms": 73133,
+        "title": "Find the next border for twenty rows"
+      }
+    ]
+  }
 }

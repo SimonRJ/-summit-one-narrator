@@ -1,7 +1,7 @@
 {
   "id": "T02.E",
   "duration_seconds": 104.133333,
-  "sha256": "b75496215d031144b4c29126c7d7b9423ddb029273a7731cf2c6663d11ba944c",
+  "sha256": "d909f4e1c19512f6f9725418ceaca5ad609a0e7bddd6a83b4ff041d6e1cf0609",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -66,5 +66,40 @@
       "start": 82.33
     }
   ],
-  "decoded_successfully": true
+  "decoded_successfully": true,
+  "native_chapters": {
+    "prior_mp4_sha256": "b75496215d031144b4c29126c7d7b9423ddb029273a7731cf2c6663d11ba944c",
+    "sha256": "d909f4e1c19512f6f9725418ceaca5ad609a0e7bddd6a83b4ff041d6e1cf0609",
+    "packet_timing_and_payload_sha256": {
+      "v:0": "b5d2e0f374ce1949c93ee7f1878261137f7d733571ab6e96f4e4abd96380766e",
+      "a:0": "2eb8ff70b11b3de3b3f7b901bb69369ffe83b90ff5b84a31e171a676118b6974"
+    },
+    "chapters": [
+      {
+        "start_ms": 0,
+        "end_ms": 19290,
+        "title": "Try both rules with one starting number"
+      },
+      {
+        "start_ms": 19290,
+        "end_ms": 50330,
+        "title": "Make four copies of the sum"
+      },
+      {
+        "start_ms": 50330,
+        "end_ms": 67290,
+        "title": "Cancel the matching tiles"
+      },
+      {
+        "start_ms": 67290,
+        "end_ms": 82330,
+        "title": "Test the gap at zero and at ten"
+      },
+      {
+        "start_ms": 82330,
+        "end_ms": 104133,
+        "title": "Draw the two add-and-scale rules"
+      }
+    ]
+  }
 }

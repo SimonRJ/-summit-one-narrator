@@ -1,7 +1,7 @@
 {
   "id": "T01.E",
   "duration_seconds": 141.133333,
-  "sha256": "139c69120f81ec34309a7dad4156efee5d87aa1cd68eb78ad0e96d806fe86eb6",
+  "sha256": "53d574faafcf0cbe4ed5776ffcdd3812348c8c22cc2ea1bfbefec3106eace18d",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -80,5 +80,45 @@
       "start": 118.52
     }
   ],
-  "decoded_successfully": true
+  "decoded_successfully": true,
+  "native_chapters": {
+    "prior_mp4_sha256": "139c69120f81ec34309a7dad4156efee5d87aa1cd68eb78ad0e96d806fe86eb6",
+    "sha256": "53d574faafcf0cbe4ed5776ffcdd3812348c8c22cc2ea1bfbefec3106eace18d",
+    "packet_timing_and_payload_sha256": {
+      "v:0": "b55f2ee17ff420d1f901fe87f536caf7c8a4600b30489856d77f269507373376",
+      "a:0": "60016c2a7e160fdc32eb5ebc80b75e8b95fb8fe0dc3d91324aa4f7b4f92dde0f"
+    },
+    "chapters": [
+      {
+        "start_ms": 0,
+        "end_ms": 31770,
+        "title": "Locate the two ends of the ribbon"
+      },
+      {
+        "start_ms": 31770,
+        "end_ms": 47610,
+        "title": "Count centimetre gaps from 2 to 9"
+      },
+      {
+        "start_ms": 47610,
+        "end_ms": 66650,
+        "title": "Subtract the starting mark"
+      },
+      {
+        "start_ms": 66650,
+        "end_ms": 82170,
+        "title": "Slide both ends back to zero and seven"
+      },
+      {
+        "start_ms": 82170,
+        "end_ms": 118520,
+        "title": "Time a film from 7:15 to 9:05"
+      },
+      {
+        "start_ms": 118520,
+        "end_ms": 141133,
+        "title": "Measure a recording across noon"
+      }
+    ]
+  }
 }

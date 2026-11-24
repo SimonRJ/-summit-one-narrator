@@ -1,7 +1,7 @@
 {
   "id": "T02.3",
   "duration_seconds": 137.4,
-  "sha256": "d708c47eea074fcc3a6d434d99330c9c31eea408c0657778c96795c176a58f44",
+  "sha256": "3c4489f14e7e1331576f1ca948b464299db206ce36415d7f6cb6ae44f23f836c",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -82,5 +82,50 @@
   ],
   "decoded_successfully": true,
   "source_sha256": "e333eb08cb10786a6f1debe9013a400b92d411bbdf8d15ce928dd2ec1699a725",
-  "diagram_revision": "Shared unit scale in scenes 4 and 5, original AAC packets and caption track retained"
+  "diagram_revision": "Shared unit scale in scenes 4 and 5, original AAC packets and caption track retained",
+  "native_chapters": {
+    "prior_mp4_sha256": "d708c47eea074fcc3a6d434d99330c9c31eea408c0657778c96795c176a58f44",
+    "sha256": "3c4489f14e7e1331576f1ca948b464299db206ce36415d7f6cb6ae44f23f836c",
+    "packet_timing_and_payload_sha256": {
+      "v:0": "f032334e6c6cd9cdd72457bb1ada7e34886c560b876a216c3bdf9d0e7c752127",
+      "a:0": "20e725e674b11ea00ef867058df09573adcd45b6b96a9e92eff9df83eb3a4f8a"
+    },
+    "chapters": [
+      {
+        "start_ms": 0,
+        "end_ms": 29240,
+        "title": "Swap addition and doubling"
+      },
+      {
+        "start_ms": 29240,
+        "end_ms": 45690,
+        "title": "Predict which rule gives more"
+      },
+      {
+        "start_ms": 45690,
+        "end_ms": 61530,
+        "title": "Make two copies of the whole bar"
+      },
+      {
+        "start_ms": 61530,
+        "end_ms": 77840,
+        "title": "Pair the matching parts"
+      },
+      {
+        "start_ms": 77840,
+        "end_ms": 99120,
+        "title": "Compare the rules with a negative multiplier"
+      },
+      {
+        "start_ms": 99120,
+        "end_ms": 114480,
+        "title": "Decide which steps can swap"
+      },
+      {
+        "start_ms": 114480,
+        "end_ms": 137400,
+        "title": "Compare tripling before and after subtraction"
+      }
+    ]
+  }
 }

@@ -1,7 +1,7 @@
 {
   "id": "T11.E",
   "duration_seconds": 74.733333,
-  "sha256": "581e15beb81c72d3d7b645b9111fa5ca0ab155743940dd295f9c9c1002b25aa0",
+  "sha256": "4358bc2f610279fe02527813ccf0f0132ef7b903b705217bbbd8811bca6d7c0f",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -119,5 +119,45 @@
     }
   ],
   "audio_packet_sha256": "957a74477a76820c679de3d83cdd07583d17ee58ca399844e1463a703f75da80",
-  "art_source": "0d6717266be5bd5e9328413423cdba20befe43d4"
+  "art_source": "0d6717266be5bd5e9328413423cdba20befe43d4",
+  "native_chapters": {
+    "prior_mp4_sha256": "581e15beb81c72d3d7b645b9111fa5ca0ab155743940dd295f9c9c1002b25aa0",
+    "sha256": "4358bc2f610279fe02527813ccf0f0132ef7b903b705217bbbd8811bca6d7c0f",
+    "packet_timing_and_payload_sha256": {
+      "v:0": "069d5519509d5832c68db6076e40319a0b1ea68071be4ab959554a72543594f2",
+      "a:0": "e01ebfbc43333663dc6ac680e6afa81b064092c782d76986d0906bbb0be30ecf"
+    },
+    "chapters": [
+      {
+        "start_ms": 0,
+        "end_ms": 9380,
+        "title": "Explain each carry in 58 + 67"
+      },
+      {
+        "start_ms": 9380,
+        "end_ms": 19950,
+        "title": "Exchange ten units for one ten"
+      },
+      {
+        "start_ms": 19950,
+        "end_ms": 30830,
+        "title": "Exchange ten tens for one hundred"
+      },
+      {
+        "start_ms": 30830,
+        "end_ms": 44270,
+        "title": "Read the new hundreds digit"
+      },
+      {
+        "start_ms": 44270,
+        "end_ms": 59470,
+        "title": "Check 125 by rounding and regrouping"
+      },
+      {
+        "start_ms": 59470,
+        "end_ms": 74733,
+        "title": "Explain both carries in 76 + 89"
+      }
+    ]
+  }
 }

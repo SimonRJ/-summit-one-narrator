@@ -1,7 +1,7 @@
 {
   "id": "T03.2",
   "duration_seconds": 124.266667,
-  "sha256": "c1fb141aed0731b112d3bb0b1466c37ee5948f333981c548beb50835f9346f05",
+  "sha256": "d84d0a46b0ff6e9eddd443dbf3fe8eed0585104a162ee6c35725a4a82ccb3f2c",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -78,5 +78,45 @@
   "decoded_successfully": true,
   "source_sha256": "94dec4e8ebef32fc2ae2e4fd82fa68c3aeb008d87855c1feeffab00f41dc0fca",
   "diagram_revision": "T03.2. Advance two signal lights on a common time ruler. Move the starting phase and send the buses from a clock face at 09:24.",
-  "original_audio_packets": "SHA256=680d843e15ab96e66839b39e47a0faebf5b2f091f5dfc5fdf6c0754d76ddd2b1"
+  "original_audio_packets": "SHA256=680d843e15ab96e66839b39e47a0faebf5b2f091f5dfc5fdf6c0754d76ddd2b1",
+  "native_chapters": {
+    "prior_mp4_sha256": "c1fb141aed0731b112d3bb0b1466c37ee5948f333981c548beb50835f9346f05",
+    "sha256": "d84d0a46b0ff6e9eddd443dbf3fe8eed0585104a162ee6c35725a4a82ccb3f2c",
+    "packet_timing_and_payload_sha256": {
+      "v:0": "db39faabdcb701df738ca0eb9cbfd953b470470e481435c76e8a9a4db20b975f",
+      "a:0": "6041a424b43276de92c2505d087c99303c2a4b1da69a907681c7774a5a52ac6c"
+    },
+    "chapters": [
+      {
+        "start_ms": 0,
+        "end_ms": 31000,
+        "title": "Compare the four- and six-second lights"
+      },
+      {
+        "start_ms": 31000,
+        "end_ms": 46810,
+        "title": "Start both lights at zero"
+      },
+      {
+        "start_ms": 46810,
+        "end_ms": 68400,
+        "title": "Find the gap between shared flashes"
+      },
+      {
+        "start_ms": 68400,
+        "end_ms": 86320,
+        "title": "Give the second light a two-second delay"
+      },
+      {
+        "start_ms": 86320,
+        "end_ms": 102310,
+        "title": "Use parity to rule out a meeting"
+      },
+      {
+        "start_ms": 102310,
+        "end_ms": 124267,
+        "title": "Find the next shared bus departure"
+      }
+    ]
+  }
 }

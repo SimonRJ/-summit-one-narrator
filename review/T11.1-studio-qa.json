@@ -1,7 +1,7 @@
 {
   "id": "T11.1",
   "duration_seconds": 116.0,
-  "sha256": "df7b0c1a0a98fe4dadace512e663151c2d120f0612c3cb7b0ac2baa1c0ecedb8",
+  "sha256": "fa163d4e7d7a14472d509177484d9160255b7b2dc03d9544483699743993280a",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -167,5 +167,60 @@
     }
   ],
   "audio_packet_sha256": "1885b6d3deab056c29e97638617c1d69ea5f48639de8b7c5ca78d89d9ff711bd",
-  "art_source": "0d6717266be5bd5e9328413423cdba20befe43d4"
+  "art_source": "0d6717266be5bd5e9328413423cdba20befe43d4",
+  "native_chapters": {
+    "prior_mp4_sha256": "df7b0c1a0a98fe4dadace512e663151c2d120f0612c3cb7b0ac2baa1c0ecedb8",
+    "sha256": "fa163d4e7d7a14472d509177484d9160255b7b2dc03d9544483699743993280a",
+    "packet_timing_and_payload_sha256": {
+      "v:0": "665e76581060cfce8afc9fbc19bfc9836ba6a42883c49923ed8a8ff83ef5e8c2",
+      "a:0": "2ae08387766f9492b227788dbd1ddeed471834751364b5cc492787a49f2ecc49"
+    },
+    "chapters": [
+      {
+        "start_ms": 0,
+        "end_ms": 15960,
+        "title": "Compare the value of 4 in 42 and 24"
+      },
+      {
+        "start_ms": 15960,
+        "end_ms": 26210,
+        "title": "Write a two-digit number using place value"
+      },
+      {
+        "start_ms": 26210,
+        "end_ms": 39150,
+        "title": "Reverse a number to gain 27"
+      },
+      {
+        "start_ms": 39150,
+        "end_ms": 48280,
+        "title": "Express both digit orders with A and B"
+      },
+      {
+        "start_ms": 48280,
+        "end_ms": 61560,
+        "title": "Factor the difference between the numbers"
+      },
+      {
+        "start_ms": 61560,
+        "end_ms": 74050,
+        "title": "List and check the possible originals"
+      },
+      {
+        "start_ms": 74050,
+        "end_ms": 87010,
+        "title": "Add a number to its reverse"
+      },
+      {
+        "start_ms": 87010,
+        "end_ms": 96770,
+        "title": "Use the limits on each digit"
+      },
+      {
+        "start_ms": 96770,
+        "end_ms": 116000,
+        "title": "Find numbers four times their digit sum"
+      }
+    ]
+  }
 }

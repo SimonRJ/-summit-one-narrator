@@ -1,7 +1,7 @@
 {
   "id": "T03.1",
   "duration_seconds": 136.3,
-  "sha256": "d5f41b3400ae38c694853dd8d91609ffa8ab502e3277dc589488bd56752749db",
+  "sha256": "8a61123e94892683fdd9983941d102abd84b049064f7d8ceea5dd6e4b9a6265b",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -143,5 +143,50 @@
     }
   ],
   "audio_packet_sha256": "6638d268dff662bb207441764f8954869599503597b6498ede9991e50bb81a5c",
-  "art_source": "968a622ee11700b85f80c907e51c654844a32251"
+  "art_source": "968a622ee11700b85f80c907e51c654844a32251",
+  "native_chapters": {
+    "prior_mp4_sha256": "d5f41b3400ae38c694853dd8d91609ffa8ab502e3277dc589488bd56752749db",
+    "sha256": "8a61123e94892683fdd9983941d102abd84b049064f7d8ceea5dd6e4b9a6265b",
+    "packet_timing_and_payload_sha256": {
+      "v:0": "ff4cf0aef0f0c04d6983c2e0091ee8cfccb4b216762ce3f151c053c7b6c3cb66",
+      "a:0": "651627c0abc3118cc5c54833d175e514a7f9a37c72ba262270719bd6c0679e69"
+    },
+    "chapters": [
+      {
+        "start_ms": 0,
+        "end_ms": 31320,
+        "title": "Group seventeen counters in fives"
+      },
+      {
+        "start_ms": 31320,
+        "end_ms": 45530,
+        "title": "Mark the four-bead cycle"
+      },
+      {
+        "start_ms": 45530,
+        "end_ms": 61050,
+        "title": "Locate bead 50"
+      },
+      {
+        "start_ms": 61050,
+        "end_ms": 75610,
+        "title": "Place bead 48 at remainder zero"
+      },
+      {
+        "start_ms": 75610,
+        "end_ms": 97040,
+        "title": "Subtract two numbers with the same remainder"
+      },
+      {
+        "start_ms": 97040,
+        "end_ms": 114960,
+        "title": "Filter a list by two remainders"
+      },
+      {
+        "start_ms": 114960,
+        "end_ms": 136300,
+        "title": "Move 100 days beyond Tuesday"
+      }
+    ]
+  }
 }

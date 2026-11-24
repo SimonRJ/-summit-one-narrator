@@ -1,7 +1,7 @@
 {
   "id": "T13.2",
   "duration_seconds": 118.066667,
-  "sha256": "cb05ddb68e05ead6236ccfbc9a982455518eb1ac18c93bded2e64ed7369f2062",
+  "sha256": "bc7951b9b16175b615aba784a38cfab7328b957ece389090396fae2a21b2479a",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -91,5 +91,55 @@
   "decoded_successfully": true,
   "source_sha256": "03494bd8e053d32cbd9d125ddc093b431448eb0112f26da1e22a70047496a9b5",
   "diagram_revision": "Unit-square cuts from a corner and a straight edge expose different perimeter changes. The new corner edges slide onto the old ones. Scaled areas and volumes are drawn at true proportions.",
-  "original_audio_packets": "SHA256=6ab3d40ee1c91dea1f727be484e58792993c651a68a349d69ae7cfed431c94fa"
+  "original_audio_packets": "SHA256=6ab3d40ee1c91dea1f727be484e58792993c651a68a349d69ae7cfed431c94fa",
+  "native_chapters": {
+    "prior_mp4_sha256": "cb05ddb68e05ead6236ccfbc9a982455518eb1ac18c93bded2e64ed7369f2062",
+    "sha256": "bc7951b9b16175b615aba784a38cfab7328b957ece389090396fae2a21b2479a",
+    "packet_timing_and_payload_sha256": {
+      "v:0": "9bfe4233d8745a78f72eb6e6ce6f86f9a9fe39e8e311360c5029bc4470ac4f7e",
+      "a:0": "08447a0c90d5c0ccc4a2a97e8b06809a92373ac67198768292818d141154737a"
+    },
+    "chapters": [
+      {
+        "start_ms": 0,
+        "end_ms": 12600,
+        "title": "Predict how a cut changes the boundary"
+      },
+      {
+        "start_ms": 12600,
+        "end_ms": 22050,
+        "title": "Choose a measure for a cut or an enlargement"
+      },
+      {
+        "start_ms": 22050,
+        "end_ms": 34660,
+        "title": "Cut a unit square from a corner"
+      },
+      {
+        "start_ms": 34660,
+        "end_ms": 51620,
+        "title": "Match the two lost edges to the two new edges"
+      },
+      {
+        "start_ms": 51620,
+        "end_ms": 66500,
+        "title": "Move the cut to the middle of a side"
+      },
+      {
+        "start_ms": 66500,
+        "end_ms": 84100,
+        "title": "Double the sides of a two-by-three rectangle"
+      },
+      {
+        "start_ms": 84100,
+        "end_ms": 94510,
+        "title": "Double or triple the edges of a cube"
+      },
+      {
+        "start_ms": 94510,
+        "end_ms": 118067,
+        "title": "Scale a photograph by a factor of three"
+      }
+    ]
+  }
 }

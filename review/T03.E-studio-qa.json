@@ -1,7 +1,7 @@
 {
   "id": "T03.E",
   "duration_seconds": 100.6,
-  "sha256": "7b6a5ba8163185eb01872ef8a49903ba4e5198d4387da233ffc81ee344936828",
+  "sha256": "2c44b784e55201e2a49517e274d626c01ac4d1be3ff1d8e94642c77eacc8b2d4",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -115,5 +115,40 @@
     }
   ],
   "audio_packet_sha256": "6b5d47c1b51bae4713e354e66dd7f50a6547274d90ddb4be3122be86d89a6c3d",
-  "art_source": "e04111b2c9e00b01ee040d87ca3e73a6598d22d9"
+  "art_source": "e04111b2c9e00b01ee040d87ca3e73a6598d22d9",
+  "native_chapters": {
+    "prior_mp4_sha256": "7b6a5ba8163185eb01872ef8a49903ba4e5198d4387da233ffc81ee344936828",
+    "sha256": "2c44b784e55201e2a49517e274d626c01ac4d1be3ff1d8e94642c77eacc8b2d4",
+    "packet_timing_and_payload_sha256": {
+      "v:0": "a25e1c156441006fec360c410dbb94a8e5eca2427ac710bd4d7a0a77cc4f4e13",
+      "a:0": "e0325ffbc4a66af9905d5ccb27e96530f986b7e4b7d26168f7e38fbf0b3de72a"
+    },
+    "chapters": [
+      {
+        "start_ms": 0,
+        "end_ms": 16090,
+        "title": "Find a multiple-of-three difference"
+      },
+      {
+        "start_ms": 16090,
+        "end_ms": 43610,
+        "title": "Give each number a remainder box"
+      },
+      {
+        "start_ms": 43610,
+        "end_ms": 59450,
+        "title": "Subtract numbers from the same box"
+      },
+      {
+        "start_ms": 59450,
+        "end_ms": 79290,
+        "title": "Test four numbers and then three"
+      },
+      {
+        "start_ms": 79290,
+        "end_ms": 100600,
+        "title": "Find the guarantee for divisor ten"
+      }
+    ]
+  }
 }

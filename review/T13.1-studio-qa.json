@@ -1,7 +1,7 @@
 {
   "id": "T13.1",
   "duration_seconds": 132.133333,
-  "sha256": "24100ebdbb730e380ea2c1009dcb7b9d570ffd5115549e354ba6f7ecaab84a0b",
+  "sha256": "598617ac382e6cc99fbbe9cb0a9b3992c0dace4945826683703a6fbf81b51ad6",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -91,5 +91,55 @@
   "decoded_successfully": true,
   "source_sha256": "f941cf5944869274bdb6151774bf83e79ede38c18d15a4561d3c78d53d3713c8",
   "diagram_revision": "The moving apex keeps an exact 8 cm base and 5 cm height. A rigid half-turn, area-preserving shear, and 6-by-4 cutouts prove the area results.",
-  "original_audio_packets": "SHA256=0c9bfaecfee6df775fe5017065c47023eda95fd5568b6ebe5552254be5638b7e"
+  "original_audio_packets": "SHA256=0c9bfaecfee6df775fe5017065c47023eda95fd5568b6ebe5552254be5638b7e",
+  "native_chapters": {
+    "prior_mp4_sha256": "24100ebdbb730e380ea2c1009dcb7b9d570ffd5115549e354ba6f7ecaab84a0b",
+    "sha256": "598617ac382e6cc99fbbe9cb0a9b3992c0dace4945826683703a6fbf81b51ad6",
+    "packet_timing_and_payload_sha256": {
+      "v:0": "e8ca94f0642e4af722bd25650c466d22b0f10d5e917f0e8cc33a51ef47a22111",
+      "a:0": "4d7c9202c3574ce9ff46498010a9f3d700833cbff9ced1fbcc62688219f2db80"
+    },
+    "chapters": [
+      {
+        "start_ms": 0,
+        "end_ms": 17560,
+        "title": "Double a triangle to find its area"
+      },
+      {
+        "start_ms": 17560,
+        "end_ms": 30360,
+        "title": "Distinguish a sloping side from a height"
+      },
+      {
+        "start_ms": 30360,
+        "end_ms": 48250,
+        "title": "Compare three triangles on an 8 cm base"
+      },
+      {
+        "start_ms": 48250,
+        "end_ms": 66490,
+        "title": "Slide the vertex along a parallel line"
+      },
+      {
+        "start_ms": 66490,
+        "end_ms": 82650,
+        "title": "Find the three corners outside a tilted triangle"
+      },
+      {
+        "start_ms": 82650,
+        "end_ms": 95620,
+        "title": "Subtract the corners from the rectangle"
+      },
+      {
+        "start_ms": 95620,
+        "end_ms": 109860,
+        "title": "Join a top-edge point to both bottom corners"
+      },
+      {
+        "start_ms": 109860,
+        "end_ms": 132133,
+        "title": "Work backwards from an area of 35 cm²"
+      }
+    ]
+  }
 }

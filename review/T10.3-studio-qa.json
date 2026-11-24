@@ -1,7 +1,7 @@
 {
   "id": "T10.3",
   "duration_seconds": 124.133333,
-  "sha256": "7e14517e19bd7e28de8e9a14f0ac284eea5082ff52581a8792f387f50fdde160",
+  "sha256": "62d91583e3c73a205057b1713ef488679c2865cdf18b8d5efe66c1d20cd7e631",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -151,5 +151,55 @@
     }
   ],
   "audio_packet_sha256": "ef0c968f6ff39bbe52f073c5488a1cfeb899b6c8f31640c5c220473ae2abb706",
-  "art_source": "f058ad7f7273378d62748a57dc96a645804a7f07"
+  "art_source": "f058ad7f7273378d62748a57dc96a645804a7f07",
+  "native_chapters": {
+    "prior_mp4_sha256": "7e14517e19bd7e28de8e9a14f0ac284eea5082ff52581a8792f387f50fdde160",
+    "sha256": "62d91583e3c73a205057b1713ef488679c2865cdf18b8d5efe66c1d20cd7e631",
+    "packet_timing_and_payload_sha256": {
+      "v:0": "7db76a431a1930f58846b266f8b9ac80e8aa518283c082a8e1feb1bc82b836c8",
+      "a:0": "a542d15b4e840573c10139ae00fe0fac21b94ac2d7b950577def4acf9eb05abd"
+    },
+    "chapters": [
+      {
+        "start_ms": 0,
+        "end_ms": 13080,
+        "title": "Label a game from its smallest positions"
+      },
+      {
+        "start_ms": 13080,
+        "end_ms": 22840,
+        "title": "Use a label to find a winning move"
+      },
+      {
+        "start_ms": 22840,
+        "end_ms": 38170,
+        "title": "Choose who starts with ten counters"
+      },
+      {
+        "start_ms": 38170,
+        "end_ms": 50650,
+        "title": "Compare piles of one, two and three"
+      },
+      {
+        "start_ms": 50650,
+        "end_ms": 68730,
+        "title": "Decide when every move helps the opponent"
+      },
+      {
+        "start_ms": 68730,
+        "end_ms": 83930,
+        "title": "Leave nine and complete pairs of moves"
+      },
+      {
+        "start_ms": 83930,
+        "end_ms": 105200,
+        "title": "Allow a third counter on each turn"
+      },
+      {
+        "start_ms": 105200,
+        "end_ms": 124133,
+        "title": "Plan a winning first move from fourteen"
+      }
+    ]
+  }
 }

@@ -1,7 +1,7 @@
 {
   "id": "T01.3",
   "duration_seconds": 139.8,
-  "sha256": "b227b32cb977a036e96dccf4112e6fab10ca33aa02aa23aa13698ad5dddae018",
+  "sha256": "93f723fe76ce5b71e8250621f6dfb244144fe0d36dc71ae14c88f4dcfbb4a2b3",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -80,5 +80,45 @@
       "start": 117.98
     }
   ],
-  "decoded_successfully": true
+  "decoded_successfully": true,
+  "native_chapters": {
+    "prior_mp4_sha256": "b227b32cb977a036e96dccf4112e6fab10ca33aa02aa23aa13698ad5dddae018",
+    "sha256": "93f723fe76ce5b71e8250621f6dfb244144fe0d36dc71ae14c88f4dcfbb4a2b3",
+    "packet_timing_and_payload_sha256": {
+      "v:0": "171f16cab9df086734e017b45c8df2aad52e61921ac64ba3d83b8db5b391e077",
+      "a:0": "959fb229280a9d52b4a5f1829b8bfb2240e1d63cde2f40a560e6837fe88f63c2"
+    },
+    "chapters": [
+      {
+        "start_ms": 0,
+        "end_ms": 35000,
+        "title": "Predict the units and size of an answer"
+      },
+      {
+        "start_ms": 35000,
+        "end_ms": 53040,
+        "title": "Estimate seats for 130 students"
+      },
+      {
+        "start_ms": 53040,
+        "end_ms": 81520,
+        "title": "Fill buses in groups of forty"
+      },
+      {
+        "start_ms": 81520,
+        "end_ms": 100390,
+        "title": "Show why three buses fall short"
+      },
+      {
+        "start_ms": 100390,
+        "end_ms": 117980,
+        "title": "Count only the completely full buses"
+      },
+      {
+        "start_ms": 117980,
+        "end_ms": 139800,
+        "title": "Pack 100 eggs into boxes of twelve"
+      }
+    ]
+  }
 }

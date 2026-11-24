@@ -1,7 +1,7 @@
 {
   "id": "T11.3",
   "duration_seconds": 108.966667,
-  "sha256": "1ca25f16b1bdd0d3983c88ab71e8bd1fbb9883d39f362797effee2323e989f12",
+  "sha256": "e81b005d9f7f73f057c965c8553814d34902818d20b0123286d9d26cdf835ccc",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -151,5 +151,55 @@
     }
   ],
   "audio_packet_sha256": "d87807a9ae322fb027949d5fb2e969e951f35797df396f79cc313475dea0ebc2",
-  "art_source": "0d6717266be5bd5e9328413423cdba20befe43d4"
+  "art_source": "0d6717266be5bd5e9328413423cdba20befe43d4",
+  "native_chapters": {
+    "prior_mp4_sha256": "1ca25f16b1bdd0d3983c88ab71e8bd1fbb9883d39f362797effee2323e989f12",
+    "sha256": "e81b005d9f7f73f057c965c8553814d34902818d20b0123286d9d26cdf835ccc",
+    "packet_timing_and_payload_sha256": {
+      "v:0": "7be7dee2347bebce774c28d321c655dab2ef586e379b942fed04b67739991b79",
+      "a:0": "5080a89200f9a0932d8539e09b0e075deadc0b1bf7e22c2978c3f4ffe025a629"
+    },
+    "chapters": [
+      {
+        "start_ms": 0,
+        "end_ms": 14360,
+        "title": "Count the twos in 22"
+      },
+      {
+        "start_ms": 14360,
+        "end_ms": 23490,
+        "title": "Separate a digit count into columns"
+      },
+      {
+        "start_ms": 23490,
+        "end_ms": 35470,
+        "title": "Look for sevens from 1 to 100"
+      },
+      {
+        "start_ms": 35470,
+        "end_ms": 45400,
+        "title": "Count sevens in the units column"
+      },
+      {
+        "start_ms": 45400,
+        "end_ms": 60120,
+        "title": "Count sevens in the tens column"
+      },
+      {
+        "start_ms": 60120,
+        "end_ms": 72600,
+        "title": "Count the numbers containing a seven"
+      },
+      {
+        "start_ms": 72600,
+        "end_ms": 91150,
+        "title": "Count the digits on pages 1 to 99"
+      },
+      {
+        "start_ms": 91150,
+        "end_ms": 108967,
+        "title": "Count every three written up to 50"
+      }
+    ]
+  }
 }

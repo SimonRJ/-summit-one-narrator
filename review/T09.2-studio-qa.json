@@ -1,7 +1,7 @@
 {
   "id": "T09.2",
   "duration_seconds": 120.0,
-  "sha256": "88f541a2993075ceb5db92cdc1b7ee332f6f46a93971d4a1c1e2581856f09581",
+  "sha256": "3f6f3f5e27dbb9343b1e7b69769ef247de2170b4c35694599b9aa04d45e527fb",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -151,5 +151,55 @@
     }
   ],
   "audio_packet_sha256": "35f55323ead27f6ca4a43053812a59f2edf0fa5bfdacc75ded25216965695231",
-  "art_source": "dbc177a89f7341999f550fe13f640148deeff8d9"
+  "art_source": "dbc177a89f7341999f550fe13f640148deeff8d9",
+  "native_chapters": {
+    "prior_mp4_sha256": "88f541a2993075ceb5db92cdc1b7ee332f6f46a93971d4a1c1e2581856f09581",
+    "sha256": "3f6f3f5e27dbb9343b1e7b69769ef247de2170b4c35694599b9aa04d45e527fb",
+    "packet_timing_and_payload_sha256": {
+      "v:0": "86c0e3389298341aad0d042080ffdd7f4c0e4f162199d1ff79c3df13a6e036bc",
+      "a:0": "1b4a5e442e4809169aae20b6bfdf18a9dec70aa66f18f472e217a72114ec21fc"
+    },
+    "chapters": [
+      {
+        "start_ms": 0,
+        "end_ms": 16760,
+        "title": "Express a decimal in thousandths"
+      },
+      {
+        "start_ms": 16760,
+        "end_ms": 24770,
+        "title": "Link a stopping decimal to a power of ten"
+      },
+      {
+        "start_ms": 24770,
+        "end_ms": 34030,
+        "title": "Decide whether three fortieths terminates"
+      },
+      {
+        "start_ms": 34030,
+        "end_ms": 54510,
+        "title": "Turn a denominator of 40 into 1000"
+      },
+      {
+        "start_ms": 54510,
+        "end_ms": 70350,
+        "title": "Explain why one sixth keeps repeating"
+      },
+      {
+        "start_ms": 70350,
+        "end_ms": 83790,
+        "title": "Reduce six fifteenths before testing"
+      },
+      {
+        "start_ms": 83790,
+        "end_ms": 99630,
+        "title": "Make a decimal into a whole number"
+      },
+      {
+        "start_ms": 99630,
+        "end_ms": 120000,
+        "title": "Test the denominators 20, 12 and 75"
+      }
+    ]
+  }
 }

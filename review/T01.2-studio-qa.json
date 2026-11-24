@@ -1,7 +1,7 @@
 {
   "id": "T01.2",
   "duration_seconds": 171.3,
-  "sha256": "e4b04c9752b5a51c57b39ed8aeede19b99a19357862254b65a714c6037229402",
+  "sha256": "c54d9617d74e45f3d8b78ad39c945e4b1781d1aa0c4333e2157e33110750291d",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -89,5 +89,50 @@
       "start": 147.9
     }
   ],
-  "decoded_successfully": true
+  "decoded_successfully": true,
+  "native_chapters": {
+    "prior_mp4_sha256": "e4b04c9752b5a51c57b39ed8aeede19b99a19357862254b65a714c6037229402",
+    "sha256": "c54d9617d74e45f3d8b78ad39c945e4b1781d1aa0c4333e2157e33110750291d",
+    "packet_timing_and_payload_sha256": {
+      "v:0": "8d6c660a20217dc80bbd690c8b46fe5b1dc1bda6ba61b2c4305023736b9ff262",
+      "a:0": "bb2d330069f7a0708796100bd6a4b946f57718dc3acf81870b2c1387243161ae"
+    },
+    "chapters": [
+      {
+        "start_ms": 0,
+        "end_ms": 36140,
+        "title": "Choose a line, table or sketch"
+      },
+      {
+        "start_ms": 36140,
+        "end_ms": 70230,
+        "title": "Place posts along a straight fence"
+      },
+      {
+        "start_ms": 70230,
+        "end_ms": 88000,
+        "title": "Join the ends of the fence"
+      },
+      {
+        "start_ms": 88000,
+        "end_ms": 107240,
+        "title": "Count Sam once in the queue"
+      },
+      {
+        "start_ms": 107240,
+        "end_ms": 125810,
+        "title": "Compare the price per pencil"
+      },
+      {
+        "start_ms": 125810,
+        "end_ms": 147900,
+        "title": "Trace the outside edges of two mats"
+      },
+      {
+        "start_ms": 147900,
+        "end_ms": 171300,
+        "title": "Plant trees at both ends of a path"
+      }
+    ]
+  }
 }

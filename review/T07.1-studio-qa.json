@@ -1,7 +1,7 @@
 {
   "id": "T07.1",
   "duration_seconds": 123.8,
-  "sha256": "7765a80deed6d7214309a8394a7265a2e0686b4f6682d7ef58ab9896c6d5bd9a",
+  "sha256": "5f6b05025c1d600dd638ee03d68247a7a08dae084faa5421fdaa1a1916dbf945",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -151,5 +151,55 @@
     }
   ],
   "audio_packet_sha256": "d22add2d21ccf1c39c89d7cc9989e100a11a138ba25db17aeb05fdaeb5e9c520",
-  "art_source": "ae2de60d5091327abbbb86adf393263a56c94d5a"
+  "art_source": "ae2de60d5091327abbbb86adf393263a56c94d5a",
+  "native_chapters": {
+    "prior_mp4_sha256": "7765a80deed6d7214309a8394a7265a2e0686b4f6682d7ef58ab9896c6d5bd9a",
+    "sha256": "5f6b05025c1d600dd638ee03d68247a7a08dae084faa5421fdaa1a1916dbf945",
+    "packet_timing_and_payload_sha256": {
+      "v:0": "7146b0722cd9ecf7de3f40732e7c21c24523743b91b13e522b8a5a6e604f47a1",
+      "a:0": "51f019e4dcf4421ad144111b93c3f12a8aae365afbf7b4021e20a22a05118eba"
+    },
+    "chapters": [
+      {
+        "start_ms": 0,
+        "end_ms": 14680,
+        "title": "Find a limit every placement must respect"
+      },
+      {
+        "start_ms": 14680,
+        "end_ms": 25720,
+        "title": "Test what one arrangement proves"
+      },
+      {
+        "start_ms": 25720,
+        "end_ms": 43450,
+        "title": "Place separated counters in eight cells"
+      },
+      {
+        "start_ms": 43450,
+        "end_ms": 57370,
+        "title": "Pair the eight cells from left to right"
+      },
+      {
+        "start_ms": 57370,
+        "end_ms": 68890,
+        "title": "Fill the odd-numbered cells"
+      },
+      {
+        "start_ms": 68890,
+        "end_ms": 84250,
+        "title": "Handle the ninth unpaired cell"
+      },
+      {
+        "start_ms": 84250,
+        "end_ms": 107120,
+        "title": "Cover eight cells with the fewest counters"
+      },
+      {
+        "start_ms": 107120,
+        "end_ms": 123800,
+        "title": "Find the largest placement in eleven cells"
+      }
+    ]
+  }
 }

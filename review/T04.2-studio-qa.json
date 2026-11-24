@@ -1,7 +1,7 @@
 {
   "id": "T04.2",
   "duration_seconds": 125.733333,
-  "sha256": "40e9b7e3d35e6a47cb58ddc945daa04b4a06d44d0027b3ec8d1a82b7bedf263a",
+  "sha256": "f82cf56d7dfb6260ef713abdedbc77eaeceac14cccad666953d343380dbc97c1",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -131,5 +131,45 @@
     }
   ],
   "audio_packet_sha256": "1a4b7f1a5798f0f7cc03bc12cce3cfd6ea837f7336e6520c91fb5b4145eaa43b",
-  "art_source": "aa77f8b021f9846aa747e742b26f0bec2c41d8aa"
+  "art_source": "aa77f8b021f9846aa747e742b26f0bec2c41d8aa",
+  "native_chapters": {
+    "prior_mp4_sha256": "40e9b7e3d35e6a47cb58ddc945daa04b4a06d44d0027b3ec8d1a82b7bedf263a",
+    "sha256": "f82cf56d7dfb6260ef713abdedbc77eaeceac14cccad666953d343380dbc97c1",
+    "packet_timing_and_payload_sha256": {
+      "v:0": "c3bfa1f093d01c3f21ee552bf2f80e732379146d919994dd7f245bacef06e9af",
+      "a:0": "5dc9b27f9ec643de67f2fb23c3daf81cb0be6b1f5bcf1c106078a6d5e92223e3"
+    },
+    "chapters": [
+      {
+        "start_ms": 0,
+        "end_ms": 30520,
+        "title": "Pair the positive factors of twelve"
+      },
+      {
+        "start_ms": 30520,
+        "end_ms": 47450,
+        "title": "Choose the twos and threes in a factor"
+      },
+      {
+        "start_ms": 47450,
+        "end_ms": 66970,
+        "title": "Find 1 and 12 in the choices grid"
+      },
+      {
+        "start_ms": 66970,
+        "end_ms": 85210,
+        "title": "Extend the count from 72 to 360"
+      },
+      {
+        "start_ms": 85210,
+        "end_ms": 105360,
+        "title": "Find the unpaired factor of 36"
+      },
+      {
+        "start_ms": 105360,
+        "end_ms": 125733,
+        "title": "Count the factors of 200"
+      }
+    ]
+  }
 }

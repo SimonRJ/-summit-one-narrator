@@ -1,7 +1,7 @@
 {
   "id": "T09.1",
   "duration_seconds": 114.866667,
-  "sha256": "3ae0762827bfe6f3c29df2b659dfead0cc1664ffa7565f9056fa3d113a548623",
+  "sha256": "3d4d78ade78e2b40b99fc60dfeb85a6ca3405133c797cae0d9cf110f5420d839",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -151,5 +151,55 @@
     }
   ],
   "audio_packet_sha256": "c7d84fd45ad324e7594b5d328ae3bf4137628aa92fe0523bea7941aa6b996b2e",
-  "art_source": "dbc177a89f7341999f550fe13f640148deeff8d9"
+  "art_source": "dbc177a89f7341999f550fe13f640148deeff8d9",
+  "native_chapters": {
+    "prior_mp4_sha256": "3ae0762827bfe6f3c29df2b659dfead0cc1664ffa7565f9056fa3d113a548623",
+    "sha256": "3d4d78ade78e2b40b99fc60dfeb85a6ca3405133c797cae0d9cf110f5420d839",
+    "packet_timing_and_payload_sha256": {
+      "v:0": "26a0da2a170bdd77919f4d3f6c48471b126e46ba51d604f1900530cdcf40fc75",
+      "a:0": "f7cc61c5fe9ef72ce245bbf54e8046cf48fcf74d97fb5edd3096061bad788856"
+    },
+    "chapters": [
+      {
+        "start_ms": 0,
+        "end_ms": 16760,
+        "title": "Find a half before and after cutting the bar"
+      },
+      {
+        "start_ms": 16760,
+        "end_ms": 27330,
+        "title": "Change the whole between steps"
+      },
+      {
+        "start_ms": 27330,
+        "end_ms": 42020,
+        "title": "Name the whole for each person’s marbles"
+      },
+      {
+        "start_ms": 42020,
+        "end_ms": 48270,
+        "title": "Remove a quarter of the original forty"
+      },
+      {
+        "start_ms": 48270,
+        "end_ms": 60590,
+        "title": "Take a third of the remaining thirty"
+      },
+      {
+        "start_ms": 60590,
+        "end_ms": 77860,
+        "title": "Model two thirds of three quarters"
+      },
+      {
+        "start_ms": 77860,
+        "end_ms": 96260,
+        "title": "Raise and lower a price by ten percent"
+      },
+      {
+        "start_ms": 96260,
+        "end_ms": 114867,
+        "title": "Track the remaining water in a tank"
+      }
+    ]
+  }
 }

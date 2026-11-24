@@ -1,7 +1,7 @@
 {
   "id": "T06.2",
   "duration_seconds": 113.433333,
-  "sha256": "10e3924a73653b2dd4b5ef16b8a8d6d71cb076109cfff59945da891f2510de2a",
+  "sha256": "2af4ac03e71822c85bf6ff065023219029215a8d6ade1e578c62241d361ce0c6",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -151,5 +151,55 @@
     }
   ],
   "audio_packet_sha256": "ec97daadfe4048dbcd53aff79ba56c0381113b0bf01e250f0b3ab7a1a249eac0",
-  "art_source": "5d03f90f863cc84479918c10f5fb0185dacd4439"
+  "art_source": "5d03f90f863cc84479918c10f5fb0185dacd4439",
+  "native_chapters": {
+    "prior_mp4_sha256": "10e3924a73653b2dd4b5ef16b8a8d6d71cb076109cfff59945da891f2510de2a",
+    "sha256": "2af4ac03e71822c85bf6ff065023219029215a8d6ade1e578c62241d361ce0c6",
+    "packet_timing_and_payload_sha256": {
+      "v:0": "ec29b706be6370d2152c4befef004d107960ae047ad97c74d08738fdc222880d",
+      "a:0": "59d9e73019ba036233f9852dad2096bd6da77c902cd21c457621613b228a3bc5"
+    },
+    "chapters": [
+      {
+        "start_ms": 0,
+        "end_ms": 11960,
+        "title": "Weigh three boxes two at a time"
+      },
+      {
+        "start_ms": 11960,
+        "end_ms": 22370,
+        "title": "Find their combined weight first"
+      },
+      {
+        "start_ms": 22370,
+        "end_ms": 40580,
+        "title": "Record the three pair weights"
+      },
+      {
+        "start_ms": 40580,
+        "end_ms": 56420,
+        "title": "Count each box twice in the total of 36 kg"
+      },
+      {
+        "start_ms": 56420,
+        "end_ms": 68420,
+        "title": "Recover each box from the other pair"
+      },
+      {
+        "start_ms": 68420,
+        "end_ms": 76750,
+        "title": "Check all three weights on the scales"
+      },
+      {
+        "start_ms": 76750,
+        "end_ms": 95140,
+        "title": "Distinguish triangle corners from edge middles"
+      },
+      {
+        "start_ms": 95140,
+        "end_ms": 113433,
+        "title": "Recover three numbers from their pair sums"
+      }
+    ]
+  }
 }

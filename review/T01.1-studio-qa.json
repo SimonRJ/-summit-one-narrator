@@ -1,7 +1,7 @@
 {
   "id": "T01.1",
   "duration_seconds": 160.133333,
-  "sha256": "de26a263cf9c51fa08f8a1ae107ae310baa9572c12a0392c06907d3a2258af14",
+  "sha256": "840dc1c154fd3f89ac37b7f3f8056040195fc1c2aa79acdbfe40d8c92ea7a5eb",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -81,5 +81,55 @@
       "start": 136.4
     }
   ],
-  "decoded_successfully": true
+  "decoded_successfully": true,
+  "native_chapters": {
+    "prior_mp4_sha256": "de26a263cf9c51fa08f8a1ae107ae310baa9572c12a0392c06907d3a2258af14",
+    "sha256": "840dc1c154fd3f89ac37b7f3f8056040195fc1c2aa79acdbfe40d8c92ea7a5eb",
+    "packet_timing_and_payload_sha256": {
+      "v:0": "bc683d23f786377c1ad87adf10d45e3890dac3702de94e175db20c52aae5cc8e",
+      "a:0": "c780e598f819b41f288964d8716e00fe9dbb5829e7b8d18af0b92a5c9184b08e"
+    },
+    "chapters": [
+      {
+        "start_ms": 0,
+        "end_ms": 34540,
+        "title": "Label packets, counters and loose pieces"
+      },
+      {
+        "start_ms": 34540,
+        "end_ms": 83360,
+        "title": "Open Mia’s four packets"
+      },
+      {
+        "start_ms": 83360,
+        "end_ms": 100650,
+        "title": "Add ribbon lengths in centimetres"
+      },
+      {
+        "start_ms": 100650,
+        "end_ms": 136400,
+        "title": "Count every nine on pages 95–105"
+      },
+      {
+        "start_ms": 136400,
+        "end_ms": 160133,
+        "title": "Find the pencils that still work"
+      }
+    ],
+    "picture_revision": {
+      "original_mp4_sha256": "de26a263cf9c51fa08f8a1ae107ae310baa9572c12a0392c06907d3a2258af14",
+      "modified_region": {
+        "x": 0,
+        "y": 700,
+        "width": 1920,
+        "height": 154,
+        "start": 96.9,
+        "end": 98.1
+      },
+      "frame_count": 4804,
+      "minimum_frame_ssim_outside_patch_at_256x144": 0.999695,
+      "mean_frame_ssim_outside_patch_at_256x144": 0.9999407,
+      "transition": "The question fades completely before the area is used by the worked 200 cm + 30 cm = 230 cm calculation."
+    }
+  }
 }

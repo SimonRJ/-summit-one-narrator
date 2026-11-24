@@ -1,7 +1,7 @@
 {
   "id": "T08.3",
   "duration_seconds": 109.1,
-  "sha256": "ad35cb0cbecb53a9eaf18136215415f748e75f839713440cc80d48f3368db3b1",
+  "sha256": "aec61126e1ea6f6e40f214f2b6cb85eb9f7d68f69a82ba014eceb5323f15bbe6",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -151,5 +151,55 @@
     }
   ],
   "audio_packet_sha256": "72e93fad15d86fa6ab97b14ee9efad1ab43ad11ecfb8d9ee0857c6eff06f2da3",
-  "art_source": "d10dd076fb57dc906fbe29d54c092d349faa543d"
+  "art_source": "d10dd076fb57dc906fbe29d54c092d349faa543d",
+  "native_chapters": {
+    "prior_mp4_sha256": "ad35cb0cbecb53a9eaf18136215415f748e75f839713440cc80d48f3368db3b1",
+    "sha256": "aec61126e1ea6f6e40f214f2b6cb85eb9f7d68f69a82ba014eceb5323f15bbe6",
+    "packet_timing_and_payload_sha256": {
+      "v:0": "115360b98dfd7b3ad88b2173ee289ea43c5dda8eb2ff27da876389c9671e7198",
+      "a:0": "dc420ffd81fd7e761f51f8a11f044811c30c1bd99369279a64d7ae794a296f23"
+    },
+    "chapters": [
+      {
+        "start_ms": 0,
+        "end_ms": 12920,
+        "title": "Cross out outcomes the clue rules out"
+      },
+      {
+        "start_ms": 12920,
+        "end_ms": 22050,
+        "title": "Find the total after filtering the list"
+      },
+      {
+        "start_ms": 22050,
+        "end_ms": 34660,
+        "title": "Roll an even number on a fair die"
+      },
+      {
+        "start_ms": 34660,
+        "end_ms": 44910,
+        "title": "Keep only the even faces"
+      },
+      {
+        "start_ms": 44910,
+        "end_ms": 59310,
+        "title": "Count faces above three in the reduced list"
+      },
+      {
+        "start_ms": 59310,
+        "end_ms": 78020,
+        "title": "List the dice pairs that total eight"
+      },
+      {
+        "start_ms": 78020,
+        "end_ms": 91140,
+        "title": "Check whether the survivors are equally likely"
+      },
+      {
+        "start_ms": 91140,
+        "end_ms": 109100,
+        "title": "Use the clue that a roll exceeded two"
+      }
+    ]
+  }
 }

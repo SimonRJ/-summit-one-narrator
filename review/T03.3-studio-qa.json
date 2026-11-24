@@ -1,7 +1,7 @@
 {
   "id": "T03.3",
   "duration_seconds": 119,
-  "sha256": "562e5d746e3e96491e95ca6ee528cab6602550bcb53bfdd13578e52033539082",
+  "sha256": "27e5d3a37e74ce4fa05c90b3d47df2a58a77c5dc16ba44dee4628bee142c01f4",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -127,5 +127,40 @@
     }
   ],
   "audio_packet_sha256": "f712564bcba638fd2d5626b955e86ec630c8ae921e71190365ee33451ca2dd51",
-  "art_source": "e04111b2c9e00b01ee040d87ca3e73a6598d22d9"
+  "art_source": "e04111b2c9e00b01ee040d87ca3e73a6598d22d9",
+  "native_chapters": {
+    "prior_mp4_sha256": "562e5d746e3e96491e95ca6ee528cab6602550bcb53bfdd13578e52033539082",
+    "sha256": "27e5d3a37e74ce4fa05c90b3d47df2a58a77c5dc16ba44dee4628bee142c01f4",
+    "packet_timing_and_payload_sha256": {
+      "v:0": "1eea3f4efaa9b20272cfebc47055108f72d9a7f8766fc137ba036ae7af14fc35",
+      "a:0": "3967ecaabef80c74143446fe5cd580eb7b840e3246ca433e033f248c1e34cf81"
+    },
+    "chapters": [
+      {
+        "start_ms": 0,
+        "end_ms": 31800,
+        "title": "Fit four counters into three boxes"
+      },
+      {
+        "start_ms": 31800,
+        "end_ms": 66490,
+        "title": "Delay a matching pair of socks"
+      },
+      {
+        "start_ms": 66490,
+        "end_ms": 83930,
+        "title": "Sort four numbers into remainder boxes"
+      },
+      {
+        "start_ms": 83930,
+        "end_ms": 99770,
+        "title": "Pair the numbers that sum to eleven"
+      },
+      {
+        "start_ms": 99770,
+        "end_ms": 119000,
+        "title": "Force two birthdays into one month"
+      }
+    ]
+  }
 }

@@ -1,7 +1,7 @@
 {
   "id": "T08.1",
   "duration_seconds": 109.266667,
-  "sha256": "b516777ecd5c93374bb9459cdbda4d195f55f9361bac7f97650186b5388306f9",
+  "sha256": "e0064eb909c0366ef278b8769ba44511611a60546aef61368191ed5ad2a0191d",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -135,5 +135,50 @@
     }
   ],
   "audio_packet_sha256": "6f4b2ff4e4a812289ff568e1da7eff908144499b76dde038a75bd637ca644d45",
-  "art_source": "d10dd076fb57dc906fbe29d54c092d349faa543d"
+  "art_source": "d10dd076fb57dc906fbe29d54c092d349faa543d",
+  "native_chapters": {
+    "prior_mp4_sha256": "b516777ecd5c93374bb9459cdbda4d195f55f9361bac7f97650186b5388306f9",
+    "sha256": "e0064eb909c0366ef278b8769ba44511611a60546aef61368191ed5ad2a0191d",
+    "packet_timing_and_payload_sha256": {
+      "v:0": "c262eb274a96e6bf7f9a68831a8de310546cd3a77d1ddc851bc64003b9a4efef",
+      "a:0": "a3ede7c3e9e07c1b8ae95ea20eb9958bd52731a506abe4a6c08834b7dc8a40c7"
+    },
+    "chapters": [
+      {
+        "start_ms": 0,
+        "end_ms": 18840,
+        "title": "Decide which outcomes have equal chances"
+      },
+      {
+        "start_ms": 18840,
+        "end_ms": 28610,
+        "title": "Distinguish a colour from an individual counter"
+      },
+      {
+        "start_ms": 28610,
+        "end_ms": 48100,
+        "title": "Test the three proposed head counts"
+      },
+      {
+        "start_ms": 48100,
+        "end_ms": 59150,
+        "title": "Distinguish the first toss from the second"
+      },
+      {
+        "start_ms": 59150,
+        "end_ms": 72750,
+        "title": "Identify both routes to exactly one head"
+      },
+      {
+        "start_ms": 72750,
+        "end_ms": 91620,
+        "title": "Compare dice totals using ordered pairs"
+      },
+      {
+        "start_ms": 91620,
+        "end_ms": 109267,
+        "title": "Find the chance of matching dice"
+      }
+    ]
+  }
 }

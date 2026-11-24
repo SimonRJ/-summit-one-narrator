@@ -1,7 +1,7 @@
 {
   "id": "T10.2",
   "duration_seconds": 115.0,
-  "sha256": "ece9853d16e4ab969b998d3215bf9f72f742a2042c6308d798502e11887fbc86",
+  "sha256": "db61e849fea8bd903feabe69dcaaaeb59649654ce18d2710e4e5d0bf6dc22a32",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -151,5 +151,55 @@
     }
   ],
   "audio_packet_sha256": "2daafff74f8e3b598c4be464a40f073253d15ee8101afa69cc4eb04de18cbae7",
-  "art_source": "f058ad7f7273378d62748a57dc96a645804a7f07"
+  "art_source": "f058ad7f7273378d62748a57dc96a645804a7f07",
+  "native_chapters": {
+    "prior_mp4_sha256": "ece9853d16e4ab969b998d3215bf9f72f742a2042c6308d798502e11887fbc86",
+    "sha256": "db61e849fea8bd903feabe69dcaaaeb59649654ce18d2710e4e5d0bf6dc22a32",
+    "packet_timing_and_payload_sha256": {
+      "v:0": "dc3f917d02635293c1dc8f30fa22c7872a422bc253a292e015f3a4cc4ede93e2",
+      "a:0": "b72e73f53ad6749d5d9b1d762846953ee930775aa0a89b7ae14163ea2d749954"
+    },
+    "chapters": [
+      {
+        "start_ms": 0,
+        "end_ms": 16270,
+        "title": "Decide what a state must remember"
+      },
+      {
+        "start_ms": 16270,
+        "end_ms": 25880,
+        "title": "Use a cycle to reach a distant term"
+      },
+      {
+        "start_ms": 25880,
+        "end_ms": 42170,
+        "title": "Double 3 and track the last digit"
+      },
+      {
+        "start_ms": 42170,
+        "end_ms": 52900,
+        "title": "Find where the cycle begins"
+      },
+      {
+        "start_ms": 52900,
+        "end_ms": 64900,
+        "title": "Locate the 50th term after the initial 3"
+      },
+      {
+        "start_ms": 64900,
+        "end_ms": 79290,
+        "title": "Remember two digits for a sum recurrence"
+      },
+      {
+        "start_ms": 79290,
+        "end_ms": 92570,
+        "title": "Track a robot’s previous direction"
+      },
+      {
+        "start_ms": 92570,
+        "end_ms": 115000,
+        "title": "Triple 7 and find the 30th last digit"
+      }
+    ]
+  }
 }

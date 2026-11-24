@@ -1,7 +1,7 @@
 {
   "id": "T07.3",
   "duration_seconds": 108.3,
-  "sha256": "bb6626559cd51df99262b33a37d7fbe4b0db8bc0da77c98acf809ca77e2836eb",
+  "sha256": "00d2d32bb8e5983a93e7442e289e918a4588fdd750e5ff0a4252df3c3bd9c092",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -151,5 +151,55 @@
     }
   ],
   "audio_packet_sha256": "4a3ba2d68f0c500e284ba5d0a4c8c12f413b0762e7a1d109ab3f34ed7db68e89",
-  "art_source": "ae2de60d5091327abbbb86adf393263a56c94d5a"
+  "art_source": "ae2de60d5091327abbbb86adf393263a56c94d5a",
+  "native_chapters": {
+    "prior_mp4_sha256": "bb6626559cd51df99262b33a37d7fbe4b0db8bc0da77c98acf809ca77e2836eb",
+    "sha256": "00d2d32bb8e5983a93e7442e289e918a4588fdd750e5ff0a4252df3c3bd9c092",
+    "packet_timing_and_payload_sha256": {
+      "v:0": "66faa9343d3afacd03eba9fd7e88326371b2448efa5c5c93fdc5a69d78158327",
+      "a:0": "46b536a92b5132f3a621895271d2ca76e6c80c836d4c2a31717078a7fc887ef2"
+    },
+    "chapters": [
+      {
+        "start_ms": 0,
+        "end_ms": 13400,
+        "title": "Work back from equality in a bound"
+      },
+      {
+        "start_ms": 13400,
+        "end_ms": 23000,
+        "title": "Use a tight bound to choose a layout"
+      },
+      {
+        "start_ms": 23000,
+        "end_ms": 40730,
+        "title": "Fill a four-by-four board under two rules"
+      },
+      {
+        "start_ms": 40730,
+        "end_ms": 48900,
+        "title": "Get a limit from the four rows"
+      },
+      {
+        "start_ms": 48900,
+        "end_ms": 61700,
+        "title": "Check the columns of a full-row arrangement"
+      },
+      {
+        "start_ms": 61700,
+        "end_ms": 74020,
+        "title": "Build two diagonal blocks of four"
+      },
+      {
+        "start_ms": 74020,
+        "end_ms": 87300,
+        "title": "Inspect every row and column"
+      },
+      {
+        "start_ms": 87300,
+        "end_ms": 108300,
+        "title": "Place three counters on a three-by-three board"
+      }
+    ]
+  }
 }

@@ -1,7 +1,7 @@
 {
   "id": "T07.E",
   "duration_seconds": 78.866667,
-  "sha256": "29ea8056e8fac41c43ea8cd5259ada7325ab0ac5698a7d6e62bbf394769afb8a",
+  "sha256": "98af32484ba3259841608d671144686e8f1079aff075547fcfed6e96a80d43fa",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -119,5 +119,45 @@
     }
   ],
   "audio_packet_sha256": "316f1576bc6056fae2972d1f1b8fd250c7f46f2fedc96b4dc06b5a0b5b8c8e86",
-  "art_source": "ae2de60d5091327abbbb86adf393263a56c94d5a"
+  "art_source": "ae2de60d5091327abbbb86adf393263a56c94d5a",
+  "native_chapters": {
+    "prior_mp4_sha256": "29ea8056e8fac41c43ea8cd5259ada7325ab0ac5698a7d6e62bbf394769afb8a",
+    "sha256": "98af32484ba3259841608d671144686e8f1079aff075547fcfed6e96a80d43fa",
+    "packet_timing_and_payload_sha256": {
+      "v:0": "1c7ba9ac15f9a7efb72740d34b6e65b0bf4e6d76ada8282af05736ec00be100a",
+      "a:0": "35cc654cf1f7e13b24af57c70545e445e5d3aec0229c183f4d91dbdea29aaf89"
+    },
+    "chapters": [
+      {
+        "start_ms": 0,
+        "end_ms": 14970,
+        "title": "Pack seven red and four blue counters"
+      },
+      {
+        "start_ms": 14970,
+        "end_ms": 25850,
+        "title": "Estimate the trays from eleven places"
+      },
+      {
+        "start_ms": 25850,
+        "end_ms": 38330,
+        "title": "Limit red counters to two per tray"
+      },
+      {
+        "start_ms": 38330,
+        "end_ms": 51610,
+        "title": "Build a legal four-tray packing"
+      },
+      {
+        "start_ms": 51610,
+        "end_ms": 64090,
+        "title": "Compare the two capacity bounds"
+      },
+      {
+        "start_ms": 64090,
+        "end_ms": 78867,
+        "title": "Pack nine reds with three blues"
+      }
+    ]
+  }
 }

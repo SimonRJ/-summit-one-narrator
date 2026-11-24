@@ -1,7 +1,7 @@
 {
   "id": "T11.2",
   "duration_seconds": 120.166667,
-  "sha256": "014e8835448480bb39044bbb9cf2c8326b04085cfc76f5a73b3a97c9a58ec375",
+  "sha256": "1a21e0069a469559241c412f638ff7cdf13431908d69f128548d8432e3e1ce99",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -167,5 +167,60 @@
     }
   ],
   "audio_packet_sha256": "f958ca2e4e29e327ccab224ec57070286bbfb1b6a23d72cfa1e4bb29a7023aa3",
-  "art_source": "0d6717266be5bd5e9328413423cdba20befe43d4"
+  "art_source": "0d6717266be5bd5e9328413423cdba20befe43d4",
+  "native_chapters": {
+    "prior_mp4_sha256": "014e8835448480bb39044bbb9cf2c8326b04085cfc76f5a73b3a97c9a58ec375",
+    "sha256": "1a21e0069a469559241c412f638ff7cdf13431908d69f128548d8432e3e1ce99",
+    "packet_timing_and_payload_sha256": {
+      "v:0": "c7ade4e08cca74d9f83fc4957897c0ef6f199ad33967ce6827ad251300d03b60",
+      "a:0": "52ff85f24807f50d6dc6e00d0fb14aad59771188dd28afca39928563070c9f5b"
+    },
+    "chapters": [
+      {
+        "start_ms": 0,
+        "end_ms": 14040,
+        "title": "Compare each place value with a multiple of 9"
+      },
+      {
+        "start_ms": 14040,
+        "end_ms": 23810,
+        "title": "Use digit sums after rearranging digits"
+      },
+      {
+        "start_ms": 23810,
+        "end_ms": 33070,
+        "title": "Test 4725 for divisibility by 9"
+      },
+      {
+        "start_ms": 33070,
+        "end_ms": 47150,
+        "title": "Remove groups of nine from each place"
+      },
+      {
+        "start_ms": 47150,
+        "end_ms": 60270,
+        "title": "Explain why a digit sum of 18 works"
+      },
+      {
+        "start_ms": 60270,
+        "end_ms": 77860,
+        "title": "Find the remainder when 583 is divided by 9"
+      },
+      {
+        "start_ms": 77860,
+        "end_ms": 90980,
+        "title": "Rearrange 1, 2 and 6 and test for 3"
+      },
+      {
+        "start_ms": 90980,
+        "end_ms": 102510,
+        "title": "Fill the missing digit between 5 and 8"
+      },
+      {
+        "start_ms": 102510,
+        "end_ms": 120167,
+        "title": "Choose the missing digit in 73□4"
+      }
+    ]
+  }
 }

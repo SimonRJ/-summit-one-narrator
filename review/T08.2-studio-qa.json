@@ -1,7 +1,7 @@
 {
   "id": "T08.2",
   "duration_seconds": 106.566667,
-  "sha256": "5bcd6afeb5a9e4fc56569aed9983a1460bd6001e4ff0e25692793bb06f6470a7",
+  "sha256": "2dc63747b02cc2ba489c3b066f897973abfa6ab4b7415e3e2fb1ca755a656bd8",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -151,5 +151,55 @@
     }
   ],
   "audio_packet_sha256": "86c3a8eb9a4db6261ef713e8074ee34d24ecace09380937e7af1cda16b51d3e9",
-  "art_source": "d10dd076fb57dc906fbe29d54c092d349faa543d"
+  "art_source": "d10dd076fb57dc906fbe29d54c092d349faa543d",
+  "native_chapters": {
+    "prior_mp4_sha256": "5bcd6afeb5a9e4fc56569aed9983a1460bd6001e4ff0e25692793bb06f6470a7",
+    "sha256": "2dc63747b02cc2ba489c3b066f897973abfa6ab4b7415e3e2fb1ca755a656bd8",
+    "packet_timing_and_payload_sha256": {
+      "v:0": "9af4a340911f07f7da086905f308f01ec6aa6fbb7a91667c4c7c8733186a50b5",
+      "a:0": "38142d0d0ff983b35a3b6285391b56aa87166c08c1a3705b041dde711e980213"
+    },
+    "chapters": [
+      {
+        "start_ms": 0,
+        "end_ms": 11800,
+        "title": "Follow a draw without replacement"
+      },
+      {
+        "start_ms": 11800,
+        "end_ms": 19490,
+        "title": "Recount the bag after removing one counter"
+      },
+      {
+        "start_ms": 19490,
+        "end_ms": 37060,
+        "title": "Try drawing two reds from four counters"
+      },
+      {
+        "start_ms": 37060,
+        "end_ms": 44590,
+        "title": "Set the chance of the first red"
+      },
+      {
+        "start_ms": 44590,
+        "end_ms": 60590,
+        "title": "Follow the red branch a second time"
+      },
+      {
+        "start_ms": 60590,
+        "end_ms": 74990,
+        "title": "Check all four colour routes sum to one"
+      },
+      {
+        "start_ms": 74990,
+        "end_ms": 86990,
+        "title": "Combine red–blue and blue–red"
+      },
+      {
+        "start_ms": 86990,
+        "end_ms": 106567,
+        "title": "Draw from three reds and one blue"
+      }
+    ]
+  }
 }

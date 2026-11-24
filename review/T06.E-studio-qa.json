@@ -1,7 +1,7 @@
 {
   "id": "T06.E",
   "duration_seconds": 75.033333,
-  "sha256": "e76d7040ed71534e51f26368b373aab8fbd6ef29a5fb80ba2fb30e341fa82346",
+  "sha256": "d44f2badc4c0f33a8b0d5ae5e78373b7ab5073ef7fe0f07f143a51a69cb9fdcb",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -119,5 +119,45 @@
     }
   ],
   "audio_packet_sha256": "c344a817c983c5c75afddea4cb628bb0d206377539e47686d5fe0fc84a47d041",
-  "art_source": "5d03f90f863cc84479918c10f5fb0185dacd4439"
+  "art_source": "5d03f90f863cc84479918c10f5fb0185dacd4439",
+  "native_chapters": {
+    "prior_mp4_sha256": "e76d7040ed71534e51f26368b373aab8fbd6ef29a5fb80ba2fb30e341fa82346",
+    "sha256": "d44f2badc4c0f33a8b0d5ae5e78373b7ab5073ef7fe0f07f143a51a69cb9fdcb",
+    "packet_timing_and_payload_sha256": {
+      "v:0": "5c074508356f22d8659572c13909ff7a357c7d95ff7cb386ad75d475ad08d719",
+      "a:0": "fd07f5c2b738497e799c916b58e1c24972511962f1ba9fd67d80d7a0c7b2b2d0"
+    },
+    "chapters": [
+      {
+        "start_ms": 0,
+        "end_ms": 14170,
+        "title": "Join four tiles into a square"
+      },
+      {
+        "start_ms": 14170,
+        "end_ms": 20100,
+        "title": "Count the edges before the tiles touch"
+      },
+      {
+        "start_ms": 20100,
+        "end_ms": 30030,
+        "title": "Locate the four internal joins"
+      },
+      {
+        "start_ms": 30030,
+        "end_ms": 41390,
+        "title": "Remove both edge reports at every join"
+      },
+      {
+        "start_ms": 41390,
+        "end_ms": 57870,
+        "title": "Rearrange the square into a row"
+      },
+      {
+        "start_ms": 57870,
+        "end_ms": 75033,
+        "title": "Trace the boundary of a two-by-three rectangle"
+      }
+    ]
+  }
 }

@@ -1,7 +1,7 @@
 {
   "id": "T10.1",
   "duration_seconds": 105.6,
-  "sha256": "7d7bd966302a5dab2e0dfb06bf636886a8058849513b73685f221638545e7928",
+  "sha256": "4f55d15b3053e174064f41abac538f30379923a80f5ab1ad8cbe7628e6b34c62",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -151,5 +151,55 @@
     }
   ],
   "audio_packet_sha256": "796f027443e20a6c9be353eaceca539c0f394c8578d6f3c02c61138d203182bd",
-  "art_source": "f058ad7f7273378d62748a57dc96a645804a7f07"
+  "art_source": "f058ad7f7273378d62748a57dc96a645804a7f07",
+  "native_chapters": {
+    "prior_mp4_sha256": "7d7bd966302a5dab2e0dfb06bf636886a8058849513b73685f221638545e7928",
+    "sha256": "4f55d15b3053e174064f41abac538f30379923a80f5ab1ad8cbe7628e6b34c62",
+    "packet_timing_and_payload_sha256": {
+      "v:0": "dfd97394c304bd1ab63fd3fd4d896becf7cd90df07b46ffa55512b8723cc8695",
+      "a:0": "4d78135edc7f500ffd242f700b3e787a1d1f78a15ba78060c1c3395528727079"
+    },
+    "chapters": [
+      {
+        "start_ms": 0,
+        "end_ms": 13880,
+        "title": "Build a large count from smaller cases"
+      },
+      {
+        "start_ms": 13880,
+        "end_ms": 23330,
+        "title": "Tile ten cells without listing 89 patterns"
+      },
+      {
+        "start_ms": 23330,
+        "end_ms": 43770,
+        "title": "Predict the count for five cells"
+      },
+      {
+        "start_ms": 43770,
+        "end_ms": 57370,
+        "title": "Sort tilings by their last tile"
+      },
+      {
+        "start_ms": 57370,
+        "end_ms": 64740,
+        "title": "Add the length-four and length-three counts"
+      },
+      {
+        "start_ms": 64740,
+        "end_ms": 75310,
+        "title": "Continue the tiling counts to ten cells"
+      },
+      {
+        "start_ms": 75310,
+        "end_ms": 88100,
+        "title": "Match the last tile to the last stair step"
+      },
+      {
+        "start_ms": 88100,
+        "end_ms": 105600,
+        "title": "Count the tilings of seven cells"
+      }
+    ]
+  }
 }

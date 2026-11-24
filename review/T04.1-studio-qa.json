@@ -1,7 +1,7 @@
 {
   "id": "T04.1",
   "duration_seconds": 119.166667,
-  "sha256": "0edfb69fedfc5bc67b10e8c2f32b2d5007e6729512391abe103a7f3d680b8a67",
+  "sha256": "b6e3b30ffadd432fd493a9767bf74bb7a048b2ad66f2037c23094146efd2f9cb",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -131,5 +131,50 @@
     }
   ],
   "audio_packet_sha256": "bfa0e949ecfae18fcb9116a439be6da261bd86c7de82106379538ebd1cfced45",
-  "art_source": "aa77f8b021f9846aa747e742b26f0bec2c41d8aa"
+  "art_source": "aa77f8b021f9846aa747e742b26f0bec2c41d8aa",
+  "native_chapters": {
+    "prior_mp4_sha256": "0edfb69fedfc5bc67b10e8c2f32b2d5007e6729512391abe103a7f3d680b8a67",
+    "sha256": "b6e3b30ffadd432fd493a9767bf74bb7a048b2ad66f2037c23094146efd2f9cb",
+    "packet_timing_and_payload_sha256": {
+      "v:0": "50549b18f494380f18a237289aad8e5b458c12455d8f17d2154486aed61ff99e",
+      "a:0": "54b7fb8567b97f6f32d15992bfb270190e1c937ab9276f76970dcb199052f2cb"
+    },
+    "chapters": [
+      {
+        "start_ms": 0,
+        "end_ms": 17880,
+        "title": "Split 60 into 6 and 10"
+      },
+      {
+        "start_ms": 17880,
+        "end_ms": 35320,
+        "title": "Start again with 4 and 15"
+      },
+      {
+        "start_ms": 35320,
+        "end_ms": 45700,
+        "title": "Choose primes to test against 91"
+      },
+      {
+        "start_ms": 45700,
+        "end_ms": 62500,
+        "title": "Find the factor that divides 91"
+      },
+      {
+        "start_ms": 62500,
+        "end_ms": 82010,
+        "title": "Decide when the search for a factor of 97 ends"
+      },
+      {
+        "start_ms": 82010,
+        "end_ms": 99770,
+        "title": "Share the prime factors of 66 among three numbers"
+      },
+      {
+        "start_ms": 99770,
+        "end_ms": 119167,
+        "title": "Build a factor tree for 84"
+      }
+    ]
+  }
 }

@@ -1,7 +1,7 @@
 {
   "id": "T04.E",
   "duration_seconds": 103.0,
-  "sha256": "f0f84f9d4b9a56bc12abca21c16f700d02b7e1e39b0ced73c8ac7380ca78dae2",
+  "sha256": "244912e3dd1275148cdf502e490ccc09224bdac52d189569745b72dc31208f08",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -115,5 +115,45 @@
     }
   ],
   "audio_packet_sha256": "214a5c8b6aa34f5e0f0e9b79f645c10140e150b9641b0e318aa92f297e306c83",
-  "art_source": "aa77f8b021f9846aa747e742b26f0bec2c41d8aa"
+  "art_source": "aa77f8b021f9846aa747e742b26f0bec2c41d8aa",
+  "native_chapters": {
+    "prior_mp4_sha256": "f0f84f9d4b9a56bc12abca21c16f700d02b7e1e39b0ced73c8ac7380ca78dae2",
+    "sha256": "244912e3dd1275148cdf502e490ccc09224bdac52d189569745b72dc31208f08",
+    "packet_timing_and_payload_sha256": {
+      "v:0": "452e0a8363efd19b553c1af9aa8bd7bf9a57b40c15055a92f117ad07ec725603",
+      "a:0": "809a45950c8c9fd2450db197edb2dfafe53068f3c5175dde25f942865ca1f78e"
+    },
+    "chapters": [
+      {
+        "start_ms": 0,
+        "end_ms": 17690,
+        "title": "Turn 90 into a square"
+      },
+      {
+        "start_ms": 17690,
+        "end_ms": 32890,
+        "title": "Find the two primes without partners"
+      },
+      {
+        "start_ms": 32890,
+        "end_ms": 46010,
+        "title": "Supply one more two and one more five"
+      },
+      {
+        "start_ms": 46010,
+        "end_ms": 62010,
+        "title": "Split 900 into matching groups"
+      },
+      {
+        "start_ms": 62010,
+        "end_ms": 80090,
+        "title": "Show that every valid multiplier is a multiple of ten"
+      },
+      {
+        "start_ms": 80090,
+        "end_ms": 103000,
+        "title": "Find the least multiplier for 60"
+      }
+    ]
+  }
 }

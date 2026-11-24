@@ -1,7 +1,7 @@
 {
   "id": "T07.2",
   "duration_seconds": 120.933333,
-  "sha256": "138e0fedb2c44c3f3ebe7604646ec47b4b802a9cb490804118ee018f8290d6f2",
+  "sha256": "5e2956342d64d8284212f14c03d5a3639246747fc73e6df7165f59d10e02128c",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -151,5 +151,55 @@
     }
   ],
   "audio_packet_sha256": "1abe2a83451db512cda788ed7cf057c61506f17ea01e0ac11890c111b2e71d77",
-  "art_source": "ae2de60d5091327abbbb86adf393263a56c94d5a"
+  "art_source": "ae2de60d5091327abbbb86adf393263a56c94d5a",
+  "native_chapters": {
+    "prior_mp4_sha256": "138e0fedb2c44c3f3ebe7604646ec47b4b802a9cb490804118ee018f8290d6f2",
+    "sha256": "5e2956342d64d8284212f14c03d5a3639246747fc73e6df7165f59d10e02128c",
+    "packet_timing_and_payload_sha256": {
+      "v:0": "141716147b64a48a1b0dc2d1b84748ad9ab11bc076ce00dcb4253ee43b41baf2",
+      "a:0": "693e9816e4512340e6c50e1af6c407ce021754e364e58252e492a0d6011e0ffc"
+    },
+    "chapters": [
+      {
+        "start_ms": 0,
+        "end_ms": 12920,
+        "title": "Compare rectangles with the same fence"
+      },
+      {
+        "start_ms": 12920,
+        "end_ms": 23000,
+        "title": "Separate a pattern from a proof"
+      },
+      {
+        "start_ms": 23000,
+        "end_ms": 33380,
+        "title": "Split twelve into two whole-number parts"
+      },
+      {
+        "start_ms": 33380,
+        "end_ms": 49220,
+        "title": "Compare the six possible products"
+      },
+      {
+        "start_ms": 49220,
+        "end_ms": 70490,
+        "title": "Identify the missing square of side d"
+      },
+      {
+        "start_ms": 70490,
+        "end_ms": 82490,
+        "title": "Keep the two parts different"
+      },
+      {
+        "start_ms": 82490,
+        "end_ms": 98810,
+        "title": "Compare three fours with four threes"
+      },
+      {
+        "start_ms": 98810,
+        "end_ms": 120933,
+        "title": "Find the greatest area with 22 cm of fence"
+      }
+    ]
+  }
 }
