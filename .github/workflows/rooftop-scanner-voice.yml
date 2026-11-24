@@ -1,0 +1,52 @@
+name: Record the rooftop ledger and cube scanner
+on:
+  push:
+    branches: [production/rooftop-scanner]
+    paths: ['production/scripts/S162.json', 'production/scripts/S163.json', '.github/workflows/rooftop-scanner-voice.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  voice:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    strategy:
+      fail-fast: false
+      matrix:
+        lesson: [S162, S163]
+    env:
+      LESSON: ${{ matrix.lesson }}
+      HF_HUB_DISABLE_XET: '1'
+      OMP_NUM_THREADS: '4'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            production
+            data
+            media/voice-audition
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install speech and alignment tools
+        run: |
+          sudo apt-get -qq update && sudo apt-get install -y ffmpeg libsndfile1
+          pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install 'transformers>=4.45,<5' 'huggingface-hub<1' einops pydantic soundfile librosa safetensors tqdm 'numpy<2.3' scipy inflect addict argbind num2words faster-whisper
+          pip install --no-deps 'git+https://github.com/OpenBMB/VoxCPM.git@300e4260b509066151d623dc9c0aa922cf82232b'
+      - name: Record and align all eight chapters
+        run: |
+          python -c 'import json,os; json.dump([{"lesson":os.environ["LESSON"],"scene":n} for n in range(1,9)],open("sequence.json","w"))'
+          python production/t01-studio/synth.py --sequence sequence.json --threads 4
+          python production/t01-studio/prepare_audio.py "$LESSON"
+          mkdir aligned
+          cp "production/scripts/$LESSON.json" aligned/script.json
+          cp build/t01-studio/"$LESSON"/{timeline.json,captions.vtt} aligned/
+          ffmpeg -v error -i build/t01-studio/"$LESSON"/narration.wav -c:a flac aligned/narration.flac
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.lesson }}-aligned-voice
+          path: aligned/
+          if-no-files-found: error
+          retention-days: 30

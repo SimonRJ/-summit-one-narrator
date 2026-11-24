@@ -1,0 +1,63 @@
+{
+  "id": "S163",
+  "course_slot": 163,
+  "title": "Tomography of a cube sculpture",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "The scanner photographs a level",
+      "heading": "The scanner photographs a level",
+      "stage": "BASIC",
+      "narration": "A museum scanner photographs a sculpture built from unit cubes. Each stack stands upright on the floor. A coloured square in a scan means one cube occupies that position at that height. A tall stack can appear in several different photographs."
+    },
+    {
+      "n": 2,
+      "title": "Two stacks cast four marks",
+      "heading": "Two stacks cast four marks",
+      "stage": "PUZZLE",
+      "narration": "Place one single cube beside a stack of three. The floor scan has two marks. The next scan has one, and the top scan has one. Are we counting that tall stack too often when we add all four marks? Announce which actual cube each mark records."
+    },
+    {
+      "n": 3,
+      "title": "Slide the photographs apart",
+      "heading": "Slide the photographs apart",
+      "stage": "MEDIUM",
+      "narration": "Slide the three transparent photographs sideways. A point above the tall stack becomes three separate marks, one from each height. Each stands for a different cube. Two plus one plus one is four cubes. Counting only the occupied squares on the floor would give two stacks instead."
+    },
+    {
+      "n": 4,
+      "title": "The middle photograph is missing",
+      "heading": "The middle photograph is missing",
+      "stage": "PUZZLE",
+      "narration": "A packing slip says a larger sculpture contains fourteen cubes. Its bottom scan has six marks. The third scan has three, and the fourth has one. There are no cubes higher than that. The second scan is missing. How many marks must it have?"
+    },
+    {
+      "n": 5,
+      "title": "Balance the missing sheet",
+      "heading": "Balance the missing sheet",
+      "stage": "HARD",
+      "narration": "Lay out four sheets with one space empty. The known scans account for six plus three plus one, which is ten cubes. Four cubes remain for the missing sheet. A higher sheet may never contain a position missing from the sheet below, because each stack starts on the floor."
+    },
+    {
+      "n": 6,
+      "title": "Tell the stack heights",
+      "heading": "Tell the stack heights",
+      "stage": "HARD",
+      "narration": "Six positions appear at the bottom and four survive at height two, so exactly two stacks are only one cube high. Four survive at height two and three at height three. Exactly one stops at two. Two more stop at three, and one reaches four. The heights add back to fourteen."
+    },
+    {
+      "n": 7,
+      "title": "Could a smudged scan be right?",
+      "heading": "Could a smudged scan be right?",
+      "stage": "TRANSFER",
+      "narration": "Suppose a new second photograph shows only two marks while the third still shows three. Could it be a differently arranged sculpture? Follow the three cube positions down one level. Each needs a different supporting cube directly below. Two positions cannot support all three."
+    },
+    {
+      "n": 8,
+      "title": "Read a stack in either direction",
+      "heading": "Read a stack in either direction",
+      "stage": "RECAP",
+      "narration": "To find the number of cubes, add the marks on all horizontal scans. To find how many stacks end at one height, compare that scan with the next. Before doing arithmetic, check that every upper footprint fits inside the one below it."
+    }
+  ]
+}

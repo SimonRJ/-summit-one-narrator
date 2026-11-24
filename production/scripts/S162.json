@@ -1,0 +1,63 @@
+{
+  "id": "S162",
+  "course_slot": 162,
+  "title": "The rooftop bridge ledger",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "The two signs on a bridge",
+      "heading": "The two signs on a bridge",
+      "stage": "BASIC",
+      "narration": "Walk across a footbridge between two roof gardens. There is a sign at each entrance. Three gardens connected in a triangle have six entrance signs. Count the physical spans instead. There are three bridges. Two ends tell you about one object."
+    },
+    {
+      "n": 2,
+      "title": "The gardeners send their counts",
+      "heading": "The gardeners send their counts",
+      "stage": "PUZZLE",
+      "narration": "Four gardeners record how many bridges touch their roof. The counts are three, two, two and one. Every bridge joins two different gardens. How many bridges did the gardeners inspect between them? Try answering before the drawing fills in."
+    },
+    {
+      "n": 3,
+      "title": "Match the signs in pairs",
+      "heading": "Match the signs in pairs",
+      "stage": "MEDIUM",
+      "narration": "Gather all eight signs in a row. Slide each sign next to the one at the opposite end of its bridge. The pairs are A B, A C, A D and B C. Eight signs, two per span, give four bridges. You can find the number even before you know the map."
+    },
+    {
+      "n": 4,
+      "title": "The missing roof in the ledger",
+      "heading": "The missing roof in the ledger",
+      "stage": "PUZZLE",
+      "narration": "Six gardens are joined by eight bridges. No pair of gardens has two bridges between it. Four gardens report two entrances each. The fifth reports three. How many entrances must the sixth report, and which other gardens does it reach?"
+    },
+    {
+      "n": 5,
+      "title": "Account for all sixteen entrances",
+      "heading": "Account for all sixteen entrances",
+      "stage": "HARD",
+      "narration": "Eight bridges have sixteen ends. The four smaller reports account for eight ends. The fifth adds three more. Eleven ends have names. The five unclaimed ends all belong to the sixth roof. With only five other roofs and no repeated neighbour, it must connect to every one."
+    },
+    {
+      "n": 6,
+      "title": "Build a map that fits",
+      "heading": "Build a map that fits",
+      "stage": "HARD",
+      "narration": "Draw one bridge from the sixth roof to each neighbour. The five old roofs still need one, one, one, one and two entrances. Join E to A and B. Join C to D. Check the eight spans, then count the ends at each roof. Five is possible."
+    },
+    {
+      "n": 7,
+      "title": "One bridge leaves the gardens",
+      "heading": "One bridge leaves the gardens",
+      "stage": "TRANSFER",
+      "narration": "Open one extra bridge from a roof to the mainland. Only gardeners make reports. Their signs now add to seventeen. Why would dividing by two fail? The mainland entrance was outside the survey. Put its missing sign back. Eighteen signs account for nine bridges."
+    },
+    {
+      "n": 8,
+      "title": "Who actually did the counting?",
+      "heading": "Who actually did the counting?",
+      "stage": "RECAP",
+      "narration": "If both ends report, halve the number of ends. If the survey misses an end, repair the count first. In a new problem ask what one report measures, how often each object appears, and whether any object crosses the boundary."
+    }
+  ]
+}
