@@ -1,0 +1,38 @@
+name: Stage the measured score notebook film for release
+on:
+  push:
+    branches: [production/median-score-notebook]
+    paths: ['.github/workflows/stage-score-notebook.yml']
+permissions:
+  actions: read
+  contents: write
+jobs:
+  stage:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /production/
+            /review/T16.3-*.json
+            /media/T16.3*
+            /watch-t16-3.html
+      - name: Verify the staged archival package and its movie
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          test "$(gh api "repos/$REPO/actions/runs/45488150399" --jq '.head_sha')" = eb9374adfe9de2844ee443290c43b8e3d210878f
+          test "$(gh api "repos/$REPO/actions/runs/45488150399" --jq '.conclusion')" = success
+          gh api "repos/$REPO/actions/artifacts/14965686397/zip" > "$RUNNER_TEMP/median.zip"
+          echo "9ab6ad5bdd49ad0100a64d6a11107086b1aa57dcb52a81aa9321d2d305f5a57d  $RUNNER_TEMP/median.zip" | sha256sum --check
+          unzip -o -q "$RUNNER_TEMP/median.zip"
+          echo 'e2f9653a6e0e2d7d6192bbf897e4dd22b8add0becbf2e70d8eb007bafbb23ef6  media/T16.3.mp4' | sha256sum --check
+          git config user.name github-actions
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add --sparse production/lesson-films/voice-c-repairs/T16.3* production/scripts/T16.3.json production/scripts/src/chapters-15-18.txt production/t01-studio/publish.py review/T16.3* media/T16.3* watch-t16-3.html
+          git commit -m 'Stage the verified odd and even median sequences, audio, captions and study route'
+          git push origin HEAD:refs/heads/release/score-notebook-${{ github.run_id }}-${{ github.run_attempt }}
