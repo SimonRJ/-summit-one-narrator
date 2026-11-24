@@ -183,6 +183,11 @@ async def verify(site, lesson, profile, digest, output):
             await expect(page.locator('.rwl-bridge')).to_contain_text(guide['bridge'], timeout=20000)
             await fits(page)
             await page.screenshot(path=output / 'read.png')
+            cue = page.locator('.rwl-bridge')
+            if profile.startswith('iphone'):
+                await cue.scroll_into_view_if_needed()
+            if lesson == 'S008':
+                await full_frame(cue)
             forward = page.locator('[data-screen-next]')
             await forward.click()
             player = page.locator('#openingVideo')
