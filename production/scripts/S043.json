@@ -1,0 +1,63 @@
+{
+  "id": "S043",
+  "course_slot": 43,
+  "title": "The edging tape order",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "Three trays, one offcut",
+      "heading": "Three trays, one offcut",
+      "stage": "PUZZLE",
+      "narration": "The workshop cuts signboards from twelve by eight centimetre rectangles. Three drawings show the same three by two piece of wood removed. The decorator must tape every cut edge and every edge still facing the air. Will all three signs use the same length of tape?"
+    },
+    {
+      "n": 2,
+      "title": "Before any cut",
+      "heading": "Before any cut",
+      "stage": "BASIC",
+      "narration": "Trace the intact sign once. Twelve along the top, eight down the right, twelve back and eight up. Forty centimetres of tape fits the original. Removing six square centimetres of wood tells us the area lost. It does not yet tell us the change in tape."
+    },
+    {
+      "n": 3,
+      "title": "Clip the corner",
+      "heading": "Clip the corner",
+      "stage": "PUZZLE",
+      "narration": "Clip three centimetres along the top and two down the left. Those five centimetres of old edge disappear. The two new exposed edges come from the opposite sides of the little rectangle. How much tape is saved?"
+    },
+    {
+      "n": 4,
+      "title": "Exchange two edges",
+      "heading": "Exchange two edges",
+      "stage": "METHOD",
+      "narration": "Walk the new corner. Two centimetres down and three across replace the old three across and two down. Five replaces five. This sign still needs forty centimetres. It has less wood than before, and exactly the same boundary length."
+    },
+    {
+      "n": 5,
+      "title": "Move the cut along",
+      "heading": "Move the cut along",
+      "stage": "CHALLENGE",
+      "narration": "Slide that same cut away from the corner, leaving a notch in the middle of the top. Now only three centimetres of old boundary disappear. Walk down two, across three and up two. Seven centimetres appear. What happens to the tape order?"
+    },
+    {
+      "n": 6,
+      "title": "Cut a window",
+      "heading": "Cut a window",
+      "stage": "HARD",
+      "narration": "The notch adds four centimetres, so the second sign needs forty four. On the third drawing the same piece comes from the centre. None of the outside boundary disappears. The opening makes its own loop. Count both horizontal and both vertical edges of that loop."
+    },
+    {
+      "n": 7,
+      "title": "Two loops to tape",
+      "heading": "Two loops to tape",
+      "stage": "HARD",
+      "narration": "The window adds three plus two plus three plus two, or ten centimetres. Taping every exposed edge uses fifty centimetres. Taping just the outside of this windowed sign would use forty. Read which loops the decorator has ordered."
+    },
+    {
+      "n": 8,
+      "title": "Sort the three orders",
+      "heading": "Sort the three orders",
+      "stage": "RECAP",
+      "narration": "Put the signs beside their orders. Corner, forty. Notch, forty four. Window, fifty. All three lost the same area. To calculate a boundary change, cross out only the old edges that vanished and trace each new exposed edge once."
+    }
+  ]
+}

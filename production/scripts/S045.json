@@ -1,0 +1,63 @@
+{
+  "id": "S045",
+  "course_slot": 45,
+  "title": "The climbing hall counter",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "Twelve on the dial",
+      "heading": "Twelve on the dial",
+      "stage": "PUZZLE",
+      "narration": "At noon the climbing hall counter already reads twelve. It keeps counting visitors without resetting. Two minutes later it reads twenty four. Did twenty four people enter after noon, or must we subtract something? Watch what one reading actually records."
+    },
+    {
+      "n": 2,
+      "title": "Match a row to a point",
+      "heading": "Match a row to a point",
+      "stage": "BASIC",
+      "narration": "The dial rose by twelve. Each row of the log pairs one time with the running total at that instant. On the chart, find the time on the horizontal axis and the total on the vertical axis. Reading several rows as separate groups would count early visitors again."
+    },
+    {
+      "n": 3,
+      "title": "Find the busiest interval",
+      "heading": "Find the busiest interval",
+      "stage": "PUZZLE",
+      "narration": "The log records twelve at zero minutes, twenty four at two, forty eight at eight, and sixty three at eleven. The biggest rise is twenty four visitors. Did that interval have the fastest average arrival rate? Compare the three intervals on the same time scale."
+    },
+    {
+      "n": 4,
+      "title": "Give every rise its time",
+      "heading": "Give every rise its time",
+      "stage": "METHOD",
+      "narration": "Twelve arrivals in two minutes is six per minute. Twenty four in six minutes is four per minute. Fifteen in three minutes is five per minute. The shortest interval was busiest on average. The highest point is a total, while the steepest segment measures a rate."
+    },
+    {
+      "n": 5,
+      "title": "Two ways to pay",
+      "heading": "Two ways to pay",
+      "stage": "CHALLENGE",
+      "narration": "Now change both axes. The horizontal axis counts visits and the vertical axis shows dollars. A visitor pays seven dollars per climb. A member pays fourteen dollars once, then three dollars per climb. Does either person ever pay exactly the same total for a whole number of visits?"
+    },
+    {
+      "n": 6,
+      "title": "Between two visits",
+      "heading": "Between two visits",
+      "stage": "HARD",
+      "narration": "At three visits the visitor pays twenty one dollars and the member pays twenty three. At four visits the visitor pays twenty eight and the member pays twenty six. The cheaper choice switches. Trace the straight lines between those two columns. Where do they cross?"
+    },
+    {
+      "n": 7,
+      "title": "What the crossing means",
+      "heading": "What the crossing means",
+      "stage": "HARD",
+      "narration": "The membership starts fourteen dollars behind and saves four dollars per visit. Fourteen divided by four is three and a half. Both lines reach twenty four dollars and fifty cents there. The drawn intersection sits between legal visit counts. No whole number of visits gives an exact tie."
+    },
+    {
+      "n": 8,
+      "title": "Choose the right reading",
+      "heading": "Choose the right reading",
+      "stage": "RECAP",
+      "narration": "For up to three whole visits, paying each time costs less. From four visits on, membership costs less and saves another four dollars for each extra visit. On the arrivals chart we compared changes over time. On the price chart we compared totals at the same whole visit count."
+    }
+  ]
+}

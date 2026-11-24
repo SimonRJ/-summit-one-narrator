@@ -1,0 +1,63 @@
+{
+  "id": "S044",
+  "course_slot": 44,
+  "title": "The museum ticket machine",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "The hidden first ticket",
+      "heading": "The hidden first ticket",
+      "stage": "PUZZLE",
+      "narration": "A museum machine hides the first ticket, doubles its number, then adds five. The ticket at the exit reads nineteen. Which instruction touched it last? Put your finger at the exit before you try to find the hidden number."
+    },
+    {
+      "n": 2,
+      "title": "Walk the belt backwards",
+      "heading": "Walk the belt backwards",
+      "stage": "BASIC",
+      "narration": "Undo the added five to get fourteen. Undo the doubling to get seven. Run that ticket back through the belt. Seven doubles to fourteen, then five more gives nineteen. Reading the two inverse instructions in order brings back the original."
+    },
+    {
+      "n": 3,
+      "title": "A code with two origins",
+      "heading": "A code with two origins",
+      "stage": "PUZZLE",
+      "narration": "Another stamp prints how far the ticket number is from ten. It prints four. Can both a small number and a larger number make this same stamp? Mark ten on the number line and move four places in each direction."
+    },
+    {
+      "n": 4,
+      "title": "Read the admission rule",
+      "heading": "Read the admission rule",
+      "stage": "METHOD",
+      "narration": "Six and fourteen both lie four places from ten. This drawer accepts tickets numbered one to nine. Only six can come from this drawer. An inverse step may give two possibilities. Keep both until an input rule or a forward check rules one out."
+    },
+    {
+      "n": 5,
+      "title": "The smudged exit label",
+      "heading": "The smudged exit label",
+      "stage": "CHALLENGE",
+      "narration": "A third belt subtracts four, triples the result, then adds two. It accepts whole numbers from twelve through twenty five. The last ticket is smudged. Its number is somewhere from thirty four through forty six, including both ends. Which starting tickets could have made it?"
+    },
+    {
+      "n": 6,
+      "title": "Filter before dividing",
+      "heading": "Filter before dividing",
+      "stage": "HARD",
+      "narration": "First undo the added two. The possible intermediate readings run from thirty two to forty four. The previous step tripled a whole number, so only multiples of three can appear here. Find the first such multiple, then step through the range by threes."
+    },
+    {
+      "n": 7,
+      "title": "Recover the four tickets",
+      "heading": "Recover the four tickets",
+      "stage": "HARD",
+      "narration": "The multiples are thirty three, thirty six, thirty nine and forty two. Divide by three to recover eleven, twelve, thirteen and fourteen. Add back the four removed at the start. The possible original tickets are fifteen, sixteen, seventeen and eighteen."
+    },
+    {
+      "n": 8,
+      "title": "Run the tickets forwards",
+      "heading": "Run the tickets forwards",
+      "stage": "RECAP",
+      "narration": "Feed sixteen into the belt. Subtract four to get twelve. Triple it to get thirty six. Add two to see thirty eight at the exit. The four starting tickets give exit readings thirty five, thirty eight, forty one and forty four. Each one passes both the admission rule and the smudged range."
+    }
+  ]
+}
