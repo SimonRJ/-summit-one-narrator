@@ -1,0 +1,49 @@
+name: Review all published companion film players
+on:
+  push:
+    branches: [qa/companion-devices-20261125]
+    paths: ['tools/video/check_companion_devices.py', '.github/workflows/companion-device-review.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 65
+    strategy:
+      fail-fast: false
+      max-parallel: 5
+      matrix:
+        group: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            tools/video
+            review
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install playwright==1.58.0
+      - run: python -m playwright install --with-deps webkit
+      - name: Play the current public edition and exercise each student viewport
+        env:
+          GROUP: ${{ matrix.group }}
+        shell: bash
+        run: |
+          python - <<'PY' > /tmp/film-ids
+          import os
+          all_ids = [f'T{i:02}.{n}' for i in range(1,19) for n in '123E']
+          first = ['T05.1','T05.E','T13.3']
+          others = [i for i in all_ids if i not in first]
+          group = int(os.environ['GROUP'])
+          print('\n'.join(first if group == 0 else others[group-1::9]))
+          PY
+          mapfile -t ids < /tmp/film-ids
+          python tools/video/check_companion_devices.py "${ids[@]}" --output evidence
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: companion-device-results-${{ matrix.group }}
+          path: evidence/
+          retention-days: 30
