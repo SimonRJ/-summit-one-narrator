@@ -1,0 +1,63 @@
+{
+  "id": "S034",
+  "course_slot": 34,
+  "title": "The ferry-road ride",
+  "scenes": [
+    {
+      "n": 1,
+      "heading": "Two counters on a bike",
+      "title": "Two counters on a bike",
+      "stage": "PUZZLE",
+      "narration": "A rider clips two counters to her handlebar. One counts kilometres travelled. The other counts minutes since departure. When she waits at a red signal, which counter keeps moving? Watch each one for a moment."
+    },
+    {
+      "n": 2,
+      "heading": "Out to the ferry",
+      "title": "Out to the ferry",
+      "stage": "BASIC",
+      "narration": "The ferry landing is twenty-four kilometres from home. The rider travels at twelve kilometres per hour on the outward road. After one hour she has covered twelve kilometres. After two hours she reaches the landing. Her clock shows one hundred and twenty minutes."
+    },
+    {
+      "n": 3,
+      "heading": "Wait by the gate",
+      "title": "Wait by the gate",
+      "stage": "EXAMPLE",
+      "narration": "The ferry gate is closed. The rider waits there for twelve minutes. The distance counter stays at twenty-four. The clock advances from one hundred and twenty to one hundred and thirty-two minutes. A stationary rider can still use up time."
+    },
+    {
+      "n": 4,
+      "heading": "Follow the return wheel",
+      "title": "Follow the return wheel",
+      "stage": "SOLUTION",
+      "narration": "The same road takes her home. On the return she rides at twenty-four kilometres per hour. One more hour adds twenty-four kilometres to the distance counter. Its final reading is forty-eight kilometres. What does the clock read when she arrives?"
+    },
+    {
+      "n": 5,
+      "heading": "Read both final totals",
+      "title": "Read both final totals",
+      "stage": "CHALLENGE",
+      "narration": "The three time entries are one hundred and twenty minutes, twelve minutes, and sixty minutes. They add to one hundred and ninety-two minutes. Divide by sixty to turn that time into three and one fifth hours. Her distance is still forty-eight kilometres."
+    },
+    {
+      "n": 6,
+      "heading": "Find one steady speed",
+      "title": "Find one steady speed",
+      "stage": "SOLUTION",
+      "narration": "Imagine a second rider travelling steadily for the entire elapsed time. What speed would cover forty-eight kilometres in three and one fifth hours? Divide forty-eight by sixteen fifths. That gives fifteen kilometres per hour. Check by multiplying fifteen by sixteen fifths to get forty-eight."
+    },
+    {
+      "n": 7,
+      "heading": "Home by the deadline",
+      "title": "Home by the deadline",
+      "stage": "CHALLENGE",
+      "narration": "Change the question. She now needs to be home three hours after leaving. She reaches the ferry in two hours and still waits twelve minutes. Three hours is one hundred and eighty minutes. What speed does she need over the same twenty-four kilometres home?"
+    },
+    {
+      "n": 8,
+      "heading": "Use the time still available",
+      "title": "Use the time still available",
+      "stage": "RECAP",
+      "narration": "Subtract the first one hundred and thirty-two minutes from the deadline. The rider has forty-eight minutes, or four fifths of an hour. Twenty-four divided by four fifths gives thirty kilometres per hour. The average used the whole journey. The deadline question uses the time and distance still to come."
+    }
+  ]
+}
