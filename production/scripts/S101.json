@@ -1,0 +1,84 @@
+{
+  "id": "S101",
+  "course_slot": 101,
+  "title": "The spinner table and the counter bag",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "What counts as one outcome?",
+      "heading": "What counts as one outcome?",
+      "stage": "INTRO",
+      "narration": "Probability compares favourable outcomes with all possible outcomes when each outcome being counted is equally likely. First choose outcomes you can count fairly. With more than one draw, check whether drawing one object changes the choices on the next draw."
+    },
+    {
+      "n": 2,
+      "title": "Start with equal chances",
+      "heading": "Start with equal chances",
+      "stage": "EXAM",
+      "narration": "AMC Upper Primary practice may use spinners, dice or draws from a bag. List ordered pairs if the individual choices are independent. A Mawa style solution may ask you to justify the counting method. Explain why each choice in your denominator is equally likely."
+    },
+    {
+      "n": 3,
+      "title": "Five equal sectors",
+      "heading": "Five equal sectors",
+      "stage": "BASIC",
+      "narration": "A fair spinner has five equal sectors, two of them green. What is the probability it stops on green? Use each sector as one equally likely outcome."
+    },
+    {
+      "n": 4,
+      "title": "Count the two green sectors",
+      "heading": "Count the two green sectors",
+      "stage": "SOLUTION",
+      "narration": "There are five possible sectors, and two satisfy the condition. The probability is the green count over the whole count. As a fraction in simplest form that is two over five."
+    },
+    {
+      "n": 5,
+      "title": "Two spinners, two readings",
+      "heading": "Two spinners, two readings",
+      "stage": "MEDIUM",
+      "narration": "Two fair independent spinners each have equal sectors numbered one to four. What is the probability their numbers sum to five? Make a row for every number on the first spinner, and a column for every number on the second."
+    },
+    {
+      "n": 6,
+      "title": "The four pairs that sum to five",
+      "heading": "The four pairs that sum to five",
+      "stage": "SOLUTION",
+      "narration": "There are sixteen equally likely ordered pairs. In each row use a second reading of five minus the first reading, if it is present. There are four favourable pairs. Dividing by the total gives one over four."
+    },
+    {
+      "n": 7,
+      "title": "Three draws without replacement",
+      "heading": "Three draws without replacement",
+      "stage": "CHALLENGE",
+      "narration": "A bag contains four red counters and three blue counters. Draw three counters at random without replacing any of them. What is the probability of getting exactly two red counters? Any order of colours is allowed."
+    },
+    {
+      "n": 8,
+      "title": "Count sets of three counters",
+      "heading": "Count sets of three counters",
+      "stage": "SOLUTION",
+      "narration": "Think of the counters as distinct. Each set of three is equally likely because each can be drawn in the same six orders. There are thirty-five sets altogether. A favourable set chooses two of the four reds and one of the three blues. There are eighteen favourable sets. The probability is eighteen over thirty-five."
+    },
+    {
+      "n": 9,
+      "title": "Check all three colour orders",
+      "heading": "Check all three colour orders",
+      "stage": "PROOF",
+      "narration": "Check with ordered draws. Red, red, blue has probability four over seven, times three over six, times three over five. Red, blue, red and blue, red, red have the same three factors in the numerators, just in another order. The three outcomes are distinct."
+    },
+    {
+      "n": 10,
+      "title": "After each draw",
+      "heading": "After each draw",
+      "stage": "MISTAKES",
+      "narration": "A sum of two spinners is usually not equally likely with every other sum. Count the independent pairs that produce it. Without replacement, the bag becomes smaller after each draw. Update the denominator and the count of eligible colours."
+    },
+    {
+      "n": 11,
+      "title": "Choose the outcomes first",
+      "heading": "Choose the outcomes first",
+      "stage": "RECAP",
+      "narration": "Write the event exactly, especially whether it says at least or exactly. Decide which equally likely outcomes you will count. Compare your answer with zero and one. For a difficult draw problem, check against ordered or unordered counting with the same assumptions."
+    }
+  ]
+}

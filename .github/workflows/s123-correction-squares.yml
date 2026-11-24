@@ -1,0 +1,22 @@
+name: The missing corner of a product
+on:
+  push:
+    branches: [production/spinner-and-product-studies]
+    paths:
+      - .github/workflows/s123-correction-squares.yml
+      - .github/workflows/remount-public-study.yml
+      - production/lesson-films/correction_squares.py
+      - production/lesson-films/align_published_study.py
+      - production/scripts/S123.json
+  workflow_dispatch:
+jobs:
+  study:
+    permissions:
+      actions: read
+      contents: write
+    uses: ./.github/workflows/remount-public-study.yml
+    with:
+      lesson: S123
+      release_slug: s123-correction-squares
+      release_title: 'The missing corner of a product'
+      release_notes: 'Reassemble the area around a square, find the small corner corrections, and compare two products from the size of their missing squares.'

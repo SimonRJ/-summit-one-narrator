@@ -33,6 +33,8 @@ LESSONS = {
     "S039": "sorter_tape",
     "S040": "signal_meter",
     "S041": "track_workshop",
+    "S101": "spinner_bag",
+    "S123": "correction_squares",
     "S137": "digit_detectives",
     "S138": "flow_bench",
     "S141": "creek_readings",

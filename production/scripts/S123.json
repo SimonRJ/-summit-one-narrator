@@ -1,0 +1,84 @@
+{
+  "id": "S123",
+  "course_slot": 123,
+  "title": "The missing corner of a product",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "Round and correct",
+      "heading": "Round and correct",
+      "stage": "INTRO",
+      "narration": "Place value lets you split an awkward number into a friendly part and a small correction. Pick a nearby ten, hundred or thousand. An estimate checks size. Keep the correction algebra if the question needs an exact value or comparison."
+    },
+    {
+      "n": 2,
+      "title": "Compare the parts that change",
+      "heading": "Compare the parts that change",
+      "stage": "EXAM",
+      "narration": "AMC Upper Primary often rewards enough estimation to reject an option. For close options, compare the corrections exactly. A Rossmoyne style problem may use two large products. If the products share a useful midpoint, compare only the parts that differ."
+    },
+    {
+      "n": 3,
+      "title": "Five rows short of one hundred",
+      "heading": "Five rows short of one hundred",
+      "stage": "BASIC",
+      "narration": "Find ninety-five times seventy-eight without long multiplication. The first factor is five below one hundred. Begin with a product you can read from place value."
+    },
+    {
+      "n": 4,
+      "title": "Remove five copies of 78",
+      "heading": "Remove five copies of 78",
+      "stage": "SOLUTION",
+      "narration": "One hundred times seventy-eight is seven thousand eight hundred. The extra five copies of seventy-eight total three hundred and ninety. Subtract the extra copies. The exact result is seven thousand four hundred and ten."
+    },
+    {
+      "n": 5,
+      "title": "Equal offsets around 100",
+      "heading": "Equal offsets around 100",
+      "stage": "MEDIUM",
+      "narration": "Find one hundred and eight times ninety-two. Both factors are the same distance from one hundred. Watch what happens to the two equal cross products."
+    },
+    {
+      "n": 6,
+      "title": "Cancel the two cross terms",
+      "heading": "Cancel the two cross terms",
+      "stage": "SOLUTION",
+      "narration": "Multiply one hundred by one hundred. The cross terms are a gain and a loss of eight hundred, so they cancel. The small product is minus sixty-four because one correction is negative. The exact result is nine thousand nine hundred and thirty-six."
+    },
+    {
+      "n": 7,
+      "title": "Two products, one midpoint",
+      "heading": "Two products, one midpoint",
+      "stage": "CHALLENGE",
+      "narration": "Which is larger, nine hundred and ninety-two times one thousand and ten, or nine hundred and ninety-eight times one thousand and four? Find how much larger it is. Look for the same midpoint hiding in both factor pairs."
+    },
+    {
+      "n": 8,
+      "title": "Squares of nine and three",
+      "heading": "Squares of nine and three",
+      "stage": "SOLUTION",
+      "narration": "Both pairs have midpoint one thousand and one. In A the offsets are plus and minus nine, while B uses plus and minus three. For each product the cross terms cancel. It is the square of the midpoint minus the square of its offset. B loses only nine, while A loses eighty-one from the same starting number. B is larger by seventy-two."
+    },
+    {
+      "n": 9,
+      "title": "Why the closer pair wins",
+      "heading": "Why the closer pair wins",
+      "stage": "PROOF",
+      "narration": "The nearer pair is more balanced, so it removes the smaller square. The result works for any two factor pairs with the same midpoint. When the midpoints differ, the starting squares can differ as well. Check that the anchor is shared before using the shortcut."
+    },
+    {
+      "n": 10,
+      "title": "Check the sign of the change",
+      "heading": "Check the sign of the change",
+      "stage": "MISTAKES",
+      "narration": "If a number is below its anchor, the correction is a subtraction. Check the sign by deciding whether the rounded product is too high or too low. Two cross terms cancel only when they have equal magnitude and opposite signs. Check the offsets around the midpoint."
+    },
+    {
+      "n": 11,
+      "title": "Give the exact difference",
+      "heading": "Give the exact difference",
+      "stage": "RECAP",
+      "narration": "Choose a nearby round number. Write the original factors as exact sums or differences and estimate the expected size. Compare the small corrections directly if the large part cancels. If the question asks by how much, give the exact difference."
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+name: The spinner table and the counter bag
+on:
+  push:
+    branches: [production/spinner-and-product-studies]
+    paths:
+      - .github/workflows/s101-spinner-bag.yml
+      - .github/workflows/remount-public-study.yml
+      - production/lesson-films/spinner_bag.py
+      - production/lesson-films/align_published_study.py
+      - production/scripts/S101.json
+  workflow_dispatch:
+jobs:
+  study:
+    permissions:
+      actions: read
+      contents: write
+    uses: ./.github/workflows/remount-public-study.yml
+    with:
+      lesson: S101
+      release_slug: s101-spinner-bag
+      release_title: 'The spinner table and the counter bag'
+      release_notes: 'Sort equal-area spinner outcomes from counter pairs, then change the sample space when a counter is removed.'
