@@ -1,0 +1,63 @@
+{
+  "id": "S041",
+  "course_slot": 41,
+  "title": "The track-piece workshop",
+  "scenes": [
+    {
+      "n": 1,
+      "heading": "Measure the path",
+      "title": "Measure the path",
+      "stage": "PUZZLE",
+      "narration": "A model train follows the middle of its track. Green straight pieces all have the same path length. Blue bends also match each other. Measure along each curve. A bend’s path is longer than the direct line between its ends."
+    },
+    {
+      "n": 2,
+      "heading": "Clip two sample trains",
+      "title": "Clip two sample trains",
+      "stage": "BASIC",
+      "narration": "One sample has two green straights and one blue bend. The path measures twenty-two centimetres. The other sample has one green straight and two blue bends. Its path measures twenty centimetres. Which colour could we make match by copying one whole sample?"
+    },
+    {
+      "n": 3,
+      "heading": "Copy every piece and its length",
+      "title": "Copy every piece and its length",
+      "stage": "EXAMPLE",
+      "narration": "Make two copies of the second sample and put them end to end. There are now two straights and four bends. The path measures forty centimetres. Doubling a train doubles all its pieces and its length. Count the four blue bends as well as the two green straights."
+    },
+    {
+      "n": 4,
+      "heading": "Lift out matching pieces",
+      "title": "Lift out matching pieces",
+      "stage": "SOLUTION",
+      "narration": "Align the two straights on each side. Remove them from both. Also remove one blue bend from each side. The longer side has three extra bends. Its length is forty minus twenty-two, or eighteen centimetres more. What is the length of one bend?"
+    },
+    {
+      "n": 5,
+      "heading": "Restore the straight",
+      "title": "Restore the straight",
+      "stage": "CHALLENGE",
+      "narration": "Three equal bends make eighteen centimetres, so one bend is six. The original second sample measures twenty centimetres. Take off its two bends, twelve centimetres in all. The straight measures eight. Two straights and one bend now measure twenty-two, just as the first ruler showed."
+    },
+    {
+      "n": 6,
+      "heading": "The mystery bridge",
+      "title": "The mystery bridge",
+      "stage": "SOLUTION",
+      "narration": "A gold bridge piece appears once in each of two longer paths. The first uses three straights, two bends and the bridge. Its full length is forty-nine centimetres. The second uses two straights, four bends and the same bridge. Could both rulers be correct if the second reads fifty-three?"
+    },
+    {
+      "n": 7,
+      "heading": "Compare before finding the bridge",
+      "title": "Compare before finding the bridge",
+      "stage": "CHALLENGE",
+      "narration": "Both paths include the same bridge, so leave it aside. Changing the first path into the second takes away one straight and adds two bends. One straight is eight centimetres. Two bends are twelve. The second path should be four centimetres longer, agreeing with fifty-three minus forty-nine."
+    },
+    {
+      "n": 8,
+      "heading": "Find the bridge and check",
+      "title": "Find the bridge and check",
+      "stage": "RECAP",
+      "narration": "The first path’s three straights and two bends measure twenty-four plus twelve, or thirty-six centimetres. Its bridge must supply the other thirteen. The second path then measures sixteen plus twenty-four plus thirteen, which is fifty-three. Matching pieces can cancel while their individual lengths are still unknown."
+    }
+  ]
+}

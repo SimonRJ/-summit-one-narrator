@@ -1,0 +1,63 @@
+{
+  "id": "S040",
+  "course_slot": 40,
+  "title": "The signal-lamp meter",
+  "scenes": [
+    {
+      "n": 1,
+      "heading": "Same colour, same current",
+      "title": "Same colour, same current",
+      "stage": "PUZZLE",
+      "narration": "A model railway has amber lamps and blue lamps. Each lamp of a colour draws the same electric current. The meter displays the sum for all the lamps that are on. Can several meter readings tell us what a single lamp draws?"
+    },
+    {
+      "n": 2,
+      "heading": "Two signal racks",
+      "title": "Two signal racks",
+      "stage": "BASIC",
+      "narration": "The first rack has two amber lamps and one blue lamp. It draws seventeen milliamps. The second has one amber lamp and two blue lamps. It draws nineteen milliamps. Look at both racks before working out what one lamp draws."
+    },
+    {
+      "n": 3,
+      "heading": "Plug the racks together",
+      "title": "Plug the racks together",
+      "stage": "EXAMPLE",
+      "narration": "Keep every lamp switched on. Together the racks draw thirty-six milliamps. Slide one blue lamp alongside each amber lamp. How many identical pairs can you build? Each pair has one amber lamp and one blue lamp."
+    },
+    {
+      "n": 4,
+      "heading": "What one pair draws",
+      "title": "What one pair draws",
+      "stage": "SOLUTION",
+      "narration": "Three identical pairs draw thirty-six milliamps, so one pair draws twelve. Return to the first rack. Take away one amber and one blue lamp together. Subtract their twelve milliamps from seventeen. The remaining amber lamp draws five milliamps."
+    },
+    {
+      "n": 5,
+      "heading": "Check both meter readings",
+      "title": "Check both meter readings",
+      "stage": "CHALLENGE",
+      "narration": "One amber and one blue together draw twelve. With five from amber, blue must draw seven. Two amber lamps and one blue draw five plus five plus seven, or seventeen. One amber and two blue draw five plus seven plus seven, or nineteen."
+    },
+    {
+      "n": 6,
+      "heading": "An unlabelled row",
+      "title": "An unlabelled row",
+      "stage": "SOLUTION",
+      "narration": "A third rack has ten lamps. Their covers hide the colours, but the meter reads sixty-two milliamps. If all ten lamps were amber, what would the meter read? What change in current would one blue lamp make in place of one amber lamp?"
+    },
+    {
+      "n": 7,
+      "heading": "Restore the colours",
+      "title": "Restore the colours",
+      "stage": "CHALLENGE",
+      "narration": "Ten amber lamps draw fifty milliamps. Each swap from amber to blue adds two milliamps. The meter is twelve above fifty, so six swaps are needed. That makes six blue lamps and four amber lamps. Six sevens plus four fives equals sixty-two."
+    },
+    {
+      "n": 8,
+      "heading": "Spot the faulty meter",
+      "title": "Spot the faulty meter",
+      "stage": "RECAP",
+      "narration": "The same ten sockets are all lit, but another meter reports sixty-three milliamps. Could that be a different arrangement of these lamps? Start at fifty, then add two for every blue lamp. Every possible reading is even. Sixty-three means the meter or one of our assumptions needs checking."
+    }
+  ]
+}

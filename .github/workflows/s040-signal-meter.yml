@@ -1,0 +1,21 @@
+name: The signal-lamp meter
+on:
+  push:
+    branches: [production/signal-lamps-track-pieces]
+    paths:
+      - .github/workflows/s040-signal-meter.yml
+      - .github/workflows/produce-original-study.yml
+      - production/lesson-films/signal_meter.py
+      - production/scripts/S040.json
+  workflow_dispatch:
+jobs:
+  study:
+    permissions:
+      actions: read
+      contents: write
+    uses: ./.github/workflows/produce-original-study.yml
+    with:
+      lesson: S040
+      release_slug: s040-signal-meter
+      release_title: 'The signal-lamp meter'
+      release_notes: 'Recover amber and blue currents, then test whether a ten-lamp combination can produce an odd reading.'

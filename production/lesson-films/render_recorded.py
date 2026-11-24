@@ -31,6 +31,8 @@ LESSONS = {
     "S037": "two_whistles",
     "S038": "ticket_drawer",
     "S039": "sorter_tape",
+    "S040": "signal_meter",
+    "S041": "track_workshop",
     "S137": "digit_detectives",
     "S138": "flow_bench",
     "S141": "creek_readings",

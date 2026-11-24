@@ -1,0 +1,21 @@
+name: The track-piece workshop
+on:
+  push:
+    branches: [production/signal-lamps-track-pieces]
+    paths:
+      - .github/workflows/s041-track-workshop.yml
+      - .github/workflows/produce-original-study.yml
+      - production/lesson-films/track_workshop.py
+      - production/scripts/S041.json
+  workflow_dispatch:
+jobs:
+  study:
+    permissions:
+      actions: read
+      contents: write
+    uses: ./.github/workflows/produce-original-study.yml
+    with:
+      lesson: S041
+      release_slug: s041-track-workshop
+      release_title: 'The track-piece workshop'
+      release_notes: 'Copy an entire track sample, remove matching curved and straight pieces, and find an unknown bridge length.'
