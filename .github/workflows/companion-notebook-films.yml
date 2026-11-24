@@ -1,0 +1,80 @@
+name: Illustrate nineteen companion notebook challenges
+on:
+  push:
+    branches: [production/illustrated-companion-notebooks]
+    paths: ['production/lesson-films/companion_notebooks.py', 'production/lesson-films/build_companion_notebook.py', 'production/lesson-films/notebook-source-hashes.json', '.github/workflows/companion-notebook-films.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  films:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        chapter: ['14', '15', '16', '17', '18']
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /production/
+            /review/T*-studio-qa.json
+            /media/T1[45678]*
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install the figure renderer
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-dejavu-core
+          python -m pip install Pillow
+      - name: Draw the exercise, retain the speech and check both picture regions
+        env:
+          CHAPTER: ${{ matrix.chapter }}
+        run: |
+          for suffix in 1 2 3 E; do
+            id="T$CHAPTER.$suffix"
+            if [[ "$id" == 'T16.3' ]]; then continue; fi
+            python production/lesson-films/build_companion_notebook.py "$id" "$RUNNER_TEMP/films"
+          done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: notebook-chapter-${{ matrix.chapter }}
+          path: ${{ runner.temp }}/films/
+          if-no-files-found: error
+          retention-days: 30
+  package:
+    needs: films
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /production/
+            /review/T*-studio-qa.json
+            /media/T1[45678]*
+            /watch-t1[45678]*
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: notebook-chapter-*
+          path: ${{ runner.temp }}/films
+          merge-multiple: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install Pillow
+      - name: Install the checked editions on a review branch
+        run: |
+          python production/lesson-films/build_companion_notebook.py install "$RUNNER_TEMP/films"
+          git config user.name github-actions
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -u
+          git commit -m 'Install nineteen individually illustrated notebook challenges with the original Voice C packets'
+          git push origin HEAD:refs/heads/release/illustrated-companion-notebooks-${{ github.run_id }}-${{ github.run_attempt }}
