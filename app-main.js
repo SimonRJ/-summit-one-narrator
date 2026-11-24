@@ -1,6 +1,6 @@
 import {mountNotebookChallenges} from './notebook-challenges.js';
 import {enableFigureViewing} from './figure-viewer.js?v=deeper-20261121';
-import {edition as readEdition, questionOrder, renderReviewedLesson, restoreGradedAnswers} from './reviewed-lesson.js?v=full-lessons-20261125';
+import {edition as readEdition, questionOrder, renderReviewedLesson, restoreGradedAnswers} from './reviewed-lesson.js?v=companion-guides-20261125';
 import {mixedFlashDeck} from './flash-cards.js?v=standalone-cards-20261122';
 import {wordingHTML} from './recognition.js?v=recognition-20261113';
 import {workshopEdition,workshopStudies} from './workshop-studies.js?v=workshops-20261122';
@@ -192,6 +192,11 @@ function openingConceptFilm(slot){
      src="${finalVideoUrl(id)}" poster="media/${id}-studio-poster.jpg?v=${revisedTeachingFilms[id]||"t01-studio-v1"}" aria-label="${esc(film.title)}"></video></div>
  </details>`;
 }
+function companionStudyLink(film){
+ if(!film||!/^T\d{2}\.(?:1|2|3|E)$/.test(film.id))return "";
+ const path="watch-"+film.id.toLowerCase().replace(".","-")+".html";
+ return `<a target="_blank" rel="noopener" href="${path}">Companion film · ${esc(film.title)}</a>`;
+}
 function teachingFor(session){
  const m=methods[skillFor(session,taxonomy)];
  return m?teaching.filter(t=>t.id===m.video):[];
@@ -313,7 +318,7 @@ async function openLessonIntroductionFromMenu(slot){
  const teaching=teachingFor(item)[0]||null;
  const openingFilm=openingConceptFilm(item.slot);
  const companion=teaching&&introId&&item.slot>=3
-  ?`<details id="replayCompanion" class="opening-fallback"><summary>Watch ${esc(teaching.title)}</summary><div id="replayNarratedTeaching" class="lesson-replay-narration"></div></details>`:"";
+  ?`<details id="replayCompanion" class="opening-fallback"><summary>Watch ${esc(teaching.title)}</summary><div id="replayNarratedTeaching" class="lesson-replay-narration"></div><p>${companionStudyLink(teaching)}</p></details>`:"";
  const media=introId?`<div class="lesson-replay-video">${assigned?.filmUse?assignedLessonFilm(assigned,"replayIntroVideo"):lessonIntroPlayer(introId,item.focus,"replayIntroVideo")}</div>`:
   teaching?`<div id="replayNarratedTeaching" class="lesson-replay-narration"></div>`:
   openingFilm?"":'<p class="muted">The written lesson is available in the review below.</p>';
@@ -475,7 +480,7 @@ function showReadPractice(s,l,questions,draft,locked=false){
  const invoke=async(name,body,kind)=>{const {data,error}=await supabase.functions.invoke(name,{body});if(error)throw Error(await learningFunctionError(error,kind));if(data?.error||!data)throw Error(data?.error||'No response. Please retry.');return data};
  renderReviewedLesson({app,s,l,questions,draft,locked,figure:q=>originalFigure(q)||problemFigure(q.id),
   extension:()=>advancedConnectionHTML(skillFor(s,taxonomy),{visit:lessonPlan(s,course,taxonomy).visit}),
-  filmGuide:assignedFilmGuide(l),
+  filmGuide:assignedFilmGuide(l), companionGuide:companionStudyLink(teachingFor(s)[0]),
   video:()=>l.filmUse?assignedLessonFilm(l,"openingVideo"):lessonIntroId(s.slot)?lessonIntroPlayer(lessonIntroId(s.slot),l.videoTitle,'openingVideo'):`<video id="openingVideo" controls playsinline preload="metadata" src="${esc(l.movie)}" aria-label="${esc(l.videoTitle)}"></video>`,
   recordWatch:locked?()=>{}:detail=>recordVideoEvidence(s.slot,l.videoId+'-Intro','lesson_intro',detail).catch(()=>{}),
   attempt:async(id,response,help,familiar)=>{const g=await invoke('submit-problem-attempt',{problem_id:id,session_number:s.slot,answer_text:response,used_help:help,familiar_family:locked||familiar},'attempt');attemptedProblemIds.add(id);
