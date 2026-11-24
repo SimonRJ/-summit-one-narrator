@@ -91,11 +91,15 @@ def draw(a,n,t):
         show_units = t.reveal('Leave six in the units drawer', .55)
         for x, label in zip((85, 466, 847), ('HUNDREDS', 'TENS', 'UNITS')):
             tray(a,x,215,345,222,label)
-        for index in range(6):
-            x, y = 914 + index % 3 * 63, 290 + index // 3 * 50
-            counter(a,x,y,show_units)
-        sleeve(a,mix(1110,758,carry_units),304-57*4*carry_units*(1-carry_units),
-               t.reveal('Leave six in the units drawer')*(1-carry_tens))
+        for row in range(2):
+            for col in range(8):
+                x, y = 879 + col * 39, 288 + row * 60
+                if col < 5:
+                    counter(a,mix(x,993,show_units),mix(y,317,show_units),1-show_units)
+                else:
+                    counter(a,mix(x,914+(col-5)*63,show_units),mix(y,290+row*50,show_units))
+        sleeve(a,mix(993,758,carry_units),314-57*4*carry_units*(1-carry_units),
+               show_units*(1-carry_tens))
         for index in range(12):
             x = 497 + index % 6 * 39
             y = 269 + index // 6 * 82
@@ -109,7 +113,9 @@ def draw(a,n,t):
         for i in range(1,10):
             a.line([(block_x-45+9*i,266),(block_x-45+9*i,356)],GREEN,1,carry_tens)
             a.line([(block_x-45,266+9*i),(block_x+45,266+9*i)],GREEN,1,carry_tens)
-        equation(a,'68 + 68 = 136',t.reveal('The drawers read'))
+        answer=t.reveal('The drawers read')
+        equation(a,'68 + 68 = ?',1-answer)
+        equation(a,'68 + 68 = 136',answer)
     else:
         # A full-width addition counter holds the same place-value columns throughout.
         a.box(92,156,602,354,fill=DARK,edge=EDGE,radius=20)
