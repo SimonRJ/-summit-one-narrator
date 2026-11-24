@@ -1,0 +1,64 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:01.940
+Xian fills this grid with numbers.
+
+00:00:02.620 --> 00:00:04.560
+He places the numbers from one to five
+
+00:00:04.560 --> 00:00:07.660
+in the five squares in the bottom row,
+in some order.
+
+00:00:08.160 --> 00:00:09.400
+In the next two rows,
+
+00:00:09.400 --> 00:00:11.420
+each square contains the sum of the numbers
+
+00:00:11.420 --> 00:00:13.760
+in the three closest squares in the row below.
+
+00:00:14.320 --> 00:00:16.500
+The arrows indicate how this addition works
+
+00:00:16.500 --> 00:00:18.580
+for the first square in the second row.
+
+00:00:18.980 --> 00:00:20.780
+What is the largest possible value
+
+00:00:20.780 --> 00:00:22.340
+of the number in the top square?
+
+00:00:23.220 --> 00:00:24.760
+This is a maximising problem.
+
+00:00:25.260 --> 00:00:27.840
+We will count how often
+each bottom number contributes.
+
+00:00:29.050 --> 00:00:31.080
+The centre counts three times,
+
+00:00:31.080 --> 00:00:33.250
+its neighbours twice, and the ends once.
+
+00:00:34.090 --> 00:00:35.720
+Put five centrally,
+
+00:00:35.720 --> 00:00:37.300
+three and four beside it,
+
+00:00:37.300 --> 00:00:38.910
+and one and two at the ends.
+
+00:00:39.820 --> 00:00:43.040
+Larger numbers in more-counted positions
+give a larger total.
+
+00:00:43.740 --> 00:00:46.060
+The middle sums are nine, twelve, eleven.
+
+00:00:46.580 --> 00:00:48.840
+The maximum is thirty-two: answer C.

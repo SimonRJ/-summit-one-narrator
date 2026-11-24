@@ -1,0 +1,192 @@
+name: Verify the course welcome and pyramid solution
+on:
+  push:
+    branches: [production/standalone-welcome-pyramid-20261125]
+    paths: ['.github/workflows/standalone-reviewed.yml', 'production/standalone-review/*.py', 'production/standalone-review/*.txt', 'production/standalone-review/*.vtt']
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: standalone-reviewed-films
+  cancel-in-progress: true
+jobs:
+  prepare:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 110
+    env:
+      GH_TOKEN: ${{ github.token }}
+      ORIGINAL: '43293201298'
+      NEW: '45488475883'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /.github/workflows
+            /production
+            /review
+            /media/voice-audition
+            /media/AMC2025Q17-voice-c*
+            /tools/welcome-check.mjs
+            /welcome.css
+            /welcome.html
+            /welcome.js
+            /watch-amc-2025-q17.html
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Recover the signed-off original performances and check their identity
+        run: |
+          set -euo pipefail
+          test "$(gh api repos/$GITHUB_REPOSITORY/actions/runs/$ORIGINAL --jq .head_sha)" = 00e6a35d21c571cb017928d052224ed1e5daab48
+          test "$(gh api repos/$GITHUB_REPOSITORY/actions/runs/$NEW --jq .head_sha)" = 6141b17df9e33961ce1b5da8a35f620ccedb0614
+          gh run download "$ORIGINAL" -n amc-introduction-review -D build/original
+          cd build/original
+          echo 'b79fef7d41101231b22bed42a554b4165671f83e63a5e2675dca9bfbfd5ae025  final.mp4' | sha256sum -c -
+      - name: Install renderer and independent speech recognition
+        run: |
+          sudo apt-get -o Acquire::Retries=3 update -qq
+          sudo apt-get install -y ffmpeg fonts-dejavu-core libsndfile1
+          pip install pillow numpy soundfile faster-whisper inflect
+      - name: Check all 120 pyramid arrangements and add verified chapter and caption boundaries
+        run: python production/standalone-review/publish_guides.py pyramid
+      - name: Align and render the new welcome edition
+        run: |
+          set -euo pipefail
+          for retry in {1..80}; do
+            state=$(gh api repos/$GITHUB_REPOSITORY/actions/runs/$NEW --jq '.conclusion // .status')
+            if [[ "$state" == success ]]; then break; fi
+            if [[ "$state" != queued && "$state" != in_progress && "$state" != pending ]]; then exit 1; fi
+            sleep 30
+          done
+          test "$state" = success
+          gh run download "$NEW" -p 'welcome-reviewed-*' -D build/new
+          mkdir -p build/amc-introduction
+          cp build/original/speech-*.wav build/amc-introduction/
+          cp build/new/*/speech-*.wav build/amc-introduction/
+          python - <<'PY'
+          import json, pathlib
+          b=pathlib.Path('build')
+          old=json.loads((b/'original'/'timing.json').read_text())['segments']
+          new=json.loads(pathlib.Path('production/standalone-review/welcome-script.json').read_text())['segments']
+          assert [i for i,(a,z) in enumerate(zip(old,new,strict=True)) if a['text']!=z]==[13,14,15,16]
+          for i in range(18):
+              file=f'speech-{i:02d}.wav'
+              same=(b/'original'/file).read_bytes()==(b/'amc-introduction'/file).read_bytes()
+              assert same==(i not in (13,14,15,16))
+          PY
+          cp production/standalone-review/welcome-script.json production/amc-introduction/narration.json
+          python production/amc-introduction/synth.py
+          python production/amc-introduction/align.py --audio build/amc-introduction/narration.wav --timing build/amc-introduction/timing.json --out build/amc-introduction
+          python production/standalone-review/welcome_captions.py
+          python production/standalone-review/welcome_film.py
+          f=build/amc-introduction
+          ffmpeg -v error -y -i "$f/visual.mp4" -i "$f/narration.wav" -map 0:v:0 -map 1:a:0 -c:v copy -c:a aac -b:a 192k -af apad -shortest -movflags +faststart "$f/final.mp4"
+          python production/amc-introduction/verify.py
+          python production/standalone-review/publish_guides.py welcome
+          cp "$f/poster.jpg" media/AMCIntroduction-poster.jpg
+          cp "$f/AMCIntroduction.vtt" media/AMCIntroduction.vtt
+          cp "$f/transcript.txt" media/AMCIntroduction-transcript.txt
+          cp "$f/alignment-qa.json" review/AMCIntroduction-alignment-qa.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: reviewed-standalone-players
+          path: |
+            media/AMCIntroduction*
+            media/AMC2025Q17-voice-c*
+            review/AMCIntroduction-qa.json
+            review/AMCIntroduction-alignment-qa.json
+            review/AMC2025Q17-edition.json
+            welcome.html
+            welcome.js
+            watch-amc-2025-q17.html
+            tools/welcome-check.mjs
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: reviewed-standalone-masters
+          path: |
+            build/amc-introduction/speech-*.wav
+            build/amc-introduction/timing.json
+            build/amc-introduction/words.json
+            build/amc-introduction/heard-words.json
+            build/amc-introduction/contact.jpg
+          retention-days: 30
+  devices:
+    needs: prepare
+    runs-on: ubuntu-24.04
+    timeout-minutes: 23
+    strategy:
+      fail-fast: false
+      matrix:
+        profile: [iphone-portrait, iphone-landscape, ipad-portrait, ipad-landscape, pc]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            production/standalone-review
+            tools
+            review
+      - uses: actions/download-artifact@v4
+        with:
+          name: reviewed-standalone-players
+          path: .
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install playwright==1.58.0 aiohttp
+      - if: matrix.profile != 'pc'
+        run: python -m playwright install --with-deps webkit
+      - name: Play the actual pages and every chapter
+        env:
+          PROFILE: ${{ matrix.profile }}
+        run: |
+          set -euo pipefail
+          python - <<'PY' > "$RUNNER_TEMP/standalone-server.log" 2>&1 &
+          from aiohttp import web
+          from pathlib import Path
+          root=Path.cwd();app=web.Application();app.router.add_static('/',root)
+          web.run_app(app,host='127.0.0.1',port=8765)
+          PY
+          server=$!
+          trap 'kill "$server"' EXIT
+          curl --fail --silent --retry 15 --retry-connrefused http://127.0.0.1:8765/welcome.html -o /dev/null
+          python production/standalone-review/check_devices.py "$PROFILE"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: reviewed-standalone-${{ matrix.profile }}
+          path: build/device/
+          retention-days: 30
+  stage:
+    needs: devices
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          sparse-checkout: |
+            media
+            review
+            tools
+      - uses: actions/download-artifact@v4
+        with:
+          name: reviewed-standalone-players
+          path: .
+      - name: Preserve only the complete checked players on this production branch
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add media/AMCIntroduction* media/AMC2025Q17-voice-c* review/AMCIntroduction* review/AMC2025Q17-edition.json welcome.html welcome.js watch-amc-2025-q17.html tools/welcome-check.mjs
+          git commit -m 'Stage the reviewed welcome and pyramid films and their measured chapter links'
+          git push origin "HEAD:$GITHUB_REF_NAME"
