@@ -1,0 +1,24 @@
+name: Retrieve the checked incidence masters and pictures
+on:
+  push:
+    branches: [qa/incidence-encoded-pictures]
+permissions:
+  contents: read
+jobs:
+  masters:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /media/T06.[13].mp4
+            /review/T06.[13]-studio-qa.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: incidence-encoded-masters
+          path: |
+            media/T06.[13].mp4
+            review/T06.[13]-studio-qa.json
+          retention-days: 14
