@@ -23,6 +23,8 @@ sys.path.insert(0, str(ROOT / "production/t01-studio"))
 from stage import Stage, Moment, WHITE, between, blend, clamp, ease, lettering, mix, rgb
 
 LESSONS = {
+    "S095": "pair_total_ledger",
+    "S097": "domino_strip",
     "S008": "folding_number_press",
     "S137": "digit_detectives",
     "S138": "flow_bench",

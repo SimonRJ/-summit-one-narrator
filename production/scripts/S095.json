@@ -1,0 +1,41 @@
+{
+  "id": "S095",
+  "title": "The pair-total ledger",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "Line up the two numbers",
+      "narration": "Two numbers add to eighteen. The larger is four more than the smaller. What are they? Picture the two amounts lined up, with an extra piece on the larger one."
+    },
+    {
+      "n": 2,
+      "title": "Take away the difference",
+      "narration": "Remove the extra four from the total. The remaining fourteen comprises two equal copies of the smaller number. So the smaller is seven and the larger is eleven. Check both the sum and the difference."
+    },
+    {
+      "n": 3,
+      "title": "Two receipts, two prices",
+      "narration": "Two notebooks and a ruler cost twenty-seven dollars. One notebook and two rulers cost thirty dollars. Find the price of one notebook plus one ruler, then recover each price."
+    },
+    {
+      "n": 4,
+      "title": "Price a notebook and a ruler",
+      "narration": "Add the equations, giving three notebooks and three rulers for fifty-seven dollars. Divide by three. One of each costs nineteen dollars. Subtract that from the price of two notebooks and a ruler. The notebook costs eight, leaving eleven for the ruler. Both original prices work."
+    },
+    {
+      "n": 5,
+      "title": "Read the three pair totals",
+      "narration": "Three boxes A, B and C contain counters. Boxes A and B together hold nineteen. B and C hold twenty-four. C and A hold twenty-one. Find how many counters are in each box."
+    },
+    {
+      "n": 6,
+      "title": "Find the box missing from each pair",
+      "narration": "Add all three conditions. Each box appears twice, so the combined sum sixty-four is twice the number of counters in the three boxes. Halve it to get the complete total thirty-two. Subtract a pair's total to find the missing box. Subtract B plus C to get A equals eight. The same method gives B equals eleven and C equals thirteen."
+    },
+    {
+      "n": 7,
+      "title": "Prove the assignment is unique",
+      "narration": "The resulting pairs total nineteen, twenty-four and twenty-one. Each matches its clue. The original clues forced the overall total and then each single box. There can be only one such assignment."
+    }
+  ]
+}
