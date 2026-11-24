@@ -4,6 +4,9 @@ on:
     branches: [production/illustrated-companion-notebooks]
     paths: ['production/lesson-films/companion_notebooks.py', 'production/lesson-films/build_companion_notebook.py', 'production/lesson-films/notebook-source-hashes.json', '.github/workflows/companion-notebook-films.yml']
   workflow_dispatch:
+concurrency:
+  group: companion-notebook-challenges
+  cancel-in-progress: true
 permissions:
   contents: read
 jobs:
@@ -29,7 +32,7 @@ jobs:
       - name: Install the figure renderer
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y ffmpeg fonts-dejavu-core
+          sudo apt-get install -y ffmpeg fonts-dejavu-core fonts-open-sans
           python -m pip install Pillow
       - name: Draw the exercise, retain the speech and check both picture regions
         env:

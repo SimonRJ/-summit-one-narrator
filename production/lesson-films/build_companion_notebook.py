@@ -6,6 +6,8 @@ import hashlib
 import json
 from math import ceil
 from pathlib import Path
+from tempfile import TemporaryDirectory
+from PIL import Image, ImageDraw, ImageFont
 import re
 import shutil
 import subprocess
@@ -115,6 +117,80 @@ def timing(source, qa):
     return first, last
 
 
+# Measured against the released Voice C recording using two separate speech passes.
+PERIMETER_CAPTIONS = (
+    ("00:01:16.640", "00:01:19.180", "Their perimeters are fifty, twenty-eight,"),
+    ("00:01:19.220", "00:01:20.700", "twenty-two and twenty."),
+    ("00:01:21.260", "00:01:22.640", "It is four by six."),
+)
+OLD_T18_VTT = "2f1802e8251f4f2103e289e5e2af13e806b4bb5f6a243a448097c0ca9112736c"
+
+
+def repair_perimeter_captions(source, vtt, out, scratch):
+    assert digest(vtt) == OLD_T18_VTT
+    old = "00:01:22.972 --> 00:01:23.110\nIt is four by six."
+    text = vtt.read_text()
+    assert text.count(old) == 1
+    corrected = text.replace(
+        old, "\n\n".join(f"{a} --> {b}\n{line}" for a, b, line in PERIMETER_CAPTIONS)
+    )
+    transcript = json.loads((ROOT / "production/scripts/T18.1.json").read_text())
+    tokenize = lambda words: re.findall(r"[a-z]+", words.lower())
+    caption_words = " ".join(
+        line
+        for line in corrected.splitlines()
+        if line and "-->" not in line and line != "WEBVTT"
+    )
+    assert tokenize(caption_words) == tokenize(
+        " ".join(scene["narration"] for scene in transcript["scenes"])
+    )
+    (out / vtt.name).write_text(corrected)
+
+    raw = subprocess.check_output(
+        [
+            "ffmpeg",
+            "-v",
+            "error",
+            "-ss",
+            "76.4",
+            "-i",
+            str(source),
+            "-frames:v",
+            "1",
+            "-vf",
+            "crop=1920:146:0:934,format=rgb24",
+            "-f",
+            "rawvideo",
+            "-",
+        ]
+    )
+    empty = Image.frombytes("RGB", (1920, 146), raw)
+    layers = [(76.37, 83.20, "")]
+    layers.extend(
+        (caption_time(a), caption_time(b), words) for a, b, words in PERIMETER_CAPTIONS
+    )
+    inputs, filters = [], []
+    face = Path("/usr/share/fonts/truetype/open-sans/OpenSans-Bold.ttf")
+    font = ImageFont.truetype(str(face) if face.exists() else "DejaVuSans-Bold.ttf", 51)
+    for i, (start, end, words) in enumerate(layers):
+        im = empty.copy()
+        if words:
+            draw = ImageDraw.Draw(im)
+            bounds = draw.textbbox((960, 67), words, font=font, anchor="mm")
+            draw.rounded_rectangle(
+                (bounds[0] - 31, 20, bounds[2] + 31, 110), radius=19, fill="#101720"
+            )
+            draw.text((960, 67), words, font=font, fill="#f2f1ed", anchor="mm")
+        png = scratch / f"caption-{i}.png"
+        im.save(png)
+        inputs.extend(["-i", str(png)])
+        previous = "0:v" if i == 0 else f"caption{i - 1}"
+        filters.append(
+            f"[{previous}][{i + 2}:v]overlay=0:934:enable='between(t,{start},{end})':eof_action=repeat[caption{i}];"
+        )
+    return inputs, "".join(filters), f"caption{len(layers) - 1}"
+
+
 def build(k, out):
     out.mkdir(parents=True, exist_ok=True)
     qa = json.loads((ROOT / "review" / (k + "-studio-qa.json")).read_text())
@@ -131,7 +207,16 @@ def build(k, out):
         nframes / 30 - duration
     ) < 0.04
     target = out / (k + ".mp4")
-    descriptor = f"[1:v]setpts=PTS-STARTPTS+{start:.6f}/TB[board];[0:v][board]overlay=0:0:enable='gte(t,{start:.6f})':eof_action=repeat,format=yuv420p[film]"
+    scratch = TemporaryDirectory()
+    inputs, filters, base = [], "", "0:v"
+    if k == "T18.1":
+        inputs, filters, base = repair_perimeter_captions(
+            source, vtt, out, Path(scratch.name)
+        )
+    descriptor = (
+        filters
+        + f"[1:v]setpts=PTS-STARTPTS+{start:.6f}/TB[board];[{base}][board]overlay=0:0:enable='gte(t,{start:.6f})':eof_action=repeat,format=yuv420p[film]"
+    )
     cmd = [
         "ffmpeg",
         "-v",
@@ -152,6 +237,7 @@ def build(k, out):
         "15",
         "-i",
         "-",
+        *inputs,
         "-filter_complex_threads",
         "2",
         "-filter_complex",
@@ -182,6 +268,7 @@ def build(k, out):
     proc.stdin.close()
     if proc.wait():
         raise RuntimeError("Encoding failed")
+    scratch.cleanup()
     assert frames(target) == nframes
     speech = audio_hash(source)
     assert audio_hash(target) == speech
@@ -210,6 +297,40 @@ def build(k, out):
         raise ValueError(
             f"Pixel checks failed for {k}: {prefix_checks} {caption_checks} {changed}"
         )
+    if k == "T18.1":
+        samples = (77.5, 79.65, 81.98)
+        body = [
+            round(
+                byte_error(
+                    probe_frame(source, t, 0, 930), probe_frame(target, t, 0, 930)
+                ),
+                4,
+            )
+            for t in samples
+        ]
+        subtitle = [
+            round(
+                byte_error(
+                    probe_frame(source, t, 934, 146), probe_frame(target, t, 934, 146)
+                ),
+                4,
+            )
+            for t in samples
+        ]
+        assert max(body) < 3 and min(subtitle) > 2, (body, subtitle)
+        qa["perimeter_caption_repair"] = {
+            "cues": [
+                {"start": a, "end": b, "text": words}
+                for a, b, words in PERIMETER_CAPTIONS
+            ],
+            "source_vtt_sha256": OLD_T18_VTT,
+            "vtt_sha256": digest(out / vtt.name),
+            "caption_transcript_matches_authored_narration": True,
+            "spoken_first_sentence_seconds": [76.64, 80.50],
+            "spoken_solution_seconds": [81.30, 82.54],
+            "body_mean_error": body,
+            "caption_band_mean_change": subtitle,
+        }
     qa.update(
         source_sha256=qa["sha256"],
         sha256=digest(target),
@@ -246,6 +367,11 @@ def install(folder):
         assert k not in publish.REVISED_MEDIA
         publish.REVISED_MEDIA[k] = version
         patch.append(f'    "{k}": "{version}",')
+        if k == "T18.1":
+            caption = folder / (k + ".vtt")
+            assert digest(caption) == qa["perimeter_caption_repair"]["vtt_sha256"]
+            assert digest(ROOT / "media" / caption.name) == OLD_T18_VTT
+            shutil.copyfile(caption, ROOT / "media" / caption.name)
         shutil.copyfile(movie, ROOT / "media" / movie.name)
         shutil.copyfile(path, ROOT / "review" / path.name)
         script = json.loads((ROOT / "production/scripts" / (k + ".json")).read_text())
