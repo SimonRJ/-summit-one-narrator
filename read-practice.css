@@ -132,3 +132,35 @@
     grid-area: 5 / 1;
   }
 }
+
+/* Put the opening and its worked example side by side on an iPad or computer. */
+@media (min-width: 800px) and (min-height: 560px) and (orientation: landscape) {
+  .rwl .rwl-copy:has(> .rwl-example) {
+    display: grid;
+    grid-template-columns: minmax(0, 4fr) minmax(0, 5fr);
+    grid-template-areas:
+      "label example"
+      "title example"
+      "intro example"
+      "model example"
+      "bridge example";
+    gap: .3rem clamp(1rem, 2.5vw, 2.5rem);
+    align-content: start;
+    align-items: start;
+    max-width: 76rem;
+    padding: clamp(.7rem, 1.5vw, 1.2rem);
+  }
+  .rwl-copy:has(> .rwl-example) > .eyebrow { grid-area: label; }
+  .rwl-copy:has(> .rwl-example) > h2 { grid-area: title; }
+  .rwl-copy:has(> .rwl-example) > p:first-of-type { grid-area: intro; }
+  .rwl-copy:has(> .rwl-example) > [data-lesson-model] { grid-area: model; }
+  .rwl-copy:has(> .rwl-example) > .rwl-bridge { grid-area: bridge; }
+  .rwl-copy > .rwl-example {
+    grid-area: example;
+    margin: 0;
+  }
+  .rwl-example > .rwl-opening-figure {
+    max-height: clamp(6rem, 17vh, 10rem);
+    object-fit: contain;
+  }
+}

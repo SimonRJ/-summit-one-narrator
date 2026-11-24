@@ -63,6 +63,18 @@ export function introMediaSource(id) {
   };
 }
 
+// A revisited lesson can keep an earlier cut. Only offer chapters for the cut being played.
+export function introductionGuideHref(id, movie, page = globalThis.location?.href) {
+  if (!/^S[0-9]{3}$/.test(id) || !movie || !page) return null;
+  const slot = Number(id.slice(1));
+  if (lessonIntroId(slot) !== id) return null;
+  const selected = new URL(movie, page);
+  const guide = new URL(introMediaSource(id).movie, page);
+  if (selected.origin !== guide.origin || selected.pathname !== guide.pathname) return null;
+  return localSlots.has(slot) ? 'watch-intro-' + id.toLowerCase() + '.html'
+    : 'watch-lesson-intro.html?slot=' + slot;
+}
+
 async function readJson(path) {
   const response = await fetch(catalogueRoot + path + "?v=" + Math.floor(Date.now() / 20000), {
     cache: "no-store", credentials: "omit", signal: AbortSignal.timeout(5500),

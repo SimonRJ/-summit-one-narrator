@@ -259,10 +259,5 @@ The 21 November editorial revision clarifies two items and replaces 16 repeated 
 ```sql
 select jsonb_object_agg(id, solution_text order by id) as private_solution_overlay
 from public.content_problems
-where source_type = 'original_lesson_practice' and id in (
-  'RWL2-069-B', 'RWL2-082-A', 'RWL2-083-D', 'RWL2-085-C', 'RWL2-135-A', 'RWL2-135-B', 'RWL2-167-D', 'RWL2-185-A',
-  'RWL2-226-A', 'RWL2-226-B', 'RWL2-226-C', 'RWL2-226-D',
-  'RWL2-258-A', 'RWL2-258-B', 'RWL2-258-C', 'RWL2-276-A',
-  'RWL2-276-B', 'RWL2-276-C', 'RWL2-317-A', 'RWL2-349-A'
-);
+where source_type = 'original_lesson_practice' and id like 'RWL2-%';
 ```

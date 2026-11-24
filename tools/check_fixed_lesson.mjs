@@ -9,7 +9,7 @@ assert.equal(lessons.length,372);
 assert.equal(lessons[0].focus,'Divisibility tests and modular remainders');
 assert.equal(lessons[1].focus,'Place-value decomposition and estimation');
 const {lessonIntroId,INTRO_MEDIA_VERSION,introMediaSource}=await import('../lesson-introduction-media.js');
-const playerSource=app.slice(app.indexOf('function lessonIntroPlayer('),app.indexOf('async function openLessonIntroductionFromMenu('));
+const playerSource=app.slice(app.indexOf('function lessonIntroPlayer('),app.indexOf('function assignedLessonFilm('));
 const lessonIntroPlayer=new Function('esc','introMediaSource',playerSource+'\nreturn lessonIntroPlayer;')(String,introMediaSource);
 for(let i=0;i<6;i++){
  const lesson=lessons[i], id=lessonIntroId(lesson.slot), data=JSON.parse(read('../production/scripts/'+id+'.json'));
@@ -34,6 +34,11 @@ for(let i=0;i<6;i++){
  assert.equal(qa.decoded_successfully??qa.full_video_decode_passed,true);
  assert.equal(createHash('sha256').update(fs.readFileSync(mediaURL)).digest('hex'),qa.sha256);
 }
+const {introductionGuideHref} = await import('../lesson-introduction-media.js');
+const home = 'https://example.test/course/';
+assert.equal(introductionGuideHref('S001', 'media/S001-Intro.mp4', home), 'watch-intro-s001.html');
+assert.equal(introductionGuideHref('S001', 'media/S001-old.mp4', home), null);
+assert.equal(introductionGuideHref('S001', 'https://other.test/course/media/S001-Intro.mp4', home), null);
 assert.equal(lessonIntroId(7),null);
 assert(introMediaSource("S008").movie.startsWith("https://github.com/"));
 assert(app.includes('loadIntroductionCatalogue()')&&read('../watch-lesson-intro.html').includes('playsinline'));

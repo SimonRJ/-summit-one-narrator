@@ -1515,7 +1515,7 @@
           "family": "DATA-02:continuation:D",
           "title": "Find the outlier",
           "prompt": "Nine observations average 41. Eight of them average 39. What is the ninth observation?",
-          "hint": "Each of the eight is collectively below the overall mean."
+          "hint": "Compare the total for the group of eight with what eight observations averaging 41 would contribute."
         }
       ]
     },
@@ -1675,7 +1675,7 @@
           "family": "SEQ-04:continuation:C",
           "title": "A labelled rail",
           "prompt": "A trolley occupies positions 0 through 6 around a loop and advances 2 positions on each signal, wrapping after 6. Starting at 0, which numbered position does it occupy after 25 signals?",
-          "hint": "Compute the total advance modulo 7."
+          "hint": "How many positions has the trolley advanced altogether? Set aside complete loops of seven positions."
         },
         {
           "id": "RWL2-107-D",
@@ -1854,7 +1854,7 @@
       "bridge": "Look at the top of the cuboid in the film. A piece there can still get paint on its sides, even though its top is clean.",
       "recap": "Remove a layer from a clean-core calculation only on a side that was painted.",
       "example": {
-        "prompt": "A 4-by-3-by-2 block has only its top painted. How many unit cubes have paint?",
+        "prompt": "A block is 4 unit cubes wide, 3 deep and 2 high. Only its top face is painted. How many unit cubes have paint?",
         "steps": [
           "Only the top layer touches that face.",
           "The layer has 4 × 3 = 12 cubes. The lower layer has none."
@@ -1890,7 +1890,7 @@
           "family": "SOLID-02:continuation:C",
           "title": "Three adjoining sides",
           "prompt": "A cuboid is 6 by 7 by 5 unit cubes. Paint three outside faces that all meet at one corner. How many cubes get some paint?",
-          "hint": "Which smaller cuboid gets none of the three colours?"
+          "hint": "A clean cube must avoid the painted layer in each of three directions. What smaller cuboid is left?"
         },
         {
           "id": "RWL2-113-D",
@@ -2318,7 +2318,7 @@
           "id": "RWL2-122-C",
           "family": "GEO-05:continuation:C",
           "title": "Two square runs",
-          "prompt": "Two equally sized square dog runs sit side by side against a long wall. The wall forms both backs. Wire forms the fronts, outer sides and the one shared divider, except for a 2 m gate in one front. With 67 m of wire, what is the largest combined floor area in square metres if each square side is a whole number of metres?",
+          "prompt": "Two equally sized square dog runs sit side by side against a long wall. The wall forms both backs. Wire forms the fronts, outer sides and the one shared divider, except for a 2 m gate in one front. Using at most 67 m of wire, what is the largest combined floor area in square metres if each square side is a whole number of metres?",
           "hint": "Count lengths of wire equal to a square side, including the divider just once."
         },
         {
@@ -2830,7 +2830,7 @@
       "slot": 135,
       "headline": "Treat immediate neighbours as a block",
       "intro": "“Before” leaves room for a gap. “Immediately before” means two objects have adjacent places in a specified order. Draw a bracket around those objects before fitting them into the row.",
-      "bridge": "During the short-film schedule, bracket the two films that must be consecutive. Then test that whole block against the end-position clue.",
+      "bridge": "In the five-film schedule, bracket Hugo and Ivy. Where must Grace go relative to that pair? Test the resulting three-film block against Jack’s end-position clue.",
       "recap": "Keep the order inside a fixed block and slide the whole block through the available positions.",
       "example": {
         "prompt": "In four slots, B must immediately follow A and A is second. Which slot is B in?",
@@ -2882,7 +2882,7 @@
     {
       "slot": 137,
       "headline": "A reversed digit changes its job",
-      "intro": "In AB the digit A contributes ten times A, while in BA it contributes just A. This gives a reliable equation for a reversal even if the symbols look much alike.",
+      "intro": "Let A and B stand for digits. Writing them side by side as AB puts A in the tens place and B in the units place, so the number has value 10 × A + B. When you reverse the digits, which contribution gets larger?",
       "bridge": "Watch what each digit gains or loses when it moves one place. In the lock, look for the digit that stays put.",
       "recap": "A positive two-digit reversal difference is a multiple of 9. The digit sum and any leading-zero rule then limit possible answers.",
       "example": {
@@ -3085,7 +3085,7 @@
           "id": "RWL2-141-C",
           "family": "DATA-03:continuation:C",
           "title": "A chart key",
-          "prompt": "On a pictogram one full square stands for 8 trays. Friday shows 5 full squares and a quarter square. Saturday shows 4 full squares and three-quarter square. How many more trays does Friday show?",
+          "prompt": "On a pictogram one full square stands for 8 trays. Friday shows 5 full squares and one quarter of a square. Saturday shows 4 full squares and three quarters of a square. How many more trays does Friday show?",
           "hint": "First convert the fractions of a symbol."
         },
         {
@@ -3211,12 +3211,12 @@
       "bridge": "Watch the film sort the painted pieces by where they sit. Compare a vertical edge cube with its two endpoints when the top is left clean.",
       "recap": "Separate corner, edge-interior, face-interior and central positions so each cube belongs to one category.",
       "example": {
-        "prompt": "A cube edge is 5 small cubes long. How many edge cubes are away from both corners?",
+        "prompt": "Follow one edge of a cube built from unit cubes. There are five cube positions along that edge, including the two corners. How many positions on this one edge lie strictly between the corners?",
         "steps": [
-          "Two of the five positions are endpoints.",
-          "Removing those leaves 5 − 2 = 3 edge-interior cubes."
+          "Number the positions 1 to 5. Positions 1 and 5 are the corners.",
+          "Positions 2, 3 and 4 lie between them. That gives 5 − 2 = 3 cubes on the marked edge."
         ],
-        "prediction": "Mark both endpoints of one edge. Which cubes sit strictly between your marks?"
+        "prediction": "Which two of the five positions belong to corners of the marked edge?"
       },
       "skill": "SOLID-02",
       "videoId": "S145",
@@ -3453,7 +3453,7 @@
           "family": "DATA-01:continuation:B",
           "title": "Putting it back",
           "prompt": "A bag holds one gold and two silver discs. A disc is drawn uniformly, replaced and the bag mixed before another draw. What is the probability of two golds? Give a fraction.",
-          "hint": "Does the first draw change the second bag?"
+          "hint": "After you put the first disc back and mix, how many of the three discs are gold?"
         },
         {
           "id": "RWL2-150-C",
@@ -3480,8 +3480,8 @@
       "example": {
         "prompt": "Can two dominoes cover all four cells of a 2-by-2 square?",
         "steps": [
-          "The board has two cells of each colour, so the colour test permits a covering.",
-          "Place one horizontal domino in each row. This construction confirms the covering is possible."
+          "Colour the 2-by-2 board in alternating black and white squares. It has two of each colour, and each domino covers one of each.",
+          "To check that a covering exists, place one horizontal domino across each row. Every square is covered exactly once."
         ],
         "prediction": "Can you draw two actual dominoes here to prove that they fit?"
       },
@@ -3510,7 +3510,7 @@
           "id": "RWL2-151-C",
           "family": "DIV-04:continuation:C",
           "title": "One hole in a square",
-          "prompt": "A 3-by-3 board is coloured with its four corners black. One square is removed and the remaining eight can be tiled with dominoes. What colour was removed? Enter black or white.",
+          "prompt": "A 3-by-3 board has alternating black and white squares, with black squares at all four corners. One square is removed. Four dominoes cover the eight remaining squares exactly. What colour was removed? Enter black or white.",
           "hint": "Count the colours before the removal."
         },
         {
@@ -3529,12 +3529,12 @@
       "bridge": "When you undo a move, follow the same counters back to their original tray. Which pile was the fraction taken from?",
       "recap": "Label each number as before or after. Do not pair a final ratio or difference with an opening amount.",
       "example": {
-        "prompt": "Two jars share 30 beads. After a transfer they are equal. What does the total alone tell you?",
+        "prompt": "Jars A and B hold 30 beads altogether. Four beads move from A to B, and the jars now hold equal numbers. How many beads were in jar A before the move?",
         "steps": [
-          "Each final jar contains 15.",
-          "If 4 moved from A to B, then A originally had 19 and B had 11."
+          "The move keeps the total at 30. The two equal jars therefore hold 30 ÷ 2 = 15 beads each after the move.",
+          "Put the four beads back in jar A. It originally held 15 + 4 = 19. Jar B held 11, so the original total was still 30."
         ],
-        "prediction": "During a transfer, could a bead disappear from the combined total?"
+        "prediction": "Can you draw the two jars just after the move, when their counts match?"
       },
       "skill": "ALG-02",
       "videoId": "S152",
@@ -3878,16 +3878,16 @@
         {
           "id": "RWL2-159-B",
           "family": "SPATIAL-03:continuation:B",
-          "title": "The plus-shaped counter",
-          "prompt": "A counter has five square cells shaped like a plus sign: one centre with one cell adjoining each of its four sides. What is the maximum number of non-overlapping dominoes it holds?",
-          "hint": "Which cell would any domino have to use?"
+          "title": "A hole away from the corners",
+          "prompt": "Four dominoes cover eight squares of a 3-by-3 board. All four corners are covered. How many different squares could be left uncovered? Each domino covers two squares sharing an edge.",
+          "hint": "Colour the board like a chessboard. Which colour has an extra square? After you exclude the four corners, test the remaining candidate by placing four dominoes."
         },
         {
           "id": "RWL2-159-C",
           "family": "SPATIAL-03:continuation:C",
           "title": "Join a chain of squares",
-          "prompt": "A strip of 6 unit squares in one row has a new unit square attached along a whole edge at the right-hand end, extending the same row. How many exposed edge units did the original strip have?",
-          "hint": "Work backwards from the extended rectangle and remove the net gain of two."
+          "prompt": "A strip of unit squares in one row is extended by attaching one more square at its right-hand end. Its new perimeter is 16 units. What was the perimeter of the original strip, in units?",
+          "hint": "At the join, one edge of the original strip disappears. How many edges of the new square show on the outside?"
         },
         {
           "id": "RWL2-159-D",
@@ -4142,7 +4142,7 @@
           "family": "SEQ-01:continuation:A",
           "title": "The hidden difference",
           "prompt": "Term 4 is 19 and term 9 is 44 in an arithmetic sequence. What is the common difference?",
-          "hint": "Divide the value change by the index change."
+          "hint": "How much did the value change? How many gaps are there between the two known positions?"
         },
         {
           "id": "RWL2-166-B",
@@ -4171,7 +4171,7 @@
       "slot": 167,
       "headline": "Use the most restrictive comparison",
       "intro": "One clue may eliminate several possibilities at once. Combine clues about the same person, time or number before listing the rest.",
-      "bridge": "When the film rules out a position near the end of the schedule, pause and ask which other people or films lose an option as a result.",
+      "bridge": "In the film schedule, put Jack in the end position allowed by the clues. When the Grace–Hugo–Ivy block is placed last, what happens to Finn?",
       "recap": "Use the largest or smallest allowed value to test an ordering before making a long list.",
       "example": {
         "prompt": "Three numbers are 2, 5 and 8. Mira’s number is above 2 but below Sol’s. Which number belongs to Mira?",
@@ -4369,7 +4369,7 @@
           "id": "RWL2-171-C",
           "family": "COUNT-03:continuation:C",
           "title": "Two forbidden neighbours",
-          "prompt": "How many orders of A, B, C and D keep A away from B and also away from C?",
+          "prompt": "Arrange A, B, C and D in a row. How many orders have neither B nor C immediately next to A?",
           "hint": "Look at A's remaining possible neighbour."
         },
         {
@@ -4604,7 +4604,7 @@
       "headline": "Pair factors from opposite ends",
       "intro": "Every divisor of a positive integer has a partner. Search for the smaller member of each pair up to the square root. A square root that is a whole number pairs with itself.",
       "bridge": "In the film, try to test 37 for a factor before the prime check finishes. Then see why counting the divisors of 60 needs a different list.",
-      "recap": "A rectangle and its rotation correspond to the same unordered factor pair. A square uses the same factor twice but only one positive divisor.",
+      "recap": "Pair each smaller divisor with the larger divisor it gives. If the number is a perfect square, its square root pairs with itself. Count that divisor once.",
       "example": {
         "prompt": "How many factor pairs of 24 are there, counting swapped order as the same pair?",
         "steps": [
@@ -4819,7 +4819,7 @@
       "slot": 183,
       "headline": "Match the middle quantity",
       "intro": "Two ratios can describe three quantities. Scale the ratios until the quantity they share has the same value in both.",
-      "bridge": "In the map example, match centimetres to centimetres before changing to metres. Watch how keeping one shared quantity consistent links the two descriptions.",
+      "bridge": "In the scale drawing, a 6 cm wall represents a much longer wall. Watch the scale factor turn drawing centimetres into real centimetres. At which step do you convert to metres?",
       "recap": "A shared letter stands for the same actual amount in both ratios. Check both original pairs after finding the three amounts.",
       "example": {
         "prompt": "A:B = 2:3 and B:C = 1:4. If A is 4, what is C?",
@@ -4925,7 +4925,7 @@
     {
       "slot": 186,
       "headline": "Find the edges a net must share",
-      "intro": "When a cuboid folds, opposite faces have equal dimensions. A net or a wrapping problem may use only some of those faces, so list them individually.",
+      "intro": "A cuboid has three pairs of opposite faces. The two faces in each pair have the same dimensions. For a wrapping or open-box problem, list the faces the material must cover.",
       "bridge": "Look at the base and the four walls of the film’s open box. Which of those five panels change when the base dimensions change?",
       "recap": "Match opposite faces by their dimensions. Include the lid, base or walls only as the physical object requires.",
       "example": {
@@ -5889,7 +5889,7 @@
       "slot": 209,
       "headline": "Count an outline by its size",
       "intro": "If a frame must be square, its width and height are linked. Count positions of each possible size separately before adding their totals.",
-      "bridge": "Watch the closing grid: once a square has a width, its height is fixed. In the worked example, follow its bottom-left corner to count positions one size at a time.",
+      "bridge": "The film counts grid-line rectangles by choosing their sides. When it reaches squares, how does choosing the width restrict the height? Try the idea on the 2-by-2 grid from this lesson.",
       "recap": "Choose a size first when dimensions must match. Within that size, count positions of one representative corner.",
       "example": {
         "prompt": "How many squares fit along the lines of a 2-by-2 grid?",
@@ -5946,7 +5946,7 @@
     {
       "slot": 211,
       "headline": "Match a repeated component",
-      "intro": "Two equations may hide one unknown in equal amounts. Align the repeated parts and subtract, or combine totals to recover the amount you need directly.",
+      "intro": "Look at two shopping receipts. If they contain the same notebook, that part of the price is identical on both. Cross it off each receipt and see which item explains the difference.",
       "bridge": "Watch what adding the notebook-and-ruler purchases produces. The film asks for a combined price, so check whether both prices really need to be found separately.",
       "recap": "Write the two conditions side by side. If the answer is a combination of prices, see whether you can obtain it without finding every price.",
       "example": {
@@ -5986,7 +5986,7 @@
           "family": "ALG-02:continuation:C",
           "title": "Double an order",
           "prompt": "Two pens and a folder cost $11. Three pens and two folders cost $19. How many dollars does the folder cost?",
-          "hint": "Double the first order to match the folders."
+          "hint": "What do you get if you buy the first order twice? Compare its contents and cost with the second order."
         },
         {
           "id": "RWL2-211-D",
@@ -6001,7 +6001,7 @@
       "slot": 213,
       "headline": "Look for the turning point",
       "intro": "A change that improves one shape may worsen another. Compare adjacent legal choices to see where an area stops increasing.",
-      "bridge": "In the wall-side pen, compare the best two nearby whole-number depths. Which one uses the most area under the same fencing limit?",
+      "bridge": "At the wall, the farmer pays for two depths but only one long side. When the depth increases by 1 metre, how much shorter must that long side become?",
       "recap": "Identify the best legal pair, then explain why moving farther away cannot improve it.",
       "example": {
         "prompt": "Change a 2 by 6 rectangle to a 3 by 5 rectangle. How do its perimeter and area change?",
@@ -6026,7 +6026,7 @@
           "family": "GEO-05:continuation:A",
           "title": "Two positive scores",
           "prompt": "Two positive whole-number scores add to 15. A bonus awards their product. What is the largest bonus possible?",
-          "hint": "What happens if two scores differing by 3 become one closer?"
+          "hint": "Move 1 point from the larger score to the smaller score. The sum stays fixed. What happens to their product?"
         },
         {
           "id": "RWL2-213-B",
@@ -6055,7 +6055,7 @@
       "slot": 214,
       "headline": "Split numbers to compare products",
       "intro": "Sometimes a comparison needs only the differing pieces, even if the products are large. Centre the factors near a common number and record the extra strips and corner.",
-      "bridge": "The film compares products near 1,000. Look for equal large parts that can be discarded before comparing the small corrections.",
+      "bridge": "The film compares 992 × 1,010 with 998 × 1,004. Before multiplying, find the number halfway between the factors in each pair. Which rectangle is closer to a square?",
       "recap": "Make sure the two offsets really are opposite before using the difference-of-squares shortcut. Otherwise keep the unmatched strip.",
       "example": {
         "prompt": "Which is larger, 20 × 20 or 19 × 21?",
@@ -6108,7 +6108,7 @@
       "slot": 215,
       "headline": "A transfer changes two parts",
       "intro": "Moving items between groups preserves the combined total. Set the final ratio against that fixed total to find each group's target.",
-      "bridge": "In the film's counter box, track both piles during the transfer. Point to the part of the picture that represents a total that has not changed.",
+      "bridge": "When 14 counters move from red to blue, the colours change from five red parts and three blue parts to three red parts and five blue parts. Why does one part still stand for the same number of counters?",
       "recap": "Check both groups after the transfer. Their total should match the start, and their final amounts should give the stated ratio.",
       "example": {
         "prompt": "Two baskets hold 5 and 15 balls. How many must move from the larger to the smaller basket to make them equal?",
@@ -6158,7 +6158,7 @@
     {
       "slot": 216,
       "headline": "A transfer has a double effect on the lead",
-      "intro": "When the leader gives an item to the other side, one total falls as the other rises. Follow the difference as well as the individual totals.",
+      "intro": "Put the two teams’ counters in rows, one above the other. The counters that stick out show the lead. Slide a counter from the longer row to the shorter row and watch what happens at both ends.",
       "bridge": "When the three teams in the film share points, watch two score bars at once. A point passed from one team changes both ends of their gap.",
       "recap": "Distinguish a transfer between the two sides from a new item entering from outside. Only a transfer changes both sides at once.",
       "example": {
@@ -6212,7 +6212,7 @@
     {
       "slot": 218,
       "headline": "Use colour as a test",
-      "intro": "On a checkerboard, every domino occupies one light and one dark square. Compare the colour counts before spending time trying placements.",
+      "intro": "Imagine colouring a floor like a chessboard. A domino placed along an edge covers one square of each colour. If one colour runs out first, can rearranging the dominoes ever fill the floor?",
       "bridge": "As the film tiles a two-row strip, check the square count first and then watch the placement forced by the first open cell.",
       "recap": "Balanced colour counts are necessary for a domino tiling. When claiming it works, also supply actual legal placements.",
       "example": {
@@ -6267,7 +6267,7 @@
       "slot": 219,
       "headline": "Choose between a shared factor and a shared multiple",
       "intro": "Equal groups with no leftovers require a size or count that divides the available quantities. Events that repeat together require a time divisible by the intervals.",
-      "bridge": "At the marker-packing example, decide why the pack count must divide two totals. Compare that with the earlier restart time, which both intervals must divide into.",
+      "bridge": "The activities in the film restart every 6 and 9 minutes. The marker box contains 24 red markers and 36 blue. Which problem needs a number that both inputs divide, and which needs a number that divides both inputs?",
       "recap": "Use the story to decide the direction of divisibility. Pack counts divide quantities; recurring intervals divide elapsed times.",
       "example": {
         "prompt": "A teacher has 12 red cards and 18 blue cards. What is the greatest number of identical packs she can make using them all?",
@@ -6320,7 +6320,7 @@
     {
       "slot": 220,
       "headline": "Meetings repeat on a loop",
-      "intro": "On a circular track runners may meet several times. Between consecutive meetings the relative distance travelled changes by one full circumference.",
+      "intro": "Imagine a chalk line on a circular track. If two runners meet there and keep moving in the same direction, the faster runner must gain a whole lap before catching the other again. A head start changes the first catch.",
       "bridge": "Follow the two runners on the film's circular track. After the head start, notice when gaining a complete lap matters and when only part of a lap is needed.",
       "recap": "Check whether you are counting separate meetings, elapsed intervals, or the initial meeting at time zero.",
       "example": {
@@ -6373,7 +6373,7 @@
     {
       "slot": 221,
       "headline": "Count by choosing the unused objects",
-      "intro": "Choosing a large group can be easier if you record who stays out. This gives exactly one record per group, even when the resulting groups will later receive a captain or a task.",
+      "intro": "Six different cards lie face up. Slide four towards you and leave two on the table. Could two different four-card hands ever leave exactly the same two cards behind?",
       "bridge": "In the film's team puzzle, decide when a selection of artists is already fully specified. Ask whether choosing those left out could describe the same selection.",
       "recap": "Look for a smaller selection that uniquely identifies the larger one. Add roles only when they are part of the outcome.",
       "example": {
@@ -6429,7 +6429,7 @@
       "headline": "Link two small triangles",
       "intro": "A shared corner or a straight edge can carry information from one part of a figure into another. Find the angle that connects the two totals.",
       "bridge": "Watch how the exterior angle in the film links the original triangle to the triangle formed by the two bisectors.",
-      "recap": "Mark the shared angle or line. Use a triangle sum on one side and check which rule applies on the other.",
+      "recap": "At a crossing, opposite angles match. On a straight line, adjacent angles add to 180°. Label the angle you can carry from the first triangle into the next before doing a second subtraction.",
       "example": {
         "prompt": "In triangle ABC, angle A is 40° and angle B is 60°. Extend side BC past C to a point D. What is the exterior angle ACD?",
         "steps": [
@@ -6483,7 +6483,7 @@
       "headline": "Undo a replacement or removal",
       "intro": "Replacing a reading keeps the number of entries fixed. Removing a reading changes both total and count. Work with the before and after totals to see exactly what changed.",
       "bridge": "During the overlapping-readings puzzle, watch the film recover the group totals before removing a duplicate. Track the number of observations as carefully as their values.",
-      "recap": "Write a before line and an after line for both count and total. A large change to one item can make only a small change to the mean.",
+      "recap": "Convert the mean back into a total first. Cross out an entry or swap it for its replacement, then count how many entries remain before dividing.",
       "example": {
         "prompt": "Five lengths average 12 cm. A length of 8 cm is replaced by one of 18 cm. What is the new mean?",
         "steps": [
@@ -6534,7 +6534,7 @@
     {
       "slot": 226,
       "headline": "Keep all surviving arrangements",
-      "intro": "Some puzzles have more than one valid arrangement. Cross out a candidate only when you can name the clue it breaks. Count every surviving arrangement if the question asks how many.",
+      "intro": "Arrange three name cards in a row. A clue might fix one card yet leave two different orders possible. Keep both orders until another clue rules one out.",
       "bridge": "During the painting arrangement, note the difference between a position that works temporarily and an order that satisfies every clue at once.",
       "recap": "A single working arrangement shows possibility. A complete count needs every surviving arrangement exactly once.",
       "example": {
@@ -6587,7 +6587,7 @@
     {
       "slot": 227,
       "headline": "Split the walk at a checkpoint",
-      "intro": "A checkpoint divides a route into a journey to the checkpoint and a journey onward. An option before it can be paired with any option after it if there are no further restrictions.",
+      "intro": "Draw a dot at the fountain. Each route through it has a first part that ends at the dot and a second part that starts there. If you change only the second part, have you made a different complete route?",
       "bridge": "At the film’s closed crossings, imagine counting the routes that would have passed through each one. Look for routes that would be counted in both groups.",
       "recap": "Add routes arriving by alternatives. Multiply counts on consecutive, independently chosen sections of the same route.",
       "example": {
@@ -6627,7 +6627,7 @@
           "family": "SPATIAL-01:continuation:C",
           "title": "One broken bridge",
           "prompt": "A walker starts at (0,0), finishes at (5,4) and uses only unit steps right or up. Only the horizontal edge joining (1,1) to (2,1) is closed. How many routes remain?",
-          "hint": "The ends of the bridge can still be visited using other edges."
+          "hint": "Count all routes first. For the closed edge, count the ways to its left end and the ways onward from its right end."
         },
         {
           "id": "RWL2-227-D",
@@ -6641,7 +6641,7 @@
     {
       "slot": 228,
       "headline": "Track the carry as a second clue",
-      "intro": "Column addition has two outputs. The last digit goes into the answer and a possible carry enters the next column. A letter that appears in both columns must satisfy both jobs.",
+      "intro": "Add 8 + 8 in the units column. The result, 16, has one ten to send to the next column and six units to leave behind. In a letter puzzle, either digit can become a clue.",
       "bridge": "The film adds a number ending in five to itself. Pause at the units column. The written units digit and the carry do two different jobs.",
       "recap": "Confirm the completed addition with ordinary numbers. Check leading digits and every “different digits” rule.",
       "example": {
@@ -6697,7 +6697,7 @@
       "headline": "Infer a worker from two teams",
       "intro": "Sometimes a job tells you the time for teams but keeps an individual's rate hidden. Write the amount each team completes in the same time and compare.",
       "bridge": "In the film's batch of boxes, compare two individual rates with their combined rate. Hold on to that relationship when the practice gives you only the teams' rates.",
-      "recap": "When comparing team rates, cancel only the shared workers. Test a recovered rate against every team mentioned.",
+      "recap": "Write every rate for the same length of time. Two teams with one worker in common can be subtracted. If three pair rates include each worker twice, add the rates and halve the result.",
       "example": {
         "prompt": "Lee and Jo pack 15 boxes per minute together. Lee packs 6. How many does Jo pack per minute?",
         "steps": [
@@ -6748,7 +6748,7 @@
     {
       "slot": 230,
       "headline": "Follow the position, not the label",
-      "intro": "A shuffle moves a token even if the names of its positions stay fixed. Follow one token through the rule until its position returns. Different tokens may have different cycle lengths.",
+      "intro": "Label three boxes and move a coin between them. The labels stay put while the coin travels. To predict a later move, record the starting box as move zero and look for its first return.",
       "bridge": "When the film combines two turning dials, record their positions together. See why one dial returning alone does not reset the whole display.",
       "recap": "Distinguish the travelling object from the fixed labels. When the question asks about the full arrangement, combine the cycles of all the objects involved.",
       "example": {
@@ -6804,7 +6804,7 @@
       "headline": "Find the crossover between two plans",
       "intro": "Two cost tables may have different starting charges and different costs per visit. Track both when comparing the plans. Whole-number visits can put the change of advantage between two rows.",
       "bridge": "For the two visit plans, pause at the point where the costs match. Check the next whole visit to establish which plan actually becomes cheaper.",
-      "recap": "If the question asks for the first cheaper visit, check the row on each side of equality. A tie has no cheaper plan.",
+      "recap": "Start with the fixed fee, then add the cost of each visit. A tie has no cheaper plan. Check the next whole visit, and check again if either table has a weekly cap.",
       "example": {
         "prompt": "Plan A costs 4 dollars plus 3 per visit. Plan B costs 10 plus 1 per visit. At how many visits do their costs match?",
         "steps": [
@@ -6857,7 +6857,7 @@
     {
       "slot": 233,
       "headline": "Reassemble overlapping descriptions",
-      "intro": "A part may be named as a fraction of the original whole or as a fraction of something already selected. Sketch one bar and label each bracket with its own whole.",
+      "intro": "Draw one rectangle for a whole garden. Shade the part that is planted, then outline just the planted part. If half of that part grows beans, which rectangle are you halving?",
       "bridge": "Watch the film's two classes take chalk. Keep a finger on the collection a fraction refers to before deciding whether to multiply it by the original number or the remainder.",
       "recap": "Read your calculation aloud with the word “of”. Each fraction should name the collection that comes immediately after it.",
       "example": {
@@ -6913,7 +6913,7 @@
       "headline": "Undo repeated rules without guessing",
       "intro": "When a machine repeats a rule, undo one complete round before undoing another. A short reverse table keeps track of which values sit between rounds.",
       "bridge": "The final machine in the film combines several moves. Trace its arrows backwards one at a time, just as you will trace repeated scoring rounds.",
-      "recap": "Write the intermediate value after each undoing. It should reproduce the next value in one forward step.",
+      "recap": "Write one arrow for each forward operation. Read the arrows in reverse order and undo each one. Run the answer forwards once to check the order and the final value.",
       "example": {
         "prompt": "A score doubles and then gains 1 each round. It ends on 15 after two rounds. What was its starting value?",
         "steps": [
@@ -6964,7 +6964,7 @@
     {
       "slot": 235,
       "headline": "Choose the first point of difference",
-      "intro": "For a complicated list, let the first unusual event decide the case. Every allowed outcome then has one clear home even when a later position also looks unusual.",
+      "intro": "Suppose a signal can contain several flashes. Count it by the position of its first flash. Even a signal with three flashes belongs to exactly one group, because only one flash comes first.",
       "bridge": "In the exhibit puzzle, follow where a particular exhibit sits. Notice how its position is a feature that each complete arrangement can have only once.",
       "recap": "When a condition can be satisfied several times, classify by its first occurrence to avoid counting the same outcome in several cases.",
       "example": {
@@ -7017,7 +7017,7 @@
     {
       "slot": 237,
       "headline": "Several columns share one ink supply",
-      "intro": "A complete set of fixed-width codes treats all positions alike because a leading zero is printed. Ordinary page numbers drop those zeros. Decide which labels the printer actually makes.",
+      "intro": "Compare a timer showing 07 with page 7 of a book. The timer uses ink in both places. The page number uses only one. Check which kind of label the question is counting.",
       "bridge": "Watch how the film counts fours without writing hundreds of labels. Why can complete blocks be handled together while the unfinished block needs its own check?",
       "recap": "Use symmetry only when the label rules treat places the same way. Account explicitly for any suppressed leading zeros.",
       "example": {
@@ -7072,7 +7072,7 @@
       "slot": 239,
       "headline": "Use a boundary to shorten the list",
       "intro": "Sometimes a condition makes most rows impossible. Put the variables in order and use the total to bound the first one before doing any detailed counting.",
-      "bridge": "Watch the film fill its labelled boxes. For a fixed first box, try the smallest and largest possible completions before listing the middle choices.",
+      "bridge": "The three boxes in the film hold at most six tokens each. Once you fix the number in A, how does the cap on C tell you where to start the list for B?",
       "recap": "Try the smallest or largest possible completion. If even that misses the target, discard the entire row.",
       "example": {
         "prompt": "Three different positive whole numbers sum to 9. What is the greatest possible value of the smallest number?",
@@ -7127,7 +7127,7 @@
       "headline": "Use what the clue tells you",
       "intro": "A clue removes some outcomes before you calculate. Keep only the outcomes compatible with that clue. Then compare the successful outcomes with this smaller set.",
       "bridge": "At the two spinners, watch how the outcome table gives a place to each ordered pair. Imagine crossing out cells incompatible with an extra clue.",
-      "recap": "State the remaining sample space after the clue. Make sure the clue describes an event, not a different experiment.",
+      "recap": "Make one square for each equally likely outcome. Cross out the squares the clue rules out. The denominator counts the squares left, and the numerator counts the successes among them.",
       "example": {
         "prompt": "A fair die has shown an odd number. What is the probability it showed 5?",
         "steps": [
@@ -7178,7 +7178,7 @@
     {
       "slot": 242,
       "headline": "Find a quantity that keeps its parity",
-      "intro": "Some moves change a number but preserve whether it is odd or even. Trace that property through one legal move before trying long move sequences.",
+      "intro": "Put five counters in pairs and mark the leftover counter. If a move adds a pair or takes a pair away, what happens to the leftover? This lets you rule out some targets without following every move.",
       "bridge": "Notice every move the film's counter can make from thirteen. What information about its position survives even when you forget the exact number?",
       "recap": "State the starting parity, the effect of each allowed move and the target parity. Matching parity alone does not construct a route.",
       "example": {
@@ -7232,7 +7232,7 @@
     {
       "slot": 243,
       "headline": "Two totals can describe changing ages",
-      "intro": "Time adds the same number of years to each person. Differences stay fixed while sums grow by the number of people times the years elapsed.",
+      "intro": "Draw two age bars, one for each sibling. Extend both bars by five years. Their ends are still the same distance apart, even though the sum of their ages has grown.",
       "bridge": "In the film's opening sum-and-gap puzzle, use the difference to find a pair that fits the total. In an age problem, that same difference survives the passing of time.",
       "recap": "Put a time label beside each age. Check ratios at the date named in the question.",
       "example": {
@@ -7286,7 +7286,7 @@
       "slot": 244,
       "headline": "Put the boundaries into the count",
       "intro": "A regular list may start inside an interval. Count all multiples through the upper endpoint, then remove those lying before the lower endpoint. The same subtraction works on overlaps.",
-      "bridge": "In the film’s final intervals of integers, look at which endpoint is included. Also locate the first common multiple in each pair of excluded lists.",
+      "bridge": "The film marks multiples of 2, 3 and 5 between 1 and 84. Pick a number marked twice and trace how the overlap correction counts it once. What changes if the question asks for exactly one mark?",
       "recap": "At a lower endpoint L, remove through L − 1. Recheck the endpoints when an overlapping list is involved.",
       "example": {
         "prompt": "How many multiples of 4 lie from 9 to 24 inclusive?",
@@ -7338,7 +7338,7 @@
     {
       "slot": 246,
       "headline": "Locate a palindrome by its prefix",
-      "intro": "The leading half of a palindrome fixes the other half. To find a neighbour or a range, compare the first possible reflected prefix with the actual boundary.",
+      "intro": "Write 43, then write its digits backwards beside it. Try the same thing with 44. Every four-digit palindrome has exactly one such starting pair, so these pairs give you a way to search in order.",
       "bridge": "The film studies the mirrored number 3663 before counting longer palindromes. Look for the independent choices hidden inside the mirrored notation.",
       "recap": "For a strict boundary, even an exact match must be skipped. Reflect the next or previous prefix as needed.",
       "example": {
@@ -7394,7 +7394,7 @@
       "headline": "Read an operating cycle",
       "intro": "A timer might include active time and idle time. Sketch one complete cycle, label when output happens, then place the stopping time exactly.",
       "bridge": "Watch both flashing signals in the film and locate the end of one full repeat. A machine that alternates between working and resting also has a cycle you can mark.",
-      "recap": "For a partial final cycle, count what occurs before the stated finishing instant. A scheduled rest contributes time but no output.",
+      "recap": "Draw the first burst and the rest as separate parts of a timeline. Put your finger at the stopping time. A rest after the last burst only counts if it falls before that point.",
       "example": {
         "prompt": "A nozzle sprays for 2 seconds, then rests for 3 seconds. How many seconds does it spray in the first 10 seconds if it starts by spraying?",
         "steps": [
@@ -7446,7 +7446,7 @@
     {
       "slot": 248,
       "headline": "Remember how a route ended",
-      "intro": "A new restriction may make the landing alone insufficient. Keep different counts for routes with different possible next moves, such as routes ending in a long move and routes ending in a short move.",
+      "intro": "Write a list of codes that forbid BB. A code ending in A can take either next letter, while a code ending in B can take only A. Keep those two counts separate when extending your list.",
       "bridge": "Watch the film’s blocked rung remove a possible previous landing. Then ask what extra information a path count would need if an entire kind of move were restricted.",
       "recap": "Store exactly the piece of history that changes the legal next choices. Keep your ending categories disjoint before adding them.",
       "example": {
@@ -7502,7 +7502,7 @@
       "headline": "Make each case stand for one outcome",
       "intro": "If a problem asks about unordered pairs or shapes, swapping their labels may leave the same outcome. Choose a fixed convention before counting.",
       "bridge": "In the rectangle example, the shorter side determines its partner. In the pair puzzle, look for how naming the smaller number avoids listing a pair twice.",
-      "recap": "Give each possibility one representative, prove that you considered them all and check the original conditions.",
+      "recap": "Write the smaller member of each pair first. Explain why a smaller first member or a larger one would miss the conditions. That tells a reader where your list begins and ends.",
       "example": {
         "prompt": "Two positive whole numbers sum to 7. How many different pairs are there if swapping their order counts as the same pair?",
         "steps": [
@@ -7554,7 +7554,7 @@
     {
       "slot": 250,
       "headline": "Distinguish crossing a seam from touching it",
-      "intro": "A seam splits a board into two sections. If tiles may not cross it, those sections can be tiled independently. If a tile must cross, look at what placement the crossing forces.",
+      "intro": "Draw a line between two columns. A domino crosses it only when the domino has a square on each side. If every domino stays on one side, a tiling on the left can be paired with any tiling on the right.",
       "bridge": "As the film marks upright dominoes, sketch where a horizontal pair can cross a line between columns. What would forbid that crossing?",
       "recap": "For a “must cross” condition, subtract seam-respecting tilings from all tilings or fix the crossing pieces directly.",
       "example": {
@@ -7608,7 +7608,7 @@
     {
       "slot": 251,
       "headline": "Find the first positive shared return",
-      "intro": "A return problem asks when cycles return together. Write the time of their shared start as zero and look for the least positive common multiple. A later question might ask for a different shared return.",
+      "intro": "Draw separate marks at the shared start and at the first time both devices return together. If their schedules keep repeating, the distance between those two marks is also the distance to the next return.",
       "bridge": "Mark the coinciding restarts in the film's first example. Decide whether zero is a valid answer when the question asks for the next shared restart.",
       "recap": "Distinguish the start, the first return and the number of shared instants in a closed interval.",
       "example": {
@@ -7661,7 +7661,7 @@
     {
       "slot": 253,
       "headline": "Count a shared boundary",
-      "intro": "Adding perimeters treats a common edge as part of both pieces. At the outer boundary it occurs just once. Identify which edges are counted once and which twice.",
+      "intro": "Trace a finger around two separate square tiles. Now push them edge to edge and trace around the joined shape. The two edges that meet disappear inside the shape. How much tracing distance did the join remove?",
       "bridge": "The handshake example counts one meeting from both ends. Watch for the same double report in the tournament before applying the idea to two tiles sharing an edge.",
       "recap": "Convert piece counts into boundary counts by subtracting two reports for each shared full edge. Holes also have boundary edges.",
       "example": {
@@ -7713,7 +7713,7 @@
       "slot": 254,
       "headline": "Recover an unseen stack",
       "intro": "A plan can reveal most heights but leave one hidden. The total number of cubes gives an equation for the missing stack, even when its outline is hard to draw.",
-      "bridge": "In the film, a vertical removal and a tunnel share a cube. Watch how counting that location once recovers the correct number left.",
+      "bridge": "The film gives the heights of six stacks, starting with the front row. Suppose one height were hidden but you knew the total number of cubes. Which five numbers would help you recover it?",
       "recap": "Use the total to recover missing heights, then test that the completed plan satisfies the visible views.",
       "example": {
         "prompt": "A model contains 11 cubes. Its four solid stacks are 2, 3, 1 and an unknown height. Find that height.",
@@ -7768,7 +7768,7 @@
       "headline": "Choose the tightest position first",
       "intro": "A restriction on size, parity or order may determine one digit more tightly than the others. Split into its cases first, then fill the remaining places.",
       "bridge": "In the film's even-number puzzle, group the possibilities by their last digit. Test what happens to the first-place choices in the group that ends in zero.",
-      "recap": "Ensure your cases are mutually exclusive. A number ends in exactly one digit, making its last digit a reliable way to split cases.",
+      "recap": "Write one row for each possible final digit. Cross that card off before choosing a hundreds digit. A zero still on the table can fill an inside place, but the hundreds place needs a nonzero card.",
       "example": {
         "prompt": "Using different cards 0, 3 and 4, how many three-digit even numbers can you make?",
         "steps": [
@@ -7820,7 +7820,7 @@
     {
       "slot": 257,
       "headline": "Pair terms equally far from the ends",
-      "intro": "When each term changes by the same amount, moving one term inwards from each end preserves their sum. Pairing lets you total a long sequence without adding every entry.",
+      "intro": "Write the shortest row above the longest, then the next-shortest above the next-longest. What the top row gains, the bottom row loses. Check whether one middle row is still unpaired.",
       "bridge": "In the row-of-seats problem, compare an outside pair with the next pair moving inwards. Watch how the unchanged pair sum shortens the total.",
       "recap": "Count the terms before pairing. In an odd-length list the middle term is half the outside pair’s sum.",
       "example": {
@@ -7874,7 +7874,7 @@
     {
       "slot": 258,
       "headline": "Mark a bound on each position",
-      "intro": "“Exactly two places after” and “somewhere after” give different legal intervals. Write the place numbers so that gaps cannot disappear when you reason.",
+      "intro": "Mark four numbered spaces. Put your finger on space 1 and move it exactly two places right. You land on 3, leaving only one space between the two positions. Try each possible start.",
       "bridge": "Watch where the film tests a two-place gap in an ordered list. Which potential start causes the other end to run out of room?",
       "recap": "Write each possible start of a gap or block, and rule out positions that would fall beyond the ends.",
       "example": {
@@ -7929,7 +7929,7 @@
       "headline": "Intersect two quick divisibility tests",
       "intro": "Some numbers can be tested from their final digits, while others can be tested from their digit sum. Apply the shorter test first and keep only candidates that satisfy the other.",
       "bridge": "The film's last-digit puzzle combines two divisibility clues. Track the candidates still possible after the first clue, then cross-check the second.",
-      "recap": "After using a fast rule, verify the finished numbers against every divisor. Check whether the task needs one solution or a count.",
+      "recap": "Make a short list of digits that pass one test, then cross out any that fail the second. Read the question again before choosing your answer. Does it ask for a digit, a complete number or a count?",
       "example": {
         "prompt": "Which digits can complete 31A so it is divisible by both 2 and 3?",
         "steps": [
@@ -7981,7 +7981,7 @@
       "slot": 261,
       "headline": "Compare two rules on the same input",
       "intro": "When two payment or scoring rules apply to the same number of items, represent that number only once. A smaller starting fee can be overtaken by a larger charge per item.",
-      "bridge": "The film writes expressions for two ticket categories using one unknown. Watch which expressions describe the same input, a useful step when two pricing rules must agree.",
+      "bridge": "The film writes the child ticket count as 24 minus the adult ticket count. In the boat problem, one hire lasts an hour longer than the other. How could you express both hire times using one letter?",
       "recap": "Once you find equality, test one count on either side to see which rule wins there.",
       "example": {
         "prompt": "Rule A scores 3 per turn plus a bonus of 6. Rule B scores 5 per turn. After how many turns are they level?",
@@ -8033,7 +8033,7 @@
     {
       "slot": 262,
       "headline": "Separate identical pieces using gaps",
-      "intro": "Identical pieces have no individual labels. Arrange the distinct objects first and use their gaps to place repeated pieces. A gap at either end is usually legal unless the problem says otherwise.",
+      "intro": "Put the letters A and B on a table. There are three places for a dot, including before A, between the letters and after B. Putting at most one dot in each place keeps every pair of dots apart.",
       "bridge": "Watch the film turn two neighbours into a block. Draw the gaps around the other objects as a second way to handle things that must stay apart.",
       "recap": "Count the gaps actually available, then decide whether the things going into them are distinguishable.",
       "example": {
@@ -8087,7 +8087,7 @@
     {
       "slot": 263,
       "headline": "Apply transformations in order",
-      "intro": "After a turn, translation or reflection, the second move starts from the newly reached position. Mark the intermediate image as carefully as the final one.",
+      "intro": "Mark a dot and draw an arrow to its first image. Start the second arrow where the first one ends. If you need to recover the original dot, follow the arrows backwards, undoing each move.",
       "bridge": "Follow the point reflected across the film’s vertical mirror. On the square board, apply one reflection and then the other to the same cell.",
       "recap": "Record each image in order and verify that a reflection or turn preserved the distances it should.",
       "example": {
@@ -8143,7 +8143,7 @@
       "headline": "Compare shares of different wholes",
       "intro": "The same number of objects can be a different fraction in each box. When two fractions describe equal amounts, use that equal amount to link the wholes.",
       "bridge": "The film redraws a pile after a fraction has gone. Notice that a surviving group can describe one fraction of its old whole and a different fraction of its new one.",
-      "recap": "Name the amount the two expressions share. Then restore each whole separately, and use any total or difference to fix the scale.",
+      "recap": "Draw one bar per whole and divide each into the parts named in its fraction. Label the equal lengths on both bars. How many copies of each marked length would restore its original whole?",
       "example": {
         "prompt": "Half of one bag is 6 shells. A third of another bag is also 6 shells. How many shells are in the two bags together?",
         "steps": [
@@ -8194,7 +8194,7 @@
     {
       "slot": 267,
       "headline": "Carry a symbol’s value between lines",
-      "intro": "The same symbol has the same value wherever it appears. Two equations can together reveal a value that neither equation gives alone.",
+      "intro": "Draw one star and one circle in a row. Copy that row underneath and add a second star. If you know each row’s total, cover the matching shapes and see what accounts for the difference.",
       "bridge": "When the film uses a cell in two different magic lines, follow the same value through both equations. This is the same test for a repeated symbol.",
       "recap": "Subtract equations with matching parts, and check recovered values in both original lines.",
       "example": {
@@ -8250,7 +8250,7 @@
       "headline": "Choose the unwanted frames carefully",
       "intro": "With two marked regions, a frame can include both. To exclude the second mark, remove frames that satisfy its condition and the first mark’s condition together.",
       "bridge": "Watch how the film counts frames that cover both A and B. That unwanted group is precisely what must come out of the first count.",
-      "recap": "When subtracting bad frames, keep every condition imposed by the original count.",
+      "recap": "Make a tiny sketch of a rectangle that covers both marks. When you subtract the frames containing either mark, that sketch tells you exactly which group you have subtracted twice.",
       "example": {
         "prompt": "A strip has three cells. How many intervals of full cells contain the first cell but exclude the last?",
         "steps": [
@@ -8302,7 +8302,7 @@
     {
       "slot": 269,
       "headline": "Choose prime copies to build a divisor",
-      "intro": "A factorisation tells you exactly which prime copies a divisor may contain. Choosing no copy is a real choice, and choosing every copy gives the number itself.",
+      "intro": "Write 12 as 2 × 2 × 3. To build a divisor, pick how many copies of 2 and how many copies of 3 to use. Picking none of either gives 1, which belongs on the list.",
       "bridge": "When the film counts the divisors of 60, look for a choice with no copy of a prime. Losing that choice would miss some factors.",
       "recap": "The exponent is one less than the number of available choices. Restrict the choices first if the divisor must be even or meet another condition.",
       "example": {
@@ -8355,7 +8355,7 @@
     {
       "slot": 270,
       "headline": "Compare travel plans against a deadline",
-      "intro": "A fixed journey or deadline makes one missing speed or time recoverable. Subtract the completed leg from the total before finding the remaining rate.",
+      "intro": "Make two short lists for the journey, one for kilometres left and one for minutes left. A stop changes only the minutes. A stretch of driving changes both. Keep the lists in step before calculating the next speed.",
       "bridge": "During the film's out-and-back ride, put the stop on the same clock as both legs. A deadline leaves only the time after everything already done has been subtracted.",
       "recap": "Calculate the remaining distance and the remaining time separately. A speed for the last leg must use both remaining quantities.",
       "example": {
@@ -8409,7 +8409,7 @@
     {
       "slot": 271,
       "headline": "Make a list that reveals collisions",
-      "intro": "A choice and its result are two different things. If several choices produce the same result, keep a separate list of the results. Sorted rows make collisions easier to see.",
+      "intro": "With number cards, 1 × 4 and 2 × 2 use different pairs but give the same product. Make one list for the choices and another for the numbers they produce. Which list does the question ask you to count?",
       "bridge": "In the two-counter puzzle, the film treats the counters as labelled. Decide which different readings share the same sum, and why a question about sums would need a different list.",
       "recap": "Count a repeated result once. Keep repeated choices when the question asks for ways, and merge them when it asks for different outcomes.",
       "example": {
@@ -8464,7 +8464,7 @@
       "headline": "Lengths and areas scale differently",
       "intro": "A drawing enlarged with the same scale factor in both directions keeps its shape. An area changes in both directions, so its scale factor is the square of the length scale factor.",
       "bridge": "Watch the film scale the length of a drawn wall. Think about whether that scale factor should act once or twice if the next question asks about a rectangular area.",
-      "recap": "Identify what the measurement counts. Length follows one scale factor, while a covering of square units follows two.",
+      "recap": "A length of 1 unit becomes k units in a scale drawing. A unit square becomes k by k, and a unit cube becomes k by k by k. Use the matching multiplier for length, area or volume.",
       "example": {
         "prompt": "A 2 cm by 3 cm rectangle is enlarged by a factor of 2. What is its new area?",
         "steps": [
@@ -8516,7 +8516,7 @@
     {
       "slot": 275,
       "headline": "Give every change its own sign",
-      "intro": "In a sequence of gains, losses and transfers, update one chosen difference consistently. State which side is subtracted and let a negative value mean the lead has changed hands.",
+      "intro": "Write A’s score minus B’s score in a small box. If A scores, the number in the box rises. If B scores, it falls. When the number passes through zero, who has taken the lead?",
       "bridge": "When the film adjusts the three teams' scores, follow one team's lead over another through each transfer. Keep the direction of subtraction fixed.",
       "recap": "Check a signed difference by making up one possible pair of opening scores and replaying the changes.",
       "example": {
@@ -8571,7 +8571,7 @@
       "headline": "Follow a chain of descriptions",
       "intro": "When one speaker describes another as truthful, their types match. When the description says the other is a liar, the types differ. A chain of clues can force a result before any name gets a definite type.",
       "bridge": "As Iris, Kai, Lia and Mo make their claims, track which pairs match or differ. Then test whether Mo’s entire claim is true.",
-      "recap": "Carry equality or difference along the chain, then find a claim that fixes which type actually occurs.",
+      "recap": "For a chain of speakers, write “same” or “opposite” between neighbouring names. For a claim that something must happen, try to build one case in which the clue holds and the proposed result fails.",
       "example": {
         "prompt": "Each speaker always tells the truth or always lies. Sue says, “Tom is a liar.” Tom says, “Uri is a liar.” Must Sue and Uri have the same type?",
         "steps": [
@@ -8623,7 +8623,7 @@
     {
       "slot": 277,
       "headline": "Follow the faces made by a cut",
-      "intro": "Cutting and separating a solid can create fresh faces even when the volume stays fixed. The shape of the cutting plane determines how much surface appears.",
+      "intro": "Picture slicing a loaf across its middle and pulling the halves apart. You can now see the same cut shape on each half. Count both new surfaces if the question asks about the two pieces together.",
       "bridge": "The open box in the film counts only material that actually forms a face. Keep that idea for a cut, where a face inside the solid can become exposed.",
       "recap": "Draw the cross-section first. Count one copy of its area for every new face that becomes exposed.",
       "example": {
@@ -8677,7 +8677,7 @@
     {
       "slot": 278,
       "headline": "A mirror doubles some digit contributions",
-      "intro": "For a five-digit palindrome ABCBA the digit sum is 2A + 2B + C. Use the digit-sum condition while choosing the free digits, remembering that A cannot be zero.",
+      "intro": "Write A B C B A and draw a little arc between each matching pair. The centre digit has no partner. That tells you which digits count twice and which one counts once when you add them.",
       "bridge": "The film doubles the sum of two chosen digits to find the digit sum of a four-digit palindrome. Imagine slipping one new digit into the centre. How many times should you count that digit?",
       "recap": "After finding a centre digit, check that it is an integer from 0 to 9. For divisibility by nine, both 0 and 9 may qualify.",
       "example": {
@@ -8731,7 +8731,7 @@
     {
       "slot": 279,
       "headline": "Count departures and arrivals separately",
-      "intro": "A service timetable is a sequence of events. Departure and arrival occur on different clocks linked by travel time. Anchor the first time before counting intervals.",
+      "intro": "Make two rows headed “leaves” and “arrives”. Write the first departure in the top row and add the journey time directly underneath. The next column is one service interval later in both rows.",
       "bridge": "In the film, note the time of the sensor's first flash before listing later ones. A departure timetable likewise needs both the first event and the interval.",
       "recap": "Move an arrival deadline backwards by the travel time. Then count only departures that actually satisfy it.",
       "example": {
@@ -8786,7 +8786,7 @@
       "headline": "Follow halved angles",
       "intro": "An angle bisector divides an angle into two equal turns. When more than one bisector appears, label the halves before adding them.",
       "bridge": "Follow the two halves at B and C into the smaller triangle in the film. Add them before trying to use the 180° sum.",
-      "recap": "When a diagram contains bisectors, work with the two halves as a sum and then finish the triangle they bound.",
+      "recap": "Outline the small triangle formed by the bisectors and the side joining their starting corners. Mark which two angles are halves. Their sum is half the sum of the two original corner angles.",
       "example": {
         "prompt": "Angles B and C of a triangle total 110°. Their bisectors make a smaller triangle with the original side BC. What do its angles at B and C add to?",
         "steps": [
@@ -8838,7 +8838,7 @@
     {
       "slot": 282,
       "headline": "Compare totals over overlapping windows",
-      "intro": "Two averages may refer to groups that share some readings. Convert means into totals, then cancel readings that occur in both groups.",
+      "intro": "Write the days in a row. Underline the first three days in one colour and the next three-day window in another. When you compare their totals, the two days marked twice cancel.",
       "bridge": "In the film's overlapping groups, circle the reading that belongs to both groups. Follow how subtracting the overall total recovers it.",
       "recap": "Mark shared observations before adding or subtracting group totals. A sum of overlapping totals counts the overlap twice.",
       "example": {
@@ -8891,7 +8891,7 @@
       "headline": "Index one full cycle",
       "intro": "The last digit of a product depends only on the last digits of its factors. Repeated multiplication may settle into a short cycle. Label the first term carefully before reducing a large exponent.",
       "bridge": "In the film's powers of three, label the exponent above each last digit. Find the first repeated digit together with its position before tackling the sum of many powers.",
-      "recap": "When an index divides exactly by the cycle length, it usually selects the final entry of a cycle indexed from 1. Check against a small exponent.",
+      "recap": "Label the positions in a cycle 1, 2, 3 and so on. For a four-step cycle, test exponent 4 and exponent 5 first. Those two checks show exactly where one cycle ends and the next begins.",
       "example": {
         "prompt": "What is the last digit of 2 to the sixth power?",
         "steps": [
@@ -8943,7 +8943,7 @@
     {
       "slot": 284,
       "headline": "Scale before subtracting",
-      "intro": "Equal parts cancel only if their counts match. You can multiply an entire purchase or balance to make one kind of item occur equally many times.",
+      "intro": "Picture buying two copies of the same mixed bag. Every item count doubles, and so does the price. You can now compare that order with a different one carrying the same number of pens.",
       "bridge": "Watch the film scale a pen-and-marker purchase to match another one. Check that the price as well as every item count is multiplied before subtracting.",
       "recap": "Whenever you scale an equation or a bundle, scale its total as well as every item count.",
       "example": {
@@ -8996,7 +8996,7 @@
     {
       "slot": 285,
       "headline": "Recover a missing group size",
-      "intro": "A table of memberships can be read by rows or by columns. Even when you cannot name the memberships individually, the two totals must agree.",
+      "intro": "Draw a tick whenever a child appears in a team photo. Count the ticks by photo, then count them by child. Both totals count the very same appearances, even when one child is in several pictures.",
       "bridge": "For the room bookings, watch a single booking from the viewpoint of the room and the viewpoint of its helper. Both views have to produce the same total.",
       "recap": "Equate two counts of the same events. If your totals do not agree, check for repeated visits or memberships before drawing a conclusion.",
       "example": {
@@ -9051,7 +9051,7 @@
       "slot": 286,
       "headline": "Count the change across floors",
       "intro": "Changing a stack affects precisely the floors it reaches. Comparing two models is often quicker if you count only the added or removed cubes.",
-      "bridge": "When the stack model changes in the film, track which hidden cubes could be added while leaving every displayed maximum the same.",
+      "bridge": "For the film’s six stacks, look down each row for its tallest stack. Can another stack grow by one without changing either the row maximum or its column maximum?",
       "recap": "Track the deficit at each position. An unchanged position contributes zero to the change.",
       "example": {
         "prompt": "Stacks of heights 2, 4 and 1 are all raised to height 4. How many cubes are added?",
@@ -9104,7 +9104,7 @@
     {
       "slot": 289,
       "headline": "Use a pair when one entry cannot predict the next",
-      "intro": "When a new output depends on the last two, a repeated single value says too little. A repeated ordered pair reproduces the same future, provided the rule never changes.",
+      "intro": "In a list built by adding the last two entries, seeing a 1 again tells you little by itself. Record the two entries side by side. When that whole pair returns in the same order, the following entry is forced.",
       "bridge": "In the film’s machine, a state predicts the entire next move. Think about whether one term is enough information when the next output depends on two earlier terms.",
       "recap": "State what information determines the next output. Keep an ordered pair if the order matters, and compare like with like when finding the period.",
       "example": {
@@ -9158,7 +9158,7 @@
     {
       "slot": 290,
       "headline": "Read the boundary as evidence",
-      "intro": "A drawing need not show every measurement. Separate the outer loop from holes and shared edges to infer a missing length.",
+      "intro": "Trace the outside edge of a card with a window cut into it. You must lift your finger to begin tracing the window. Write a separate length for each loop before combining the measurements.",
       "bridge": "The film draws a board with an inner hole and a corner cut. Watch which lengths can be recovered from the change in total boundary.",
       "recap": "Write one term for every boundary loop and use the geometry of each loop to recover unknown lengths.",
       "example": {
@@ -9212,7 +9212,7 @@
     {
       "slot": 291,
       "headline": "Count the effect of one closed link",
-      "intro": "A single closed link removes only routes that used that connection. To count them, work out at what point in the route using it would be possible.",
+      "intro": "Draw two routes from a start to a finish. Put a cross on one link and trace each route again. A route survives exactly when every link on it is still open.",
       "bridge": "At the missing connection in the red-blue route, identify the two stops that cannot be consecutive, then check both directions through that pair.",
       "recap": "When subtracting forbidden routes, keep endpoints, order and any no-repeat conditions in force.",
       "example": {
@@ -9270,7 +9270,7 @@
     {
       "slot": 293,
       "headline": "Model a change with one unknown",
-      "intro": "Choose a quantity that makes every related amount easy to express. If the quantity changes, name its starting value and write each later value from it.",
+      "intro": "If one box has three fewer counters than another, label the fuller box x and the other x − 3. Read both labels aloud in the story. Which expression counts all the counters together?",
       "bridge": "In the film's ticket sale, pause after choosing the first unknown. Form an expression for the remaining tickets and test what the two ticket counts must add to.",
       "recap": "Read the proposed answer back into the original story. Check any conditions on whole numbers and on what can be moved or spent.",
       "example": {
@@ -9325,7 +9325,7 @@
       "headline": "Read the paint count backwards",
       "intro": "A count of painted pieces can tell you the size of the original block. Translate what a piece’s paint category says about its position.",
       "bridge": "In the painted-cuboid film, look for an edge count or a face-interior count you could undo if one large dimension were hidden.",
-      "recap": "Reverse the classification before taking a square root or restoring edge layers.",
+      "recap": "Locate the small cubes first. Face interiors stop one place short of each edge, edge interiors stop one place short of each corner, and clean cubes lie one layer below every painted face.",
       "example": {
         "prompt": "On one face of a big cube, exactly 9 small cubes lie strictly inside the face border. How many cubes run along the outer edge?",
         "steps": [
@@ -9377,7 +9377,7 @@
     {
       "slot": 296,
       "headline": "Use a second rule before counting",
-      "intro": "When labels must satisfy both a divisibility rule and a digit requirement, do not count those properties independently. One choice can already fix another.",
+      "intro": "For a label with a missing digit, put a box in the empty place. Write down the digits the first clue permits, then test the digit sum of each completed label. Check any limits on the digit before counting.",
       "bridge": "In the film the hard count keeps only multiples of nine. Ask which digit choices force the missing digit before you start a long list.",
       "recap": "Check each candidate against both rules. Organising by position helps show that the list is complete.",
       "example": {
@@ -9430,7 +9430,7 @@
     {
       "slot": 297,
       "headline": "Use a target fraction to balance groups",
-      "intro": "A combined fraction can reveal how many objects came from each group. Compare the contribution from each group with what it would contribute at the target fraction.",
+      "intro": "Imagine the seeds in both trays sprouted at the lower rate. Compare that count with the actual total. Every extra sprout must come from the tray with the higher rate, which gives a way to recover its size.",
       "bridge": "For the film's two groups of marked items, compare what each group would contribute on its own. Which shared total gives a way to recover a missing group size?",
       "recap": "Check that the final fraction lies between the two starting fractions. Use actual counts to check the exact mix.",
       "example": {
@@ -9484,7 +9484,7 @@
     {
       "slot": 298,
       "headline": "Use the missing end term",
-      "intro": "When you shift a geometric series by multiplying it, nearly all the terms line up. The unmatched first and last terms let you recover a total or reverse a piece of missing information.",
+      "intro": "Write 4, 8, 16, 32 on one line. Underneath, write twice each number, shifting the new line so equal numbers sit together. Which numbers lack partners when you subtract one line from the other?",
       "bridge": "Follow the film’s daily budget until you see both the amount on the last day and the whole amount used. Which of those two numbers would need to be reversed?",
       "recap": "For doubling, the running total is the next term minus the first. With another multiplier, subtract the original sum from its shifted copy before solving.",
       "example": {
@@ -9538,7 +9538,7 @@
     {
       "slot": 299,
       "headline": "Add lines to reveal the shared entries",
-      "intro": "Instead of solving each blank in isolation, add or compare whole lines. Count how many times each cell occurs before interpreting the total.",
+      "intro": "Draw a horizontal line of three cells and a vertical line through its middle. As you add the two line totals, tap each cell when you count it. Which cell gets tapped twice?",
       "bridge": "The magic-square film adds information from several lines through a shared cell. Keep track of how often the centre appears in those totals.",
       "recap": "When adding line totals, explicitly mark which cells were counted more than once.",
       "example": {
@@ -9592,7 +9592,7 @@
     {
       "slot": 300,
       "headline": "Read a crossing event once",
-      "intro": "A diagonal can cross a vertical line and a horizontal line at the same lattice point. A route or beam that meets both there still enters just one fresh cell.",
+      "intro": "Trace a diagonal through a grid corner. Just before the corner your pencil is inside one tile, and just after it your pencil is inside one new tile. The other two tiles only meet the pencil at a point.",
       "bridge": "The film distinguishes grid cells from their boundary lines. As you follow the marked cells, also identify intersections where two boundary lines meet.",
       "recap": "Distinguish touching a boundary from crossing a tile interior, and count a simultaneous crossing once.",
       "example": {
@@ -9651,7 +9651,7 @@
       "slot": 302,
       "headline": "Combine clues that overlap",
       "intro": "When totals overlap, an item may have been counted twice or missed altogether. Write the actual items below each total and compare the counts.",
-      "bridge": "When the film weighs its three pairs of boxes, tally each box as it occurs. Notice why adding all the pair totals does not yet give the true overall total.",
+      "bridge": "The film gives the numbers of counters in A and B, in B and C, and in C and A. Write the box letters under each pair total. How many times does each box appear when you add the three totals?",
       "recap": "Mark each quantity with a tally as you combine clues. Divide only when every quantity has the same tally.",
       "example": {
         "prompt": "A and B have 12 counters together. B and C have 15. A and C have 13. How many counters are there altogether?",
@@ -9703,7 +9703,7 @@
     {
       "slot": 303,
       "headline": "Account for three lists",
-      "intro": "With three lists, a common item appears three times in the first addition. Removing each pair overlap takes it away three times. One final addition restores it.",
+      "intro": "Imagine one student belongs to all three clubs. Adding the club lists counts her three times. Cross her out once for each pair of clubs she shares. How many copies must you restore so that she counts once?",
       "bridge": "Track an integer belonging to three excluded lists in the film. Count its appearances after the single, pair and three-way terms.",
       "recap": "Draw one point inside all three sets and track its count through each operation. It must finish with the same weight as every other included point.",
       "example": {
@@ -9757,7 +9757,7 @@
     {
       "slot": 305,
       "headline": "Estimate first, then recover the exact correction",
-      "intro": "A near-round calculation can reveal an error before long arithmetic begins. The exact correction depends on how many times the substituted value was used.",
+      "intro": "Imagine pricing six items at a round number first. Compare one estimated price with one exact price. Decide whether the bill must go up or down, then apply that difference to every item.",
       "bridge": "In the film's rectangular model of multiplication, locate the strip removed from the large rectangle. Its width tells you how large the correction must be.",
       "recap": "Give the correction a direction and a unit. A rounding error per item must be multiplied by the number of items it affects.",
       "example": {
@@ -9810,7 +9810,7 @@
     {
       "slot": 306,
       "headline": "Compare quantities through a shared unit",
-      "intro": "A map, model or recipe can introduce a different unit for each column. Find one dependable relationship and use it in the direction that takes you to the requested quantity.",
+      "intro": "Draw a two-column table with “model” on one side and “real” on the other. Write 5 mm beside 2 m. When you multiply one length to make a new row, multiply its partner by the same number.",
       "bridge": "The film's plan uses 1:500. Trace the measurement from drawing centimetres to real centimetres, then to metres. Returning to the drawing would reverse those steps.",
       "recap": "Attach units to every side of the comparison. Interpreting 5 mm as 5 m would change the scale by a factor of a thousand.",
       "example": {
@@ -9863,7 +9863,7 @@
       "headline": "Follow a lead that changes each round",
       "intro": "A fixed starting advantage can shrink, grow or reverse. Write the lead after one round, then use the same change per round while the rules stay fixed.",
       "bridge": "In the film's three-team score exchange, find the difference before and after one transfer. For the later rounds, the same idea lets you track how much of a lead is used each time.",
-      "recap": "Use a whole number of rounds if scores are awarded only at their ends. Distinguish reaching level from moving ahead.",
+      "recap": "Write the lead at the end of each round near the changeover. If the scores are tied in one round, another round is needed before anyone finishes strictly ahead.",
       "example": {
         "prompt": "A starts 12 ahead. Every round A gains 2 and B gains 5. How many rounds bring them level?",
         "steps": [
@@ -9915,7 +9915,7 @@
     {
       "slot": 309,
       "headline": "Count a chosen kind of domino",
-      "intro": "Two tilings can cover the same board but use different numbers of upright pieces. Track how much width each kind of placement consumes before arranging them.",
+      "intro": "Look at the first column of an empty two-row board. An upright domino fills it. If you lay a horizontal domino across the top instead, what must you put below it to fill the first column?",
       "bridge": "In the fixed-width domino board, count each paired sideways block as one choice of position but as two separate tiles.",
       "recap": "Convert individual horizontal dominoes to forced pairs before counting the order of the resulting blocks.",
       "example": {
@@ -9974,7 +9974,7 @@
       "slot": 310,
       "headline": "Count overlaps of repeating lists",
       "intro": "If either of two events qualifies, adding the two counts includes their simultaneous events twice. A least common multiple identifies the shared times to remove once.",
-      "bridge": "In the film, find the common part of the marker counts first. See why the two numbers left after dividing out their highest common factor cannot share another factor.",
+      "bridge": "The film’s two activities restart every 6 and 9 minutes. Put a dot on each schedule at the first shared restart. If you counted both dots, how many different restart times did you actually mark?",
       "recap": "For “either”, remove each overlap once. For “exactly one”, remove it from both individual counts.",
       "example": {
         "prompt": "Among numbers 1 to 12, how many are multiples of 3 or 4?",
@@ -10027,7 +10027,7 @@
     {
       "slot": 311,
       "headline": "Reverse a meeting story",
-      "intro": "A meeting time can reveal a speed or a head start. Recover the total change in the gap first, then decide which speed sum or difference produced it.",
+      "intro": "Mark the two starting positions and the place where the runners meet. When they run towards one another their distances fill the original gap. In a chase, the faster runner must also cover the distance the slower one keeps travelling.",
       "bridge": "In the film's head-start chase, identify the gap and the rate at which it closes. Read the same relationship backwards when a meeting time is given instead.",
       "recap": "Recreate both positions at the proposed meeting time. They must agree on the track or number line.",
       "example": {
@@ -10081,7 +10081,7 @@
     {
       "slot": 312,
       "headline": "Distinguish the team from the assignment",
-      "intro": "A single chosen group can carry out several different assignments. Track which swaps an observer could detect. If a swap changes neither the group nor anyone's role, that swap should not generate another count.",
+      "intro": "Imagine choosing two helpers and then swapping their names. If both helpers do the same job the choice looks identical. If one is captain and one is deputy, the swap makes a different assignment.",
       "bridge": "The film counts groups of artists, builders and coders without assigning a leading role. Watch which swaps it treats as the same team, then decide how a named job would change that.",
       "recap": "Name a reference person or object to remove symmetry. Then check how real labels or roles restore distinctions.",
       "example": {
@@ -10135,7 +10135,7 @@
     {
       "slot": 313,
       "headline": "Recover what a fold preserves",
-      "intro": "A crease acts like a mirror. Corresponding lines make equal angles with the crease. A straight angle or a triangle total often supplies the missing equation.",
+      "intro": "Draw the crease and one arrow starting on it. Flip the arrow over the crease. The turn from the old arrow to the crease has the same size as the turn from the crease to the new arrow.",
       "bridge": "When the film halves angles at B and C, mark the two equal parts at each vertex. Carry the same habit into the later fold puzzle.",
       "recap": "Mark equal angles from a fold or symmetry first. Then choose a line or triangle linking those marks.",
       "example": {
@@ -10189,7 +10189,7 @@
     {
       "slot": 314,
       "headline": "Use bounds to test an average",
-      "intro": "A known mean fixes a total. If readings are whole numbers or must be distinct, a value you are testing may force too much or too little total for the rest.",
+      "intro": "A fixed mean gives you a fixed supply of points. If you want one score as large as possible, first set aside enough points for every other score to obey its own restrictions.",
       "bridge": "Watch the film reconstruct a total from a mean and a count. Keep that total fixed when you later try to make a single reading as large as possible.",
       "recap": "Prove both a bound and an example attaining it. Distinctness and whole-number conditions can change the smallest possible leftovers.",
       "example": {
@@ -10240,7 +10240,7 @@
     {
       "slot": 317,
       "headline": "Combine facts before making cases",
-      "intro": "A fact that seems weak alone can force an entry once another clue narrows its options. Carry each new restriction through the remaining rows or positions.",
+      "intro": "Write the possible weights or positions below each name. When a clue leaves just one choice, cross it off every other list. A different clue may now force a second name.",
       "bridge": "Follow each change of position in the painting puzzle. Which later clue can be used only after the earlier block has been placed?",
       "recap": "Use each forced value to eliminate other choices. Verify the final assignment against the original clues.",
       "example": {
@@ -10294,7 +10294,7 @@
     {
       "slot": 318,
       "headline": "Block a point or a single edge?",
-      "intro": "A closed intersection removes every route entering it. A closed edge removes only journeys using one particular step, so its endpoints can still be available.",
+      "intro": "At an intersection, draw a cross on one incoming edge. Trace the other way into that intersection. Now cover the intersection itself and try again. Which routes survive each closure?",
       "bridge": "When the film closes a grid point, compare the change to erasing just one incoming edge. Look at the other routes still arriving at that point.",
       "recap": "Represent the restriction precisely and compare your result with the unrestricted route count.",
       "example": {
@@ -10327,7 +10327,7 @@
           "family": "SPATIAL-01:continuation:B",
           "title": "The disabled gate",
           "prompt": "A cart takes east or north unit steps from (0,0) to (3,2). The gate along (1,0) → (2,0) is shut. A delivery must pass through (2,1). How many routes can deliver?",
-          "hint": "Count routes to the delivery point that avoid the gate, then add all possible continuations."
+          "hint": "List the allowed ways to reach the delivery point. For each arrival, how many different ways are there to finish?"
         },
         {
           "id": "RWL2-318-C",
@@ -10354,7 +10354,7 @@
       "headline": "Filter digit assignments column by column",
       "intro": "Column equations often restrict the possible digits before you know any whole number. Write down carries and borrows, then apply conditions such as “different digits” or “smallest”.",
       "bridge": "For the film's final sum ending in zero, inspect the units column before guessing whole numbers. Its carry places a restriction on the next column.",
-      "recap": "An equation alone may allow several digit assignments. Recheck the letter restrictions and any requested maximum or minimum.",
+      "recap": "Write any carried ten above the next column. After filling the digits, calculate the complete sum or product and check the conditions on the letters. Two different letters may be required to have different digits.",
       "example": {
         "prompt": "A two-digit number has 6 tens and units digit A. Subtracting 27 gives 38. Which digit is A?",
         "steps": [
@@ -10406,7 +10406,7 @@
     {
       "slot": 321,
       "headline": "Count hits in a shifted cycle",
-      "intro": "For a long run, count complete blocks of the cycle and then inspect the leftover block. If the cycle has a lead-in, decide separately whether the target occurs during that opening stretch.",
+      "intro": "Circle the first day of the repeating block. Count any earlier days once, then mark off whole blocks from the circle onwards. Read a leftover piece from the beginning of the block.",
       "bridge": "In the machine example, mark the first entry into the loop and the number of moves around it. Watch which of those two numbers belongs in the remainder calculation.",
       "recap": "Identify the first repeating day, count how many target states occur per block, and check both ends of the requested interval.",
       "example": {
@@ -10460,7 +10460,7 @@
     {
       "slot": 323,
       "headline": "Reconstruct a table from its margins",
-      "intro": "Row totals and column totals describe the same entries from two directions. A missing cell can sometimes be recovered without knowing every other cell. Start with a row or column with only one blank.",
+      "intro": "Put your finger on one travel row in the table. Every pupil in that row either wears a hat or goes without one. Those two cells must add up to the number at the end of the row.",
       "bridge": "As the film moves between its table and chart, identify what each row actually counts. You will use the same care when one observation is present in both a row and a column total.",
       "recap": "Use a row or column with one missing entry. Verify your reconstruction against the other margin.",
       "example": {
@@ -10515,7 +10515,7 @@
     {
       "slot": 324,
       "headline": "Translate changes into an opening share",
-      "intro": "Sequences of gifts, sales or spills can combine fractions with fixed amounts. Decide when the fixed amount enters and what the next fraction acts upon.",
+      "intro": "Write “before” and “after” beside each change. If a gift arrives before half the contents are removed, the gift is part of the amount being halved. Try moving the gift to the end and compare.",
       "bridge": "Watch where the fixed gift enters the film's pile of counters. Decide whether the next fractional instruction also changes the gift.",
       "recap": "Work backwards one instruction at a time. Test your answer forwards with the same order and the same whole at every step.",
       "example": {
@@ -10568,7 +10568,7 @@
     {
       "slot": 325,
       "headline": "A reverse step can have two candidates",
-      "intro": "Some operations lose information. A square hides a sign, and an absolute difference hides which number was larger. After reversing, use every original restriction to test the candidates.",
+      "intro": "Put your finger on 8 on a number line. A point three steps away could be on either side. Mark both candidates before using the allowed range to decide which one fits.",
       "bridge": "For the film's whole-number machine, test the reconstructed input forwards. In later puzzles a reverse step can give two candidates, so the original input restriction will matter.",
       "recap": "Keep all reverse candidates until a stated condition eliminates them. A forward check proves a candidate works; the restrictions explain whether it is unique.",
       "example": {
@@ -10622,7 +10622,7 @@
       "slot": 326,
       "headline": "Let the largest member lead",
       "intro": "Every nonempty set of distinct numbers has exactly one largest number. Counting by it often turns a restriction on the whole set into a small choice from the numbers below it.",
-      "bridge": "During the exhibit puzzle, notice how fixing one room controls the remaining choices. Later, use a fixed largest member to give every set one home.",
+      "bridge": "The film always uses exhibit A. When A occupies the middle room between two blue exhibits, which choices are still open? In the card puzzle, fix the largest card before counting its possible partners.",
       "recap": "Choose a defining feature that is unique. Recalculate the remaining pool inside each case instead of assuming it has constant size.",
       "example": {
         "prompt": "Choose two distinct numbers from 1 to 5 with largest number 4. How many pairs can you make?",
@@ -10674,7 +10674,7 @@
     {
       "slot": 327,
       "headline": "Keep two colours separate",
-      "intro": "A cube may carry two colours because it lies on the meeting line of two painted faces. Opposite faces have no such meeting line in a solid more than one cube thick.",
+      "intro": "Point to the top and front faces of a box. Trace the edge where the two faces meet. Which cubes along that edge also touch the right face, and which touch only the first two painted faces?",
       "bridge": "Watch which faces meet along each painted edge of the film’s cuboid. Then imagine labelling two of those faces with different colours.",
       "recap": "Translate colour conditions into intersections of positions, and check where the painted faces actually meet.",
       "example": {
@@ -10728,7 +10728,7 @@
     {
       "slot": 330,
       "headline": "Search backwards from the constraints",
-      "intro": "In a longer search, reserve one value as the final check. Try the other values in an order that enforces the rules automatically. This can turn three loops of guesses into a handful of rows.",
+      "intro": "Write an unordered triple from smallest to largest. Once the first two numbers and the target total are known, subtraction gives the last number. Check that it really is larger than the second.",
       "bridge": "In the film’s box problem, inspect the moment when fixing two box counts forces the third. See which apparently possible choices then fail a bound.",
       "recap": "When one value is forced, verify its range and its order. A forced answer still has to satisfy every original condition.",
       "example": {
@@ -10782,7 +10782,7 @@
     {
       "slot": 331,
       "headline": "Track the area that changes",
-      "intro": "Moving one boundary can alter only a strip or triangle, even if the whole figure looks different. Compare regions with the same height or the same base.",
+      "intro": "Sketch the same triangle twice, once before and once after its top vertex moves. Keep the base line fixed. A sideways move at the same height keeps the area, while a change in perpendicular height changes it.",
       "bridge": "As the film adds a second shaded rectangle, trace only the area newly covered. This comparison will also work when a vertex moves.",
       "recap": "Ask which measure stayed fixed, then compute the area change before rebuilding the whole figure.",
       "example": {
@@ -10840,7 +10840,7 @@
     {
       "slot": 332,
       "headline": "Weight the different routes",
-      "intro": "A random experiment can reach the same event by several routes. Multiply along each route and add the probabilities of disjoint successful routes. Different routes can have different probabilities.",
+      "intro": "A coin chooses the bag before you choose a token. Write the chance of reaching each bag next to its name, then the chance of getting red from that bag. Each path to a red token needs both steps.",
       "bridge": "At the film's bag of counters, track how different orders can produce the same final colour count. Watch the successful paths come together in the final probability.",
       "recap": "Keep the first-stage probability attached to every branch. If a later clue is supplied, compare branch weights within that event.",
       "example": {
@@ -10893,7 +10893,7 @@
     {
       "slot": 333,
       "headline": "Use colour counts in every separate piece",
-      "intro": "A colouring test becomes stronger when a board splits into parts. A domino cannot cross a missing row or jump a gap, so each connected piece must supply its own colour pairs.",
+      "intro": "Lay out two separate strips of three squares. Although there are six squares altogether, a domino placed on one strip cannot reach the other. Check the available pairs on each strip before combining the counts.",
       "bridge": "In the film, compare the two removed corner squares with the two neighbouring squares. Why does removing the same number of squares permit one tiling but rule out the other?",
       "recap": "First mark the pieces a tile can reach. Apply the same invariant within each piece, then construct a layout if you claim the bound can be met.",
       "example": {
@@ -10946,7 +10946,7 @@
     {
       "slot": 334,
       "headline": "Use a third clue to separate three types",
-      "intro": "Two totals can leave several possible collections. An extra relationship can reduce three unknown counts to two or even just one. Check all counts are whole and nonnegative.",
+      "intro": "Sort the pieces into three piles. Set aside any pile whose size is already known. Then translate a clue such as “twice as many” into two copies of one of the piles and use the remaining total.",
       "bridge": "For the three boxes in the film, note when the third condition becomes necessary. Your collections of three types also need enough clues to separate all three counts.",
       "recap": "A complete answer must obey the head count, the weighted total, and the relationship between the types. Check all three.",
       "example": {
@@ -10999,7 +10999,7 @@
     {
       "slot": 335,
       "headline": "Make every symbol appear",
-      "intro": "If every kind of item must appear, count strings that miss particular kinds. These failure cases can overlap when a string misses two kinds at once.",
+      "intro": "Write a short code using only one colour. It belongs on the missing-blue list and may also belong on the missing-green list. Watch for these duplicate entries when subtracting incomplete codes.",
       "bridge": "As the film counts integers that avoid all the unwanted divisors, follow one that belongs to two excluded lists. The same correction will apply to a string missing two colours.",
       "recap": "Write the unwanted events as “missing this particular item”. Check whether something can satisfy two or more of those events.",
       "example": {
@@ -11054,7 +11054,7 @@
       "headline": "Work with exact interval boundaries",
       "intro": "Timetables and counters use rules about the first and last instant. Write down whether an event exactly at either endpoint counts. A change of units does not change these boundaries.",
       "bridge": "The film's two signals both flash at time zero. Mark that flash separately and check the question's endpoints before including it in a count.",
-      "recap": "Use the first eligible event and the last eligible event. The count is one more than the number of gaps between them.",
+      "recap": "Mark the first and last events the wording allows. Count the gaps between those marked events and add one for the first event itself. A click exactly at an excluded endpoint gets no mark.",
       "example": {
         "prompt": "A sensor records at 0, 10, 20 and 30 seconds. How many readings are strictly after 0 and strictly before 30 seconds?",
         "steps": [
@@ -11106,7 +11106,7 @@
     {
       "slot": 339,
       "headline": "Give a reason for the recurrence",
-      "intro": "A recurrence is a compact proof only when its cases cover every object once. Define the count for an empty start, handle impossible cases explicitly, and check a small example before extending the table.",
+      "intro": "Imagine erasing only the final jump from a finished route. Its length tells you which earlier landing the route came from. If you can put the jump back in exactly one way, that earlier count belongs in the recurrence.",
       "bridge": "For the broken-rung puzzle, inspect the last jump of a valid route. Try explaining why every permitted route enters the total exactly once.",
       "recap": "Explain why no last-step case is missing or repeated. If a route has a compulsory stop, its prefix and suffix can often be counted separately.",
       "example": {
@@ -11160,7 +11160,7 @@
     {
       "slot": 341,
       "headline": "Cut the board into manageable pieces",
-      "intro": "A hole, notch or compulsory tile can leave independent regions. Draw what remains, then check each part for area, colouring and any forced boundary placements.",
+      "intro": "Draw the permanently fixed tile first. Trace a path through the empty squares from one side to the other. If there is no path for a tile to cross, the remaining regions can be solved independently.",
       "bridge": "Look for the point where placing the first pair of dominoes leaves a shorter, familiar board. The same splitting idea applies when a piece in the middle is fixed.",
       "recap": "After making a forced placement, check whether the leftover parts have become independent before multiplying their counts.",
       "example": {
@@ -11216,7 +11216,7 @@
       "headline": "Recover a hidden cycle from common returns",
       "intro": "Knowing when two schedules first coincide gives a least common multiple. A hidden interval must divide that repeat time, but being a divisor alone may allow an earlier coincidence.",
       "bridge": "When the film works with a highest common factor and a lowest common multiple, watch how it strips off the common part before testing pairs.",
-      "recap": "List possible divisors of the shared time, then test their least common multiple. Extra information may be needed for a unique interval.",
+      "recap": "If two lamps return together at 12 seconds, each interval must divide 12. Test every candidate against the earlier flashes too. A candidate fails as soon as it puts both lamps on at an earlier positive time.",
       "example": {
         "prompt": "Two chimes sound together at minute 0. The first sounds every 4 minutes, and the next time they sound together is minute 12. Could the second chime sound every 2 minutes?",
         "steps": [
@@ -11268,7 +11268,7 @@
     {
       "slot": 345,
       "headline": "Prove the minimum can be built",
-      "intro": "A silhouette imposes lower bounds on stack heights. Sometimes a single high stack can satisfy both a row maximum and a column maximum. Always build a plan that attains a claimed minimum.",
+      "intro": "Put one cube on every occupied square first. Mark the rows and columns still needing a taller stack. Can one stack at a crossing satisfy both heights? Draw the finished plan to check.",
       "bridge": "In the six-stack puzzle, check how the film confirms a minimum using an actual arrangement. A number alone cannot show that all the views can be met together.",
       "recap": "A lower bound needs a construction attaining it. Check every row, every column and the nonempty condition.",
       "example": {
@@ -11322,7 +11322,7 @@
     {
       "slot": 346,
       "headline": "Combine an order rule with a digit rule",
-      "intro": "If digits must be different and obey an order or a divisibility test, first choose a pair of places that captures the strongest restrictions. Then count what can legally fill the rest.",
+      "intro": "Choose the last digit first when it must be even. If the digits must also increase, lay the smaller available cards to its left. Each selection then has just one order that can work.",
       "bridge": "In the film, the leading digit and the final pair obey different restrictions. Choose one end first, then check that building the other end has not reused its digits.",
       "recap": "Check that you counted orders when positions matter, and only one order when the digits were required to increase.",
       "example": {
@@ -11376,7 +11376,7 @@
     {
       "slot": 347,
       "headline": "Compare successive percentage changes",
-      "intro": "A percentage change uses the value immediately before the change. Apply each percentage as a multiplier and check what price the second change acts on.",
+      "intro": "Write the price after the first change on a new line. Underline that amount before calculating the second percentage. The original price and the underlined price may give quite different discounts.",
       "bridge": "The film changes a price twice. Pause just before the second change and point to the amount that now represents one hundred percent.",
       "recap": "Divide the final amount by the combined multiplier to recover an earlier amount. Equal percentages in opposite directions usually use different starting values.",
       "example": {
@@ -11429,7 +11429,7 @@
     {
       "slot": 348,
       "headline": "Work backwards from a sequence total",
-      "intro": "The average of a finite arithmetic sequence equals the average of its endpoints. When the total is given, use that relationship to recover a missing endpoint or number of terms.",
+      "intro": "Suppose you know the total seats in six evenly growing rows. Divide by six to find the mean row. Pair the first and last rows. Together they must hold twice that mean.",
       "bridge": "In the theatre, watch how an evenly spaced list turns a total into endpoint pairs. Consider how to undo that calculation if the total is supplied first.",
       "recap": "Use an endpoint pair to recover a total, or use total and length to recover the endpoint pair. Verify that the resulting step fits the number of gaps.",
       "example": {
@@ -11483,7 +11483,7 @@
     {
       "slot": 349,
       "headline": "Ask what every solution shares",
-      "intro": "The entire arrangement may remain uncertain even when the requested position is forced. Test the requested feature across all surviving cases.",
+      "intro": "Draw two seating orders that fit the same clue. Underline any name that stays in the same seat in both orders. Check the remaining orders before claiming that seat is forced.",
       "bridge": "When several places in the film still seem possible, concentrate on a single item. Which clue rules out its last alternative?",
       "recap": "To prove a feature is forced, rule out every alternative for that feature, even if the rest can vary.",
       "example": {
@@ -11537,7 +11537,7 @@
       "slot": 351,
       "headline": "Recover an integer from remainder clues",
       "intro": "A remainder can be converted into a distance from a convenient multiple. If two clues line up after the same adjustment, the whole search can move in large steps.",
-      "bridge": "When the film adds one to a number before applying two divisibility clues, ask exactly what has become a common multiple. The ending condition still belongs to the original number.",
+      "bridge": "The film’s blue beacon flashes at minute 2 and every 6 minutes after that. What remainder describes all its flash times? Write a second list for the other beacon and look for a time shared by both lists.",
       "recap": "Write the candidates in a progression and apply the final range or digit clue to the original number. Verify by dividing the proposed answer both ways.",
       "example": {
         "prompt": "A number is one short of a multiple of both 4 and 5. What is the least such number above 40?",
@@ -11589,7 +11589,7 @@
     {
       "slot": 353,
       "headline": "Track overlapping neighbour requirements",
-      "intro": "Two adjacency rules may share a letter. When they both hold, the shared letter can force a whole run. Identify that run before you add or subtract the case counts.",
+      "intro": "Lay down A and B as neighbours. If B must also touch C, C has only one side of B left to take. Draw both possible three-letter runs before arranging the remaining letters.",
       "bridge": "When the film considers two named pairs, sketch both adjacency rules at once. Later you will check how that sketch changes when the two rules share a letter.",
       "recap": "Sketch what it means for both conditions to occur. Shared objects cannot belong to two independent blocks.",
       "example": {
@@ -11642,7 +11642,7 @@
     {
       "slot": 354,
       "headline": "Look for fixed positions",
-      "intro": "A turn can pair most positions yet leave a centre alone. Recognising fixed positions makes it easier to test whether a marked shape keeps its symmetry.",
+      "intro": "Trace one marked seat as a row is turned end for end. Most seats exchange places with partners. In a row with an odd number of seats, what happens to the exact middle seat?",
       "bridge": "In the film’s two-mirror colour puzzle, identify the centre cell and cells on just one mirror. Compare the sizes of their forced groups.",
       "recap": "Check what happens to every mark, including any position whose image is itself.",
       "example": {
@@ -11698,7 +11698,7 @@
       "headline": "Check what a chart allows you to infer",
       "intro": "A graph may give endpoints, totals or an interval average. It does not automatically tell you how values were distributed between two observations. Test a claim by constructing a possible set of missing entries.",
       "bridge": "In the film’s graph of total counts, compare what the endpoints tell you with what would need an extra reading. Use that distinction before deciding a later table forces a unique answer.",
-      "recap": "Translate every chart entry into a constraint. To claim a value is forced, rule out every competing value; for a maximum, also give an example reaching it.",
+      "recap": "To test a claim about a missing day, try two different daily lists that fit every total. If the claimed value changes, the chart leaves it open. To prove a maximum, show both a limit and a list that reaches it.",
       "example": {
         "prompt": "A shop sells 12 books over three days. Does this force four books on day two?",
         "steps": [
@@ -11753,7 +11753,7 @@
     {
       "slot": 358,
       "headline": "Reconstruct a consistent grid",
-      "intro": "A locally plausible number can force an impossibility elsewhere. Combine the line total, the allowed values and any symmetry before deciding a square is complete.",
+      "intro": "Put a possible number in a blank cell in pencil. Check its row, its column and any diagonal it touches. A number that fits one line can still break the total on another.",
       "bridge": "As the magic-square film completes its final cells, check both the line totals and whether any allowed value was used twice.",
       "recap": "Use all the conditions together. Finish by checking every required line and every allowed value.",
       "example": {
@@ -11811,7 +11811,7 @@
     {
       "slot": 359,
       "headline": "Recover the choices behind a total",
-      "intro": "A frame count combines boundary choices. When a total or a change is given, reverse that product and ask which lines could have produced it.",
+      "intro": "Pin one side of a rectangular frame to the bottom of a grid. Count how many column spans it could use. For each span, how many different horizontal lines could close the top?",
       "bridge": "At the film’s rectangle count, try reversing the argument: if a boundary were fixed first, how many choices would be left for the other three sides?",
       "recap": "Identify the family of frames changed by the new line or constraint, then use its known choices to recover the others.",
       "example": {
@@ -11865,7 +11865,7 @@
     {
       "slot": 360,
       "headline": "Pair prime factors to make a square",
-      "intro": "A square uses each prime an even number of times. A factor without a partner tells you what must be supplied or what can be removed.",
+      "intro": "Write a number as a row of prime factors and circle matching pairs. A pair contributes one prime to the square root. A factor left on its own tells you what a multiplier must supply.",
       "bridge": "In the film's perfect-square puzzle, pair the copies of every prime. Which unpaired copies dictate the smallest extra factor?",
       "recap": "To prove a multiplier is the smallest, show that every unpaired prime must occur in it. Check the final number has a whole-number square root.",
       "example": {
@@ -11919,7 +11919,7 @@
     {
       "slot": 361,
       "headline": "Partition by a remainder, then check the cases",
-      "intro": "A divisibility condition can turn a long search into a few short rows. Record the remainders that can go together, count each row, and explain why it cannot overlap another.",
+      "intro": "Sort the labels into three piles by their remainder after division by 3. To make a multiple of 3 by adding two labels, which pair of piles can you use? Include the possibility of choosing twice from the same pile.",
       "bridge": "In the exhibit problem, watch how one feature places each legal display in a single case. In your final problem, remainders will give the cases and a counterexample will test a claim.",
       "recap": "A complete argument needs both directions: every counted choice passes the test, and every passing choice belongs to one listed case.",
       "example": {
@@ -11973,7 +11973,7 @@
     {
       "slot": 362,
       "headline": "Eliminate first, then compare by ratio",
-      "intro": "A pair of totals may fix an item's value before a ratio question can be answered. Match the equal quantities, subtract, and keep track of what the difference measures.",
+      "intro": "Look at the two weighings. A bag and a tin appear together in each. Cover that matching pair in both rows and compare the remaining item with the difference between the totals.",
       "bridge": "In the film's two kinds of packs, note which order to scale so one kind cancels. Keep the recovered unit values available for the equal-mass ratio question in your practice.",
       "recap": "Check each recovered mass in both weighings. For an equal-mass question, compare total masses rather than merely comparing the item counts.",
       "example": {
@@ -12030,7 +12030,7 @@
     {
       "slot": 365,
       "headline": "Use a fraction of a known area",
-      "intro": "A length fraction can become an area fraction when the perpendicular height stays fixed. This lets you solve a shaded-region puzzle without measuring its picture.",
+      "intro": "Draw a triangle and split its base into four equal lengths. Join the top vertex to the division marks. Each small triangle has the same height and base length, so each gets the same share of the whole area.",
       "bridge": "The film subtracts two overlapping shaded rectangles from a whole board. Keep track of which whole is being divided, then use that same care with the area fractions after the film.",
       "recap": "Name the whole used by each fraction. Check that the areas of all the pieces restore the original region.",
       "example": {
@@ -12084,7 +12084,7 @@
     {
       "slot": 366,
       "headline": "State exactly what a route may remember",
-      "intro": "Two routes reaching the same point may have different legal futures when a condition refers to earlier steps. Include the relevant fact, such as whether a marker was visited, when combining route totals.",
+      "intro": "Imagine two routes arrive at the same grid point. One has visited gate A and the other has missed it. If a delivery requires a visit to A, keep those counts separate as you extend each route.",
       "bridge": "Watch the film mark both closed intersections. Before the count is revealed, work out whether one route can pass through both and how to account for that group.",
       "recap": "Count all routes, then classify forbidden or required visits. When two forbidden sets overlap, account for their shared routes once.",
       "example": {
@@ -12138,7 +12138,7 @@
     {
       "slot": 367,
       "headline": "Choose a region whose parity you can track",
-      "intro": "On a changing grid, the total board may be the wrong thing to count. Look for a small selected set of cells that every legal move touches an even number of times. Its parity then survives.",
+      "intro": "Mark the four corner lamps of a rectangle on a grid. Toggle a whole row or column and watch just those four lamps. How many of them can a single move touch?",
       "bridge": "In the film's number-line moves, the position can change while its parity survives. After the film, try applying that test to selected squares of a grid instead of to a single number.",
       "recap": "Mark the cells used in your count and check every kind of move. For a maximum or minimum, also show a pattern of moves that reaches your claimed bound.",
       "example": {
@@ -12191,7 +12191,7 @@
     {
       "slot": 368,
       "headline": "Rebuild a journey from its finish",
-      "intro": "A final time and speed can reveal a distance. Treat that distance as the starting clue and undo the earlier operations in reverse order.",
+      "intro": "Start at the finish and mark the last part of the journey. Its speed and time give its distance. If that leg is a known fraction of the whole route, draw equal parts to rebuild the distance travelled earlier.",
       "bridge": "The film adds the leg times and the stop on a return journey. As you watch, try reading one leg backwards: if its time and speed are known, which distance can you restore?",
       "recap": "Check backwards reasoning by reconstructing each leg forwards. Add the leg times, including stops if the total is elapsed time.",
       "example": {
@@ -12248,7 +12248,7 @@
     {
       "slot": 370,
       "headline": "Show that no better shape exists",
-      "intro": "An optimum needs two pieces of evidence: a legal shape reaching it and a reason that every other legal shape does no better. Organise the full range of possible widths before comparing results.",
+      "intro": "Sketch a rectangle that fits the conditions. Its area gives you a target to beat. Now list the shorter sides that are possible and check which length goes with each one. A largest area needs that final comparison.",
       "bridge": "When the film finds a promising pen beside a wall, look for the argument that excludes all better whole-number dimensions. You will need both a construction and a complete check.",
       "recap": "Give a bound or an exhaustive ordered list. Then name dimensions that attain the claimed optimum.",
       "example": {

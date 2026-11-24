@@ -116,7 +116,11 @@ The November review revised the private explanations for O003X, RWL1-002-A, RWL1
 ```sql
 select jsonb_object_agg(id, solution_text) as private_solution_overlay
 from public.content_problems
-where id in ('O003X', 'RWL1-002-A', 'RWL1-006-D', 'RWL1-010-A', 'RWL1-013-D');
+where source_type in ('original_authored', 'original_lesson_practice');
 ```
 
 New questions use versioned identifiers. Never change an attempted problem when revising a future edition. Old problems omitted from the new route remain intact in the original bank and in historical records. The existing protected grading and solution functions continue to handle submissions.
+
+## Full written review, 25 November 2026
+
+The register now covers all 283 teaching lessons and their 1,586 active graded problems. All 454 protected tasks in the first 80 lessons still matched their previously checked grading fingerprints. The remaining 1,132 tasks were independently solved and compared with the live grading rows and worked explanations. Corrections include the shared-edge diagram in S253, the routes-through-a-checkpoint hint in S318, and the strict endpoints in S342. Each reading now opens its worked example with a different mathematical question to consider before revealing a step. The names of all 283 sessions and their separate film review statuses are in the lesson film register.

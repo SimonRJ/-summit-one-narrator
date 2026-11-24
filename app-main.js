@@ -1,5 +1,6 @@
+import {mountNotebookChallenges} from './notebook-challenges.js';
 import {enableFigureViewing} from './figure-viewer.js?v=deeper-20261121';
-import {edition as readEdition, questionOrder, renderReviewedLesson, restoreGradedAnswers} from './reviewed-lesson.js?v=lesson-review-20261125';
+import {edition as readEdition, questionOrder, renderReviewedLesson, restoreGradedAnswers} from './reviewed-lesson.js?v=full-lessons-20261125';
 import {mixedFlashDeck} from './flash-cards.js?v=standalone-cards-20261122';
 import {wordingHTML} from './recognition.js?v=recognition-20261113';
 import {workshopEdition,workshopStudies} from './workshop-studies.js?v=workshops-20261122';
@@ -19,8 +20,8 @@ import { problemFigure } from "./problem-figures.js";
 import {mountLessonPager} from "./lesson-pager.js?v=responsive-20261113";
 import {learningScreens} from "./lesson-screenflow.js?v=data-audit-20261114";
 import {buildCourseNavigation} from "./course-menu.js?v=menu-20261113";
-import {mountCourseMenu} from "./course-menu-ui.js?v=s008-press-20261124";
-import {introMediaSource,lessonIntroId,loadIntroductionCatalogue} from "./lesson-introduction-media.js?v=s008-press-20261124";
+import {mountCourseMenu} from "./course-menu-ui.js?v=full-lessons-20261125";
+import {introMediaSource,lessonIntroId,loadIntroductionCatalogue,introductionGuideHref} from "./lesson-introduction-media.js?v=full-lessons-20261125";
 
 const app=document.getElementById("app");
 const problemTemplate=document.getElementById("problemTemplate");
@@ -211,8 +212,8 @@ async function boot(){
     user=await currentUser();
     if(!user){location.href="login.html";return}
     const introCatalogue=loadIntroductionCatalogue();
-    const [c,t,m,h,tax,ms,lm,rl,later]=await Promise.all([fetch("data/sessions-372.json").then(r=>r.json()),fetch("data/teaching-72.json").then(r=>r.json()),fetch("data/mawa-investigations-20.json?v=mawa-visits-20261121").then(r=>r.json()),fetch("data/rossmoyne-h23.json").then(r=>r.json()),fetch("data/taxonomy-52.json").then(r=>r.json()),fetch("data/milestones.json").then(r=>r.json()),fetch("data/lesson-challenges.json?v=upper-primary-audit-20261114").then(r=>r.json()),fetch("data/read-watch-practise.json?v=lesson-review-20261125").then(r=>{if(!r.ok)throw Error("Lesson text could not be loaded");return r.json()}),
-      fetch("data/read-watch-practise-later.json?v=lesson-review-20261125").then(r=>{
+    const [c,t,m,h,tax,ms,lm,rl,later]=await Promise.all([fetch("data/sessions-372.json").then(r=>r.json()),fetch("data/teaching-72.json").then(r=>r.json()),fetch("data/mawa-investigations-20.json?v=mawa-visits-20261121").then(r=>r.json()),fetch("data/rossmoyne-h23.json").then(r=>r.json()),fetch("data/taxonomy-52.json").then(r=>r.json()),fetch("data/milestones.json").then(r=>r.json()),fetch("data/lesson-challenges.json?v=upper-primary-audit-20261114").then(r=>r.json()),fetch("data/read-watch-practise.json?v=full-lessons-20261125").then(r=>{if(!r.ok)throw Error("Lesson text could not be loaded");return r.json()}),
+      fetch("data/read-watch-practise-later.json?v=full-lessons-20261125").then(r=>{
         if(!r.ok)throw Error("The later lesson text could not be loaded");
         return r.json();
       })]);
@@ -280,6 +281,11 @@ function assignedLessonFilm(lesson, elementId){
  return `<video id="${elementId}" controls playsinline preload="metadata" poster="${esc(poster)}"
     src="${esc(lesson.movie)}" aria-label="${esc(lesson.videoTitle)}"></video>`;
 }
+function assignedFilmGuide(lesson) {
+ if (!lesson) return null;
+ const movie = lesson.filmUse || !lessonIntroId(lesson.slot) ? lesson.movie : introMediaSource(lesson.videoId).movie;
+ return introductionGuideHref(lesson.videoId, movie);
+}
 async function openLessonIntroductionFromMenu(slot){
  await pendingReviewedChange;
  const loadToken=window.SummitLoader?.beginSmall("Preparing lesson video");
@@ -300,6 +306,7 @@ async function openLessonIntroductionFromMenu(slot){
  await loadIntroductionCatalogue();
  const assigned=reviewedLessons.get(item.slot);
  const introId=assigned?.videoId||lessonIntroId(item.slot);
+ const guide=assignedFilmGuide(assigned);
  const teaching=teachingFor(item)[0]||null;
  const openingFilm=openingConceptFilm(item.slot);
  const companion=teaching&&introId&&item.slot>=3
@@ -310,8 +317,9 @@ async function openLessonIntroductionFromMenu(slot){
  app.innerHTML=`<section class="panel lesson-replay-page" aria-label="Read-only lesson video review">
    <div class="eyebrow">LESSON ${item.slot} · ${isComplete?"COMPLETED — REPLAY ONLY":"CURRENT — REVIEW"}</div>
    <h1>${esc(item.focus)}</h1>
-   <p class="muted">${introId?"Review the worked examples, common mistakes and exam checklist.":teaching||openingFilm?"Review the available teaching videos.":"The video for this lesson is not yet published."}</p>
+   <p class="muted">${introId?esc(assigned?.bridge||"Review the worked examples and try the next step on paper."):teaching||openingFilm?"Review the available teaching videos.":"The video for this lesson is not yet published."}</p>
    ${media}
+   ${guide?`<a href="${esc(guide)}" target="_blank" rel="noopener" aria-label="Chapters and transcript (opens in a new tab)">Chapters and transcript</a>`:""}
    ${openingFilm}
    ${companion}
    <p class="lesson-replay-note">${isComplete?"Your original answers, score and completion status stay locked. Replaying this video cannot restart the lesson.":"This is an optional teaching review. Your current answers and lesson position remain saved."}</p>
@@ -464,6 +472,7 @@ function showReadPractice(s,l,questions,draft,locked=false){
  const invoke=async(name,body,kind)=>{const {data,error}=await supabase.functions.invoke(name,{body});if(error)throw Error(await learningFunctionError(error,kind));if(data?.error||!data)throw Error(data?.error||'No response. Please retry.');return data};
  renderReviewedLesson({app,s,l,questions,draft,locked,figure:q=>originalFigure(q)||problemFigure(q.id),
   extension:()=>advancedConnectionHTML(skillFor(s,taxonomy),{visit:lessonPlan(s,course,taxonomy).visit}),
+  filmGuide:assignedFilmGuide(l),
   video:()=>l.filmUse?assignedLessonFilm(l,"openingVideo"):lessonIntroId(s.slot)?lessonIntroPlayer(lessonIntroId(s.slot),l.videoTitle,'openingVideo'):`<video id="openingVideo" controls playsinline preload="metadata" src="${esc(l.movie)}" aria-label="${esc(l.videoTitle)}"></video>`,
   recordWatch:locked?()=>{}:detail=>recordVideoEvidence(s.slot,l.videoId+'-Intro','lesson_intro',detail).catch(()=>{}),
   attempt:async(id,response,help,familiar)=>{const g=await invoke('submit-problem-attempt',{problem_id:id,session_number:s.slot,answer_text:response,used_help:help,familiar_family:locked||familiar},'attempt');attemptedProblemIds.add(id);
@@ -854,6 +863,24 @@ async function renderReview(){
  const learning=lessonManifest.find(entry=>entry.id===id);
  const figure=problem ? originalFigure({...problem,learning}) : '';
  return `<article><h3>${esc(problem?.title||id)}</h3>${figure}<p class="math-copy">${esc(problem?.prompt||'')}</p><p><b>Recorded answer:</b> ${esc(a?.response??a)}</p><p class="math-copy">${esc(r.working?.[id]||'')}</p><button class="ghost saved-solution" data-problem="${esc(id)}" data-session="${r.session_number}">Worked solution</button><div class="saved-solution-content"></div>${r.evidence?.['reasoning:'+id]?`<p><b>Recognition clue:</b> ${esc(r.evidence['reasoning:'+id].clue||'—')}</p><p><b>Plan:</b> ${esc(r.evidence['reasoning:'+id].plan||'—')}</p><p><b>Check or correction:</b> ${esc(r.evidence['reasoning:'+id].check||'—')}</p><p class="muted">${esc(applicationStatus(r.evidence?.['application:'+id]))} · explanation saved for review</p>`:''}</article>`;}).join('')}${Object.values(r.evidence||{}).filter(e=>e?.kind==='mixed_application').map(e=>savedMixedAnswer(r,e)).join('')}${course[r.session_number-1]?.type==="MAWA"?investigationRecordHTML(r,investigationForSession(mawa,r.session_number,r.summary?.investigation_edition,r.summary?.investigation_id)):""}</details>`).join('')||'<p>No completed sessions yet.</p>'}</section>`;
+ const challenges=document.createElement('section');
+ app.append(challenges);
+ mountNotebookChallenges(challenges,{
+  problems:problemIndex,history:attemptHistory,showSolution:showWorkedSolution,
+  submit:async(id,response,help)=>{
+   const {data,error}=await supabase.functions.invoke('submit-problem-attempt',{body:{problem_id:id,answer_text:response,used_help:help}});
+   if(error)throw Error(await learningFunctionError(error,'attempt'));
+   if(!data?.ok)throw Error(data?.error||'Your answer could not be saved.');
+   const entry={problem_id:id,session_number:null,answer_text:response,evidence_level:help?'guided':'independent',independent_credit:data.independent_credit===true,is_correct:data.correct,created_at:new Date().toISOString()};
+   attemptHistory.push(entry);attemptedProblemIds.add(id);return entry;
+  },
+  openSolution:async id=>{
+   const {data,error}=await supabase.functions.invoke('get-problem-solution',{body:{problem_id:id}});
+   if(error)throw Error(await learningFunctionError(error,'solution'));
+   if(!data?.ok)throw Error(data?.error||'The worked solution could not be opened.');
+   return data;
+  }
+ });
  enableFigureViewing(app);
  app.querySelectorAll('[data-revised-copy]').forEach(button=>button.onclick=()=>openRevisedCopy(Number(button.dataset.revisedCopy)));
  app.querySelectorAll('.saved-intro').forEach(button=>button.onclick=()=>openLessonIntroductionFromMenu(Number(button.dataset.videoSession)).catch(error=>alert(error.message)));

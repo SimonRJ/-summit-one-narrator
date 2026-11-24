@@ -3,7 +3,7 @@
   "additionalVerifiedIntroductions": [],
   "areas": [
     {"key":"pages","item":"Learner-facing pages with final editorial and responsive review","total":90,"verified":90,"evidence":["../tools/check_public_catalogue.py","../tools/check_recorded_studies.py","../production/t01-studio/topic_reading.py","../tools/welcome-check.mjs"]},
-    {"key":"readings","item":"Lesson openings, examples, prompts, hints and protected solutions reviewed together","total":283,"verified":80,"evidence":["written-lesson-register.csv","../tools/check_solution_clarifications.mjs"]},
+    {"key":"readings","item":"Lesson openings, examples, prompts, hints and protected solutions reviewed together","total":283,"verified":283,"evidence":["written-lesson-register.csv","../tools/check_solution_clarifications.mjs"]},
     {"key":"introductions","item":"Dedicated lesson films with a completed editorial review","total":283},
     {"key":"companions","item":"Companion teaching films with a completed editorial review","total":72,"evidence":["../docs/teaching-video-review-register-20261116.csv","https://github.com/SimonRJ/-summit-one-narrator/actions/runs/44909522545"]},
     {"key":"investigations","item":"Published and independently checked investigations and extensions","total":53,"verified":53,"evidence":["../tools/content/check_mawa_maths.py","../data/mawa-investigations-20.json"]},

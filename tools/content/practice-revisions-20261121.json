@@ -251,6 +251,54 @@
     },
     "RWL2-100-C": {
       "prompt": "A rail network has 4 red stations and 4 blue stations. Each red station links to every blue station. Only opposite colours are linked. Starting at a specified red station, take two moves without revisiting the start. How many different ordered routes are possible?"
+    },
+    "RWL2-103-D": {
+      "hint": "Compare the total for the group of eight with what eight observations averaging 41 would contribute."
+    },
+    "RWL2-113-C": {
+      "hint": "A clean cube must avoid the painted layer in each of three directions. What smaller cuboid is left?"
+    },
+    "RWL2-122-C": {
+      "prompt": "Two equally sized square dog runs sit side by side against a long wall. The wall forms both backs. Wire forms the fronts, outer sides and the one shared divider, except for a 2 m gate in one front. Using at most 67 m of wire, what is the largest combined floor area in square metres if each square side is a whole number of metres?"
+    },
+    "RWL2-141-C": {
+      "prompt": "On a pictogram one full square stands for 8 trays. Friday shows 5 full squares and one quarter of a square. Saturday shows 4 full squares and three quarters of a square. How many more trays does Friday show?"
+    },
+    "RWL2-151-C": {
+      "prompt": "A 3-by-3 board has alternating black and white squares, with black squares at all four corners. One square is removed. Four dominoes cover the eight remaining squares exactly. What colour was removed? Enter black or white."
+    },
+    "RWL2-159-B": {
+      "title": "A hole away from the corners",
+      "prompt": "Four dominoes cover eight squares of a 3-by-3 board. All four corners are covered. How many different squares could be left uncovered? Each domino covers two squares sharing an edge.",
+      "hint": "Colour the board like a chessboard. Which colour has an extra square? After you exclude the four corners, test the remaining candidate by placing four dominoes."
+    },
+    "RWL2-159-C": {
+      "prompt": "A strip of unit squares in one row is extended by attaching one more square at its right-hand end. Its new perimeter is 16 units. What was the perimeter of the original strip, in units?",
+      "hint": "At the join, one edge of the original strip disappears. How many edges of the new square show on the outside?"
+    },
+    "RWL2-171-C": {
+      "prompt": "Arrange A, B, C and D in a row. How many orders have neither B nor C immediately next to A?"
+    },
+    "RWL2-107-C": {
+      "hint": "How many positions has the trolley advanced altogether? Set aside complete loops of seven positions."
+    },
+    "RWL2-150-B": {
+      "hint": "After you put the first disc back and mix, how many of the three discs are gold?"
+    },
+    "RWL2-166-A": {
+      "hint": "How much did the value change? How many gaps are there between the two known positions?"
+    },
+    "RWL2-213-A": {
+      "hint": "Move 1 point from the larger score to the smaller score. The sum stays fixed. What happens to their product?"
+    },
+    "RWL2-227-C": {
+      "hint": "Count all routes first. For the closed edge, count the ways to its left end and the ways onward from its right end."
+    },
+    "RWL2-211-C": {
+      "hint": "What do you get if you buy the first order twice? Compare its contents and cost with the second order."
+    },
+    "RWL2-318-B": {
+      "hint": "List the allowed ways to reach the delivery point. For each arrival, how many different ways are there to finish?"
     }
   },
   "solutionHashes": {
@@ -278,7 +326,21 @@
     "RWL2-069-B": "68ccfe6448a3ae3adb516b1dfe389d771f3efec6537409c25c96e761f26178ff",
     "RWL2-082-A": "75ec300305789b04396c7b48cb726a3b72032b3efee2fcab5baa4dab0b290e67",
     "RWL2-083-D": "94dfc9f0ff4a6020b641d7b17e72c2ce36aa4e0b4317b582324b8cbb9592aeca",
-    "RWL2-085-C": "b0e89d40ce6b482e96145ac5194a661ed65dfe681cfb8ca9feac26000677fc08"
+    "RWL2-085-C": "b0e89d40ce6b482e96145ac5194a661ed65dfe681cfb8ca9feac26000677fc08",
+    "RWL2-109-D": "d7674f5f44a6be0f7ca5e7f001297fb0bc38450e94cbf19852c83832fd1ef777",
+    "RWL2-118-D": "35db55cb50bb5edda4da45090ec151fb7aaba45aba5ab49391b9763e9dddaa3a",
+    "RWL2-127-D": "2362d56857d072604b8692089455f869413c3e9a22904da2bc3211cc3738d7fb",
+    "RWL2-155-B": "dd226b3197a2865289afc1cde5cb1bc9b649769f12d29a23b45fc98f6b497f37",
+    "RWL2-159-B": "56b0f1da454c625530422f04f5d03d0e524f5a551e8a9a98ce6809c2dc079b45",
+    "RWL2-159-C": "e3fd735a022b14783c89f907fb08f6c80b4bc452de666c177995b067c32855ce",
+    "RWL2-121-D": "817d328fc2aaa4d1d1fd9d08744189398732349c401e2552346e6584f57809b4",
+    "RWL2-122-D": "d4c63f6abbfa867271ab8f1b248834e5a74aa1c2285d51d28bdff81b125ea478",
+    "RWL2-159-D": "195b81d7645c5d842520afbec0562856638950009018721383aaf6b925d4af28",
+    "RWL2-172-D": "1b25cf3e8fb6de51e24c5f3287fb987f64442f8dd814828f16bc029df2cd29c2",
+    "O358T": "c7ed83f8f7c2946f5102d5be97ab4884ccf615c11901a43be32d177363eb3100",
+    "RWL2-267-D": "d980a059c4092293cad3f157a0d24abe806a889bbf5d2fb64b65ad6ff554721c",
+    "RWL2-268-D": "92fb6b7ae46f806e132934ea0923c869e5c52688985acc854643cea43bf93b87",
+    "RWL2-324-A": "d4960b045f570f16c0bb315dd5006841a0719adf204ead0c20c0af0b2f80b2e8"
   },
   "openings": {
     "S001": {
@@ -516,7 +578,8 @@
           "Rays CB and CD point in opposite directions, so ACB and ACD complete a straight angle. The exterior angle is 180° − 80° = 100°."
         ],
         "prediction": "At C, which two angles together make a straight angle along BD?"
-      }
+      },
+      "recap": "At a crossing, opposite angles match. On a straight line, adjacent angles add to 180°. Label the angle you can carry from the first triangle into the next before doing a second subtraction."
     },
     "S239": {
       "example": {
@@ -526,7 +589,8 @@
           "The numbers 2, 3 and 4 sum to 9 and attain a smallest number of 2. The bound and this example prove 2 is the maximum."
         ],
         "prediction": "Try choosing 3 as the smallest. What is the least sum the other two different numbers would allow?"
-      }
+      },
+      "bridge": "The three boxes in the film hold at most six tokens each. Once you fix the number in A, how does the cap on C tell you where to start the list for B?"
     },
     "S249": {
       "example": {
@@ -536,7 +600,8 @@
           "First numbers 1, 2 and 3 give (1,6), (2,5) and (3,4). The larger partner is forced each time, giving exactly three pairs."
         ],
         "prediction": "Where must the smaller number stop so that reversing a pair never adds another answer?"
-      }
+      },
+      "recap": "Write the smaller member of each pair first. Explain why a smaller first member or a larger one would miss the conditions. That tells a reader where your list begins and ends."
     },
     "S253": {
       "example": {
@@ -546,7 +611,8 @@
           "Each of the two joins hides a 2 cm edge on both tiles that meet there. Remove 2 × 2 × 2 = 8 cm, leaving 16 cm of outside boundary."
         ],
         "prediction": "Mark each join before tracing the L. How many tile edges does one join hide?"
-      }
+      },
+      "intro": "Trace a finger around two separate square tiles. Now push them edge to edge and trace around the joined shape. The two edges that meet disappear inside the shape. How much tracing distance did the join remove?"
     },
     "S276": {
       "example": {
@@ -556,7 +622,8 @@
           "Tom’s statement gives the same opposite-type relationship with Uri. Reversing type twice brings us back to Sue’s type, so Sue and Uri must match."
         ],
         "prediction": "Start with Sue telling the truth, then try her lying. In both cases, what happens two speakers along?"
-      }
+      },
+      "recap": "For a chain of speakers, write “same” or “opposite” between neighbouring names. For a claim that something must happen, try to build one case in which the clue holds and the proposed result fails."
     },
     "S298": {
       "example": {
@@ -566,7 +633,8 @@
           "The gap is 64 − 60 = 4. More generally, when a finite doubling sum is doubled and the original sum is subtracted, the middle terms cancel, leaving the next term minus the first."
         ],
         "prediction": "Keep a running total beside the doubling sequence. Which two entries are you asked to compare?"
-      }
+      },
+      "intro": "Write 4, 8, 16, 32 on one line. Underneath, write twice each number, shifting the new line so equal numbers sit together. Which numbers lack partners when you subtract one line from the other?"
     },
     "S319": {
       "example": {
@@ -576,7 +644,8 @@
           "Check in columns. Regroup 65 as 5 tens and 15 units. Subtracting 2 tens and 7 units leaves 3 tens and 8 units."
         ],
         "prediction": "Which operation takes you back from 38 to the original number?"
-      }
+      },
+      "recap": "Write any carried ten above the next column. After filling the digits, calculate the complete sum or product and check the conditions on the letters. Two different letters may be required to have different digits."
     },
     "S330": {
       "example": {
@@ -586,7 +655,8 @@
           "With smallest 2, second 3 gives (2,3,5). Second 4 already gives a repeated 4. A smallest member of at least 3 would force a sum of at least 3 + 4 + 5 = 12. The three listed sets are complete."
         ],
         "prediction": "If the two smallest numbers were 1 and 2, what would the third have to be?"
-      }
+      },
+      "intro": "Write an unordered triple from smallest to largest. Once the first two numbers and the target total are known, subtraction gives the last number. Check that it really is larger than the second."
     },
     "S332": {
       "example": {
@@ -596,7 +666,8 @@
           "These two routes are disjoint. Add their probabilities to obtain 3/4."
         ],
         "prediction": "On which coin outcome is a red token certain, and on which is it only possible?"
-      }
+      },
+      "intro": "A coin chooses the bag before you choose a token. Write the chance of reaching each bag next to its name, then the chance of getting red from that bag. Each path to a red token needs both steps."
     },
     "S334": {
       "example": {
@@ -606,7 +677,8 @@
           "The two groups have the same size, so each has 4 ÷ 2 = 2 pieces. There are two circles."
         ],
         "prediction": "Once the triangles are set aside, how should you split the remaining pieces?"
-      }
+      },
+      "intro": "Sort the pieces into three piles. Set aside any pile whose size is already known. Then translate a clue such as “twice as many” into two copies of one of the piles and use the remaining total."
     },
     "S342": {
       "example": {
@@ -616,7 +688,8 @@
           "They would meet at minute 4, contradicting the first repeat at minute 12. A two-minute interval is impossible."
         ],
         "prediction": "If the second chime rang every two minutes, what would you hear at minute four?"
-      }
+      },
+      "recap": "If two lamps return together at 12 seconds, each interval must divide 12. Test every candidate against the earlier flashes too. A candidate fails as soon as it puts both lamps on at an earlier positive time."
     },
     "S345": {
       "example": {
@@ -626,7 +699,8 @@
           "Build the front row with heights 3 and 1, and the back row with heights 1 and 1. Both sets of maxima fit. The forced heights total six cubes."
         ],
         "prediction": "Which positions are forced to height 1 by a row or column maximum?"
-      }
+      },
+      "intro": "Put one cube on every occupied square first. Mark the rows and columns still needing a taller stack. Can one stack at a crossing satisfy both heights? Draw the finished plan to check."
     },
     "S008": {
       "intro": "Write 6, 0 and 3 in the first three boxes of a five-digit palindrome. Reading from either end must give the same digits. Which boxes belong to the same pair, and which digit has no partner?",
@@ -1139,7 +1213,7 @@
       }
     },
     "S209": {
-      "bridge": "Watch the closing grid: once a square has a width, its height is fixed. In the worked example, follow its bottom-left corner to count positions one size at a time.",
+      "bridge": "The film counts grid-line rectangles by choosing their sides. When it reaches squares, how does choosing the width restrict the height? Try the idea on the 2-by-2 grid from this lesson.",
       "example": {
         "figure": {
           "src": "figures/read-practice/S209.svg",
@@ -1158,7 +1232,8 @@
       "bridge": "The film doubles the sum of two chosen digits to find the digit sum of a four-digit palindrome. Imagine slipping one new digit into the centre. How many times should you count that digit?",
       "example": {
         "prediction": "Cross out the two matching pairs in 31C13. How much of the digit sum is already used?"
-      }
+      },
+      "intro": "Write A B C B A and draw a little arc between each matching pair. The centre digit has no partner. That tells you which digits count twice and which one counts once when you add them."
     },
     "S101": {
       "example": {
@@ -1202,7 +1277,8 @@
     },
     "S113": {
       "example": {
-        "prediction": "If you peeled off the top layer, could any cube left behind still have paint?"
+        "prediction": "If you peeled off the top layer, could any cube left behind still have paint?",
+        "prompt": "A block is 4 unit cubes wide, 3 deep and 2 high. Only its top face is painted. How many unit cubes have paint?"
       }
     },
     "S114": {
@@ -1293,12 +1369,14 @@
     "S135": {
       "example": {
         "prediction": "If a different letter sat between A and B, which word in the rule would it break?"
-      }
+      },
+      "bridge": "In the five-film schedule, bracket Hugo and Ivy. Where must Grace go relative to that pair? Test the resulting three-film block against Jack’s end-position clue."
     },
     "S137": {
       "example": {
         "prediction": "When 52 is reversed, how does the value of each digit change?"
-      }
+      },
+      "intro": "Let A and B stand for digits. Writing them side by side as AB puts A in the tens place and B in the units place, so the number has value 10 × A + B. When you reverse the digits, which contribution gets larger?"
     },
     "S138": {
       "example": {
@@ -1327,7 +1405,12 @@
     },
     "S145": {
       "example": {
-        "prediction": "Mark both endpoints of one edge. Which cubes sit strictly between your marks?"
+        "prediction": "Which two of the five positions belong to corners of the marked edge?",
+        "prompt": "Follow one edge of a cube built from unit cubes. There are five cube positions along that edge, including the two corners. How many positions on this one edge lie strictly between the corners?",
+        "steps": [
+          "Number the positions 1 to 5. Positions 1 and 5 are the corners.",
+          "Positions 2, 3 and 4 lie between them. That gives 5 − 2 = 3 cubes on the marked edge."
+        ]
       }
     },
     "S146": {
@@ -1342,12 +1425,21 @@
     },
     "S151": {
       "example": {
-        "prediction": "Can you draw two actual dominoes here to prove that they fit?"
+        "prediction": "Can you draw two actual dominoes here to prove that they fit?",
+        "steps": [
+          "Colour the 2-by-2 board in alternating black and white squares. It has two of each colour, and each domino covers one of each.",
+          "To check that a covering exists, place one horizontal domino across each row. Every square is covered exactly once."
+        ]
       }
     },
     "S152": {
       "example": {
-        "prediction": "During a transfer, could a bead disappear from the combined total?"
+        "prediction": "Can you draw the two jars just after the move, when their counts match?",
+        "prompt": "Jars A and B hold 30 beads altogether. Four beads move from A to B, and the jars now hold equal numbers. How many beads were in jar A before the move?",
+        "steps": [
+          "The move keeps the total at 30. The two equal jars therefore hold 30 ÷ 2 = 15 beads each after the move.",
+          "Put the four beads back in jar A. It originally held 15 + 4 = 19. Jar B held 11, so the original total was still 30."
+        ]
       }
     },
     "S153": {
@@ -1403,7 +1495,8 @@
     "S167": {
       "example": {
         "prediction": "Try giving Mira the largest number. Could Sol still satisfy the clue?"
-      }
+      },
+      "bridge": "In the film schedule, put Jack in the end position allowed by the clues. When the Grace–Hugo–Ivy block is placed last, what happens to Finn?"
     },
     "S169": {
       "example": {
@@ -1443,7 +1536,8 @@
     "S178": {
       "example": {
         "prediction": "When do the factor pairs of 24 start returning in the opposite order?"
-      }
+      },
+      "recap": "Pair each smaller divisor with the larger divisor it gives. If the number is a perfect square, its square root pairs with itself. Count that divisor once."
     },
     "S179": {
       "example": {
@@ -1458,7 +1552,8 @@
     "S183": {
       "example": {
         "prediction": "Which quantity appears in both ratios and can connect A to C?"
-      }
+      },
+      "bridge": "In the scale drawing, a 6 cm wall represents a much longer wall. Watch the scale factor turn drawing centimetres into real centimetres. At which step do you convert to metres?"
     },
     "S185": {
       "example": {
@@ -1468,7 +1563,8 @@
     "S186": {
       "example": {
         "prediction": "Which two side lengths should you multiply to make the biggest face?"
-      }
+      },
+      "intro": "A cuboid has three pairs of opposite faces. The two faces in each pair have the same dimensions. For a wrapping or open-box problem, list the faces the material must cover."
     },
     "S188": {
       "example": {
@@ -1538,527 +1634,632 @@
     "S211": {
       "example": {
         "prediction": "If you lay the two purchases side by side, which extra item explains the extra $3?"
-      }
+      },
+      "intro": "Look at two shopping receipts. If they contain the same notebook, that part of the price is identical on both. Cross it off each receipt and see which item explains the difference."
     },
     "S213": {
       "example": {
         "prediction": "Look first at the sum of the adjacent sides, then at their product. Do both stay the same?"
-      }
+      },
+      "bridge": "At the wall, the farmer pays for two depths but only one long side. When the depth increases by 1 metre, how much shorter must that long side become?"
     },
     "S214": {
       "example": {
         "prediction": "Imagine turning the 20-by-20 square into a 19-by-21 rectangle. Would the lost row exactly fill the new column?"
-      }
+      },
+      "bridge": "The film compares 992 × 1,010 with 998 × 1,004. Before multiplying, find the number halfway between the factors in each pair. Which rectangle is closer to a square?"
     },
     "S215": {
       "example": {
         "prediction": "How many balls will the smaller basket have when the job is finished?"
-      }
+      },
+      "bridge": "When 14 counters move from red to blue, the colours change from five red parts and three blue parts to three red parts and five blue parts. Why does one part still stand for the same number of counters?"
     },
     "S216": {
       "example": {
         "prediction": "When one counter switches teams, what happens at each end of the lead?"
-      }
+      },
+      "intro": "Put the two teams’ counters in rows, one above the other. The counters that stick out show the lead. Slide a counter from the longer row to the shorter row and watch what happens at both ends."
     },
     "S218": {
       "example": {
         "prediction": "Do the two cells left behind still share an edge?"
-      }
+      },
+      "intro": "Imagine colouring a floor like a chessboard. A domino placed along an edge covers one square of each colour. If one colour runs out first, can rearranging the dominoes ever fill the floor?"
     },
     "S219": {
       "example": {
         "prediction": "If you choose a number of packs, could either colour leave a remainder?"
-      }
+      },
+      "bridge": "The activities in the film restart every 6 and 9 minutes. The marker box contains 24 red markers and 36 blue. Which problem needs a number that both inputs divide, and which needs a number that divides both inputs?"
     },
     "S220": {
       "example": {
         "prediction": "At their next meeting, how much extra distance will the faster runner have covered?"
-      }
+      },
+      "intro": "Imagine a chalk line on a circular track. If two runners meet there and keep moving in the same direction, the faster runner must gain a whole lap before catching the other again. A head start changes the first catch."
     },
     "S221": {
       "example": {
         "prediction": "Could you name a four-card hand by naming just the two cards it leaves behind?"
-      }
+      },
+      "intro": "Six different cards lie face up. Slide four towards you and leave two on the table. Could two different four-card hands ever leave exactly the same two cards behind?"
     },
     "S223": {
       "example": {
         "prediction": "Focus on the total length first. How much does replacing 8 cm with 18 cm add?"
-      }
+      },
+      "recap": "Convert the mean back into a total first. Cross out an entry or swap it for its replacement, then count how many entries remain before dividing."
     },
     "S226": {
       "example": {
         "prediction": "Cover the first slot with A. What choices survive in the two uncovered slots?"
-      }
+      },
+      "intro": "Arrange three name cards in a row. A clue might fix one card yet leave two different orders possible. Keep both orders until another clue rules one out."
     },
     "S227": {
       "example": {
         "prediction": "Take just one route to the fountain. How many complete journeys can start that way?"
-      }
+      },
+      "intro": "Draw a dot at the fountain. Each route through it has a first part that ends at the dot and a second part that starts there. If you change only the second part, have you made a different complete route?"
     },
     "S228": {
       "example": {
         "prediction": "Split the sum of the eights into tens and ones. Which column receives each part?"
-      }
+      },
+      "intro": "Add 8 + 8 in the units column. The result, 16, has one ten to send to the next column and six units to leave behind. In a letter puzzle, either digit can become a clue."
     },
     "S229": {
       "example": {
         "prediction": "Which boxes in the team's minute of work have already been counted for Lee?"
-      }
+      },
+      "recap": "Write every rate for the same length of time. Two teams with one worker in common can be subtracted. If three pair rates include each worker twice, add the rates and halve the result."
     },
     "S230": {
       "example": {
         "prediction": "Label the bead's starting box as move zero. How many moves take it back there?"
-      }
+      },
+      "intro": "Label three boxes and move a coin between them. The labels stay put while the coin travels. To predict a later move, record the starting box as move zero and look for its first return."
     },
     "S232": {
       "example": {
         "prediction": "Which plan starts ahead in cost, and how much of that difference disappears with each visit?"
-      }
+      },
+      "recap": "Start with the fixed fee, then add the cost of each visit. A tie has no cheaper plan. Check the next whole visit, and check again if either table has a weekly cap."
     },
     "S233": {
       "example": {
         "prediction": "When you take one fifth, which cards belong in the pile you are dividing?"
-      }
+      },
+      "intro": "Draw one rectangle for a whole garden. Shade the part that is planted, then outline just the planted part. If half of that part grows beans, which rectangle are you halving?"
     },
     "S234": {
       "example": {
         "prediction": "At 15, undo just the last round. Which action comes before halving?"
-      }
+      },
+      "recap": "Write one arrow for each forward operation. Read the arrows in reverse order and undo each one. Run the answer forwards once to check the order and the final value."
     },
     "S235": {
       "example": {
         "prediction": "Could position one be Y if the first Y must appear in position two?"
-      }
+      },
+      "intro": "Suppose a signal can contain several flashes. Count it by the position of its first flash. Even a signal with three flashes belongs to exactly one group, because only one flash comes first."
     },
     "S237": {
       "example": {
         "prediction": "Look closely at 00. How many printed zeroes does that single reading use?"
-      }
+      },
+      "intro": "Compare a timer showing 07 with page 7 of a book. The timer uses ink in both places. The page number uses only one. Check which kind of label the question is counting."
     },
     "S241": {
       "example": {
         "prediction": "After hearing “odd”, which faces can you cross off before counting?"
-      }
+      },
+      "recap": "Make one square for each equally likely outcome. Cross out the squares the clue rules out. The denominator counts the squares left, and the numerator counts the successes among them."
     },
     "S242": {
       "example": {
         "prediction": "Would either allowed move change an odd position into an even one?"
-      }
+      },
+      "intro": "Put five counters in pairs and mark the leftover counter. If a move adds a pair or takes a pair away, what happens to the leftover? This lets you rule out some targets without following every move."
     },
     "S243": {
       "example": {
         "prediction": "Picture both ages on one number line. What happens to their separation if both move right five places?"
-      }
+      },
+      "intro": "Draw two age bars, one for each sibling. Extend both bars by five years. Their ends are still the same distance apart, even though the sum of their ages has grown."
     },
     "S244": {
       "example": {
         "prediction": "Which multiples would you overcount if you started from 1 instead of 9?"
-      }
+      },
+      "bridge": "The film marks multiples of 2, 3 and 5 between 1 and 84. Pick a number marked twice and trace how the overlap correction counts it once. What changes if the question asks for exactly one mark?"
     },
     "S246": {
       "example": {
         "prediction": "Start by reflecting 43. Is its mirror number already beyond 4,388?"
-      }
+      },
+      "intro": "Write 43, then write its digits backwards beside it. Try the same thing with 44. Every four-digit palindrome has exactly one such starting pair, so these pairs give you a way to search in order."
     },
     "S247": {
       "example": {
         "prediction": "Sketch just one spray-and-rest cycle. How many complete cycles fit into ten seconds?"
-      }
+      },
+      "recap": "Draw the first burst and the rest as separate parts of a timeline. Put your finger at the stopping time. A rest after the last burst only counts if it falls before that point."
     },
     "S248": {
       "example": {
         "prediction": "If a legal string ends in B, which letter must be immediately before it?"
-      }
+      },
+      "intro": "Write a list of codes that forbid BB. A code ending in A can take either next letter, while a code ending in B can take only A. Keep those two counts separate when extending your list."
     },
     "S250": {
       "example": {
         "prediction": "Choose a tiling on the first side. Does it restrict any choice on the other side of the seam?"
-      }
+      },
+      "intro": "Draw a line between two columns. A domino crosses it only when the domino has a square on each side. If every domino stays on one side, a tiling on the left can be paired with any tiling on the right."
     },
     "S251": {
       "example": {
         "prediction": "When the lights flash now, should that count towards the words “second shared flash after now”?"
-      }
+      },
+      "intro": "Draw separate marks at the shared start and at the first time both devices return together. If their schedules keep repeating, the distance between those two marks is also the distance to the next return."
     },
     "S254": {
       "example": {
         "prediction": "Take the three known stacks apart on paper. How many of the 11 cubes have you accounted for?"
-      }
+      },
+      "bridge": "The film gives the heights of six stacks, starting with the front row. Suppose one height were hidden but you knew the total number of cubes. Which five numbers would help you recover it?"
     },
     "S255": {
       "example": {
         "prediction": "Test 0 and 4 separately as the final digit. In which case could you accidentally start with zero?"
-      }
+      },
+      "recap": "Write one row for each possible final digit. Cross that card off before choosing a hundreds digit. A zero still on the table can fill an inside place, but the hundreds place needs a nonzero card."
     },
     "S257": {
       "example": {
         "prediction": "Match the smallest term with the largest. Which term is left over after the second pair?"
-      }
+      },
+      "intro": "Write the shortest row above the longest, then the next-shortest above the next-longest. What the top row gains, the bottom row loses. Check whether one middle row is still unpaired."
     },
     "S258": {
       "example": {
         "prediction": "For each possible gold position, point two slots to its right. When do you run out of boxes?"
-      }
+      },
+      "intro": "Mark four numbered spaces. Put your finger on space 1 and move it exactly two places right. You land on 3, leaving only one space between the two positions. Try each possible start."
     },
     "S260": {
       "example": {
         "prediction": "Which possible last digits survive the evenness test before you check their digit sums?"
-      }
+      },
+      "recap": "Make a short list of digits that pass one test, then cross out any that fail the second. Read the question again before choosing your answer. Does it ask for a digit, a complete number or a count?"
     },
     "S261": {
       "example": {
         "prediction": "After one turn, how much of A's initial bonus has B caught up?"
-      }
+      },
+      "bridge": "The film writes the child ticket count as 24 minus the adult ticket count. In the boat problem, one hire lasts an hour longer than the other. How could you express both hire times using one letter?"
     },
     "S262": {
       "example": {
         "prediction": "Lay down A and B first. Where could a dot go, including outside the letters?"
-      }
+      },
+      "intro": "Put the letters A and B on a table. There are three places for a dot, including before A, between the letters and after B. Putting at most one dot in each place keeps every pair of dots apart."
     },
     "S263": {
       "example": {
         "prediction": "Do the reflection first. Which side of zero are you on before moving right?"
-      }
+      },
+      "intro": "Mark a dot and draw an arrow to its first image. Start the second arrow where the first one ends. If you need to recover the original dot, follow the arrows backwards, undoing each move."
     },
     "S265": {
       "example": {
         "prediction": "If six shells fill a single share in each bag, how many shares does each full bag hold?"
-      }
+      },
+      "recap": "Draw one bar per whole and divide each into the parts named in its fraction. Label the equal lengths on both bars. How many copies of each marked length would restore its original whole?"
     },
     "S267": {
       "example": {
         "prediction": "Which symbol has been added when the total changes from 9 to 13?"
-      }
+      },
+      "intro": "Draw one star and one circle in a row. Copy that row underneath and add a second star. If you know each row’s total, cover the matching shapes and see what accounts for the difference."
     },
     "S268": {
       "example": {
         "prediction": "Hold the left end at the first cell. Which stopping points avoid the last cell?"
-      }
+      },
+      "recap": "Make a tiny sketch of a rectangle that covers both marks. When you subtract the frames containing either mark, that sketch tells you exactly which group you have subtracted twice."
     },
     "S269": {
       "example": {
         "prediction": "When building a divisor, are you allowed to choose zero copies of a prime?"
-      }
+      },
+      "intro": "Write 12 as 2 × 2 × 3. To build a divisor, pick how many copies of 2 and how many copies of 3 to use. Picking none of either gives 1, which belongs on the list."
     },
     "S270": {
       "example": {
         "prediction": "At the end of the first hour, how much distance and how much time are left?"
-      }
+      },
+      "intro": "Make two short lists for the journey, one for kilometres left and one for minutes left. A stop changes only the minutes. A stretch of driving changes both. Keep the lists in step before calculating the next speed."
     },
     "S271": {
       "example": {
         "prediction": "Do 1 × 4 and 2 × 2 give two products or two ways to make the same product?"
-      }
+      },
+      "intro": "With number cards, 1 × 4 and 2 × 2 use different pairs but give the same product. Make one list for the choices and another for the numbers they produce. Which list does the question ask you to count?"
     },
     "S274": {
       "example": {
         "prediction": "Draw one original square centimetre after enlargement. How many small squares does it cover now?"
-      }
+      },
+      "recap": "A length of 1 unit becomes k units in a scale drawing. A unit square becomes k by k, and a unit cube becomes k by k by k. Use the matching multiplier for length, area or volume."
     },
     "S275": {
       "example": {
         "prediction": "Can you use a negative lead to show which team is now in front?"
-      }
+      },
+      "intro": "Write A’s score minus B’s score in a small box. If A scores, the number in the box rises. If B scores, it falls. When the number passes through zero, who has taken the lead?"
     },
     "S277": {
       "example": {
         "prediction": "After the pieces separate, how many newly exposed faces can you touch?"
-      }
+      },
+      "intro": "Picture slicing a loaf across its middle and pulling the halves apart. You can now see the same cut shape on each half. Count both new surfaces if the question asks about the two pieces together."
     },
     "S279": {
       "example": {
         "prediction": "Mark the first departure at 8:00. How many twelve-minute gaps come before the third departure?"
-      }
+      },
+      "intro": "Make two rows headed “leaves” and “arrives”. Write the first departure in the top row and add the journey time directly underneath. The next column is one service interval later in both rows."
     },
     "S281": {
       "example": {
         "prediction": "If you halve each of two angles, what fraction of their original sum do you get?"
-      }
+      },
+      "recap": "Outline the small triangle formed by the bisectors and the side joining their starting corners. Mark which two angles are halves. Their sum is half the sum of the two original corner angles."
     },
     "S282": {
       "example": {
         "prediction": "Which days disappear if you subtract the older three-day window from the newer one?"
-      }
+      },
+      "intro": "Write the days in a row. Underline the first three days in one colour and the next three-day window in another. When you compare their totals, the two days marked twice cancel."
     },
     "S283": {
       "example": {
         "prediction": "Write the last digits with their exponents underneath. Where does exponent 6 fall in the cycle?"
-      }
+      },
+      "recap": "Label the positions in a cycle 1, 2, 3 and so on. For a four-step cycle, test exponent 4 and exponent 5 first. Those two checks show exactly where one cycle ends and the next begins."
     },
     "S284": {
       "example": {
         "prediction": "How could you make the two purchases contain the same number of pens?"
-      }
+      },
+      "intro": "Picture buying two copies of the same mixed bag. Every item count doubles, and so does the price. You can now compare that order with a different one carrying the same number of pens."
     },
     "S285": {
       "example": {
         "prediction": "How many visits are there to share among the ten sites?"
-      }
+      },
+      "intro": "Draw a tick whenever a child appears in a team photo. Count the ticks by photo, then count them by child. Both totals count the very same appearances, even when one child is in several pictures."
     },
     "S286": {
       "example": {
         "prediction": "Look at the stack already four cubes high. How much does it contribute to the number being added?"
-      }
+      },
+      "bridge": "For the film’s six stacks, look down each row for its tallest stack. Can another stack grow by one without changing either the row maximum or its column maximum?"
     },
     "S289": {
       "example": {
         "prediction": "Slide a window over just the last two bits. Which two bits will determine the next one?"
-      }
+      },
+      "intro": "In a list built by adding the last two entries, seeing a 1 again tells you little by itself. Record the two entries side by side. When that whole pair returns in the same order, the following entry is forced."
     },
     "S290": {
       "example": {
         "prediction": "The outside edge hasn't moved. What part of the 36 cm belongs to the new square?"
-      }
+      },
+      "intro": "Trace the outside edge of a card with a window cut into it. You must lift your finger to begin tracing the window. Write a separate length for each loop before combining the measurements."
     },
     "S291": {
       "example": {
         "prediction": "Draw the two possible middle stops. Which one has lost its way to F?"
-      }
+      },
+      "intro": "Draw two routes from a start to a finish. Put a cross on one link and trace each route again. A route survives exactly when every link on it is still open."
     },
     "S293": {
       "example": {
         "prediction": "If the first box holds your chosen number, which box should be labelled “that number minus three”?"
-      }
+      },
+      "intro": "If one box has three fewer counters than another, label the fuller box x and the other x − 3. Read both labels aloud in the story. Which expression counts all the counters together?"
     },
     "S295": {
       "example": {
         "prediction": "Sketch the nine centres and put one border cube at each end of an interior row. How long is the full row?"
-      }
+      },
+      "recap": "Locate the small cubes first. Face interiors stop one place short of each edge, edge interiors stop one place short of each corner, and clean cubes lie one layer below every painted face."
     },
     "S296": {
       "example": {
         "prediction": "Starting with the digit 4, what totals could the two digits reach?"
-      }
+      },
+      "intro": "For a label with a missing digit, put a box in the empty place. Write down the digits the first clue permits, then test the digit sum of each completed label. Check any limits on the digit before counting."
     },
     "S297": {
       "example": {
         "prediction": "Does one half describe all the cups or just the red ones?"
-      }
+      },
+      "intro": "Imagine the seeds in both trays sprouted at the lower rate. Compare that count with the actual total. Every extra sprout must come from the tray with the higher rate, which gives a way to recover its size."
     },
     "S299": {
       "example": {
         "prediction": "Which value would appear twice on your page if you copied both complete lines?"
-      }
+      },
+      "intro": "Draw a horizontal line of three cells and a vertical line through its middle. As you add the two line totals, tap each cell when you count it. Which cell gets tapped twice?"
     },
     "S300": {
       "example": {
         "prediction": "When the diagonal touches the centre, which tile does it actually enter next?"
-      }
+      },
+      "intro": "Trace a diagonal through a grid corner. Just before the corner your pencil is inside one tile, and just after it your pencil is inside one new tile. The other two tiles only meet the pencil at a point."
     },
     "S302": {
       "example": {
         "prediction": "If you add all three pair totals, how many times will A appear?"
-      }
+      },
+      "bridge": "The film gives the numbers of counters in A and B, in B and C, and in C and A. Write the box letters under each pair total. How many times does each box appear when you add the three totals?"
     },
     "S303": {
       "example": {
         "prediction": "Which sticker labels would appear on both your A list and your B list?"
-      }
+      },
+      "intro": "Imagine one student belongs to all three clubs. Adding the club lists counts her three times. Cross her out once for each pair of clubs she shares. How many copies must you restore so that she counts once?"
     },
     "S305": {
       "example": {
         "prediction": "How much extra was recorded for just one item?"
-      }
+      },
+      "intro": "Imagine pricing six items at a round number first. Compare one estimated price with one exact price. Decide whether the bill must go up or down, then apply that difference to every item."
     },
     "S306": {
       "example": {
         "prediction": "How many copies of the 5 mm model length fit along 15 mm?"
-      }
+      },
+      "intro": "Draw a two-column table with “model” on one side and “real” on the other. Write 5 mm beside 2 m. When you multiply one length to make a new row, multiply its partner by the same number."
     },
     "S307": {
       "example": {
         "prediction": "After one round, has the 12-point gap grown or shrunk, and by how much?"
-      }
+      },
+      "recap": "Write the lead at the end of each round near the changeover. If the scores are tied in one round, another round is needed before anyone finishes strictly ahead."
     },
     "S309": {
       "example": {
         "prediction": "After the upright dominoes are placed, how many cells still need covering?"
-      }
+      },
+      "intro": "Look at the first column of an empty two-row board. An upright domino fills it. If you lay a horizontal domino across the top instead, what must you put below it to fill the first column?"
     },
     "S310": {
       "example": {
         "prediction": "Which number would appear on both your list of threes and your list of fours?"
-      }
+      },
+      "bridge": "The film’s two activities restart every 6 and 9 minutes. Put a dot on each schedule at the first shared restart. If you counted both dots, how many different restart times did you actually mark?"
     },
     "S311": {
       "example": {
         "prediction": "How many metres of the gap disappear in a single second?"
-      }
+      },
+      "intro": "Mark the two starting positions and the place where the runners meet. When they run towards one another their distances fill the original gap. In a chase, the faster runner must also cover the distance the slower one keeps travelling."
     },
     "S312": {
       "example": {
         "prediction": "If you name one friend first, does choosing their partner also decide the other pair?"
-      }
+      },
+      "intro": "Imagine choosing two helpers and then swapping their names. If both helpers do the same job the choice looks identical. If one is captain and one is deputy, the swap makes a different assignment."
     },
     "S313": {
       "example": {
         "prediction": "Where must a mirror line lie between a ray and its reflected image?"
-      }
+      },
+      "intro": "Draw the crease and one arrow starting on it. Flip the arrow over the crease. The turn from the old arrow to the crease has the same size as the turn from the crease to the new arrow."
     },
     "S314": {
       "example": {
         "prediction": "How small can the other two numbers be if they must be positive and different?"
-      }
+      },
+      "intro": "A fixed mean gives you a fixed supply of points. If you want one score as large as possible, first set aside enough points for every other score to obey its own restrictions."
     },
     "S317": {
       "example": {
         "prediction": "Could B be the heaviest parcel if A still has to weigh more?"
-      }
+      },
+      "intro": "Write the possible weights or positions below each name. When a clue leaves just one choice, cross it off every other list. A different clue may now force a second name."
     },
     "S318": {
       "example": {
         "prediction": "Trace both possible first steps. Which one uses the closed edge?"
-      }
+      },
+      "intro": "At an intersection, draw a cross on one incoming edge. Trace the other way into that intersection. Now cover the intersection itself and try again. Which routes survive each closure?"
     },
     "S321": {
       "example": {
         "prediction": "Where does the repeating four-day block begin on your timeline?"
-      }
+      },
+      "intro": "Circle the first day of the repeating block. Count any earlier days once, then mark off whole blocks from the circle onwards. Read a leftover piece from the beginning of the block."
     },
     "S323": {
       "example": {
         "prediction": "How many walkers left their hats at home? Can you do the same count for riders?"
-      }
+      },
+      "intro": "Put your finger on one travel row in the table. Every pupil in that row either wears a hat or goes without one. Those two cells must add up to the number at the end of the row."
     },
     "S324": {
       "example": {
         "prediction": "Immediately after the pencils are taken, what fraction of the original box remains?"
-      }
+      },
+      "intro": "Write “before” and “after” beside each change. If a gift arrives before half the contents are removed, the gift is part of the amount being halved. Try moving the gift to the end and compare."
     },
     "S325": {
       "example": {
         "prediction": "Starting at 8, which direction can you move three units and stay within the allowed range?"
-      }
+      },
+      "intro": "Put your finger on 8 on a number line. A point three steps away could be on either side. Mark both candidates before using the allowed range to decide which one fits."
     },
     "S326": {
       "example": {
         "prediction": "If 4 is the larger label, which labels could be its partner?"
-      }
+      },
+      "bridge": "The film always uses exhibit A. When A occupies the middle room between two blue exhibits, which choices are still open? In the card puzzle, fix the largest card before counting its possible partners."
     },
     "S327": {
       "example": {
         "prediction": "Trace the meeting line of the two painted faces. Do its end cubes also carry both colours?"
-      }
+      },
+      "intro": "Point to the top and front faces of a box. Trace the edge where the two faces meet. Which cubes along that edge also touch the right face, and which touch only the first two painted faces?"
     },
     "S331": {
       "example": {
         "prediction": "How much extra height is there above the same 6 cm base?"
-      }
+      },
+      "intro": "Sketch the same triangle twice, once before and once after its top vertex moves. Keep the base line fixed. A sideways move at the same height keeps the area, while a change in perpendicular height changes it."
     },
     "S333": {
       "example": {
         "prediction": "Can a domino cross the gap between strips to cover two leftover cells?"
-      }
+      },
+      "intro": "Lay out two separate strips of three squares. Although there are six squares altogether, a domino placed on one strip cannot reach the other. Check the available pairs on each strip before combining the counts."
     },
     "S335": {
       "example": {
         "prediction": "What would a two-bead row look like if it failed to use both colours?"
-      }
+      },
+      "intro": "Write a short code using only one colour. It belongs on the missing-blue list and may also belong on the missing-green list. Watch for these duplicate entries when subtracting incomplete codes."
     },
     "S338": {
       "example": {
         "prediction": "Which reading times disappear when both ends of the interval are open?"
-      }
+      },
+      "recap": "Mark the first and last events the wording allows. Count the gaps between those marked events and add one for the first event itself. A click exactly at an excluded endpoint gets no mark."
     },
     "S339": {
       "example": {
         "prediction": "Before any tile goes down, how many choices have you made to leave the row empty?"
-      }
+      },
+      "intro": "Imagine erasing only the final jump from a finished route. Its length tells you which earlier landing the route came from. If you can put the jump back in exactly one way, that earlier count belongs in the recurrence."
     },
     "S341": {
       "example": {
         "prediction": "Trace the empty cells on either side of the fixed middle column. Can any tile cross it?"
-      }
+      },
+      "intro": "Draw the permanently fixed tile first. Trace a path through the empty squares from one side to the other. If there is no path for a tile to cross, the remaining regions can be solved independently."
     },
     "S346": {
       "example": {
         "prediction": "Which two different digits have a sum divisible by three?"
-      }
+      },
+      "intro": "Choose the last digit first when it must be even. If the digits must also increase, lay the smaller available cards to its left. Each selection then has just one order that can work."
     },
     "S347": {
       "example": {
         "prediction": "What price is the 20% discount taken from after the first change?"
-      }
+      },
+      "intro": "Write the price after the first change on a new line. Underline that amount before calculating the second percentage. The original price and the underlined price may give quite different discounts."
     },
     "S348": {
       "example": {
         "prediction": "When six shelf counts rise evenly, what do the first and last counts average to?"
-      }
+      },
+      "intro": "Suppose you know the total seats in six evenly growing rows. Divide by six to find the mean row. Pair the first and last rows. Together they must hold twice that mean."
     },
     "S349": {
       "example": {
         "prediction": "Which end desk has a neighbour immediately to its right?"
-      }
+      },
+      "intro": "Draw two seating orders that fit the same clue. Underline any name that stays in the same seat in both orders. Check the remaining orders before claiming that seat is forced."
     },
     "S351": {
       "example": {
         "prediction": "What must happen to the number when you add one?"
-      }
+      },
+      "bridge": "The film’s blue beacon flashes at minute 2 and every 6 minutes after that. What remainder describes all its flash times? Write a second list for the other beacon and look for a time shared by both lists."
     },
     "S353": {
       "example": {
         "prediction": "How many neighbours does B need if it must touch both A and C?"
-      }
+      },
+      "intro": "Lay down A and B as neighbours. If B must also touch C, C has only one side of B left to take. Draw both possible three-letter runs before arranging the remaining letters."
     },
     "S354": {
       "example": {
         "prediction": "Pair up seats from opposite ends. Is there a seat left without a partner?"
-      }
+      },
+      "intro": "Trace one marked seat as a row is turned end for end. Most seats exchange places with partners. In a row with an odd number of seats, what happens to the exact middle seat?"
     },
     "S355": {
       "example": {
         "prediction": "Can you invent daily sales that still add to 12 with a different middle day?"
-      }
+      },
+      "recap": "To test a claim about a missing day, try two different daily lists that fit every total. If the claimed value changes, the chart leaves it open. To prove a maximum, show both a limit and a list that reaches it."
     },
     "S358": {
       "example": {
         "prediction": "What number does the total force before you even check the distinctness rule?"
-      }
+      },
+      "intro": "Put a possible number in a blank cell in pencil. Check its row, its column and any diagonal it touches. A number that fits one line can still break the total on another."
     },
     "S359": {
       "example": {
         "prediction": "Once both horizontal lines are fixed, which sides of a rectangle still need choosing?"
-      }
+      },
+      "intro": "Pin one side of a rectangular frame to the bottom of a grid. Count how many column spans it could use. For each span, how many different horizontal lines could close the top?"
     },
     "S360": {
       "example": {
         "prediction": "Write 18 as a product of primes. Which prime is missing its partner?"
-      }
+      },
+      "intro": "Write a number as a row of prime factors and circle matching pairs. A pair contributes one prime to the square root. A factor left on its own tells you what a multiplier must supply."
     },
     "S361": {
       "example": {
         "prediction": "Could you choose two distinct labels both with remainder zero?"
-      }
+      },
+      "intro": "Sort the labels into three piles by their remainder after division by 3. To make a multiple of 3 by adding two labels, which pair of piles can you use? Include the possibility of choosing twice from the same pile."
     },
     "S362": {
       "example": {
         "prediction": "What disappears if you subtract the lighter weighing from the heavier one?"
-      }
+      },
+      "intro": "Look at the two weighings. A bag and a tin appear together in each. Cover that matching pair in both rows and compare the remaining item with the difference between the totals."
     },
     "S365": {
       "example": {
         "prediction": "When the triangles share a vertex, what happens to their heights above the split base?"
-      }
+      },
+      "intro": "Draw a triangle and split its base into four equal lengths. Join the top vertex to the division marks. Each small triangle has the same height and base length, so each gets the same share of the whole area."
     },
     "S366": {
       "example": {
         "prediction": "Could a route use both entrances for its final step?"
-      }
+      },
+      "intro": "Imagine two routes arrive at the same grid point. One has visited gate A and the other has missed it. If a delivery requires a visit to A, keep those counts separate as you extend each route."
     },
     "S367": {
       "example": {
         "prediction": "Point to each end of the switched edge. Which corners does the move reach?"
-      }
+      },
+      "intro": "Mark the four corner lamps of a rectangle on a grid. Toggle a whole row or column and watch just those four lamps. How many of them can a single move touch?"
     },
     "S368": {
       "example": {
         "prediction": "If the last 6 km is the remaining half, where would the midpoint be on a route sketch?"
-      }
+      },
+      "intro": "Start at the finish and mark the last part of the journey. Its speed and time give its distance. If that leg is a known fraction of the whole route, draw equal parts to rebuild the distance travelled earlier."
     },
     "S370": {
       "example": {
         "prediction": "Which whole-number pairs can be the sides of a rectangle with area 12?"
-      }
+      },
+      "intro": "Sketch a rectangle that fits the conditions. Its area gives you a target to beat. Now list the shorter sides that are possible and check which length goes with each one. A largest area needs that final comparison."
     }
   }
 }
