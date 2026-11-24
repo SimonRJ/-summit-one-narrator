@@ -9,6 +9,7 @@ import re
 import shutil
 
 from chapter_films import CHAPTER_FILMS, COURSE_FILMS
+from companion_variations import variation_section
 from topic_reading import CHAPTERS as READING_CHAPTERS, NOTEBOOK_CHECKS, reading_sections
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -179,7 +180,7 @@ button:focus-visible, a:focus-visible, summary:focus-visible {{ outline: 2px sol
 <p>{escape(source["notebook_exercise"])}</p>
 <details><summary>Check your reasoning</summary><p>{escape(NOTEBOOK_CHECKS.get(lesson, source["notebook_answer"]))}</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary>{transcript}</details>
+{variation_section(lesson)}<details class="transcript"><summary>Read the transcript</summary>{transcript}</details>
 <p><a href="media/{lesson}.mp4?v={version}">Open the MP4 directly</a></p>
 </main>
 <script src="lesson-video-chapters.js?v=seek-1"></script>

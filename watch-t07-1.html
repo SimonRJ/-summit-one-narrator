@@ -66,6 +66,11 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <p>A row has 11 cells. Place at most one counter in each cell and leave a gap between any two counters. How many counters can you place?</p>
 <details><summary>Check your reasoning</summary><p>Group the first ten cells into five adjacent pairs. Each pair holds at most one counter and cell 11 holds at most one more, giving a limit of six. The odd-numbered cells achieve six.</p></details>
 </section>
+<section class="exercise companion-variation" aria-labelledby="variation-title">
+<h2 id="variation-title">Try a variation</h2>
+<p>Ten places form a circle. Place at most one counter per place and leave at least one empty place between counters. What is the largest number of counters?</p>
+<details><summary>See the worked answer</summary><p>Pair each counter with the next place clockwise, which must be empty. These pairs do not overlap, so each counter uses two of the ten places. Alternating occupied and empty places fits 5 counters and reaches the bound.</p></details>
+</section>
 <details class="transcript"><summary>Read the transcript</summary>
 <h2><span class="chapter-clock">0:00</span> Find a limit every placement must respect</h2>
 <p>When a question asks for the largest possible number, trying examples is not enough. You need a reason why nobody could ever do better. That reason usually comes from something limited that every arrangement has to use.</p>

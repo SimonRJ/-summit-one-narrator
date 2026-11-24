@@ -66,6 +66,11 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <p>On a grid of dots with 2 rows and 3 columns, can a path using horizontal and vertical steps visit every dot once, starting at one end of the top row and finishing at the other?</p>
 <details><summary>Check your reasoning</summary><p>No. Those two corners have the same chessboard colour, but a path through 6 dots must start and finish on different colours.</p></details>
 </section>
+<section class="exercise companion-variation" aria-labelledby="variation-title">
+<h2 id="variation-title">Try a variation</h2>
+<p>On a 3-by-3 grid of dots, can a path visit every dot exactly once using horizontal or vertical steps if it starts and ends at the middles of two different sides?</p>
+<details><summary>See the worked answer</summary><p>Chessboard colouring gives five dots of the corner colour and four dots of the side-middle colour. A nine-dot path uses its starting colour five times. Starting at a side middle is already impossible.</p></details>
+</section>
 <details class="transcript"><summary>Read the transcript</summary>
 <h2><span class="chapter-clock">0:00</span> Look ahead before visiting the next dot</h2>
 <p>Some routes must visit every place exactly once. A move can be perfectly legal now and still ruin the route later, by cutting off a place you still need to visit. Good solvers look ahead at what each move leaves behind.</p>

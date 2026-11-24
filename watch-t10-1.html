@@ -66,6 +66,11 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <p>How many ways to tile a strip of length 7 with tiles of length 1 and 2?</p>
 <details><summary>Check your reasoning</summary><p>1, 2, 3, 5, 8, 13, 21: there are 21.</p></details>
 </section>
+<section class="exercise companion-variation" aria-labelledby="variation-title">
+<h2 id="variation-title">Try a variation</h2>
+<p>A strip of length 5 is tiled with pieces of length 1 and 2. How many tilings end with a length-2 piece?</p>
+<details><summary>See the worked answer</summary><p>Remove the final length-2 piece. The remaining length 3 has exactly three tilings, namely 1+1+1, 1+2 and 2+1. Appending a 2 returns one valid length-5 tiling for each, giving 3.</p></details>
+</section>
 <details class="transcript"><summary>Read the transcript</summary>
 <h2><span class="chapter-clock">0:00</span> Build a large count from smaller cases</h2>
 <p>Some counting problems are too big to list, but they grow in a regular way. If you can explain how each case is built from smaller ones, you can climb to any size. That building rule is called a recurrence.</p>
