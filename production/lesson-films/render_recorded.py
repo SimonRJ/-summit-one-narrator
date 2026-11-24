@@ -36,7 +36,7 @@ LESSONS = {
     "S165": "refill_bench",
     "S166": "animator_frames",
     "S167": "keepsake_cabinet",
-    "S169": "planetarium_timers",
+    "S169": "herbarium_labels",
     "S170": "enamel_tiles",
     "S171": "puppet_call",
 }

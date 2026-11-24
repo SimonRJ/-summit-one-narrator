@@ -1,63 +1,63 @@
 {
   "id": "S169",
   "course_slot": 169,
-  "title": "Under the planetarium dome",
+  "title": "The herbarium’s torn labels",
   "scenes": [
     {
       "n": 1,
-      "title": "The projector test",
-      "heading": "The projector test",
+      "title": "How the herbarium files a specimen",
+      "heading": "How the herbarium files a specimen",
       "stage": "BASIC",
-      "narration": "At the planetarium, two pinholes put coloured stars on the dome. A clock starts at minute zero. The gold star first appears at minute three and returns every eight minutes. The blue star first appears at minute one and returns every six minutes. Could both stars appear on the same minute?"
+      "narration": "A herbarium keeps pressed leaves from different plants. The curator gives each specimen a whole number and uses the remainder after division by eight to choose its tray. Tray three holds labels with remainder three. A blurred mark on a leaf label is enough to start a search, even when the specimen number is unreadable."
     },
     {
       "n": 2,
-      "title": "Mark just the gold minutes",
-      "heading": "Mark just the gold minutes",
+      "title": "Start on the correct shelf",
+      "heading": "Start on the correct shelf",
       "stage": "BASIC",
-      "narration": "Put a gold peg at three. Count on eight for each new peg: eleven, nineteen, twenty seven, thirty five and forty three. Each marked minute is three more than a multiple of eight. If a minute has no gold peg, it cannot be a meeting of the two stars."
+      "narration": "Look at specimen numbers from one hundred through one hundred and forty. The first multiple of eight at or above one hundred is one hundred and four. Move three places further to one hundred and seven. The earlier number in this same tray is ninety nine, outside the shelf. Which labels come after one hundred and seven?"
     },
     {
       "n": 3,
-      "title": "Lay the blue strip underneath",
-      "heading": "Lay the blue strip underneath",
+      "title": "Step through one tray",
+      "heading": "Step through one tray",
       "stage": "MODEL",
-      "narration": "Start the blue strip at one. Its pegs are six minutes apart: one, seven, thirteen, nineteen. The first matching pair sits at nineteen. Notice that three and one are the starting minutes. Eight and six are the distances between pegs. Those numbers have different jobs."
+      "narration": "Move eight labels at a time. The tray contains one hundred and seven, one hundred and fifteen, one hundred and twenty three, one hundred and thirty one, and one hundred and thirty nine from this shelf. Adding eight leaves the remainder unchanged. Consecutive entries in a single tray differ by exactly eight."
     },
     {
       "n": 4,
-      "title": "A viewing window opens",
-      "heading": "A viewing window opens",
+      "title": "Read the torn collection slip",
+      "heading": "Read the torn collection slip",
       "stage": "PUZZLE",
-      "narration": "The audience may enter from minute thirty through minute seventy, including both ends. Which minutes in that window show both stars? Start with the gold pegs inside the window. They are thirty five, forty three, fifty one, fifty nine and sixty seven. Each is worth testing against blue."
+      "narration": "A torn slip says the specimen number lies from three hundred and twenty through three hundred and seventy, in tray three. A small pencilled note says its tens digit is twice its units digit. Do not try every label. Begin with three hundred and twenty, a multiple of eight, then add three."
     },
     {
       "n": 5,
-      "title": "Test the second remainder",
-      "heading": "Test the second remainder",
+      "title": "Strike labels that miss the note",
+      "heading": "Strike labels that miss the note",
       "stage": "MEDIUM",
-      "narration": "A blue minute leaves remainder one on division by six. Thirty five leaves five, forty three leaves one and fifty one leaves three. Fifty nine leaves five and sixty seven leaves one. The two viewing times are forty three and sixty seven. Every possible gold minute in the window has been checked."
+      "narration": "Check the tray labels in order: three two three, three three one, three three nine, three four seven, three five five, three six three. Only the last one fits the note. Its tens digit is six and its units digit is three. The next tray label is three seven one, already past the shelf."
     },
     {
       "n": 6,
-      "title": "Why the pattern repeats",
-      "heading": "Why the pattern repeats",
-      "stage": "PROOF",
-      "narration": "Compare nineteen and forty three. In the twenty four minutes between them, the gold star returns three times and the blue star four times. The first positive shared multiple of eight and six is twenty four. Move a meeting forwards by twenty four minutes and both clocks return to the same phase."
+      "title": "The assistant reverses two digits",
+      "heading": "The assistant reverses two digits",
+      "stage": "PUZZLE",
+      "narration": "Another leaf comes from the four hundreds and belongs in tray three. The assistant copied the last two digits in reverse order. The copy is eighteen smaller than the correct number. Trading a tens digit for a units digit changes its contribution by nine times that digit. What must be true of the last two digits?"
     },
     {
       "n": 7,
-      "title": "The technician moves a pin",
-      "heading": "The technician moves a pin",
-      "stage": "CHECK",
-      "narration": "Suppose the blue star first appears at minute two instead of minute one. Its period stays six minutes. The gold pegs still start at three and move by eight. Will any two pegs line up now? Look at a property each row keeps, even far beyond the window."
+      "title": "Make a short list from the error",
+      "heading": "Make a short list from the error",
+      "stage": "PROOF",
+      "narration": "Write the last two digits as tens and units. Correct minus copied equals nine times tens minus nine times units. Eighteen divided by nine is two, so the tens digit exceeds the units digit by two. The possible endings are twenty, thirty one, forty two, fifty three, sixty four, seventy five, eighty six and ninety seven."
     },
     {
       "n": 8,
-      "title": "The impossible new meeting",
-      "heading": "The impossible new meeting",
-      "stage": "EXTENSION",
-      "narration": "Starting from two and adding six makes only even minutes. Starting from three and adding eight makes only odd minutes. No minute is both even and odd. The new clocks never meet. The spacing tells you what repeats, and the first peg tells you which repeating row to use."
+      "title": "Restore the missing label",
+      "heading": "Restore the missing label",
+      "stage": "CHECK",
+      "narration": "Apply the tray test to those eight candidates. Their remainders on division by eight, in order, are four, seven, two, five, zero, three, six and one. Only four hundred and seventy five belongs in tray three. Its altered copy is four hundred and fifty seven, eighteen smaller. Both clues point to the same pressed leaf."
     }
   ]
 }

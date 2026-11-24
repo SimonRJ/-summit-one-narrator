@@ -1,11 +1,11 @@
-name: The planetarium, tile repair and curtain call
+name: The herbarium, tile repair and curtain call
 on:
   push:
     branches: [production/ticket-refill-frame-cabinet-20261124]
     paths:
-      - .github/workflows/planetarium-enamel-puppets.yml
+      - .github/workflows/herbarium-enamel-puppets.yml
       - production/scripts/S169.json
-      - production/lesson-films/planetarium_timers.py
+      - production/lesson-films/herbarium_labels.py
       - production/scripts/S170.json
       - production/lesson-films/enamel_tiles.py
       - production/scripts/S171.json
@@ -19,9 +19,9 @@ jobs:
     uses: ./.github/workflows/produce-original-study.yml
     with:
       lesson: S169
-      release_slug: s169-planetarium-timers
-      release_title: 'Under the planetarium dome'
-      release_notes: 'Follow the two projector phases through a viewing window and prove when the stars cannot meet.'
+      release_slug: s169-herbarium-labels
+      release_title: 'The herbarium’s torn labels'
+      release_notes: 'Use the cabinet remainder, a torn digit clue and a transposition worth eighteen to identify two pressed specimens.'
   film170:
     needs: film169
     if: ${{ !cancelled() }}
