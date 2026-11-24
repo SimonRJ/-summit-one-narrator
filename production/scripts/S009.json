@@ -1,0 +1,49 @@
+{
+  "id": "S009",
+  "title": "The carry counter",
+  "voice": "VoxCPM2 — approved Voice C",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "Two trays at the counter",
+      "stage": "INTRO",
+      "narration": "Six loose counters arrive at two trays marked with the same letter. Split them equally. Three on this tray and three on its twin. A digit written twice must describe the same quantity both times."
+    },
+    {
+      "n": 2,
+      "title": "Where did the zero come from?",
+      "stage": "BASIC",
+      "narration": "Now each tray holds a two digit number ending in five. Together their total begins with seven. Tip the two groups of five into the units drawer. All ten fit in a sleeve worth one ten. The units drawer is empty. Its digit is zero."
+    },
+    {
+      "n": 3,
+      "title": "Unpack the tens",
+      "stage": "REVEAL",
+      "narration": "The tens drawer shows seven sleeves. One just came across from the units. Take that one aside. Six sleeves remain, shared equally by the two trays. Each tray supplied three tens. Thirty five and thirty five make seventy."
+    },
+    {
+      "n": 4,
+      "title": "Which letter crossed the counter?",
+      "stage": "PUZZLE",
+      "narration": "Turn the counter round. Two copies of the number A B have made a three digit total labelled B C D. Different letters must have different digits. We want the smallest possible A B. Before opening the drawers, which letter can you name?"
+    },
+    {
+      "n": 5,
+      "title": "The hundreds drawer can hold only one",
+      "stage": "PROOF",
+      "narration": "Even ninety nine doubled is only one hundred and ninety eight. The hundreds drawer must hold exactly one, so B is one. Move that digit back to both units places. One plus one leaves two units and sends nothing into the tens. D is two."
+    },
+    {
+      "n": 6,
+      "title": "The first tray that fills a hundred",
+      "stage": "CHECK",
+      "narration": "Four tens on each tray would make only eight tens. Five on each tray make ten tens. Exchange them for one hundred. No tens remain, so C is zero. Read the finished drawers: fifty one plus fifty one equals one hundred and two. Five, one, zero and two are all different. No smaller tens digit can work."
+    },
+    {
+      "n": 7,
+      "title": "Carry through a second drawer",
+      "stage": "RECAP",
+      "narration": "Now double sixty eight. Eight and eight make sixteen. Leave six in the units drawer and send one ten across. Six tens and six tens plus the carried ten make thirteen tens. Exchange ten of those tens for a hundred. The drawers read one hundred and thirty six. In a letter sum, keep the digit you write separate from the amount you carry."
+    }
+  ]
+}
