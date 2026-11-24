@@ -1,0 +1,40 @@
+name: S151 device check before S008 release
+on:
+  push:
+    branches: ['qa/s008-preflight-*']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  routes:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        profile: [iphone-portrait, iphone-landscape, ipad-portrait, ipad-landscape, pc]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            tools
+            data/recorded-studies.json
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install playwright==1.58.0
+      - if: matrix.profile != 'pc'
+        run: python -m playwright install --with-deps webkit
+      - name: Open the released film through the student routes
+        env:
+          PROFILE: ${{ matrix.profile }}
+        run: |
+          python tools/check_lesson_film_routes.py --lesson S151 --sha256 5e755773d47026273a374bf55cbfefa4a139c587a3425df87d4e6d4f9c3e1ca4 --profile "$PROFILE" \
+            --site 'https://simonrj.github.io/-summit-one-narrator/' --output "$RUNNER_TEMP/device"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: s151-${{ matrix.profile }}
+          path: ${{ runner.temp }}/device/
+          if-no-files-found: ignore
