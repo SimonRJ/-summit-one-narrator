@@ -1,0 +1,207 @@
+name: Render and play Tomography of a cube sculpture
+on:
+  push:
+    branches: [production/rooftop-scanner]
+    paths:
+      - .github/workflows/s163-film.yml
+      - production/lesson-films/cube_scanner.py
+      - production/lesson-films/render_recorded.py
+      - tools/check_lesson_film_routes.py
+      - read-practice.css
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: s163-film-candidate
+  cancel-in-progress: true
+
+jobs:
+  render:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    env:
+      VOICE_COMMIT: 1239164651aca01c9632ba948626ec638d599bfb
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            production
+            data
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Locate the verified recording of this script
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          voice_run=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs?head_sha=$VOICE_COMMIT" --jq '.workflow_runs[] | select(.path == ".github/workflows/rooftop-scanner-voice.yml" and .event == "push") | .id' | head -n 1)
+          test -n "$voice_run"
+          echo "VOICE_RUN=$voice_run" >> "$GITHUB_ENV"
+          run="repos/$GITHUB_REPOSITORY/actions/runs/$voice_run"
+          test "$(gh api "$run" --jq .head_sha)" = "$VOICE_COMMIT"
+          test "$(gh api "$run" --jq .path)" = '.github/workflows/rooftop-scanner-voice.yml'
+          for attempt in {1..100}; do
+            state=$(gh api "$run" --jq '.conclusion // .status')
+            if [[ "$state" == success ]]; then break; fi
+            if [[ "$state" != queued && "$state" != in_progress && "$state" != waiting && "$state" != requested && "$state" != pending ]]; then
+              echo "Recording job ended with $state"
+              exit 1
+            fi
+            sleep 45
+          done
+          test "$state" = success
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: ${{ env.VOICE_RUN }}
+          name: S163-aligned-voice
+          path: build/original-recording
+      - name: Draw, encode and compare the master with its artwork and speech
+        run: |
+          set -euo pipefail
+          cmp production/scripts/S163.json build/original-recording/script.json
+          sudo apt-get -o Acquire::Retries=3 update -qq
+          sudo apt-get install -y ffmpeg fonts-open-sans fonts-dejavu-core
+          python -m pip install 'numpy==2.2.6' 'pillow==11.3.0' num2words soundfile
+          mv build/original-recording build/recording
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          source = Path('build/recording')
+          script = json.loads((source / 'script.json').read_text())
+          timeline = json.loads((source / 'timeline.json').read_text())
+          narration = ' '.join(scene['narration'] for scene in script['scenes'])
+          captions = ' '.join(cue['text'] for cue in timeline['captions'])
+          assert narration == captions, 'Every spoken word must have its timed caption'
+          PY
+          python production/lesson-films/render_recorded.py S163 build/recording
+          python production/lesson-films/verify_recorded.py S163 build/recording
+          python production/lesson-films/render_recorded.py S163 build/recording --previews build/stills
+          mkdir -p build/candidate
+          cp media/lesson-films/{S163.mp4,S163-poster.jpg} build/candidate/
+          cp production/lesson-films/S163/guide.json build/candidate/S163-guide.json
+          cp production/lesson-films/S163/qa.json build/candidate/S163-qa.json
+          cp build/recording/captions.vtt build/candidate/S163.vtt
+          python - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile, ZipInfo
+          source = Path('build/recording')
+          with ZipFile('build/candidate/S163-recording.zip', 'w') as archive:
+              for name in ('script.json', 'timeline.json', 'captions.vtt', 'narration.flac'):
+                  archive.writestr(ZipInfo(name), (source / name).read_bytes())
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: S163-reviewed-candidate
+          path: build/candidate/
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: S163-review-stills
+          path: build/stills/
+          if-no-files-found: error
+          retention-days: 30
+
+  playback:
+    needs: render
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        profile: [iphone-portrait, iphone-landscape, ipad-portrait, ipad-landscape, pc]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            data
+            tools
+            figures
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          name: S163-reviewed-candidate
+          path: build/candidate
+      - run: python -m pip install 'playwright==1.58.0' aiohttp
+      - if: matrix.profile != 'pc'
+        run: python -m playwright install --with-deps webkit
+      - name: Exercise the candidate through the app, gallery and notebook
+        env:
+          PROFILE: ${{ matrix.profile }}
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          guide = json.loads(Path('build/candidate/S163-guide.json').read_text())
+          guide['release'] = 'http://127.0.0.1:8765/build/candidate/'
+          catalogue = Path('data/recorded-studies.json')
+          data = json.loads(catalogue.read_text())
+          data['lessons']['S163'] = guide
+          catalogue.write_text(json.dumps(data))
+          source = Path('data/read-watch-practise-later.json')
+          data = json.loads(source.read_text())
+          lesson = next(row for row in data['lessons'] if row['slot'] == 163)
+          lesson.update(videoId='S163', bridge=guide['bridge'], videoTitle=guide['title'], movie=guide['release'] + 'S163.mp4', filmUse='dedicated')
+          source.write_text(json.dumps(data))
+          PY
+          python - <<'PY' > "$RUNNER_TEMP/study-server.log" 2>&1 &
+          from aiohttp import web
+          from pathlib import Path
+          root = Path.cwd()
+          app = web.Application()
+          async def index(request):
+              return web.FileResponse(root / 'index.html')
+          app.router.add_get('/', index)
+          app.router.add_static('/', root)
+          web.run_app(app, host='127.0.0.1', port=8765)
+          PY
+          server=$!
+          trap 'kill "$server"' EXIT
+          curl --fail --silent --retry 15 --retry-connrefused http://127.0.0.1:8765/ -o /dev/null
+          python tools/check_lesson_film_routes.py --lesson S163 --site http://127.0.0.1:8765/ --profile "$PROFILE" --output build/device
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: S163-candidate-${{ matrix.profile }}
+          path: build/device/
+          if-no-files-found: warn
+          retention-days: 30
+
+  release:
+    needs: playback
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: S163-reviewed-candidate
+          path: verified
+      - name: Publish the checked edition and compare every returned asset
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          tag="cube-scanner-20261125-${GITHUB_SHA:0:12}"
+          if ! gh release view "$tag" > /dev/null 2>&1; then
+            gh release create "$tag" --draft --target "$GITHUB_SHA" --title 'Tomography of a cube sculpture' --notes 'Reconstruct integer stack heights from successive horizontal occupancy scans.'
+          fi
+          draft=$(gh release view "$tag" --json isDraft --jq .isDraft)
+          if [[ "$draft" == true ]]; then gh release upload "$tag" verified/* --clobber; fi
+          gh release download "$tag" --dir returned
+          for asset in verified/*; do cmp "$asset" "returned/${asset##*/}"; done
+          if [[ "$draft" == true ]]; then gh release edit "$tag" --draft=false --latest=false; fi
+          test "$(gh release view "$tag" --json isDraft --jq .isDraft)" = false
+          echo "Released $tag"
+          cat verified/S163-guide.json
+          cat verified/S163-qa.json
