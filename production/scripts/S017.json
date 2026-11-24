@@ -1,0 +1,63 @@
+{
+  "id": "S017",
+  "course_slot": 17,
+  "title": "A frame around two tiles",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "Slide four edges",
+      "heading": "Slide four edges",
+      "stage": "BASIC",
+      "narration": "A framer slides two upright edges and two level edges along the grout of a tiled wall. Once those four edges are fixed, the rectangle is fixed. A corner is a meeting of grout lines. A tile is the square between the lines."
+    },
+    {
+      "n": 2,
+      "title": "A two by one strip",
+      "heading": "A two by one strip",
+      "stage": "PUZZLE",
+      "narration": "Start with two square tiles side by side. How many rectangles can the framer outline? The top and bottom edges have no choice. There are three upright lines. Choose any two of them. The three outlines are the left tile, the right tile, and the whole strip."
+    },
+    {
+      "n": 3,
+      "title": "Keep the amber tile",
+      "heading": "Keep the amber tile",
+      "stage": "PUZZLE",
+      "narration": "The wall now has four columns and three rows. Call the amber tile A. It lies in the second row and the second column. Count rectangles that contain A. Choose a left edge on its left or farther out. How many right edges can still hold it inside?"
+    },
+    {
+      "n": 4,
+      "title": "Count the four sliders",
+      "heading": "Count the four sliders",
+      "stage": "MEDIUM",
+      "narration": "The left slider has two positions. The right has three. The top and bottom sliders each have two. Each left choice works with every right choice, and every height pair. Multiply the four counts. Twenty four rectangles contain A."
+    },
+    {
+      "n": 5,
+      "title": "Keep a blue tile out",
+      "heading": "Keep a blue tile out",
+      "stage": "PUZZLE",
+      "narration": "Now mark tile B in the top row and third column. We want rectangles containing A but leaving B outside. A frame can miss B in more than one direction. Counting all the ways to miss it separately might count one frame twice. Which frames could we subtract instead?"
+    },
+    {
+      "n": 6,
+      "title": "Clamp around both tiles",
+      "heading": "Clamp around both tiles",
+      "stage": "HARD",
+      "narration": "Keep both marked tiles. Slide a small box around them. Its left boundary is set by A, and its right boundary by B. The top is set by B, and the bottom by A. Every rectangle containing both tiles must contain this whole box."
+    },
+    {
+      "n": 7,
+      "title": "Subtract the frames that fail",
+      "heading": "Subtract the frames that fail",
+      "stage": "HARD",
+      "narration": "For both tiles, the left edge has two positions and the right edge has two. There is one top edge and there are two bottom edges. That gives eight frames containing both tiles. Of the twenty four that contained A, remove those eight. Sixteen rectangles keep A and leave B out."
+    },
+    {
+      "n": 8,
+      "title": "An outside-corner test",
+      "heading": "An outside-corner test",
+      "stage": "RECAP",
+      "narration": "Check the frame around A alone. It qualifies. Check the frame around the whole wall. It contains B, so it must disappear in the subtraction. On a new grid, locate the extreme marked tiles first. Count boundary lines on each side, and multiply choices that can be made independently."
+    }
+  ]
+}

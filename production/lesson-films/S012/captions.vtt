@@ -1,0 +1,154 @@
+WEBVTT
+
+00:00:00.600 --> 00:00:03.630
+A beetle can climb one rung or two rungs in a jump.
+
+00:00:04.100 --> 00:00:05.310
+It starts on the ground.
+
+00:00:05.980 --> 00:00:08.230
+To reach rung two, it can jump straight there,
+
+00:00:08.420 --> 00:00:09.770
+or visit rung one first.
+
+00:00:10.520 --> 00:00:11.810
+Draw both routes with your finger.
+
+00:00:15.610 --> 00:00:17.400
+How many routes reach rung three?
+
+00:00:18.030 --> 00:00:18.540
+Look backwards.
+
+00:00:19.290 --> 00:00:21.920
+The last jump came from rung two or rung one.
+
+00:00:22.610 --> 00:00:25.290
+Each route to rung two has one way to finish with
+
+00:00:25.290 --> 00:00:26.040
+a short jump.
+
+00:00:26.570 --> 00:00:28.950
+The single route to rung one can finish with
+
+00:00:28.950 --> 00:00:29.660
+a long jump.
+
+00:00:30.230 --> 00:00:31.040
+That makes three.
+
+00:00:31.920 --> 00:00:33.610
+Now the third rung breaks.
+
+00:00:34.360 --> 00:00:36.070
+The beetle may fly over the gap,
+
+00:00:36.400 --> 00:00:37.630
+but it cannot land there.
+
+00:00:38.120 --> 00:00:39.890
+Does rung four become unreachable?
+
+00:00:40.480 --> 00:00:43.110
+Find the last safe place the beetle could have landed.
+
+00:00:46.930 --> 00:00:49.700
+To land on four, the beetle must come from two.
+
+00:00:50.210 --> 00:00:51.720
+A jump from three is impossible.
+
+00:00:52.530 --> 00:00:54.340
+Both routes to two can cross the gap.
+
+00:00:55.050 --> 00:00:56.650
+Trace their different beginnings and their
+
+00:00:56.650 --> 00:00:58.060
+identical last jump.
+
+00:00:58.570 --> 00:01:00.140
+Write two routes beside four.
+
+00:01:01.010 --> 00:01:03.230
+At every safe rung, add the counts at the
+
+00:01:03.230 --> 00:01:04.380
+two previous positions.
+
+00:01:05.110 --> 00:01:06.760
+Beside rung five write two.
+
+00:01:07.110 --> 00:01:10.320
+At six the counts are two and two, giving four.
+
+00:01:10.810 --> 00:01:12.400
+At seven they give six.
+
+00:01:12.890 --> 00:01:15.540
+At eight, six plus four gives ten.
+
+00:01:16.050 --> 00:01:18.410
+The zero stays in the log, holding the place of
+
+00:01:18.410 --> 00:01:19.380
+the broken rung.
+
+00:01:20.210 --> 00:01:22.080
+A brass bell hangs on rung five.
+
+00:01:22.590 --> 00:01:25.610
+This time the beetle must land on that rung and ring the
+
+00:01:25.610 --> 00:01:26.900
+bell on its way to eight.
+
+00:01:27.290 --> 00:01:29.160
+Which of the ten routes count now?
+
+00:01:29.510 --> 00:01:32.050
+Imagine cutting a successful route into two pieces
+
+00:01:32.050 --> 00:01:32.800
+at the bell.
+
+00:01:36.500 --> 00:01:38.130
+Two routes arrive at the bell.
+
+00:01:38.700 --> 00:01:41.690
+From five to eight the remaining climb is three rungs.
+
+00:01:42.320 --> 00:01:45.300
+The jumps can be three singles, a single followed by a
+
+00:01:45.300 --> 00:01:47.610
+double, or a double followed by a single.
+
+00:01:48.100 --> 00:01:50.210
+Each beginning accepts all three endings.
+
+00:01:51.260 --> 00:01:53.490
+Two groups of three give six bell routes.
+
+00:01:54.410 --> 00:01:57.240
+Why did we add at a landing and multiply at the bell?
+
+00:01:57.830 --> 00:02:00.500
+Different final jumps put the routes in separate piles.
+
+00:02:01.190 --> 00:02:04.050
+At a compulsory stop, each beginning joins to
+
+00:02:04.050 --> 00:02:05.260
+each possible ending.
+
+00:02:05.750 --> 00:02:07.520
+Keep a zero for a forbidden landing.
+
+00:02:08.190 --> 00:02:11.070
+If a rule restricts the next jump, record how the route
+
+00:02:11.070 --> 00:02:12.020
+arrived as well.

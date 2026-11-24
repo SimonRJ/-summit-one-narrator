@@ -1,0 +1,211 @@
+name: Recover the recorded mail train lesson
+# Main stays inert. One purpose-specific branch can start the existing-take recovery.
+on:
+  push:
+    branches: [production/s015-recorded-recovery-20261125]
+    paths:
+      - .github/workflows/s015-recorded-recovery.yml
+      - tools/video/s015-recorded-takes.json
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: s015-mail-train-recorded-recovery
+  cancel-in-progress: false
+
+jobs:
+  render:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            production
+            data
+            tools/video
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Recover this lesson's eight verified recordings
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s tools/video -p test_recover_recorded_takes.py
+          python tools/video/recover_recorded_takes.py --manifest tools/video/s015-recorded-takes.json --output build/t01-studio > build-take-recovery.json
+      - name: Align the existing Voice C performance
+        run: |
+          set -euo pipefail
+          sudo apt-get -o Acquire::Retries=3 update -qq
+          sudo apt-get install -y ffmpeg libsndfile1 fonts-open-sans fonts-dejavu-core
+          python -m pip install 'numpy==2.2.6' 'pillow==11.3.0' num2words soundfile faster-whisper
+          python production/t01-studio/prepare_audio.py S015
+          mkdir -p build/original-recording
+          cp production/scripts/S015.json build/original-recording/script.json
+          cp build/t01-studio/S015/{timeline.json,captions.vtt} build/original-recording/
+          ffmpeg -v error -i build/t01-studio/S015/narration.wav -c:a flac build/original-recording/narration.flac
+      - name: Draw, encode and compare the master with its artwork and speech
+        run: |
+          set -euo pipefail
+          cmp production/scripts/S015.json build/original-recording/script.json
+          mv build/original-recording build/recording
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          source = Path('build/recording')
+          script = json.loads((source / 'script.json').read_text())
+          timeline = json.loads((source / 'timeline.json').read_text())
+          narration = ' '.join(scene['narration'] for scene in script['scenes'])
+          captions = ' '.join(cue['text'] for cue in timeline['captions'])
+          assert narration == captions, 'Every spoken word must have its timed caption'
+          PY
+          python production/lesson-films/render_recorded.py S015 build/recording
+          python production/lesson-films/verify_recorded.py S015 build/recording
+          python production/lesson-films/render_recorded.py S015 build/recording --previews build/stills
+          mkdir -p build/candidate
+          cp media/lesson-films/{S015.mp4,S015-poster.jpg} build/candidate/
+          cp production/lesson-films/S015/guide.json build/candidate/S015-guide.json
+          cp production/lesson-films/S015/qa.json build/candidate/S015-qa.json
+          cp build/recording/captions.vtt build/candidate/S015.vtt
+          python - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile, ZipInfo
+          source = Path('build/recording')
+          with ZipFile('build/candidate/S015-recording.zip', 'w') as archive:
+              for name in ('script.json', 'timeline.json', 'captions.vtt', 'narration.flac'):
+                  archive.writestr(ZipInfo(name), (source / name).read_bytes())
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: S015-recorded-recovery-candidate
+          path: |
+            build/candidate/
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: S015-recorded-recovery-stills
+          path: build/stills/
+          if-no-files-found: error
+          retention-days: 30
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: S015-recorded-recovery-provenance
+          path: build-take-recovery.json
+          if-no-files-found: error
+          retention-days: 30
+
+  playback:
+    needs: render
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        profile: [iphone-portrait, iphone-landscape, ipad-portrait, ipad-landscape, pc]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            data
+            tools
+            figures
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          name: S015-recorded-recovery-candidate
+          path: build/candidate
+      - run: python -m pip install 'playwright==1.58.0' aiohttp
+      - if: matrix.profile != 'pc'
+        run: python -m playwright install --with-deps webkit
+      - name: Exercise the candidate through the app, gallery and notebook
+        env:
+          PROFILE: ${{ matrix.profile }}
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          guide = json.loads(Path('build/candidate/S015-guide.json').read_text())
+          guide['release'] = 'http://127.0.0.1:8765/build/candidate/'
+          catalogue = Path('data/recorded-studies.json')
+          data = json.loads(catalogue.read_text())
+          data['lessons']['S015'] = guide
+          catalogue.write_text(json.dumps(data))
+          for name in ('read-watch-practise.json', 'read-watch-practise-later.json'):
+              source = Path('data') / name
+              data = json.loads(source.read_text())
+              for lesson in data['lessons']:
+                  if lesson['videoId'] != 'S015':
+                      continue
+                  lesson.update(videoTitle=guide['title'], movie=guide['release'] + 'S015.mp4')
+                  if lesson['slot'] == 15:
+                      lesson.update(bridge=guide['bridge'], filmUse='dedicated')
+                  else:
+                      assert lesson['slot'] == 260 and lesson['filmUse'] == 'technique'
+                      lesson['bridge'] = 'Read the mail train’s two stamps independently. Which labels pass the divisibility-by-four test on the last two digits, and which of those also pass the digit-sum test for three?'
+              source.write_text(json.dumps(data))
+          PY
+          python - <<'PY' > "$RUNNER_TEMP/study-server.log" 2>&1 &
+          from aiohttp import web
+          from pathlib import Path
+          root = Path.cwd()
+          app = web.Application()
+          async def index(request):
+              return web.FileResponse(root / 'index.html')
+          app.router.add_get('/', index)
+          app.router.add_static('/', root)
+          web.run_app(app, host='127.0.0.1', port=8765)
+          PY
+          server=$!
+          trap 'kill "$server"' EXIT
+          curl --fail --silent --retry 15 --retry-connrefused http://127.0.0.1:8765/ -o /dev/null
+          python tools/check_lesson_film_routes.py --lesson S015 --site http://127.0.0.1:8765/ --profile "$PROFILE" --output build/device
+          if [[ "$PROFILE" == pc || "$PROFILE" == ipad-portrait ]]; then
+            python tools/check_lesson_film_routes.py --lesson S015 --consumer-slot 260 --site http://127.0.0.1:8765/ --profile "$PROFILE" --output build/device/consumer-260
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: S015-recorded-recovery-${{ matrix.profile }}
+          path: build/device/
+          if-no-files-found: warn
+          retention-days: 30
+
+  release:
+    needs: playback
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: S015-recorded-recovery-candidate
+          path: verified
+      - name: Publish the checked edition and compare every returned asset
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          tag="s015-recorded-recovery-20261125-${GITHUB_SHA:0:12}"
+          if ! gh release view "$tag" > /dev/null 2>&1; then
+            gh release create "$tag" --draft --target "$GITHUB_SHA" --title 'Two stamps for the mail train' --notes 'Reuses the eight pinned approved Voice C takes; tests divisibility by four and three independently and checks the shifted remainder interval. Candidate and technique-consumer browser gates passed; final public-route editorial acceptance remains separate.'
+          fi
+          draft=$(gh release view "$tag" --json isDraft --jq .isDraft)
+          if [[ "$draft" == true ]]; then gh release upload "$tag" verified/* --clobber; fi
+          gh release download "$tag" --dir returned
+          for asset in verified/*; do cmp "$asset" "returned/${asset##*/}"; done
+          if [[ "$draft" == true ]]; then gh release edit "$tag" --draft=false --latest=false; fi
+          test "$(gh release view "$tag" --json isDraft --jq .isDraft)" = false
+          echo "Released $tag"
+          cat verified/S015-guide.json
+          cat verified/S015-qa.json

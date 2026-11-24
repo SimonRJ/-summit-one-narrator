@@ -1,0 +1,51 @@
+{
+  "id": "S012",
+  "title": "The missing rung",
+  "seconds": 137.333333,
+  "chapters": [
+    {
+      "title": "The landing log",
+      "start": 0.0
+    },
+    {
+      "title": "Sort the final jumps",
+      "start": 15.61
+    },
+    {
+      "title": "Strike out a landing",
+      "start": 31.92
+    },
+    {
+      "title": "Jump over the gap",
+      "start": 46.93
+    },
+    {
+      "title": "Build the landing log",
+      "start": 61.01
+    },
+    {
+      "title": "The brass bell",
+      "start": 80.21
+    },
+    {
+      "title": "Pair the pieces",
+      "start": 96.5
+    },
+    {
+      "title": "Add arrivals, multiply choices",
+      "start": 114.41
+    }
+  ],
+  "transcript": [
+    "A beetle can climb one rung or two rungs in a jump. It starts on the ground. To reach rung two, it can jump straight there, or visit rung one first. Draw both routes with your finger.",
+    "How many routes reach rung three? Look backwards. The last jump came from rung two or rung one. Each route to rung two has one way to finish with a short jump. The single route to rung one can finish with a long jump. That makes three.",
+    "Now the third rung breaks. The beetle may fly over the gap, but it cannot land there. Does rung four become unreachable? Find the last safe place the beetle could have landed.",
+    "To land on four, the beetle must come from two. A jump from three is impossible. Both routes to two can cross the gap. Trace their different beginnings and their identical last jump. Write two routes beside four.",
+    "At every safe rung, add the counts at the two previous positions. Beside rung five write two. At six the counts are two and two, giving four. At seven they give six. At eight, six plus four gives ten. The zero stays in the log, holding the place of the broken rung.",
+    "A brass bell hangs on rung five. This time the beetle must land on that rung and ring the bell on its way to eight. Which of the ten routes count now? Imagine cutting a successful route into two pieces at the bell.",
+    "Two routes arrive at the bell. From five to eight the remaining climb is three rungs. The jumps can be three singles, a single followed by a double, or a double followed by a single. Each beginning accepts all three endings. Two groups of three give six bell routes.",
+    "Why did we add at a landing and multiply at the bell? Different final jumps put the routes in separate piles. At a compulsory stop, each beginning joins to each possible ending. Keep a zero for a forbidden landing. If a rule restricts the next jump, record how the route arrived as well."
+  ],
+  "bridge": "Pause when the film marks rung 3 as broken. Is rung 4 still reachable? Trace its possible final jumps before the film fills in the table.",
+  "sha256": "87e71ca9ae8e3355f9f092f05a7e4c0678313aa569bbc3b4cc63a200ff2cedd7"
+}
