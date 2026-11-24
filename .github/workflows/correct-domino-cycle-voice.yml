@@ -1,0 +1,56 @@
+name: Correct the two spoken conditions
+on:
+  push:
+    branches: [production/correct-two-spoken-conditions]
+    paths: ['production/scripts/S019.json', 'production/scripts/S020.json', '.github/workflows/correct-domino-cycle-voice.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  voice:
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        include:
+          - {lesson: S019, scene: 5}
+          - {lesson: S020, scene: 9}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    env:
+      HF_HUB_DISABLE_XET: '1'
+      TOKENIZERS_PARALLELISM: 'false'
+      OMP_NUM_THREADS: '4'
+      MKL_NUM_THREADS: '4'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            production
+            data
+            media/voice-audition
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install the studio narrator
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg libsndfile1
+          pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install 'transformers>=4.45,<5' 'huggingface-hub<1' einops pydantic soundfile librosa safetensors tqdm numpy scipy inflect addict argbind
+          pip install --no-deps 'git+https://github.com/OpenBMB/VoxCPM.git@300e4260b509066151d623dc9c0aa922cf82232b'
+      - name: Record with the approved Voice C reference
+        env:
+          SCENE: ${{ matrix.scene }}
+          LESSON: ${{ matrix.lesson }}
+        run: |
+          python -c 'import json,os; json.dump([{"lesson":os.environ["LESSON"],"scene":int(os.environ["SCENE"])}],open("sequence.json","w"))'
+          python production/t01-studio/synth.py --sequence sequence.json --threads 4
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.lesson }}-voice-${{ matrix.scene }}
+          path: build/t01-studio/${{ matrix.lesson }}-*
+          if-no-files-found: error
+          retention-days: 30
+
