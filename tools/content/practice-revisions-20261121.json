@@ -598,13 +598,13 @@
     },
     "S008": {
       "intro": "Write 6, 0 and 3 in the first three boxes of a five-digit palindrome. Reading from either end must give the same digits. Which boxes belong to the same pair, and which digit has no partner?",
-      "bridge": "When the film divides 2772 by 11, pause before the calculation. How much do the two 2s contribute together? What about the two 7s?",
-      "recap": "In a five-digit palindrome, the first and last digits match, as do the second and fourth. Count each pair twice in the digit sum and the centre once. Check whether zero is allowed in each position.",
+      "bridge": "When the printing press shows 2,772, pause before the strip splits. How much of the number comes from the two outside 2s together? How much comes from the two inside 7s?",
+      "recap": "Choose the digits on one side and reflect them. For a digit sum, count each matching pair twice and any unpaired middle digit once. The first digit must be at least 1. An inside digit can be zero.",
       "example": {
         "prompt": "A five-digit palindrome starts with 60 and has a 3 in the middle. What fills the last two places?",
         "steps": [
           "The second box holds 0. Its partner, the fourth box, must also hold 0. The middle 3 stays in place.",
-          "The first box holds 6, so put 6 in the last box. Read 60306 from either end to check the five digits."
+          "The first box holds 6, so put 6 in the last box. Read the digits 6 0 3 0 6 from either end to check the match."
         ]
       }
     },
@@ -940,6 +940,12 @@
           "alt": "Two copies of a two-by-two grid. The first numbers the four unit squares. The second outlines the single square made from all four."
         }
       }
+    },
+    "S187": {
+      "bridge": "When the press separates 2,772 into two strips, find the factor of 11 in each. Would either strip lose that factor if you changed its digit?"
+    },
+    "S278": {
+      "bridge": "The film doubles the sum of two chosen digits to find the digit sum of a four-digit palindrome. Imagine slipping one new digit into the centre. How many times should you count that digit?"
     }
   }
 }

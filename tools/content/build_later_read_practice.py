@@ -4,6 +4,7 @@ import hashlib
 import json
 import re
 from pathlib import Path
+from recorded_practice import apply_recorded_film
 from solution_revisions import checked_solution, private_overlay
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -91,11 +92,7 @@ def build(private):
         lesson.update(example=example, skill=src['skill'], videoId=src['videoId'],
                       videoTitle=src['videoTitle'], movie=movie, filmUse=src['mode'],
                       retained=retained, questions=[])
-        if tag in recorded['lessons']:
-            guide = recorded['lessons'][tag]
-            release = guide.get('release') or recorded['release']
-            lesson.update(videoId=tag, videoTitle=guide['title'], movie=release + tag + '.mp4',
-                          filmUse='dedicated', bridge=guide['bridge'])
+        apply_recorded_film(lesson, recorded)
         assert len(draft['questions']) == 4, tag
         for i, q in enumerate(draft['questions']):
             id = f'RWL2-{slot:03}-{"ABCD"[i]}'

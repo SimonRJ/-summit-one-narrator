@@ -4888,7 +4888,7 @@
       "slot": 187,
       "headline": "Read a palindrome as a number",
       "intro": "The mirrored letters in ABBA describe a numerical structure. The outside pair contributes 1001A and the inside pair contributes 110B, so some factors can be found without division.",
-      "bridge": "The film opens up 2772 using its mirrored places. Ask how the two outer digits and the two inner digits contribute differently to its value.",
+      "bridge": "When the press separates 2,772 into two strips, find the factor of 11 in each. Would either strip lose that factor if you changed its digit?",
       "recap": "Separate the digit pairs by place value. When every pair has a common factor, that factor also divides their sum.",
       "example": {
         "prompt": "Why does the four-digit palindrome 1221 divide evenly by 11?",
@@ -4899,8 +4899,8 @@
       },
       "skill": "DIG-04",
       "videoId": "S008",
-      "videoTitle": "Repeated digits, palindromes and repunits",
-      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S008-Intro-Illustrated.mp4",
+      "videoTitle": "The folding number press",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s008-mirror-press-20261124-af40d2c59b13/S008.mp4",
       "filmUse": "technique",
       "retained": [
         "O187T",
@@ -8517,7 +8517,7 @@
       "slot": 278,
       "headline": "A mirror doubles some digit contributions",
       "intro": "For a five-digit palindrome ABCBA the digit sum is 2A + 2B + C. Use the digit-sum condition while choosing the free digits, remembering that A cannot be zero.",
-      "bridge": "Look at the five-digit palindrome in the film's final question. Before testing divisibility by nine, decide which digits must be counted twice.",
+      "bridge": "The film doubles the sum of two chosen digits to find the digit sum of a four-digit palindrome. Imagine slipping one new digit into the centre. How many times should you count that digit?",
       "recap": "After finding a centre digit, check that it is an integer from 0 to 9. For divisibility by nine, both 0 and 9 may qualify.",
       "example": {
         "prompt": "A palindrome is 31C13. If its digit sum is 12, what is C?",
@@ -8528,8 +8528,8 @@
       },
       "skill": "DIG-04",
       "videoId": "S008",
-      "videoTitle": "Repeated digits, palindromes and repunits",
-      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S008-Intro-Illustrated.mp4",
+      "videoTitle": "The folding number press",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s008-mirror-press-20261124-af40d2c59b13/S008.mp4",
       "filmUse": "technique",
       "retained": [
         "O278T",

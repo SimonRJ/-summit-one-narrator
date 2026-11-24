@@ -1,4 +1,4 @@
-import {lessonIntroId} from "./lesson-introduction-media.js?v=bridge-deck-20261122";
+import {lessonIntroId} from "./lesson-introduction-media.js?v=s008-press-20261124";
 
 /** Vertical course navigation: green checks mean completed and reviewable. */
 export function mountCourseMenu({navigation,getDone,getCurrent,onContinue,onCompleted,onIntroduction,onView}){

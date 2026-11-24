@@ -20,7 +20,7 @@ This guide applies to new and revised narrated concept or worked-example videos.
 - Record natural connected narration with variable punctuation-aware pauses; avoid robotic fixed-gap phrasing and never use the retired George voice.
 - Timings come from the final generated audio, not estimated reading speeds; do not time-stretch speech artificially.
 - Keep exactly **one** visible caption layer. If captions are burned in, do not enable a second in-player text track by default. Use the approved studio edition’s readable phrase captions with gentle fades. Add word emphasis only when it improves clarity and is grounded in actual word timing.
-- Verify mathematical correctness (including edge cases), audio clarity, speech/caption alignment, legibility on a phone, and the actual published HTTPS link.
+- Verify the mathematics, edge cases, narration and caption timing on the published film. Play it from the gallery, the active lesson and the completed notebook on iPhone and iPad in both orientations and on a PC. Check that the entire diagram, captions and player controls fit. Record the browser and viewport used for each check.
 - The original T02.1 edit introduced three opening scenes before its existing puzzle and extended the visual structure from 18 to 21 scenes. Only adopt the visual standard course-wide after student review.
 
 ## Approved studio benchmark — T02.1

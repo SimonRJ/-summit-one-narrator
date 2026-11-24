@@ -6,6 +6,7 @@ No answer key or worked solution for a scored question is written inside the rep
 """
 import argparse, hashlib, json, re
 from pathlib import Path
+from recorded_practice import apply_recorded_film
 from solution_revisions import checked_solution, private_overlay
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -27,6 +28,7 @@ def build(private):
     assert len(targets)==55 and sorted(int(f.stem[1:]) for f in (private/'drafts').glob('S*.json'))==targets
     old={q['id']:q for q in read(ROOT/'data/lesson-challenges.json')['items']}
     figures=read(ROOT/'figures/read-practice/openings.json')
+    recorded=read(ROOT/'data/recorded-studies.json')
     opening_revisions=read(ROOT/'tools/content/practice-revisions-20261121.json')['openings']
     public=[]; grading=[]; stems=set()
     for n in targets:
@@ -43,6 +45,7 @@ def build(private):
                 lesson[field] = revised[field]
         if key in figures: lesson['example']={**lesson['example'],'figure':figures[key]}
         lesson.update(skill=src['skill'],videoId=key,videoTitle=src['videoTitle'],movie=src['videoUrl'],retained=retained,questions=[])
+        apply_recorded_film(lesson, recorded)
         for i,q in enumerate(d['questions']):
             pid=f'RWL1-{n:03}-{"ABCD"[i]}'
             q={**q, **revisions.get(pid, {})}

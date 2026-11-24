@@ -11,7 +11,7 @@ export function introductionCatalogueComplete() {
 
 function loadRecordedStudies() {
   if (recordedCatalogue) return recordedCatalogue;
-  recordedCatalogue = fetch(new URL("./data/recorded-studies.json?v=bridge-deck-20261122", import.meta.url), {signal: AbortSignal.timeout(5500)})
+  recordedCatalogue = fetch(new URL("./data/recorded-studies.json?v=s008-press-20261124", import.meta.url), {signal: AbortSignal.timeout(5500)})
     .then(response => {
       if (!response.ok) throw Error("Recorded lesson guides are unavailable");
       return response.json();

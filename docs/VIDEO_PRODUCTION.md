@@ -31,7 +31,7 @@ All examples in the scripts are original to Summit One. None reuses a competitio
 2. Record with the approved male Voice C at natural speed. The reference is `media/voice-audition/vox-australian-male-c.mp3`. Reuse the `openbmb/VoxCPM2` revision pinned in `production/voice-c-welcome/synth.py` and its reference prompt. The reference file matches the SHA-256 in `review/AMC2025Q17-voice-c.json`.
 3. Time animation to the recorded audio. Do not stretch speech.
 4. Burn in one caption layer only.
-5. Check the mathematics on screen, caption alignment, legibility on a phone, and the published HTTPS link.
+5. Check the maths and caption timing in the encoded master. Test the published HTTPS player on iPhone and iPad in both orientations and on PC, including chapter jumps and replay from a completed lesson.
 6. Record the checked video as published for review. Work through the teaching lessons in order and then produce the exam solution videos.
 
 Studio sources are in `production/t01-studio/`. The Voice C workflow records groups of scenes with the approved reference. The render workflow aligns speech, animates the maths, and checks the final media. Each QA report in `review/` records the reference fingerprint, word alignment, format and playback duration.

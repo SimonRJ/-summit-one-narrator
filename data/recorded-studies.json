@@ -1,6 +1,57 @@
 {
   "release": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/recorded-course-studies-20261121/",
   "lessons": {
+    "S008": {
+      "release": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s008-mirror-press-20261124-af40d2c59b13/",
+      "title": "The folding number press",
+      "seconds": 191.033333,
+      "chapters": [
+        {
+          "title": "Build a number from ones",
+          "start": 0.0
+        },
+        {
+          "title": "Fold matching places together",
+          "start": 20.09
+        },
+        {
+          "title": "Lift out the two pairs",
+          "start": 42.0
+        },
+        {
+          "title": "Find eleven in both strips",
+          "start": 66.44
+        },
+        {
+          "title": "Will every strip pass?",
+          "start": 87.23
+        },
+        {
+          "title": "Check the second factor",
+          "start": 113.75
+        },
+        {
+          "title": "Count the choices on the press",
+          "start": 135.5
+        },
+        {
+          "title": "Test a tempting shortcut",
+          "start": 162.85
+        }
+      ],
+      "transcript": [
+        "This little printing press has one stamp in each place. Print a one in the hundreds, tens and ones. The strip reads one hundred and eleven. A number made entirely of ones is called a repunit. If each stamp prints three instead, what number will appear?",
+        "Three hundreds, three tens and three ones make three hundred and thirty three. Now fit four stamps. Fold the strip between its middle places. The ends meet, and the two inside places meet. Give each touching pair the same digit. Open the strip. It reads the same forwards and backwards. That is a palindrome.",
+        "Print two on the outside pair and seven on the inside pair. The result is two thousand seven hundred and seventy two. Can you divide it by eleven without long division? Lift the inside stamps. The outside pair contributes two thousand and two. Put the inside pair on a separate strip. Its value is seven hundred and seventy.",
+        "One thousand and one is eleven times ninety one. The outside pair therefore contributes eleven times one hundred and eighty two. One hundred and ten is eleven times ten. The inside pair therefore contributes eleven times seventy. Add the two quotients. One hundred and eighty two plus seventy is two hundred and fifty two.",
+        "Change the outside digit. Its two places still contribute that digit times one thousand and one. Change the inside digit. Its two places still contribute that digit times one hundred and ten. Both contributions are multiples of eleven, whatever digits you choose. Here is a harder order for the press. How many four digit palindromes are multiples of thirty three?",
+        "Thirty three is three times eleven. We already have the eleven. For the three, check the digit sum. Each chosen digit appears twice, so the digit sum is twice the sum of our two choices. Doubling cycles the remainders one and two into each other. Only zero stays zero. The two chosen digits must therefore add to a multiple of three.",
+        "Sort the inside digits by remainder. Zero, three, six and nine go in the first tray. The other trays have three digits each. Outside digits one, four and seven need the remainder two tray. That gives nine strips. Two, five and eight need the remainder one tray. Nine more. Three, six and nine need the first tray. That gives twelve. The order is filled with thirty different palindromes.",
+        "Could zero be an outside digit as well? Try printing zero, six, six, zero. The leading zero disappears. Six hundred and sixty has only three digits. Keep zero in the inside tray, though. Nine thousand and nine is a valid strip. Next time, pair the matching places, test the remaining condition, and count just the digits your press lets you choose."
+      ],
+      "bridge": "When the printing press shows 2,772, pause before the strip splits. How much of the number comes from the two outside 2s together? How much comes from the two inside 7s?",
+      "sha256": "9caf72d51d6c44b9e6e4296113418236b734387e8d1861db313b68092d909365"
+    },
     "S137": {
       "title": "Digit detectives",
       "seconds": 124.733333,
