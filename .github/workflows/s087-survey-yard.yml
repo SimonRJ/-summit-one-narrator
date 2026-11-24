@@ -1,0 +1,21 @@
+name: The survey of the L-shaped yard
+on:
+  push:
+    branches: [production/cliff-survey-parade-20261124]
+    paths:
+      - .github/workflows/s087-survey-yard.yml
+      - .github/workflows/produce-original-study.yml
+      - production/lesson-films/survey_yard.py
+      - production/scripts/S087.json
+  workflow_dispatch:
+jobs:
+  study:
+    permissions:
+      actions: read
+      contents: write
+    uses: ./.github/workflows/produce-original-study.yml
+    with:
+      lesson: S087
+      release_slug: s087-survey-yard
+      release_title: 'The survey of the L-shaped yard'
+      release_notes: 'Recover a missing stack from two camera outlines and the weight of the model.'

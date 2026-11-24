@@ -1,0 +1,21 @@
+name: The gap at the parade gate
+on:
+  push:
+    branches: [production/cliff-survey-parade-20261124]
+    paths:
+      - .github/workflows/s088-parade-gate.yml
+      - .github/workflows/produce-original-study.yml
+      - production/lesson-films/parade_gate.py
+      - production/scripts/S088.json
+  workflow_dispatch:
+jobs:
+  study:
+    permissions:
+      actions: read
+      contents: write
+    uses: ./.github/workflows/produce-original-study.yml
+    with:
+      lesson: S088
+      release_slug: s088-parade-gate
+      release_title: 'The gap at the parade gate'
+      release_notes: 'Count gaps in a circular parade and distinguish labelled vans from identical vans.'

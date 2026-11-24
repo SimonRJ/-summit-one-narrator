@@ -1,0 +1,63 @@
+{
+  "id": "S088",
+  "course_slot": 88,
+  "title": "The gap at the parade gate",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "Two breaks on a straight route",
+      "heading": "Two breaks on a straight route",
+      "stage": "BASIC",
+      "narration": "Three performances follow a straight route in the order bell, sail, drum. Put two identical breaks into the programme. Breaks must go between performances, and they cannot touch. How many programmes are possible? Draw a space between the bell and sail, and another between the sail and drum."
+    },
+    {
+      "n": 2,
+      "title": "When the ends open",
+      "heading": "When the ends open",
+      "stage": "BASIC",
+      "narration": "Each of the two inside spaces must take one break. There is just one programme. Now allow a break at the beginning or at the end as well. There are four available spaces. Pick two different spaces. Four times three divided by two gives six choices, because the breaks look identical."
+    },
+    {
+      "n": 3,
+      "title": "Bend the route into a loop",
+      "heading": "Bend the route into a loop",
+      "stage": "PUZZLE",
+      "narration": "A parade has four different floats: bell, sail, moon and drum. The route forms a circle. We record the clockwise order, so moving the starting mark leaves the same parade. Going the opposite way may change it. How many different orders can the floats make without any vans?"
+    },
+    {
+      "n": 4,
+      "title": "Pin the bell at the gate",
+      "heading": "Pin the bell at the gate",
+      "stage": "MEDIUM",
+      "narration": "Rotate each arrangement until the bell is at the gate. Now the positions clockwise from the bell can take any of the other three floats. Three choices, then two, then one give six orders. Turning the drawing has not produced an extra order."
+    },
+    {
+      "n": 5,
+      "title": "Two named vans enter",
+      "heading": "Two named vans enter",
+      "stage": "PUZZLE",
+      "narration": "A red van and a blue van must join the same circular parade. Either can go between any two floats, but the vans must stay apart. In one fixed float order, how many gaps are available? Remember the part of the route that crosses your starting mark."
+    },
+    {
+      "n": 6,
+      "title": "The closing gap counts",
+      "heading": "The closing gap counts",
+      "stage": "HARD",
+      "narration": "Follow the circle from the bell. There is one gap after each of the four floats, including the last float before you return to the bell. Choose any of the four gaps for the red van. Three different gaps remain for the blue van. That gives twelve placements per float order."
+    },
+    {
+      "n": 7,
+      "title": "Rebuild the full parade",
+      "heading": "Rebuild the full parade",
+      "stage": "HARD",
+      "narration": "Each of the six clockwise float orders has twelve legal van placements. Their product is seventy two parades. To check for double counting, take any completed parade and remove both vans. You recover exactly one float order and exactly the gaps that held red and blue."
+    },
+    {
+      "n": 8,
+      "title": "Change just the van labels",
+      "heading": "Change just the van labels",
+      "stage": "RECAP",
+      "narration": "Suppose both vans are plain white and look identical. Choosing the two gaps in the opposite order now describes the same parade. The twelve placements become six for each float order, so thirty six parades remain. Before you count gaps, decide where the route closes and whether the objects can be told apart."
+    }
+  ]
+}

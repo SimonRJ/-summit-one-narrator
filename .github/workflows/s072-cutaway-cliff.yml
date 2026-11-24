@@ -1,0 +1,21 @@
+name: Inside the cutaway cliff
+on:
+  push:
+    branches: [production/cliff-survey-parade-20261124]
+    paths:
+      - .github/workflows/s072-cutaway-cliff.yml
+      - .github/workflows/produce-original-study.yml
+      - production/lesson-films/cutaway_cliff.py
+      - production/scripts/S072.json
+  workflow_dispatch:
+jobs:
+  study:
+    permissions:
+      actions: read
+      contents: write
+    uses: ./.github/workflows/produce-original-study.yml
+    with:
+      lesson: S072
+      release_slug: s072-cutaway-cliff
+      release_title: 'Inside the cutaway cliff'
+      release_notes: 'Check the hidden cubes by floor, including the intersection of two cuts.'

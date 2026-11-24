@@ -1,0 +1,63 @@
+{
+  "id": "S087",
+  "course_slot": 87,
+  "title": "The survey of the L-shaped yard",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "A camera sees an outline",
+      "heading": "A camera sees an outline",
+      "stage": "BASIC",
+      "narration": "A survey camera looks across a model yard made of cube stacks. A short stack stands directly behind a taller one. From this camera position, how could workers raise the short stack without changing the photograph? A height can change while the outline stays put."
+    },
+    {
+      "n": 2,
+      "title": "Turn the camera",
+      "heading": "Turn the camera",
+      "stage": "BASIC",
+      "narration": "The front camera looks along each column. Move the camera to the side and it looks along the rows instead. Write the camera name on each set of measurements. An empty floor square is known to be empty. A marked stack position always contains at least one cube."
+    },
+    {
+      "n": 3,
+      "title": "A yard shaped like an L",
+      "heading": "A yard shaped like an L",
+      "stage": "PUZZLE",
+      "narration": "The real survey marked five occupied positions on a three by three plan. The back row has a stack in all three columns. The front and middle rows each have a stack only in column A. All other positions are empty. Keep the plan fixed while comparing the views."
+    },
+    {
+      "n": 4,
+      "title": "Read the front camera",
+      "heading": "Read the front camera",
+      "stage": "MEDIUM",
+      "narration": "From the front, columns A, B and C reach heights four, two and three. Column B has only its back stack, so that stack must be two high. Column C has just its back stack too. Set it to three. Column A still contains three possible contributors to its peak."
+    },
+    {
+      "n": 5,
+      "title": "Read the side camera",
+      "heading": "Read the side camera",
+      "stage": "MEDIUM",
+      "narration": "The side camera records heights two, four and three, reading the rows from front to back. The front row holds just one stack, so set it to two. The middle row has only one, so set it to four. Which height in the back row does either camera still leave open?"
+    },
+    {
+      "n": 6,
+      "title": "Rebuild every possible yard",
+      "heading": "Rebuild every possible yard",
+      "stage": "HARD",
+      "narration": "The unmeasured stack stands in the back left corner. It must be positive. The back row can reach only three, so the unknown height can be one, two or three. Try each. The middle stack already gives column A its height of four. The back right stack already gives its row the height of three."
+    },
+    {
+      "n": 7,
+      "title": "Use the survey weight",
+      "heading": "Use the survey weight",
+      "stage": "HARD",
+      "narration": "The four known stacks contain eleven cubes in total. The possible yard totals are twelve, thirteen and fourteen. A scale records thirteen cubes for this model. That extra measurement fixes the corner: thirteen minus eleven gives a height of two. Check both outlines after placing it."
+    },
+    {
+      "n": 8,
+      "title": "What would the camera notice?",
+      "heading": "What would the camera notice?",
+      "stage": "RECAP",
+      "narration": "Try adding one cube to that back left stack. It becomes three high. Neither outline changes, although the scale would read one more cube. Add a second cube. Now the side camera’s back row rises to four. Identify the other stack that already sets a peak before deciding whether a change will be visible."
+    }
+  ]
+}

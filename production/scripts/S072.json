@@ -1,0 +1,63 @@
+{
+  "id": "S072",
+  "course_slot": 72,
+  "title": "Inside the cutaway cliff",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "Lift the roof away",
+      "heading": "Lift the roof away",
+      "stage": "BASIC",
+      "narration": "On the model maker’s bench stands a little cliff made of glued unit cubes. You can take its floors apart. The bottom floor is a full three by three square. The floor above is a ring with the middle cube missing. How many cubes would a view from above hide?"
+    },
+    {
+      "n": 2,
+      "title": "Look straight down",
+      "heading": "Look straight down",
+      "stage": "BASIC",
+      "narration": "Look through the hole. You can see the middle cube of the bottom floor. The other eight bottom cubes sit beneath the eight cubes of the ring. So eight cubes are hidden, although all nine positions have something visible. There are seventeen cubes altogether."
+    },
+    {
+      "n": 3,
+      "title": "Build the quarry terraces",
+      "heading": "Build the quarry terraces",
+      "stage": "PUZZLE",
+      "narration": "Build a new quarry model. Its footprint is four cubes wide and three rows deep. The first two floors fill that footprint. Floor three fills only the back two rows. Floor four fills only the back row. Count its cubes before the stonecutters arrive."
+    },
+    {
+      "n": 4,
+      "title": "Give every floor a count",
+      "heading": "Give every floor a count",
+      "stage": "MEDIUM",
+      "narration": "Slide out the four floors. The bottom has twelve cubes, the next has twelve, the next has eight, and the top has four. Put the floors back in exactly that order. Twelve plus twelve plus eight plus four gives thirty six cubes."
+    },
+    {
+      "n": 5,
+      "title": "A shaft from the top",
+      "heading": "A shaft from the top",
+      "stage": "PUZZLE",
+      "narration": "A vertical shaft removes the stack in the second column of the back row. A horizontal tunnel also goes through the entire back row on floor two. Both passages are one cube wide. How many cubes stay in the model when both cuts are finished?"
+    },
+    {
+      "n": 6,
+      "title": "Meet inside the stone",
+      "heading": "Meet inside the stone",
+      "stage": "HARD",
+      "narration": "The vertical drill passes through four floors. The horizontal drill follows four positions across floor two. Before subtracting eight cubes, mark where their paths meet. In the second column of the back row on floor two, both drills pass through the very same cube."
+    },
+    {
+      "n": 7,
+      "title": "Check the floors again",
+      "heading": "Check the floors again",
+      "stage": "HARD",
+      "narration": "There are seven different removed cubes. Thirty six minus seven leaves twenty nine. Check each floor after cutting. The counts from the bottom up are eleven, eight, seven and three. Notice that only three fresh cubes had to come out when the horizontal drill followed the vertical one."
+    },
+    {
+      "n": 8,
+      "title": "Count the empty positions",
+      "heading": "Count the empty positions",
+      "stage": "RECAP",
+      "narration": "Someone counts the holes from the top and sees only one missing stack. Slide out floor two to show what the top view conceals. Before adding two lists of removed cubes, ask which floor, row and column identify each position. The same three coordinates mean the same cube."
+    }
+  ]
+}
