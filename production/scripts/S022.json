@@ -1,0 +1,63 @@
+{
+  "id": "S022",
+  "course_slot": 22,
+  "title": "The ribbon cutting table",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "A cut changes the whole",
+      "heading": "A cut changes the whole",
+      "stage": "BASIC",
+      "narration": "Lay a ribbon along the cutting table. It is twenty centimetres long. Cut five centimetres from the right. Put a bracket under the piece that is still on the table. If the next instruction says half of the rest, which length goes inside that bracket?"
+    },
+    {
+      "n": 2,
+      "title": "Read the second instruction",
+      "heading": "Read the second instruction",
+      "stage": "BASIC",
+      "narration": "Fifteen centimetres remain. Half of that piece is seven and a half centimetres. Half of the original ribbon would be ten. The word rest changes what you measure before dividing. Keep the first cut beside the table so you can still see the original length."
+    },
+    {
+      "n": 3,
+      "title": "Three colours of bunting",
+      "heading": "Three colours of bunting",
+      "stage": "PUZZLE",
+      "narration": "For a parade, use one quarter of a new ribbon for red flags. Use one third of what remains for blue flags. The final piece is gold. Without knowing the length, can you tell which two colours use the same amount? Make a prediction before the cuts."
+    },
+    {
+      "n": 4,
+      "title": "Fold before cutting",
+      "heading": "Fold before cutting",
+      "stage": "MEDIUM",
+      "narration": "Fold the original length into four equal strips. Take one strip for red. Three strips stay on the table. One third of those three is exactly one strip, so blue gets one strip too. Two strips remain for gold. Red and blue match, although their instructions used different fractions."
+    },
+    {
+      "n": 5,
+      "title": "Only the gold remains",
+      "heading": "Only the gold remains",
+      "stage": "PUZZLE",
+      "narration": "A different ribbon is cut for the same parade. First take one fifth of it for red. Then use three quarters of the rest for blue. Exactly six centimetres remain for gold. How long was the ribbon before either cut? Start at the gold end."
+    },
+    {
+      "n": 6,
+      "title": "Undo the blue cut",
+      "heading": "Undo the blue cut",
+      "stage": "HARD",
+      "narration": "After the red cut, the blue and gold pieces belonged to one whole. Blue took three of its four quarters. Gold is the other quarter. Copy the six centimetre gold strip four times. These four strips reconstruct twenty four centimetres after the red cut."
+    },
+    {
+      "n": 7,
+      "title": "Restore the red strip",
+      "heading": "Restore the red strip",
+      "stage": "HARD",
+      "narration": "Twenty four centimetres represent four fifths of the original length. Divide them into four equal parts. Each fifth is six centimetres. Return the missing red fifth to the table. Five parts of six make thirty centimetres in the original ribbon."
+    },
+    {
+      "n": 8,
+      "title": "Test the cuts forwards",
+      "heading": "Test the cuts forwards",
+      "stage": "RECAP",
+      "narration": "Check the thirty centimetres by cutting forwards. Red gets six. Blue gets three quarters of the remaining twenty four, or eighteen. Gold gets six. Six plus eighteen plus six restores thirty. When you work backwards, mark which pieces belonged together at each cut."
+    }
+  ]
+}

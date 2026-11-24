@@ -1,0 +1,63 @@
+{
+  "id": "S023",
+  "course_slot": 23,
+  "title": "The four signal flags",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "A signal is a row",
+      "heading": "A signal is a row",
+      "stage": "BASIC",
+      "narration": "A harbour signal uses three different flags in a straight row. The flags are printed A, B and C. The harbourmaster says A must hang immediately before B, reading from left to right. Clip those two flags together. How many places can the clipped pair go beside C?"
+    },
+    {
+      "n": 2,
+      "title": "Can the clip turn?",
+      "heading": "Can the clip turn?",
+      "stage": "BASIC",
+      "narration": "The pair can hang before C or after C. That gives A B C and C A B. Reversing the clip would put B before A. If the rule only said the two flags must touch, both directions would be allowed, and the two rows would become four."
+    },
+    {
+      "n": 3,
+      "title": "Two pairs need space",
+      "heading": "Two pairs need space",
+      "stage": "PUZZLE",
+      "narration": "Now hang four different flags, A, B, C and D, once each. A must stay apart from B, and C must stay apart from D. How many signals obey both rules? Try making a row before you count. A, C, B, D is one legal signal."
+    },
+    {
+      "n": 4,
+      "title": "Count all signals",
+      "heading": "Count all signals",
+      "stage": "MEDIUM",
+      "narration": "Set aside the clips for now. Choose the first flag in four ways. Three flags remain for the next position, then two, then one. There are twenty four signals altogether. We can cross out rows where one of the forbidden pairs touches."
+    },
+    {
+      "n": 5,
+      "title": "Clip one forbidden pair",
+      "heading": "Clip one forbidden pair",
+      "stage": "MEDIUM",
+      "narration": "Clip A and B together. The clip and the two loose flags make three objects. Those objects have six orders. The clip can turn either way, so twelve rows have A touching B. The same count gives twelve rows with C touching D."
+    },
+    {
+      "n": 6,
+      "title": "Where did our row go?",
+      "heading": "Where did our row go?",
+      "stage": "HARD",
+      "narration": "Subtract both counts from twenty four and nothing is left. Yet our legal signal is still possible. Find a row that got crossed out twice. A, B, D, C contains both touching pairs. Removing every row like that twice explains what went wrong."
+    },
+    {
+      "n": 7,
+      "title": "Return the double crossings",
+      "heading": "Return the double crossings",
+      "stage": "HARD",
+      "narration": "Use two clips. There are two orders for the clips, two orders inside the first, and two inside the second. That gives eight doubly crossed rows. Add one copy of each back. Twenty four minus twelve minus twelve plus eight leaves eight legal signals."
+    },
+    {
+      "n": 8,
+      "title": "Count by the first flag",
+      "heading": "Count by the first flag",
+      "stage": "RECAP",
+      "narration": "Check without any subtraction. A legal row must alternate between the A B group and the C D group. Pick which group starts, then order its flags and order the other pair. Two times two times two again gives eight. What would change if one clip had a fixed direction?"
+    }
+  ]
+}
