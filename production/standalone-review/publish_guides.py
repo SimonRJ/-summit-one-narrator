@@ -106,6 +106,9 @@ def welcome():
     nav_block=nav(chapters,'Jump to a chapter'); page=re.sub(r'<nav class="intro-chapters".*?</nav>',lambda m:nav_block,page,count=1,flags=re.S)
     paragraphs=''.join('<p>'+html.escape(s.replace('A M C','AMC'))+'</p>\n' for s in script['segments'])
     page=re.sub(r'<div class="transcript">.*?</div></details>',lambda m:'<div class="transcript">'+paragraphs+'</div></details>',page,count=1,flags=re.S)
+    source=json.loads((HERE/'welcome-sources.json').read_text())['sources'][2]
+    page=page.replace('https://imath.com.au/download/AMC/Y5-6/2021%20AMC%20Y5-6.pdf',source['url'])
+    page=page.replace('(hosted by iMath)','(2024 bilingual edition)')
     page=page.replace('welcome.js?v=chapter-navigation-20261122','welcome.js?v='+REV)
     file.write_text(page)
     js=ROOT/'welcome.js';js.write_text(js.read_text().replace('amc-intro-20261113',REV))

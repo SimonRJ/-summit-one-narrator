@@ -190,3 +190,26 @@ jobs:
           git add media/AMCIntroduction* media/AMC2025Q17-voice-c* review/AMCIntroduction* review/AMC2025Q17-edition.json welcome.html welcome.js watch-amc-2025-q17.html tools/welcome-check.mjs
           git commit -m 'Stage the reviewed welcome and pyramid films and their measured chapter links'
           git push origin "HEAD:$GITHUB_REF_NAME"
+      - uses: actions/download-artifact@v4
+        with:
+          name: reviewed-standalone-masters
+          path: build/standalone-masters
+      - name: Preserve the recoverable recordings with this immutable edition
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          mkdir -p build/archive
+          (cd build/standalone-masters && zip -q -r ../archive/welcome-studio.zip .)
+          tag="standalone-checked-20261125-${GITHUB_SHA:0:12}"
+          if ! gh release view "$tag" >/dev/null 2>&1; then
+            gh release create "$tag" --draft --target "$(git rev-parse HEAD)" --title 'Course welcome and AMC number pyramid' --notes 'Voice C source takes and measured timing from the device-checked course welcome, with both updated films and their review manifests.'
+          fi
+          for file in media/AMCIntroduction.mp4 media/AMCIntroduction.vtt media/AMCIntroduction-transcript.txt media/AMC2025Q17-voice-c.mp4 media/AMC2025Q17-voice-c.vtt review/AMCIntroduction-qa.json review/AMC2025Q17-edition.json; do cp "$file" build/archive; done
+          if [[ "$(gh release view "$tag" --json isDraft --jq .isDraft)" == true ]]; then
+            gh release upload "$tag" build/archive/* --clobber
+          fi
+          gh release download "$tag" --dir build/returned
+          for file in build/archive/*; do cmp "$file" "build/returned/${file##*/}"; done
+          gh release edit "$tag" --draft=false --latest=false
