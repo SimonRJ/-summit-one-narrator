@@ -1,0 +1,63 @@
+{
+  "id": "S156",
+  "course_slot": 156,
+  "title": "Two signals on the observatory chart",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "Three taps on the paper",
+      "heading": "Three taps on the paper",
+      "stage": "BASIC",
+      "narration": "The observatory drum pulls a paper strip past a pencil. Tap it now, three seconds later, and three seconds after that. Three spikes appear. From first spike to last, count the stretches of paper between them. Two stretches take six seconds."
+    },
+    {
+      "n": 2,
+      "title": "When does timing begin?",
+      "heading": "When does timing begin?",
+      "stage": "PUZZLE",
+      "narration": "A beacon flashes every six seconds. Compare two experiments. In the first, the stopwatch starts exactly as the beacon flashes. In the second, you start the beacon and wait six seconds for its very first flash. Do the third flashes arrive together?"
+    },
+    {
+      "n": 3,
+      "title": "Follow the third mark",
+      "heading": "Follow the third mark",
+      "stage": "MEDIUM",
+      "narration": "On the first strip the marks are at zero, six and twelve. On the second they are at six, twelve and eighteen. Spacing agrees perfectly. The first mark has moved. Circle the first recorded event before counting the gaps."
+    },
+    {
+      "n": 4,
+      "title": "Light above, bell below",
+      "heading": "Light above, bell below",
+      "stage": "PUZZLE",
+      "narration": "Now start the beacon again. Its first flash comes at six seconds and it keeps flashing every six. A bell first sounds at three seconds and then every nine. During the first minute, how often does the bell sound exactly as the light flashes? Include a coincidence at sixty seconds if there is one."
+    },
+    {
+      "n": 5,
+      "title": "Line up the first pair",
+      "heading": "Line up the first pair",
+      "stage": "MEDIUM",
+      "narration": "Slide the two ink traces onto the same scale. The bell sounds at three, twelve and twenty one. The beacon flashes at six, twelve and eighteen. At twelve seconds both pencils mark the same vertical line. That is our first coincidence."
+    },
+    {
+      "n": 6,
+      "title": "Find the returning alignment",
+      "heading": "Find the returning alignment",
+      "stage": "HARD",
+      "narration": "From twelve seconds on, advance in groups of six for the flashes and nine for the bell. Eighteen seconds is three flash intervals and two bell intervals. Six and twelve are smaller positive multiples of six, but neither is a multiple of nine. The alignment next returns at thirty."
+    },
+    {
+      "n": 7,
+      "title": "Clip the strip at one minute",
+      "heading": "Clip the strip at one minute",
+      "stage": "HARD",
+      "narration": "Measure eighteen seconds from thirty to reach forty eight. Another eighteen would reach sixty six, beyond our cut. The cut at sixty seconds crosses a flash but misses a bell. Twelve, thirty and forty eight give three coincidences."
+    },
+    {
+      "n": 8,
+      "title": "Does the finishing mark count?",
+      "heading": "Does the finishing mark count?",
+      "stage": "RECAP",
+      "narration": "Extend the chart to two minutes. The marks together are twelve, thirty, forty eight, sixty six, eighty four, one hundred and two, and one hundred and twenty seconds. Strictly before two minutes gives six. Through two minutes gives seven. When a timing problem looks one off, find the first event, the repeat gap and the actual finishing rule."
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "id": "S159",
+  "course_slot": 159,
+  "title": "The mosaic maker\u2019s six dominoes",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "A narrow offcut",
+      "heading": "A narrow offcut",
+      "stage": "BASIC",
+      "narration": "A mosaic maker has a strip of five square spaces and a tray of dominoes. Each domino covers two neighbouring squares. Two dominoes slide in and leave one space bare. Counting area gives an upper limit. Seeing the two pieces actually fit proves that limit is possible."
+    },
+    {
+      "n": 2,
+      "title": "The empty middle",
+      "heading": "The empty middle",
+      "stage": "PUZZLE",
+      "narration": "Cut the centre from a three by three square. Eight spaces remain around the hole. Could four dominoes run around the rim? Pick the top left corner. Try a domino pointing right, then turn the next one down the right side."
+    },
+    {
+      "n": 3,
+      "title": "Walk the ring",
+      "heading": "Walk the ring",
+      "stage": "MEDIUM",
+      "narration": "Keep turning round the outside. The third domino lies along the bottom, and the fourth points up the left side. All eight spaces are covered once. The central hole looks awkward, but a drawing settles this case."
+    },
+    {
+      "n": 4,
+      "title": "Two chipped corners",
+      "heading": "Two chipped corners",
+      "stage": "PUZZLE",
+      "narration": "A different panel is four squares across and four down. Its top left and bottom right corner squares are chipped away. What is the largest number of dominoes you can actually fit? Fourteen spaces remain. Seven is a tempting guess."
+    },
+    {
+      "n": 5,
+      "title": "Inventory the two colours",
+      "heading": "Inventory the two colours",
+      "stage": "MEDIUM",
+      "narration": "Colour the uncut panel like a chessboard, starting with a dark square at top left. There were eight dark and eight light. Trace the diagonal. Both chipped corners are dark, leaving six dark and eight light. Turn a domino either way. Its two neighbouring cells always have opposite colours."
+    },
+    {
+      "n": 6,
+      "title": "Give a bound and a layout",
+      "heading": "Give a bound and a layout",
+      "stage": "HARD",
+      "narration": "Every domino needs a dark square of its own, so at most six dominoes fit. Now watch six pieces go into the panel. Two light spaces remain, at the top right and in the bottom row. Count the six joined pairs. No pairs overlap, and no pair covers a chip. Six is achievable."
+    },
+    {
+      "n": 7,
+      "title": "Move the second chip",
+      "heading": "Move the second chip",
+      "stage": "TRANSFER",
+      "narration": "Put back the bottom right corner and chip the top right instead. This time the two missing corners have opposite colours. Equal colour counts pass one test. Do seven dominoes really fit? Join the two middle squares in the top row. Each of the other three rows takes two horizontal dominoes."
+    },
+    {
+      "n": 8,
+      "title": "Two parts of a maximum",
+      "heading": "Two parts of a maximum",
+      "stage": "RECAP",
+      "narration": "The second panel fits seven while the first fits only six, although both have fourteen spaces. For a new packing question, try to rule out anything bigger, then draw a legal arrangement that reaches your bound. Matching colours alone promises no arrangement. A drawing supplies the missing proof."
+    }
+  ]
+}
