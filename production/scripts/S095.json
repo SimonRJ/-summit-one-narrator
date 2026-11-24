@@ -1,41 +1,55 @@
 {
   "id": "S095",
-  "title": "The pair-total ledger",
+  "title": "The ticket-office ledger",
+  "voice": "VoxCPM2 — approved Voice C",
   "scenes": [
     {
       "n": 1,
-      "title": "Line up the two numbers",
-      "narration": "Two numbers add to eighteen. The larger is four more than the smaller. What are they? Picture the two amounts lined up, with an extra piece on the larger one."
+      "title": "Count the two ticket colours",
+      "stage": "INTRO",
+      "narration": "A ticket envelope holds twenty tickets. For every blue ticket there are three yellow tickets. How many tickets of each colour are inside? Choose a group that uses both clues."
     },
     {
       "n": 2,
-      "title": "Take away the difference",
-      "narration": "Remove the extra four from the total. The remaining fourteen comprises two equal copies of the smaller number. So the smaller is seven and the larger is eleven. Check both the sum and the difference."
+      "title": "Unfold five matching groups",
+      "stage": "EXPLAIN",
+      "narration": "Put one blue ticket beside three yellow tickets. That makes a group of four. Twenty tickets make five complete groups. Count five blue tickets and fifteen yellow tickets. Fifteen is three times five, and the envelope holds twenty."
     },
     {
       "n": 3,
-      "title": "Two receipts, two prices",
-      "narration": "Two notebooks and a ruler cost twenty-seven dollars. One notebook and two rulers cost thirty dollars. Find the price of one notebook plus one ruler, then recover each price."
+      "title": "Price a bundle in points",
+      "stage": "PUZZLE",
+      "narration": "At the next window, a plain ticket is worth one point and a star ticket is worth four points. Seven tickets together are worth nineteen points. How many carry a star? Try making all seven plain first."
     },
     {
       "n": 4,
-      "title": "Price a notebook and a ruler",
-      "narration": "Add the equations, giving three notebooks and three rulers for fifty-seven dollars. Divide by three. One of each costs nineteen dollars. Subtract that from the price of two notebooks and a ruler. The notebook costs eight, leaving eleven for the ruler. Both original prices work."
+      "title": "Change one ticket at a time",
+      "stage": "EXPLAIN",
+      "narration": "Seven plain tickets would give seven points. The bundle needs twelve more. Replace one plain ticket with a star. You gain three points, because the old ticket was already worth one. Four replacements supply twelve points. Four stars and three plain tickets make nineteen."
     },
     {
       "n": 5,
-      "title": "Read the three pair totals",
-      "narration": "Three boxes A, B and C contain counters. Boxes A and B together hold nineteen. B and C hold twenty-four. C and A hold twenty-one. Find how many counters are in each box."
+      "title": "Sort three kinds of travel ticket",
+      "stage": "PUZZLE",
+      "narration": "A train sold sixteen tickets for thirty six seats. A ticket covers one seat, two seats or four seats. Just as many two seat tickets as four seat tickets were sold. Find the three ticket counts."
     },
     {
       "n": 6,
-      "title": "Find the box missing from each pair",
-      "narration": "Add all three conditions. Each box appears twice, so the combined sum sixty-four is twice the number of counters in the three boxes. Halve it to get the complete total thirty-two. Subtract a pair's total to find the missing box. Subtract B plus C to get A equals eight. The same method gives B equals eleven and C equals thirteen."
+      "title": "Match the extra seats",
+      "stage": "EXPLAIN",
+      "narration": "Give every ticket one seat first. That accounts for sixteen seats and leaves twenty extra seats. Match each two seat ticket with a four seat ticket. Above the first seat, the pair adds one plus three extra seats. Twenty divided by four gives five pairs."
     },
     {
       "n": 7,
-      "title": "Prove the assignment is unique",
-      "narration": "The resulting pairs total nineteen, twenty-four and twenty-one. Each matches its clue. The original clues forced the overall total and then each single box. There can be only one such assignment."
+      "title": "Audit both columns of the ledger",
+      "stage": "CHECK",
+      "narration": "Five two seat tickets and five four seat tickets account for ten tickets. The remaining six are single tickets. Now check the seats. Six singles, ten seats from the doubles and twenty seats from the fours make thirty six. Each extra group of four was forced, so the counts are unique."
+    },
+    {
+      "n": 8,
+      "title": "Catch a report that cannot balance",
+      "stage": "RECAP",
+      "narration": "Three stalls report their ticket counts in pairs. The three pair totals are twelve, fifteen and twenty. Could every report be right? Adding all three counts each stall twice. Yet the reports add to forty seven, an odd number. Twice a whole number must be even. At least one report is wrong."
     }
   ]
 }
