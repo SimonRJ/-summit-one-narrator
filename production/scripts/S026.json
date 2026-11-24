@@ -1,0 +1,63 @@
+{
+  "id": "S026",
+  "course_slot": 26,
+  "title": "The bird hide tally rail",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "Level the feeding trays",
+      "heading": "Level the feeding trays",
+      "stage": "BASIC",
+      "narration": "At a bird hide three trays start with two, four and six seeds. Move two seeds from the tallest pile to the shortest. No seed leaves the table. Now every pile is four seeds high. The mean describes that even height."
+    },
+    {
+      "n": 2,
+      "title": "Build a total from the mean",
+      "heading": "Build a total from the mean",
+      "stage": "BASIC",
+      "narration": "Suppose five trays have mean seven seeds. You do not need to know the five original heights to count every seed. Imagine five level piles of seven. That makes thirty five seeds. Keep the number of piles attached to every mean you record."
+    },
+    {
+      "n": 3,
+      "title": "Two lengths of observation",
+      "heading": "Two lengths of observation",
+      "stage": "PUZZLE",
+      "narration": "At the hide, the first two observation periods average nine visits each. The next four periods average three visits each. Is the mean of all six periods halfway between nine and three? Sketch one mark for each period before making a prediction."
+    },
+    {
+      "n": 4,
+      "title": "Restore both totals",
+      "heading": "Restore both totals",
+      "stage": "MEDIUM",
+      "narration": "Two times nine gives eighteen visits. Four times three gives twelve. All six periods together contain thirty visits, so their mean is five. The longer group contributes four periods at its mean. That pulls the result closer to three."
+    },
+    {
+      "n": 5,
+      "title": "One missing rail tag",
+      "heading": "One missing rail tag",
+      "stage": "PUZZLE",
+      "narration": "A different morning has six observation periods. The mean over all six is twelve visits. The first four average eleven. The last three average fourteen. A gust has turned the tag for period four face down. Can you recover its exact count without knowing the other five?"
+    },
+    {
+      "n": 6,
+      "title": "Lay the brackets over the rail",
+      "heading": "Lay the brackets over the rail",
+      "stage": "HARD",
+      "narration": "Mark six positions. The first bracket covers periods one to four. The last bracket covers four to six. Only period four appears under both. The first bracket holds forty four visits. The second holds forty two. Together they report eighty six visits, including the repeated tag."
+    },
+    {
+      "n": 7,
+      "title": "Subtract the whole morning",
+      "heading": "Subtract the whole morning",
+      "stage": "HARD",
+      "narration": "The whole rail holds six times twelve, or seventy two visits. Remove one complete morning from the two bracket totals. Everything cancels except the second copy of period four. Eighty six minus seventy two gives fourteen visits on the missing tag."
+    },
+    {
+      "n": 8,
+      "title": "Count what each bracket sees",
+      "heading": "Count what each bracket sees",
+      "stage": "RECAP",
+      "narration": "Check with a possible morning. The tags read eight, ten, twelve, fourteen, thirteen and fifteen. The first four sum to forty four, and the last three sum to forty two. The individual counts on other tags can change. The overlap total is fixed by the three means and their counts."
+    }
+  ]
+}

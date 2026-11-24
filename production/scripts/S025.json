@@ -1,0 +1,63 @@
+{
+  "id": "S025",
+  "course_slot": 25,
+  "title": "The print shop discount wheel",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "A percentage has a base",
+      "heading": "A percentage has a base",
+      "stage": "BASIC",
+      "narration": "A print shop makes paper stars. On the small sheet, ten of fifty stars are gold. On the large sheet, twenty of one hundred are gold. The large sheet has more gold stars. Does it also have a larger gold percentage?"
+    },
+    {
+      "n": 2,
+      "title": "Use copies of equal size",
+      "heading": "Use copies of equal size",
+      "stage": "BASIC",
+      "narration": "Make a second copy of the small sheet. Two copies show twenty gold stars among one hundred. The proportions match. Before comparing percentages, identify what counts as one entire group. Doubling every count changes a batch size while preserving its gold share."
+    },
+    {
+      "n": 3,
+      "title": "Which machine wastes less?",
+      "heading": "Which machine wastes less?",
+      "stage": "PUZZLE",
+      "narration": "Two printing presses spoil different amounts of paper. Press A spoils three sheets out of twenty. Press B spoils four out of twenty five. The second press spoils one extra sheet in its batch. How could you decide fairly which press wastes the smaller share?"
+    },
+    {
+      "n": 4,
+      "title": "Compare one hundred sheets",
+      "heading": "Compare one hundred sheets",
+      "stage": "MEDIUM",
+      "narration": "Put both rates on a scale of one hundred sheets. Five batches from press A would spoil fifteen sheets. Four batches from press B would spoil sixteen. Press A wastes the smaller share, fifteen percent against sixteen percent. Both rates now describe one hundred sheets, so the counts compare directly."
+    },
+    {
+      "n": 5,
+      "title": "Reverse a price rise",
+      "heading": "Reverse a price rise",
+      "stage": "PUZZLE",
+      "narration": "The shop sells a framed print for eighty dollars. It raises the price by one quarter. During a sale, it wants to discount the new price to exactly eighty dollars again. What percentage should go on the sale sticker? Choose the amount to undo before choosing the percentage."
+    },
+    {
+      "n": 6,
+      "title": "Find the new whole",
+      "heading": "Find the new whole",
+      "stage": "HARD",
+      "narration": "One quarter of eighty dollars is twenty dollars. The new price is one hundred. The shop must remove twenty dollars to get back to eighty. On the sale sticker, the whole is the price just before the sale. Twenty out of one hundred is twenty percent."
+    },
+    {
+      "n": 7,
+      "title": "Try using the old rate",
+      "heading": "Try using the old rate",
+      "stage": "HARD",
+      "narration": "Try the tempting sticker, twenty five percent off. Applied to one hundred dollars, that removes twenty five dollars and leaves seventy five. It goes five dollars too far. The same dollar change is one quarter of eighty dollars and one fifth of one hundred dollars."
+    },
+    {
+      "n": 8,
+      "title": "Choose a strip of ten",
+      "heading": "Choose a strip of ten",
+      "stage": "RECAP",
+      "narration": "Suppose another print starts at fifty dollars and goes up by one fifth. Its new price is sixty. To return to fifty, remove ten out of sixty, one sixth of the new price. On a price wheel, decide where the next turn starts before measuring its size."
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "id": "S027",
+  "course_slot": 27,
+  "title": "Two shelves in the pottery kiln",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "Which pots have a glaze?",
+      "heading": "Which pots have a glaze?",
+      "stage": "BASIC",
+      "narration": "Look into a pottery kiln. Twelve cups sit on the top shelf, and one quarter have a blue glaze. Four bowls sit below, and half have a blue glaze. Does the shelf with the larger blue fraction also hold more blue pots?"
+    },
+    {
+      "n": 2,
+      "title": "Count before combining",
+      "heading": "Count before combining",
+      "stage": "BASIC",
+      "narration": "One quarter of twelve cups gives three blue cups. Half of four bowls gives two blue bowls. The smaller blue fraction produces more actual blue pots because its shelf started with more pieces. Together the shelves hold five blue pieces out of sixteen."
+    },
+    {
+      "n": 3,
+      "title": "Mix two sample crates",
+      "heading": "Mix two sample crates",
+      "stage": "PUZZLE",
+      "narration": "For an exhibition, one crate contains eight cups with half of them glazed. A second contains sixteen bowls with one quarter glazed. A visitor suggests taking the number halfway between one half and one quarter. Would that give the fraction of all the pottery that is glazed?"
+    },
+    {
+      "n": 4,
+      "title": "Every pot gets one vote",
+      "heading": "Every pot gets one vote",
+      "stage": "MEDIUM",
+      "narration": "The cup crate contributes four glazed pieces. The bowl crate also contributes four. There are eight glazed pieces in a combined group of twenty four, so the fraction is one third. The bowl crate counts twice as heavily because it has twice as many pieces."
+    },
+    {
+      "n": 5,
+      "title": "Two clay types, one label",
+      "heading": "Two clay types, one label",
+      "stage": "PUZZLE",
+      "narration": "A kiln holds forty pieces altogether, some in dark clay and some in pale clay. Three quarters of the dark pieces have a dot. Only one quarter of the pale pieces have a dot. Exactly eighteen pieces have dots. How many dark pieces are on the shelves?"
+    },
+    {
+      "n": 6,
+      "title": "Start at the lower rate",
+      "heading": "Start at the lower rate",
+      "stage": "HARD",
+      "narration": "Imagine all forty pieces are pale. A quarter of forty gives ten dotted pieces. The kiln really has eighteen, so the higher rate must account for eight extra dots. Work with groups of four pieces to keep whole pots in the calculation."
+    },
+    {
+      "n": 7,
+      "title": "Swap a group of four",
+      "heading": "Swap a group of four",
+      "stage": "HARD",
+      "narration": "Four pale pieces supply one dot. Four dark pieces supply three. Changing a group of four from pale to dark adds two dots. To gain eight dots, switch four groups. Four groups of four give sixteen dark pieces. The other twenty four are pale."
+    },
+    {
+      "n": 8,
+      "title": "Open both kiln shelves",
+      "heading": "Open both kiln shelves",
+      "stage": "RECAP",
+      "narration": "Check the actual mix. Three quarters of sixteen is twelve dark pieces with dots. One quarter of twenty four is six pale pieces with dots. Twelve plus six restores eighteen. When you know rates and a combined count, a swap can show how much one group contributes above the baseline."
+    }
+  ]
+}
