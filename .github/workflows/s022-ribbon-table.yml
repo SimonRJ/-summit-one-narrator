@@ -115,6 +115,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: 0eaf1141b085bdb1f04fe8932d392b1959b34970
           persist-credentials: false
           sparse-checkout: |
             data
