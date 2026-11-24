@@ -1,0 +1,63 @@
+{
+  "id": "S193",
+  "title": "The parcel scale",
+  "course_slot": 193,
+  "scenes": [
+    {
+      "n": 1,
+      "title": "An extra foam pad",
+      "heading": "An extra foam pad",
+      "stage": "PUZZLE",
+      "narration": "Two identical empty carriers arrive at the parcel scale. A carrier with two foam pads weighs five hundred and twenty grams. A carrier with one matching pad weighs four hundred and ten grams. Which objects match exactly across the two weighings?"
+    },
+    {
+      "n": 2,
+      "title": "Lift off matching objects",
+      "heading": "Lift off matching objects",
+      "stage": "BASIC",
+      "narration": "Remove one carrier and one pad from each side of the comparison. The heavier load has one extra pad. The difference is one hundred and ten grams, so that is the mass of a pad. The carrier alone weighs three hundred grams. Check both original loads."
+    },
+    {
+      "n": 3,
+      "title": "A different pair of loads",
+      "heading": "A different pair of loads",
+      "stage": "PUZZLE",
+      "narration": "Now weigh tins and metal discs on the empty scale, with no carrier. Two tins and three discs weigh four hundred and seventy grams. Three tins and two discs weigh five hundred and thirty grams. The heavier load has the same total number of objects. What does the sixty gram difference actually measure?"
+    },
+    {
+      "n": 4,
+      "title": "A swap has a price",
+      "heading": "A swap has a price",
+      "stage": "METHOD",
+      "narration": "Cross out two tins and two discs from each load. One disc is left in the lighter load and one tin in the heavier load. The sixty gram difference says that a tin weighs sixty grams more than a disc. It cannot tell you the mass of either object on its own."
+    },
+    {
+      "n": 5,
+      "title": "Trade tins for discs",
+      "heading": "Trade tins for discs",
+      "stage": "CHALLENGE",
+      "narration": "Return to the lighter load of two tins and three discs. Imagine replacing each tin by one disc plus its sixty gram excess. You now have five identical discs and two excess weights. How much of the original four hundred and seventy grams belongs to the five discs?"
+    },
+    {
+      "n": 6,
+      "title": "Recover one mass",
+      "heading": "Recover one mass",
+      "stage": "HARD",
+      "narration": "Two excess weights make one hundred and twenty grams. The discs therefore weigh three hundred and fifty grams altogether. Divide by five. One disc weighs seventy grams. Add the sixty gram excess to find the tin: one hundred and thirty grams."
+    },
+    {
+      "n": 7,
+      "title": "Run the scales again",
+      "heading": "Run the scales again",
+      "stage": "HARD",
+      "narration": "Check the lighter load. Two times one hundred and thirty, plus three times seventy, makes four hundred and seventy. For the heavier one, three tins weigh three hundred and ninety. Two discs add one hundred and forty. The total is five hundred and thirty."
+    },
+    {
+      "n": 8,
+      "title": "Name the leftover objects",
+      "heading": "Name the leftover objects",
+      "stage": "RECAP",
+      "narration": "Subtracting loads compares whatever is left after every exact match has gone. With the foam pads only one object remained. With the tins and discs an object remained on both sides. That second difference described a swap. Use an original load to recover an individual mass."
+    }
+  ]
+}

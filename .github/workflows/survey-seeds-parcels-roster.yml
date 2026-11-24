@@ -1,0 +1,39 @@
+name: Produce the survey, seeds, parcels and choir lessons
+on:
+  push:
+    branches: [production/survey-seeds-parcels-roster]
+    paths:
+      - .github/workflows/survey-seeds-parcels-roster.yml
+      - .github/workflows/record-and-release-original.yml
+      - production/scripts/S19[0134].json
+      - production/lesson-films/survey_wheel.py
+      - production/lesson-films/seed_ledger.py
+      - production/lesson-films/parcel_scale.py
+      - production/lesson-films/soundcheck_roster.py
+      - production/lesson-films/recorded_candidate.py
+      - production/lesson-films/render_recorded.py
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: write
+concurrency:
+  group: survey-seeds-parcels-roster-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  film:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - lesson: S190
+            slug: s190-survey-wheel-20261125
+          - lesson: S191
+            slug: s191-seed-ledger-20261125
+          - lesson: S193
+            slug: s193-parcel-scale-20261125
+          - lesson: S194
+            slug: s194-soundcheck-roster-20261125
+    uses: ./.github/workflows/record-and-release-original.yml
+    with:
+      lesson: ${{ matrix.lesson }}
+      release_slug: ${{ matrix.slug }}

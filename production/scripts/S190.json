@@ -1,0 +1,63 @@
+{
+  "id": "S190",
+  "title": "The surveyor’s turning wheel",
+  "course_slot": 190,
+  "scenes": [
+    {
+      "n": 1,
+      "title": "Mark the old heading",
+      "heading": "Mark the old heading",
+      "stage": "PUZZLE",
+      "narration": "The surveyor wheels a measuring trolley straight along a wall. At the corner she steers sixty five degrees to her right. Before moving the old arrow, extend the incoming track past the corner. Which two arrows show her turn?"
+    },
+    {
+      "n": 2,
+      "title": "The two angles at a corner",
+      "heading": "The two angles at a corner",
+      "stage": "BASIC",
+      "narration": "Her turn runs from the forward extension to the new track. That angle is sixty five degrees. The interior angle uses the wall she came along, pointing back from the corner. The adjacent angles fill a straight line, so the inside angle is one hundred and fifteen degrees."
+    },
+    {
+      "n": 3,
+      "title": "Around the bandstand",
+      "heading": "Around the bandstand",
+      "stage": "PUZZLE",
+      "narration": "A second path follows a regular bandstand. Each interior angle is one hundred and thirty five degrees. The trolley turns the same amount at every corner. How many corners take it once around? Start by finding one change of heading."
+    },
+    {
+      "n": 4,
+      "title": "One full turn",
+      "heading": "One full turn",
+      "stage": "METHOD",
+      "narration": "One hundred and eighty minus one hundred and thirty five gives a forty five degree turn. Eight right turns of forty five degrees add to three hundred and sixty. Eight corners take the trolley once around the bandstand. The sum uses heading changes, not the larger angles inside."
+    },
+    {
+      "n": 5,
+      "title": "The indented yard",
+      "heading": "The indented yard",
+      "stage": "CHALLENGE",
+      "narration": "The next path follows an L shaped yard. Start along the long top edge. Keep the yard on your right. At most corners the trolley turns right. At the inward notch it must turn left. Count the changes while walking the entire outline."
+    },
+    {
+      "n": 6,
+      "title": "One turn goes back",
+      "heading": "One turn goes back",
+      "stage": "HARD",
+      "narration": "Five right turns add five quarter turns. The left turn at the notch removes one quarter turn. The net result is four right quarter turns, one complete rotation. Counting every corner as a right turn would give the wrong change of heading."
+    },
+    {
+      "n": 7,
+      "title": "Which angle is inside?",
+      "heading": "Which angle is inside?",
+      "stage": "HARD",
+      "narration": "At the notch the trolley wheels through a left turn of ninety degrees. The interior of the yard fills the large angle on the right of the path. A full turn less the small ninety degree opening gives an interior angle of two hundred and seventy degrees."
+    },
+    {
+      "n": 8,
+      "title": "Keep two separate records",
+      "heading": "Keep two separate records",
+      "stage": "RECAP",
+      "narration": "The five ordinary corners have interior angles of ninety degrees. The notch contributes two hundred and seventy. Together the interior angles total seven hundred and twenty degrees. The signed changes of heading still total three hundred and sixty. Label which quantity you are adding."
+    }
+  ]
+}

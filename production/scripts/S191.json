@@ -1,0 +1,63 @@
+{
+  "id": "S191",
+  "title": "The seed tray ledger",
+  "course_slot": 191,
+  "scenes": [
+    {
+      "n": 1,
+      "title": "A pod that holds nothing",
+      "heading": "A pod that holds nothing",
+      "stage": "PUZZLE",
+      "narration": "At the seed bank, one pod is empty, three pods hold two seeds apiece and two pods hold five apiece. An empty pod gets its own row in the ledger. Does it contribute to the number of seeds, the number of pods, or both?"
+    },
+    {
+      "n": 2,
+      "title": "Make every copy visible",
+      "heading": "Make every copy visible",
+      "stage": "BASIC",
+      "narration": "The empty pod adds zero seeds and one pod. Three copies of two contribute six seeds. Two copies of five contribute ten. There are sixteen seeds shared across six pods. The mean is sixteen divided by six, or two and two thirds seeds per pod."
+    },
+    {
+      "n": 3,
+      "title": "What the row label misses",
+      "heading": "What the row label misses",
+      "stage": "PUZZLE",
+      "narration": "Suppose you average the three printed row labels, zero, two and five. Their sum is seven and you divide by three. Which sample could that describe? Compare those three equal weights with the actual numbers of pods."
+    },
+    {
+      "n": 4,
+      "title": "Give the pod its vote",
+      "heading": "Give the pod its vote",
+      "stage": "METHOD",
+      "narration": "Averaging the labels would describe one pod of each kind. Our trays contain one, three and two. Write the frequency beside each value. Add the numbers of pods for the denominator, and add the products of value and frequency for the numerator."
+    },
+    {
+      "n": 5,
+      "title": "The missing frequency",
+      "heading": "The missing frequency",
+      "stage": "CHALLENGE",
+      "narration": "A fresh tray has one empty pod, five pods with two seeds each, and some pods with five seeds each. The mean is exactly two and a half seeds per pod. The count of five seed pods is smudged. Can you recover it without guessing possible tray sizes?"
+    },
+    {
+      "n": 6,
+      "title": "Measure a shortfall",
+      "heading": "Measure a shortfall",
+      "stage": "HARD",
+      "narration": "Compare each observed pod with the mean of two and a half. The empty pod is short by two and a half seeds. Each two seed pod is short by half a seed. The five together are short by another two and a half. The combined shortfall is five seeds."
+    },
+    {
+      "n": 7,
+      "title": "Balance the surplus",
+      "heading": "Balance the surplus",
+      "stage": "HARD",
+      "narration": "A five seed pod contributes two and a half seeds above the mean. Two such pods balance the five seed shortfall. The missing frequency is two. Verify the ordinary way: one plus five plus two makes eight pods, and their seed total is twenty."
+    },
+    {
+      "n": 8,
+      "title": "Check the ledger",
+      "heading": "Check the ledger",
+      "stage": "RECAP",
+      "narration": "Twenty divided by eight is two and a half. The fractional mean describes an equal share. Individual pods can still contain whole seeds. A zero reading adds one observation, and a missing frequency tells you how many copies of one reading to restore."
+    }
+  ]
+}

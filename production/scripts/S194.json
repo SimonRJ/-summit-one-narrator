@@ -1,0 +1,63 @@
+{
+  "id": "S194",
+  "title": "The soundcheck roster",
+  "course_slot": 194,
+  "scenes": [
+    {
+      "n": 1,
+      "title": "One trio, three pairs",
+      "heading": "One trio, three pairs",
+      "stage": "PUZZLE",
+      "narration": "Ada, Ben and Cora share one soundcheck. During the trio, each singer hears each of the other two. The director counts unordered pairs of singers who rehearse together. How many different pairs occur during this one rehearsal?"
+    },
+    {
+      "n": 2,
+      "title": "List each pair once",
+      "heading": "List each pair once",
+      "stage": "BASIC",
+      "narration": "The pairs are Ada with Ben, Ada with Cora, and Ben with Cora. Each singer could name two partners, making six personal reports. Each pair is reported by its two members. Dividing six by two gives three pairs."
+    },
+    {
+      "n": 3,
+      "title": "Fix the pair first",
+      "heading": "Fix the pair first",
+      "stage": "PUZZLE",
+      "narration": "Five singers join a festival. The organiser schedules every possible trio once. How many of those trios contain Ada and Ben together? Keep those two places fixed. The third place can go to any of the other three singers."
+    },
+    {
+      "n": 4,
+      "title": "Which number repeats?",
+      "heading": "Which number repeats?",
+      "stage": "METHOD",
+      "narration": "The pair Ada and Ben appears in three different trios. The same count applies to any chosen pair among five singers. Changing the third singer changes the trio, but the fixed pair still counts as just one distinct pair."
+    },
+    {
+      "n": 5,
+      "title": "Audit a six singer roster",
+      "heading": "Audit a six singer roster",
+      "stage": "CHALLENGE",
+      "narration": "In another choir there are six singers. Every soundcheck has three singers. The director has arranged that every unordered pair will share exactly two soundchecks. How many soundchecks must be on the roster? Count appearances of pairs in two ways."
+    },
+    {
+      "n": 6,
+      "title": "Start with all pairs",
+      "heading": "Start with all pairs",
+      "stage": "HARD",
+      "narration": "Each of six singers can name five partners. Thirty personal reports count each pair twice, so there are fifteen distinct pairs. Each pair appears at two soundchecks. That makes thirty pair appearances across the whole roster."
+    },
+    {
+      "n": 7,
+      "title": "Count inside the rehearsals",
+      "heading": "Count inside the rehearsals",
+      "stage": "HARD",
+      "narration": "One trio produces three pair appearances. The roster therefore needs thirty divided by three, or ten soundchecks. Look up Ada and Ben on this completed roster. They appear with Fay once and with Dan once, just as the director required."
+    },
+    {
+      "n": 8,
+      "title": "Read the units",
+      "heading": "Read the units",
+      "stage": "RECAP",
+      "narration": "Six musicians, fifteen different pairs, thirty pair appearances and ten soundchecks describe the same plan. The factor of two came from the repeats required for each pair. The division by three came from the three pairs inside one trio. Write those units beside the numbers."
+    }
+  ]
+}
