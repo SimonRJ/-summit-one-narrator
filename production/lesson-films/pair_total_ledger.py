@@ -1,117 +1,121 @@
-"""S095. Coloured ledger entries reveal how often each unknown occurs."""
-from stage import mix
+"""S095, an illustrated ticket-office ledger with colour, point, seat and parity checks."""
+from itertools import product
 
-BACKGROUND=('#faf6e9','#e4e9dd')
-BRIDGE='Follow the three pairs into the ledger. When you subtract a pair from the total of all three boxes, which box stays behind?'
-INK='#263f40'; TEAL='#22776e'; RUST='#a44632'; BLUE='#355d8a'; PAPER='#fffaf0'; RULE='#99a9a0'
-COLORS={'A':TEAL,'B':RUST,'C':BLUE}
-TITLES=['Line up the two numbers','Take away the difference','Two receipts, two prices',
-        'Price a notebook and a ruler','Read the three pair totals','Find the missing box',
-        'Prove the assignment is unique']
+BACKGROUND=('#faf6e9','#e5e9dd')
+BRIDGE='Watch what changes when a plain ticket becomes a star ticket. Later, use the same idea to count only the extra seats in each matched pair.'
+INK='#263e40';BLUE='#396189';YELLOW='#e1b24e';JADE='#2c756b';RUST='#a74c36';PAPER='#fffaf1';RULE='#9aa99e'
+TITLES=['Count the two ticket colours','Unfold five matching groups','Price a bundle in points',
+        'Change one ticket at a time','Sort three kinds of travel ticket','Match the extra seats',
+        'Audit both columns of the ledger','Catch a report that cannot balance']
 
 
 def check_maths():
-    assert [(u,v) for u in range(19) for v in range(19) if u+v==18 and v-u==4]==[(7,11)]
-    assert [(n,r) for n in range(31) for r in range(31) if 2*n+r==27 and n+2*r==30]==[(8,11)]
-    assert [(a,b,c) for a in range(25) for b in range(25) for c in range(25)
-            if (a+b,b+c,c+a)==(19,24,21)]==[(8,11,13)]
+    assert [(b,y) for b,y in product(range(21),repeat=2) if b+y==20 and y==3*b]==[(5,15)]
+    assert [(p,s) for p,s in product(range(8),repeat=2) if p+s==7 and p+4*s==19]==[(3,4)]
+    assert [(s,d,f) for s,d,f in product(range(17),repeat=3) if s+d+f==16 and s+2*d+4*f==36 and d==f]==[(6,5,5)]
+    assert 12+15+20==47 and not [(a,b,c) for a,b,c in product(range(21),repeat=3) if (a+b,b+c,c+a)==(12,15,20)]
 
 
-def value(a,word,x,y,size=34,colour=INK,opacity=1):
-    a.text(word,x,y,size,colour,bold=True,opacity=opacity)
+def text(a,s,x,y,size=32,col=INK,op=1):
+    a.text(s,x,y,size,col,bold=True,opacity=op)
 
 
 def paper(a,x,y,w,h):
-    a.box(x+4,y+6,w,h,fill='#afbaaf',radius=8)
-    a.box(x,y,w,h,fill=PAPER,edge=RULE,radius=8)
+    a.box(x+4,y+5,w,h,fill='#adbaae',radius=10);a.box(x,y,w,h,fill=PAPER,edge=RULE,radius=10)
 
 
-def item(a,kind,x,y,opacity=1):
-    if kind=='book':
-        a.box(x-27,y-35,54,69,radius=4,fill=TEAL,edge=INK,opacity=opacity)
-        a.line([(x-16,y-34),(x-16,y+34)],PAPER,2,opacity)
-        a.box(x-8,y-13,27,18,radius=1,fill=PAPER,opacity=opacity)
-    else:
-        a.box(x-38,y-13,76,26,radius=2,fill='#eebd65',edge=RUST,opacity=opacity)
-        for i in range(9):
-            a.line([(x-32+i*8,y-12),(x-32+i*8,y-(1 if i%2==0 else 5))],RUST,2,opacity)
+def ticket(a,x,y,w,h,fill,mark,op=1):
+    a.box(x,y,w,h,fill=fill,edge=INK,radius=7,stroke=2,opacity=op)
+    for edge in (x,x+w):a.dot(edge,y+h/2,h*.095,PAPER,op)
+    if mark:
+        ink=PAPER if fill in (BLUE,JADE,RUST) else INK
+        text(a,mark,x+w/2,y+h/2,min(30,h*.63),ink,op)
 
 
-def entry(a,x,y,goods,total,op=1):
-    for j,kind in enumerate(goods):
-        item(a,kind,x+j*104,y,op)
-        if j<len(goods)-1:value(a,'+',x+j*104+52,y,26,INK,op)
-    value(a,'=',x+len(goods)*104-43,y,30,INK,op)
-    value(a,total,x+len(goods)*104+42,y,38,RUST,op)
-
-
-def token(a,letter,x,y,op=1):
-    a.box(x-35,y-28,70,56,radius=8,fill=COLORS[letter],opacity=op)
-    value(a,letter,x,y,36,PAPER,op)
+def pass_type(a,x,y,seats,op=1):
+    colors={1:BLUE,2:JADE,4:RUST}
+    ticket(a,x,y,143,83,colors[seats],str(seats),op)
 
 
 def draw(a,n,t):
-    a.label(TITLES[n-1],77,75,46,INK,bold=True)
-    a.line([(75,116),(1203,116)],RULE,3)
+    a.label(TITLES[n-1],77,74,45,INK,bold=True);a.line([(75,119),(1204,119)],RULE,3)
     if n in (1,2):
-        paper(a,76,155,1124,369)
-        restore=t.reveal('larger is eleven',1.1) if n==2 else 0
-        remove=t.reveal('Remove the extra four',1.15)*(1-restore) if n==2 else 0
-        split=t.reveal('smaller is seven') if n==2 else 0
-        op=t.reveal('four more') if n==1 else 1
-        for y,label in [(292,'Smaller'),(402,'Larger')]:
-            a.label('Larger − 4' if y==402 and remove>.65 else label,112,y,27,INK,bold=True)
-            a.box(315,y-35,379,70,fill=TEAL,radius=4)
-            value(a,'7' if split>.5 else '?',505,y,38,PAPER)
-        x=mix(698,874,remove);y=mix(367,217,remove)
-        a.box(x,y,215,70,fill=RUST,radius=4,opacity=op)
-        value(a,'4',x+107,y+35,38,PAPER,op)
+        paper(a,78,158,1124,363)
         if n==1:
-            value(a,'Both rows total 18',625,562,41,TEAL,t.reveal('add to eighteen'))
+            a.label('Ticket envelope',126,208,33,INK,bold=True)
+            for j,shade in enumerate((BLUE,YELLOW,YELLOW,YELLOW)):
+                ticket(a,156+112*j,289,90,70,shade,'B' if j==0 else 'Y',t.reveal('For every blue ticket'))
+            text(a,'20 tickets in all',924,306,43,INK,t.reveal('twenty tickets'))
+            text(a,'How many blue and yellow?',640,568,37,JADE,t.reveal('How many tickets'))
         else:
-            value(a,'18 − 4 = 14',1044,364,29,RUST,t.reveal('remaining fourteen'))
-            value(a,'14 ÷ 2 = 7',1044,438,29,TEAL,t.reveal('two equal copies'))
-            value(a,'7 + 11 = 18      11 − 7 = 4',640,568,36,INK,t.reveal('Check both'))
+            for j in range(5):
+                op=1 if j==0 else t.reveal('five complete groups',1.65,offset=.15*j)
+                px=121+j*214
+                a.box(px,239,180,166,radius=10,fill='#ececdf',edge=RULE,opacity=op)
+                for k,col in enumerate((BLUE,YELLOW,YELLOW,YELLOW)):
+                    ticket(a,px+13+(k%2)*80,259+(k//2)*60,71,51,col,'B' if k==0 else 'Y',op)
+            text(a,'20 ÷ 4 = 5 groups',640,463,40,INK,t.reveal('five complete groups'))
+            text(a,'5 blue + 15 yellow = 20 tickets',640,568,38,JADE,t.reveal('five blue tickets'))
     elif n in (3,4):
-        paper(a,77,154,675,362)
-        a.label('Stationery receipts',115,193,30,INK,bold=True)
-        entry(a,152,297,('book','book','ruler'),'$27')
-        a.line([(116,361),(712,361)],RULE,2)
-        entry(a,152,425,('book','ruler','ruler'),'$30',t.reveal('One notebook and two') if n==3 else 1)
+        paper(a,78,152,1124,349)
+        ticket(a,146,194,103,68,'#e9e7d9','1');a.label('Plain · 1 point',275,229,31,INK)
+        ticket(a,705,194,103,68,RUST,'★');a.label('Star · 4 points',830,229,31,INK)
         if n==3:
-            item(a,'book',861,313);value(a,'+',922,313);item(a,'ruler',995,313)
-            value(a,'= ?',1102,313,42,RUST,t.reveal('Find the price'))
+            fill=t.reveal('making all seven plain',1.0)
+            for j in range(7):ticket(a,153+j*142,353,108,66,'#e9e7d9','1' if fill>.5 else '?')
+            text(a,'7 tickets give 19 points',640,562,39,JADE,t.reveal('worth nineteen points'))
         else:
-            value(a,'3 matching pairs',986,202,33,INK,t.reveal('three notebooks'))
-            value(a,'$57 ÷ 3 = $19',986,285,39,TEAL,t.reveal('Divide by three'))
-            value(a,'$27 − $19 = $8',986,383,37,INK,t.reveal('Subtract that'))
-            value(a,'$19 − $8 = $11',986,471,37,RUST,t.reveal('leaving eleven'))
-            value(a,'2 × $8 + $11 = $27       $8 + 2 × $11 = $30',640,572,30,INK,t.reveal('Both original prices'))
+            one=t.reveal('Replace one plain ticket',.75)
+            change=t.reveal('Four replacements',1.5)
+            for j in range(7):
+                op=one if j==0 else t.reveal('Four replacements',.65,offset=.2*j) if j<4 else 0
+                ticket(a,153+j*142,350,108,66,'#e9e7d9','1')
+                ticket(a,153+j*142,350,108,66,RUST,'★',op)
+            text(a,'19 − 7 = 12 extra points',640,466,31,INK,t.reveal('twelve more'))
+            text(a,'4 × 4 + 3 × 1 = 19',640,566,39,JADE,t.reveal('Four stars'))
+            if one>.3 and change<.4:text(a,'4 − 1 = 3 extra',640,566,39,RUST,t.reveal('gain three points'))
+    elif n==5:
+        paper(a,80,155,1120,370)
+        text(a,'16 tickets',345,218,42,INK,t.reveal('sixteen tickets'))
+        text(a,'36 seats',927,218,42,JADE,t.reveal('thirty six seats'))
+        for j,num in enumerate((1,2,4)):
+            x=219+j*338;pass_type(a,x,285,num)
+            text(a,str(num)+' seat'+('' if num==1 else 's'),x+72,412,30,INK)
+        a.line([(617,462),(617,484),(963,484),(963,462)],RUST,3,t.reveal('Just as many'))
+        text(a,'Equal numbers of 2-seat and 4-seat tickets',640,568,34,RUST,t.reveal('Just as many'))
+    elif n==6:
+        paper(a,77,148,1126,382)
+        text(a,'Start with one seat on each ticket',374,203,29,INK)
+        for j in range(16):
+            x=150+(j%8)*61;y=273+(j//8)*64
+            a.box(x,y,46,44,fill=BLUE,edge=INK,radius=5)
+            a.line([(x+9,y+17),(x+9,y+31),(x+35,y+31)],PAPER,3)
+        text(a,'36 − 16 = 20 extra seats',365,449,33,JADE,t.reveal('twenty extra seats'))
+        a.line([(653,199),(653,482)],RULE,2)
+        op=t.reveal('Match each two seat ticket');pass_type(a,736,262,2,op);pass_type(a,970,262,4,op)
+        text(a,'+1',809,389,34,JADE,t.reveal('one plus three'));text(a,'+3',1043,389,34,RUST,t.reveal('one plus three'))
+        text(a,'4 extra seats per pair',927,459,29,INK,t.reveal('one plus three extra seats'))
+        text(a,'20 ÷ 4 = 5 matched pairs',640,572,40,JADE,t.reveal('Twenty divided by four'))
+    elif n==7:
+        paper(a,100,146,1080,395)
+        for x,label in [(310,'Ticket type'),(674,'Tickets sold'),(980,'Seats covered')]:text(a,label,x,197,29,INK)
+        for j,(name,count,seats,colour,cue) in enumerate([('Single',6,6,BLUE,'remaining six'),('Double',5,10,JADE,'Five two seat'),('Four-seat',5,20,RUST,'five four seat')]):
+            y=267+j*83;op=t.reveal(cue)
+            a.line([(137,y+39),(1140,y+39)],RULE,2)
+            text(a,name,310,y,34,colour,op);text(a,str(count),674,y,38,INK,op)
+            text(a,str(seats),980,y,38,colour,t.reveal(('Six singles','ten seats from the doubles','twenty seats from the fours')[j]))
+        text(a,'6 + 5 + 5 = 16 tickets',350,572,32,INK,t.reveal('remaining six'))
+        text(a,'6 + 10 + 20 = 36 seats',934,572,32,JADE,t.reveal('make thirty six'))
     else:
-        paper(a,78,145,546,403)
-        a.label('Pairs in the ledger',114,183,30,INK,bold=True)
-        for j,(letters,total,phrase) in enumerate([('AB',19,'A and B together'),('BC',24,'B and C hold'),('CA',21,'C and A hold')]):
-            y=269+j*100
-            op=t.reveal(phrase) if n==5 else 1
-            token(a,letters[0],160,y,op);value(a,'+',232,y,26,INK,op)
-            token(a,letters[1],306,y,op)
-            value(a,'=',388,y,30,INK,op);value(a,str(total),488,y,43,RUST,op)
-        if n==5:
-            for j,letter in enumerate('ABC'):token(a,letter,744+j*148,308)
-            value(a,'?',744,390,44,TEAL);value(a,'?',892,390,44,RUST);value(a,'?',1040,390,44,BLUE)
-        elif n==6:
-            value(a,'19 + 24 + 21 = 64',918,187,36,INK,t.reveal('combined sum sixty-four'))
-            value(a,'2 × (A + B + C) = 64',918,256,35,INK,t.reveal('is twice the number'))
-            value(a,'A + B + C = 32',918,330,38,TEAL,t.reveal('complete total thirty-two'))
-            for j,(symbol,shown,cue) in enumerate([('A','32 − 24 = 8','A equals eight'),('B','32 − 21 = 11','B equals eleven'),('C','32 − 19 = 13','C equals thirteen')]):
-                op=t.reveal(cue);value(a,symbol,741,400+j*52,30,COLORS[symbol],op);value(a,shown,964,400+j*52,32,INK,op)
-        else:
-            for j,(letter,number) in enumerate(zip('ABC',(8,11,13))):
-                x=747+j*145;token(a,letter,x,206);value(a,str(number),x,271,38,COLORS[letter])
-            for j,formula in enumerate(['8 + 11 = 19','11 + 13 = 24','13 + 8 = 21']):
-                value(a,formula,893,357+j*63,32,INK,t.reveal(['nineteen','twenty-four','twenty-one'][j]))
-            value(a,'One total, one value for each box',640,575,36,TEAL,t.reveal('only one such'))
+        paper(a,82,150,585,385)
+        for j,(pair,num) in enumerate([('A + B',12),('B + C',15),('C + A',20)]):
+            y=214+j*102;text(a,pair,261,y,40,INK,t.reveal('in pairs'))
+            text(a,'=',410,y,32,INK,t.reveal('in pairs'));text(a,str(num),538,y,43,RUST,t.reveal(('twelve','fifteen','twenty')[j]))
+        text(a,'2 × (A + B + C)',948,252,38,INK,t.reveal('counts each stall twice'))
+        text(a,'12 + 15 + 20 = 47',948,342,35,RUST,t.reveal('forty seven'))
+        text(a,'47 is odd',948,426,38,RUST,t.reveal('an odd number'))
+        text(a,'A doubled whole number must be even',640,572,35,JADE,t.reveal('must be even'))
 
 
 def poster(draw):
-    return draw(4.0,1.5)
+    return draw(8,1.5)

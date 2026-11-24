@@ -1,0 +1,22 @@
+{
+  "S095": [
+    "A ticket envelope holds twenty tickets.|For every blue ticket there are three yellow tickets.|How many tickets of each colour are inside?|Choose a group that uses both clues.",
+    "Put one blue ticket beside three yellow tickets.|That makes a group of four.|Twenty tickets make five complete groups.|Count five blue tickets and fifteen yellow tickets.|Fifteen is three times five,|and the envelope holds twenty.",
+    "At the next window, a plain ticket is worth one point|and a star ticket is worth four points.|Seven tickets together are worth nineteen points.|How many carry a star?|Try making all seven plain first.",
+    "Seven plain tickets would give seven points.|The bundle needs twelve more.|Replace one plain ticket with a star.|You gain three points,|because the old ticket was already worth one.|Four replacements supply twelve points.|Four stars and three plain tickets make nineteen.",
+    "A train sold sixteen tickets for thirty six seats.|A ticket covers one seat, two seats or four seats.|Just as many two seat tickets as four seat tickets were sold.|Find the three ticket counts.",
+    "Give every ticket one seat first.|That accounts for sixteen seats|and leaves twenty extra seats.|Match each two seat ticket with a four seat ticket.|Above the first seat,|the pair adds one plus three extra seats.|Twenty divided by four gives five pairs.",
+    "Five two seat tickets and five four seat tickets|account for ten tickets.|The remaining six are single tickets.|Now check the seats.|Six singles, ten seats from the doubles|and twenty seats from the fours make thirty six.|Each extra group of four was forced,|so the counts are unique.",
+    "Three stalls report their ticket counts in pairs.|The three pair totals are twelve, fifteen and twenty.|Could every report be right?|Adding all three counts each stall twice.|Yet the reports add to forty seven, an odd number.|Twice a whole number must be even.|At least one report is wrong."
+  ],
+  "S097": [
+    "Take a board with two rows and four columns.|Lift the first and last squares of the top row.|Each domino covers two cells sharing an edge.|Which way can a domino go|from the bottom left corner?",
+    "There is no square above the bottom left corner.|Its domino must point right.|At the bottom right corner the domino must point left.|Only the two middle squares in the top row remain.|One last horizontal domino fills them.|Every placement was forced.",
+    "A new board has two rows and five columns.|One upright domino is glued into the second column.|It must stay there.|How many ways can you fill the rest?|Look at the parts on either side of the fixed piece.",
+    "The single column on the left needs one upright domino.|The three columns on the right have three patterns.|Use three upright dominoes,|or put a horizontal pair before one upright domino,|or put the pair after it.|These are the only patterns|because a horizontal domino forces its partner.",
+    "A longer board has two rows and six columns.|Draw a seam between columns three and four.|Count the tilings in which at least one domino crosses the seam.|Could exactly one domino cross?",
+    "Suppose only the top domino crosses.|It covers one cell of the six on the left.|Five cells would still need covering on that side.|Dominoes cover cells in pairs, so five is impossible.|The lower domino must cross as well.|Two square rooms are left, one on each side.",
+    "In either two by two room,|use two upright dominoes or two horizontal dominoes.|Either choice on the left|can go with either choice on the right.|Two times two gives four tilings.|The fixed crossing pair separates the rooms,|so none of the four is counted twice.",
+    "Try a strip with two rows and seven columns.|Use exactly three upright dominoes,|with no two in neighbouring columns.|Four columns remain for two horizontal pairs.|Lay down those two pairs first.|There are three gaps: before, between and after.|Each gap can hold at most one upright domino.|All three gaps must be filled.|There is exactly one tiling."
+  ]
+}
