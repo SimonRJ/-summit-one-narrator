@@ -216,18 +216,18 @@
       "revisitBridges": {}
     },
     "S169": {
-      "title": "Under the planetarium dome",
+      "title": "The herbarium’s torn labels",
       "priorVideoId": "S110",
       "readingCatalog": "data/read-watch-practise-later.json",
       "branch": "production/ticket-refill-frame-cabinet-20261124",
-      "sourceCommit": "19592f4f0f666f229e508f8309b5b99def703a50",
+      "sourceCommit": "383b897946ef8559fedfff60ebcae2b0df92c8e7",
       "script": "production/scripts/S169.json",
-      "artwork": "production/lesson-films/planetarium_timers.py",
-      "workflow": ".github/workflows/planetarium-enamel-puppets.yml",
+      "artwork": "production/lesson-films/herbarium_labels.py",
+      "workflow": ".github/workflows/herbarium-enamel-puppets.yml",
       "workflowJob": "film169",
-      "productionRun": 45495020971,
-      "releaseTag": "s169-planetarium-timers-19592f4f0f66",
-      "ownBridge": "Start at the gold peg at minute 3. Inside the audience’s viewing window, which pegs also sit one minute past a multiple of 6? What changes when the blue starting peg moves?",
+      "productionRun": 45495572090,
+      "releaseTag": "s169-herbarium-labels-383b897946ef",
+      "ownBridge": "Lay out just the tray-3 labels on the shelf from 320 to 370. Which one fits the digit note? For the second leaf, explain how an error of 18 helps you decide which labels to test.",
       "revisitBridges": {}
     },
     "S170": {
@@ -235,13 +235,13 @@
       "priorVideoId": "S038",
       "readingCatalog": "data/read-watch-practise-later.json",
       "branch": "production/ticket-refill-frame-cabinet-20261124",
-      "sourceCommit": "19592f4f0f666f229e508f8309b5b99def703a50",
+      "sourceCommit": "383b897946ef8559fedfff60ebcae2b0df92c8e7",
       "script": "production/scripts/S170.json",
       "artwork": "production/lesson-films/enamel_tiles.py",
-      "workflow": ".github/workflows/planetarium-enamel-puppets.yml",
+      "workflow": ".github/workflows/herbarium-enamel-puppets.yml",
       "workflowJob": "film170",
-      "productionRun": 45495020971,
-      "releaseTag": "s170-enamel-tiles-19592f4f0f66",
+      "productionRun": 45495572090,
+      "releaseTag": "s170-enamel-tiles-383b897946ef",
       "ownBridge": "Compare the two repair slips. Which tiles can you lift from both? When the bench changes to an eight-space tray, explain why the gold count must be eight minus the blue count.",
       "revisitBridges": {}
     },
@@ -250,15 +250,23 @@
       "priorVideoId": "S088",
       "readingCatalog": "data/read-watch-practise-later.json",
       "branch": "production/ticket-refill-frame-cabinet-20261124",
-      "sourceCommit": "19592f4f0f666f229e508f8309b5b99def703a50",
+      "sourceCommit": "383b897946ef8559fedfff60ebcae2b0df92c8e7",
       "script": "production/scripts/S171.json",
       "artwork": "production/lesson-films/puppet_call.py",
-      "workflow": ".github/workflows/planetarium-enamel-puppets.yml",
+      "workflow": ".github/workflows/herbarium-enamel-puppets.yml",
       "workflowJob": "film171",
-      "productionRun": 45495020971,
-      "releaseTag": "s171-puppet-call-19592f4f0f66",
+      "productionRun": 45495572090,
+      "releaseTag": "s171-puppet-call-383b897946ef",
       "ownBridge": "Place the owl on an end of the puppet stage, then try to put the fox immediately to its right. Which end can receive both pencil marks? Why must six orders be added back?",
       "revisitBridges": {}
     }
-  }
+  },
+  "retiredRuns": [
+    {
+      "run": 45495020971,
+      "sourceCommit": "19592f4f0f666f229e508f8309b5b99def703a50",
+      "reason": "The planetarium draft for S169 resembled the proposed dedicated S156 course film. S169 now uses accession labels, a digit clue and a transposition. S170 and S171 continue under the replacement sequential run.",
+      "retirementRun": 45495338367
+    }
+  ]
 }
