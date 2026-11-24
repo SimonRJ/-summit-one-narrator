@@ -24,6 +24,8 @@ from stage import Stage, Moment, WHITE, between, blend, clamp, ease, lettering, 
 
 LESSONS = {
     "S008": "folding_number_press",
+    "S009": "carry_counter",
+    "S010": "reversal_line",
     "S137": "digit_detectives",
     "S138": "flow_bench",
     "S141": "creek_readings",

@@ -109,10 +109,20 @@ async def capture_worked_example(player, guide, output):
     return {'chapter':chapter['title'], 'decoded_media_time':stamp}
 
 
-async def verify(site, lesson, profile, digest, output):
-    slot = int(lesson[1:])
+async def verify(site, lesson, profile, digest, output, *, consumer_slot=None):
+    gallery_slot = int(lesson[1:])
+    slot = gallery_slot if consumer_slot is None else consumer_slot
     catalog = json.loads((ROOT / 'data/recorded-studies.json').read_text())
     guide = catalog['lessons'][lesson]
+    bridge = guide['bridge']
+    if slot != gallery_slot:
+        consumers = [row for filename in ('read-watch-practise.json', 'read-watch-practise-later.json')
+                     for row in json.loads((ROOT/'data'/filename).read_text())['lessons']
+                     if row['slot'] == slot]
+        assert len(consumers) == 1, f'Unknown or ambiguous consumer slot {slot}'
+        consumer = consumers[0]
+        assert consumer['videoId'] == lesson and consumer['filmUse'] == 'technique'
+        bridge = consumer['bridge']
     base = guide.get('release') or catalog['release']
     movie = urljoin(site, base + lesson + '.mp4')
     poster = urljoin(site, base + lesson + '-poster.jpg')
@@ -155,7 +165,7 @@ async def verify(site, lesson, profile, digest, output):
         page = await context.new_page()
         try:
             await page.goto(site + 'lesson-introduction-videos.html', wait_until='domcontentloaded')
-            row = page.locator(f'li[data-intro-slot="{slot}"] a')
+            row = page.locator(f'li[data-intro-slot="{gallery_slot}"] a')
             await expect(row).to_contain_text(guide['title'], timeout=20000)
             await row.click()
             await expect(page.locator('#introTitle')).to_have_text(guide['title'], timeout=20000)
@@ -171,7 +181,7 @@ async def verify(site, lesson, profile, digest, output):
                 await expect(button).to_contain_text(chapter['title'])
                 await button.click()
                 await verify_progress(page, player, chapter['start'])
-            full = profile == 'iphone-portrait'
+            full = profile == 'iphone-portrait' and slot == gallery_slot
             if full:
                 await chapters.first.click()
                 await verify_progress(page, player, 0)
@@ -180,7 +190,7 @@ async def verify(site, lesson, profile, digest, output):
                                              timeout=(guide['seconds'] + 40) * 1000)
             await page.goto(site + f'?fixtureSlot={slot}', wait_until='domcontentloaded')
             await page.locator('#continue').click()
-            await expect(page.locator('.rwl-bridge')).to_contain_text(guide['bridge'], timeout=20000)
+            await expect(page.locator('.rwl-bridge')).to_contain_text(bridge, timeout=20000)
             diagram = page.locator('.rwl-opening-figure')
             if await diagram.count():
                 await diagram.evaluate('async figure => { await figure.decode(); }')
@@ -234,7 +244,7 @@ async def verify(site, lesson, profile, digest, output):
             await play_inline(page, player)
             assert await page.evaluate('JSON.stringify([fixture.records, fixture.progress, fixture.writes])') == before
             await page.screenshot(path=output / 'replay.png')
-            result = {'profile':profile, 'engine':engine, 'viewport':device['viewport'], 'site':site,
+            result = {'slot':slot, 'profile':profile, 'engine':engine, 'viewport':device['viewport'], 'site':site,
                       'sha256':digest, 'film':movie, 'duration':guide['seconds'], 'chapters':len(guide['chapters']),
                       'normal_speed_unmuted_to_ended':full, 'practice_grading':'isolated fixture',
                       'immutable_replay':True, 'active_frame_css_pixels':active_frame,
@@ -257,6 +267,8 @@ if __name__ == '__main__':
     p.add_argument('--site', required=True)
     p.add_argument('--profile', required=True, choices=PROFILES)
     p.add_argument('--sha256')
+    p.add_argument('--consumer-slot', type=int, help='Check a later lesson assigned this film as a technique example')
     p.add_argument('--output', required=True, type=Path)
     args = p.parse_args()
-    asyncio.run(verify(args.site.rstrip('/') + '/', args.lesson, args.profile, args.sha256, args.output))
+    asyncio.run(verify(args.site.rstrip('/') + '/', args.lesson, args.profile, args.sha256, args.output,
+                       consumer_slot=args.consumer_slot))

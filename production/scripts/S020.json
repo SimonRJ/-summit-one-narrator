@@ -1,0 +1,84 @@
+{
+  "id": "S020",
+  "course_slot": 20,
+  "title": "Clock turns and last digits",
+  "scenes": [
+    {
+      "n": 1,
+      "heading": "Returning to the start",
+      "title": "Returning to the start",
+      "stage": "INTRO",
+      "narration": "A cycle brings the same states back in the same order. Track where a full cycle ends and how many extra steps you take. When all you need is a last digit, you can multiply last digits and leave the rest of the number behind."
+    },
+    {
+      "n": 2,
+      "heading": "Write one cycle",
+      "title": "Write one cycle",
+      "stage": "EXAM",
+      "narration": "AMC Upper Primary practice can use a repeating picture, a clock or the last digit of a large power. Write a small first cycle. A Mawa style investigation can change the base or the number of steps. Check whether the cycle length stays the same."
+    },
+    {
+      "n": 3,
+      "heading": "Seventeen hours later",
+      "title": "Seventeen hours later",
+      "stage": "BASIC",
+      "narration": "It is nine o'clock on a twelve-hour clock. What number will the hour hand point to after seventeen hours? Start by removing any whole turns that bring you back to the same place."
+    },
+    {
+      "n": 4,
+      "heading": "Five hours beyond a full turn",
+      "title": "Five hours beyond a full turn",
+      "stage": "SOLUTION",
+      "narration": "Every twelve hours returns to the starting number. The seventeen hours leave five extra hours after full turns. Step five hours ahead. Wrap past twelve if needed, so the hour hand points to two."
+    },
+    {
+      "n": 5,
+      "heading": "The 37th power",
+      "title": "The 37th power",
+      "stage": "MEDIUM",
+      "narration": "What is the units digit of three to the power thirty-seven? Work with just the units digits of its first few powers. Watch for the first repeat. A remainder of zero will need a careful interpretation."
+    },
+    {
+      "n": 6,
+      "heading": "The four last digits",
+      "title": "The four last digits",
+      "stage": "SOLUTION",
+      "narration": "The first four units digits are three, nine, seven and one. The next digit repeats the first, and the same multiplication rule gives the same later digits. The exponent thirty-seven leaves a remainder of one on division by four. Use position one in the cycle. The digit at that position is three. If the remainder is zero, the fourth position sits at the end of the last full cycle."
+    },
+    {
+      "n": 7,
+      "heading": "Sum the first 51 powers",
+      "title": "Sum the first 51 powers",
+      "stage": "CHALLENGE",
+      "narration": "Add the first fifty-one positive powers of three, starting with exponent one. What is the units digit of the sum? You already know the cycle of the last digits. Work out what one whole block contributes to the sum."
+    },
+    {
+      "n": 8,
+      "heading": "Add complete blocks",
+      "title": "Add complete blocks",
+      "stage": "SOLUTION",
+      "narration": "One full cycle has units digits three, nine, seven and one. Their sum is twenty, with units digit zero. There are twelve full cycles and three terms left. Every completed block contributes zero to the units digit. Add the first three digits of the cycle. Their sum is nineteen, so the final units digit is nine."
+    },
+    {
+      "n": 9,
+      "heading": "Exponent 49, position one",
+      "title": "Exponent 49, position one",
+      "stage": "SOLUTION",
+      "narration": "The first forty-eight powers make twelve full blocks. The next exponent is forty-nine. Its last digit is back at position one in the cycle. The last three digits to add are three, nine, and seven. Their sum is nineteen, so the units digit is nine."
+    },
+    {
+      "n": 10,
+      "heading": "When the remainder is zero",
+      "title": "When the remainder is zero",
+      "stage": "MISTAKES",
+      "narration": "If the step count is a multiple of the cycle length, land on the last listed item when the cycle was numbered from one. For a sum, add the contributions of the earlier terms as well as the final term. Check the total contributed by each full cycle."
+    },
+    {
+      "n": 11,
+      "heading": "Count blocks and tail",
+      "title": "Count blocks and tail",
+      "stage": "RECAP",
+      "narration": "Record states in order. Find the first state you can recognise again, and count the length from one occurrence to the next. Divide by the cycle length and use the remainder. When the task asks for a sum, work out what the full cycles contribute."
+    }
+  ]
+}

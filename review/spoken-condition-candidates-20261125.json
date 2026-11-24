@@ -1,0 +1,380 @@
+{
+  "recorded_at_utc": "2026-11-24T22:44:32.069534+00:00",
+  "status": "Candidates only; neither corrected film is assigned to live learners by these commits.",
+  "source_commits": [
+    "b4f43c9",
+    "ac55749"
+  ],
+  "S019": {
+    "title": "The domino colour test",
+    "correction": "Scene 5 specifies the two squares farthest to the left in the top row, matching the pictured construction.",
+    "production_commit": "3d94f6856b475eb160c11bf7b6334ff13e9c61b6",
+    "production_run": 45491819969,
+    "artifact_id": 14972215243,
+    "artifact_zip_sha256": "ac715497aaa04668c0746c530c3e8db607029517e6b48fbfc99b3ac76fdc8bf9",
+    "candidate_sha256": "51545b1baf76d155f052fdcedc6bfde126e45c63845e97468166c0e069bc365f",
+    "candidate_seconds": 142.33,
+    "candidate_assets": {
+      "S019-guide.json": "e072bbcb020b381720a7ebb5f23476b22d3070dd1beb413264228455a86c9639",
+      "S019-poster.jpg": "e51125931fcc24dcb1577ec7ad1cf05fc1e3803a632685f5c3e8524d30faf822",
+      "S019-qa.json": "2c6f54543d62bcd5dcb8ac021501008e8c7c4b16a41effe41802f6abd444eb5b",
+      "S019-recording.zip": "b1ad8709874843e26d52dd0cb104008c85010ff96e443b200b02c243c44d8abd",
+      "S019.mp4": "51545b1baf76d155f052fdcedc6bfde126e45c63845e97468166c0e069bc365f",
+      "S019.vtt": "92f0c39344a9dc9729bf1f34db93b2f5c3047f5bde22cbcc419a8d09c46a3c41"
+    },
+    "expected_release_tag": "s019-domino-condition-20261125-3d94f6856b47",
+    "release_verified": false,
+    "production_device_state": "All five playback jobs queued at the latest read; render completed successfully.",
+    "consumers": [
+      {
+        "slot": 19,
+        "kind": "dedicated"
+      },
+      {
+        "slot": 333,
+        "kind": "technique"
+      }
+    ],
+    "independent_maths": {
+      "leftmost_pair_removed": {
+        "blue": 7,
+        "gold": 7,
+        "coverings_by_exhaustive_search": 18
+      },
+      "middle_pair_removed": {
+        "blue": 7,
+        "gold": 7,
+        "coverings_by_exhaustive_search": 6
+      },
+      "opposite_corners_removed": {
+        "blue": 6,
+        "gold": 8,
+        "coverings_by_exhaustive_search": 0
+      }
+    },
+    "visual_review": "Viewed the CI-encoded correction frame at 49.5 s: top-row columns 1 and 2 are crossed, columns 3 and 4 remain, the condition label and caption agree. Earlier local contact sheet covered the replacement scene and its junction into the seven-domino construction.",
+    "voice_evidence": "CI and earlier local recording archives contain identical script.json and narration.flac; approved Voice C reference SHA 0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362. ASR/word alignment is evidence, not a new human listening signoff.",
+    "older_local_candidate": {
+      "sha256": "e32c8e68b6c16e90b091a8c1885f8d0231ff22629be63ac6d6325b03a6b5a208",
+      "difference_from_ci": "One caption ends at 50.503 s locally versus 50.523 s in CI; original narration FLAC and script are byte-identical. These viewport results do not prove playback of the later CI hash.",
+      "device_results": [
+        {
+          "slot": 19,
+          "profile": "ipad-landscape",
+          "engine": "webkit",
+          "viewport": {
+            "width": 1080,
+            "height": 810
+          },
+          "site": "http://127.0.0.1:8787/",
+          "sha256": "e32c8e68b6c16e90b091a8c1885f8d0231ff22629be63ac6d6325b03a6b5a208",
+          "film": "http://127.0.0.1:8787/candidate/S019/S019.mp4",
+          "duration": 142.33,
+          "chapters": 11,
+          "normal_speed_unmuted_to_ended": false,
+          "practice_grading": "isolated fixture",
+          "immutable_replay": true,
+          "active_frame_css_pixels": {
+            "width": 597.390625,
+            "height": 336.03125,
+            "horizontal": 0,
+            "vertical": 0
+          },
+          "notebook_frame_css_pixels": {
+            "width": 958,
+            "height": 364.328125,
+            "horizontal": 0,
+            "vertical": 0
+          },
+          "worked_example": {
+            "chapter": "When counts agree",
+            "decoded_media_time": 125.166667
+          }
+        },
+        {
+          "slot": 19,
+          "profile": "ipad-portrait",
+          "engine": "webkit",
+          "viewport": {
+            "width": 810,
+            "height": 1080
+          },
+          "site": "http://127.0.0.1:8787/",
+          "sha256": "e32c8e68b6c16e90b091a8c1885f8d0231ff22629be63ac6d6325b03a6b5a208",
+          "film": "http://127.0.0.1:8787/candidate/S019/S019.mp4",
+          "duration": 142.33,
+          "chapters": 11,
+          "normal_speed_unmuted_to_ended": false,
+          "practice_grading": "isolated fixture",
+          "immutable_replay": true,
+          "active_frame_css_pixels": {
+            "width": 663.125,
+            "height": 373,
+            "horizontal": 0,
+            "vertical": 0
+          },
+          "notebook_frame_css_pixels": {
+            "width": 733.125,
+            "height": 650.5,
+            "horizontal": 0,
+            "vertical": 0
+          },
+          "worked_example": {
+            "chapter": "When counts agree",
+            "decoded_media_time": 125.166667
+          }
+        },
+        {
+          "slot": 19,
+          "profile": "iphone-landscape",
+          "engine": "webkit",
+          "viewport": {
+            "width": 664,
+            "height": 390
+          },
+          "site": "http://127.0.0.1:8787/",
+          "sha256": "e32c8e68b6c16e90b091a8c1885f8d0231ff22629be63ac6d6325b03a6b5a208",
+          "film": "http://127.0.0.1:8787/candidate/S019/S019.mp4",
+          "duration": 142.33,
+          "chapters": 11,
+          "normal_speed_unmuted_to_ended": false,
+          "practice_grading": "isolated fixture",
+          "immutable_replay": true,
+          "active_frame_css_pixels": {
+            "width": 357.109375,
+            "height": 200.859375,
+            "horizontal": 0,
+            "vertical": 0
+          },
+          "notebook_frame_css_pixels": {
+            "width": 395.515625,
+            "height": 222.46875,
+            "horizontal": 0,
+            "vertical": 0
+          },
+          "worked_example": {
+            "chapter": "When counts agree",
+            "decoded_media_time": 125.2
+          }
+        },
+        {
+          "slot": 19,
+          "profile": "iphone-portrait",
+          "engine": "webkit",
+          "viewport": {
+            "width": 390,
+            "height": 664
+          },
+          "site": "http://127.0.0.1:8787/",
+          "sha256": "e32c8e68b6c16e90b091a8c1885f8d0231ff22629be63ac6d6325b03a6b5a208",
+          "film": "http://127.0.0.1:8787/candidate/S019/S019.mp4",
+          "duration": 142.33,
+          "chapters": 11,
+          "normal_speed_unmuted_to_ended": true,
+          "practice_grading": "isolated fixture",
+          "immutable_replay": true,
+          "active_frame_css_pixels": {
+            "width": 333.21875,
+            "height": 187.421875,
+            "horizontal": 0,
+            "vertical": 0
+          },
+          "notebook_frame_css_pixels": {
+            "width": 340,
+            "height": 258.46875,
+            "horizontal": 0,
+            "vertical": 0
+          },
+          "worked_example": {
+            "chapter": "When counts agree",
+            "decoded_media_time": 125.166667
+          }
+        },
+        {
+          "slot": 19,
+          "profile": "pc",
+          "engine": "chromium",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "site": "http://127.0.0.1:8787/",
+          "sha256": "e32c8e68b6c16e90b091a8c1885f8d0231ff22629be63ac6d6325b03a6b5a208",
+          "film": "http://127.0.0.1:8787/candidate/S019/S019.mp4",
+          "duration": 142.33,
+          "chapters": 11,
+          "normal_speed_unmuted_to_ended": false,
+          "practice_grading": "isolated fixture",
+          "immutable_replay": true,
+          "active_frame_css_pixels": {
+            "width": 654,
+            "height": 367.875,
+            "horizontal": 0,
+            "vertical": 0
+          },
+          "notebook_frame_css_pixels": {
+            "width": 958,
+            "height": 441.84375,
+            "horizontal": 0,
+            "vertical": 0
+          },
+          "worked_example": {
+            "chapter": "When counts agree",
+            "decoded_media_time": 125.166666
+          }
+        },
+        {
+          "slot": 333,
+          "profile": "ipad-portrait",
+          "engine": "webkit",
+          "viewport": {
+            "width": 810,
+            "height": 1080
+          },
+          "site": "http://127.0.0.1:8787/",
+          "sha256": "e32c8e68b6c16e90b091a8c1885f8d0231ff22629be63ac6d6325b03a6b5a208",
+          "film": "http://127.0.0.1:8787/candidate/S019/S019.mp4",
+          "duration": 142.33,
+          "chapters": 11,
+          "normal_speed_unmuted_to_ended": false,
+          "practice_grading": "isolated fixture",
+          "immutable_replay": true,
+          "active_frame_css_pixels": {
+            "width": 663.125,
+            "height": 373,
+            "horizontal": 0,
+            "vertical": 0
+          },
+          "notebook_frame_css_pixels": {
+            "width": 733.125,
+            "height": 650.5,
+            "horizontal": 0,
+            "vertical": 0
+          },
+          "worked_example": {
+            "chapter": "When counts agree",
+            "decoded_media_time": 125.166667
+          }
+        },
+        {
+          "slot": 333,
+          "profile": "pc",
+          "engine": "chromium",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "site": "http://127.0.0.1:8787/",
+          "sha256": "e32c8e68b6c16e90b091a8c1885f8d0231ff22629be63ac6d6325b03a6b5a208",
+          "film": "http://127.0.0.1:8787/candidate/S019/S019.mp4",
+          "duration": 142.33,
+          "chapters": 11,
+          "normal_speed_unmuted_to_ended": false,
+          "practice_grading": "isolated fixture",
+          "immutable_replay": true,
+          "active_frame_css_pixels": {
+            "width": 654,
+            "height": 367.875,
+            "horizontal": 0,
+            "vertical": 0
+          },
+          "notebook_frame_css_pixels": {
+            "width": 958,
+            "height": 441.84375,
+            "horizontal": 0,
+            "vertical": 0
+          },
+          "worked_example": {
+            "chapter": "When counts agree",
+            "decoded_media_time": 125.166666
+          }
+        }
+      ],
+      "completed_routes": "Canonical slot19 passed five emulated browser profiles; technique consumer333 passed PC and iPad portrait. Gallery chapter seeks, active lesson, correct/incorrect fixture grading and immutable replay passed. iPhone portrait completed the full film unmuted at normal speed. These checks are bound to the older local SHA only."
+    }
+  },
+  "S020": {
+    "title": "Clock turns and last digits",
+    "correction": "After exponents 1 to 48, exponent 49 starts cycle position 1. The final last digits 3, 9, 7 total 19, giving units digit 9.",
+    "held_source_candidate": {
+      "run": 45491820136,
+      "commit": "3d94f6856b475eb160c11bf7b6334ff13e9c61b6",
+      "artifact_id": 14969252264,
+      "artifact_zip_sha256": "16abdc1a939859424b2f7be5db960b430f46b25fa82b90a0e65f0a742ff73784",
+      "mp4_sha256": "fa00a38665821402f0a2060c40b4aa7ae4b89632609862a80607f39a4cc5006f",
+      "held_reason": "At 145.5 s the regular/bold cross-fade visibly doubled the word position. Do not assign this old candidate or its possible automatic release.",
+      "old_release_tag": "s020-exponent-49-20261125-3d94f6856b47"
+    },
+    "local_followup": {
+      "sha256": "793fe8a6b93d967facf91511e4f9039619ae6239548e0ea75ec8c81bfe9086f6",
+      "seconds": 191.233333,
+      "frames": 5737,
+      "fps": 30,
+      "assets": {
+        "S020-guide.json": "c6ba59f8fc54299273e2bed59b2b29997c718637e72675a7acb715c11aa46f7e",
+        "S020-poster.jpg": "fef51caf206f8ba7551db5bb2e518dfd80c6315f07959c7c5e5024ae30f0f6d0",
+        "S020-qa.json": "6e2540d50711db1245a3a183fce036545c4ecaa26449f6840f131b69d9a0c640",
+        "S020-recording.zip": "72a341a6ea59e73738f444e7ff81b89d381c6dd04f7a9e65ead43d474308405f",
+        "S020.mp4": "793fe8a6b93d967facf91511e4f9039619ae6239548e0ea75ec8c81bfe9086f6",
+        "S020.vtt": "7a22be8ae311bffa0561f49e91cb547132a6e6ed44e86e751763341c579a0fe3"
+      },
+      "aac_packets_identical": true,
+      "vtt_and_recording_archive_identical": true,
+      "decoded_reference_comparisons": 192,
+      "largest_mean_picture_difference": [
+        1.5913398692810456,
+        1.7376543209876543
+      ],
+      "visual_review": "Encoded frame at 145.5 s now shows one stable bold phrase; the exponent/position distinction remains clear. This local export is not the final future CI release hash.",
+      "device_checks": "Not repeated locally; the new workflow gates publication on its exact generated master."
+    },
+    "independent_maths": {
+      "cycle": [
+        3,
+        9,
+        7,
+        1
+      ],
+      "sum_last_digits_exponents1_to48": 240,
+      "tail": [
+        [
+          49,
+          3
+        ],
+        [
+          50,
+          9
+        ],
+        [
+          51,
+          7
+        ]
+      ],
+      "sum_units_digit": 9
+    },
+    "followup_workflow": ".github/workflows/s020-caption-stability.yml",
+    "followup_trigger": "Push this workflow/source to main or production/s020-caption-stability, or workflow_dispatch.",
+    "release_tag_template": "s020-stable-captions-20261125-${GITHUB_SHA:0:12}",
+    "release_verified": false,
+    "consumers": [
+      {
+        "slot": 20,
+        "kind": "dedicated"
+      },
+      {
+        "slot": 283,
+        "kind": "technique"
+      }
+    ]
+  },
+  "integration_gate": [
+    "Wait for the relevant exact-candidate playback jobs to succeed and the separate immutable release to exist.",
+    "Fetch the released MP4, guide, VTT, poster, recording and QA; compare hashes to the final CI candidate. Record the final CI hash, not a prior local export hash.",
+    "Copy each final guide into data/recorded-studies.json lessons[id] and set release to its immutable HTTPS release base.",
+    "For rows whose videoId matches in both read-watch-practise files, update movie and videoTitle. Keep each later technique bridge. Set canonical slot 19 or 20 filmUse to dedicated and use its checked guide bridge. Retain technique at 333 and 283.",
+    "Run tools/check_read_practice.mjs, then the live gallery/active/locked-notebook checks on final URLs. Use --consumer-slot 333 for S019 and --consumer-slot 283 for S020 in PC and iPad portrait.",
+    "Do not migrate or rewrite saved learner records or historical movie selections. Only count a film complete after final editorial and public playback gates are genuinely closed."
+  ],
+  "scope_note": "The digit-swap wording defect is S102, not S069. S069 is under revision for repeated narration. S102 must swap tens and units while preserving hundreds (153→135), not the end digits (153→351). No S102 change was made in this task.",
+  "protected_state": "No database, authentic-exam, learner-history, credential or saved-movie mutation performed."
+}

@@ -2,6 +2,21 @@
 
 The [live progress bar](../review/course-progress.html) reads the current [review scope](../review/course-review-scope.json), [lesson film register](lesson-introduction-review-register-20261116.csv) and [companion film register](teaching-video-review-register-20261116.csv). Signed-in learners can see every released practice set in [the exam centre](../tests.html).
 
+## Priority repair pass — 25 November 2026
+
+This revision brings the learner player back into agreement with the already published companion editions for T05.2, T05.3, T06.1, T06.3 and T16.3. The missing T16.3 mapping suppressed its finished video in the optional lesson review; the other four mappings retained older cache tokens. The app and service-worker revisions change together so existing installations fetch the corrected routes. `tools/check_companion_release_routes.mjs` now checks all 72 public watch pages against the catalogue and learner resolver during release QA, including rejection of protected or unpublished film IDs.
+
+The affected mapped lessons were also exercised through current-lesson review and the locked completed notebook using the exact current companion media, desktop Chromium and iPhone WebKit emulation. All 12 route checks decoded and played the expected edition, preserved the fixture's answers and progress, and made no learner-state writes. See [the route evidence](../review/companion-learner-routes-20261125.json). The public review list now includes the already approved T12.E film: its 42 reviewed entries and the separate two previously approved films agree with the 44 approved companion register entries.
+
+The earliest film repairs are saved with precise publication boundaries:
+
+- **S009 and S010:** original replacement sources, transcripts, timed captions and exact candidate QA are in the repository. Their render and five-profile candidate playback jobs have passed; the immutable release was still queued at this checkpoint. The live lesson assignments remain on their existing films until the replacement assets are published and checked. See [the candidate review](CARRY_REVERSAL_CANDIDATE_REVIEW_20261125.md).
+- **S019:** the spoken domino condition now specifies the two leftmost squares in the top row. Its production candidate still needs its queued final device and publication gates.
+- **S020:** the spoken explanation distinguishes exponent 49 from position 1 in the repeating cycle. A further repair removes doubled caption glyphs while preserving the approved Voice C audio packets and caption timing. The dedicated follow-up workflow verifies pinned input assets, tests five browser profiles plus later lesson 283, and publishes a separate immutable edition only after those checks pass.
+- **T05.1, T13.3 and T16.3:** the current corrected masters have targeted mathematics, caption and playback evidence; their stale register descriptions have been reconciled. **T18.1** has a corrected caption candidate whose publication remains pending. See [the companion acceptance evidence](../review/companion-correction-acceptance-20261125.json).
+
+Candidate encoding and browser playback checks do not award final editorial completion. This repair pass does not increase the 44 approved companion count or alter practice questions, authentic papers, grading, learner answers or progress. Repository integration, Pages deployment and final editorial acceptance are tracked separately.
+
 **19 November 2026 lesson structure.** All 283 teaching lessons now use Read → Watch → Practise. The [later lesson index](LATER_LESSONS.md) records the video assignment and problems for the remaining 228 lessons.
 
 **First release through S068.** The [55 teaching sessions through S068](READ_WATCH_PRACTISE.md) now use Read → Watch → Practise. This adds a separate versioned bank of 220 protected questions, alongside 92 selected challenges from the original bank.

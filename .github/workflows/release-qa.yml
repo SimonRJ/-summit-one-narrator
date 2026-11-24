@@ -90,6 +90,7 @@ jobs:
           echo "No authenticated AMC answer bank on current Pages branch."
       - name: Video and media safety invariants
         run: |
+          node tools/check_companion_release_routes.mjs
           grep -q 'let attemptedProblemIds=new Set()' app-main.js
           grep -Fq 'Only concept/worked-example T videos are public. Every challenge solution is attempt-gated.' app-main.js
           grep -q 'independent_credit:false' app-main.js

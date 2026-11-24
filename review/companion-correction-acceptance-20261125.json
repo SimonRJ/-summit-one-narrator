@@ -1,0 +1,864 @@
+{
+  "date_utc": "2026-11-25",
+  "source_commit": "04d2032d585c020a0e44ab4b1d468680198a77f7",
+  "scope": "Targeted acceptance of four existing correction masters; no new narration or render was produced in this review.",
+  "environment": "Local HTTP server serving the checked-out watch pages and the exact SHA-256-identified MP4 candidates. T18.1 used a candidate-only thirteen-search query token. Service workers were blocked. These results do not verify the live deployment.",
+  "review_limits": [
+    "Full normal-speed unmuted playback to ended is browser transport/decode evidence. It is not a human audible editorial approval.",
+    "iPhone and iPad profiles are WebKit viewport/device emulation, not physical Apple hardware. PC uses Chromium.",
+    "Selected correction frames, captions, source diagrams and mathematical examples were inspected. The complete pictures and sound were not jointly reviewed for editorial sign-off.",
+    "T18.1 remains a staged candidate until its matching media, caption, poster, QA and route versions are published together."
+  ],
+  "route_reconciliation": {
+    "T05.2": "number-press",
+    "T05.3": "seat-bookings",
+    "T06.1": "paired-receipts",
+    "T06.3": "fixture-board",
+    "T16.3": "score-notebook",
+    "regression": "node tools/check_companion_release_routes.mjs: all 72 public watch-page/player URLs agree; populated catalogue video_url values match; protected and unpublished IDs are excluded."
+  },
+  "caption_comparison_method": "Join all WebVTT cue text and all authored narration scenes; compare after removing punctuation, whitespace and case only. No recognized text is used for this comparison.",
+  "caption_comparison": {
+    "T05.1": {
+      "vtt_sha256": "35363d646514168b057e4005b0ea33bb5f4348729d568e6f867ea3a1c8cb919f",
+      "cue_count": 39,
+      "caption_words_equal_authored_narration": true
+    },
+    "T13.3": {
+      "vtt_sha256": "f281fd51bb5d4fee0ae8f4d2baa1841f1bf6419e0df3b835c8bfa610cbc7d935",
+      "cue_count": 45,
+      "caption_words_equal_authored_narration": true
+    },
+    "T16.3": {
+      "vtt_sha256": "cb12144abe1f7a323577e535bed9e3b185f97a4a328f0eb714aa6594cbfdd1a5",
+      "cue_count": 46,
+      "caption_words_equal_authored_narration": true
+    },
+    "T18.1": {
+      "vtt_sha256": "81645151d9751b9312eda940e5b17a968e7a538eff6c0146ef19e0a249ce624c",
+      "cue_count": 42,
+      "caption_words_equal_authored_narration": true
+    }
+  },
+  "independent_mathematics": {
+    "T05.1": {
+      "three_runners_two_places": 6,
+      "three_runners_teams": 3,
+      "five_runners_three_roles": 60,
+      "five_runners_teams_of_three": 10,
+      "six_players_two_roles": 30,
+      "six_players_pairs": 15
+    },
+    "T13.3": {
+      "painted_3_cube_categories": {
+        "0": 1,
+        "1": 6,
+        "2": 12,
+        "3": 8
+      },
+      "unpainted_4_cube": 8
+    },
+    "T16.3": {
+      "fifth_score": 12,
+      "combined_mean": 8.4,
+      "odd_median": 5,
+      "even_median": 6.0,
+      "removed_score": 14
+    },
+    "T18.1": {
+      "squares_with_digit_sum_ten": [
+        64
+      ],
+      "area_24_pairs_and_perimeters": [
+        [
+          1,
+          24,
+          50
+        ],
+        [
+          2,
+          12,
+          28
+        ],
+        [
+          3,
+          8,
+          22
+        ],
+        [
+          4,
+          6,
+          20
+        ]
+      ],
+      "odd_multiples_of_13": [
+        65,
+        91
+      ]
+    }
+  },
+  "audio_provenance": [
+    {
+      "film": "T13.3",
+      "passage": "T13.3-face-centres",
+      "encoded_sha256": "8692c103be7e53141525c4a51f0237fc594e92b0de1799492e05b4bc00812594",
+      "recording_sha256": "79086dfef45274f979f4a4a005b7e45ff9d66299e05b6fc6aa9a152acacfeee4",
+      "receipt_narration_sha256": "5bfb8868ddd7eae8a94290dbd7b6f4a798a1804689b8ad13703dd40d9008f78e",
+      "sample_rate": 48000,
+      "reference_samples": 384000,
+      "insertion_seconds": 74.48,
+      "natural_speed_receipt": true,
+      "reference_voice_and_model_verified": true,
+      "comparison": {
+        "sample_offset": 0,
+        "correlation": 0.999450604795416,
+        "snr_db": 29.54273706386708
+      },
+      "method": "Compare decoded final AAC to the approved correction WAV over its complete length at the authored insertion time; no time scaling. This is waveform provenance evidence, not an audible editorial review."
+    },
+    {
+      "film": "T16.3",
+      "passage": "T16.3-four-values",
+      "encoded_sha256": "e2f9653a6e0e2d7d6192bbf897e4dd22b8add0becbf2e70d8eb007bafbb23ef6",
+      "recording_sha256": "e59182c985f69de8bbe7a5e6b7beb1d1048f1c36256d7cc0a43c2cc5bc94094b",
+      "receipt_narration_sha256": "c31ceec356517f34735edb9767809c873caef2bdf78e3d577c499099609a9f90",
+      "sample_rate": 48000,
+      "reference_samples": 1174080,
+      "insertion_seconds": 77.46,
+      "natural_speed_receipt": true,
+      "reference_voice_and_model_verified": true,
+      "comparison": {
+        "sample_offset": 0,
+        "correlation": 0.9994007172206958,
+        "snr_db": 29.180432981877395
+      },
+      "method": "Compare decoded final AAC to the approved correction WAV over its complete length at the authored insertion time; no time scaling. This is waveform provenance evidence, not an audible editorial review."
+    },
+    {
+      "film": "T16.3",
+      "passage": "T16.3-median-recap",
+      "encoded_sha256": "e2f9653a6e0e2d7d6192bbf897e4dd22b8add0becbf2e70d8eb007bafbb23ef6",
+      "recording_sha256": "1502e0f411c360812c118f9936d0859bc1ce98f01967ac3afd56a9310296c121",
+      "receipt_narration_sha256": "b062a24f33998f9a9f65602c717d9e1ba693a9c6ac5f421273810fbb52e72c5a",
+      "sample_rate": 48000,
+      "reference_samples": 414720,
+      "insertion_seconds": 102.22,
+      "natural_speed_receipt": true,
+      "reference_voice_and_model_verified": true,
+      "comparison": {
+        "sample_offset": 0,
+        "correlation": 0.9995400236003573,
+        "snr_db": 30.33084309098943
+      },
+      "method": "Compare decoded final AAC to the approved correction WAV over its complete length at the authored insertion time; no time scaling. This is waveform provenance evidence, not an audible editorial review."
+    },
+    {
+      "film": "T18.1",
+      "original_and_candidate_audio_packet_sha256": "SHA256=89e09f12ead83d1d4b0ddff7a5c9851f00ff214556b986f70ac21da5c2ba28f7",
+      "unchanged_encoded_audio": true
+    }
+  ],
+  "correction_windows_seconds": {
+    "T05.1": [
+      [
+        16.28,
+        24.24
+      ],
+      [
+        70.76,
+        78.13
+      ]
+    ],
+    "T13.3": [
+      [
+        74.48,
+        82.17
+      ]
+    ],
+    "T16.3": [
+      [
+        77.46,
+        101.75
+      ],
+      [
+        102.22,
+        110.67
+      ]
+    ],
+    "T18.1": [
+      [
+        76.64,
+        82.64
+      ]
+    ]
+  },
+  "correction_frame_observations": {
+    "T05.1": {
+      "sample_seconds": [
+        17.4,
+        21.7,
+        73.0
+      ],
+      "observation": "Two reversed finish tickets belong to one named pair. The following frame explicitly says two orders for two distinct runners and lists all six orders of three distinct runners. The later worked group-of-three example uses the factor six."
+    },
+    "T13.3": {
+      "sample_seconds": [
+        75.6,
+        79.5,
+        83.5
+      ],
+      "observation": "One highlighted middle square appears in each of the six faces of the unfolded net. The categories remain 8 corner, 12 edge-middle, 6 face-centre, 1 interior cube."
+    },
+    "T16.3": {
+      "sample_seconds": [
+        83.4,
+        89.8,
+        95.6,
+        100.4,
+        109.5
+      ],
+      "observation": "The ordered five-value example has median 5; removing 5 leaves 2, 3, 9, 31. The two middle cards are bracketed, and (3 + 9) / 2 = 6 is shown. The recap includes both odd and even cases."
+    },
+    "T18.1": {
+      "sample_seconds": [
+        77.5,
+        79.9,
+        81.8
+      ],
+      "observation": "The factor-pair table gives perimeters 50, 28, 22 and 20, selecting 4 by 6. The candidate includes the formerly missing perimeter and final-answer captions."
+    }
+  },
+  "device_results": {
+    "T05.1": {
+      "pc": {
+        "engine": "chromium",
+        "browser_version": "158.0.8127.0",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "sha256": "71e513a64aaf66600ce13d91b31ce3cf9e5d6d5df7cd7feb6e1266669f3d76d6",
+        "video": {
+          "width": 1920,
+          "height": 1080,
+          "duration": 117.733333,
+          "controls": true,
+          "inline": true
+        },
+        "edition": "finish-tickets",
+        "chapters_seek_and_resume": 8,
+        "inline_frame_css_pixels": {
+          "x": 208,
+          "y": 161.78125,
+          "width": 1024,
+          "height": 576
+        },
+        "transcript_opens": true,
+        "worked_variation_opens": true,
+        "normal_speed_unmuted_to_ended": true,
+        "wall_seconds": 118.234,
+        "final_media_state": {
+          "time": 117.733333,
+          "duration": 117.733333,
+          "rate": 1,
+          "muted": false,
+          "volume": 1,
+          "ended": true,
+          "error": null
+        },
+        "page_errors": [],
+        "passed": true
+      },
+      "iphone-portrait": {
+        "engine": "webkit",
+        "browser_version": "26.0",
+        "viewport": {
+          "width": 390,
+          "height": 664
+        },
+        "sha256": "71e513a64aaf66600ce13d91b31ce3cf9e5d6d5df7cd7feb6e1266669f3d76d6",
+        "video": {
+          "width": 1920,
+          "height": 1080,
+          "duration": 117.734,
+          "controls": true,
+          "inline": true
+        },
+        "edition": "finish-tickets",
+        "chapters_seek_and_resume": 8,
+        "inline_frame_css_pixels": {
+          "x": 18,
+          "y": 232.359375,
+          "width": 354,
+          "height": 199.125
+        },
+        "transcript_opens": true,
+        "worked_variation_opens": true,
+        "normal_speed_unmuted_to_ended": false,
+        "page_errors": [],
+        "passed": true
+      },
+      "iphone-landscape": {
+        "engine": "webkit",
+        "browser_version": "26.0",
+        "viewport": {
+          "width": 664,
+          "height": 390
+        },
+        "sha256": "71e513a64aaf66600ce13d91b31ce3cf9e5d6d5df7cd7feb6e1266669f3d76d6",
+        "video": {
+          "width": 1920,
+          "height": 1080,
+          "duration": 117.734,
+          "controls": true,
+          "inline": true
+        },
+        "edition": "finish-tickets",
+        "chapters_seek_and_resume": 8,
+        "inline_frame_css_pixels": {
+          "x": 26.546875,
+          "y": 22.84375,
+          "width": 610.90625,
+          "height": 343.625
+        },
+        "transcript_opens": true,
+        "worked_variation_opens": true,
+        "normal_speed_unmuted_to_ended": false,
+        "page_errors": [],
+        "passed": true
+      },
+      "ipad-portrait": {
+        "engine": "webkit",
+        "browser_version": "26.0",
+        "viewport": {
+          "width": 810,
+          "height": 1080
+        },
+        "sha256": "71e513a64aaf66600ce13d91b31ce3cf9e5d6d5df7cd7feb6e1266669f3d76d6",
+        "video": {
+          "width": 1920,
+          "height": 1080,
+          "duration": 117.734,
+          "controls": true,
+          "inline": true
+        },
+        "edition": "finish-tickets",
+        "chapters_seek_and_resume": 8,
+        "inline_frame_css_pixels": {
+          "x": 32.390625,
+          "y": 272.734375,
+          "width": 745.21875,
+          "height": 419.171875
+        },
+        "transcript_opens": true,
+        "worked_variation_opens": true,
+        "normal_speed_unmuted_to_ended": false,
+        "page_errors": [],
+        "passed": true
+      },
+      "ipad-landscape": {
+        "engine": "webkit",
+        "browser_version": "26.0",
+        "viewport": {
+          "width": 1080,
+          "height": 810
+        },
+        "sha256": "71e513a64aaf66600ce13d91b31ce3cf9e5d6d5df7cd7feb6e1266669f3d76d6",
+        "video": {
+          "width": 1920,
+          "height": 1080,
+          "duration": 117.734,
+          "controls": true,
+          "inline": true
+        },
+        "edition": "finish-tickets",
+        "chapters_seek_and_resume": 8,
+        "inline_frame_css_pixels": {
+          "x": 43.1875,
+          "y": 124.984375,
+          "width": 993.625,
+          "height": 558.90625
+        },
+        "transcript_opens": true,
+        "worked_variation_opens": true,
+        "normal_speed_unmuted_to_ended": false,
+        "page_errors": [],
+        "passed": true
+      }
+    },
+    "T13.3": {
+      "pc": {
+        "engine": "chromium",
+        "browser_version": "158.0.8127.0",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "sha256": "8692c103be7e53141525c4a51f0237fc594e92b0de1799492e05b4bc00812594",
+        "video": {
+          "width": 1920,
+          "height": 1080,
+          "duration": 124.8,
+          "controls": true,
+          "inline": true
+        },
+        "edition": "cube-workshop",
+        "chapters_seek_and_resume": 8,
+        "inline_frame_css_pixels": {
+          "x": 208,
+          "y": 161.78125,
+          "width": 1024,
+          "height": 576
+        },
+        "transcript_opens": true,
+        "worked_variation_opens": true,
+        "normal_speed_unmuted_to_ended": true,
+        "wall_seconds": 125.248,
+        "final_media_state": {
+          "time": 124.8,
+          "duration": 124.8,
+          "rate": 1,
+          "muted": false,
+          "volume": 1,
+          "ended": true,
+          "error": null
+        },
+        "page_errors": [],
+        "passed": true
+      },
+      "iphone-portrait": {
+        "engine": "webkit",
+        "browser_version": "26.0",
+        "viewport": {
+          "width": 390,
+          "height": 664
+        },
+        "sha256": "8692c103be7e53141525c4a51f0237fc594e92b0de1799492e05b4bc00812594",
+        "video": {
+          "width": 1920,
+          "height": 1080,
+          "duration": 124.8,
+          "controls": true,
+          "inline": true
+        },
+        "edition": "cube-workshop",
+        "chapters_seek_and_resume": 8,
+        "inline_frame_css_pixels": {
+          "x": 18,
+          "y": 232.359375,
+          "width": 354,
+          "height": 199.125
+        },
+        "transcript_opens": true,
+        "worked_variation_opens": true,
+        "normal_speed_unmuted_to_ended": false,
+        "page_errors": [],
+        "passed": true
+      },
+      "iphone-landscape": {
+        "engine": "webkit",
+        "browser_version": "26.0",
+        "viewport": {
+          "width": 664,
+          "height": 390
+        },
+        "sha256": "8692c103be7e53141525c4a51f0237fc594e92b0de1799492e05b4bc00812594",
+        "video": {
+          "width": 1920,
+          "height": 1080,
+          "duration": 124.8,
+          "controls": true,
+          "inline": true
+        },
+        "edition": "cube-workshop",
+        "chapters_seek_and_resume": 8,
+        "inline_frame_css_pixels": {
+          "x": 26.546875,
+          "y": 22.84375,
+          "width": 610.90625,
+          "height": 343.625
+        },
+        "transcript_opens": true,
+        "worked_variation_opens": true,
+        "normal_speed_unmuted_to_ended": false,
+        "page_errors": [],
+        "passed": true
+      },
+      "ipad-portrait": {
+        "engine": "webkit",
+        "browser_version": "26.0",
+        "viewport": {
+          "width": 810,
+          "height": 1080
+        },
+        "sha256": "8692c103be7e53141525c4a51f0237fc594e92b0de1799492e05b4bc00812594",
+        "video": {
+          "width": 1920,
+          "height": 1080,
+          "duration": 124.8,
+          "controls": true,
+          "inline": true
+        },
+        "edition": "cube-workshop",
+        "chapters_seek_and_resume": 8,
+        "inline_frame_css_pixels": {
+          "x": 32.390625,
+          "y": 272.734375,
+          "width": 745.21875,
+          "height": 419.171875
+        },
+        "transcript_opens": true,
+        "worked_variation_opens": true,
+        "normal_speed_unmuted_to_ended": false,
+        "page_errors": [],
+        "passed": true
+      },
+      "ipad-landscape": {
+        "engine": "webkit",
+        "browser_version": "26.0",
+        "viewport": {
+          "width": 1080,
+          "height": 810
+        },
+        "sha256": "8692c103be7e53141525c4a51f0237fc594e92b0de1799492e05b4bc00812594",
+        "video": {
+          "width": 1920,
+          "height": 1080,
+          "duration": 124.8,
+          "controls": true,
+          "inline": true
+        },
+        "edition": "cube-workshop",
+        "chapters_seek_and_resume": 8,
+        "inline_frame_css_pixels": {
+          "x": 43.1875,
+          "y": 124.984375,
+          "width": 993.625,
+          "height": 558.90625
+        },
+        "transcript_opens": true,
+        "worked_variation_opens": true,
+        "normal_speed_unmuted_to_ended": false,
+        "page_errors": [],
+        "passed": true
+      }
+    },
+    "T16.3": {
+      "pc": {
+        "engine": "chromium",
+        "browser_version": "158.0.8127.0",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "sha256": "e2f9653a6e0e2d7d6192bbf897e4dd22b8add0becbf2e70d8eb007bafbb23ef6",
+        "video": {
+          "width": 1920,
+          "height": 1080,
+          "duration": 124.966667,
+          "controls": true,
+          "inline": true
+        },
+        "edition": "score-notebook",
+        "chapters_seek_and_resume": 8,
+        "inline_frame_css_pixels": {
+          "x": 208,
+          "y": 161.859375,
+          "width": 1024,
+          "height": 576
+        },
+        "transcript_opens": true,
+        "worked_variation_opens": true,
+        "normal_speed_unmuted_to_ended": true,
+        "wall_seconds": 125.45,
+        "final_media_state": {
+          "time": 124.966667,
+          "duration": 124.966667,
+          "rate": 1,
+          "muted": false,
+          "volume": 1,
+          "ended": true,
+          "error": null
+        },
+        "page_errors": [],
+        "passed": true
+      },
+      "iphone-portrait": {
+        "engine": "webkit",
+        "browser_version": "26.0",
+        "viewport": {
+          "width": 390,
+          "height": 664
+        },
+        "sha256": "e2f9653a6e0e2d7d6192bbf897e4dd22b8add0becbf2e70d8eb007bafbb23ef6",
+        "video": {
+          "width": 1920,
+          "height": 1080,
+          "duration": 124.967,
+          "controls": true,
+          "inline": true
+        },
+        "edition": "score-notebook",
+        "chapters_seek_and_resume": 8,
+        "inline_frame_css_pixels": {
+          "x": 18,
+          "y": 232.359375,
+          "width": 354,
+          "height": 199.125
+        },
+        "transcript_opens": true,
+        "worked_variation_opens": true,
+        "normal_speed_unmuted_to_ended": false,
+        "page_errors": [],
+        "passed": true
+      },
+      "iphone-landscape": {
+        "engine": "webkit",
+        "browser_version": "26.0",
+        "viewport": {
+          "width": 664,
+          "height": 390
+        },
+        "sha256": "e2f9653a6e0e2d7d6192bbf897e4dd22b8add0becbf2e70d8eb007bafbb23ef6",
+        "video": {
+          "width": 1920,
+          "height": 1080,
+          "duration": 124.967,
+          "controls": true,
+          "inline": true
+        },
+        "edition": "score-notebook",
+        "chapters_seek_and_resume": 8,
+        "inline_frame_css_pixels": {
+          "x": 26.546875,
+          "y": 21.84375,
+          "width": 610.90625,
+          "height": 344.5
+        },
+        "transcript_opens": true,
+        "worked_variation_opens": true,
+        "normal_speed_unmuted_to_ended": false,
+        "page_errors": [],
+        "passed": true
+      },
+      "ipad-portrait": {
+        "engine": "webkit",
+        "browser_version": "26.0",
+        "viewport": {
+          "width": 810,
+          "height": 1080
+        },
+        "sha256": "e2f9653a6e0e2d7d6192bbf897e4dd22b8add0becbf2e70d8eb007bafbb23ef6",
+        "video": {
+          "width": 1920,
+          "height": 1080,
+          "duration": 124.967,
+          "controls": true,
+          "inline": true
+        },
+        "edition": "score-notebook",
+        "chapters_seek_and_resume": 8,
+        "inline_frame_css_pixels": {
+          "x": 32.390625,
+          "y": 226.734375,
+          "width": 745.21875,
+          "height": 419.171875
+        },
+        "transcript_opens": true,
+        "worked_variation_opens": true,
+        "normal_speed_unmuted_to_ended": false,
+        "page_errors": [],
+        "passed": true
+      },
+      "ipad-landscape": {
+        "engine": "webkit",
+        "browser_version": "26.0",
+        "viewport": {
+          "width": 1080,
+          "height": 810
+        },
+        "sha256": "e2f9653a6e0e2d7d6192bbf897e4dd22b8add0becbf2e70d8eb007bafbb23ef6",
+        "video": {
+          "width": 1920,
+          "height": 1080,
+          "duration": 124.967,
+          "controls": true,
+          "inline": true
+        },
+        "edition": "score-notebook",
+        "chapters_seek_and_resume": 8,
+        "inline_frame_css_pixels": {
+          "x": 43.1875,
+          "y": 124.984375,
+          "width": 993.625,
+          "height": 558.90625
+        },
+        "transcript_opens": true,
+        "worked_variation_opens": true,
+        "normal_speed_unmuted_to_ended": false,
+        "page_errors": [],
+        "passed": true
+      }
+    },
+    "T18.1": {
+      "pc": {
+        "engine": "chromium",
+        "browser_version": "158.0.8127.0",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "sha256": "b06f8c225218bfecfbbd2dc97d7f55ccb406755825f0839999fbabf7799db8f1",
+        "video": {
+          "width": 1920,
+          "height": 1080,
+          "duration": 117.433333,
+          "controls": true,
+          "inline": true
+        },
+        "edition": "thirteen-search",
+        "chapters_seek_and_resume": 8,
+        "inline_frame_css_pixels": {
+          "x": 208,
+          "y": 161.78125,
+          "width": 1024,
+          "height": 576
+        },
+        "transcript_opens": true,
+        "worked_variation_opens": true,
+        "normal_speed_unmuted_to_ended": true,
+        "wall_seconds": 117.751,
+        "final_media_state": {
+          "time": 117.433333,
+          "duration": 117.433333,
+          "rate": 1,
+          "muted": false,
+          "volume": 1,
+          "ended": true,
+          "error": null
+        },
+        "page_errors": [],
+        "passed": true
+      },
+      "iphone-portrait": {
+        "engine": "webkit",
+        "browser_version": "26.0",
+        "viewport": {
+          "width": 390,
+          "height": 664
+        },
+        "sha256": "b06f8c225218bfecfbbd2dc97d7f55ccb406755825f0839999fbabf7799db8f1",
+        "video": {
+          "width": 1920,
+          "height": 1080,
+          "duration": 117.434,
+          "controls": true,
+          "inline": true
+        },
+        "edition": "thirteen-search",
+        "chapters_seek_and_resume": 8,
+        "inline_frame_css_pixels": {
+          "x": 18,
+          "y": 232.359375,
+          "width": 354,
+          "height": 199.125
+        },
+        "transcript_opens": true,
+        "worked_variation_opens": true,
+        "normal_speed_unmuted_to_ended": false,
+        "page_errors": [],
+        "passed": true
+      },
+      "iphone-landscape": {
+        "engine": "webkit",
+        "browser_version": "26.0",
+        "viewport": {
+          "width": 664,
+          "height": 390
+        },
+        "sha256": "b06f8c225218bfecfbbd2dc97d7f55ccb406755825f0839999fbabf7799db8f1",
+        "video": {
+          "width": 1920,
+          "height": 1080,
+          "duration": 117.434,
+          "controls": true,
+          "inline": true
+        },
+        "edition": "thirteen-search",
+        "chapters_seek_and_resume": 8,
+        "inline_frame_css_pixels": {
+          "x": 26.546875,
+          "y": 22.84375,
+          "width": 610.90625,
+          "height": 343.625
+        },
+        "transcript_opens": true,
+        "worked_variation_opens": true,
+        "normal_speed_unmuted_to_ended": false,
+        "page_errors": [],
+        "passed": true
+      },
+      "ipad-portrait": {
+        "engine": "webkit",
+        "browser_version": "26.0",
+        "viewport": {
+          "width": 810,
+          "height": 1080
+        },
+        "sha256": "b06f8c225218bfecfbbd2dc97d7f55ccb406755825f0839999fbabf7799db8f1",
+        "video": {
+          "width": 1920,
+          "height": 1080,
+          "duration": 117.434,
+          "controls": true,
+          "inline": true
+        },
+        "edition": "thirteen-search",
+        "chapters_seek_and_resume": 8,
+        "inline_frame_css_pixels": {
+          "x": 32.390625,
+          "y": 272.734375,
+          "width": 745.21875,
+          "height": 419.171875
+        },
+        "transcript_opens": true,
+        "worked_variation_opens": true,
+        "normal_speed_unmuted_to_ended": false,
+        "page_errors": [],
+        "passed": true
+      },
+      "ipad-landscape": {
+        "engine": "webkit",
+        "browser_version": "26.0",
+        "viewport": {
+          "width": 1080,
+          "height": 810
+        },
+        "sha256": "b06f8c225218bfecfbbd2dc97d7f55ccb406755825f0839999fbabf7799db8f1",
+        "video": {
+          "width": 1920,
+          "height": 1080,
+          "duration": 117.434,
+          "controls": true,
+          "inline": true
+        },
+        "edition": "thirteen-search",
+        "chapters_seek_and_resume": 8,
+        "inline_frame_css_pixels": {
+          "x": 43.1875,
+          "y": 124.984375,
+          "width": 993.625,
+          "height": 558.90625
+        },
+        "transcript_opens": true,
+        "worked_variation_opens": true,
+        "normal_speed_unmuted_to_ended": false,
+        "page_errors": [],
+        "passed": true
+      }
+    }
+  },
+  "editorial_signoff": false,
+  "remaining_acceptance": "Review each final encoded master with its complete normal-speed sound and moving picture; then verify the same digest from the live delivery and learner routes before recording final editorial completion. T18.1 also needs publication of its complete candidate package.",
+  "route_fix_scope": "Five current edition tokens reconciled in app-main.js; the all-72 route consistency check passed."
+}

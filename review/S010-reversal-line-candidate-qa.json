@@ -1,0 +1,260 @@
+{
+  "sha256": "e8e2e6f697b00cd9401479a603bf6992c2538a107b3fbd519cac0e0b9b7f9a71",
+  "decoded_reference_comparisons": 141,
+  "picture_comparison_period_seconds": 1,
+  "maximum_picture_mean_channel_error_0_to_255": 1.784,
+  "maximum_caption_region_mean_channel_error_0_to_255": 1.981,
+  "minimum_source_audio_correlation_per_scene": 0.999767,
+  "recorded_scenes_checked": 7,
+  "timed_caption_phrases": 62,
+  "spoken_words": 357,
+  "source_voice_reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "source_word_alignment_percent": 97.39,
+  "lesson": "S010",
+  "title": "The reversal line",
+  "review_date_perth": "2026-11-25",
+  "status": "candidate verified; immutable release and deployed-route review pending",
+  "final_editorial_credit": false,
+  "source_commit": "bcbd31159202426b90d4ec7250edf43910dc8a37",
+  "workflow": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45488154406",
+  "release_job_id": 138819426221,
+  "expected_release": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/",
+  "candidate_local_verification": "verify_recorded.py rerun against the exact candidate MP4 and recovered recording archive; full decode, one-second artwork and caption comparisons, and complete audio correlation by scene passed.",
+  "recording_archive_sha256": "7a1d5b2bdad48fcb1da0040509bdd8ac3c400aa9a3eb67eaac08c890e700789c",
+  "authored_script_equals_archived_recording_script": true,
+  "source_files_sha256": {
+    "production/lesson-films/reversal_line.py": "2d743b9de16ae0bcf8ce153ebfbbf6dd6695145a9cfcbf201b86382da1e978c9",
+    "production/lesson-films/render_recorded.py": "8edf98be63709a9a59a3520249770115d8924ed188d6af4203cba5e81e4cd6d4",
+    "production/lesson-films/align_digit_films.py": "f706219510824d89f6f3d5605248652d6edef97178db42ef98c5d06df55b590c",
+    "production/lesson-films/carry_reversal_captions.json": "25305b6dd3fcdda84efc1a0a909c569b6219223b348c6a28d19eee7be60ee4d1",
+    "production/scripts/S010.json": "30d4a5b801d683c243363e977b9da58e9bb9ca974c89aa49ca4a5af66d4c4faf"
+  },
+  "independent_maths": {
+    "method": "Exhaustive digit permutations and all two-digit integers, independently of the animation modules.",
+    "findings": [
+      "All 5,040 assignments of four distinct decimal digits were independently enumerated, excluding zero-leading A and B. The legal first addends are 61, 71, 81; therefore the minimum is 61.",
+      "51 + 59 = 110 is numerically correct but illegal because B and D would both be 1.",
+      "Enumerating all two-digit numbers gives 26 for digit sum 8 and reverse gain 36, and 47 for digit sum 11 and reverse gain 27."
+    ],
+    "results": {
+      "S010_distinct_digit_solutions": [
+        [
+          61,
+          69,
+          130
+        ],
+        [
+          71,
+          79,
+          150
+        ],
+        [
+          81,
+          89,
+          170
+        ]
+      ],
+      "gain_36_digit_sum_8": [
+        26
+      ],
+      "gain_27_digit_sum_11": [
+        47
+      ]
+    }
+  },
+  "narration_review": "The independent per-scene recognition was compared with the authored transcript, including all consequential numbers and letter identities. The candidate audio matches the complete source performance. This report does not claim a separate human listening signoff.",
+  "originality": {
+    "compared_other_scenes": 1948,
+    "reviewed_new_scenes": 7,
+    "exact_scene_matches": [],
+    "longest_shared_passage": {
+      "words": 5,
+      "text": "seventy four minus forty seven",
+      "scene": 7,
+      "other": "S137",
+      "other_scene": 4
+    },
+    "normalization": "lower-case alphanumeric words; digits not masked",
+    "compared_other_guide_editions": 180
+  },
+  "visual_review": "Four decoded frames from each of seven chapters were inspected, plus the actual inline iPhone portrait and iPad landscape worked-example captures. No missing or contradictory counters, digit assignments or arithmetic were found in those sampled frames. Complete-source correspondence is covered separately by the encoded comparison.",
+  "device_check_scope": "Candidate served from localhost on the workflow source commit. These are emulated browser profiles, not physical-device certification or deployed-main checks.",
+  "device_checks": [
+    {
+      "profile": "iphone-landscape",
+      "engine": "webkit",
+      "viewport": {
+        "width": 664,
+        "height": 390
+      },
+      "site": "http://127.0.0.1:8765/",
+      "sha256": "e8e2e6f697b00cd9401479a603bf6992c2538a107b3fbd519cac0e0b9b7f9a71",
+      "film": "http://127.0.0.1:8765/build/candidate/S010.mp4",
+      "duration": 140.433333,
+      "chapters": 7,
+      "normal_speed_unmuted_to_ended": false,
+      "practice_grading": "isolated fixture",
+      "immutable_replay": true,
+      "active_frame_css_pixels": {
+        "width": 357.109375,
+        "height": 200.859375,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "notebook_frame_css_pixels": {
+        "width": 395.515625,
+        "height": 222.46875,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "worked_example": {
+        "chapter": "Admit the next ticket",
+        "decoded_media_time": 105.6
+      },
+      "workflow_artifact_id": 14966783464,
+      "workflow_artifact_sha256": "4a116d88e7b8de483e0ea8114730fbb14016cac7a1911f79aee334a21fd279bb"
+    },
+    {
+      "profile": "iphone-portrait",
+      "engine": "webkit",
+      "viewport": {
+        "width": 390,
+        "height": 664
+      },
+      "site": "http://127.0.0.1:8765/",
+      "sha256": "e8e2e6f697b00cd9401479a603bf6992c2538a107b3fbd519cac0e0b9b7f9a71",
+      "film": "http://127.0.0.1:8765/build/candidate/S010.mp4",
+      "duration": 140.433333,
+      "chapters": 7,
+      "normal_speed_unmuted_to_ended": true,
+      "practice_grading": "isolated fixture",
+      "immutable_replay": true,
+      "active_frame_css_pixels": {
+        "width": 333.21875,
+        "height": 187.421875,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "notebook_frame_css_pixels": {
+        "width": 340,
+        "height": 277.46875,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "worked_example": {
+        "chapter": "Admit the next ticket",
+        "decoded_media_time": 105.5
+      },
+      "workflow_artifact_id": 14968917361,
+      "workflow_artifact_sha256": "47f6d74f877d7c1d819fd1263deb6c977edefb08cbd7fe2195b03c723cd5b450"
+    },
+    {
+      "profile": "ipad-landscape",
+      "engine": "webkit",
+      "viewport": {
+        "width": 1080,
+        "height": 810
+      },
+      "site": "http://127.0.0.1:8765/",
+      "sha256": "e8e2e6f697b00cd9401479a603bf6992c2538a107b3fbd519cac0e0b9b7f9a71",
+      "film": "http://127.0.0.1:8765/build/candidate/S010.mp4",
+      "duration": 140.433333,
+      "chapters": 7,
+      "normal_speed_unmuted_to_ended": false,
+      "practice_grading": "isolated fixture",
+      "immutable_replay": true,
+      "active_frame_css_pixels": {
+        "width": 597.390625,
+        "height": 336.03125,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "notebook_frame_css_pixels": {
+        "width": 958,
+        "height": 420.65625,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "worked_example": {
+        "chapter": "Admit the next ticket",
+        "decoded_media_time": 105.5
+      },
+      "workflow_artifact_id": 14969294766,
+      "workflow_artifact_sha256": "bdf86772026ed165a9ba95c507930cd9cb040945550fbb25de38fdc1b5031a4d"
+    },
+    {
+      "profile": "ipad-portrait",
+      "engine": "webkit",
+      "viewport": {
+        "width": 810,
+        "height": 1080
+      },
+      "site": "http://127.0.0.1:8765/",
+      "sha256": "e8e2e6f697b00cd9401479a603bf6992c2538a107b3fbd519cac0e0b9b7f9a71",
+      "film": "http://127.0.0.1:8765/build/candidate/S010.mp4",
+      "duration": 140.433333,
+      "chapters": 7,
+      "normal_speed_unmuted_to_ended": false,
+      "practice_grading": "isolated fixture",
+      "immutable_replay": true,
+      "active_frame_css_pixels": {
+        "width": 663.125,
+        "height": 373,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "notebook_frame_css_pixels": {
+        "width": 733.125,
+        "height": 704.5,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "worked_example": {
+        "chapter": "Admit the next ticket",
+        "decoded_media_time": 105.5
+      },
+      "workflow_artifact_id": 14969414359,
+      "workflow_artifact_sha256": "a4fb507684f7820208aa4d44794feca775a04a1f4a81455a09f3e46d8988d5ef"
+    },
+    {
+      "profile": "pc",
+      "engine": "chromium",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "site": "http://127.0.0.1:8765/",
+      "sha256": "e8e2e6f697b00cd9401479a603bf6992c2538a107b3fbd519cac0e0b9b7f9a71",
+      "film": "http://127.0.0.1:8765/build/candidate/S010.mp4",
+      "duration": 140.433333,
+      "chapters": 7,
+      "normal_speed_unmuted_to_ended": false,
+      "practice_grading": "isolated fixture",
+      "immutable_replay": true,
+      "active_frame_css_pixels": {
+        "width": 654,
+        "height": 367.875,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "notebook_frame_css_pixels": {
+        "width": 958,
+        "height": 499.765625,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "worked_example": {
+        "chapter": "Admit the next ticket",
+        "decoded_media_time": 105.5
+      },
+      "workflow_artifact_id": 14969332327,
+      "workflow_artifact_sha256": "e080eb39c5ba03f4c86e5e390ac0d52988b90e66d75d9f2cef4be2f4242925f1"
+    }
+  ],
+  "pending_before_final_credit": [
+    "Confirm immutable release assets exist and their returned hashes equal these reviewed candidates.",
+    "Integrate catalogue and the dedicated slots 9/10 plus technique revisits 228/319.",
+    "Run tools/check_lesson_film_routes.py against deployed main on all five profiles and retain exact-master evidence.",
+    "Complete final editorial acceptance of the deployed edition; then update the review register."
+  ]
+}

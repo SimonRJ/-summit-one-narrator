@@ -1,0 +1,211 @@
+{
+  "date": "2026-11-25",
+  "baseline_commit": "04d2032d585c020a0e44ab4b1d468680198a77f7",
+  "scope": "Companion route resolution, decode and playback using exact current main media with an isolated learner fixture. Browser device emulation; not physical hardware or full film editorial review.",
+  "checks": [
+    {
+      "film": "T05.2",
+      "slot": 23,
+      "engine": "chromium",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "route": "current-lesson-review",
+      "sha256": "e83d4d6285f7159efb05bc83c64a0785d4c26dda4d3a8b552004e3ee0280e93c",
+      "movie": "media/T05.2.mp4?v=number-press",
+      "decoded": true,
+      "playback_advanced": true,
+      "learner_state_unchanged": true,
+      "fixture_writes": 0,
+      "captured_frame_sha256": "d17adf0f6ccfb2913d99ebe48df68e09d2cc10ac406a9cb0d1478345db46b137"
+    },
+    {
+      "film": "T05.2",
+      "slot": 23,
+      "engine": "chromium",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "route": "completed-notebook",
+      "sha256": "e83d4d6285f7159efb05bc83c64a0785d4c26dda4d3a8b552004e3ee0280e93c",
+      "movie": "media/T05.2.mp4?v=number-press",
+      "decoded": true,
+      "playback_advanced": true,
+      "learner_state_unchanged": true,
+      "fixture_writes": 0,
+      "captured_frame_sha256": "4b415dcc56e4000d35f96eec925a15f8e03af8ad5e73327f37ce2c561a87caa5"
+    },
+    {
+      "film": "T06.1",
+      "slot": 65,
+      "engine": "chromium",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "route": "current-lesson-review",
+      "sha256": "a4c88c2489083eb358e970d8006931ba622fe5c9099c7d15d629781bff4d3092",
+      "movie": "media/T06.1.mp4?v=paired-receipts",
+      "decoded": true,
+      "playback_advanced": true,
+      "learner_state_unchanged": true,
+      "fixture_writes": 0,
+      "captured_frame_sha256": "480a54c618eb6da2f0687e9dd79ae84884c1285eabfd67709ee3cf1870a7344f"
+    },
+    {
+      "film": "T06.1",
+      "slot": 65,
+      "engine": "chromium",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "route": "completed-notebook",
+      "sha256": "a4c88c2489083eb358e970d8006931ba622fe5c9099c7d15d629781bff4d3092",
+      "movie": "media/T06.1.mp4?v=paired-receipts",
+      "decoded": true,
+      "playback_advanced": true,
+      "learner_state_unchanged": true,
+      "fixture_writes": 0,
+      "captured_frame_sha256": "f066da3daf958db831764bb93d11b027761e602c506aaac3936fdb4d225d3c66"
+    },
+    {
+      "film": "T16.3",
+      "slot": 26,
+      "engine": "chromium",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "route": "current-lesson-review",
+      "sha256": "e2f9653a6e0e2d7d6192bbf897e4dd22b8add0becbf2e70d8eb007bafbb23ef6",
+      "movie": "media/T16.3.mp4?v=score-notebook",
+      "decoded": true,
+      "playback_advanced": true,
+      "learner_state_unchanged": true,
+      "fixture_writes": 0,
+      "captured_frame_sha256": "93965ad87eaf4e88ec2dcc9bb9800c07a7e7cb70a70476fcef50537a8f793504"
+    },
+    {
+      "film": "T16.3",
+      "slot": 26,
+      "engine": "chromium",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "route": "completed-notebook",
+      "sha256": "e2f9653a6e0e2d7d6192bbf897e4dd22b8add0becbf2e70d8eb007bafbb23ef6",
+      "movie": "media/T16.3.mp4?v=score-notebook",
+      "decoded": true,
+      "playback_advanced": true,
+      "learner_state_unchanged": true,
+      "fixture_writes": 0,
+      "captured_frame_sha256": "0451f65786c458988374c99d48baee61b2dc4a9300fd78ccc6c032e485016ebd"
+    },
+    {
+      "film": "T05.2",
+      "slot": 23,
+      "engine": "webkit",
+      "viewport": {
+        "width": 390,
+        "height": 664
+      },
+      "route": "current-lesson-review",
+      "sha256": "e83d4d6285f7159efb05bc83c64a0785d4c26dda4d3a8b552004e3ee0280e93c",
+      "movie": "media/T05.2.mp4?v=number-press",
+      "decoded": true,
+      "playback_advanced": true,
+      "learner_state_unchanged": true,
+      "fixture_writes": 0
+    },
+    {
+      "film": "T05.2",
+      "slot": 23,
+      "engine": "webkit",
+      "viewport": {
+        "width": 390,
+        "height": 664
+      },
+      "route": "completed-notebook",
+      "sha256": "e83d4d6285f7159efb05bc83c64a0785d4c26dda4d3a8b552004e3ee0280e93c",
+      "movie": "media/T05.2.mp4?v=number-press",
+      "decoded": true,
+      "playback_advanced": true,
+      "learner_state_unchanged": true,
+      "fixture_writes": 0
+    },
+    {
+      "film": "T06.1",
+      "slot": 65,
+      "engine": "webkit",
+      "viewport": {
+        "width": 390,
+        "height": 664
+      },
+      "route": "current-lesson-review",
+      "sha256": "a4c88c2489083eb358e970d8006931ba622fe5c9099c7d15d629781bff4d3092",
+      "movie": "media/T06.1.mp4?v=paired-receipts",
+      "decoded": true,
+      "playback_advanced": true,
+      "learner_state_unchanged": true,
+      "fixture_writes": 0
+    },
+    {
+      "film": "T06.1",
+      "slot": 65,
+      "engine": "webkit",
+      "viewport": {
+        "width": 390,
+        "height": 664
+      },
+      "route": "completed-notebook",
+      "sha256": "a4c88c2489083eb358e970d8006931ba622fe5c9099c7d15d629781bff4d3092",
+      "movie": "media/T06.1.mp4?v=paired-receipts",
+      "decoded": true,
+      "playback_advanced": true,
+      "learner_state_unchanged": true,
+      "fixture_writes": 0
+    },
+    {
+      "film": "T16.3",
+      "slot": 26,
+      "engine": "webkit",
+      "viewport": {
+        "width": 390,
+        "height": 664
+      },
+      "route": "current-lesson-review",
+      "sha256": "e2f9653a6e0e2d7d6192bbf897e4dd22b8add0becbf2e70d8eb007bafbb23ef6",
+      "movie": "media/T16.3.mp4?v=score-notebook",
+      "decoded": true,
+      "playback_advanced": true,
+      "learner_state_unchanged": true,
+      "fixture_writes": 0
+    },
+    {
+      "film": "T16.3",
+      "slot": 26,
+      "engine": "webkit",
+      "viewport": {
+        "width": 390,
+        "height": 664
+      },
+      "route": "completed-notebook",
+      "sha256": "e2f9653a6e0e2d7d6192bbf897e4dd22b8add0becbf2e70d8eb007bafbb23ef6",
+      "movie": "media/T16.3.mp4?v=score-notebook",
+      "decoded": true,
+      "playback_advanced": true,
+      "learner_state_unchanged": true,
+      "fixture_writes": 0
+    }
+  ],
+  "app_sha256": "943d619ddc33e43d3793dd0c0fb006a0386af2ebefc958cbe50bbb74867ec2c8",
+  "regression_command": "node tools/check_companion_release_routes.mjs",
+  "regression_result": "All 72 companion watch pages, explicit catalogue URLs and learner resolver URLs agree; protected and unpublished IDs are excluded.",
+  "negative_control": "The same regression fails on unchanged baseline main at the stale T05.2 edition token.",
+  "execution_notes": "Desktop Chromium completed and printed PASS for all six current/completed cases, after saving a frame following the playback and unchanged-state assertions. The initially selected default WebKit driver was incompatible with the installed browser and was stopped before a WebKit result. A separate execution with the established pinned WebKit client completed all six phone-profile checks. These are browser-emulation and short playback checks, not physical-device tests or full editorial listening.",
+  "total_route_checks": 12
+}
