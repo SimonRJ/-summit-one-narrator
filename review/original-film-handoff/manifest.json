@@ -1,6 +1,6 @@
 {
   "repository": "SimonRJ/-summit-one-narrator",
-  "as_of_utc": "2026-11-24T21:36Z",
+  "as_of_utc": "2026-11-24T21:57Z",
   "integration": "For a successful public release, verify its guide and SHA-256 against the returned movie, install the guide in data/recorded-studies.json with the exact release URL, update videoTitle and movie for every listed consumer, and apply the listed bridges. Keep use=technique for later shared consumers. Update the individual review register after the edition is checked on the live site.",
   "editions": [
     {
@@ -376,6 +376,83 @@
           "bridge_changed": true
         }
       ]
+    },
+    {
+      "id": "S101",
+      "title": "The spinner table and the counter bag",
+      "branch": "production/spinner-and-product-studies",
+      "commit": "65e56acdc6f80c3d48f94f84e401fd6b69b76baa",
+      "art": "production/lesson-films/spinner_bag.py",
+      "script": "production/scripts/S101.json",
+      "workflow": ".github/workflows/s101-spinner-bag.yml",
+      "render_run": 45495884467,
+      "render_url": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45495884467",
+      "voice_run": null,
+      "expected_tag": "s101-spinner-bag-65e56acdc6f8",
+      "release_url_after_publication": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s101-spinner-bag-65e56acdc6f8/",
+      "consumers": [
+        {
+          "slot": 101,
+          "file": "data/read-watch-practise-later.json",
+          "film_use": "dedicated",
+          "bridge": "At the spinners, notice what one square of the outcome table represents. At the bag of counters, ask what replaces those squares as the equally likely outcomes.",
+          "bridge_changed": false
+        },
+        {
+          "slot": 241,
+          "file": "data/read-watch-practise-later.json",
+          "film_use": "technique",
+          "bridge": "At the two spinners, watch how the outcome table gives a place to each ordered pair. Imagine crossing out cells incompatible with an extra clue.",
+          "bridge_changed": false
+        },
+        {
+          "slot": 332,
+          "file": "data/read-watch-practise-later.json",
+          "film_use": "technique",
+          "bridge": "At the film's bag of counters, track how different orders can produce the same final colour count. Watch the successful paths come together in the final probability.",
+          "bridge_changed": false
+        }
+      ],
+      "voice_source": {
+        "public_original_sha256": "cd71dd989f84ceb2efa01d435f593347b7df557d55d9f16daa99e2f92fd00352",
+        "reviewed_existing_scenes": 11,
+        "independent_word_match_percent": 99.0
+      }
+    },
+    {
+      "id": "S123",
+      "title": "The missing corner of a product",
+      "branch": "production/spinner-and-product-studies",
+      "commit": "65e56acdc6f80c3d48f94f84e401fd6b69b76baa",
+      "art": "production/lesson-films/correction_squares.py",
+      "script": "production/scripts/S123.json",
+      "workflow": ".github/workflows/s123-correction-squares.yml",
+      "render_run": 45495884460,
+      "render_url": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45495884460",
+      "voice_run": null,
+      "expected_tag": "s123-correction-squares-65e56acdc6f8",
+      "release_url_after_publication": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s123-correction-squares-65e56acdc6f8/",
+      "consumers": [
+        {
+          "slot": 123,
+          "file": "data/read-watch-practise-later.json",
+          "film_use": "dedicated",
+          "bridge": "Look at 108 × 92 in the film. Which pieces from breaking around 100 cancel, and which small piece still has to be removed?",
+          "bridge_changed": false
+        },
+        {
+          "slot": 214,
+          "file": "data/read-watch-practise-later.json",
+          "film_use": "technique",
+          "bridge": "The film compares products near 1,000. Look for equal large parts that can be discarded before comparing the small corrections.",
+          "bridge_changed": false
+        }
+      ],
+      "voice_source": {
+        "public_original_sha256": "d46d13dda004c68338c11f6cee0e2b6f8e1a3b328ddf079a8d4b9d60e7cea09b",
+        "reviewed_existing_scenes": 11,
+        "independent_word_match_percent": 99.06
+      }
     }
   ]
 }
