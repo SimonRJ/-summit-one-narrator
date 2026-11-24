@@ -6,8 +6,8 @@
  "status": "published_for_review",
  "voice": "Voice C (VoxCPM2), natural speed (see docs/VIDEO_PRODUCTION.md)",
  "goal": "Turn an average back into a total before doing anything else.",
- "narration_words": 285,
- "estimated_minutes": 1.9,
+ "narration_words": 309,
+ "estimated_minutes": 2.1,
  "scenes": [
   {
    "n": 1,
@@ -48,14 +48,14 @@
   {
    "n": 7,
    "stage": "VARIATION",
-   "visual": "A sorted list 2, 3, 5, 9, 31 with the middle value 5 circled as \"median\"; mean shown as 10.",
-   "narration": "The mean is not the only average. The median is the middle value when the list is in order. For two, three, five, nine and thirty-one, the median is five, while the mean is ten. One very large value pulls the mean up but leaves the median alone."
+   "visual": "Five score cards are sorted. Remove the five, bracket the two middle cards, then average three and nine.",
+   "narration": "Order the five values: two, three, five, nine and thirty-one. The middle value, five, is the median. Their sum is fifty, so the mean is ten. Now take away the five. Four values remain, with three and nine in the two middle positions. For an even number of values, average those middle two. Three plus nine is twelve. Half of twelve is six, the new median."
   },
   {
    "n": 8,
    "stage": "RECAP",
-   "visual": "Lines: \"Total = mean times number of items\", \"Work with totals\", \"Median = middle value in order\".",
-   "narration": "The total is the mean times the number of items. Do your reasoning with totals. And the median is the middle value. Notebook challenge: the mean of six numbers is nine. One number is removed and the mean of the rest is eight. Which number was removed?"
+   "visual": "Open the score notebook to the odd and even rules. Recover the missing score from the two totals.",
+   "narration": "A mean lets you rebuild a total. For a median, put the values in order. Use the middle value if there is one, or average the middle two. Notebook challenge: the mean of six numbers is nine. One number is removed and the mean of the rest is eight. Which number was removed?"
   }
  ],
  "notebook_exercise": "The mean of 6 numbers is 9. One is removed and the mean of the rest is 8. Which number was removed?",

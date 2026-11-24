@@ -9,6 +9,7 @@ import re
 import shutil
 
 from chapter_films import CHAPTER_FILMS, COURSE_FILMS
+from companion_variations import variation_section
 from topic_reading import CHAPTERS as READING_CHAPTERS, NOTEBOOK_CHECKS, reading_sections
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -21,6 +22,7 @@ VERSION = "t01-studio-v1"
 CHAPTER_VERSION = "studio-chapters-02-04-v1"
 COURSE_VERSION = "teaching-films-v1"
 REVISED_MEDIA = {
+    "T16.3": "score-notebook",
     "T13.3": "cube-workshop",
     "T02.3": "variable-bars-20261119",
     "T04.1": "factor-tree-84",
@@ -28,8 +30,8 @@ REVISED_MEDIA = {
     "T04.3": "prime-rows-20-30",
     "T04.E": "square-900",
     "T05.1": "finish-tickets",
-    "T05.2": "digit-case-branches",
-    "T05.3": "recover-seat-gaps",
+    "T05.2": "number-press",
+    "T05.3": "seat-bookings",
     "T05.E": "canteen-orders",
     "T06.1": "cube-edge-and-tournament",
     "T06.2": "weighed-pairs",
@@ -179,7 +181,7 @@ button:focus-visible, a:focus-visible, summary:focus-visible {{ outline: 2px sol
 <p>{escape(source["notebook_exercise"])}</p>
 <details><summary>Check your reasoning</summary><p>{escape(NOTEBOOK_CHECKS.get(lesson, source["notebook_answer"]))}</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary>{transcript}</details>
+{variation_section(lesson)}<details class="transcript"><summary>Read the transcript</summary>{transcript}</details>
 <p><a href="media/{lesson}.mp4?v={version}">Open the MP4 directly</a></p>
 </main>
 <script src="lesson-video-chapters.js?v=seek-1"></script>

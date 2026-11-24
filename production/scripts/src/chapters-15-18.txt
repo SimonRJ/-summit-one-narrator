@@ -190,11 +190,11 @@ N: The fifth score supplies the difference: forty minus twenty-eight is twelve. 
 V: Two groups: 2 people with mean 6, and 3 people with mean 10. Totals 12 and 30; combined 42 over 5 people gives 8.4.
 N: Combining groups works the same way. Two people average six and three people average ten. The totals are twelve and thirty, forty-two for five people. The combined mean is eight point four, not eight. It leans towards the larger group.
 [VARIATION]
-V: A sorted list 2, 3, 5, 9, 31 with the middle value 5 circled as "median"; mean shown as 10.
-N: The mean is not the only average. The median is the middle value when the list is in order. For two, three, five, nine and thirty-one, the median is five, while the mean is ten. One very large value pulls the mean up but leaves the median alone.
+V: Five score cards are sorted. Remove the five, bracket the two middle cards, then average three and nine.
+N: Order the five values: two, three, five, nine and thirty-one. The middle value, five, is the median. Their sum is fifty, so the mean is ten. Now take away the five. Four values remain, with three and nine in the two middle positions. For an even number of values, average those middle two. Three plus nine is twelve. Half of twelve is six, the new median.
 [RECAP]
-V: Lines: "Total = mean times number of items", "Work with totals", "Median = middle value in order".
-N: The total is the mean times the number of items. Do your reasoning with totals. And the median is the middle value. Notebook challenge: the mean of six numbers is nine. One number is removed and the mean of the rest is eight. Which number was removed?
+V: Open the score notebook to the odd and even rules. Recover the missing score from the two totals.
+N: A mean lets you rebuild a total. For a median, put the values in order. Use the middle value if there is one, or average the middle two. Notebook challenge: the mean of six numbers is nine. One number is removed and the mean of the rest is eight. Which number was removed?
 TRY: The mean of 6 numbers is 9. One is removed and the mean of the rest is 8. Which number was removed?
 ANS: 54 - 40 = 14.
 

@@ -66,6 +66,11 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <p>Streets form a rectangular grid three blocks wide and two blocks high. How many routes go from the bottom-left corner to the top-right corner using only single-block steps to the right or upwards?</p>
 <details><summary>Check your reasoning</summary><p>Every route has five steps, including exactly two upward steps. Choose the positions of the two upward steps. There are 5 × 4 ordered choices, and each pair has been counted twice. This gives 5 × 4 ÷ 2 = 10 routes.</p></details>
 </section>
+<section class="exercise companion-variation" aria-labelledby="variation-title">
+<h2 id="variation-title">Try a variation</h2>
+<p>On a grid 3 blocks wide and 2 high, count right-and-up routes from bottom left to top right that pass through the corner 1 block right and 1 block up from the start.</p>
+<details><summary>See the worked answer</summary><p>There are 2 ways to reach that corner. From there choose where the single upward step falls among the remaining 3 steps, giving 3 continuations. Each route splits uniquely there, so there are 2 × 3 = 6.</p></details>
+</section>
 <details class="transcript"><summary>Read the transcript</summary>
 <h2><span class="chapter-clock">0:00</span> Read the permitted junctions and directions</h2>
 <p>A route problem is defined by its rules: which points are joined, and which directions are allowed. Before counting anything, read those rules exactly. Two lines that cross in a drawing are not a junction unless the problem says so.</p>

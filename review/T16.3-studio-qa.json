@@ -1,7 +1,7 @@
 {
   "id": "T16.3",
-  "duration_seconds": 117.1,
-  "sha256": "9e074ff4aefda57cce35853860f12ae782dc3ad1892425c5e5229b4744d2efda",
+  "duration_seconds": 124.96666666666667,
+  "sha256": "e2f9653a6e0e2d7d6192bbf897e4dd22b8add0becbf2e70d8eb007bafbb23ef6",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -11,47 +11,38 @@
   "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
   "narration_speed_changed": false,
   "caption_layers": 1,
-  "match_percent": 99.52,
   "scenes": [
     {
       "number": 1,
-      "start": 0.0,
-      "match_percent": 97.37
+      "start": 0.0
     },
     {
       "number": 2,
-      "start": 13.72,
-      "match_percent": 100.0
+      "start": 13.72
     },
     {
       "number": 3,
-      "start": 24.77,
-      "match_percent": 100.0
+      "start": 24.77
     },
     {
       "number": 4,
-      "start": 37.39,
-      "match_percent": 100.0
+      "start": 37.39
     },
     {
       "number": 5,
-      "start": 43.96,
-      "match_percent": 100.0
+      "start": 43.96
     },
     {
       "number": 6,
-      "start": 61.08,
-      "match_percent": 98.8
+      "start": 61.08
     },
     {
       "number": 7,
-      "start": 77.56,
-      "match_percent": 100.0
+      "start": 77.46
     },
     {
       "number": 8,
-      "start": 95.63,
-      "match_percent": 100.0
+      "start": 102.22000000000001
     }
   ],
   "chapters": [
@@ -80,13 +71,20 @@
       "start": 61.08
     },
     {
-      "title": "The median reads the middle of the sorted list",
-      "start": 77.56
+      "title": "Find the median with one or two middle positions",
+      "start": 77.46
     },
     {
       "title": "Your turn",
-      "start": 95.63
+      "start": 102.22000000000001
     }
   ],
-  "decoded_successfully": true
+  "decoded_successfully": true,
+  "source_sha256": "9e074ff4aefda57cce35853860f12ae782dc3ad1892425c5e5229b4744d2efda",
+  "frames": 3749,
+  "version": "score-notebook",
+  "diagram_source": "production/lesson-films/score_notebook.py",
+  "spoken_edit": "Two Voice C passages now work through the odd and even cases. The original notebook challenge follows the new summary.",
+  "corrected_passages_matched_before_encoding": true,
+  "audio_packet_sha256": "SHA256=777ed90aa69d0717840fa362466fc710b718d7f6428ee24c44c3324c0a0c3e82"
 }

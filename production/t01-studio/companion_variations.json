@@ -1,0 +1,290 @@
+{
+  "T01.1": {
+    "question": "A shop has 7 trays of 6 muffins and 4 loose muffins. It sells 9. How many muffins remain?",
+    "answer": "Count in muffins throughout. The trays hold 7 × 6 = 42, so there were 46 before the sale. Subtracting 9 leaves 37 muffins."
+  },
+  "T01.2": {
+    "question": "Fence posts are 5 m apart around a closed 30 m loop. How many posts are needed?",
+    "answer": "There are 30 ÷ 5 = 6 gaps. Walk around the loop and count the post at the start of each gap. That counts each post once, so there are 6."
+  },
+  "T01.3": {
+    "question": "A van carries 8 crates on each trip. It must move 49 crates. How many trips are needed, and how many spaces remain empty on the last trip?",
+    "answer": "Six full trips carry 48 crates. The seventh carries 1 crate, leaving 7 of its 8 spaces empty. Six trips cannot carry the whole load."
+  },
+  "T01.E": {
+    "question": "A train leaves at 11:48 am and arrives at 1:07 pm the same day. How long is the journey?",
+    "answer": "It takes 12 minutes to reach noon, another 60 minutes to reach 1 pm, and 7 more minutes to arrive. The journey takes 79 minutes."
+  },
+  "T02.1": {
+    "question": "Two counters start at 4 and 9. Each move adds 3 to both. Can they reach 13 and 18? Can they reach 14 and 19?",
+    "answer": "Both targets preserve the gap of 5. Three moves add 9 to each counter and reach 13 and 18. Reaching 14 and 19 would require adding 10 to both, which no whole number of moves can do."
+  },
+  "T02.2": {
+    "question": "A machine triples a number, subtracts 4, then doubles the result. Its output is 46. What went in?",
+    "answer": "Undo the last step first. Half of 46 is 23. Add back 4 to get 27, then divide by 3 to get 9. A forward check gives (3 × 9 − 4) × 2 = 46."
+  },
+  "T02.3": {
+    "question": "Both machines begin with the same number. One doubles it and adds 5. The other adds 5 and then doubles. How do their outputs compare?",
+    "answer": "Call the input n. The outputs are 2n + 5 and 2(n + 5) = 2n + 10. The second output is always larger by 5 because it doubles the added 5 as well."
+  },
+  "T02.E": {
+    "question": "One sequence adds 4 then triples. A second triples then adds a number. What must that number be for the outputs always to match?",
+    "answer": "The first output is 3(n + 4) = 3n + 12. The second sequence must add 12. Testing a new input, such as 5, gives 27 by either route."
+  },
+  "T03.1": {
+    "question": "A wheel points to positions 0 to 7, then repeats. It starts at 6 and advances 29 places. Where does it stop?",
+    "answer": "Three complete turns use 24 places and leave the pointer at 6. Five more places take it through 7, 0, 1, 2 and 3. It stops at 3."
+  },
+  "T03.2": {
+    "question": "A blue light flashes at minutes 2, 8, 14 and every 6 minutes thereafter. A red light flashes at minutes 5, 14, 23 and every 9 minutes thereafter. What are their first two shared flash times?",
+    "answer": "They first meet at minute 14. After that their shared times repeat every 18 minutes, the smallest common multiple of 6 and 9. The next shared time is minute 32."
+  },
+  "T03.3": {
+    "question": "A drawer contains plenty of red, blue and green socks. How many must you take without looking to guarantee three of one colour?",
+    "answer": "You could take 2 of each colour, 6 socks, without making a triple. The seventh sock must raise one colour count to 3. That proves both the guarantee and why 6 can fail."
+  },
+  "T03.E": {
+    "question": "How many distinct whole numbers guarantee that two have a difference divisible by 4? Show why your answer is best possible.",
+    "answer": "Division by 4 has four remainder classes. Five numbers force a shared remainder, and subtracting two numbers with the same remainder gives a multiple of 4. Four can fail, as 0, 1, 2 and 3 show."
+  },
+  "T04.1": {
+    "question": "Use prime factors to find the smallest whole number greater than 1 that divides both 90 and 105.",
+    "answer": "The prime factors are 90 = 2 × 3² × 5 and 105 = 3 × 5 × 7. They share 3 and 5. The smallest common divisor above 1 is 3."
+  },
+  "T04.2": {
+    "question": "How many positive divisors of 72 are odd?",
+    "answer": "Write 72 = 2³ × 3². An odd divisor uses no factor of 2. Its power of 3 can be 0, 1 or 2, giving the three divisors 1, 3 and 9."
+  },
+  "T04.3": {
+    "question": "Two bells ring together and then once every 18 and 24 minutes respectively. How many times does each ring after the start, up to and including their next shared ring?",
+    "answer": "Since 18 = 2 × 3² and 24 = 2³ × 3, their least common multiple is 2³ × 3² = 72. The bells ring 72 ÷ 18 = 4 times and 72 ÷ 24 = 3 times after the start."
+  },
+  "T04.E": {
+    "question": "What is the smallest positive whole number that multiplies 54 to make a perfect square?",
+    "answer": "Since 54 = 2 × 3³, both prime exponents are odd. Supply one more 2 and one more 3. The smallest multiplier is 6, and 54 × 6 = 324 = 18²."
+  },
+  "T05.1": {
+    "question": "Four pupils are available. How many two-person teams can they form, and how many choices are there for a speaker and a different recorder?",
+    "answer": "The distinct roles give 4 × 3 = 12 assignments. For a team, reversing the two names repeats exactly the same team, so there are 12 ÷ 2 = 6 teams."
+  },
+  "T05.2": {
+    "question": "Using 0, 1, 2 and 3 without repeating a digit, how many even three-digit numbers can you make?",
+    "answer": "For a final 0, choose the first digit in 3 ways and the middle in 2 ways. For a final 2, the first digit is 1 or 3 and the middle has 2 choices. The disjoint cases give 6 + 4 = 10."
+  },
+  "T05.3": {
+    "question": "Three different novels and an atlas stand in a row. How many orders have a novel at each end?",
+    "answer": "First order the three novels in 3 × 2 × 1 = 6 ways. The atlas must occupy one of the two internal gaps. Every finished row recovers its novel order and its gap, so there are 6 × 2 = 12 orders."
+  },
+  "T05.E": {
+    "question": "A breakfast includes one bread and one topping. There are three breads and four toppings. One bread cannot go with two of the toppings. How many breakfasts are possible?",
+    "answer": "The restricted bread has 2 topping choices. Each of the other two breads has 4. Adding the disjoint cases gives 2 + 4 + 4 = 10 breakfasts. Removing the two forbidden breakfasts from 12 gives the same result."
+  },
+  "T06.1": {
+    "question": "Six pupils each shake hands with exactly three different pupils. A pair shakes hands only once. How many handshakes occur?",
+    "answer": "The six pupils record 6 × 3 = 18 participations. Each actual handshake contributes two participations, one at each end. There are 18 ÷ 2 = 9 handshakes."
+  },
+  "T06.2": {
+    "question": "Three bags are weighed in pairs. The readings are 11 kg, 13 kg and 16 kg. What does each bag weigh?",
+    "answer": "Adding the readings counts each bag twice. The total mass is (11 + 13 + 16) ÷ 2 = 20 kg. Subtracting the three pair readings leaves the individual masses 9 kg, 7 kg and 4 kg."
+  },
+  "T06.3": {
+    "question": "Four chess players must meet every other player once. If only one board is available, how many time slots are needed?",
+    "answer": "There are 4 × 3 ÷ 2 = 6 games. One board can host just one game per slot, so at least 6 slots are needed. Playing the six pairs one after another attains that bound."
+  },
+  "T06.E": {
+    "question": "Five unit squares form a plus sign, with one square touching each side of the middle square. What is its perimeter?",
+    "answer": "The five squares have 20 sides before they are joined. There are four shared sides. Each join hides two sides, so the outside perimeter is 20 − 2 × 4 = 12 units."
+  },
+  "T07.1": {
+    "question": "Ten places form a circle. Place at most one counter per place and leave at least one empty place between counters. What is the largest number of counters?",
+    "answer": "Pair each counter with the next place clockwise, which must be empty. These pairs do not overlap, so each counter uses two of the ten places. Alternating occupied and empty places fits 5 counters and reaches the bound."
+  },
+  "T07.2": {
+    "question": "A rectangle has positive whole-number side lengths and perimeter 26 cm. What is its greatest possible area?",
+    "answer": "The side lengths sum to 13. If they differ by at least 2, moving one unit from the longer side to the shorter increases their product. The closest possible pair is 6 and 7, giving 42 cm²."
+  },
+  "T07.3": {
+    "question": "A board has 3 rows and 5 columns. At most one token may occupy each row or column. What is the greatest number that fits?",
+    "answer": "Three rows give room for at most 3 tokens. A token in each of squares (1,1), (2,2) and (3,3) uses different rows and columns, so the bound is attainable."
+  },
+  "T07.E": {
+    "question": "You have 8 red and 5 blue beads. A box holds at most 5 beads and at most 2 reds. What is the smallest number of boxes?",
+    "answer": "Eight reds need at least 4 boxes. Put 2 reds in each, then add 2 blues in the first box and 1 blue in each remaining box. All capacity limits hold, so 4 boxes suffice."
+  },
+  "T08.1": {
+    "question": "Two fair four-sided dice numbered 1 to 4 are rolled independently. What is the probability that the sum is 5?",
+    "answer": "There are 4 × 4 = 16 equally likely ordered outcomes. The favourable outcomes are (1,4), (2,3), (3,2) and (4,1). Their probability is 4/16 = 1/4."
+  },
+  "T08.2": {
+    "question": "A bag has two blue and three green beads. Two are drawn at random without replacement. What is the probability of one bead of each colour?",
+    "answer": "Blue then green has probability (2/5)(3/4) = 3/10. Green then blue has probability (3/5)(2/4) = 3/10. The two orders cannot happen together, so the probability is 3/5."
+  },
+  "T08.3": {
+    "question": "Two fair coins are tossed independently. You learn that at least one is a head. What is the probability that both are heads?",
+    "answer": "Before the information, HH, HT, TH and TT are equally likely. Only TT is excluded. Of the three remaining ordered outcomes, one is HH, giving probability 1/3."
+  },
+  "T08.E": {
+    "question": "Two fair six-sided dice are rolled independently. You are told their sum is 5. What is the probability that the first die shows 1?",
+    "answer": "The four surviving ordered outcomes are (1,4), (2,3), (3,2) and (4,1). Each had the same original probability. Only (1,4) starts with 1, so the answer is 1/4."
+  },
+  "T09.1": {
+    "question": "A bottle is three quarters full. You drink one third of the water in it. What fraction of the bottle’s full capacity remains?",
+    "answer": "You keep two thirds of the water that was present. Multiplying those two thirds by the original three quarters gives (2/3)(3/4) = 1/2 of the bottle’s capacity."
+  },
+  "T09.2": {
+    "question": "Which of 6/15 and 7/30 has a terminating decimal? Explain without long division.",
+    "answer": "Reduce 6/15 to 2/5, which is 0.4. The fraction 7/30 is already reduced and its denominator contains a factor of 3. No power of 10 contains that factor, so its decimal does not terminate."
+  },
+  "T09.3": {
+    "question": "Two equal bags and seven loose counters balance one such bag and sixteen counters. How many counters does each bag contain?",
+    "answer": "Remove one bag and seven counters from each side. The remaining bag balances 9 counters. Substitution gives 2 × 9 + 7 = 9 + 16 = 25."
+  },
+  "T09.E": {
+    "question": "Three identical boxes each contain a bag of marbles and 4 loose marbles. The boxes together hold 39 marbles. How many marbles are in each bag?",
+    "answer": "Each box holds 39 ÷ 3 = 13 marbles. Subtract its 4 loose marbles to get 9 per bag. Check that 3 × (9 + 4) = 39."
+  },
+  "T10.1": {
+    "question": "A strip of length 5 is tiled with pieces of length 1 and 2. How many tilings end with a length-2 piece?",
+    "answer": "Remove the final length-2 piece. The remaining length 3 has exactly three tilings, namely 1+1+1, 1+2 and 2+1. Appending a 2 returns one valid length-5 tiling for each, giving 3."
+  },
+  "T10.2": {
+    "question": "Start with the digit 3. At each step double the current digit and keep only the last digit. What is the digit after 10 steps?",
+    "answer": "After one step the digit is 6. The next digits are 2, 4, 8 and then 6 again. Steps 1, 5 and 9 all give 6, so step 10 gives 2."
+  },
+  "T10.3": {
+    "question": "A pile holds 10 counters. Players alternate removing 1 or 2, and the player taking the last wins. How can the first player force a win?",
+    "answer": "Take 1 and leave 9. After an opponent takes 1, take 2. After an opponent takes 2, take 1. Each pair of turns removes 3, so the first player leaves 6, then 3, then 0."
+  },
+  "T10.E": {
+    "question": "How many new dots are added when a 14-by-14 square of dots grows to a 15-by-15 square?",
+    "answer": "Add one new row of 15 and one new column of 14 other dots. The corner belongs to the row already. The increase is 15 + 14 = 29, also 225 − 196."
+  },
+  "T11.1": {
+    "question": "A two-digit number exceeds its reversal by 54 and its digits add to 10. What is it?",
+    "answer": "If the tens and ones digits are a and b, reversing changes the number by 9(a − b). Thus a − b = 6 and a + b = 10. The digits are 8 and 2. Check that 82 − 28 = 54."
+  },
+  "T11.2": {
+    "question": "Rearrange the digits 1, 4 and 7. Can any resulting number be divisible by 9? Can any be divisible by 3?",
+    "answer": "Every ordering has digit sum 12. That sum is divisible by 3 and not by 9, so every resulting number is divisible by 3 and none is divisible by 9."
+  },
+  "T11.3": {
+    "question": "How many times is the digit 2 written when you write the integers from 1 to 25?",
+    "answer": "It appears in the ones place in 2, 12 and 22. It appears in the tens place in 20 through 25, giving 6 more occurrences. The two positions in 22 are different occurrences, so the total is 9."
+  },
+  "T11.E": {
+    "question": "Add 58 and 67. Explain what each carried 1 stands for.",
+    "answer": "The ones give 8 + 7 = 15, so write 5 ones and carry 1 ten. The tens give 5 + 6 + 1 = 12 tens, so write 2 tens and carry 1 hundred. The result is 125."
+  },
+  "T12.1": {
+    "question": "An isosceles triangle has an exterior angle of 104° at its vertex between the equal sides. What are the base angles?",
+    "answer": "The interior vertex angle is 180° − 104° = 76°. The base angles are equal and together make 104°, so each is 52°."
+  },
+  "T12.2": {
+    "question": "On a circle, the smaller central angle AOB measures 84°. Point C is on the longer arc from A to B. How large is angle ACB?",
+    "answer": "The inscribed angle at C and the smaller central angle intercept the same short arc AB. The inscribed angle is half the central angle, so angle ACB is 42°."
+  },
+  "T12.3": {
+    "question": "One side of a square on a unit grid runs 3 units right and 2 units up. What is the square’s area?",
+    "answer": "That side is the hypotenuse of a right triangle with legs 3 and 2. Its squared length is 3² + 2² = 13. The area of the square is its squared side length, so it is 13 square units."
+  },
+  "T12.E": {
+    "question": "A triangle has an exterior angle of 124°. One of the two interior angles away from that vertex is 47°. What is the other?",
+    "answer": "The two remote interior angles add to the exterior angle. The missing one is 124° − 47° = 77°. As a check, the interior angle adjacent to the exterior angle is 56°, and 47° + 77° + 56° = 180°."
+  },
+  "T13.1": {
+    "question": "A triangle and a parallelogram have the same 8 cm base and the same 5 cm perpendicular height. How do their areas compare?",
+    "answer": "The parallelogram has area 8 × 5 = 40 cm². The triangle occupies half a parallelogram with that base and height, giving 20 cm²."
+  },
+  "T13.2": {
+    "question": "A 4 cm by 7 cm rectangle is enlarged by a scale factor of 2. How do its perimeter and area change?",
+    "answer": "The enlarged sides are 8 cm and 14 cm. The perimeter doubles from 22 cm to 44 cm. The area grows from 28 cm² to 112 cm², four times as large."
+  },
+  "T13.3": {
+    "question": "A 4-by-4-by-4 cube is painted on its outside and cut into unit cubes. How many unit cubes have exactly two painted faces?",
+    "answer": "These cubes lie along an edge but away from both corners. Each of the 12 edges has 4 − 2 = 2 such cubes. Each belongs to a single edge, so there are 24."
+  },
+  "T13.E": {
+    "question": "A 9 cm by 5 cm card has a notch cut out of the middle of one long side. The notch is 3 cm wide along the side and 2 cm deep. What is the new perimeter?",
+    "answer": "The original perimeter is 28 cm. The cut removes 3 cm of boundary and adds 2 + 3 + 2 = 7 cm. The new perimeter is 28 − 3 + 7 = 32 cm."
+  },
+  "T14.1": {
+    "question": "On a grid 3 blocks wide and 2 high, count right-and-up routes from bottom left to top right that pass through the corner 1 block right and 1 block up from the start.",
+    "answer": "There are 2 ways to reach that corner. From there choose where the single upward step falls among the remaining 3 steps, giving 3 continuations. Each route splits uniquely there, so there are 2 × 3 = 6."
+  },
+  "T14.2": {
+    "question": "On a 3-by-3 grid of dots, can a path visit every dot exactly once using horizontal or vertical steps if it starts and ends at the middles of two different sides?",
+    "answer": "Chessboard colouring gives five dots of the corner colour and four dots of the side-middle colour. A nine-dot path uses its starting colour five times. Starting at a side middle is already impossible."
+  },
+  "T14.3": {
+    "question": "Two red players must each meet three blue players once. Write the red players as A and B and the blue players as X, Y and Z. What is the fewest rounds if each player can play once per round?",
+    "answer": "A has three different opponents, so at least 3 rounds are needed. Use AX with BY, then AY with BZ, then AZ with BX. Every required pair occurs once and nobody plays twice in a round."
+  },
+  "T14.E": {
+    "question": "Four meetings are AB, BC, CD and DA. What is the minimum number of time slots if nobody can attend two meetings at once?",
+    "answer": "A attends two meetings, so one slot cannot work. Use AB with CD in the first slot and BC with DA in the second. Each slot uses four different people, so 2 slots suffice."
+  },
+  "T15.1": {
+    "question": "One cell of a 2-by-3 rectangle is shaded. The rectangle can be turned half a turn in its frame. How many different patterns are there?",
+    "answer": "A half-turn pairs the top left cell with the bottom right, the top middle with the bottom middle, and the top right with the bottom left. These three pairs account for all six cells, giving 3 patterns."
+  },
+  "T15.2": {
+    "question": "A strip of three cells is coloured black or white. Reversing a strip counts as the same pattern. How many different patterns are there?",
+    "answer": "There are 8 fixed strips. Four have matching end colours and stay the same on reversal. The other four make two reversal pairs. The total is 4 + 2 = 6 patterns."
+  },
+  "T15.3": {
+    "question": "Eight switches can each be on or off. How many settings have an odd number on?",
+    "answer": "There are 2⁸ = 256 settings. Flip a particular switch to pair each setting with a different setting of the opposite parity. Exactly one member of each pair has an odd count, giving 128."
+  },
+  "T15.E": {
+    "question": "From six different objects, how many subsets have an even number of members and contain a particular object A?",
+    "answer": "Keep A in every subset. The other five objects have 2⁵ = 32 possible selections. Toggling a fixed one of those five pairs selections and changes total parity, so 16 of the resulting subsets have even size."
+  },
+  "T16.1": {
+    "question": "A recipe mixes oats and seeds in the ratio 4 to 3 by mass. If there are 45 g more oats than seeds, what is the mass of the mixture?",
+    "answer": "The difference represents one equal part, so one part is 45 g. The mixture has 4 + 3 = 7 parts and weighs 7 × 45 = 315 g."
+  },
+  "T16.2": {
+    "question": "One tap fills a tank in 8 minutes. A drain empties a full tank in 24 minutes. Both operate at constant rates together. How long does it take to fill an empty tank?",
+    "answer": "In one minute the tap adds 1/8 of the tank and the drain removes 1/24. The net rate is 3/24 − 1/24 = 1/12 of a tank per minute. One full tank takes 12 minutes."
+  },
+  "T16.3": {
+    "question": "For the scores 4, 6, 8, 14, find the mean and median. Then replace 14 with 30. Which result changes?",
+    "answer": "The original mean is 32 ÷ 4 = 8. The median is (6 + 8) ÷ 2 = 7. After the replacement the mean is 48 ÷ 4 = 12. The middle pair is still 6 and 8, so the median remains 7."
+  },
+  "T16.E": {
+    "question": "Three pupils average 12 points. Two others average 7 points. What is the average for all five?",
+    "answer": "The group totals are 3 × 12 = 36 and 2 × 7 = 14. The total of 50 points shared across five pupils gives a mean of 10."
+  },
+  "T17.1": {
+    "question": "A pupil observes that 11, 31 and 41 are prime, then claims every positive two-digit number ending in 1 is prime. What settles the claim?",
+    "answer": "The number 21 ends in 1 and equals 3 × 7. It satisfies the stated conditions and is composite. One allowed counterexample disproves the universal claim."
+  },
+  "T17.2": {
+    "question": "Six coins all start heads up and each move flips exactly two coins. Can exactly one coin end tails up?",
+    "answer": "The tail count starts at zero. Each move changes it by +2, −2 or 0, so its parity stays even. A single tail would be an odd count and cannot be reached."
+  },
+  "T17.3": {
+    "question": "With unlimited 3-cent and 4-cent stamps, prove that every whole amount from 6 cents upwards can be made.",
+    "answer": "The consecutive totals 6, 7 and 8 have constructions 3+3, 3+4 and 4+4. Adding one 3-cent stamp to each construction gives the next block of three totals. Repeating covers every amount from 6 upwards."
+  },
+  "T17.E": {
+    "question": "Why is the product of four consecutive whole numbers always divisible by 8?",
+    "answer": "Exactly two of the four are even. One is a multiple of 4 because each block of four consecutive integers contains one multiple of 4. Those two factors together supply at least 4 × 2 = 8 as a factor of the product."
+  },
+  "T18.1": {
+    "question": "A two-digit multiple of 7 has digits adding to 5. What is it?",
+    "answer": "The digit-sum clue leaves 14, 23, 32, 41 and 50. Checking this short list, only 14 is divisible by 7. Checking the tens digits 1 through 5 proves the list is complete."
+  },
+  "T18.2": {
+    "question": "How many border squares are there on a 4-by-7 grid? Check your answer a second way.",
+    "answer": "Subtract the 2-by-5 inside from the whole grid to get 28 − 10 = 18. Alternatively the top and bottom rows give 14, and the two middle rows add 2 edge squares each, again giving 18."
+  },
+  "T18.3": {
+    "question": "Which of 36, 48, 54 and 60 is divisible by both 8 and 3? Verify the winning option directly.",
+    "answer": "All four are divisible by 3. Dividing by 8 leaves a whole number only for 48. Check both conditions directly with 48 = 8 × 6 = 3 × 16."
+  },
+  "T18.E": {
+    "question": "Choose two different numbers from 1 through 7. How many unordered pairs have a sum of exactly 8 or exactly 9?",
+    "answer": "The pairs summing to 8 are (1,7), (2,6) and (3,5). Those summing to 9 are (2,7), (3,6) and (4,5). Writing the smaller number first removes reversals, and the two different sums cannot overlap. There are 6 pairs."
+  }
+}
