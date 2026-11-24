@@ -1,0 +1,63 @@
+{
+  "id": "S166",
+  "course_slot": 166,
+  "title": "The animator’s missing frames",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "Freeze the moving mark",
+      "heading": "Freeze the moving mark",
+      "stage": "BASIC",
+      "narration": "An animator draws a trolley on a transparent strip. A ruler underneath measures the position of its front wheel. Every new frame moves the wheel the same distance. Frame four shows twenty two millimetres. Frame ten shows forty six. How far does the wheel travel between two neighbouring frames?"
+    },
+    {
+      "n": 2,
+      "title": "Count joins between drawings",
+      "heading": "Count joins between drawings",
+      "stage": "BASIC",
+      "narration": "Lay frames four through ten side by side. There are seven drawings, but six joins between them. The wheel travels forty six minus twenty two, or twenty four millimetres, across the six joins. It travels four millimetres per frame. Use a small arrow at each join to show the movements."
+    },
+    {
+      "n": 3,
+      "title": "Rewind from a known position",
+      "heading": "Rewind from a known position",
+      "stage": "MEDIUM",
+      "narration": "Wind the strip back from frame four to frame one. Three joins are crossed, so the wheel moves back twelve millimetres. It was at ten millimetres in frame one. Check by moving forwards nine joins from frame one to frame ten. Ten plus thirty six gives forty six."
+    },
+    {
+      "n": 4,
+      "title": "A reel running the other way",
+      "heading": "A reel running the other way",
+      "stage": "PUZZLE",
+      "narration": "A second reel has exactly ten frames. The wheel travels towards the zero end of the ruler. In frame three it is at sixty eight millimetres. In frame nine it is at twenty six. Three loose drawings show readings of fifty three, forty and five millimetres. Which could belong to this reel?"
+    },
+    {
+      "n": 5,
+      "title": "Recover a descending step",
+      "heading": "Recover a descending step",
+      "stage": "HARD",
+      "narration": "From frame three to frame nine there are six joins. Across them the reading falls by forty two millimetres. Each new frame is seven millimetres lower. Draw the following readings after sixty eight: sixty one, fifty four, forty seven, forty, thirty three and twenty six."
+    },
+    {
+      "n": 6,
+      "title": "One drawing is on the wrong step",
+      "heading": "One drawing is on the wrong step",
+      "stage": "HARD",
+      "narration": "Fifty three cannot occur. It lies between the neighbouring readings fifty four and forty seven. Forty does occur, four joins after frame three, so it belongs to frame seven. Five looks promising because it is twenty one below twenty six. Would that put its frame inside the reel?"
+    },
+    {
+      "n": 7,
+      "title": "The reel has an end",
+      "heading": "The reel has an end",
+      "stage": "HARD",
+      "narration": "Twenty one is three steps of seven. Starting from frame nine, three more joins would reach frame twelve. The reel stops at frame ten, where the wheel is at nineteen millimetres. Five fits the constant step only on an imaginary extension. Forty is the only eligible loose drawing."
+    },
+    {
+      "n": 8,
+      "title": "Check distance and position",
+      "heading": "Check distance and position",
+      "stage": "RECAP",
+      "narration": "Use two checks on a loose drawing. First, the distance from a known mark must be a whole number of steps. Then its frame number must actually exist. Turn the reel round and the sign of each step changes. The number of joins between the two labelled drawings stays the same."
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+name: The cabinet of four keepsakes
+on:
+  push:
+    branches: [production/ticket-refill-frame-cabinet-20261124]
+    paths:
+      - .github/workflows/s167-keepsake-cabinet.yml
+      - .github/workflows/produce-original-study.yml
+      - production/lesson-films/keepsake_cabinet.py
+      - production/scripts/S167.json
+  workflow_dispatch:
+jobs:
+  study:
+    permissions:
+      actions: read
+      contents: write
+    uses: ./.github/workflows/produce-original-study.yml
+    with:
+      lesson: S167
+      release_slug: s167-keepsake-cabinet
+      release_title: 'The cabinet of four keepsakes'
+      release_notes: 'Separate the shell placements and use the remaining drawer positions to prove the arrangement is unique.'

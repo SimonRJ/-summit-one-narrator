@@ -1,0 +1,21 @@
+name: The refill bench
+on:
+  push:
+    branches: [production/ticket-refill-frame-cabinet-20261124]
+    paths:
+      - .github/workflows/s165-refill-bench.yml
+      - .github/workflows/produce-original-study.yml
+      - production/lesson-films/refill_bench.py
+      - production/scripts/S165.json
+  workflow_dispatch:
+jobs:
+  study:
+    permissions:
+      actions: read
+      contents: write
+    uses: ./.github/workflows/produce-original-study.yml
+    with:
+      lesson: S165
+      release_slug: s165-refill-bench
+      release_title: 'The refill bench'
+      release_notes: 'Compare both bottle offers at the same volume, then include the cost of buying whole bottles.'

@@ -1,0 +1,21 @@
+name: The ticket number wheels
+on:
+  push:
+    branches: [production/ticket-refill-frame-cabinet-20261124]
+    paths:
+      - .github/workflows/s164-ticket-wheels.yml
+      - .github/workflows/produce-original-study.yml
+      - production/lesson-films/ticket_wheels.py
+      - production/scripts/S164.json
+  workflow_dispatch:
+jobs:
+  study:
+    permissions:
+      actions: read
+      contents: write
+    uses: ./.github/workflows/produce-original-study.yml
+    with:
+      lesson: S164
+      release_slug: s164-ticket-wheels
+      release_title: 'The ticket number wheels'
+      release_notes: 'Trace the forced units wheel, check the interval and find the one extra ticket after moving the lower stop.'

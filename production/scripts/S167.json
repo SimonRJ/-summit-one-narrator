@@ -1,0 +1,63 @@
+{
+  "id": "S167",
+  "course_slot": 167,
+  "title": "The cabinet of four keepsakes",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "Read down the cabinet",
+      "heading": "Read down the cabinet",
+      "stage": "BASIC",
+      "narration": "A curator numbers four drawers from top to bottom. A clue says one keepsake lies immediately below another. Put your finger on drawer two. The drawer immediately below is three. A clue saying only below would also allow drawer four. Sketch the drawers so that the direction stays clear."
+    },
+    {
+      "n": 2,
+      "title": "Hang the three clues",
+      "heading": "Hang the three clues",
+      "stage": "PUZZLE",
+      "narration": "The cabinet holds a shell, a moon, a leaf and a star, one per drawer. The shell is in an even numbered drawer. The star is immediately below the leaf. The moon is never next to the shell. Can you reconstruct the cabinet without trying all twenty four orders?"
+    },
+    {
+      "n": 3,
+      "title": "Start with just two cases",
+      "heading": "Start with just two cases",
+      "stage": "MEDIUM",
+      "narration": "The shell can occupy only drawer two or drawer four. Try drawer two first. Draw a mark beside its two neighbours, drawers one and three. The moon cannot use either of them. With the shell already in two, the moon would have to occupy drawer four."
+    },
+    {
+      "n": 4,
+      "title": "Test the spaces left behind",
+      "heading": "Test the spaces left behind",
+      "stage": "MEDIUM",
+      "narration": "With the shell in two and the moon in four, drawers one and three remain for the leaf and star. Those drawers do not touch. The star cannot be immediately below the leaf. That rejects the whole case, including both possible orders of those remaining keepsakes."
+    },
+    {
+      "n": 5,
+      "title": "Move the shell to the bottom",
+      "heading": "Move the shell to the bottom",
+      "stage": "HARD",
+      "narration": "The shell must therefore be in drawer four. The moon cannot go next to it in drawer three. It might occupy drawer one or drawer two. Before choosing, look at the two spaces each choice would leave for the leaf and star. Which choice leaves a consecutive pair?"
+    },
+    {
+      "n": 6,
+      "title": "Fit the two-drawer pair",
+      "heading": "Fit the two-drawer pair",
+      "stage": "HARD",
+      "narration": "If the moon sat in drawer two, the remaining spaces would be one and three again. They cannot hold the consecutive pair. So the moon is in drawer one. Only drawers two and three remain. The leaf must be in two and the star directly below it in three."
+    },
+    {
+      "n": 7,
+      "title": "Separate existence from uniqueness",
+      "heading": "Separate existence from uniqueness",
+      "stage": "HARD",
+      "narration": "Open the drawers from the top. Moon, leaf, star, shell. The shell is in even drawer four. The star is immediately below the leaf. The moon and shell are far apart. This proves the arrangement works. The rejected branches explain why a different cabinet cannot also obey the clues."
+    },
+    {
+      "n": 8,
+      "title": "Loosen one word",
+      "heading": "Loosen one word",
+      "stage": "RECAP",
+      "narration": "Suppose the curator changes immediately below to immediately beside, meaning the leaf and star occupy consecutive drawers in either order. The rejected pairs of spaces are still separated by a gap. The shell and moon stay fixed. But the leaf and star may now switch places. Two cabinets fit the changed clues."
+    }
+  ]
+}

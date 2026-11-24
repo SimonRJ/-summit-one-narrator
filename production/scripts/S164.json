@@ -1,0 +1,63 @@
+{
+  "id": "S164",
+  "course_slot": 164,
+  "title": "The ticket number wheels",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "A printed zero has two jobs",
+      "heading": "A printed zero has two jobs",
+      "stage": "BASIC",
+      "narration": "A ticket machine has four number wheels. A museum case displays the strip zero, two, five, seven. Is that a four-character code or an ordinary four-digit number? Read from the left. A leading zero can be part of a code, but the ordinary number on this strip is two hundred and fifty seven."
+    },
+    {
+      "n": 2,
+      "title": "Place the end wheel first",
+      "heading": "Place the end wheel first",
+      "stage": "BASIC",
+      "narration": "The machine must print an even four-digit number using zero, two, five and seven once each. The units wheel must show zero or two. Park that wheel first. Check which cards remain for the thousands place. A zero there would shorten the number."
+    },
+    {
+      "n": 3,
+      "title": "The museum changes its order",
+      "heading": "The museum changes its order",
+      "stage": "PUZZLE",
+      "narration": "A curator wants every even ticket number strictly between two thousand six hundred and six thousand, still using all four digits once. How many strips should the machine print? Before arranging the middle wheels, decide which digit can open a number in this interval."
+    },
+    {
+      "n": 4,
+      "title": "Open with two",
+      "heading": "Open with two",
+      "stage": "MEDIUM",
+      "narration": "The first digit can be two or five. Begin with two. The even final wheel must now be zero. The hundreds wheel must carry us past two thousand six hundred. Of the remaining five and seven, only seven works there. Five takes the tens position. The strip reads two seven five zero."
+    },
+    {
+      "n": 5,
+      "title": "Open with five",
+      "heading": "Open with five",
+      "stage": "HARD",
+      "narration": "Start with five instead. Every number beginning with five already lies inside the interval. If zero is last, the middle wheels hold two and seven in either order. If two is last, the middle wheels hold zero and seven in either order. The middle zero keeps its place in the number."
+    },
+    {
+      "n": 6,
+      "title": "Inspect the printed strips",
+      "heading": "Inspect the printed strips",
+      "stage": "HARD",
+      "narration": "Read the tray. The first branch printed one strip. The second printed two strips ending in zero and two ending in two. Together that makes five. Sort the tray first by its leading digit and then by its final digit. Each printed strip sits in exactly one compartment."
+    },
+    {
+      "n": 7,
+      "title": "Why one plausible strip fails",
+      "heading": "Why one plausible strip fails",
+      "stage": "MEDIUM",
+      "narration": "The machine also offers two five seven zero. It is even and uses every wheel correctly. But it lies below two thousand six hundred. Another offer begins with zero. That is a useful four-wheel code, but its ordinary numerical value is too small. Check the range as well as the digits."
+    },
+    {
+      "n": 8,
+      "title": "Move the lower stop",
+      "heading": "Move the lower stop",
+      "stage": "RECAP",
+      "narration": "Suppose the lower stop moves down to two thousand five hundred. Everything beginning with five still works. In the branch beginning with two, the previously rejected strip two five seven zero now clears the lower stop. Only one extra strip appears. Which decision in the original list changed?"
+    }
+  ]
+}

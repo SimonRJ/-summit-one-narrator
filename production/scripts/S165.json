@@ -1,0 +1,63 @@
+{
+  "id": "S165",
+  "course_slot": 165,
+  "title": "The refill bench",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "Two labels use different wholes",
+      "heading": "Two labels use different wholes",
+      "stage": "BASIC",
+      "narration": "At the soap refill bench, one offer gives extra liquid and another reduces the price. A bottle holding six hundred millilitres comes with half as much extra liquid for the same money. Another label offers one third off the usual price. Which parts of those two offers could you actually compare?"
+    },
+    {
+      "n": 2,
+      "title": "Fill the first jug",
+      "heading": "Fill the first jug",
+      "stage": "BASIC",
+      "narration": "The large bottle originally contains six hundred millilitres and costs three dollars sixty. Half as much extra adds three hundred millilitres. You now get nine hundred millilitres for three dollars sixty. The extra half refers to the original liquid, and the whole price stays the same."
+    },
+    {
+      "n": 3,
+      "title": "Change the second price",
+      "heading": "Change the second price",
+      "stage": "MEDIUM",
+      "narration": "The small bottle normally holds four hundred millilitres for two dollars forty. One third of the price is eighty cents. The sale price is one dollar sixty. Its liquid stays at four hundred millilitres. Which offer buys more soap for each dollar? Try finding a price for one hundred millilitres."
+    },
+    {
+      "n": 4,
+      "title": "Put equal volumes on the bench",
+      "heading": "Put equal volumes on the bench",
+      "stage": "MEDIUM",
+      "narration": "The large bottle contains nine groups of one hundred millilitres. Divide three hundred and sixty cents by nine to get forty cents per group. The small bottle has four such groups. One hundred and sixty cents divided by four also gives forty. Their prices per equal amount match."
+    },
+    {
+      "n": 5,
+      "title": "The order must use whole bottles",
+      "heading": "The order must use whole bottles",
+      "stage": "PUZZLE",
+      "narration": "A school needs at least two thousand five hundred millilitres. The bench sells only whole bottles, and each order must use just one of the offers. The soap costs the same per hundred millilitres. Does that guarantee the two orders cost the same? Count the bottles before comparing the bills."
+    },
+    {
+      "n": 6,
+      "title": "Fill the school order",
+      "heading": "Fill the school order",
+      "stage": "HARD",
+      "narration": "Two large bottles hold eighteen hundred millilitres, which is too little. Three hold twenty seven hundred and cost ten dollars eighty. Six small bottles hold twenty four hundred, just short of the target. Seven hold twenty eight hundred and cost eleven dollars twenty. The large-bottle order costs forty cents less."
+    },
+    {
+      "n": 7,
+      "title": "Where did forty cents come from?",
+      "heading": "Where did forty cents come from?",
+      "stage": "HARD",
+      "narration": "Both orders pass the same target. The large bottles supply two hundred surplus millilitres. The small bottles supply three hundred surplus millilitres. The difference between those surpluses is one hundred millilitres, exactly forty cents of soap. The unit-price calculation and the two bills agree."
+    },
+    {
+      "n": 8,
+      "title": "An order that exactly fits",
+      "heading": "An order that exactly fits",
+      "stage": "RECAP",
+      "narration": "Change the order to thirty six hundred millilitres. Four large bottles fill it exactly. Nine small bottles also fill it exactly. Each bill is fourteen dollars forty. When comparing percentages, identify the quantity being changed. When comparing purchases, check what quantity the school must take home."
+    }
+  ]
+}
