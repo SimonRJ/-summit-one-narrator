@@ -27,6 +27,8 @@ LESSONS = {
     "S012": "missing_rung",
     "S015": "mail_train",
     "S017": "tile_framer",
+    "S034": "ferry_road",
+    "S037": "two_whistles",
     "S137": "digit_detectives",
     "S138": "flow_bench",
     "S141": "creek_readings",
