@@ -1,0 +1,94 @@
+name: Record S012 missing rung
+on:
+  push:
+    branches: [production/s012-missing-rung]
+    paths: ['production/scripts/S012.json', '.github/workflows/s012-voice.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  voice:
+    strategy:
+      fail-fast: false
+      matrix:
+        scene: [1, 2, 3, 4, 5, 6, 7, 8]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    env:
+      HF_HUB_DISABLE_XET: '1'
+      TOKENIZERS_PARALLELISM: 'false'
+      OMP_NUM_THREADS: '4'
+      MKL_NUM_THREADS: '4'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            production
+            data
+            media/voice-audition
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install the studio narrator
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg libsndfile1
+          pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install 'transformers>=4.45,<5' 'huggingface-hub<1' einops pydantic soundfile librosa safetensors tqdm numpy scipy inflect addict argbind
+          pip install --no-deps 'git+https://github.com/OpenBMB/VoxCPM.git@300e4260b509066151d623dc9c0aa922cf82232b'
+      - name: Record with the approved Voice C reference
+        env:
+          SCENE: ${{ matrix.scene }}
+        run: |
+          python -c 'import json,os; json.dump([{"lesson":"S012","scene":int(os.environ["SCENE"])}],open("sequence.json","w"))'
+          python production/t01-studio/synth.py --sequence sequence.json --threads 4
+      - uses: actions/upload-artifact@v4
+        with:
+          name: S012-voice-${{ matrix.scene }}
+          path: build/t01-studio/S012-*
+          if-no-files-found: error
+          retention-days: 30
+
+  align:
+    needs: voice
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            production
+            data
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: S012-voice-*
+          merge-multiple: true
+          path: build/t01-studio
+      - name: Align the script to its final recording
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg libsndfile1
+          pip install 'numpy==2.2.6' soundfile num2words faster-whisper
+          python production/t01-studio/prepare_audio.py S012
+          mkdir aligned
+          cp production/scripts/S012.json aligned/script.json
+          cp build/t01-studio/S012/{timeline.json,captions.vtt} aligned/
+          ffmpeg -v error -i build/t01-studio/S012/narration.wav -c:a flac aligned/narration.flac
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          timing=json.loads(Path('aligned/timeline.json').read_text())
+          for scene in timing['scenes']:
+              print(f"Scene {scene['n']} ({scene['match_percent']}%)", scene['recognized_speech'])
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: S012-aligned-voice
+          path: aligned/
+          if-no-files-found: error
+          retention-days: 30
