@@ -33,9 +33,23 @@ jobs:
         run: |
           python -m http.server 8765 --bind 127.0.0.1 > "$RUNNER_TEMP/server.log" 2>&1 &
           python tools/check_lesson_reading_layouts.py --profile "${{ matrix.profile }}" --output "$RUNNER_TEMP/reading.json"
+      - name: Check the shorter screens
+        if: matrix.profile == 'pc' || matrix.profile == 'ipad-landscape'
+        env:
+          PROFILE: ${{ matrix.profile }}
+        run: |
+          if ! curl --silent --fail http://127.0.0.1:8765/index.html > /dev/null; then
+            python -m http.server 8765 --bind 127.0.0.1 > "$RUNNER_TEMP/short-screen-server.log" 2>&1 &
+          fi
+          if [ "$PROFILE" = pc ]; then
+            python tools/check_lesson_reading_layouts.py --profile pc --viewport 1366 768 --output "$RUNNER_TEMP/reading-1366.json"
+            python tools/check_lesson_reading_layouts.py --profile pc --viewport 1280 720 --output "$RUNNER_TEMP/reading-1280.json"
+          else
+            python tools/check_lesson_reading_layouts.py --profile ipad-landscape --viewport 1024 768 --output "$RUNNER_TEMP/reading-ipad-mini.json"
+          fi
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: lesson-readings-${{ matrix.profile }}
-          path: ${{ runner.temp }}/reading.json
+          path: ${{ runner.temp }}/reading*.json
           if-no-files-found: ignore

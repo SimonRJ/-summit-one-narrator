@@ -1744,7 +1744,7 @@
     {
       "slot": 44,
       "headline": "Read the arrows in reverse",
-      "intro": "Start at the known end of a chain of changes. Ask what the last step did, undo it, and then work back one step at a time. If the story counts whole objects, discard any result that would require part of an object.",
+      "intro": "Start at the known end of the chain and work backwards one step at a time. A step can have two possible inputs. If a number ends up 3 units from zero, it could be 3 or −3. Keep the inputs the story allows, then check each one forwards.",
       "example": {
         "prompt": "A number is multiplied by 4 and then reduced by 3. The final number is 17. What was the starting number?",
         "steps": [

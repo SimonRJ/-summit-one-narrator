@@ -13,6 +13,6 @@
     {"key":"rossmoyne","item":"Rossmoyne practice papers with end-to-end review","total":10,"verified":10,"evidence":["../tools/check_original_paper_sessions.sql","../tools/browser_check.mjs"]},
     {"key":"archive","item":"Authentic papers checked against the frozen archive","total":19,"verified":19,"evidence":["../docs/AUTHENTIC_AMC_FREEZE.md","../tools/check_amc_freeze.sql"]},
     {"key":"challengeFilms","item":"Attempt-gated challenge solution films in the original production queue","total":194,"verified":0},
-    {"key":"standalone","item":"Course introduction and public solution pilot","total":2,"verified":2,"evidence":["../tools/welcome-check.mjs","AMCIntroduction-qa.json","AMC2025Q17-voice-c.json"]}
+    {"key":"standalone","item":"Course introduction and public solution pilot","total":2,"verified":1,"pending":"The course introduction is being rerecorded to describe the current Read, Watch and Practise lesson and the two AMC practice sections.","evidence":["../tools/welcome-check.mjs","AMCIntroduction-qa.json","AMC2025Q17-voice-c.json"]}
   ]
 }

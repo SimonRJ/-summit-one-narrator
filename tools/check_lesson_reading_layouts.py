@@ -47,8 +47,10 @@ async def run(args):
                 if key in device:
                     w, h = device[key]['width'], device[key]['height']
                     device[key] = {'width':h, 'height':w}
-        if args.profile == 'pc':
-            device.update(viewport={'width':1440,'height':900},screen={'width':1440,'height':900})
+        if args.viewport is not None or args.profile == 'pc':
+            width, height = args.viewport or (1440, 900)
+            size = {'width':width, 'height':height}
+            device.update(viewport=size, screen=size.copy())
         browser = await (pw.webkit.launch() if engine == 'webkit' else pw.chromium.launch(channel='chrome'))
         context = await browser.new_context(**device, service_workers='block')
         await context.route('**/supabase-client.js*',
@@ -75,5 +77,6 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--profile',choices=PROFILES,required=True)
     parser.add_argument('--site',default='http://127.0.0.1:8765/')
+    parser.add_argument('--viewport',type=int,nargs=2,metavar=('WIDTH','HEIGHT'))
     parser.add_argument('--output',type=Path,required=True)
     asyncio.run(run(parser.parse_args()))

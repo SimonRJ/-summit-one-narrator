@@ -1,0 +1,93 @@
+{
+  "method": "Rendered every course lesson in the student reader and opened its worked example. Checked the authored prediction and steps. The default opening fits the tested iPad and PC viewports. Vertical scrolling is available on iPhone and after expanding a worked example. Measurements allow two CSS pixels for rounding. Browser device profiles simulate the indicated sizes.",
+  "profiles": [
+    {
+      "browser": "WebKit",
+      "viewport": [
+        390,
+        664
+      ],
+      "lessons": 283,
+      "horizontal_overflows": 0,
+      "footers_below_viewport": 0,
+      "default_openings_with_vertical_scroll": 283
+    },
+    {
+      "browser": "WebKit",
+      "viewport": [
+        664,
+        390
+      ],
+      "lessons": 283,
+      "horizontal_overflows": 0,
+      "footers_below_viewport": 0,
+      "default_openings_with_vertical_scroll": 283
+    },
+    {
+      "browser": "WebKit",
+      "viewport": [
+        810,
+        1080
+      ],
+      "lessons": 283,
+      "horizontal_overflows": 0,
+      "footers_below_viewport": 0,
+      "default_openings_with_vertical_scroll": 0
+    },
+    {
+      "browser": "WebKit",
+      "viewport": [
+        1080,
+        810
+      ],
+      "lessons": 283,
+      "horizontal_overflows": 0,
+      "footers_below_viewport": 0,
+      "default_openings_with_vertical_scroll": 0
+    },
+    {
+      "browser": "WebKit",
+      "viewport": [
+        1024,
+        768
+      ],
+      "lessons": 283,
+      "horizontal_overflows": 0,
+      "footers_below_viewport": 0,
+      "default_openings_with_vertical_scroll": 0
+    },
+    {
+      "browser": "Chromium",
+      "viewport": [
+        1440,
+        900
+      ],
+      "lessons": 283,
+      "horizontal_overflows": 0,
+      "footers_below_viewport": 0,
+      "default_openings_with_vertical_scroll": 0
+    },
+    {
+      "browser": "Chromium",
+      "viewport": [
+        1366,
+        768
+      ],
+      "lessons": 283,
+      "horizontal_overflows": 0,
+      "footers_below_viewport": 0,
+      "default_openings_with_vertical_scroll": 0
+    },
+    {
+      "browser": "Chromium",
+      "viewport": [
+        1280,
+        720
+      ],
+      "lessons": 283,
+      "horizontal_overflows": 0,
+      "footers_below_viewport": 0,
+      "default_openings_with_vertical_scroll": 0
+    }
+  ]
+}

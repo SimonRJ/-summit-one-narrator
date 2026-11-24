@@ -950,7 +950,7 @@
       }
     },
     "S044": {
-      "intro": "Start at the known end of a chain of changes. Ask what the last step did, undo it, and then work back one step at a time. If the story counts whole objects, discard any result that would require part of an object.",
+      "intro": "Start at the known end of the chain and work backwards one step at a time. A step can have two possible inputs. If a number ends up 3 units from zero, it could be 3 or −3. Keep the inputs the story allows, then check each one forwards.",
       "bridge": "The film’s last machine finishes with a two-digit reading in a stated range. Which reverse step requires exact division for a whole-number input? Check one surviving input by running it forwards.",
       "example": {
         "prediction": "Which operation happened closest to the answer 17?"
