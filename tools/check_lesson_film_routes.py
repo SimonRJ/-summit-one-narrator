@@ -68,12 +68,45 @@ async def full_frame(player):
     }""")
     assert frame['width'] > 0 and frame['height'] > 0, frame
     assert frame['horizontal'] <= 2 and frame['vertical'] <= 2, frame
+    return frame
 
 
 async def play_inline(page, player):
     await player.evaluate('async v => { v.muted = true; await v.play(); }')
     await verify_progress(page, player, 0)
     await player.evaluate('v => v.pause()')
+
+
+async def capture_worked_example(player, guide, output):
+    # Capture a decoded teaching frame at the learner's actual inline size.
+    chapter = guide['chapters'][-2]
+    end = guide['chapters'][-1]['start']
+    span = end - chapter['start']
+    target = chapter['start'] + .62 * span
+    settle = min(2.6, .18 * span)
+    await player.evaluate('v => v.play()')
+    for _ in range(2):
+        stamp = await player.evaluate("""(v, [target, settle, end]) => new Promise(resolve => {
+          let handle;
+          const timer = setTimeout(() => { v.cancelVideoFrameCallback(handle); resolve(null); }, 10000);
+          function frame(now, metadata) {
+            const t = metadata.mediaTime;
+            if (!v.seeking && t >= target + settle && t < end) {
+              clearTimeout(timer);
+              resolve(t);
+            } else {
+              handle = v.requestVideoFrameCallback(frame);
+            }
+          }
+          handle = v.requestVideoFrameCallback(frame);
+          v.currentTime = target;
+        })""", [target, settle, end])
+        if stamp is not None:
+            break
+    assert stamp is not None, f"Could not decode the selected frame for {chapter['title']}"
+    await player.screenshot(path=output / 'worked-example.png')
+    await player.evaluate('v => v.pause()')
+    return {'chapter':chapter['title'], 'decoded_media_time':stamp}
 
 
 async def verify(site, lesson, profile, digest, output):
@@ -155,8 +188,9 @@ async def verify(site, lesson, profile, digest, output):
             player = page.locator('#openingVideo')
             await verify_media(page, player, movie, guide['seconds'])
             assert await player.evaluate('v=>v.poster') == poster
-            await full_frame(player)
+            active_frame = await full_frame(player)
             await play_inline(page, player)
+            worked_example = await capture_worked_example(player, guide, output)
             await fits(page)
             await page.screenshot(path=output / 'watch.png')
             await forward.click()
@@ -186,14 +220,15 @@ async def verify(site, lesson, profile, digest, output):
             player = page.locator('#replayIntroVideo')
             await verify_media(page, player, movie, guide['seconds'])
             assert await player.evaluate('v=>v.poster') == poster
-            await full_frame(player)
+            notebook_frame = await full_frame(player)
             await play_inline(page, player)
             assert await page.evaluate('JSON.stringify([fixture.records, fixture.progress, fixture.writes])') == before
             await page.screenshot(path=output / 'replay.png')
             result = {'profile':profile, 'engine':engine, 'viewport':device['viewport'], 'site':site,
                       'sha256':digest, 'film':movie, 'duration':guide['seconds'], 'chapters':len(guide['chapters']),
                       'normal_speed_unmuted_to_ended':full, 'practice_grading':'isolated fixture',
-                      'immutable_replay':True}
+                      'immutable_replay':True, 'active_frame_css_pixels':active_frame,
+                      'notebook_frame_css_pixels':notebook_frame, 'worked_example':worked_example}
             (output / 'result.json').write_text(json.dumps(result, indent=2) + '\n')
             print(json.dumps(result), flush=True)
         except Exception:
