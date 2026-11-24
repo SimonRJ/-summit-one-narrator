@@ -1,0 +1,219 @@
+name: Record and release one original lesson
+on:
+  workflow_call:
+    inputs:
+      lesson:
+        description: Registered lesson ID
+        type: string
+        required: true
+      release_slug:
+        description: Immutable edition tag prefix
+        type: string
+        required: true
+permissions:
+  actions: read
+  contents: read
+env:
+  LESSON: ${{ inputs.lesson }}
+
+jobs:
+  record:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 240
+    env:
+      HF_HUB_DISABLE_XET: '1'
+      TOKENIZERS_PARALLELISM: 'false'
+      OMP_NUM_THREADS: '4'
+      MKL_NUM_THREADS: '4'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            production
+            data
+            media/voice-audition
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install the narrator and word aligner
+        run: |
+          set -euo pipefail
+          sudo apt-get -o Acquire::Retries=3 update -qq
+          sudo apt-get install -y ffmpeg libsndfile1
+          python -m pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install 'transformers>=4.45,<5' 'huggingface-hub<1' einops pydantic soundfile librosa safetensors tqdm numpy scipy inflect addict argbind num2words faster-whisper
+          python -m pip install --no-deps 'git+https://github.com/OpenBMB/VoxCPM.git@300e4260b509066151d623dc9c0aa922cf82232b'
+      - name: Record all scenes in one loaded narrator
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, os, re
+          from pathlib import Path
+          lesson = os.environ['LESSON']
+          assert re.fullmatch(r'S[0-9]{3}', lesson)
+          script = json.loads(Path(f'production/scripts/{lesson}.json').read_text())
+          assert script['id'] == lesson
+          scene_numbers = [scene['n'] for scene in script['scenes']]
+          assert scene_numbers == list(range(1, len(scene_numbers) + 1))
+          sequence = [{'lesson': lesson, 'scene': number} for number in scene_numbers]
+          Path('sequence.json').write_text(json.dumps(sequence))
+          PY
+          python production/t01-studio/synth.py --sequence sequence.json --threads 4
+      - name: Align every caption and bind the voice to this exact script
+        run: |
+          set -euo pipefail
+          python production/t01-studio/prepare_audio.py "$LESSON"
+          mkdir -p build/recording
+          cp "production/scripts/$LESSON.json" build/recording/script.json
+          cp "build/t01-studio/$LESSON"/{timeline.json,captions.vtt} build/recording/
+          ffmpeg -v error -i "build/t01-studio/$LESSON/narration.wav" -c:a flac build/recording/narration.flac
+          python production/lesson-films/recorded_candidate.py seal "$LESSON"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ inputs.lesson }}-source-matched-voice
+          path: build/recording/
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: ${{ inputs.lesson }}-recording-diagnostics
+          path: build/t01-studio/
+          if-no-files-found: warn
+          retention-days: 14
+
+  render:
+    needs: record
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            production
+            data
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          name: ${{ inputs.lesson }}-source-matched-voice
+          path: build/recording
+      - name: Verify the recording receipt before allocating rendering work
+        run: python production/lesson-films/recorded_candidate.py verify "$LESSON"
+      - name: Draw and verify the film against the artwork and narration
+        run: |
+          set -euo pipefail
+          sudo apt-get -o Acquire::Retries=3 update -qq
+          sudo apt-get install -y ffmpeg fonts-open-sans fonts-dejavu-core
+          python -m pip install 'numpy==2.2.6' 'pillow==11.3.0' num2words soundfile
+          python production/lesson-films/render_recorded.py "$LESSON" build/recording
+          python production/lesson-films/verify_recorded.py "$LESSON" build/recording
+          python production/lesson-films/render_recorded.py "$LESSON" build/recording --previews build/stills
+          mkdir -p build/candidate
+          cp "media/lesson-films/$LESSON.mp4" "media/lesson-films/$LESSON-poster.jpg" build/candidate/
+          cp "production/lesson-films/$LESSON/guide.json" "build/candidate/$LESSON-guide.json"
+          cp "production/lesson-films/$LESSON/qa.json" "build/candidate/$LESSON-qa.json"
+          cp build/recording/captions.vtt "build/candidate/$LESSON.vtt"
+          python production/lesson-films/recorded_candidate.py package "$LESSON"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ inputs.lesson }}-reviewed-candidate
+          path: build/candidate/
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ inputs.lesson }}-review-stills
+          path: build/stills/
+          if-no-files-found: error
+          retention-days: 30
+
+  playback:
+    needs: render
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        profile: [iphone-portrait, iphone-landscape, ipad-portrait, ipad-landscape, pc]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            data
+            tools
+            figures
+            production/lesson-films
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          name: ${{ inputs.lesson }}-reviewed-candidate
+          path: build/candidate
+      - run: python -m pip install 'playwright==1.58.0' aiohttp
+      - if: matrix.profile != 'pc'
+        run: python -m playwright install --with-deps webkit
+      - name: Check the player, gallery, practice and notebook
+        env:
+          PROFILE: ${{ matrix.profile }}
+        run: |
+          set -euo pipefail
+          python production/lesson-films/recorded_candidate.py stage "$LESSON"
+          python - <<'PY' > "$RUNNER_TEMP/recorded-study-server.log" 2>&1 &
+          from aiohttp import web
+          from pathlib import Path
+          root = Path.cwd()
+          app = web.Application()
+          async def index(request):
+              return web.FileResponse(root / 'index.html')
+          app.router.add_get('/', index)
+          app.router.add_static('/', root)
+          web.run_app(app, host='127.0.0.1', port=8765)
+          PY
+          server=$!
+          trap 'kill "$server"' EXIT
+          curl --fail --silent --retry 15 --retry-connrefused http://127.0.0.1:8765/ -o /dev/null
+          python tools/check_lesson_film_routes.py --lesson "$LESSON" --site http://127.0.0.1:8765/ --profile "$PROFILE" --output build/device
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ${{ inputs.lesson }}-candidate-${{ matrix.profile }}
+          path: build/device/
+          if-no-files-found: warn
+          retention-days: 30
+
+  release:
+    needs: playback
+    runs-on: ubuntu-24.04
+    permissions:
+      actions: read
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: ${{ inputs.lesson }}-reviewed-candidate
+          path: verified
+      - name: Publish only the assets checked across all profiles
+        env:
+          PREFIX: ${{ inputs.release_slug }}
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          [[ "$PREFIX" =~ ^[a-z0-9-]+$ ]]
+          tag="${PREFIX}-${GITHUB_SHA:0:12}"
+          title=$(jq -r .title "verified/$LESSON-guide.json")
+          if ! gh release view "$tag" > /dev/null 2>&1; then
+            gh release create "$tag" --draft --target "$GITHUB_SHA" --title "$title" --notes "Chapter, voice, picture and learner-route checks for $LESSON."
+          fi
+          draft=$(gh release view "$tag" --json isDraft --jq .isDraft)
+          if [[ "$draft" == true ]]; then gh release upload "$tag" verified/* --clobber; fi
+          gh release download "$tag" --dir returned
+          for asset in verified/*; do cmp "$asset" "returned/${asset##*/}"; done
+          if [[ "$draft" == true ]]; then gh release edit "$tag" --draft=false --latest=false; fi
+          test "$(gh release view "$tag" --json isDraft --jq .isDraft)" = false

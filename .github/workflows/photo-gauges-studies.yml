@@ -1,0 +1,34 @@
+name: Produce the photographer and radio restoration lessons
+on:
+  push:
+    branches: [production/wildlife-crops-antenna-gauges]
+    paths:
+      - .github/workflows/photo-gauges-studies.yml
+      - .github/workflows/record-and-release-original.yml
+      - production/scripts/S17[78].json
+      - production/lesson-films/wildlife_viewfinder.py
+      - production/lesson-films/antenna_gauges.py
+      - production/lesson-films/recorded_candidate.py
+      - production/lesson-films/render_recorded.py
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: write
+concurrency:
+  group: wildlife-crops-antenna-gauges-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  film:
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        include:
+          - lesson: S177
+            slug: s177-wildlife-contact-sheet-20261125
+          - lesson: S178
+            slug: s178-antenna-gauges-20261125
+    uses: ./.github/workflows/record-and-release-original.yml
+    with:
+      lesson: ${{ matrix.lesson }}
+      release_slug: ${{ matrix.slug }}

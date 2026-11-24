@@ -1,0 +1,63 @@
+{
+  "id": "S178",
+  "course_slot": 178,
+  "title": "Antenna gauges in the restoration lab",
+  "scenes": [
+    {
+      "n": 1,
+      "heading": "Gauges that fit end to end",
+      "title": "Gauges that fit end to end",
+      "stage": "BASIC",
+      "narration": "A radio museum has a straight antenna rod twelve centimetres long. The restorer places equal whole-centimetre gauges end to end along it, with no gap or overhang. Gauges of length three fit four times. Turn that statement around: length four fits three times. The two lengths are partners."
+    },
+    {
+      "n": 2,
+      "heading": "Start at the short end",
+      "title": "Start at the short end",
+      "stage": "MEDIUM",
+      "narration": "Which gauge lengths fit a thirty-centimetre rod? Pair one with thirty, two with fifteen, three with ten, and five with six. Four leaves a gap. Once the smaller trial length has passed the square root of thirty, every pair you can reach has already appeared in the other order."
+    },
+    {
+      "n": 3,
+      "heading": "The entry that has no twin",
+      "title": "The entry that has no twin",
+      "stage": "PUZZLE",
+      "narration": "The next rod is thirty six centimetres long. Keep a register of the gauge lengths, one entry per length. One pairs with thirty six, two with eighteen, three with twelve, four with nine, and six with six. How many distinct lengths belong in that register?"
+    },
+    {
+      "n": 4,
+      "heading": "Close the middle drawer once",
+      "title": "Close the middle drawer once",
+      "stage": "MEDIUM",
+      "narration": "The four unequal pairs give eight lengths. Six is its own partner, so it gives just one more. There are nine lengths. See the gap between the two moving pointers close on a single drawer. An odd number of positive divisors tells you the rod length is a perfect square."
+    },
+    {
+      "n": 5,
+      "heading": "Identify the unlabelled antenna",
+      "title": "Identify the unlabelled antenna",
+      "stage": "PUZZLE",
+      "narration": "One antenna has lost its label. Its length is a whole number of centimetres between one hundred and two hundred. Exactly three whole-centimetre gauge lengths fit. The middle gauge length has two digits with a digit sum of four. Can you recover the rod length and prove that every clue fits?"
+    },
+    {
+      "n": 6,
+      "heading": "Three lengths force a prime square",
+      "title": "Three lengths force a prime square",
+      "stage": "HARD",
+      "narration": "Length one and the full rod always fit. With only a single entry between them, its partner must be itself. Call the middle length p. The rod is p times p. If p had a smaller divisor greater than one, that smaller gauge would also fit the rod: a fourth entry. So p must be prime."
+    },
+    {
+      "n": 7,
+      "heading": "Test the museum inventory",
+      "title": "Test the museum inventory",
+      "stage": "HARD",
+      "narration": "The possible middle lengths are eleven, twelve, thirteen and fourteen. Ten squared is one hundred; fifteen squared is already two hundred and twenty five. Only thirteen has digit sum four, and thirteen is prime. Thirteen squared is one hundred and sixty nine. Its three gauge lengths are one, thirteen, and one hundred and sixty nine."
+    },
+    {
+      "n": 8,
+      "heading": "Would a square label be enough?",
+      "title": "Would a square label be enough?",
+      "stage": "TRANSFER",
+      "narration": "A second restorer suggests fourteen squared, because every square has an unpaired divisor. Test a two-centimetre gauge: it fits one hundred and ninety six. So do seven and fourteen. That rod has more than three entries. The single middle drawer explains the odd count. A prime middle drawer explains exactly three."
+    }
+  ]
+}

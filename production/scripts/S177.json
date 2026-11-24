@@ -1,0 +1,63 @@
+{
+  "id": "S177",
+  "course_slot": 177,
+  "title": "The wildlife photographer\u2019s crop",
+  "scenes": [
+    {
+      "n": 1,
+      "heading": "Slide the viewfinder",
+      "title": "Slide the viewfinder",
+      "stage": "BASIC",
+      "narration": "A wildlife photographer is choosing part of a contact sheet to print. Every crop follows the grid lines. A strip has six squares. Put a three-square window over the first three. Slide it right by one square until the window can go no farther. Its left edge has four starting places."
+    },
+    {
+      "n": 2,
+      "heading": "Count the corner marks",
+      "title": "Count the corner marks",
+      "stage": "MEDIUM",
+      "narration": "The full contact sheet has eight columns and five rows. Keep the camera window four columns wide and three rows tall. With its top edge in the first row, there are five possible left edges. With its left edge in the first column, there are three possible top edges. Mark the top left corner of each legal crop. Five columns of three marks give fifteen crops."
+    },
+    {
+      "n": 3,
+      "heading": "Print one animal",
+      "title": "Print one animal",
+      "stage": "PUZZLE",
+      "narration": "There is a seal in column three, row two, and a ray in column five, row three. Count the crops with exactly one animal. Keep the window the same way up. On a second, smaller diagram, a dot now means a possible starting corner, not an animal or a cell in the photograph."
+    },
+    {
+      "n": 4,
+      "heading": "Put the seal in the window",
+      "title": "Put the seal in the window",
+      "stage": "MEDIUM",
+      "narration": "For the seal to appear, start the window in column one, two or three. Start its top in row one or two. A start in column four is already to the right of the seal. Three possible columns times two rows give six corners. Colour those marks copper."
+    },
+    {
+      "n": 5,
+      "heading": "Let the ray into the frame",
+      "title": "Let the ray into the frame",
+      "stage": "MEDIUM",
+      "narration": "The ray is in column five. A window starting in column one ends at four, so it misses the ray. Columns two, three, four and five all work. All three starting rows reach row three. Colour these twelve possible corners blue. Keep the copper marks visible."
+    },
+    {
+      "n": 6,
+      "heading": "Why subtract four twice?",
+      "title": "Why subtract four twice?",
+      "stage": "HARD",
+      "narration": "Four corners carry both marks. They start in column two or three, and in row one or two. Adding six and twelve counts each of these four twice, but the photographer needs them zero times. Subtract four twice. Ten crops show exactly one animal. You can see two copper-only marks and eight blue-only marks."
+    },
+    {
+      "n": 7,
+      "heading": "The empty photograph",
+      "title": "The empty photograph",
+      "stage": "HARD",
+      "narration": "Change the commission. The photographer now wants a crop with neither animal. Begin with all fifteen possible corners. Ten show exactly one animal and four show both. That leaves one empty crop. Follow its corner back to the sheet: it starts in column one, row three. Can you see how its edge misses each animal?"
+    },
+    {
+      "n": 8,
+      "heading": "Move the camera, keep the corner map",
+      "title": "Move the camera, keep the corner map",
+      "stage": "TRANSFER",
+      "narration": "If the customer turns the print upright, the window becomes three columns wide and four rows tall. Rebuild the corner map. There are now six possible starting columns and two starting rows, giving twelve crops before checking the animals. Treat every allowed orientation as its own map."
+    }
+  ]
+}
