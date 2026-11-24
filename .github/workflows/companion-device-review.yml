@@ -1,7 +1,7 @@
 name: Review all published companion film players
 on:
   push:
-    branches: [qa/companion-devices-20261125]
+    branches: ['qa/companion-devices-*', 'qa/companion-landscape-*']
     paths: ['tools/video/check_companion_devices.py', '.github/workflows/companion-device-review.yml']
   workflow_dispatch:
 permissions:
@@ -40,7 +40,9 @@ jobs:
           print('\n'.join(first if group == 0 else others[group-1::9]))
           PY
           mapfile -t ids < /tmp/film-ids
-          python tools/video/check_companion_devices.py "${ids[@]}" --output evidence
+          options=()
+          if [[ "$GITHUB_REF_NAME" == qa/companion-landscape-* ]]; then options+=(--landscape-only); fi
+          python tools/video/check_companion_devices.py "${ids[@]}" --output evidence "${options[@]}"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
