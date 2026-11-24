@@ -1,0 +1,52 @@
+name: Render the paired receipts and five-day fixture board
+on:
+  push:
+    branches: [production/incidence-workshops]
+    paths: ['.github/workflows/incidence-workshops.yml', 'production/lesson-films/incidence_workshops.py', 'production/lesson-films/counting_workshops.py', 'production/lesson-films/release_counting_workshops.py']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /production/
+            /review/T06.1-studio-qa.json
+            /review/T06.3-studio-qa.json
+            /media/T06.[13]*
+            /watch-t06-1.html
+            /watch-t06-3.html
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install the video and type renderer
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-dejavu-core
+          python -m pip install Pillow
+      - name: Draw both authored films and verify retained AAC streams
+        run: |
+          python production/lesson-films/incidence_workshops.py T06.1 "$RUNNER_TEMP/films"
+          python production/lesson-films/incidence_workshops.py T06.3 "$RUNNER_TEMP/films"
+          python production/lesson-films/release_counting_workshops.py "$RUNNER_TEMP/films" --incidence
+      - name: Publish the verified candidates to their review branch
+        run: |
+          git config user.name github-actions
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add media/T06.[13].mp4 media/T06.[13]-studio-poster.jpg watch-t06-1.html watch-t06-3.html review/T06.[13]-studio-qa.json production/t01-studio/publish.py
+          git commit -m 'Install the paired receipts and fixture board editions for editorial review'
+          git push origin HEAD:refs/heads/release/incidence-workshops-${{ github.run_id }}-${{ github.run_attempt }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: incidence-workshop-candidates
+          path: |
+            review/T06.[13]-studio-qa.json
+            media/T06.[13]-studio-poster.jpg
+          retention-days: 30
