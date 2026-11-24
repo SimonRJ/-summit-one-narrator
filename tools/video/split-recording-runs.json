@@ -1,0 +1,213 @@
+[
+  {
+    "voice": [
+      45488849172,
+      "bd83460128717c43a0dd9962c17b4f4f993c94f0",
+      "ribbons-signals-voice"
+    ],
+    "branch": "production/ribbons-signals-20261124",
+    "render_commit": "069f069e2eb797f08b1ce49913b009bab6012de8",
+    "renders": [
+      [
+        45491882289,
+        "s022-ribbon-table"
+      ],
+      [
+        45491882362,
+        "s023-signal-flags"
+      ]
+    ],
+    "name": "Record the ribbon cutting table and the four signal flags",
+    "previouslyParkedQueued": true
+  },
+  {
+    "voice": [
+      45489156125,
+      "57b479e1042d1dab1e49072a9a7ed4228571a0ee",
+      "print-hide-kiln-voice"
+    ],
+    "branch": "production/print-hide-kiln-20261124",
+    "render_commit": "144685774720dedaf28d33e2466a1b5e4940b02c",
+    "renders": [
+      [
+        45491886462,
+        "s025-print-shop"
+      ],
+      [
+        45491886490,
+        "s026-bird-hide"
+      ],
+      [
+        45491886536,
+        "s027-pottery-kiln"
+      ]
+    ],
+    "name": "Record the print shop, bird hide and pottery kiln lessons",
+    "previouslyParkedQueued": true
+  },
+  {
+    "branch": "production/original-studies-s015-s017",
+    "voice": [
+      45487547111,
+      "c873621cd8988d3862563a0668e500bcb94614c9",
+      "paired-original-voice"
+    ],
+    "render_commit": "1d1bb402622c540061446a85c2aab9782b724bd1",
+    "renders": [
+      [
+        45488080273,
+        "s015-mail-train"
+      ],
+      [
+        45488080237,
+        "s017-tile-framer"
+      ]
+    ],
+    "name": "Record the mail train and the two-tile frame"
+  },
+  {
+    "branch": "production/correct-two-spoken-conditions",
+    "voice": [
+      45488494887,
+      "32f804f9f4c9ad139dcf19a5e03ff6df6f07e3cc",
+      "correct-domino-cycle-voice"
+    ],
+    "render_commit": "3d94f6856b475eb160c11bf7b6334ff13e9c61b6",
+    "renders": [
+      [
+        45491819969,
+        "s019-domino-condition"
+      ],
+      [
+        45491820136,
+        "s020-exponent-49"
+      ]
+    ],
+    "name": "Correct the two spoken conditions"
+  },
+  {
+    "branch": "production/ferry-road-two-whistles",
+    "voice": [
+      45489476455,
+      "cc4c3cd0a9b77fd669dca361e952780ed5033d71",
+      "motion-original-voice"
+    ],
+    "render_commit": "907c567380fb99506f53ee011c81d91a1928a0eb",
+    "renders": [
+      [
+        45489806973,
+        "s034-ferry-road"
+      ],
+      [
+        45489806997,
+        "s037-two-whistles"
+      ]
+    ],
+    "name": "Record the ferry-road ride and the starting whistles"
+  },
+  {
+    "branch": "production/observatory-mosaic",
+    "voice": [
+      45489850219,
+      "7d0e11c437a9fd6b8c07e286deaa463bf015e280",
+      "observatory-mosaic-voice"
+    ],
+    "render_commit": "6c8f88d1d66d7117cfef78fdb36f8048c3331b40",
+    "renders": [
+      [
+        45490263914,
+        "s156-film"
+      ],
+      [
+        45490263989,
+        "s159-film"
+      ]
+    ],
+    "name": "Record the observatory and mosaic films"
+  },
+  {
+    "branch": "production/rooftop-scanner",
+    "voice": [
+      45492817892,
+      "1239164651aca01c9632ba948626ec638d599bfb",
+      "rooftop-scanner-voice"
+    ],
+    "render_commit": "0975227ec8d179e02970ef759a4f66ad210cf599",
+    "renders": [
+      [
+        45493131936,
+        "s162-film"
+      ],
+      [
+        45493131971,
+        "s163-film"
+      ]
+    ],
+    "name": "Record the rooftop ledger and cube scanner"
+  },
+  {
+    "branch": "production/sorting-drawers-20261125",
+    "voice": [
+      45495700364,
+      "61ccb88505d93b2f73ff28acb6c65806f340221a",
+      "sorting-drawers-voice"
+    ],
+    "render_commit": "ccd9a0e169ab78a01e901c330ef037786d80a4f3",
+    "renders": [
+      [
+        45496220479,
+        "sorting-drawers-reviewed"
+      ]
+    ],
+    "name": "Record the sorting drawers transfer",
+    "waitStep": "Fetch the public illustrated edition and its newly recorded transfer"
+  },
+  {
+    "branch": "production/market-gauge-signal-studies",
+    "voice": [
+      45489951546,
+      "da8295e09d25df284e9257f44c79a9e19cf88b25",
+      "market-gauge-signal-voices"
+    ],
+    "render_commit": "e4d7059a51d98cd2bf0bd99c12cd595035e89d7f",
+    "renders": [
+      [
+        45490531948,
+        "s029-price-ticket"
+      ],
+      [
+        45490531950,
+        "s031-pump-shed"
+      ],
+      [
+        45490532039,
+        "s033-claims-board"
+      ]
+    ],
+    "name": "Record the price ticket, pump shed and claims noticeboard"
+  },
+  {
+    "branch": "production/edging-tickets-climbing",
+    "voice": [
+      45493687354,
+      "51d840eeddd80bd8cdf32b50919fb2979708e27d",
+      "edging-tickets-climbing-voices"
+    ],
+    "render_commit": "2115dd7d2904699d096e3feb4e51a01a8bf84c25",
+    "renders": [
+      [
+        45494172715,
+        "s043-edging-tape"
+      ],
+      [
+        45494172745,
+        "s044-museum-tickets"
+      ],
+      [
+        45494172775,
+        "s045-climbing-counter"
+      ]
+    ],
+    "name": "Record the edging tape, museum ticket and climbing hall"
+  }
+]

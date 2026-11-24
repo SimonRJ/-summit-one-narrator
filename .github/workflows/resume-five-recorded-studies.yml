@@ -1,13 +1,24 @@
-name: Resume the ribbon, flag, print, bird and kiln films after recording
+name: Resume the pinned lesson render jobs after recording
 on:
   push:
-    branches: [main]
-    paths: [.github/workflows/resume-five-recorded-studies.yml]
+    branches: [main, production/park-stalled-voice-waits]
+    paths:
+      - .github/workflows/resume-five-recorded-studies.yml
+      - tools/video/reconcile_split_recordings.py
+      - tools/video/split-recording-runs.json
   workflow_run:
+    types: [completed]
     workflows:
       - Record the ribbon cutting table and the four signal flags
       - Record the print shop, bird hide and pottery kiln lessons
-    types: [completed]
+      - Record the mail train and the two-tile frame
+      - Correct the two spoken conditions
+      - Record the ferry-road ride and the starting whistles
+      - Record the observatory and mosaic films
+      - Record the rooftop ledger and cube scanner
+      - Record the sorting drawers transfer
+      - Record the price ticket, pump shed and claims noticeboard
+      - Record the edging tape, museum ticket and climbing hall
   workflow_dispatch:
 permissions:
   contents: read
@@ -17,79 +28,16 @@ concurrency:
   cancel-in-progress: false
 jobs:
   reconcile:
-    if: >-
-      github.repository == 'SimonRJ/-summit-one-narrator' &&
-      (github.event_name != 'workflow_run' ||
-      github.event.workflow_run.id == 45488849172 ||
-      github.event.workflow_run.id == 45489156125)
+    if: github.repository == 'SimonRJ/-summit-one-narrator'
     runs-on: ubuntu-24.04
     steps:
-      - name: Resume each original render only when its pinned recording succeeded
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          ref: ${{ github.sha }}
+          sparse-checkout: tools/video
+      - name: Check the exact voice, render and live job step
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
-        shell: python
-        run: |
-          import json
-          import os
-          import subprocess
-
-          groups = [
-              {
-                  "voice": (45488849172, "bd83460128717c43a0dd9962c17b4f4f993c94f0", "ribbons-signals-voice"),
-                  "branch": "production/ribbons-signals-20261124",
-                  "render_commit": "069f069e2eb797f08b1ce49913b009bab6012de8",
-                  "renders": [(45491882289, "s022-ribbon-table"), (45491882362, "s023-signal-flags")],
-              },
-              {
-                  "voice": (45489156125, "57b479e1042d1dab1e49072a9a7ed4228571a0ee", "print-hide-kiln-voice"),
-                  "branch": "production/print-hide-kiln-20261124",
-                  "render_commit": "144685774720dedaf28d33e2466a1b5e4940b02c",
-                  "renders": [
-                      (45491886462, "s025-print-shop"), (45491886490, "s026-bird-hide"),
-                      (45491886536, "s027-pottery-kiln"),
-                  ],
-              },
-          ]
-          api = "repos/" + os.environ["GH_REPO"] + "/actions/runs/"
-
-          def request(run_id, operation=None):
-              route = api + str(run_id)
-              if operation:
-                  subprocess.run(["gh", "api", "-X", "POST", f"{route}/{operation}"], check=True)
-                  return
-              return json.loads(subprocess.check_output(["gh", "api", route]))
-
-          def pinned(run_id, sha, workflow, branch):
-              run = request(run_id)
-              expected = (sha, ".github/workflows/" + workflow + ".yml", branch,
-                          os.environ["GH_REPO"], "push")
-              actual = (run["head_sha"], run["path"], run["head_branch"],
-                        run["head_repository"]["full_name"], run["event"])
-              if actual != expected:
-                  raise ValueError(f"Run {run_id} no longer matches its pinned production.")
-              return run
-
-          def stopped_at_recording(run_id, result):
-              if result == "cancelled":
-                  return True
-              if result not in ("failure", "timed_out"):
-                  return False
-              jobs = json.loads(subprocess.check_output(["gh", "api", api + str(run_id) + "/jobs"]))
-              return any(step["name"] == "Locate the verified recording of this script"
-                         and step["conclusion"] in ("failure", "cancelled", "timed_out")
-                         for job in jobs["jobs"] for step in job["steps"])
-
-          for group in groups:
-              voice_id, voice_commit, voice_workflow = group["voice"]
-              branch = group["branch"]
-              for render_id, workflow in group["renders"]:
-                  voice = pinned(voice_id, voice_commit, voice_workflow, branch)
-                  render = pinned(render_id, group["render_commit"], workflow, branch)
-                  if voice["conclusion"] == "success" and render["status"] == "completed":
-                      if stopped_at_recording(render_id, render["conclusion"]):
-                          print(f"Resume {workflow} with recording {voice_id}.", flush=True)
-                          request(render_id, "rerun")
-                  elif voice["conclusion"] != "success" and render["status"] in ("queued", "in_progress"):
-                      print(f"Park {workflow} until recording {voice_id} completes.", flush=True)
-                      request(render_id, "cancel")
+        run: python tools/video/reconcile_split_recordings.py
