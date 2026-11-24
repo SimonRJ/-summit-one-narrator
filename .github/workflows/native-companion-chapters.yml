@@ -1,0 +1,42 @@
+name: Embed existing teaching chapters in the 41 previously reviewed films
+on:
+  push:
+    branches: [production/native-companion-chapters]
+    paths: ['production/lesson-films/native_chapters.py','production/lesson-films/native-chapter-sources.json','.github/workflows/native-companion-chapters.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /production/lesson-films/native*
+            /review/T*-studio-qa.json
+            /media/T*.mp4
+            /watch-t*.html
+            /data/teaching-72.json
+      - name: Install the packaging and packet inspection tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg
+      - name: Preserve both encoded tracks and embed named navigation landmarks
+        run: |
+          python production/lesson-films/native_chapters.py all "$RUNNER_TEMP/chapters"
+          python production/lesson-films/native_chapters.py install "$RUNNER_TEMP/chapters"
+          git config user.name github-actions
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -u
+          git commit -m 'Embed native chapter navigation in 41 previously reviewed companion films'
+          git push origin HEAD:refs/heads/release/native-companion-chapters-${{ github.run_id }}-${{ github.run_attempt }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: native-chapter-packet-reports
+          path: ${{ runner.temp }}/chapters/*.json
+          retention-days: 30

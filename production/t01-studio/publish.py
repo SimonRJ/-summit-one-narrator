@@ -107,6 +107,7 @@ def make_watch_page(lesson, source, report, *, available=OPENING_SEQUENCE):
     else:
         next_href, next_title = next_lesson[lesson]
         next_link = f'<a href="{next_href}">{next_title} →</a>'
+    movie_version = "chapters-" + report["sha256"][:12] if report.get("native_chapters") else version
     chapter_buttons = "\n".join(
         f'<button type="button" data-time="{chapter["start"]:.3f}">'
         f'{clock(chapter["start"])} · {escape(chapter["title"])}</button>'
@@ -172,7 +173,7 @@ button:focus-visible, a:focus-visible, summary:focus-visible {{ outline: 2px sol
 <p>{escape(source["goal"])}</p>
 <video id="lesson" controls playsinline preload="metadata" aria-label="{title}"
   poster="media/{lesson}-studio-poster.jpg?v={version}">
-  <source src="media/{lesson}.mp4?v={version}" type="video/mp4">
+  <source src="media/{lesson}.mp4?v={movie_version}" type="video/mp4">
 </video>
 <p class="meta">{clock(report["duration_seconds"])} · Full HD</p>
 <nav class="chapters" aria-label="Video chapters">{chapter_buttons}</nav>
@@ -182,7 +183,7 @@ button:focus-visible, a:focus-visible, summary:focus-visible {{ outline: 2px sol
 <details><summary>Check your reasoning</summary><p>{escape(NOTEBOOK_CHECKS.get(lesson, source["notebook_answer"]))}</p></details>
 </section>
 {variation_section(lesson)}<details class="transcript"><summary>Read the transcript</summary>{transcript}</details>
-<p><a href="media/{lesson}.mp4?v={version}">Open the MP4 directly</a></p>
+<p><a href="media/{lesson}.mp4?v={movie_version}">Open the MP4 directly</a></p>
 </main>
 <script src="lesson-video-chapters.js?v=seek-1"></script>
 </body>
@@ -305,7 +306,9 @@ def install(lessons=IDS):
         page.write_text(make_watch_page(lesson, source, report, available=available))
         row = entries[lesson]
         row["transcript"] = " ".join(scene["narration"] for scene in source["scenes"])
-        if course_release or lesson in REVISED_MEDIA:
+        if report.get("native_chapters"):
+            row["video_url"] = f"media/{lesson}.mp4?v=chapters-{report['sha256'][:12]}"
+        elif course_release or lesson in REVISED_MEDIA:
             row["video_url"] = f"media/{lesson}.mp4?v={REVISED_MEDIA.get(lesson, COURSE_VERSION)}"
     teaching_file.write_text(json.dumps(teaching, ensure_ascii=False, indent=2) + "\n")
     if course_release:
