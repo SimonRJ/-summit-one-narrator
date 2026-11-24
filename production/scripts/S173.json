@@ -1,0 +1,63 @@
+{
+  "id": "S173",
+  "title": "The winch operator’s log",
+  "course_slot": 173,
+  "scenes": [
+    {
+      "n": 1,
+      "title": "The winch clock",
+      "heading": "The winch clock",
+      "stage": "PUZZLE",
+      "narration": "A winch lifts a marked load. At zero seconds the load hangs two metres above the floor. At three seconds it hangs fourteen metres up. What changed during those three seconds? A height reading contains the starting height as well as any rise."
+    },
+    {
+      "n": 2,
+      "title": "Level each interval",
+      "heading": "Level each interval",
+      "stage": "BASIC",
+      "narration": "The load rose twelve metres in three seconds, or four metres per second. The operator draws straight segments between log entries because the winch moves steadily within each recorded interval. A segment rising four metres in one second would have the same slope."
+    },
+    {
+      "n": 3,
+      "title": "The largest lift",
+      "heading": "The largest lift",
+      "stage": "PUZZLE",
+      "narration": "At nine seconds the height reaches thirty two metres. That second rise is eighteen metres, larger than the first rise of twelve. Did the winch climb faster? Mark the duration of each climb on the time axis before answering."
+    },
+    {
+      "n": 4,
+      "title": "Compare the climbs",
+      "heading": "Compare the climbs",
+      "stage": "METHOD",
+      "narration": "The first climb covers twelve metres in three seconds, giving four metres per second. The next covers eighteen metres in six seconds, giving three metres per second. The longer climb gained more height at the lower rate. The first climb was faster."
+    },
+    {
+      "n": 5,
+      "title": "A level line and a drop",
+      "heading": "A level line and a drop",
+      "stage": "CHALLENGE",
+      "narration": "The load stays at thirty two metres until eleven seconds. Then it descends to twelve metres at fifteen seconds. Which interval gives the greatest speed, including downward travel? Which gives the greatest upward rate? Those questions use direction differently."
+    },
+    {
+      "n": 6,
+      "title": "Keep the direction",
+      "heading": "Keep the direction",
+      "stage": "HARD",
+      "narration": "The level part has rate zero. The last part changes by twelve minus thirty two, or negative twenty metres, in four seconds. Its signed rate is negative five metres per second. Its speed is five. The descent is the fastest motion, while the first climb still has the greatest upward rate."
+    },
+    {
+      "n": 7,
+      "title": "Two averages for one log",
+      "heading": "Two averages for one log",
+      "stage": "HARD",
+      "narration": "Across all fifteen seconds, the ending height is ten metres above the starting height. That gives an average upward change of two thirds of a metre per second. For average speed count every metre travelled. Twelve up, eighteen up and twenty down make fifty metres travelled. Include the two waiting seconds."
+    },
+    {
+      "n": 8,
+      "title": "Read the question first",
+      "heading": "Read the question first",
+      "stage": "RECAP",
+      "narration": "Fifty metres divided by fifteen seconds gives an average speed of three and one third metres per second. Net height change and total travel use different numerators. A flat stretch adds nothing to the distance, but it still adds time."
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "id": "S172",
+  "title": "The glassmaker’s colour order",
+  "course_slot": 172,
+  "scenes": [
+    {
+      "n": 1,
+      "title": "A strip in the mirror",
+      "heading": "A strip in the mirror",
+      "stage": "PUZZLE",
+      "narration": "The glassmaker lays seven blank panes in one row. She can paint each pane amber or blue. The finished strip must look identical in a vertical mirror through its centre. If she paints the first pane amber, which other pane has she already decided?"
+    },
+    {
+      "n": 2,
+      "title": "One choice per group",
+      "heading": "One choice per group",
+      "stage": "BASIC",
+      "narration": "Pane seven must match pane one. Two matches six, and three matches five. The middle pane stands alone. Three pairs and a single pane give four independent colour choices. If no pane is prescribed, two colours for each of four groups make sixteen strips. Fixing the first pane as amber leaves three independent choices, giving eight strips."
+    },
+    {
+      "n": 3,
+      "title": "Two mirrors in one window",
+      "heading": "Two mirrors in one window",
+      "stage": "PUZZLE",
+      "narration": "A new window has three rows and five columns. Now both the vertical and the horizontal centre lines must be mirrors. Imagine touching the top left pane with your brush. Follow its vertical reflection, then reflect both touched panes across the horizontal line. How many corners share one colour choice?"
+    },
+    {
+      "n": 4,
+      "title": "Find all the groups",
+      "heading": "Find all the groups",
+      "stage": "METHOD",
+      "narration": "The four corners move together. The top and bottom panes just inside those corners form a second group of four. On the middle row there are two reflected pairs. The top and bottom panes of the middle column make a third pair. Only the very centre stands alone."
+    },
+    {
+      "n": 5,
+      "title": "An exact colour order",
+      "heading": "An exact colour order",
+      "stage": "CHALLENGE",
+      "narration": "The customer wants exactly five amber panes. Every other pane must be blue. Both mirrors still apply. Can the glassmaker leave the centre blue? Use the group sizes before trying any coloured drawings."
+    },
+    {
+      "n": 6,
+      "title": "Spend the odd pane",
+      "heading": "Spend the odd pane",
+      "stage": "HARD",
+      "narration": "Every group except the centre has an even number of panes. Five is odd, so the centre must be amber. Four amber panes remain to place. She can colour one four pane group, or she can colour two separate pairs."
+    },
+    {
+      "n": 7,
+      "title": "Count the two routes",
+      "heading": "Count the two routes",
+      "stage": "HARD",
+      "narration": "There are two choices for the single group of four. For the pair route there are three pairs available. Choose the one pair that stays blue. That gives three choices. A four pane group and two pairs cannot describe the same window. Two plus three gives five orders."
+    },
+    {
+      "n": 8,
+      "title": "Check the actual glass",
+      "heading": "Check the actual glass",
+      "stage": "RECAP",
+      "narration": "A legal order covers five amber panes and survives both reflections. Count a group once even if several reflections lead to its panes. With an exact colour total, add the sizes of the selected groups before counting the drawings."
+    }
+  ]
+}

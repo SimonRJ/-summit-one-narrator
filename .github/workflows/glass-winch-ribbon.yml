@@ -1,0 +1,36 @@
+name: Produce the glass, winch and ribbon lessons
+on:
+  push:
+    branches: [production/glass-winch-ribbon]
+    paths:
+      - .github/workflows/glass-winch-ribbon.yml
+      - .github/workflows/record-and-release-original.yml
+      - production/scripts/S17[234].json
+      - production/lesson-films/glass_order.py
+      - production/lesson-films/winch_log.py
+      - production/lesson-films/ribbon_books.py
+      - production/lesson-films/recorded_candidate.py
+      - production/lesson-films/render_recorded.py
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: write
+concurrency:
+  group: glass-winch-ribbon-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  film:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - lesson: S172
+            slug: s172-glass-order-20261125
+          - lesson: S173
+            slug: s173-winch-log-20261125
+          - lesson: S174
+            slug: s174-ribbon-books-20261125
+    uses: ./.github/workflows/record-and-release-original.yml
+    with:
+      lesson: ${{ matrix.lesson }}
+      release_slug: ${{ matrix.slug }}

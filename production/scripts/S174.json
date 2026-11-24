@@ -1,0 +1,63 @@
+{
+  "id": "S174",
+  "title": "The ribbon cupboard",
+  "course_slot": 174,
+  "scenes": [
+    {
+      "n": 1,
+      "title": "The cut end",
+      "heading": "The cut end",
+      "stage": "PUZZLE",
+      "narration": "A shop cuts away one quarter of a ribbon roll. The three equal quarters still in the cupboard measure twenty one metres together. If you put the cut quarter back, how long was the whole roll? Keep one box for each equal quarter."
+    },
+    {
+      "n": 2,
+      "title": "Restore a whole roll",
+      "heading": "Restore a whole roll",
+      "stage": "BASIC",
+      "narration": "Three boxes measure twenty one metres. One box measures seven. Four boxes measure twenty eight. The piece cut off was one quarter of the original roll. Adding one quarter of the surviving twenty one metres would use the wrong whole."
+    },
+    {
+      "n": 3,
+      "title": "Three entries in the stock book",
+      "heading": "Three entries in the stock book",
+      "stage": "PUZZLE",
+      "narration": "On another day the shop keeps three quarters of its starting ribbon, adds six metres from a delivery, then keeps two thirds of that new stock. The final shelf holds twenty two metres. How much ribbon was on the shelf before the first cut?"
+    },
+    {
+      "n": 4,
+      "title": "Walk back to the delivery",
+      "heading": "Walk back to the delivery",
+      "stage": "METHOD",
+      "narration": "The final twenty two metres fill two of three equal boxes. Each box holds eleven metres. Before that last cut the shelf therefore held thirty three metres. The six metre delivery is already in that thirty three. Reverse that fixed addition before rebuilding the first roll."
+    },
+    {
+      "n": 5,
+      "title": "Undo the first cut",
+      "heading": "Undo the first cut",
+      "stage": "CHALLENGE",
+      "narration": "Take away the six delivered metres. Twenty seven metres remain from the first cut. They filled three of four old quarters, so one old quarter was nine metres. Four quarters were thirty six metres. Check forwards: twenty seven, then thirty three, then twenty two."
+    },
+    {
+      "n": 6,
+      "title": "The moved delivery slip",
+      "heading": "The moved delivery slip",
+      "stage": "HARD",
+      "narration": "A second stock book ends at the same twenty two metres. Its delivery slip comes first. It adds six metres before either cut, then keeps three quarters and finally two thirds. Should the reconstructed starting stock still be thirty six metres? Trace where the six belongs."
+    },
+    {
+      "n": 7,
+      "title": "Same ending, another start",
+      "heading": "Same ending, another start",
+      "stage": "HARD",
+      "narration": "As before, undo the last cut to get thirty three metres. This time those thirty three metres are three quarters of the stock after delivery. Four equal quarters made forty four metres. Remove the six metre delivery last. The original shelf held thirty eight metres."
+    },
+    {
+      "n": 8,
+      "title": "Check both stock books",
+      "heading": "Check both stock books",
+      "stage": "RECAP",
+      "narration": "For the second book, thirty eight plus six is forty four. Three quarters leaves thirty three, and two thirds leaves twenty two. The first book began at thirty six and ended at the same amount. Write each fixed delivery at its own moment and label the whole for every fractional cut."
+    }
+  ]
+}
