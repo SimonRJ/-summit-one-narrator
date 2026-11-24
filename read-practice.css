@@ -108,3 +108,27 @@
     aspect-ratio: 16 / 9;
   }
 }
+
+/* Keep the mirror diagram beside its two disclosures on wide study screens. */
+@media (min-width: 800px) and (orientation: landscape) {
+  .rwl-example:has(> img[src$="/S008.svg"]) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: 1.25rem;
+    align-items: start;
+  }
+  .rwl-example:has(> img[src$="/S008.svg"]) > :is(h3, p:first-of-type) {
+    grid-column: 1 / -1;
+  }
+  .rwl-example:has(> img[src$="/S008.svg"]) > :is(.rwl-predict, details) {
+    grid-column: 2;
+  }
+  .rwl-example > img[src$="/S008.svg"] {
+    grid-area: 3 / 1 / span 2 / 2;
+    align-self: center;
+    margin: .4rem 0;
+  }
+  .rwl-example > img[src$="/S008.svg"] + .fv-open {
+    grid-area: 5 / 1;
+  }
+}
