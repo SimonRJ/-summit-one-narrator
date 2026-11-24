@@ -1,0 +1,63 @@
+{
+  "id": "S038",
+  "course_slot": 38,
+  "title": "The ticket drawer",
+  "scenes": [
+    {
+      "n": 1,
+      "heading": "Twenty-four counterfoils",
+      "title": "Twenty-four counterfoils",
+      "stage": "PUZZLE",
+      "narration": "At the theatre, every ticket sold leaves one counterfoil in the drawer. The clerk counts twenty-four counterfoils. Some are adult tickets and the rest are child tickets. If she finds one more adult counterfoil in that pile, what must happen to the number counted as child tickets?"
+    },
+    {
+      "n": 2,
+      "heading": "Name one unknown",
+      "title": "Name one unknown",
+      "stage": "BASIC",
+      "narration": "Write the letter x for the number of adult tickets. The pile has twenty-four counterfoils, so the child count is twenty-four minus x. Try x equal to six. Six adults and eighteen children account for the whole pile. The letter counts tickets, not dollars."
+    },
+    {
+      "n": 3,
+      "heading": "Read the till",
+      "title": "Read the till",
+      "stage": "EXAMPLE",
+      "narration": "An adult ticket costs eight dollars and a child ticket costs five dollars. The till contains one hundred and fifty dollars from these tickets. Multiply each price by the number sold at that price. Which two amounts add to the till total?"
+    },
+    {
+      "n": 4,
+      "heading": "Fill the drawer with child tickets",
+      "title": "Fill the drawer with child tickets",
+      "stage": "SOLUTION",
+      "narration": "Imagine all twenty-four tickets were child tickets. Their sales would bring in one hundred and twenty dollars. Put this beside the actual till total. The missing thirty dollars tells us how much the adult tickets added above the child price."
+    },
+    {
+      "n": 5,
+      "heading": "Upgrade one counterfoil",
+      "title": "Upgrade one counterfoil",
+      "stage": "CHALLENGE",
+      "narration": "Swap one imaginary child ticket for an adult ticket. The drawer still contains twenty-four counterfoils. The till gains three dollars, because eight minus five is three. How many of these three-dollar changes account for the missing thirty dollars?"
+    },
+    {
+      "n": 6,
+      "heading": "Restore the actual sale",
+      "title": "Restore the actual sale",
+      "stage": "SOLUTION",
+      "narration": "Ten changes add thirty dollars. There were ten adult tickets and fourteen child tickets. Ten times eight is eighty dollars. Fourteen times five is seventy dollars. The two amounts add to one hundred and fifty, and the two counts add to twenty-four."
+    },
+    {
+      "n": 7,
+      "heading": "The exchange window",
+      "title": "The exchange window",
+      "stage": "CHALLENGE",
+      "narration": "After the count, two adults return their tickets and receive full refunds. Three children then buy new tickets. The clerk says the till must have increased because the drawer now represents one extra sale. Is that right? Track the tickets and the money separately."
+    },
+    {
+      "n": 8,
+      "heading": "Check tickets and dollars separately",
+      "title": "Check tickets and dollars separately",
+      "stage": "RECAP",
+      "narration": "The adult count drops from ten to eight. The child count rises from fourteen to seventeen. That makes twenty-five tickets. Refund sixteen dollars and collect fifteen dollars. The till falls by one dollar, to one hundred and forty-nine. A higher ticket count can go with a lower money total."
+    }
+  ]
+}

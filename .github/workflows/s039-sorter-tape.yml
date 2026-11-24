@@ -1,0 +1,21 @@
+name: The sorter’s speed tape
+on:
+  push:
+    branches: [production/ticket-drawer-speed-tape]
+    paths:
+      - .github/workflows/s039-sorter-tape.yml
+      - .github/workflows/produce-original-study.yml
+      - production/lesson-films/sorter_tape.py
+      - production/scripts/S039.json
+  workflow_dispatch:
+jobs:
+  study:
+    permissions:
+      actions: read
+      contents: write
+    uses: ./.github/workflows/produce-original-study.yml
+    with:
+      lesson: S039
+      release_slug: s039-sorter-tape
+      release_title: 'The sorter’s speed tape'
+      release_notes: 'Recover a missing speed change, then explain how a ten-second scan changes the whole-trip average.'

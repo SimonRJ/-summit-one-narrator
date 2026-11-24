@@ -29,6 +29,8 @@ LESSONS = {
     "S017": "tile_framer",
     "S034": "ferry_road",
     "S037": "two_whistles",
+    "S038": "ticket_drawer",
+    "S039": "sorter_tape",
     "S137": "digit_detectives",
     "S138": "flow_bench",
     "S141": "creek_readings",

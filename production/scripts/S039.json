@@ -1,0 +1,63 @@
+{
+  "id": "S039",
+  "course_slot": 39,
+  "title": "The sorter’s speed tape",
+  "scenes": [
+    {
+      "n": 1,
+      "heading": "Read a speed tape",
+      "title": "Read a speed tape",
+      "stage": "PUZZLE",
+      "narration": "A parcel rides on a sorting belt. Every second a printer marks the speed on a tape. A strip ten seconds wide at a speed of thirty centimetres per second represents three hundred centimetres of travel. Its width is time and its height is speed."
+    },
+    {
+      "n": 2,
+      "heading": "Two speeds for equal times",
+      "title": "Two speeds for equal times",
+      "stage": "BASIC",
+      "narration": "The belt runs for ten seconds at thirty centimetres per second. It runs for ten more seconds at ten centimetres per second. The parcel travels three hundred centimetres and then one hundred centimetres. How far would a steady belt have to carry it over the same twenty seconds?"
+    },
+    {
+      "n": 3,
+      "heading": "Flatten the two strips",
+      "title": "Flatten the two strips",
+      "stage": "EXAMPLE",
+      "narration": "The two rectangles cover four hundred centimetres altogether. Slide part of the taller rectangle into the shorter one. The equal-height rectangle still covers four hundred, and its width is still twenty seconds. Its height is twenty centimetres per second. Equal times made this average land halfway between the speeds."
+    },
+    {
+      "n": 4,
+      "heading": "The damaged printout",
+      "title": "The damaged printout",
+      "stage": "SOLUTION",
+      "narration": "A second parcel stays on the moving belt for fifty seconds. The machine records an average speed of eighteen centimetres per second. The belt ran at thirty or ten throughout, but the printer lost the changeover mark. How much time was spent at the faster speed?"
+    },
+    {
+      "n": 5,
+      "heading": "Start with the slow strip",
+      "title": "Start with the slow strip",
+      "stage": "CHALLENGE",
+      "narration": "The recorded average means the parcel travelled eighteen times fifty, or nine hundred centimetres. If all fifty seconds had been slow, it would have travelled only five hundred centimetres. The actual tape must add four hundred centimetres above that slow rectangle."
+    },
+    {
+      "n": 6,
+      "heading": "Restore the missing width",
+      "title": "Restore the missing width",
+      "stage": "SOLUTION",
+      "narration": "Every second switched from slow to fast adds twenty centimetres. To add four hundred, the belt must run fast for twenty seconds. The remaining thirty seconds are slow. Check the tape: six hundred centimetres from the fast run and three hundred from the slow run give nine hundred."
+    },
+    {
+      "n": 7,
+      "heading": "A scanner pauses the belt",
+      "title": "A scanner pauses the belt",
+      "stage": "CHALLENGE",
+      "narration": "One final detail changes what the average measures. Once those two runs are complete, the parcel stands under a scanner for ten extra seconds. The belt printer reports only moving time. A customer times the whole parcel trip. Will the customer also calculate eighteen centimetres per second?"
+    },
+    {
+      "n": 8,
+      "heading": "Choose the clock in the question",
+      "title": "Choose the clock in the question",
+      "stage": "RECAP",
+      "narration": "The scan adds ten seconds and zero distance. The customer records sixty seconds and the same nine hundred centimetres. Nine hundred divided by sixty gives fifteen centimetres per second. On the speed tape, the scan is a strip with width ten and height zero. It adds time without adding area."
+    }
+  ]
+}

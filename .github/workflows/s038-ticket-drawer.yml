@@ -1,0 +1,21 @@
+name: The ticket drawer
+on:
+  push:
+    branches: [production/ticket-drawer-speed-tape]
+    paths:
+      - .github/workflows/s038-ticket-drawer.yml
+      - .github/workflows/produce-original-study.yml
+      - production/lesson-films/ticket_drawer.py
+      - production/scripts/S038.json
+  workflow_dispatch:
+jobs:
+  study:
+    permissions:
+      actions: read
+      contents: write
+    uses: ./.github/workflows/produce-original-study.yml
+    with:
+      lesson: S038
+      release_slug: s038-ticket-drawer
+      release_title: 'The ticket drawer'
+      release_notes: 'Count all 24 counterfoils, reconstruct the separate sales, and track the tickets and dollars through a return.'

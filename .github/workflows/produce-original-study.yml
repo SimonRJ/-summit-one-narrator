@@ -1,0 +1,304 @@
+name: Produce one original recorded study
+on:
+  workflow_call:
+    inputs:
+      lesson: {required: true, type: string}
+      release_slug: {required: true, type: string}
+      release_title: {required: true, type: string}
+      release_notes: {required: true, type: string}
+permissions:
+  contents: read
+  actions: read
+jobs:
+  plan:
+    runs-on: ubuntu-24.04
+    outputs:
+      groups: ${{ steps.plan.outputs.groups }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: production/scripts
+      - name: Divide the individually written scenes into recording sessions
+        id: plan
+        env:
+          LESSON: ${{ inputs.lesson }}
+        run: |
+          python - <<'PYTHON'
+          import json,os,re
+          from pathlib import Path
+          lesson=os.environ['LESSON']
+          assert re.fullmatch(r'S[0-9]{3}',lesson)
+          script=json.loads(Path('production/scripts',lesson+'.json').read_text())
+          scenes=script['scenes']
+          assert script['id']==lesson and 1<=len(scenes)<=30
+          assert [s['n'] for s in scenes]==list(range(1,len(scenes)+1))
+          assert all(s['narration'].strip() and s['title'].strip() for s in scenes)
+          groups=[{'first':i,'last':min(i+1,len(scenes))} for i in range(1,len(scenes)+1,2)]
+          with open(os.environ['GITHUB_OUTPUT'],'a') as f:print('groups='+json.dumps(groups,separators=(',',':')),file=f)
+          PYTHON
+
+  voice:
+    needs: plan
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        include: ${{ fromJSON(needs.plan.outputs.groups) }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    env:
+      HF_HUB_DISABLE_XET: '1'
+      TOKENIZERS_PARALLELISM: 'false'
+      OMP_NUM_THREADS: '4'
+      MKL_NUM_THREADS: '4'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            production
+            data
+            media/voice-audition
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install the studio narrator
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg libsndfile1
+          pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install 'transformers>=4.45,<5' 'huggingface-hub<1' einops pydantic soundfile librosa safetensors tqdm numpy scipy inflect addict argbind
+          pip install --no-deps 'git+https://github.com/OpenBMB/VoxCPM.git@300e4260b509066151d623dc9c0aa922cf82232b'
+      - name: Record with the approved Voice C reference
+        env:
+          FIRST: ${{ matrix.first }}
+          LAST: ${{ matrix.last }}
+          LESSON: ${{ inputs.lesson }}
+        run: |
+          python -c 'import json,os; json.dump([{"lesson":os.environ["LESSON"],"scene":i} for i in range(int(os.environ["FIRST"]),int(os.environ["LAST"])+1)],open("sequence.json","w"))'
+          python production/t01-studio/synth.py --sequence sequence.json --threads 4
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ inputs.lesson }}-voice-${{ matrix.first }}
+          path: build/t01-studio/${{ inputs.lesson }}-*
+          if-no-files-found: error
+          retention-days: 30
+
+  align:
+    needs: voice
+    env:
+      LESSON: ${{ inputs.lesson }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            production
+            data
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: ${{ inputs.lesson }}-voice-*
+          merge-multiple: true
+          path: build/t01-studio
+      - name: Align the script to its final recording
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg libsndfile1
+          pip install 'numpy==2.2.6' soundfile num2words faster-whisper
+          python production/t01-studio/prepare_audio.py "$LESSON"
+          mkdir aligned
+          cp production/scripts/"$LESSON".json aligned/script.json
+          cp build/t01-studio/"$LESSON"/{timeline.json,captions.vtt} aligned/
+          ffmpeg -v error -i build/t01-studio/"$LESSON"/narration.wav -c:a flac aligned/narration.flac
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          timing=json.loads(Path('aligned/timeline.json').read_text())
+          for scene in timing['scenes']:
+              print(f"Scene {scene['n']} ({scene['match_percent']}%)", scene['recognized_speech'])
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ inputs.lesson }}-aligned-voice
+          path: aligned/
+          if-no-files-found: error
+          retention-days: 30
+
+  render:
+    needs: align
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            production
+            data
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          name: ${{ inputs.lesson }}-aligned-voice
+          path: build/original-recording
+      - name: Draw, encode and compare the master with its artwork and speech
+        env:
+          LESSON: ${{ inputs.lesson }}
+        run: |
+          set -euo pipefail
+          cmp production/scripts/"$LESSON".json build/original-recording/script.json
+          sudo apt-get -o Acquire::Retries=3 update -qq
+          sudo apt-get install -y ffmpeg fonts-open-sans fonts-dejavu-core
+          python -m pip install 'numpy==2.2.6' 'pillow==11.3.0' num2words soundfile
+          mv build/original-recording build/recording
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          source = Path('build/recording')
+          script = json.loads((source / 'script.json').read_text())
+          timeline = json.loads((source / 'timeline.json').read_text())
+          narration = ' '.join(scene['narration'] for scene in script['scenes'])
+          captions = ' '.join(cue['text'] for cue in timeline['captions'])
+          assert narration == captions, 'Every spoken word must have its timed caption'
+          PY
+          python production/lesson-films/render_recorded.py "$LESSON" build/recording
+          python production/lesson-films/verify_recorded.py "$LESSON" build/recording
+          python production/lesson-films/render_recorded.py "$LESSON" build/recording --previews build/stills
+          mkdir -p build/candidate
+          cp "media/lesson-films/$LESSON.mp4" "media/lesson-films/$LESSON-poster.jpg" build/candidate/
+          cp production/lesson-films/"$LESSON"/guide.json build/candidate/"$LESSON"-guide.json
+          cp production/lesson-films/"$LESSON"/qa.json build/candidate/"$LESSON"-qa.json
+          cp build/recording/captions.vtt build/candidate/"$LESSON".vtt
+          python - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile, ZipInfo
+          import os
+          source = Path('build/recording')
+          with ZipFile(Path('build/candidate') / (os.environ['LESSON']+'-recording.zip'), 'w') as archive:
+              for name in ('script.json', 'timeline.json', 'captions.vtt', 'narration.flac'):
+                  archive.writestr(ZipInfo(name), (source / name).read_bytes())
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ inputs.lesson }}-reviewed-candidate
+          path: build/candidate/
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ inputs.lesson }}-review-stills
+          path: build/stills/
+          if-no-files-found: error
+          retention-days: 30
+
+  playback:
+    needs: render
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        profile: [iphone-portrait, iphone-landscape, ipad-portrait, ipad-landscape, pc]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            data
+            tools
+            figures
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          name: ${{ inputs.lesson }}-reviewed-candidate
+          path: build/candidate
+      - run: python -m pip install 'playwright==1.58.0' aiohttp
+      - if: matrix.profile != 'pc'
+        run: python -m playwright install --with-deps webkit
+      - name: Exercise the candidate through the app, gallery and notebook
+        env:
+          LESSON: ${{ inputs.lesson }}
+          PROFILE: ${{ matrix.profile }}
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, os
+          lesson_id=os.environ["LESSON"]
+          from pathlib import Path
+          guide = json.loads((Path('build/candidate')/(lesson_id+'-guide.json')).read_text())
+          guide['release'] = 'http://127.0.0.1:8765/build/candidate/'
+          catalogue = Path('data/recorded-studies.json')
+          data = json.loads(catalogue.read_text())
+          data['lessons'][lesson_id] = guide
+          catalogue.write_text(json.dumps(data))
+          source = Path('data/read-watch-practise.json')
+          data = json.loads(source.read_text())
+          lesson = next(row for row in data['lessons'] if row['slot'] == int(lesson_id[1:]))
+          lesson.update(bridge=guide['bridge'], videoTitle=guide['title'], movie=guide['release'] + lesson_id+'.mp4', filmUse='dedicated')
+          source.write_text(json.dumps(data))
+          PY
+          python - <<'PY' > "$RUNNER_TEMP/study-server.log" 2>&1 &
+          from aiohttp import web
+          from pathlib import Path
+          root = Path.cwd()
+          app = web.Application()
+          async def index(request):
+              return web.FileResponse(root / 'index.html')
+          app.router.add_get('/', index)
+          app.router.add_static('/', root)
+          web.run_app(app, host='127.0.0.1', port=8765)
+          PY
+          server=$!
+          trap 'kill "$server"' EXIT
+          curl --fail --silent --retry 15 --retry-connrefused http://127.0.0.1:8765/ -o /dev/null
+          python tools/check_lesson_film_routes.py --lesson "$LESSON" --site http://127.0.0.1:8765/ --profile "$PROFILE" --output build/device
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ${{ inputs.lesson }}-candidate-${{ matrix.profile }}
+          path: build/device/
+          if-no-files-found: warn
+          retention-days: 30
+
+  release:
+    needs: playback
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: ${{ inputs.lesson }}-reviewed-candidate
+          path: verified
+      - name: Publish the checked edition and compare every returned asset
+        env:
+          GH_TOKEN: ${{ github.token }}
+          LESSON: ${{ inputs.lesson }}
+          RELEASE_SLUG: ${{ inputs.release_slug }}
+          RELEASE_TITLE: ${{ inputs.release_title }}
+          RELEASE_NOTES: ${{ inputs.release_notes }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          tag="${RELEASE_SLUG}-${GITHUB_SHA:0:12}"
+          if ! gh release view "$tag" > /dev/null 2>&1; then
+            gh release create "$tag" --draft --target "$GITHUB_SHA" --title "$RELEASE_TITLE" --notes "$RELEASE_NOTES"
+          fi
+          draft=$(gh release view "$tag" --json isDraft --jq .isDraft)
+          if [[ "$draft" == true ]]; then gh release upload "$tag" verified/* --clobber; fi
+          gh release download "$tag" --dir returned
+          for asset in verified/*; do cmp "$asset" "returned/${asset##*/}"; done
+          if [[ "$draft" == true ]]; then gh release edit "$tag" --draft=false --latest=false; fi
+          test "$(gh release view "$tag" --json isDraft --jq .isDraft)" = false
+          echo "Released $tag"
+          cat verified/"$LESSON"-guide.json
+          cat verified/"$LESSON"-qa.json
