@@ -1,0 +1,63 @@
+name: Record the two corrected median passages
+on:
+  push:
+    branches: [production/median-score-notebook]
+    paths: ['production/lesson-films/voice-c-repairs/requests.json', '.github/workflows/median-score-notebook.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  voice:
+    strategy:
+      fail-fast: false
+      matrix:
+        scene: [7, 8]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    env:
+      HF_HUB_DISABLE_XET: '1'
+      TOKENIZERS_PARALLELISM: 'false'
+      OMP_NUM_THREADS: '4'
+      MKL_NUM_THREADS: '4'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            production
+            data
+            media/voice-audition
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install the studio narrator
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg libsndfile1
+          pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install 'transformers>=4.45,<5' 'huggingface-hub<1' einops pydantic soundfile librosa safetensors tqdm numpy scipy inflect addict argbind
+          pip install --no-deps 'git+https://github.com/OpenBMB/VoxCPM.git@300e4260b509066151d623dc9c0aa922cf82232b'
+      - name: Record with the approved Voice C reference
+        env:
+          SCENE: ${{ matrix.scene }}
+        run: |
+          python - <<'PYVOICE'
+          import json, os
+          from pathlib import Path
+          file = Path('production/scripts/T16.3.json')
+          script = json.loads(file.read_text())
+          scene = int(os.environ['SCENE'])
+          key = 'T16.3-four-values' if scene == 7 else 'T16.3-median-recap'
+          requests = json.loads(Path('production/lesson-films/voice-c-repairs/requests.json').read_text())
+          script['scenes'][scene - 1]['narration'] = next(row['text'] for row in requests if row['id'] == key)
+          file.write_text(json.dumps(script, ensure_ascii=False))
+          PYVOICE
+          python -c 'import json,os; json.dump([{"lesson":"T16.3","scene":int(os.environ["SCENE"])}],open("sequence.json","w"))'
+          python production/t01-studio/synth.py --sequence sequence.json --threads 4
+      - uses: actions/upload-artifact@v4
+        with:
+          name: median-voice-${{ matrix.scene }}
+          path: build/t01-studio/T16.3-*
+          if-no-files-found: error
+          retention-days: 30
+
