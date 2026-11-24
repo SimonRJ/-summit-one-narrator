@@ -21,6 +21,7 @@ VERSION = "t01-studio-v1"
 CHAPTER_VERSION = "studio-chapters-02-04-v1"
 COURSE_VERSION = "teaching-films-v1"
 REVISED_MEDIA = {
+    "T16.3": "score-notebook",
     "T13.3": "cube-workshop",
     "T02.3": "variable-bars-20261119",
     "T04.1": "factor-tree-84",
