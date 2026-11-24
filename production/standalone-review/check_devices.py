@@ -51,8 +51,8 @@ async def validate(site, profile, out):
                     if index==min(count-1,4): await player.screenshot(path=out/(film+'.png'))
                 if film.startswith('AMC2025'):
                     # Exercise the captions toggle and the actual timestamped cue through WebKit/Chromium.
-                    await player.evaluate("v=>{v.textTracks[0].mode='showing';v.currentTime=45;}")
-                    await page.wait_for_function("()=>Array.from(document.querySelector('video').textTracks[0].activeCues||[]).some(c=>c.text.includes('middle sums'))")
+                    await player.evaluate("v=>{[...v.textTracks].find(track=>track.kind==='captions').mode='showing';v.currentTime=45;}")
+                    await page.wait_for_function("()=>Array.from([...document.querySelector('video').textTracks].find(track=>track.kind==='captions')?.activeCues||[]).some(c=>c.text.includes('middle sums'))")
                     await page.get_by_text('Check your count',exact=True).click()
                     assert '2 × 2 = 4' in await page.locator('details[open]').inner_text()
                 if profile=='iphone-portrait':

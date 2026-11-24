@@ -99,7 +99,8 @@ def welcome():
     chapters=[(round(times['segments'][i]['start_seconds'],3),title) for i,title in WELCOME_CHAPTERS]
     report=chapter_movie(BUILD/'final.mp4',MEDIA/'AMCIntroduction.mp4',chapters)
     qa=json.loads((BUILD/'qa.json').read_text())
-    qa.update(sha256=report['sha256'],file_bytes=(MEDIA/'AMCIntroduction.mp4').stat().st_size,chapters=report['chapters'],
+    qa.pop('old_audio_used',None)
+    qa.update(other_voice_used=False,sha256=report['sha256'],file_bytes=(MEDIA/'AMCIntroduction.mp4').stat().st_size,chapters=report['chapters'],
               previous_approved_performances_retained=14,revised_approved_performances=4,sources='production/standalone-review/welcome-sources.json')
     (REVIEW/'AMCIntroduction-qa.json').write_text(json.dumps(qa,indent=2)+'\n')
     file=ROOT/'welcome.html'; page=file.read_text().replace('amc-intro-20261113',REV)
@@ -114,6 +115,8 @@ def welcome():
     js=ROOT/'welcome.js';js.write_text(js.read_text().replace('amc-intro-20261113',REV))
     tests=ROOT/'tools/welcome-check.mjs'
     s=tests.read_text().replace('assert.equal(await chapters.count(), 5);','assert.equal(await chapters.count(), 18);')
+    s=s.replace('v.textTracks[0].mode',"[...v.textTracks].find(track=>track.kind==='captions').mode")
+    s=s.replace("document.querySelector('video').textTracks[0].cues","[...document.querySelector('video').textTracks].find(track=>track.kind==='captions')?.cues")
     tests.write_text(s)
 
 
