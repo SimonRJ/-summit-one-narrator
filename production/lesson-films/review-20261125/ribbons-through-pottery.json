@@ -1,0 +1,42 @@
+{
+  "movies": {
+    "S022": {
+      "title": "The ribbon cutting table",
+      "bridge": "When a gold piece measuring 6 cm is left on the cutting table, pause. Which earlier whole can you reconstruct from four copies of that piece?",
+      "renderRun": 45491882289,
+      "branch": "production/ribbons-signals-20261124"
+    },
+    "S023": {
+      "title": "The four signal flags",
+      "bridge": "When the harbourmaster crosses out the rows with A beside B and the rows with C beside D, find a signal crossed out twice. How many orders can the two clips make?",
+      "renderRun": 45491882362,
+      "branch": "production/ribbons-signals-20261124"
+    },
+    "S025": {
+      "title": "The print shop discount wheel",
+      "bridge": "Pause when the price tag turns from $80 to $100. To undo the $20 rise, which price belongs under the fraction bar on the sale sticker?",
+      "renderRun": 45491886462,
+      "branch": "production/print-hide-kiln-20261124"
+    },
+    "S026": {
+      "title": "The bird hide tally rail",
+      "bridge": "Put a finger on each end of the bird hide’s two observation brackets. Which tally gets included a second time when you add their totals?",
+      "renderRun": 45491886490,
+      "branch": "production/print-hide-kiln-20261124"
+    },
+    "S027": {
+      "title": "Two shelves in the pottery kiln",
+      "bridge": "At the kiln, four pale pieces have one dot and four dark pieces have three dots. What happens to the number of dots when you exchange one group of four?",
+      "renderRun": 45491886536,
+      "branch": "production/print-hide-kiln-20261124"
+    }
+  },
+  "revisits": {
+    "233": "At the cutting table, one quarter of the original ribbon becomes red and one third of the remainder becomes blue. Why can the red and blue strips have equal lengths?",
+    "297": "When the potter imagines forty pale pieces, how many dots does that predict? Watch what happens to the dot total when one four-piece group changes clay.",
+    "314": "When the tag for period four turns over, the hide still has six observation periods. What total can you reconstruct from their mean before looking at the two shorter brackets?",
+    "324": "In the gold ribbon puzzle, start at the last cut and reconstruct the blue-and-gold piece. If a gift were added between two cuts, at which point in your backward steps would you take it out?",
+    "347": "When the print shop marks its framed print down, which price now represents one hundred percent? Check the tempting twenty-five-percent sticker against the target price.",
+    "353": "Clip the two forbidden flag pairs at the same time. Which rows receive two crossings? In your later arrangement, check whether the two forbidden pairs share a letter."
+  }
+}

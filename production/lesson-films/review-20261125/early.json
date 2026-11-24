@@ -1,0 +1,381 @@
+{
+  "repository": "SimonRJ/-summit-one-narrator",
+  "as_of_utc": "2026-11-24T21:36Z",
+  "integration": "For a successful public release, verify its guide and SHA-256 against the returned movie, install the guide in data/recorded-studies.json with the exact release URL, update videoTitle and movie for every listed consumer, and apply the listed bridges. Keep use=technique for later shared consumers. Update the individual review register after the edition is checked on the live site.",
+  "editions": [
+    {
+      "id": "S012",
+      "title": "The missing rung",
+      "branch": "production/s012-missing-rung",
+      "commit": "b46d28d6d37434c91c164a74005e1a9ec8b5a21f",
+      "art": "production/lesson-films/missing_rung.py",
+      "script": "production/scripts/S012.json",
+      "workflow": ".github/workflows/s012-film.yml",
+      "render_run": 45487384299,
+      "render_url": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45487384299",
+      "voice_run": 45487082602,
+      "expected_tag": "s012-missing-rung-20261125-b46d28d6d374",
+      "release_url_after_publication": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s012-missing-rung-20261125-b46d28d6d374/",
+      "consumers": [
+        {
+          "slot": 12,
+          "file": "data/read-watch-practise.json",
+          "film_use": "dedicated",
+          "bridge": "Pause when the film marks rung 3 as broken. Is rung 4 still reachable? Trace its possible final jumps before the film fills in the table.",
+          "bridge_changed": false
+        },
+        {
+          "slot": 248,
+          "file": "data/read-watch-practise-later.json",
+          "film_use": "technique",
+          "bridge": "Watch the film’s blocked rung remove a possible previous landing. Then ask what extra information a path count would need if an entire kind of move were restricted.",
+          "bridge_changed": false
+        }
+      ],
+      "candidate_qa": {
+        "sha256": "87e71ca9ae8e3355f9f092f05a7e4c0678313aa569bbc3b4cc63a200ff2cedd7",
+        "decoded_reference_comparisons": 138,
+        "picture_comparison_period_seconds": 1,
+        "maximum_picture_mean_channel_error_0_to_255": 1.945,
+        "maximum_caption_region_mean_channel_error_0_to_255": 2.147,
+        "minimum_source_audio_correlation_per_scene": 0.999556,
+        "recorded_scenes_checked": 8,
+        "timed_caption_phrases": 51,
+        "spoken_words": 351,
+        "source_voice_reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+        "source_word_alignment_percent": 99.52
+      },
+      "candidate_seconds": 137.333333
+    },
+    {
+      "id": "S015",
+      "title": "Two stamps for the mail train",
+      "branch": "production/original-studies-s015-s017",
+      "commit": "1d1bb402622c540061446a85c2aab9782b724bd1",
+      "art": "production/lesson-films/mail_train.py",
+      "script": "production/scripts/S015.json",
+      "workflow": ".github/workflows/s015-mail-train.yml",
+      "render_run": 45488080273,
+      "render_url": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45488080273",
+      "voice_run": 45487547111,
+      "expected_tag": "s015-mail-train-20261125-1d1bb402622c",
+      "release_url_after_publication": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s015-mail-train-20261125-1d1bb402622c/",
+      "consumers": [
+        {
+          "slot": 15,
+          "file": "data/read-watch-practise.json",
+          "film_use": "dedicated",
+          "bridge": "When the film adds 1 to make a number divisible by both 4 and 6, pause. Where must the two ends of the search interval move? After finding a common multiple, how will you get back to the original number?",
+          "bridge_changed": false
+        },
+        {
+          "slot": 260,
+          "file": "data/read-watch-practise-later.json",
+          "film_use": "technique",
+          "bridge": "Read the mail train’s two stamps independently. Which labels pass the divisibility-by-four test on the last two digits, and which of those also pass the digit-sum test for three?",
+          "bridge_changed": true
+        }
+      ]
+    },
+    {
+      "id": "S017",
+      "title": "A frame around two tiles",
+      "branch": "production/original-studies-s015-s017",
+      "commit": "1d1bb402622c540061446a85c2aab9782b724bd1",
+      "art": "production/lesson-films/tile_framer.py",
+      "script": "production/scripts/S017.json",
+      "workflow": ".github/workflows/s017-tile-framer.yml",
+      "render_run": 45488080237,
+      "render_url": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45488080237",
+      "voice_run": 45487547111,
+      "expected_tag": "s017-tile-framer-20261125-1d1bb402622c",
+      "release_url_after_publication": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s017-tile-framer-20261125-1d1bb402622c/",
+      "consumers": [
+        {
+          "slot": 17,
+          "file": "data/read-watch-practise.json",
+          "film_use": "dedicated",
+          "bridge": "In the film’s marked grid, first count rectangles containing cell A. To remove the unwanted ones, which four boundary choices guarantee a rectangle contains both A and B?",
+          "bridge_changed": false
+        },
+        {
+          "slot": 300,
+          "file": "data/read-watch-practise-later.json",
+          "film_use": "technique",
+          "bridge": "The film distinguishes grid cells from their boundary lines. As you follow the marked cells, also identify intersections where two boundary lines meet.",
+          "bridge_changed": false
+        }
+      ]
+    },
+    {
+      "id": "S019",
+      "title": "The domino colour test",
+      "branch": "production/correct-two-spoken-conditions",
+      "commit": "3d94f6856b475eb160c11bf7b6334ff13e9c61b6",
+      "art": "production/lesson-films/repair_spoken_condition.py",
+      "script": "production/scripts/S019.json",
+      "workflow": ".github/workflows/s019-domino-condition.yml",
+      "render_run": 45491819969,
+      "render_url": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45491819969",
+      "voice_run": 45488494887,
+      "expected_tag": "s019-domino-condition-20261125-3d94f6856b47",
+      "release_url_after_publication": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s019-domino-condition-20261125-3d94f6856b47/",
+      "consumers": [
+        {
+          "slot": 19,
+          "file": "data/read-watch-practise.json",
+          "film_use": "dedicated",
+          "bridge": "In the film’s first 4-by-4 example, the crosses mark the two leftmost squares in the top row. Which domino covers the two top squares that remain? What would you have to change if the middle two had been removed instead?",
+          "bridge_changed": false
+        },
+        {
+          "slot": 333,
+          "file": "data/read-watch-practise-later.json",
+          "film_use": "technique",
+          "bridge": "In the film, compare the two removed corner squares with the two neighbouring squares. Why does removing the same number of squares permit one tiling but rule out the other?",
+          "bridge_changed": false
+        }
+      ],
+      "corrected_scene": 5
+    },
+    {
+      "id": "S020",
+      "title": "Clock turns and last digits",
+      "branch": "production/correct-two-spoken-conditions",
+      "commit": "3d94f6856b475eb160c11bf7b6334ff13e9c61b6",
+      "art": "production/lesson-films/repair_spoken_condition.py",
+      "script": "production/scripts/S020.json",
+      "workflow": ".github/workflows/s020-exponent-49.yml",
+      "render_run": 45491820136,
+      "render_url": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45491820136",
+      "voice_run": 45488494887,
+      "expected_tag": "s020-exponent-49-20261125-3d94f6856b47",
+      "release_url_after_publication": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s020-exponent-49-20261125-3d94f6856b47/",
+      "consumers": [
+        {
+          "slot": 20,
+          "file": "data/read-watch-practise.json",
+          "film_use": "dedicated",
+          "bridge": "For the sum in the film, 12 complete blocks use exponents 1 to 48. The next exponent is 49: which position is that in the repeating pattern of last digits?",
+          "bridge_changed": false
+        },
+        {
+          "slot": 283,
+          "file": "data/read-watch-practise-later.json",
+          "film_use": "technique",
+          "bridge": "In the film's powers of three, label the exponent above each last digit. Find the first repeated digit together with its position before tackling the sum of many powers.",
+          "bridge_changed": false
+        }
+      ],
+      "corrected_scene": 9
+    },
+    {
+      "id": "S034",
+      "title": "The ferry-road ride",
+      "branch": "production/ferry-road-two-whistles",
+      "commit": "907c567380fb99506f53ee011c81d91a1928a0eb",
+      "art": "production/lesson-films/ferry_road.py",
+      "script": "production/scripts/S034.json",
+      "workflow": ".github/workflows/s034-ferry-road.yml",
+      "render_run": 45489806973,
+      "render_url": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45489806973",
+      "voice_run": 45489476455,
+      "expected_tag": "s034-ferry-road-20261125-907c567380fb",
+      "release_url_after_publication": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s034-ferry-road-20261125-907c567380fb/",
+      "consumers": [
+        {
+          "slot": 34,
+          "file": "data/read-watch-practise.json",
+          "film_use": "dedicated",
+          "bridge": "On the film’s out-and-back ride, the distance counter stops for twelve minutes. Does the elapsed-time counter stop too? Decide which total belongs under the total distance.",
+          "bridge_changed": false
+        },
+        {
+          "slot": 270,
+          "file": "data/read-watch-practise-later.json",
+          "film_use": "technique",
+          "bridge": "During the film's out-and-back ride, put the stop on the same clock as both legs. A deadline leaves only the time after everything already done has been subtracted.",
+          "bridge_changed": false
+        }
+      ]
+    },
+    {
+      "id": "S037",
+      "title": "The two starting whistles",
+      "branch": "production/ferry-road-two-whistles",
+      "commit": "907c567380fb99506f53ee011c81d91a1928a0eb",
+      "art": "production/lesson-films/two_whistles.py",
+      "script": "production/scripts/S037.json",
+      "workflow": ".github/workflows/s037-two-whistles.yml",
+      "render_run": 45489806997,
+      "render_url": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45489806997",
+      "voice_run": 45489476455,
+      "expected_tag": "s037-two-whistles-20261125-907c567380fb",
+      "release_url_after_publication": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s037-two-whistles-20261125-907c567380fb/",
+      "consumers": [
+        {
+          "slot": 37,
+          "file": "data/read-watch-practise.json",
+          "film_use": "dedicated",
+          "bridge": "Start a second clock when the chasing runner sets off. What gap has already opened? In the round-track puzzle, which clock does the question use for the second meeting?",
+          "bridge_changed": false
+        },
+        {
+          "slot": 311,
+          "file": "data/read-watch-practise-later.json",
+          "film_use": "technique",
+          "bridge": "In the film's head-start chase, identify the gap and the rate at which it closes. Read the same relationship backwards when a meeting time is given instead.",
+          "bridge_changed": false
+        }
+      ]
+    },
+    {
+      "id": "S038",
+      "title": "The ticket drawer",
+      "branch": "production/ticket-drawer-speed-tape",
+      "commit": "31d8c0d6971f73e017b523d54767030b1f29219d",
+      "art": "production/lesson-films/ticket_drawer.py",
+      "script": "production/scripts/S038.json",
+      "workflow": ".github/workflows/s038-ticket-drawer.yml",
+      "render_run": 45490634394,
+      "render_url": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45490634394",
+      "voice_run": 45490634394,
+      "expected_tag": "s038-ticket-drawer-31d8c0d6971f",
+      "release_url_after_publication": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s038-ticket-drawer-31d8c0d6971f/",
+      "consumers": [
+        {
+          "slot": 38,
+          "file": "data/read-watch-practise.json",
+          "film_use": "dedicated",
+          "bridge": "In the film’s ticket office, there are 24 tickets in all. If x are adult tickets, why can 24 − x stand for the child tickets? Write a money total and check the units of each term.",
+          "bridge_changed": false
+        },
+        {
+          "slot": 170,
+          "file": "data/read-watch-practise-later.json",
+          "film_use": "technique",
+          "bridge": "The film chooses an unknown for the ticket problem. Ask what the other ticket count becomes once the total number sold is known.",
+          "bridge_changed": false
+        },
+        {
+          "slot": 202,
+          "file": "data/read-watch-practise-later.json",
+          "film_use": "technique",
+          "bridge": "Build the till total from the child-only amount and the extra dollars per adult ticket. Which part stays fixed as the adult count changes?",
+          "bridge_changed": true
+        },
+        {
+          "slot": 261,
+          "file": "data/read-watch-practise-later.json",
+          "film_use": "technique",
+          "bridge": "The film writes expressions for two ticket categories using one unknown. Watch which expressions describe the same input, a useful step when two pricing rules must agree.",
+          "bridge_changed": false
+        },
+        {
+          "slot": 293,
+          "file": "data/read-watch-practise-later.json",
+          "film_use": "technique",
+          "bridge": "In the film's ticket sale, pause after choosing the first unknown. Form an expression for the remaining tickets and test what the two ticket counts must add to.",
+          "bridge_changed": false
+        }
+      ]
+    },
+    {
+      "id": "S039",
+      "title": "The sorter’s speed tape",
+      "branch": "production/ticket-drawer-speed-tape",
+      "commit": "31d8c0d6971f73e017b523d54767030b1f29219d",
+      "art": "production/lesson-films/sorter_tape.py",
+      "script": "production/scripts/S039.json",
+      "workflow": ".github/workflows/s039-sorter-tape.yml",
+      "render_run": 45490634455,
+      "render_url": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45490634455",
+      "voice_run": 45490634455,
+      "expected_tag": "s039-sorter-tape-31d8c0d6971f",
+      "release_url_after_publication": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s039-sorter-tape-31d8c0d6971f/",
+      "consumers": [
+        {
+          "slot": 39,
+          "file": "data/read-watch-practise.json",
+          "film_use": "dedicated",
+          "bridge": "On the sorter’s speed tape, the fast and slow strips have different widths. What do the width, height and area of each rectangle measure?",
+          "bridge_changed": true
+        },
+        {
+          "slot": 179,
+          "file": "data/read-watch-practise-later.json",
+          "film_use": "technique",
+          "bridge": "The sorter stops for a ten-second scan. Compare the time printed for belt movement with the time a customer measures from start to finish.",
+          "bridge_changed": true
+        },
+        {
+          "slot": 368,
+          "file": "data/read-watch-practise-later.json",
+          "film_use": "technique",
+          "bridge": "On the speed tape, one time mark has been lost. Use the final average and total time to restore the distance before you work back to the length of the fast run.",
+          "bridge_changed": true
+        }
+      ]
+    },
+    {
+      "id": "S040",
+      "title": "The signal-lamp meter",
+      "branch": "production/signal-lamps-track-pieces",
+      "commit": "61d6658043c801f36792aaa27ebcbf3a5686c2e7",
+      "art": "production/lesson-films/signal_meter.py",
+      "script": "production/scripts/S040.json",
+      "workflow": ".github/workflows/s040-signal-meter.yml",
+      "render_run": 45492571146,
+      "render_url": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45492571146",
+      "voice_run": 45492571146,
+      "expected_tag": "s040-signal-meter-61d6658043c8",
+      "release_url_after_publication": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s040-signal-meter-61d6658043c8/",
+      "consumers": [
+        {
+          "slot": 40,
+          "file": "data/read-watch-practise.json",
+          "film_use": "dedicated",
+          "bridge": "When the two racks are switched on together, group the six lamps into identical pairs. Which two meter readings can you subtract to learn what one amber lamp draws?",
+          "bridge_changed": true
+        },
+        {
+          "slot": 243,
+          "file": "data/read-watch-practise-later.json",
+          "film_use": "technique",
+          "bridge": "The two rack readings differ by 2 mA. If you add the same lamp to both racks, what happens to that difference? Connect this to two people getting a year older together.",
+          "bridge_changed": true
+        }
+      ]
+    },
+    {
+      "id": "S041",
+      "title": "The track-piece workshop",
+      "branch": "production/signal-lamps-track-pieces",
+      "commit": "61d6658043c801f36792aaa27ebcbf3a5686c2e7",
+      "art": "production/lesson-films/track_workshop.py",
+      "script": "production/scripts/S041.json",
+      "workflow": ".github/workflows/s041-track-workshop.yml",
+      "render_run": 45492571200,
+      "render_url": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45492571200",
+      "voice_run": 45492571200,
+      "expected_tag": "s041-track-workshop-61d6658043c8",
+      "release_url_after_publication": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s041-track-workshop-61d6658043c8/",
+      "consumers": [
+        {
+          "slot": 41,
+          "file": "data/read-watch-practise.json",
+          "film_use": "dedicated",
+          "bridge": "The workshop doubles the complete second sample. Before removing any matching pieces, list all its straights, bends and centimetres. Where did each doubled quantity come from?",
+          "bridge_changed": true
+        },
+        {
+          "slot": 284,
+          "file": "data/read-watch-practise-later.json",
+          "film_use": "technique",
+          "bridge": "Watch the workshop copy a whole track sample. Which piece counts and which path length must be doubled before you subtract matching pieces?",
+          "bridge_changed": true
+        }
+      ]
+    }
+  ]
+}

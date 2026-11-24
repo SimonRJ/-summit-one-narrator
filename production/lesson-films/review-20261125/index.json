@@ -1,0 +1,107 @@
+{
+  "course": "Summit One",
+  "baseline": "2cc35f112cd1dd75188ca5ad2b851daa25d06042",
+  "scope": {
+    "written_lessons": 283,
+    "graded_problems": 1586,
+    "verified_protected_fingerprints": 283,
+    "dedicated_films_required": 283,
+    "companion_films": 72,
+    "challenge_film_queue": 194,
+    "standalone_films": 2
+  },
+  "integration_files": [
+    "early.json",
+    "ribbons-through-pottery.json",
+    "reopened-cubes-and-parade.json",
+    "market-gauge-signal.json",
+    "carry-reversal-and-standalones.json"
+  ],
+  "additional_productions": [
+    {
+      "lessons": [
+        "S001",
+        "S002",
+        "S003",
+        "S004",
+        "S005",
+        "S006"
+      ],
+      "branch": "production/six-chaptered-openings",
+      "change": "Embed 42 native chapter marks. Compare both encoded streams with the existing public masters. Update cache revision when integrating."
+    },
+    {
+      "lessons": [
+        "S156",
+        "S159"
+      ],
+      "branch": "production/observatory-mosaic",
+      "voice_run": 45489850219,
+      "film_workflows": [
+        "s156-film.yml",
+        "s159-film.yml"
+      ],
+      "sha": "6c8f88d1d66d7117cfef78fdb36f8048c3331b40",
+      "change": "Replace the previously shared films with two dedicated eight-chapter films. Use each guide’s own bridge."
+    },
+    {
+      "lessons": [
+        "S162",
+        "S163"
+      ],
+      "branch": "production/rooftop-scanner",
+      "voice_commit": "1239164651aca01c9632ba948626ec638d599bfb",
+      "film_workflows": [
+        "s162-film.yml",
+        "s163-film.yml"
+      ],
+      "change": "Replace the previous technique replays with dedicated films. Use each guide’s own bridge.",
+      "sha": "0975227ec8d179e02970ef759a4f66ad210cf599"
+    },
+    {
+      "companions": [
+        "T05.2",
+        "T05.3",
+        "T16.3"
+      ],
+      "published_commit": "0eaf1141b085bdb1f04fe8932d392b1959b34970",
+      "device_run": 45491019384,
+      "change": "Also includes 72 lesson-specific practice variations on the companion watch pages."
+    },
+    {
+      "companions": [
+        "T06.1",
+        "T06.3"
+      ],
+      "branch": "production/incidence-workshops"
+    },
+    {
+      "companions": "19 notebook prompts across chapters 14–18",
+      "branch": "production/illustrated-companion-notebooks"
+    },
+    {
+      "challenge_films": "Original protected queue",
+      "voice_run": 45491285961,
+      "worker": "protected-narration.yml",
+      "change": "Production scripts, actual masters, audio and visual plans are private. Check the first batch in the private delivery path. Staged or historic media does not count as a current learner release."
+    }
+  ],
+  "registers": [
+    "review/written-lesson-register.csv",
+    "docs/lesson-introduction-review-register-20261116.csv",
+    "docs/teaching-video-review-register-20261116.csv",
+    "review/course-review-scope.json"
+  ],
+  "verification": {
+    "assigned_public_masters": 121,
+    "assigned_master_frame_review_run": 45488906265,
+    "assigned_public_chapters": 855,
+    "duplicate_evidence": "review/lesson-films-rechecked-20261125.json",
+    "learner_progress": "https://simonrj.github.io/-summit-one-narrator/review/course-progress.html"
+  },
+  "protected_master_inspection": {
+    "archive_masters": 194,
+    "masters_with_an_audio_stream": 1,
+    "masters_matching_designated_finished_digest": 0
+  }
+}

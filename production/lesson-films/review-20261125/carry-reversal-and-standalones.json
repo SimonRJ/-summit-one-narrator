@@ -1,0 +1,253 @@
+{
+  "as_of_utc": "2026-11-24T21:36:19+00:00",
+  "repo": "SimonRJ/-summit-one-narrator",
+  "original_course_base": "fe4a77674e6e2c568c78552727c5b274763dc3db",
+  "steps": {
+    "lesson_catalogue": "For each successfully published lesson, put the exact released id, title, sha256, seconds, bridge, chapters and transcript from its guide in data/recorded-studies.json, plus release set to the immutable URL ending in a slash.",
+    "learner_routes": "Update videoTitle, movie, filmUse and the listed bridge on each dedicated or technique slot. Slots 9 and 10 are in data/read-watch-practise.json; all other slots below are in data/read-watch-practise-later.json. Preserve question IDs and grading edition. Completed replays must retain the actual old movie where it was present.",
+    "fixtures": "Coordinate changes to the shared render_recorded.py LESSONS map: S009 carry_counter, S010 reversal_line, S095 pair_total_ledger, S097 domino_strip. Only add these entries when merging the branches’ independent full-file versions.",
+    "signoff": "Each dedicated release happens only after successful full encoded decode, second-by-second artwork checks, scene audio correlation and five device routes. Run the public deployed routes again after main integration. The two standalone assets use their pre-existing same-origin filenames and await the checked staging commit, not a manual binary edit."
+  },
+  "groups": [
+    {
+      "branch": "production/carry-reversal-reviewed-20261125",
+      "commit": "bcbd31159202426b90d4ec7250edf43910dc8a37",
+      "render_playback_release_run": 45488154406,
+      "run_url": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45488154406",
+      "voice_run": 45487052370,
+      "release_tag": "carry-reversal-reviewed-20261125-bcbd31159202",
+      "release_url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/"
+    },
+    {
+      "branch": "production/pair-clues-and-dominoes-20261125",
+      "commit": "e1966766375ca9a52e287920bcb907126829d8ca",
+      "render_playback_release_run": 45491442169,
+      "run_url": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45491442169",
+      "voice_run": null,
+      "release_tag": "paired-examples-reviewed-20261125-e1966766375c",
+      "release_url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/paired-examples-reviewed-20261125-e1966766375c/"
+    },
+    {
+      "branch": "production/standalone-welcome-pyramid-20261125",
+      "commit": "7934cb331b4296fa19ee5ec5f952eb9e798c891f",
+      "render_playback_release_run": 45490167140,
+      "run_url": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45490167140",
+      "voice_run": 45488475883,
+      "release_tag": "standalone-checked-20261125-7934cb331b42",
+      "release_url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/standalone-checked-20261125-7934cb331b42/"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "S009",
+      "title": "The carry counter",
+      "expected_release": "carry-reversal-reviewed-20261125-bcbd31159202",
+      "expected_movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S009.mp4",
+      "guide_name": "S009-guide.json",
+      "qa_name": "S009-qa.json",
+      "movie_source": "carry_counter",
+      "published_at_last_check": false,
+      "canonical_slot": {
+        "slot": 9,
+        "filmUse": "dedicated",
+        "bridge": "Track the sleeve that crosses from the units drawer into the tens drawer. Later, read the hundreds drawer first."
+      },
+      "revisits": [
+        {
+          "slot": 228,
+          "filmUse": "technique",
+          "bridge": "When eight and eight make sixteen, follow the six loose units and the sleeve worth one ten. Where does each go before the tens are added?"
+        }
+      ],
+      "sha256": "39d28fec11fe4cc1b1d1b840d01ab8d8b3ae3ccb6d184bf37c1ccf4e37c16ef6",
+      "seconds": 132.433333,
+      "chapters": [
+        {
+          "title": "Two trays at the counter",
+          "start": 0.0
+        },
+        {
+          "title": "Where did the zero come from?",
+          "start": 13.88
+        },
+        {
+          "title": "Unpack the tens",
+          "start": 30.2
+        },
+        {
+          "title": "Which letter crossed the counter?",
+          "start": 45.72
+        },
+        {
+          "title": "The hundreds drawer can hold only one",
+          "start": 64.57
+        },
+        {
+          "title": "The first tray that fills a hundred",
+          "start": 81.85
+        },
+        {
+          "title": "Carry through a second drawer",
+          "start": 104.88
+        }
+      ],
+      "encoded_qa": {
+        "sha256": "39d28fec11fe4cc1b1d1b840d01ab8d8b3ae3ccb6d184bf37c1ccf4e37c16ef6",
+        "decoded_reference_comparisons": 133,
+        "picture_comparison_period_seconds": 1,
+        "maximum_picture_mean_channel_error_0_to_255": 2.12,
+        "maximum_caption_region_mean_channel_error_0_to_255": 2.124,
+        "minimum_source_audio_correlation_per_scene": 0.999592,
+        "recorded_scenes_checked": 7,
+        "timed_caption_phrases": 55,
+        "spoken_words": 326,
+        "source_voice_reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+        "source_word_alignment_percent": 96.06
+      }
+    },
+    {
+      "id": "S010",
+      "title": "The reversal line",
+      "expected_release": "carry-reversal-reviewed-20261125-bcbd31159202",
+      "expected_movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S010.mp4",
+      "guide_name": "S010-guide.json",
+      "qa_name": "S010-qa.json",
+      "movie_source": "reversal_line",
+      "published_at_last_check": false,
+      "canonical_slot": {
+        "slot": 10,
+        "filmUse": "dedicated",
+        "bridge": "Follow the two digits when the ticket turns. At inspection, compare both the printed sum and the letters that received its digits."
+      },
+      "revisits": [
+        {
+          "slot": 319,
+          "filmUse": "technique",
+          "bridge": "In the ticket inspection, use the zero in the units column to force the missing digit. Then watch why 51 + 59 is rejected despite adding correctly."
+        }
+      ],
+      "sha256": "e8e2e6f697b00cd9401479a603bf6992c2538a107b3fbd519cac0e0b9b7f9a71",
+      "seconds": 140.433333,
+      "chapters": [
+        {
+          "title": "Turn a number ticket",
+          "start": 0.0
+        },
+        {
+          "title": "What a swap buys",
+          "start": 13.72
+        },
+        {
+          "title": "Two clues, one ticket",
+          "start": 29.88
+        },
+        {
+          "title": "The inspector’s rule",
+          "start": 47.0
+        },
+        {
+          "title": "A correct sum gets rejected",
+          "start": 68.25
+        },
+        {
+          "title": "Admit the next ticket",
+          "start": 90.48
+        },
+        {
+          "title": "Issue a ticket from two new clues",
+          "start": 110.48
+        }
+      ],
+      "encoded_qa": {
+        "sha256": "e8e2e6f697b00cd9401479a603bf6992c2538a107b3fbd519cac0e0b9b7f9a71",
+        "decoded_reference_comparisons": 141,
+        "picture_comparison_period_seconds": 1,
+        "maximum_picture_mean_channel_error_0_to_255": 1.784,
+        "maximum_caption_region_mean_channel_error_0_to_255": 1.981,
+        "minimum_source_audio_correlation_per_scene": 0.999767,
+        "recorded_scenes_checked": 7,
+        "timed_caption_phrases": 62,
+        "spoken_words": 357,
+        "source_voice_reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+        "source_word_alignment_percent": 97.39
+      }
+    },
+    {
+      "id": "S095",
+      "title": "The pair-total ledger",
+      "expected_release": "paired-examples-reviewed-20261125-e1966766375c",
+      "expected_movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/paired-examples-reviewed-20261125-e1966766375c/S095.mp4",
+      "guide_name": "S095-guide.json",
+      "qa_name": "S095-qa.json",
+      "movie_source": "pair_total_ledger",
+      "published_at_last_check": false,
+      "canonical_slot": {
+        "slot": 95,
+        "filmUse": "dedicated",
+        "bridge": "Follow the three pairs into the ledger. When you subtract a pair from the total of all three boxes, which box stays behind?"
+      },
+      "revisits": [
+        {
+          "slot": 211,
+          "filmUse": "technique",
+          "bridge": "Add the two stationery receipts. How many sets of one notebook and one ruler are in the combined purchase? Find the price of that set before finding either item separately."
+        },
+        {
+          "slot": 334,
+          "filmUse": "technique",
+          "bridge": "In the three-box ledger, count how many times each box appears across the three pairs. Why can you halve the sum before subtracting the pair that omits one box?"
+        }
+      ]
+    },
+    {
+      "id": "S097",
+      "title": "The domino strip",
+      "expected_release": "paired-examples-reviewed-20261125-e1966766375c",
+      "expected_movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/paired-examples-reviewed-20261125-e1966766375c/S097.mp4",
+      "guide_name": "S097-guide.json",
+      "qa_name": "S097-qa.json",
+      "movie_source": "domino_strip",
+      "published_at_last_check": false,
+      "canonical_slot": {
+        "slot": 97,
+        "filmUse": "dedicated",
+        "bridge": "At the left edge, put a horizontal domino in the top row. Which cell now forces a second horizontal domino underneath?"
+      },
+      "revisits": [
+        {
+          "slot": 218,
+          "filmUse": "technique",
+          "bridge": "Compare the board with two corners missing and the two-row domino strip. The area test rules out one tiling. Which boundary cell determines the next move on the other board?"
+        },
+        {
+          "slot": 341,
+          "filmUse": "technique",
+          "bridge": "When the first two horizontal dominoes form a block, cover that block with your hand. What smaller board remains, and how would fixing a middle piece divide it into two parts?"
+        }
+      ]
+    }
+  ],
+  "standalones": {
+    "expected_approved_actor": "VoxCPM2, user-approved voice C",
+    "asset_paths": [
+      "media/AMCIntroduction.mp4",
+      "media/AMCIntroduction.vtt",
+      "media/AMCIntroduction-transcript.txt",
+      "media/AMCIntroduction-poster.jpg",
+      "media/AMC2025Q17-voice-c.mp4",
+      "media/AMC2025Q17-voice-c.vtt",
+      "review/AMCIntroduction-qa.json",
+      "review/AMCIntroduction-alignment-qa.json",
+      "review/AMC2025Q17-edition.json",
+      "welcome.html",
+      "welcome.js",
+      "watch-amc-2025-q17.html",
+      "tools/welcome-check.mjs"
+    ],
+    "welcome": "Four of 18 recorded passages and animations are replaced by Read, Watch, Practise, and timed Part A / Part B. All 18 chapters have measured player/native chapter points and rephrased caption boundaries. Fourteen original approved performances are retained.",
+    "pyramid": "50.8 s; six measured chapters at 0, 23.22, 29.05, 34.09, 39.82 and 43.74; verified all 120 arrangements, exactly four give 32. Original encoded video and Voice C stream hashes unchanged while chapters, captions, full plain-text question/narration, replay navigation and worked answer are available.",
+    "checked_staging_commit": null,
+    "expected_release_tag": "standalone-checked-20261125-7934cb331b42"
+  },
+  "update": "S095 and S097 seven-chapter editions remain candidates. Cross-course comparison found repeated mathematical examples. New example families and an original transfer are being recorded before final editorial approval."
+}

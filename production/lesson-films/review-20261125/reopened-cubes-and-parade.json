@@ -1,0 +1,30 @@
+{
+  "commit": "2625c5f6a756bd887d07ce96a5ea031b363283cc",
+  "movies": {
+    "S072": {
+      "title": "Inside the cutaway cliff",
+      "bridge": "At the quarry, the top drill and the tunnel both pass through floor two. Which column and row identify the cube they share? Check your answer on each slide-out floor.",
+      "run": 45491524503,
+      "branch": "production/cliff-survey-parade-20261124"
+    },
+    "S087": {
+      "title": "The survey of the L-shaped yard",
+      "bridge": "One stack in the L-shaped yard can change without either camera noticing. Which neighbours set the back-row and column-A outlines, and what does the scale add?",
+      "run": 45491524217,
+      "branch": "production/cliff-survey-parade-20261124"
+    },
+    "S088": {
+      "title": "The gap at the parade gate",
+      "bridge": "Pin the bell float at the gate so a rotation counts only once. Follow the route past the last float. Where is the gap that a straight-line count misses?",
+      "run": 45491524274,
+      "branch": "production/cliff-survey-parade-20261124"
+    }
+  },
+  "revisits": {
+    "163": "Read the L-shaped yard as a stack plan. If you add a cube at the back left, which horizontal floor gains a position? Decide whether either camera will see the change.",
+    "195": "When the two drills meet inside the quarry, pause on floor two. Which cube would be removed twice if you subtracted both complete drill lengths?",
+    "286": "At the end of the yard survey, raise the back-left stack one cube at a time. Which addition changes a floor count without changing either outline? Which addition finally changes the side view?",
+    "345": "At the quarry, count the removed cubes once by tracing the drill paths and again by sliding out the four floors. What would both counts have to agree on?",
+    "171": "At the parade gate, compare placing the blue van in the red van’s gap with placing it in a different gap. Which case breaks the rule? Check how turning the road into a loop changes the available gaps."
+  }
+}

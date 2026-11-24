@@ -1,0 +1,103 @@
+{
+  "repository": "SimonRJ/-summit-one-narrator",
+  "branch": "production/market-gauge-signal-studies",
+  "candidateCommit": "e4d7059a51d98cd2bf0bd99c12cd595035e89d7f",
+  "voiceCommit": "da8295e09d25df284e9257f44c79a9e19cf88b25",
+  "voiceJob": 45489951546,
+  "voiceWorkflow": ".github/workflows/market-gauge-signal-voices.yml",
+  "promotion": "Once final release exists and the candidate workflow passes, use the release guide, MP4 and poster for that film ID. Copy the exact duration, chapter and checksum values from the released guide and QA artifact. Keep every source, revisit and the movie index on the same final release.",
+  "editions": [
+    {
+      "id": "S029",
+      "title": "The price ticket drawer",
+      "run": 45490531948,
+      "runUrl": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45490531948",
+      "workflow": ".github/workflows/s029-price-ticket.yml",
+      "source": "production/lesson-films/price_ticket.py",
+      "script": "production/scripts/S029.json",
+      "releaseTagOnSuccess": "s029-price-ticket-20261125-e4d7059a51d9",
+      "releaseBaseOnSuccess": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s029-price-ticket-20261125-e4d7059a51d9/",
+      "guideOnSuccess": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s029-price-ticket-20261125-e4d7059a51d9/S029-guide.json",
+      "assignments": [
+        {
+          "slot": 29,
+          "filmUse": "dedicated",
+          "videoId": "S029",
+          "videoTitle": "The price ticket drawer",
+          "movieOnSuccess": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s029-price-ticket-20261125-e4d7059a51d9/S029.mp4",
+          "bridge": "The bicycle costs $360 after the sale. Which three equal shares does that ticket buy, and what did one share cost before the discount?",
+          "examplePrediction": "Picture ten equal parts of the usual price. How many of them does $42 buy?",
+          "exampleAction": "preserve current worked example and existing prediction"
+        },
+        {
+          "slot": 165,
+          "filmUse": "technique",
+          "videoId": "S029",
+          "videoTitle": "The price ticket drawer",
+          "movieOnSuccess": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s029-price-ticket-20261125-e4d7059a51d9/S029.mp4",
+          "bridge": "In the packing contest, blue fills more orders correctly. What changes when you compare the fraction each team gets right? Then look at the bicycle tickets and track which price each percentage uses.",
+          "examplePrediction": "Does the quarter describe what you pay or what the shop takes off?",
+          "exampleAction": "preserve current worked example and existing prediction"
+        }
+      ]
+    },
+    {
+      "id": "S031",
+      "title": "The pump shed log",
+      "run": 45490531950,
+      "runUrl": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45490531950",
+      "workflow": ".github/workflows/s031-pump-shed.yml",
+      "source": "production/lesson-films/pump_shed.py",
+      "script": "production/scripts/S031.json",
+      "releaseTagOnSuccess": "s031-pump-shed-20261125-e4d7059a51d9",
+      "releaseBaseOnSuccess": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s031-pump-shed-20261125-e4d7059a51d9/",
+      "guideOnSuccess": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s031-pump-shed-20261125-e4d7059a51d9/S031-guide.json",
+      "assignments": [
+        {
+          "slot": 31,
+          "filmUse": "dedicated",
+          "videoId": "S031",
+          "videoTitle": "The pump shed log",
+          "movieOnSuccess": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s031-pump-shed-20261125-e4d7059a51d9/S031.mp4",
+          "bridge": "The leak starts two minutes after the hoses. Read the gauge at that moment. Which rate belongs to the remaining part of the fill?",
+          "examplePrediction": "At the end of the first minute, how much has each tap put into the bucket?",
+          "exampleAction": "preserve current worked example and existing prediction"
+        },
+        {
+          "slot": 229,
+          "filmUse": "technique",
+          "videoId": "S031",
+          "videoTitle": "The pump shed log",
+          "movieOnSuccess": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s031-pump-shed-20261125-e4d7059a51d9/S031.mp4",
+          "bridge": "Aya and Rob work through one shared minute at the packing bench. If you knew their combined output and Aya’s output, how would you recover Rob’s rate?",
+          "examplePrediction": "Which boxes in the team's minute of work have already been counted for Lee?",
+          "exampleAction": "preserve current worked example and existing prediction"
+        }
+      ]
+    },
+    {
+      "id": "S033",
+      "title": "The claims noticeboard",
+      "run": 45490532039,
+      "runUrl": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45490532039",
+      "workflow": ".github/workflows/s033-claims-board.yml",
+      "source": "production/lesson-films/claims_board.py",
+      "script": "production/scripts/S033.json",
+      "releaseTagOnSuccess": "s033-claims-board-20261125-e4d7059a51d9",
+      "releaseBaseOnSuccess": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s033-claims-board-20261125-e4d7059a51d9/",
+      "guideOnSuccess": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s033-claims-board-20261125-e4d7059a51d9/S033-guide.json",
+      "assignments": [
+        {
+          "slot": 33,
+          "filmUse": "dedicated",
+          "videoId": "S033",
+          "videoTitle": "The claims noticeboard",
+          "movieOnSuccess": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s033-claims-board-20261125-e4d7059a51d9/S033.mp4",
+          "bridge": "Try both badges on Ava’s first message. During the separate four-speaker puzzle, trace the chain from Ava to Dara before uncovering anyone’s badge.",
+          "examplePrediction": "Cross out the colour that would make the liar's sentence true. Which colour survives?",
+          "exampleAction": "preserve current worked example and existing prediction"
+        }
+      ]
+    }
+  ]
+}
