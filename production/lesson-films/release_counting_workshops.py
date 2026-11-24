@@ -48,9 +48,13 @@ def media_streams(path):
     return json.loads(raw)["streams"]
 
 
-def install(folder):
+def install(
+    folder,
+    editions=EDITIONS,
+    art_source="production/lesson-films/counting_workshops.py",
+):
     change = {}
-    for lesson, (version, source_hash) in EDITIONS.items():
+    for lesson, (version, source_hash) in editions.items():
         current = ROOT / "media" / (lesson + ".mp4")
         film = folder / (lesson + ".mp4")
         report_path = ROOT / "review" / (lesson + "-studio-qa.json")
@@ -102,8 +106,8 @@ def install(folder):
             report.pop(field, None)
         report.update(
             **values,
-            source_sha256=EDITIONS[lesson][1],
-            art_source="production/lesson-films/counting_workshops.py",
+            source_sha256=editions[lesson][1],
+            art_source=art_source,
             decoded_successfully=True,
         )
         path.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n")
@@ -126,4 +130,15 @@ def install(folder):
 if __name__ == "__main__":
     cli = argparse.ArgumentParser(description=__doc__)
     cli.add_argument("folder", type=Path)
-    install(cli.parse_args().folder)
+    cli.add_argument(
+        "--incidence",
+        action="store_true",
+        help="Install the check-in and fixture-room films.",
+    )
+    args = cli.parse_args()
+    if args.incidence:
+        from incidence_workshops import CHECKS
+
+        install(args.folder, CHECKS, "production/lesson-films/incidence_workshops.py")
+    else:
+        install(args.folder)
