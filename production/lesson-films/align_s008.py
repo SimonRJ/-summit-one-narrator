@@ -8,7 +8,7 @@ import sys
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent / "t01-studio"))
-from prepare_audio import caption_cues, stamp
+from prepare_audio import stamp
 
 
 def prepare(source, target):
@@ -23,8 +23,8 @@ def prepare(source, target):
     timeline = json.loads((source / "timeline.json").read_text())
     script = json.loads((source / "script.json").read_text())
     captions = []
-    for scene, chapter, positions in zip(
-        timeline["scenes"], script["scenes"], timing["word_times"], strict=True
+    for scene, chapter, positions, groups in zip(
+        timeline["scenes"], script["scenes"], timing["word_times"], timing["caption_word_counts"], strict=True
     ):
         # Scene one includes 600 ms of opening silence before the recording.
         origin = scene["start"] if scene["n"] != 1 else 0.6
@@ -38,7 +38,17 @@ def prepare(source, target):
             word.update(start=start, end=end)
             previous = end
 
-        cues = caption_cues(scene["words"])
+        # The authored phrase breaks keep each mathematical value together.
+        cues = []
+        offset = 0
+        for count in groups:
+            group = scene["words"][offset:offset + count]
+            offset += count
+            until = group[-1]["end"] + 0.13
+            if offset < len(scene["words"]):
+                until = min(until, scene["words"][offset]["start"])
+            cues.append({"start": group[0]["start"], "end": until, "text": " ".join(w["text"] for w in group)})
+
         if " ".join(cue["text"] for cue in cues) != chapter["narration"]:
             raise ValueError(f"Caption words missing in scene {scene['n']}")
         captions.extend(cues)

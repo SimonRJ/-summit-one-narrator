@@ -69,8 +69,8 @@ jobs:
           python production/lesson-films/align_s008.py build/original-recording build/recording
           cmp build/original-recording/narration.flac build/recording/narration.flac
           sha256sum --check <<'SUMS'
-          1ea67311330caede4b4500ab09d1341d05e57bccdcc65b044b6bc17c1402dde6  build/recording/timeline.json
-          29ca3625d09919aca6c0c968953185c57c584a01f7d0ed9350475a5ba520615c  build/recording/captions.vtt
+          c828c501010b72725077f0b421c9b89c1c4ac622ded02be4594f188052f78bff  build/recording/timeline.json
+          172d38d156c97fff3275d8d1089d26e37e30060b53bc685cb5f8d82aa0c7cbdf  build/recording/captions.vtt
           SUMS
           python - <<'PY'
           import json
