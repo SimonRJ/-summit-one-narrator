@@ -1,5 +1,5 @@
 """AMC introduction: original mathematical motion, aligned to completed voice C narration."""
-import argparse, functools, json, math, re, subprocess
+import argparse, functools, json, math, re, subprocess, sys
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 ROOT=Path('build/amc-introduction'); SRC=Path(__file__).parent
@@ -253,42 +253,9 @@ def content(i,t):
         a=A('one is left');ring(im,1000,567,32,GOLD,2,a);text(im,'1 left over',1130,567,21,GOLD,a=a)
         text(im,'7 + 7 + 1 = 15',640,574,36,WHITE,'math',a)
         text(im,'An odd total cannot split equally into two whole-number groups.',640,611,22,DIM,a=A('This is parity'))
-    elif i==13:
-        heading(im,'An idea before a challenge','How you will learn')
-        for k,(x,label,phrase,sub) in enumerate([(270,'What does it solve?','what it solves','Meet the idea'),(640,'Why does it help?','why it helps','See the reason'),(1010,'When can I use it?','when to use','Spot the clue')]):
-            a=A(phrase);ring(im,x,320,67,CYAN if k!=1 else GOLD,2,a);text(im,['?','→','!'][k],x,320,56,WHITE,'math',a);text(im,label,x,434,26,WHITE,a=a);text(im,sub,x,487,23,DIM,a=a)
-        text(im,'Small worked example → a growing challenge',640,586,29,GOLD,'math',A('small worked example'))
-    elif i==14:
-        heading(im,'Practise choosing the next move','Five quick A / B decisions')
-        for k in range(5):dot(im,560+k*40,180,6,GOLD if k==0 else DARK)
-        grid(im,160,297,4,3,65)
-        text(im,'Count every rectangle.',290,246,24,WHITE)
-        a=A('count squares');rect(im,869,307,564,83,c=DARK,outline=DIM,a=a)
-        text(im,'A   Count only the squares',869,307,25,WHITE,a=a)
-        a=A('choose pairs');rect(im,869,438,564,105,c=DARK,outline=CYAN,a=a)
-        text(im,'B   Choose boundary-line pairs',869,438,25,WHITE,a=a)
-        a=A('Choose the lines');rect(im,869,438,564,105,c='#143b45',outline=GOLD,a=a);text(im,'B   Choose boundary-line pairs',869,438,25,GOLD,a=a)
-        selected_rect(im,160,297,65,(0,2),(1,4),a)
-        text(im,'Choose a method. Explain why it fits.',640,590,27,GOLD,a=A('recognise the next move'))
-    elif i==15:
-        heading(im,'Make the method your own','From support to independence')
-        items=[('With support','with support'),('On your own','independently'),('A new setting','different-looking'),('Explain & check','Explain your plan')]
-        for k,(label,phrase) in enumerate(items):
-            x=205+k*290;a=A(phrase)
-            if k:arrow(im,(x-202,350),(x-90,350),CYAN,a)
-            ring(im,x,350,64,CYAN if k<3 else GOLD,2,a);text(im,k+1,x,350,43,WHITE,'math',a);text(im,label,x,466,25,WHITE,a=a)
-        text(im,'New numbers · new diagrams · new stories',640,557,28,GOLD,a=A('numbers and stories'))
-        text(im,'A method you can recognise and use again.',640,606,23,DIM,a=A('unseen questions'))
-    elif i==16:
-        heading(im,'Practise. Review. Repair. Return.','Turn an exam into useful feedback')
-        a=A('under a timer');ring(im,270,331,83,CYAN,2,a);text(im,'60:00',270,331,37,WHITE,'math',a)
-        text(im,'Mock exam',270,466,24,DIM,a=a)
-        a=A('Afterwards');arrow(im,(380,331),(495,331),CYAN,a)
-        for k,(label,phrase) in enumerate([('Reading','reading'),('Method','choosing a method'),('Calculating','calculating'),('Checking','checking')]):
-            y=234+k*74;a=A(phrase);rect(im,713,y,300,56,c=DARK,outline=CYAN if k!=1 else GOLD,a=a,r=6);text(im,label,713,y,23,WHITE,a=a)
-        a=A('Repair that skill');arrow(im,(925,331),(1000,331),GOLD,a);ring(im,1100,331,53,GOLD,2,a);trace(im,[(1074,333),(1094,351),(1130,309)],a,GOLD,3)
-        text(im,'Targeted practice',1086,450,23,GOLD,a=a);text(im,'Revisit later',1086,496,23,DIM,a=A('revisit it later'))
-        text(im,'Worked solutions help you understand the next step.',640,589,25,WHITE,a=A('worked solutions'))
+    elif i in (13,14,15,16):
+        from learning_route import draw as draw_learning_route
+        return draw_learning_route(sys.modules[__name__], i, t)
     else:
         text(im,'SUMMIT ONE',640,58,17,DIM)
         text(im,'Curiosity. Method. Confidence.',640,162,46,WHITE,'math',anim(u,.1,1))

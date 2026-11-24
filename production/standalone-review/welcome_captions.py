@@ -2,11 +2,11 @@
 from pathlib import Path
 import json
 
-HERE=Path(__file__).resolve().parent
+HERE=Path(__file__).resolve().parents[1]/'amc-introduction'
 root=Path('build/amc-introduction')
-script=json.loads((HERE/'welcome-script.json').read_text())
+script=json.loads((HERE/'narration.json').read_text())
 original=json.loads((root/'words.json').read_text())['words']
-groups=(HERE/'welcome-captions.txt').read_text().splitlines()
+groups=(HERE/'caption-phrases.txt').read_text().splitlines()
 scenes=json.loads((root/'timing.json').read_text())['segments']
 captions=[]
 for i,(group,segment,scene) in enumerate(zip(groups,script['segments'],scenes,strict=True)):

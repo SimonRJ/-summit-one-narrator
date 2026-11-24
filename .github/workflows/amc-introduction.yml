@@ -1,96 +1,84 @@
-name: AMC introduction — new visuals and voice C
+name: Rebuild the reviewed AMC introduction
 on:
   push:
-    branches: [main]
-    paths: ['production/amc-introduction/**', '.github/workflows/amc-introduction.yml']
+    branches: [main, review/canonical-course-welcome-20261125]
+    paths:
+      - 'production/amc-introduction/**'
+      - 'production/standalone-review/welcome_captions.py'
+      - 'production/standalone-review/publish_guides.py'
+      - '.github/workflows/amc-introduction.yml'
   workflow_dispatch:
 permissions:
-  contents: write
+  contents: read
 concurrency:
-  group: amc-introduction
+  group: amc-welcome-rebuild-${{ github.ref }}
   cancel-in-progress: false
 jobs:
-  speech:
-    runs-on: ubuntu-latest
-    timeout-minutes: 55
-    strategy:
-      fail-fast: false
-      max-parallel: 6
-      matrix:
-        segment: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
-    env:
-      HF_HUB_DISABLE_XET: '1'
-      TOKENIZERS_PARALLELISM: 'false'
-      OMP_NUM_THREADS: '2'
-      MKL_NUM_THREADS: '2'
-      PYTHONUNBUFFERED: '1'
+  rebuild:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    permissions:
+      contents: write
+      actions: read
     steps:
       - uses: actions/checkout@v4
+        with:
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /production/amc-introduction
+            /production/standalone-review
+            /media/voice-audition
+            /media/AMCIntroduction*
+            /review/AMCIntroduction*
+            /tools/welcome-check.mjs
+            /welcome.html
+            /welcome.js
+            /welcome.css
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Install speech runtime
+      - name: Recover the edition and its approved studio recordings
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y ffmpeg libsndfile1
-          pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu
-          pip install 'transformers>=4.45,<5' 'huggingface-hub<1' einops pydantic soundfile librosa safetensors tqdm numpy scipy inflect addict argbind
-          pip install --no-deps 'git+https://github.com/OpenBMB/VoxCPM.git@300e4260b509066151d623dc9c0aa922cf82232b'
-      - name: Narrate using approved voice C reference
-        run: python production/amc-introduction/synth.py --segment ${{ matrix.segment }}
+          set -euo pipefail
+          tag=$(python -c 'import json;print(json.load(open("production/amc-introduction/approved-master.json"))["release"])')
+          if [[ "$GITHUB_REF_NAME" == main ]] || gh release view "$tag" > /dev/null 2>&1; then
+            gh release download "$tag" --dir build/approved -p 'welcome-studio.zip' -p 'AMCIntroduction.mp4' -p 'AMCIntroduction.vtt' -p 'AMCIntroduction-transcript.txt' -p 'AMCIntroduction-qa.json'
+          else
+            # Rehearse the production rebuild while the candidate's device checks are in the queue.
+            run=$(python -c 'import json;print(json.load(open("production/amc-introduction/approved-master.json"))["production_workflow_run"])')
+            head=$(python -c 'import json;print(json.load(open("production/amc-introduction/approved-master.json"))["production_commit"])')
+            test "$(gh api repos/$GITHUB_REPOSITORY/actions/runs/$run --jq .head_sha)" = "$head"
+            gh run download "$run" -n reviewed-standalone-masters -D build/studio
+            gh run download "$run" -n reviewed-standalone-players -D build/player
+            mkdir -p build/approved
+            (cd build/studio && zip -q -r ../approved/welcome-studio.zip .)
+            cp build/player/media/AMCIntroduction{.mp4,.vtt,-transcript.txt} build/player/review/AMCIntroduction-qa.json build/approved/
+          fi
+      - name: Rebuild the diagrams, captions and movie from the recorded performances
+        run: |
+          sudo apt-get -o Acquire::Retries=3 update -qq
+          sudo apt-get install -y ffmpeg fonts-dejavu-core libsndfile1
+          python -m pip install pillow numpy soundfile
+          python production/amc-introduction/rebuild.py build/approved
       - uses: actions/upload-artifact@v4
         with:
-          name: amc-intro-segment-${{ matrix.segment }}
-          path: build/amc-introduction/speech-*.wav
-          retention-days: 14
-  render:
-    needs: speech
-    runs-on: ubuntu-latest
-    timeout-minutes: 45
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-      - uses: actions/download-artifact@v4
-        with:
-          pattern: amc-intro-segment-*
-          merge-multiple: true
-          path: build/amc-introduction
-      - name: Install rendering tools
+          name: verified-course-welcome-rebuild
+          path: |
+            build/amc-introduction/rebuild-qa.json
+            build/amc-introduction/contact.jpg
+          if-no-files-found: error
+          retention-days: 30
+      - name: Restore the approved normal-entry-point assets
+        if: github.ref_name == 'main'
         run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y ffmpeg fonts-dejavu-core
-          pip install pillow numpy soundfile faster-whisper inflect
-      - name: Assemble and align new narration
-        run: |
-          python production/amc-introduction/synth.py
-          python production/amc-introduction/align.py --audio build/amc-introduction/narration.wav --timing build/amc-introduction/timing.json --out build/amc-introduction
-      - name: Render the new AMC storyboard to measured spoken cues
-        run: |
-          python production/amc-introduction/render.py
-          ffmpeg -v error -y -i build/amc-introduction/visual.mp4 -i build/amc-introduction/narration.wav -map 0:v:0 -map 1:a:0 -c:v copy -c:a aac -b:a 192k -af apad -shortest -movflags +faststart build/amc-introduction/final.mp4
-          python production/amc-introduction/verify.py
-      - name: Publish verified video assets
-        run: |
-          cp build/amc-introduction/final.mp4 media/AMCIntroduction.mp4
-          cp build/amc-introduction/AMCIntroduction.vtt media/AMCIntroduction.vtt
-          cp build/amc-introduction/poster.jpg media/AMCIntroduction-poster.jpg
-          cp build/amc-introduction/transcript.txt media/AMCIntroduction-transcript.txt
-          cp build/amc-introduction/qa.json review/AMCIntroduction-qa.json
-          cp build/amc-introduction/alignment-qa.json review/AMCIntroduction-alignment-qa.json
+          set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add media/AMCIntroduction* review/AMCIntroduction*.json
-          git commit -m 'Render new AMC introduction with approved male voice C'
-          git fetch origin main
-          git rebase origin/main
-          git push origin HEAD:main
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: amc-introduction-review
-          path: build/amc-introduction/
-          retention-days: 14
+          git add media/AMCIntroduction* review/AMCIntroduction*.json welcome.html welcome.js tools/welcome-check.mjs
+          if ! git diff --cached --quiet; then
+            git commit -m 'Restore the reproduced course welcome and its measured guides'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi

@@ -94,20 +94,20 @@ def pyramid():
 
 
 def welcome():
-    script=json.loads((HERE/'welcome-script.json').read_text())
+    script=json.loads((ROOT/'production/amc-introduction/narration.json').read_text())
     times=json.loads((BUILD/'timing.json').read_text())
     chapters=[(round(times['segments'][i]['start_seconds'],3),title) for i,title in WELCOME_CHAPTERS]
     report=chapter_movie(BUILD/'final.mp4',MEDIA/'AMCIntroduction.mp4',chapters)
     qa=json.loads((BUILD/'qa.json').read_text())
     qa.pop('old_audio_used',None)
     qa.update(other_voice_used=False,sha256=report['sha256'],file_bytes=(MEDIA/'AMCIntroduction.mp4').stat().st_size,chapters=report['chapters'],
-              previous_approved_performances_retained=14,revised_approved_performances=4,sources='production/standalone-review/welcome-sources.json')
+              previous_approved_performances_retained=14,revised_approved_performances=4,sources='production/amc-introduction/sources.json')
     (REVIEW/'AMCIntroduction-qa.json').write_text(json.dumps(qa,indent=2)+'\n')
     file=ROOT/'welcome.html'; page=file.read_text().replace('amc-intro-20261113',REV)
     nav_block=nav(chapters,'Jump to a chapter'); page=re.sub(r'<nav class="intro-chapters".*?</nav>',lambda m:nav_block,page,count=1,flags=re.S)
     paragraphs=''.join('<p>'+html.escape(s.replace('A M C','AMC'))+'</p>\n' for s in script['segments'])
     page=re.sub(r'<div class="transcript">.*?</div></details>',lambda m:'<div class="transcript">'+paragraphs+'</div></details>',page,count=1,flags=re.S)
-    source=json.loads((HERE/'welcome-sources.json').read_text())['sources'][2]
+    source=json.loads((ROOT/'production/amc-introduction/sources.json').read_text())['sources'][2]
     page=page.replace('https://imath.com.au/download/AMC/Y5-6/2021%20AMC%20Y5-6.pdf',source['url'])
     page=page.replace('(hosted by iMath)','(2024 bilingual edition)')
     page=page.replace('welcome.js?v=chapter-navigation-20261122','welcome.js?v='+REV)
