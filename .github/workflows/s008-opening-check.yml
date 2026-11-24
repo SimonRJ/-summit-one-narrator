@@ -1,4 +1,4 @@
-name: S008 opening on study screens
+name: Live S008 opening on study screens
 on:
   push:
     branches: [qa/s008-opening-20261124]
@@ -29,17 +29,6 @@ jobs:
       - env:
           PROFILE: ${{ matrix.profile }}
         run: |
-          python - <<'PY'
-          from pathlib import Path
-          import json
-          p=Path('data/read-watch-practise.json');data=json.loads(p.read_text())
-          next(x for x in data['lessons'] if x['slot']==8)['bridge']='When the printing press shows 2,772, pause before the strip splits. How much of the number comes from the two outside 2s together? How much comes from the two inside 7s?'
-          p.write_text(json.dumps(data))
-          PY
-          python -m http.server 8765 --bind 127.0.0.1 > "$RUNNER_TEMP/server.log" 2>&1 &
-          server=$!
-          trap 'kill "$server"' EXIT
-          curl -fsS --retry 10 --retry-connrefused http://127.0.0.1:8765/ -o /dev/null
           python tools/check_s008_opening.py
       - uses: actions/upload-artifact@v4
         if: always()
