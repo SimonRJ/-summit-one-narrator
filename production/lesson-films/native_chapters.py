@@ -110,7 +110,7 @@ def chapter_text(rows):
     return "\n".join(lines) + "\n"
 
 
-def mux(k, movie, page, qa, destination):
+def mux(k, movie, page, qa, destination, picture_source=None):
     if (
         k in FROZEN
         or sha(movie) != qa["sha256"]
@@ -143,7 +143,7 @@ def mux(k, movie, page, qa, destination):
                 "-nostdin",
                 "-y",
                 "-i",
-                str(movie),
+                str(picture_source or movie),
                 "-f",
                 "ffmetadata",
                 "-i",
@@ -177,7 +177,8 @@ def mux(k, movie, page, qa, destination):
     assert rows == actual, (k, rows, actual)
     hashes = {}
     for track in ("v:0", "a:0"):
-        old, new = packet_hash(movie, track), packet_hash(destination, track)
+        baseline = picture_source if track == "v:0" and picture_source else movie
+        old, new = packet_hash(baseline, track), packet_hash(destination, track)
         assert old == new, (k, track, old, new)
         hashes[track] = new
     return {
@@ -192,7 +193,16 @@ def one(k, out):
     page = ROOT / ("watch-" + k.lower().replace(".", "-") + ".html")
     movie = ROOT / "media" / (k + ".mp4")
     qa = json.loads((ROOT / "review" / (k + "-studio-qa.json")).read_text())
-    result = mux(k, movie, page, qa, out / movie.name)
+    if k == "T01.1":
+        from ribbon_transition import render
+
+        with TemporaryDirectory() as temp:
+            repaired = Path(temp) / "ribbon.mp4"
+            change = render(movie, repaired)
+            result = mux(k, movie, page, qa, out / movie.name, picture_source=repaired)
+            result["picture_revision"] = change
+    else:
+        result = mux(k, movie, page, qa, out / movie.name)
     (out / (k + ".json")).write_text(
         json.dumps(result, indent=2, ensure_ascii=False) + "\n"
     )

@@ -3,7 +3,7 @@
 import math
 
 from stage import BG, BLUE, GOLD, MINT, MUTED, PANEL, RED, RIM, WHITE
-from stage import between, blend, mix
+from stage import between, blend, ease, mix
 
 
 PACKETS = (238, 446, 654, 862)
@@ -125,9 +125,12 @@ def measurements(stage, s):
     stage.line([(286, 314), (886 + 90 * combine, 314)], RIM, 2, first)
     for x in (286, 886, 886 + 90 * combine):
         stage.line([(x, 306), (x, 324)], MINT, 2, first)
-    stage.text("How much ribbon altogether?", 640, 516, 40, WHITE, bold=True, opacity=question * (1 - combine))
-    stage.terms([("200 cm", GOLD, combine), ("+", WHITE, combine), ("30 cm", BLUE, combine),
-                 ("=", WHITE, combine), ("230 cm", MINT, combine)], 520, 48)
+    prompt_opacity = question * (1 - ease(2 * combine))
+    answer_opacity = ease(2 * combine - 1)
+    stage.text("How much ribbon altogether?", 640, 516, 40, WHITE, bold=True, opacity=prompt_opacity)
+    stage.terms([("200 cm", GOLD, answer_opacity), ("+", WHITE, answer_opacity),
+                 ("30 cm", BLUE, answer_opacity), ("=", WHITE, answer_opacity),
+                 ("230 cm", MINT, answer_opacity)], 520, 48)
 
 
 def pages(stage, opacity_at, highlight_at=None, nines_at=None):
