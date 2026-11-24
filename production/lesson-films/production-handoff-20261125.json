@@ -14,7 +14,8 @@
     "releaseAssets": "Each successful production run uploads the film, poster, captions, guide and media QA under the recorded release tag. Download the published assets and use the guide duration, movie SHA-256, eight chapter times, transcript and bridge. The five device jobs retain their route reports as run artifacts.",
     "catalog": "Add the published guide and release location to data/recorded-studies.json. Update the own lesson in its reading catalog to the dedicated film, including videoId, movie, videoTitle, filmUse and the guide bridge. Record the bridge in tools/content/practice-revisions-20261121.json openings for the slot.",
     "revisits": "For a listed revisit still using this movie, update the release URL, video title and its own bridge in the live reading catalog. Also record that bridge in the matching openings revision. A revisit that has since gained its own dedicated film uses the dedicated guide.",
-    "practice": "The releases update reading and film associations. Keep scored practice IDs and protected grading rows intact."
+    "practice": "The releases update reading and film associations. Keep scored practice IDs and protected grading rows intact.",
+    "sequence": "S169, S170 and S171 share a production run with one film active at a time. Each film can publish independently. The S088 revisit bridge for S171 applies only while S171 still uses S088."
   },
   "movies": {
     "S022": {
@@ -212,6 +213,51 @@
       "productionRun": 45494025123,
       "releaseTag": "s167-keepsake-cabinet-0ea76fe77423",
       "ownBridge": "Try the shell in drawer 2 and move the moon as far away as the clues require. Which two drawers are left, and why do those two spaces settle the case?",
+      "revisitBridges": {}
+    },
+    "S169": {
+      "title": "Under the planetarium dome",
+      "priorVideoId": "S110",
+      "readingCatalog": "data/read-watch-practise-later.json",
+      "branch": "production/ticket-refill-frame-cabinet-20261124",
+      "sourceCommit": "19592f4f0f666f229e508f8309b5b99def703a50",
+      "script": "production/scripts/S169.json",
+      "artwork": "production/lesson-films/planetarium_timers.py",
+      "workflow": ".github/workflows/planetarium-enamel-puppets.yml",
+      "workflowJob": "film169",
+      "productionRun": 45495020971,
+      "releaseTag": "s169-planetarium-timers-19592f4f0f66",
+      "ownBridge": "Start at the gold peg at minute 3. Inside the audience’s viewing window, which pegs also sit one minute past a multiple of 6? What changes when the blue starting peg moves?",
+      "revisitBridges": {}
+    },
+    "S170": {
+      "title": "The enamel tile repair",
+      "priorVideoId": "S038",
+      "readingCatalog": "data/read-watch-practise-later.json",
+      "branch": "production/ticket-refill-frame-cabinet-20261124",
+      "sourceCommit": "19592f4f0f666f229e508f8309b5b99def703a50",
+      "script": "production/scripts/S170.json",
+      "artwork": "production/lesson-films/enamel_tiles.py",
+      "workflow": ".github/workflows/planetarium-enamel-puppets.yml",
+      "workflowJob": "film170",
+      "productionRun": 45495020971,
+      "releaseTag": "s170-enamel-tiles-19592f4f0f66",
+      "ownBridge": "Compare the two repair slips. Which tiles can you lift from both? When the bench changes to an eight-space tray, explain why the gold count must be eight minus the blue count.",
+      "revisitBridges": {}
+    },
+    "S171": {
+      "title": "The puppet theatre curtain call",
+      "priorVideoId": "S088",
+      "readingCatalog": "data/read-watch-practise-later.json",
+      "branch": "production/ticket-refill-frame-cabinet-20261124",
+      "sourceCommit": "19592f4f0f666f229e508f8309b5b99def703a50",
+      "script": "production/scripts/S171.json",
+      "artwork": "production/lesson-films/puppet_call.py",
+      "workflow": ".github/workflows/planetarium-enamel-puppets.yml",
+      "workflowJob": "film171",
+      "productionRun": 45495020971,
+      "releaseTag": "s171-puppet-call-19592f4f0f66",
+      "ownBridge": "Place the owl on an end of the puppet stage, then try to put the fox immediately to its right. Which end can receive both pencil marks? Why must six orders be added back?",
       "revisitBridges": {}
     }
   }
