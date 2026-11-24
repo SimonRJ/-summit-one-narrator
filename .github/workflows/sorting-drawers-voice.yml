@@ -1,8 +1,5 @@
 name: Record the sorting drawers transfer
 on:
-  push:
-    branches: [production/sorting-drawers-20261125]
-    paths: ['production/scripts/S057.json', '.github/workflows/sorting-drawers-voice.yml']
   workflow_dispatch:
 permissions:
   contents: read

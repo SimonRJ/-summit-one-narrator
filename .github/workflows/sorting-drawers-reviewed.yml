@@ -2,7 +2,7 @@ name: Verify the sorting drawers film
 on:
   push:
     branches: [production/sorting-drawers-20261125]
-    paths: ['.github/workflows/sorting-drawers-reviewed.yml','production/lesson-films/**']
+    paths: ['.github/workflows/sorting-drawers-reviewed.yml','production/lesson-films/**','production/scripts/S057.json']
   workflow_dispatch:
 permissions:
   contents: read
@@ -11,7 +11,44 @@ concurrency:
   group: sorting-drawers-reviewed
   cancel-in-progress: true
 jobs:
+  voice:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 150
+    env:
+      HF_HUB_DISABLE_XET: '1'
+      TOKENIZERS_PARALLELISM: 'false'
+      OMP_NUM_THREADS: '4'
+      MKL_NUM_THREADS: '4'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            production
+            data
+            media/voice-audition
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install the established narrator
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg libsndfile1
+          pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install 'transformers>=4.45,<5' 'huggingface-hub<1' einops pydantic soundfile librosa safetensors tqdm numpy scipy inflect addict argbind
+          pip install --no-deps 'git+https://github.com/OpenBMB/VoxCPM.git@300e4260b509066151d623dc9c0aa922cf82232b'
+      - name: Record a scene with its approved voice
+        run: |
+          echo '[{"lesson":"S057","scene":8}]' > sequence.json
+          python production/t01-studio/synth.py --sequence sequence.json --threads 4
+      - uses: actions/upload-artifact@v4
+        with:
+          name: S057-transfer-recording
+          path: build/t01-studio/S057-08*
+          if-no-files-found: error
+          retention-days: 14
   render:
+    needs: voice
     runs-on: ubuntu-24.04
     timeout-minutes: 110
     strategy:
@@ -21,7 +58,6 @@ jobs:
     env:
       GH_TOKEN: ${{ github.token }}
       FILM: ${{ matrix.film }}
-      NEW: '45495700364'
     steps:
       - uses: actions/checkout@v4
         with:
@@ -32,19 +68,12 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Fetch the public illustrated edition and its newly recorded transfer
-        run: |
-          set -euo pipefail
-          test "$(gh api repos/$GITHUB_REPOSITORY/actions/runs/$NEW --jq .head_sha)" = 61ccb88505d93b2f73ff28acb6c65806f340221a
-          gh release download lesson-introductions -p 'S057-Intro-Illustrated.mp4' -D build/source
-          for retry in {1..120}; do
-            state=$(gh api repos/$GITHUB_REPOSITORY/actions/runs/$NEW --jq '.conclusion // .status')
-            if [[ "$state" == success ]]; then break; fi
-            if [[ "$state" != queued && "$state" != in_progress && "$state" != pending ]]; then exit 1; fi
-            sleep 30
-          done
-          test "$state" = success
-          gh run download "$NEW" -n S057-transfer-recording -D build/t01-studio
+      - uses: actions/download-artifact@v4
+        with:
+          name: S057-transfer-recording
+          path: build/t01-studio
+      - name: Fetch the original illustrated source
+        run: gh release download lesson-introductions -p 'S057-Intro-Illustrated.mp4' -D build/source
       - name: Check the actual performances and rebuild each case drawer
         run: |
           set -euo pipefail

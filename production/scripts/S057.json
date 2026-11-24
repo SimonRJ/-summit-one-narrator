@@ -49,7 +49,7 @@
       "n": 8,
       "title": "Pack two unlabelled parcels",
       "stage": "RECAP",
-      "narration": "Two parcels weigh ten kilograms together. Each weighs a whole number from one to eight kilograms. Swapping the parcels makes the same load. How many loads are possible? Write the lighter weight first. It starts at two, because the other parcel cannot exceed eight. It ends at five, because the lighter weight cannot exceed half the total. The pairs are two and eight, three and seven, four and six, and five and five. Four loads, with the equal pair counted once."
+      "narration": "Two unlabelled parcels are chosen from weights of one, two, four and five kilograms. The post office accepts a pair when the weights match or differ by three kilograms. Swapping parcels makes the same load. How many loads pass? First open the matching drawer. Each of the four weights gives one double. Now open the difference drawer. With the lighter weight first, one pairs with four and two pairs with five. Starting at four or five would require a weight outside the list. The two drawers cannot overlap, so four plus two gives six loads."
     }
   ]
 }

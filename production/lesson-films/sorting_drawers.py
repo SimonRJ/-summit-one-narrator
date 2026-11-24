@@ -24,8 +24,9 @@ def check_maths():
     triples = [(a,b,c) for a,b,c in product(range(1,7),repeat=3) if a%2==0 and a+b+c==11]
     assert [[b for a,b,c in triples if a==k] for k in (2,4,6)] == [[3,4,5,6],[1,2,3,4,5,6],[1,2,3,4]]
     assert len(triples)==14 and all(11-a-b==c for a,b,c in triples)
-    loads={tuple(sorted((a,b))) for a,b in product(range(1,9),repeat=2) if a+b==10}
-    assert sorted(loads)==[(2,8),(3,7),(4,6),(5,5)]
+    weights=(1,2,4,5)
+    loads={tuple(sorted((a,b))) for a,b in product(weights,repeat=2) if abs(a-b) in (0,3)}
+    assert sorted(loads)==[(1,1),(1,4),(2,2),(2,5),(4,4),(5,5)]
 
 
 def text(a, label, x, y, size=32, color=INK, opacity=1):
@@ -121,20 +122,19 @@ def draw(a, number, t):
         if number==6:text(a,'C = 11 − A − B, with 1 ≤ B, C ≤ 6',640,569,35,INK,t.reveal('upper bound'))
         else:text(a,'4 + 6 + 4 = 14 ordered triples',640,569,40,GREEN,t.reveal('fourteen triples'))
     else:
-        drawer(a,78,151,1124,365)
-        text(a,'Each load totals 10 kg',640,209,37,INK,t.reveal('ten kilograms'))
-        open_case=1-t.reveal('The pairs are',.6)
-        left_label='?' if t.reveal('starts at two')<.5 else '2–5' if t.reveal('ends at five')>.5 else '≥ 2'
-        parcel(a,432,291,left_label,open_case);parcel(a,734,291,'?',open_case)
-        text(a,'+',631,326,43,GREEN,open_case)
-        text(a,'Lighter first',481,425,28,GREEN,t.reveal('lighter weight first')*open_case)
-        text(a,'At most 8 kg',783,425,28,RED,t.reveal('cannot exceed eight')*open_case)
-        for j,(left,right,cue) in enumerate(((2,8,'two and eight'),(3,7,'three and seven'),(4,6,'four and six'),(5,5,'five and five'))):
-            x=123+j*270;op=t.reveal(cue)
-            parcel(a,x,294,left,op);parcel(a,x+107,294,right,op)
-            text(a,f'{left} + {right}',x+102,423,29,GREEN,op)
-        text(a,'2 ≤ lighter weight ≤ 5',355,566,34,GREEN,t.reveal('ends at five'))
-        text(a,'4 loads, including 5 + 5',917,566,34,RED,t.reveal('Four loads'))
+        for j,w in enumerate((1,2,4,5)):
+            tab(a,354+j*150,142,str(w)+' kg',GOLD,t.reveal('weights of one',.5,offset=.13*j),112,50)
+        drawer(a,75,226,720,291);drawer(a,825,226,380,291)
+        text(a,'Matching weights',435,272,30,GREEN,t.reveal('weights match'))
+        text(a,'Difference of 3 kg',1015,272,29,RED,t.reveal('differ by three'))
+        for j,w in enumerate((1,2,4,5)):
+            x=130+(j%2)*325;y=314+(j//2)*91
+            visible=t.reveal('Each of the four weights',.7,offset=.2*j)
+            parcel(a,x,y,w,visible);parcel(a,x+109,y,w,visible)
+        for j,(u,v,cue) in enumerate(((1,4,'one pairs with four'),(2,5,'two pairs with five'))):
+            y=314+j*91;visible=t.reveal(cue)
+            parcel(a,901,y,u,visible);parcel(a,1010,y,v,visible)
+        text(a,'4 matching + 2 different = 6 loads',640,571,37,GREEN,t.reveal('four plus two'))
 
 
 def poster(draw):
