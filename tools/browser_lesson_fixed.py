@@ -107,6 +107,7 @@ async def verify_revised_lessons(browser):
      const first=card.querySelector('.rwl-first-step p'), full=card.querySelector('.rwl-full-example');
      const steps=Array.from(full.querySelectorAll(':scope > ol > li'),item=>item.textContent);
      if(card.querySelector('details[open]') || card.querySelector('p').textContent!==example.prompt
+        || card.querySelector('.rwl-predict')?.textContent!==example.prediction
         || first.textContent!==example.steps[0] || JSON.stringify(steps)!==JSON.stringify(example.steps)
         || card.querySelector('img')?.getAttribute('alt')!==example.figure?.alt){
        throw Error('Worked example changed in session '+lesson.slot);

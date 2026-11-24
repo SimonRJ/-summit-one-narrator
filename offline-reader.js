@@ -1,13 +1,13 @@
 import {enableFigureViewing} from './figure-viewer.js?v=deeper-20261121';
-import {readCard, readingAvailable} from './reviewed-lesson.js?v=powers-20261122';
+import {readCard, readingAvailable} from './reviewed-lesson.js?v=lesson-review-20261125';
 import {mountLessonModel} from './lesson-models.js?v=powers-20261122';
 
 const status = document.querySelector('#readerStatus');
 const picker = document.querySelector('#readerLesson');
 const reading = document.querySelector('#reading');
 const editions = [
-  './data/read-watch-practise.json?v=s008-press-20261124',
-  './data/read-watch-practise-later.json?v=s008-press-20261124',
+  './data/read-watch-practise.json?v=lesson-review-20261125',
+  './data/read-watch-practise-later.json?v=lesson-review-20261125',
 ];
 
 async function prepareOffline() {

@@ -12,7 +12,8 @@
         "steps": [
           "List KJ, KL and JL. Each pair already includes both banner carriers.",
           "Writing JK too would count the first pair again. There are 3 pairs."
-        ]
+        ],
+        "prediction": "Would Jo and Kim carry the banner differently from Kim and Jo?"
       },
       "skill": "COUNT-02",
       "videoId": "S069",
@@ -62,7 +63,8 @@
         "steps": [
           "Red is in the middle and green uses the right position.",
           "Only the left position remains for blue."
-        ]
+        ],
+        "prediction": "Which seat is forced by the word “between” when there are only three books?"
       },
       "skill": "LOGIC-02",
       "videoId": "S071",
@@ -112,7 +114,8 @@
         "steps": [
           "The first stack contributes 2 cubes above its bottom. The other contributes none.",
           "There are 2 above the bottom floor, out of 4 altogether."
-        ]
+        ],
+        "prediction": "Draw a line just above the first floor. Which cubes are above your line?"
       },
       "skill": "SOLID-01",
       "videoId": "S072",
@@ -165,7 +168,8 @@
         "steps": [
           "The known entries use 8.",
           "The missing number is 12 − 8 = 4."
-        ]
+        ],
+        "prediction": "What part of the target sum is already used by the visible numbers?"
       },
       "skill": "LOGIC-03",
       "videoId": "S073",
@@ -218,7 +222,8 @@
         "steps": [
           "The smaller member cannot exceed 2 because 3 × 3 is too large.",
           "The candidates x = 1, 2 lead to (1,6) and (2,3). These are all the possibilities."
-        ]
+        ],
+        "prediction": "How large could the smaller factor be before even its square exceeds 6?"
       },
       "skill": "LOGIC-04",
       "videoId": "S074",
@@ -274,7 +279,8 @@
         "figure": {
           "src": "figures/read-practice/S075.svg",
           "alt": "The green group has two equal parts and the yellow group has three. The two green parts together stand for eight flags."
-        }
+        },
+        "prediction": "If eight flags fill the two green parts, what does one part stand for?"
       },
       "skill": "FRAC-02",
       "videoId": "S075",
@@ -327,7 +333,8 @@
         "steps": [
           "The two loose tiles have 8 cm of perimeter each. The shared edge contributes 2 cm from each tile to that total.",
           "Remove those two contributions to get 16 − 4 = 12 cm. The joined shape is a rectangle measuring 4 cm by 2 cm."
-        ]
+        ],
+        "prediction": "Which edges would your finger stop touching after you join the tiles?"
       },
       "skill": "GEO-01",
       "videoId": "S076",
@@ -380,7 +387,8 @@
         "steps": [
           "The whole rectangle has 4 × 3 = 12 squares.",
           "Remove the two white squares to leave 10 blue squares."
-        ]
+        ],
+        "prediction": "Would it be quicker to count blue squares one by one or to use the white corner?"
       },
       "skill": "GEO-02",
       "videoId": "S078",
@@ -433,7 +441,8 @@
         "steps": [
           "There are three sandwich lunches. Each of the two soups can go with either of two rolls, making four soup lunches.",
           "The two groups do not overlap. Adding 3 and 4 gives seven lunches."
-        ]
+        ],
+        "prediction": "Does choosing a soup finish the lunch order? Does choosing a sandwich?"
       },
       "skill": "COUNT-06",
       "videoId": "S079",
@@ -486,7 +495,8 @@
         "steps": [
           "Together the two parts make a half-turn of 180°.",
           "Subtracting the known part gives 180 − 48 = 132°."
-        ]
+        ],
+        "prediction": "What turn would the two angles make if you joined them back together?"
       },
       "skill": "GEO-03",
       "videoId": "S081",
@@ -539,7 +549,8 @@
         "steps": [
           "The row has a line at each end and two grid lines between the cells.",
           "Four vertical lines form three spaces. To draw a rectangle in this row, choose two distinct vertical lines for its sides."
-        ]
+        ],
+        "prediction": "Place a pencil on the left boundary before tracing the three cells. Where else does it cross a line?"
       },
       "skill": "SPATIAL-02",
       "videoId": "S082",
@@ -592,7 +603,8 @@
         "steps": [
           "The point 2 is three units to the left of 5.",
           "Go three units to its right to reach 8. The two positions have midpoint 5."
-        ]
+        ],
+        "prediction": "How far is 2 from the mirror mark, and on which side should its partner land?"
       },
       "skill": "GEO-04",
       "videoId": "S083",
@@ -645,7 +657,8 @@
         "steps": [
           "The adjacent sides add to 6. The possible pairs are 1 and 5, 2 and 4, or 3 and 3.",
           "Their areas are 5, 8 and 9 m². The largest is 9 m²."
-        ]
+        ],
+        "prediction": "If you choose one side, how does the perimeter tell you the other side?"
       },
       "skill": "GEO-05",
       "videoId": "S085",
@@ -701,7 +714,8 @@
         "figure": {
           "src": "figures/read-practice/S086.svg",
           "alt": "A batch split into sixths. Machine A completes one sixth per minute and machine B completes two sixths per minute."
-        }
+        },
+        "prediction": "Can you express both machines' first minute of work as fractions of the same batch?"
       },
       "skill": "RATE-02",
       "videoId": "S086",
@@ -754,7 +768,8 @@
         "steps": [
           "At least one stack must have height 3.",
           "Give the other its minimum height 1. The least total is 4 cubes."
-        ]
+        ],
+        "prediction": "One stack must reach the skyline. How short can the other be and still be a stack?"
       },
       "skill": "SOLID-01",
       "videoId": "S087",
@@ -807,7 +822,8 @@
         "steps": [
           "The block AB can go before or after C.",
           "Either A or B may lead the block. There are 2 × 2 = 4 orders."
-        ]
+        ],
+        "prediction": "If A and B trade places inside their block, do they still satisfy “together”?"
       },
       "skill": "COUNT-03",
       "videoId": "S088",
@@ -860,7 +876,8 @@
         "steps": [
           "Every cube on the outside lies on at least one big face.",
           "Only the centre cube sits one layer in from all six surfaces."
-        ]
+        ],
+        "prediction": "How far into the big cube must you go before none of the six faces can touch your small cube?"
       },
       "skill": "SOLID-02",
       "videoId": "S089",
@@ -913,7 +930,8 @@
         "steps": [
           "The base contributes 6 cm². Two long walls add 6 cm² and two short walls add 4 cm².",
           "The five panels total 16 cm²."
-        ]
+        ],
+        "prediction": "Sketch the open box flattened out. How many rectangles belong to its walls?"
       },
       "skill": "SOLID-03",
       "videoId": "S090",
@@ -965,7 +983,8 @@
         "steps": [
           "The four tubs hold 4 × 7 = 28 marbles altogether.",
           "The three known counts total 19, leaving 9 in the last tub."
-        ]
+        ],
+        "prediction": "Before adding the three known tubs, what total must all four tubs contain?"
       },
       "skill": "DATA-02",
       "videoId": "S092",
@@ -1018,7 +1037,8 @@
         "steps": [
           "Every arriving route has exactly one last step. The two groups cannot overlap.",
           "Add their totals: 2 + 3 = 5."
-        ]
+        ],
+        "prediction": "Could a single route have both a final step from the left and a final step from below?"
       },
       "skill": "SPATIAL-01",
       "videoId": "S093",
@@ -1074,7 +1094,8 @@
         "figure": {
           "src": "figures/read-practice/S094.svg",
           "alt": "Three copies of a square split horizontally. The outlines select the top strip, the bottom strip and the whole square."
-        }
+        },
+        "prediction": "Can a rectangle use the top and bottom lines while skipping the middle line?"
       },
       "skill": "SPATIAL-02",
       "videoId": "S094",
@@ -1131,7 +1152,8 @@
         "figure": {
           "src": "figures/read-practice/S095.svg",
           "alt": "One equal bar represents the smaller bowl. Two bars of the same length represent the larger bowl. Its extra bar is labelled 4 cherries."
-        }
+        },
+        "prediction": "Draw the two bowls as bars. What does the extra copy of the smaller bar represent?"
       },
       "skill": "ALG-02",
       "videoId": "S095",
@@ -1184,7 +1206,8 @@
         "steps": [
           "The first cell must pair with its right-hand neighbour.",
           "The remaining two cells also pair. There is one complete tiling."
-        ]
+        ],
+        "prediction": "What choice, if any, is there for the domino covering the leftmost cell?"
       },
       "skill": "SPATIAL-03",
       "videoId": "S097",
@@ -1237,7 +1260,8 @@
         "steps": [
           "Her claim about the jar must be false.",
           "The bag is the only remaining location, so the coin is in the bag."
-        ]
+        ],
+        "prediction": "Which hiding place would make Pia's sentence false?"
       },
       "skill": "LOGIC-01",
       "videoId": "S099",
@@ -1290,7 +1314,8 @@
         "steps": [
           "To finish in the bottom row after two steps, one move must be down. The other move must be left or right.",
           "The bottom-left and bottom-right cells both work. The bottom-middle cell needs one downward move, and no second move can leave you there."
-        ]
+        ],
+        "prediction": "To finish on the bottom row after two moves, how many of your moves must change rows?"
       },
       "skill": "SPATIAL-04",
       "videoId": "S100",
@@ -1343,7 +1368,8 @@
         "steps": [
           "Use individual counters as outcomes. There are four equally likely choices.",
           "One is green, so the probability is 1/4."
-        ]
+        ],
+        "prediction": "Are the two colours equally likely, or are the four individual counters equally likely?"
       },
       "skill": "DATA-01",
       "videoId": "S101",
@@ -1396,7 +1422,8 @@
         "steps": [
           "All four labels have a 2 in the tens place.",
           "The label 22 also has a 2 in the units place, so the total is 5."
-        ]
+        ],
+        "prediction": "Which label supplies a 2 in both columns?"
       },
       "skill": "DIG-03",
       "videoId": "S102",
@@ -1449,7 +1476,8 @@
         "steps": [
           "Relative to 20 the differences are −2,+2,−1,+1.",
           "They cancel, so the mean is exactly 20."
-        ]
+        ],
+        "prediction": "Imagine smoothing the trays to 20 each. Do the extras cover the shortages exactly?"
       },
       "skill": "DATA-02",
       "videoId": "S103",
@@ -1506,7 +1534,8 @@
         "figure": {
           "src": "figures/read-practice/S104.svg",
           "alt": "Turnstile readings are 8 at 9 am, 14 at 10 am and 23 at 11 am."
-        }
+        },
+        "prediction": "Which two readings enclose the hour you are measuring?"
       },
       "skill": "DATA-03",
       "videoId": "S104",
@@ -1560,7 +1589,8 @@
         "figure": {
           "src": "figures/read-practice/S106.svg",
           "alt": "A box split into twelve equal units. The four-minute sorter completes three units in a minute. The six-minute sorter completes two."
-        }
+        },
+        "prediction": "Split the box into 12 units. How many can each sorter finish in the first minute?"
       },
       "skill": "RATE-02",
       "videoId": "S106",
@@ -1613,7 +1643,8 @@
         "steps": [
           "Each group of 3 presses returns to A.",
           "Eight presses are two full groups and two more, taking A to B to C."
-        ]
+        ],
+        "prediction": "If you stop pressing every time A returns, how many presses are left over?"
       },
       "skill": "SEQ-04",
       "videoId": "S107",
@@ -1666,7 +1697,8 @@
         "steps": [
           "Two unit edges disappear. The cut exposes two new unit edges further in.",
           "The change is zero. The shape has less area but still has perimeter 18."
-        ]
+        ],
+        "prediction": "Trace the two edges around the missing corner. What edges have replaced them?"
       },
       "skill": "GEO-01",
       "videoId": "S108",
@@ -1719,7 +1751,8 @@
         "steps": [
           "The doors from B lead to A and C. Cross out A because you already visited it.",
           "C is the only legal next stop. Without a record of the earlier room, both doors might look available."
-        ]
+        ],
+        "prediction": "At B, which doorway leads to a room you have already used?"
       },
       "skill": "SPATIAL-04",
       "videoId": "S109",
@@ -1772,7 +1805,8 @@
         "steps": [
           "Thirty-eight is 3 above 35, so it is 4 below 42.",
           "Adding 4 completes the next group of 7."
-        ]
+        ],
+        "prediction": "Place 38 between the nearest multiples of seven. Which one can you reach by adding?"
       },
       "skill": "DIV-03",
       "videoId": "S110",
@@ -1824,7 +1858,8 @@
         "steps": [
           "Only the top layer touches that face.",
           "The layer has 4 × 3 = 12 cubes. The lower layer has none."
-        ]
+        ],
+        "prediction": "If you peeled off the top layer, could any cube left behind still have paint?"
       },
       "skill": "SOLID-02",
       "videoId": "S113",
@@ -1877,7 +1912,8 @@
         "steps": [
           "There are 100 codes. If neither position shows 7, each has nine choices.",
           "Subtract the 81 codes with no 7. The other 19 contain at least one."
-        ]
+        ],
+        "prediction": "How many choices remain in each code position if you forbid 7?"
       },
       "skill": "DIG-03",
       "videoId": "S114",
@@ -1929,7 +1965,8 @@
         "steps": [
           "Half of 12 gives 6 oat biscuits. One quarter of 8 gives 2 fruit biscuits.",
           "Add the actual numbers: 6 + 2 = 8 iced biscuits."
-        ]
+        ],
+        "prediction": "Does “one quarter” describe the fruit biscuits or all twenty biscuits?"
       },
       "skill": "FRAC-04",
       "videoId": "S115",
@@ -1982,7 +2019,8 @@
         "steps": [
           "Day 3 alone uses 12.",
           "Over all three days the amount is 3 + 6 + 12 = 21."
-        ]
+        ],
+        "prediction": "What is the difference between the pile used on day 3 and the pile used by the end of day 3?"
       },
       "skill": "SEQ-02",
       "videoId": "S116",
@@ -2035,7 +2073,8 @@
         "steps": [
           "The first two values total 12.",
           "The third must be 3. The opposite corners then sum to 10."
-        ]
+        ],
+        "prediction": "How much of the diagonal's total have 7 and 5 already used?"
       },
       "skill": "LOGIC-03",
       "videoId": "S117",
@@ -2088,7 +2127,8 @@
         "steps": [
           "The left edge can be before cell 1 or before cell 2. The right edge can be after cell 2 or after cell 3.",
           "The two pairs of choices give 2 × 2 = 4 frames."
-        ]
+        ],
+        "prediction": "Fix the centre cell first. Which grid lines could be its rectangle's two outside edges?"
       },
       "skill": "SPATIAL-02",
       "videoId": "S118",
@@ -2141,7 +2181,8 @@
         "steps": [
           "Six 2-cent coins would give 12 cents. The actual total is 6 cents higher.",
           "Each replacement gains 3 cents, so exactly 2 coins are worth 5 cents."
-        ]
+        ],
+        "prediction": "Start with six 2-cent coins. What does one swap for a 5-cent coin add?"
       },
       "skill": "ALG-02",
       "videoId": "S120",
@@ -2194,7 +2235,8 @@
         "steps": [
           "There are 2 × 2 × 2 = 8 settings.",
           "Only all-off is forbidden, so there are 7."
-        ]
+        ],
+        "prediction": "Which single switch setting must you remove from a list of all settings?"
       },
       "skill": "COUNT-04",
       "videoId": "S121",
@@ -2246,7 +2288,8 @@
         "steps": [
           "Both ends together use 4 m.",
           "The single front gets the remaining 10 − 4 = 6 m."
-        ]
+        ],
+        "prediction": "Which lengths of wire have already been used before you fence the front?"
       },
       "skill": "GEO-05",
       "videoId": "S122",
@@ -2298,7 +2341,8 @@
         "steps": [
           "Thirty groups of 8 make 240.",
           "Remove one extra group of 8 to get 232."
-        ]
+        ],
+        "prediction": "Imagine 30 groups of eight. How would you turn that picture into 29 groups?"
       },
       "skill": "DIG-01",
       "videoId": "S123",
@@ -2355,7 +2399,8 @@
         "figure": {
           "src": "figures/read-practice/S124.svg",
           "alt": "The higher score is five equal parts and the lower is three. The two extra parts account for the difference of eight."
-        }
+        },
+        "prediction": "Draw five equal shares above three equal shares. Which shares represent the difference of 8?"
       },
       "skill": "FRAC-02",
       "videoId": "S124",
@@ -2412,7 +2457,8 @@
         "figure": {
           "src": "figures/read-practice/S125.svg",
           "alt": "Jo has a baseline amount. Kai has the baseline plus two. Dee has the baseline plus two and another three."
-        }
+        },
+        "prediction": "Draw arrows from Jo to Kai to Dee. What happens to the points at each arrow?"
       },
       "skill": "ALG-05",
       "videoId": "S125",
@@ -2464,7 +2510,8 @@
         "steps": [
           "Each row would need to be split into pairs of adjacent cells.",
           "A row of length 3 has one cell left over, so such a tiling is impossible."
-        ]
+        ],
+        "prediction": "Try pairing cells along just the top row. Where could its last cell find a partner?"
       },
       "skill": "SPATIAL-03",
       "videoId": "S127",
@@ -2521,7 +2568,8 @@
         "figure": {
           "src": "figures/read-practice/S129.svg",
           "alt": "At the start, the trailing runner is twelve metres behind. Both run in the same direction, with speeds seven and five metres per second."
-        }
+        },
+        "prediction": "After one second, how much of the original gap has the faster runner gained?"
       },
       "skill": "RATE-04",
       "videoId": "S129",
@@ -2574,7 +2622,8 @@
         "steps": [
           "For each of the 3 rims, exactly 2 colours remain for the centre.",
           "The parts have different positions, so multiply 3 × 2 = 6."
-        ]
+        ],
+        "prediction": "Choose a blue rim first. Which centre colours are still allowed?"
       },
       "skill": "COUNT-02",
       "videoId": "S130",
@@ -2627,7 +2676,8 @@
         "steps": [
           "The two angles total 180 − 60 = 120°.",
           "Half of each together gives half of 120°, or 60°."
-        ]
+        ],
+        "prediction": "Can you find the sum of the two missing angles without finding either angle on its own?"
       },
       "skill": "GEO-03",
       "videoId": "S131",
@@ -2680,7 +2730,8 @@
         "steps": [
           "The jars contain 2 × 9 + 6 × 13 = 96 seeds.",
           "Share the total among all eight jars to get 12 per jar."
-        ]
+        ],
+        "prediction": "When you combine the jars, should the average of six jars count as much as the average of two?"
       },
       "skill": "DATA-02",
       "videoId": "S132",
@@ -2732,7 +2783,8 @@
         "steps": [
           "From shelf 1 to shelf 5 there are four increases of 3.",
           "Start at 6 and add 4 × 3 to get 18 books."
-        ]
+        ],
+        "prediction": "Sketch the first five shelves. At how many joins does the number of books increase?"
       },
       "skill": "SEQ-01",
       "videoId": "S134",
@@ -2785,7 +2837,8 @@
         "steps": [
           "A is at position 2. “Immediately” permits no intervening slot.",
           "B must occupy position 3."
-        ]
+        ],
+        "prediction": "If a different letter sat between A and B, which word in the rule would it break?"
       },
       "skill": "LOGIC-02",
       "videoId": "S135",
@@ -2837,7 +2890,8 @@
         "steps": [
           "The values are 52 and 25.",
           "Their difference is 27, or 9 times the digit difference of 3."
-        ]
+        ],
+        "prediction": "When 52 is reversed, how does the value of each digit change?"
       },
       "skill": "DIG-05",
       "videoId": "S137",
@@ -2890,7 +2944,8 @@
         "steps": [
           "The net gain is 9 − 3 = 6 litres each minute.",
           "In 4 minutes the tub gains 24 litres."
-        ]
+        ],
+        "prediction": "Follow one minute of water. Which litres enter, and which leave again?"
       },
       "skill": "RATE-02",
       "videoId": "S138",
@@ -2942,7 +2997,8 @@
         "steps": [
           "The first lamp returns at 3,6,9,12. The second at 4,8,12.",
           "Their first positive common beat is 12."
-        ]
+        ],
+        "prediction": "Cross off beat zero. Which later beat is on both lamps' lists?"
       },
       "skill": "SEQ-04",
       "videoId": "S139",
@@ -2999,7 +3055,8 @@
         "figure": {
           "src": "figures/read-practice/S141.svg",
           "alt": "Two bars measured on an axis starting at 20 cm reach 24 cm on Monday and 28 cm on Tuesday."
-        }
+        },
+        "prediction": "What depth does the bottom of the drawn axis stand for?"
       },
       "skill": "DATA-03",
       "videoId": "S141",
@@ -3051,7 +3108,8 @@
         "steps": [
           "She sells 6, leaving 12. The second instruction refers to those 12.",
           "Half of 12 is 6, so 6 rolls go to the neighbour."
-        ]
+        ],
+        "prediction": "At the moment the neighbour receives a share, how many rolls is the baker sharing?"
       },
       "skill": "FRAC-01",
       "videoId": "S142",
@@ -3104,7 +3162,8 @@
         "steps": [
           "Undo the last move by subtracting 5 to get 14.",
           "Undo the doubling by halving 14 to get 7. Forward checking gives 19."
-        ]
+        ],
+        "prediction": "At the exit of the machine, which operation must you undo before dividing?"
       },
       "skill": "ALG-04",
       "videoId": "S143",
@@ -3156,7 +3215,8 @@
         "steps": [
           "Two of the five positions are endpoints.",
           "Removing those leaves 5 − 2 = 3 edge-interior cubes."
-        ]
+        ],
+        "prediction": "Mark both endpoints of one edge. Which cubes sit strictly between your marks?"
       },
       "skill": "SOLID-02",
       "videoId": "S145",
@@ -3208,7 +3268,8 @@
         "steps": [
           "The complete blocks 10–19 and 20–29 each have one.",
           "The partial block 30–34 has none. The units count is 2."
-        ]
+        ],
+        "prediction": "Where does a units digit of 6 normally appear in a block of ten? Does the final block reach it?"
       },
       "skill": "DIG-03",
       "videoId": "S146",
@@ -3260,7 +3321,8 @@
         "steps": [
           "Write the smaller number first. Values 1, 2 and 3 give (1,7), (2,6) and (3,5).",
           "Using 4 would require (4,4), which breaks the different-number rule. A larger first number would merely reverse a pair already listed."
-        ]
+        ],
+        "prediction": "Would the pair (4, 4) obey the rule that the numbers must differ?"
       },
       "skill": "COUNT-01",
       "videoId": "S057",
@@ -3313,7 +3375,8 @@
         "steps": [
           "Their areas are half of 3 × 4 and half of 6 × 4.",
           "The second has twice the area of the first because the height is the same and its base is twice as long."
-        ]
+        ],
+        "prediction": "Which measurement is shared by the triangles even though their bases differ?"
       },
       "skill": "GEO-02",
       "videoId": "S149",
@@ -3366,7 +3429,8 @@
         "steps": [
           "The chance of a plum first is 2/3. After that plum is taken, just one of the two remaining pieces is a plum.",
           "Follow the two successful draws. Their probability is (2/3) × (1/2) = 1/3."
-        ]
+        ],
+        "prediction": "Imagine the first pick was a plum. What fruit is still in the bowl for pick two?"
       },
       "skill": "DATA-01",
       "videoId": "S150",
@@ -3418,7 +3482,8 @@
         "steps": [
           "The board has two cells of each colour, so the colour test permits a covering.",
           "Place one horizontal domino in each row. This construction confirms the covering is possible."
-        ]
+        ],
+        "prediction": "Can you draw two actual dominoes here to prove that they fit?"
       },
       "skill": "DIV-04",
       "videoId": "S151",
@@ -3468,7 +3533,8 @@
         "steps": [
           "Each final jar contains 15.",
           "If 4 moved from A to B, then A originally had 19 and B had 11."
-        ]
+        ],
+        "prediction": "During a transfer, could a bead disappear from the combined total?"
       },
       "skill": "ALG-02",
       "videoId": "S152",
@@ -3521,7 +3587,8 @@
         "steps": [
           "The two lists contain 6 and 4 numbers. Multiples of 6 are in both.",
           "Remove the 2 duplicate entries. There are 8 numbers altogether."
-        ]
+        ],
+        "prediction": "Which numbers would be ticked twice if you marked both lists on one number line?"
       },
       "skill": "COUNT-04",
       "videoId": "S121",
@@ -3574,7 +3641,8 @@
         "steps": [
           "The fourth digit must match the first, and the third digit must match the second.",
           "The result is 5445; its first two digits determine the entire number."
-        ]
+        ],
+        "prediction": "Write 54 on the left of a crease. In what order do its partners appear on the right?"
       },
       "skill": "DIG-04",
       "videoId": "S155",
@@ -3627,7 +3695,8 @@
         "steps": [
           "There are two gaps of 3 seconds.",
           "The elapsed time is 6 seconds."
-        ]
+        ],
+        "prediction": "Put your finger on the first strike. How many intervals elapse before you reach the third?"
       },
       "skill": "RATE-01",
       "videoId": "S030",
@@ -3680,7 +3749,8 @@
         "steps": [
           "Every route that visits tile 4 has exactly one way to continue to tile 5. Those five routes form one final-step group.",
           "The remaining 8 − 5 = 3 routes must finish by jumping directly from tile 3. Working backwards recovers the missing group without listing all eight routes."
-        ]
+        ],
+        "prediction": "Think about the routes arriving at tile 5. Which ones can you account for using the five routes to tile 4?"
       },
       "skill": "SEQ-03",
       "videoId": "S052",
@@ -3732,7 +3802,8 @@
         "steps": [
           "If the shorter side were at least 5, both sides would be at least 5.",
           "The area would then be at least 25. Testing shorter sides 1 through 4 is enough."
-        ]
+        ],
+        "prediction": "If the shorter side were at least 5, what is the smallest area the rectangle could have?"
       },
       "skill": "LOGIC-04",
       "videoId": "S074",
@@ -3784,7 +3855,8 @@
         "steps": [
           "Each domino uses two cells, so three dominoes would need six.",
           "Two do fit, covering cells 1–2 and 3–4. That construction attains the bound."
-        ]
+        ],
+        "prediction": "Can you both fit the dominoes you claim and rule out one more?"
       },
       "skill": "SPATIAL-03",
       "videoId": "S127",
@@ -3837,7 +3909,8 @@
         "steps": [
           "Each child reports five high-fives, for thirty reports.",
           "Two children report the same high-five. Divide by two to get 15."
-        ]
+        ],
+        "prediction": "Whose two lists would contain a high-five between the same two children?"
       },
       "skill": "COUNT-05",
       "videoId": "S065",
@@ -3890,7 +3963,8 @@
         "steps": [
           "Only stacks at least 3 cubes high reach it.",
           "Two stacks qualify, each contributing one cube to that layer."
-        ]
+        ],
+        "prediction": "Which stack heights reach layer three at all?"
       },
       "skill": "SOLID-01",
       "videoId": "S087",
@@ -3942,7 +4016,8 @@
         "steps": [
           "The tens digit has two choices, 3 or 8.",
           "Whichever you use, two cards remain for the units. There are 4 numbers: 30, 38, 80 and 83."
-        ]
+        ],
+        "prediction": "Try putting the zero card in the tens place. Would the result still have two digits?"
       },
       "skill": "DIG-02",
       "videoId": "S004",
@@ -3995,7 +4070,8 @@
         "steps": [
           "A quarter of $60 is $15.",
           "Subtract the saving from the original price: $60 − $15 = $45."
-        ]
+        ],
+        "prediction": "Does the quarter describe what you pay or what the shop takes off?"
       },
       "skill": "FRAC-03",
       "videoId": "S029",
@@ -4048,7 +4124,8 @@
         "steps": [
           "The rise is 12 cm over 5 − 2 = 3 gaps.",
           "The weekly growth is 12 ÷ 3 = 4 cm."
-        ]
+        ],
+        "prediction": "How many week-to-week gaps lie between the two readings?"
       },
       "skill": "SEQ-01",
       "videoId": "S134",
@@ -4101,7 +4178,8 @@
         "steps": [
           "It cannot be 2. If it were 8, Sol could not have a larger number.",
           "The only remaining possibility is 5."
-        ]
+        ],
+        "prediction": "Try giving Mira the largest number. Could Sol still satisfy the clue?"
       },
       "skill": "LOGIC-02",
       "videoId": "S135",
@@ -4154,7 +4232,8 @@
         "steps": [
           "The first is 25, one more than 24.",
           "The next is 31. Adding another 6 gives 37, beyond the interval."
-        ]
+        ],
+        "prediction": "Look for the first multiple of six in the interval. Which neighbouring number has remainder one?"
       },
       "skill": "DIV-03",
       "videoId": "S110",
@@ -4206,7 +4285,8 @@
         "steps": [
           "Let the unknown be the ticket price. Ticket price plus 3 equals 11.",
           "Subtract 3 to get an $8 ticket."
-        ]
+        ],
+        "prediction": "Which part of the $11 would you pay even if you set the ticket price aside?"
       },
       "skill": "ALG-01",
       "videoId": "S038",
@@ -4258,7 +4338,8 @@
         "steps": [
           "Four orders have A and B together: the pair has two internal orders and two positions beside C.",
           "The other 6 − 4 = 2 orders are ACB and BCA."
-        ]
+        ],
+        "prediction": "If A and B are apart in three places, where must C sit?"
       },
       "skill": "COUNT-03",
       "videoId": "S088",
@@ -4311,7 +4392,8 @@
         "steps": [
           "Positions 1 and 5 form a pair, as do 2 and 4.",
           "The centre forms its own group. One free choice per group makes 3 independent choices."
-        ]
+        ],
+        "prediction": "Fold the row along the middle cell. Which colours will the fold force?"
       },
       "skill": "GEO-04",
       "videoId": "S083",
@@ -4368,7 +4450,8 @@
         "figure": {
           "src": "figures/read-practice/S173.svg",
           "alt": "Points on a distance–time chart are (0 minutes, 0 km), (10 minutes, 4 km) and (30 minutes, 9 km)."
-        }
+        },
+        "prediction": "Do both readings cover the same number of minutes? What could you compare instead?"
       },
       "skill": "DATA-03",
       "videoId": "S045",
@@ -4421,7 +4504,8 @@
         "steps": [
           "The 10 marbles represent two equal thirds. Each third holds 5.",
           "All three thirds hold 15 marbles."
-        ]
+        ],
+        "prediction": "Draw a bar in three parts. How many parts stand for the ten remaining marbles?"
       },
       "skill": "FRAC-01",
       "videoId": "S142",
@@ -4473,7 +4557,8 @@
         "steps": [
           "Its starting cell can be 1, 2, 3 or 4.",
           "That gives 4 positions. Starting at cell 5 would go beyond the right edge."
-        ]
+        ],
+        "prediction": "If the block started in the fifth cell, where would its other end go?"
       },
       "skill": "SPATIAL-02",
       "videoId": "S118",
@@ -4525,7 +4610,8 @@
         "steps": [
           "Try possible smaller factors 1 through 4.",
           "The pairs are 1×24, 2×12, 3×8 and 4×6. There are 4 pairs."
-        ]
+        ],
+        "prediction": "When do the factor pairs of 24 start returning in the opposite order?"
       },
       "skill": "DIV-01",
       "videoId": "S011",
@@ -4578,7 +4664,8 @@
         "steps": [
           "The total time is 1.5 hours, including the rest.",
           "Average speed is 4 ÷ 1.5 = 8/3 km/h."
-        ]
+        ],
+        "prediction": "Does the clock used for the whole journey stop while the walker rests?"
       },
       "skill": "RATE-03",
       "videoId": "S039",
@@ -4631,7 +4718,8 @@
         "steps": [
           "Start with 1. The next move can be 3 to finish, or 2 followed by 1. Starting with 2 leaves two spaces, which would require either another 2 or two consecutive 1s.",
           "Starting with 3 forces a final 1. The complete list is (1,3), (1,2,1) and (3,1). Sorting by the first move shows that no sequence is missed."
-        ]
+        ],
+        "prediction": "Try starting with a move of 2. What moves would finish the distance, and which rule do they break?"
       },
       "skill": "COUNT-01",
       "videoId": "S057",
@@ -4684,7 +4772,8 @@
         "steps": [
           "The painted union contains 8 + 6 − 2 = 12 tiles.",
           "The 3 remaining tiles have neither colour."
-        ]
+        ],
+        "prediction": "Lay out the blue and yellow counts. Where have you counted the same tile twice?"
       },
       "skill": "GEO-02",
       "videoId": "S061",
@@ -4737,7 +4826,8 @@
         "steps": [
           "In the first ratio A doubles from 2 to 4, so B doubles to 6.",
           "In the second ratio C is four times B, giving C = 24."
-        ]
+        ],
+        "prediction": "Which quantity appears in both ratios and can connect A to C?"
       },
       "skill": "FRAC-02",
       "videoId": "S124",
@@ -4789,7 +4879,8 @@
         "steps": [
           "Its first part is true. Its second part is false.",
           "An “and” sentence requires both, so this sentence is false."
-        ]
+        ],
+        "prediction": "For a claim joined by “and”, how many parts must be true?"
       },
       "skill": "LOGIC-01",
       "videoId": "S099",
@@ -4842,7 +4933,8 @@
         "steps": [
           "The largest face measures 3 × 4 = 12 cm².",
           "Its opposite matches it, so the pair contributes 24 cm²."
-        ]
+        ],
+        "prediction": "Which two side lengths should you multiply to make the biggest face?"
       },
       "skill": "SOLID-03",
       "videoId": "S090",
@@ -4895,7 +4987,8 @@
         "steps": [
           "The two outer ones contribute 1001 = 11 × 91. The two inner twos contribute 220 = 11 × 20.",
           "Both parts are multiples of 11. Their sum is 11 × 111."
-        ]
+        ],
+        "prediction": "Split 1221 into the value of the two ones and the value of the two twos. What factor do they share?"
       },
       "skill": "DIG-04",
       "videoId": "S008",
@@ -4948,7 +5041,8 @@
         "steps": [
           "Twenty seconds is one third of a minute.",
           "The belt moves one third of 90 cm, or 30 cm."
-        ]
+        ],
+        "prediction": "What fraction of a full minute is twenty seconds?"
       },
       "skill": "RATE-01",
       "videoId": "S030",
@@ -5000,7 +5094,8 @@
         "steps": [
           "Each quarter-turn adds 90° to her change of direction.",
           "Three quarter-turns total 270°. One more completes a full turn."
-        ]
+        ],
+        "prediction": "Keep track of the turns themselves. How many quarter-turns has the walker made?"
       },
       "skill": "GEO-03",
       "videoId": "S131",
@@ -5052,7 +5147,8 @@
         "steps": [
           "The five pupils score 2 × 3 + 3 × 8 = 30 points.",
           "Divide 30 by 5 to get 6. The two distinct score labels are not the count of pupils."
-        ]
+        ],
+        "prediction": "Should the score 8 go into the total once or three times?"
       },
       "skill": "DATA-02",
       "videoId": "S132",
@@ -5102,7 +5198,8 @@
         "steps": [
           "Cross out one sandwich and one juice from both purchases.",
           "The extra juice accounts for $13 − $9 = $4."
-        ]
+        ],
+        "prediction": "Line up the two receipts. Which item appears on only the more expensive one?"
       },
       "skill": "ALG-03",
       "videoId": "S050",
@@ -5154,7 +5251,8 @@
         "steps": [
           "The third child can be either of the two outside the pair.",
           "Each pair therefore belongs to exactly two of the groups."
-        ]
+        ],
+        "prediction": "Put the required pair into the group first. Who could fill its last place?"
       },
       "skill": "COUNT-05",
       "videoId": "S065",
@@ -5206,7 +5304,8 @@
         "steps": [
           "The second cut removes only 3 new cubes.",
           "The result is 12 − 3 − 3 = 6 cubes."
-        ]
+        ],
+        "prediction": "Look at the shared cut position. Is there still a cube there for the second cut to remove?"
       },
       "skill": "SOLID-01",
       "videoId": "S072",
@@ -5259,7 +5358,8 @@
         "steps": [
           "Before the join, 12 sheets are complete.",
           "In the next minute the two together make 4 + 2 = 6 more sheets."
-        ]
+        ],
+        "prediction": "Is the question asking about the first three minutes or the one minute when both printers run?"
       },
       "skill": "RATE-02",
       "videoId": "S086",
@@ -5311,7 +5411,8 @@
         "steps": [
           "The first press gives 5. The second gives 2, and the third gives 6.",
           "The fourth press repeats the state from press 2. The loop is 2, 6, so the machine first enters it on press 2. The earlier 8 and 5 never recur."
-        ]
+        ],
+        "prediction": "Label the starting display “0 presses”. Which display belongs to the repeating pair first?"
       },
       "skill": "SEQ-04",
       "videoId": "S139",
@@ -5364,7 +5465,8 @@
         "steps": [
           "Together they started with 26 cm of boundary. The join accounts for 6 cm that vanished.",
           "Each shape contributed one copy, so the join measures 3 cm."
-        ]
+        ],
+        "prediction": "Before joining, how many copies of the joining segment are included in the two perimeters?"
       },
       "skill": "GEO-01",
       "videoId": "S108",
@@ -5417,7 +5519,8 @@
         "steps": [
           "After one path the walker is at blue, after two at red, and after three at blue.",
           "Each pair of moves returns to the starting colour. Any odd number of moves from red ends at blue."
-        ]
+        ],
+        "prediction": "Trace just the colours after each path. Does the exact station name matter?"
       },
       "skill": "SPATIAL-04",
       "videoId": "S109",
@@ -5470,7 +5573,8 @@
         "steps": [
           "Add one flag. The adjusted count must be divisible by both 3 and 4, so it is a multiple of 12 between 16 and 41.",
           "The adjusted counts are 24 and 36. Removing the extra flag gives 23 and 35. Both meet the two remainder clues and fall in the original interval."
-        ]
+        ],
+        "prediction": "Add the missing flag in your drawing. Which row sizes must now fit exactly?"
       },
       "skill": "DIV-03",
       "videoId": "S066",
@@ -5522,7 +5626,8 @@
         "steps": [
           "Three posters add 3 × $2 = $6.",
           "Add the single setup fee to get $10."
-        ]
+        ],
+        "prediction": "Which charge do you pay once, no matter how many posters you order?"
       },
       "skill": "ALG-01",
       "videoId": "S038",
@@ -5575,7 +5680,8 @@
         "steps": [
           "The painted layers have height 1 each, leaving a single interior layer.",
           "All 4 × 4 = 16 cubes in that layer stay clean."
-        ]
+        ],
+        "prediction": "Picture the block as three flat layers. Which layers can the paint reach?"
       },
       "skill": "SOLID-02",
       "videoId": "S145",
@@ -5628,7 +5734,8 @@
         "steps": [
           "All four labels contain the digit 4.",
           "The first three contribute one each and 44 contributes two. There are 5 printed fours."
-        ]
+        ],
+        "prediction": "Pick up the label 44. How many labels are in your hand, and how many fours can you see?"
       },
       "skill": "DIG-03",
       "videoId": "S146",
@@ -5681,7 +5788,8 @@
         "steps": [
           "The first bus has 5 people with hats. The second has 10.",
           "The lower fraction on the second bus applies to four times as many people."
-        ]
+        ],
+        "prediction": "How many people does each hat fraction actually describe?"
       },
       "skill": "FRAC-04",
       "videoId": "S115",
@@ -5734,7 +5842,8 @@
         "steps": [
           "Round 2 reaches 2 × 3 = 6 and round 3 reaches 6 × 3 = 18.",
           "The answer for round 3 alone is 18. The total through round 3 would be 26."
-        ]
+        ],
+        "prediction": "Draw the three rounds in separate rings. Which ring is the question asking you to count?"
       },
       "skill": "SEQ-02",
       "videoId": "S116",
@@ -5791,7 +5900,8 @@
         "figure": {
           "src": "figures/read-practice/S209.svg",
           "alt": "Two copies of a two-by-two grid. The first numbers the four unit squares. The second outlines the single square made from all four."
-        }
+        },
+        "prediction": "After finding four little squares, what else can you trace along the grid lines?"
       },
       "skill": "SPATIAL-02",
       "videoId": "S094",
@@ -5844,7 +5954,8 @@
         "steps": [
           "The extra ruler costs $3.",
           "Subtract its $3 price from $11, leaving $8 for the notebook."
-        ]
+        ],
+        "prediction": "If you lay the two purchases side by side, which extra item explains the extra $3?"
       },
       "skill": "ALG-02",
       "videoId": "S095",
@@ -5897,7 +6008,8 @@
         "steps": [
           "Both adjacent-side sums are 8, so both perimeters are 16.",
           "The areas are 12 and 15. A less extreme pair gains 3 square units."
-        ]
+        ],
+        "prediction": "Look first at the sum of the adjacent sides, then at their product. Do both stay the same?"
       },
       "skill": "GEO-05",
       "videoId": "S122",
@@ -5950,7 +6062,8 @@
         "steps": [
           "The second is (20 − 1)(20 + 1) = 20² − 1.",
           "The square is larger by 1. The large common part never needed to be computed."
-        ]
+        ],
+        "prediction": "Imagine turning the 20-by-20 square into a 19-by-21 rectangle. Would the lost row exactly fill the new column?"
       },
       "skill": "DIG-01",
       "videoId": "S123",
@@ -6002,7 +6115,8 @@
         "steps": [
           "There are 20 balls altogether, so each final basket must contain 10.",
           "Move 5 balls. One basket gains 5 while the other loses 5."
-        ]
+        ],
+        "prediction": "How many balls will the smaller basket have when the job is finished?"
       },
       "skill": "FRAC-02",
       "videoId": "S075",
@@ -6052,7 +6166,8 @@
         "steps": [
           "Blue loses 3 and Gold gains 3.",
           "The lead shrinks by 6, leaving 4."
-        ]
+        ],
+        "prediction": "When one counter switches teams, what happens at each end of the lead?"
       },
       "skill": "ALG-05",
       "videoId": "S125",
@@ -6105,7 +6220,8 @@
         "steps": [
           "The two surviving cells are both black.",
           "A domino requires one of each colour, so it cannot cover them."
-        ]
+        ],
+        "prediction": "Do the two cells left behind still share an edge?"
       },
       "skill": "SPATIAL-03",
       "videoId": "S097",
@@ -6158,7 +6274,8 @@
         "steps": [
           "The pack count must divide both 12 and 18.",
           "The greatest common divisor is 6. Each pack then has two red and three blue cards."
-        ]
+        ],
+        "prediction": "If you choose a number of packs, could either colour leave a remainder?"
       },
       "skill": "DIV-02",
       "videoId": "S013",
@@ -6211,7 +6328,8 @@
         "steps": [
           "The faster runner gains 3 m each second.",
           "Gaining one 60 m lap takes 20 seconds."
-        ]
+        ],
+        "prediction": "At their next meeting, how much extra distance will the faster runner have covered?"
       },
       "skill": "RATE-04",
       "videoId": "S129",
@@ -6263,7 +6381,8 @@
         "steps": [
           "Each hand leaves exactly two cards on the table.",
           "The two left out can be chosen in 6 × 5 ÷ 2 = 15 ways."
-        ]
+        ],
+        "prediction": "Could you name a four-card hand by naming just the two cards it leaves behind?"
       },
       "skill": "COUNT-02",
       "videoId": "S130",
@@ -6316,7 +6435,8 @@
         "steps": [
           "The interior angle ACB is 180° − 40° − 60° = 80°.",
           "Rays CB and CD point in opposite directions, so ACB and ACD complete a straight angle. The exterior angle is 180° − 80° = 100°."
-        ]
+        ],
+        "prediction": "At C, which two angles together make a straight angle along BD?"
       },
       "skill": "GEO-03",
       "videoId": "S081",
@@ -6369,7 +6489,8 @@
         "steps": [
           "The replacement adds 10 cm to the total and the count stays five.",
           "The mean rises by 10 ÷ 5 = 2 cm, to 14 cm."
-        ]
+        ],
+        "prediction": "Focus on the total length first. How much does replacing 8 cm with 18 cm add?"
       },
       "skill": "DATA-02",
       "videoId": "S103",
@@ -6421,7 +6542,8 @@
         "steps": [
           "After A is fixed, B and C may appear in either order.",
           "ABC and ACB are the two possibilities, so the answer is 2."
-        ]
+        ],
+        "prediction": "Cover the first slot with A. What choices survive in the two uncovered slots?"
       },
       "skill": "LOGIC-02",
       "videoId": "S071",
@@ -6473,7 +6595,8 @@
         "steps": [
           "For each route to the fountain, choose one of the four continuations.",
           "The choices make 2 × 4 = 8 journeys."
-        ]
+        ],
+        "prediction": "Take just one route to the fountain. How many complete journeys can start that way?"
       },
       "skill": "SPATIAL-01",
       "videoId": "S093",
@@ -6526,7 +6649,8 @@
         "steps": [
           "Eight plus eight equals 16.",
           "Write 6 in the units and carry 1 to the tens. Those two numbers cannot be interchanged."
-        ]
+        ],
+        "prediction": "Split the sum of the eights into tens and ones. Which column receives each part?"
       },
       "skill": "DIG-05",
       "videoId": "S009",
@@ -6579,7 +6703,8 @@
         "steps": [
           "The team's 15 boxes include Lee's six.",
           "Jo contributes the other 9 each minute."
-        ]
+        ],
+        "prediction": "Which boxes in the team's minute of work have already been counted for Lee?"
       },
       "skill": "RATE-02",
       "videoId": "S031",
@@ -6631,7 +6756,8 @@
         "steps": [
           "Tracing the bead gives boxes 2,3,1,2 at moves 0 to 3.",
           "Two moves beyond a complete three-move cycle take the bead from 2 to 1."
-        ]
+        ],
+        "prediction": "Label the bead's starting box as move zero. How many moves take it back there?"
       },
       "skill": "SEQ-04",
       "videoId": "S107",
@@ -6688,7 +6814,8 @@
         "figure": {
           "src": "figures/read-practice/S232.svg",
           "alt": "Cost table for zero through four visits. Plan A costs $4, $7, $10, $13, $16. Plan B costs $10, $11, $12, $13, $14."
-        }
+        },
+        "prediction": "Which plan starts ahead in cost, and how much of that difference disappears with each visit?"
       },
       "skill": "DATA-03",
       "videoId": "S104",
@@ -6738,7 +6865,8 @@
         "steps": [
           "There are 15 picture cards.",
           "One fifth of those 15 gives 3 tree cards."
-        ]
+        ],
+        "prediction": "When you take one fifth, which cards belong in the pile you are dividing?"
       },
       "skill": "FRAC-01",
       "videoId": "S022",
@@ -6791,7 +6919,8 @@
         "steps": [
           "Undo the most recent round: (15 − 1) ÷ 2 = 7.",
           "Undo the first round: (7 − 1) ÷ 2 = 3."
-        ]
+        ],
+        "prediction": "At 15, undo just the last round. Which action comes before halving?"
       },
       "skill": "ALG-04",
       "videoId": "S143",
@@ -6843,7 +6972,8 @@
         "steps": [
           "The first letter must be X and the second must be Y.",
           "The last letter is free, giving XYX and XYY."
-        ]
+        ],
+        "prediction": "Could position one be Y if the first Y must appear in position two?"
       },
       "skill": "COUNT-06",
       "videoId": "S079",
@@ -6895,7 +7025,8 @@
         "steps": [
           "Every tens position prints 0, contributing ten copies.",
           "The units position also prints 0 in 00, so the answer is 11."
-        ]
+        ],
+        "prediction": "Look closely at 00. How many printed zeroes does that single reading use?"
       },
       "skill": "DIG-03",
       "videoId": "S114",
@@ -6948,7 +7079,8 @@
         "steps": [
           "If the smallest were at least 3, the next two would be at least 4 and 5. The sum would be at least 12, exceeding 9.",
           "The numbers 2, 3 and 4 sum to 9 and attain a smallest number of 2. The bound and this example prove 2 is the maximum."
-        ]
+        ],
+        "prediction": "Try choosing 3 as the smallest. What is the least sum the other two different numbers would allow?"
       },
       "skill": "COUNT-01",
       "videoId": "S057",
@@ -7001,7 +7133,8 @@
         "steps": [
           "Only 1, 3 and 5 remain possible. They were equally likely before the clue.",
           "One of those three results is 5, giving probability 1/3."
-        ]
+        ],
+        "prediction": "After hearing “odd”, which faces can you cross off before counting?"
       },
       "skill": "DATA-01",
       "videoId": "S101",
@@ -7053,7 +7186,8 @@
         "steps": [
           "Both moves change its position by an even amount.",
           "Every reachable position is odd, while 12 is even. Reaching 12 is impossible."
-        ]
+        ],
+        "prediction": "Would either allowed move change an odd position into an even one?"
       },
       "skill": "DIV-04",
       "videoId": "S018",
@@ -7106,7 +7240,8 @@
         "steps": [
           "Both gain five years, becoming 17 and 13.",
           "Their difference is still 4 years."
-        ]
+        ],
+        "prediction": "Picture both ages on one number line. What happens to their separation if both move right five places?"
       },
       "skill": "ALG-02",
       "videoId": "S040",
@@ -7158,7 +7293,8 @@
         "steps": [
           "There are 6 multiples up to 24. Two lie below 9: 4 and 8.",
           "So 6 − 2 = 4 multiples lie in the interval."
-        ]
+        ],
+        "prediction": "Which multiples would you overcount if you started from 1 instead of 9?"
       },
       "skill": "COUNT-04",
       "videoId": "S062",
@@ -7210,7 +7346,8 @@
         "steps": [
           "Reflecting 43 gives 4334, which is too small.",
           "The next prefix 44 gives 4444. No prefix between 43 and 44 exists."
-        ]
+        ],
+        "prediction": "Start by reflecting 43. Is its mirror number already beyond 4,388?"
       },
       "skill": "DIG-04",
       "videoId": "S055",
@@ -7263,7 +7400,8 @@
         "steps": [
           "A complete cycle lasts 5 seconds.",
           "Two full cycles contain 2 + 2 = 4 seconds of spraying."
-        ]
+        ],
+        "prediction": "Sketch just one spray-and-rest cycle. How many complete cycles fit into ten seconds?"
       },
       "skill": "RATE-01",
       "videoId": "S030",
@@ -7316,7 +7454,8 @@
         "steps": [
           "Strings ending in A come from any legal two-letter string: AA, AB or BA. That gives 3.",
           "Strings ending in B come from AA or BA, the two legal strings ending in A. Together there are 5."
-        ]
+        ],
+        "prediction": "If a legal string ends in B, which letter must be immediately before it?"
       },
       "skill": "SEQ-03",
       "videoId": "S012",
@@ -7369,7 +7508,8 @@
         "steps": [
           "Write the smaller number first. A smaller number of 4 or more would make the sum at least 8.",
           "First numbers 1, 2 and 3 give (1,6), (2,5) and (3,4). The larger partner is forced each time, giving exactly three pairs."
-        ]
+        ],
+        "prediction": "Where must the smaller number stop so that reversing a pair never adds another answer?"
       },
       "skill": "LOGIC-04",
       "videoId": "S074",
@@ -7422,7 +7562,8 @@
         "steps": [
           "Any tiling of the first strip can be paired with any tiling of the other.",
           "That gives 2 × 3 = 6 combined tilings."
-        ]
+        ],
+        "prediction": "Choose a tiling on the first side. Does it restrict any choice on the other side of the seam?"
       },
       "skill": "SPATIAL-03",
       "videoId": "S036",
@@ -7475,7 +7616,8 @@
         "steps": [
           "The least common multiple is 12, so they meet every 12 seconds.",
           "The first positive shared flash is at 12 and the second at 24 seconds."
-        ]
+        ],
+        "prediction": "When the lights flash now, should that count towards the words “second shared flash after now”?"
       },
       "skill": "DIV-02",
       "videoId": "S013",
@@ -7527,7 +7669,8 @@
         "steps": [
           "Each tile has side length 2 cm. The three separate perimeters add to 24 cm.",
           "Each of the two joins hides a 2 cm edge on both tiles that meet there. Remove 2 × 2 × 2 = 8 cm, leaving 16 cm of outside boundary."
-        ]
+        ],
+        "prediction": "Mark each join before tracing the L. How many tile edges does one join hide?"
       },
       "skill": "COUNT-05",
       "videoId": "S065",
@@ -7577,7 +7720,8 @@
         "steps": [
           "The three visible heights use 6 cubes.",
           "The fourth stack holds 11 − 6 = 5."
-        ]
+        ],
+        "prediction": "Take the three known stacks apart on paper. How many of the 11 cubes have you accounted for?"
       },
       "skill": "SOLID-01",
       "videoId": "S006",
@@ -7630,7 +7774,8 @@
         "steps": [
           "For a last digit 0, both 340 and 430 work.",
           "For a last digit 4, only 304 works. The total is 3."
-        ]
+        ],
+        "prediction": "Test 0 and 4 separately as the final digit. In which case could you accidentally start with zero?"
       },
       "skill": "DIG-02",
       "videoId": "S004",
@@ -7683,7 +7828,8 @@
         "steps": [
           "The outside pair sums to 22 and the next pair also sums to 22.",
           "There is a middle term of 11 left over. The total is 55."
-        ]
+        ],
+        "prediction": "Match the smallest term with the largest. Which term is left over after the second pair?"
       },
       "skill": "SEQ-01",
       "videoId": "S047",
@@ -7736,7 +7882,8 @@
         "steps": [
           "The partner for each possible gold position is two higher.",
           "Only starts 1 and 2 work. Starts 3 and 4 would put blue beyond the shelf."
-        ]
+        ],
+        "prediction": "For each possible gold position, point two slots to its right. When do you run out of boxes?"
       },
       "skill": "LOGIC-02",
       "videoId": "S135",
@@ -7788,7 +7935,8 @@
         "steps": [
           "The final digit must be even. For divisibility by 3, the digit sum 4 + A must be divisible by 3.",
           "Both 2 and 8 satisfy the clues, giving 312 and 318. The clues can allow more than one choice."
-        ]
+        ],
+        "prediction": "Which possible last digits survive the evenness test before you check their digit sums?"
       },
       "skill": "DIV-03",
       "videoId": "S015",
@@ -7840,7 +7988,8 @@
         "steps": [
           "Rule B gains 2 more per turn. Rule A begins with a 6-point advantage.",
           "It takes 3 turns to use up that advantage. Both rules then give 15 points."
-        ]
+        ],
+        "prediction": "After one turn, how much of A's initial bonus has B caught up?"
       },
       "skill": "ALG-01",
       "videoId": "S038",
@@ -7892,7 +8041,8 @@
         "steps": [
           "The two letters make three gaps. All three gaps must get one dot.",
           "Only the order of the letters can change. There are 2 rows."
-        ]
+        ],
+        "prediction": "Lay down A and B first. Where could a dot go, including outside the letters?"
       },
       "skill": "COUNT-03",
       "videoId": "S060",
@@ -7945,7 +8095,8 @@
         "steps": [
           "Reflecting gives −3.",
           "Moving right by 2 now takes the counter to −1."
-        ]
+        ],
+        "prediction": "Do the reflection first. Which side of zero are you on before moving right?"
       },
       "skill": "GEO-04",
       "videoId": "S083",
@@ -7998,7 +8149,8 @@
         "steps": [
           "The first bag holds 12. The second holds 18.",
           "The two bags therefore hold 30 shells altogether."
-        ]
+        ],
+        "prediction": "If six shells fill a single share in each bag, how many shares does each full bag hold?"
       },
       "skill": "FRAC-01",
       "videoId": "S142",
@@ -8050,7 +8202,8 @@
         "steps": [
           "Compare the two expressions. The second contains one extra star and nothing else changes.",
           "That extra star accounts for 13 − 9 = 4."
-        ]
+        ],
+        "prediction": "Which symbol has been added when the total changes from 9 to 13?"
       },
       "skill": "LOGIC-03",
       "videoId": "S117",
@@ -8103,7 +8256,8 @@
         "steps": [
           "The intervals containing the first cell may stop after cells 1, 2 or 3.",
           "Only the third choice also contains the last cell. Two remain."
-        ]
+        ],
+        "prediction": "Hold the left end at the first cell. Which stopping points avoid the last cell?"
       },
       "skill": "SPATIAL-02",
       "videoId": "S082",
@@ -8156,7 +8310,8 @@
         "steps": [
           "Write 12 = 2² × 3. A divisor can use zero, one or two copies of 2 and zero or one copy of 3.",
           "There are 3 × 2 = 6 choices, giving 1, 2, 3, 4, 6 and 12."
-        ]
+        ],
+        "prediction": "When building a divisor, are you allowed to choose zero copies of a prime?"
       },
       "skill": "DIV-01",
       "videoId": "S011",
@@ -8208,7 +8363,8 @@
         "steps": [
           "She has 18 km left and one hour left.",
           "The needed speed is 18 km/h."
-        ]
+        ],
+        "prediction": "At the end of the first hour, how much distance and how much time are left?"
       },
       "skill": "RATE-03",
       "videoId": "S034",
@@ -8261,7 +8417,8 @@
         "steps": [
           "In rows by the smaller factor, the products are 1,2,3,4 then 4,6,8 then 9,12 then 16.",
           "Only 4 appears twice. The ten factor pairs give nine different products."
-        ]
+        ],
+        "prediction": "Do 1 × 4 and 2 × 2 give two products or two ways to make the same product?"
       },
       "skill": "COUNT-01",
       "videoId": "S057",
@@ -8313,7 +8470,8 @@
         "steps": [
           "The sides become 4 cm and 6 cm.",
           "Its area becomes 24 cm², four times the original 6 cm²."
-        ]
+        ],
+        "prediction": "Draw one original square centimetre after enlargement. How many small squares does it cover now?"
       },
       "skill": "FRAC-02",
       "videoId": "S024",
@@ -8366,7 +8524,8 @@
         "steps": [
           "The first team's lead changes from 4 to 4 − 7 = −3.",
           "A negative lead for the first means the second now leads by 3."
-        ]
+        ],
+        "prediction": "Can you use a negative lead to show which team is now in front?"
       },
       "skill": "ALG-05",
       "videoId": "S046",
@@ -8418,7 +8577,8 @@
         "steps": [
           "If Sue tells the truth, Tom lies. If Sue lies, Tom tells the truth. Sue and Tom have opposite types in both cases.",
           "Tom’s statement gives the same opposite-type relationship with Uri. Reversing type twice brings us back to Sue’s type, so Sue and Uri must match."
-        ]
+        ],
+        "prediction": "Start with Sue telling the truth, then try her lying. In both cases, what happens two speakers along?"
       },
       "skill": "LOGIC-01",
       "videoId": "S068",
@@ -8471,7 +8631,8 @@
         "steps": [
           "Each of the two pieces gains one exposed face of area 6 cm².",
           "Together the pieces gain 12 cm² of surface."
-        ]
+        ],
+        "prediction": "After the pieces separate, how many newly exposed faces can you touch?"
       },
       "skill": "SOLID-03",
       "videoId": "S090",
@@ -8524,7 +8685,8 @@
         "steps": [
           "The matched outer digits contribute 6 and the matched ones contribute 2.",
           "The centre must supply 12 − 8 = 4."
-        ]
+        ],
+        "prediction": "Cross out the two matching pairs in 31C13. How much of the digit sum is already used?"
       },
       "skill": "DIG-04",
       "videoId": "S008",
@@ -8577,7 +8739,8 @@
         "steps": [
           "The third departs two intervals after 8:00, at 8:24.",
           "Five more minutes brings it to 8:29."
-        ]
+        ],
+        "prediction": "Mark the first departure at 8:00. How many twelve-minute gaps come before the third departure?"
       },
       "skill": "RATE-01",
       "videoId": "S030",
@@ -8629,7 +8792,8 @@
         "steps": [
           "Those two angles are half of B and half of C.",
           "Their sum is half of 110°, or 55°."
-        ]
+        ],
+        "prediction": "If you halve each of two angles, what fraction of their original sum do you get?"
       },
       "skill": "GEO-03",
       "videoId": "S131",
@@ -8682,7 +8846,8 @@
         "steps": [
           "Days 2 and 3 occur in both totals.",
           "The increase 25 − 21 = 4 comes entirely from replacing day 1 by day 4."
-        ]
+        ],
+        "prediction": "Which days disappear if you subtract the older three-day window from the newer one?"
       },
       "skill": "DATA-02",
       "videoId": "S092",
@@ -8732,7 +8897,8 @@
         "steps": [
           "Starting at exponent 1 the last digits are 2, 4, 8, 6, then repeat.",
           "Exponent 6 is in the second position of the next cycle, so the last digit is 4."
-        ]
+        ],
+        "prediction": "Write the last digits with their exponents underneath. Where does exponent 6 fall in the cycle?"
       },
       "skill": "DIV-05",
       "videoId": "S020",
@@ -8785,7 +8951,8 @@
         "steps": [
           "Double the first purchase: two pens and two folders cost $12.",
           "The extra folder in the second purchase costs $3."
-        ]
+        ],
+        "prediction": "How could you make the two purchases contain the same number of pens?"
       },
       "skill": "ALG-03",
       "videoId": "S041",
@@ -8837,7 +9004,8 @@
         "steps": [
           "The patrols record 5 × 4 = 20 visits.",
           "Divide the same 20 visits among ten sites to get 2 per site."
-        ]
+        ],
+        "prediction": "How many visits are there to share among the ten sites?"
       },
       "skill": "COUNT-05",
       "videoId": "S065",
@@ -8890,7 +9058,8 @@
         "steps": [
           "Their deficits from 4 are 2, 0 and 3.",
           "The total added is 5. The new model has three stacks of 4."
-        ]
+        ],
+        "prediction": "Look at the stack already four cubes high. How much does it contribute to the number being added?"
       },
       "skill": "SOLID-01",
       "videoId": "S087",
@@ -8943,7 +9112,8 @@
         "steps": [
           "From 0,1 we get 1; from 1,1 we get 0. The next pair is 1,0.",
           "Continuing gives 1 and 1. The four new bits are 1,0,1,1."
-        ]
+        ],
+        "prediction": "Slide a window over just the last two bits. Which two bits will determine the next one?"
       },
       "skill": "SEQ-04",
       "videoId": "S054",
@@ -8996,7 +9166,8 @@
         "steps": [
           "The outside is still 24 cm. The window contributes 12 cm of boundary.",
           "Divide its perimeter by four equal sides: 12 ÷ 4 = 3 cm."
-        ]
+        ],
+        "prediction": "The outside edge hasn't moved. What part of the 36 cm belongs to the new square?"
       },
       "skill": "GEO-01",
       "videoId": "S076",
@@ -9049,7 +9220,8 @@
         "steps": [
           "The two possible routes are S–U–F and S–V–F.",
           "The closure removes the first route. The second still works, giving 1 route."
-        ]
+        ],
+        "prediction": "Draw the two possible middle stops. Which one has lost its way to F?"
       },
       "skill": "SPATIAL-04",
       "videoId": "S100",
@@ -9106,7 +9278,8 @@
         "steps": [
           "If the first holds x then the other holds x − 3.",
           "The total 2x − 3 is 17, so x is 10. The other box holds 7."
-        ]
+        ],
+        "prediction": "If the first box holds your chosen number, which box should be labelled “that number minus three”?"
       },
       "skill": "ALG-01",
       "videoId": "S038",
@@ -9158,7 +9331,8 @@
         "steps": [
           "Nine interiors form a 3-by-3 square.",
           "One border cube at each end adds two, giving an edge length of 5."
-        ]
+        ],
+        "prediction": "Sketch the nine centres and put one border cube at each end of an interior row. How long is the full row?"
       },
       "skill": "SOLID-02",
       "videoId": "S113",
@@ -9211,7 +9385,8 @@
         "steps": [
           "Its digit sum must be a multiple of 9.",
           "Only 4 + 5 works, so the number is 45."
-        ]
+        ],
+        "prediction": "Starting with the digit 4, what totals could the two digits reach?"
       },
       "skill": "DIG-03",
       "videoId": "S102",
@@ -9263,7 +9438,8 @@
         "steps": [
           "There are 4 filled red and 4 filled blue cups.",
           "Eight of twelve are filled, giving 2/3."
-        ]
+        ],
+        "prediction": "Does one half describe all the cups or just the red ones?"
       },
       "skill": "FRAC-04",
       "videoId": "S027",
@@ -9316,7 +9492,8 @@
         "steps": [
           "The first four terms total 4 + 8 + 16 + 32 = 60. The doubling rule gives the next term as 64.",
           "The gap is 64 − 60 = 4. More generally, when a finite doubling sum is doubled and the original sum is subtracted, the middle terms cancel, leaving the next term minus the first."
-        ]
+        ],
+        "prediction": "Keep a running total beside the doubling sequence. Which two entries are you asked to compare?"
       },
       "skill": "SEQ-02",
       "videoId": "S059",
@@ -9369,7 +9546,8 @@
         "steps": [
           "Adding the lines gives 20, with the central 3 included twice.",
           "Remove one extra copy of 3 to get 17."
-        ]
+        ],
+        "prediction": "Which value would appear twice on your page if you copied both complete lines?"
       },
       "skill": "LOGIC-03",
       "videoId": "S073",
@@ -9422,7 +9600,8 @@
         "steps": [
           "It runs through the middle intersection. Two other tiles meet it only at that corner.",
           "Only the starting and finishing tiles contain part of the diagonal inside them, giving 2."
-        ]
+        ],
+        "prediction": "When the diagonal touches the centre, which tile does it actually enter next?"
       },
       "skill": "SPATIAL-02",
       "videoId": "S017",
@@ -9479,7 +9658,8 @@
         "steps": [
           "Adding 12, 15 and 13 counts each person's counters twice.",
           "The sum of 40 represents two copies of the collection, so the actual total is 20."
-        ]
+        ],
+        "prediction": "If you add all three pair totals, how many times will A appear?"
       },
       "skill": "ALG-02",
       "videoId": "S120",
@@ -9531,7 +9711,8 @@
         "steps": [
           "Four stickers carry A and four carry B. AB and ABC carry both.",
           "This counts 4 + 4 − 2 = 6. The sticker carrying only C was excluded."
-        ]
+        ],
+        "prediction": "Which sticker labels would appear on both your A list and your B list?"
       },
       "skill": "COUNT-04",
       "videoId": "S121",
@@ -9584,7 +9765,8 @@
         "steps": [
           "The price is $1 too high per item.",
           "Across 6 items the bill is $6 too high."
-        ]
+        ],
+        "prediction": "How much extra was recorded for just one item?"
       },
       "skill": "DIG-01",
       "videoId": "S002",
@@ -9636,7 +9818,8 @@
         "steps": [
           "Fifteen millimetres is three model units of 5 mm.",
           "Three real units of 2 m make 6 m."
-        ]
+        ],
+        "prediction": "How many copies of the 5 mm model length fit along 15 mm?"
       },
       "skill": "FRAC-02",
       "videoId": "S124",
@@ -9686,7 +9869,8 @@
         "steps": [
           "B closes 3 points of gap per round.",
           "Four rounds close all 12 points."
-        ]
+        ],
+        "prediction": "After one round, has the 12-point gap grown or shrunk, and by how much?"
       },
       "skill": "ALG-05",
       "videoId": "S125",
@@ -9739,7 +9923,8 @@
         "steps": [
           "Two upright dominoes fill two whole columns and use four cells.",
           "The other four cells need two horizontal dominoes, forming one paired block."
-        ]
+        ],
+        "prediction": "After the upright dominoes are placed, how many cells still need covering?"
       },
       "skill": "SPATIAL-03",
       "videoId": "S127",
@@ -9796,7 +9981,8 @@
         "steps": [
           "There are four multiples of 3 and three of 4.",
           "Twelve is counted twice, so the distinct count is 4 + 3 − 1 = 6."
-        ]
+        ],
+        "prediction": "Which number would appear on both your list of threes and your list of fours?"
       },
       "skill": "DIV-02",
       "videoId": "S013",
@@ -9849,7 +10035,8 @@
         "steps": [
           "Together they close 60 ÷ 5 = 12 m each second.",
           "The other runner contributes 12 − 5 = 7 m/s."
-        ]
+        ],
+        "prediction": "How many metres of the gap disappear in a single second?"
       },
       "skill": "RATE-04",
       "videoId": "S037",
@@ -9902,7 +10089,8 @@
         "steps": [
           "Choose the partner of one particular friend in 3 ways.",
           "The other two friends form the second pair automatically. Naming the pairs would count each split twice."
-        ]
+        ],
+        "prediction": "If you name one friend first, does choosing their partner also decide the other pair?"
       },
       "skill": "COUNT-02",
       "videoId": "S069",
@@ -9955,7 +10143,8 @@
         "steps": [
           "The fold makes the crease the mirror line between the rays.",
           "It bisects 70°, so the turn from either ray to that crease is 35°."
-        ]
+        ],
+        "prediction": "Where must a mirror line lie between a ray and its reflected image?"
       },
       "skill": "GEO-03",
       "videoId": "S081",
@@ -10008,7 +10197,8 @@
         "steps": [
           "The total is 12. To maximise one number, minimise the other two as 1 and 2.",
           "The largest is 9, and 1,2,9 shows it can really occur."
-        ]
+        ],
+        "prediction": "How small can the other two numbers be if they must be positive and different?"
       },
       "skill": "DATA-02",
       "videoId": "S026",
@@ -10058,7 +10248,8 @@
         "steps": [
           "Only 3 and 4 are above 2. B still needs an even heavier parcel A.",
           "B is therefore 3 kg, leaving 4 kg for A."
-        ]
+        ],
+        "prediction": "Could B be the heaviest parcel if A still has to weigh more?"
       },
       "skill": "LOGIC-02",
       "videoId": "S071",
@@ -10111,7 +10302,8 @@
         "steps": [
           "Right then up uses the closed edge. Up then right avoids it.",
           "One of the two routes survives. The upper-right endpoint is still open."
-        ]
+        ],
+        "prediction": "Trace both possible first steps. Which one uses the closed edge?"
       },
       "skill": "SPATIAL-01",
       "videoId": "S093",
@@ -10168,7 +10360,8 @@
         "steps": [
           "Undo the subtraction to recover the whole number. It is 38 + 27 = 65, so A is 5.",
           "Check in columns. Regroup 65 as 5 tens and 15 units. Subtracting 2 tens and 7 units leaves 3 tens and 8 units."
-        ]
+        ],
+        "prediction": "Which operation takes you back from 38 to the original number?"
       },
       "skill": "DIG-05",
       "videoId": "S010",
@@ -10221,7 +10414,8 @@
         "steps": [
           "Days 2–9 make two whole blocks with two As each. Day 1 is X.",
           "Day 10 starts the next block with A. The total is five As."
-        ]
+        ],
+        "prediction": "Where does the repeating four-day block begin on your timeline?"
       },
       "skill": "SEQ-04",
       "videoId": "S139",
@@ -10278,7 +10472,8 @@
         "figure": {
           "src": "figures/read-practice/S323.svg",
           "alt": "A table shows seven hat wearers among twelve walkers and three hat wearers among eight riders. Both no-hat cells are unknown."
-        }
+        },
+        "prediction": "How many walkers left their hats at home? Can you do the same count for riders?"
       },
       "skill": "DATA-03",
       "videoId": "S045",
@@ -10328,7 +10523,8 @@
         "steps": [
           "Taking half leaves 9 pencils.",
           "The fixed addition happens afterwards, bringing the box to 12."
-        ]
+        ],
+        "prediction": "Immediately after the pencils are taken, what fraction of the original box remains?"
       },
       "skill": "FRAC-01",
       "videoId": "S022",
@@ -10380,7 +10576,8 @@
         "steps": [
           "The candidates are 8 − 3 = 5 and 8 + 3 = 11.",
           "Only 5 lies in the permitted range."
-        ]
+        ],
+        "prediction": "Starting at 8, which direction can you move three units and stay within the allowed range?"
       },
       "skill": "ALG-04",
       "videoId": "S044",
@@ -10432,7 +10629,8 @@
         "steps": [
           "One number is fixed at 4.",
           "Its partner can be 1, 2 or 3, giving three pairs."
-        ]
+        ],
+        "prediction": "If 4 is the larger label, which labels could be its partner?"
       },
       "skill": "COUNT-06",
       "videoId": "S067",
@@ -10484,7 +10682,8 @@
         "steps": [
           "The two large faces meet along the front top edge.",
           "That edge contains 3 cubes, including both of its ends."
-        ]
+        ],
+        "prediction": "Trace the meeting line of the two painted faces. Do its end cubes also carry both colours?"
       },
       "skill": "SOLID-02",
       "videoId": "S089",
@@ -10537,7 +10736,8 @@
         "steps": [
           "With smallest 1, the second cannot be 2 because the third would be 7. The second can be 3 or 4, giving (1,3,6) and (1,4,5). From second 5 onward the third would be smaller.",
           "With smallest 2, second 3 gives (2,3,5). Second 4 already gives a repeated 4. A smallest member of at least 3 would force a sum of at least 3 + 4 + 5 = 12. The three listed sets are complete."
-        ]
+        ],
+        "prediction": "If the two smallest numbers were 1 and 2, what would the third have to be?"
       },
       "skill": "COUNT-01",
       "videoId": "S057",
@@ -10590,7 +10790,8 @@
         "steps": [
           "The common base stays 6 cm while the height gains 1 cm.",
           "Half of 6 × 1 is 3 cm² of extra area."
-        ]
+        ],
+        "prediction": "How much extra height is there above the same 6 cm base?"
       },
       "skill": "GEO-02",
       "videoId": "S078",
@@ -10647,7 +10848,8 @@
         "steps": [
           "The chance of choosing A and then red is (1/2) × 1 = 1/2. The chance of choosing B and then red is (1/2) × (1/2) = 1/4.",
           "These two routes are disjoint. Add their probabilities to obtain 3/4."
-        ]
+        ],
+        "prediction": "On which coin outcome is a red token certain, and on which is it only possible?"
       },
       "skill": "DATA-01",
       "videoId": "S101",
@@ -10699,7 +10901,8 @@
         "steps": [
           "A domino must stay inside one strip. Each strip can hold only one domino.",
           "Two dominoes cover four cells. The even total of six does not guarantee a covering."
-        ]
+        ],
+        "prediction": "Can a domino cross the gap between strips to cover two leftover cells?"
       },
       "skill": "DIV-04",
       "videoId": "S019",
@@ -10751,7 +10954,8 @@
         "steps": [
           "Set the two triangles aside. All four remaining pieces must be squares or circles.",
           "The two groups have the same size, so each has 4 ÷ 2 = 2 pieces. There are two circles."
-        ]
+        ],
+        "prediction": "Once the triangles are set aside, how should you split the remaining pieces?"
       },
       "skill": "ALG-02",
       "videoId": "S095",
@@ -10803,7 +11007,8 @@
         "steps": [
           "Four rows exist. All-black and all-white each miss a colour.",
           "Remove these two rows, leaving BW and WB."
-        ]
+        ],
+        "prediction": "What would a two-bead row look like if it failed to use both colours?"
       },
       "skill": "COUNT-04",
       "videoId": "S062",
@@ -10855,7 +11060,8 @@
         "steps": [
           "The endpoints 0 and 30 are excluded.",
           "Only the readings at 10 and 20 count, giving 2."
-        ]
+        ],
+        "prediction": "Which reading times disappear when both ends of the interval are open?"
       },
       "skill": "RATE-01",
       "videoId": "S030",
@@ -10908,7 +11114,8 @@
         "steps": [
           "The single empty tiling allows a first tile to start the row.",
           "It lets the “last tile has length 3” case produce exactly one all-long tiling when the row length is 3."
-        ]
+        ],
+        "prediction": "Before any tile goes down, how many choices have you made to leave the row empty?"
       },
       "skill": "SEQ-03",
       "videoId": "S052",
@@ -10961,7 +11168,8 @@
         "steps": [
           "The occupied column separates the squares on its left and right.",
           "Each side is a 2-by-2 board. Each has two tilings, so the whole board has 4 tilings with that domino fixed."
-        ]
+        ],
+        "prediction": "Trace the empty cells on either side of the fixed middle column. Can any tile cross it?"
       },
       "skill": "SPATIAL-03",
       "videoId": "S097",
@@ -11014,7 +11222,8 @@
         "steps": [
           "At minute 4 the first would sound again, and a chime with a two-minute interval would already sound for the second time after its start.",
           "They would meet at minute 4, contradicting the first repeat at minute 12. A two-minute interval is impossible."
-        ]
+        ],
+        "prediction": "If the second chime rang every two minutes, what would you hear at minute four?"
       },
       "skill": "DIV-02",
       "videoId": "S013",
@@ -11067,7 +11276,8 @@
         "steps": [
           "The back-row and right-column maxima of 1 force all three stacks in those positions to have height 1. Only the front-left stack can attain height 3.",
           "Build the front row with heights 3 and 1, and the back row with heights 1 and 1. Both sets of maxima fit. The forced heights total six cubes."
-        ]
+        ],
+        "prediction": "Which positions are forced to height 1 by a row or column maximum?"
       },
       "skill": "SOLID-01",
       "videoId": "S072",
@@ -11120,7 +11330,8 @@
         "steps": [
           "The digit sum must be divisible by 3. Only the pair 3 and 6 works.",
           "Both orders work, giving 36 and 63: two numbers."
-        ]
+        ],
+        "prediction": "Which two different digits have a sum divisible by three?"
       },
       "skill": "DIG-02",
       "videoId": "S004",
@@ -11173,7 +11384,8 @@
         "steps": [
           "The rise adds $10, giving $50.",
           "The fall removes a fifth of $50, or $10. The bag returns to $40."
-        ]
+        ],
+        "prediction": "What price is the 20% discount taken from after the first change?"
       },
       "skill": "FRAC-03",
       "videoId": "S025",
@@ -11225,7 +11437,8 @@
         "steps": [
           "The mean shelf holds 90 ÷ 6 = 15.",
           "The two endpoints must add to 30, so the last shelf holds 25."
-        ]
+        ],
+        "prediction": "When six shelf counts rise evenly, what do the first and last counts average to?"
       },
       "skill": "SEQ-01",
       "videoId": "S134",
@@ -11278,7 +11491,8 @@
         "steps": [
           "The right end has no desk to its right.",
           "Inez must occupy the leftmost desk. The other two students can still swap."
-        ]
+        ],
+        "prediction": "Which end desk has a neighbour immediately to its right?"
       },
       "skill": "LOGIC-02",
       "videoId": "S135",
@@ -11330,7 +11544,8 @@
         "steps": [
           "Adding 1 must produce a multiple of 20.",
           "The first multiple of 20 above 41 is 60, so the number is 59."
-        ]
+        ],
+        "prediction": "What must happen to the number when you add one?"
       },
       "skill": "DIV-03",
       "videoId": "S001",
@@ -11382,7 +11597,8 @@
         "steps": [
           "B must touch A on one side and C on the other. The run is ABC or CBA.",
           "The run and D have two orders, giving 2 × 2 = 4."
-        ]
+        ],
+        "prediction": "How many neighbours does B need if it must touch both A and C?"
       },
       "skill": "COUNT-03",
       "videoId": "S023",
@@ -11434,7 +11650,8 @@
         "steps": [
           "The outer pairs are 1 with 7, 2 with 6 and 3 with 5.",
           "Seat 4 has no distinct partner. It stays fixed."
-        ]
+        ],
+        "prediction": "Pair up seats from opposite ends. Is there a seat left without a partner?"
       },
       "skill": "GEO-04",
       "videoId": "S083",
@@ -11491,7 +11708,8 @@
         "figure": {
           "src": "figures/read-practice/S355.svg",
           "alt": "Two three-day examples give book sales of 4, 4, 4 and of 2, 9, 1. Both total 12."
-        }
+        },
+        "prediction": "Can you invent daily sales that still add to 12 with a different middle day?"
       },
       "skill": "DATA-03",
       "videoId": "S104",
@@ -11543,7 +11761,8 @@
         "steps": [
           "The missing value is forced by 14 − 3 − 7 = 4.",
           "Only 4 fits the sum. A second 7 would also break the distinctness rule."
-        ]
+        ],
+        "prediction": "What number does the total force before you even check the distinctness rule?"
       },
       "skill": "LOGIC-03",
       "videoId": "S117",
@@ -11600,7 +11819,8 @@
         "steps": [
           "Every rectangle must use both horizontal lines, giving one horizontal choice.",
           "Each of the six vertical pairs supplies one rectangle, so there are 6."
-        ]
+        ],
+        "prediction": "Once both horizontal lines are fixed, which sides of a rectangle still need choosing?"
       },
       "skill": "SPATIAL-02",
       "videoId": "S118",
@@ -11653,7 +11873,8 @@
         "steps": [
           "Eighteen is 2 × 3². The two 3s are already paired.",
           "An extra 2 completes the unpaired factor, giving 36 = 6²."
-        ]
+        ],
+        "prediction": "Write 18 as a product of primes. Which prime is missing its partner?"
       },
       "skill": "DIV-01",
       "videoId": "S011",
@@ -11706,7 +11927,8 @@
         "steps": [
           "The remainders must be 0 and 0, or 1 and 2. Only one label has remainder 0, so the first case is empty.",
           "The remainder-1 labels are 1 and 4. The remainder-2 labels are 2 and 5. Each first choice has two partners, giving 4 pairs."
-        ]
+        ],
+        "prediction": "Could you choose two distinct labels both with remainder zero?"
       },
       "skill": "COUNT-06",
       "videoId": "S079",
@@ -11763,7 +11985,8 @@
         "figure": {
           "src": "figures/read-practice/S362.svg",
           "alt": "First weighing: bag plus bag plus tin equals seventeen kilograms. Second weighing: bag plus tin equals eleven kilograms."
-        }
+        },
+        "prediction": "What disappears if you subtract the lighter weighing from the heavier one?"
       },
       "skill": "ALG-03",
       "videoId": "S050",
@@ -11815,7 +12038,8 @@
         "steps": [
           "Both pieces have the same height, so their areas also have ratio 1 to 3.",
           "The smaller is one of four equal shares of the original area: 24 ÷ 4 = 6 cm²."
-        ]
+        ],
+        "prediction": "When the triangles share a vertex, what happens to their heights above the split base?"
       },
       "skill": "GEO-02",
       "videoId": "S061",
@@ -11868,7 +12092,8 @@
         "steps": [
           "Sort the routes by their final step. Every route belongs to exactly one group.",
           "The south group has 5 − 2 = 3 routes."
-        ]
+        ],
+        "prediction": "Could a route use both entrances for its final step?"
       },
       "skill": "SPATIAL-01",
       "videoId": "S093",
@@ -11921,7 +12146,8 @@
         "steps": [
           "The two top lamps turn on together.",
           "There are two lit corners. Turning any pair of corners changes the lit count by 0 or 2 in either direction, preserving evenness."
-        ]
+        ],
+        "prediction": "Point to each end of the switched edge. Which corners does the move reach?"
       },
       "skill": "DIV-04",
       "videoId": "S018",
@@ -11977,7 +12203,8 @@
         "figure": {
           "src": "figures/read-practice/S368.svg",
           "alt": "Two equal route halves. The second half is six kilometres, travelled at twelve kilometres per hour."
-        }
+        },
+        "prediction": "If the last 6 km is the remaining half, where would the midpoint be on a route sketch?"
       },
       "skill": "RATE-03",
       "videoId": "S039",
@@ -12029,7 +12256,8 @@
         "steps": [
           "List factor pairs with width no greater than the square root: (1,12), (2,6), (3,4).",
           "Their perimeters are 26, 16 and 14 cm. The list is complete, so 14 cm is minimal."
-        ]
+        ],
+        "prediction": "Which whole-number pairs can be the sides of a rectangle with area 12?"
       },
       "skill": "GEO-05",
       "videoId": "S085",

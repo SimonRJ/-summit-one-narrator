@@ -1,5 +1,5 @@
 const scope = new URL(self.registration.scope);
-const CACHE="summit-one-s008-press-20261124";
+const CACHE="summit-one-lesson-review-20261125";
 const cachePrefix = scope.pathname + ':summit-one-';
 const cacheName = scope.pathname + ':' + CACHE;
 const reader = new URL('offline-reader.html', scope).href;
@@ -13,14 +13,14 @@ const staticFiles = [
   "./route-model.css?v=paths-20261121",
   "./offline-reader.html",
   "./public-study-theme.css",
-  "./offline-reader.js?v=s008-press-20261124",
+  "./offline-reader.js?v=lesson-review-20261125",
   "./domino-model.js?v=github-20261121",
   "./domino-model.css?v=github-20261121",
   "./model-claims.js?v=powers-20261122",
   "./example-methods.js?v=course-review-20261122-a",
   "./lesson-models.js?v=powers-20261122",
   "./lesson-models.css?v=deeper-20261121",
-  "./data/read-watch-practise-later.json?v=s008-press-20261124",
+  "./data/read-watch-practise-later.json?v=lesson-review-20261125",
   "./figures/read-practice/S002.svg",
   "./figures/read-practice/S003.svg",
   "./figures/read-practice/S006.svg",
@@ -48,8 +48,8 @@ const staticFiles = [
   "./figures/read-practice/S355.svg",
   "./figures/read-practice/S362.svg",
   "./figures/read-practice/S368.svg",
-  "./reviewed-lesson.js?v=powers-20261122",
-  "./data/read-watch-practise.json?v=s008-press-20261124",
+  "./reviewed-lesson.js?v=lesson-review-20261125",
+  "./data/read-watch-practise.json?v=lesson-review-20261125",
   "./read-practice.css?v=s008-press-20261124",
   "./coverage.html",
   "./coverage.js?v=topic-label-20261122",
@@ -78,7 +78,7 @@ const staticFiles = [
   "./boot-loader.css?v=cinematic-20261113",
   "./main.css?v=worked-films-20261122",
   "./summit-polish.css?v=craft-20261121",
-  "./app-main.js?v=s008-press-20261124",
+  "./app-main.js?v=lesson-review-20261125",
   "./workshop-studies.js?v=workshops-20261122",
   "./course-menu.js?v=menu-20261113",
   "./course-menu-ui.js?v=s008-press-20261124",

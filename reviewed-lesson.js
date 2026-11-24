@@ -37,7 +37,7 @@ export function readCard(lesson) {
    <h3>A small example</h3>
    <p class="math-copy">${escape(example.prompt)}</p>
    ${figure}
-   <p class="rwl-predict">What would you try first?</p>
+   ${example.prediction ? `<p class="rwl-predict math-copy">${escape(example.prediction)}</p>` : ''}
    <details name="${group}" class="rwl-first-step">
     <summary>Show the first step</summary>
     <p class="math-copy">${escape(example.steps[0])}</p>

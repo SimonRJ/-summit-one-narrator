@@ -1,5 +1,5 @@
 import {enableFigureViewing} from './figure-viewer.js?v=deeper-20261121';
-import {edition as readEdition, questionOrder, renderReviewedLesson, restoreGradedAnswers} from './reviewed-lesson.js?v=powers-20261122';
+import {edition as readEdition, questionOrder, renderReviewedLesson, restoreGradedAnswers} from './reviewed-lesson.js?v=lesson-review-20261125';
 import {mixedFlashDeck} from './flash-cards.js?v=standalone-cards-20261122';
 import {wordingHTML} from './recognition.js?v=recognition-20261113';
 import {workshopEdition,workshopStudies} from './workshop-studies.js?v=workshops-20261122';
@@ -211,8 +211,8 @@ async function boot(){
     user=await currentUser();
     if(!user){location.href="login.html";return}
     const introCatalogue=loadIntroductionCatalogue();
-    const [c,t,m,h,tax,ms,lm,rl,later]=await Promise.all([fetch("data/sessions-372.json").then(r=>r.json()),fetch("data/teaching-72.json").then(r=>r.json()),fetch("data/mawa-investigations-20.json?v=mawa-visits-20261121").then(r=>r.json()),fetch("data/rossmoyne-h23.json").then(r=>r.json()),fetch("data/taxonomy-52.json").then(r=>r.json()),fetch("data/milestones.json").then(r=>r.json()),fetch("data/lesson-challenges.json?v=upper-primary-audit-20261114").then(r=>r.json()),fetch("data/read-watch-practise.json?v=s008-press-20261124").then(r=>{if(!r.ok)throw Error("Lesson text could not be loaded");return r.json()}),
-      fetch("data/read-watch-practise-later.json?v=s008-press-20261124").then(r=>{
+    const [c,t,m,h,tax,ms,lm,rl,later]=await Promise.all([fetch("data/sessions-372.json").then(r=>r.json()),fetch("data/teaching-72.json").then(r=>r.json()),fetch("data/mawa-investigations-20.json?v=mawa-visits-20261121").then(r=>r.json()),fetch("data/rossmoyne-h23.json").then(r=>r.json()),fetch("data/taxonomy-52.json").then(r=>r.json()),fetch("data/milestones.json").then(r=>r.json()),fetch("data/lesson-challenges.json?v=upper-primary-audit-20261114").then(r=>r.json()),fetch("data/read-watch-practise.json?v=lesson-review-20261125").then(r=>{if(!r.ok)throw Error("Lesson text could not be loaded");return r.json()}),
+      fetch("data/read-watch-practise-later.json?v=lesson-review-20261125").then(r=>{
         if(!r.ok)throw Error("The later lesson text could not be loaded");
         return r.json();
       })]);
