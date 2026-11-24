@@ -71,6 +71,14 @@ jobs:
           cp production/lesson-films/S008/guide.json build/candidate/S008-guide.json
           cp production/lesson-films/S008/qa.json build/candidate/S008-qa.json
           cp build/recording/captions.vtt build/candidate/S008.vtt
+          python - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile, ZipInfo
+          source = Path('build/recording')
+          with ZipFile('build/candidate/S008-recording.zip', 'w') as archive:
+              for name in ('script.json', 'timeline.json', 'captions.vtt', 'narration.flac'):
+                  archive.writestr(ZipInfo(name), (source / name).read_bytes())
+          PY
       - uses: actions/upload-artifact@v4
         with:
           name: S008-reviewed-candidate
@@ -127,7 +135,7 @@ jobs:
           source = Path('data/read-watch-practise.json')
           data = json.loads(source.read_text())
           lesson = next(row for row in data['lessons'] if row['slot'] == 8)
-          lesson.update(bridge=guide['bridge'], videoTitle=guide['title'], movie=guide['release'] + 'S008.mp4')
+          lesson.update(bridge=guide['bridge'], videoTitle=guide['title'], movie=guide['release'] + 'S008.mp4', filmUse='dedicated')
           source.write_text(json.dumps(data))
           PY
           python - <<'PY' > "$RUNNER_TEMP/study-server.log" 2>&1 &

@@ -177,6 +177,12 @@ async def verify(site, lesson, profile, digest, output):
                       'immutable_replay':True}
             (output / 'result.json').write_text(json.dumps(result, indent=2) + '\n')
             print(json.dumps(result), flush=True)
+        except Exception:
+            print('Stopped at', page.url, await page.locator('video').evaluate_all(
+                'videos => videos.map(v => ({src: v.currentSrc, time: v.currentTime, ready: v.readyState, error: v.error?.code}))'
+            ), flush=True)
+            await page.screenshot(path=output / 'failure.png', timeout=5000)
+            raise
         finally:
             await browser.close()
 
