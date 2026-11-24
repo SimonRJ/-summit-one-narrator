@@ -1,0 +1,209 @@
+{
+  "sha256": "9caf72d51d6c44b9e6e4296113418236b734387e8d1861db313b68092d909365",
+  "decoded_reference_comparisons": 192,
+  "picture_comparison_period_seconds": 1,
+  "maximum_picture_mean_channel_error_0_to_255": 1.896,
+  "maximum_caption_region_mean_channel_error_0_to_255": 2.242,
+  "minimum_source_audio_correlation_per_scene": 0.999681,
+  "recorded_scenes_checked": 8,
+  "timed_caption_phrases": 73,
+  "spoken_words": 462,
+  "source_voice_reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "source_word_alignment_percent": 97.33,
+  "lesson": "S008",
+  "review_date_perth": "2026-11-24",
+  "release": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s008-mirror-press-20261124-af40d2c59b13/",
+  "app_commit": "d10a86a9333e182ce10ffedd45e5a82a2a860c8d",
+  "live_player": "https://simonrj.github.io/-summit-one-narrator/watch-lesson-intro.html?slot=8",
+  "opening_diagram_verification": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45402713587",
+  "live_device_run": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45402214014",
+  "spoken_maths_review": "Independent speech recognition checked the eight recorded chapters, including 2,002 + 770, 182 + 70 = 252, the three remainder classes and 9 + 9 + 12 = 30. The reviewed recording and full word timeline are retained with the release.",
+  "originality": {
+    "other_films": 118,
+    "other_scenes": 1273,
+    "reviewed_new_scenes": 8,
+    "new_exact_scene_matches": [],
+    "max_verbatim_run": [
+      9,
+      "one thousand and one is eleven times ninety one",
+      "S055",
+      6,
+      4
+    ]
+  },
+  "written_math": "Six active problems independently solved and compared with their protected grading and worked solutions.",
+  "maths_checks": [
+    "2 × 1001 = 2002 = 11 × 182",
+    "7 × 110 = 770 = 11 × 70",
+    "2772 / 11 = 252",
+    "Independent enumeration of all four-digit numbers gives precisely 30 palindromes divisible by 33."
+  ],
+  "device_checks": [
+    {
+      "profile": "ipad-landscape",
+      "engine": "webkit",
+      "viewport": {
+        "width": 1080,
+        "height": 810
+      },
+      "site": "https://simonrj.github.io/-summit-one-narrator/",
+      "sha256": "9caf72d51d6c44b9e6e4296113418236b734387e8d1861db313b68092d909365",
+      "film": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s008-mirror-press-20261124-af40d2c59b13/S008.mp4",
+      "duration": 191.033333,
+      "chapters": 8,
+      "normal_speed_unmuted_to_ended": false,
+      "practice_grading": "isolated fixture",
+      "immutable_replay": true,
+      "active_frame_css_pixels": {
+        "width": 597.390625,
+        "height": 336.03125,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "notebook_frame_css_pixels": {
+        "width": 958,
+        "height": 420.65625,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "worked_example": {
+        "chapter": "Count the choices on the press",
+        "decoded_media_time": 155.066666
+      }
+    },
+    {
+      "profile": "ipad-portrait",
+      "engine": "webkit",
+      "viewport": {
+        "width": 810,
+        "height": 1080
+      },
+      "site": "https://simonrj.github.io/-summit-one-narrator/",
+      "sha256": "9caf72d51d6c44b9e6e4296113418236b734387e8d1861db313b68092d909365",
+      "film": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s008-mirror-press-20261124-af40d2c59b13/S008.mp4",
+      "duration": 191.033333,
+      "chapters": 8,
+      "normal_speed_unmuted_to_ended": false,
+      "practice_grading": "isolated fixture",
+      "immutable_replay": true,
+      "active_frame_css_pixels": {
+        "width": 663.125,
+        "height": 373,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "notebook_frame_css_pixels": {
+        "width": 733.125,
+        "height": 704.5,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "worked_example": {
+        "chapter": "Count the choices on the press",
+        "decoded_media_time": 155.066666
+      }
+    },
+    {
+      "profile": "iphone-landscape",
+      "engine": "webkit",
+      "viewport": {
+        "width": 664,
+        "height": 390
+      },
+      "site": "https://simonrj.github.io/-summit-one-narrator/",
+      "sha256": "9caf72d51d6c44b9e6e4296113418236b734387e8d1861db313b68092d909365",
+      "film": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s008-mirror-press-20261124-af40d2c59b13/S008.mp4",
+      "duration": 191.033333,
+      "chapters": 8,
+      "normal_speed_unmuted_to_ended": false,
+      "practice_grading": "isolated fixture",
+      "immutable_replay": true,
+      "active_frame_css_pixels": {
+        "width": 357.109375,
+        "height": 200.859375,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "notebook_frame_css_pixels": {
+        "width": 395.515625,
+        "height": 222.46875,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "worked_example": {
+        "chapter": "Count the choices on the press",
+        "decoded_media_time": 155.066666
+      }
+    },
+    {
+      "profile": "iphone-portrait",
+      "engine": "webkit",
+      "viewport": {
+        "width": 390,
+        "height": 664
+      },
+      "site": "https://simonrj.github.io/-summit-one-narrator/",
+      "sha256": "9caf72d51d6c44b9e6e4296113418236b734387e8d1861db313b68092d909365",
+      "film": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s008-mirror-press-20261124-af40d2c59b13/S008.mp4",
+      "duration": 191.033333,
+      "chapters": 8,
+      "normal_speed_unmuted_to_ended": true,
+      "practice_grading": "isolated fixture",
+      "immutable_replay": true,
+      "active_frame_css_pixels": {
+        "width": 333.21875,
+        "height": 187.421875,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "notebook_frame_css_pixels": {
+        "width": 340,
+        "height": 302.46875,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "worked_example": {
+        "chapter": "Count the choices on the press",
+        "decoded_media_time": 155.066666
+      }
+    },
+    {
+      "profile": "pc",
+      "engine": "chromium",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "site": "https://simonrj.github.io/-summit-one-narrator/",
+      "sha256": "9caf72d51d6c44b9e6e4296113418236b734387e8d1861db313b68092d909365",
+      "film": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s008-mirror-press-20261124-af40d2c59b13/S008.mp4",
+      "duration": 191.033333,
+      "chapters": 8,
+      "normal_speed_unmuted_to_ended": false,
+      "practice_grading": "isolated fixture",
+      "immutable_replay": true,
+      "active_frame_css_pixels": {
+        "width": 654,
+        "height": 367.875,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "notebook_frame_css_pixels": {
+        "width": 958,
+        "height": 499.765625,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "worked_example": {
+        "chapter": "Count the choices on the press",
+        "decoded_media_time": 155.066667
+      }
+    }
+  ],
+  "independent_audio_comparison": {
+    "voice_master_sha256": "1b0bd070329972eeb327a9528b612862e7ea32796e98ec596160c6f057a52e0c",
+    "quarter_second_speech_windows": 636,
+    "minimum_waveform_correlation": 0.99612,
+    "maximum_absolute_lag_ms": 0.0
+  }
+}

@@ -181,6 +181,11 @@ async def verify(site, lesson, profile, digest, output):
             await page.goto(site + f'?fixtureSlot={slot}', wait_until='domcontentloaded')
             await page.locator('#continue').click()
             await expect(page.locator('.rwl-bridge')).to_contain_text(guide['bridge'], timeout=20000)
+            diagram = page.locator('.rwl-opening-figure')
+            if await diagram.count():
+                await diagram.evaluate('async figure => { await figure.decode(); }')
+                await expect(diagram).to_be_visible()
+                assert await diagram.evaluate('figure => figure.naturalWidth > 0 && figure.naturalHeight > 0')
             await fits(page)
             await page.screenshot(path=output / 'read.png')
             cue = page.locator('.rwl-bridge')
