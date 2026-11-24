@@ -1,0 +1,108 @@
+{
+  "repository": "SimonRJ/-summit-one-narrator",
+  "branch": "production/survey-seeds-parcels-roster",
+  "candidateCommit": "5052d20dd47959a0864ed013211274cfda93fb3d",
+  "run": 45496977250,
+  "runUrl": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45496977250",
+  "workflow": ".github/workflows/survey-seeds-parcels-roster.yml",
+  "reusableWorkflow": ".github/workflows/record-and-release-original.yml",
+  "promotion": "After each film passes the same-script narration, complete encoded master and five individual profile checks, add that released guide to data/recorded-studies.json. Switch only its own row in data/read-watch-practise-later.json to its dedicated videoId, videoTitle, filmUse, movie and bridge below. The dedicated row takes precedence over any former technique revisit during other promotions. Verify the newly deployed student routes before signing off.",
+  "editions": [
+    {
+      "id": "S190",
+      "title": "The surveyor’s turning wheel",
+      "independentTeachingDecision": "An L-shaped survey route contains one left turn and five right turns. Its reflex interior angle is 270 degrees, with signed heading changes and interior angles summing to different totals.",
+      "source": "production/lesson-films/survey_wheel.py",
+      "script": "production/scripts/S190.json",
+      "releaseTagOnSuccess": "s190-survey-wheel-20261125-5052d20dd479",
+      "releaseBaseOnSuccess": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s190-survey-wheel-20261125-5052d20dd479/",
+      "guideOnSuccess": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s190-survey-wheel-20261125-5052d20dd479/S190-guide.json",
+      "assignments": [
+        {
+          "slot": 190,
+          "previousVideoId": "S131",
+          "previousFilmUse": "technique",
+          "videoId": "S190",
+          "videoTitle": "The surveyor’s turning wheel",
+          "filmUse": "dedicated",
+          "movieOnSuccess": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s190-survey-wheel-20261125-5052d20dd479/S190.mp4",
+          "bridge": "Trace the L-shaped yard in the direction of travel. What sign belongs to the change of heading at its notch, and which part of the full circle lies inside there?",
+          "examplePrediction": "Keep track of the turns themselves. How many quarter-turns has the walker made?",
+          "exampleAction": "preserve current worked example and prediction"
+        }
+      ]
+    },
+    {
+      "id": "S191",
+      "title": "The seed tray ledger",
+      "independentTeachingDecision": "A zero-value observation counts toward the denominator. Shortfalls and surpluses from the target mean recover a missing frequency of two.",
+      "source": "production/lesson-films/seed_ledger.py",
+      "script": "production/scripts/S191.json",
+      "releaseTagOnSuccess": "s191-seed-ledger-20261125-5052d20dd479",
+      "releaseBaseOnSuccess": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s191-seed-ledger-20261125-5052d20dd479/",
+      "guideOnSuccess": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s191-seed-ledger-20261125-5052d20dd479/S191-guide.json",
+      "assignments": [
+        {
+          "slot": 191,
+          "previousVideoId": "S132",
+          "previousFilmUse": "technique",
+          "videoId": "S191",
+          "videoTitle": "The seed tray ledger",
+          "filmUse": "dedicated",
+          "movieOnSuccess": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s191-seed-ledger-20261125-5052d20dd479/S191.mp4",
+          "bridge": "Put the empty pod in the count of observations. In the tray with a missing frequency, how much surplus does one five-seed pod contribute above the required mean?",
+          "examplePrediction": "Should the score 8 go into the total once or three times?",
+          "exampleAction": "preserve current worked example and prediction"
+        }
+      ]
+    },
+    {
+      "id": "S193",
+      "title": "The parcel scale",
+      "independentTeachingDecision": "After equal items cancel, one load can still have a tin while the other has a disc. The leftover swap determines their mass difference; an original load separates the two masses.",
+      "source": "production/lesson-films/parcel_scale.py",
+      "script": "production/scripts/S193.json",
+      "releaseTagOnSuccess": "s193-parcel-scale-20261125-5052d20dd479",
+      "releaseBaseOnSuccess": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s193-parcel-scale-20261125-5052d20dd479/",
+      "guideOnSuccess": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s193-parcel-scale-20261125-5052d20dd479/S193-guide.json",
+      "assignments": [
+        {
+          "slot": 193,
+          "previousVideoId": "S050",
+          "previousFilmUse": "technique",
+          "videoId": "S193",
+          "videoTitle": "The parcel scale",
+          "filmUse": "dedicated",
+          "movieOnSuccess": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s193-parcel-scale-20261125-5052d20dd479/S193.mp4",
+          "bridge": "When the two parcel loads both contain five objects, what stays on each scale after you cancel every exact match? Use the remaining swap to reconstruct a single mass.",
+          "examplePrediction": "Line up the two receipts. Which item appears on only the more expensive one?",
+          "exampleAction": "preserve current worked example and prediction"
+        }
+      ]
+    },
+    {
+      "id": "S194",
+      "title": "The soundcheck roster",
+      "independentTeachingDecision": "Count pair appearances within trios and across required repeats. Every pair can be traced exactly twice in a complete 10-card, six-singer roster.",
+      "source": "production/lesson-films/soundcheck_roster.py",
+      "script": "production/scripts/S194.json",
+      "releaseTagOnSuccess": "s194-soundcheck-roster-20261125-5052d20dd479",
+      "releaseBaseOnSuccess": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s194-soundcheck-roster-20261125-5052d20dd479/",
+      "guideOnSuccess": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s194-soundcheck-roster-20261125-5052d20dd479/S194-guide.json",
+      "assignments": [
+        {
+          "slot": 194,
+          "previousVideoId": "S065",
+          "previousFilmUse": "technique",
+          "videoId": "S194",
+          "videoTitle": "The soundcheck roster",
+          "filmUse": "dedicated",
+          "movieOnSuccess": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s194-soundcheck-roster-20261125-5052d20dd479/S194.mp4",
+          "bridge": "On the ten-card roster, how many times does the pair Ada and Ben appear? Decide when your unit is a pair, an appearance of a pair, or a whole soundcheck.",
+          "examplePrediction": "Put the required pair into the group first. Who could fill its last place?",
+          "exampleAction": "preserve current worked example and prediction"
+        }
+      ]
+    }
+  ]
+}
