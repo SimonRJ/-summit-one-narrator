@@ -192,15 +192,21 @@ def make(lesson, out):
     def frames(path):
         return np.frombuffer(capture(['-i',path,'-an','-vf',"select='not(mod(n,30))',scale=320:180:flags=area,format=rgb24",'-fps_mode','vfr','-f','rawvideo','pipe:1']),np.uint8).reshape(-1,180,320,3)
     actual=frames(movie); errs=[]
-    # Seek to the exact corresponding original frame after the inserted scene.
-    # Decode the source as a contiguous low-resolution stream to avoid keyframe seeking variance.
-    raw=np.frombuffer(capture(['-i',original,'-an','-vf','scale=320:180:flags=area,format=rgb24','-f','rawvideo','pipe:1']),np.uint8).reshape(-1,180,320,3)
+    # Retain only the referenced source frames. Source and target frame numbers
+    # differ by an integer after the splice, so the two periodic selections are exact.
+    delta_frames=nframes-(stop-first)
+    selected=[k for k in range(round(len(source_audio)/RATE*FPS)+2)
+              if (k<first and k%FPS==0) or (k>=stop and (k+delta_frames)%FPS==0)]
+    select=f"select='lt(n,{first})*not(mod(n,{FPS}))+gte(n,{stop})*not(mod(n+({delta_frames}),{FPS}))',scale=320:180:flags=area,format=rgb24"
+    snapshot=np.frombuffer(capture(['-i',original,'-an','-vf',select,'-fps_mode','vfr','-f','rawvideo','pipe:1']),np.uint8).reshape(-1,180,320,3)
+    assert abs(len(selected)-len(snapshot))<=1
+    raw=dict(zip(selected,snapshot))
     for sec,frame in enumerate(actual):
         if begin<=sec<begin+nframes/FPS:
             target=np.asarray(draw(lesson,replacement,rep_cues,sec,1.5).resize((320,180),Image.Resampling.BOX))
         else:
             index=sec*FPS if sec<begin else round((sec-delta)*FPS)
-            target=raw[min(len(raw)-1,index)]
+            target=raw[index]
         vals=abs(frame.astype('int16')-target.astype('int16'))
         errs.append([float(vals[:153].mean()),float(vals[153:].mean())])
     worst=np.max(errs,axis=0).tolist();assert max(worst)<5,(lesson,worst)
