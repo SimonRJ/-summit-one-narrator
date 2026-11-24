@@ -1,0 +1,63 @@
+{
+  "id": "S169",
+  "course_slot": 169,
+  "title": "Under the planetarium dome",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "The projector test",
+      "heading": "The projector test",
+      "stage": "BASIC",
+      "narration": "At the planetarium, two pinholes put coloured stars on the dome. A clock starts at minute zero. The gold star first appears at minute three and returns every eight minutes. The blue star first appears at minute one and returns every six minutes. Could both stars appear on the same minute?"
+    },
+    {
+      "n": 2,
+      "title": "Mark just the gold minutes",
+      "heading": "Mark just the gold minutes",
+      "stage": "BASIC",
+      "narration": "Put a gold peg at three. Count on eight for each new peg: eleven, nineteen, twenty seven, thirty five and forty three. Each marked minute is three more than a multiple of eight. If a minute has no gold peg, it cannot be a meeting of the two stars."
+    },
+    {
+      "n": 3,
+      "title": "Lay the blue strip underneath",
+      "heading": "Lay the blue strip underneath",
+      "stage": "MODEL",
+      "narration": "Start the blue strip at one. Its pegs are six minutes apart: one, seven, thirteen, nineteen. The first matching pair sits at nineteen. Notice that three and one are the starting minutes. Eight and six are the distances between pegs. Those numbers have different jobs."
+    },
+    {
+      "n": 4,
+      "title": "A viewing window opens",
+      "heading": "A viewing window opens",
+      "stage": "PUZZLE",
+      "narration": "The audience may enter from minute thirty through minute seventy, including both ends. Which minutes in that window show both stars? Start with the gold pegs inside the window. They are thirty five, forty three, fifty one, fifty nine and sixty seven. Each is worth testing against blue."
+    },
+    {
+      "n": 5,
+      "title": "Test the second remainder",
+      "heading": "Test the second remainder",
+      "stage": "MEDIUM",
+      "narration": "A blue minute leaves remainder one on division by six. Thirty five leaves five, forty three leaves one and fifty one leaves three. Fifty nine leaves five and sixty seven leaves one. The two viewing times are forty three and sixty seven. Every possible gold minute in the window has been checked."
+    },
+    {
+      "n": 6,
+      "title": "Why the pattern repeats",
+      "heading": "Why the pattern repeats",
+      "stage": "PROOF",
+      "narration": "Compare nineteen and forty three. In the twenty four minutes between them, the gold star returns three times and the blue star four times. The first positive shared multiple of eight and six is twenty four. Move a meeting forwards by twenty four minutes and both clocks return to the same phase."
+    },
+    {
+      "n": 7,
+      "title": "The technician moves a pin",
+      "heading": "The technician moves a pin",
+      "stage": "CHECK",
+      "narration": "Suppose the blue star first appears at minute two instead of minute one. Its period stays six minutes. The gold pegs still start at three and move by eight. Will any two pegs line up now? Look at a property each row keeps, even far beyond the window."
+    },
+    {
+      "n": 8,
+      "title": "The impossible new meeting",
+      "heading": "The impossible new meeting",
+      "stage": "EXTENSION",
+      "narration": "Starting from two and adding six makes only even minutes. Starting from three and adding eight makes only odd minutes. No minute is both even and odd. The new clocks never meet. The spacing tells you what repeats, and the first peg tells you which repeating row to use."
+    }
+  ]
+}

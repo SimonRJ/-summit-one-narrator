@@ -36,6 +36,9 @@ LESSONS = {
     "S165": "refill_bench",
     "S166": "animator_frames",
     "S167": "keepsake_cabinet",
+    "S169": "planetarium_timers",
+    "S170": "enamel_tiles",
+    "S171": "puppet_call",
 }
 VOICE = "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362"
 

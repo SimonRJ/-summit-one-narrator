@@ -1,0 +1,63 @@
+{
+  "id": "S171",
+  "course_slot": 171,
+  "title": "The puppet theatre curtain call",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "Five marked places",
+      "heading": "Five marked places",
+      "stage": "BASIC",
+      "narration": "Five different puppets line up for a curtain call. Their painted places run from one to five, from the audience’s left to its right. The owl and fox have special directions. The other three puppets are a bear, a hare and a mouse. Switching any two puppets changes the bow order."
+    },
+    {
+      "n": 2,
+      "title": "Count all the bows",
+      "heading": "Count all the bows",
+      "stage": "BASIC",
+      "narration": "Before the directions arrive, there are five choices for the first place, four for the second, then three, two and one. That gives one hundred and twenty orders. The director now says the owl must avoid both end places, and the fox must never stand immediately to the right of the owl."
+    },
+    {
+      "n": 3,
+      "title": "Count the forbidden ends",
+      "heading": "Count the forbidden ends",
+      "stage": "MODEL",
+      "narration": "Imagine crossing out every order that puts the owl on an end. There are two choices for its end. The other four puppets can fill their places in twenty four orders. This crosses out forty eight orders. Keep a separate pencil mark for the other forbidden pattern."
+    },
+    {
+      "n": 4,
+      "title": "Treat the bow pair as one",
+      "heading": "Treat the bow pair as one",
+      "stage": "PUZZLE",
+      "narration": "An owl followed immediately by a fox forms one ordered pair. Slide a single bracket around them. The bracket and the other three puppets give four objects to arrange, so twenty four orders contain the forbidden pair. The fox has to stand on the right. Reversing the pair does not break this direction."
+    },
+    {
+      "n": 5,
+      "title": "Find the double crossing",
+      "heading": "Find the double crossing",
+      "stage": "MEDIUM",
+      "narration": "Some orders receive both pencil marks. The owl must be on an end and the fox must be immediately to its right. The right end has no place to its right. Only owl first, fox second is possible. The three remaining puppets can be ordered six ways. These six orders were crossed out twice."
+    },
+    {
+      "n": 6,
+      "title": "Restore one crossing",
+      "heading": "Restore one crossing",
+      "stage": "PROOF",
+      "narration": "Start with one hundred and twenty. Subtract forty eight for the end positions and twenty four for the directed pair. Add back the six orders that received both marks. There are fifty four allowed bows. Adding back one copy of each double crossing removes exactly one extra subtraction."
+    },
+    {
+      "n": 7,
+      "title": "Check from the inside",
+      "heading": "Check from the inside",
+      "stage": "CHECK",
+      "narration": "Count the allowed bows directly. Choose one of the three interior places for the owl. Of the four empty places, just the one on its right is barred to the fox. The fox has three choices. The remaining puppets have six orders. Three times three times six again makes fifty four."
+    },
+    {
+      "n": 8,
+      "title": "Change the stage direction",
+      "heading": "Change the stage direction",
+      "stage": "EXTENSION",
+      "narration": "Change the direction so the fox may stand on neither side immediately beside the owl. The owl still has three interior choices, but each has two neighbouring places. Only two of the four empty places are allowed for the fox. Three times two times six gives thirty six bows. One word about direction changes the count."
+    }
+  ]
+}

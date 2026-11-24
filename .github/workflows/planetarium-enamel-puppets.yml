@@ -1,0 +1,48 @@
+name: The planetarium, tile repair and curtain call
+on:
+  push:
+    branches: [production/ticket-refill-frame-cabinet-20261124]
+    paths:
+      - .github/workflows/planetarium-enamel-puppets.yml
+      - production/scripts/S169.json
+      - production/lesson-films/planetarium_timers.py
+      - production/scripts/S170.json
+      - production/lesson-films/enamel_tiles.py
+      - production/scripts/S171.json
+      - production/lesson-films/puppet_call.py
+  workflow_dispatch:
+jobs:
+  film169:
+    permissions:
+      actions: read
+      contents: write
+    uses: ./.github/workflows/produce-original-study.yml
+    with:
+      lesson: S169
+      release_slug: s169-planetarium-timers
+      release_title: 'Under the planetarium dome'
+      release_notes: 'Follow the two projector phases through a viewing window and prove when the stars cannot meet.'
+  film170:
+    needs: film169
+    if: ${{ !cancelled() }}
+    permissions:
+      actions: read
+      contents: write
+    uses: ./.github/workflows/produce-original-study.yml
+    with:
+      lesson: S170
+      release_slug: s170-enamel-tiles
+      release_title: 'The enamel tile repair'
+      release_notes: 'Compare two invoices, recover each tile price and reconstruct the contents of an eight-place tray.'
+  film171:
+    needs: film170
+    if: ${{ !cancelled() }}
+    permissions:
+      actions: read
+      contents: write
+    uses: ./.github/workflows/produce-original-study.yml
+    with:
+      lesson: S171
+      release_slug: s171-puppet-call
+      release_title: 'The puppet theatre curtain call'
+      release_notes: 'Allow for a directed puppet pair and an end condition, then count the stage orders a second way.'

@@ -1,0 +1,63 @@
+{
+  "id": "S170",
+  "course_slot": 170,
+  "title": "The enamel tile repair",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "Two tiles for a mosaic",
+      "heading": "Two tiles for a mosaic",
+      "stage": "BASIC",
+      "narration": "At a mosaic repair bench, every blue enamel tile has the same price. Every gold tile has a second fixed price. An invoice lists only a total in dollars. If a letter stands for a price, it must mean the price of one particular kind of tile. Let us recover both prices."
+    },
+    {
+      "n": 2,
+      "title": "Read two repair slips",
+      "heading": "Read two repair slips",
+      "stage": "BASIC",
+      "narration": "The first delivery has four blue tiles and three gold tiles. It costs fifty eight dollars. The second has seven blue tiles and three gold tiles. It costs seventy nine dollars. Lay the slips side by side. What changed in the second delivery and what stayed exactly the same?"
+    },
+    {
+      "n": 3,
+      "title": "Lift off the matching tiles",
+      "heading": "Lift off the matching tiles",
+      "stage": "MODEL",
+      "narration": "Remove the four blue and three gold tiles that the two deliveries share. The second delivery has three extra blue tiles. Its bill is twenty one dollars higher. Three blue tiles cost twenty one dollars, so one blue tile costs seven dollars. The gold price was unnecessary for this comparison."
+    },
+    {
+      "n": 4,
+      "title": "Price the remaining group",
+      "heading": "Price the remaining group",
+      "stage": "PUZZLE",
+      "narration": "Return to the first delivery. Four blue tiles cost twenty eight dollars. Subtract twenty eight from fifty eight. Thirty dollars bought all three gold tiles, so one gold tile costs ten dollars. Check the second delivery: seven blue tiles cost forty nine, and the gold tiles add thirty."
+    },
+    {
+      "n": 5,
+      "title": "A tray with a fixed length",
+      "heading": "A tray with a fixed length",
+      "stage": "MEDIUM",
+      "narration": "A packed repair tray contains exactly eight tiles. Its total value is sixty five dollars. Both tile colours may be used. This time the prices are known and the counts are hidden. Let x be the number of blue tiles. How can we describe the number of gold tiles using the same letter?"
+    },
+    {
+      "n": 6,
+      "title": "Give each term its units",
+      "heading": "Give each term its units",
+      "stage": "PROOF",
+      "narration": "The tray has eight spaces, so the gold count is eight minus x. Seven times x gives the dollars for the blue tiles. Ten times the quantity eight minus x gives the dollars for the gold tiles. Their sum is sixty five dollars. Every term now measures money."
+    },
+    {
+      "n": 7,
+      "title": "Start with eight gold tiles",
+      "heading": "Start with eight gold tiles",
+      "stage": "CHECK",
+      "narration": "Imagine at first that all eight tiles are gold. That tray would cost eighty dollars. Each exchange of one gold tile for one blue tile reduces the value by three dollars and fills the same space. To lose fifteen dollars, make five exchanges. The actual tray has five blue tiles and three gold tiles."
+    },
+    {
+      "n": 8,
+      "title": "Try naming the other count",
+      "heading": "Try naming the other count",
+      "stage": "EXTENSION",
+      "narration": "Instead, let y be the number of gold tiles. The blue count is eight minus y. Start with eight blue tiles worth fifty six dollars. Changing a blue tile to gold adds three dollars. Nine dollars more takes three changes. The two letters had different meanings and described the same tray."
+    }
+  ]
+}
