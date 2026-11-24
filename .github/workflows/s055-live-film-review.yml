@@ -1,0 +1,56 @@
+name: Check the existing palindrome film on all learner routes
+on:
+  push:
+    branches: [review/s055-final-film]
+    paths: [.github/workflows/s055-live-film-review.yml, tools/check_lesson_film_routes.py]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  playback:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        profile: [iphone-portrait, ipad-portrait, ipad-landscape, pc, iphone-landscape]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            tools
+            data
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install 'playwright==1.58.0'
+      - if: matrix.profile != 'pc'
+        run: python -m playwright install --with-deps webkit
+      - name: Match the public guide and media to the live gallery, lesson and notebook
+        env:
+          PROFILE: ${{ matrix.profile }}
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 'https://raw.githubusercontent.com/SimonRJ/-summit-one-narrator/a576b43f9d17f16a134445973b5c2445123b4984/data/lesson-intros/S055-Illustrated.json' --output guide.json
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          p=Path('guide.json')
+          guide=json.loads(p.read_text())
+          assert guide['sha256']=='3bbac53a9e3f058ebf62b03d1816dfa01797835c60767b38182266fb730e02cd'
+          base='https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S055-Intro-Illustrated'
+          reading=next(r for r in json.loads(Path('data/read-watch-practise.json').read_text())['lessons'] if r['slot']==55)
+          assert reading['movie']==base+'.mp4'
+          guide.update(movie=reading['movie'],poster=base+'-poster.jpg',bridge=reading['bridge'])
+          p.write_text(json.dumps(guide))
+          PY
+          python tools/check_lesson_film_routes.py --lesson S055 --site 'https://simonrj.github.io/-summit-one-narrator/' --profile "$PROFILE" --published-guide guide.json --output build/device
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: S055-live-${{ matrix.profile }}
+          path: build/device/
+          if-no-files-found: warn
+          retention-days: 30

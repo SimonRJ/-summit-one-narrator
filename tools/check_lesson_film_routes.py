@@ -109,13 +109,18 @@ async def capture_worked_example(player, guide, output):
     return {'chapter':chapter['title'], 'decoded_media_time':stamp}
 
 
-async def verify(site, lesson, profile, digest, output):
+async def verify(site, lesson, profile, digest, output, published_guide=None):
     slot = int(lesson[1:])
-    catalog = json.loads((ROOT / 'data/recorded-studies.json').read_text())
-    guide = catalog['lessons'][lesson]
-    base = guide.get('release') or catalog['release']
-    movie = urljoin(site, base + lesson + '.mp4')
-    poster = urljoin(site, base + lesson + '-poster.jpg')
+    if published_guide is not None:
+        guide = json.loads(published_guide.read_text())
+        assert guide['id'] == lesson
+        movie, poster = guide['movie'], guide['poster']
+    else:
+        catalog = json.loads((ROOT / 'data/recorded-studies.json').read_text())
+        guide = catalog['lessons'][lesson]
+        base = guide.get('release') or catalog['release']
+        movie = urljoin(site, base + lesson + '.mp4')
+        poster = urljoin(site, base + lesson + '-poster.jpg')
     digest = digest or guide.get('sha256')
     assert digest and re.fullmatch('[0-9a-f]{64}', digest), 'Supply the exact SHA-256 of the reviewed master'
     with urlopen(movie, timeout=90) as response:
@@ -257,6 +262,7 @@ if __name__ == '__main__':
     p.add_argument('--site', required=True)
     p.add_argument('--profile', required=True, choices=PROFILES)
     p.add_argument('--sha256')
+    p.add_argument('--published-guide', type=Path, help='Verified guide with the exact movie, poster and lesson bridge for an existing public edition')
     p.add_argument('--output', required=True, type=Path)
     args = p.parse_args()
-    asyncio.run(verify(args.site.rstrip('/') + '/', args.lesson, args.profile, args.sha256, args.output))
+    asyncio.run(verify(args.site.rstrip('/') + '/', args.lesson, args.profile, args.sha256, args.output, args.published_guide))
