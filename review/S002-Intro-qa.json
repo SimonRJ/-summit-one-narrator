@@ -17,7 +17,14 @@
   "mathematics_verified": true,
   "full_video_decode_passed": true,
   "bytes": 7573052,
-  "sha256": "71a6dd4fe1d12296f329f7c963b6d4e745ccd608d354b80d93557196e6d5ef34",
+  "sha256": "70484f8e0d23ea72b754ac74f01df05679c4cd8f71ea6d7a24e8f8279a014541",
   "visual_review": "Sampled motion and captions; full-length and phone review remain pending",
-  "timing_source": "Original captions and automatic word-level alignment"
+  "timing_source": "Original captions and automatic word-level alignment",
+  "previous_container_sha256": "71a6dd4fe1d12296f329f7c963b6d4e745ccd608d354b80d93557196e6d5ef34",
+  "native_chapters": 7,
+  "chapter_source": "watch-intro-s002.html",
+  "encoded_stream_hashes": [
+    "0,v,SHA256=75b280236e52362f1f0d3ee3c681f896cb8ccf3c3afc5a9248ea82cc98d28ef0",
+    "1,a,SHA256=a4224a71d45be53393c67b60c787b91a144e1a57f9eae95872629c94be856ccc"
+  ]
 }

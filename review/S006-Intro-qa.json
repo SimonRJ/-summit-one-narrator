@@ -1,7 +1,7 @@
 {
   "id": "S006",
   "duration_seconds": 176.866667,
-  "sha256": "759b4dbc06f33e357893fa57fe0c67beb2d732153524ead8423b26827d481428",
+  "sha256": "0339981c187f2f5595cd0e3d722d01ae81d73c840d0a31f35d5c769b803a4662",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -102,5 +102,12 @@
   "decoded_successfully": true,
   "bytes": 8236229,
   "mathematics_verified": true,
-  "visual_review": "Sampled motion and captions; full-length and phone review remain pending"
+  "visual_review": "Sampled motion and captions; full-length and phone review remain pending",
+  "previous_container_sha256": "759b4dbc06f33e357893fa57fe0c67beb2d732153524ead8423b26827d481428",
+  "native_chapters": 7,
+  "chapter_source": "watch-intro-s006.html",
+  "encoded_stream_hashes": [
+    "0,v,SHA256=b6a5bf43a3e3ddeb9adde725b92d375edd167bbca8fdc6d9c756bd3f61c8ba7d",
+    "1,a,SHA256=86acbf7f03ceaacdf8ab3c847c9b9e18ac0d3b858df4472f19ba9f06737b57fc"
+  ]
 }
