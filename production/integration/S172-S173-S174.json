@@ -1,0 +1,84 @@
+{
+  "repository": "SimonRJ/-summit-one-narrator",
+  "branch": "production/glass-winch-ribbon",
+  "candidateCommit": "012dd82ec7409820cd67dbd1ca096b93a5a693f4",
+  "workflow": ".github/workflows/glass-winch-ribbon.yml",
+  "reusableWorkflow": ".github/workflows/record-and-release-original.yml",
+  "run": 45495598154,
+  "runUrl": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45495598154",
+  "promotion": "Assess the workflow and release job for each individual lesson. After that lesson’s five-profile playback and byte-verified release, add the released guide to data/recorded-studies.json; switch its own row in data/read-watch-practise-later.json to the specified dedicated ID, title, movie and bridge. Advance the review register only after independently checking the staged master. A dedicated S173 assignment takes precedence over the earlier S045 map’s optional S173 revisit regardless of which release is integrated first. A later earlier-film integration should touch a revisit only if its current videoId still identifies that earlier film.",
+  "editions": [
+    {
+      "id": "S172",
+      "title": "The glassmaker’s colour order",
+      "independentTeachingDecision": "A 3-by-5 window has two size-four reflection groups, three pairs and one centre. Requiring exactly five amber panes forces the centre and splits the count into two disjoint cases.",
+      "source": "production/lesson-films/glass_order.py",
+      "script": "production/scripts/S172.json",
+      "releaseTagOnSuccess": "s172-glass-order-20261125-012dd82ec740",
+      "releaseBaseOnSuccess": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s172-glass-order-20261125-012dd82ec740/",
+      "guideOnSuccess": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s172-glass-order-20261125-012dd82ec740/S172-guide.json",
+      "assignments": [
+        {
+          "slot": 172,
+          "previousVideoId": "S083",
+          "previousFilmUse": "technique",
+          "videoId": "S172",
+          "videoTitle": "The glassmaker’s colour order",
+          "filmUse": "dedicated",
+          "movieOnSuccess": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s172-glass-order-20261125-012dd82ec740/S172.mp4",
+          "bridge": "In the three-by-five window, why does an order for five amber panes force the centre to be amber? Find two different ways the remaining four panes can be grouped.",
+          "examplePrediction": "Fold the row along the middle cell. Which colours will the fold force?",
+          "exampleAction": "preserve current written example and prediction"
+        }
+      ]
+    },
+    {
+      "id": "S173",
+      "title": "The winch operator’s log",
+      "independentTeachingDecision": "A timed hoist rises, waits, then descends. Compare signed rates, speed, net height change and total travel over one common elapsed time.",
+      "source": "production/lesson-films/winch_log.py",
+      "script": "production/scripts/S173.json",
+      "releaseTagOnSuccess": "s173-winch-log-20261125-012dd82ec740",
+      "releaseBaseOnSuccess": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s173-winch-log-20261125-012dd82ec740/",
+      "guideOnSuccess": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s173-winch-log-20261125-012dd82ec740/S173-guide.json",
+      "assignments": [
+        {
+          "slot": 173,
+          "previousVideoId": "S045",
+          "previousFilmUse": "technique",
+          "videoId": "S173",
+          "videoTitle": "The winch operator’s log",
+          "filmUse": "dedicated",
+          "movieOnSuccess": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s173-winch-log-20261125-012dd82ec740/S173.mp4",
+          "bridge": "The winch’s last segment slopes downward. Which interval is fastest when direction is ignored, and which is fastest upward? Keep the two waiting seconds when you average the whole log.",
+          "examplePrediction": "Do both readings cover the same number of minutes? What could you compare instead?",
+          "exampleAction": "preserve current written example and prediction"
+        }
+      ]
+    },
+    {
+      "id": "S174",
+      "title": "The ribbon cupboard",
+      "independentTeachingDecision": "Two stock books have the same final quantity and the same fractional cuts. Moving a six-metre delivery changes its inverse position and the reconstructed starting stock.",
+      "source": "production/lesson-films/ribbon_books.py",
+      "script": "production/scripts/S174.json",
+      "releaseTagOnSuccess": "s174-ribbon-books-20261125-012dd82ec740",
+      "releaseBaseOnSuccess": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s174-ribbon-books-20261125-012dd82ec740/",
+      "guideOnSuccess": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s174-ribbon-books-20261125-012dd82ec740/S174-guide.json",
+      "assignments": [
+        {
+          "slot": 174,
+          "previousVideoId": "S142",
+          "previousFilmUse": "technique",
+          "videoId": "S174",
+          "videoTitle": "The ribbon cupboard",
+          "filmUse": "dedicated",
+          "movieOnSuccess": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s174-ribbon-books-20261125-012dd82ec740/S174.mp4",
+          "bridge": "The stock books end with the same twenty-two metres. At which point do you subtract the delivery when it came before both cuts, and when it came between them?",
+          "examplePrediction": "Draw a bar in three parts. How many parts stand for the ten remaining marbles?",
+          "exampleAction": "preserve current written example and prediction"
+        }
+      ]
+    }
+  ]
+}
