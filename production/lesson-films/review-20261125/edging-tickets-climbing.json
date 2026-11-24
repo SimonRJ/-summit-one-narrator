@@ -1,0 +1,116 @@
+{
+  "repository": "SimonRJ/-summit-one-narrator",
+  "branch": "production/edging-tickets-climbing",
+  "voiceCommit": "51d840eeddd80bd8cdf32b50919fb2979708e27d",
+  "candidateCommit": "2115dd7d2904699d096e3feb4e51a01a8bf84c25",
+  "voiceJob": 45493687354,
+  "voiceWorkflow": ".github/workflows/edging-tickets-climbing-voices.yml",
+  "promotion": "When the candidate passes its release and five-profile route checks, use its exact guide, QA hashes, MP4 and poster. Apply each assignment and revisit together, then recheck the live student routes.",
+  "editions": [
+    {
+      "id": "S043",
+      "title": "The edging tape order",
+      "independentTeachingDecision": "A corner cut removes two boundary segments, a side notch removes one, and an interior hole removes none. Every drawing removes a congruent 3 cm × 2 cm piece.",
+      "run": 45494172715,
+      "runUrl": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45494172715",
+      "workflow": ".github/workflows/s043-edging-tape.yml",
+      "source": "production/lesson-films/edging_workshop.py",
+      "script": "production/scripts/S043.json",
+      "releaseTagOnSuccess": "s043-edging-tape-20261125-2115dd7d2904",
+      "releaseBaseOnSuccess": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s043-edging-tape-20261125-2115dd7d2904/",
+      "guideOnSuccess": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s043-edging-tape-20261125-2115dd7d2904/S043-guide.json",
+      "assignments": [
+        {
+          "slot": 43,
+          "filmUse": "dedicated",
+          "videoId": "S043",
+          "videoTitle": "The edging tape order",
+          "movieOnSuccess": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s043-edging-tape-20261125-2115dd7d2904/S043.mp4",
+          "bridge": "The same offcut comes from a corner, an edge or the centre. Which old edges disappear in each drawing, and which new edges need tape?",
+          "examplePrediction": "Trace the outside with your finger. Where did the two touching edges go?",
+          "exampleAction": "preserve current worked example and existing prediction"
+        }
+      ]
+    },
+    {
+      "id": "S044",
+      "title": "The museum ticket machine",
+      "independentTeachingDecision": "One stamp has a two-valued inverse. A whole-ticket range is filtered by divisibility before reconstruction and checked forwards.",
+      "run": 45494172745,
+      "runUrl": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45494172745",
+      "workflow": ".github/workflows/s044-museum-tickets.yml",
+      "source": "production/lesson-films/museum_tickets.py",
+      "script": "production/scripts/S044.json",
+      "releaseTagOnSuccess": "s044-museum-tickets-20261125-2115dd7d2904",
+      "releaseBaseOnSuccess": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s044-museum-tickets-20261125-2115dd7d2904/",
+      "guideOnSuccess": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s044-museum-tickets-20261125-2115dd7d2904/S044-guide.json",
+      "assignments": [
+        {
+          "slot": 44,
+          "filmUse": "dedicated",
+          "videoId": "S044",
+          "videoTitle": "The museum ticket machine",
+          "movieOnSuccess": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s044-museum-tickets-20261125-2115dd7d2904/S044.mp4",
+          "bridge": "Undo the final stamp first. After subtracting two from the smudged range, which tickets could really have come out of the tripling stamp?",
+          "examplePrediction": "Which operation happened closest to the answer 17?",
+          "exampleAction": "preserve current worked example and existing prediction"
+        },
+        {
+          "slot": 325,
+          "filmUse": "technique",
+          "videoId": "S044",
+          "videoTitle": "The museum ticket machine",
+          "movieOnSuccess": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s044-museum-tickets-20261125-2115dd7d2904/S044.mp4",
+          "bridge": "The distance stamp reads four. Which two tickets could print it, and which one survives the drawer’s admission rule? Carry both candidates into the later puzzle until you can test its input restriction.",
+          "examplePrediction": "Starting at 8, which direction can you move three units and stay within the allowed range?",
+          "exampleAction": "preserve current worked example and existing prediction"
+        }
+      ]
+    },
+    {
+      "id": "S045",
+      "title": "The climbing hall counter",
+      "independentTeachingDecision": "The largest numerical rise has the slowest average rate in the arrival log. The price lines cross between whole visits, so the cheaper option changes without an attainable tie.",
+      "run": 45494172775,
+      "runUrl": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45494172775",
+      "workflow": ".github/workflows/s045-climbing-counter.yml",
+      "source": "production/lesson-films/climbing_counter.py",
+      "script": "production/scripts/S045.json",
+      "releaseTagOnSuccess": "s045-climbing-counter-20261125-2115dd7d2904",
+      "releaseBaseOnSuccess": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s045-climbing-counter-20261125-2115dd7d2904/",
+      "guideOnSuccess": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s045-climbing-counter-20261125-2115dd7d2904/S045-guide.json",
+      "assignments": [
+        {
+          "slot": 45,
+          "filmUse": "dedicated",
+          "videoId": "S045",
+          "videoTitle": "The climbing hall counter",
+          "movieOnSuccess": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s045-climbing-counter-20261125-2115dd7d2904/S045.mp4",
+          "bridge": "Compare the arrivals using each interval’s own minutes. On the cost chart, can the crossing itself be a legal number of visits?",
+          "examplePrediction": "Does the rate depend on the meter's final reading or on how far the reading moved?",
+          "exampleAction": "preserve current worked example and existing prediction"
+        },
+        {
+          "slot": 173,
+          "filmUse": "technique",
+          "videoId": "S045",
+          "videoTitle": "The climbing hall counter",
+          "movieOnSuccess": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s045-climbing-counter-20261125-2115dd7d2904/S045.mp4",
+          "bridge": "The longest interval adds twenty-four visitors, while the first interval adds twelve. How many minutes did each rise take, and which has the greater average rate?",
+          "examplePrediction": "Do both readings cover the same number of minutes? What could you compare instead?",
+          "exampleAction": "preserve current worked example and existing prediction"
+        },
+        {
+          "slot": 323,
+          "filmUse": "technique",
+          "videoId": "S045",
+          "videoTitle": "The climbing hall counter",
+          "movieOnSuccess": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s045-climbing-counter-20261125-2115dd7d2904/S045.mp4",
+          "bridge": "At minute eight, is forty-eight a new group or the count of everyone recorded so far? In your table, follow one observation into its row and column totals before adding counts.",
+          "examplePrediction": "How many walkers left their hats at home? Can you do the same count for riders?",
+          "exampleAction": "preserve current worked example and existing prediction"
+        }
+      ]
+    }
+  ]
+}

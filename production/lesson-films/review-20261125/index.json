@@ -15,7 +15,10 @@
     "ribbons-through-pottery.json",
     "reopened-cubes-and-parade.json",
     "market-gauge-signal.json",
-    "carry-reversal-and-standalones.json"
+    "carry-reversal-and-standalones.json",
+    "written-reviewer-films.json",
+    "edging-tickets-climbing.json",
+    "glass-winch-ribbon.json"
   ],
   "additional_productions": [
     {
@@ -42,7 +45,7 @@
         "s159-film.yml"
       ],
       "sha": "6c8f88d1d66d7117cfef78fdb36f8048c3331b40",
-      "change": "Replace the previously shared films with two dedicated eight-chapter films. Use each guide’s own bridge."
+      "change": "Replace the previously shared films with two dedicated eight-chapter films. Use each guide\u2019s own bridge."
     },
     {
       "lessons": [
@@ -55,7 +58,7 @@
         "s162-film.yml",
         "s163-film.yml"
       ],
-      "change": "Replace the previous technique replays with dedicated films. Use each guide’s own bridge.",
+      "change": "Replace the previous technique replays with dedicated films. Use each guide\u2019s own bridge.",
       "sha": "0975227ec8d179e02970ef759a4f66ad210cf599"
     },
     {
@@ -76,7 +79,7 @@
       "branch": "production/incidence-workshops"
     },
     {
-      "companions": "19 notebook prompts across chapters 14–18",
+      "companions": "19 notebook prompts across chapters 14\u201318",
       "branch": "production/illustrated-companion-notebooks"
     },
     {
@@ -84,6 +87,43 @@
       "voice_run": 45491285961,
       "worker": "protected-narration.yml",
       "change": "Production scripts, actual masters, audio and visual plans are private. Check the first batch in the private delivery path. Staged or historic media does not count as a current learner release."
+    },
+    {
+      "lessons": [
+        "S055"
+      ],
+      "branch": "review/original-film-handoff",
+      "commit": "77ddc94a4afc722afd8f8427df85e782c3af2409",
+      "source": "review/original-film-handoff/S055-guide.json",
+      "run": 45493693667,
+      "change": "11 full, measured, specific chapters for the exact retained file. Resolve optional guide.fileStem in JavaScript and the compiler. Replace both slots 55 and 246."
+    },
+    {
+      "lessons": [
+        "S101",
+        "S123"
+      ],
+      "branch": "production/spinner-and-product-studies",
+      "source_commit": "65e56acdc6f80c3d48f94f84e401fd6b69b76baa",
+      "change": "Twenty-two illustrated chapters using the verified recordings."
+    },
+    {
+      "lessons": [
+        "S177",
+        "S178"
+      ],
+      "branch": "production/wildlife-crops-antenna-gauges",
+      "source_commit": "6a1059d44c70e1b39b3c252f2264e666c6a32c6d",
+      "workflow": "photo-gauges-studies.yml",
+      "change": "Sixteen original scenes, individually drawn. Wildlife cropping uses a pair of starting-corner sets, with 10 crops showing exactly one animal and one showing neither. The radio museum recovers a 169 cm rod from three fitting lengths."
+    },
+    {
+      "lessons": [
+        "S057"
+      ],
+      "branch": "production/sorting-drawers-20261125",
+      "voice_run": 45495700364,
+      "change": "An unsubstituted new transfer; withhold the S148 near-copy pending separate scenarios."
     }
   ],
   "registers": [
@@ -102,6 +142,22 @@
   "protected_master_inspection": {
     "archive_masters": 194,
     "masters_with_an_audio_stream": 1,
-    "masters_matching_designated_finished_digest": 0
-  }
+    "masters_matching_designated_finished_digest": 0,
+    "separate_finished_digest_matches_with_audio": 80,
+    "original_verified_voice_target": "Pinned Voice C",
+    "publish_condition": "Exact approved sound and maths, unique question identity, access from an eligible sealed attempt and verified private storage. A historical file alone earns no current film credit."
+  },
+  "integration_priority": [
+    {
+      "branch": "production/tablet-laptop-readers",
+      "commit": "191480e682468a9b05d2023606049249e8a77805",
+      "change": "Merge onto main with current-main non-conflicting updates: responsive reader, two restored real companion masters and T12.E final; also contains tested protected narration work and chapter playback evidence."
+    },
+    {
+      "branch": "production/illustrated-companion-notebooks",
+      "commit": "22c65f786d864cc52946be18417eae0c5521e8c7",
+      "change": "19 companion closing sequences, including T18.1 subtitle rectangle correction. Use returned master after the release workflow finishes."
+    }
+  ],
+  "new_workflow": "production/glass-winch-ribbon at 012dd82ec7409820cd67dbd1ca096b93a5a693f4 shares one Voice C model load per movie with exact per-movie dependencies; no runner waits for another workflow."
 }

@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-11-24T21:36:19+00:00",
+  "as_of_utc": "2026-11-24T21:46:04+00:00",
   "repo": "SimonRJ/-summit-one-narrator",
   "original_course_base": "fe4a77674e6e2c568c78552727c5b274763dc3db",
   "steps": {
@@ -24,8 +24,10 @@
       "render_playback_release_run": 45491442169,
       "run_url": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45491442169",
       "voice_run": null,
-      "release_tag": "paired-examples-reviewed-20261125-e1966766375c",
-      "release_url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/paired-examples-reviewed-20261125-e1966766375c/"
+      "release_tag": null,
+      "release_url": null,
+      "status": "superseded internal candidate; never mount or sign as unique",
+      "archive_only_workflow_commit": "75eb8775ae9bd084129e40d65bc2c5b624143b17"
     },
     {
       "branch": "production/standalone-welcome-pyramid-20261125",
@@ -35,6 +37,16 @@
       "voice_run": 45488475883,
       "release_tag": "standalone-checked-20261125-7934cb331b42",
       "release_url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/standalone-checked-20261125-7934cb331b42/"
+    },
+    {
+      "branch": "production/ticket-ledger-seam-workshop-20261125",
+      "commit": "893684bf0504cf48cfb6646fe4cf8b39148dd7f5",
+      "render_playback_release_run": 45494101607,
+      "voice_run": 45494101607,
+      "run_url": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45494101607",
+      "release_tag": "ticket-seam-workshop-20261125-893684bf0504",
+      "release_url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/ticket-seam-workshop-20261125-893684bf0504/",
+      "supersedes_seven_chapter_archive": true
     }
   ],
   "lessons": [
@@ -43,6 +55,7 @@
       "title": "The carry counter",
       "expected_release": "carry-reversal-reviewed-20261125-bcbd31159202",
       "expected_movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S009.mp4",
+      "source_local": "/tmp/amc-next-films/patch",
       "guide_name": "S009-guide.json",
       "qa_name": "S009-qa.json",
       "movie_source": "carry_counter",
@@ -103,13 +116,16 @@
         "spoken_words": 326,
         "source_voice_reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
         "source_word_alignment_percent": 96.06
-      }
+      },
+      "guide_file": "/tmp/amc-next-films/dedicated-built/S009-guide.json",
+      "qa_file": "/tmp/amc-next-films/dedicated-built/S009-qa.json"
     },
     {
       "id": "S010",
       "title": "The reversal line",
       "expected_release": "carry-reversal-reviewed-20261125-bcbd31159202",
       "expected_movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S010.mp4",
+      "source_local": "/tmp/amc-next-films/patch",
       "guide_name": "S010-guide.json",
       "qa_name": "S010-qa.json",
       "movie_source": "reversal_line",
@@ -170,64 +186,73 @@
         "spoken_words": 357,
         "source_voice_reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
         "source_word_alignment_percent": 97.39
-      }
+      },
+      "guide_file": "/tmp/amc-next-films/dedicated-built/S010-guide.json",
+      "qa_file": "/tmp/amc-next-films/dedicated-built/S010-qa.json"
     },
     {
       "id": "S095",
-      "title": "The pair-total ledger",
-      "expected_release": "paired-examples-reviewed-20261125-e1966766375c",
-      "expected_movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/paired-examples-reviewed-20261125-e1966766375c/S095.mp4",
+      "title": "The ticket-office ledger",
+      "expected_release": "ticket-seam-workshop-20261125-893684bf0504",
+      "expected_movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/ticket-seam-workshop-20261125-893684bf0504/S095.mp4",
+      "source_local": "/tmp/amc-next-films/fresh",
       "guide_name": "S095-guide.json",
       "qa_name": "S095-qa.json",
       "movie_source": "pair_total_ledger",
       "published_at_last_check": false,
+      "status": "16 new narrated and illustrated scenes across the pair; awaiting recording, encoding, device playback and public release",
       "canonical_slot": {
         "slot": 95,
         "filmUse": "dedicated",
-        "bridge": "Follow the three pairs into the ledger. When you subtract a pair from the total of all three boxes, which box stays behind?"
+        "bridge": "Watch what changes when a plain ticket becomes a star ticket. Later, use the same idea to count only the extra seats in each matched pair."
       },
       "revisits": [
         {
           "slot": 211,
           "filmUse": "technique",
-          "bridge": "Add the two stationery receipts. How many sets of one notebook and one ruler are in the combined purchase? Find the price of that set before finding either item separately."
+          "bridge": "Match each two-seat ticket with one four-seat ticket. Compared with giving every ticket one seat, how many extra seats does that same pair explain each time?"
         },
         {
           "slot": 334,
           "filmUse": "technique",
-          "bridge": "In the three-box ledger, count how many times each box appears across the three pairs. Why can you halve the sum before subtracting the pair that omits one box?"
+          "bridge": "The ledger fixes both the number of tickets and the number of seats. Which third clue lets you connect the numbers of two-seat and four-seat tickets before solving for singles?"
         }
-      ]
+      ],
+      "comparison_evidence": "/tmp/amc-next-films/fresh/production/lesson-films/fresh-scenario-review.json"
     },
     {
       "id": "S097",
-      "title": "The domino strip",
-      "expected_release": "paired-examples-reviewed-20261125-e1966766375c",
-      "expected_movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/paired-examples-reviewed-20261125-e1966766375c/S097.mp4",
+      "title": "The domino seam workshop",
+      "expected_release": "ticket-seam-workshop-20261125-893684bf0504",
+      "expected_movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/ticket-seam-workshop-20261125-893684bf0504/S097.mp4",
+      "source_local": "/tmp/amc-next-films/fresh",
       "guide_name": "S097-guide.json",
       "qa_name": "S097-qa.json",
       "movie_source": "domino_strip",
       "published_at_last_check": false,
+      "status": "16 new narrated and illustrated scenes across the pair; awaiting recording, encoding, device playback and public release",
       "canonical_slot": {
         "slot": 97,
         "filmUse": "dedicated",
-        "bridge": "At the left edge, put a horizontal domino in the top row. Which cell now forces a second horizontal domino underneath?"
+        "bridge": "Trace the seam between columns three and four. If just one domino crossed it, how many cells would still need covering on the left?"
       },
       "revisits": [
         {
           "slot": 218,
           "filmUse": "technique",
-          "bridge": "Compare the board with two corners missing and the two-row domino strip. The area test rules out one tiling. Which boundary cell determines the next move on the other board?"
+          "bridge": "In the film, count the cells left on one side of the seam after a single crossing. In your lesson, count cells by colour and ask how many of each colour a tile covers."
         },
         {
           "slot": 341,
           "filmUse": "technique",
-          "bridge": "When the first two horizontal dominoes form a block, cover that block with your hand. What smaller board remains, and how would fixing a middle piece divide it into two parts?"
+          "bridge": "The glued domino in column two divides the board. Which parts can you now tile independently? Compare that split with the two rooms left when both seam crossings are forced."
         }
-      ]
+      ],
+      "comparison_evidence": "/tmp/amc-next-films/fresh/production/lesson-films/fresh-scenario-review.json"
     }
   ],
   "standalones": {
+    "source_dir": "/tmp/amc-next-films/standalone",
     "expected_approved_actor": "VoxCPM2, user-approved voice C",
     "asset_paths": [
       "media/AMCIntroduction.mp4",
@@ -249,5 +274,86 @@
     "checked_staging_commit": null,
     "expected_release_tag": "standalone-checked-20261125-7934cb331b42"
   },
-  "update": "S095 and S097 seven-chapter editions remain candidates. Cross-course comparison found repeated mathematical examples. New example families and an original transfer are being recorded before final editorial approval."
+  "passage_map": {
+    "directory": "/tmp/amc-next-films/map/review",
+    "near_numerical_variants": "S095 shares the structure of basic, medium and challenge examples with S040 and S120. S097 shares those three structures with S127 and its hard fixed-vertical-domino problem family with S036. The original four duplicated boilerplate passages have been removed. The new seven-chapter editions use fresh visual explanations for retained performances. A claim that all seven example structures are new would be inaccurate.",
+    "qa_branch": "review/canonical-introduction-example-families-20261125",
+    "commit": "bf76f5d464a5d852b6a8f4ae5043286eac27abb3"
+  },
+  "fresh_replacement": {
+    "films": {
+      "S095": "The ticket-office ledger",
+      "S097": "The domino seam workshop"
+    },
+    "branch": "production/ticket-ledger-seam-workshop-20261125",
+    "voice_commit": "05e08c51356914a6e99d3ae3475709341229ca04",
+    "voice_run": 45494101607,
+    "source_path": "/tmp/amc-next-films/fresh",
+    "stage": "Sixteen newly written and separately illustrated Voice C scenes, with four teaching pairs per film; publication pending.",
+    "render_playback_release_run": 45494101607,
+    "commit": "893684bf0504cf48cfb6646fe4cf8b39148dd7f5",
+    "expected_release_tag": "ticket-seam-workshop-20261125-893684bf0504"
+  },
+  "superseded_seven_scene_examples": [
+    {
+      "id": "S095",
+      "title": "The pair-total ledger",
+      "expected_release": null,
+      "expected_movie": null,
+      "source_local": "/tmp/amc-next-films/pair",
+      "guide_name": "S095-guide.json",
+      "qa_name": "S095-qa.json",
+      "movie_source": "pair_total_ledger",
+      "published_at_last_check": false,
+      "canonical_slot": {
+        "slot": 95,
+        "filmUse": "dedicated",
+        "bridge": "Follow the three pairs into the ledger. When you subtract a pair from the total of all three boxes, which box stays behind?"
+      },
+      "revisits": [
+        {
+          "slot": 211,
+          "filmUse": "technique",
+          "bridge": "Add the two stationery receipts. How many sets of one notebook and one ruler are in the combined purchase? Find the price of that set before finding either item separately."
+        },
+        {
+          "slot": 334,
+          "filmUse": "technique",
+          "bridge": "In the three-box ledger, count how many times each box appears across the three pairs. Why can you halve the sum before subtracting the pair that omits one box?"
+        }
+      ],
+      "status": "superseded seven-scene candidate",
+      "public_registration_authorized": false
+    },
+    {
+      "id": "S097",
+      "title": "The domino strip",
+      "expected_release": null,
+      "expected_movie": null,
+      "source_local": "/tmp/amc-next-films/pair",
+      "guide_name": "S097-guide.json",
+      "qa_name": "S097-qa.json",
+      "movie_source": "domino_strip",
+      "published_at_last_check": false,
+      "canonical_slot": {
+        "slot": 97,
+        "filmUse": "dedicated",
+        "bridge": "At the left edge, put a horizontal domino in the top row. Which cell now forces a second horizontal domino underneath?"
+      },
+      "revisits": [
+        {
+          "slot": 218,
+          "filmUse": "technique",
+          "bridge": "Compare the board with two corners missing and the two-row domino strip. The area test rules out one tiling. Which boundary cell determines the next move on the other board?"
+        },
+        {
+          "slot": 341,
+          "filmUse": "technique",
+          "bridge": "When the first two horizontal dominoes form a block, cover that block with your hand. What smaller board remains, and how would fixing a middle piece divide it into two parts?"
+        }
+      ],
+      "status": "superseded seven-scene candidate",
+      "public_registration_authorized": false
+    }
+  ]
 }

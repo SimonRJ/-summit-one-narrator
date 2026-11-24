@@ -1,0 +1,272 @@
+{
+  "schemaVersion": 1,
+  "repository": "SimonRJ/-summit-one-narrator",
+  "courseBaseline": "2cc35f112cd1dd75188ca5ad2b851daa25d06042",
+  "deviceProfiles": [
+    "iphone-portrait",
+    "iphone-landscape",
+    "ipad-portrait",
+    "ipad-landscape",
+    "pc"
+  ],
+  "productionStatus": "Use the live GitHub Actions run and release tag for the current outcome of each film.",
+  "integration": {
+    "releaseAssets": "Each successful production run uploads the film, poster, captions, guide and media QA under the recorded release tag. Download the published assets and use the guide duration, movie SHA-256, eight chapter times, transcript and bridge. The five device jobs retain their route reports as run artifacts.",
+    "catalog": "Add the published guide and release location to data/recorded-studies.json. Update the own lesson in its reading catalog to the dedicated film, including videoId, movie, videoTitle, filmUse and the guide bridge. Record the bridge in tools/content/practice-revisions-20261121.json openings for the slot.",
+    "revisits": "For a listed revisit still using this movie, update the release URL, video title and its own bridge in the live reading catalog. Also record that bridge in the matching openings revision. A revisit that has since gained its own dedicated film uses the dedicated guide.",
+    "practice": "The releases update reading and film associations. Keep scored practice IDs and protected grading rows intact.",
+    "sequence": "S169, S170 and S171 share a production run with one film active at a time. Each film can publish independently. The S088 revisit bridge for S171 applies only while S171 still uses S088."
+  },
+  "movies": {
+    "S022": {
+      "title": "The ribbon cutting table",
+      "priorVideoId": "S022",
+      "readingCatalog": "data/read-watch-practise.json",
+      "branch": "production/ribbons-signals-20261124",
+      "sourceCommit": "069f069e2eb797f08b1ce49913b009bab6012de8",
+      "script": "production/scripts/S022.json",
+      "artwork": "production/lesson-films/ribbon_table.py",
+      "workflow": ".github/workflows/s022-ribbon-table.yml",
+      "productionRun": 45491882289,
+      "releaseTag": "s022-ribbon-table-20261125-069f069e2eb7",
+      "ownBridge": "When a gold piece measuring 6 cm is left on the cutting table, pause. Which earlier whole can you reconstruct from four copies of that piece?",
+      "revisitBridges": {
+        "S233": "At the cutting table, one quarter of the original ribbon becomes red and one third of the remainder becomes blue. Why can the red and blue strips have equal lengths?",
+        "S324": "In the gold ribbon puzzle, start at the last cut and reconstruct the blue-and-gold piece. If a gift were added between two cuts, at which point in your backward steps would you take it out?"
+      },
+      "voiceRun": 45488849172,
+      "voiceCommit": "bd83460128717c43a0dd9962c17b4f4f993c94f0"
+    },
+    "S023": {
+      "title": "The four signal flags",
+      "priorVideoId": "S023",
+      "readingCatalog": "data/read-watch-practise.json",
+      "branch": "production/ribbons-signals-20261124",
+      "sourceCommit": "069f069e2eb797f08b1ce49913b009bab6012de8",
+      "script": "production/scripts/S023.json",
+      "artwork": "production/lesson-films/signal_flags.py",
+      "workflow": ".github/workflows/s023-signal-flags.yml",
+      "productionRun": 45491882362,
+      "releaseTag": "s023-signal-flags-20261125-069f069e2eb7",
+      "ownBridge": "When the harbourmaster crosses out the rows with A beside B and the rows with C beside D, find a signal crossed out twice. How many orders can the two clips make?",
+      "revisitBridges": {
+        "S353": "Clip the two forbidden flag pairs at the same time. Which rows receive two crossings? In your later arrangement, check whether the two forbidden pairs share a letter."
+      },
+      "voiceRun": 45488849172,
+      "voiceCommit": "bd83460128717c43a0dd9962c17b4f4f993c94f0"
+    },
+    "S025": {
+      "title": "The print shop discount wheel",
+      "priorVideoId": "S025",
+      "readingCatalog": "data/read-watch-practise.json",
+      "branch": "production/print-hide-kiln-20261124",
+      "sourceCommit": "144685774720dedaf28d33e2466a1b5e4940b02c",
+      "script": "production/scripts/S025.json",
+      "artwork": "production/lesson-films/print_shop.py",
+      "workflow": ".github/workflows/s025-print-shop.yml",
+      "productionRun": 45491886462,
+      "releaseTag": "s025-print-shop-20261125-144685774720",
+      "ownBridge": "Pause when the price tag turns from $80 to $100. To undo the $20 rise, which price belongs under the fraction bar on the sale sticker?",
+      "revisitBridges": {
+        "S347": "When the print shop marks its framed print down, which price now represents one hundred percent? Check the tempting twenty-five-percent sticker against the target price."
+      },
+      "voiceRun": 45489156125,
+      "voiceCommit": "57b479e1042d1dab1e49072a9a7ed4228571a0ee"
+    },
+    "S026": {
+      "title": "The bird hide tally rail",
+      "priorVideoId": "S026",
+      "readingCatalog": "data/read-watch-practise.json",
+      "branch": "production/print-hide-kiln-20261124",
+      "sourceCommit": "144685774720dedaf28d33e2466a1b5e4940b02c",
+      "script": "production/scripts/S026.json",
+      "artwork": "production/lesson-films/bird_hide.py",
+      "workflow": ".github/workflows/s026-bird-hide.yml",
+      "productionRun": 45491886490,
+      "releaseTag": "s026-bird-hide-20261125-144685774720",
+      "ownBridge": "Put a finger on each end of the bird hide’s two observation brackets. Which tally gets included a second time when you add their totals?",
+      "revisitBridges": {
+        "S314": "When the tag for period four turns over, the hide still has six observation periods. What total can you reconstruct from their mean before looking at the two shorter brackets?"
+      },
+      "voiceRun": 45489156125,
+      "voiceCommit": "57b479e1042d1dab1e49072a9a7ed4228571a0ee"
+    },
+    "S027": {
+      "title": "Two shelves in the pottery kiln",
+      "priorVideoId": "S027",
+      "readingCatalog": "data/read-watch-practise.json",
+      "branch": "production/print-hide-kiln-20261124",
+      "sourceCommit": "144685774720dedaf28d33e2466a1b5e4940b02c",
+      "script": "production/scripts/S027.json",
+      "artwork": "production/lesson-films/pottery_kiln.py",
+      "workflow": ".github/workflows/s027-pottery-kiln.yml",
+      "productionRun": 45491886536,
+      "releaseTag": "s027-pottery-kiln-20261125-144685774720",
+      "ownBridge": "At the kiln, four pale pieces have one dot and four dark pieces have three dots. What happens to the number of dots when you exchange one group of four?",
+      "revisitBridges": {
+        "S297": "When the potter imagines forty pale pieces, how many dots does that predict? Watch what happens to the dot total when one four-piece group changes clay."
+      },
+      "voiceRun": 45489156125,
+      "voiceCommit": "57b479e1042d1dab1e49072a9a7ed4228571a0ee"
+    },
+    "S072": {
+      "title": "Inside the cutaway cliff",
+      "priorVideoId": "S072",
+      "readingCatalog": "data/read-watch-practise-later.json",
+      "branch": "production/cliff-survey-parade-20261124",
+      "sourceCommit": "2625c5f6a756bd887d07ce96a5ea031b363283cc",
+      "script": "production/scripts/S072.json",
+      "artwork": "production/lesson-films/cutaway_cliff.py",
+      "workflow": ".github/workflows/s072-cutaway-cliff.yml",
+      "productionRun": 45491524503,
+      "releaseTag": "s072-cutaway-cliff-2625c5f6a756",
+      "ownBridge": "At the quarry, the top drill and the tunnel both pass through floor two. Which column and row identify the cube they share? Check your answer on each slide-out floor.",
+      "revisitBridges": {
+        "S195": "When the two drills meet inside the quarry, pause on floor two. Which cube would be removed twice if you subtracted both complete drill lengths?",
+        "S345": "At the quarry, count the removed cubes once by tracing the drill paths and again by sliding out the four floors. What would both counts have to agree on?"
+      }
+    },
+    "S087": {
+      "title": "The survey of the L-shaped yard",
+      "priorVideoId": "S087",
+      "readingCatalog": "data/read-watch-practise-later.json",
+      "branch": "production/cliff-survey-parade-20261124",
+      "sourceCommit": "2625c5f6a756bd887d07ce96a5ea031b363283cc",
+      "script": "production/scripts/S087.json",
+      "artwork": "production/lesson-films/survey_yard.py",
+      "workflow": ".github/workflows/s087-survey-yard.yml",
+      "productionRun": 45491524217,
+      "releaseTag": "s087-survey-yard-2625c5f6a756",
+      "ownBridge": "One stack in the L-shaped yard can change without either camera noticing. Which neighbours set the back-row and column-A outlines, and what does the scale add?",
+      "revisitBridges": {
+        "S163": "Read the L-shaped yard as a stack plan. If you add a cube at the back left, which horizontal floor gains a position? Decide whether either camera will see the change.",
+        "S286": "At the end of the yard survey, raise the back-left stack one cube at a time. Which addition changes a floor count without changing either outline? Which addition finally changes the side view?"
+      }
+    },
+    "S088": {
+      "title": "The gap at the parade gate",
+      "priorVideoId": "S088",
+      "readingCatalog": "data/read-watch-practise-later.json",
+      "branch": "production/cliff-survey-parade-20261124",
+      "sourceCommit": "2625c5f6a756bd887d07ce96a5ea031b363283cc",
+      "script": "production/scripts/S088.json",
+      "artwork": "production/lesson-films/parade_gate.py",
+      "workflow": ".github/workflows/s088-parade-gate.yml",
+      "productionRun": 45491524274,
+      "releaseTag": "s088-parade-gate-2625c5f6a756",
+      "ownBridge": "Pin the bell float at the gate so a rotation counts only once. Follow the route past the last float. Where is the gap that a straight-line count misses?",
+      "revisitBridges": {
+        "S171": "At the parade gate, compare placing the blue van in the red van’s gap with placing it in a different gap. Which case breaks the rule? Check how turning the road into a loop changes the available gaps."
+      }
+    },
+    "S164": {
+      "title": "The ticket number wheels",
+      "priorVideoId": "S004",
+      "readingCatalog": "data/read-watch-practise-later.json",
+      "branch": "production/ticket-refill-frame-cabinet-20261124",
+      "sourceCommit": "0ea76fe77423fd259ef848761d10fcb37fbe3efa",
+      "script": "production/scripts/S164.json",
+      "artwork": "production/lesson-films/ticket_wheels.py",
+      "workflow": ".github/workflows/s164-ticket-wheels.yml",
+      "productionRun": 45494025092,
+      "releaseTag": "s164-ticket-wheels-0ea76fe77423",
+      "ownBridge": "When the first ticket wheel shows 2, which choice is forced at the far right? Find the ticket that uses all the right digits but misses the lower stop.",
+      "revisitBridges": {}
+    },
+    "S165": {
+      "title": "The refill bench",
+      "priorVideoId": "S029",
+      "readingCatalog": "data/read-watch-practise-later.json",
+      "branch": "production/ticket-refill-frame-cabinet-20261124",
+      "sourceCommit": "0ea76fe77423fd259ef848761d10fcb37fbe3efa",
+      "script": "production/scripts/S165.json",
+      "artwork": "production/lesson-films/refill_bench.py",
+      "workflow": ".github/workflows/s165-refill-bench.yml",
+      "productionRun": 45494024990,
+      "releaseTag": "s165-refill-bench-0ea76fe77423",
+      "ownBridge": "Place 100 mL from each offer side by side. Why can two offers have the same price for that amount but different bills for the school’s 2500 mL order?",
+      "revisitBridges": {}
+    },
+    "S166": {
+      "title": "The animator’s missing frames",
+      "priorVideoId": "S134",
+      "readingCatalog": "data/read-watch-practise-later.json",
+      "branch": "production/ticket-refill-frame-cabinet-20261124",
+      "sourceCommit": "0ea76fe77423fd259ef848761d10fcb37fbe3efa",
+      "script": "production/scripts/S166.json",
+      "artwork": "production/lesson-films/animator_frames.py",
+      "workflow": ".github/workflows/s166-animator-frames.yml",
+      "productionRun": 45494025032,
+      "releaseTag": "s166-animator-frames-0ea76fe77423",
+      "ownBridge": "When the animator measures from frame 4 to frame 10, count the joins between those drawings. On the second reel, can a reading follow the seven-millimetre step and still lie beyond the last frame?",
+      "revisitBridges": {}
+    },
+    "S167": {
+      "title": "The cabinet of four keepsakes",
+      "priorVideoId": "S135",
+      "readingCatalog": "data/read-watch-practise-later.json",
+      "branch": "production/ticket-refill-frame-cabinet-20261124",
+      "sourceCommit": "0ea76fe77423fd259ef848761d10fcb37fbe3efa",
+      "script": "production/scripts/S167.json",
+      "artwork": "production/lesson-films/keepsake_cabinet.py",
+      "workflow": ".github/workflows/s167-keepsake-cabinet.yml",
+      "productionRun": 45494025123,
+      "releaseTag": "s167-keepsake-cabinet-0ea76fe77423",
+      "ownBridge": "Try the shell in drawer 2 and move the moon as far away as the clues require. Which two drawers are left, and why do those two spaces settle the case?",
+      "revisitBridges": {}
+    },
+    "S169": {
+      "title": "The herbarium’s torn labels",
+      "priorVideoId": "S110",
+      "readingCatalog": "data/read-watch-practise-later.json",
+      "branch": "production/ticket-refill-frame-cabinet-20261124",
+      "sourceCommit": "383b897946ef8559fedfff60ebcae2b0df92c8e7",
+      "script": "production/scripts/S169.json",
+      "artwork": "production/lesson-films/herbarium_labels.py",
+      "workflow": ".github/workflows/herbarium-enamel-puppets.yml",
+      "workflowJob": "film169",
+      "productionRun": 45495572090,
+      "releaseTag": "s169-herbarium-labels-383b897946ef",
+      "ownBridge": "Lay out just the tray-3 labels on the shelf from 320 to 370. Which one fits the digit note? For the second leaf, explain how an error of 18 helps you decide which labels to test.",
+      "revisitBridges": {}
+    },
+    "S170": {
+      "title": "The enamel tile repair",
+      "priorVideoId": "S038",
+      "readingCatalog": "data/read-watch-practise-later.json",
+      "branch": "production/ticket-refill-frame-cabinet-20261124",
+      "sourceCommit": "383b897946ef8559fedfff60ebcae2b0df92c8e7",
+      "script": "production/scripts/S170.json",
+      "artwork": "production/lesson-films/enamel_tiles.py",
+      "workflow": ".github/workflows/herbarium-enamel-puppets.yml",
+      "workflowJob": "film170",
+      "productionRun": 45495572090,
+      "releaseTag": "s170-enamel-tiles-383b897946ef",
+      "ownBridge": "Compare the two repair slips. Which tiles can you lift from both? When the bench changes to an eight-space tray, explain why the gold count must be eight minus the blue count.",
+      "revisitBridges": {}
+    },
+    "S171": {
+      "title": "The puppet theatre curtain call",
+      "priorVideoId": "S088",
+      "readingCatalog": "data/read-watch-practise-later.json",
+      "branch": "production/ticket-refill-frame-cabinet-20261124",
+      "sourceCommit": "383b897946ef8559fedfff60ebcae2b0df92c8e7",
+      "script": "production/scripts/S171.json",
+      "artwork": "production/lesson-films/puppet_call.py",
+      "workflow": ".github/workflows/herbarium-enamel-puppets.yml",
+      "workflowJob": "film171",
+      "productionRun": 45495572090,
+      "releaseTag": "s171-puppet-call-383b897946ef",
+      "ownBridge": "Place the owl on an end of the puppet stage, then try to put the fox immediately to its right. Which end can receive both pencil marks? Why must six orders be added back?",
+      "revisitBridges": {}
+    }
+  },
+  "retiredRuns": [
+    {
+      "run": 45495020971,
+      "sourceCommit": "19592f4f0f666f229e508f8309b5b99def703a50",
+      "reason": "The planetarium draft for S169 resembled the proposed dedicated S156 course film. S169 now uses accession labels, a digit clue and a transposition. S170 and S171 continue under the replacement sequential run.",
+      "retirementRun": 45495338367
+    }
+  ]
+}
