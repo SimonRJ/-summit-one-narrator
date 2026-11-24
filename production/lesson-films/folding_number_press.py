@@ -139,7 +139,8 @@ def folding_strip(a, c):
         else:
             cx, y = (left+right)/2, cy+(lift0+lift1)/2
             if abs(right-left) > 14:
-                a.dot(cx, y, 9 if i==3 else 5, INK)
+                for offset in ((0,) if i == 3 else (-9, 9)):
+                    a.dot(cx + offset * abs(cos(angle)), y, 6, INK)
     a.dashed((origin,cy-hh-30),(origin,cy+hh+33),PAPER,width=2,dash=7,gap=7)
     a.text("crease", origin, cy+hh+61, 25, MUTED)
     if reopen > 0:
