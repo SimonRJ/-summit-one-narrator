@@ -1,0 +1,173 @@
+name: Verify the sorting drawers film
+on:
+  push:
+    branches: [production/sorting-drawers-20261125]
+    paths: ['.github/workflows/sorting-drawers-reviewed.yml','production/lesson-films/**']
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: sorting-drawers-reviewed
+  cancel-in-progress: true
+jobs:
+  render:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 110
+    strategy:
+      fail-fast: false
+      matrix:
+        film: [S057]
+    env:
+      GH_TOKEN: ${{ github.token }}
+      FILM: ${{ matrix.film }}
+      NEW: '45495700364'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            production
+            data
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Fetch the public illustrated edition and its newly recorded transfer
+        run: |
+          set -euo pipefail
+          test "$(gh api repos/$GITHUB_REPOSITORY/actions/runs/$NEW --jq .head_sha)" = 61ccb88505d93b2f73ff28acb6c65806f340221a
+          gh release download lesson-introductions -p 'S057-Intro-Illustrated.mp4' -D build/source
+          for retry in {1..120}; do
+            state=$(gh api repos/$GITHUB_REPOSITORY/actions/runs/$NEW --jq '.conclusion // .status')
+            if [[ "$state" == success ]]; then break; fi
+            if [[ "$state" != queued && "$state" != in_progress && "$state" != pending ]]; then exit 1; fi
+            sleep 30
+          done
+          test "$state" = success
+          gh run download "$NEW" -n S057-transfer-recording -D build/t01-studio
+      - name: Check the actual performances and rebuild each case drawer
+        run: |
+          set -euo pipefail
+          sudo apt-get -o Acquire::Retries=3 update -qq
+          sudo apt-get install -y ffmpeg fonts-open-sans fonts-dejavu-core libsndfile1
+          pip install numpy==2.2.6 soundfile num2words faster-whisper pillow==11.3.0 pocketsphinx==5.0.4
+          voice="build/t01-studio/$FILM"
+          python production/lesson-films/assemble_sorting.py build/source/S057-Intro-Illustrated.mp4 build/t01-studio/S057-08.wav "$voice"
+          python production/lesson-films/render_recorded.py "$FILM" "$voice"
+          python production/lesson-films/verify_recorded.py "$FILM" "$voice"
+          mkdir -p release
+          cp media/lesson-films/"$FILM"* release/
+          cp "production/lesson-films/$FILM/guide.json" "release/$FILM-guide.json"
+          cp "production/lesson-films/$FILM/qa.json" "release/$FILM-qa.json"
+          cp "$voice/captions.vtt" "release/$FILM.vtt"
+          cp "build/t01-studio/$FILM-08.wav" "$voice/transfer.wav"
+          cp "build/t01-studio/$FILM-08.json" "$voice/transfer-provenance.json"
+          (cd "$voice" && zip -q "../../../release/$FILM-recording.zip" narration.flac timeline.json captions.vtt script.json transfer.wav transfer-provenance.json)
+      - uses: actions/upload-artifact@v4
+        with:
+          name: verified-${{ matrix.film }}-candidate
+          path: release/
+          if-no-files-found: error
+          retention-days: 30
+  playback:
+    needs: render
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        profile: [iphone-portrait, iphone-landscape, ipad-portrait, ipad-landscape, pc]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            data
+            tools
+            figures
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: verified-S0*-candidate
+          merge-multiple: true
+          path: build/candidate
+      - run: python -m pip install 'playwright==1.58.0' aiohttp
+      - if: matrix.profile != 'pc'
+        run: python -m playwright install --with-deps webkit
+      - name: Exercise the candidate through the app, gallery and notebook
+        env:
+          PROFILE: ${{ matrix.profile }}
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          cpath=Path('data/recorded-studies.json')
+          rpath=Path('data/read-watch-practise.json')
+          catalog=json.loads(cpath.read_text()); readings=json.loads(rpath.read_text())
+          for film in ('S057',):
+              guide=json.loads(Path('build/candidate',film+'-guide.json').read_text())
+              guide['release']='http://127.0.0.1:8765/build/candidate/'
+              catalog['lessons'][film]=guide
+              lesson=next(v for v in readings['lessons'] if v['slot']==int(film[1:]))
+              lesson.update(bridge=guide['bridge'],videoTitle=guide['title'],movie=guide['release']+film+'.mp4',filmUse='dedicated')
+          cpath.write_text(json.dumps(catalog)); rpath.write_text(json.dumps(readings))
+          PY
+          python - <<'PY' > "$RUNNER_TEMP/study-server.log" 2>&1 &
+          from aiohttp import web
+          from pathlib import Path
+          root = Path.cwd()
+          app = web.Application()
+          async def index(request):
+              return web.FileResponse(root / 'index.html')
+          app.router.add_get('/', index)
+          app.router.add_static('/', root)
+          web.run_app(app, host='127.0.0.1', port=8765)
+          PY
+          server=$!
+          trap 'kill "$server"' EXIT
+          curl --fail --silent --retry 15 --retry-connrefused http://127.0.0.1:8765/ -o /dev/null
+          for film in S057; do
+            python tools/check_lesson_film_routes.py --lesson "$film" --site http://127.0.0.1:8765/ --profile "$PROFILE" --output "build/device/$film"
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sorting-drawers-candidate-${{ matrix.profile }}
+          path: build/device/
+          if-no-files-found: warn
+          retention-days: 30
+
+  release:
+    needs: playback
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: verified-S0*-candidate
+          merge-multiple: true
+          path: verified
+      - name: Publish the checked edition and compare every returned asset
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          tag="sorting-drawers-20261125-${GITHUB_SHA:0:12}"
+          if ! gh release view "$tag" > /dev/null 2>&1; then
+            gh release create "$tag" --draft --target "$GITHUB_SHA" --title 'The sorting drawers' --notes 'Eight illustrated chapters, seven checked performances, a new parcel-pair transfer, timed captions and recoverable studio audio.'
+          fi
+          draft=$(gh release view "$tag" --json isDraft --jq .isDraft)
+          if [[ "$draft" == true ]]; then gh release upload "$tag" verified/* --clobber; fi
+          gh release download "$tag" --dir returned
+          for asset in verified/*; do cmp "$asset" "returned/${asset##*/}"; done
+          if [[ "$draft" == true ]]; then gh release edit "$tag" --draft=false --latest=false; fi
+          test "$(gh release view "$tag" --json isDraft --jq .isDraft)" = false
+          echo "Released $tag"
+          cat verified/S0*-guide.json
+          cat verified/S0*-qa.json
