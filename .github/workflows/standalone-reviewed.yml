@@ -2,7 +2,7 @@ name: Verify the course welcome and pyramid solution
 on:
   push:
     branches: [production/standalone-welcome-pyramid-20261125]
-    paths: ['.github/workflows/standalone-reviewed.yml', 'production/standalone-review/*.py', 'production/standalone-review/*.txt', 'production/standalone-review/*.vtt']
+    paths: ['.github/workflows/standalone-reviewed.yml', 'production/standalone-review/welcome-script.json', 'production/standalone-review/*.py', 'production/standalone-review/*.txt', 'production/standalone-review/*.vtt']
   workflow_dispatch:
 permissions:
   contents: read
@@ -11,7 +11,48 @@ concurrency:
   group: standalone-reviewed-films
   cancel-in-progress: true
 jobs:
+  voice:
+    strategy:
+      fail-fast: false
+      matrix:
+        segment: [16]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 55
+    env:
+      HF_HUB_DISABLE_XET: '1'
+      TOKENIZERS_PARALLELISM: 'false'
+      OMP_NUM_THREADS: '4'
+      MKL_NUM_THREADS: '4'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            production
+            data
+            media/voice-audition
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install the established narrator
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg libsndfile1
+          pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install 'transformers>=4.45,<5' 'huggingface-hub<1' einops pydantic soundfile librosa safetensors tqdm numpy scipy inflect addict argbind
+          pip install --no-deps 'git+https://github.com/OpenBMB/VoxCPM.git@300e4260b509066151d623dc9c0aa922cf82232b'
+      - name: Record a scene with its approved voice
+        run: |
+          cp production/standalone-review/welcome-script.json production/amc-introduction/narration.json
+          python production/amc-introduction/synth.py --segment ${{ matrix.segment }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: corrected-welcome-target
+          path: build/amc-introduction/speech-*.wav
+          if-no-files-found: error
+          retention-days: 14
   prepare:
+    needs: voice
     runs-on: ubuntu-24.04
     timeout-minutes: 110
     env:
@@ -37,6 +78,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          name: corrected-welcome-target
+          path: build/target
       - name: Recover the signed-off original performances and check their identity
         run: |
           set -euo pipefail
@@ -55,17 +100,12 @@ jobs:
       - name: Align and render the new welcome edition
         run: |
           set -euo pipefail
-          for retry in {1..80}; do
-            state=$(gh api repos/$GITHUB_REPOSITORY/actions/runs/$NEW --jq '.conclusion // .status')
-            if [[ "$state" == success ]]; then break; fi
-            if [[ "$state" != queued && "$state" != in_progress && "$state" != pending ]]; then exit 1; fi
-            sleep 30
-          done
-          test "$state" = success
           gh run download "$NEW" -p 'welcome-reviewed-*' -D build/new
           mkdir -p build/amc-introduction
           cp build/original/speech-*.wav build/amc-introduction/
           cp build/new/*/speech-*.wav build/amc-introduction/
+          cp build/target/speech-16.wav build/amc-introduction/
+          ! cmp -s build/new/welcome-reviewed-16/speech-16.wav build/amc-introduction/speech-16.wav
           python - <<'PY'
           import json, pathlib
           b=pathlib.Path('build')

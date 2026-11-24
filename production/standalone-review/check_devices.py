@@ -59,6 +59,11 @@ async def validate(site, profile, out):
                     await buttons.first.click()
                     await page.wait_for_function("()=>document.querySelector('video').ended",timeout=int((qa['duration_seconds']+35)*1000))
                     assert await player.evaluate('v=>!v.error && !v.muted && v.playbackRate===1')
+                if film == 'AMCIntroduction':
+                    script = await page.locator('.transcript').text_content()
+                    assert 'The clock counts up from zero.' in script
+                    assert 'every answer correct in twenty minutes or less' in script
+                    assert 'forty-minute limit' in script
                 results.append({'film':film,'sha256':qa['sha256'],'chapter_buttons_checked':count,'full_replay_to_end':profile=='iphone-portrait'})
                 await page.close()
         finally:

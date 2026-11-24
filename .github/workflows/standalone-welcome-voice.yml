@@ -1,8 +1,5 @@
 name: Record the four reviewed course-welcome passages
 on:
-  push:
-    branches: [production/standalone-welcome-pyramid-20261125]
-    paths: ['production/standalone-review/welcome-script.json', '.github/workflows/standalone-welcome-voice.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -14,7 +11,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        segment: [13, 14, 15, 16]
+        segment: [16]
     runs-on: ubuntu-24.04
     timeout-minutes: 55
     env:
@@ -46,7 +43,7 @@ jobs:
           python production/amc-introduction/synth.py --segment ${{ matrix.segment }}
       - uses: actions/upload-artifact@v4
         with:
-          name: welcome-reviewed-${{ matrix.segment }}
+          name: corrected-welcome-target
           path: build/amc-introduction/speech-*.wav
           if-no-files-found: error
           retention-days: 14

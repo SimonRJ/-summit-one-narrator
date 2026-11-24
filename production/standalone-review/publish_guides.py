@@ -13,7 +13,7 @@ HERE=Path(__file__).resolve().parent
 MEDIA=ROOT/'media'
 REVIEW=ROOT/'review'
 BUILD=ROOT/'build/amc-introduction'
-REV='course-films-20261125'
+REV='course-films-target-clock-20261125'
 PYRAMID_CHAPTERS=[(0,'Read the problem'),(23.22,'Choose a maximising strategy'),
                   (29.05,'Trace the position weights'),(34.09,'Place the five numbers'),
                   (39.82,'Test the swap argument'),(43.74,'Add the three middle squares')]

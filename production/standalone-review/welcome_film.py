@@ -58,16 +58,17 @@ def learner_route(index, time):
         text('Used help? Record it.',640,469,29,art.CYAN,on('record that too'))
         text('Which step would you change?',640,563,31,art.WHITE,on('For a missed answer'))
     else:
-        art.heading(image, 'Two timed practice parts', 'Test Centre')
-        for x, part, questions, minutes, cue1, cue2 in [
-                (353,'Part A','Questions 1–20','20 minutes','Part A','twenty minutes'),
-                (927,'Part B','Questions 21–30','40 minutes','Part B','forty minutes')]:
-            opacity=on(cue1)
-            art.rect(image,x,328,486,256,c=art.DARK,outline=art.CYAN,a=opacity)
-            text(part,x,248,39,art.GOLD,opacity)
-            text(questions,x,328,31,art.WHITE,on(cue2))
-            text(minutes,x,398,30,art.CYAN,on(cue2))
-        text('After either part, open your report',640,559,30,art.WHITE,on('open your report'))
+        art.heading(image, 'Two clocks for AMC practice', 'Test Centre')
+        left=on('Part A');right=on('Part B')
+        art.rect(image,350,323,485,324,c=art.DARK,outline=art.CYAN,a=left)
+        art.rect(image,930,323,485,324,c=art.DARK,outline=art.GOLD,a=right)
+        text('Part A · Questions 1–20',350,211,29,art.CYAN,left)
+        text('Counts up from 0:00',350,288,31,art.WHITE,on('clock counts up'))
+        text('Target: 20 out of 20',350,359,30,art.GOLD,on('every answer correct'))
+        text('in 20 minutes or less',350,415,29,art.GOLD,on('twenty minutes or less'))
+        text('Part B · Questions 21–30',930,211,29,art.GOLD,right)
+        text('40-minute limit',930,322,36,art.WHITE,on('forty-minute limit'))
+        text('After either part, open your report',640,558,29,art.CYAN,on('open your report'))
     return image
 
 
