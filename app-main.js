@@ -83,6 +83,9 @@ function finalVideoUrl(videoId){
   const id=String(videoId||"");
   // Only concept/worked-example T videos are public. Every challenge solution is attempt-gated.
   if(!/^T\d{2}\.(?:1|2|3|E)$/.test(id))return "";
+  const catalogueUrl=teaching.find(item=>item.id===id)?.video_url;
+  const prefix="media/"+id+".mp4?v=";
+  if(typeof catalogueUrl==="string"&&catalogueUrl.startsWith(prefix)&&/^[a-zA-Z0-9._-]+$/.test(catalogueUrl.slice(prefix.length)))return catalogueUrl;
   if(openingFilmIds.includes(id))return "media/"+id+".mp4?v=t01-studio-v1";
   if(id==="T02.1")return "media/T02.1.mp4?v=studio-v4";
   if(id==="T02.2")return "media/T02.2.mp4?v=studio-v1";
