@@ -1,0 +1,63 @@
+{
+  "id": "S031",
+  "course_slot": 31,
+  "title": "The pump shed log",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "Read a rate",
+      "heading": "Read a rate",
+      "stage": "PUZZLE",
+      "narration": "At a pump shed, the incoming hose delivers nine litres every minute. Start the clock with an empty measuring tub. At the end of each of the first three minutes, mark the water level. How far apart are those marks?"
+    },
+    {
+      "n": 2,
+      "title": "One minute on the gauge",
+      "heading": "One minute on the gauge",
+      "stage": "BASIC",
+      "narration": "The marks read nine, eighteen and twenty seven litres. The equal jumps are nine litres per minute. A second hose fills a separate tub with twelve litres in two minutes. Its rate is six litres per minute. Use matching time intervals whenever you compare the hoses."
+    },
+    {
+      "n": 3,
+      "title": "The packing bench",
+      "heading": "The packing bench",
+      "stage": "PUZZLE",
+      "narration": "Across the shed two workers pack boxes. Aya fills eight boxes in four minutes. Rob fills nine boxes in three minutes. At those steady rates, how many boxes can they fill together in six minutes, working without getting in each other’s way?"
+    },
+    {
+      "n": 4,
+      "title": "One shared clock",
+      "heading": "One shared clock",
+      "stage": "METHOD",
+      "narration": "Aya fills two boxes per minute and Rob fills three. In one shared minute the finished pile grows by five boxes. Six such minutes give thirty. Check separately. Aya makes twelve boxes and Rob makes eighteen. The two piles give the same thirty."
+    },
+    {
+      "n": 5,
+      "title": "A valve opens",
+      "heading": "A valve opens",
+      "stage": "CHALLENGE",
+      "narration": "Return to the empty tank. The nine litre hose and the six litre hose are both running. After two minutes a leak opens, draining three litres every minute. Both hoses stay on. How long from the start until the tank first contains ninety litres?"
+    },
+    {
+      "n": 6,
+      "title": "Mark the change",
+      "heading": "Mark the change",
+      "stage": "HARD",
+      "narration": "Before the leak, the water rises by fifteen litres in each minute. The gauge therefore reads thirty litres when the valve opens. Draw a vertical mark at two minutes. The water already in the tank is part of the answer. The leak cannot change those first two minutes."
+    },
+    {
+      "n": 7,
+      "title": "Finish the fill",
+      "heading": "Finish the fill",
+      "stage": "HARD",
+      "narration": "After the valve opens, each minute brings in fifteen litres and loses three. The level rises by twelve litres. Sixty more litres are needed, taking five more minutes. From the start that is seven minutes. Check at minute seven: the hoses delivered one hundred and five litres and fifteen leaked out."
+    },
+    {
+      "n": 8,
+      "title": "Check each interval",
+      "heading": "Check each interval",
+      "stage": "RECAP",
+      "narration": "Read a work log from one change to the next. Write what has already been done beside each change mark. With simultaneous workers, add their outputs for the same minute. With a leak, subtract the output that leaves, and only while the leak is open."
+    }
+  ]
+}

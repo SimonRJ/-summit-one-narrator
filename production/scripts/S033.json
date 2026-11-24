@@ -1,0 +1,63 @@
+{
+  "id": "S033",
+  "course_slot": 33,
+  "title": "The claims noticeboard",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "Test a self-description",
+      "heading": "Test a self-description",
+      "stage": "PUZZLE",
+      "narration": "At the club noticeboard, every speaker always tells the truth or always lies. Ava pins up the message, I am a liar. Could either kind of speaker have written that sentence under the club rule?"
+    },
+    {
+      "n": 2,
+      "title": "Try both columns",
+      "heading": "Try both columns",
+      "stage": "BASIC",
+      "narration": "Give Ava a truthful badge. Her message would say that she lies, so the message would be false. Try a lying badge instead. Her message would then describe her correctly, so it would be true. Both badges fail. This single message is impossible under the stated rule."
+    },
+    {
+      "n": 3,
+      "title": "Link two badges",
+      "heading": "Link two badges",
+      "stage": "PUZZLE",
+      "narration": "On a fresh board, Ben says Chen tells the truth. Cover both badges for a moment. Can you describe their relationship even before you know which badge either person wears?"
+    },
+    {
+      "n": 4,
+      "title": "The connecting line",
+      "heading": "The connecting line",
+      "stage": "METHOD",
+      "narration": "If Ben tells the truth, so does Chen. If Ben lies, his claim about Chen is false, so Chen lies too. The badges match in either case. Change the claim to Chen is a liar and the two badges would have to differ."
+    },
+    {
+      "n": 5,
+      "title": "Four new claims",
+      "heading": "Four new claims",
+      "stage": "CHALLENGE",
+      "narration": "Begin a different puzzle with four speakers. Ava says Ben lies. Ben says Chen tells the truth. Chen says Dara tells the truth. Dara says, Ava and I have different types. Which badges are possible now?"
+    },
+    {
+      "n": 6,
+      "title": "Leave the badges covered",
+      "heading": "Leave the badges covered",
+      "stage": "HARD",
+      "narration": "Ava and Ben have different badges. Ben and Chen match, and Chen and Dara match. Trace the connections before choosing any badge. Ben, Chen and Dara form a matching group. Ava has the opposite badge to every member of that group."
+    },
+    {
+      "n": 7,
+      "title": "Uncover Dara",
+      "heading": "Uncover Dara",
+      "stage": "HARD",
+      "narration": "Read Dara’s own sentence now. She says her type differs from Ava’s. The links already prove that this is true. Dara tells the truth. Chen and Ben must therefore tell the truth too. Ava lies. Her sentence says Ben lies, and that sentence really is false."
+    },
+    {
+      "n": 8,
+      "title": "Check all four sentences",
+      "heading": "Check all four sentences",
+      "stage": "RECAP",
+      "narration": "Start with the badge assignment, then read every sentence as its speaker would. The three matching speakers each make a true statement. The opposite speaker makes a false one. The most informative line was the one whose truth you could decide before giving anyone a badge."
+    }
+  ]
+}

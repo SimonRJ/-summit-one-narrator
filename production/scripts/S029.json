@@ -1,0 +1,63 @@
+{
+  "id": "S029",
+  "course_slot": 29,
+  "title": "The price ticket drawer",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "One tag, two prices",
+      "heading": "One tag, two prices",
+      "stage": "PUZZLE",
+      "narration": "The sports shop has put two prices on this ticket. Fifty dollars is crossed out. Forty dollars is printed beneath it. Ten dollars has come off. What fraction of the original fifty dollars was that?"
+    },
+    {
+      "n": 2,
+      "title": "Choose the bottom number",
+      "heading": "Choose the bottom number",
+      "stage": "BASIC",
+      "narration": "Draw five equal ten dollar boxes for the original price. Cross off one box. One out of five boxes is twenty percent. Moving the price back up uses a different comparison. The same ten dollars is one of the four boxes left, or twenty five percent."
+    },
+    {
+      "n": 3,
+      "title": "Compare the teams",
+      "heading": "Compare the teams",
+      "stage": "PUZZLE",
+      "narration": "At the shop skills contest, the red team packs eighteen orders correctly out of twenty four. The blue team packs twenty eight correctly out of forty. Blue has more correct orders. Which team gets a greater fraction correct?"
+    },
+    {
+      "n": 4,
+      "title": "Give the scores one scale",
+      "heading": "Give the scores one scale",
+      "stage": "METHOD",
+      "narration": "Red gets three quarters correct. That is seventy five out of a hundred. Blue gets seven tenths correct, or seventy out of a hundred. On the same scale red is five percentage points ahead. The number of orders and the fraction correct answer different questions."
+    },
+    {
+      "n": 5,
+      "title": "The missing ticket",
+      "heading": "The missing ticket",
+      "stage": "CHALLENGE",
+      "narration": "A bicycle price rose by twenty percent before a sale took twenty five percent off the new price. The last ticket says three hundred and sixty dollars. The other two tickets have fallen out of their holders. What was the original price?"
+    },
+    {
+      "n": 6,
+      "title": "Rebuild the sale price",
+      "heading": "Rebuild the sale price",
+      "stage": "HARD",
+      "narration": "Start at the last ticket. The discount removed one quarter of the price just before the sale. Three equal quarters now cost three hundred and sixty dollars. Each quarter costs one hundred and twenty dollars. Restore the missing quarter. Before the sale the price was four hundred and eighty dollars."
+    },
+    {
+      "n": 7,
+      "title": "Rebuild the opening price",
+      "heading": "Rebuild the opening price",
+      "stage": "HARD",
+      "narration": "The rise had turned five equal shares into six. The six shares are worth four hundred and eighty dollars, so each is eighty dollars. Five shares cost four hundred dollars. Check forwards. One fifth of four hundred adds eighty. One quarter of four hundred and eighty removes one hundred and twenty."
+    },
+    {
+      "n": 8,
+      "title": "Name a whole",
+      "heading": "Name a whole",
+      "stage": "RECAP",
+      "narration": "Label each ticket before applying a percentage. The increase used the first ticket. The discount used the middle ticket. The difference between those two wholes is why simply subtracting the percentage numbers would give the wrong sale price."
+    }
+  ]
+}
