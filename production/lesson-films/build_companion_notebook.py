@@ -183,10 +183,30 @@ def repair_perimeter_captions(source, vtt, out, scratch):
             draw.text((960, 67), words, font=font, fill="#f2f1ed", anchor="mm")
         png = scratch / f"caption-{i}.png"
         im.save(png)
-        inputs.extend(["-i", str(png)])
+        stream = f"{i + 2}:v"
+        if words:
+            length = end - start
+            inputs.extend(
+                [
+                    "-loop",
+                    "1",
+                    "-framerate",
+                    "30",
+                    "-t",
+                    f"{length:.3f}",
+                    "-i",
+                    str(png),
+                ]
+            )
+            filters.append(
+                f"[{stream}]format=rgba,fade=t=in:st=0:d=0.12:alpha=1,fade=t=out:st={length - 0.14:.3f}:d=0.14:alpha=1,setpts=PTS-STARTPTS+{start:.3f}/TB[faded{i}];"
+            )
+            stream = f"faded{i}"
+        else:
+            inputs.extend(["-i", str(png)])
         previous = "0:v" if i == 0 else f"caption{i - 1}"
         filters.append(
-            f"[{previous}][{i + 2}:v]overlay=0:934:enable='between(t,{start},{end})':eof_action=repeat[caption{i}];"
+            f"[{previous}][{stream}]overlay=0:934:enable='between(t,{start},{end})':eof_action=repeat[caption{i}];"
         )
     return inputs, "".join(filters), f"caption{len(layers) - 1}"
 
@@ -357,6 +377,9 @@ def closing_time(qa):
 def install(folder):
     generator = ROOT / "production/t01-studio/publish.py"
     content = generator.read_text()
+    catalogue = ROOT / "data/teaching-72.json"
+    catalogue_data = json.loads(catalogue.read_text())
+    catalogue_rows = {row["id"]: row for row in catalogue_data["items"]}
     patch = []
     for k, (version, _) in ART.items():
         path = folder / (k + "-studio-qa.json")
@@ -365,6 +388,7 @@ def install(folder):
         assert digest(movie) == qa["sha256"] and qa["version"] == version
         assert digest(ROOT / "media" / (k + ".mp4")) == qa["source_sha256"]
         assert k not in publish.REVISED_MEDIA
+        catalogue_rows[k]["video_url"] = f"media/{k}.mp4?v={version}"
         publish.REVISED_MEDIA[k] = version
         patch.append(f'    "{k}": "{version}",')
         if k == "T18.1":
@@ -379,6 +403,9 @@ def install(folder):
         route.write_text(
             publish.make_watch_page(k, script, qa, available=publish.TEACHING_SEQUENCE)
         )
+    catalogue.write_text(
+        json.dumps(catalogue_data, indent=2, ensure_ascii=False) + "\n"
+    )
     mark = "REVISED_MEDIA = {\n"
     assert content.count(mark) == 1
     generator.write_text(content.replace(mark, mark + "\n".join(patch) + "\n"))

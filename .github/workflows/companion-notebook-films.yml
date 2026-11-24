@@ -64,6 +64,7 @@ jobs:
             /review/T*-studio-qa.json
             /media/T1[45678]*
             /watch-t1[45678]*
+            /data/teaching-72.json
       - uses: actions/download-artifact@v4
         with:
           pattern: notebook-chapter-*
