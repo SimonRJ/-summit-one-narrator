@@ -1,7 +1,7 @@
 {
   "id": "T06.3",
   "duration_seconds": 125.866667,
-  "sha256": "71a3647b9e99730939b430bb6c676148203f4772098a798e239245c07c019719",
+  "sha256": "c93c59b5c75fbaaf6352eced801f20140fbb8e5f58c11504a0c001f631eccdc6",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -80,60 +80,9 @@
     }
   ],
   "decoded_successfully": true,
-  "legacy_sha256": "9f9d8fd1001243ee181cb2f15febad2c3733faa7bde0889c720de9989c7fb7ef",
-  "version": "chess-schedule",
-  "compared_frames": 3776,
-  "compared_scenes": [
-    {
-      "frames": 402,
-      "worst_frame": 242,
-      "mean_max": 1.825,
-      "tile_max": 5.62,
-      "caption_max": 1.907
-    },
-    {
-      "frames": 322,
-      "worst_frame": 515,
-      "mean_max": 1.766,
-      "tile_max": 3.005,
-      "caption_max": 1.795
-    },
-    {
-      "frames": 551,
-      "worst_frame": 819,
-      "mean_max": 1.812,
-      "tile_max": 3.793,
-      "caption_max": 1.702
-    },
-    {
-      "frames": 298,
-      "worst_frame": 1394,
-      "mean_max": 1.873,
-      "tile_max": 4.375,
-      "caption_max": 1.757
-    },
-    {
-      "frames": 643,
-      "worst_frame": 1976,
-      "mean_max": 1.723,
-      "tile_max": 2.559,
-      "caption_max": 1.696
-    },
-    {
-      "frames": 873,
-      "worst_frame": 2832,
-      "mean_max": 1.959,
-      "tile_max": 4.554,
-      "caption_max": 1.785
-    },
-    {
-      "frames": 687,
-      "worst_frame": 3169,
-      "mean_max": 1.922,
-      "tile_max": 4.644,
-      "caption_max": 1.756
-    }
-  ],
-  "audio_packet_sha256": "07878203eb3fdb59d2b59132a28740421caaf87fcf352eeade8b4c68afc4aba2",
-  "art_source": "5d03f90f863cc84479918c10f5fb0185dacd4439"
+  "version": "fixture-board",
+  "audio_packet_sha256": "SHA256=07878203eb3fdb59d2b59132a28740421caaf87fcf352eeade8b4c68afc4aba2",
+  "art_source": "production/lesson-films/incidence_workshops.py",
+  "frames": 3776,
+  "source_sha256": "71a3647b9e99730939b430bb6c676148203f4772098a798e239245c07c019719"
 }
