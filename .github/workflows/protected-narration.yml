@@ -1,0 +1,93 @@
+name: Record private challenge narration
+on:
+  push:
+    branches: [main]
+    paths: ['production/private-narration-request.json']
+  workflow_dispatch:
+    inputs:
+      batch:
+        description: Private recording batch UUID
+        required: true
+permissions:
+  contents: read
+jobs:
+  queue:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    outputs:
+      batch: ${{ steps.queue.outputs.batch }}
+      slots: ${{ steps.queue.outputs.slots }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /postproduction/private_narration_queue.py
+            /production/private-narration-request.json
+      - id: queue
+        env:
+          BATCH_ID: ${{ inputs.batch }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: python3 postproduction/private_narration_queue.py list
+  record:
+    needs: queue
+    if: github.ref == 'refs/heads/main' && needs.queue.outputs.slots != '[]'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 65
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        slot: ${{ fromJSON(needs.queue.outputs.slots) }}
+    env:
+      BATCH_ID: ${{ needs.queue.outputs.batch }}
+      SLOT: ${{ matrix.slot }}
+      HF_HUB_DISABLE_XET: '1'
+      TOKENIZERS_PARALLELISM: 'false'
+      OMP_NUM_THREADS: '4'
+      MKL_NUM_THREADS: '4'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            production
+            data
+            media/voice-audition
+            postproduction
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install the approved studio voice
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg libsndfile1
+          pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install 'transformers>=4.45,<5' 'huggingface-hub<1' einops pydantic soundfile librosa safetensors tqdm numpy scipy inflect addict argbind
+          pip install --no-deps 'git+https://github.com/OpenBMB/VoxCPM.git@300e4260b509066151d623dc9c0aa922cf82232b'
+      - name: Read the private recording text
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: python postproduction/private_narration_queue.py fetch
+      - name: Record the approved voice
+        run: |
+          umask 077
+          python - <<'PY' > "$RUNNER_TEMP/private-voice.log" 2>&1
+          import os, sys
+          from pathlib import Path
+          sys.path.insert(0, 'production/t01-studio')
+          from synth import record_scenes
+          scene=int((Path(os.environ['RUNNER_TEMP'])/'narration-scene').read_text())
+          record_scenes([('PRIVATE',scene)],threads=4)
+          PY
+      - name: Return the unreviewed take to private storage
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: python postproduction/private_narration_queue.py store
+      - name: Remove working copies
+        if: always()
+        run: rm -f production/scripts/PRIVATE.json build/t01-studio/PRIVATE-* "$RUNNER_TEMP/private-voice.log"

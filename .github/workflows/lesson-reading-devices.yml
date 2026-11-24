@@ -1,0 +1,41 @@
+name: Check every lesson opening on iPhone, iPad and PC
+on:
+  push:
+    branches: [main]
+    paths: ['tools/check_lesson_reading_layouts.py', 'data/read-watch-practise*.json', 'read-practice.css']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  layout:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    strategy:
+      fail-fast: false
+      matrix:
+        profile: [iphone-portrait, iphone-landscape, ipad-portrait, ipad-landscape, pc]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            /*
+            !/media/
+            !/production/
+            !/postproduction/
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install playwright==1.58.0
+      - if: matrix.profile != 'pc'
+        run: python -m playwright install --with-deps webkit
+      - name: Inspect the complete course reader
+        run: |
+          python -m http.server 8765 --bind 127.0.0.1 > "$RUNNER_TEMP/server.log" 2>&1 &
+          python tools/check_lesson_reading_layouts.py --profile "${{ matrix.profile }}" --output "$RUNNER_TEMP/reading.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lesson-readings-${{ matrix.profile }}
+          path: ${{ runner.temp }}/reading.json
+          if-no-files-found: ignore

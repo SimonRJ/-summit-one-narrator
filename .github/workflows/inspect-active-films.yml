@@ -1,0 +1,40 @@
+name: Inspect the assigned lesson films
+on:
+  push:
+    branches: ['qa/assigned-films-*']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  decode:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            /data/
+            /review/
+            /tools/video/
+            /watch-intro-*.html
+          sparse-checkout-cone-mode: false
+      - uses: actions/checkout@v4
+        with:
+          ref: lesson-intro-catalog
+          path: guide-source
+          sparse-checkout: data
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install Pillow==11.3.0
+      - run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
+      - run: python tools/video/inspect_active_films.py --catalogue guide-source/data --shard "${{ matrix.shard }}" --out evidence
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: chapter-frames-${{ matrix.shard }}
+          path: evidence/

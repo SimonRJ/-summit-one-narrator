@@ -1,0 +1,587 @@
+{
+  "comparisons": {
+    "guides": 125,
+    "repeated_passages": {
+      "literal": {
+        "S072": {
+          "S087": [
+            {
+              "scene": 1,
+              "other_scene": 1,
+              "longest_consecutive_words": 54,
+              "similarity": 1.0
+            },
+            {
+              "scene": 3,
+              "other_scene": 3,
+              "longest_consecutive_words": 23,
+              "similarity": 0.935
+            },
+            {
+              "scene": 5,
+              "other_scene": 5,
+              "longest_consecutive_words": 18,
+              "similarity": 0.9
+            },
+            {
+              "scene": 6,
+              "other_scene": 6,
+              "longest_consecutive_words": 19,
+              "similarity": 0.916
+            },
+            {
+              "scene": 9,
+              "other_scene": 9,
+              "longest_consecutive_words": 25,
+              "similarity": 0.911
+            }
+          ]
+        },
+        "S087": {
+          "S072": [
+            {
+              "scene": 1,
+              "other_scene": 1,
+              "longest_consecutive_words": 54,
+              "similarity": 1.0
+            },
+            {
+              "scene": 3,
+              "other_scene": 3,
+              "longest_consecutive_words": 23,
+              "similarity": 0.935
+            },
+            {
+              "scene": 5,
+              "other_scene": 5,
+              "longest_consecutive_words": 18,
+              "similarity": 0.9
+            },
+            {
+              "scene": 6,
+              "other_scene": 6,
+              "longest_consecutive_words": 19,
+              "similarity": 0.916
+            },
+            {
+              "scene": 9,
+              "other_scene": 9,
+              "longest_consecutive_words": 25,
+              "similarity": 0.911
+            }
+          ]
+        },
+        "S088": {
+          "S060": [
+            {
+              "scene": 1,
+              "other_scene": 1,
+              "longest_consecutive_words": 41,
+              "similarity": 1.0
+            },
+            {
+              "scene": 5,
+              "other_scene": 5,
+              "longest_consecutive_words": 26,
+              "similarity": 0.921
+            },
+            {
+              "scene": 6,
+              "other_scene": 6,
+              "longest_consecutive_words": 17,
+              "similarity": 0.907
+            },
+            {
+              "scene": 7,
+              "other_scene": 7,
+              "longest_consecutive_words": 19,
+              "similarity": 0.85
+            }
+          ],
+          "S023": [
+            {
+              "scene": 1,
+              "other_scene": 1,
+              "longest_consecutive_words": 41,
+              "similarity": 1.0
+            },
+            {
+              "scene": 5,
+              "other_scene": 5,
+              "longest_consecutive_words": 26,
+              "similarity": 0.935
+            },
+            {
+              "scene": 6,
+              "other_scene": 6,
+              "longest_consecutive_words": 17,
+              "similarity": 0.887
+            },
+            {
+              "scene": 7,
+              "other_scene": 7,
+              "longest_consecutive_words": 34,
+              "similarity": 0.949
+            }
+          ]
+        }
+      },
+      "with_numbers_masked": {
+        "S072": {
+          "S087": [
+            {
+              "scene": 1,
+              "other_scene": 1,
+              "longest_consecutive_words": 54,
+              "similarity": 1.0
+            },
+            {
+              "scene": 3,
+              "other_scene": 3,
+              "longest_consecutive_words": 31,
+              "similarity": 1.0
+            },
+            {
+              "scene": 5,
+              "other_scene": 5,
+              "longest_consecutive_words": 40,
+              "similarity": 1.0
+            },
+            {
+              "scene": 6,
+              "other_scene": 6,
+              "longest_consecutive_words": 23,
+              "similarity": 0.988
+            },
+            {
+              "scene": 9,
+              "other_scene": 9,
+              "longest_consecutive_words": 49,
+              "similarity": 0.99
+            }
+          ]
+        },
+        "S087": {
+          "S072": [
+            {
+              "scene": 1,
+              "other_scene": 1,
+              "longest_consecutive_words": 54,
+              "similarity": 1.0
+            },
+            {
+              "scene": 3,
+              "other_scene": 3,
+              "longest_consecutive_words": 31,
+              "similarity": 1.0
+            },
+            {
+              "scene": 5,
+              "other_scene": 5,
+              "longest_consecutive_words": 40,
+              "similarity": 1.0
+            },
+            {
+              "scene": 6,
+              "other_scene": 6,
+              "longest_consecutive_words": 23,
+              "similarity": 0.988
+            },
+            {
+              "scene": 9,
+              "other_scene": 9,
+              "longest_consecutive_words": 49,
+              "similarity": 0.99
+            }
+          ]
+        },
+        "S088": {
+          "S060": [
+            {
+              "scene": 1,
+              "other_scene": 1,
+              "longest_consecutive_words": 41,
+              "similarity": 1.0
+            },
+            {
+              "scene": 5,
+              "other_scene": 5,
+              "longest_consecutive_words": 26,
+              "similarity": 0.952
+            },
+            {
+              "scene": 6,
+              "other_scene": 6,
+              "longest_consecutive_words": 23,
+              "similarity": 0.963
+            },
+            {
+              "scene": 7,
+              "other_scene": 7,
+              "longest_consecutive_words": 19,
+              "similarity": 0.875
+            }
+          ],
+          "S023": [
+            {
+              "scene": 1,
+              "other_scene": 1,
+              "longest_consecutive_words": 41,
+              "similarity": 1.0
+            },
+            {
+              "scene": 5,
+              "other_scene": 5,
+              "longest_consecutive_words": 26,
+              "similarity": 0.968
+            },
+            {
+              "scene": 6,
+              "other_scene": 6,
+              "longest_consecutive_words": 22,
+              "similarity": 0.943
+            },
+            {
+              "scene": 7,
+              "other_scene": 7,
+              "longest_consecutive_words": 34,
+              "similarity": 0.974
+            }
+          ]
+        }
+      }
+    }
+  },
+  "movies": [
+    {
+      "id": "S011",
+      "edition": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S011-Intro-Illustrated.mp4",
+      "sha256": "066b935c7e20573e07ba698a099af2735708d3034dd9423ef29daacea2193726",
+      "duration_seconds": 195.1,
+      "public_chapters": 7,
+      "embedded_mp4_chapters": 0,
+      "decoded_chapter_samples": 7,
+      "transcript_sections": 11,
+      "independent_asr_segments": 43,
+      "independent_asr_agreement": 0.979,
+      "math_review": "Trial primes 2, 3 and 5 suffice for 37. The factors of 60 give 3 × 2 × 2 choices. Multiplying 2,016 by 14 gives 168 squared.",
+      "followup": "retain existing approval",
+      "speech_notes": ""
+    },
+    {
+      "id": "S013",
+      "edition": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S013-Intro-Illustrated.mp4",
+      "sha256": "b7cd76152b526f0064e81093cf0c86c27d945b7996bce0f1111097421a965e54",
+      "duration_seconds": 186.8,
+      "public_chapters": 7,
+      "embedded_mp4_chapters": 0,
+      "decoded_chapter_samples": 7,
+      "transcript_sections": 11,
+      "independent_asr_segments": 37,
+      "independent_asr_agreement": 0.9831,
+      "math_review": "Restarts coincide at minute 18. The 24 red and 36 blue markers give 12 equal packs. Dividing the unknowns by 6 reduces the closest coprime factor pair to 5 and 6.",
+      "followup": "retain existing approval",
+      "speech_notes": ""
+    },
+    {
+      "id": "S018",
+      "edition": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S018-Intro-Illustrated.mp4",
+      "sha256": "1c49e802216781ce394de912801100a6fd85948f527dc3a8b8223b91cd645a70",
+      "duration_seconds": 192.1,
+      "public_chapters": 7,
+      "embedded_mp4_chapters": 0,
+      "decoded_chapter_samples": 7,
+      "transcript_sections": 11,
+      "independent_asr_segments": 38,
+      "independent_asr_agreement": 0.9947,
+      "math_review": "13 + 18 leaves one unpaired counter. Even steps preserve the odd start. Combining five numbers in four moves adds four to their starting sum of 52.",
+      "followup": "retain existing approval",
+      "speech_notes": ""
+    },
+    {
+      "id": "S024",
+      "edition": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S024-Intro-Illustrated.mp4",
+      "sha256": "36db44d0eab8b38e818e86fa2bfea927f641a71c04da98683aa7b36c283250ea",
+      "duration_seconds": 156.733,
+      "public_chapters": 7,
+      "embedded_mp4_chapters": 0,
+      "decoded_chapter_samples": 7,
+      "transcript_sections": 11,
+      "independent_asr_segments": 30,
+      "independent_asr_agreement": 0.9815,
+      "math_review": "Three bead strands use 6 red and 15 blue. At 1 to 100, 4 cm represents 4 m. The transfer swaps tray counts of 24 and 12 while preserving the total.",
+      "followup": "retain existing approval",
+      "speech_notes": ""
+    },
+    {
+      "id": "S030",
+      "edition": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S030-Intro-Illustrated.mp4",
+      "sha256": "beee1f5301c3145138e13bfebfbe7be2e7a085c0d767010fbe872f846df71713",
+      "duration_seconds": 193.033,
+      "public_chapters": 7,
+      "embedded_mp4_chapters": 0,
+      "decoded_chapter_samples": 7,
+      "transcript_sections": 11,
+      "independent_asr_segments": 43,
+      "independent_asr_agreement": 0.9825,
+      "math_review": "The trail is 2,350 m. 420 seconds contain 12 complete 35-second intervals. Including zero gives 13 and 9 flashes with 5 overlaps, hence 17 distinct times.",
+      "followup": "retain existing approval",
+      "speech_notes": ""
+    },
+    {
+      "id": "S036",
+      "edition": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S036-Intro-Illustrated.mp4",
+      "sha256": "907131720841627d7405986d5330b5900844d06f0ee3b36f4226b41979e2dadb",
+      "duration_seconds": 148.733,
+      "public_chapters": 7,
+      "embedded_mp4_chapters": 0,
+      "decoded_chapter_samples": 7,
+      "transcript_sections": 11,
+      "independent_asr_segments": 41,
+      "independent_asr_agreement": 0.9934,
+      "math_review": "Turning preserves all four squares. Eleven cells cannot be divided into three-cell pieces. Two upright and three paired sideways blocks have 10 distinct orders.",
+      "followup": "retain existing approval",
+      "speech_notes": ""
+    },
+    {
+      "id": "S065",
+      "edition": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S065-Intro-Illustrated.mp4",
+      "sha256": "40665d2bd546ec4438b8dd7d738d1b9fe31e281f694cded43156fd6850e5241b",
+      "duration_seconds": 167.633,
+      "public_chapters": 7,
+      "embedded_mp4_chapters": 0,
+      "decoded_chapter_samples": 7,
+      "transcript_sections": 11,
+      "independent_asr_segments": 37,
+      "independent_asr_agreement": 0.9899,
+      "math_review": "The five-player handshake count is 10. Forty-eight helper bookings give 16 helpers. Of 45 matches, 3 do not take place, leaving 42.",
+      "followup": "retain existing approval",
+      "speech_notes": ""
+    },
+    {
+      "id": "S066",
+      "edition": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S066-Intro-Illustrated-v2.mp4",
+      "sha256": "3793d2a0e99a4f1c4242c424309944913755e95bf09ca9d1ea31e37a69502fde",
+      "duration_seconds": 184.133,
+      "public_chapters": 7,
+      "embedded_mp4_chapters": 0,
+      "decoded_chapter_samples": 7,
+      "transcript_sections": 11,
+      "independent_asr_segments": 31,
+      "independent_asr_agreement": 0.9947,
+      "math_review": "51 leaves 3 loose counters. Among 460, 464 and 468 only 468 passes both tests. The common-multiple shift gives 79, 119, 159 and 199.",
+      "followup": "retain existing approval",
+      "speech_notes": ""
+    },
+    {
+      "id": "S072",
+      "edition": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S072-Intro-Illustrated.mp4",
+      "sha256": "d123498a9b1b2351fcbb11213b2e075ac979a3313a5bb6f9b895381e59560f9c",
+      "duration_seconds": 186.933,
+      "public_chapters": 7,
+      "embedded_mp4_chapters": 0,
+      "decoded_chapter_samples": 7,
+      "transcript_sections": 11,
+      "independent_asr_segments": 39,
+      "independent_asr_agreement": 0.9969,
+      "math_review": "The 3 × 3 × 2 block holds 18. Stack heights total 17. Column maxima give a minimum of 15 and row/column caps give a maximum of 21.",
+      "followup": "reopen repeated worked narration",
+      "speech_notes": ""
+    },
+    {
+      "id": "S083",
+      "edition": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S083-Intro-Illustrated.mp4",
+      "sha256": "dc50f0a7bf6da90fa7ad998297c2d00ac0df6d84123204aa1e637dde8b39ee4d",
+      "duration_seconds": 185.567,
+      "public_chapters": 7,
+      "embedded_mp4_chapters": 0,
+      "decoded_chapter_samples": 7,
+      "transcript_sections": 11,
+      "independent_asr_segments": 34,
+      "independent_asr_agreement": 0.9794,
+      "math_review": "Reflecting (2,1) gives (−2,1). A quarter-turn followed by the specified translation ends at (2,1). The marked centre combines with a size-four orbit or two size-two orbits, giving ten patterns.",
+      "followup": "retain existing approval",
+      "speech_notes": ""
+    },
+    {
+      "id": "S087",
+      "edition": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S087-Intro-Illustrated.mp4",
+      "sha256": "13672880cabffc637962ded9418f882b0137cd39d83d694547ef4a9a5b713a6d",
+      "duration_seconds": 194.667,
+      "public_chapters": 7,
+      "embedded_mp4_chapters": 0,
+      "decoded_chapter_samples": 7,
+      "transcript_sections": 11,
+      "independent_asr_segments": 37,
+      "independent_asr_agreement": 0.9916,
+      "math_review": "The small block holds 16. The six heights total 15. A floor-positive model attains 13 and the pointwise height caps total 16.",
+      "followup": "reopen repeated worked narration",
+      "speech_notes": ""
+    },
+    {
+      "id": "S088",
+      "edition": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S088-Intro-Illustrated.mp4",
+      "sha256": "b519ae689063618dff31307c1d00a3be130aca1875748904a30b43451cc5b30d",
+      "duration_seconds": 204.067,
+      "public_chapters": 7,
+      "embedded_mp4_chapters": 0,
+      "decoded_chapter_samples": 7,
+      "transcript_sections": 11,
+      "independent_asr_segments": 38,
+      "independent_asr_agreement": 0.9712,
+      "math_review": "The ordered two-key clip gives 2 rows. A reversible pair among six gives 240. Subtracting 2 × 1,440, then restoring 480, leaves 2,640 of the 5,040 seven-key rows.",
+      "followup": "reopen repeated worked narration",
+      "speech_notes": ""
+    },
+    {
+      "id": "S090",
+      "edition": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S090-Intro-Illustrated.mp4",
+      "sha256": "8235c0266d78fd174964ef3dca67eef54e80aef5b63eddf9e17e3da4cd60084d",
+      "duration_seconds": 183.433,
+      "public_chapters": 7,
+      "embedded_mp4_chapters": 0,
+      "decoded_chapter_samples": 7,
+      "transcript_sections": 11,
+      "independent_asr_segments": 33,
+      "independent_asr_agreement": 0.9968,
+      "math_review": "The solid contains 24 cubes. The open box uses 15 + 20 + 12 = 47 units of card. A 6 × 6 base and four 6 × 3 walls minimise card at 108 cm².",
+      "followup": "retain existing approval",
+      "speech_notes": ""
+    },
+    {
+      "id": "S093",
+      "edition": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S093-Intro-Illustrated.mp4",
+      "sha256": "bc96d294dc6827b17d4245f235ccd119bce2e9f068fb994db939128a5e5db6c5",
+      "duration_seconds": 211.8,
+      "public_chapters": 7,
+      "embedded_mp4_chapters": 0,
+      "decoded_chapter_samples": 7,
+      "transcript_sections": 11,
+      "independent_asr_segments": 46,
+      "independent_asr_agreement": 0.9894,
+      "math_review": "The short route has 3 orders. The next grid has 10 walks. The blocked grid permits 126 − 60 − 60 + 36 = 42.",
+      "followup": "retain existing approval",
+      "speech_notes": ""
+    },
+    {
+      "id": "S137",
+      "edition": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/recorded-course-studies-20261121/S137.mp4",
+      "sha256": "df5ff8a0944b687610c20633c00fe84f3e9bd911ad9bcb4ea25083ce47f4eec4",
+      "duration_seconds": 124.733,
+      "public_chapters": 8,
+      "embedded_mp4_chapters": 0,
+      "decoded_chapter_samples": 8,
+      "transcript_sections": 8,
+      "independent_asr_segments": 29,
+      "independent_asr_agreement": 0.9803,
+      "math_review": "Reversing 73 loses 36. Digits of sum 11 and gap 3 give 74. The lock opens with 763, since its reverse is 396 lower and the digits sum to 16.",
+      "followup": "retain existing approval",
+      "speech_notes": ""
+    },
+    {
+      "id": "S138",
+      "edition": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/recorded-course-studies-20261121/S138.mp4",
+      "sha256": "784fd95c5869ccca3d78111aa6715a47d5993276b904e0b36b08ecada9165daf",
+      "duration_seconds": 135.467,
+      "public_chapters": 8,
+      "embedded_mp4_chapters": 0,
+      "decoded_chapter_samples": 8,
+      "transcript_sections": 8,
+      "independent_asr_segments": 26,
+      "independent_asr_agreement": 0.9893,
+      "math_review": "The two meters yield a net 5 L/min. A 24-litre increase over 4 minutes with 9 entering each minute implies 3 leaving. A six-minute leak accounts for 12 missing litres at the finish.",
+      "followup": "retain existing approval",
+      "speech_notes": ""
+    },
+    {
+      "id": "S141",
+      "edition": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/recorded-course-studies-20261121/S141.mp4",
+      "sha256": "b12e3bd858b59dc8e24d7d1e7aaea562f32b9cfafc72225e50d7ae6b96e2e3bd",
+      "duration_seconds": 123.0,
+      "public_chapters": 8,
+      "embedded_mp4_chapters": 0,
+      "decoded_chapter_samples": 8,
+      "transcript_sections": 8,
+      "independent_asr_segments": 21,
+      "independent_asr_agreement": 0.9747,
+      "math_review": "A 30 cm baseline turns bars of visible height 6 and 12 into readings 36 and 42. The tank ratio is 26:18. A triple apparent bar at 48 above a shorter bar at 36 implies baseline 30.",
+      "followup": "retain existing approval",
+      "speech_notes": ""
+    },
+    {
+      "id": "S149",
+      "edition": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/recorded-course-studies-20261121/S149.mp4",
+      "sha256": "f2d7e6fce3b27849bd607aa8859994005edcc5dd615d56aa606c4550498579e7",
+      "duration_seconds": 129.867,
+      "public_chapters": 8,
+      "embedded_mp4_chapters": 0,
+      "decoded_chapter_samples": 8,
+      "transcript_sections": 8,
+      "independent_asr_segments": 22,
+      "independent_asr_agreement": 0.9893,
+      "math_review": "Sliding the apex preserves the 12 cm² area. The 5 m fence on a 9 m base takes 20 of 36 m². In the rectangle, the two opposite triangles total 48 m² and the top takes 30.",
+      "followup": "retain existing approval",
+      "speech_notes": ""
+    },
+    {
+      "id": "S150",
+      "edition": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/recorded-course-studies-20261121/S150.mp4",
+      "sha256": "ef38d2a12b9384fed7bc91c3a535803f4e2bda6544d78f7b674dbbe7dfbcf9fb",
+      "duration_seconds": 124.1,
+      "public_chapters": 7,
+      "embedded_mp4_chapters": 0,
+      "decoded_chapter_samples": 7,
+      "transcript_sections": 7,
+      "independent_asr_segments": 20,
+      "independent_asr_agreement": 0.9612,
+      "math_review": "Two suns without replacement have probability 1/10, while mixed discs have probability 3/5. Fourteen ordered outcomes light the lamp and two of them contain both suns.",
+      "followup": "retain existing approval",
+      "speech_notes": ""
+    },
+    {
+      "id": "S151",
+      "edition": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/bridge-deck-S151-20261122/S151.mp4",
+      "sha256": "5e755773d47026273a374bf55cbfefa4a139c587a3425df87d4e6d4f9c3e1ca4",
+      "duration_seconds": 138.5,
+      "public_chapters": 8,
+      "embedded_mp4_chapters": 0,
+      "decoded_chapter_samples": 8,
+      "transcript_sections": 8,
+      "independent_asr_segments": 36,
+      "independent_asr_agreement": 0.9707,
+      "math_review": "Opposite corner openings leave unequal colour counts. With both top corners open the drawn seven dominoes cover 14 cells. The balanced eight-cell bridge fails because two tips require one middle cell.",
+      "followup": "retain existing approval",
+      "speech_notes": "A separate 54–64 second transcription recovered the sentence about seven plates needing seven of each colour."
+    },
+    {
+      "id": "S152",
+      "edition": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/recorded-course-studies-20261121/S152.mp4",
+      "sha256": "b42ffcd83e161a2e05b2b2afb429825c4f6b3596e87ff08ea89f58fabee58e07",
+      "duration_seconds": 125.533,
+      "public_chapters": 8,
+      "embedded_mp4_chapters": 0,
+      "decoded_chapter_samples": 8,
+      "transcript_sections": 8,
+      "independent_asr_segments": 19,
+      "independent_asr_agreement": 0.9952,
+      "math_review": "One counter transfer changes the lead by two. Reversing a six-badge transfer gives 30 and 18. Reversing the two tray moves gives 24, 6 and 6.",
+      "followup": "retain existing approval",
+      "speech_notes": ""
+    },
+    {
+      "id": "S155",
+      "edition": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/recorded-course-studies-20261121/S155.mp4",
+      "sha256": "b66495d16c07d2414a81e1074ffae0baa7b68d283e0b57981ae91d0238d4ab97",
+      "duration_seconds": 122.033,
+      "public_chapters": 8,
+      "embedded_mp4_chapters": 0,
+      "decoded_chapter_samples": 8,
+      "transcript_sections": 8,
+      "independent_asr_segments": 27,
+      "independent_asr_agreement": 0.9845,
+      "math_review": "The ordinary prefix step is 110, but 3993 to 4004 differs by 11. Nine groups of nine even gaps have whole-number midpoints. The eight carry gaps do not.",
+      "followup": "retain existing approval",
+      "speech_notes": ""
+    }
+  ]
+}
