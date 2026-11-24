@@ -445,21 +445,15 @@ def prove():
     )
 
 
-def main():
-    ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("lesson", choices=EDITIONS)
-    ap.add_argument("output", type=Path)
-    args = ap.parse_args()
-    k = args.lesson
-    folder = args.output
+def render_visual(lesson, folder, source_digest, draw):
+    k = lesson
     folder.mkdir(parents=True, exist_ok=True)
-    prove()
     original = ROOT / "media" / (k + ".mp4")
     qa = json.loads((ROOT / "review" / (k + "-studio-qa.json")).read_text())
     assert (
         hashlib.file_digest(original.open("rb"), "sha256").hexdigest()
         == qa["sha256"]
-        == EDITIONS[k][1]
+        == source_digest
     )
     parts = []
     for block in re.split(
@@ -474,7 +468,7 @@ def main():
     def paint(t):
         ix = bisect_right(cue_starts, t) - 1
         caption = parts[ix][2] if ix >= 0 and t < parts[ix][1] else ""
-        return make_picture(k, max(0, bisect_right(starts, t) - 1), t, caption)
+        return draw(k, max(0, bisect_right(starts, t) - 1), t, caption)
 
     paint(9).save(folder / (k + "-studio-poster.jpg"), quality=90)
     frames = round(qa["duration_seconds"] * 30)
@@ -527,4 +521,9 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("lesson", choices=EDITIONS)
+    parser.add_argument("output", type=Path)
+    args = parser.parse_args()
+    prove()
+    render_visual(args.lesson, args.output, EDITIONS[args.lesson][1], make_picture)

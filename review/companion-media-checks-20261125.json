@@ -19,7 +19,16 @@
       "chapter_controls": 7,
       "caption_cues": 66,
       "blind_speech_segments": 25,
-      "last_recognized_word_seconds": 165.8
+      "last_recognized_word_seconds": 165.8,
+      "short_speech_rechecks": [
+        {
+          "id": "T01.2",
+          "start": 127.94,
+          "end": 135.45,
+          "expected": "two mats each four meters by three meters a long their three meter sides how much edge is exposed",
+          "recognized": "Join two mats, each 4 meters by 3 meters, along their 3 meter sides. How much edge is exposed?"
+        }
+      ]
     },
     "T01.3": {
       "prior_published_mp4_sha256": "b227b32cb977a036e96dccf4112e6fab10ca33aa02aa23aa13698ad5dddae018",
@@ -37,7 +46,16 @@
       "chapter_controls": 6,
       "caption_cues": 53,
       "blind_speech_segments": 21,
-      "last_recognized_word_seconds": 135.72
+      "last_recognized_word_seconds": 135.72,
+      "short_speech_rechecks": [
+        {
+          "id": "T01.E",
+          "start": 50.76,
+          "end": 60.64,
+          "expected": "begins remove those two centimeters nine minus two leaves seven you can count",
+          "recognized": "two centimetres before the ribbon begins. Remove those two centimetres, 9-2 leaves 7. You can count 8 marked points across the ribbon."
+        }
+      ]
     },
     "T02.1": {
       "prior_published_mp4_sha256": "182d6fcb40166defb6431967d53ba6bf385ebc6a21798d9be2fecbbe7c143e6e",
@@ -82,7 +100,16 @@
       "chapter_controls": 7,
       "caption_cues": 49,
       "blind_speech_segments": 18,
-      "last_recognized_word_seconds": 134.86
+      "last_recognized_word_seconds": 134.86,
+      "short_speech_rechecks": [
+        {
+          "id": "T03.1",
+          "start": 125.11,
+          "end": 131.36,
+          "expected": "challenge today is tuesday what day will it be one hundred days from now",
+          "recognized": "Here is your notebook challenge, today is Tuesday, what day will it be 100 days from now?"
+        }
+      ]
     },
     "T03.2": {
       "prior_published_mp4_sha256": "c1fb141aed0731b112d3bb0b1466c37ee5948f333981c548beb50835f9346f05",
@@ -118,7 +145,16 @@
       "chapter_controls": 7,
       "caption_cues": 45,
       "blind_speech_segments": 16,
-      "last_recognized_word_seconds": 113.86
+      "last_recognized_word_seconds": 113.86,
+      "short_speech_rechecks": [
+        {
+          "id": "T04.1",
+          "start": 51.35,
+          "end": 58.34,
+          "expected": "digit is one so five fails try seven seven times thirteen equals ninety one",
+          "recognized": "Its last digit is 1, so 5 fails. Try 7. 7 x 13 equals 91."
+        }
+      ]
     },
     "T04.2": {
       "prior_published_mp4_sha256": "40e9b7e3d35e6a47cb58ddc945daa04b4a06d44d0027b3ec8d1a82b7bedf263a",
@@ -140,7 +176,7 @@
     },
     "T04.E": {
       "prior_published_mp4_sha256": "f0f84f9d4b9a56bc12abca21c16f700d02b7e1e39b0ced73c8ac7380ca78dae2",
-      "duration_seconds": 103.0,
+      "duration_seconds": 103,
       "decoded_one_second_pictures": 103,
       "chapter_controls": 6,
       "caption_cues": 35,
@@ -208,7 +244,7 @@
       "chapter_controls": 8,
       "caption_cues": 39,
       "blind_speech_segments": 17,
-      "last_recognized_word_seconds": 100.0
+      "last_recognized_word_seconds": 100
     },
     "T06.2": {
       "prior_published_mp4_sha256": "10e3924a73653b2dd4b5ef16b8a8d6d71cb076109cfff59945da891f2510de2a",
@@ -217,7 +253,16 @@
       "chapter_controls": 8,
       "caption_cues": 41,
       "blind_speech_segments": 16,
-      "last_recognized_word_seconds": 107.88
+      "last_recognized_word_seconds": 107.88,
+      "short_speech_rechecks": [
+        {
+          "id": "T06.2",
+          "start": 100.97,
+          "end": 106.5,
+          "expected": "challenge three numbers are added in pairs to give seventeen twenty and twenty three",
+          "recognized": "Notebook Challenge, three numbers are added in pairs to give 17, 20 and 23."
+        }
+      ]
     },
     "T06.3": {
       "prior_published_mp4_sha256": "71a3647b9e99730939b430bb6c676148203f4772098a798e239245c07c019719",
@@ -262,7 +307,7 @@
       "chapter_controls": 8,
       "caption_cues": 41,
       "blind_speech_segments": 25,
-      "last_recognized_word_seconds": 103.0
+      "last_recognized_word_seconds": 103
     },
     "T07.E": {
       "prior_published_mp4_sha256": "29ea8056e8fac41c43ea8cd5259ada7325ab0ac5698a7d6e62bbf394769afb8a",
@@ -320,12 +365,21 @@
     },
     "T09.2": {
       "prior_published_mp4_sha256": "88f541a2993075ceb5db92cdc1b7ee332f6f46a93971d4a1c1e2581856f09581",
-      "duration_seconds": 120.0,
+      "duration_seconds": 120,
       "decoded_one_second_pictures": 120,
       "chapter_controls": 8,
       "caption_cues": 43,
       "blind_speech_segments": 15,
-      "last_recognized_word_seconds": 114.68
+      "last_recognized_word_seconds": 114.68,
+      "short_speech_rechecks": [
+        {
+          "id": "T09.2",
+          "start": 91.96,
+          "end": 96.6,
+          "expected": "decimal with two places always becomes whole when multiplied by one hundred",
+          "recognized": "A decimal with two places always becomes whole when multiplied by 100."
+        }
+      ]
     },
     "T09.3": {
       "prior_published_mp4_sha256": "5420b9a76a6dde44f7af9c1bf7159175c6c53e90c22f9897b77d0895f0b1839a",
@@ -356,7 +410,7 @@
     },
     "T10.2": {
       "prior_published_mp4_sha256": "ece9853d16e4ab969b998d3215bf9f72f742a2042c6308d798502e11887fbc86",
-      "duration_seconds": 115.0,
+      "duration_seconds": 115,
       "decoded_one_second_pictures": 115,
       "chapter_controls": 8,
       "caption_cues": 44,
@@ -383,12 +437,28 @@
     },
     "T11.1": {
       "prior_published_mp4_sha256": "df7b0c1a0a98fe4dadace512e663151c2d120f0612c3cb7b0ac2baa1c0ecedb8",
-      "duration_seconds": 116.0,
+      "duration_seconds": 116,
       "decoded_one_second_pictures": 116,
       "chapter_controls": 9,
       "caption_cues": 39,
       "blind_speech_segments": 13,
-      "last_recognized_word_seconds": 110.68
+      "last_recognized_word_seconds": 110.68,
+      "short_speech_rechecks": [
+        {
+          "id": "T11.1",
+          "start": 68.77,
+          "end": 77.44,
+          "expected": "check one fifty two minus twenty five is twenty seven adding a number to its reverse gives",
+          "recognized": "Check 1, 52, minus 25 is 27. Adding a number to its reverse gives 11a plus 11b."
+        },
+        {
+          "id": "T11.1",
+          "start": 98.84,
+          "end": 108.42,
+          "expected": "multiple of nine reversing and adding gives a multiple of eleven notebook challenge a",
+          "recognized": "Reversing and subtracting gives a multiple of nine. Reversing and adding gives a multiple of 11. Notebook challenge, a two-digit number is four times the sum of"
+        }
+      ]
     },
     "T11.2": {
       "prior_published_mp4_sha256": "014e8835448480bb39044bbb9cf2c8326b04085cfc76f5a73b3a97c9a58ec375",
@@ -451,7 +521,8 @@
       "chapter_controls": 6,
       "caption_cues": 27,
       "blind_speech_segments": 11,
-      "last_recognized_word_seconds": 82.66
+      "last_recognized_word_seconds": 82.66,
+      "chapter_and_mathematics_review": "The six scenes distinguish an exterior angle from either interior opposite angle. The three given pairs 48°+67°, 60°+55° and 35°+80° each give 115°. Inspected the picture at every caption and the complete recognized spoken track."
     },
     "T13.1": {
       "prior_published_mp4_sha256": "24100ebdbb730e380ea2c1009dcb7b9d570ffd5115549e354ba6f7ecaab84a0b",
@@ -460,7 +531,16 @@
       "chapter_controls": 8,
       "caption_cues": 46,
       "blind_speech_segments": 20,
-      "last_recognized_word_seconds": 126.76
+      "last_recognized_word_seconds": 126.76,
+      "short_speech_rechecks": [
+        {
+          "id": "T13.1",
+          "start": 53.98,
+          "end": 60.21,
+          "expected": "of eight times five is twenty all three have the same area",
+          "recognized": "Half of 8 x 5 is 20. All three have the same area, 20 square centimetres."
+        }
+      ]
     },
     "T13.2": {
       "prior_published_mp4_sha256": "cb05ddb68e05ead6236ccfbc9a982455518eb1ac18c93bded2e64ed7369f2062",
@@ -488,7 +568,8 @@
       "chapter_controls": 6,
       "caption_cues": 25,
       "blind_speech_segments": 7,
-      "last_recognized_word_seconds": 72.7
+      "last_recognized_word_seconds": 72.7,
+      "chapter_and_mathematics_review": "Compared every caption’s picture, the two 6 cm by 4 cm cards, the actual lost boundary pieces and their replacements. Removing a unit square leaves area 23 cm² either way. The corner cut leaves a 20 cm perimeter and the edge notch gives 22 cm. A 2 cm by 1 cm notch along its long side also gives 22 cm."
     },
     "T14.1": {
       "prior_published_mp4_sha256": "983aa8b3c4887a142bb599b2d330fb3093cb667ff7bad6e280797a7385074986",
@@ -497,7 +578,8 @@
       "chapter_controls": 8,
       "caption_cues": 40,
       "blind_speech_segments": 18,
-      "last_recognized_word_seconds": 104.36
+      "last_recognized_word_seconds": 104.36,
+      "chapter_and_mathematics_review": "The right-and-up grid accumulates 1,2,3,6. Blocking its centre leaves 2. The three-wide, two-high notebook has 10 routes."
     },
     "T14.2": {
       "prior_published_mp4_sha256": "b6d5011e674e1ea50312666947b8aebb46c09f85985041ae47519388b0990aec",
@@ -506,7 +588,8 @@
       "chapter_controls": 8,
       "caption_cues": 45,
       "blind_speech_segments": 29,
-      "last_recognized_word_seconds": 119.22
+      "last_recognized_word_seconds": 119.22,
+      "chapter_and_mathematics_review": "Numbered all nine dots of the three-by-three spiral and checked the five-to-four colour proof. A two-by-three path cannot cross five edges and end at the same colour at the two top corners."
     },
     "T14.3": {
       "prior_published_mp4_sha256": "f584ae6ee71e47b937a7336e8caa3cc205f39c54ba73e05e8032fe83f92a49d8",
@@ -515,7 +598,8 @@
       "chapter_controls": 8,
       "caption_cues": 44,
       "blind_speech_segments": 30,
-      "last_recognized_word_seconds": 118.3
+      "last_recognized_word_seconds": 118.3,
+      "chapter_and_mathematics_review": "The four-player schedule lists all six games in three rounds. The five-player table lists ten distinct games in five rounds. For six players the challenge attains five rounds with three games in each."
     },
     "T14.E": {
       "prior_published_mp4_sha256": "fad0d0363b6ccdce5b378ceb89a696f115e12a0bf2607c048e1e9473f6d91306",
@@ -524,7 +608,8 @@
       "chapter_controls": 6,
       "caption_cues": 25,
       "blind_speech_segments": 21,
-      "last_recognized_word_seconds": 79.5
+      "last_recognized_word_seconds": 79.5,
+      "chapter_and_mathematics_review": "Audited each proposed slot for repeated pupils. Adding DE forms the complete bipartite graph between A,E and B,C,D; three distinct two-meeting rounds exist."
     },
     "T15.1": {
       "prior_published_mp4_sha256": "8f460d199ba5489b2433e5a0a21c14408bea1b6d52d2c6527f926ac60598033f",
@@ -533,7 +618,8 @@
       "chapter_controls": 8,
       "caption_cues": 44,
       "blind_speech_segments": 28,
-      "last_recognized_word_seconds": 108.6
+      "last_recognized_word_seconds": 108.6,
+      "chapter_and_mathematics_review": "Four single-shaded fixed tiles are one rotation orbit. Adjacent and diagonal pairs are different rotation orbits, and three shaded squares give one orbit. The marked mirror shows the importance of allowing a flip."
     },
     "T15.2": {
       "prior_published_mp4_sha256": "b96cc7529d02fd5802392096af658f5d0e5329573b27ff1c412516ef8703141e",
@@ -542,7 +628,8 @@
       "chapter_controls": 8,
       "caption_cues": 50,
       "blind_speech_segments": 20,
-      "last_recognized_word_seconds": 125.8
+      "last_recognized_word_seconds": 125.8,
+      "chapter_and_mathematics_review": "The six orbit sizes 1,4,4,2,4,1 sum to sixteen. The two checkerboard colourings form the size-two orbit. Five and four distinct circular seats give 24 and 6 clockwise orders respectively."
     },
     "T15.3": {
       "prior_published_mp4_sha256": "58b2f6d6818afed98aeded4326040e7c075a6051ba111dbcc7a16f9b3a337214",
@@ -551,7 +638,8 @@
       "chapter_controls": 9,
       "caption_cues": 47,
       "blind_speech_segments": 19,
-      "last_recognized_word_seconds": 116.34
+      "last_recognized_word_seconds": 116.34,
+      "chapter_and_mathematics_review": "Traced the first-switch toggle for all eight settings. Four even settings grow to 512 of 1024 with ten switches. Pairing 1 through 100 gives 50×101 and the exercise gives 20×41."
     },
     "T15.E": {
       "prior_published_mp4_sha256": "e959a6d6dc691df18343f1c27734916e852cf67893e1c329dd41154ec1b1af9a",
@@ -560,7 +648,8 @@
       "chapter_controls": 6,
       "caption_cues": 22,
       "blind_speech_segments": 11,
-      "last_recognized_word_seconds": 69.14
+      "last_recognized_word_seconds": 69.14,
+      "chapter_and_mathematics_review": "Checked the four rows of paired subsets, including the empty subset, and the self-inverse toggle. Five objects give 32 subsets and exactly 16 odd subsets."
     },
     "T16.1": {
       "prior_published_mp4_sha256": "cf35c0adfdf4e428495308c048e78c9bc84569e7c5dc4820f5ca907f4f59fbb8",
@@ -569,7 +658,8 @@
       "chapter_controls": 8,
       "caption_cues": 37,
       "blind_speech_segments": 24,
-      "last_recognized_word_seconds": 105.62
+      "last_recognized_word_seconds": 105.62,
+      "chapter_and_mathematics_review": "Five unit blocks split 40 as 24 and 16. A difference of 9 gives 27 and 18. Rewriting the middle ratio as 12 produces 8:12:15. The 5:3 beads with a difference of 16 total 64."
     },
     "T16.2": {
       "prior_published_mp4_sha256": "1004c1498a164c5fe57a568dc50ca7924a49e54e037dff778e9d86be131dad31",
@@ -578,7 +668,8 @@
       "chapter_controls": 8,
       "caption_cues": 44,
       "blind_speech_segments": 28,
-      "last_recognized_word_seconds": 115.48
+      "last_recognized_word_seconds": 115.48,
+      "chapter_and_mathematics_review": "The two tap rates add to half a tank per minute. Adding a drain subtracts its rate. Checked the approaching walkers’ 100÷10=10 seconds and the painters’ 1/4+1/12=1/3 fence each hour."
     },
     "T16.3": {
       "prior_published_mp4_sha256": "9e074ff4aefda57cce35853860f12ae782dc3ad1892425c5e5229b4744d2efda",
@@ -604,7 +695,8 @@
       "chapter_controls": 6,
       "caption_cues": 25,
       "blind_speech_segments": 14,
-      "last_recognized_word_seconds": 69.62
+      "last_recognized_word_seconds": 69.62,
+      "chapter_and_mathematics_review": "The groups contribute 14 and 27 for a mean of 41/5=8.2. Equal groups give 8. The four fives and one ten in the final challenge average 6."
     },
     "T17.1": {
       "prior_published_mp4_sha256": "6213e172edd8689ad2903f335955fb6cbfa40a3db5902b0192d9e8d73d362855",
@@ -613,7 +705,8 @@
       "chapter_controls": 8,
       "caption_cues": 43,
       "blind_speech_segments": 26,
-      "last_recognized_word_seconds": 112.42
+      "last_recognized_word_seconds": 112.42,
+      "chapter_and_mathematics_review": "Verified the leftover-counter proof that two odd numbers have even sum, the 3×3 counterexample for 'all odd numbers over one are prime', and the proof for three odd numbers."
     },
     "T17.2": {
       "prior_published_mp4_sha256": "0a19ac73da0fd24bc476c9883d2785529669e9b96b0318de4ff3e54eb0ff8059",
@@ -622,7 +715,8 @@
       "chapter_controls": 8,
       "caption_cues": 46,
       "blind_speech_segments": 19,
-      "last_recognized_word_seconds": 117.72
+      "last_recognized_word_seconds": 117.72,
+      "chapter_and_mathematics_review": "Each of 6×1/2, 6×1 and 6×0 refutes strict increase. Flipping exactly two coins changes the head count by −2, 0 or 2. The seven-cup challenge preserves the same parity."
     },
     "T17.3": {
       "prior_published_mp4_sha256": "8290849dde5cac217ea1f60007a11dd13ce175a32c712386eedef978f8b4fdbe",
@@ -631,7 +725,8 @@
       "chapter_controls": 8,
       "caption_cues": 48,
       "blind_speech_segments": 19,
-      "last_recognized_word_seconds": 125.8
+      "last_recognized_word_seconds": 125.8,
+      "chapter_and_mathematics_review": "Checked 1,2,4,7 as the gaps using 3- and 5-cent stamps. The ten terminal square digits omit seven. With 4- and 5-cent stamps, 11 is absent and 12,13,14,15 start the eventual consecutive block."
     },
     "T17.E": {
       "prior_published_mp4_sha256": "79ed28e006bebf43d89d3a3df5d3f55118b8ec48137d92f3cf0f91299e1d9364",
@@ -640,7 +735,8 @@
       "chapter_controls": 6,
       "caption_cues": 30,
       "blind_speech_segments": 13,
-      "last_recognized_word_seconds": 78.8
+      "last_recognized_word_seconds": 78.8,
+      "chapter_and_mathematics_review": "The two parity cases cover every pair of consecutive whole numbers, including zero. The rectangular dot display divides into equal staircases. Among three consecutive numbers one is a multiple of three."
     },
     "T18.1": {
       "prior_published_mp4_sha256": "1e8e4d3084f84430756137619f6f7492fabf28a2bbde8bbcb42919ac9e0c6c91",
@@ -649,7 +745,8 @@
       "chapter_controls": 8,
       "caption_cues": 40,
       "blind_speech_segments": 31,
-      "last_recognized_word_seconds": 112.16
+      "last_recognized_word_seconds": 112.16,
+      "chapter_and_mathematics_review": "The digit-sum-ten list contains nine two-digit numbers; among the six two-digit squares only 64 qualifies. Area 24 allows four shapes whose perimeters are 50,28,22,20. The recorded sentence naming them was missing from the original captions."
     },
     "T18.2": {
       "prior_published_mp4_sha256": "94b3408973c6b7435214f5727d3cf3ec1d08cc7d54f9d4fbe0f1dd3b8f518d35",
@@ -658,16 +755,18 @@
       "chapter_controls": 8,
       "caption_cues": 40,
       "blind_speech_segments": 18,
-      "last_recognized_word_seconds": 104.4
+      "last_recognized_word_seconds": 104.4,
+      "chapter_and_mathematics_review": "Counted the 5×5 border by 25−9, four non-overlapping strips and explicit corner correction. The analogous 7×7 border has 49−25=24 cells."
     },
     "T18.3": {
       "prior_published_mp4_sha256": "852f713cc8c733392e85dd8fae088f0ffbe5e9973f36c0bfa24a1a078c9dec20",
-      "duration_seconds": 131.0,
+      "duration_seconds": 131,
       "decoded_one_second_pictures": 131,
       "chapter_controls": 8,
       "caption_cues": 50,
       "blind_speech_segments": 18,
-      "last_recognized_word_seconds": 125.76
+      "last_recognized_word_seconds": 125.76,
+      "chapter_and_mathematics_review": "72 is the sole multiple of 4 and 9 in the displayed options. Two $9 pens cost $18, and the expression 2x+5 reaches 19 at 7. Of 45,60,75,90 only 60 is divisible by both 4 and 5."
     },
     "T18.E": {
       "prior_published_mp4_sha256": "8165816cfbd4ce2d38dbc93106cc2c09b043554a5d844c55c54a9f0a79ddfa0e",
@@ -676,7 +775,14 @@
       "chapter_controls": 6,
       "caption_cues": 28,
       "blind_speech_segments": 12,
-      "last_recognized_word_seconds": 76.04
+      "last_recognized_word_seconds": 76.04,
+      "chapter_and_mathematics_review": "The four pairs with sum at least nine are (3,6),(4,5),(4,6),(5,6). Counting by the larger number gives the same result as counting by sum. The four distinct pairs with sum at most five are (1,2),(1,3),(1,4),(2,3)."
     }
+  },
+  "caption_source_comparison": {
+    "method": "Compared every caption word, after the course's own spoken-number/word normalization, with the lesson narration or the locked session timing text for T02.1 and T02.2. Separately re-transcribed nine short audio ranges that the complete-file recognizer had skipped.",
+    "exact_original_word_sequences": 71,
+    "original_sources_compared": 72,
+    "sole_omission": "T18.1. Two independent passes hear the four perimeter values, and the 4 by 6 answer. New captions must be checked on the replacement master before the editorial row can close."
   }
 }

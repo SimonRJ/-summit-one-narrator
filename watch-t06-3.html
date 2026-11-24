@@ -33,6 +33,9 @@ button {
 summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+@media (orientation: landscape) and (max-height: 540px) {
+  video { width: auto; max-width: 100%; height: auto; max-height: calc(100svh - 20px); margin-inline: auto; }
+}
 </style>
 <link rel="stylesheet" href="topic-film-reading.css">
 <script defer src="topic-film-print.js"></script>
@@ -47,19 +50,17 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <h1>Turn contribution limits into a sharp bound</h1>
 <p>Turn &quot;each group uses up some of a limited supply&quot; into a maximum, then reach it.</p>
 <video id="lesson" controls playsinline preload="metadata" aria-label="Turn contribution limits into a sharp bound"
-  poster="media/T06.3-studio-poster.jpg?v=chess-schedule">
-  <source src="media/T06.3.mp4?v=chess-schedule" type="video/mp4">
+  poster="media/T06.3-studio-poster.jpg?v=fixture-board">
+  <source src="media/T06.3.mp4?v=fixture-board" type="video/mp4">
 </video>
 <p class="meta">2:05 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters">
-<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Form groups from twelve tokens</button>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Form groups from twelve tokens</button>
 <button type="button" data-time="13.400"><span class="chapter-clock">0:13</span> Distinguish a ceiling from an achievable maximum</button>
 <button type="button" data-time="24.120"><span class="chapter-clock">0:24</span> Plan partnerships for five club members</button>
 <button type="button" data-time="42.490"><span class="chapter-clock">0:42</span> Count the ten available partnerships</button>
 <button type="button" data-time="52.420"><span class="chapter-clock">0:52</span> Fit all ten pairs into five days</button>
 <button type="button" data-time="73.850"><span class="chapter-clock">1:14</span> Test whether three groups of three can fit</button>
-<button type="button" data-time="102.950"><span class="chapter-clock">1:43</span> Schedule a six-player chess tournament</button>
-</nav>
+<button type="button" data-time="102.950"><span class="chapter-clock">1:43</span> Schedule a six-player chess tournament</button></nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>Six students play in pairs. Every day each student plays one game, and no pair may meet twice. For how many days can the games continue?</p>
@@ -70,8 +71,7 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <p>Four chess players must meet every other player once. If only one board is available, how many time slots are needed?</p>
 <details><summary>See the worked answer</summary><p>There are 4 × 3 ÷ 2 = 6 games. One board can host just one game per slot, so at least 6 slots are needed. Playing the six pairs one after another attains that bound.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary>
-<h2><span class="chapter-clock">0:00</span> Form groups from twelve tokens</h2>
+<details class="transcript"><summary>Read the transcript</summary><h2><span class="chapter-clock">0:00</span> Form groups from twelve tokens</h2>
 <p>If every group uses up some of a limited supply, the supply limits how many groups you can have. Twelve tokens, three per group, means at most four groups. You know that before making a single group.</p>
 <h2><span class="chapter-clock">0:13</span> Distinguish a ceiling from an achievable maximum</h2>
 <p>This gives the first half of a &quot;largest possible&quot; answer: a ceiling. The second half is showing that the ceiling can actually be reached. A complete solution needs both.</p>
@@ -84,19 +84,9 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <h2><span class="chapter-clock">1:14</span> Test whether three groups of three can fit</h2>
 <p>What if each group has three people? Counting pairs gives a ceiling of three groups. But any two legal groups must share exactly one person. Two triples cannot be disjoint among five people, and sharing two would repeat a pair. For a third group, using the shared person repeats a pair with any other person. Leaving that person out forces three choices from the two outer pairs, so one pair repeats. Two groups fit, and a third never does.</p>
 <h2><span class="chapter-clock">1:43</span> Schedule a six-player chess tournament</h2>
-<p>Find the limited supply. Divide to get a ceiling. Then either build an example that reaches it, or explain why it cannot be reached. Notebook challenge: six students play chess, one game per pair at most. Each day three games are played. What is the largest possible number of days?</p>
-</details>
-<p><a href="media/T06.3.mp4?v=chess-schedule">Open the MP4 directly</a></p>
+<p>Find the limited supply. Divide to get a ceiling. Then either build an example that reaches it, or explain why it cannot be reached. Notebook challenge: six students play chess, one game per pair at most. Each day three games are played. What is the largest possible number of days?</p></details>
+<p><a href="media/T06.3.mp4?v=fixture-board">Open the MP4 directly</a></p>
 </main>
-<script>
-const video = document.querySelector("#lesson");
-for (const button of document.querySelectorAll("[data-time]")) {
-  button.addEventListener("click", () => {
-    video.currentTime = Number(button.dataset.time);
-    video.play().catch(() => {});
-    video.scrollIntoView({block: "center"});
-  });
-}
-</script>
+<script src="lesson-video-chapters.js?v=seek-1"></script>
 </body>
 </html>
