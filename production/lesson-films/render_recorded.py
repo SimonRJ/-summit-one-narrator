@@ -32,6 +32,8 @@ LESSONS = {
     "S151": "bridge_plates",
     "S152": "counter_exchange",
     "S155": "palindrome_odometer",
+    "S156": "observatory_chart",
+    "S159": "mosaic_studio",
 }
 VOICE = "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362"
 
