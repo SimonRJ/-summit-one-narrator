@@ -1,0 +1,60 @@
+name: Verify six refreshed companion films on all study screens
+on:
+  push:
+    branches: ['qa/companion-release-*']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  profiles:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        lesson: ['T05.1', 'T05.2', 'T05.3', 'T05.E', 'T13.3', 'T16.3']
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /tools/video/check_companion_devices.py
+            /review/T*-studio-qa.json
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install playwright==1.58.0
+      - run: python -m playwright install --with-deps webkit
+      - name: Wait for the exact watch page and film edition
+        env:
+          LESSON: ${{ matrix.lesson }}
+        run: |
+          python - <<'PYWAIT'
+          import hashlib, json, os, time
+          from urllib.request import urlopen
+          lesson=os.environ['LESSON']
+          root='https://simonrj.github.io/-summit-one-narrator/'
+          sha=json.load(open('review/'+lesson+'-studio-qa.json'))['sha256']
+          route='watch-'+lesson.lower().replace('.','-')+'.html'
+          for poll in range(32):
+              try:
+                  with urlopen(root+route+'?edition='+sha[:12], timeout=20) as answer:
+                      has_question='class="exercise companion-variation"' in answer.read().decode()
+                  if has_question:
+                      with urlopen(root+'media/'+lesson+'.mp4?edition='+sha[:12],timeout=60) as stream:
+                          if hashlib.file_digest(stream,'sha256').hexdigest()==sha: break
+              except (OSError, TimeoutError) as error:
+                  print(error)
+              time.sleep(30)
+          else: raise SystemExit('The checked edition has not reached the public watch route')
+          PYWAIT
+      - name: Play every profile at natural speed, use each chapter, and open the worked answer
+        env:
+          LESSON: ${{ matrix.lesson }}
+        run: python tools/video/check_companion_devices.py "$LESSON" --full-playback-all --check-variation --output evidence
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: refreshed-${{ matrix.lesson }}-profiles
+          path: evidence/
+          retention-days: 30
