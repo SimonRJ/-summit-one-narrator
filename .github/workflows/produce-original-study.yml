@@ -239,10 +239,16 @@ jobs:
           data = json.loads(catalogue.read_text())
           data['lessons'][lesson_id] = guide
           catalogue.write_text(json.dumps(data))
-          source = Path('data/read-watch-practise.json')
-          data = json.loads(source.read_text())
-          lesson = next(row for row in data['lessons'] if row['slot'] == int(lesson_id[1:]))
-          lesson.update(bridge=guide['bridge'], videoTitle=guide['title'], movie=guide['release'] + lesson_id+'.mp4', filmUse='dedicated')
+          slot = int(lesson_id[1:])
+          candidates = [Path('data/read-watch-practise.json'), Path('data/read-watch-practise-later.json')]
+          for source in candidates:
+              data = json.loads(source.read_text())
+              lesson = next((row for row in data['lessons'] if row['slot'] == slot), None)
+              if lesson is not None:
+                  break
+          else:
+              raise ValueError(f'Missing reading for slot {slot}')
+          lesson.update(videoId=lesson_id, bridge=guide['bridge'], videoTitle=guide['title'], movie=guide['release'] + lesson_id+'.mp4', filmUse='dedicated')
           source.write_text(json.dumps(data))
           PY
           python - <<'PY' > "$RUNNER_TEMP/study-server.log" 2>&1 &
