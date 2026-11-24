@@ -1,0 +1,28 @@
+name: Retire the superseded S169 draft
+on:
+  push:
+    branches: [production/ticket-refill-frame-cabinet-20261124]
+    paths: [.github/workflows/retire-planetarium-draft.yml]
+permissions:
+  actions: write
+  contents: read
+jobs:
+  retire-obsolete-draft:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Stop the earlier observatory-style edition before publishing
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          run_id=45495020971
+          gh api "repos/$GH_REPO/actions/runs/$run_id" > /tmp/draft.json
+          jq -e '
+            .head_sha == "19592f4f0f666f229e508f8309b5b99def703a50" and
+            .head_branch == "production/ticket-refill-frame-cabinet-20261124" and
+            .path == ".github/workflows/planetarium-enamel-puppets.yml"
+          ' /tmp/draft.json > /dev/null
+          if [ "$(jq -r .status /tmp/draft.json)" != completed ]; then
+            gh run cancel "$run_id"
+          fi
