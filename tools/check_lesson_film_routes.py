@@ -53,6 +53,24 @@ async def verify_progress(page, player, start):
     }""", arg=[await player.get_attribute('id'), start], timeout=30000)
 
 
+async def full_frame(player):
+    # An advancing, decoded movie can still be clipped by a scrolling parent.
+    frame = await player.evaluate("""v => {
+      const r = v.getBoundingClientRect();
+      let left = 0, right = innerWidth, top = 0, bottom = innerHeight;
+      for (let p = v.parentElement; p; p = p.parentElement) {
+        const style = getComputedStyle(p), box = p.getBoundingClientRect();
+        if (style.overflowX !== 'visible') { left = Math.max(left, box.left); right = Math.min(right, box.right); }
+        if (style.overflowY !== 'visible') { top = Math.max(top, box.top); bottom = Math.min(bottom, box.bottom); }
+      }
+      return {width:r.width, height:r.height, horizontal:Math.max(0,left-r.left,r.right-right),
+        vertical:Math.max(0,top-r.top,r.bottom-bottom)};
+    }""")
+    assert frame['width'] > 0 and frame['height'] > 0, frame
+    assert frame['horizontal'] <= 2 and frame['vertical'] <= 2, frame
+    return frame
+
+
 async def play_inline(page, player):
     await player.evaluate('async v => { v.muted = true; await v.play(); }')
     await verify_progress(page, player, 0)
@@ -138,6 +156,7 @@ async def verify(site, lesson, profile, digest, output):
             player = page.locator('#openingVideo')
             await verify_media(page, player, movie, guide['seconds'])
             assert await player.evaluate('v=>v.poster') == poster
+            active_frame = await full_frame(player)
             await play_inline(page, player)
             await fits(page)
             await page.screenshot(path=output / 'watch.png')
@@ -168,13 +187,15 @@ async def verify(site, lesson, profile, digest, output):
             player = page.locator('#replayIntroVideo')
             await verify_media(page, player, movie, guide['seconds'])
             assert await player.evaluate('v=>v.poster') == poster
+            notebook_frame = await full_frame(player)
             await play_inline(page, player)
             assert await page.evaluate('JSON.stringify([fixture.records, fixture.progress, fixture.writes])') == before
             await page.screenshot(path=output / 'replay.png')
             result = {'profile':profile, 'engine':engine, 'viewport':device['viewport'], 'site':site,
                       'sha256':digest, 'film':movie, 'duration':guide['seconds'], 'chapters':len(guide['chapters']),
                       'normal_speed_unmuted_to_ended':full, 'practice_grading':'isolated fixture',
-                      'immutable_replay':True}
+                      'immutable_replay':True, 'active_frame_css_pixels':active_frame,
+                      'notebook_frame_css_pixels':notebook_frame}
             (output / 'result.json').write_text(json.dumps(result, indent=2) + '\n')
             print(json.dumps(result), flush=True)
         except Exception:

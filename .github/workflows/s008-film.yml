@@ -6,7 +6,10 @@ on:
       - .github/workflows/s008-film.yml
       - production/lesson-films/folding_number_press.py
       - production/lesson-films/render_recorded.py
+      - production/lesson-films/align_s008.py
+      - production/lesson-films/s008-word-times.json
       - tools/check_lesson_film_routes.py
+      - read-practice.css
   workflow_dispatch:
 permissions:
   contents: read
@@ -55,14 +58,30 @@ jobs:
           github-token: ${{ github.token }}
           run-id: ${{ env.VOICE_RUN }}
           name: S008-aligned-voice
-          path: build/recording
+          path: build/original-recording
       - name: Draw, encode and compare the master with its artwork and speech
         run: |
           set -euo pipefail
-          cmp production/scripts/S008.json build/recording/script.json
+          cmp production/scripts/S008.json build/original-recording/script.json
           sudo apt-get -o Acquire::Retries=3 update -qq
           sudo apt-get install -y ffmpeg fonts-open-sans fonts-dejavu-core
-          python -m pip install 'numpy==2.2.6' 'pillow==11.3.0'
+          python -m pip install 'numpy==2.2.6' 'pillow==11.3.0' num2words soundfile
+          python production/lesson-films/align_s008.py build/original-recording build/recording
+          cmp build/original-recording/narration.flac build/recording/narration.flac
+          sha256sum --check <<'SUMS'
+          1ea67311330caede4b4500ab09d1341d05e57bccdcc65b044b6bc17c1402dde6  build/recording/timeline.json
+          29ca3625d09919aca6c0c968953185c57c584a01f7d0ed9350475a5ba520615c  build/recording/captions.vtt
+          SUMS
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          source = Path('build/recording')
+          script = json.loads((source / 'script.json').read_text())
+          timeline = json.loads((source / 'timeline.json').read_text())
+          narration = ' '.join(scene['narration'] for scene in script['scenes'])
+          captions = ' '.join(cue['text'] for cue in timeline['captions'])
+          assert narration == captions, 'Every spoken word must have its timed caption'
+          PY
           python production/lesson-films/render_recorded.py S008 build/recording
           python production/lesson-films/verify_recorded.py S008 build/recording
           python production/lesson-films/render_recorded.py S008 build/recording --previews build/stills

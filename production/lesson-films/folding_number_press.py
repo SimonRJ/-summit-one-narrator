@@ -161,27 +161,28 @@ def scene_three(a, c):
     printed7 = c.reveal("seven on the inside")
     sep = c.reveal("lift the inside", 1.5)
     deeper = c.reveal("separate strip", 1)
-    dx = 174 * sep
-    cols=(OUT,INNER,INNER,OUT)
-    strip(a, "    ", 640-dx, 307, pitch=89, h=92)
-    if sep > 0:
-        strip(a, "    ", 640+dx, mix(307, 452, sep), pitch=89, h=92, alpha=sep)
+    cols = (OUT, INNER, INNER, OUT)
+    top, bottom, cx = 290, 475, 640
+    strip(a, "    ", cx, top, pitch=89, h=92)
+    strip(a, "    ", cx, bottom, pitch=89, h=92, alpha=sep)
     for i,v in enumerate("2772"):
         pair = i in (0,3)
-        relx=(i-1.5)*89
-        x=640 + (-dx if pair else dx) + relx
-        y=307 if pair else mix(307,452,sep) - 55*sin(pi*sep)
+        x = cx + (i-1.5)*89
+        y = top if pair else mix(top,bottom,sep)
+        # The new strip stays below the first. Each stamp travels in its own place column.
+        if not pair:
+            a.text("0", x, top, 57, "#7d827a", opacity=clamp((sep-.22)/.6))
+        else:
+            a.text("0", x, bottom, 57, "#7d827a", opacity=deeper)
+        if not pair and 0 < sep < 1:
+            a.box(x-30, y-41, 60, 83, radius=5, fill=PAPER)
         a.text(v, x, y, 64, INK, bold=True, opacity=printed2 if pair else printed7)
         a.line([(x-22,y+37),(x+22,y+37)],cols[i],4,printed2 if pair else printed7)
-        if pair:
-            a.text("0", 640+dx+relx, mix(307,452,sep), 57, "#7d827a", opacity=deeper)
-        else:
-            a.text("0", 640-dx+relx, 307, 57, "#7d827a", opacity=sep)
     a.text("2,772 ÷ 11 = ?", 640, 165, 39, WHITE, bold=True,
            opacity=c.reveal("can you divide"))
-    a.text("2,002", 870, 306, 38, OUT, bold=True, opacity=c.reveal("contributes two thousand"))
-    a.text("+", 640, 382, 42, WHITE, bold=True, opacity=deeper)
-    a.text("770", 479, 455, 39, INNER, bold=True, opacity=c.reveal("value is seven"))
+    a.label("2,002", 875, top, 38, OUT, c.reveal("contributes two thousand"), bold=True)
+    a.text("+", 403, bottom, 42, WHITE, bold=True, opacity=deeper)
+    a.label("770", 875, bottom, 39, INNER, c.reveal("value is seven"), bold=True)
 
 
 def proof_lane(a, y, digits, first, second, colour, alpha, beta):
@@ -271,6 +272,9 @@ def scene_seven(a, c):
 def scene_eight(a, c):
     invalid = c.reveal("try printing", .8)
     vanish = c.reveal("leading zero disappears", 1.2)
+    for i in range(4):
+        stamp(a, 197+i*83, 292, "?" if i in (0,3) else " ", OUT if i in (0,3) else INNER,
+              1-invalid, width=69, height=88)
     for i, v in enumerate("0660"):
         movement = .5 * 83 * vanish if i else 0
         x = 197 + i * 83 - movement
