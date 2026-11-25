@@ -1,7 +1,7 @@
 {
   "id": "T15.1",
   "duration_seconds": 114.033333,
-  "sha256": "8f460d199ba5489b2433e5a0a21c14408bea1b6d52d2c6527f926ac60598033f",
+  "sha256": "e7dedcabf46aa0718eef56fca1209cc6e858b01a8acf954fa77c486564fdeafe",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -88,5 +88,23 @@
       "start": 92.24
     }
   ],
-  "decoded_successfully": true
+  "decoded_successfully": true,
+  "source_sha256": "8f460d199ba5489b2433e5a0a21c14408bea1b6d52d2c6527f926ac60598033f",
+  "version": "four-tile-turns",
+  "frames": 3421,
+  "audio_packet_sha256": "SHA256=287c40fad5c7f611e084678bfc1f57504c62fd4554ffc3b7770844f97f1f99ae",
+  "notebook_art_source": "production/lesson-films/companion_notebooks.py",
+  "notebook_start_seconds": 101.74000000000001,
+  "prompt_ends_seconds": 108.71000000000001,
+  "earlier_frame_mean_errors": [
+    0.0374,
+    0.0187,
+    0.0298
+  ],
+  "caption_band_mean_errors": [
+    0.1604,
+    0.0086,
+    0.0375
+  ],
+  "closing_frame_mean_change": 180.959
 }

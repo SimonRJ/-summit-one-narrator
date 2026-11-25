@@ -33,6 +33,9 @@ button {
 summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+@media (orientation: landscape) and (max-height: 540px) {
+  video { width: auto; max-width: 100%; height: auto; max-height: calc(100svh - 20px); margin-inline: auto; }
+}
 </style>
 <link rel="stylesheet" href="topic-film-reading.css">
 <script defer src="topic-film-print.js"></script>
@@ -47,20 +50,18 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <h1>Do not divide by a symmetry count blindly</h1>
 <p>Know when dividing by the number of rotations works, and when it fails.</p>
 <video id="lesson" controls playsinline preload="metadata" aria-label="Do not divide by a symmetry count blindly"
-  poster="media/T15.2-studio-poster.jpg?v=teaching-films-v1">
-  <source src="media/T15.2.mp4?v=teaching-films-v1" type="video/mp4">
+  poster="media/T15.2-studio-poster.jpg?v=fixed-table-seat">
+  <source src="media/T15.2.mp4?v=fixed-table-seat" type="video/mp4">
 </video>
 <p class="meta">2:11 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters">
-<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Notice which turns repeat a picture</button>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Notice which turns repeat a picture</button>
 <button type="button" data-time="14.840"><span class="chapter-clock">0:15</span> Check the number of copies before dividing</button>
 <button type="button" data-time="23.970"><span class="chapter-clock">0:24</span> Sort sixteen fixed black-and-white tiles</button>
 <button type="button" data-time="41.860"><span class="chapter-clock">0:42</span> Group colourings by the number of black cells</button>
 <button type="button" data-time="52.750"><span class="chapter-clock">0:53</span> Collect the patterns that rotate into one another</button>
 <button type="button" data-time="70.820"><span class="chapter-clock">1:11</span> Compare groups of one, two and four colourings</button>
 <button type="button" data-time="85.380"><span class="chapter-clock">1:25</span> Seat five people without marking a first chair</button>
-<button type="button" data-time="109.050"><span class="chapter-clock">1:49</span> Count the circular seatings for four people</button>
-</nav>
+<button type="button" data-time="109.050"><span class="chapter-clock">1:49</span> Count the circular seatings for four people</button></nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>In how many ways can 4 different people sit round a circular table, if rotations count as the same?</p>
@@ -71,8 +72,7 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <p>A strip of three cells is coloured black or white. Reversing a strip counts as the same pattern. How many different patterns are there?</p>
 <details><summary>See the worked answer</summary><p>There are 8 fixed strips. Four have matching end colours and stay the same on reversal. The other four make two reversal pairs. The total is 4 + 2 = 6 patterns.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary>
-<h2><span class="chapter-clock">0:00</span> Notice which turns repeat a picture</h2>
+<details class="transcript"><summary>Read the transcript</summary><h2><span class="chapter-clock">0:00</span> Notice which turns repeat a picture</h2>
 <p>Turn a square four times and you might expect four different pictures. But a pattern with its own symmetry repeats sooner. A completely symmetrical pattern looks the same after every turn. So you cannot always divide by four.</p>
 <h2><span class="chapter-clock">0:15</span> Check the number of copies before dividing</h2>
 <p>Dividing a total by the number of turns is tempting and often wrong. It only works when every pattern has been counted the same number of times.</p>
@@ -87,19 +87,9 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <h2><span class="chapter-clock">1:25</span> Seat five people without marking a first chair</h2>
 <p>When does dividing by the number of turns work? When every turn gives a different position. Seat five different people round a table, keeping clockwise order when you rotate the table. There are one hundred and twenty orders in a line. Each circular seating appears exactly five times as you choose a place to start reading. One hundred and twenty divided by five is twenty-four.</p>
 <h2><span class="chapter-clock">1:49</span> Count the circular seatings for four people</h2>
-<p>Divide only when every arrangement is repeated the same number of times. Otherwise, sort the arrangements into groups and count the groups. Notebook challenge: in how many ways can four different people sit round a circular table, if turning the whole table does not count as different?</p>
-</details>
-<p><a href="media/T15.2.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+<p>Divide only when every arrangement is repeated the same number of times. Otherwise, sort the arrangements into groups and count the groups. Notebook challenge: in how many ways can four different people sit round a circular table, if turning the whole table does not count as different?</p></details>
+<p><a href="media/T15.2.mp4?v=fixed-table-seat">Open the MP4 directly</a></p>
 </main>
-<script>
-const video = document.querySelector("#lesson");
-for (const button of document.querySelectorAll("[data-time]")) {
-  button.addEventListener("click", () => {
-    video.currentTime = Number(button.dataset.time);
-    video.play().catch(() => {});
-    video.scrollIntoView({block: "center"});
-  });
-}
-</script>
+<script src="lesson-video-chapters.js?v=seek-1"></script>
 </body>
 </html>

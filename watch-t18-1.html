@@ -33,6 +33,9 @@ button {
 summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+@media (orientation: landscape) and (max-height: 540px) {
+  video { width: auto; max-width: 100%; height: auto; max-height: calc(100svh - 20px); margin-inline: auto; }
+}
 </style>
 <link rel="stylesheet" href="topic-film-reading.css">
 <script defer src="topic-film-print.js"></script>
@@ -47,20 +50,18 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <h1>Start with the structure that limits the choices</h1>
 <p>Begin a problem with its tightest restriction.</p>
 <video id="lesson" controls playsinline preload="metadata" aria-label="Start with the structure that limits the choices"
-  poster="media/T18.1-studio-poster.jpg?v=teaching-films-v1">
-  <source src="media/T18.1.mp4?v=teaching-films-v1" type="video/mp4">
+  poster="media/T18.1-studio-poster.jpg?v=thirteen-search">
+  <source src="media/T18.1.mp4?v=thirteen-search" type="video/mp4">
 </video>
 <p class="meta">1:57 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters">
-<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Find the condition that narrows the search</button>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Find the condition that narrows the search</button>
 <button type="button" data-time="12.600"><span class="chapter-clock">0:13</span> Compare the sizes of possible starting lists</button>
 <button type="button" data-time="24.600"><span class="chapter-clock">0:25</span> Find a two-digit square with digit sum ten</button>
 <button type="button" data-time="36.260"><span class="chapter-clock">0:36</span> Compare the digit-sum list with the six squares</button>
 <button type="button" data-time="50.350"><span class="chapter-clock">0:50</span> Test the digit sums of the six candidates</button>
 <button type="button" data-time="61.400"><span class="chapter-clock">1:01</span> Use area to list possible rectangle sides</button>
 <button type="button" data-time="83.630"><span class="chapter-clock">1:24</span> Match factors, totals and cycles to question clues</button>
-<button type="button" data-time="98.030"><span class="chapter-clock">1:38</span> Find the odd multiples of thirteen in the interval</button>
-</nav>
+<button type="button" data-time="98.030"><span class="chapter-clock">1:38</span> Find the odd multiples of thirteen in the interval</button></nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>A number between 50 and 100 is an odd multiple of 13. What could it be?</p>
@@ -71,8 +72,7 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <p>A two-digit multiple of 7 has digits adding to 5. What is it?</p>
 <details><summary>See the worked answer</summary><p>The digit-sum clue leaves 14, 23, 32, 41 and 50. Checking this short list, only 14 is divisible by 7. Checking the tens digits 1 through 5 proves the list is complete.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary>
-<h2><span class="chapter-clock">0:00</span> Find the condition that narrows the search</h2>
+<details class="transcript"><summary>Read the transcript</summary><h2><span class="chapter-clock">0:00</span> Find the condition that narrows the search</h2>
 <p>Most problems have several conditions, and they are not equally powerful. One of them usually cuts the possibilities down to a handful. Start with that one, and the others become quick checks.</p>
 <h2><span class="chapter-clock">0:13</span> Compare the sizes of possible starting lists</h2>
 <p>Starting with a weak condition leaves you searching through hundreds of cases. Starting with the strongest can leave three or four. Choosing where to begin is a strategy decision worth ten seconds of thought.</p>
@@ -87,19 +87,9 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <h2><span class="chapter-clock">1:24</span> Match factors, totals and cycles to question clues</h2>
 <p>Certain features point to certain tools. A product suggests factors. A fixed total suggests parts. A repeating process suggests a cycle. An order suggests a line. These are suggestions to try, not guarantees.</p>
 <h2><span class="chapter-clock">1:38</span> Find the odd multiples of thirteen in the interval</h2>
-<p>List the conditions. Start with the one that leaves the fewest possibilities. Use the rest as checks. Notebook challenge: a number between fifty and one hundred is a multiple of thirteen and is odd. What could it be?</p>
-</details>
-<p><a href="media/T18.1.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+<p>List the conditions. Start with the one that leaves the fewest possibilities. Use the rest as checks. Notebook challenge: a number between fifty and one hundred is a multiple of thirteen and is odd. What could it be?</p></details>
+<p><a href="media/T18.1.mp4?v=thirteen-search">Open the MP4 directly</a></p>
 </main>
-<script>
-const video = document.querySelector("#lesson");
-for (const button of document.querySelectorAll("[data-time]")) {
-  button.addEventListener("click", () => {
-    video.currentTime = Number(button.dataset.time);
-    video.play().catch(() => {});
-    video.scrollIntoView({block: "center"});
-  });
-}
-</script>
+<script src="lesson-video-chapters.js?v=seek-1"></script>
 </body>
 </html>

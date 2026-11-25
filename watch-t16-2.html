@@ -33,6 +33,9 @@ button {
 summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+@media (orientation: landscape) and (max-height: 540px) {
+  video { width: auto; max-width: 100%; height: auto; max-height: calc(100svh - 20px); margin-inline: auto; }
+}
 </style>
 <link rel="stylesheet" href="topic-film-reading.css">
 <script defer src="topic-film-print.js"></script>
@@ -47,20 +50,18 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <h1>Convert time descriptions into rates</h1>
 <p>Turn &quot;takes so long&quot; into &quot;does so much each minute&quot;, and add rates.</p>
 <video id="lesson" controls playsinline preload="metadata" aria-label="Convert time descriptions into rates"
-  poster="media/T16.2-studio-poster.jpg?v=teaching-films-v1">
-  <source src="media/T16.2.mp4?v=teaching-films-v1" type="video/mp4">
+  poster="media/T16.2-studio-poster.jpg?v=painter-fence">
+  <source src="media/T16.2.mp4?v=painter-fence" type="video/mp4">
 </video>
 <p class="meta">2:00 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters">
-<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Convert ten minutes per tank into a rate</button>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Convert ten minutes per tank into a rate</button>
 <button type="button" data-time="13.240"><span class="chapter-clock">0:13</span> Combine the water delivered in one minute</button>
 <button type="button" data-time="25.080"><span class="chapter-clock">0:25</span> Start a six-minute tap and a three-minute tap</button>
 <button type="button" data-time="40.090"><span class="chapter-clock">0:40</span> Model each tap with sixths of a tank</button>
 <button type="button" data-time="54.970"><span class="chapter-clock">0:55</span> Check the time for both taps together</button>
 <button type="button" data-time="64.100"><span class="chapter-clock">1:04</span> Subtract a leak from the filling rate</button>
 <button type="button" data-time="82.010"><span class="chapter-clock">1:22</span> Close a 100 m gap between two runners</button>
-<button type="button" data-time="97.690"><span class="chapter-clock">1:38</span> Combine the rates of two painters</button>
-</nav>
+<button type="button" data-time="97.690"><span class="chapter-clock">1:38</span> Combine the rates of two painters</button></nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>One painter can paint a wall in 4 hours and another can paint the same wall in 12 hours. They start together and work at their usual constant rates without getting in each other’s way. How long does one wall take?</p>
@@ -71,8 +72,7 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <p>One tap fills a tank in 8 minutes. A drain empties a full tank in 24 minutes. Both operate at constant rates together. How long does it take to fill an empty tank?</p>
 <details><summary>See the worked answer</summary><p>In one minute the tap adds 1/8 of the tank and the drain removes 1/24. The net rate is 3/24 − 1/24 = 1/12 of a tank per minute. One full tank takes 12 minutes.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary>
-<h2><span class="chapter-clock">0:00</span> Convert ten minutes per tank into a rate</h2>
+<details class="transcript"><summary>Read the transcript</summary><h2><span class="chapter-clock">0:00</span> Convert ten minutes per tank into a rate</h2>
 <p>If a tap fills a tank in ten minutes, then each minute it fills one tenth of the tank. Turning a time into an amount per minute is the key move. Amounts per minute can be added together. Times cannot.</p>
 <h2><span class="chapter-clock">0:13</span> Combine the water delivered in one minute</h2>
 <p>When two taps run together at constant rates, the tank fills faster. The two amounts filled in one minute can be added. That combined amount per minute tells us how long the whole job will take.</p>
@@ -87,19 +87,9 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <h2><span class="chapter-clock">1:22</span> Close a 100 m gap between two runners</h2>
 <p>Moving objects follow the same rule. Two runners start one hundred metres apart and run towards each other, at six metres per second and four metres per second. The gap closes at ten metres per second. They meet after ten seconds.</p>
 <h2><span class="chapter-clock">1:38</span> Combine the rates of two painters</h2>
-<p>Convert each time into a rate. Use the same time unit for each rate. Add rates that help and subtract rates that hinder. Divide the job by the combined rate. Notebook challenge: one painter paints a fence in four hours, another in twelve hours. How long do they take together?</p>
-</details>
-<p><a href="media/T16.2.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+<p>Convert each time into a rate. Use the same time unit for each rate. Add rates that help and subtract rates that hinder. Divide the job by the combined rate. Notebook challenge: one painter paints a fence in four hours, another in twelve hours. How long do they take together?</p></details>
+<p><a href="media/T16.2.mp4?v=painter-fence">Open the MP4 directly</a></p>
 </main>
-<script>
-const video = document.querySelector("#lesson");
-for (const button of document.querySelectorAll("[data-time]")) {
-  button.addEventListener("click", () => {
-    video.currentTime = Number(button.dataset.time);
-    video.play().catch(() => {});
-    video.scrollIntoView({block: "center"});
-  });
-}
-</script>
+<script src="lesson-video-chapters.js?v=seek-1"></script>
 </body>
 </html>

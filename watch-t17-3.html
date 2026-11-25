@@ -33,6 +33,9 @@ button {
 summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+@media (orientation: landscape) and (max-height: 540px) {
+  video { width: auto; max-width: 100%; height: auto; max-height: calc(100svh - 20px); margin-inline: auto; }
+}
 </style>
 <link rel="stylesheet" href="topic-film-reading.css">
 <script defer src="topic-film-print.js"></script>
@@ -47,20 +50,18 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <h1>Connect finite checks to general conclusions</h1>
 <p>Know when checking cases is a complete proof, and how to extend a check for ever.</p>
 <video id="lesson" controls playsinline preload="metadata" aria-label="Connect finite checks to general conclusions"
-  poster="media/T17.3-studio-poster.jpg?v=teaching-films-v1">
-  <source src="media/T17.3.mp4?v=teaching-films-v1" type="video/mp4">
+  poster="media/T17.3-studio-poster.jpg?v=postage-album">
+  <source src="media/T17.3.mp4?v=postage-album" type="video/mp4">
 </video>
 <p class="meta">2:11 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters">
-<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Decide when checking cases covers every possibility</button>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Decide when checking cases covers every possibility</button>
 <button type="button" data-time="14.840"><span class="chapter-clock">0:15</span> Identify a possible gap in a case proof</button>
 <button type="button" data-time="23.970"><span class="chapter-clock">0:24</span> Try the small totals with 3-cent and 5-cent stamps</button>
 <button type="button" data-time="35.950"><span class="chapter-clock">0:36</span> List which totals up to twelve can be made</button>
 <button type="button" data-time="52.430"><span class="chapter-clock">0:52</span> Extend three consecutive totals by adding a stamp</button>
 <button type="button" data-time="71.470"><span class="chapter-clock">1:11</span> Show why seven cents is impossible</button>
 <button type="button" data-time="88.580"><span class="chapter-clock">1:29</span> Test all possible last digits of a square</button>
-<button type="button" data-time="110.490"><span class="chapter-clock">1:50</span> Find the last impossible total with 4-cent and 5-cent stamps</button>
-</nav>
+<button type="button" data-time="110.490"><span class="chapter-clock">1:50</span> Find the last impossible total with 4-cent and 5-cent stamps</button></nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>With 4-cent and 5-cent stamps, what is the largest total that cannot be made?</p>
@@ -71,8 +72,7 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <p>With unlimited 3-cent and 4-cent stamps, prove that every whole amount from 6 cents upwards can be made.</p>
 <details><summary>See the worked answer</summary><p>The consecutive totals 6, 7 and 8 have constructions 3+3, 3+4 and 4+4. Adding one 3-cent stamp to each construction gives the next block of three totals. Repeating covers every amount from 6 upwards.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary>
-<h2><span class="chapter-clock">0:00</span> Decide when checking cases covers every possibility</h2>
+<details class="transcript"><summary>Read the transcript</summary><h2><span class="chapter-clock">0:00</span> Decide when checking cases covers every possibility</h2>
 <p>Checking cases can be a complete proof, if there are only finitely many and you check them all. For endlessly many cases, checking is never enough on its own. But a check plus a rule that passes the result along can cover them all.</p>
 <h2><span class="chapter-clock">0:15</span> Identify a possible gap in a case proof</h2>
 <p>The danger with case checking is a missing case. A proof by cases must show that the cases cover everything, with nothing left outside.</p>
@@ -87,19 +87,9 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <h2><span class="chapter-clock">1:29</span> Test all possible last digits of a square</h2>
 <p>A finite check can prove a never. Does any square number end in seven? The last digit of a square depends only on the last digit of the number. Check the ten digits: their squares end in zero, one, four, nine, six, five, six, nine, four and one. Seven never appears. Ten checks cover every whole number.</p>
 <h2><span class="chapter-clock">1:50</span> Find the last impossible total with 4-cent and 5-cent stamps</h2>
-<p>For finitely many cases, check them all and show nothing is left out. For endlessly many, check a starting block and give a rule that carries the result forward. Notebook challenge: with four-cent and five-cent stamps, what is the largest total you cannot make?</p>
-</details>
-<p><a href="media/T17.3.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+<p>For finitely many cases, check them all and show nothing is left out. For endlessly many, check a starting block and give a rule that carries the result forward. Notebook challenge: with four-cent and five-cent stamps, what is the largest total you cannot make?</p></details>
+<p><a href="media/T17.3.mp4?v=postage-album">Open the MP4 directly</a></p>
 </main>
-<script>
-const video = document.querySelector("#lesson");
-for (const button of document.querySelectorAll("[data-time]")) {
-  button.addEventListener("click", () => {
-    video.currentTime = Number(button.dataset.time);
-    video.play().catch(() => {});
-    video.scrollIntoView({block: "center"});
-  });
-}
-</script>
+<script src="lesson-video-chapters.js?v=seek-1"></script>
 </body>
 </html>

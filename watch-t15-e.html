@@ -33,6 +33,9 @@ button {
 summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+@media (orientation: landscape) and (max-height: 540px) {
+  video { width: auto; max-width: 100%; height: auto; max-height: calc(100svh - 20px); margin-inline: auto; }
+}
 </style>
 <link rel="stylesheet" href="topic-film-reading.css">
 <script defer src="topic-film-print.js"></script>
@@ -47,18 +50,16 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <h1>Use symmetry without losing or repeating cases</h1>
 <p>Worked example: why half of all subsets have an even number of members.</p>
 <video id="lesson" controls playsinline preload="metadata" aria-label="Use symmetry without losing or repeating cases"
-  poster="media/T15.E-studio-poster.jpg?v=teaching-films-v1">
-  <source src="media/T15.E.mp4?v=teaching-films-v1" type="video/mp4">
+  poster="media/T15.E-studio-poster.jpg?v=subset-drawer">
+  <source src="media/T15.E.mp4?v=subset-drawer" type="video/mp4">
 </video>
 <p class="meta">1:14 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters">
-<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Choose groups from A, B and C</button>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Choose groups from A, B and C</button>
 <button type="button" data-time="14.970"><span class="chapter-clock">0:15</span> Count all the in-or-out choices</button>
 <button type="button" data-time="22.820"><span class="chapter-clock">0:23</span> Add or remove A to make partners</button>
 <button type="button" data-time="38.180"><span class="chapter-clock">0:38</span> Compare the two sizes in each pair</button>
 <button type="button" data-time="50.820"><span class="chapter-clock">0:51</span> List the four even groups including the empty group</button>
-<button type="button" data-time="59.630"><span class="chapter-clock">1:00</span> Count odd groups chosen from five objects</button>
-</nav>
+<button type="button" data-time="59.630"><span class="chapter-clock">1:00</span> Count odd groups chosen from five objects</button></nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>From five different objects, how many subsets have an odd number of objects?</p>
@@ -69,8 +70,7 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <p>From six different objects, how many subsets have an even number of members and contain a particular object A?</p>
 <details><summary>See the worked answer</summary><p>Keep A in every subset. The other five objects have 2⁵ = 32 possible selections. Toggling a fixed one of those five pairs selections and changes total parity, so 16 of the resulting subsets have even size.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary>
-<h2><span class="chapter-clock">0:00</span> Choose groups from A, B and C</h2>
+<details class="transcript"><summary>Read the transcript</summary><h2><span class="chapter-clock">0:00</span> Choose groups from A, B and C</h2>
 <p>From three objects, A, B and C, choose any group, including the empty group with nothing in it. Explain why exactly half of the groups have an even number of members.</p>
 <h2><span class="chapter-clock">0:15</span> Count all the in-or-out choices</h2>
 <p>Each object is either in the group or out of it. Two choices, three times over, gives eight groups.</p>
@@ -81,19 +81,9 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <h2><span class="chapter-clock">0:51</span> List the four even groups including the empty group</h2>
 <p>Check by listing. The even groups are the empty group, A with B, A with C, and B with C. That is four, exactly half of eight.</p>
 <h2><span class="chapter-clock">1:00</span> Count odd groups chosen from five objects</h2>
-<p>Toggling one member pairs every even group with an odd one. Rebuild this argument, then say how many groups chosen from five objects have an odd number of members.</p>
-</details>
-<p><a href="media/T15.E.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+<p>Toggling one member pairs every even group with an odd one. Rebuild this argument, then say how many groups chosen from five objects have an odd number of members.</p></details>
+<p><a href="media/T15.E.mp4?v=subset-drawer">Open the MP4 directly</a></p>
 </main>
-<script>
-const video = document.querySelector("#lesson");
-for (const button of document.querySelectorAll("[data-time]")) {
-  button.addEventListener("click", () => {
-    video.currentTime = Number(button.dataset.time);
-    video.play().catch(() => {});
-    video.scrollIntoView({block: "center"});
-  });
-}
-</script>
+<script src="lesson-video-chapters.js?v=seek-1"></script>
 </body>
 </html>

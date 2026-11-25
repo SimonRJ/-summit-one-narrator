@@ -33,6 +33,9 @@ button {
 summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+@media (orientation: landscape) and (max-height: 540px) {
+  video { width: auto; max-width: 100%; height: auto; max-height: calc(100svh - 20px); margin-inline: auto; }
+}
 </style>
 <link rel="stylesheet" href="topic-film-reading.css">
 <script defer src="topic-film-print.js"></script>
@@ -47,20 +50,18 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <h1>Match the strength of the proof to the claim</h1>
 <p>Match the kind of evidence to the kind of claim.</p>
 <video id="lesson" controls playsinline preload="metadata" aria-label="Match the strength of the proof to the claim"
-  poster="media/T17.1-studio-poster.jpg?v=teaching-films-v1">
-  <source src="media/T17.1.mp4?v=teaching-films-v1" type="video/mp4">
+  poster="media/T17.1-studio-poster.jpg?v=three-odd-piles">
+  <source src="media/T17.1.mp4?v=three-odd-piles" type="video/mp4">
 </video>
 <p class="meta">1:57 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters">
-<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Decide what evidence a claim needs</button>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Decide what evidence a claim needs</button>
 <button type="button" data-time="15.640"><span class="chapter-clock">0:16</span> Look for a pattern that could break</button>
 <button type="button" data-time="27.000"><span class="chapter-clock">0:27</span> Test a claim about adding two odd numbers</button>
 <button type="button" data-time="43.130"><span class="chapter-clock">0:43</span> Represent any odd number with pairs and a spare</button>
 <button type="button" data-time="53.690"><span class="chapter-clock">0:54</span> Put the two spare counters together</button>
 <button type="button" data-time="65.690"><span class="chapter-clock">1:06</span> Use nine to test a claim about odd primes</button>
 <button type="button" data-time="81.850"><span class="chapter-clock">1:22</span> Test whether being even guarantees a multiple of six</button>
-<button type="button" data-time="97.050"><span class="chapter-clock">1:37</span> Prove what happens when three odd numbers are added</button>
-</nav>
+<button type="button" data-time="97.050"><span class="chapter-clock">1:37</span> Prove what happens when three odd numbers are added</button></nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>Is the sum of three odd numbers always odd? Give a reason.</p>
@@ -71,8 +72,7 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <p>A pupil observes that 11, 31 and 41 are prime, then claims every positive two-digit number ending in 1 is prime. What settles the claim?</p>
 <details><summary>See the worked answer</summary><p>The number 21 ends in 1 and equals 3 × 7. It satisfies the stated conditions and is composite. One allowed counterexample disproves the universal claim.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary>
-<h2><span class="chapter-clock">0:00</span> Decide what evidence a claim needs</h2>
+<details class="transcript"><summary>Read the transcript</summary><h2><span class="chapter-clock">0:00</span> Decide what evidence a claim needs</h2>
 <p>Different claims need different evidence. To show something can happen, one example is enough. To show something always happens or can never happen, your reasons must cover every case. A few examples only settle the cases that you checked.</p>
 <h2><span class="chapter-clock">0:16</span> Look for a pattern that could break</h2>
 <p>Patterns can hold for a long time and then break. Knowing what a claim actually requires stops you from trusting a pattern too far, and tells you when your solution is really complete.</p>
@@ -87,19 +87,9 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <h2><span class="chapter-clock">1:22</span> Test whether being even guarantees a multiple of six</h2>
 <p>One more distinction. A condition can be needed without being enough. Every multiple of six is even, so being even is needed. But fourteen is even and is not a multiple of six, so being even is not enough.</p>
 <h2><span class="chapter-clock">1:37</span> Prove what happens when three odd numbers are added</h2>
-<p>One example shows something can happen. A reason covering every case shows it always does. One counterexample shows a claim is false. Notebook challenge: is it true that the sum of three odd numbers is always odd? Give a reason, not just examples.</p>
-</details>
-<p><a href="media/T17.1.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+<p>One example shows something can happen. A reason covering every case shows it always does. One counterexample shows a claim is false. Notebook challenge: is it true that the sum of three odd numbers is always odd? Give a reason, not just examples.</p></details>
+<p><a href="media/T17.1.mp4?v=three-odd-piles">Open the MP4 directly</a></p>
 </main>
-<script>
-const video = document.querySelector("#lesson");
-for (const button of document.querySelectorAll("[data-time]")) {
-  button.addEventListener("click", () => {
-    video.currentTime = Number(button.dataset.time);
-    video.play().catch(() => {});
-    video.scrollIntoView({block: "center"});
-  });
-}
-</script>
+<script src="lesson-video-chapters.js?v=seek-1"></script>
 </body>
 </html>

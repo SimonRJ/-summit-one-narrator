@@ -33,6 +33,9 @@ button {
 summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+@media (orientation: landscape) and (max-height: 540px) {
+  video { width: auto; max-width: 100%; height: auto; max-height: calc(100svh - 20px); margin-inline: auto; }
+}
 </style>
 <link rel="stylesheet" href="topic-film-reading.css">
 <script defer src="topic-film-print.js"></script>
@@ -47,12 +50,11 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <h1>Pair objects or classify their local structure</h1>
 <p>Count quickly by pairing every object with a partner.</p>
 <video id="lesson" controls playsinline preload="metadata" aria-label="Pair objects or classify their local structure"
-  poster="media/T15.3-studio-poster.jpg?v=teaching-films-v1">
-  <source src="media/T15.3.mp4?v=teaching-films-v1" type="video/mp4">
+  poster="media/T15.3-studio-poster.jpg?v=folded-adding-tape">
+  <source src="media/T15.3.mp4?v=folded-adding-tape" type="video/mp4">
 </video>
 <p class="meta">2:01 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters">
-<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Match each object with an opposite-type partner</button>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Match each object with an opposite-type partner</button>
 <button type="button" data-time="11.160"><span class="chapter-clock">0:11</span> Explain why a pairing gives equal counts</button>
 <button type="button" data-time="19.970"><span class="chapter-clock">0:20</span> Count even settings of three switches</button>
 <button type="button" data-time="34.500"><span class="chapter-clock">0:35</span> Flip the first switch to find a partner</button>
@@ -60,8 +62,7 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <button type="button" data-time="62.490"><span class="chapter-clock">1:02</span> Apply the switch pairing to ten switches</button>
 <button type="button" data-time="76.090"><span class="chapter-clock">1:16</span> Pair the ends of the list from 1 to 100</button>
 <button type="button" data-time="90.010"><span class="chapter-clock">1:30</span> Find the factor of 36 that pairs with itself</button>
-<button type="button" data-time="104.730"><span class="chapter-clock">1:45</span> Pair the numbers from 1 to 40</button>
-</nav>
+<button type="button" data-time="104.730"><span class="chapter-clock">1:45</span> Pair the numbers from 1 to 40</button></nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>What is the sum of the whole numbers from 1 to 40?</p>
@@ -72,8 +73,7 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <p>Eight switches can each be on or off. How many settings have an odd number on?</p>
 <details><summary>See the worked answer</summary><p>There are 2⁸ = 256 settings. Flip a particular switch to pair each setting with a different setting of the opposite parity. Exactly one member of each pair has an odd count, giving 128.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary>
-<h2><span class="chapter-clock">0:00</span> Match each object with an opposite-type partner</h2>
+<details class="transcript"><summary>Read the transcript</summary><h2><span class="chapter-clock">0:00</span> Match each object with an opposite-type partner</h2>
 <p>If you can match every object with exactly one partner of the opposite type, then exactly half the objects are of each type. A good pairing lets you count without listing anything.</p>
 <h2><span class="chapter-clock">0:11</span> Explain why a pairing gives equal counts</h2>
 <p>Pairing arguments are short and they are proofs. They explain why the answer is half, instead of just noticing it in a few examples.</p>
@@ -90,19 +90,9 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <h2><span class="chapter-clock">1:30</span> Find the factor of 36 that pairs with itself</h2>
 <p>Always check that nothing is left without a partner, or paired with itself. The factors of thirty-six pair up to multiply to thirty-six, except six, which pairs with itself. That is why thirty-six has an odd number of factors.</p>
 <h2><span class="chapter-clock">1:45</span> Pair the numbers from 1 to 40</h2>
-<p>Find a rule that pairs every object with a different partner. If each pair has one of each type, the types occur equally often. Notebook challenge: what is the sum of the whole numbers from one to forty?</p>
-</details>
-<p><a href="media/T15.3.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+<p>Find a rule that pairs every object with a different partner. If each pair has one of each type, the types occur equally often. Notebook challenge: what is the sum of the whole numbers from one to forty?</p></details>
+<p><a href="media/T15.3.mp4?v=folded-adding-tape">Open the MP4 directly</a></p>
 </main>
-<script>
-const video = document.querySelector("#lesson");
-for (const button of document.querySelectorAll("[data-time]")) {
-  button.addEventListener("click", () => {
-    video.currentTime = Number(button.dataset.time);
-    video.play().catch(() => {});
-    video.scrollIntoView({block: "center"});
-  });
-}
-</script>
+<script src="lesson-video-chapters.js?v=seek-1"></script>
 </body>
 </html>

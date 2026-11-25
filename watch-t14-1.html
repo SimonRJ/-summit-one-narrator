@@ -33,6 +33,9 @@ button {
 summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+@media (orientation: landscape) and (max-height: 540px) {
+  video { width: auto; max-width: 100%; height: auto; max-height: calc(100svh - 20px); margin-inline: auto; }
+}
 </style>
 <link rel="stylesheet" href="topic-film-reading.css">
 <script defer src="topic-film-print.js"></script>
@@ -47,20 +50,18 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <h1>Translate the movement rules exactly</h1>
 <p>Count routes by following exactly the moves the rules allow.</p>
 <video id="lesson" controls playsinline preload="metadata" aria-label="Translate the movement rules exactly"
-  poster="media/T14.1-studio-poster.jpg?v=teaching-films-v1">
-  <source src="media/T14.1.mp4?v=teaching-films-v1" type="video/mp4">
+  poster="media/T14.1-studio-poster.jpg?v=street-map-ten">
+  <source src="media/T14.1.mp4?v=street-map-ten" type="video/mp4">
 </video>
 <p class="meta">1:49 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters">
-<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Read the permitted junctions and directions</button>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Read the permitted junctions and directions</button>
 <button type="button" data-time="15.160"><span class="chapter-clock">0:15</span> Replace a list of routes with point labels</button>
 <button type="button" data-time="24.770"><span class="chapter-clock">0:25</span> Walk right or up across two blocks each way</button>
 <button type="button" data-time="40.580"><span class="chapter-clock">0:41</span> Label the bottom and left borders</button>
 <button type="button" data-time="50.180"><span class="chapter-clock">0:50</span> Add the routes from the left and below</button>
 <button type="button" data-time="66.500"><span class="chapter-clock">1:07</span> Close the centre junction</button>
 <button type="button" data-time="78.500"><span class="chapter-clock">1:19</span> Decide whether paths meet at a bridge</button>
-<button type="button" data-time="89.220"><span class="chapter-clock">1:29</span> Count the routes across three blocks and up two</button>
-</nav>
+<button type="button" data-time="89.220"><span class="chapter-clock">1:29</span> Count the routes across three blocks and up two</button></nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>Streets form a rectangular grid three blocks wide and two blocks high. How many routes go from the bottom-left corner to the top-right corner using only single-block steps to the right or upwards?</p>
@@ -71,8 +72,7 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <p>On a grid 3 blocks wide and 2 high, count right-and-up routes from bottom left to top right that pass through the corner 1 block right and 1 block up from the start.</p>
 <details><summary>See the worked answer</summary><p>There are 2 ways to reach that corner. From there choose where the single upward step falls among the remaining 3 steps, giving 3 continuations. Each route splits uniquely there, so there are 2 × 3 = 6.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary>
-<h2><span class="chapter-clock">0:00</span> Read the permitted junctions and directions</h2>
+<details class="transcript"><summary>Read the transcript</summary><h2><span class="chapter-clock">0:00</span> Read the permitted junctions and directions</h2>
 <p>A route problem is defined by its rules: which points are joined, and which directions are allowed. Before counting anything, read those rules exactly. Two lines that cross in a drawing are not a junction unless the problem says so.</p>
 <h2><span class="chapter-clock">0:15</span> Replace a list of routes with point labels</h2>
 <p>Tracing every route by hand is slow and you lose track. There is a method that counts all routes at once, by writing one number on each point.</p>
@@ -87,19 +87,9 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <h2><span class="chapter-clock">1:19</span> Decide whether paths meet at a bridge</h2>
 <p>Always check what counts as a connection. If one path crosses over another on a bridge, you cannot turn there. Only the connections the rules give you are real.</p>
 <h2><span class="chapter-clock">1:29</span> Count the routes across three blocks and up two</h2>
-<p>Read the rules exactly. Label each point with the number of ways to reach it, adding the points that lead into it. A blocked point gets zero. Notebook challenge: how many right-and-up routes cross a block of streets three wide and two high?</p>
-</details>
-<p><a href="media/T14.1.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+<p>Read the rules exactly. Label each point with the number of ways to reach it, adding the points that lead into it. A blocked point gets zero. Notebook challenge: how many right-and-up routes cross a block of streets three wide and two high?</p></details>
+<p><a href="media/T14.1.mp4?v=street-map-ten">Open the MP4 directly</a></p>
 </main>
-<script>
-const video = document.querySelector("#lesson");
-for (const button of document.querySelectorAll("[data-time]")) {
-  button.addEventListener("click", () => {
-    video.currentTime = Number(button.dataset.time);
-    video.play().catch(() => {});
-    video.scrollIntoView({block: "center"});
-  });
-}
-</script>
+<script src="lesson-video-chapters.js?v=seek-1"></script>
 </body>
 </html>

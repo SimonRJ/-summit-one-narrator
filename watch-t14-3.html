@@ -33,6 +33,9 @@ button {
 summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+@media (orientation: landscape) and (max-height: 540px) {
+  video { width: auto; max-width: 100%; height: auto; max-height: calc(100svh - 20px); margin-inline: auto; }
+}
 </style>
 <link rel="stylesheet" href="topic-film-reading.css">
 <script defer src="topic-film-print.js"></script>
@@ -47,20 +50,18 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <h1>Read a schedule as groups of nonconflicting edges</h1>
 <p>Turn a timetable problem into a network and find the fewest time slots.</p>
 <video id="lesson" controls playsinline preload="metadata" aria-label="Read a schedule as groups of nonconflicting edges"
-  poster="media/T14.3-studio-poster.jpg?v=teaching-films-v1">
-  <source src="media/T14.3.mp4?v=teaching-films-v1" type="video/mp4">
+  poster="media/T14.3-studio-poster.jpg?v=three-court-fixtures">
+  <source src="media/T14.3.mp4?v=three-court-fixtures" type="video/mp4">
 </video>
 <p class="meta">2:03 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters">
-<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Draw a network of shared meetings</button>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Draw a network of shared meetings</button>
 <button type="button" data-time="15.800"><span class="chapter-clock">0:16</span> Read a clash in the network</button>
 <button type="button" data-time="25.730"><span class="chapter-clock">0:26</span> Schedule all the pairs of four players</button>
 <button type="button" data-time="40.740"><span class="chapter-clock">0:41</span> Bound the rounds by games per round</button>
 <button type="button" data-time="52.740"><span class="chapter-clock">0:53</span> Pair four players in three rounds</button>
 <button type="button" data-time="68.420"><span class="chapter-clock">1:08</span> Allow a resting player in a group of five</button>
 <button type="button" data-time="86.330"><span class="chapter-clock">1:26</span> Use the busiest person to bound the slots</button>
-<button type="button" data-time="99.130"><span class="chapter-clock">1:39</span> Schedule fifteen games for six players</button>
-</nav>
+<button type="button" data-time="99.130"><span class="chapter-clock">1:39</span> Schedule fifteen games for six players</button></nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>Six players each play every other player once. A round has at most 3 games and no player plays twice in a round. What is the fewest rounds?</p>
@@ -71,8 +72,7 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <p>Two red players must each meet three blue players once. Write the red players as A and B and the blue players as X, Y and Z. What is the fewest rounds if each player can play once per round?</p>
 <details><summary>See the worked answer</summary><p>A has three different opponents, so at least 3 rounds are needed. Use AX with BY, then AY with BZ, then AZ with BX. Every required pair occurs once and nobody plays twice in a round.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary>
-<h2><span class="chapter-clock">0:00</span> Draw a network of shared meetings</h2>
+<details class="transcript"><summary>Read the transcript</summary><h2><span class="chapter-clock">0:00</span> Draw a network of shared meetings</h2>
 <p>A timetable can be drawn as a network. Each person is a dot, and each meeting that must happen is a line between two dots. Meetings in the same time slot must not share a person. So a time slot is a set of lines with no dot in common.</p>
 <h2><span class="chapter-clock">0:16</span> Read a clash in the network</h2>
 <p>Drawing it this way turns &quot;avoid clashes&quot; into something you can see. It also gives quick lower limits on the number of slots, before you build anything.</p>
@@ -87,19 +87,9 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <h2><span class="chapter-clock">1:26</span> Use the busiest person to bound the slots</h2>
 <p>There is a second kind of limit. A person who is in three meetings needs at least three slots, whatever everyone else is doing. Use whichever limit is stronger, and then show a timetable that reaches it.</p>
 <h2><span class="chapter-clock">1:39</span> Schedule fifteen games for six players</h2>
-<p>Draw people as dots and meetings as lines. A slot is a set of lines sharing no dot. Find a limit, then build a timetable that reaches it. Notebook challenge: six players each play every other player once, with at most three games per round and no player playing twice in a round. What is the fewest rounds?</p>
-</details>
-<p><a href="media/T14.3.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+<p>Draw people as dots and meetings as lines. A slot is a set of lines sharing no dot. Find a limit, then build a timetable that reaches it. Notebook challenge: six players each play every other player once, with at most three games per round and no player playing twice in a round. What is the fewest rounds?</p></details>
+<p><a href="media/T14.3.mp4?v=three-court-fixtures">Open the MP4 directly</a></p>
 </main>
-<script>
-const video = document.querySelector("#lesson");
-for (const button of document.querySelectorAll("[data-time]")) {
-  button.addEventListener("click", () => {
-    video.currentTime = Number(button.dataset.time);
-    video.play().catch(() => {});
-    video.scrollIntoView({block: "center"});
-  });
-}
-</script>
+<script src="lesson-video-chapters.js?v=seek-1"></script>
 </body>
 </html>

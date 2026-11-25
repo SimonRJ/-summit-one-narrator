@@ -33,6 +33,9 @@ button {
 summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+@media (orientation: landscape) and (max-height: 540px) {
+  video { width: auto; max-width: 100%; height: auto; max-height: calc(100svh - 20px); margin-inline: auto; }
+}
 </style>
 <link rel="stylesheet" href="topic-film-reading.css">
 <script defer src="topic-film-print.js"></script>
@@ -47,18 +50,16 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <h1>Choose a strategy, then learn from the decision</h1>
 <p>Worked example: organise a count, then check it a second way.</p>
 <video id="lesson" controls playsinline preload="metadata" aria-label="Choose a strategy, then learn from the decision"
-  poster="media/T18.E-studio-poster.jpg?v=teaching-films-v1">
-  <source src="media/T18.E.mp4?v=teaching-films-v1" type="video/mp4">
+  poster="media/T18.E-studio-poster.jpg?v=triangular-pair-table">
+  <source src="media/T18.E.mp4?v=triangular-pair-table" type="video/mp4">
 </video>
 <p class="meta">1:21 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters">
-<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Choose two different numbers with sum at least nine</button>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Choose two different numbers with sum at least nine</button>
 <button type="button" data-time="13.860"><span class="chapter-clock">0:14</span> Organise the pairs by their larger number</button>
 <button type="button" data-time="22.190"><span class="chapter-clock">0:22</span> Try six, five and four as the larger number</button>
 <button type="button" data-time="40.580"><span class="chapter-clock">0:41</span> List the four qualifying pairs</button>
 <button type="button" data-time="49.230"><span class="chapter-clock">0:49</span> Regroup the pairs by sums of nine, ten and eleven</button>
-<button type="button" data-time="65.870"><span class="chapter-clock">1:06</span> Count unordered pairs with sum at most five</button>
-</nav>
+<button type="button" data-time="65.870"><span class="chapter-clock">1:06</span> Count unordered pairs with sum at most five</button></nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>Choose two different whole numbers from 1 to 6 inclusive. How many unordered pairs have a sum of at most 5?</p>
@@ -69,8 +70,7 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <p>Choose two different numbers from 1 through 7. How many unordered pairs have a sum of exactly 8 or exactly 9?</p>
 <details><summary>See the worked answer</summary><p>The pairs summing to 8 are (1,7), (2,6) and (3,5). Those summing to 9 are (2,7), (3,6) and (4,5). Writing the smaller number first removes reversals, and the two different sums cannot overlap. There are 6 pairs.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary>
-<h2><span class="chapter-clock">0:00</span> Choose two different numbers with sum at least nine</h2>
+<details class="transcript"><summary>Read the transcript</summary><h2><span class="chapter-clock">0:00</span> Choose two different numbers with sum at least nine</h2>
 <p>Choose two different numbers from one, two, three, four, five and six. The order does not matter. How many choices have a sum of at least nine?</p>
 <h2><span class="chapter-clock">0:14</span> Organise the pairs by their larger number</h2>
 <p>To avoid counting any pair twice, always name the larger number first. Then organise the count by the larger number.</p>
@@ -81,19 +81,9 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <h2><span class="chapter-clock">0:49</span> Regroup the pairs by sums of nine, ten and eleven</h2>
 <p>Check a different way, by the sum. Nine comes from three and six, or four and five. Ten comes from four and six. Eleven comes from five and six. Two plus one plus one is four. Notice that &quot;at least nine&quot; includes nine itself.</p>
 <h2><span class="chapter-clock">1:06</span> Count unordered pairs with sum at most five</h2>
-<p>Fix an order so nothing is counted twice, sort into cases, then check another way. Rebuild this, then count the pairs from one to six whose sum is at most five.</p>
-</details>
-<p><a href="media/T18.E.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+<p>Fix an order so nothing is counted twice, sort into cases, then check another way. Rebuild this, then count the pairs from one to six whose sum is at most five.</p></details>
+<p><a href="media/T18.E.mp4?v=triangular-pair-table">Open the MP4 directly</a></p>
 </main>
-<script>
-const video = document.querySelector("#lesson");
-for (const button of document.querySelectorAll("[data-time]")) {
-  button.addEventListener("click", () => {
-    video.currentTime = Number(button.dataset.time);
-    video.play().catch(() => {});
-    video.scrollIntoView({block: "center"});
-  });
-}
-</script>
+<script src="lesson-video-chapters.js?v=seek-1"></script>
 </body>
 </html>

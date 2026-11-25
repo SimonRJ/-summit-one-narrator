@@ -33,6 +33,9 @@ button {
 summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+@media (orientation: landscape) and (max-height: 540px) {
+  video { width: auto; max-width: 100%; height: auto; max-height: calc(100svh - 20px); margin-inline: auto; }
+}
 </style>
 <link rel="stylesheet" href="topic-film-reading.css">
 <script defer src="topic-film-print.js"></script>
@@ -47,20 +50,18 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <h1>Use future obligations to reject tempting moves</h1>
 <p>Reject a move now if it makes the rest of the route impossible.</p>
 <video id="lesson" controls playsinline preload="metadata" aria-label="Use future obligations to reject tempting moves"
-  poster="media/T14.2-studio-poster.jpg?v=teaching-films-v1">
-  <source src="media/T14.2.mp4?v=teaching-films-v1" type="video/mp4">
+  poster="media/T14.2-studio-poster.jpg?v=endpoint-colours">
+  <source src="media/T14.2.mp4?v=endpoint-colours" type="video/mp4">
 </video>
 <p class="meta">2:04 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters">
-<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Look ahead before visiting the next dot</button>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Look ahead before visiting the next dot</button>
 <button type="button" data-time="15.470"><span class="chapter-clock">0:15</span> Test whether a move cuts off a dot</button>
 <button type="button" data-time="25.070"><span class="chapter-clock">0:25</span> Try a corner-to-centre path through nine dots</button>
 <button type="button" data-time="42.000"><span class="chapter-clock">0:42</span> Spiral inward to reach the centre</button>
 <button type="button" data-time="53.520"><span class="chapter-clock">0:54</span> Colour the nine dots in alternating colours</button>
 <button type="button" data-time="68.240"><span class="chapter-clock">1:08</span> Rule out a start at the middle of a side</button>
 <button type="button" data-time="85.200"><span class="chapter-clock">1:25</span> Count the possible endpoints of a route</button>
-<button type="button" data-time="98.470"><span class="chapter-clock">1:38</span> Test two top-row endpoints on a six-dot grid</button>
-</nav>
+<button type="button" data-time="98.470"><span class="chapter-clock">1:38</span> Test two top-row endpoints on a six-dot grid</button></nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>On a grid of dots with 2 rows and 3 columns, can a path using horizontal and vertical steps visit every dot once, starting at one end of the top row and finishing at the other?</p>
@@ -71,8 +72,7 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <p>On a 3-by-3 grid of dots, can a path visit every dot exactly once using horizontal or vertical steps if it starts and ends at the middles of two different sides?</p>
 <details><summary>See the worked answer</summary><p>Chessboard colouring gives five dots of the corner colour and four dots of the side-middle colour. A nine-dot path uses its starting colour five times. Starting at a side middle is already impossible.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary>
-<h2><span class="chapter-clock">0:00</span> Look ahead before visiting the next dot</h2>
+<details class="transcript"><summary>Read the transcript</summary><h2><span class="chapter-clock">0:00</span> Look ahead before visiting the next dot</h2>
 <p>Some routes must visit every place exactly once. A move can be perfectly legal now and still ruin the route later, by cutting off a place you still need to visit. Good solvers look ahead at what each move leaves behind.</p>
 <h2><span class="chapter-clock">0:15</span> Test whether a move cuts off a dot</h2>
 <p>Without looking ahead you find out about a mistake only at the very end. Checking what remains after each move catches dead ends early and saves most of the work.</p>
@@ -87,19 +87,9 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <h2><span class="chapter-clock">1:25</span> Count the possible endpoints of a route</h2>
 <p>Here is another look-ahead rule. A dot with only one connection can only be the first or the last dot of the route, because you cannot pass through it. If there are three such dots, no route can visit them all.</p>
 <h2><span class="chapter-clock">1:38</span> Test two top-row endpoints on a six-dot grid</h2>
-<p>After each move, check that everything unvisited can still be reached. Dead ends must be endpoints. And colouring can prove impossibility. Notebook challenge: on a grid of dots with two rows and three columns, can a path with only horizontal and vertical steps visit every dot once, starting at one end of the top row and finishing at the other?</p>
-</details>
-<p><a href="media/T14.2.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+<p>After each move, check that everything unvisited can still be reached. Dead ends must be endpoints. And colouring can prove impossibility. Notebook challenge: on a grid of dots with two rows and three columns, can a path with only horizontal and vertical steps visit every dot once, starting at one end of the top row and finishing at the other?</p></details>
+<p><a href="media/T14.2.mp4?v=endpoint-colours">Open the MP4 directly</a></p>
 </main>
-<script>
-const video = document.querySelector("#lesson");
-for (const button of document.querySelectorAll("[data-time]")) {
-  button.addEventListener("click", () => {
-    video.currentTime = Number(button.dataset.time);
-    video.play().catch(() => {});
-    video.scrollIntoView({block: "center"});
-  });
-}
-</script>
+<script src="lesson-video-chapters.js?v=seek-1"></script>
 </body>
 </html>

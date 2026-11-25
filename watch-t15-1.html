@@ -33,6 +33,9 @@ button {
 summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+@media (orientation: landscape) and (max-height: 540px) {
+  video { width: auto; max-width: 100%; height: auto; max-height: calc(100svh - 20px); margin-inline: auto; }
+}
 </style>
 <link rel="stylesheet" href="topic-film-reading.css">
 <script defer src="topic-film-print.js"></script>
@@ -47,20 +50,18 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <h1>Define sameness before counting</h1>
 <p>Decide which arrangements count as &quot;the same&quot; before counting them.</p>
 <video id="lesson" controls playsinline preload="metadata" aria-label="Define sameness before counting"
-  poster="media/T15.1-studio-poster.jpg?v=teaching-films-v1">
-  <source src="media/T15.1.mp4?v=teaching-films-v1" type="video/mp4">
+  poster="media/T15.1-studio-poster.jpg?v=four-tile-turns">
+  <source src="media/T15.1.mp4?v=four-tile-turns" type="video/mp4">
 </video>
 <p class="meta">1:54 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters">
-<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Follow a coloured corner as a tile turns</button>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Follow a coloured corner as a tile turns</button>
 <button type="button" data-time="15.960"><span class="chapter-clock">0:16</span> Decide whether a tile is fixed or loose</button>
 <button type="button" data-time="26.520"><span class="chapter-clock">0:27</span> Shade one cell in a two-by-two square</button>
 <button type="button" data-time="41.530"><span class="chapter-clock">0:42</span> Count the four fixed window patterns</button>
 <button type="button" data-time="51.140"><span class="chapter-clock">0:51</span> Turn a loose tile through all four positions</button>
 <button type="button" data-time="60.580"><span class="chapter-clock">1:01</span> Compare neighbouring and diagonal shaded pairs</button>
 <button type="button" data-time="75.930"><span class="chapter-clock">1:16</span> Distinguish a flip from a turn</button>
-<button type="button" data-time="92.240"><span class="chapter-clock">1:32</span> Turn a tile with one unshaded corner</button>
-</nav>
+<button type="button" data-time="92.240"><span class="chapter-clock">1:32</span> Turn a tile with one unshaded corner</button></nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>Shade three of the four cells of a 2 by 2 square. Patterns that match after a rotation count as the same. How many different patterns are there?</p>
@@ -71,8 +72,7 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <p>One cell of a 2-by-3 rectangle is shaded. The rectangle can be turned half a turn in its frame. How many different patterns are there?</p>
 <details><summary>See the worked answer</summary><p>A half-turn pairs the top left cell with the bottom right, the top middle with the bottom middle, and the top right with the bottom left. These three pairs account for all six cells, giving 3 patterns.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary>
-<h2><span class="chapter-clock">0:00</span> Follow a coloured corner as a tile turns</h2>
+<details class="transcript"><summary>Read the transcript</summary><h2><span class="chapter-clock">0:00</span> Follow a coloured corner as a tile turns</h2>
 <p>Take a square tile with one corner coloured. Turn it, and the coloured corner moves. Is that a new tile, or the same tile seen from another side? The answer depends on the rules of the question. You must decide what counts as the same before you count.</p>
 <h2><span class="chapter-clock">0:16</span> Decide whether a tile is fixed or loose</h2>
 <p>The same problem can have two correct-looking answers, one for objects fixed in place and one for objects that can be turned. Reading which is intended is half the work.</p>
@@ -87,19 +87,9 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <h2><span class="chapter-clock">1:16</span> Distinguish a flip from a turn</h2>
 <p>Turning over is different from turning round. This marked tile cannot match its mirror by turning on the table. Flipping it over changes the order of the marks and makes a match. Some other marks do match their mirrors by turning, so test the moves that the question allows.</p>
 <h2><span class="chapter-clock">1:32</span> Turn a tile with one unshaded corner</h2>
-<p>Ask whether objects are fixed, can be turned, or can also be flipped. Two arrangements are the same only if an allowed move takes one to the other. Notebook challenge: three of the four small squares are shaded. How many patterns are there if the square is free to turn?</p>
-</details>
-<p><a href="media/T15.1.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+<p>Ask whether objects are fixed, can be turned, or can also be flipped. Two arrangements are the same only if an allowed move takes one to the other. Notebook challenge: three of the four small squares are shaded. How many patterns are there if the square is free to turn?</p></details>
+<p><a href="media/T15.1.mp4?v=four-tile-turns">Open the MP4 directly</a></p>
 </main>
-<script>
-const video = document.querySelector("#lesson");
-for (const button of document.querySelectorAll("[data-time]")) {
-  button.addEventListener("click", () => {
-    video.currentTime = Number(button.dataset.time);
-    video.play().catch(() => {});
-    video.scrollIntoView({block: "center"});
-  });
-}
-</script>
+<script src="lesson-video-chapters.js?v=seek-1"></script>
 </body>
 </html>

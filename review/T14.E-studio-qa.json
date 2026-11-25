@@ -1,7 +1,7 @@
 {
   "id": "T14.E",
   "duration_seconds": 84.933333,
-  "sha256": "fad0d0363b6ccdce5b378ceb89a696f115e12a0bf2607c048e1e9473f6d91306",
+  "sha256": "1d92c0f2931b6e3e07980b5e874ff09c8ead2960802fe2e02ded6ab7120413bf",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -70,5 +70,23 @@
       "start": 68.74
     }
   ],
-  "decoded_successfully": true
+  "decoded_successfully": true,
+  "source_sha256": "fad0d0363b6ccdce5b378ceb89a696f115e12a0bf2607c048e1e9473f6d91306",
+  "version": "meeting-planner",
+  "frames": 2548,
+  "audio_packet_sha256": "SHA256=ec7a886fc216d6a0bd4a724af613a76dd3fcd3022ce7b8833c39716db2ebf5c0",
+  "notebook_art_source": "production/lesson-films/companion_notebooks.py",
+  "notebook_start_seconds": 74.18,
+  "prompt_ends_seconds": 79.61,
+  "earlier_frame_mean_errors": [
+    0.0487,
+    0.0373,
+    0.039
+  ],
+  "caption_band_mean_errors": [
+    0.1966,
+    0.2056,
+    0.0924
+  ],
+  "closing_frame_mean_change": 201.856
 }

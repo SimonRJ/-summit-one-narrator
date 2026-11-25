@@ -471,7 +471,7 @@
       "chapter": "Turn routes and schedules into networks",
       "transcript": "A route problem is defined by its rules: which points are joined, and which directions are allowed. Before counting anything, read those rules exactly. Two lines that cross in a drawing are not a junction unless the problem says so. Tracing every route by hand is slow and you lose track. There is a method that counts all routes at once, by writing one number on each point. A walker goes from the bottom-left corner to the top-right corner of a two by two block of streets, moving only right or up. How many different routes are there? Pause and think about how you could arrive at each corner. Write on each corner the number of ways to reach it. Along the bottom row and up the left side there is only one way: straight along. Write one on each. To reach any other corner, your last step came either from the left or from below. So its number is the sum of those two neighbours. The middle corner gets one plus one: two. The next corners get three. The final corner gets three plus three: six routes. The method copes with obstacles. If the centre corner is closed, write zero there and carry on adding. Now only two routes remain: all the way round one side or the other. Always check what counts as a connection. If one path crosses over another on a bridge, you cannot turn there. Only the connections the rules give you are real. Read the rules exactly. Label each point with the number of ways to reach it, adding the points that lead into it. A blocked point gets zero. Notebook challenge: how many right-and-up routes cross a block of streets three wide and two high?",
       "audio_url": "",
-      "video_url": "media/T14.1.mp4?v=teaching-films-v1"
+      "video_url": "media/T14.1.mp4?v=street-map-ten"
     },
     {
       "id": "T14.2",
@@ -480,7 +480,7 @@
       "chapter": "Turn routes and schedules into networks",
       "transcript": "Some routes must visit every place exactly once. A move can be perfectly legal now and still ruin the route later, by cutting off a place you still need to visit. Good solvers look ahead at what each move leaves behind. Without looking ahead you find out about a mistake only at the very end. Checking what remains after each move catches dead ends early and saves most of the work. A token moves on a three by three grid of dots, stepping to a neighbour up, down, left or right. It must visit every dot exactly once. Starting in a corner, can it finish in the centre? Pause and try to trace it. A spiral works. Go along the top, down the right side, along the bottom, up the left, and step into the centre. Every dot is visited once, and the path ends in the centre. Now ask a harder question: can a path start in the middle of a side? Colour the dots like a chessboard. The corners and the centre are dark: five dots. The middles of the sides are light: four dots. Every step changes colour. A path through nine dots that starts on a light dot would visit light, dark, light, dark, and so on: five light dots and four dark. But there are only four light dots. So no such path exists. One simple count rules out every attempt at once. Here is another look-ahead rule. A dot with only one connection can only be the first or the last dot of the route, because you cannot pass through it. If there are three such dots, no route can visit them all. After each move, check that everything unvisited can still be reached. Dead ends must be endpoints. And colouring can prove impossibility. Notebook challenge: on a grid of dots with two rows and three columns, can a path with only horizontal and vertical steps visit every dot once, starting at one end of the top row and finishing at the other?",
       "audio_url": "",
-      "video_url": "media/T14.2.mp4?v=teaching-films-v1"
+      "video_url": "media/T14.2.mp4?v=endpoint-colours"
     },
     {
       "id": "T14.3",
@@ -489,7 +489,7 @@
       "chapter": "Turn routes and schedules into networks",
       "transcript": "A timetable can be drawn as a network. Each person is a dot, and each meeting that must happen is a line between two dots. Meetings in the same time slot must not share a person. So a time slot is a set of lines with no dot in common. Drawing it this way turns \"avoid clashes\" into something you can see. It also gives quick lower limits on the number of slots, before you build anything. Four players each play one game against every other player. A player can play at most one game per round. What is the smallest number of rounds needed? Pause and count the games. There are six games. A round uses each player at most once, so it holds at most two games. Six divided by two is three. At least three rounds are needed. Can three be reached? Round one: A plays B, and C plays D. Round two: A plays C, and B plays D. Round three: A plays D, and B plays C. All six games are played. Three rounds is the answer. With five players there are ten games. In any round one player must rest, so again at most two games fit. That takes at least five rounds, even though each player plays only four games. The five-day pairing schedule from the earlier lesson shows that five rounds can be reached. There is a second kind of limit. A person who is in three meetings needs at least three slots, whatever everyone else is doing. Use whichever limit is stronger, and then show a timetable that reaches it. Draw people as dots and meetings as lines. A slot is a set of lines sharing no dot. Find a limit, then build a timetable that reaches it. Notebook challenge: six players each play every other player once, with at most three games per round and no player playing twice in a round. What is the fewest rounds?",
       "audio_url": "",
-      "video_url": "media/T14.3.mp4?v=teaching-films-v1"
+      "video_url": "media/T14.3.mp4?v=three-court-fixtures"
     },
     {
       "id": "T14.E",
@@ -498,7 +498,7 @@
       "chapter": "Turn routes and schedules into networks",
       "transcript": "Five pupils, A, B, C, D and E, need only these meetings: A with B, A with C, A with D, B with E, and C with E. A pupil can attend at most one meeting in a time slot. What is the smallest number of slots? Pupil A is in three meetings. Those three cannot share a slot. So at least three slots are needed. Now try to manage with three. Slot one: A meets B, and C meets E. Slot two: A meets C, and B meets E. Slot three: A meets D. Check each slot. In slot one, the pupils are A, B, C and E, each once. In slot two, the same four, each once. In slot three, only A and D. All five meetings are scheduled with no clashes. A second limit agrees. There are five meetings, and a slot holds at most two of them, since five pupils cannot form three pairs. Five meetings need at least three slots. Both limits say three, and three works. The busiest person gives a limit. Then build a timetable and check every slot. Rebuild this, then decide how many slots are needed if a sixth meeting, D with E, is added.",
       "audio_url": "",
-      "video_url": "media/T14.E.mp4?v=teaching-films-v1"
+      "video_url": "media/T14.E.mp4?v=meeting-planner"
     },
     {
       "id": "T15.1",
@@ -507,7 +507,7 @@
       "chapter": "Use symmetry without losing or repeating cases",
       "transcript": "Take a square tile with one corner coloured. Turn it, and the coloured corner moves. Is that a new tile, or the same tile seen from another side? The answer depends on the rules of the question. You must decide what counts as the same before you count. The same problem can have two correct-looking answers, one for objects fixed in place and one for objects that can be turned. Reading which is intended is half the work. A square is divided into four smaller squares, and exactly one of them is shaded. How many different patterns are there? Pause and decide whether the square is fixed to the page, or free to be turned. If the square is fixed on the page, like a window in a wall, there are four patterns: top-left, top-right, bottom-left, bottom-right. If the square is a loose tile that can be turned, all four are the same tile. A quarter turn carries each pattern to the next. There is only one pattern. Now shade two of the four squares. Fixed on the page there are six patterns. Free to turn, they fall into just two kinds: the two shaded squares are side by side, or they are diagonal. Turning can never change one kind into the other. Turning over is different from turning round. This marked tile cannot match its mirror by turning on the table. Flipping it over changes the order of the marks and makes a match. Some other marks do match their mirrors by turning, so test the moves that the question allows. Ask whether objects are fixed, can be turned, or can also be flipped. Two arrangements are the same only if an allowed move takes one to the other. Notebook challenge: three of the four small squares are shaded. How many patterns are there if the square is free to turn?",
       "audio_url": "",
-      "video_url": "media/T15.1.mp4?v=teaching-films-v1"
+      "video_url": "media/T15.1.mp4?v=four-tile-turns"
     },
     {
       "id": "T15.2",
@@ -516,7 +516,7 @@
       "chapter": "Use symmetry without losing or repeating cases",
       "transcript": "Turn a square four times and you might expect four different pictures. But a pattern with its own symmetry repeats sooner. A completely symmetrical pattern looks the same after every turn. So you cannot always divide by four. Dividing a total by the number of turns is tempting and often wrong. It only works when every pattern has been counted the same number of times. Each of the four small squares in a two by two tile is black or white. Fixed on the page there are sixteen colourings. How many different tiles are there if the tile is free to turn? Pause, and resist dividing sixteen by four. Sort the sixteen by how many squares are black. None black: one colouring. One black: four. Two black: six. Three black: four. All black: one. Now turn them. No black is one tile. The four with one black square are all the same tile. The six with two black squares make two tiles: four are side by side, and two are diagonal. Three black gives one tile, and all black gives one. That is six tiles altogether. Look at the group sizes: one, four, four, two, four and one. They are not all four. The symmetrical tiles were counted fewer times, which is exactly why sixteen divided by four gives the wrong answer. When does dividing by the number of turns work? When every turn gives a different position. Seat five different people round a table, keeping clockwise order when you rotate the table. There are one hundred and twenty orders in a line. Each circular seating appears exactly five times as you choose a place to start reading. One hundred and twenty divided by five is twenty-four. Divide only when every arrangement is repeated the same number of times. Otherwise, sort the arrangements into groups and count the groups. Notebook challenge: in how many ways can four different people sit round a circular table, if turning the whole table does not count as different?",
       "audio_url": "",
-      "video_url": "media/T15.2.mp4?v=teaching-films-v1"
+      "video_url": "media/T15.2.mp4?v=fixed-table-seat"
     },
     {
       "id": "T15.3",
@@ -525,7 +525,7 @@
       "chapter": "Use symmetry without losing or repeating cases",
       "transcript": "If you can match every object with exactly one partner of the opposite type, then exactly half the objects are of each type. A good pairing lets you count without listing anything. Pairing arguments are short and they are proofs. They explain why the answer is half, instead of just noticing it in a few examples. Three light switches can each be on or off, giving eight settings. In how many of them is an even number of switches on? Zero counts as even. Pause and try to predict the answer. Pair each setting with the one you get by flipping the first switch. Flip it again and you return, so the settings really are in pairs. No setting is its own partner, because flipping always changes something. Flipping one switch changes the number of switches that are on by exactly one. So in each pair, one setting has an even number on and the other has an odd number. Four pairs, so four settings are even and four are odd. The same argument works whenever there is at least one switch to flip. With ten switches there are one thousand and twenty-four settings, and exactly half, five hundred and twelve, have an even number on. No listing needed. Pairing also adds. To add the numbers from one to one hundred, pair one with one hundred, two with ninety-nine, and so on. There are fifty pairs, each adding to one hundred and one. The total is five thousand and fifty. Always check that nothing is left without a partner, or paired with itself. The factors of thirty-six pair up to multiply to thirty-six, except six, which pairs with itself. That is why thirty-six has an odd number of factors. Find a rule that pairs every object with a different partner. If each pair has one of each type, the types occur equally often. Notebook challenge: what is the sum of the whole numbers from one to forty?",
       "audio_url": "",
-      "video_url": "media/T15.3.mp4?v=teaching-films-v1"
+      "video_url": "media/T15.3.mp4?v=folded-adding-tape"
     },
     {
       "id": "T15.E",
@@ -534,7 +534,7 @@
       "chapter": "Use symmetry without losing or repeating cases",
       "transcript": "From three objects, A, B and C, choose any group, including the empty group with nothing in it. Explain why exactly half of the groups have an even number of members. Each object is either in the group or out of it. Two choices, three times over, gives eight groups. Pair each group with the group you get by changing A: put A in if it is out, and take A out if it is in. The empty group pairs with the group containing only A. The group B, C pairs with the group A, B, C. Changing A changes the size of the group by exactly one. So each pair has one group of even size and one of odd size. Four pairs give four even groups and four odd groups. Check by listing. The even groups are the empty group, A with B, A with C, and B with C. That is four, exactly half of eight. Toggling one member pairs every even group with an odd one. Rebuild this argument, then say how many groups chosen from five objects have an odd number of members.",
       "audio_url": "",
-      "video_url": "media/T15.E.mp4?v=teaching-films-v1"
+      "video_url": "media/T15.E.mp4?v=subset-drawer"
     },
     {
       "id": "T16.1",
@@ -543,7 +543,7 @@
       "chapter": "Keep ratios, rates and averages precise",
       "transcript": "A ratio of three to two means three equal parts of one thing for every two equal parts of another. The numbers three and two are not the amounts. They count parts. Find the size of one part, and everything else follows. Ratios run through recipes, maps, mixtures and sharing problems. Nearly all of them are solved by the same step: work out what one part is worth. Forty stickers are shared between Ana and Ben in the ratio three to two. How many does each get? Pause and count the parts. There are three plus two parts: five altogether. Forty stickers in five equal parts is eight per part. Ana gets three parts, twenty-four. Ben gets two parts, sixteen. The given fact is not always the total. Suppose instead you are told that Ana has nine more than Ben. Ana has one more part than Ben, so one part is nine. Then Ana has twenty-seven and Ben has eighteen. To join two ratios, make the shared quantity match. If A to B is two to three, and B to C is four to five, rewrite both so that B is twelve parts. Then A to B to C is eight to twelve to fifteen. Ratios and fractions are two views of one picture. In the ratio three to two, the first share is three fifths of the whole, not three halves and not two thirds. Count the parts. Use what you are told, a total, a difference or one share, to find one part. Then multiply. Notebook challenge: red and blue beads are in the ratio five to three, and there are sixteen more red than blue. How many beads are there altogether?",
       "audio_url": "",
-      "video_url": "media/T16.1.mp4?v=teaching-films-v1"
+      "video_url": "media/T16.1.mp4?v=bead-difference"
     },
     {
       "id": "T16.2",
@@ -552,7 +552,7 @@
       "chapter": "Keep ratios, rates and averages precise",
       "transcript": "If a tap fills a tank in ten minutes, then each minute it fills one tenth of the tank. Turning a time into an amount per minute is the key move. Amounts per minute can be added together. Times cannot. When two taps run together at constant rates, the tank fills faster. The two amounts filled in one minute can be added. That combined amount per minute tells us how long the whole job will take. One tap fills a tank in six minutes. Another fills it in three minutes. Both run at constant rates. How long do they take together? Pause and work out what each tap does in one minute. Picture the tank in six equal slices. In one minute, the slow tap fills one slice. The fast tap fills the whole tank in three minutes, so it fills two slices a minute. Together they fill three slices a minute. Six slices at three slices a minute takes two minutes. Together the taps take two minutes, which is less than either alone, as it should be. Rates can also work against each other. A tap fills a tank in four minutes, while a leak would empty it in twelve. In a tank of twelve slices, the tap adds three slices a minute and the leak removes one. The net gain is two slices a minute, so the tank fills in six minutes. Moving objects follow the same rule. Two runners start one hundred metres apart and run towards each other, at six metres per second and four metres per second. The gap closes at ten metres per second. They meet after ten seconds. Convert each time into a rate. Use the same time unit for each rate. Add rates that help and subtract rates that hinder. Divide the job by the combined rate. Notebook challenge: one painter paints a fence in four hours, another in twelve hours. How long do they take together?",
       "audio_url": "",
-      "video_url": "media/T16.2.mp4?v=teaching-films-v1"
+      "video_url": "media/T16.2.mp4?v=painter-fence"
     },
     {
       "id": "T16.3",
@@ -570,7 +570,7 @@
       "chapter": "Keep ratios, rates and averages precise",
       "transcript": "Two learners each score seven points, and three learners each score nine points. What is the mean score for all five learners? Find the totals. The first group scores two times seven: fourteen points. The second group scores three times nine: twenty-seven points. Together that is forty-one points for five learners. Forty-one divided by five is eight point two. The mean score is eight point two. Why is the mean above eight, halfway between seven and nine? Three learners score nine and two score seven, so the balance point is pulled towards nine. If you add one extra score of nine to four scores averaging eight, the mean moves one fifth of the way from eight to nine. If the groups were the same size, two learners at seven and two at nine, the mean would be exactly eight. The two group means now carry equal weight, so their simple average works. Combine the totals, then divide by the total number of people. Rebuild this, then find the mean score when four learners score five each and one learner scores ten.",
       "audio_url": "",
-      "video_url": "media/T16.E.mp4?v=teaching-films-v1"
+      "video_url": "media/T16.E.mp4?v=five-score-stacks"
     },
     {
       "id": "T17.1",
@@ -579,7 +579,7 @@
       "chapter": "Write proofs that leave no hidden cases",
       "transcript": "Different claims need different evidence. To show something can happen, one example is enough. To show something always happens or can never happen, your reasons must cover every case. A few examples only settle the cases that you checked. Patterns can hold for a long time and then break. Knowing what a claim actually requires stops you from trusting a pattern too far, and tells you when your solution is really complete. Here is a claim: the sum of two odd numbers is always even. Three and five make eight. Seven and nine make sixteen. Eleven and one make twelve. Is that a proof? Pause and decide. Three examples are not a proof, because there are endlessly many odd numbers. Here is a reason instead. Any odd number is a collection of pairs with one left over. Put two odd numbers together. Their two leftover counters make one more pair. Now everything is in pairs, so the total is even. This works for every pair of odd numbers at once. To show a claim is false, one example that breaks it is enough. Someone claims that every odd number bigger than one is prime. Three, five and seven fit. But nine is three times three. One counterexample and the claim is finished. One more distinction. A condition can be needed without being enough. Every multiple of six is even, so being even is needed. But fourteen is even and is not a multiple of six, so being even is not enough. One example shows something can happen. A reason covering every case shows it always does. One counterexample shows a claim is false. Notebook challenge: is it true that the sum of three odd numbers is always odd? Give a reason, not just examples.",
       "audio_url": "",
-      "video_url": "media/T17.1.mp4?v=teaching-films-v1"
+      "video_url": "media/T17.1.mp4?v=three-odd-piles"
     },
     {
       "id": "T17.2",
@@ -588,7 +588,7 @@
       "chapter": "Write proofs that leave no hidden cases",
       "transcript": "A counterexample is one case that breaks a claim about everything. A proof by contradiction starts with a supposition and follows what it would imply. If it leads to two facts that cannot both hold, the supposition fails. Competitions often ask whether something is possible. If it is, show it. If it is not, you need an argument, and contradiction is the standard way to build one. A student says: multiplying always makes a number bigger. Five times three is fifteen, which is bigger than five. Is the claim true? Pause and hunt for a case that breaks it. Six times one half is three, which is smaller. Six times one is still six. Six times zero is zero. Any one of these is a counterexample, so the claim is false. A counterexample must obey the claim's own conditions. If the claim were about multiplying a positive number by a number greater than one, then a half and zero would not be allowed, and the repaired claim would be true. Failed claims often become true once the conditions are stated properly. Now a contradiction. Nine coins all show heads. Each move flips exactly two coins. Can all nine show tails? Suppose it could be done. Each move changes the number of heads by two, or not at all. So the number of heads stays odd for ever. It starts at nine, which is odd. All tails would mean zero heads, which is even. An odd number can never become zero this way. Our supposition has led to something impossible, so the task cannot be done. A counterexample is one allowed case that breaks a claim. A contradiction supposes something is possible and shows that leads to nonsense. Notebook challenge: seven cups stand upright. Each move turns over exactly two cups. Can all seven end upside down?",
       "audio_url": "",
-      "video_url": "media/T17.2.mp4?v=teaching-films-v1"
+      "video_url": "media/T17.2.mp4?v=cup-flip-bench"
     },
     {
       "id": "T17.3",
@@ -597,7 +597,7 @@
       "chapter": "Write proofs that leave no hidden cases",
       "transcript": "Checking cases can be a complete proof, if there are only finitely many and you check them all. For endlessly many cases, checking is never enough on its own. But a check plus a rule that passes the result along can cover them all. The danger with case checking is a missing case. A proof by cases must show that the cases cover everything, with nothing left outside. You have plenty of three-cent and five-cent stamps. Which totals can you make exactly? Pause and test the totals from one to twelve. Three and five work. Six is two threes. Eight is three and five. Nine is three threes. Ten is two fives. Eleven is five and two threes. Twelve is four threes. But one, two, four and seven cannot be made. Now the key step. Eight, nine and ten can all be made. Add a three-cent stamp to each and you get eleven, twelve and thirteen. Add another and you get fourteen, fifteen and sixteen. Three totals in a row, plus the ability to add three, reach every total from eight onwards. Every total of eight or more is possible. Seven cannot be made. Two fives are too many. With one five we would need two more, and with no fives we would need a multiple of three. Neither works. So seven is the largest total that cannot be made. A finite check can prove a never. Does any square number end in seven? The last digit of a square depends only on the last digit of the number. Check the ten digits: their squares end in zero, one, four, nine, six, five, six, nine, four and one. Seven never appears. Ten checks cover every whole number. For finitely many cases, check them all and show nothing is left out. For endlessly many, check a starting block and give a rule that carries the result forward. Notebook challenge: with four-cent and five-cent stamps, what is the largest total you cannot make?",
       "audio_url": "",
-      "video_url": "media/T17.3.mp4?v=teaching-films-v1"
+      "video_url": "media/T17.3.mp4?v=postage-album"
     },
     {
       "id": "T17.E",
@@ -606,7 +606,7 @@
       "chapter": "Write proofs that leave no hidden cases",
       "transcript": "Prove that any whole number multiplied by the next whole number gives an even result. Three times four is twelve. Six times seven is forty-two. Checking examples is a good start, but the proof must cover numbers we have not checked. Whole numbers alternate: even, odd, even, odd. So of any two neighbouring numbers, exactly one is even. There are two cases: the first number is even, or the first number is odd. If the first number is even, it is two lots of something. Multiply it by the next number and the result is still two lots of something. So the product is even. If the first number is odd, then the next number is even. It is two lots of something, so again the product is two lots of something. The product is even. A picture confirms it. Arrange the product as a rectangle of dots. It splits into two identical staircases. Two identical halves means the total is even, and each half is one plus two plus three, up to the first number. The two cases cover every whole number, and each gives an even product. Rebuild the proof, then explain why the product of three whole numbers in a row is always a multiple of three.",
       "audio_url": "",
-      "video_url": "media/T17.E.mp4?v=teaching-films-v1"
+      "video_url": "media/T17.E.mp4?v=three-number-window"
     },
     {
       "id": "T18.1",
@@ -615,7 +615,7 @@
       "chapter": "Choose a strategy, then learn from the decision",
       "transcript": "Most problems have several conditions, and they are not equally powerful. One of them usually cuts the possibilities down to a handful. Start with that one, and the others become quick checks. Starting with a weak condition leaves you searching through hundreds of cases. Starting with the strongest can leave three or four. Choosing where to begin is a strategy decision worth ten seconds of thought. A two-digit number is a perfect square, and its digits add to ten. What is it? Pause and decide which clue to use first. The digit-sum clue allows nine numbers. The square clue allows only six: sixteen, twenty-five, thirty-six, forty-nine, sixty-four and eighty-one. Start with the squares. Add the digits of each: seven, seven, nine, thirteen, ten, nine. Only sixty-four has digits adding to ten. The answer is sixty-four. A product is another strong restriction. A rectangle has whole-number sides, area twenty-four and perimeter twenty. The area allows only four shapes: one by twenty-four, two by twelve, three by eight, and four by six. Their perimeters are fifty, twenty-eight, twenty-two and twenty. It is four by six. Certain features point to certain tools. A product suggests factors. A fixed total suggests parts. A repeating process suggests a cycle. An order suggests a line. These are suggestions to try, not guarantees. List the conditions. Start with the one that leaves the fewest possibilities. Use the rest as checks. Notebook challenge: a number between fifty and one hundred is a multiple of thirteen and is odd. What could it be?",
       "audio_url": "",
-      "video_url": "media/T18.1.mp4?v=teaching-films-v1"
+      "video_url": "media/T18.1.mp4?v=thirteen-search"
     },
     {
       "id": "T18.2",
@@ -624,7 +624,7 @@
       "chapter": "Choose a strategy, then learn from the decision",
       "transcript": "Good working leaves a trail. If you write what you have established, which cases you have finished, and what you will do next, you can pause, return, or find a mistake without starting again. Under time pressure, it is easy to repeat work or trust an unchecked answer. Keep a clear trail to show where you stopped, and use an independent check to catch errors. A five by five grid of small squares has all the squares along its border shaded. How many squares are shaded? Pause and find the answer in one way, then in a second, different way. First method: take away the inside. The whole grid has twenty-five squares. The unshaded inner block is three by three: nine squares. Twenty-five minus nine is sixteen. Second method: split the border into four strips of four squares, each strip starting at a corner and stopping one short of the next. Four times four is sixteen. The two methods agree. A common error is to say four sides of five squares: twenty. That counts each corner twice. Subtract the four corners and you get sixteen again. A second method is valuable precisely because it would have caught that mistake. For longer problems, label your cases as you go, and tick each one when it is finished. If you must leave a problem, write one line saying what to do next. Your future self will thank you. Record what you know and what comes next. Tick off finished cases. Then check the answer by a method that could not make the same mistake. Notebook challenge: find the number of border squares of a seven by seven grid in two different ways.",
       "audio_url": "",
-      "video_url": "media/T18.2.mp4?v=teaching-films-v1"
+      "video_url": "media/T18.2.mp4?v=seven-tile-border"
     },
     {
       "id": "T18.3",
@@ -633,7 +633,7 @@
       "chapter": "Choose a strategy, then learn from the decision",
       "transcript": "In a multiple-choice question, the options are information. You can test them, or rule some out, without solving the whole problem. But an option that merely looks familiar is not evidence. Every choice still has to be checked against the question. Question setters include options that match common mistakes, and options that match a step along the way. Using the options well, and rereading what was asked, protects you from both. Which of these numbers is a multiple of both four and nine: fifty-four, sixty-four, seventy-two, eighty-one or ninety? Pause and think about the quickest way to rule options out. A multiple of four is even, so eighty-one goes. Half of fifty-four is twenty-seven, which is odd, so fifty-four is not a multiple of four. The same happens with ninety. That leaves sixty-four and seventy-two. For nine, add the digits. Sixty-four gives ten, so it is not a multiple of nine. Seventy-two gives nine, so it is. The answer is seventy-two, option C. Two quick tests replaced any long division. Now the other trap. A book costs twelve dollars and a pen costs three dollars less. What do two pens cost? One pen costs nine dollars, and nine is among the options. But the question asks for two pens: eighteen. Always reread the request before choosing. When an equation is hard to solve directly, try the options in it. Suppose two times x plus five must be nineteen. Try six: the result is seventeen. Here bigger choices give bigger results, so try seven. That gives nineteen. Check how the expression changes before using a trial to choose a direction. Rule options out with quick tests. Do not choose a number just because it appeared in your working. Reread what was asked before you answer. Notebook challenge: which of forty-five, sixty, seventy-five and ninety is a multiple of both four and five?",
       "audio_url": "",
-      "video_url": "media/T18.3.mp4?v=teaching-films-v1"
+      "video_url": "media/T18.3.mp4?v=option-tickets"
     },
     {
       "id": "T18.E",
@@ -642,7 +642,7 @@
       "chapter": "Choose a strategy, then learn from the decision",
       "transcript": "Choose two different numbers from one, two, three, four, five and six. The order does not matter. How many choices have a sum of at least nine? To avoid counting any pair twice, always name the larger number first. Then organise the count by the larger number. If the larger number is six, the smaller must be at least three: three, four or five. That is three pairs. If the larger number is five, the smaller must be four: one pair. If the larger is four, the best sum is four plus three, which is only seven. No pairs. Three plus one is four. The pairs are three and six, four and six, five and six, and four and five. Check a different way, by the sum. Nine comes from three and six, or four and five. Ten comes from four and six. Eleven comes from five and six. Two plus one plus one is four. Notice that \"at least nine\" includes nine itself. Fix an order so nothing is counted twice, sort into cases, then check another way. Rebuild this, then count the pairs from one to six whose sum is at most five.",
       "audio_url": "",
-      "video_url": "media/T18.E.mp4?v=teaching-films-v1"
+      "video_url": "media/T18.E.mp4?v=triangular-pair-table"
     }
   ]
 }

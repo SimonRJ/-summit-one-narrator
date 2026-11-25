@@ -33,6 +33,9 @@ button {
 summary { cursor: pointer; color: #9cdbbc; padding-block: .4rem; }
 .transcript { margin-top: 1rem; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid #9cdbbc; outline-offset: 4px; }
+@media (orientation: landscape) and (max-height: 540px) {
+  video { width: auto; max-width: 100%; height: auto; max-height: calc(100svh - 20px); margin-inline: auto; }
+}
 </style>
 <link rel="stylesheet" href="topic-film-reading.css">
 <script defer src="topic-film-print.js"></script>
@@ -47,20 +50,18 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <h1>Turn a ratio into equal parts</h1>
 <p>Treat a ratio as a number of equal parts, and find the size of one part.</p>
 <video id="lesson" controls playsinline preload="metadata" aria-label="Turn a ratio into equal parts"
-  poster="media/T16.1-studio-poster.jpg?v=teaching-films-v1">
-  <source src="media/T16.1.mp4?v=teaching-films-v1" type="video/mp4">
+  poster="media/T16.1-studio-poster.jpg?v=bead-difference">
+  <source src="media/T16.1.mp4?v=bead-difference" type="video/mp4">
 </video>
 <p class="meta">1:51 · Full HD</p>
-<nav class="chapters" aria-label="Video chapters">
-<button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Interpret three parts for every two</button>
+<nav class="chapters" aria-label="Video chapters"><button type="button" data-time="0.000"><span class="chapter-clock">0:00</span> Interpret three parts for every two</button>
 <button type="button" data-time="15.000"><span class="chapter-clock">0:15</span> Find the value of one equal part</button>
 <button type="button" data-time="24.770"><span class="chapter-clock">0:25</span> Share forty stickers in the ratio 3 to 2</button>
 <button type="button" data-time="36.270"><span class="chapter-clock">0:36</span> Distribute five equal parts between Ana and Ben</button>
 <button type="button" data-time="49.240"><span class="chapter-clock">0:49</span> Use a difference of nine instead of a total</button>
 <button type="button" data-time="63.160"><span class="chapter-clock">1:03</span> Match B before joining two ratios</button>
 <button type="button" data-time="78.990"><span class="chapter-clock">1:19</span> Express the first share as a fraction of the whole</button>
-<button type="button" data-time="89.870"><span class="chapter-clock">1:30</span> Recover the total from sixteen extra red beads</button>
-</nav>
+<button type="button" data-time="89.870"><span class="chapter-clock">1:30</span> Recover the total from sixteen extra red beads</button></nav>
 <section class="exercise">
 <h2>Try it in your notebook</h2>
 <p>Red and blue beads are in the ratio 5 : 3, with 16 more red than blue. How many beads altogether?</p>
@@ -71,8 +72,7 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <p>A recipe mixes oats and seeds in the ratio 4 to 3 by mass. If there are 45 g more oats than seeds, what is the mass of the mixture?</p>
 <details><summary>See the worked answer</summary><p>The difference represents one equal part, so one part is 45 g. The mixture has 4 + 3 = 7 parts and weighs 7 × 45 = 315 g.</p></details>
 </section>
-<details class="transcript"><summary>Read the transcript</summary>
-<h2><span class="chapter-clock">0:00</span> Interpret three parts for every two</h2>
+<details class="transcript"><summary>Read the transcript</summary><h2><span class="chapter-clock">0:00</span> Interpret three parts for every two</h2>
 <p>A ratio of three to two means three equal parts of one thing for every two equal parts of another. The numbers three and two are not the amounts. They count parts. Find the size of one part, and everything else follows.</p>
 <h2><span class="chapter-clock">0:15</span> Find the value of one equal part</h2>
 <p>Ratios run through recipes, maps, mixtures and sharing problems. Nearly all of them are solved by the same step: work out what one part is worth.</p>
@@ -87,19 +87,9 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 <h2><span class="chapter-clock">1:19</span> Express the first share as a fraction of the whole</h2>
 <p>Ratios and fractions are two views of one picture. In the ratio three to two, the first share is three fifths of the whole, not three halves and not two thirds.</p>
 <h2><span class="chapter-clock">1:30</span> Recover the total from sixteen extra red beads</h2>
-<p>Count the parts. Use what you are told, a total, a difference or one share, to find one part. Then multiply. Notebook challenge: red and blue beads are in the ratio five to three, and there are sixteen more red than blue. How many beads are there altogether?</p>
-</details>
-<p><a href="media/T16.1.mp4?v=teaching-films-v1">Open the MP4 directly</a></p>
+<p>Count the parts. Use what you are told, a total, a difference or one share, to find one part. Then multiply. Notebook challenge: red and blue beads are in the ratio five to three, and there are sixteen more red than blue. How many beads are there altogether?</p></details>
+<p><a href="media/T16.1.mp4?v=bead-difference">Open the MP4 directly</a></p>
 </main>
-<script>
-const video = document.querySelector("#lesson");
-for (const button of document.querySelectorAll("[data-time]")) {
-  button.addEventListener("click", () => {
-    video.currentTime = Number(button.dataset.time);
-    video.play().catch(() => {});
-    video.scrollIntoView({block: "center"});
-  });
-}
-</script>
+<script src="lesson-video-chapters.js?v=seek-1"></script>
 </body>
 </html>
