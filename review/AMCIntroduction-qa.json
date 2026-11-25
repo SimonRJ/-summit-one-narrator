@@ -1,22 +1,98 @@
 {
-  "revision": "amc-introduction-20261113",
+  "revision": "course-welcome-target-clock-20261125",
   "title": "Think your way through \u00b7 Your AMC introduction",
-  "duration_seconds": 256.533333,
+  "duration_seconds": 260.533333,
   "resolution": "1920x1080",
   "fps": "30/1",
   "voice": "VoxCPM2 \u2014 approved voice C",
   "voice_reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
-  "old_audio_used": false,
   "name_removed_from_script_visuals_and_recognised_speech": true,
   "scenes": 18,
-  "word_alignment_percent": 97.91,
+  "word_alignment_percent": 98.28,
   "caption_layers": 1,
   "mathematics_checked": true,
   "full_decode_passed": true,
   "audio_stream_count": 1,
-  "audio_rms": 0.1099,
-  "script_words": 621,
-  "sources": "production/amc-introduction/sources.json",
-  "file_bytes": 11408481,
-  "sha256": "b79fef7d41101231b22bed42a554b4165671f83e63a5e2675dca9bfbfd5ae025"
+  "audio_rms": 0.1088,
+  "script_words": 638,
+  "sources": "production/standalone-review/welcome-sources.json",
+  "file_bytes": 11229966,
+  "sha256": "5373ccb4f27d875cbd2f05ce8aa4d5d57de25643529c2a434f58ef3e602bb9f5",
+  "other_voice_used": false,
+  "chapters": [
+    {
+      "start": 0,
+      "title": "Welcome"
+    },
+    {
+      "start": 15.53,
+      "title": "How the AMC works"
+    },
+    {
+      "start": 27.32,
+      "title": "Question formats"
+    },
+    {
+      "start": 39.16,
+      "title": "How marks add up"
+    },
+    {
+      "start": 53.76,
+      "title": "Using your time"
+    },
+    {
+      "start": 70.14,
+      "title": "Mathematical topics"
+    },
+    {
+      "start": 84.81,
+      "title": "The last digit of a power"
+    },
+    {
+      "start": 97.71,
+      "title": "Use the remainder"
+    },
+    {
+      "start": 109.69,
+      "title": "Counters in a ratio"
+    },
+    {
+      "start": 124.23,
+      "title": "Rectangles in a grid"
+    },
+    {
+      "start": 139.03,
+      "title": "Work backwards"
+    },
+    {
+      "start": 152.83,
+      "title": "Two-dice probability"
+    },
+    {
+      "start": 170.41,
+      "title": "Odd and even"
+    },
+    {
+      "start": 184.91,
+      "title": "Read the example"
+    },
+    {
+      "start": 197.82,
+      "title": "Watch the diagram"
+    },
+    {
+      "start": 213.86,
+      "title": "Practise on paper"
+    },
+    {
+      "start": 228.42,
+      "title": "Part A and Part B"
+    },
+    {
+      "start": 247.14,
+      "title": "Your first move"
+    }
+  ],
+  "previous_approved_performances_retained": 14,
+  "revised_approved_performances": 4
 }

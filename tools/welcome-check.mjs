@@ -35,7 +35,7 @@ try{
   await page.locator('#skipWelcome').click();await page.waitForURL('http://127.0.0.1:4181/');
   await page.goto('http://127.0.0.1:4181/welcome.html');
   const chapters = page.getByRole('navigation', {name:'Jump to a chapter'}).getByRole('button');
-  assert.equal(await chapters.count(), 5);
+  assert.equal(await chapters.count(), 18);
   for (const button of await chapters.all()) {
     const time = Number(await button.getAttribute('data-time'));
     await button.click();
@@ -51,7 +51,7 @@ try{
   await page.waitForFunction(() => document.querySelector('video').currentTime > .5);
   assert.equal(await pyramid.evaluate(film => film.videoWidth), 1920);
   await pyramid.evaluate(film => { film.pause(); film.textTracks[0].mode = 'hidden'; film.currentTime=33; });
-  await page.waitForFunction(() => document.querySelector('video').textTracks[0].cues?.length > 0);
+  await page.waitForFunction(() => [...document.querySelector('video').textTracks].find(track=>track.kind==='captions')?.cues?.length > 0);
   assert(await pyramid.evaluate(film => film.currentSrc.includes('AMC2025Q17-voice-c.mp4')));
   await page.getByText('Check your count', {exact:true}).click();
   assert((await page.locator('details[open]').innerText()).includes('2 × 2 = 4'));
