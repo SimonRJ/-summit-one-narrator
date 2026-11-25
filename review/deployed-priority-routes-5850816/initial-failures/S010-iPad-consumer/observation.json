@@ -1,0 +1,11 @@
+{
+  "failure": "Chapter progression exceeded30s",
+  "route": "S010 ipad-portrait consumer319",
+  "last_state": {
+    "time": 110.48,
+    "ready": 2,
+    "error": null
+  },
+  "assertions_unchanged_on_retry": true,
+  "inference": "Transient delivery possible; cause not established. Retain the actual failure and retry only this failed case."
+}

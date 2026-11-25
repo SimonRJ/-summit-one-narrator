@@ -1,0 +1,204 @@
+{
+  "run_id": 45512588528,
+  "source_commit": "8fb7e5e6e3fbe8923c9c5152368b89efdeadef9b",
+  "candidate_artifact_id": 14976994803,
+  "archive_sha256": "44326efa6acf7c9067732323365385659147d2569db5fe3f9d32f95c4603c786",
+  "asset_sha256": {
+    "S015-guide.json": "f5c01b3b8589c9b4ed1ec35f07c6fe398600cf71fc6face6d116886070d6ff62",
+    "S015-qa.json": "dfec393d610ffc74125bcb1e4fb759ab02b93d1b048cf9958b468463442f0567",
+    "S015-recording.zip": "f98f2552b13cbcedca044e6c2ae2cbe3c896791cce0d2bcb448a8a2f45a0a129",
+    "S015-poster.jpg": "412a65c1b6e8d93f040f319cea40f52a998e7b4214852de983a1dbc7b54bcb3f",
+    "S015.mp4": "f4bb4b7e43d5d0037680d07ff8b65a375fd552f865406657d7e2b259604eca52",
+    "S015.vtt": "f8055a1c7955a9da6d709031c7c57857cd24564464093967a8663bd6a858ca47"
+  },
+  "all_spoken_text_has_caption": true,
+  "word_count": 380,
+  "zero_duration_words": [
+    {
+      "text": "three",
+      "start": 30.74,
+      "end": 30.74,
+      "matched": true,
+      "scene": 2
+    },
+    {
+      "text": "hundred",
+      "start": 30.74,
+      "end": 30.74,
+      "matched": true,
+      "scene": 2
+    },
+    {
+      "text": "and",
+      "start": 30.74,
+      "end": 30.74,
+      "matched": true,
+      "scene": 2
+    },
+    {
+      "text": "forty",
+      "start": 30.74,
+      "end": 30.74,
+      "matched": true,
+      "scene": 2
+    },
+    {
+      "text": "four,",
+      "start": 30.74,
+      "end": 30.74,
+      "matched": true,
+      "scene": 2
+    },
+    {
+      "text": "Twenty",
+      "start": 48.379999999999995,
+      "end": 48.379999999999995,
+      "matched": true,
+      "scene": 3
+    },
+    {
+      "text": "four,",
+      "start": 48.379999999999995,
+      "end": 48.379999999999995,
+      "matched": true,
+      "scene": 3
+    },
+    {
+      "text": "Fifty",
+      "start": 52.199999999999996,
+      "end": 52.199999999999996,
+      "matched": true,
+      "scene": 3
+    },
+    {
+      "text": "four",
+      "start": 52.199999999999996,
+      "end": 52.199999999999996,
+      "matched": true,
+      "scene": 3
+    },
+    {
+      "text": "forty",
+      "start": 110.74,
+      "end": 110.74,
+      "matched": true,
+      "scene": 6
+    },
+    {
+      "text": "eight",
+      "start": 110.74,
+      "end": 110.74,
+      "matched": true,
+      "scene": 6
+    },
+    {
+      "text": "thirty",
+      "start": 120.78,
+      "end": 120.78,
+      "matched": true,
+      "scene": 7
+    },
+    {
+      "text": "five,",
+      "start": 120.78,
+      "end": 120.78,
+      "matched": true,
+      "scene": 7
+    },
+    {
+      "text": "Check",
+      "start": 125.02000000000001,
+      "end": 125.02000000000001,
+      "matched": true,
+      "scene": 7
+    }
+  ],
+  "zero_duration_numeric_words": [
+    {
+      "text": "three",
+      "start": 30.74,
+      "end": 30.74,
+      "matched": true,
+      "scene": 2
+    },
+    {
+      "text": "hundred",
+      "start": 30.74,
+      "end": 30.74,
+      "matched": true,
+      "scene": 2
+    },
+    {
+      "text": "forty",
+      "start": 30.74,
+      "end": 30.74,
+      "matched": true,
+      "scene": 2
+    },
+    {
+      "text": "four,",
+      "start": 30.74,
+      "end": 30.74,
+      "matched": true,
+      "scene": 2
+    },
+    {
+      "text": "Twenty",
+      "start": 48.379999999999995,
+      "end": 48.379999999999995,
+      "matched": true,
+      "scene": 3
+    },
+    {
+      "text": "four,",
+      "start": 48.379999999999995,
+      "end": 48.379999999999995,
+      "matched": true,
+      "scene": 3
+    },
+    {
+      "text": "Fifty",
+      "start": 52.199999999999996,
+      "end": 52.199999999999996,
+      "matched": true,
+      "scene": 3
+    },
+    {
+      "text": "four",
+      "start": 52.199999999999996,
+      "end": 52.199999999999996,
+      "matched": true,
+      "scene": 3
+    },
+    {
+      "text": "forty",
+      "start": 110.74,
+      "end": 110.74,
+      "matched": true,
+      "scene": 6
+    },
+    {
+      "text": "eight",
+      "start": 110.74,
+      "end": 110.74,
+      "matched": true,
+      "scene": 6
+    },
+    {
+      "text": "thirty",
+      "start": 120.78,
+      "end": 120.78,
+      "matched": true,
+      "scene": 7
+    },
+    {
+      "text": "five,",
+      "start": 120.78,
+      "end": 120.78,
+      "matched": true,
+      "scene": 7
+    }
+  ],
+  "bad_word_order": [],
+  "bad_captions": []
+}

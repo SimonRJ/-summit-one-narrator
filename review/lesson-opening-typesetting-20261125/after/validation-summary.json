@@ -1,0 +1,96 @@
+{
+  "app_renderer_data_commit": "585081646578fe8b0020d2dee831a8f853eb3bca",
+  "checker_sha256": "6b1d7dcf4691f0f803800d6e524db0061cbb5d553ef012b9944b8bbd6aa76eef",
+  "font_overlay_css_sha256": "e5e01df2ab094b176382b998a721dacf4951f012dae0de321881f013fad971b3",
+  "positive_cases": [
+    {
+      "name": "pc",
+      "lessons": 283,
+      "authored_text_preserved": true,
+      "typeset_expressions": 278,
+      "max_horizontal_overflow": 0,
+      "max_stage_scroll": 0,
+      "max_footer_overflow": -16
+    },
+    {
+      "name": "pc-1366x768",
+      "lessons": 283,
+      "authored_text_preserved": true,
+      "typeset_expressions": 278,
+      "max_horizontal_overflow": 0,
+      "max_stage_scroll": 0,
+      "max_footer_overflow": -16
+    },
+    {
+      "name": "pc-1280x720",
+      "lessons": 283,
+      "authored_text_preserved": true,
+      "typeset_expressions": 278,
+      "max_horizontal_overflow": 0,
+      "max_stage_scroll": 0,
+      "max_footer_overflow": -16
+    },
+    {
+      "name": "iphone-portrait",
+      "lessons": 283,
+      "authored_text_preserved": true,
+      "typeset_expressions": 278,
+      "max_horizontal_overflow": 0,
+      "max_stage_scroll": 489,
+      "max_footer_overflow": -13
+    },
+    {
+      "name": "iphone-landscape",
+      "lessons": 283,
+      "authored_text_preserved": true,
+      "typeset_expressions": 278,
+      "max_horizontal_overflow": 0,
+      "max_stage_scroll": 647,
+      "max_footer_overflow": -13
+    },
+    {
+      "name": "ipad-portrait",
+      "lessons": 283,
+      "authored_text_preserved": true,
+      "typeset_expressions": 278,
+      "max_horizontal_overflow": 0,
+      "max_stage_scroll": 0,
+      "max_footer_overflow": -16
+    },
+    {
+      "name": "ipad-landscape",
+      "lessons": 283,
+      "authored_text_preserved": true,
+      "typeset_expressions": 278,
+      "max_horizontal_overflow": 0,
+      "max_stage_scroll": 0,
+      "max_footer_overflow": -16
+    },
+    {
+      "name": "ipad-landscape-1024x768",
+      "lessons": 283,
+      "authored_text_preserved": true,
+      "typeset_expressions": 278,
+      "max_horizontal_overflow": 0,
+      "max_stage_scroll": 0,
+      "max_footer_overflow": -16
+    }
+  ],
+  "negative_cases": [
+    {
+      "name": "changed_authored_number",
+      "rejected": true,
+      "error": "Page.evaluate: Error: Different prompt or working in lesson 2\n    at eval (eval at evaluate (:290:30), <anonymous>:50:13)\n    at async <anonymous>:316:30"
+    },
+    {
+      "name": "added_working_text",
+      "rejected": true,
+      "error": "Page.evaluate: Error: Different prompt or working in lesson 2\n    at eval (eval at evaluate (:290:30), <anonymous>:50:13)\n    at async <anonymous>:316:30"
+    },
+    {
+      "name": "changed_rendered_annotation",
+      "rejected": true,
+      "error": "Page.evaluate: Error: Rendered mathematics differs from its preserved source\n    at authoredText (eval at evaluate (:290:30), <anonymous>:17:15)\n    at eval (eval at evaluate (:290:30), <anonymous>:41:20)\n    at async <anonymous>:316:30"
+    }
+  ]
+}

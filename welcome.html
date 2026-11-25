@@ -6,11 +6,9 @@
 <meta name="description" content="How AMC Upper Primary works, the ideas behind its problems, and your learning journey through Summit One.">
 
   <!-- Summit One editorial identity and genuine TeX mathematics -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.47/dist/katex.min.css">
-  <link rel="stylesheet" href="design-system.css?v=math-baseline-20261113">
+  <link rel="stylesheet" href="design-system.css?v=local-fonts-20261125">
   <script async src="https://cdn.jsdelivr.net/npm/katex@0.16.47/dist/katex.min.js" onload="window.dispatchEvent(new Event('summit:math-ready'))"></script>
   <script type="module" src="math-typography.js?v=math-label-fix-20261113"></script>
   <link rel="stylesheet" href="summit-polish.css?v=craft-20261121">
@@ -19,15 +17,28 @@
 <header class="topbar"><a class="brand" href="./" aria-label="Summit One home"><span class="brand-mark"><img src="summit-mark.svg" alt="" width="40" height="40"></span><span class="summit-wordmark">SUMMIT <span class="summit-wordmark-one">ONE</span></span></a><a class="quiet-link" href="./">Go to my learning</a></header>
 <main>
 <section class="intro" aria-labelledby="welcomeHeading"><p class="eyebrow">Your AMC journey</p><h1 id="welcomeHeading">Think your way through the AMC.</h1><p class="lead">Discover how Upper Primary works, the ideas behind its problems, and how you’ll learn to choose a method with confidence.</p></section>
-<div class="player-shell"><video id="welcomeVideo" controls playsinline preload="none" poster="media/AMCIntroduction-poster.jpg?v=amc-intro-20261113" src="media/AMCIntroduction.mp4?v=amc-intro-20261113" aria-label="Your animated introduction to AMC Upper Primary and learning with Summit One" aria-describedby="captionNote">Your browser cannot play this video. <a href="media/AMCIntroduction.mp4?v=amc-intro-20261113">Open the MP4</a> or use the transcript below.</video></div>
+<div class="player-shell"><video id="welcomeVideo" controls playsinline preload="none" poster="media/AMCIntroduction-poster.jpg?v=course-films-target-clock-20261125" src="media/AMCIntroduction.mp4?v=course-films-target-clock-20261125" aria-label="Your animated introduction to AMC Upper Primary and learning with Summit One" aria-describedby="captionNote">Your browser cannot play this video. <a href="media/AMCIntroduction.mp4?v=course-films-target-clock-20261125">Open the MP4</a> or use the transcript below.</video></div>
 <div class="actions"><button id="watchWelcome" class="button primary" type="button">Watch the introduction</button><a id="skipWelcome" class="button secondary" href="./">Skip to my learning</a><span id="videoDuration" class="meta">Full HD · Spoken captions</span></div>
 <p id="welcomeStatus" class="status" role="status" aria-live="polite">Watch now, or come back whenever you like.</p>
 <nav class="intro-chapters" aria-label="Jump to a chapter">
-  <button type="button" data-time="15.53"><span>0:15</span> How the AMC works</button>
-  <button type="button" data-time="84.81"><span>1:24</span> The last digit of a power</button>
-  <button type="button" data-time="109.69"><span>1:49</span> Counters in a ratio</button>
-  <button type="button" data-time="124.23"><span>2:04</span> Rectangles in a grid</button>
-  <button type="button" data-time="184.91"><span>3:04</span> How a lesson works</button>
+  <button type="button" data-time="0.000"><span>0:00</span> Welcome</button>
+  <button type="button" data-time="15.530"><span>0:15</span> How the AMC works</button>
+  <button type="button" data-time="27.320"><span>0:27</span> Question formats</button>
+  <button type="button" data-time="39.160"><span>0:39</span> How marks add up</button>
+  <button type="button" data-time="53.760"><span>0:53</span> Using your time</button>
+  <button type="button" data-time="70.140"><span>1:10</span> Mathematical topics</button>
+  <button type="button" data-time="84.810"><span>1:24</span> The last digit of a power</button>
+  <button type="button" data-time="97.710"><span>1:37</span> Use the remainder</button>
+  <button type="button" data-time="109.690"><span>1:49</span> Counters in a ratio</button>
+  <button type="button" data-time="124.230"><span>2:04</span> Rectangles in a grid</button>
+  <button type="button" data-time="139.030"><span>2:19</span> Work backwards</button>
+  <button type="button" data-time="152.830"><span>2:32</span> Two-dice probability</button>
+  <button type="button" data-time="170.410"><span>2:50</span> Odd and even</button>
+  <button type="button" data-time="184.910"><span>3:04</span> Read the example</button>
+  <button type="button" data-time="197.820"><span>3:17</span> Watch the diagram</button>
+  <button type="button" data-time="213.860"><span>3:33</span> Practise on paper</button>
+  <button type="button" data-time="228.420"><span>3:48</span> Part A and Part B</button>
+  <button type="button" data-time="247.140"><span>4:07</span> Your first move</button>
 </nav>
 <section class="notes" aria-label="Video text and background"><p id="captionNote" class="footer">The spoken words appear in the video. You can also read the complete transcript below. Watching or skipping does not change your progress.</p>
 <details><summary>Read the introduction</summary><div class="transcript"><p>Welcome to Summit One. A huge number, a hidden pattern, a puzzling shape: each is an invitation to think. Here you&#x27;ll build the habits and methods to tackle unfamiliar Australian Mathematics Competition problems with confidence.</p>
@@ -43,16 +54,16 @@
 <p>Five is subtracted from a number, the result is doubled, then seven is added, giving thirty-one. Undo the steps in reverse: subtract seven, halve, then add five. The starting number is seventeen.</p>
 <p>Counting and probability need organised cases. Roll two fair six-sided dice. Six ordered outcomes add to seven, from thirty-six equally likely outcomes. The probability is one sixth. A table helps you count every case exactly once.</p>
 <p>Can fifteen counters split into two equal whole-number groups? Pair them: one is left over. This is parity. Along with colouring and things that stay unchanged, it can rule out impossible answers. You&#x27;ll learn to explain why.</p>
-<p>Each lesson starts with the idea: what it solves, why it helps, and clues that tell you when to use it. A small worked example makes the method visible before the challenge grows.</p>
-<p>Five quick A or B choices practise useful decisions. For the rectangle problem, should you count squares only, or choose pairs of boundary lines? Choose the lines. The aim is to recognise the next move, then understand why it works.</p>
-<p>Next, you&#x27;ll practise with support, solve independently, then meet a different-looking problem using the same idea. Explain your plan and check your answer. The numbers and stories change, so you learn methods you can carry into unseen questions.</p>
-<p>Mock exams bring the methods together under a timer. Afterwards, review your answers and worked solutions. Notice whether the difficulty was reading, choosing a method, calculating or checking. Repair that skill, then revisit it later.</p>
+<p>Start a lesson with Read. Try the small example on paper before you open a step. If you get stuck, reveal the first step. Then uncover the rest and see where your method matches.</p>
+<p>On Watch, follow the moving diagram. Think about the rectangle example. Choose two horizontal boundaries and two vertical boundaries. Their intersections mark one rectangle. Pause to predict the next move, or replay a chapter to see how it works.</p>
+<p>In Practise, work on paper and enter your final answer. Check it, then compare your working with the solution. If you used a hint or someone helped, record that too. For a missed answer, find the first step you would change.</p>
+<p>In the Test Centre, Part A covers questions one to twenty. The clock counts up from zero. Aim for every answer correct in twenty minutes or less. Part B covers questions twenty-one to thirty. It has a forty-minute limit. After either part, open your report to review your answers.</p>
 <p>You don&#x27;t need every answer today. Start with a clue, draw a picture, try a small case, and build from there. Each thoughtful attempt strengthens your toolkit. Let&#x27;s begin.</p>
 </div></details>
 <details><summary>Exam facts and sources</summary><div class="sources"><p>The Australian Maths Trust lists the 2027 AMC for 3–5 August. Upper Primary has 30 questions in 60 minutes. Your school will confirm your sitting and permitted equipment.</p><ul>
 <li><a href="https://amt.edu.au/amc" target="_blank" rel="noopener">Australian Maths Trust: AMC</a> — divisions, timing, question formats, topics, scoring and incorrect responses.</li>
 <li><a href="https://amt.edu.au/wp-content/uploads/2026/2026-Competitions-Handbook.pdf" target="_blank" rel="noopener">AMT competition handbook</a> — permitted equipment and exam procedures. The 2026 handbook permits pocket or scientific calculators in Upper Primary.</li>
-<li><a href="https://imath.com.au/download/AMC/Y5-6/2021%20AMC%20Y5-6.pdf" target="_blank" rel="noopener">AMT Upper Primary paper instructions</a> (hosted by iMath) — five multiple-choice options, integer answers from 0 to 999, and increasing challenge.</li>
+<li><a href="https://www.99cef.org.tw/wp-content/uploads/2026/01/2024-AMC-Upper-Primary-Traditional-Chinese-2.pdf" target="_blank" rel="noopener">AMT Upper Primary paper instructions</a> (2024 bilingual edition) — five multiple-choice options, integer answers from 0 to 999, and increasing challenge.</li>
 </ul><p>In Summit One, Part A practises questions 1–20 with a 20-minute target. Part B gives you 40 minutes for questions 21–30. After either part, open your report to revisit the questions you missed.</p></div></details>
-<a class="media-link" href="media/AMCIntroduction.mp4?v=amc-intro-20261113">Open the full-HD video directly</a><p class="footer">Summit One · Original animation and synthetic narration</p>
-</section></main></div><script defer src="lesson-video-chapters.js?v=chapter-seek-20261122"></script><script type="module" src="welcome.js?v=chapter-navigation-20261122"></script></body></html>
+<a class="media-link" href="media/AMCIntroduction.mp4?v=course-films-target-clock-20261125">Open the full-HD video directly</a><p class="footer">Summit One · Original animation and synthetic narration</p>
+</section></main></div><script defer src="lesson-video-chapters.js?v=chapter-seek-20261122"></script><script type="module" src="welcome.js?v=course-films-target-clock-20261125"></script></body></html>

@@ -164,6 +164,10 @@ async def verify(site, lesson, profile, digest, output, *, consumer_slot=None):
                     device[key] = {'width': rect['height'], 'height': rect['width']}
         browser = await (pw.webkit.launch() if engine == 'webkit' else pw.chromium.launch(channel='chrome'))
         context = await browser.new_context(**device, service_workers='block')
+        # A measured public-route trace took 40 s to reach DOM readiness:
+        # HTML and the imported font stylesheet each took about 20 s.
+        # Keep action, grading and playback deadlines independent of navigation.
+        context.set_default_navigation_timeout(60000)
         # Use the existing in-memory course backend. Test both outcomes using dummy responses.
         fixture = MOCK.replace("correct:true,independent_credit:", "correct:body.answer_text!=='fixture-miss',independent_credit:")
         assert fixture != MOCK
@@ -269,11 +273,26 @@ async def verify(site, lesson, profile, digest, output, *, consumer_slot=None):
                       'notebook_frame_css_pixels':notebook_frame, 'worked_example':worked_example}
             (output / 'result.json').write_text(json.dumps(result, indent=2) + '\n')
             print(json.dumps(result), flush=True)
-        except Exception:
-            print('Stopped at', page.url, await page.locator('video').evaluate_all(
-                'videos => videos.map(v => ({src: v.currentSrc, time: v.currentTime, ready: v.readyState, error: v.error?.code}))'
-            ), flush=True)
-            await page.screenshot(path=output / 'failure.png', timeout=5000)
+        except Exception as error:
+            # Diagnostics must never replace the original failed assertion.
+            failure = {'type': type(error).__name__, 'error': str(error), 'url': page.url,
+                       'lesson': lesson, 'slot': slot, 'profile': profile}
+            try:
+                failure['videos'] = await asyncio.wait_for(page.locator('video').evaluate_all(
+                    'videos => videos.map(v => ({src: v.currentSrc, time: v.currentTime, ready: v.readyState, '
+                    'paused: v.paused, seeking: v.seeking, ended: v.ended, error: v.error?.code}))'
+                ), timeout=5)
+            except Exception as diagnostic_error:
+                failure['video_diagnostic_error'] = str(diagnostic_error)
+            try:
+                await page.screenshot(path=output / 'failure.png', timeout=5000)
+            except Exception as diagnostic_error:
+                failure['screenshot_error'] = str(diagnostic_error)
+            print('Stopped at', json.dumps(failure), flush=True)
+            try:
+                (output / 'failure.json').write_text(json.dumps(failure, indent=2) + '\n')
+            except OSError as diagnostic_error:
+                print('Could not save failure diagnostic:', diagnostic_error, flush=True)
             raise
         finally:
             await browser.close()

@@ -1,0 +1,180 @@
+{
+  "film": "S020",
+  "sha256": "5308674d7d66dee6545d05699311a192b13e2fce2d48b6d2f560ec35ce1e57f3",
+  "guide": {
+    "title": "Clock turns and last digits",
+    "seconds": 191.233333,
+    "chapters": [
+      {
+        "title": "Returning to the start",
+        "start": 0.0
+      },
+      {
+        "title": "Write one cycle",
+        "start": 14.68
+      },
+      {
+        "title": "Seventeen hours later",
+        "start": 31.0
+      },
+      {
+        "title": "Five hours beyond a full turn",
+        "start": 44.89
+      },
+      {
+        "title": "The 37th power",
+        "start": 58.01
+      },
+      {
+        "title": "The four last digits",
+        "start": 73.82
+      },
+      {
+        "title": "Sum the first 51 powers",
+        "start": 98.93
+      },
+      {
+        "title": "Add complete blocks",
+        "start": 116.02
+      },
+      {
+        "title": "Exponent 49, position one",
+        "start": 138.433
+      },
+      {
+        "title": "When the remainder is zero",
+        "start": 155.633
+      },
+      {
+        "title": "Count blocks and tail",
+        "start": 170.513
+      }
+    ],
+    "transcript": [
+      "A cycle brings the same states back in the same order. Track where a full cycle ends and how many extra steps you take. When all you need is a last digit, you can multiply last digits and leave the rest of the number behind.",
+      "AMC Upper Primary practice can use a repeating picture, a clock or the last digit of a large power. Write a small first cycle. A Mawa style investigation can change the base or the number of steps. Check whether the cycle length stays the same.",
+      "It is nine o'clock on a twelve-hour clock. What number will the hour hand point to after seventeen hours? Start by removing any whole turns that bring you back to the same place.",
+      "Every twelve hours returns to the starting number. The seventeen hours leave five extra hours after full turns. Step five hours ahead. Wrap past twelve if needed, so the hour hand points to two.",
+      "What is the units digit of three to the power thirty-seven? Work with just the units digits of its first few powers. Watch for the first repeat. A remainder of zero will need a careful interpretation.",
+      "The first four units digits are three, nine, seven and one. The next digit repeats the first, and the same multiplication rule gives the same later digits. The exponent thirty-seven leaves a remainder of one on division by four. Use position one in the cycle. The digit at that position is three. If the remainder is zero, the fourth position sits at the end of the last full cycle.",
+      "Add the first fifty-one positive powers of three, starting with exponent one. What is the units digit of the sum? You already know the cycle of the last digits. Work out what one whole block contributes to the sum.",
+      "One full cycle has units digits three, nine, seven and one. Their sum is twenty, with units digit zero. There are twelve full cycles and three terms left. Every completed block contributes zero to the units digit. Add the first three digits of the cycle. Their sum is nineteen, so the final units digit is nine.",
+      "The first forty-eight powers make twelve full blocks. The next exponent is forty-nine. Its last digit is back at position one in the cycle. The last three digits to add are three, nine, and seven. Their sum is nineteen, so the units digit is nine.",
+      "If the step count is a multiple of the cycle length, land on the last listed item when the cycle was numbered from one. For a sum, add the contributions of the earlier terms as well as the final term. Check the total contributed by each full cycle.",
+      "Record states in order. Find the first state you can recognise again, and count the length from one occurrence to the next. Divide by the cycle length and use the remainder. When the task asks for a sum, work out what the full cycles contribute."
+    ],
+    "bridge": "For the sum in the film, 12 complete blocks use exponents 1 to 48. The next exponent is 49: which position is that in the repeating pattern of last digits?",
+    "sha256": "5308674d7d66dee6545d05699311a192b13e2fce2d48b6d2f560ec35ce1e57f3",
+    "release": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s020-stable-captions-20261125-0dfec081086f/"
+  },
+  "learner_routes": [
+    {
+      "file": "data/read-watch-practise.json",
+      "slot": 20,
+      "headline": "Mark the end of one full turn",
+      "intro": "A clock returns to its starting position after a whole turn. The last digits of certain powers repeat too: multiplying by the same number sends each last digit to a predictable next one. Track a single cycle, then skip complete turns.",
+      "example": {
+        "prompt": "A sign repeats the four readings 1, 2, 3, 4, beginning with 1. What does it show on the 12th reading?",
+        "steps": [
+          "Readings 1\u20134 make the first full block. Readings 5\u20138 make the second, and 9\u201312 the third.",
+          "The 12th reading is the last one in its block, so it shows 4. Reading 13 then goes back to 1."
+        ],
+        "prediction": "Mark off the readings in blocks of four. Where does reading 12 sit in its block?"
+      },
+      "bridge": "For the sum in the film, 12 complete blocks use exponents 1 to 48. The next exponent is 49: which position is that in the repeating pattern of last digits?",
+      "recap": "Number the positions in a cycle from 1. A multiple of the cycle length lands on the last position. In a sum, add the contribution of every full block before the tail. An exponent keeps increasing even when its last-digit position goes back to 1.",
+      "skill": "DIV-05",
+      "videoId": "S020",
+      "videoTitle": "Clock turns and last digits",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s020-stable-captions-20261125-0dfec081086f/S020.mp4",
+      "retained": [
+        "O020T",
+        "O020X"
+      ],
+      "questions": [
+        {
+          "id": "RWL1-020-A",
+          "title": "A long watch",
+          "prompt": "A 12-hour clock shows 4 o\u2019clock. What number will the hour hand point to exactly 53 hours later?",
+          "hint": "Which multiple of 12 can you remove from 53?"
+        },
+        {
+          "id": "RWL1-020-B",
+          "title": "The final place",
+          "prompt": "What is the units digit of 8 raised to the power 72?",
+          "hint": "Build the last digits of the first four positive powers of 8 in order."
+        },
+        {
+          "id": "RWL1-020-C",
+          "title": "Adding powers",
+          "prompt": "What is the units digit of the sum of the first 34 positive powers of 2, starting with 2\u00b9?",
+          "hint": "Does a full block of four change the units digit of the sum?"
+        },
+        {
+          "id": "RWL1-020-D",
+          "title": "An enormous exponent",
+          "prompt": "Let P be 3 raised to the power 19. What is the units digit of 7 raised to the power P?",
+          "hint": "Write the first few powers of 7 as last digits. What information about the exponent determines the position in that cycle?"
+        }
+      ],
+      "filmUse": "dedicated"
+    },
+    {
+      "file": "data/read-watch-practise-later.json",
+      "slot": 283,
+      "headline": "Index one full cycle",
+      "intro": "The last digit of a product depends only on the last digits of its factors. Repeated multiplication may settle into a short cycle. Label the first term carefully before reducing a large exponent.",
+      "bridge": "In the film's powers of three, label the exponent above each last digit. Find the first repeated digit together with its position before tackling the sum of many powers.",
+      "recap": "Label the positions in a cycle 1, 2, 3 and so on. For a four-step cycle, test exponent 4 and exponent 5 first. Those two checks show exactly where one cycle ends and the next begins.",
+      "example": {
+        "prompt": "What is the last digit of 2 to the sixth power?",
+        "steps": [
+          "Starting at exponent 1 the last digits are 2, 4, 8, 6, then repeat.",
+          "Exponent 6 is in the second position of the next cycle, so the last digit is 4."
+        ],
+        "prediction": "Write the last digits with their exponents underneath. Where does exponent 6 fall in the cycle?"
+      },
+      "skill": "DIV-05",
+      "videoId": "S020",
+      "videoTitle": "Clock turns and last digits",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s020-stable-captions-20261125-0dfec081086f/S020.mp4",
+      "filmUse": "technique",
+      "retained": [
+        "O283T",
+        "O283X"
+      ],
+      "questions": [
+        {
+          "id": "RWL2-283-A",
+          "family": "DIV-05:continuation:A",
+          "title": "Powers of nine",
+          "prompt": "What is the last digit of 9 to the seventeenth power?",
+          "hint": "Write the last digit of the first few powers."
+        },
+        {
+          "id": "RWL2-283-B",
+          "family": "DIV-05:continuation:B",
+          "title": "Find the next index",
+          "prompt": "A display shows the units digit of 7 raised to successive positive integer powers. What is the first exponent strictly greater than 20 for which the display shows 1?",
+          "hint": "Find which position in a cycle shows 1 and check the strict lower bound."
+        },
+        {
+          "id": "RWL2-283-C",
+          "family": "DIV-05:continuation:C",
+          "title": "Combine two powers",
+          "prompt": "What is the last digit of 2\u00b2\u00b3 + 3\u00b9\u2074?",
+          "hint": "Reduce each exponent in its own last-digit cycle."
+        },
+        {
+          "id": "RWL2-283-D",
+          "family": "DIV-05:continuation:D",
+          "title": "The lamp changes hourly",
+          "prompt": "A dial shows the last digit of 7\u207f at hour n, starting at hour 1. Over hours 1 through 50 inclusive, how many times does it show 9?",
+          "hint": "Locate 9 in one four-hour cycle."
+        }
+      ]
+    }
+  ],
+  "checker_sha256": "d4b9919eae0d52bc25cab2874541c33325b6b39fcd4d517f68b1708495cb2cca",
+  "scope": "Staged application with public immutable release media; fixture learner backend and blocked Supabase."
+}

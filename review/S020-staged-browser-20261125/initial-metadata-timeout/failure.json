@@ -1,0 +1,19 @@
+{
+  "type": "TimeoutError",
+  "error": "Page.wait_for_function: Timeout 60000ms exceeded.",
+  "url": "http://127.0.0.1:35709/watch-lesson-intro.html?slot=20",
+  "lesson": "S020",
+  "slot": 20,
+  "profile": "ipad-portrait",
+  "videos": [
+    {
+      "src": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s020-stable-captions-20261125-0dfec081086f/S020.mp4",
+      "time": 0,
+      "ready": 0,
+      "paused": true,
+      "seeking": false,
+      "ended": false,
+      "error": null
+    }
+  ]
+}

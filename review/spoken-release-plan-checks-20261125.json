@@ -1,0 +1,69 @@
+{
+  "scope": "Helper regression using actual local packages with synthetic successful API metadata; not evidence of live production completion",
+  "positive_plans": [
+    {
+      "lesson": "S019",
+      "fixture_success_plan": "passed",
+      "production_success_claimed": false,
+      "slots": [
+        19,
+        333
+      ]
+    },
+    {
+      "lesson": "S020",
+      "fixture_success_plan": "passed",
+      "production_success_claimed": false,
+      "slots": [
+        20,
+        283
+      ]
+    },
+    {
+      "lesson": "S102",
+      "fixture_success_plan": "passed",
+      "production_success_claimed": false,
+      "slots": [
+        102,
+        296
+      ]
+    }
+  ],
+  "rejected_cases": [
+    {
+      "case": "queued workflow",
+      "message": "Production render, playback and release gates have not all succeeded"
+    },
+    {
+      "case": "wrong source",
+      "message": "Wrong production source commit"
+    },
+    {
+      "case": "wrong public digest",
+      "message": "Public GitHub digest does not match downloaded asset: S102.mp4"
+    },
+    {
+      "case": "different saved take",
+      "message": "S102 does not use the one preserved Voice C take"
+    },
+    {
+      "case": "wrong mathematical total",
+      "message": "S102 digit pairing or count differs from the checked correction"
+    },
+    {
+      "case": "missing passage timing",
+      "message": "S102 lacks all four measured spoken-number passages"
+    },
+    {
+      "case": "incomplete picture checks",
+      "message": "S102 lacks complete encoded-picture comparisons"
+    }
+  ],
+  "source_data_unchanged": true,
+  "editorial_completion_awarded": false,
+  "S102_generator_overrides": [
+    "S102",
+    "S296"
+  ],
+  "S102_regeneration_preserves_both_corrected_bridges": true
+}

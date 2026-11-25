@@ -90,74 +90,13 @@ def background(top, bottom, scale):
 
 
 def caption(art, cue, words, t):
-    """One phrase band, with smoothly moving word-weight emphasis in its final recording."""
-    all_words = cue["text"].split()
-    # Use the printed spelling and measured words in order, including split captions.
-    word_starts = [w["start"] for w in words]
-    i = bisect.bisect_left(word_starts, cue["start"] - 0.055)
-    positions = words[i : i + len(all_words)]
-    if " ".join(w["text"] for w in positions).casefold() != cue["text"].casefold():
-        for k in range(max(0, i - 3), min(i + 4, len(words))):
-            sub = words[k : k + len(all_words)]
-            if " ".join(w["text"] for w in sub).casefold() == cue["text"].casefold():
-                positions = sub
-                break
-    if len(positions) != len(all_words):
-        positions = []
-    size = 38
-    gap = art.px(10)
+    """Draw one stable bold phrase; only the complete band fades at cue boundaries.
 
-    def widths():
-        return [
-            max(lettering(w, art.px(size), WHITE, b).width for b in (False, True))
-            for w in all_words
-        ]
-
-    ws = widths()
-    while sum(ws) + gap * (len(ws) - 1) > art.px(1200) and size > 28:
-        size -= 1
-        ws = widths()
-    total = sum(ws) + gap * (len(ws) - 1)
-    x = (art.image.width - total) // 2
-    opacity = min(ease((t - cue["start"]) / 0.08), ease((cue["end"] - t) / 0.11))
-    if opacity <= 0:
-        return
-    art.box(
-        (1280 - total / art.scale) / 2 - 18,
-        631,
-        total / art.scale + 36,
-        66,
-        fill="#101820",
-        radius=15,
-        opacity=opacity,
-    )
-    for idx, (w, width) in enumerate(zip(all_words, ws)):
-        emphasis = 0
-        if positions:
-            pos = positions[idx]
-            emphasis = min(
-                ease((t - pos["start"] + 0.06) / 0.15),
-                ease((pos["end"] - t + 0.13) / 0.18),
-            )
-        # A thin regular glyph plus a soft overlay of its heavier counterpart produces
-        # one legible word throughout; both layers share the reserved advance width.
-        light = lettering(w, art.px(size), WHITE, False)
-        bold = lettering(w, art.px(size), WHITE, True)
-        if emphasis < 1:
-            art.paste(
-                light,
-                x + (width - light.width) // 2,
-                art.px(664) - light.height // 2,
-                opacity * (1 - emphasis),
-            )
-        if emphasis > 0:
-            art.paste(
-                bold,
-                x + (width - bold.width) // 2,
-                art.px(664) - bold.height // 2,
-                opacity * emphasis,
-            )
-        x += width + gap
+    Regular/bold glyph cross-fades drew two different outlines during emphasis
+    transitions. This is the same single-layer treatment used by the
+    S020 correction; measured word times still drive the teaching animation.
+    """
+    art.caption(cue, t)
 
 
 def frames_for(id, voice):

@@ -1,0 +1,24 @@
+{
+  "id": "S015",
+  "source_master_sha256": "f4bb4b7e43d5d0037680d07ff8b65a375fd552f865406657d7e2b259604eca52",
+  "source_candidate_archive_sha256": "44326efa6acf7c9067732323365385659147d2569db5fe3f9d32f95c4603c786",
+  "corrected_recording_files": {
+    "script.json": "bba29b9483b8af9333a35b2d6fa081bcf51830b46eba1d9460c3116b3bd01bd3",
+    "timeline.json": "75c21b50f091cb1ddf406543d4e6a2d974284bba2103e904e63144c5e1f7eeee",
+    "captions.vtt": "454a67c2d6055ca95bceb86a8c4671d2eb762c494f9ef4b73b5620418c5ec7a8",
+    "narration.flac": "e83867aef95fc400d4644647bc9d001efb0dc243577a5f5d2792574b09164bd5"
+  },
+  "reviewed_scenes": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "changed_word_timings": 62,
+  "lossless_audio_preserved": true,
+  "new_recognition": false,
+  "new_synthesis": false
+}

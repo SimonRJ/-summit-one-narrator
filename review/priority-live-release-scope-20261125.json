@@ -1,0 +1,66 @@
+{
+  "base_commit": "585081646578fe8b0020d2dee831a8f853eb3bca",
+  "reviewed_commit_before_manifest": "3ff51ef0b56f6513c60bb48f8e5c10a542d48282",
+  "all_1132_practice_items_unchanged": true,
+  "practice_editions_unchanged": true,
+  "questions_and_solution_hash_overrides_unchanged": true,
+  "database_or_authentic_archive_changes": false,
+  "lesson_field_changes": [
+    {
+      "slot": 15,
+      "fields": [
+        "filmUse",
+        "movie",
+        "videoTitle"
+      ]
+    },
+    {
+      "slot": 20,
+      "fields": [
+        "filmUse",
+        "movie",
+        "videoTitle"
+      ]
+    },
+    {
+      "slot": 102,
+      "fields": [
+        "bridge",
+        "movie"
+      ]
+    },
+    {
+      "slot": 260,
+      "fields": [
+        "bridge",
+        "movie",
+        "videoTitle"
+      ]
+    },
+    {
+      "slot": 283,
+      "fields": [
+        "movie",
+        "videoTitle"
+      ]
+    },
+    {
+      "slot": 296,
+      "fields": [
+        "bridge",
+        "movie"
+      ]
+    }
+  ],
+  "changed_media_paths": [
+    "media/AMC2025Q17-voice-c.mp4",
+    "media/AMC2025Q17-voice-c.vtt",
+    "media/AMCIntroduction-transcript.txt",
+    "media/AMCIntroduction.mp4",
+    "media/AMCIntroduction.vtt",
+    "media/T18.1.mp4",
+    "media/T18.1.vtt"
+  ],
+  "protected_T02_1_and_T02_2_unchanged": true,
+  "final_editorial_credit": false
+}

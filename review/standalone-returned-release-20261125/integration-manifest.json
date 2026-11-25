@@ -1,0 +1,144 @@
+{
+  "checked_at_utc": "2026-11-25T01:37:51.951437+00:00",
+  "source_commit": "f9d8a50933df49be4e79e7e3943497bfbf3c1321",
+  "workflow_run": 45497911900,
+  "staged_commit": "1eab12f64b29dcf779f2ef5a5e7322363a75c0a9",
+  "public_release": "standalone-checked-20261125-f9d8a50933df",
+  "returned_players_artifact": {
+    "id": 14977651001,
+    "bytes": 13495130,
+    "sha256": "462f94ed5e0a8adf4997650c9bca35de5d47447f1f4e9c46feb489bab3156e15"
+  },
+  "files": [
+    {
+      "path": "media/AMC2025Q17-voice-c.mp4",
+      "bytes": 1995396,
+      "sha256": "10c454496ef92f044a50841ebffc0f7711afc5432997386f577560cf4737950d",
+      "git_blob_sha": "16ef5eefb19c692dc0c185f144c01f5f503d63ac",
+      "returned_and_staged_blob_sha": "16ef5eefb19c692dc0c185f144c01f5f503d63ac",
+      "byte_identical_to_returned": true,
+      "intentional_difference": null
+    },
+    {
+      "path": "media/AMC2025Q17-voice-c.vtt",
+      "bytes": 1394,
+      "sha256": "58d056c1b578c5004cef22a92f7e1b02d201800d4d7cfce6e853827504e4a162",
+      "git_blob_sha": "aec32b8a879c70b798b1b457482529724334b230",
+      "returned_and_staged_blob_sha": "aec32b8a879c70b798b1b457482529724334b230",
+      "byte_identical_to_returned": true,
+      "intentional_difference": null
+    },
+    {
+      "path": "media/AMCIntroduction-transcript.txt",
+      "bytes": 3891,
+      "sha256": "0beb6d68e9695800cc5a42965eb231a41b5dc27d6c97f701bf33f7bb0e5f31f9",
+      "git_blob_sha": "51792518d4445a9d6ed5dd0c0e74b47a2f841252",
+      "returned_and_staged_blob_sha": "51792518d4445a9d6ed5dd0c0e74b47a2f841252",
+      "byte_identical_to_returned": true,
+      "intentional_difference": null
+    },
+    {
+      "path": "media/AMCIntroduction.mp4",
+      "bytes": 11229966,
+      "sha256": "5373ccb4f27d875cbd2f05ce8aa4d5d57de25643529c2a434f58ef3e602bb9f5",
+      "git_blob_sha": "e6daed99bbbced04fb6e148ba9a5aec66d89fd50",
+      "returned_and_staged_blob_sha": "e6daed99bbbced04fb6e148ba9a5aec66d89fd50",
+      "byte_identical_to_returned": true,
+      "intentional_difference": null
+    },
+    {
+      "path": "media/AMCIntroduction.vtt",
+      "bytes": 6840,
+      "sha256": "73ea9d236dfa44687d44f39339bb5f85e67c0d5ef305dda3767ba0419bf86313",
+      "git_blob_sha": "6f89c46283dfbb37ed4ec9543dd092dcc96ff701",
+      "returned_and_staged_blob_sha": "6f89c46283dfbb37ed4ec9543dd092dcc96ff701",
+      "byte_identical_to_returned": true,
+      "intentional_difference": null
+    },
+    {
+      "path": "review/AMC2025Q17-edition.json",
+      "bytes": 1323,
+      "sha256": "4790c5150f008dfdca2c334ce696768e9b98941e66b5d0f354caddd4cb4b0ad3",
+      "git_blob_sha": "e747b33baa65f70f12120562cafc870a1668c230",
+      "returned_and_staged_blob_sha": "e747b33baa65f70f12120562cafc870a1668c230",
+      "byte_identical_to_returned": true,
+      "intentional_difference": null
+    },
+    {
+      "path": "review/AMCIntroduction-alignment-qa.json",
+      "bytes": 1483,
+      "sha256": "e4cb4ca14f716d24e83af8aef44e34fb098330b835086efc798511e4f0f4b83b",
+      "git_blob_sha": "bd9de8810feddb5f78d07d34040c45f8fa8bc23d",
+      "returned_and_staged_blob_sha": "bd9de8810feddb5f78d07d34040c45f8fa8bc23d",
+      "byte_identical_to_returned": true,
+      "intentional_difference": null
+    },
+    {
+      "path": "review/AMCIntroduction-qa.json",
+      "bytes": 2186,
+      "sha256": "4357f89e3236096e647f9be3701e3e0c88c9078695f3a4556d10fd651be3cbfa",
+      "git_blob_sha": "5f2b020c8f3d5d2dfb6e696448f8c404f889dd14",
+      "returned_and_staged_blob_sha": "5f2b020c8f3d5d2dfb6e696448f8c404f889dd14",
+      "byte_identical_to_returned": true,
+      "intentional_difference": null
+    },
+    {
+      "path": "tools/welcome-check.mjs",
+      "bytes": 9630,
+      "sha256": "53c3568d3073548091e6efd9be369f7aaf29c79caf5a3c48108bec28e1d7b797",
+      "git_blob_sha": "a3077ee5bba1653345c0437b5ac9b4e4a500dd0c",
+      "returned_and_staged_blob_sha": "a3077ee5bba1653345c0437b5ac9b4e4a500dd0c",
+      "byte_identical_to_returned": true,
+      "intentional_difference": null
+    },
+    {
+      "path": "watch-amc-2025-q17.html",
+      "bytes": 6333,
+      "sha256": "d518e04519ef66eef4f956011a4f6161c73686c7bb9be21e7f5be9d88f61b568",
+      "git_blob_sha": "5fc29b88ec3afba9a74cec59e6dc1d169507ef30",
+      "returned_and_staged_blob_sha": "08b01934a82c264281cf22785269180be9f3f8ed",
+      "byte_identical_to_returned": false,
+      "intentional_difference": "Retain local-font stylesheet references and remove obsolete Google Fonts preconnects."
+    },
+    {
+      "path": "welcome.html",
+      "bytes": 10364,
+      "sha256": "4ac46b6820394da64fafa7c483af688bc4418515e4dd8a28ebea7780409ac1a4",
+      "git_blob_sha": "bde5f986e19ad3d1c2526070c7f1c0ff6abcad37",
+      "returned_and_staged_blob_sha": "1a0ba51f8dc40ffc5b8e1c0868bbf94dee95ffcb",
+      "byte_identical_to_returned": false,
+      "intentional_difference": "Retain local-font stylesheet references and remove obsolete Google Fonts preconnects."
+    },
+    {
+      "path": "welcome.js",
+      "bytes": 2639,
+      "sha256": "b795cd5ea8b2c1d7e6c5b48f35d28080a94d967b455e5f753692ba7f6e3a0825",
+      "git_blob_sha": "e76a9ae5cf05b2ee6811d1a979c18fd85ac0a807",
+      "returned_and_staged_blob_sha": "e76a9ae5cf05b2ee6811d1a979c18fd85ac0a807",
+      "byte_identical_to_returned": true,
+      "intentional_difference": null
+    }
+  ],
+  "all_12_returned_blobs_match_staged_commit": true,
+  "only_font_reference_differences_in_integrated_html": true,
+  "public_release_assets_digest_verified": 8,
+  "checked_profiles": [
+    "ipad-landscape",
+    "ipad-portrait",
+    "iphone-landscape",
+    "iphone-portrait",
+    "pc"
+  ],
+  "full_replay_to_end_profile": "iphone-portrait",
+  "focus_frames": [
+    "AMCIntroduction-focus.png",
+    "AMCIntroduction-40-minute-focus.png",
+    "AMC2025Q17-result-focus.png"
+  ],
+  "additional_voice_synthesis": false,
+  "additional_full_device_replays": false,
+  "supabase_accessed": false,
+  "final_editorial_acceptance": false,
+  "main_published_by_this_integration": false,
+  "shared_cache_entry_required": "welcome.js?v=course-films-target-clock-20261125"
+}

@@ -1242,7 +1242,7 @@
       }
     },
     "S102": {
-      "bridge": "Keep the hundreds digit fixed and swap tens and units: 153 becomes 135. The film’s phrase “two end digits” is incorrect here. Count the printed threes in each column separately.",
+      "bridge": "Keep the hundreds digit fixed and swap tens and units: 153 becomes 135. Count the printed threes in each column separately.",
       "example": {
         "prediction": "Which label supplies a 2 in both columns?"
       }
@@ -1836,7 +1836,8 @@
       "example": {
         "prediction": "Which possible last digits survive the evenness test before you check their digit sums?"
       },
-      "recap": "Make a short list of digits that pass one test, then cross out any that fail the second. Read the question again before choosing your answer. Does it ask for a digit, a complete number or a count?"
+      "recap": "Make a short list of digits that pass one test, then cross out any that fail the second. Read the question again before choosing your answer. Does it ask for a digit, a complete number or a count?",
+      "bridge": "Read the mail train’s two stamps independently. Which labels pass the divisibility-by-four test on the last two digits, and which of those also pass the digit-sum test for three?"
     },
     "S261": {
       "example": {
@@ -1983,7 +1984,7 @@
       "recap": "Locate the small cubes first. Face interiors stop one place short of each edge, edge interiors stop one place short of each corner, and clean cubes lie one layer below every painted face."
     },
     "S296": {
-      "bridge": "For the multiples-of-nine count, keep hundreds fixed and swap tens and units: 153 becomes 135. The film’s phrase “two end digits” is incorrect here. Which digit choices force the missing digit?",
+      "bridge": "For the multiples-of-nine count, keep hundreds fixed and swap tens and units: 153 becomes 135. Which digit choices force the missing digit?",
       "example": {
         "prediction": "Starting with the digit 4, what totals could the two digits reach?"
       },

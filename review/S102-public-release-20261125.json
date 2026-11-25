@@ -1,0 +1,270 @@
+{
+  "lesson": "S102",
+  "status": "PUBLIC_RELEASE_VERIFIED_READY_FOR_ROUTE_INTEGRATION",
+  "verified_at_utc": "2026-11-25T01:41:18.403528Z",
+  "production_run": 45518273975,
+  "production_commit": "a84046b0645063f273951ce85d938aa71fffa9ee",
+  "workflow": ".github/workflows/s102-digit-swap.yml",
+  "run_url": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45518273975",
+  "release_tag": "s102-tens-units-20261125-a84046b06450",
+  "release_url": "https://github.com/SimonRJ/-summit-one-narrator/releases/tag/s102-tens-units-20261125-a84046b06450",
+  "published_at": "2026-11-25T01:24:57Z",
+  "public_assets": [
+    {
+      "lesson": "S102",
+      "name": "S102-guide.json",
+      "bytes": 4540,
+      "sha256": "1af8022a6e2ff111d2c4e9ed58564b5435a4bfdec0035c93b42acbb0cc3aedfa",
+      "url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s102-tens-units-20261125-a84046b06450/S102-guide.json",
+      "matches_github_digest": true,
+      "downloaded_from_public_release": true
+    },
+    {
+      "lesson": "S102",
+      "name": "S102-poster.jpg",
+      "bytes": 190099,
+      "sha256": "bf601ece4863a1788d775c90daca3c96b2efadc8933a83012556d473392dab06",
+      "url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s102-tens-units-20261125-a84046b06450/S102-poster.jpg",
+      "matches_github_digest": true,
+      "downloaded_from_public_release": true
+    },
+    {
+      "lesson": "S102",
+      "name": "S102-qa.json",
+      "bytes": 2458,
+      "sha256": "88ba781edcb93ef83fc28dc08f73da9d769c7332c24f964239240e916385c849",
+      "url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s102-tens-units-20261125-a84046b06450/S102-qa.json",
+      "matches_github_digest": true,
+      "downloaded_from_public_release": true
+    },
+    {
+      "lesson": "S102",
+      "name": "S102-recording.zip",
+      "bytes": 15616709,
+      "sha256": "c40702020fe0a9f16bd0b45d82207c1b6b9e52ba4ad83738cd37f5e4821efd1e",
+      "url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s102-tens-units-20261125-a84046b06450/S102-recording.zip",
+      "matches_github_digest": true,
+      "downloaded_from_public_release": true
+    },
+    {
+      "lesson": "S102",
+      "name": "S102.mp4",
+      "bytes": 10315015,
+      "sha256": "f08e10363f675d7cb9e46fd31e5f766fdbbacd248af3ddded95b2a06eb40f6e1",
+      "url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s102-tens-units-20261125-a84046b06450/S102.mp4",
+      "matches_github_digest": true,
+      "downloaded_from_public_release": true
+    },
+    {
+      "lesson": "S102",
+      "name": "S102.vtt",
+      "bytes": 5688,
+      "sha256": "e9dc8c1fcb8779cc27ee97823ea91fd694801fee8c448e7c5b30e19505b4fc02",
+      "url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s102-tens-units-20261125-a84046b06450/S102.vtt",
+      "matches_github_digest": true,
+      "downloaded_from_public_release": true
+    }
+  ],
+  "public_assets_identical_to_returned_ci_candidate": true,
+  "artifact_provenance": [
+    {
+      "artifact_id": 14981696814,
+      "name": "S102-digit-swap-candidate",
+      "archive_bytes": 25459179,
+      "archive_sha256": "80fe231d0022307883084b76c760d450d7444c1bd284858f59db7c6e791acc5e",
+      "source_run": 45518273975,
+      "source_commit": "a84046b0645063f273951ce85d938aa71fffa9ee",
+      "github_digest_verified": true,
+      "all_members_verified": true
+    },
+    {
+      "artifact_id": 14981390694,
+      "name": "S102-voice-8",
+      "archive_bytes": 2527467,
+      "archive_sha256": "8ced1040fe51d1a333da091e2499bd44586f779e5c5b7235fc0eeda14d2a2e2e",
+      "source_run": 45518273975,
+      "source_commit": "a84046b0645063f273951ce85d938aa71fffa9ee",
+      "github_digest_verified": true,
+      "all_members_verified": true
+    }
+  ],
+  "strict_release_planner": "passed",
+  "integration_plan": "review/film-public-release-handoff-20261125/S102-integration-plan.json",
+  "independent_verification": {
+    "lesson": "S102",
+    "ci_movie_sha256": "f08e10363f675d7cb9e46fd31e5f766fdbbacd248af3ddded95b2a06eb40f6e1",
+    "local_review_movie_sha256": "e627ab6df0a16f75adce97fdbf021013a84cf01b3d124ca43dc8afa7b2fc947a",
+    "local_and_ci_are_separate_identities": true,
+    "recording_members": {
+      "script.json": {
+        "sha256": "d41e199b5c9875ae3c69f10b5576b2d5053ec14a04f20f36c93d2af830907d49",
+        "bytes": 10143
+      },
+      "timeline.json": {
+        "sha256": "730a441a5d02e87d80fecbb2b41d72a8e06b65d9a9dde2e66ed1e12a07876f2f",
+        "bytes": 52528
+      },
+      "captions.vtt": {
+        "sha256": "e9dc8c1fcb8779cc27ee97823ea91fd694801fee8c448e7c5b30e19505b4fc02",
+        "bytes": 5688
+      },
+      "narration.flac": {
+        "sha256": "49fb4e19d840434259a595ee5b59441b443cc96c5e87ea8858b43c17a15e2984",
+        "bytes": 15547924
+      }
+    },
+    "approved_saved_flac_sha256": "4582dcd016527a350da681f165b53e32ade863c7e3ea011aa5863e892cb8593b",
+    "ci_restored_wav_pcm_identical_to_saved_flac": true,
+    "saved_take_samples": 1549920,
+    "saved_take_rate": 48000,
+    "saved_take_pcm16_sha256": "a66054612222cc5ba4a5f3020c3820477dd00f2641725b90c34dba59edf2e888",
+    "replacement_scene": 8,
+    "scene_interval_seconds": [
+      125.0,
+      158.33333333333334
+    ],
+    "preserved_source_scenes": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      9,
+      10,
+      11
+    ],
+    "preserved_lossless_master_prefix_max_sample_error": 5.960464477539063e-08,
+    "preserved_lossless_master_suffix_max_sample_error": 5.960464477539063e-08,
+    "normalized_saved_take_max_sample_error": 0.0,
+    "audio_scope": "Only scene 8 replaced; the whole movie AAC was encoded again. Retained performances are verified against source PCM with only PCM24 quantization tolerance, not AAC packet identity.",
+    "positive_measured_scene_words": 81,
+    "saved_measured_timeline_words_identical": true,
+    "maths": {
+      "range": [
+        100,
+        599
+      ],
+      "divisor": 9,
+      "pairs": [
+        [
+          153,
+          135
+        ],
+        [
+          243,
+          234
+        ],
+        [
+          333,
+          333
+        ],
+        [
+          423,
+          432
+        ],
+        [
+          513,
+          531
+        ]
+      ],
+      "ones": 5,
+      "tens": 5,
+      "hundreds": 11,
+      "total": 21
+    },
+    "source_picture_comparisons": 216,
+    "maximum_picture_and_caption_error": [
+      2.111962145969499,
+      1.5920138888888888
+    ],
+    "full_decode": "passed",
+    "frames_for_inspection": [
+      {
+        "frame": 4309,
+        "second": 143.63333333333333,
+        "sha256": "5b4e0133bfb3c17fb729fdbf389f2c0801d0826eb1c91503887f969ce957b5c7",
+        "file": "review/film-public-release-handoff-20261125/S102-ci-frame-4309.jpg"
+      },
+      {
+        "frame": 4631,
+        "second": 154.36666666666667,
+        "sha256": "4e3773aaf705b6605b816e0894eb46ba279abfc0215a6a953fa577f6fb0bea7c",
+        "file": "review/film-public-release-handoff-20261125/S102-ci-frame-4631.jpg"
+      }
+    ],
+    "final_editorial_acceptance": false,
+    "remaining_limits": [
+      "Complete human listen/watch remains pending.",
+      "Four shared template scenes and related example-family originality work remain."
+    ],
+    "sampled_visual_result": "Actual returned/public movie frames show hundreds fixed, the five checked pairings, and 333 retained as the fixed pair with distinct ones/tens counts. Captions are legible in the two inspected samples.",
+    "final_editorial_credit": false
+  },
+  "workflow_gates": [
+    {
+      "id": 138883275102,
+      "name": "speech",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 138898246109,
+      "name": "render",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 138902657529,
+      "name": "playback (ipad-portrait)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 138902657560,
+      "name": "playback (iphone-landscape)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 138902657584,
+      "name": "playback (pc)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 138902657663,
+      "name": "playback (iphone-portrait)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 138902657828,
+      "name": "playback (ipad-landscape)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 138907688052,
+      "name": "release",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "candidate_technique_consumer_gates": [
+    "PC slot 296",
+    "iPad portrait slot 296"
+  ],
+  "final_editorial_credit": false,
+  "deployed_learner_routes_verified": false,
+  "route_slots": [
+    102,
+    296
+  ],
+  "persistent_opening_bridges": [
+    "S102",
+    "S296"
+  ],
+  "legacy_saved_notebook_clarification": "Retain the filename-specific correction for S102-Intro.mp4; old saved notebooks still reference that old movie."
+}

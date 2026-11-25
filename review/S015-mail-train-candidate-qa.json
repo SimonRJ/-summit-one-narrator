@@ -1,21 +1,21 @@
 {
-  "sha256": "67fdcbc472137a9deba2873a23a0e0785ccdd2dc76939534161638545b8adce0",
+  "sha256": "3a54e336d09eb2f1e9e5fcf50253c6cea5ddf58ed96bf468a300316754c2cfd2",
   "decoded_reference_comparisons": 156,
   "picture_comparison_period_seconds": 1,
-  "maximum_picture_mean_channel_error_0_to_255": 2.08,
-  "maximum_caption_region_mean_channel_error_0_to_255": 2.251,
+  "maximum_picture_mean_channel_error_0_to_255": 2.081,
+  "maximum_caption_region_mean_channel_error_0_to_255": 1.757,
   "minimum_source_audio_correlation_per_scene": 0.999754,
   "recorded_scenes_checked": 8,
-  "timed_caption_phrases": 56,
+  "timed_caption_phrases": 57,
   "spoken_words": 380,
   "source_voice_reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
-  "source_word_alignment_percent": 99.21,
+  "source_word_alignment_percent": 99.34,
   "lesson": "S015",
   "title": "Two stamps for the mail train",
   "review_date_perth": "2026-11-25",
   "duration_seconds": 155.3,
   "final_editorial_credit": false,
-  "candidate_local_verification": "verify_recorded.py rerun against this exact encoded master and archived final Voice C recording, using the source integrated with current main; complete audio correspondence per scene and whole-second drawing/caption comparisons passed.",
+  "candidate_local_verification": "Complete decode and whole-second source comparisons pass for this exact master. All original AAC packet bytes and timestamps, plus the archived lossless recording, are preserved. The saved patch changes only reviewed numeral timing and bounded adjacent words; captions use one stable glyph layer.",
   "authored_script_equals_archived_recording_script": true,
   "independent_maths": {
     "method": "Enumerate all integers in the inclusive original interval; test both shifted divisibility conditions directly.",
@@ -78,32 +78,19 @@
     },
     "normalization": "lower-case alphanumeric words; digits not masked"
   },
-  "source_files_sha256": {
-    "production/lesson-films/render_recorded.py": "e86effba97702a1a6a0ef9af2b087e6acba8d2559fc097d09b1b98931b982a41",
-    "production/t01-studio/prepare_audio.py": "f3c282b62ea1c85351ee11bffcd43441e9ba3c4b7aefb06423a9b81414d4d7e9",
-    "production/lesson-films/mail_train.py": "a5afdaf10fa84aea88defcd58a2de72d27e3b74c3a608f1173affe56c2c43d8c",
-    "production/scripts/S015.json": "bba29b9483b8af9333a35b2d6fa081bcf51830b46eba1d9460c3116b3bd01bd3"
-  },
-  "recording_files_sha256": {
-    "script.json": "bba29b9483b8af9333a35b2d6fa081bcf51830b46eba1d9460c3116b3bd01bd3",
-    "timeline.json": "c2154809cf60dfe1993aa539d4956d9966c09dacf6510a04141a3aaba03afd37",
-    "captions.vtt": "bde5efeacef0797cfcb71263d0394f20cf831d7407843f58eefc8926d5483d1e",
-    "narration.flac": "00eb028c652bd8131d0e08dc999a32f7546de5c76246dc81b0a569c702922de7"
-  },
   "device_check_scope": "Emulated browser profiles served from a localhost candidate fixture, with grading isolated from the real backend. These results do not certify physical devices or deployed-main routes.",
-  "narration_review": "Full source/encoded audio correlation and per-scene recognition were checked against the authored narration. Automated normal-speed unmuted playback is not a separate human listening or editorial signoff.",
+  "narration_review": "The exact eight approved Voice C performances and encoded AAC packets are unchanged. Recognition audited all eight raw takes; the source transcript score remains99.34%. Nonnumeric Check at 125.02 s remains a collapsed anchor for final listening/editorial review; scene7 source recognition is97.87% and scene8 is96.84%.",
   "protected_state": "No real learner progress, completed history, examination archive, credentials or saved movie selections were changed.",
-  "status": "Local candidate verified; original CI renderer failed waiting for unrelated recordings; recovery is prepared but has not run",
-  "source_commit": "1d1bb402622c540061446a85c2aab9782b724bd1",
+  "status": "LOCAL_CORRECTED_CANDIDATE_VERIFIED_CI_PENDING",
   "voice_source_run": 45487547111,
   "voice_source_commit": "c873621cd8988d3862563a0668e500bcb94614c9",
   "original_workflow": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45488080273",
   "original_render_job": 138778713543,
   "original_render_failure": "The renderer waited 100 times for 45 seconds for the entire paired voice workflow, then stopped before rendering. All eight S015 source recordings succeeded; the unrelated S017 scenes 7 and 8 were still queued.",
-  "recovery_workflow": ".github/workflows/s015-recorded-recovery.yml",
-  "recovery_trigger": "Push limited to branch production/s015-recorded-recovery-20261125 when its workflow or pinned-take manifest changes; workflow_dispatch remains available. Main publication is inert.",
+  "recovery_workflow": ".github/workflows/s015-numeral-timing.yml",
+  "recovery_trigger": "One push to production/s015-numeral-timing when its workflow, measured patch or patch application source changes; main publication is inert.",
   "recovery_has_run": false,
-  "visual_review": "Eight encoded teaching frames were inspected, covering parcel bundles, independent stamps, both interval endpoints, the common-multiple rails and subtracting the added parcel. The actual inline iPad landscape worked-example capture also agrees with all four original/shifted pairs.",
+  "visual_review": "Exact decoded before/after caption evidence is archived in review/evidence/S015-numeral-timing-20261125. Final stable captions, all21 complete compound groups, and full recorded-source comparisons are checked. Sampled frames are not a full human listening signoff.",
   "consumers": [
     {
       "slot": 15,
@@ -116,244 +103,312 @@
       "bridge": "Read the mail train\u2019s two stamps independently. Which labels pass the divisibility-by-four test on the last two digits, and which of those also pass the digit-sum test for three?"
     }
   ],
-  "device_checks": [
-    {
-      "slot": 260,
-      "profile": "ipad-portrait",
-      "engine": "webkit",
-      "viewport": {
-        "width": 810,
-        "height": 1080
+  "pending_before_final_credit": [
+    "Publish the prepared corrected source once; download and verify its exact CI candidate rather than transferring this local movie hash.",
+    "Pass all five canonical browser profiles and consumer260 on PC/iPad portrait for the corrected master.",
+    "Verify the six immutable release assets before assigning dedicated slot15 and the revised technique bridge at260.",
+    "Check deployed gallery, active lesson and notebook routes; complete audible/editorial acceptance, including Check and A tempting.",
+    "Keep final editorial credit false until those actual gates pass."
+  ],
+  "source_files_sha256": {
+    "production/t01-studio/prepare_audio.py": "7e7d9bbc24db64f88208b8fdbd31997296e6f7af8d9e0c24ad04b956538f5432",
+    "production/lesson-films/render_recorded.py": "9e7597563cba4e942291fb854ae6aa91859eb51eddf36ed5f5a5df1a1412027d",
+    "production/lesson-films/mail_train.py": "a5afdaf10fa84aea88defcd58a2de72d27e3b74c3a608f1173affe56c2c43d8c",
+    "production/scripts/S015.json": "bba29b9483b8af9333a35b2d6fa081bcf51830b46eba1d9460c3116b3bd01bd3"
+  },
+  "recording_files_sha256": {
+    "script.json": "bba29b9483b8af9333a35b2d6fa081bcf51830b46eba1d9460c3116b3bd01bd3",
+    "timeline.json": "75c21b50f091cb1ddf406543d4e6a2d974284bba2103e904e63144c5e1f7eeee",
+    "captions.vtt": "454a67c2d6055ca95bceb86a8c4671d2eb762c494f9ef4b73b5620418c5ec7a8",
+    "narration.flac": "e83867aef95fc400d4644647bc9d001efb0dc243577a5f5d2792574b09164bd5"
+  },
+  "device_checks": [],
+  "historical_local_candidate": {
+    "sha256": "67fdcbc472137a9deba2873a23a0e0785ccdd2dc76939534161638545b8adce0",
+    "status": "SUPERSEDED_LOCAL_CANDIDATE",
+    "device_checks": [
+      {
+        "slot": 260,
+        "profile": "ipad-portrait",
+        "engine": "webkit",
+        "viewport": {
+          "width": 810,
+          "height": 1080
+        },
+        "site": "http://127.0.0.1:8836/",
+        "sha256": "67fdcbc472137a9deba2873a23a0e0785ccdd2dc76939534161638545b8adce0",
+        "film": "http://127.0.0.1:8836/candidate/S015.mp4",
+        "duration": 155.3,
+        "chapters": 8,
+        "normal_speed_unmuted_to_ended": false,
+        "practice_grading": "isolated fixture",
+        "immutable_replay": true,
+        "active_frame_css_pixels": {
+          "width": 663.125,
+          "height": 373,
+          "horizontal": 0,
+          "vertical": 0
+        },
+        "notebook_frame_css_pixels": {
+          "width": 733.125,
+          "height": 650.5,
+          "horizontal": 0,
+          "vertical": 0
+        },
+        "worked_example": {
+          "chapter": "Unload the extra parcel",
+          "decoded_media_time": 127.566666
+        }
       },
-      "site": "http://127.0.0.1:8836/",
-      "sha256": "67fdcbc472137a9deba2873a23a0e0785ccdd2dc76939534161638545b8adce0",
-      "film": "http://127.0.0.1:8836/candidate/S015.mp4",
-      "duration": 155.3,
-      "chapters": 8,
-      "normal_speed_unmuted_to_ended": false,
-      "practice_grading": "isolated fixture",
-      "immutable_replay": true,
-      "active_frame_css_pixels": {
-        "width": 663.125,
-        "height": 373,
-        "horizontal": 0,
-        "vertical": 0
+      {
+        "slot": 260,
+        "profile": "pc",
+        "engine": "chromium",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "site": "http://127.0.0.1:8836/",
+        "sha256": "67fdcbc472137a9deba2873a23a0e0785ccdd2dc76939534161638545b8adce0",
+        "film": "http://127.0.0.1:8836/candidate/S015.mp4",
+        "duration": 155.3,
+        "chapters": 8,
+        "normal_speed_unmuted_to_ended": false,
+        "practice_grading": "isolated fixture",
+        "immutable_replay": true,
+        "active_frame_css_pixels": {
+          "width": 654,
+          "height": 367.875,
+          "horizontal": 0,
+          "vertical": 0
+        },
+        "notebook_frame_css_pixels": {
+          "width": 958,
+          "height": 441.84375,
+          "horizontal": 0,
+          "vertical": 0
+        },
+        "worked_example": {
+          "chapter": "Unload the extra parcel",
+          "decoded_media_time": 127.366667
+        }
       },
-      "notebook_frame_css_pixels": {
-        "width": 733.125,
-        "height": 650.5,
-        "horizontal": 0,
-        "vertical": 0
+      {
+        "slot": 15,
+        "profile": "ipad-landscape",
+        "engine": "webkit",
+        "viewport": {
+          "width": 1080,
+          "height": 810
+        },
+        "site": "http://127.0.0.1:8836/",
+        "sha256": "67fdcbc472137a9deba2873a23a0e0785ccdd2dc76939534161638545b8adce0",
+        "film": "http://127.0.0.1:8836/candidate/S015.mp4",
+        "duration": 155.3,
+        "chapters": 8,
+        "normal_speed_unmuted_to_ended": false,
+        "practice_grading": "isolated fixture",
+        "immutable_replay": true,
+        "active_frame_css_pixels": {
+          "width": 597.390625,
+          "height": 336.03125,
+          "horizontal": 0,
+          "vertical": 0
+        },
+        "notebook_frame_css_pixels": {
+          "width": 958,
+          "height": 364.328125,
+          "horizontal": 0,
+          "vertical": 0
+        },
+        "worked_example": {
+          "chapter": "Unload the extra parcel",
+          "decoded_media_time": 127.4
+        }
       },
-      "worked_example": {
-        "chapter": "Unload the extra parcel",
-        "decoded_media_time": 127.566666
+      {
+        "slot": 15,
+        "profile": "ipad-portrait",
+        "engine": "webkit",
+        "viewport": {
+          "width": 810,
+          "height": 1080
+        },
+        "site": "http://127.0.0.1:8836/",
+        "sha256": "67fdcbc472137a9deba2873a23a0e0785ccdd2dc76939534161638545b8adce0",
+        "film": "http://127.0.0.1:8836/candidate/S015.mp4",
+        "duration": 155.3,
+        "chapters": 8,
+        "normal_speed_unmuted_to_ended": false,
+        "practice_grading": "isolated fixture",
+        "immutable_replay": true,
+        "active_frame_css_pixels": {
+          "width": 663.125,
+          "height": 373,
+          "horizontal": 0,
+          "vertical": 0
+        },
+        "notebook_frame_css_pixels": {
+          "width": 733.125,
+          "height": 650.5,
+          "horizontal": 0,
+          "vertical": 0
+        },
+        "worked_example": {
+          "chapter": "Unload the extra parcel",
+          "decoded_media_time": 127.6
+        }
+      },
+      {
+        "slot": 15,
+        "profile": "iphone-landscape",
+        "engine": "webkit",
+        "viewport": {
+          "width": 664,
+          "height": 390
+        },
+        "site": "http://127.0.0.1:8836/",
+        "sha256": "67fdcbc472137a9deba2873a23a0e0785ccdd2dc76939534161638545b8adce0",
+        "film": "http://127.0.0.1:8836/candidate/S015.mp4",
+        "duration": 155.3,
+        "chapters": 8,
+        "normal_speed_unmuted_to_ended": false,
+        "practice_grading": "isolated fixture",
+        "immutable_replay": true,
+        "active_frame_css_pixels": {
+          "width": 357.109375,
+          "height": 200.859375,
+          "horizontal": 0,
+          "vertical": 0
+        },
+        "notebook_frame_css_pixels": {
+          "width": 395.515625,
+          "height": 222.46875,
+          "horizontal": 0,
+          "vertical": 0
+        },
+        "worked_example": {
+          "chapter": "Unload the extra parcel",
+          "decoded_media_time": 127.433333
+        }
+      },
+      {
+        "slot": 15,
+        "profile": "iphone-portrait",
+        "engine": "webkit",
+        "viewport": {
+          "width": 390,
+          "height": 664
+        },
+        "site": "http://127.0.0.1:8836/",
+        "sha256": "67fdcbc472137a9deba2873a23a0e0785ccdd2dc76939534161638545b8adce0",
+        "film": "http://127.0.0.1:8836/candidate/S015.mp4",
+        "duration": 155.3,
+        "chapters": 8,
+        "normal_speed_unmuted_to_ended": true,
+        "practice_grading": "isolated fixture",
+        "immutable_replay": true,
+        "active_frame_css_pixels": {
+          "width": 333.21875,
+          "height": 187.421875,
+          "horizontal": 0,
+          "vertical": 0
+        },
+        "notebook_frame_css_pixels": {
+          "width": 340,
+          "height": 258.46875,
+          "horizontal": 0,
+          "vertical": 0
+        },
+        "worked_example": {
+          "chapter": "Unload the extra parcel",
+          "decoded_media_time": 127.366666
+        }
+      },
+      {
+        "slot": 15,
+        "profile": "pc",
+        "engine": "chromium",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "site": "http://127.0.0.1:8836/",
+        "sha256": "67fdcbc472137a9deba2873a23a0e0785ccdd2dc76939534161638545b8adce0",
+        "film": "http://127.0.0.1:8836/candidate/S015.mp4",
+        "duration": 155.3,
+        "chapters": 8,
+        "normal_speed_unmuted_to_ended": false,
+        "practice_grading": "isolated fixture",
+        "immutable_replay": true,
+        "active_frame_css_pixels": {
+          "width": 654,
+          "height": 367.875,
+          "horizontal": 0,
+          "vertical": 0
+        },
+        "notebook_frame_css_pixels": {
+          "width": 958,
+          "height": 441.84375,
+          "horizontal": 0,
+          "vertical": 0
+        },
+        "worked_example": {
+          "chapter": "Unload the extra parcel",
+          "decoded_media_time": 127.366667
+        }
       }
+    ],
+    "encoded_verification": {
+      "sha256": "67fdcbc472137a9deba2873a23a0e0785ccdd2dc76939534161638545b8adce0",
+      "decoded_reference_comparisons": 156,
+      "picture_comparison_period_seconds": 1,
+      "maximum_picture_mean_channel_error_0_to_255": 2.08,
+      "maximum_caption_region_mean_channel_error_0_to_255": 2.251,
+      "minimum_source_audio_correlation_per_scene": 0.999754,
+      "recorded_scenes_checked": 8,
+      "timed_caption_phrases": 56,
+      "spoken_words": 380,
+      "source_voice_reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+      "source_word_alignment_percent": 99.21
+    },
+    "narration_review": "Full source/encoded audio correlation and per-scene recognition were checked against the authored narration. Automated normal-speed unmuted playback is not a separate human listening or editorial signoff.",
+    "source_files_sha256": {
+      "production/lesson-films/render_recorded.py": "e86effba97702a1a6a0ef9af2b087e6acba8d2559fc097d09b1b98931b982a41",
+      "production/t01-studio/prepare_audio.py": "f3c282b62ea1c85351ee11bffcd43441e9ba3c4b7aefb06423a9b81414d4d7e9",
+      "production/lesson-films/mail_train.py": "a5afdaf10fa84aea88defcd58a2de72d27e3b74c3a608f1173affe56c2c43d8c",
+      "production/scripts/S015.json": "bba29b9483b8af9333a35b2d6fa081bcf51830b46eba1d9460c3116b3bd01bd3"
+    },
+    "recording_files_sha256": {
+      "script.json": "bba29b9483b8af9333a35b2d6fa081bcf51830b46eba1d9460c3116b3bd01bd3",
+      "timeline.json": "c2154809cf60dfe1993aa539d4956d9966c09dacf6510a04141a3aaba03afd37",
+      "captions.vtt": "bde5efeacef0797cfcb71263d0394f20cf831d7407843f58eefc8926d5483d1e",
+      "narration.flac": "00eb028c652bd8131d0e08dc999a32f7546de5c76246dc81b0a569c702922de7"
+    },
+    "source_commit": "1d1bb402622c540061446a85c2aab9782b724bd1"
+  },
+  "held_returned_candidate": {
+    "sha256": "f4bb4b7e43d5d0037680d07ff8b65a375fd552f865406657d7e2b259604eca52",
+    "run": 45512588528,
+    "source_commit": "8fb7e5e6e3fbe8923c9c5152368b89efdeadef9b",
+    "artifact_id": 14976994803,
+    "status": "HELD_DO_NOT_MOUNT",
+    "reason": "Delayed/collapsed numeral anchors, positive-number caption truncation, numbers split between phrases and doubled glyphs during font-weight transitions. Later browser or release success does not clear this hold."
+  },
+  "superseded_intermediates": [
+    {
+      "sha256": "bcb9e0b9989b8c269196e701162355b58200cb275214c050abe970ad1ae6888c",
+      "status": "SUPERSEDED_NOT_FOR_RELEASE",
+      "reason": "Timing-only proof still used legacy regular/bold glyph cross-fades and had not repaired the later positive-number truncations in scenes5/8."
     },
     {
-      "slot": 260,
-      "profile": "pc",
-      "engine": "chromium",
-      "viewport": {
-        "width": 1440,
-        "height": 900
-      },
-      "site": "http://127.0.0.1:8836/",
-      "sha256": "67fdcbc472137a9deba2873a23a0e0785ccdd2dc76939534161638545b8adce0",
-      "film": "http://127.0.0.1:8836/candidate/S015.mp4",
-      "duration": 155.3,
-      "chapters": 8,
-      "normal_speed_unmuted_to_ended": false,
-      "practice_grading": "isolated fixture",
-      "immutable_replay": true,
-      "active_frame_css_pixels": {
-        "width": 654,
-        "height": 367.875,
-        "horizontal": 0,
-        "vertical": 0
-      },
-      "notebook_frame_css_pixels": {
-        "width": 958,
-        "height": 441.84375,
-        "horizontal": 0,
-        "vertical": 0
-      },
-      "worked_example": {
-        "chapter": "Unload the extra parcel",
-        "decoded_media_time": 127.366667
-      }
-    },
-    {
-      "slot": 15,
-      "profile": "ipad-landscape",
-      "engine": "webkit",
-      "viewport": {
-        "width": 1080,
-        "height": 810
-      },
-      "site": "http://127.0.0.1:8836/",
-      "sha256": "67fdcbc472137a9deba2873a23a0e0785ccdd2dc76939534161638545b8adce0",
-      "film": "http://127.0.0.1:8836/candidate/S015.mp4",
-      "duration": 155.3,
-      "chapters": 8,
-      "normal_speed_unmuted_to_ended": false,
-      "practice_grading": "isolated fixture",
-      "immutable_replay": true,
-      "active_frame_css_pixels": {
-        "width": 597.390625,
-        "height": 336.03125,
-        "horizontal": 0,
-        "vertical": 0
-      },
-      "notebook_frame_css_pixels": {
-        "width": 958,
-        "height": 364.328125,
-        "horizontal": 0,
-        "vertical": 0
-      },
-      "worked_example": {
-        "chapter": "Unload the extra parcel",
-        "decoded_media_time": 127.4
-      }
-    },
-    {
-      "slot": 15,
-      "profile": "ipad-portrait",
-      "engine": "webkit",
-      "viewport": {
-        "width": 810,
-        "height": 1080
-      },
-      "site": "http://127.0.0.1:8836/",
-      "sha256": "67fdcbc472137a9deba2873a23a0e0785ccdd2dc76939534161638545b8adce0",
-      "film": "http://127.0.0.1:8836/candidate/S015.mp4",
-      "duration": 155.3,
-      "chapters": 8,
-      "normal_speed_unmuted_to_ended": false,
-      "practice_grading": "isolated fixture",
-      "immutable_replay": true,
-      "active_frame_css_pixels": {
-        "width": 663.125,
-        "height": 373,
-        "horizontal": 0,
-        "vertical": 0
-      },
-      "notebook_frame_css_pixels": {
-        "width": 733.125,
-        "height": 650.5,
-        "horizontal": 0,
-        "vertical": 0
-      },
-      "worked_example": {
-        "chapter": "Unload the extra parcel",
-        "decoded_media_time": 127.6
-      }
-    },
-    {
-      "slot": 15,
-      "profile": "iphone-landscape",
-      "engine": "webkit",
-      "viewport": {
-        "width": 664,
-        "height": 390
-      },
-      "site": "http://127.0.0.1:8836/",
-      "sha256": "67fdcbc472137a9deba2873a23a0e0785ccdd2dc76939534161638545b8adce0",
-      "film": "http://127.0.0.1:8836/candidate/S015.mp4",
-      "duration": 155.3,
-      "chapters": 8,
-      "normal_speed_unmuted_to_ended": false,
-      "practice_grading": "isolated fixture",
-      "immutable_replay": true,
-      "active_frame_css_pixels": {
-        "width": 357.109375,
-        "height": 200.859375,
-        "horizontal": 0,
-        "vertical": 0
-      },
-      "notebook_frame_css_pixels": {
-        "width": 395.515625,
-        "height": 222.46875,
-        "horizontal": 0,
-        "vertical": 0
-      },
-      "worked_example": {
-        "chapter": "Unload the extra parcel",
-        "decoded_media_time": 127.433333
-      }
-    },
-    {
-      "slot": 15,
-      "profile": "iphone-portrait",
-      "engine": "webkit",
-      "viewport": {
-        "width": 390,
-        "height": 664
-      },
-      "site": "http://127.0.0.1:8836/",
-      "sha256": "67fdcbc472137a9deba2873a23a0e0785ccdd2dc76939534161638545b8adce0",
-      "film": "http://127.0.0.1:8836/candidate/S015.mp4",
-      "duration": 155.3,
-      "chapters": 8,
-      "normal_speed_unmuted_to_ended": true,
-      "practice_grading": "isolated fixture",
-      "immutable_replay": true,
-      "active_frame_css_pixels": {
-        "width": 333.21875,
-        "height": 187.421875,
-        "horizontal": 0,
-        "vertical": 0
-      },
-      "notebook_frame_css_pixels": {
-        "width": 340,
-        "height": 258.46875,
-        "horizontal": 0,
-        "vertical": 0
-      },
-      "worked_example": {
-        "chapter": "Unload the extra parcel",
-        "decoded_media_time": 127.366666
-      }
-    },
-    {
-      "slot": 15,
-      "profile": "pc",
-      "engine": "chromium",
-      "viewport": {
-        "width": 1440,
-        "height": 900
-      },
-      "site": "http://127.0.0.1:8836/",
-      "sha256": "67fdcbc472137a9deba2873a23a0e0785ccdd2dc76939534161638545b8adce0",
-      "film": "http://127.0.0.1:8836/candidate/S015.mp4",
-      "duration": 155.3,
-      "chapters": 8,
-      "normal_speed_unmuted_to_ended": false,
-      "practice_grading": "isolated fixture",
-      "immutable_replay": true,
-      "active_frame_css_pixels": {
-        "width": 654,
-        "height": 367.875,
-        "horizontal": 0,
-        "vertical": 0
-      },
-      "notebook_frame_css_pixels": {
-        "width": 958,
-        "height": 441.84375,
-        "horizontal": 0,
-        "vertical": 0
-      },
-      "worked_example": {
-        "chapter": "Unload the extra parcel",
-        "decoded_media_time": 127.366667
-      }
+      "sha256": "ea6186de71a85429800e23a786eee56583eb6206c8cba69564596068acc7d129",
+      "status": "SUPERSEDED_NOT_FOR_RELEASE",
+      "reason": "Stable glyph render of the intermediate15-group patch; replaced after the completed21-group audit. No final verification or publication claim."
     }
   ],
-  "pending_before_final_credit": [
-    "Choose the prepared per-lesson recovery or the existing paired-run resumer; do not dispatch overlapping render paths.",
-    "Run the approved existing audio through CI alignment/encoding and its five candidate profiles plus technique consumer 260; use the returned CI digest, which may differ from this local export.",
-    "Verify immutable release assets, integrate dedicated slot 15 and the revised technique bridge at 260, then check deployed routes.",
-    "Listen to and accept the final deployed narration; inspect the words at the end of scene 7 and the opening A tempting of scene 8, whose ASR match scores were 96.84 percent.",
-    "Keep final editorial credit false until all actual gates close."
-  ]
+  "numeral_timing_correction": "review/S015-numeral-timing-correction-20261125.json",
+  "source_base_commit": "585081646578fe8b0020d2dee831a8f853eb3bca",
+  "shared_caption_source_commit": "a5f2996c07042b7f94859519261db3fb2701d3e4",
+  "source_identity_note": "Exact drawing/timing source and saved recording files are bound by the SHA-256 maps; the parent will record the publication commit after its final source review."
 }

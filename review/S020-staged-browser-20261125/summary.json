@@ -1,0 +1,54 @@
+{
+  "date_utc": "2026-11-25",
+  "film": "S020",
+  "title": "Clock turns and last digits",
+  "movie_sha256": "5308674d7d66dee6545d05699311a192b13e2fce2d48b6d2f560ec35ce1e57f3",
+  "state": "Staged PC and iPad canonical/technique routes technically verified with public immutable media.",
+  "cases": [
+    {
+      "profile": "pc",
+      "slot": 20,
+      "status": "passed",
+      "evidence": "pc/result.json",
+      "method": "One complete unchanged route-checker run."
+    },
+    {
+      "profile": "pc",
+      "slot": 283,
+      "status": "passed",
+      "evidence": "pc/consumer-283/result.json",
+      "method": "One complete unchanged route-checker run."
+    },
+    {
+      "profile": "ipad-portrait",
+      "slot": 20,
+      "status": "passed",
+      "evidence": "ipad-portrait/result.json",
+      "method": "One complete unchanged route-checker run."
+    },
+    {
+      "profile": "ipad-portrait",
+      "slot": 283,
+      "status": "passed_across_two_attempts",
+      "evidence": [
+        "bounded-attempt-status.json",
+        "ipad-portrait/consumer-283/bounded-attempt/",
+        "ipad-portrait/consumer-283/replay-completion/result.json"
+      ],
+      "method": "The bounded full run passed through both practice outcomes before its outer deadline. The separate remaining replay passed the same metadata, advancing playback, containment and immutable-state assertions."
+    }
+  ],
+  "initial_failure": "The first iPad attempt timed out at gallery metadata with readyState 0 and no video error. Preserved in initial-metadata-timeout; the bounded retry passed that stage and all canonical assertions.",
+  "bounded_retry": "The unchanged checker ran under a 300-second outer deadline. Consumer 283 had passed its public hash, gallery, Read, Watch, decoded worked frame and both fixture grades before the deadline. Its only remaining replay was completed separately without repeating those passed stages.",
+  "application_source": "Staged local application, not a deployed-site acceptance claim. S020 guide and the two learner mappings were compared unchanged at evidence packaging.",
+  "media_delivery": "All browser video sources were the exact public immutable release URL; no local movie substitution. The complete-route checker freshly hashed the delivered MP4 before browser creation for both iPad cases.",
+  "backend": "Existing isolated fixture; Supabase blocked; no real learner writes.",
+  "assertions_changed": false,
+  "final_editorial_credit": false,
+  "limits": [
+    "Browser emulation, not physical iPad hardware.",
+    "No new complete unmuted normal-speed playback or human listening review.",
+    "Production CI full profiles and public asset byte evidence remain separate.",
+    "Deployed application source and public routes require the root release check."
+  ]
+}

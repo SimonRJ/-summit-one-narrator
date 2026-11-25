@@ -1,7 +1,7 @@
 {
   "id": "T18.1",
   "duration_seconds": 117.433333,
-  "sha256": "1e8e4d3084f84430756137619f6f7492fabf28a2bbde8bbcb42919ac9e0c6c91",
+  "sha256": "3527d02410e4b1158af7d42a5d8abce16cb6fed702947b8fa864af25590635ce",
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -88,5 +88,63 @@
       "start": 98.03
     }
   ],
-  "decoded_successfully": true
+  "decoded_successfully": true,
+  "perimeter_caption_repair": {
+    "cues": [
+      {
+        "start": "00:01:16.640",
+        "end": "00:01:19.180",
+        "text": "Their perimeters are fifty, twenty-eight,"
+      },
+      {
+        "start": "00:01:19.220",
+        "end": "00:01:20.700",
+        "text": "twenty-two and twenty."
+      },
+      {
+        "start": "00:01:21.260",
+        "end": "00:01:22.640",
+        "text": "It is four by six."
+      }
+    ],
+    "source_vtt_sha256": "2f1802e8251f4f2103e289e5e2af13e806b4bb5f6a243a448097c0ca9112736c",
+    "vtt_sha256": "81645151d9751b9312eda940e5b17a968e7a538eff6c0146ef19e0a249ce624c",
+    "caption_transcript_matches_authored_narration": true,
+    "spoken_first_sentence_seconds": [
+      76.64,
+      80.5
+    ],
+    "spoken_solution_seconds": [
+      81.3,
+      82.54
+    ],
+    "body_mean_error": [
+      0.0336,
+      0.0336,
+      0.0336
+    ],
+    "caption_band_mean_change": [
+      13.0477,
+      8.166,
+      5.1953
+    ]
+  },
+  "source_sha256": "1e8e4d3084f84430756137619f6f7492fabf28a2bbde8bbcb42919ac9e0c6c91",
+  "version": "thirteen-search",
+  "frames": 3523,
+  "audio_packet_sha256": "SHA256=89e09f12ead83d1d4b0ddff7a5c9851f00ff214556b986f70ac21da5c2ba28f7",
+  "notebook_art_source": "production/lesson-films/companion_notebooks.py",
+  "notebook_start_seconds": 104.83,
+  "prompt_ends_seconds": 112.25999999999999,
+  "earlier_frame_mean_errors": [
+    0.0534,
+    0.0307,
+    0.0436
+  ],
+  "caption_band_mean_errors": [
+    0.1247,
+    0.1474,
+    0.056
+  ],
+  "closing_frame_mean_change": 202.835
 }

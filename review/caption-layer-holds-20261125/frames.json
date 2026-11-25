@@ -1,0 +1,159 @@
+{
+  "findings": [
+    {
+      "lesson": "S009",
+      "scene": 1,
+      "word": {
+        "text": "counters",
+        "start": 1.42,
+        "end": 1.9,
+        "matched": true
+      },
+      "frame_seconds": 1.4333333333333333,
+      "cue": {
+        "start": 0.65,
+        "end": 2.26,
+        "text": "Six loose counters arrive"
+      },
+      "image": "S009-1-caption.png",
+      "finding": "Regular and bold outlines are visibly superimposed during the word emphasis transition.",
+      "movie_sha256": "39d28fec11fe4cc1b1d1b840d01ab8d8b3ae3ccb6d184bf37c1ccf4e37c16ef6"
+    },
+    {
+      "lesson": "S009",
+      "scene": 1,
+      "word": {
+        "text": "equally.",
+        "start": 5.07,
+        "end": 5.58,
+        "matched": true
+      },
+      "frame_seconds": 5.1,
+      "cue": {
+        "start": 4.59,
+        "end": 5.66,
+        "text": "Split them equally."
+      },
+      "image": "S009-2-caption.png",
+      "finding": "Regular and bold outlines are visibly superimposed during the word emphasis transition.",
+      "movie_sha256": "39d28fec11fe4cc1b1d1b840d01ab8d8b3ae3ccb6d184bf37c1ccf4e37c16ef6"
+    },
+    {
+      "lesson": "S010",
+      "scene": 1,
+      "word": {
+        "text": "printer",
+        "start": 1.02,
+        "end": 1.38,
+        "matched": true
+      },
+      "frame_seconds": 1.0333333333333334,
+      "cue": {
+        "start": 0.65,
+        "end": 3.64,
+        "text": "A ticket printer puts the same digit in two boxes."
+      },
+      "image": "S010-1-caption.png",
+      "finding": "Regular and bold outlines are visibly superimposed during the word emphasis transition.",
+      "movie_sha256": "e8e2e6f697b00cd9401479a603bf6992c2538a107b3fbd519cac0e0b9b7f9a71"
+    },
+    {
+      "lesson": "S010",
+      "scene": 1,
+      "word": {
+        "text": "nothing.",
+        "start": 9.06,
+        "end": 9.5,
+        "matched": true
+      },
+      "frame_seconds": 9.066666666666666,
+      "cue": {
+        "start": 7.68,
+        "end": 9.58,
+        "text": "Turning that ticket would change nothing."
+      },
+      "image": "S010-2-caption.png",
+      "finding": "Regular and bold outlines are visibly superimposed during the word emphasis transition.",
+      "movie_sha256": "e8e2e6f697b00cd9401479a603bf6992c2538a107b3fbd519cac0e0b9b7f9a71"
+    },
+    {
+      "lesson": "S012",
+      "scene": 1,
+      "word": {
+        "text": "straight",
+        "start": 7.46,
+        "end": 7.739999999999999,
+        "matched": true
+      },
+      "frame_seconds": 7.466666666666667,
+      "cue": {
+        "start": 5.9799999999999995,
+        "end": 8.23,
+        "text": "To reach rung two, it can jump straight there,"
+      },
+      "image": "S012-1-caption.png",
+      "finding": "Regular and bold outlines are visibly superimposed during the word emphasis transition.",
+      "movie_sha256": "87e71ca9ae8e3355f9f092f05a7e4c0678313aa569bbc3b4cc63a200ff2cedd7"
+    },
+    {
+      "lesson": "S012",
+      "scene": 3,
+      "word": {
+        "text": "unreachable?",
+        "start": 39.18,
+        "end": 39.76,
+        "matched": true
+      },
+      "frame_seconds": 39.2,
+      "cue": {
+        "start": 38.120000000000005,
+        "end": 39.89,
+        "text": "Does rung four become unreachable?"
+      },
+      "image": "S012-2-caption.png",
+      "finding": "Regular and bold outlines are visibly superimposed during the word emphasis transition.",
+      "movie_sha256": "87e71ca9ae8e3355f9f092f05a7e4c0678313aa569bbc3b4cc63a200ff2cedd7"
+    },
+    {
+      "lesson": "S019",
+      "scene": 5,
+      "word": {
+        "text": "squares",
+        "start": 48.97333333333333,
+        "end": 49.35333333333333,
+        "matched": true
+      },
+      "frame_seconds": 49.0,
+      "cue": {
+        "start": 47.41333333333333,
+        "end": 49.93333333333333,
+        "text": "In the top row, cross out the two squares farthest"
+      },
+      "image": "S019-1-caption.png",
+      "finding": "Regular and bold outlines are visibly superimposed during the word emphasis transition.",
+      "movie_sha256": "51545b1baf76d155f052fdcedc6bfde126e45c63845e97468166c0e069bc365f"
+    },
+    {
+      "lesson": "S019",
+      "scene": 5,
+      "word": {
+        "text": "farthest",
+        "start": 49.35333333333333,
+        "end": 49.93333333333333,
+        "matched": true
+      },
+      "frame_seconds": 49.36666666666667,
+      "cue": {
+        "start": 47.41333333333333,
+        "end": 49.93333333333333,
+        "text": "In the top row, cross out the two squares farthest"
+      },
+      "image": "S019-2-caption.png",
+      "finding": "Regular and bold outlines are visibly superimposed during the word emphasis transition.",
+      "movie_sha256": "51545b1baf76d155f052fdcedc6bfde126e45c63845e97468166c0e069bc365f"
+    }
+  ],
+  "final_editorial_credit": false,
+  "s019_integration": "withdrawn before publication",
+  "s009_s010_s012": "Technical playback remains separately evidenced; require a caption-only refresh preserving narration."
+}

@@ -2,7 +2,7 @@
   "lesson": "S017",
   "title": "A frame around two tiles",
   "review_date_perth": "2026-11-25",
-  "status": "Source and mathematics integrated; the last two existing Voice C scene jobs remain queued",
+  "status": "All eight approved takes verified; scene-4 numeral onset and scene-7 positive numeral word-end corrected; isolated recovery is ready but not started",
   "final_editorial_credit": false,
   "source_commit": "1d1bb402622c540061446a85c2aab9782b724bd1",
   "voice_source_run": 45487547111,
@@ -13,12 +13,10 @@
     3,
     4,
     5,
-    6
+    6,
+    7,
+    8
   ],
-  "queued_voice_jobs": {
-    "7": 138776830497,
-    "8": 138776830534
-  },
   "original_render_run": 45488080237,
   "original_render_job": 138778713572,
   "original_render_failure": "Stopped before rendering after its 100-by-45-second wait for the entire voice matrix.",
@@ -60,9 +58,23 @@
   ],
   "candidate_sha256": null,
   "pending_before_final_credit": [
-    "Let the already queued scenes 7 and 8 complete; do not synthesize duplicates.",
-    "Align, render and compare the completed approved performance, then inspect the actual encoded film and all five learner-route profiles.",
-    "Verify the immutable release and final deployed routes, with the technique consumer at 300.",
-    "Complete audible/editorial acceptance before changing final completion counts."
-  ]
+    "Execute the reviewed recovery only once, then retain its own exact encoded master identity and provenance.",
+    "Pass decoded artwork, caption and source-audio comparison plus all five browser profiles and technique consumer 300 on PC/iPad portrait.",
+    "Inspect actual encoded mathematical frames and listen to the whole film for final audible/editorial acceptance.",
+    "Verify all returned immutable assets, integrate only approved route fields, and verify the deployed gallery, active lesson and immutable notebook routes."
+  ],
+  "status_checked_at_utc": "2026-11-25T00:44:38.222255+00:00",
+  "voice_source_branch": "production/s012-missing-rung",
+  "voice_jobs": {
+    "1": 138776830484,
+    "2": 138776830434,
+    "3": 138776830275,
+    "4": 138776830816,
+    "5": 138776830520,
+    "6": 138776830253,
+    "7": 138776830497,
+    "8": 138776830534
+  },
+  "recovery_handoff": "review/S017-recorded-recovery-handoff-20261125.json",
+  "numeral_timing_evidence": "review/S017-numeral-timing-20261125.json"
 }

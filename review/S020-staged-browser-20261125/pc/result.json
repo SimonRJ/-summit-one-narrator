@@ -1,0 +1,33 @@
+{
+  "slot": 20,
+  "profile": "pc",
+  "engine": "chromium",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "site": "http://127.0.0.1:35709/",
+  "sha256": "5308674d7d66dee6545d05699311a192b13e2fce2d48b6d2f560ec35ce1e57f3",
+  "film": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s020-stable-captions-20261125-0dfec081086f/S020.mp4",
+  "duration": 191.233333,
+  "chapters": 11,
+  "normal_speed_unmuted_to_ended": false,
+  "practice_grading": "isolated fixture",
+  "immutable_replay": true,
+  "active_frame_css_pixels": {
+    "width": 654,
+    "height": 367.875,
+    "horizontal": 0,
+    "vertical": 0
+  },
+  "notebook_frame_css_pixels": {
+    "width": 958,
+    "height": 462.65625,
+    "horizontal": 0,
+    "vertical": 0
+  },
+  "worked_example": {
+    "chapter": "When the remainder is zero",
+    "decoded_media_time": 167.466667
+  }
+}

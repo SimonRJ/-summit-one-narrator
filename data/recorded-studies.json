@@ -585,6 +585,190 @@
       "bridge": "Pause when the film marks rung 3 as broken. Is rung 4 still reachable? Trace its possible final jumps before the film fills in the table.",
       "sha256": "87e71ca9ae8e3355f9f092f05a7e4c0678313aa569bbc3b4cc63a200ff2cedd7",
       "release": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s012-missing-rung-20261125-b46d28d6d374/"
+    },
+    "S020": {
+      "title": "Clock turns and last digits",
+      "seconds": 191.233333,
+      "chapters": [
+        {
+          "title": "Returning to the start",
+          "start": 0.0
+        },
+        {
+          "title": "Write one cycle",
+          "start": 14.68
+        },
+        {
+          "title": "Seventeen hours later",
+          "start": 31.0
+        },
+        {
+          "title": "Five hours beyond a full turn",
+          "start": 44.89
+        },
+        {
+          "title": "The 37th power",
+          "start": 58.01
+        },
+        {
+          "title": "The four last digits",
+          "start": 73.82
+        },
+        {
+          "title": "Sum the first 51 powers",
+          "start": 98.93
+        },
+        {
+          "title": "Add complete blocks",
+          "start": 116.02
+        },
+        {
+          "title": "Exponent 49, position one",
+          "start": 138.433
+        },
+        {
+          "title": "When the remainder is zero",
+          "start": 155.633
+        },
+        {
+          "title": "Count blocks and tail",
+          "start": 170.513
+        }
+      ],
+      "transcript": [
+        "A cycle brings the same states back in the same order. Track where a full cycle ends and how many extra steps you take. When all you need is a last digit, you can multiply last digits and leave the rest of the number behind.",
+        "AMC Upper Primary practice can use a repeating picture, a clock or the last digit of a large power. Write a small first cycle. A Mawa style investigation can change the base or the number of steps. Check whether the cycle length stays the same.",
+        "It is nine o'clock on a twelve-hour clock. What number will the hour hand point to after seventeen hours? Start by removing any whole turns that bring you back to the same place.",
+        "Every twelve hours returns to the starting number. The seventeen hours leave five extra hours after full turns. Step five hours ahead. Wrap past twelve if needed, so the hour hand points to two.",
+        "What is the units digit of three to the power thirty-seven? Work with just the units digits of its first few powers. Watch for the first repeat. A remainder of zero will need a careful interpretation.",
+        "The first four units digits are three, nine, seven and one. The next digit repeats the first, and the same multiplication rule gives the same later digits. The exponent thirty-seven leaves a remainder of one on division by four. Use position one in the cycle. The digit at that position is three. If the remainder is zero, the fourth position sits at the end of the last full cycle.",
+        "Add the first fifty-one positive powers of three, starting with exponent one. What is the units digit of the sum? You already know the cycle of the last digits. Work out what one whole block contributes to the sum.",
+        "One full cycle has units digits three, nine, seven and one. Their sum is twenty, with units digit zero. There are twelve full cycles and three terms left. Every completed block contributes zero to the units digit. Add the first three digits of the cycle. Their sum is nineteen, so the final units digit is nine.",
+        "The first forty-eight powers make twelve full blocks. The next exponent is forty-nine. Its last digit is back at position one in the cycle. The last three digits to add are three, nine, and seven. Their sum is nineteen, so the units digit is nine.",
+        "If the step count is a multiple of the cycle length, land on the last listed item when the cycle was numbered from one. For a sum, add the contributions of the earlier terms as well as the final term. Check the total contributed by each full cycle.",
+        "Record states in order. Find the first state you can recognise again, and count the length from one occurrence to the next. Divide by the cycle length and use the remainder. When the task asks for a sum, work out what the full cycles contribute."
+      ],
+      "bridge": "For the sum in the film, 12 complete blocks use exponents 1 to 48. The next exponent is 49: which position is that in the repeating pattern of last digits?",
+      "sha256": "5308674d7d66dee6545d05699311a192b13e2fce2d48b6d2f560ec35ce1e57f3",
+      "release": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s020-stable-captions-20261125-0dfec081086f/"
+    },
+    "S102": {
+      "title": "Digit sums and counting digits in ranges",
+      "seconds": 215.633333,
+      "sha256": "f08e10363f675d7cb9e46fd31e5f766fdbbacd248af3ddded95b2a06eb40f6e1",
+      "bridge": "Keep the hundreds digit fixed and swap tens and units: 153 becomes 135. Count the printed threes in each column separately.",
+      "chapters": [
+        {
+          "title": "Digit sums and counting digits in ranges",
+          "start": 0.0
+        },
+        {
+          "title": "Where this idea helps",
+          "start": 15.0
+        },
+        {
+          "title": "Use a digit sum to find a remainder",
+          "start": 32.28
+        },
+        {
+          "title": "Use a digit sum to find a remainder",
+          "start": 48.25
+        },
+        {
+          "title": "Count occurrences in a list of consecutive numbers",
+          "start": 62.49
+        },
+        {
+          "title": "Count occurrences in a list of consecutive numbers",
+          "start": 77.98
+        },
+        {
+          "title": "Count a digit while writing only multiples of nine",
+          "start": 106.93
+        },
+        {
+          "title": "Count a digit while writing only multiples of nine",
+          "start": 125.0
+        },
+        {
+          "title": "Check the challenge solution",
+          "start": 158.333
+        },
+        {
+          "title": "Common mistakes",
+          "start": 178.623
+        },
+        {
+          "title": "Your exam checklist",
+          "start": 195.103
+        }
+      ],
+      "transcript": [
+        "A digit has a value and a position. The digit sum forgets the positions, but a count of written digits must consider every position. Break a range count into the ones, tens and hundreds places, then add those separate counts.",
+        "The AMC can ask how often a digit is written. Work in complete blocks, then inspect the last incomplete block. In Mawa primary application practice, digit sum restrictions can be combined with range restrictions. Use place value to prove which cases count.",
+        "What remainder does three hundred and eighty-six leave after division by nine? Use its digits to find the remainder without long division. Ten and one hundred both leave remainder one when divided by nine.",
+        "One hundred, ten and one each contribute the same remainder as one. The digit sum is three plus eight plus six, which is seventeen. The remainder of that sum is eight, which is also the remainder of three hundred and eighty-six.",
+        "Write every whole number from one through two hundred and forty-seven. How many times do you write the digit three? Each occurrence counts separately. Track the ones, tens and hundreds separately.",
+        "In the ones place every complete block of ten contributes one occurrence, with a possible extra at the end. The ones total is twenty-five. In the tens place, each complete hundred contains one run of ten occurrences. Include any matching part of the last hundred. That gives thirty. In the hundreds place, only the block starting at three hundred could match. It contributes zero. Adding the three totals gives fifty-five written occurrences.",
+        "Write the multiples of nine from one hundred through five hundred and ninety-nine, including any endpoint that is a multiple. Count every written three. Split the appearances among the three places. A number can contribute in more than one place.",
+        "Fix the ones digit at three. For hundreds digits one through five, the tens digits are five, four, three, two and one. Now keep the hundreds digit fixed and swap the tens and units digits. One hundred and fifty-three becomes one hundred and thirty-five. The digit sum and hundreds range are unchanged. Swapping back recovers the original, so this pairs the two lists exactly. The ones and tens columns contribute five each. Three hundred and thirty-three contributes once to each column.",
+        "For the hundreds place, fix the hundreds digit instead. The hundred block starting at three hundred contributes eleven occurrences, one for every multiple of nine in that block. Add the three position counts. An occurrence in one position is different from an occurrence in another, even in the same number. The total is twenty-one.",
+        "If a number contains the requested digit twice, it contributes two occurrences. Compare counting numbers with counting written digits. Digits zero and nine both have remainder zero on division by nine. Include both when zero is permitted in the position.",
+        "Write whether you need a sum, a number of valid integers or a count of written occurrences. Record the exact range. Use place-value blocks or digit-sum restrictions to organise the work. Check an endpoint and a number with a repeated digit before totalling."
+      ],
+      "release": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s102-tens-units-20261125-a84046b06450/"
+    },
+    "S015": {
+      "id": "S015",
+      "title": "Two stamps for the mail train",
+      "seconds": 155.3,
+      "chapters": [
+        {
+          "title": "The loose parcel",
+          "start": 0.0
+        },
+        {
+          "title": "Two sorting stamps",
+          "start": 17.4
+        },
+        {
+          "title": "Read only what each stamp needs",
+          "start": 40.08
+        },
+        {
+          "title": "One parcel short",
+          "start": 63.11
+        },
+        {
+          "title": "Move both end stops",
+          "start": 81.96
+        },
+        {
+          "title": "Mark the shared stops",
+          "start": 95.88
+        },
+        {
+          "title": "Unload the extra parcel",
+          "start": 112.84
+        },
+        {
+          "title": "Which numbers are we counting?",
+          "start": 132.04
+        }
+      ],
+      "transcript": [
+        "Parcels for the mail train are strapped in bundles of four. Seventeen parcels make four full bundles and one loose parcel. How many more parcels would fill that last bundle? Three. The remainder tells us what is already there. The gap tells us what is missing.",
+        "A parcel label earns a square stamp if its number divides evenly by four. It earns a triangle stamp if the number divides evenly by three. The four labels are three hundred and twenty four, three hundred and forty four, three hundred and fifty four, and three hundred and eighty four. Which get both stamps?",
+        "For the square stamp, inspect the last two digits. A hundred is divisible by four, so the hundreds place cannot spoil the test. Twenty four, forty four and eighty four pass. Fifty four fails. For the triangle stamp, add the digits. The three survivors have sums nine, eleven and fifteen. Only the first and last labels get both stamps.",
+        "A crate contains between twenty three and fifty nine parcels, including both ends. Add one parcel. Now the crate can be packed exactly in fours, and it can also be packed exactly in sixes. How many different original loads could it have held?",
+        "Push the whole interval one place to the right. Twenty three becomes twenty four, and fifty nine becomes sixty. We now need numbers in this shifted interval that the groups of four and the groups of six both reach.",
+        "Mark the multiples of four above the line, and the multiples of six below. Both first meet at twelve after zero. The same arrangement repeats every twelve. In our shifted interval, the shared stops are twenty four, thirty six, forty eight and sixty.",
+        "Each shared stop describes the crate after adding a parcel. Take one away from each. The original loads are twenty three, thirty five, forty seven and fifty nine. Four possibilities. Check the last one. The extra parcel makes sixty, which packs as fifteen fours or ten sixes.",
+        "A tempting answer keeps sixty and loses twenty three. That mixes two different number lines. Move the end stops when you change the quantity. Test the new quantity, then undo the change. For a different remainder problem, first ask whether one small move can make both divisions exact."
+      ],
+      "bridge": "When the film adds 1 to make a number divisible by both 4 and 6, pause. Where must the two ends of the search interval move? After finding a common multiple, how will you get back to the original number?",
+      "sha256": "19765de3ce9c28259d244c41d370cb3073513bc928124167e58cc21497098c89",
+      "release": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s015-numeral-timing-20261125-41b7922d37ed/"
     }
   }
 }

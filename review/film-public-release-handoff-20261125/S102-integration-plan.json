@@ -1,0 +1,127 @@
+{
+  "lesson": "S102",
+  "production_run": 45518273975,
+  "production_commit": "a84046b0645063f273951ce85d938aa71fffa9ee",
+  "release_tag": "s102-tens-units-20261125-a84046b06450",
+  "released_asset_sha256": {
+    "S102.mp4": "f08e10363f675d7cb9e46fd31e5f766fdbbacd248af3ddded95b2a06eb40f6e1",
+    "S102.vtt": "e9dc8c1fcb8779cc27ee97823ea91fd694801fee8c448e7c5b30e19505b4fc02",
+    "S102-guide.json": "1af8022a6e2ff111d2c4e9ed58564b5435a4bfdec0035c93b42acbb0cc3aedfa",
+    "S102-qa.json": "88ba781edcb93ef83fc28dc08f73da9d769c7332c24f964239240e916385c849",
+    "S102-poster.jpg": "bf601ece4863a1788d775c90daca3c96b2efadc8933a83012556d473392dab06",
+    "S102-recording.zip": "c40702020fe0a9f16bd0b45d82207c1b6b9e52ba4ad83738cd37f5e4821efd1e"
+  },
+  "catalogue_file": "data/recorded-studies.json",
+  "catalogue_entry": {
+    "title": "Digit sums and counting digits in ranges",
+    "seconds": 215.633333,
+    "sha256": "f08e10363f675d7cb9e46fd31e5f766fdbbacd248af3ddded95b2a06eb40f6e1",
+    "bridge": "Keep the hundreds digit fixed and swap tens and units: 153 becomes 135. Count the printed threes in each column separately.",
+    "chapters": [
+      {
+        "title": "Digit sums and counting digits in ranges",
+        "start": 0.0
+      },
+      {
+        "title": "Where this idea helps",
+        "start": 15.0
+      },
+      {
+        "title": "Use a digit sum to find a remainder",
+        "start": 32.28
+      },
+      {
+        "title": "Use a digit sum to find a remainder",
+        "start": 48.25
+      },
+      {
+        "title": "Count occurrences in a list of consecutive numbers",
+        "start": 62.49
+      },
+      {
+        "title": "Count occurrences in a list of consecutive numbers",
+        "start": 77.98
+      },
+      {
+        "title": "Count a digit while writing only multiples of nine",
+        "start": 106.93
+      },
+      {
+        "title": "Count a digit while writing only multiples of nine",
+        "start": 125.0
+      },
+      {
+        "title": "Check the challenge solution",
+        "start": 158.333
+      },
+      {
+        "title": "Common mistakes",
+        "start": 178.623
+      },
+      {
+        "title": "Your exam checklist",
+        "start": 195.103
+      }
+    ],
+    "transcript": [
+      "A digit has a value and a position. The digit sum forgets the positions, but a count of written digits must consider every position. Break a range count into the ones, tens and hundreds places, then add those separate counts.",
+      "The AMC can ask how often a digit is written. Work in complete blocks, then inspect the last incomplete block. In Mawa primary application practice, digit sum restrictions can be combined with range restrictions. Use place value to prove which cases count.",
+      "What remainder does three hundred and eighty-six leave after division by nine? Use its digits to find the remainder without long division. Ten and one hundred both leave remainder one when divided by nine.",
+      "One hundred, ten and one each contribute the same remainder as one. The digit sum is three plus eight plus six, which is seventeen. The remainder of that sum is eight, which is also the remainder of three hundred and eighty-six.",
+      "Write every whole number from one through two hundred and forty-seven. How many times do you write the digit three? Each occurrence counts separately. Track the ones, tens and hundreds separately.",
+      "In the ones place every complete block of ten contributes one occurrence, with a possible extra at the end. The ones total is twenty-five. In the tens place, each complete hundred contains one run of ten occurrences. Include any matching part of the last hundred. That gives thirty. In the hundreds place, only the block starting at three hundred could match. It contributes zero. Adding the three totals gives fifty-five written occurrences.",
+      "Write the multiples of nine from one hundred through five hundred and ninety-nine, including any endpoint that is a multiple. Count every written three. Split the appearances among the three places. A number can contribute in more than one place.",
+      "Fix the ones digit at three. For hundreds digits one through five, the tens digits are five, four, three, two and one. Now keep the hundreds digit fixed and swap the tens and units digits. One hundred and fifty-three becomes one hundred and thirty-five. The digit sum and hundreds range are unchanged. Swapping back recovers the original, so this pairs the two lists exactly. The ones and tens columns contribute five each. Three hundred and thirty-three contributes once to each column.",
+      "For the hundreds place, fix the hundreds digit instead. The hundred block starting at three hundred contributes eleven occurrences, one for every multiple of nine in that block. Add the three position counts. An occurrence in one position is different from an occurrence in another, even in the same number. The total is twenty-one.",
+      "If a number contains the requested digit twice, it contributes two occurrences. Compare counting numbers with counting written digits. Digits zero and nine both have remainder zero on division by nine. Include both when zero is permitted in the position.",
+      "Write whether you need a sum, a number of valid integers or a count of written occurrences. Record the exact range. Use place-value blocks or digit-sum restrictions to organise the work. Check an endpoint and a number with a repeated digit before totalling."
+    ],
+    "release": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s102-tens-units-20261125-a84046b06450/"
+  },
+  "route_changes": [
+    {
+      "file": "data/read-watch-practise-later.json",
+      "slot": 102,
+      "expected_current_movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S102-Intro.mp4",
+      "expected_current_video_id": "S102",
+      "set": {
+        "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s102-tens-units-20261125-a84046b06450/S102.mp4",
+        "videoTitle": "Digit sums and counting digits in ranges",
+        "filmUse": "dedicated",
+        "bridge": "Keep the hundreds digit fixed and swap tens and units: 153 becomes 135. Count the printed threes in each column separately."
+      }
+    },
+    {
+      "file": "data/read-watch-practise-later.json",
+      "slot": 296,
+      "expected_current_movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S102-Intro.mp4",
+      "expected_current_video_id": "S102",
+      "set": {
+        "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s102-tens-units-20261125-a84046b06450/S102.mp4",
+        "videoTitle": "Digit sums and counting digits in ranges",
+        "filmUse": "technique",
+        "bridge": "For the multiples-of-nine count, keep hundreds fixed and swap tens and units: 153 becomes 135. Which digit choices force the missing digit?"
+      }
+    }
+  ],
+  "canonical_opening_bridge": {
+    "file": "tools/content/practice-revisions-20261121.json",
+    "key": "S102",
+    "bridge": "Keep the hundreds digit fixed and swap tens and units: 153 becomes 135. Count the printed threes in each column separately."
+  },
+  "additional_opening_bridges": [
+    {
+      "file": "tools/content/practice-revisions-20261121.json",
+      "key": "S296",
+      "bridge": "For the multiples-of-nine count, keep hundreds fixed and swap tens and units: 153 becomes 135. Which digit choices force the missing digit?"
+    }
+  ],
+  "remaining_release_steps": [
+    "Apply only the listed fields, retaining all worked examples, practice IDs and grading editions.",
+    "Refresh the catalogue query and matching app/service-worker cache versions in the combined release.",
+    "Run the recorded-study and read/practice checks, then check the exact public learner routes.",
+    "Keep final editorial credit pending until that independent acceptance is complete."
+  ],
+  "source_tree_modified": false,
+  "editorial_completion_awarded": false
+}

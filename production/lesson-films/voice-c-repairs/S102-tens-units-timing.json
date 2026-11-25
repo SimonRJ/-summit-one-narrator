@@ -1,0 +1,533 @@
+{
+  "recording_sha256": "4582dcd016527a350da681f165b53e32ade863c7e3ea011aa5863e892cb8593b",
+  "narration": "Fix the ones digit at three. For hundreds digits one through five, the tens digits are five, four, three, two and one. Now keep the hundreds digit fixed and swap the tens and units digits. One hundred and fifty-three becomes one hundred and thirty-five. The digit sum and hundreds range are unchanged. Swapping back recovers the original, so this pairs the two lists exactly. The ones and tens columns contribute five each. Three hundred and thirty-three contributes once to each column.",
+  "method": "base.en on the four original recorded passages, with numeral tokens suppressed so each number is timed as spoken words",
+  "separator_seconds": 0.15,
+  "passages": [
+    {
+      "passage": 1,
+      "source_interval_seconds": [
+        0,
+        8.96
+      ],
+      "match_percent": 100.0,
+      "recognized_speech": "Fix the ones digit at three. For hundreds digits, one through five. The tens digits are five, four, three, two, and one."
+    },
+    {
+      "passage": 2,
+      "source_interval_seconds": [
+        9.11,
+        17.27
+      ],
+      "match_percent": 97.96,
+      "recognized_speech": "Now keep the hundreds digit fixed and swap the tens and units digits. digits. One hundred and fifty -three becomes one hundred and thirty -five."
+    },
+    {
+      "passage": 3,
+      "source_interval_seconds": [
+        17.42,
+        28.3
+      ],
+      "match_percent": 100.0,
+      "recognized_speech": "The digit sum and hundreds range are unchanged. Swapping back recovers the original, so this pairs the two lists exactly. The ones and tens columns contribute five each."
+    },
+    {
+      "passage": 4,
+      "source_interval_seconds": [
+        28.45,
+        32.29
+      ],
+      "match_percent": 100.0,
+      "recognized_speech": "Three hundred and thirty -three contributes once to each column."
+    }
+  ],
+  "words": [
+    {
+      "text": "Fix",
+      "start": 0,
+      "end": 0.44,
+      "matched": true
+    },
+    {
+      "text": "the",
+      "start": 0.44,
+      "end": 0.6,
+      "matched": true
+    },
+    {
+      "text": "ones",
+      "start": 0.6,
+      "end": 0.78,
+      "matched": true
+    },
+    {
+      "text": "digit",
+      "start": 0.78,
+      "end": 1.14,
+      "matched": true
+    },
+    {
+      "text": "at",
+      "start": 1.14,
+      "end": 1.4,
+      "matched": true
+    },
+    {
+      "text": "three.",
+      "start": 1.4,
+      "end": 1.74,
+      "matched": true
+    },
+    {
+      "text": "For",
+      "start": 2.32,
+      "end": 2.34,
+      "matched": true
+    },
+    {
+      "text": "hundreds",
+      "start": 2.34,
+      "end": 2.7,
+      "matched": true
+    },
+    {
+      "text": "digits",
+      "start": 2.7,
+      "end": 3.08,
+      "matched": true
+    },
+    {
+      "text": "one",
+      "start": 3.46,
+      "end": 3.64,
+      "matched": true
+    },
+    {
+      "text": "through",
+      "start": 3.64,
+      "end": 3.92,
+      "matched": true
+    },
+    {
+      "text": "five,",
+      "start": 3.92,
+      "end": 4.26,
+      "matched": true
+    },
+    {
+      "text": "the",
+      "start": 4.84,
+      "end": 4.86,
+      "matched": true
+    },
+    {
+      "text": "tens",
+      "start": 4.86,
+      "end": 5.06,
+      "matched": true
+    },
+    {
+      "text": "digits",
+      "start": 5.06,
+      "end": 5.5,
+      "matched": true
+    },
+    {
+      "text": "are",
+      "start": 5.5,
+      "end": 5.78,
+      "matched": true
+    },
+    {
+      "text": "five,",
+      "start": 5.78,
+      "end": 6.16,
+      "matched": true
+    },
+    {
+      "text": "four,",
+      "start": 6.56,
+      "end": 6.74,
+      "matched": true
+    },
+    {
+      "text": "three,",
+      "start": 7.16,
+      "end": 7.38,
+      "matched": true
+    },
+    {
+      "text": "two",
+      "start": 7.78,
+      "end": 7.96,
+      "matched": true
+    },
+    {
+      "text": "and",
+      "start": 8.26,
+      "end": 8.36,
+      "matched": true
+    },
+    {
+      "text": "one.",
+      "start": 8.36,
+      "end": 8.58,
+      "matched": true
+    },
+    {
+      "text": "Now",
+      "start": 9.11,
+      "end": 9.33,
+      "matched": true
+    },
+    {
+      "text": "keep",
+      "start": 9.33,
+      "end": 9.63,
+      "matched": true
+    },
+    {
+      "text": "the",
+      "start": 9.63,
+      "end": 9.829999999999998,
+      "matched": true
+    },
+    {
+      "text": "hundreds",
+      "start": 9.83,
+      "end": 10.15,
+      "matched": true
+    },
+    {
+      "text": "digit",
+      "start": 10.15,
+      "end": 10.529999999999998,
+      "matched": true
+    },
+    {
+      "text": "fixed",
+      "start": 10.53,
+      "end": 10.969999999999999,
+      "matched": true
+    },
+    {
+      "text": "and",
+      "start": 10.969999999999999,
+      "end": 11.35,
+      "matched": true
+    },
+    {
+      "text": "swap",
+      "start": 11.35,
+      "end": 11.629999999999999,
+      "matched": true
+    },
+    {
+      "text": "the",
+      "start": 11.629999999999999,
+      "end": 11.87,
+      "matched": true
+    },
+    {
+      "text": "tens",
+      "start": 11.87,
+      "end": 12.11,
+      "matched": true
+    },
+    {
+      "text": "and",
+      "start": 12.11,
+      "end": 12.469999999999999,
+      "matched": true
+    },
+    {
+      "text": "units",
+      "start": 12.469999999999999,
+      "end": 12.75,
+      "matched": true
+    },
+    {
+      "text": "digits.",
+      "start": 12.75,
+      "end": 13.129999999999999,
+      "matched": true
+    },
+    {
+      "text": "One",
+      "start": 13.809999999999999,
+      "end": 13.95,
+      "matched": true
+    },
+    {
+      "text": "hundred",
+      "start": 13.95,
+      "end": 14.25,
+      "matched": true
+    },
+    {
+      "text": "and",
+      "start": 14.25,
+      "end": 14.41,
+      "matched": true
+    },
+    {
+      "text": "fifty-three",
+      "start": 14.41,
+      "end": 15.05,
+      "matched": true
+    },
+    {
+      "text": "becomes",
+      "start": 15.05,
+      "end": 15.43,
+      "matched": true
+    },
+    {
+      "text": "one",
+      "start": 15.43,
+      "end": 15.77,
+      "matched": true
+    },
+    {
+      "text": "hundred",
+      "start": 15.77,
+      "end": 16.09,
+      "matched": true
+    },
+    {
+      "text": "and",
+      "start": 16.09,
+      "end": 16.25,
+      "matched": true
+    },
+    {
+      "text": "thirty-five.",
+      "start": 16.25,
+      "end": 16.95,
+      "matched": true
+    },
+    {
+      "text": "The",
+      "start": 17.42,
+      "end": 17.62,
+      "matched": true
+    },
+    {
+      "text": "digit",
+      "start": 17.62,
+      "end": 17.900000000000002,
+      "matched": true
+    },
+    {
+      "text": "sum",
+      "start": 17.900000000000002,
+      "end": 18.220000000000002,
+      "matched": true
+    },
+    {
+      "text": "and",
+      "start": 18.220000000000002,
+      "end": 18.46,
+      "matched": true
+    },
+    {
+      "text": "hundreds",
+      "start": 18.46,
+      "end": 18.84,
+      "matched": true
+    },
+    {
+      "text": "range",
+      "start": 18.840000000000003,
+      "end": 19.200000000000003,
+      "matched": true
+    },
+    {
+      "text": "are",
+      "start": 19.200000000000003,
+      "end": 19.480000000000004,
+      "matched": true
+    },
+    {
+      "text": "unchanged.",
+      "start": 19.480000000000004,
+      "end": 19.8,
+      "matched": true
+    },
+    {
+      "text": "Swapping",
+      "start": 20.840000000000003,
+      "end": 21.000000000000004,
+      "matched": true
+    },
+    {
+      "text": "back",
+      "start": 21.000000000000004,
+      "end": 21.259999999999998,
+      "matched": true
+    },
+    {
+      "text": "recovers",
+      "start": 21.26,
+      "end": 21.660000000000004,
+      "matched": true
+    },
+    {
+      "text": "the",
+      "start": 21.660000000000004,
+      "end": 21.940000000000005,
+      "matched": true
+    },
+    {
+      "text": "original,",
+      "start": 21.940000000000005,
+      "end": 22.1,
+      "matched": true
+    },
+    {
+      "text": "so",
+      "start": 22.76,
+      "end": 22.880000000000003,
+      "matched": true
+    },
+    {
+      "text": "this",
+      "start": 22.880000000000003,
+      "end": 23.040000000000003,
+      "matched": true
+    },
+    {
+      "text": "pairs",
+      "start": 23.040000000000003,
+      "end": 23.300000000000004,
+      "matched": true
+    },
+    {
+      "text": "the",
+      "start": 23.300000000000004,
+      "end": 23.560000000000002,
+      "matched": true
+    },
+    {
+      "text": "two",
+      "start": 23.560000000000002,
+      "end": 23.76,
+      "matched": true
+    },
+    {
+      "text": "lists",
+      "start": 23.76,
+      "end": 24.0,
+      "matched": true
+    },
+    {
+      "text": "exactly.",
+      "start": 24.0,
+      "end": 24.54,
+      "matched": true
+    },
+    {
+      "text": "The",
+      "start": 25.3,
+      "end": 25.32,
+      "matched": true
+    },
+    {
+      "text": "ones",
+      "start": 25.32,
+      "end": 25.54,
+      "matched": true
+    },
+    {
+      "text": "and",
+      "start": 25.54,
+      "end": 25.86,
+      "matched": true
+    },
+    {
+      "text": "tens",
+      "start": 25.86,
+      "end": 26.1,
+      "matched": true
+    },
+    {
+      "text": "columns",
+      "start": 26.1,
+      "end": 26.580000000000002,
+      "matched": true
+    },
+    {
+      "text": "contribute",
+      "start": 26.580000000000002,
+      "end": 27.1,
+      "matched": true
+    },
+    {
+      "text": "five",
+      "start": 27.1,
+      "end": 27.62,
+      "matched": true
+    },
+    {
+      "text": "each.",
+      "start": 27.62,
+      "end": 27.880000000000003,
+      "matched": true
+    },
+    {
+      "text": "Three",
+      "start": 28.45,
+      "end": 28.95,
+      "matched": true
+    },
+    {
+      "text": "hundred",
+      "start": 28.95,
+      "end": 29.31,
+      "matched": true
+    },
+    {
+      "text": "and",
+      "start": 29.31,
+      "end": 29.49,
+      "matched": true
+    },
+    {
+      "text": "thirty-three",
+      "start": 29.49,
+      "end": 30.169999999999998,
+      "matched": true
+    },
+    {
+      "text": "contributes",
+      "start": 30.169999999999998,
+      "end": 30.529999999999998,
+      "matched": true
+    },
+    {
+      "text": "once",
+      "start": 30.53,
+      "end": 31.09,
+      "matched": true
+    },
+    {
+      "text": "to",
+      "start": 31.09,
+      "end": 31.43,
+      "matched": true
+    },
+    {
+      "text": "each",
+      "start": 31.43,
+      "end": 31.59,
+      "matched": true
+    },
+    {
+      "text": "column.",
+      "start": 31.59,
+      "end": 31.89,
+      "matched": true
+    }
+  ],
+  "note": "The full-take recognizer collapsed 153 and 333 to zero-duration numerals. These measured passage timings preserve the spoken numbers without modifying any audio samples."
+}

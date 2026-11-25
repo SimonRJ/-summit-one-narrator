@@ -1,0 +1,72 @@
+{
+  "date_utc": "2026-11-25",
+  "failed_source_commit": "585081646578fe8b0020d2dee831a8f853eb3bca",
+  "run_id": 45516930775,
+  "workflow": "Check every lesson opening on iPhone, iPad and PC",
+  "conclusion": "failure",
+  "checker_path": "tools/check_lesson_reading_layouts.py",
+  "source_url": "https://github.com/SimonRJ/-summit-one-narrator/blob/585081646578fe8b0020d2dee831a8f853eb3bca/tools/check_lesson_reading_layouts.py",
+  "jobs": [
+    {
+      "id": 138878656371,
+      "profile": "layout (ipad-landscape)",
+      "status": "completed",
+      "conclusion": "failure",
+      "url": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45516930775/job/138878656371",
+      "failure_excerpt": [
+        "2026-11-25T00:43:15.4294812Z playwright._impl._errors.Error: Page.evaluate: Error: Different prompt or working in lesson 362",
+        "2026-11-25T00:43:15.4571226Z ##[error]Process completed with exit code 1.",
+        "2026-11-25T00:43:15.6149154Z No files were found with the provided path: /home/runner/work/_temp/reading*.json. No artifacts will be uploaded."
+      ]
+    },
+    {
+      "id": 138878656531,
+      "profile": "layout (ipad-portrait)",
+      "status": "completed",
+      "conclusion": "failure",
+      "url": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45516930775/job/138878656531",
+      "failure_excerpt": [
+        "2026-11-25T00:41:52.4596042Z playwright._impl._errors.Error: Page.evaluate: Error: Different prompt or working in lesson 173",
+        "2026-11-25T00:41:52.4856616Z ##[error]Process completed with exit code 1.",
+        "2026-11-25T00:41:52.6631158Z No files were found with the provided path: /home/runner/work/_temp/reading*.json. No artifacts will be uploaded."
+      ]
+    },
+    {
+      "id": 138878656590,
+      "profile": "layout (iphone-portrait)",
+      "status": "completed",
+      "conclusion": "failure",
+      "url": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45516930775/job/138878656590",
+      "failure_excerpt": [
+        "2026-11-25T00:43:49.2581331Z playwright._impl._errors.Error: Page.evaluate: Error: Different prompt or working in lesson 3",
+        "2026-11-25T00:43:49.2819023Z ##[error]Process completed with exit code 1.",
+        "2026-11-25T00:43:49.4131302Z No files were found with the provided path: /home/runner/work/_temp/reading*.json. No artifacts will be uploaded."
+      ]
+    },
+    {
+      "id": 138878656694,
+      "profile": "layout (pc)",
+      "status": "completed",
+      "conclusion": "failure",
+      "url": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45516930775/job/138878656694",
+      "failure_excerpt": [
+        "2026-11-25T00:43:32.9163700Z playwright._impl._errors.Error: Page.evaluate: Error: Different prompt or working in lesson 2",
+        "2026-11-25T00:43:32.9424660Z ##[error]Process completed with exit code 1.",
+        "2026-11-25T00:43:33.1670397Z No files were found with the provided path: /home/runner/work/_temp/reading*.json. No artifacts will be uploaded."
+      ]
+    },
+    {
+      "id": 138878656892,
+      "profile": "layout (iphone-landscape)",
+      "status": "completed",
+      "conclusion": "failure",
+      "url": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45516930775/job/138878656892",
+      "failure_excerpt": [
+        "2026-11-25T00:47:50.4282663Z playwright._impl._errors.Error: Page.evaluate: Error: Different prompt or working in lesson 53",
+        "2026-11-25T00:47:50.4544165Z ##[error]Process completed with exit code 1.",
+        "2026-11-25T00:47:50.5867827Z No files were found with the provided path: /home/runner/work/_temp/reading*.json. No artifacts will be uploaded."
+      ]
+    }
+  ],
+  "observation": "All five fail the authored-content equality assertion at different lessons before any reading-results JSON is uploaded. This records the original failure; a test repair does not retroactively turn these runs green."
+}

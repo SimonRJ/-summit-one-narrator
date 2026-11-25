@@ -1,0 +1,133 @@
+{
+  "old_candidate": {
+    "sha256": "b06f8c225218bfecfbbd2dc97d7f55ccb406755825f0839999fbabf7799db8f1",
+    "bytes": 5091124
+  },
+  "returned_candidate": {
+    "sha256": "3527d02410e4b1158af7d42a5d8abce16cb6fed702947b8fa864af25590635ce",
+    "bytes": 5091125
+  },
+  "packets": {
+    "total": 9029,
+    "per_stream": {
+      "video": 3523,
+      "audio": 5506
+    },
+    "all_payload_hashes_timestamps_durations_sizes_flags_and_side_data_equal": true,
+    "compared_fields": [
+      "codec_type",
+      "data_hash",
+      "dts",
+      "dts_time",
+      "duration",
+      "duration_time",
+      "flags",
+      "pts",
+      "pts_time",
+      "side_data_list",
+      "size",
+      "stream_index"
+    ],
+    "ignored_file_position_field": "pos; every chunk moves by one byte because of metadata length",
+    "canonical_comparison_sha256": "a6f9cfd2d53a144f323ceaa807eb768e9e1d2a63216d87c5a81263136ee00890"
+  },
+  "decoder_configurations_identical": [
+    {
+      "codec_name": "h264",
+      "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+      "profile": "High",
+      "codec_type": "video",
+      "codec_tag_string": "avc1",
+      "width": 1920,
+      "height": 1080,
+      "level": 40,
+      "time_base": "1/15360",
+      "start_pts": 0,
+      "duration_ts": 1803776,
+      "nb_frames": "3523",
+      "extradata_size": 46,
+      "extradata_hash": "SHA256:0908ec1d9a03be6575569d386164638bdf2556c31667daf42bf716e24b3baba0"
+    },
+    {
+      "codec_name": "aac",
+      "codec_long_name": "AAC (Advanced Audio Coding)",
+      "profile": "LC",
+      "codec_type": "audio",
+      "codec_tag_string": "mp4a",
+      "sample_fmt": "fltp",
+      "sample_rate": "48000",
+      "channels": 1,
+      "channel_layout": "mono",
+      "time_base": "1/48000",
+      "start_pts": 0,
+      "duration_ts": 5636160,
+      "nb_frames": "5506",
+      "extradata_size": 5,
+      "extradata_hash": "SHA256:643b0e23faf2831be78dddd3de11c0f1b4aac4d4f762554c9bdaab7cc1e9e409"
+    }
+  ],
+  "stream_payload_sha256": {
+    "0:v:0": "b1179dac8111feee2b6989e2bb4da2ac07ac74e67c695a7548aee581d0ec9da1",
+    "0:a:0": "89e09f12ead83d1d4b0ddff7a5c9851f00ff214556b986f70ac21da5c2ba28f7"
+  },
+  "container_differences": {
+    "leaf_atoms": 32,
+    "changed_leaf_atoms": [
+      {
+        "atom": "/moov[0]/trak[0]/mdia[0]/minf[0]/stbl[0]/stsd[0]",
+        "before_bytes": 168,
+        "after_bytes": 168,
+        "different_offsets": [
+          64,
+          66,
+          67,
+          71,
+          165,
+          166,
+          167
+        ],
+        "before_changed_region": "\u0000\u0000\u0000\u0001\u0015Lavc61.19.101 libx264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0018\u00ff\u00ff\u0000\u0000\u00006avcC\u0001d\u0000(\u00ff\u00e1\u0000\u001agd\u0000(\u00ac\u00d9@x\u0002'\u00e5\u0084\u0000\u0000\u0003\u0000\u0004\u0000\u0000\u0003\u0000\u00f0<`\u00c6X\u0001\u0000\u0005h\u00ef\u0082|\u00b0\u00fd\u00f8\u00f8\u0000\u0000\u0000\u0000\u0014btrt\u0000\u0000\u0000\u0000\u0000\u0002\u00dd\u00e4\u0000\u0000\u0000\u0000",
+        "after_changed_region": "\u0000\u0000\u0000\u0001\u0015Lavc60.31.102 libx264\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0018\u00ff\u00ff\u0000\u0000\u00006avcC\u0001d\u0000(\u00ff\u00e1\u0000\u001agd\u0000(\u00ac\u00d9@x\u0002'\u00e5\u0084\u0000\u0000\u0003\u0000\u0004\u0000\u0000\u0003\u0000\u00f0<`\u00c6X\u0001\u0000\u0005h\u00ef\u0082|\u00b0\u00fd\u00f8\u00f8\u0000\u0000\u0000\u0000\u0014btrt\u0000\u0000\u0000\u0000\u0000\u0002\u00dd\u00e4\u0000\u0002\u00dd\u00e4"
+      },
+      {
+        "atom": "/moov[0]/trak[0]/mdia[0]/minf[0]/stbl[0]/stco[0]",
+        "before_bytes": 14096,
+        "after_bytes": 14096,
+        "chunk_count": 3522,
+        "offset_deltas": [
+          1
+        ]
+      },
+      {
+        "atom": "/moov[0]/trak[1]/mdia[0]/minf[0]/stbl[0]/stco[0]",
+        "before_bytes": 14096,
+        "after_bytes": 14096,
+        "chunk_count": 3522,
+        "offset_deltas": [
+          1
+        ]
+      },
+      {
+        "atom": "/moov[0]/udta[0]/meta[0]/ilst[0]/\u00a9too[0]",
+        "before_bytes": 28,
+        "after_bytes": 29,
+        "before": "\u0000\u0000\u0000\u001cdata\u0000\u0000\u0000\u0001\u0000\u0000\u0000\u0000Lavf61.7.103",
+        "after": "\u0000\u0000\u0000\u001ddata\u0000\u0000\u0000\u0001\u0000\u0000\u0000\u0000Lavf60.16.100"
+      }
+    ]
+  },
+  "container_difference_interpretation": [
+    "Video sample-description compressor label changes Lavc61.19.101 libx264 to Lavc60.31.102 libx264.",
+    "Video bitrate metadata adds the average bitrate 187876 (previously zero); maximum bitrate 187876 is unchanged.",
+    "Muxer tag changes Lavf61.7.103 to Lavf60.16.100, increasing its atom by one byte.",
+    "Both streams have 3522 chunk offsets shifted by exactly +1 byte. No encoded media, decoder configuration, timing or frame count changes."
+  ],
+  "poster": {
+    "sha256": "d5296dd117a2c7f4af9d7e4c7f202b0fc62827941413579dc4e9adddd1f0bf35",
+    "git_blob": "d45c0bd8c5b6d6c25ddb13869986c7b86607e6fb",
+    "bytes": 169848,
+    "same_in_current_source_and_returned_release": true
+  },
+  "native_chapters": [],
+  "content_acceptance_reuse": "Previously checked b06f8c candidate has identical encoded video/audio packets, packet timing and decoder configuration. Prior chapter/correction-frame and one full PC normal-speed unmuted browser playback remain content evidence for those identical streams; this does not create editorial approval or public-delivery credit."
+}

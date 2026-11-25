@@ -1,0 +1,1463 @@
+{
+  "label": "before",
+  "source_commit": "f9d8a50933df49be4e79e7e3943497bfbf3c1321",
+  "movie_sha256": "10c454496ef92f044a50841ebffc0f7711afc5432997386f577560cf4737950d",
+  "chapter_script_sha256": "531306e5142d9b48484117dcdb60503b1a6c84dde32065358c1b837c471dd9cc",
+  "profile": "iphone-portrait",
+  "samples": [
+    {
+      "wall": 18164,
+      "phase": "full-replay",
+      "time": 0,
+      "paused": false,
+      "ended": false,
+      "seeking": true,
+      "readyState": 2,
+      "networkState": 2,
+      "error": null,
+      "buffered": [],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 197,
+      "decoded": 45.233333
+    },
+    {
+      "wall": 23174,
+      "phase": "full-replay",
+      "time": 4.96435229,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "readyState": 2,
+      "networkState": 2,
+      "error": null,
+      "buffered": [
+        [
+          0,
+          50.8
+        ]
+      ],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 345,
+      "decoded": 5
+    },
+    {
+      "wall": 28185.000000000004,
+      "phase": "full-replay",
+      "time": 9.976048383,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "readyState": 4,
+      "networkState": 1,
+      "error": null,
+      "buffered": [
+        [
+          0,
+          50.8
+        ]
+      ],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 496,
+      "decoded": 10.033333
+    },
+    {
+      "wall": 33195,
+      "phase": "full-replay",
+      "time": 14.984515666,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "readyState": 4,
+      "networkState": 1,
+      "error": null,
+      "buffered": [
+        [
+          0,
+          50.8
+        ]
+      ],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 646,
+      "decoded": 15.033333
+    },
+    {
+      "wall": 38205,
+      "phase": "full-replay",
+      "time": 19.995096214,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "readyState": 4,
+      "networkState": 1,
+      "error": null,
+      "buffered": [
+        [
+          0,
+          50.8
+        ]
+      ],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 796,
+      "decoded": 20.033333
+    },
+    {
+      "wall": 43213,
+      "phase": "full-replay",
+      "time": 25.003204363,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "readyState": 4,
+      "networkState": 1,
+      "error": null,
+      "buffered": [
+        [
+          0,
+          50.8
+        ]
+      ],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 945,
+      "decoded": 25.033333
+    },
+    {
+      "wall": 48228,
+      "phase": "full-replay",
+      "time": 30.017892854,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "readyState": 4,
+      "networkState": 1,
+      "error": null,
+      "buffered": [
+        [
+          0,
+          50.8
+        ]
+      ],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 1093,
+      "decoded": 30.066666
+    },
+    {
+      "wall": 53239.00000000001,
+      "phase": "full-replay",
+      "time": 35.028622665,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "readyState": 4,
+      "networkState": 1,
+      "error": null,
+      "buffered": [
+        [
+          0,
+          50.8
+        ]
+      ],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 1240,
+      "decoded": 35.066666
+    },
+    {
+      "wall": 58253,
+      "phase": "full-replay",
+      "time": 40.043032083,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "readyState": 4,
+      "networkState": 1,
+      "error": null,
+      "buffered": [
+        [
+          0,
+          50.8
+        ]
+      ],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 1390,
+      "decoded": 40.066666
+    },
+    {
+      "wall": 63260,
+      "phase": "full-replay",
+      "time": 45.049936127,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "readyState": 4,
+      "networkState": 1,
+      "error": null,
+      "buffered": [
+        [
+          0,
+          50.8
+        ]
+      ],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 1541,
+      "decoded": 45.1
+    },
+    {
+      "wall": 68270,
+      "phase": "full-replay",
+      "time": 50.05969466,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "readyState": 4,
+      "networkState": 1,
+      "error": null,
+      "buffered": [
+        [
+          0,
+          50.8
+        ]
+      ],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 1691,
+      "decoded": 50.1
+    }
+  ],
+  "page_errors": [],
+  "before_replay": {
+    "wall": 18086.000000000004,
+    "phase": "chapters",
+    "time": 45.087306083,
+    "paused": false,
+    "ended": false,
+    "seeking": false,
+    "readyState": 2,
+    "networkState": 2,
+    "error": null,
+    "buffered": [
+      [
+        0,
+        50.8
+      ]
+    ],
+    "rect": {
+      "top": -417,
+      "bottom": -197.625,
+      "height": 219.375
+    },
+    "visible": false,
+    "documentVisibility": "visible",
+    "frames": 194,
+    "decoded": 45.133333
+  },
+  "after_click": {
+    "wall": 18158,
+    "phase": "full-replay",
+    "time": 0,
+    "paused": false,
+    "ended": false,
+    "seeking": true,
+    "readyState": 2,
+    "networkState": 2,
+    "error": null,
+    "buffered": [],
+    "rect": {
+      "top": 219,
+      "bottom": 438.375,
+      "height": 219.375
+    },
+    "visible": true,
+    "documentVisibility": "visible",
+    "frames": 196,
+    "decoded": 45.2
+  },
+  "outcome": "ended",
+  "final": {
+    "wall": 69035,
+    "phase": "full-replay",
+    "time": 50.8,
+    "paused": true,
+    "ended": true,
+    "seeking": false,
+    "readyState": 4,
+    "networkState": 2,
+    "error": null,
+    "buffered": [
+      [
+        0,
+        50.8
+      ]
+    ],
+    "rect": {
+      "top": 219,
+      "bottom": 438.375,
+      "height": 219.375
+    },
+    "visible": true,
+    "documentVisibility": "visible",
+    "frames": 1713,
+    "decoded": 50.833333
+  },
+  "events": [
+    {
+      "type": "canplay",
+      "detail": null,
+      "wall": 842,
+      "phase": "chapters",
+      "time": 0,
+      "paused": true,
+      "ended": false,
+      "seeking": false,
+      "readyState": 4,
+      "networkState": 1,
+      "error": null,
+      "buffered": [],
+      "rect": {
+        "top": 296,
+        "bottom": 515.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 0,
+      "decoded": null
+    },
+    {
+      "type": "play-call",
+      "detail": null,
+      "wall": 10110,
+      "phase": "chapters",
+      "time": 0,
+      "paused": true,
+      "ended": false,
+      "seeking": true,
+      "readyState": 4,
+      "networkState": 1,
+      "error": null,
+      "buffered": [],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 1,
+      "decoded": 0.066666
+    },
+    {
+      "type": "play",
+      "detail": null,
+      "wall": 10132,
+      "phase": "chapters",
+      "time": 0.01681539,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "readyState": 4,
+      "networkState": 1,
+      "error": null,
+      "buffered": [],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 1,
+      "decoded": 0.066666
+    },
+    {
+      "type": "playing",
+      "detail": null,
+      "wall": 10132,
+      "phase": "chapters",
+      "time": 0.01681539,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "readyState": 4,
+      "networkState": 1,
+      "error": null,
+      "buffered": [],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 1,
+      "decoded": 0.066666
+    },
+    {
+      "type": "play-resolved",
+      "detail": null,
+      "wall": 10132,
+      "phase": "chapters",
+      "time": 0.01681539,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "readyState": 4,
+      "networkState": 1,
+      "error": null,
+      "buffered": [],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 1,
+      "decoded": 0.066666
+    },
+    {
+      "type": "seeking",
+      "detail": null,
+      "wall": 10137,
+      "phase": "chapters",
+      "time": 0.027307925,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "readyState": 4,
+      "networkState": 1,
+      "error": null,
+      "buffered": [],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 1,
+      "decoded": 0.066666
+    },
+    {
+      "type": "seeked",
+      "detail": null,
+      "wall": 10138,
+      "phase": "chapters",
+      "time": 0.027307925,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "readyState": 4,
+      "networkState": 1,
+      "error": null,
+      "buffered": [],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 1,
+      "decoded": 0.066666
+    },
+    {
+      "type": "play-call",
+      "detail": null,
+      "wall": 10478,
+      "phase": "chapters",
+      "time": 23.22,
+      "paused": false,
+      "ended": false,
+      "seeking": true,
+      "readyState": 4,
+      "networkState": 1,
+      "error": null,
+      "buffered": [
+        [
+          0,
+          50.8
+        ]
+      ],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 9,
+      "decoded": 0.4
+    },
+    {
+      "type": "play-resolved",
+      "detail": null,
+      "wall": 10481,
+      "phase": "chapters",
+      "time": 23.22,
+      "paused": false,
+      "ended": false,
+      "seeking": true,
+      "readyState": 4,
+      "networkState": 1,
+      "error": null,
+      "buffered": [],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 9,
+      "decoded": 0.4
+    },
+    {
+      "type": "seeking",
+      "detail": null,
+      "wall": 10491,
+      "phase": "chapters",
+      "time": 23.22,
+      "paused": false,
+      "ended": false,
+      "seeking": true,
+      "readyState": 2,
+      "networkState": 2,
+      "error": null,
+      "buffered": [],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 10,
+      "decoded": 0.466666
+    },
+    {
+      "type": "waiting",
+      "detail": null,
+      "wall": 10491,
+      "phase": "chapters",
+      "time": 23.22,
+      "paused": false,
+      "ended": false,
+      "seeking": true,
+      "readyState": 2,
+      "networkState": 2,
+      "error": null,
+      "buffered": [],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 10,
+      "decoded": 0.466666
+    },
+    {
+      "type": "seeked",
+      "detail": null,
+      "wall": 10874,
+      "phase": "chapters",
+      "time": 23.22,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "readyState": 2,
+      "networkState": 2,
+      "error": null,
+      "buffered": [
+        [
+          0,
+          50.8
+        ]
+      ],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 10,
+      "decoded": 0.466666
+    },
+    {
+      "type": "play-call",
+      "detail": null,
+      "wall": 11238,
+      "phase": "chapters",
+      "time": 29.05,
+      "paused": false,
+      "ended": false,
+      "seeking": true,
+      "readyState": 2,
+      "networkState": 2,
+      "error": null,
+      "buffered": [
+        [
+          0,
+          50.8
+        ]
+      ],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 22,
+      "decoded": 23.633333
+    },
+    {
+      "type": "seeking",
+      "detail": null,
+      "wall": 11241,
+      "phase": "chapters",
+      "time": 29.05,
+      "paused": false,
+      "ended": false,
+      "seeking": true,
+      "readyState": 2,
+      "networkState": 2,
+      "error": null,
+      "buffered": [],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 22,
+      "decoded": 23.633333
+    },
+    {
+      "type": "seeked",
+      "detail": null,
+      "wall": 11534,
+      "phase": "chapters",
+      "time": 29.05,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "readyState": 2,
+      "networkState": 2,
+      "error": null,
+      "buffered": [
+        [
+          0,
+          50.8
+        ]
+      ],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 23,
+      "decoded": 23.666666
+    },
+    {
+      "type": "play-call",
+      "detail": null,
+      "wall": 11909,
+      "phase": "chapters",
+      "time": 34.09,
+      "paused": false,
+      "ended": false,
+      "seeking": true,
+      "readyState": 2,
+      "networkState": 2,
+      "error": null,
+      "buffered": [
+        [
+          0,
+          50.8
+        ]
+      ],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 35,
+      "decoded": 29.466666
+    },
+    {
+      "type": "seeking",
+      "detail": null,
+      "wall": 11913,
+      "phase": "chapters",
+      "time": 34.09,
+      "paused": false,
+      "ended": false,
+      "seeking": true,
+      "readyState": 2,
+      "networkState": 2,
+      "error": null,
+      "buffered": [],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 36,
+      "decoded": 29.5
+    },
+    {
+      "type": "seeked",
+      "detail": null,
+      "wall": 12141,
+      "phase": "chapters",
+      "time": 34.09,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "readyState": 2,
+      "networkState": 2,
+      "error": null,
+      "buffered": [
+        [
+          0,
+          50.8
+        ]
+      ],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 36,
+      "decoded": 29.5
+    },
+    {
+      "type": "play-call",
+      "detail": null,
+      "wall": 12506,
+      "phase": "chapters",
+      "time": 39.82,
+      "paused": false,
+      "ended": false,
+      "seeking": true,
+      "readyState": 2,
+      "networkState": 2,
+      "error": null,
+      "buffered": [
+        [
+          0,
+          50.8
+        ]
+      ],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 47,
+      "decoded": 34.5
+    },
+    {
+      "type": "seeking",
+      "detail": null,
+      "wall": 12510,
+      "phase": "chapters",
+      "time": 39.82,
+      "paused": false,
+      "ended": false,
+      "seeking": true,
+      "readyState": 2,
+      "networkState": 2,
+      "error": null,
+      "buffered": [],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 47,
+      "decoded": 34.5
+    },
+    {
+      "type": "seeked",
+      "detail": null,
+      "wall": 12656,
+      "phase": "chapters",
+      "time": 39.82,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "readyState": 2,
+      "networkState": 2,
+      "error": null,
+      "buffered": [
+        [
+          0,
+          50.8
+        ]
+      ],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 48,
+      "decoded": 34.533333
+    },
+    {
+      "type": "stalled",
+      "detail": null,
+      "wall": 13651,
+      "phase": "chapters",
+      "time": 40.813990155,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "readyState": 2,
+      "networkState": 2,
+      "error": null,
+      "buffered": [
+        [
+          0,
+          50.8
+        ]
+      ],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 77,
+      "decoded": 40.866666
+    },
+    {
+      "type": "play-call",
+      "detail": null,
+      "wall": 17262,
+      "phase": "chapters",
+      "time": 43.74,
+      "paused": false,
+      "ended": false,
+      "seeking": true,
+      "readyState": 2,
+      "networkState": 2,
+      "error": null,
+      "buffered": [
+        [
+          0,
+          50.8
+        ]
+      ],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 179,
+      "decoded": 44.466666
+    },
+    {
+      "type": "seeking",
+      "detail": null,
+      "wall": 17267,
+      "phase": "chapters",
+      "time": 43.74,
+      "paused": false,
+      "ended": false,
+      "seeking": true,
+      "readyState": 2,
+      "networkState": 2,
+      "error": null,
+      "buffered": [],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 179,
+      "decoded": 44.466666
+    },
+    {
+      "type": "seeked",
+      "detail": null,
+      "wall": 17589,
+      "phase": "chapters",
+      "time": 43.74,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "readyState": 2,
+      "networkState": 2,
+      "error": null,
+      "buffered": [
+        [
+          0,
+          50.8
+        ]
+      ],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 180,
+      "decoded": 44.5
+    },
+    {
+      "type": "seeking",
+      "detail": null,
+      "wall": 17911,
+      "phase": "chapters",
+      "time": 45,
+      "paused": false,
+      "ended": false,
+      "seeking": true,
+      "readyState": 2,
+      "networkState": 2,
+      "error": null,
+      "buffered": [],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 190,
+      "decoded": 44.1
+    },
+    {
+      "type": "seeked",
+      "detail": null,
+      "wall": 17998,
+      "phase": "chapters",
+      "time": 45,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "readyState": 2,
+      "networkState": 2,
+      "error": null,
+      "buffered": [
+        [
+          0,
+          50.8
+        ]
+      ],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 191,
+      "decoded": 44.133333
+    },
+    {
+      "type": "play-call",
+      "detail": null,
+      "wall": 18145,
+      "phase": "full-replay",
+      "time": 0,
+      "paused": false,
+      "ended": false,
+      "seeking": true,
+      "readyState": 2,
+      "networkState": 2,
+      "error": null,
+      "buffered": [
+        [
+          0,
+          50.8
+        ]
+      ],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 196,
+      "decoded": 45.2
+    },
+    {
+      "type": "seeking",
+      "detail": null,
+      "wall": 18147.000000000004,
+      "phase": "full-replay",
+      "time": 0,
+      "paused": false,
+      "ended": false,
+      "seeking": true,
+      "readyState": 2,
+      "networkState": 2,
+      "error": null,
+      "buffered": [],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 196,
+      "decoded": 45.2
+    },
+    {
+      "type": "seeked",
+      "detail": null,
+      "wall": 18209,
+      "phase": "full-replay",
+      "time": 0,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "readyState": 2,
+      "networkState": 2,
+      "error": null,
+      "buffered": [
+        [
+          0,
+          50.8
+        ]
+      ],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 197,
+      "decoded": 45.233333
+    },
+    {
+      "type": "canplay",
+      "detail": null,
+      "wall": 24291,
+      "phase": "full-replay",
+      "time": 6.080942446,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "readyState": 4,
+      "networkState": 1,
+      "error": null,
+      "buffered": [
+        [
+          0,
+          50.8
+        ]
+      ],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 379,
+      "decoded": 6.133333
+    },
+    {
+      "type": "playing",
+      "detail": null,
+      "wall": 24291,
+      "phase": "full-replay",
+      "time": 6.080942446,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "readyState": 4,
+      "networkState": 1,
+      "error": null,
+      "buffered": [
+        [
+          0,
+          50.8
+        ]
+      ],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 379,
+      "decoded": 6.133333
+    },
+    {
+      "type": "play-resolved",
+      "detail": null,
+      "wall": 24291,
+      "phase": "full-replay",
+      "time": 6.080942446,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "readyState": 4,
+      "networkState": 1,
+      "error": null,
+      "buffered": [
+        [
+          0,
+          50.8
+        ]
+      ],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 379,
+      "decoded": 6.133333
+    },
+    {
+      "type": "play-resolved",
+      "detail": null,
+      "wall": 24291,
+      "phase": "full-replay",
+      "time": 6.080942446,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "readyState": 4,
+      "networkState": 1,
+      "error": null,
+      "buffered": [
+        [
+          0,
+          50.8
+        ]
+      ],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 379,
+      "decoded": 6.133333
+    },
+    {
+      "type": "play-resolved",
+      "detail": null,
+      "wall": 24292,
+      "phase": "full-replay",
+      "time": 6.080942446,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "readyState": 4,
+      "networkState": 1,
+      "error": null,
+      "buffered": [
+        [
+          0,
+          50.8
+        ]
+      ],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 379,
+      "decoded": 6.133333
+    },
+    {
+      "type": "play-resolved",
+      "detail": null,
+      "wall": 24292,
+      "phase": "full-replay",
+      "time": 6.080942446,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "readyState": 4,
+      "networkState": 1,
+      "error": null,
+      "buffered": [
+        [
+          0,
+          50.8
+        ]
+      ],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 379,
+      "decoded": 6.133333
+    },
+    {
+      "type": "play-resolved",
+      "detail": null,
+      "wall": 24292,
+      "phase": "full-replay",
+      "time": 6.080942446,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "readyState": 4,
+      "networkState": 1,
+      "error": null,
+      "buffered": [
+        [
+          0,
+          50.8
+        ]
+      ],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 379,
+      "decoded": 6.133333
+    },
+    {
+      "type": "waiting",
+      "detail": null,
+      "wall": 32636.000000000004,
+      "phase": "full-replay",
+      "time": 14.424588143,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "readyState": 4,
+      "networkState": 1,
+      "error": null,
+      "buffered": [
+        [
+          0,
+          50.8
+        ]
+      ],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 629,
+      "decoded": 14.466666
+    },
+    {
+      "type": "canplay",
+      "detail": null,
+      "wall": 32636.000000000004,
+      "phase": "full-replay",
+      "time": 14.424588143,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "readyState": 4,
+      "networkState": 1,
+      "error": null,
+      "buffered": [
+        [
+          0,
+          50.8
+        ]
+      ],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 629,
+      "decoded": 14.466666
+    },
+    {
+      "type": "playing",
+      "detail": null,
+      "wall": 32636.000000000004,
+      "phase": "full-replay",
+      "time": 14.424588143,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "readyState": 4,
+      "networkState": 1,
+      "error": null,
+      "buffered": [
+        [
+          0,
+          50.8
+        ]
+      ],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 629,
+      "decoded": 14.466666
+    },
+    {
+      "type": "pause",
+      "detail": null,
+      "wall": 69013,
+      "phase": "full-replay",
+      "time": 50.8,
+      "paused": true,
+      "ended": true,
+      "seeking": false,
+      "readyState": 4,
+      "networkState": 2,
+      "error": null,
+      "buffered": [
+        [
+          0,
+          50.8
+        ]
+      ],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 1713,
+      "decoded": 50.833333
+    },
+    {
+      "type": "ended",
+      "detail": null,
+      "wall": 69013,
+      "phase": "full-replay",
+      "time": 50.8,
+      "paused": true,
+      "ended": true,
+      "seeking": false,
+      "readyState": 4,
+      "networkState": 2,
+      "error": null,
+      "buffered": [
+        [
+          0,
+          50.8
+        ]
+      ],
+      "rect": {
+        "top": 219,
+        "bottom": 438.375,
+        "height": 219.375
+      },
+      "visible": true,
+      "documentVisibility": "visible",
+      "frames": 1713,
+      "decoded": 50.833333
+    }
+  ]
+}

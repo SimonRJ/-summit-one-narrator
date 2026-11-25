@@ -1,0 +1,446 @@
+{
+  "lesson": "S017",
+  "title": "A frame around two tiles",
+  "prepared_at_utc": "2026-11-25T00:44:38.218998+00:00",
+  "status": "All eight approved takes verified; both measured numeral issues corrected; isolated recovery ready but not executed",
+  "base_commit": "585081646578fe8b0020d2dee831a8f853eb3bca",
+  "final_editorial_credit": false,
+  "source": {
+    "repository": "SimonRJ/-summit-one-narrator",
+    "voice_run": 45487547111,
+    "voice_commit": "c873621cd8988d3862563a0668e500bcb94614c9",
+    "voice_branch": "production/s012-missing-rung",
+    "voice_workflow": ".github/workflows/paired-original-voice.yml",
+    "original_render_run": 45488080237,
+    "original_render_commit": "1d1bb402622c540061446a85c2aab9782b724bd1",
+    "original_render_workflow": ".github/workflows/s017-tile-framer.yml",
+    "voice_reference": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+    "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd"
+  },
+  "voice_jobs": [
+    {
+      "id": 138776830484,
+      "name": "voice (S017, 1)",
+      "status": "completed",
+      "conclusion": "success",
+      "completed_at": "2026-11-24T22:27:01Z"
+    },
+    {
+      "id": 138776830434,
+      "name": "voice (S017, 2)",
+      "status": "completed",
+      "conclusion": "success",
+      "completed_at": "2026-11-24T22:46:55Z"
+    },
+    {
+      "id": 138776830275,
+      "name": "voice (S017, 3)",
+      "status": "completed",
+      "conclusion": "success",
+      "completed_at": "2026-11-24T22:56:39Z"
+    },
+    {
+      "id": 138776830816,
+      "name": "voice (S017, 4)",
+      "status": "completed",
+      "conclusion": "success",
+      "completed_at": "2026-11-24T23:07:08Z"
+    },
+    {
+      "id": 138776830520,
+      "name": "voice (S017, 5)",
+      "status": "completed",
+      "conclusion": "success",
+      "completed_at": "2026-11-24T23:17:30Z"
+    },
+    {
+      "id": 138776830253,
+      "name": "voice (S017, 6)",
+      "status": "completed",
+      "conclusion": "success",
+      "completed_at": "2026-11-24T23:23:31Z"
+    },
+    {
+      "id": 138776830497,
+      "name": "voice (S017, 7)",
+      "status": "completed",
+      "conclusion": "success",
+      "completed_at": "2026-11-25T00:03:56Z"
+    },
+    {
+      "id": 138776830534,
+      "name": "voice (S017, 8)",
+      "status": "completed",
+      "conclusion": "success",
+      "completed_at": "2026-11-25T00:05:00Z"
+    }
+  ],
+  "existing_source_alignment": [
+    {
+      "id": 138872838324,
+      "name": "align (S015)",
+      "status": "queued",
+      "conclusion": null
+    },
+    {
+      "id": 138872838393,
+      "name": "align (S017)",
+      "status": "queued",
+      "conclusion": null
+    }
+  ],
+  "original_render_state": {
+    "run": 45488080237,
+    "status": "completed",
+    "conclusion": "failure",
+    "reason": "Its whole-matrix wait ended before drawing or encoding."
+  },
+  "pinned_artifacts": [
+    {
+      "scene": 1,
+      "name": "S017-voice-1",
+      "id": 14970957685,
+      "sha256": "652ba55d045d090755484b4a438aaa5f1222389d1c4ce9ce812b2af217d05571"
+    },
+    {
+      "scene": 2,
+      "name": "S017-voice-2",
+      "id": 14972531857,
+      "sha256": "e2c1ef5f3fbb0b8c830635a6c8d477d9200aed5067a2ce803d2ffa1dd494d9e9"
+    },
+    {
+      "scene": 3,
+      "name": "S017-voice-3",
+      "id": 14973542800,
+      "sha256": "faa757492965f0fc3af510b83eb6caf6e0b44c60347c584a0d26218b617dcda7"
+    },
+    {
+      "scene": 4,
+      "name": "S017-voice-4",
+      "id": 14972673206,
+      "sha256": "a971512d98e571bc251c666ab3ed181ae54a996a02492ebeac011063a1cca217"
+    },
+    {
+      "scene": 5,
+      "name": "S017-voice-5",
+      "id": 14974601554,
+      "sha256": "cc28121ccda8791ee5a8e4534418a01dcb905ff6b743fd3791ac8c1b97f3d8f2"
+    },
+    {
+      "scene": 6,
+      "name": "S017-voice-6",
+      "id": 14975236453,
+      "sha256": "4f529148d3e84dbd86993447939d9210bdff2d2dafcaf18578d14534eeafecba"
+    },
+    {
+      "scene": 7,
+      "name": "S017-voice-7",
+      "id": 14976234331,
+      "sha256": "5b7e34866b3652bf6c7470cceef42d4bfb6aa97a0f380d22e02e7095e537fe7a"
+    },
+    {
+      "scene": 8,
+      "name": "S017-voice-8",
+      "id": 14977995298,
+      "sha256": "94f0a429adad2146721269a4c0e6a20e3818990d48f76eb278c28676986a2afc"
+    }
+  ],
+  "downloaded_archive_bytes": 10118401,
+  "raw_audio": {
+    "takes": 8,
+    "seconds": 129.19,
+    "sample_rate_hz": 48000,
+    "channels": 1,
+    "scenes": [
+      {
+        "scene": 1,
+        "duration_seconds": 14.55,
+        "frames": 698400,
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "sample_width_bytes": 2,
+        "narration_sha256": "8fb5c51e8caf6504155b2275c3c0ca1a770c1006c6aa322a987cb1fb602c062c"
+      },
+      {
+        "scene": 2,
+        "duration_seconds": 15.35,
+        "frames": 736800,
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "sample_width_bytes": 2,
+        "narration_sha256": "0f07ad45ec5fb2a36f64495831b0f29971dffaf76c9c97277e7807156544c89a"
+      },
+      {
+        "scene": 3,
+        "duration_seconds": 15.99,
+        "frames": 767520,
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "sample_width_bytes": 2,
+        "narration_sha256": "add92b5a18ad7420f0a6cabce4b240d033c972f9a27f8aa16e92ce451afce5c0"
+      },
+      {
+        "scene": 4,
+        "duration_seconds": 14.71,
+        "frames": 706080,
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "sample_width_bytes": 2,
+        "narration_sha256": "38180bcd0f9a96eb4e58ed7f2edf987eb1f57dd0609d63279b41e92580c307f8"
+      },
+      {
+        "scene": 5,
+        "duration_seconds": 17.26,
+        "frames": 828480,
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "sample_width_bytes": 2,
+        "narration_sha256": "2a76023be5649f6718a8f469e1da0deaffc73710d2eb6a60f575083284da782c"
+      },
+      {
+        "scene": 6,
+        "duration_seconds": 16.15,
+        "frames": 775200,
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "sample_width_bytes": 2,
+        "narration_sha256": "bdfc2321d8af45ec5fa8b5edc57de21ea690ef901287d7aa9c29a6e819e44629"
+      },
+      {
+        "scene": 7,
+        "duration_seconds": 16.95,
+        "frames": 813600,
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "sample_width_bytes": 2,
+        "narration_sha256": "ca1bea762f0b79404eef98afa0854254e31733aacecab9349d25e5cf4407f472"
+      },
+      {
+        "scene": 8,
+        "duration_seconds": 18.23,
+        "frames": 875040,
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "sample_width_bytes": 2,
+        "narration_sha256": "1cdb050bf56190d4e0c4d7105f0a5eda13ad4aa50cae4f6a124d8b00d4c7bdac"
+      }
+    ]
+  },
+  "verified_extracted_files": {
+    "S017-01.json": "dc9824e958a2103b1612b5cf26077e8a9413606ecc004885871c0df67c17d73b",
+    "S017-01.wav": "7fe4d51a5c59aea334a00b8f2bdda93145ed308f6e505845dd0c1323e5b47bf4",
+    "S017-02.json": "2a83e308e996d55588678fe2faa447f28b1921aab141089f183d92c44085d9b0",
+    "S017-02.wav": "d205a2adc4d6acac843df4eee07f80aaf47475547ac8324dca1ebc6eccc0a402",
+    "S017-03.json": "1f5a9f0937f08944ff6e13925793e17a40e4d2ea38a623e66c6213fc36a4c96d",
+    "S017-03.wav": "d16ff4d1adea58c036ecb13577d227a05d8977720c3de932bc497eab411c4730",
+    "S017-04.json": "e9b4634f072a555cc9685a6f87069e6d99c0ea6bc23f1ac0ca9d3131b89a7aed",
+    "S017-04.wav": "77268f2d6796cea40e4f700139e7b02879cb4ed659390abe813a19fc89f34edd",
+    "S017-05.json": "9e3dc4eb6f4875c709372042eb3ef842ee7b027900f2cc0781b7c44a2bae2a7a",
+    "S017-05.wav": "7d3d3f505ff3ad67700c979b3cb6ddf7d8296d699bb8054bb359a3890c134d02",
+    "S017-06.json": "c211b4ec9db724425c5bf28be8bd289c8a2a63d474be65fc5e1b53099450ce26",
+    "S017-06.wav": "54cb49a35818f3386790c1643de262e807af1e1545e295e16250aa89c2298722",
+    "S017-07.json": "8891f98357541cac79a9d3b56f82d9d4a74bed4bd17ae12b9df371785937d316",
+    "S017-07.wav": "812894fc7a62bb17e7a002f804a31c0febda3d62107dcb985ebc11ffa558d598",
+    "S017-08.json": "0fd7963acbc93050f985f8ad2d60c85696cb17d977c3a92d64a757a7dd536601",
+    "S017-08.wav": "5692961a15d930f293c116a92e39f83c945287124784883a48b2c5c60b44ace1"
+  },
+  "provenance_validation": "The unchanged recovery helper accepted the actual GitHub API snapshots and every actual pinned ZIP; script hashes, Voice C reference, model revision, natural speed, sample rate, archive members and source jobs all match.",
+  "guard_tests": {
+    "passed": 6,
+    "command": "python -m unittest discover -s tools/video -p test_recover_recorded_takes.py"
+  },
+  "workflow_validation": {
+    "workflow": ".github/workflows/s017-recorded-recovery.yml",
+    "workflow_sha256": "a45c37471d6ea80d04bb6119f76cbce38497c160b3f6567f6e292e8fe916e373",
+    "shell_blocks_syntax_passed": 7,
+    "embedded_python_blocks_syntax_passed": 4,
+    "main_push_inert": true,
+    "push_branch": "production/s017-recorded-recovery-20261125",
+    "no_synthesis_command": true,
+    "candidate_overlay": [
+      {
+        "slot": 17,
+        "fields": [
+          "filmUse",
+          "movie",
+          "videoTitle"
+        ],
+        "bridge_preserved": true
+      },
+      {
+        "slot": 300,
+        "fields": [
+          "movie",
+          "videoTitle"
+        ],
+        "bridge_preserved": true
+      }
+    ],
+    "candidate_overlay_other_rows_unchanged": true,
+    "render_sparse_paths": [
+      "production",
+      "data",
+      "tools/video"
+    ],
+    "render_verified_paths": [
+      "production/t01-studio/prepare_audio.py",
+      "production/t01-studio/synth.py",
+      "production/t01-studio/chapter_films.py",
+      "production/t01-studio/stage.py",
+      "production/scripts/S017.json",
+      "data/sessions-372.json",
+      "production/lesson-films/render_recorded.py",
+      "production/lesson-films/verify_recorded.py",
+      "production/lesson-films/tile_framer.py",
+      "tools/video/recover_recorded_takes.py",
+      "production/lesson-films/refine_s017_timing.py",
+      "production/lesson-films/s017-number-timing.json",
+      "tools/video/s015-recorded-takes.json",
+      "tools/video/s017-recorded-takes.json",
+      "tools/video/test_recover_recorded_takes.py",
+      "tools/video/test_numeral_timing.py"
+    ],
+    "playback_sparse_paths": [
+      "data",
+      "tools",
+      "figures"
+    ],
+    "playback_verified_paths": [
+      "advanced-connections.js",
+      "advanced-counting.js",
+      "advanced-geometry.js",
+      "advanced-number.js",
+      "app-main.js",
+      "course-menu-ui.js",
+      "course-menu.js",
+      "curriculum.js",
+      "data/read-watch-practise-later.json",
+      "data/read-watch-practise.json",
+      "data/recorded-studies.json",
+      "data/sessions-372.json",
+      "domino-model.js",
+      "exam-diagnostics.js",
+      "example-methods.js",
+      "figure-viewer.js",
+      "flash-cards.js",
+      "flash-ui.js",
+      "index.html",
+      "learning-support.js",
+      "learning-ui.js",
+      "lesson-introduction-library.js",
+      "lesson-introduction-media.js",
+      "lesson-introduction-videos.html",
+      "lesson-journeys.js",
+      "lesson-models.js",
+      "lesson-pager.js",
+      "lesson-player.js",
+      "lesson-screenflow.js",
+      "model-claims.js",
+      "notebook-challenges.js",
+      "original-learning.js",
+      "problem-figures.js",
+      "read-practice.css",
+      "recognition.js",
+      "reviewed-lesson.js",
+      "route-model.js",
+      "session-intros.js",
+      "supabase-client.js",
+      "tools/browser_checks.py",
+      "tools/browser_lesson_fixed.py",
+      "tools/check_lesson_film_routes.py",
+      "transfer-practice.js",
+      "watch-lesson-intro.html",
+      "workshop-studies.js"
+    ],
+    "module_import_closure_files": 34,
+    "checkout_root_files": "Cone-mode checkout retains root files, including the app and its local module imports.",
+    "candidate_media": "Downloaded candidate artifacts populate build/candidate after checkout.",
+    "release_dependencies": "download-artifact and GH_REPO/GH_TOKEN; no checkout needed.",
+    "final_editorial_credit": false
+  },
+  "prepared_workflow": ".github/workflows/s017-recorded-recovery.yml",
+  "prepared_manifest": "tools/video/s017-recorded-takes.json",
+  "manifest_sha256": "aeca9b0cb9dd5d075c84b95ef414fee38f1fc9000a2821ba77db221f66672e8c",
+  "start": {
+    "owner": "root",
+    "mode": "Publish the reviewed source tree once to the one-purpose branch",
+    "branch": "production/s017-recorded-recovery-20261125",
+    "path_filters": [
+      ".github/workflows/s017-recorded-recovery.yml",
+      "tools/video/s017-recorded-takes.json"
+    ],
+    "main_push_inert": true,
+    "started": false
+  },
+  "expected_release_tag": "s017-recorded-recovery-20261125-<published-head-sha-first12>",
+  "protected_state": {
+    "live_catalogue_unchanged": true,
+    "learner_route_data_unchanged": true,
+    "learner_history_unchanged": true,
+    "completion_counts_unchanged": true,
+    "new_synthesis": false,
+    "external_writes": false,
+    "job_cancellation_or_rerun": false
+  },
+  "pending_before_credit": [
+    "Execute the reviewed recovery only once, then retain its own exact encoded master identity and provenance.",
+    "Pass decoded artwork, caption and source-audio comparison plus all five browser profiles and technique consumer 300 on PC/iPad portrait.",
+    "Inspect actual encoded mathematical frames and listen to the whole film for final audible/editorial acceptance.",
+    "Verify all returned immutable assets, integrate only approved route fields, and verify the deployed gallery, active lesson and immutable notebook routes."
+  ],
+  "candidate_master_sha256": null,
+  "candidate_playback_passes": null,
+  "numeral_timing": {
+    "evidence": "review/S017-numeral-timing-20261125.json",
+    "shared_fix_commit": "bed51c9835f93ffe36996545bbc88ff4e91c7e35",
+    "integrated_as": "5b831b6142990499a9079b3e64d9d4bdfd6c8a14",
+    "issue": "Scene 4 Twenty four originally collapsed at 67.14 s, delaying its phrase cue by 0.46 s.",
+    "verified_caption_start": 66.68,
+    "verified_number_end": 67.22,
+    "changed_word_indices": [
+      34,
+      35,
+      36
+    ],
+    "all_eight_source_take_hashes_unchanged": true,
+    "numeric_groups_remaining_collapsed": 0,
+    "regression_tests_passed": 11,
+    "live_cached_recognizer_check": "Complete original scene 4; unchanged audio, exact measured repair reproduced.",
+    "follow_up_shared_fix_commit": "6485a795534eb7033666b7236ac60984b407fe8c",
+    "positive_group_refinement": {
+      "scene": 7,
+      "plan": "production/lesson-films/s017-number-timing.json",
+      "number_before": [
+        117.92,
+        118.32
+      ],
+      "number_after": [
+        117.92,
+        118.52
+      ],
+      "local_changed_indices": [
+        35,
+        36,
+        37
+      ],
+      "caption_cues_and_vtt_unchanged": true,
+      "source_bound_and_adaptive_to_current_asr": true,
+      "automatic_trigger_unchanged": true
+    }
+  },
+  "preparation_dependencies_sha256": {
+    "production/t01-studio/prepare_audio.py": "7e7d9bbc24db64f88208b8fdbd31997296e6f7af8d9e0c24ad04b956538f5432",
+    "tools/video/test_numeral_timing.py": "ff64ebb1898bf0712da23823357e94b1dc9e3b827aef66098d43a471faef8453",
+    "production/lesson-films/refine_s017_timing.py": "1cbe6a8a03eb45c861db6e640c1c897da2e262bd24141f7f6b3d5109b1e6f95b",
+    "production/lesson-films/s017-number-timing.json": "0de195810f2a26294a6b3c65acb2c14e31ec30418381948eac2e684ff86c5360",
+    ".github/workflows/s017-recorded-recovery.yml": "a45c37471d6ea80d04bb6119f76cbce38497c160b3f6567f6e292e8fe916e373",
+    "tools/video/s017-recorded-takes.json": "aeca9b0cb9dd5d075c84b95ef414fee38f1fc9000a2821ba77db221f66672e8c"
+  },
+  "branch_trigger_audit": {
+    "push_matching_workflows": [
+      "s017-recorded-recovery.yml"
+    ],
+    "existing_workflow_run_followups_match_this_workflow": false,
+    "new_synthesis_triggered_by_prepared_branch": false
+  }
+}

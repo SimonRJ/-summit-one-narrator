@@ -622,8 +622,8 @@
       "recap": "Ask how far the number lies above or below a common multiple. If you shift the number, shift the ends of the interval too, then undo the shift. A count of gaps is one less than a count of endpoints.",
       "skill": "DIV-03",
       "videoId": "S015",
-      "videoTitle": "Divisibility tests and modular remainders",
-      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S015-Intro-Illustrated.mp4",
+      "videoTitle": "Two stamps for the mail train",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s015-numeral-timing-20261125-41b7922d37ed/S015.mp4",
       "retained": [
         "O015T",
         "O015X"
@@ -653,7 +653,8 @@
           "prompt": "A club mails the same number of envelopes on each of five days. On any one day it would need three extra envelopes to fill complete trays of 8 or complete trays of 12. In five days it mails more than 300 but fewer than 400 envelopes. How many does it mail?",
           "hint": "Use the five-day range to find a range for a single day, then shift the daily count."
         }
-      ]
+      ],
+      "filmUse": "dedicated"
     },
     {
       "slot": 17,
@@ -822,8 +823,8 @@
       "recap": "Number the positions in a cycle from 1. A multiple of the cycle length lands on the last position. In a sum, add the contribution of every full block before the tail. An exponent keeps increasing even when its last-digit position goes back to 1.",
       "skill": "DIV-05",
       "videoId": "S020",
-      "videoTitle": "Last-digit, clock and repeating-cycle reasoning",
-      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S020-Intro-Illustrated.mp4",
+      "videoTitle": "Clock turns and last digits",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s020-stable-captions-20261125-0dfec081086f/S020.mp4",
       "retained": [
         "O020T",
         "O020X"
@@ -853,7 +854,8 @@
           "prompt": "Let P be 3 raised to the power 19. What is the units digit of 7 raised to the power P?",
           "hint": "Write the first few powers of 7 as last digits. What information about the exponent determines the position in that cycle?"
         }
-      ]
+      ],
+      "filmUse": "dedicated"
     },
     {
       "slot": 22,

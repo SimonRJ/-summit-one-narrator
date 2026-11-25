@@ -1,5 +1,5 @@
 {
-  "match_percent": 97.91,
+  "match_percent": 98.28,
   "segments": [
     {
       "segment": 1,
@@ -59,7 +59,7 @@
     {
       "segment": 12,
       "words": 36,
-      "matched": 33
+      "matched": 34
     },
     {
       "segment": 13,
@@ -68,23 +68,23 @@
     },
     {
       "segment": 14,
-      "words": 33,
-      "matched": 33
+      "words": 34,
+      "matched": 34
     },
     {
       "segment": 15,
-      "words": 40,
-      "matched": 38
+      "words": 39,
+      "matched": 39
     },
     {
       "segment": 16,
-      "words": 38,
-      "matched": 36
+      "words": 41,
+      "matched": 40
     },
     {
       "segment": 17,
-      "words": 35,
-      "matched": 35
+      "words": 49,
+      "matched": 47
     },
     {
       "segment": 18,
@@ -92,7 +92,7 @@
       "matched": 29
     }
   ],
-  "words": 621,
+  "words": 638,
   "caption_layers": 1,
   "method": "per-sentence audio alignment; unmatched words bounded by matched neighbours"
 }

@@ -1415,7 +1415,7 @@
       "slot": 102,
       "headline": "Count digits in their own columns",
       "intro": "A printed label can use the same digit twice. Make a tally for each place, then add the tallies to count every printed copy.",
-      "bridge": "Keep the hundreds digit fixed and swap tens and units: 153 becomes 135. The film’s phrase “two end digits” is incorrect here. Count the printed threes in each column separately.",
+      "bridge": "Keep the hundreds digit fixed and swap tens and units: 153 becomes 135. Count the printed threes in each column separately.",
       "recap": "Say whether the question wants labels or copies of a digit. A label with two copies counts once for the first question and twice for the second.",
       "example": {
         "prompt": "On the labels 20 through 23, how many copies of the digit 2 appear?",
@@ -1428,7 +1428,7 @@
       "skill": "DIG-03",
       "videoId": "S102",
       "videoTitle": "Digit sums and counting digits in ranges",
-      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S102-Intro.mp4",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s102-tens-units-20261125-a84046b06450/S102.mp4",
       "filmUse": "dedicated",
       "retained": [
         "O102T",
@@ -7928,7 +7928,7 @@
       "slot": 260,
       "headline": "Intersect two quick divisibility tests",
       "intro": "Some numbers can be tested from their final digits, while others can be tested from their digit sum. Apply the shorter test first and keep only candidates that satisfy the other.",
-      "bridge": "The film's last-digit puzzle combines two divisibility clues. Track the candidates still possible after the first clue, then cross-check the second.",
+      "bridge": "Read the mail train’s two stamps independently. Which labels pass the divisibility-by-four test on the last two digits, and which of those also pass the digit-sum test for three?",
       "recap": "Make a short list of digits that pass one test, then cross out any that fail the second. Read the question again before choosing your answer. Does it ask for a digit, a complete number or a count?",
       "example": {
         "prompt": "Which digits can complete 31A so it is divisible by both 2 and 3?",
@@ -7940,8 +7940,8 @@
       },
       "skill": "DIV-03",
       "videoId": "S015",
-      "videoTitle": "Divisibility tests and modular remainders",
-      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S015-Intro-Illustrated.mp4",
+      "videoTitle": "Two stamps for the mail train",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s015-numeral-timing-20261125-41b7922d37ed/S015.mp4",
       "filmUse": "technique",
       "retained": [
         "O260X"
@@ -8902,8 +8902,8 @@
       },
       "skill": "DIV-05",
       "videoId": "S020",
-      "videoTitle": "Last-digit, clock and repeating-cycle reasoning",
-      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S020-Intro-Illustrated.mp4",
+      "videoTitle": "Clock turns and last digits",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s020-stable-captions-20261125-0dfec081086f/S020.mp4",
       "filmUse": "technique",
       "retained": [
         "O283T",
@@ -9378,7 +9378,7 @@
       "slot": 296,
       "headline": "Use a second rule before counting",
       "intro": "For a label with a missing digit, put a box in the empty place. Write down the digits the first clue permits, then test the digit sum of each completed label. Check any limits on the digit before counting.",
-      "bridge": "For the multiples-of-nine count, keep hundreds fixed and swap tens and units: 153 becomes 135. The film’s phrase “two end digits” is incorrect here. Which digit choices force the missing digit?",
+      "bridge": "For the multiples-of-nine count, keep hundreds fixed and swap tens and units: 153 becomes 135. Which digit choices force the missing digit?",
       "recap": "Check each candidate against both rules. Organising by position helps show that the list is complete.",
       "example": {
         "prompt": "Which two-digit multiple of 9 starts with 4?",
@@ -9391,7 +9391,7 @@
       "skill": "DIG-03",
       "videoId": "S102",
       "videoTitle": "Digit sums and counting digits in ranges",
-      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S102-Intro.mp4",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s102-tens-units-20261125-a84046b06450/S102.mp4",
       "filmUse": "technique",
       "retained": [
         "O296T"

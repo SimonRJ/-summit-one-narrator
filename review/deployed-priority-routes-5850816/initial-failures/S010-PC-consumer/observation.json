@@ -1,0 +1,10 @@
+{
+  "scope": "First live consumer319 attempt",
+  "canonical_S010_PC": "passed first; retained",
+  "failure": "30-second navigation deadline before gallery DOMContentLoaded",
+  "page": "https://simonrj.github.io/-summit-one-narrator/lesson-introduction-videos.html",
+  "media_players_present": 0,
+  "classification": "Navigation timeout; no application or movie failure identified",
+  "next_step": "Retry only the failed consumer route with unchanged source, player and timeout; continue remaining profiles separately",
+  "final_editorial_credit": false
+}

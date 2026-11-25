@@ -1,0 +1,64 @@
+{
+  "source_commit": "f9d8a50933df49be4e79e7e3943497bfbf3c1321",
+  "run_id": 45497911900,
+  "attempt": 2,
+  "checked_date_utc": "2026-11-25",
+  "jobs": [
+    {
+      "id": 138888391944,
+      "name": "devices (iphone-portrait)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 45497911900
+    },
+    {
+      "id": 138888393355,
+      "name": "voice (16)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 45497911900
+    },
+    {
+      "id": 138888394026,
+      "name": "devices (ipad-portrait)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 45497911900
+    },
+    {
+      "id": 138888394381,
+      "name": "devices (ipad-landscape)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 45497911900
+    },
+    {
+      "id": 138888446470,
+      "name": "devices (iphone-landscape)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 45497911900
+    },
+    {
+      "id": 138888458835,
+      "name": "devices (pc)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 45497911900
+    },
+    {
+      "id": 138888461992,
+      "name": "prepare",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 45497911900
+    },
+    {
+      "id": 138901746010,
+      "name": "stage",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 45497911900
+    }
+  ]
+}

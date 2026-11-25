@@ -1,0 +1,55 @@
+{
+  "date_utc": "2026-11-25",
+  "scope": "Local staged watch page with exact returned T18.1 assets; actual chapter controls; no external publication or learner backend.",
+  "files": [
+    {
+      "path": "watch-t18-1.html",
+      "bytes": 7226,
+      "sha256": "98616e777d4b455d4d0ed793c43953ab010141ac1807e82085abbd9d6e96a88d"
+    },
+    {
+      "path": "lesson-video-chapters.js",
+      "bytes": 2076,
+      "sha256": "531306e5142d9b48484117dcdb60503b1a6c84dde32065358c1b837c471dd9cc"
+    },
+    {
+      "path": "public-study-theme.css",
+      "bytes": 2170,
+      "sha256": "4e342bcfe33a7b7c4edf965c49e1522f4098bc7ec1cfc2a961c88c459eacec04"
+    },
+    {
+      "path": "media/T18.1.mp4",
+      "bytes": 5091125,
+      "sha256": "3527d02410e4b1158af7d42a5d8abce16cb6fed702947b8fa864af25590635ce"
+    },
+    {
+      "path": "media/T18.1.vtt",
+      "bytes": 2863,
+      "sha256": "81645151d9751b9312eda940e5b17a968e7a538eff6c0146ef19e0a249ce624c"
+    },
+    {
+      "path": "media/T18.1-studio-poster.jpg",
+      "bytes": 169848,
+      "sha256": "d5296dd117a2c7f4af9d7e4c7f202b0fc62827941413579dc4e9adddd1f0bf35"
+    },
+    {
+      "path": "review/T18.1-studio-qa.json",
+      "bytes": 3437,
+      "sha256": "5d12f78efab13178ea999f448e83ffd787550512b7e05fb51b0cf20cef78094a"
+    }
+  ],
+  "profiles": [
+    "iphone-portrait",
+    "iphone-landscape",
+    "ipad-portrait",
+    "ipad-landscape"
+  ],
+  "source_root": "Stable copy of staged release outside the sparse checkout, so Git worktree changes cannot remove its media.",
+  "supabase_requests": "blocked",
+  "acceptance": "All eight decoded chapter starts and the identical strict 79.9\u201380.5-second caption interval pass on all four WebKit profiles. PC evidence is retained from the earlier exact-container pass.",
+  "limits": [
+    "Browser emulation only; no physical Apple hardware claim.",
+    "Targeted technical checks, not a new complete normal-speed narration review or human listening sign-off.",
+    "Public bytes and deployed watch/gallery checks remain the root release task."
+  ]
+}

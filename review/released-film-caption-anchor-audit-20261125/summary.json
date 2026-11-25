@@ -1,0 +1,159 @@
+{
+  "scope": "Read-only check of the already-verified public S009/S010/S012 recording timelines for numeric word-anchor defects; no asset change or new acceptance credit.",
+  "films": [
+    {
+      "id": "S009",
+      "recording_sha256": "33e0af29c418fe8b8b3105bff05126e82cc062ca448959b192483f3333e7e730",
+      "timeline_sha256": "e229fa2e22e2004af7589d2dcf9520ba8b6d9c38a0ff1940f2501efb21eb7d15",
+      "word_count": 326,
+      "number_word_count": 76,
+      "zero_duration_numeric_words": [],
+      "numeric_words_under_50ms": [],
+      "word_order_failures": [],
+      "caption_order_or_duration_failures": [],
+      "nonnumeric_zero_duration_words": []
+    },
+    {
+      "id": "S010",
+      "recording_sha256": "7a1d5b2bdad48fcb1da0040509bdd8ac3c400aa9a3eb67eaac08c890e700789c",
+      "timeline_sha256": "96ee9d191654b51ad7482c60cbf00712d36ab37dca1c73958603f2c11658e05c",
+      "word_count": 357,
+      "number_word_count": 88,
+      "zero_duration_numeric_words": [],
+      "numeric_words_under_50ms": [],
+      "word_order_failures": [],
+      "caption_order_or_duration_failures": [],
+      "nonnumeric_zero_duration_words": []
+    },
+    {
+      "id": "S012",
+      "recording_sha256": "d70464f3af57e93d8ef5edfabce3f389d1906afcdf73bc7d729e94b7f3d90940",
+      "timeline_sha256": "f6348556151842ffdbcdfc8285a6a4078675e9ca9d6e26d23356161dc0fbc1fa",
+      "word_count": 351,
+      "number_word_count": 53,
+      "zero_duration_numeric_words": [],
+      "numeric_words_under_50ms": [],
+      "word_order_failures": [],
+      "caption_order_or_duration_failures": [],
+      "nonnumeric_zero_duration_words": [
+        {
+          "text": "Draw",
+          "start": 10.52,
+          "end": 10.52,
+          "matched": true,
+          "scene": 1
+        },
+        {
+          "text": "The",
+          "start": 34.36,
+          "end": 34.36,
+          "matched": true,
+          "scene": 3
+        },
+        {
+          "text": "Does",
+          "start": 38.120000000000005,
+          "end": 38.120000000000005,
+          "matched": true,
+          "scene": 3
+        },
+        {
+          "text": "Both",
+          "start": 52.53,
+          "end": 52.53,
+          "matched": true,
+          "scene": 4
+        },
+        {
+          "text": "Trace",
+          "start": 55.05,
+          "end": 55.05,
+          "matched": true,
+          "scene": 4
+        },
+        {
+          "text": "If",
+          "start": 128.19,
+          "end": 128.19,
+          "matched": true,
+          "scene": 8
+        }
+      ],
+      "decoded_frame_checks": [
+        {
+          "word": "Draw",
+          "anchor_second": 10.52,
+          "decoded_frame_second": 10.72,
+          "visible_full_caption": {
+            "start": 10.52,
+            "end": 11.81,
+            "text": "Draw both routes with your finger."
+          },
+          "image": "S012-10.52.png",
+          "observed": "Full phrase including starter present and readable."
+        },
+        {
+          "word": "The",
+          "anchor_second": 34.36,
+          "decoded_frame_second": 34.56,
+          "visible_full_caption": {
+            "start": 34.36,
+            "end": 36.07,
+            "text": "The beetle may fly over the gap,"
+          },
+          "image": "S012-34.36.png",
+          "observed": "Full phrase including starter present and readable."
+        },
+        {
+          "word": "Does",
+          "anchor_second": 38.120000000000005,
+          "decoded_frame_second": 38.32,
+          "visible_full_caption": {
+            "start": 38.120000000000005,
+            "end": 39.89,
+            "text": "Does rung four become unreachable?"
+          },
+          "image": "S012-38.12.png",
+          "observed": "Full phrase including starter present and readable."
+        },
+        {
+          "word": "Both",
+          "anchor_second": 52.53,
+          "decoded_frame_second": 52.73,
+          "visible_full_caption": {
+            "start": 52.53,
+            "end": 54.34,
+            "text": "Both routes to two can cross the gap."
+          },
+          "image": "S012-52.53.png",
+          "observed": "Full phrase including starter present and readable."
+        },
+        {
+          "word": "Trace",
+          "anchor_second": 55.05,
+          "decoded_frame_second": 55.25,
+          "visible_full_caption": {
+            "start": 55.05,
+            "end": 56.65,
+            "text": "Trace their different beginnings and their"
+          },
+          "image": "S012-55.05.png",
+          "observed": "Full phrase including starter present and readable."
+        },
+        {
+          "word": "If",
+          "anchor_second": 128.19,
+          "decoded_frame_second": 128.39,
+          "visible_full_caption": {
+            "start": 128.19,
+            "end": 131.07,
+            "text": "If a rule restricts the next jump, record how the route"
+          },
+          "image": "S012-128.19.png",
+          "observed": "Full phrase including starter present and readable."
+        }
+      ]
+    }
+  ],
+  "finding": "No numeric zero-duration or order defect. Six S012 nonnumeric zero-duration starters preserve complete visible phrase captions in decoded exact-master frames."
+}

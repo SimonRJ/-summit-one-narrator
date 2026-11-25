@@ -1,6 +1,6 @@
 {
   "recorded_at_utc": "2026-11-24T22:44:32.069534+00:00",
-  "status": "Candidates only; neither corrected film is assigned to live learners by these commits.",
+  "status": "S019 production and public bytes verified, but integration held after visible caption ghosting. S020 stable CI render complete, remaining gates pending.",
   "source_commits": [
     "b4f43c9",
     "ac55749"
@@ -23,8 +23,8 @@
       "S019.vtt": "92f0c39344a9dc9729bf1f34db93b2f5c3047f5bde22cbcc419a8d09c46a3c41"
     },
     "expected_release_tag": "s019-domino-condition-20261125-3d94f6856b47",
-    "release_verified": false,
-    "production_device_state": "All five playback jobs queued at the latest read; render completed successfully.",
+    "release_verified": true,
+    "production_device_state": "All five exact CI playback profiles and immutable publication completed successfully.",
     "consumers": [
       {
         "slot": 19,
@@ -291,7 +291,11 @@
         }
       ],
       "completed_routes": "Canonical slot19 passed five emulated browser profiles; technique consumer333 passed PC and iPad portrait. Gallery chapter seeks, active lesson, correct/incorrect fixture grading and immutable replay passed. iPhone portrait completed the full film unmuted at normal speed. These checks are bound to the older local SHA only."
-    }
+    },
+    "release_published_at": "2026-11-25T00:35:30Z",
+    "public_byte_evidence": "review/S019-public-release-20261125.json",
+    "repository_integration": "Guide and slots19/333 staged; next main deployment not claimed.",
+    "integration_hold": "Regular/bold double glyphs confirmed in actual public scene-five frames at 49.0 and 49.3667 seconds; stable-caption replacement required."
   },
   "S020": {
     "title": "Clock turns and last digits",
@@ -365,7 +369,20 @@
         "slot": 283,
         "kind": "technique"
       }
-    ]
+    ],
+    "ci_followup": {
+      "run": 45503875492,
+      "source_commit": "0dfec081086f153023e2ab74861717d75dbaa779",
+      "artifact_id": 14978023824,
+      "artifact_zip_sha256": "0603870405116fa32804259c431a34d68cd85b11938f5e236cc333e727659995",
+      "movie_sha256": "5308674d7d66dee6545d05699311a192b13e2fce2d48b6d2f560ec35ce1e57f3",
+      "seconds": 191.233333,
+      "encoded_reference_comparisons": 192,
+      "audio_packets_identical": true,
+      "timeline_and_vtt_identical": true,
+      "caption_frame_evidence": "review/S020-stable-caption-ci-20261125.png",
+      "release_verified": false
+    }
   },
   "integration_gate": [
     "Wait for the relevant exact-candidate playback jobs to succeed and the separate immutable release to exist.",
@@ -375,6 +392,8 @@
     "Run tools/check_read_practice.mjs, then the live gallery/active/locked-notebook checks on final URLs. Use --consumer-slot 333 for S019 and --consumer-slot 283 for S020 in PC and iPad portrait.",
     "Do not migrate or rewrite saved learner records or historical movie selections. Only count a film complete after final editorial and public playback gates are genuinely closed."
   ],
-  "scope_note": "The digit-swap wording defect is S102, not S069. S069 is under revision for repeated narration. S102 must swap tens and units while preserving hundreds (153→135), not the end digits (153→351). No S102 change was made in this task.",
-  "protected_state": "No database, authentic-exam, learner-history, credential or saved-movie mutation performed."
+  "scope_note": "The digit-swap wording defect is S102, not S069. S069 is under revision for repeated narration. S102 must swap tens and units while preserving hundreds (153\u2192135), not the end digits (153\u2192351). No S102 change was made in this task.",
+  "protected_state": "No database, authentic-exam, learner-history, credential or saved-movie mutation performed.",
+  "updated_at_utc": "2026-11-25T00:44:38.433762+00:00",
+  "final_editorial_credit": false
 }

@@ -1,0 +1,38 @@
+Checking S010 iphone-portrait public
+{"slot": 10, "profile": "iphone-portrait", "engine": "webkit", "viewport": {"width": 390, "height": 664}, "site": "https://simonrj.github.io/-summit-one-narrator/", "sha256": "e8e2e6f697b00cd9401479a603bf6992c2538a107b3fbd519cac0e0b9b7f9a71", "film": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S010.mp4", "duration": 140.433333, "chapters": 7, "normal_speed_unmuted_to_ended": true, "practice_grading": "isolated fixture", "immutable_replay": true, "active_frame_css_pixels": {"width": 333.21875, "height": 187.421875, "horizontal": 0, "vertical": 0}, "notebook_frame_css_pixels": {"width": 340, "height": 244.46875, "horizontal": 0, "vertical": 0}, "worked_example": {"chapter": "Admit the next ticket", "decoded_media_time": 105.5}}
+Checking S010 iphone-landscape public
+{"slot": 10, "profile": "iphone-landscape", "engine": "webkit", "viewport": {"width": 664, "height": 390}, "site": "https://simonrj.github.io/-summit-one-narrator/", "sha256": "e8e2e6f697b00cd9401479a603bf6992c2538a107b3fbd519cac0e0b9b7f9a71", "film": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S010.mp4", "duration": 140.433333, "chapters": 7, "normal_speed_unmuted_to_ended": false, "practice_grading": "isolated fixture", "immutable_replay": true, "active_frame_css_pixels": {"width": 357.109375, "height": 200.859375, "horizontal": 0, "vertical": 0}, "notebook_frame_css_pixels": {"width": 395.515625, "height": 222.46875, "horizontal": 0, "vertical": 0}, "worked_example": {"chapter": "Admit the next ticket", "decoded_media_time": 105.5}}
+Checking S010 ipad-portrait public
+{"slot": 10, "profile": "ipad-portrait", "engine": "webkit", "viewport": {"width": 810, "height": 1080}, "site": "https://simonrj.github.io/-summit-one-narrator/", "sha256": "e8e2e6f697b00cd9401479a603bf6992c2538a107b3fbd519cac0e0b9b7f9a71", "film": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S010.mp4", "duration": 140.433333, "chapters": 7, "normal_speed_unmuted_to_ended": false, "practice_grading": "isolated fixture", "immutable_replay": true, "active_frame_css_pixels": {"width": 663.125, "height": 373, "horizontal": 0, "vertical": 0}, "notebook_frame_css_pixels": {"width": 733.125, "height": 667.5, "horizontal": 0, "vertical": 0}, "worked_example": {"chapter": "Admit the next ticket", "decoded_media_time": 105.5}}
+Stopped at https://simonrj.github.io/-summit-one-narrator/watch-lesson-intro.html?slot=10 [{'src': 'https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S010.mp4', 'time': 110.48, 'ready': 2, 'error': None}]
+Traceback (most recent call last):
+  File "/workspace/scratch/2fdd119b5e17/run_released_digits.py", line 108, in <module>
+    asyncio.run(main(args))
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2fdd119b5e17/run_released_digits.py", line 95, in main
+    await check.verify(site, lesson, profile, None, output / f'consumer-{slot}', consumer_slot=slot)
+  File "/workspace/scratch/2fdd119b5e17/amc-priority-release/tools/check_lesson_film_routes.py", line 201, in verify
+    await verify_progress(page, player, chapter['start'])
+  File "/workspace/scratch/2fdd119b5e17/amc-priority-release/tools/check_lesson_film_routes.py", line 65, in verify_progress
+    await page.wait_for_function("""([id, t]) => {
+  File "/workspace/scratch/45c9a6d8bd47/companion-runtime/playwright-client/playwright/async_api/_generated.py", line 11537, in wait_for_function
+    await self._impl_obj.wait_for_function(
+  File "/workspace/scratch/45c9a6d8bd47/companion-runtime/playwright-client/playwright/_impl/_page.py", line 1110, in wait_for_function
+    return await self._main_frame.wait_for_function(**locals_to_params(locals()))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/45c9a6d8bd47/companion-runtime/playwright-client/playwright/_impl/_frame.py", line 878, in wait_for_function
+    await self._channel.send("waitForFunction", self._timeout, params)
+  File "/workspace/scratch/45c9a6d8bd47/companion-runtime/playwright-client/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/45c9a6d8bd47/companion-runtime/playwright-client/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TimeoutError: Page.wait_for_function: Timeout 30000ms exceeded.

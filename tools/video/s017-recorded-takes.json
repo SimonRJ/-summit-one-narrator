@@ -1,0 +1,63 @@
+{
+  "lesson": "S017",
+  "repository": "SimonRJ/-summit-one-narrator",
+  "voice_run": 45487547111,
+  "voice_commit": "c873621cd8988d3862563a0668e500bcb94614c9",
+  "voice_branch": "production/s012-missing-rung",
+  "voice_workflow": ".github/workflows/paired-original-voice.yml",
+  "original_render_run": 45488080237,
+  "original_render_commit": "1d1bb402622c540061446a85c2aab9782b724bd1",
+  "original_render_workflow": ".github/workflows/s017-tile-framer.yml",
+  "voice_reference": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "artifacts": [
+    {
+      "scene": 1,
+      "name": "S017-voice-1",
+      "id": 14970957685,
+      "sha256": "652ba55d045d090755484b4a438aaa5f1222389d1c4ce9ce812b2af217d05571"
+    },
+    {
+      "scene": 2,
+      "name": "S017-voice-2",
+      "id": 14972531857,
+      "sha256": "e2c1ef5f3fbb0b8c830635a6c8d477d9200aed5067a2ce803d2ffa1dd494d9e9"
+    },
+    {
+      "scene": 3,
+      "name": "S017-voice-3",
+      "id": 14973542800,
+      "sha256": "faa757492965f0fc3af510b83eb6caf6e0b44c60347c584a0d26218b617dcda7"
+    },
+    {
+      "scene": 4,
+      "name": "S017-voice-4",
+      "id": 14972673206,
+      "sha256": "a971512d98e571bc251c666ab3ed181ae54a996a02492ebeac011063a1cca217"
+    },
+    {
+      "scene": 5,
+      "name": "S017-voice-5",
+      "id": 14974601554,
+      "sha256": "cc28121ccda8791ee5a8e4534418a01dcb905ff6b743fd3791ac8c1b97f3d8f2"
+    },
+    {
+      "scene": 6,
+      "name": "S017-voice-6",
+      "id": 14975236453,
+      "sha256": "4f529148d3e84dbd86993447939d9210bdff2d2dafcaf18578d14534eeafecba"
+    },
+    {
+      "scene": 7,
+      "name": "S017-voice-7",
+      "id": 14976234331,
+      "sha256": "5b7e34866b3652bf6c7470cceef42d4bfb6aa97a0f380d22e02e7095e537fe7a"
+    },
+    {
+      "scene": 8,
+      "name": "S017-voice-8",
+      "id": 14977995298,
+      "sha256": "94f0a429adad2146721269a4c0e6a20e3818990d48f76eb278c28676986a2afc"
+    }
+  ]
+}

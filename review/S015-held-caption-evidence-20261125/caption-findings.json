@@ -1,0 +1,85 @@
+{
+  "scope": "Read-only returned S015 render artifact audit; no changes, browser repeats, synthesis, publication or acceptance credit.",
+  "run_id": 45512588528,
+  "render_job_id": 138863813515,
+  "source_commit": "8fb7e5e6e3fbe8923c9c5152368b89efdeadef9b",
+  "candidate_movie_sha256": "f4bb4b7e43d5d0037680d07ff8b65a375fd552f865406657d7e2b259604eca52",
+  "candidate_bytes": 8459211,
+  "duration_seconds": 155.3,
+  "render_verification": "Passed; returned guide, QA and recomputed movie digest agree. Six recovery unit tests passed, 156 decoded reference comparisons, eight voice scenes, 56 caption phrases, 380 words. This reference check cannot independently establish recognizer caption timing.",
+  "job_snapshot": "Render completed success; all five playback jobs queued at initial read. No later state inferred.",
+  "finding": "A numeral timestamp collapse produces a visible caption delay for spoken 344. Mathematical artwork remains correct, and words eventually appear. Repair measured timing from saved takes before learner mounting.",
+  "timing_method": "Existing cached base.en recognizer, CPU int8, two source-scene crops decoded from exact MP4; numeral tokens suppressed to recover spoken words. Times are recognizer measurements supported by decoded-frame and speech-energy observations, not manually certified phonetic boundaries.",
+  "affected_number_groups": [
+    {
+      "number": 344,
+      "collapsed_anchor": 30.74,
+      "caption_start": 30.74,
+      "measured_start": 29.8,
+      "measured_end": 31.06,
+      "caption_start_delay": 0.94,
+      "word_intervals": [
+        [
+          "three",
+          29.8,
+          29.94
+        ],
+        [
+          "hundred",
+          29.94,
+          30.24
+        ],
+        [
+          "and",
+          30.24,
+          30.4
+        ],
+        [
+          "forty",
+          30.4,
+          30.6
+        ],
+        [
+          "four",
+          30.6,
+          31.06
+        ]
+      ],
+      "decoded_frame_before": "S015-30.14.png",
+      "decoded_frame_after": "S015-30.84.png",
+      "visible_observation": "Caption absent at 30.14 during measured hundred; complete delayed phrase present at 30.84. Strong decoded speech energy approximately -16 dB RMS at 30.15."
+    },
+    {
+      "number": 24,
+      "collapsed_anchor": 48.38,
+      "caption_start": 48.38,
+      "measured_start": 48.16,
+      "measured_end": 48.7,
+      "caption_start_delay": 0.22,
+      "qualification": "First spoken-word estimate has probability 0.395; onset is approximate. Decoded speech energy is already strong around 48.15."
+    },
+    {
+      "number": 54,
+      "collapsed_anchor": 52.2,
+      "caption_start": 52.2,
+      "measured_start": 51.94,
+      "measured_end": 52.48,
+      "caption_start_delay": 0.26
+    },
+    {
+      "number": 48,
+      "collapsed_anchor": 110.74,
+      "caption_start": 108.63,
+      "visible_observation": "Full phrase already visible at 110.14; zero anchor affects emphasis, not phrase visibility. No extra speech measurement required."
+    },
+    {
+      "number": 35,
+      "collapsed_anchor": 120.78,
+      "caption_start": 118.44,
+      "visible_observation": "Full phrase already visible at 120.18; zero anchor affects emphasis, not phrase visibility. No extra speech measurement required."
+    }
+  ],
+  "raw_word_measurements": "number-word-onsets.json",
+  "reproduce": "check_number_word_onsets.py",
+  "accepted_S009_S010_S012_status": "Independent narrow audit clear; this S015 candidate issue does not block their main source deployment."
+}

@@ -1,0 +1,39 @@
+[
+  {
+    "case": "chapter_control",
+    "media_responses": [
+      {
+        "url": "http://127.0.0.1:37623/media/T18.1.mp4?v=thirteen-search",
+        "status": 0,
+        "type": null,
+        "bytes": null
+      },
+      {
+        "url": "http://127.0.0.1:37623/media/T18.1.mp4?v=thirteen-search",
+        "status": 200,
+        "type": "video/mp4",
+        "bytes": "5091125"
+      }
+    ],
+    "initial": {
+      "ready": 0,
+      "network": 2,
+      "source": "http://127.0.0.1:37623/media/T18.1.mp4?v=thirteen-search",
+      "error": null,
+      "fonts": "loaded"
+    },
+    "after_click": {
+      "ready": 4,
+      "time": 0.018693021,
+      "paused": false,
+      "muted": false,
+      "errors": []
+    },
+    "playback": {
+      "time": 0.8227078,
+      "ready": 4,
+      "paused": false,
+      "error": null
+    }
+  }
+]

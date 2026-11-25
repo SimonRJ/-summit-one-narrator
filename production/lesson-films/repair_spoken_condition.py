@@ -79,9 +79,8 @@ def draw(lesson, scene, cues, second, scale):
         board.label('3 + 9 + 7 = 19',505,550,40,gold,c.reveal('sum is nineteen'),bold=True)
     for cue in cues:
         if cue['start'] <= second < cue['end']:
-            # The cycle correction needs a single stable glyph layer. Cross-fading
-            # regular and bold glyphs made “position” visibly double at 145.5 s.
-            # Preserve the accepted domino candidate's recorded caption treatment.
+            # Both conditions retain their cue times with one stable glyph layer.
+            # S020 uses Stage directly; S019 uses the shared stable caption helper.
             if lesson == 'S020':
                 board.caption(cue, second)
             else:

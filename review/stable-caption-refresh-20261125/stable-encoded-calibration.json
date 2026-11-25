@@ -1,0 +1,22 @@
+{
+  "scope": "Read-only threshold calibration using an already encoded stable-caption S015; no new encode",
+  "movie_sha256": "3a54e336d09eb2f1e9e5fcf50253c6cea5ddf58ed96bf468a300316754c2cfd2",
+  "frames": [
+    {
+      "frame": 1563,
+      "seconds": 52.1,
+      "glyph_pixels": 5551,
+      "encoded_caption_glyph_mean_error": 4.821713805320362,
+      "threshold": 12
+    },
+    {
+      "frame": 3261,
+      "seconds": 108.7,
+      "glyph_pixels": 16107,
+      "encoded_caption_glyph_mean_error": 5.336996336996337,
+      "threshold": 12
+    }
+  ],
+  "final_editorial_credit": false,
+  "recording_timeline_sha256": "75c21b50f091cb1ddf406543d4e6a2d974284bba2103e904e63144c5e1f7eeee"
+}

@@ -106,8 +106,31 @@ for(const lesson of later.lessons){
  }
 }
 assert.equal(laterQuestions,912);
-const laterStudyCount = Object.keys(recorded.lessons).filter(id=>Number(id.slice(1))>68).length;
-assert.deepEqual(filmUse,{dedicated:58+laterStudyCount,technique:170-laterStudyCount});
+// The 58 original own-introduction rows are listed in docs/LATER_LESSONS.md
+// at 04d2032d585c020a0e44ab4b1d468680198a77f7. A recorded replacement for
+// one of those films (for example S102) does not add a dedicated assignment.
+const originalDedicatedSlots = new Set([
+ 69,71,72,73,74,75,76,78,79,81,82,83,85,86,87,88,89,90,92,93,
+ 94,95,97,99,100,101,102,103,104,106,107,108,109,110,113,114,
+ 115,116,117,118,120,121,122,123,124,125,127,129,130,131,132,
+ 134,135,139,142,143,145,146,
+]);
+assert.equal(originalDedicatedSlots.size,58);
+const expectedDedicatedSlots = new Set([
+ ...originalDedicatedSlots,
+ ...Object.keys(recorded.lessons).map(id=>Number(id.slice(1))).filter(slot=>slot>68),
+]);
+assert([...expectedDedicatedSlots].every(slot=>laterSlots.includes(slot)),
+ 'A dedicated film is assigned outside the later teaching lessons');
+assert.deepEqual(
+ later.lessons.filter(lesson=>lesson.filmUse==='dedicated').map(lesson=>lesson.slot).sort((a,b)=>a-b),
+ [...expectedDedicatedSlots].sort((a,b)=>a-b),
+ 'Dedicated assignments must match the original films and recorded additions',
+);
+assert.deepEqual(filmUse,{
+ dedicated:expectedDedicatedSlots.size,
+ technique:laterSlots.length-expectedDedicatedSlots.size,
+});
 const allLessons = [...release.lessons,...later.lessons];
 for (const id of Object.keys(recorded.lessons))
  assert(allLessons.some(lesson=>lesson.videoId===id && lesson.slot===Number(id.slice(1))));

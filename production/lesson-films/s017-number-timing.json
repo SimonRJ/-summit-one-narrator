@@ -1,0 +1,330 @@
+{
+  "lesson": "S017",
+  "scene": 7,
+  "script_sha256": "d324df82ce2f6bd2b40440b105b189dd8f665521edeb954bc09e7bbc93169bda",
+  "narration_sha256": "ca1bea762f0b79404eef98afa0854254e31733aacecab9349d25e5cf4407f472",
+  "source_wav_sha256": "812894fc7a62bb17e7a002f804a31c0febda3d62107dcb985ebc11ffa558d598",
+  "source_duration_seconds": 16.95,
+  "source_rate_hz": 48000,
+  "groups": [
+    [
+      35,
+      37
+    ]
+  ],
+  "expected_group_text": [
+    "twenty four"
+  ],
+  "measurement": "The existing cached base.en recognizer, lexical digit tokens suppressed, on the complete exact raw S017 scene-7 take. Times are relative to that unchanged source scene; no assumed shift and no new audio.",
+  "word_form_match_percent": 100.0,
+  "reviewed_caption_text": "Of the twenty four that contained A, remove those eight.",
+  "word_forms": [
+    {
+      "word": "For",
+      "start": 0.0,
+      "end": 0.2,
+      "probability": 0.964704
+    },
+    {
+      "word": "both",
+      "start": 0.2,
+      "end": 0.44,
+      "probability": 0.999311
+    },
+    {
+      "word": "tiles,",
+      "start": 0.44,
+      "end": 0.74,
+      "probability": 0.984969
+    },
+    {
+      "word": "the",
+      "start": 1.2,
+      "end": 1.3,
+      "probability": 0.996819
+    },
+    {
+      "word": "left",
+      "start": 1.3,
+      "end": 1.44,
+      "probability": 0.985046
+    },
+    {
+      "word": "edge",
+      "start": 1.44,
+      "end": 1.8,
+      "probability": 0.996795
+    },
+    {
+      "word": "has",
+      "start": 1.8,
+      "end": 2.04,
+      "probability": 0.998566
+    },
+    {
+      "word": "two",
+      "start": 2.04,
+      "end": 2.26,
+      "probability": 0.847994
+    },
+    {
+      "word": "positions",
+      "start": 2.26,
+      "end": 2.54,
+      "probability": 0.986717
+    },
+    {
+      "word": "and",
+      "start": 2.54,
+      "end": 3.12,
+      "probability": 0.637624
+    },
+    {
+      "word": "the",
+      "start": 3.12,
+      "end": 3.24,
+      "probability": 0.995706
+    },
+    {
+      "word": "right",
+      "start": 3.24,
+      "end": 3.42,
+      "probability": 0.998389
+    },
+    {
+      "word": "edge",
+      "start": 3.42,
+      "end": 3.86,
+      "probability": 0.99737
+    },
+    {
+      "word": "has",
+      "start": 3.86,
+      "end": 4.02,
+      "probability": 0.998261
+    },
+    {
+      "word": "two.",
+      "start": 4.02,
+      "end": 4.28,
+      "probability": 0.987486
+    },
+    {
+      "word": "There",
+      "start": 4.92,
+      "end": 5.0,
+      "probability": 0.993845
+    },
+    {
+      "word": "is",
+      "start": 5.0,
+      "end": 5.12,
+      "probability": 0.997347
+    },
+    {
+      "word": "one",
+      "start": 5.12,
+      "end": 5.34,
+      "probability": 0.988667
+    },
+    {
+      "word": "top",
+      "start": 5.34,
+      "end": 5.62,
+      "probability": 0.996641
+    },
+    {
+      "word": "edge",
+      "start": 5.62,
+      "end": 5.92,
+      "probability": 0.997033
+    },
+    {
+      "word": "and",
+      "start": 5.92,
+      "end": 6.22,
+      "probability": 0.773254
+    },
+    {
+      "word": "there",
+      "start": 6.22,
+      "end": 6.36,
+      "probability": 0.994339
+    },
+    {
+      "word": "are",
+      "start": 6.36,
+      "end": 6.44,
+      "probability": 0.998784
+    },
+    {
+      "word": "two",
+      "start": 6.44,
+      "end": 6.66,
+      "probability": 0.992135
+    },
+    {
+      "word": "bottom",
+      "start": 6.66,
+      "end": 7.0,
+      "probability": 0.99928
+    },
+    {
+      "word": "edges.",
+      "start": 7.0,
+      "end": 7.34,
+      "probability": 0.998497
+    },
+    {
+      "word": "That",
+      "start": 8.24,
+      "end": 8.34,
+      "probability": 0.99227
+    },
+    {
+      "word": "gives",
+      "start": 8.34,
+      "end": 8.58,
+      "probability": 0.997868
+    },
+    {
+      "word": "eight",
+      "start": 8.58,
+      "end": 8.88,
+      "probability": 0.340502
+    },
+    {
+      "word": "frames",
+      "start": 8.88,
+      "end": 9.24,
+      "probability": 0.998426
+    },
+    {
+      "word": "containing",
+      "start": 9.24,
+      "end": 9.68,
+      "probability": 0.99744
+    },
+    {
+      "word": "both",
+      "start": 9.68,
+      "end": 10.14,
+      "probability": 0.999196
+    },
+    {
+      "word": "tiles",
+      "start": 10.14,
+      "end": 10.48,
+      "probability": 0.999057
+    },
+    {
+      "word": "of",
+      "start": 10.48,
+      "end": 10.76,
+      "probability": 0.998399
+    },
+    {
+      "word": "the",
+      "start": 10.76,
+      "end": 10.86,
+      "probability": 0.998083
+    },
+    {
+      "word": "twenty",
+      "start": 10.86,
+      "end": 11.04,
+      "probability": 0.038345
+    },
+    {
+      "word": "-four",
+      "start": 11.04,
+      "end": 11.46,
+      "probability": 0.91512
+    },
+    {
+      "word": "that",
+      "start": 11.46,
+      "end": 11.6,
+      "probability": 0.994421
+    },
+    {
+      "word": "contained",
+      "start": 11.6,
+      "end": 11.9,
+      "probability": 0.94524
+    },
+    {
+      "word": "A.",
+      "start": 11.9,
+      "end": 12.3,
+      "probability": 0.617282
+    },
+    {
+      "word": "Remove",
+      "start": 12.82,
+      "end": 12.94,
+      "probability": 0.9916
+    },
+    {
+      "word": "those",
+      "start": 12.94,
+      "end": 13.32,
+      "probability": 0.998082
+    },
+    {
+      "word": "eight,",
+      "start": 13.32,
+      "end": 13.6,
+      "probability": 0.963884
+    },
+    {
+      "word": "sixteen",
+      "start": 13.96,
+      "end": 14.38,
+      "probability": 0.908105
+    },
+    {
+      "word": "rectangles",
+      "start": 14.38,
+      "end": 15.08,
+      "probability": 0.998595
+    },
+    {
+      "word": "keep",
+      "start": 15.08,
+      "end": 15.32,
+      "probability": 0.829564
+    },
+    {
+      "word": "A",
+      "start": 15.32,
+      "end": 15.62,
+      "probability": 0.98837
+    },
+    {
+      "word": "and",
+      "start": 15.62,
+      "end": 15.9,
+      "probability": 0.957405
+    },
+    {
+      "word": "leave",
+      "start": 15.9,
+      "end": 16.1,
+      "probability": 0.99773
+    },
+    {
+      "word": "B",
+      "start": 16.1,
+      "end": 16.32,
+      "probability": 0.989676
+    },
+    {
+      "word": "out.",
+      "start": 16.32,
+      "end": 16.56,
+      "probability": 0.987619
+    }
+  ],
+  "final_editorial_credit": false
+}

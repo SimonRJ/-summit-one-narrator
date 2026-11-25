@@ -1,0 +1,423 @@
+{
+  "css": "https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500;600&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Source+Serif+4:wght@400;500;600&family=STIX+Two+Math&display=swap",
+  "css_sha256": "448c42ff275a25f8c965aa206bdb994c9612428fc17a3b54094539c572e5bc8f",
+  "downloaded_on": "2026-11-25",
+  "fonts": [
+    {
+      "family": "STIX Two Math",
+      "style": "normal",
+      "subset": "all",
+      "weights": [
+        "400"
+      ],
+      "url": "https://fonts.gstatic.com/s/stixtwomath/v12/pONg1hwwL_6M9EkZySr_yteUi18.woff2",
+      "filename": "stix-two-math-normal-all-8b2a6834cf.woff2",
+      "sha256": "8b2a6834cfe1f4e0f3724ffa59fe92000013fc5a4c41e6a3f438006c26c60f0d",
+      "bytes": 403344
+    },
+    {
+      "family": "Source Code Pro",
+      "style": "normal",
+      "subset": "cyrillic-ext",
+      "weights": [
+        "500",
+        "600"
+      ],
+      "url": "https://fonts.gstatic.com/s/sourcecodepro/v32/HI_SiYsKILxRpg3hIP6sJ7fM7PqlMOvWjMY.woff2",
+      "filename": "source-code-pro-normal-cyrillic-ext-dd503d60c3.woff2",
+      "sha256": "dd503d60c322511f5618af7d1dc4f2d7002a58f665b515c7d62ea6f5535ac669",
+      "bytes": 8808
+    },
+    {
+      "family": "Source Code Pro",
+      "style": "normal",
+      "subset": "cyrillic",
+      "weights": [
+        "500",
+        "600"
+      ],
+      "url": "https://fonts.gstatic.com/s/sourcecodepro/v32/HI_SiYsKILxRpg3hIP6sJ7fM7PqlOevWjMY.woff2",
+      "filename": "source-code-pro-normal-cyrillic-fd7699ecbd.woff2",
+      "sha256": "fd7699ecbd3ce9ae5db900abc491150d176e8b1530aee9a9268cb3023658a5b3",
+      "bytes": 14180
+    },
+    {
+      "family": "Source Code Pro",
+      "style": "normal",
+      "subset": "greek-ext",
+      "weights": [
+        "500",
+        "600"
+      ],
+      "url": "https://fonts.gstatic.com/s/sourcecodepro/v32/HI_SiYsKILxRpg3hIP6sJ7fM7PqlMevWjMY.woff2",
+      "filename": "source-code-pro-normal-greek-ext-01e467c83c.woff2",
+      "sha256": "01e467c83c24a9b8e2a866e9fe443d6d50d9db9403bf7b710bd10b37ae8c208d",
+      "bytes": 3096
+    },
+    {
+      "family": "Source Code Pro",
+      "style": "normal",
+      "subset": "greek",
+      "weights": [
+        "500",
+        "600"
+      ],
+      "url": "https://fonts.gstatic.com/s/sourcecodepro/v32/HI_SiYsKILxRpg3hIP6sJ7fM7PqlPuvWjMY.woff2",
+      "filename": "source-code-pro-normal-greek-34dfcd3f61.woff2",
+      "sha256": "34dfcd3f61fc26a6ba2a7ee30eab6bc4bdc5d4872a8b49a90a17f1bf9e70553b",
+      "bytes": 10696
+    },
+    {
+      "family": "Source Code Pro",
+      "style": "normal",
+      "subset": "vietnamese",
+      "weights": [
+        "500",
+        "600"
+      ],
+      "url": "https://fonts.gstatic.com/s/sourcecodepro/v32/HI_SiYsKILxRpg3hIP6sJ7fM7PqlMuvWjMY.woff2",
+      "filename": "source-code-pro-normal-vietnamese-d8a28d78c1.woff2",
+      "sha256": "d8a28d78c1c6de660e1be91fdadc9b01268415407922ed3cf64909a0b02a6356",
+      "bytes": 8176
+    },
+    {
+      "family": "Source Code Pro",
+      "style": "normal",
+      "subset": "latin-ext",
+      "weights": [
+        "500",
+        "600"
+      ],
+      "url": "https://fonts.gstatic.com/s/sourcecodepro/v32/HI_SiYsKILxRpg3hIP6sJ7fM7PqlM-vWjMY.woff2",
+      "filename": "source-code-pro-normal-latin-ext-ab316ee7e4.woff2",
+      "sha256": "ab316ee7e4a28a149fe9f74a3e9173c3d14a11bb7d4df898dd2fe10da7b7fe24",
+      "bytes": 33568
+    },
+    {
+      "family": "Source Code Pro",
+      "style": "normal",
+      "subset": "latin",
+      "weights": [
+        "500",
+        "600"
+      ],
+      "url": "https://fonts.gstatic.com/s/sourcecodepro/v32/HI_SiYsKILxRpg3hIP6sJ7fM7PqlPevW.woff2",
+      "filename": "source-code-pro-normal-latin-8b774aaa51.woff2",
+      "sha256": "8b774aaa5137a38ef40f4ac9d36db9a5eee152b2f66589dfdc82ff007fc87135",
+      "bytes": 22044
+    },
+    {
+      "family": "Source Sans 3",
+      "style": "italic",
+      "subset": "cyrillic-ext",
+      "weights": [
+        "400",
+        "500",
+        "600"
+      ],
+      "url": "https://fonts.gstatic.com/s/sourcesans3/v20/nwpMtKy2OAdR1K-IwhWudF-R3woqauLY1HY.woff2",
+      "filename": "source-sans-3-italic-cyrillic-ext-9f9b2a3d40.woff2",
+      "sha256": "9f9b2a3d4050cef3165f8ad546296ac9bf012acff4b97f9c820b58b99a19dcbe",
+      "bytes": 10952
+    },
+    {
+      "family": "Source Sans 3",
+      "style": "italic",
+      "subset": "cyrillic",
+      "weights": [
+        "400",
+        "500",
+        "600"
+      ],
+      "url": "https://fonts.gstatic.com/s/sourcesans3/v20/nwpMtKy2OAdR1K-IwhWudF-R3woqY-LY1HY.woff2",
+      "filename": "source-sans-3-italic-cyrillic-747ba5266e.woff2",
+      "sha256": "747ba5266ef049efc6d67eaa99058a81efa134ec00483c246ed388ef288186d2",
+      "bytes": 18724
+    },
+    {
+      "family": "Source Sans 3",
+      "style": "italic",
+      "subset": "greek-ext",
+      "weights": [
+        "400",
+        "500",
+        "600"
+      ],
+      "url": "https://fonts.gstatic.com/s/sourcesans3/v20/nwpMtKy2OAdR1K-IwhWudF-R3woqa-LY1HY.woff2",
+      "filename": "source-sans-3-italic-greek-ext-eed2194fd9.woff2",
+      "sha256": "eed2194fd9fd800dace0ee1535cab3b9e75d0e0dda69ef96ca332124af79a4ec",
+      "bytes": 9800
+    },
+    {
+      "family": "Source Sans 3",
+      "style": "italic",
+      "subset": "greek",
+      "weights": [
+        "400",
+        "500",
+        "600"
+      ],
+      "url": "https://fonts.gstatic.com/s/sourcesans3/v20/nwpMtKy2OAdR1K-IwhWudF-R3woqZOLY1HY.woff2",
+      "filename": "source-sans-3-italic-greek-7ebcf40b8c.woff2",
+      "sha256": "7ebcf40b8c0e5576c16546bd3e94a3fd7f5f0a410c268af74e9cbcf444f32cf8",
+      "bytes": 14932
+    },
+    {
+      "family": "Source Sans 3",
+      "style": "italic",
+      "subset": "vietnamese",
+      "weights": [
+        "400",
+        "500",
+        "600"
+      ],
+      "url": "https://fonts.gstatic.com/s/sourcesans3/v20/nwpMtKy2OAdR1K-IwhWudF-R3woqaOLY1HY.woff2",
+      "filename": "source-sans-3-italic-vietnamese-aa44d57632.woff2",
+      "sha256": "aa44d57632499ea829dc6eeb512d6b84955328d436567448e905d279c3589b4c",
+      "bytes": 10768
+    },
+    {
+      "family": "Source Sans 3",
+      "style": "italic",
+      "subset": "latin-ext",
+      "weights": [
+        "400",
+        "500",
+        "600"
+      ],
+      "url": "https://fonts.gstatic.com/s/sourcesans3/v20/nwpMtKy2OAdR1K-IwhWudF-R3woqaeLY1HY.woff2",
+      "filename": "source-sans-3-italic-latin-ext-6fe10a66ec.woff2",
+      "sha256": "6fe10a66ec416f77a26309b645471d032ad8175063bb605b886e9b7e57efaaa8",
+      "bytes": 59496
+    },
+    {
+      "family": "Source Sans 3",
+      "style": "italic",
+      "subset": "latin",
+      "weights": [
+        "400",
+        "500",
+        "600"
+      ],
+      "url": "https://fonts.gstatic.com/s/sourcesans3/v20/nwpMtKy2OAdR1K-IwhWudF-R3woqZ-LY.woff2",
+      "filename": "source-sans-3-italic-latin-5fbc14d56c.woff2",
+      "sha256": "5fbc14d56cea35e60596c72ca969b349443c6a536f74e11748eed8b3a396e61d",
+      "bytes": 28460
+    },
+    {
+      "family": "Source Sans 3",
+      "style": "normal",
+      "subset": "cyrillic-ext",
+      "weights": [
+        "400",
+        "500",
+        "600",
+        "700"
+      ],
+      "url": "https://fonts.gstatic.com/s/sourcesans3/v20/nwpStKy2OAdR1K-IwhWudF-R3wIaZfrc.woff2",
+      "filename": "source-sans-3-normal-cyrillic-ext-c6e007862d.woff2",
+      "sha256": "c6e007862d29f6b59955f979a18508b75ec081f9d28248ccc9967522e1dd7506",
+      "bytes": 10732
+    },
+    {
+      "family": "Source Sans 3",
+      "style": "normal",
+      "subset": "cyrillic",
+      "weights": [
+        "400",
+        "500",
+        "600",
+        "700"
+      ],
+      "url": "https://fonts.gstatic.com/s/sourcesans3/v20/nwpStKy2OAdR1K-IwhWudF-R3wsaZfrc.woff2",
+      "filename": "source-sans-3-normal-cyrillic-b6b721e08d.woff2",
+      "sha256": "b6b721e08d0324b9e743858e8260463085d4c5e1e684f036f9d4a8ca6c62996f",
+      "bytes": 18496
+    },
+    {
+      "family": "Source Sans 3",
+      "style": "normal",
+      "subset": "greek-ext",
+      "weights": [
+        "400",
+        "500",
+        "600",
+        "700"
+      ],
+      "url": "https://fonts.gstatic.com/s/sourcesans3/v20/nwpStKy2OAdR1K-IwhWudF-R3wMaZfrc.woff2",
+      "filename": "source-sans-3-normal-greek-ext-67fbab24bd.woff2",
+      "sha256": "67fbab24bd97c2161850ce1b5308fe8bb4ad1dd9ddf3c38e875b185e5bacf52d",
+      "bytes": 9748
+    },
+    {
+      "family": "Source Sans 3",
+      "style": "normal",
+      "subset": "greek",
+      "weights": [
+        "400",
+        "500",
+        "600",
+        "700"
+      ],
+      "url": "https://fonts.gstatic.com/s/sourcesans3/v20/nwpStKy2OAdR1K-IwhWudF-R3wwaZfrc.woff2",
+      "filename": "source-sans-3-normal-greek-dd6ec3878c.woff2",
+      "sha256": "dd6ec3878cf37dc8b864562acf1a37bd8c9e0ca638d7f75a7cd6b6f7ae16cf3d",
+      "bytes": 14528
+    },
+    {
+      "family": "Source Sans 3",
+      "style": "normal",
+      "subset": "vietnamese",
+      "weights": [
+        "400",
+        "500",
+        "600",
+        "700"
+      ],
+      "url": "https://fonts.gstatic.com/s/sourcesans3/v20/nwpStKy2OAdR1K-IwhWudF-R3wAaZfrc.woff2",
+      "filename": "source-sans-3-normal-vietnamese-a91edbcdcb.woff2",
+      "sha256": "a91edbcdcb4e0f97ca0558994918fd3e489356c0f63aa0bc54972b5e513b4a59",
+      "bytes": 10360
+    },
+    {
+      "family": "Source Sans 3",
+      "style": "normal",
+      "subset": "latin-ext",
+      "weights": [
+        "400",
+        "500",
+        "600",
+        "700"
+      ],
+      "url": "https://fonts.gstatic.com/s/sourcesans3/v20/nwpStKy2OAdR1K-IwhWudF-R3wEaZfrc.woff2",
+      "filename": "source-sans-3-normal-latin-ext-a85a7459bd.woff2",
+      "sha256": "a85a7459bdb3cdc1136751e151a506bae653fc29ada3ca86237477df6f1b59e6",
+      "bytes": 60088
+    },
+    {
+      "family": "Source Sans 3",
+      "style": "normal",
+      "subset": "latin",
+      "weights": [
+        "400",
+        "500",
+        "600",
+        "700"
+      ],
+      "url": "https://fonts.gstatic.com/s/sourcesans3/v20/nwpStKy2OAdR1K-IwhWudF-R3w8aZQ.woff2",
+      "filename": "source-sans-3-normal-latin-19143dca07.woff2",
+      "sha256": "19143dca075972bc84e3fd9eab7416dd40cc565dccb2435a044bdfabe060c7d5",
+      "bytes": 28872
+    },
+    {
+      "family": "Source Serif 4",
+      "style": "normal",
+      "subset": "cyrillic-ext",
+      "weights": [
+        "400",
+        "500",
+        "600"
+      ],
+      "url": "https://fonts.gstatic.com/s/sourceserif4/v15/vEFF2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6kAHr4cXk.woff2",
+      "filename": "source-serif-4-normal-cyrillic-ext-da49e14ae1.woff2",
+      "sha256": "da49e14ae1d459f3d04cf4555fb954f6e54b247b708f8cfe2d8e7e4ee3c6829b",
+      "bytes": 18112
+    },
+    {
+      "family": "Source Serif 4",
+      "style": "normal",
+      "subset": "cyrillic",
+      "weights": [
+        "400",
+        "500",
+        "600"
+      ],
+      "url": "https://fonts.gstatic.com/s/sourceserif4/v15/vEFF2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6kCXr4cXk.woff2",
+      "filename": "source-serif-4-normal-cyrillic-a81082707b.woff2",
+      "sha256": "a81082707b85203d7f2ae33833f7ae0bf832db167c8710f92f805a9808fb051a",
+      "bytes": 36508
+    },
+    {
+      "family": "Source Serif 4",
+      "style": "normal",
+      "subset": "greek",
+      "weights": [
+        "400",
+        "500",
+        "600"
+      ],
+      "url": "https://fonts.gstatic.com/s/sourceserif4/v15/vEFF2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6kDnr4cXk.woff2",
+      "filename": "source-serif-4-normal-greek-54c4728aa0.woff2",
+      "sha256": "54c4728aa0fd97d59b89b6d89b230065794b4c088c55efe71abc9ce882cfa853",
+      "bytes": 20184
+    },
+    {
+      "family": "Source Serif 4",
+      "style": "normal",
+      "subset": "vietnamese",
+      "weights": [
+        "400",
+        "500",
+        "600"
+      ],
+      "url": "https://fonts.gstatic.com/s/sourceserif4/v15/vEFF2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6kAnr4cXk.woff2",
+      "filename": "source-serif-4-normal-vietnamese-c3de01b514.woff2",
+      "sha256": "c3de01b5144e1a2d7e70eeaf66ab92afdedcc4424ed1d7ffc1993a657d1c762a",
+      "bytes": 13508
+    },
+    {
+      "family": "Source Serif 4",
+      "style": "normal",
+      "subset": "latin-ext",
+      "weights": [
+        "400",
+        "500",
+        "600"
+      ],
+      "url": "https://fonts.gstatic.com/s/sourceserif4/v15/vEFF2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6kA3r4cXk.woff2",
+      "filename": "source-serif-4-normal-latin-ext-d10ccbbd0d.woff2",
+      "sha256": "d10ccbbd0dc4ebae2938958dc1f622a53460fe297e9c958564742dd684309c3f",
+      "bytes": 42212
+    },
+    {
+      "family": "Source Serif 4",
+      "style": "normal",
+      "subset": "latin",
+      "weights": [
+        "400",
+        "500",
+        "600"
+      ],
+      "url": "https://fonts.gstatic.com/s/sourceserif4/v15/vEFF2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6kDXr4.woff2",
+      "filename": "source-serif-4-normal-latin-382475f382.woff2",
+      "sha256": "382475f38242c52d42a3e5ff8dc69b5d73f10d0d21e4550b5fe232984688779a",
+      "bytes": 50936
+    }
+  ],
+  "licenses": [
+    {
+      "family": "Source Sans 3",
+      "filename": "sourcesans3-OFL.txt",
+      "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/sourcesans3/OFL.txt",
+      "sha256": "09746787287a289323b0ec3cff4d1a4a801331b82b7207c1e186f5d26619a392"
+    },
+    {
+      "family": "Source Serif 4",
+      "filename": "sourceserif4-OFL.txt",
+      "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/sourceserif4/OFL.txt",
+      "sha256": "5f94c3fd3a23131a417ab5a0c8452de57e70c3cfb9f604d88241f7065ebf9fd9"
+    },
+    {
+      "family": "Source Code Pro",
+      "filename": "sourcecodepro-OFL.txt",
+      "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/sourcecodepro/OFL.txt",
+      "sha256": "cb30d3086a8b3ce0b9e3690bf48d6620402b61160bc658076f95180ccd9e9dae"
+    },
+    {
+      "family": "STIX Two Math",
+      "filename": "stixtwomath-OFL.txt",
+      "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/stixtwomath/OFL.txt",
+      "sha256": "0c8825913b60d858aacdb33c4ca6660a7d64b0d6464702efbb19313f5765861a"
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+[
+  {
+    "case": "candidate_minimal",
+    "media_responses": [
+      {
+        "url": "http://127.0.0.1:45181/media/T18.1.mp4?v=thirteen-search",
+        "status": 0,
+        "type": null,
+        "bytes": null
+      },
+      {
+        "url": "http://127.0.0.1:45181/media/T18.1.mp4?v=thirteen-search",
+        "status": 200,
+        "type": "video/mp4",
+        "bytes": "5091125"
+      }
+    ],
+    "initial": {
+      "ready": 0,
+      "network": 2,
+      "source": "http://127.0.0.1:45181/media/T18.1.mp4?v=thirteen-search",
+      "error": null,
+      "fonts": "loaded"
+    },
+    "playback": {
+      "time": 0.831685958,
+      "ready": 4,
+      "paused": false,
+      "error": null
+    }
+  },
+  {
+    "case": "prior_minimal",
+    "media_responses": [
+      {
+        "url": "http://127.0.0.1:45181/prior.mp4",
+        "status": 0,
+        "type": null,
+        "bytes": null
+      },
+      {
+        "url": "http://127.0.0.1:45181/prior.mp4",
+        "status": 200,
+        "type": "video/mp4",
+        "bytes": "5091124"
+      }
+    ],
+    "initial": {
+      "ready": 0,
+      "network": 3,
+      "source": "",
+      "error": null,
+      "fonts": "loaded"
+    },
+    "playback": {
+      "time": 0.846011722,
+      "ready": 4,
+      "paused": false,
+      "error": null
+    }
+  },
+  {
+    "case": "candidate_full",
+    "media_responses": [
+      {
+        "url": "http://127.0.0.1:45181/media/T18.1.mp4?v=thirteen-search",
+        "status": 0,
+        "type": null,
+        "bytes": null
+      },
+      {
+        "url": "http://127.0.0.1:45181/media/T18.1.mp4?v=thirteen-search",
+        "status": 200,
+        "type": "video/mp4",
+        "bytes": "5091125"
+      }
+    ],
+    "initial": {
+      "ready": 0,
+      "network": 2,
+      "source": "http://127.0.0.1:45181/media/T18.1.mp4?v=thirteen-search",
+      "error": null,
+      "fonts": "loaded"
+    },
+    "playback": {
+      "time": 0.832750233,
+      "ready": 4,
+      "paused": false,
+      "error": null
+    }
+  }
+]

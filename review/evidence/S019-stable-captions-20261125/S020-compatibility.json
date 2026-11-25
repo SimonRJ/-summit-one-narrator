@@ -1,0 +1,10 @@
+{
+  "check": "Read-only compatibility check on the already-returned S020 stable CI master; no new render or recognition",
+  "source_sha256": "fa00a38665821402f0a2060c40b4aa7ae4b89632609862a80607f39a4cc5006f",
+  "existing_stable_ci_sha256": "5308674d7d66dee6545d05699311a192b13e2fce2d48b6d2f560ec35ce1e57f3",
+  "all_new_stream_identity_checks_pass": true,
+  "audio_packet_bytes_and_timestamps_identical": true,
+  "source_audio_packet_count": 8964,
+  "original_video_presentation_and_decode_timestamps_preserved": true,
+  "original_video_frames": 5737
+}

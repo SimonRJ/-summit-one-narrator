@@ -1,0 +1,364 @@
+{
+  "lesson": "S015",
+  "status": "PUBLIC_RELEASE_VERIFIED_READY_FOR_ROUTE_INTEGRATION",
+  "production_run": 45522486565,
+  "production_commit": "41b7922d37ed4415b8798f6af1da4b7a1a8f1ae0",
+  "workflow": ".github/workflows/s015-numeral-timing.yml",
+  "run_url": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45522486565",
+  "release_tag": "s015-numeral-timing-20261125-41b7922d37ed",
+  "release_url": "https://github.com/SimonRJ/-summit-one-narrator/releases/tag/s015-numeral-timing-20261125-41b7922d37ed",
+  "published_at": "2026-11-25T01:24:36Z",
+  "reviewed_local_source_commit": "313962454683ef2bb29cf6a2b7f699a3b404766b",
+  "public_movie_sha256": "19765de3ce9c28259d244c41d370cb3073513bc928124167e58cc21497098c89",
+  "local_review_movie_sha256": "3a54e336d09eb2f1e9e5fcf50253c6cea5ddf58ed96bf468a300316754c2cfd2",
+  "local_and_ci_are_separate_identities": true,
+  "public_assets": {
+    "S015-guide.json": {
+      "bytes": 3252,
+      "sha256": "980561df2041ae0dffea3652d902a3c081f62c5d30382124b9bffb4fcb3bfe81",
+      "url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s015-numeral-timing-20261125-41b7922d37ed/S015-guide.json"
+    },
+    "S015-poster.jpg": {
+      "bytes": 56753,
+      "sha256": "0f4f6d3ef7f33cd671a670742964cc09a309b080b436033c5aa5f58ac4149f89",
+      "url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s015-numeral-timing-20261125-41b7922d37ed/S015-poster.jpg"
+    },
+    "S015-qa.json": {
+      "bytes": 573,
+      "sha256": "c6521770e7846643f7315ec30c5195aae157bcb1d748df55db72c54af32bf7d1",
+      "url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s015-numeral-timing-20261125-41b7922d37ed/S015-qa.json"
+    },
+    "S015-recording.zip": {
+      "bytes": 12395405,
+      "sha256": "fa0e1175a84f09c97b4baff0260ddbb30ad20a47782762fdfc18457b5a8689bb",
+      "url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s015-numeral-timing-20261125-41b7922d37ed/S015-recording.zip"
+    },
+    "S015.mp4": {
+      "bytes": 6952213,
+      "sha256": "19765de3ce9c28259d244c41d370cb3073513bc928124167e58cc21497098c89",
+      "url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s015-numeral-timing-20261125-41b7922d37ed/S015.mp4"
+    },
+    "S015.vtt": {
+      "bytes": 3949,
+      "sha256": "454a67c2d6055ca95bceb86a8c4671d2eb762c494f9ef4b73b5620418c5ec7a8",
+      "url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s015-numeral-timing-20261125-41b7922d37ed/S015.vtt"
+    }
+  },
+  "public_assets_identical_to_returned_ci_candidate": true,
+  "public_recording_exactly_matches_reviewed_patch": true,
+  "recording_members_sha256": {
+    "script.json": "bba29b9483b8af9333a35b2d6fa081bcf51830b46eba1d9460c3116b3bd01bd3",
+    "timeline.json": "75c21b50f091cb1ddf406543d4e6a2d974284bba2103e904e63144c5e1f7eeee",
+    "captions.vtt": "454a67c2d6055ca95bceb86a8c4671d2eb762c494f9ef4b73b5620418c5ec7a8",
+    "narration.flac": "e83867aef95fc400d4644647bc9d001efb0dc243577a5f5d2792574b09164bd5"
+  },
+  "source_movie_sha256": "f4bb4b7e43d5d0037680d07ff8b65a375fd552f865406657d7e2b259604eca52",
+  "source_candidate_archive_sha256": "44326efa6acf7c9067732323365385659147d2569db5fe3f9d32f95c4603c786",
+  "source_script_and_flac_preserved": true,
+  "changed_word_timings": 62,
+  "unchanged_word_timings": 318,
+  "compound_number_groups_checked": 21,
+  "compound_number_caption_checks": [
+    {
+      "scene": 2,
+      "phrase": "three hundred and twenty four,",
+      "speech_start": 27.96,
+      "speech_end": 29.36,
+      "caption_start": 26.88,
+      "caption_end": 29.49,
+      "one_complete_caption": true
+    },
+    {
+      "scene": 2,
+      "phrase": "three hundred and forty four,",
+      "speech_start": 29.799999999999997,
+      "speech_end": 31.06,
+      "caption_start": 29.799999999999997,
+      "caption_end": 31.189999999999998,
+      "one_complete_caption": true
+    },
+    {
+      "scene": 2,
+      "phrase": "three hundred and fifty four,",
+      "speech_start": 31.479999999999997,
+      "speech_end": 32.76,
+      "caption_start": 31.479999999999997,
+      "caption_end": 32.89,
+      "one_complete_caption": true
+    },
+    {
+      "scene": 2,
+      "phrase": "three hundred and eighty four.",
+      "speech_start": 33.22,
+      "speech_end": 34.599999999999994,
+      "caption_start": 33.099999999999994,
+      "caption_end": 34.73,
+      "one_complete_caption": true
+    },
+    {
+      "scene": 3,
+      "phrase": "Twenty four,",
+      "speech_start": 48.16,
+      "speech_end": 48.7,
+      "caption_start": 48.16,
+      "caption_end": 51.07,
+      "one_complete_caption": true
+    },
+    {
+      "scene": 3,
+      "phrase": "forty four",
+      "speech_start": 49.06,
+      "speech_end": 49.78,
+      "caption_start": 48.16,
+      "caption_end": 51.07,
+      "one_complete_caption": true
+    },
+    {
+      "scene": 3,
+      "phrase": "eighty four",
+      "speech_start": 50.1,
+      "speech_end": 50.779999999999994,
+      "caption_start": 48.16,
+      "caption_end": 51.07,
+      "one_complete_caption": true
+    },
+    {
+      "scene": 3,
+      "phrase": "Fifty four",
+      "speech_start": 51.92,
+      "speech_end": 52.48,
+      "caption_start": 51.92,
+      "caption_end": 52.93,
+      "one_complete_caption": true
+    },
+    {
+      "scene": 4,
+      "phrase": "twenty three",
+      "speech_start": 64.47,
+      "speech_end": 65.21,
+      "caption_start": 63.11,
+      "caption_end": 66.05,
+      "one_complete_caption": true
+    },
+    {
+      "scene": 4,
+      "phrase": "fifty nine",
+      "speech_start": 65.44999999999999,
+      "speech_end": 66.04999999999998,
+      "caption_start": 63.11,
+      "caption_end": 66.05,
+      "one_complete_caption": true
+    },
+    {
+      "scene": 5,
+      "phrase": "Twenty three",
+      "speech_start": 84.72000000000001,
+      "speech_end": 85.30000000000001,
+      "caption_start": 84.72000000000001,
+      "caption_end": 86.63000000000001,
+      "one_complete_caption": true
+    },
+    {
+      "scene": 5,
+      "phrase": "twenty four,",
+      "speech_start": 85.68,
+      "speech_end": 86.50000000000001,
+      "caption_start": 84.72000000000001,
+      "caption_end": 86.63000000000001,
+      "one_complete_caption": true
+    },
+    {
+      "scene": 5,
+      "phrase": "fifty nine",
+      "speech_start": 86.98,
+      "speech_end": 87.62,
+      "caption_start": 86.88,
+      "caption_end": 88.42999999999998,
+      "one_complete_caption": true
+    },
+    {
+      "scene": 6,
+      "phrase": "twenty four,",
+      "speech_start": 108.47,
+      "speech_end": 109.17,
+      "caption_start": 108.47,
+      "caption_end": 111.71,
+      "one_complete_caption": true
+    },
+    {
+      "scene": 6,
+      "phrase": "thirty six,",
+      "speech_start": 109.47,
+      "speech_end": 110.07,
+      "caption_start": 108.47,
+      "caption_end": 111.71,
+      "one_complete_caption": true
+    },
+    {
+      "scene": 6,
+      "phrase": "forty eight",
+      "speech_start": 110.47,
+      "speech_end": 110.97,
+      "caption_start": 108.47,
+      "caption_end": 111.71,
+      "one_complete_caption": true
+    },
+    {
+      "scene": 7,
+      "phrase": "twenty three,",
+      "speech_start": 119.38,
+      "speech_end": 119.99999999999999,
+      "caption_start": 118.44,
+      "caption_end": 121.07,
+      "one_complete_caption": true
+    },
+    {
+      "scene": 7,
+      "phrase": "thirty five,",
+      "speech_start": 120.35999999999999,
+      "speech_end": 120.94,
+      "caption_start": 118.44,
+      "caption_end": 121.07,
+      "one_complete_caption": true
+    },
+    {
+      "scene": 7,
+      "phrase": "forty seven",
+      "speech_start": 121.21999999999998,
+      "speech_end": 121.82,
+      "caption_start": 121.21999999999998,
+      "caption_end": 122.78999999999999,
+      "one_complete_caption": true
+    },
+    {
+      "scene": 7,
+      "phrase": "fifty nine.",
+      "speech_start": 122.03999999999999,
+      "speech_end": 122.66,
+      "caption_start": 121.21999999999998,
+      "caption_end": 122.78999999999999,
+      "one_complete_caption": true
+    },
+    {
+      "scene": 8,
+      "phrase": "twenty three.",
+      "speech_start": 134.36,
+      "speech_end": 135.12,
+      "caption_start": 132.04,
+      "caption_end": 135.25,
+      "one_complete_caption": true
+    }
+  ],
+  "aac_packet_count": 7280,
+  "aac_packet_records_sha256": "667680991de09e4d8d2c8b0c8706f6f47eeaedafe1bb6bdd37ce0cfc9cf46650",
+  "aac_packet_bytes_and_timestamps_identical": true,
+  "new_synthesis": false,
+  "new_recognition": false,
+  "guide_and_qa_identify_public_movie": true,
+  "guide_chapters_match_reviewed_scene_starts": true,
+  "seconds": 155.3,
+  "ci_qa": {
+    "sha256": "19765de3ce9c28259d244c41d370cb3073513bc928124167e58cc21497098c89",
+    "decoded_reference_comparisons": 156,
+    "picture_comparison_period_seconds": 1,
+    "maximum_picture_mean_channel_error_0_to_255": 2.081,
+    "maximum_caption_region_mean_channel_error_0_to_255": 1.757,
+    "minimum_source_audio_correlation_per_scene": 0.999754,
+    "recorded_scenes_checked": 8,
+    "timed_caption_phrases": 57,
+    "spoken_words": 380,
+    "source_voice_reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+    "source_word_alignment_percent": 99.34
+  },
+  "workflow_gates": [
+    {
+      "id": 138897566447,
+      "name": "render",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 138899621254,
+      "name": "playback (ipad-portrait)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 138899621256,
+      "name": "playback (iphone-landscape)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 138899621260,
+      "name": "playback (iphone-portrait)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 138899621298,
+      "name": "playback (ipad-landscape)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 138899621320,
+      "name": "playback (pc)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 138907264522,
+      "name": "release",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "candidate_technique_consumer_gates": [
+    "PC slot 260",
+    "iPad portrait slot 260"
+  ],
+  "final_editorial_credit": false,
+  "deployed_learner_routes_verified": false,
+  "remaining_limits": [
+    "Final complete human listen/watch remains pending, including the nonnumeric Check and A tempting anchors.",
+    "Browser profile passes do not constitute physical-device signoff.",
+    "The main-route deployment is owned by the parent release task."
+  ],
+  "verified_at_utc": "2026-11-25T01:41:18.403528Z",
+  "artifact_provenance": [
+    {
+      "artifact_id": 14980198454,
+      "name": "S015-numeral-timing-candidate",
+      "archive_bytes": 18885649,
+      "archive_sha256": "7a33d00ab9d312a28974be1bda6c8b0b0433fe9b6aa7c45b4a3af2ca8d895c45",
+      "source_run": 45522486565,
+      "source_commit": "41b7922d37ed4415b8798f6af1da4b7a1a8f1ae0",
+      "github_digest_verified": true,
+      "all_members_verified": true
+    },
+    {
+      "artifact_id": 14980967428,
+      "name": "S015-numeral-timing-provenance",
+      "archive_bytes": 20033,
+      "archive_sha256": "fac55314af30e1c1221d1c2bf5ac9fc9d57eb7c310a25b6488e83f70c8cef4f3",
+      "source_run": 45522486565,
+      "source_commit": "41b7922d37ed4415b8798f6af1da4b7a1a8f1ae0",
+      "github_digest_verified": true,
+      "all_members_verified": true
+    }
+  ],
+  "sampled_actual_public_frames": [
+    {
+      "second": 30.14,
+      "file": "review/film-public-release-handoff-20261125/S015-public-30.14.jpg",
+      "sha256": "1d460c3370a44b65202246d5007c05b867e5cf9290d4e3968d0b1dbc07e33eac"
+    },
+    {
+      "second": 34.5,
+      "file": "review/film-public-release-handoff-20261125/S015-public-34.50.jpg",
+      "sha256": "b180ac9a1df3794a1b9eab84aa8dbf2c4b5e63ee1e49bb87eab216e03af6e3fc"
+    }
+  ],
+  "sampled_visual_result": "The two actual public frames visibly retain complete 344 and 384 compound phrases with one clear bold caption layer. This is sampled visual review, not every-frame or human-listening acceptance."
+}

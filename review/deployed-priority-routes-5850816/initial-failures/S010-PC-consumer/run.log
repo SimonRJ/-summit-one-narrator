@@ -1,0 +1,34 @@
+Checking S010 pc public
+{"slot": 10, "profile": "pc", "engine": "chromium", "viewport": {"width": 1440, "height": 900}, "site": "https://simonrj.github.io/-summit-one-narrator/", "sha256": "e8e2e6f697b00cd9401479a603bf6992c2538a107b3fbd519cac0e0b9b7f9a71", "film": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S010.mp4", "duration": 140.433333, "chapters": 7, "normal_speed_unmuted_to_ended": false, "practice_grading": "isolated fixture", "immutable_replay": true, "active_frame_css_pixels": {"width": 654, "height": 367.875, "horizontal": 0, "vertical": 0}, "notebook_frame_css_pixels": {"width": 958, "height": 462.65625, "horizontal": 0, "vertical": 0}, "worked_example": {"chapter": "Admit the next ticket", "decoded_media_time": 105.5}}
+Stopped at https://simonrj.github.io/-summit-one-narrator/lesson-introduction-videos.html []
+Traceback (most recent call last):
+  File "/workspace/scratch/2fdd119b5e17/run_released_digits.py", line 108, in <module>
+    asyncio.run(main(args))
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2fdd119b5e17/run_released_digits.py", line 95, in main
+    await check.verify(site, lesson, profile, None, output / f'consumer-{slot}', consumer_slot=slot)
+  File "/workspace/scratch/2fdd119b5e17/amc-priority-release/tools/check_lesson_film_routes.py", line 185, in verify
+    await page.goto(site + 'lesson-introduction-videos.html', wait_until='domcontentloaded')
+  File "/workspace/scratch/45c9a6d8bd47/companion-runtime/playwright-client/playwright/async_api/_generated.py", line 9045, in goto
+    await self._impl_obj.goto(
+  File "/workspace/scratch/45c9a6d8bd47/companion-runtime/playwright-client/playwright/_impl/_page.py", line 552, in goto
+    return await self._main_frame.goto(**locals_to_params(locals()))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/45c9a6d8bd47/companion-runtime/playwright-client/playwright/_impl/_frame.py", line 153, in goto
+    await self._channel.send(
+  File "/workspace/scratch/45c9a6d8bd47/companion-runtime/playwright-client/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/45c9a6d8bd47/companion-runtime/playwright-client/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TimeoutError: Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to "https://simonrj.github.io/-summit-one-narrator/lesson-introduction-videos.html", waiting until "domcontentloaded"

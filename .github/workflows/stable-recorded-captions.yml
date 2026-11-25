@@ -1,0 +1,218 @@
+name: Refresh four recorded films with stable captions
+# Only this purpose-specific production branch starts the pinned picture refresh.
+on:
+  push:
+    branches: [production/stable-recorded-captions-20261125]
+    paths:
+      - .github/workflows/stable-recorded-captions.yml
+      - tools/video/stable-caption-refresh-20261125.json
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: stable-recorded-captions-20261125
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix:
+        lesson: [S017, S009, S010, S012]
+    env:
+      LESSON: ${{ matrix.lesson }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            production
+            data
+            tools
+            figures
+            fonts
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Restore the exact reviewed recording and movie
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s tools/video -p test_restore_recorded_candidate.py
+          mkdir -p build
+          python tools/video/restore_recorded_candidate.py \
+            --manifest tools/video/stable-caption-refresh-20261125.json \
+            --lesson "$LESSON" --output build/source > build/restoration.json
+      - name: Install picture and browser dependencies
+        run: |
+          set -euo pipefail
+          sudo apt-get -o Acquire::Retries=3 update -qq
+          sudo apt-get install -y ffmpeg fonts-open-sans fonts-dejavu-core
+          python -m pip install 'numpy==2.2.6' 'pillow==11.3.0' 'playwright==1.58.0' aiohttp
+          python -m playwright install --with-deps webkit
+          python -m unittest discover -s tools/video -p test_recorded_caption.py
+      - name: Encode stable caption pictures and preserve the original AAC packets
+        run: |
+          set -euo pipefail
+          python production/lesson-films/render_recorded.py "$LESSON" build/source/recording
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          import sys
+          sys.path.insert(0, 'tools/video')
+          from preserve_encoded_audio import preserve
+          lesson = os.environ['LESSON']
+          spec = json.loads(Path('tools/video/stable-caption-refresh-20261125.json').read_text())['lessons'][lesson]
+          report = preserve(
+              Path('media/lesson-films') / (lesson + '.mp4'),
+              Path('build/source/assets') / (lesson + '.mp4'),
+              Path('production/lesson-films') / lesson / 'guide.json',
+              spec['assets'][lesson + '.mp4']['sha256'])
+          Path('build/audio-preservation.json').write_text(json.dumps(report, indent=2) + '\n')
+          PY
+          python production/lesson-films/verify_recorded.py "$LESSON" build/source/recording
+          python tools/video/verify_caption_refresh.py \
+            --manifest tools/video/stable-caption-refresh-20261125.json \
+            --lesson "$LESSON" --source build/source --output build/caption-proof
+          python production/lesson-films/render_recorded.py "$LESSON" build/source/recording --previews build/stills
+          python - <<'PY'
+          import os
+          from pathlib import Path
+          import shutil
+          lesson = os.environ['LESSON']
+          target = Path('build/candidate')
+          target.mkdir()
+          for name in (lesson + '.mp4', lesson + '-poster.jpg'):
+              shutil.copyfile(Path('media/lesson-films') / name, target / name)
+          for name in ('guide', 'qa'):
+              shutil.copyfile(Path('production/lesson-films') / lesson / (name + '.json'),
+                              target / (lesson + '-' + name + '.json'))
+          # Preserve the exact archive and VTT; do not realign or rebuild either.
+          for name in (lesson + '-recording.zip', lesson + '.vtt'):
+              shutil.copyfile(Path('build/source/assets') / name, target / name)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: stable-caption-candidate-${{ matrix.lesson }}
+          path: build/candidate/
+          if-no-files-found: error
+          retention-days: 30
+      - name: Check five profiles and both technique-consumer routes
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          lesson_id = os.environ['LESSON']
+          spec = json.loads(Path('tools/video/stable-caption-refresh-20261125.json').read_text())['lessons'][lesson_id]
+          guide = json.loads((Path('build/candidate') / (lesson_id + '-guide.json')).read_text())
+          guide['release'] = 'http://127.0.0.1:8765/build/candidate/'
+          catalogue = Path('data/recorded-studies.json')
+          data = json.loads(catalogue.read_text())
+          data['lessons'][lesson_id] = guide
+          catalogue.write_text(json.dumps(data))
+          changed = []
+          for name in ('read-watch-practise.json', 'read-watch-practise-later.json'):
+              source = Path('data') / name
+              data = json.loads(source.read_text())
+              for lesson in data['lessons']:
+                  if lesson['videoId'] != lesson_id:
+                      continue
+                  assert lesson['bridge'] == spec['bridges'][str(lesson['slot'])]
+                  lesson.update(videoTitle=guide['title'], movie=guide['release'] + lesson_id + '.mp4')
+                  if lesson['slot'] == spec['canonical_slot']:
+                      lesson['filmUse'] = 'dedicated'
+                  else:
+                      assert lesson['slot'] == spec['consumer_slot'] and lesson['filmUse'] == 'technique'
+                  assert lesson['bridge'] == spec['bridges'][str(lesson['slot'])]
+                  changed.append(lesson['slot'])
+              source.write_text(json.dumps(data))
+          assert sorted(changed) == sorted((spec['canonical_slot'], spec['consumer_slot']))
+          Path('build/consumer-slot.txt').write_text(str(spec['consumer_slot']))
+          PY
+          python - <<'PY' > "$RUNNER_TEMP/study-server.log" 2>&1 &
+          from aiohttp import web
+          from pathlib import Path
+          root = Path.cwd()
+          app = web.Application()
+          async def index(request):
+              return web.FileResponse(root / 'index.html')
+          app.router.add_get('/', index)
+          app.router.add_static('/', root)
+          web.run_app(app, host='127.0.0.1', port=8765)
+          PY
+          server=$!
+          trap 'kill "$server"' EXIT
+          curl --fail --silent --retry 15 --retry-connrefused http://127.0.0.1:8765/ -o /dev/null
+          consumer=$(cat build/consumer-slot.txt)
+          for profile in pc iphone-portrait iphone-landscape ipad-portrait ipad-landscape; do
+            python tools/check_lesson_film_routes.py --lesson "$LESSON" \
+              --site http://127.0.0.1:8765/ --profile "$profile" --output "build/device/$profile"
+            if [[ "$profile" == pc || "$profile" == ipad-portrait ]]; then
+              python tools/check_lesson_film_routes.py --lesson "$LESSON" --consumer-slot "$consumer" \
+                --site http://127.0.0.1:8765/ --profile "$profile" --output "build/device/$profile/consumer-$consumer"
+            fi
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: stable-caption-proof-${{ matrix.lesson }}
+          path: |
+            build/restoration.json
+            build/audio-preservation.json
+            build/source/provenance/
+            build/caption-proof/
+            build/stills/
+            build/device/
+          if-no-files-found: warn
+          retention-days: 30
+
+  release:
+    needs: refresh
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: stable-caption-candidate-*
+          merge-multiple: true
+          path: verified
+      - name: Publish all four checked editions and compare every returned byte
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib
+          import json
+          root = Path('verified')
+          expected = {lesson + ending for lesson in ('S009', 'S010', 'S012', 'S017')
+                      for ending in ('.mp4', '-poster.jpg', '-guide.json', '-qa.json', '.vtt', '-recording.zip')}
+          assert {path.name for path in root.iterdir()} == expected
+          for lesson in ('S009', 'S010', 'S012', 'S017'):
+              digest = hashlib.sha256((root / (lesson + '.mp4')).read_bytes()).hexdigest()
+              assert json.loads((root / (lesson + '-guide.json')).read_text())['sha256'] == digest
+              assert json.loads((root / (lesson + '-qa.json')).read_text())['sha256'] == digest
+          PY
+          tag="stable-captions-20261125-${GITHUB_SHA:0:12}"
+          if ! gh release view "$tag" > /dev/null 2>&1; then
+            gh release create "$tag" --draft --target "$GITHUB_SHA" \
+              --title 'Stable captions for four recorded lessons' \
+              --notes 'Caption pictures refreshed for S009, S010, S012 and S017. Exact approved recording archives, scripts, measured timelines, VTT and original AAC packets are preserved. Each candidate passed decoded artwork and glyph checks, five browser profiles and two technique-consumer routes. Final public-route and audible editorial acceptance remain separate.'
+          fi
+          draft=$(gh release view "$tag" --json isDraft --jq .isDraft)
+          if [[ "$draft" == true ]]; then gh release upload "$tag" verified/* --clobber; fi
+          gh release download "$tag" --dir returned
+          for asset in verified/*; do cmp "$asset" "returned/${asset##*/}"; done
+          if [[ "$draft" == true ]]; then gh release edit "$tag" --draft=false --latest=false; fi
+          test "$(gh release view "$tag" --json isDraft --jq .isDraft)" = false
+          echo "Released $tag"

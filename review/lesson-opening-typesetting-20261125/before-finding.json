@@ -1,0 +1,113 @@
+{
+  "failed_commit": "585081646578fe8b0020d2dee831a8f853eb3bca",
+  "checker_sha256": "632f45d5edad387a9909a82617d5055329e067c597a03b2dd638a4f1c678cd6b",
+  "font_overlay": true,
+  "font_overlay_css_sha256": "e5e01df2ab094b176382b998a721dacf4951f012dae0de321881f013fad971b3",
+  "original_assertion": "Page.evaluate: Error: Different prompt or working in lesson 2\n    at eval (eval at evaluate (:290:30), <anonymous>:24:448)\n    at async <anonymous>:316:30",
+  "difference": {
+    "slot": 2,
+    "expected": [
+      "Split the array after column 30. The blue rectangle has 30 columns with eight squares in each, giving 30 \u00d7 8 = 240 squares.",
+      "The gold column contributes eight more squares. The entire array has 240 + 8 = 248."
+    ],
+    "before": [
+      "Split the array after column 30. The blue rectangle has 30 columns with eight squares in each, giving 30 \u00d7 8 = 240 squares.",
+      "The gold column contributes eight more squares. The entire array has 240 + 8 = 248."
+    ],
+    "after": [
+      "Split the array after column 30. The blue rectangle has 30 columns with eight squares in each, giving 30\u00d78=24030 \\times  8 = 24030\u00d78=240 squares.",
+      "The gold column contributes eight more squares. The entire array has 240+8=248240 + 8 = 248240+8=248."
+    ],
+    "prediction": "Where would you cut the array so one piece is a multiplication you already know?",
+    "expectedPrediction": "Where would you cut the array so one piece is a multiplication you already know?",
+    "connected": true,
+    "session": "Session 2",
+    "math": [
+      {
+        "source": "31 \u00d7 8",
+        "tex": "31 \\times  8",
+        "annotation": "31 \\times  8"
+      },
+      {
+        "source": "30 \u00d7 8 = 240",
+        "tex": "30 \\times  8 = 240",
+        "annotation": "30 \\times  8 = 240"
+      },
+      {
+        "source": "30 \u00d7 8 = 240",
+        "tex": "30 \\times  8 = 240",
+        "annotation": "30 \\times  8 = 240"
+      },
+      {
+        "source": "240 + 8 = 248",
+        "tex": "240 + 8 = 248",
+        "annotation": "240 + 8 = 248"
+      },
+      {
+        "source": "2 \u00d7 2 \u00d7 2",
+        "tex": "2 \\times  2 \\times  2",
+        "annotation": "2 \\times  2 \\times  2"
+      },
+      {
+        "source": "47 \u00d7 8",
+        "tex": "47 \\times  8",
+        "annotation": "47 \\times  8"
+      }
+    ]
+  },
+  "controlled_typeset": {
+    "slot": 2,
+    "before": [
+      "Split the array after column 30. The blue rectangle has 30 columns with eight squares in each, giving 30 \u00d7 8 = 240 squares.",
+      "The gold column contributes eight more squares. The entire array has 240 + 8 = 248."
+    ],
+    "after": [
+      "Split the array after column 30. The blue rectangle has 30 columns with eight squares in each, giving 30\u00d78=24030 \\times  8 = 24030\u00d78=240 squares.",
+      "The gold column contributes eight more squares. The entire array has 240+8=248240 + 8 = 248240+8=248."
+    ],
+    "expected": [
+      "Split the array after column 30. The blue rectangle has 30 columns with eight squares in each, giving 30 \u00d7 8 = 240 squares.",
+      "The gold column contributes eight more squares. The entire array has 240 + 8 = 248."
+    ],
+    "preserved": [
+      {
+        "source": "31 \u00d7 8",
+        "tex": "31 \\times  8",
+        "annotation": "31 \\times  8",
+        "aria": "31 \u00d7 8"
+      },
+      {
+        "source": "30 \u00d7 8 = 240",
+        "tex": "30 \\times  8 = 240",
+        "annotation": "30 \\times  8 = 240",
+        "aria": "30 \u00d7 8 = 240"
+      },
+      {
+        "source": "30 \u00d7 8 = 240",
+        "tex": "30 \\times  8 = 240",
+        "annotation": "30 \\times  8 = 240",
+        "aria": "30 \u00d7 8 = 240"
+      },
+      {
+        "source": "240 + 8 = 248",
+        "tex": "240 + 8 = 248",
+        "annotation": "240 + 8 = 248",
+        "aria": "240 + 8 = 248"
+      },
+      {
+        "source": "2 \u00d7 2 \u00d7 2",
+        "tex": "2 \\times  2 \\times  2",
+        "annotation": "2 \\times  2 \\times  2",
+        "aria": "2 \u00d7 2 \u00d7 2"
+      },
+      {
+        "source": "47 \u00d7 8",
+        "tex": "47 \\times  8",
+        "annotation": "47 \\times  8",
+        "aria": "47 \u00d7 8"
+      }
+    ],
+    "connected": true,
+    "session": "Session 2"
+  }
+}

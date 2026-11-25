@@ -1,0 +1,158 @@
+{
+  "date_utc": "2026-11-25",
+  "state": "T18.1 source integration prepared; publication, public bytes/routes and full editorial review pending",
+  "base_commit": "8b4098297716ac9b60550efe1325f2709f17cd5b",
+  "scope": "Only T18.1 delivered movie, repaired VTT, QA, watch page, catalogue entry and existing publisher revision. Protected T02.1/T02.2 and every other film remain unchanged.",
+  "notebook_run": {
+    "id": 45496023370,
+    "source_commit": "50d2fe13de6c946dd485df013865aa5559aebfb4",
+    "source_branch": "production/illustrated-companion-notebooks",
+    "film18_job": 138806624996,
+    "package_job": 138879346105,
+    "jobs_14_through_18_and_package": "success",
+    "release_branch": "release/illustrated-companion-notebooks-45496023370-1",
+    "release_commit": "d42bd9ea29a5da70cf936422779489bbdea3f493",
+    "artifact_id": 14978062503,
+    "artifact_name": "notebook-chapter-18",
+    "artifact_bytes": 17247793,
+    "artifact_sha256": "549e2396ecd2cdc0f9119540a882fccde06c993dc9e73ff91387921a2c8f71cf"
+  },
+  "assets": [
+    {
+      "path": "media/T18.1.mp4",
+      "bytes": 5091125,
+      "sha256": "3527d02410e4b1158af7d42a5d8abce16cb6fed702947b8fa864af25590635ce",
+      "release_git_blob": "ce45ce63b476a869fc69aebcafd1fa7409114bb5",
+      "matches_returned_artifact_and_release_commit": true
+    },
+    {
+      "path": "media/T18.1.vtt",
+      "bytes": 2863,
+      "sha256": "81645151d9751b9312eda940e5b17a968e7a538eff6c0146ef19e0a249ce624c",
+      "release_git_blob": "2bbf69e88c54337703a6290abfa7da0961bf16fe",
+      "matches_returned_artifact_and_release_commit": true
+    },
+    {
+      "path": "review/T18.1-studio-qa.json",
+      "bytes": 3437,
+      "sha256": "5d12f78efab13178ea999f448e83ffd787550512b7e05fb51b0cf20cef78094a",
+      "release_git_blob": "0d5e40b38ccc9c0ee367194e4f26c446d34cd792",
+      "matches_returned_artifact_and_release_commit": true
+    }
+  ],
+  "watch_page": {
+    "path": "watch-t18-1.html",
+    "sha256": "4b61c03f1832c8d1befd679d0c87efff39f1bcdc3556cf341ee47a4e70c8373d",
+    "exactly_regenerated_by_current_publisher": true,
+    "matches_staged_release_page_bytes": true,
+    "movie_url": "media/T18.1.mp4?v=thirteen-search",
+    "chapter_buttons": 8,
+    "shared_chapter_helper": "lesson-video-chapters.js?v=seek-1"
+  },
+  "unchanged_poster": "See packet-and-container-identity.json; same Git blob in current source and returned release.",
+  "source_preservation": {
+    "publisher": "production/t01-studio/publish.py: existing REVISED_MEDIA entry for T18.1",
+    "render_recipe_commit": "50d2fe13de6c946dd485df013865aa5559aebfb4",
+    "render_recipe_paths": [
+      "production/lesson-films/build_companion_notebook.py",
+      "production/lesson-films/companion_notebooks.py"
+    ],
+    "note": "Rendering recipe remains pinned to the completed production source. No new render or synthesis was run; unrelated notebook sources and films are not merged."
+  },
+  "native_chapter_run": {
+    "id": 45497364270,
+    "source_commit": "ff88927fb014d666293c5e8b7d5b1a5f96cdf33e",
+    "build_job": 138811292793,
+    "status": "success",
+    "artifact_id": 14974823607,
+    "artifact_name": "native-chapter-packet-reports",
+    "artifact_sha256": "6121ff394dce825518c07203d65f1413963982baa312d34676bd816b9d3073f0",
+    "reports": [
+      "T01.1.json",
+      "T01.3.json",
+      "T01.2.json",
+      "T01.E.json",
+      "T02.3.json",
+      "T02.E.json",
+      "T03.1.json",
+      "T03.2.json",
+      "T03.3.json",
+      "T03.E.json",
+      "T04.1.json",
+      "T04.2.json",
+      "T04.3.json",
+      "T04.E.json",
+      "T06.2.json",
+      "T06.E.json",
+      "T07.1.json",
+      "T07.3.json",
+      "T07.2.json",
+      "T07.E.json",
+      "T08.2.json",
+      "T08.1.json",
+      "T08.3.json",
+      "T08.E.json",
+      "T09.1.json",
+      "T09.2.json",
+      "T09.3.json",
+      "T09.E.json",
+      "T10.1.json",
+      "T10.2.json",
+      "T10.3.json",
+      "T10.E.json",
+      "T11.1.json",
+      "T11.2.json",
+      "T11.3.json",
+      "T11.E.json",
+      "T12.1.json",
+      "T12.2.json",
+      "T12.3.json",
+      "T13.1.json",
+      "T13.2.json"
+    ],
+    "report_count": 41,
+    "includes_T18_1": false,
+    "T18_1_embedded_chapters": 0,
+    "interpretation": "This completed native-chapter run contains no T18.1 output and gives no T18.1 native-chapter acceptance credit. The returned T18.1 page retains eight working UI chapter buttons."
+  },
+  "verified_content": {
+    "caption_count": 42,
+    "captions_match_authored_narration": true,
+    "perimeter_caption_cues": [
+      "76.640\u201379.180: Their perimeters are fifty, twenty-eight,",
+      "79.220\u201380.700: twenty-two and twenty.",
+      "81.260\u201382.640: It is four by six."
+    ],
+    "unchanged_approved_voice_c_audio_packet_sha256": "89e09f12ead83d1d4b0ddff7a5c9851f00ff214556b986f70ac21da5c2ba28f7",
+    "exact_stream_equivalence": "packet-and-container-identity.json",
+    "prior_content_checks": "review/companion-correction-acceptance-20261125.json",
+    "prior_full_normal_speed_unmuted_browser_playback": "PC b06f8c candidate, 117.751 wall seconds to ended; identical streams, timing and codec configuration. Not repeated or counted as new editorial approval."
+  },
+  "static_route_check": "PASS tools/check_companion_release_routes.mjs: all 72 existing routes agree, safe edition rollovers accepted, unsafe URLs and unpublished/protected IDs rejected.",
+  "remaining_gates": [
+    "Root integrates in its coherent cache-version release and publishes the exact files.",
+    "Verify deployed source and movie/VTT/QA/poster byte identity, public watch page and teaching-video gallery link.",
+    "Complete final full moving-picture and audible editorial review before declaring the film accepted.",
+    "Native embedded chapters are absent; the separate completed native-chapter batch does not cover T18.1. If embedded chapters are required for final completion, this remains outstanding."
+  ],
+  "review_limits": [
+    "Local Playwright profiles are Chromium/WebKit emulation, not physical iPhone/iPad testing.",
+    "Targeted local decoded chapter/frame checks are technical delivery evidence, not final editorial sign-off.",
+    "No external publication, real learner state, other movie, audio synthesis or global cache version changed."
+  ],
+  "exact_returned_container_local_checks": {
+    "pc": "PASS: eight decoded chapter starts, repaired caption moment, player bounds, light theme, transcript and variation. See devices/device-results.json.",
+    "apple_profiles": "PASS: fresh iPhone portrait/landscape and iPad portrait/landscape. Each has eight decoded chapter starts, the repaired caption in the strict 79.9\u201380.5-second interval, bounded player, light theme, transcript and variation. See devices/device-results.json.",
+    "prior_identical_stream_evidence": "All five profiles passed the b06f8c candidate. Identical packet payloads, timing and decoder configuration are proven independently.",
+    "runtime_attempt_note": "The bounded trace showed all eight chapters had completed before a checker-only programmatic play() promise hung. The checker now uses the actual preceding chapter button and unchanged decoded caption interval. Initial metadata also follows a real chapter click. A missing optional screen descriptor is now conditionally rotated. All failed/incomplete attempts are preserved in diagnostics; no product or media change was necessary.",
+    "fresh_apple_fixture": "diagnostics/stable-fixture.json"
+  },
+  "route_scope": {
+    "actual_routes": [
+      "teaching-videos.html \u2192 watch-t18-1.html",
+      "watch-t18-1.html \u2192 media/T18.1.mp4?v=thirteen-search"
+    ],
+    "learner_current_completed": "Not applicable: no T18.1 entry in curriculum.js methods or app-main.js openingFilmIds. No lesson assignment is added for testing.",
+    "resolver_coverage": "The existing all-72 route check verifies the safe T18.1 catalogue URL and public-page agreement."
+  }
+}

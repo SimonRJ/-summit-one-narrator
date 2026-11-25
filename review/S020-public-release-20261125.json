@@ -1,0 +1,73 @@
+{
+  "tag": "s020-stable-captions-20261125-0dfec081086f",
+  "production_run": 45503875492,
+  "production_source": "0dfec081086f153023e2ab74861717d75dbaa779",
+  "assets": [
+    {
+      "name": "S020-caption-check.png",
+      "bytes": 209737,
+      "sha256": "f4052f92d151093694af2c34ecf85294a670cbc24d179a01d106ecfe45a4b52b",
+      "public_returned_bytes_match": true
+    },
+    {
+      "name": "S020-guide.json",
+      "bytes": 3960,
+      "sha256": "712f3a5de56255dd90ac07783d9d7adb7ed13ed49f2e9ac4925b63ccac00289f",
+      "public_returned_bytes_match": true
+    },
+    {
+      "name": "S020-poster.jpg",
+      "bytes": 120680,
+      "sha256": "fef51caf206f8ba7551db5bb2e518dfd80c6315f07959c7c5e5024ae30f0f6d0",
+      "public_returned_bytes_match": true
+    },
+    {
+      "name": "S020-qa.json",
+      "bytes": 1310,
+      "sha256": "d23274e93dab718baf4995ec03b1c2292ed1c293af6d5ae8e1823cb211bb3145",
+      "public_returned_bytes_match": true
+    },
+    {
+      "name": "S020-recording.zip",
+      "bytes": 14311200,
+      "sha256": "72a341a6ea59e73738f444e7ff81b89d381c6dd04f7a9e65ead43d474308405f",
+      "public_returned_bytes_match": true
+    },
+    {
+      "name": "S020.mp4",
+      "bytes": 8492365,
+      "sha256": "5308674d7d66dee6545d05699311a192b13e2fce2d48b6d2f560ec35ce1e57f3",
+      "public_returned_bytes_match": true
+    },
+    {
+      "name": "S020.vtt",
+      "bytes": 4844,
+      "sha256": "7a22be8ae311bffa0561f49e91cb547132a6e6ed44e86e751763341c579a0fe3",
+      "public_returned_bytes_match": true
+    }
+  ],
+  "total_bytes": 23144096,
+  "final_editorial_credit": false,
+  "route_changes": [
+    {
+      "slot": 20,
+      "keys": [
+        "filmUse",
+        "movie",
+        "videoTitle"
+      ]
+    },
+    {
+      "slot": 283,
+      "keys": [
+        "movie",
+        "videoTitle"
+      ]
+    }
+  ],
+  "technique_bridge_preserved": true,
+  "all_practice_items_and_editions_preserved": true,
+  "repository_integration": "staged for the next main release",
+  "public_delivery": "immutable assets verified; application deployment pending",
+  "canonical_generator_bridge_changed": false
+}

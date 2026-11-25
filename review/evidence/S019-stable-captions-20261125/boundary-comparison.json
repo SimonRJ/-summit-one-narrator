@@ -1,0 +1,26 @@
+{
+  "method": "Compare the exact decoded JPEG frame pairs around both preserved scene boundaries; source and corrected exports use the same JPEG settings.",
+  "note": "This detects an incorrect scene splice; it is not a claim of video packet identity.",
+  "frames": [
+    {
+      "frame": 1347,
+      "seconds": 44.9,
+      "mean_channel_difference_0_to_255": 0.07511300797325103
+    },
+    {
+      "frame": 1348,
+      "seconds": 44.93333333333333,
+      "mean_channel_difference_0_to_255": 0.050146444187242796
+    },
+    {
+      "frame": 1767,
+      "seconds": 58.9,
+      "mean_channel_difference_0_to_255": 0.05887426054526749
+    },
+    {
+      "frame": 1768,
+      "seconds": 58.93333333333333,
+      "mean_channel_difference_0_to_255": 0.09597302597736626
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "outer_command_deadline_seconds": 300,
+  "exit_code": 124,
+  "canonical_slot_20": "PASS; final result.json written before deadline",
+  "consumer_slot_283": {
+    "public_mp4_sha256": "passed before browser creation",
+    "gallery_metadata_and_11_chapter_controls": "passed before read.png",
+    "read_bridge_and_layout": "passed; read.png",
+    "active_metadata_inline_progress_decoded_worked_frame_and_layout": "passed; worked-example.png and watch.png",
+    "both_fixture_grading_outcomes": "passed before practice.png",
+    "completed_notebook_replay": "no final result before outer command deadline; checked separately"
+  },
+  "basis": "Unchanged tools/check_lesson_film_routes.py sequencing; screenshots are written only after the preceding assertions pass. No complete consumer pass was claimed for this bounded attempt."
+}
