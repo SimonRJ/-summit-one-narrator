@@ -7,7 +7,7 @@ on:
       - production/lesson-films/repair_digit_swap.py
       - production/lesson-films/digit_swap_scene.py
       - production/lesson-films/source-timelines/S102-public.json
-      - production/lesson-films/voice-c-repairs/S102-tens-units.*
+      - production/lesson-films/voice-c-repairs/S102-tens-units*
       - production/scripts/S102.json
   workflow_dispatch:
 permissions:
@@ -130,6 +130,8 @@ jobs:
                       row.update(movie=guide['release'] + 'S102.mp4', videoTitle=guide['title'])
                       if row['slot'] == 102:
                           row.update(bridge=guide['bridge'], filmUse='dedicated')
+                      elif row['slot'] == 296:
+                          row['bridge'] = 'For the multiples-of-nine count, keep hundreds fixed and swap tens and units: 153 becomes 135. Which digit choices force the missing digit?'
               source.write_text(json.dumps(data))
           assert sorted(found) == [102, 296], found
           PY

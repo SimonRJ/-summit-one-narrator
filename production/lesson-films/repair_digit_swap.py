@@ -28,16 +28,17 @@ FPS = 30
 SOURCE_SHA = '538f9142a5113e5d14d3a35b6a7851e8dd331e16aba7d98224a7d0c294601612'
 GUIDE_SHA = '4ff0df3427a7f09492a68252f931a1c2b39dcf98aaa4ea3af60b99b086c38b94'
 TIMELINE_SHA = '81837aeb40efb9e7d5c6f1fed5994a504d0e939c29b20e36c201a8e63af5244e'
+RECORDING_SHA = '4582dcd016527a350da681f165b53e32ade863c7e3ea011aa5863e892cb8593b'
+CANONICAL_BRIDGE = ('Keep the hundreds digit fixed and swap tens and units: 153 becomes 135. '
+                    'Count the printed threes in each column separately.')
 BASE = 'https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/'
 
 
 def saved_recording():
     stem = ROOT / 'production/lesson-films/voice-c-repairs/S102-tens-units'
-    if not stem.with_suffix('.flac').exists():
-        # A workflow recording is already restored to build/t01-studio. The same
-        # voice, natural-speed and narration-hash checks below apply to that take.
-        return
+    assert stem.with_suffix('.flac').is_file(), 'Restore the preserved take; do not generate another'
     metadata = json.loads(stem.with_suffix('.json').read_text())
+    assert metadata['recording_sha256'] == RECORDING_SHA, 'Use the one preserved S102 take'
     assert sha256(stem.with_suffix('.flac').read_bytes()).hexdigest() == metadata['recording_sha256']
     destination = ROOT / 'build/t01-studio'
     destination.mkdir(parents=True, exist_ok=True)
@@ -96,6 +97,24 @@ def compare_pictures(movie, original, scene, cues, first, stop, nframes):
     return len(actual), worst
 
 
+def restore_spoken_number_timing(words, start):
+    """Reuse measured passage timing where full-take ASR collapsed numerals."""
+    timing = json.loads((ROOT/'production/lesson-films/voice-c-repairs/S102-tens-units-timing.json').read_text())
+    assert timing['recording_sha256'] == RECORDING_SHA
+    matches = [p['match_percent'] for p in timing['passages']]
+    assert len(matches) == 4 and min(matches) >= 95
+    replacement = timing['words']
+    assert len(replacement) == len(words)
+    assert timing['narration'] == ' '.join(w['text'] for w in replacement)
+    assert timing['narration'] == ' '.join(w['text'] for w in words)
+    assert all(a['end'] <= b['start'] for a, b in zip(replacement, replacement[1:]))
+    assert all(w['end'] > w['start'] for w in replacement)
+    assert replacement[0]['start'] >= 0 and replacement[-1]['end'] <= 32.29
+    adjusted = [dict(w, start=start+w['start'], end=start+w['end']) for w in replacement]
+    words[:] = adjusted
+    return timing['method'], matches
+
+
 def make(out, source=None, whisper_model='base.en'):
     from faster_whisper import WhisperModel
     maths = check_maths()
@@ -144,6 +163,7 @@ def make(out, source=None, whisper_model='base.en'):
     heard = transcribe(recognizer, fresh)
     words, match = align(line, heard, begin + .22, begin + .22 + len(fresh) / RATE)
     assert match >= 90, (match, [w.word for w in heard])
+    number_timing_method, timing_matches = restore_spoken_number_timing(words, begin + .22)
     normalized = work / 'normalized.wav'
     subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-i', ROOT / 'build/t01-studio/S102-08.wav',
         '-af', 'loudnorm=I=-18:TP=-2:LRA=9', '-ar', str(RATE), normalized], check=True)
@@ -200,7 +220,9 @@ def make(out, source=None, whisper_model='base.en'):
     rows = [row for name in ('read-watch-practise.json', 'read-watch-practise-later.json')
             for row in json.loads((ROOT/'data'/name).read_text())['lessons'] if row.get('videoId') == LESSON]
     assert sorted(row['slot'] for row in rows) == [102, 296]
-    bridge = next(row['bridge'] for row in rows if row['slot'] == 102)
+    # The currently published rows warn about the old film's incorrect wording.
+    # This new guide describes the repaired film; source rows change only at release integration.
+    bridge = CANONICAL_BRIDGE
     guide = dict(title=script['title'], seconds=duration, sha256=digest, bridge=bridge,
         chapters=[dict(title=p['heading'], start=round(s['start'], 3)) for p, s in zip(script['scenes'], scenes)],
         transcript=[p['narration'] for p in script['scenes']])
@@ -232,6 +254,8 @@ def make(out, source=None, whisper_model='base.en'):
         splice_frame_numbers=[first, stop], source_splice_maximum_amplitudes=boundaries,
         preserved_source_scenes=[n for n in range(1, 12) if n != 8],
         source_timing_method=before['timing_method'], caption_treatment='One stable phrase glyph layer in scene 8',
+        spoken_number_timing_method=number_timing_method, input_recording_sha256=RECORDING_SHA,
+        corrected_passage_match_percent=timing_matches,
         editorial_acceptance='Pending full listen/watch and exact production device gates; this is a scoped correctness repair.')
     write(out/'S102-qa.json', qa)
     print(json.dumps(qa), flush=True)

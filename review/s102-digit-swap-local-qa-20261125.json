@@ -1,0 +1,260 @@
+{
+  "status": "local candidate technically verified; full editorial and exact production playback acceptance pending",
+  "render_qa": {
+    "sha256": "e627ab6df0a16f75adce97fdbf021013a84cf01b3d124ca43dc8afa7b2fc947a",
+    "source_sha256": "538f9142a5113e5d14d3a35b6a7851e8dd331e16aba7d98224a7d0c294601612",
+    "scene_replaced": 8,
+    "corrected_scene_recognition": "Fix the ones digit at 3, for hundreds digits 1 through 5, the tens digits are 5, 4, 3, 2, and 1. Now keep the hundreds digit fixed, and swap the tens and units digits. 153 becomes 135. The digits sum and hundreds range are unchanged. Swapping back recovers the original, so this pairs the two lists exactly. The ones and tens columns contribute 5 each. each. 333 contributes once to each column.",
+    "corrected_match_percent": 98.22,
+    "scene_audio_correlations": [
+      0.999967,
+      0.999984,
+      0.999984,
+      0.999986,
+      0.99997,
+      0.999985,
+      0.999987,
+      0.999958,
+      0.999977,
+      0.999984,
+      0.999988
+    ],
+    "full_duration_seconds": 215.633333,
+    "picture_comparison_period_seconds": 1,
+    "decoded_reference_comparisons": 216,
+    "largest_mean_picture_difference": [
+      2.111962145969499,
+      1.5920138888888888
+    ],
+    "caption_count": 82,
+    "mathematical_check": {
+      "range": [
+        100,
+        599
+      ],
+      "divisor": 9,
+      "pairs": [
+        [
+          153,
+          135
+        ],
+        [
+          243,
+          234
+        ],
+        [
+          333,
+          333
+        ],
+        [
+          423,
+          432
+        ],
+        [
+          513,
+          531
+        ]
+      ],
+      "ones": 5,
+      "tens": 5,
+      "hundreds": 11,
+      "total": 21
+    },
+    "splice_frame_numbers": [
+      3750,
+      4590
+    ],
+    "source_splice_maximum_amplitudes": [
+      0.003958811052143574,
+      0.0002280982444062829
+    ],
+    "preserved_source_scenes": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      9,
+      10,
+      11
+    ],
+    "source_timing_method": "Measured word timing recovered with base.en from the pinned public film; original scene starts from its public guide. Original embedded captions remain in untouched pictures.",
+    "caption_treatment": "One stable phrase glyph layer in scene 8",
+    "spoken_number_timing_method": "base.en on the four original recorded passages, with numeral tokens suppressed so each number is timed as spoken words",
+    "input_recording_sha256": "4582dcd016527a350da681f165b53e32ade863c7e3ea011aa5863e892cb8593b",
+    "corrected_passage_match_percent": [
+      100.0,
+      97.96,
+      100.0,
+      100.0
+    ],
+    "editorial_acceptance": "Pending full listen/watch and exact production device gates; this is a scoped correctness repair."
+  },
+  "encoded_inspection": {
+    "movie_sha256": "e627ab6df0a16f75adce97fdbf021013a84cf01b3d124ca43dc8afa7b2fc947a",
+    "audio_packets_identical_to_first_render": true,
+    "aac_adts_sha256": "82ef975e32db4484c383169c5f8b41fd61d1c7a902706d25db0132170260b28c",
+    "positive_duration_words": 81,
+    "source_voice_pcm16_sha256": "a66054612222cc5ba4a5f3020c3820477dd00f2641725b90c34dba59edf2e888",
+    "source_wav_and_saved_flac_pcm_identical": true,
+    "encoded_frames_inspected": [
+      {
+        "file": "review/S102-tens-units-encoded-proof-20261125.jpg",
+        "second": 143.64,
+        "sha256": "4b4565c46c92246cb1fea23c801058195e568370cdc42c8440944d352876271c"
+      },
+      {
+        "file": "review/S102-fixed-point-encoded-proof-20261125.jpg",
+        "second": 154.36999999999998,
+        "sha256": "a407746e0f11a6988d5e896e6c60135612262be2258af85ef4c23ded48b6b9bd"
+      }
+    ],
+    "source_voice_modified": false,
+    "voice_synthesis_runs": 1
+  },
+  "recognizer_disagreement_review": {
+    "source_recording_sha256": "4582dcd016527a350da681f165b53e32ade863c7e3ea011aa5863e892cb8593b",
+    "full_pass_tail_words": [
+      {
+        "word": "The",
+        "start": 25.22,
+        "end": 25.32,
+        "probability": 0.991550087928772
+      },
+      {
+        "word": "ones",
+        "start": 25.32,
+        "end": 25.54,
+        "probability": 0.985865592956543
+      },
+      {
+        "word": "and",
+        "start": 25.54,
+        "end": 25.86,
+        "probability": 0.996503472328186
+      },
+      {
+        "word": "tens",
+        "start": 25.86,
+        "end": 26.08,
+        "probability": 0.9884127974510193
+      },
+      {
+        "word": "columns",
+        "start": 26.08,
+        "end": 26.56,
+        "probability": 0.9860032200813293
+      },
+      {
+        "word": "contribute",
+        "start": 26.56,
+        "end": 27.08,
+        "probability": 0.9943158030509949
+      },
+      {
+        "word": "5",
+        "start": 27.08,
+        "end": 27.6,
+        "probability": 0.9064050316810608
+      },
+      {
+        "word": "each.",
+        "start": 27.6,
+        "end": 27.88,
+        "probability": 0.9987832903862
+      },
+      {
+        "word": "each.",
+        "start": 27.88,
+        "end": 28.08,
+        "probability": 0.035859353840351105
+      },
+      {
+        "word": "333",
+        "start": 29.76,
+        "end": 29.76,
+        "probability": 0.9710303544998169
+      },
+      {
+        "word": "contributes",
+        "start": 29.76,
+        "end": 30.54,
+        "probability": 0.9708412289619446
+      },
+      {
+        "word": "once",
+        "start": 30.54,
+        "end": 31.08,
+        "probability": 0.9684363007545471
+      },
+      {
+        "word": "to",
+        "start": 31.08,
+        "end": 31.42,
+        "probability": 0.9974104762077332
+      },
+      {
+        "word": "each",
+        "start": 31.42,
+        "end": 31.58,
+        "probability": 0.9990917444229126
+      },
+      {
+        "word": "column.",
+        "start": 31.58,
+        "end": 31.88,
+        "probability": 0.9953017234802246
+      }
+    ],
+    "tail_rechecks": [
+      {
+        "source_interval_seconds": [
+          23,
+          32.29
+        ],
+        "vad": false,
+        "recognized_speech": "This pairs the two lists exactly. The ones and tens columns contribute 5 each. 333 contributes once to each column."
+      },
+      {
+        "source_interval_seconds": [
+          23,
+          32.29
+        ],
+        "vad": true,
+        "recognized_speech": "This pairs the two lists exactly. The ones and tens columns contribute 5 each. 333 contributes once to each column."
+      }
+    ],
+    "audio_modified": false,
+    "acceptance_note": "The full-pass recognizer printed an extra each; focused tail recognition with and without VAD does not repeat it. Preserve the exact original take and keep complete listening review pending."
+  },
+  "assets": {
+    "S102-guide.json": {
+      "sha256": "58a6e2b19c694d2d7400adf42a4f4692ebb67d4276791e1c24dc0932136f4251",
+      "bytes": 4540
+    },
+    "S102-poster.jpg": {
+      "sha256": "bf601ece4863a1788d775c90daca3c96b2efadc8933a83012556d473392dab06",
+      "bytes": 190099
+    },
+    "S102-qa.json": {
+      "sha256": "dc4bfa8374f7f6acdc8d031b84a0135706203194e44145f189860224ff61adc7",
+      "bytes": 2465
+    },
+    "S102-recording.zip": {
+      "sha256": "c9e9a2a35ee1b5ee19ae62d26fb22f6f689959266db82954dd69eea6fae7e2bb",
+      "bytes": 15616716
+    },
+    "S102.mp4": {
+      "sha256": "e627ab6df0a16f75adce97fdbf021013a84cf01b3d124ca43dc8afa7b2fc947a",
+      "bytes": 10314897
+    },
+    "S102.vtt": {
+      "sha256": "e9dc8c1fcb8779cc27ee97823ea91fd694801fee8c448e7c5b30e19505b4fc02",
+      "bytes": 5688
+    }
+  },
+  "public_release": null,
+  "live_assignments_changed": false
+}
