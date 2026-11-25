@@ -1,0 +1,201 @@
+name: Correct S102 tens and units pairing
+on:
+  push:
+    branches: [production/s102-digit-swap]
+    paths:
+      - .github/workflows/s102-digit-swap.yml
+      - production/lesson-films/repair_digit_swap.py
+      - production/lesson-films/digit_swap_scene.py
+      - production/lesson-films/source-timelines/S102-public.json
+      - production/lesson-films/voice-c-repairs/S102-tens-units.*
+      - production/scripts/S102.json
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: s102-digit-swap-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  speech:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check that the committed script matches its authored source
+        run: |
+          python production/lesson-intros/course/compile_intros.py S102
+          git diff --exit-code -- production/scripts/S102.json
+      - name: Require the completed local Voice C take
+        run: |
+          test -s production/lesson-films/voice-c-repairs/S102-tens-units.flac
+          test -s production/lesson-films/voice-c-repairs/S102-tens-units.json
+      - name: Install audio tools
+        run: |
+          sudo apt-get -o Acquire::Retries=3 update -qq
+          sudo apt-get install -y ffmpeg libsndfile1
+          python -m pip install 'numpy==2.2.6' soundfile pillow num2words
+      - name: Restore saved Voice C recording
+        run: |
+          python - <<'PY'
+          import sys
+          sys.path.insert(0, 'production/lesson-films')
+          from repair_digit_swap import saved_recording
+          saved_recording()
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: S102-voice-8
+          path: |
+            build/t01-studio/S102-08.wav
+            build/t01-studio/S102-08.json
+          if-no-files-found: error
+          retention-days: 30
+
+  render:
+    needs: speech
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          name: S102-voice-8
+          path: build/t01-studio
+      - name: Splice the exact correction and verify the complete movie
+        run: |
+          set -euo pipefail
+          sudo apt-get -o Acquire::Retries=3 update -qq
+          sudo apt-get install -y ffmpeg fonts-open-sans fonts-dejavu-core libsndfile1
+          python -m pip install 'numpy==2.2.6' 'pillow==11.3.0' num2words soundfile faster-whisper
+          python production/lesson-films/repair_digit_swap.py build/candidate
+      - uses: actions/upload-artifact@v4
+        with:
+          name: S102-digit-swap-candidate
+          path: build/candidate/
+          if-no-files-found: error
+          retention-days: 30
+
+  playback:
+    needs: render
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        profile: [iphone-portrait, iphone-landscape, ipad-portrait, ipad-landscape, pc]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          name: S102-digit-swap-candidate
+          path: build/candidate
+      - run: python -m pip install 'playwright==1.58.0' aiohttp
+      - if: matrix.profile != 'pc'
+        run: python -m playwright install --with-deps webkit
+      - name: Point isolated fixtures at the new candidate
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          guide = json.loads(Path('build/candidate/S102-guide.json').read_text())
+          guide['release'] = 'http://127.0.0.1:8765/build/candidate/'
+          catalog = Path('data/recorded-studies.json')
+          data = json.loads(catalog.read_text())
+          data['lessons']['S102'] = guide
+          catalog.write_text(json.dumps(data))
+          found = []
+          for name in ('read-watch-practise.json', 'read-watch-practise-later.json'):
+              source = Path('data') / name
+              data = json.loads(source.read_text())
+              for row in data['lessons']:
+                  if row.get('videoId') == 'S102':
+                      found.append(row['slot'])
+                      row.update(movie=guide['release'] + 'S102.mp4', videoTitle=guide['title'])
+                      if row['slot'] == 102:
+                          row.update(bridge=guide['bridge'], filmUse='dedicated')
+              source.write_text(json.dumps(data))
+          assert sorted(found) == [102, 296], found
+          PY
+      - name: Check gallery, active lessons and immutable notebooks
+        env:
+          PROFILE: ${{ matrix.profile }}
+        run: |
+          set -euo pipefail
+          python - <<'PY' > "$RUNNER_TEMP/s102-server.log" 2>&1 &
+          from aiohttp import web
+          from pathlib import Path
+          root = Path.cwd()
+          app = web.Application()
+          async def index(request):
+              return web.FileResponse(root / 'index.html')
+          app.router.add_get('/', index)
+          app.router.add_static('/', root)
+          web.run_app(app, host='127.0.0.1', port=8765)
+          PY
+          server=$!
+          trap 'kill "$server"' EXIT
+          curl --fail --silent --retry 15 --retry-connrefused http://127.0.0.1:8765/ -o /dev/null
+          python tools/check_lesson_film_routes.py --lesson S102 --site http://127.0.0.1:8765/ --profile "$PROFILE" --output build/device/S102
+          if [[ "$PROFILE" == pc || "$PROFILE" == ipad-portrait ]]; then
+            python tools/check_lesson_film_routes.py --lesson S102 --consumer-slot 296 --site http://127.0.0.1:8765/ --profile "$PROFILE" --output build/device/slot296
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: S102-digit-swap-${{ matrix.profile }}
+          path: build/device/
+          if-no-files-found: warn
+          retention-days: 30
+
+  release:
+    needs: playback
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: S102-digit-swap-candidate
+          path: verified
+      - name: Publish a separate immutable edition and compare returned bytes
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          tag="s102-tens-units-20261125-${GITHUB_SHA:0:12}"
+          if ! gh release view "$tag" > /dev/null 2>&1; then
+            gh release create "$tag" --draft --target "$GITHUB_SHA" --title 'Digit sums — keep hundreds fixed while swapping tens and units' --notes 'Corrected S102 scene 8 pairs 153 with 135 by swapping tens and units while keeping hundreds fixed. Ten original performances are retained. Candidate passed decode, mathematical and five-profile playback checks; full editorial acceptance and course integration are separate.'
+          fi
+          draft=$(gh release view "$tag" --json isDraft --jq .isDraft)
+          if [[ "$draft" == true ]]; then gh release upload "$tag" verified/* --clobber; fi
+          gh release download "$tag" --dir returned
+          for asset in verified/*; do cmp "$asset" "returned/${asset##*/}"; done
+          if [[ "$draft" == true ]]; then gh release edit "$tag" --draft=false --latest=false; fi
+          mkdir public-returned
+          for asset in verified/*; do
+            name=${asset##*/}
+            curl --fail --location --silent --show-error --retry 5 --retry-all-errors --retry-delay 3 --max-time 90 "https://github.com/$GITHUB_REPOSITORY/releases/download/$tag/$name" -o "public-returned/$name"
+            cmp "$asset" "public-returned/$name"
+          done
+          echo "Published and byte-checked $tag"
+          cat verified/S102-guide.json
+          cat verified/S102-qa.json

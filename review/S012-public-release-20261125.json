@@ -1,0 +1,65 @@
+{
+  "release_tag": "s012-missing-rung-20261125-b46d28d6d374",
+  "published_at_utc": "2026-11-24T23:47:41Z",
+  "source_commit": "b46d28d6d37434c91c164a74005e1a9ec8b5a21f",
+  "workflow_run": 45487384299,
+  "release_job": 138851167593,
+  "release_conclusion": "success",
+  "returned_assets": [
+    {
+      "name": "S012-guide.json",
+      "bytes": 2825,
+      "sha256": "a9ac27b46afbeace40951381a90c97c572c60caca6cb02137fbfc8e4055f4b51"
+    },
+    {
+      "name": "S012-poster.jpg",
+      "bytes": 51405,
+      "sha256": "17ba1e9b7cfa359591b3698f26bca6f02f719e5ae8102542003dd855ded7c867"
+    },
+    {
+      "name": "S012-qa.json",
+      "bytes": 573,
+      "sha256": "61fdccba03ca437f7297b1a0de2aa4994f01b3b5cc537f704707c591450b7f75"
+    },
+    {
+      "name": "S012-recording.zip",
+      "bytes": 10412014,
+      "sha256": "d70464f3af57e93d8ef5edfabce3f389d1906afcdf73bc7d729e94b7f3d90940"
+    },
+    {
+      "name": "S012.mp4",
+      "bytes": 7729587,
+      "sha256": "87e71ca9ae8e3355f9f092f05a7e4c0678313aa569bbc3b4cc63a200ff2cedd7"
+    },
+    {
+      "name": "S012.vtt",
+      "bytes": 3433,
+      "sha256": "391c35e3dee90189869395a10078a49a5a17ab8967d64bb49fc8c1377c4c39f8"
+    }
+  ],
+  "total_bytes": 18199837,
+  "returned_guide_equals_verified_candidate": true,
+  "assignments": [
+    {
+      "slot": 12,
+      "changed_fields": [
+        "filmUse",
+        "movie",
+        "videoTitle"
+      ],
+      "bridge_retained": true
+    },
+    {
+      "slot": 248,
+      "changed_fields": [
+        "movie",
+        "videoTitle"
+      ],
+      "bridge_retained": true
+    }
+  ],
+  "all_other_fields_in_these_lessons_unchanged": true,
+  "live_pages_integration_verified": false,
+  "final_editorial_credit": false,
+  "integrated_public_media_route_evidence": "review/S012-public-routes-20261125.json"
+}

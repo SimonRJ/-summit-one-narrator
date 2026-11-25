@@ -1,0 +1,68 @@
+{
+  "lesson": "S017",
+  "title": "A frame around two tiles",
+  "review_date_perth": "2026-11-25",
+  "status": "Source and mathematics integrated; the last two existing Voice C scene jobs remain queued",
+  "final_editorial_credit": false,
+  "source_commit": "1d1bb402622c540061446a85c2aab9782b724bd1",
+  "voice_source_run": 45487547111,
+  "voice_source_commit": "c873621cd8988d3862563a0668e500bcb94614c9",
+  "successful_voice_scenes": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "queued_voice_jobs": {
+    "7": 138776830497,
+    "8": 138776830534
+  },
+  "original_render_run": 45488080237,
+  "original_render_job": 138778713572,
+  "original_render_failure": "Stopped before rendering after its 100-by-45-second wait for the entire voice matrix.",
+  "source_files_sha256": {
+    "production/lesson-films/tile_framer.py": "12b05ad73e9c43a3bb7fd52f052e82461d5218ee402d175adbb7abd07b4ebb75",
+    "production/scripts/S017.json": "d324df82ce2f6bd2b40440b105b189dd8f665521edeb954bc09e7bbc93169bda"
+  },
+  "independent_maths": {
+    "method": "Enumerate every nonempty contiguous cell rectangle by origin, width and height, then inspect cell-set membership independently of boundary predicates.",
+    "wall_rectangles": 60,
+    "contain_A": 24,
+    "contain_both": 8,
+    "contain_A_without_B": 16
+  },
+  "originality": {
+    "compared_other_guide_editions": 181,
+    "compared_other_scenes": 1949,
+    "reviewed_new_scenes": 8,
+    "exact_scene_matches": [],
+    "longest_shared_passage": {
+      "words": 4,
+      "text": "in more than one",
+      "scene": 5,
+      "other": "S157",
+      "other_scene": 1,
+      "exact": false
+    },
+    "normalization": "lower-case alphanumeric words; digits not masked"
+  },
+  "consumers": [
+    {
+      "slot": 17,
+      "kind": "dedicated"
+    },
+    {
+      "slot": 300,
+      "kind": "technique"
+    }
+  ],
+  "candidate_sha256": null,
+  "pending_before_final_credit": [
+    "Let the already queued scenes 7 and 8 complete; do not synthesize duplicates.",
+    "Align, render and compare the completed approved performance, then inspect the actual encoded film and all five learner-route profiles.",
+    "Verify the immutable release and final deployed routes, with the technique consumer at 300.",
+    "Complete audible/editorial acceptance before changing final completion counts."
+  ]
+}

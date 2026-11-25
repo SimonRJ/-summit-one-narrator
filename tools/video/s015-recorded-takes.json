@@ -1,0 +1,63 @@
+{
+  "lesson": "S015",
+  "repository": "SimonRJ/-summit-one-narrator",
+  "voice_run": 45487547111,
+  "voice_commit": "c873621cd8988d3862563a0668e500bcb94614c9",
+  "voice_branch": "production/s012-missing-rung",
+  "voice_workflow": ".github/workflows/paired-original-voice.yml",
+  "original_render_run": 45488080273,
+  "original_render_commit": "1d1bb402622c540061446a85c2aab9782b724bd1",
+  "original_render_workflow": ".github/workflows/s015-mail-train.yml",
+  "voice_reference": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "artifacts": [
+    {
+      "scene": 1,
+      "name": "S015-voice-1",
+      "id": 14965786572,
+      "sha256": "3f1036113967d062dc82205e07de837da0381c98992fafbd04d34f19b72c7741"
+    },
+    {
+      "scene": 2,
+      "name": "S015-voice-2",
+      "id": 14965364384,
+      "sha256": "4668c1d62b4f3b374f0a381fb14253f8230d0b2b565bc0c29446ec03ff52d0d4"
+    },
+    {
+      "scene": 3,
+      "name": "S015-voice-3",
+      "id": 14964903102,
+      "sha256": "ba638b050e225c96f5dcd0e4f2228fda7c044b189124edf8df44e0b386807afa"
+    },
+    {
+      "scene": 4,
+      "name": "S015-voice-4",
+      "id": 14964863459,
+      "sha256": "6af94c224be61f06245e1e9b1b85c5a77002b7f50009041206f3b38d6b822952"
+    },
+    {
+      "scene": 5,
+      "name": "S015-voice-5",
+      "id": 14966571516,
+      "sha256": "a6b34a21ab6456fbd4c70ca820ecf5ee737ee0f86e5cf272bbd8ae103efce348"
+    },
+    {
+      "scene": 6,
+      "name": "S015-voice-6",
+      "id": 14966410092,
+      "sha256": "8c59fc376cc048c7d969b3f309b709c56c9fed7b5c32fc1515bf6f896d818c67"
+    },
+    {
+      "scene": 7,
+      "name": "S015-voice-7",
+      "id": 14967589449,
+      "sha256": "ce5726903fedd4eba88ed0ee7a1ec3e85d5fa4a96f00a033c19331b7db8ecb6c"
+    },
+    {
+      "scene": 8,
+      "name": "S015-voice-8",
+      "id": 14967923205,
+      "sha256": "2d19413799a4a9d59832edc53b19f06c25953c7e4d39f5513ffdc367dabf00fb"
+    }
+  ]
+}

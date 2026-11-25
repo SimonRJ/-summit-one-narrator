@@ -1,0 +1,373 @@
+{
+  "checked_at_utc": "2026-11-25T00:04:45.310859+00:00",
+  "scope": "Integrated local application pages using the unchanged public immutable movie URLs. This is distinct from live Pages deployment and physical-device certification.",
+  "public_asset_evidence": "review/carry-reversal-public-release-20261125.json",
+  "passing_route_profile_checks": 10,
+  "profiles": [
+    "Desktop Chromium",
+    "iPhone portrait WebKit",
+    "iPad portrait WebKit"
+  ],
+  "whole_normal_speed_unmuted_playbacks": 2,
+  "results": [
+    {
+      "slot": 9,
+      "profile": "ipad-portrait",
+      "engine": "webkit",
+      "viewport": {
+        "width": 810,
+        "height": 1080
+      },
+      "site": "http://127.0.0.1:32881/",
+      "sha256": "39d28fec11fe4cc1b1d1b840d01ab8d8b3ae3ccb6d184bf37c1ccf4e37c16ef6",
+      "film": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S009.mp4",
+      "duration": 132.433333,
+      "chapters": 7,
+      "normal_speed_unmuted_to_ended": false,
+      "practice_grading": "isolated fixture",
+      "immutable_replay": true,
+      "active_frame_css_pixels": {
+        "width": 663.125,
+        "height": 373,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "notebook_frame_css_pixels": {
+        "width": 733.125,
+        "height": 667.5,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "worked_example": {
+        "chapter": "The first tray that fills a hundred",
+        "decoded_media_time": 98.733333
+      },
+      "lesson": "S009"
+    },
+    {
+      "slot": 9,
+      "profile": "iphone-portrait",
+      "engine": "webkit",
+      "viewport": {
+        "width": 390,
+        "height": 664
+      },
+      "site": "http://127.0.0.1:45491/",
+      "sha256": "39d28fec11fe4cc1b1d1b840d01ab8d8b3ae3ccb6d184bf37c1ccf4e37c16ef6",
+      "film": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S009.mp4",
+      "duration": 132.433333,
+      "chapters": 7,
+      "normal_speed_unmuted_to_ended": true,
+      "practice_grading": "isolated fixture",
+      "immutable_replay": true,
+      "active_frame_css_pixels": {
+        "width": 333.21875,
+        "height": 187.421875,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "notebook_frame_css_pixels": {
+        "width": 340,
+        "height": 244.46875,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "worked_example": {
+        "chapter": "The first tray that fills a hundred",
+        "decoded_media_time": 98.733333
+      },
+      "lesson": "S009"
+    },
+    {
+      "slot": 9,
+      "profile": "pc",
+      "engine": "chromium",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "site": "http://127.0.0.1:33451/",
+      "sha256": "39d28fec11fe4cc1b1d1b840d01ab8d8b3ae3ccb6d184bf37c1ccf4e37c16ef6",
+      "film": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S009.mp4",
+      "duration": 132.433333,
+      "chapters": 7,
+      "normal_speed_unmuted_to_ended": false,
+      "practice_grading": "isolated fixture",
+      "immutable_replay": true,
+      "active_frame_css_pixels": {
+        "width": 654,
+        "height": 367.875,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "notebook_frame_css_pixels": {
+        "width": 958,
+        "height": 462.65625,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "worked_example": {
+        "chapter": "The first tray that fills a hundred",
+        "decoded_media_time": 98.733333
+      },
+      "lesson": "S009"
+    },
+    {
+      "slot": 228,
+      "profile": "ipad-portrait",
+      "engine": "webkit",
+      "viewport": {
+        "width": 810,
+        "height": 1080
+      },
+      "site": "http://127.0.0.1:33177/",
+      "sha256": "39d28fec11fe4cc1b1d1b840d01ab8d8b3ae3ccb6d184bf37c1ccf4e37c16ef6",
+      "film": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S009.mp4",
+      "duration": 132.433333,
+      "chapters": 7,
+      "normal_speed_unmuted_to_ended": false,
+      "practice_grading": "isolated fixture",
+      "immutable_replay": true,
+      "active_frame_css_pixels": {
+        "width": 663.125,
+        "height": 373,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "notebook_frame_css_pixels": {
+        "width": 733.125,
+        "height": 667.5,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "worked_example": {
+        "chapter": "The first tray that fills a hundred",
+        "decoded_media_time": 98.733333
+      },
+      "lesson": "S009"
+    },
+    {
+      "slot": 228,
+      "profile": "pc",
+      "engine": "chromium",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "site": "http://127.0.0.1:33451/",
+      "sha256": "39d28fec11fe4cc1b1d1b840d01ab8d8b3ae3ccb6d184bf37c1ccf4e37c16ef6",
+      "film": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S009.mp4",
+      "duration": 132.433333,
+      "chapters": 7,
+      "normal_speed_unmuted_to_ended": false,
+      "practice_grading": "isolated fixture",
+      "immutable_replay": true,
+      "active_frame_css_pixels": {
+        "width": 654,
+        "height": 367,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "notebook_frame_css_pixels": {
+        "width": 958,
+        "height": 462.65625,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "worked_example": {
+        "chapter": "The first tray that fills a hundred",
+        "decoded_media_time": 98.733333
+      },
+      "lesson": "S009"
+    },
+    {
+      "slot": 10,
+      "profile": "ipad-portrait",
+      "engine": "webkit",
+      "viewport": {
+        "width": 810,
+        "height": 1080
+      },
+      "site": "http://127.0.0.1:36213/",
+      "sha256": "e8e2e6f697b00cd9401479a603bf6992c2538a107b3fbd519cac0e0b9b7f9a71",
+      "film": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S010.mp4",
+      "duration": 140.433333,
+      "chapters": 7,
+      "normal_speed_unmuted_to_ended": false,
+      "practice_grading": "isolated fixture",
+      "immutable_replay": true,
+      "active_frame_css_pixels": {
+        "width": 663.125,
+        "height": 373,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "notebook_frame_css_pixels": {
+        "width": 733.125,
+        "height": 667.5,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "worked_example": {
+        "chapter": "Admit the next ticket",
+        "decoded_media_time": 105.5
+      },
+      "lesson": "S010"
+    },
+    {
+      "slot": 10,
+      "profile": "iphone-portrait",
+      "engine": "webkit",
+      "viewport": {
+        "width": 390,
+        "height": 664
+      },
+      "site": "http://127.0.0.1:45491/",
+      "sha256": "e8e2e6f697b00cd9401479a603bf6992c2538a107b3fbd519cac0e0b9b7f9a71",
+      "film": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S010.mp4",
+      "duration": 140.433333,
+      "chapters": 7,
+      "normal_speed_unmuted_to_ended": true,
+      "practice_grading": "isolated fixture",
+      "immutable_replay": true,
+      "active_frame_css_pixels": {
+        "width": 333.21875,
+        "height": 187.421875,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "notebook_frame_css_pixels": {
+        "width": 340,
+        "height": 244.46875,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "worked_example": {
+        "chapter": "Admit the next ticket",
+        "decoded_media_time": 105.5
+      },
+      "lesson": "S010"
+    },
+    {
+      "slot": 10,
+      "profile": "pc",
+      "engine": "chromium",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "site": "http://127.0.0.1:33451/",
+      "sha256": "e8e2e6f697b00cd9401479a603bf6992c2538a107b3fbd519cac0e0b9b7f9a71",
+      "film": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S010.mp4",
+      "duration": 140.433333,
+      "chapters": 7,
+      "normal_speed_unmuted_to_ended": false,
+      "practice_grading": "isolated fixture",
+      "immutable_replay": true,
+      "active_frame_css_pixels": {
+        "width": 654,
+        "height": 367.875,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "notebook_frame_css_pixels": {
+        "width": 958,
+        "height": 462.65625,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "worked_example": {
+        "chapter": "Admit the next ticket",
+        "decoded_media_time": 105.5
+      },
+      "lesson": "S010"
+    },
+    {
+      "slot": 319,
+      "profile": "ipad-portrait",
+      "engine": "webkit",
+      "viewport": {
+        "width": 810,
+        "height": 1080
+      },
+      "site": "http://127.0.0.1:36213/",
+      "sha256": "e8e2e6f697b00cd9401479a603bf6992c2538a107b3fbd519cac0e0b9b7f9a71",
+      "film": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S010.mp4",
+      "duration": 140.433333,
+      "chapters": 7,
+      "normal_speed_unmuted_to_ended": false,
+      "practice_grading": "isolated fixture",
+      "immutable_replay": true,
+      "active_frame_css_pixels": {
+        "width": 663.125,
+        "height": 373,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "notebook_frame_css_pixels": {
+        "width": 733.125,
+        "height": 667.5,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "worked_example": {
+        "chapter": "Admit the next ticket",
+        "decoded_media_time": 105.5
+      },
+      "lesson": "S010"
+    },
+    {
+      "slot": 319,
+      "profile": "pc",
+      "engine": "chromium",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "site": "http://127.0.0.1:44639/",
+      "sha256": "e8e2e6f697b00cd9401479a603bf6992c2538a107b3fbd519cac0e0b9b7f9a71",
+      "film": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S010.mp4",
+      "duration": 140.433333,
+      "chapters": 7,
+      "normal_speed_unmuted_to_ended": false,
+      "practice_grading": "isolated fixture",
+      "immutable_replay": true,
+      "active_frame_css_pixels": {
+        "width": 654,
+        "height": 367,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "notebook_frame_css_pixels": {
+        "width": 958,
+        "height": 462.65625,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "worked_example": {
+        "chapter": "Admit the next ticket",
+        "decoded_media_time": 105.5
+      },
+      "lesson": "S010"
+    }
+  ],
+  "initial_harness_failures": [
+    {
+      "case": "S010 consumer319 bridge assertion",
+      "cause": "KaTeX exposes MathML, original annotation and visual HTML for one displayed expression. The original raw-text check counted the expression more than once.",
+      "repair": "Read each authored TeX annotation once; the original production cue and rendered expression remain unchanged.",
+      "recheck": "Both PC and iPad consumer319 passed."
+    },
+    {
+      "case": "Public WebKit worked-frame seek",
+      "cause": "A fresh redirected byte-range response could arrive after the original two 10-second capture windows even while WebKit reported complete buffering.",
+      "repair": "Use the same 60-second media-readiness allowance as metadata; retain actual decoded-frame timestamps and chapter bounds.",
+      "diagnostic_evidence": "review/s009-seek-diagnosis-20261125/README.md",
+      "recheck": "All intended iPhone and iPad routes passed with the exact unchanged published movies."
+    }
+  ],
+  "network_limit": "The required workspace egress proxy uses its own TLS certificate; the isolated browser context accepts it for application testing. This is not a production TLS validation.",
+  "protected_state": "Real Supabase requests were blocked; grading and completed-replay checks used only the isolated in-memory fixture. No actual learner account or record was accessed or modified.",
+  "final_editorial_credit": false,
+  "live_pages_integration_verified": false
+}

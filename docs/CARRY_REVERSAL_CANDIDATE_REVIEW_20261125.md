@@ -1,8 +1,10 @@
 # Carry and reversal films — candidate review, 25 November 2026
 
 The two replacement films have passed encoded-master verification and all five
-candidate browser profiles. Their immutable release is still queued at the time
-of this review. Neither film receives final editorial credit from this document.
+candidate browser profiles. Their immutable release was published at 07:10 AWST
+on 25 November. All twelve returned assets were downloaded and matched their
+published digests; both returned movies are byte-identical to the candidates
+below. Neither film receives final editorial credit from this document.
 
 | Lesson | Title | Duration | Exact candidate SHA-256 |
 | --- | --- | --- | --- |
@@ -13,8 +15,10 @@ The source edition is `bcbd31159202426b90d4ec7250edf43910dc8a37` on
 `production/carry-reversal-reviewed-20261125`. Workflow run
 [45488154406](https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45488154406)
 has successful render jobs and successful iPhone portrait/landscape, iPad
-portrait/landscape and PC playback jobs. Release job `138819426221` remains
-queued. Leave that existing job and the separate voice-recording jobs intact.
+portrait/landscape and PC playback jobs. Release job `138819426221` has also
+succeeded. The six assets per lesson include the movie, poster, guide, QA,
+captions and lossless recording archive. The public package contains 38,003,868
+bytes in total.
 
 ## What this review establishes
 
@@ -47,14 +51,38 @@ The complete records are `review/S009-carry-counter-candidate-qa.json` and
 `review/S010-reversal-line-candidate-qa.json`. They deliberately retain
 `final_editorial_credit: false`.
 
+The integrated application has also passed ten route/profile checks against
+the unchanged public movie URLs: each canonical lesson on PC, iPhone portrait
+and iPad portrait, plus its technique consumer on PC and iPad portrait. Both
+whole public films reached their end unmuted at normal speed on iPhone
+emulation. Gallery chapters, correct and incorrect fixture grading, unclipped
+inline frames and immutable completed replay passed. See
+`review/released-digit-routes-20261125.json`. The application pages in this
+check were local; live Pages verification remains a separate step.
+
+The checks exposed two harness issues, both retained transparently in the
+evidence: KaTeX's hidden text representations repeated a displayed expression,
+and a redirected public byte-range request could exceed the original short
+frame-capture window. The corrected checks read each expression once and allow
+60 seconds for a real decoded frame, preserving the mathematical chapter and
+media-time requirements. The films and production players were unchanged.
+
 ## Integration and remaining acceptance
 
-The expected immutable release tag is
-`carry-reversal-reviewed-20261125-bcbd31159202`. After it exists, confirm the
-returned MP4 digests against the table above. Mount the guides in
-`data/recorded-studies.json`; assign the dedicated films to slots 9 and 10 and
-the technique revisits to slots 228 and 319. Preserve the lesson IDs, question
-IDs, grading edition and historical completed-lesson movie snapshots.
+The immutable release tag is
+`carry-reversal-reviewed-20261125-bcbd31159202`. Its exact returned guides are
+now installed in this revision's `data/recorded-studies.json`, with dedicated
+films for slots 9 and 10 and individual technique bridges for slots 228 and
+319. All other lesson fields, lesson IDs, question IDs and grading editions
+were compared with the previous revision and remain identical. Historical
+completed-lesson movie snapshots retain their existing behavior.
+
+The application, gallery, introduction module, offline reader and service
+worker use the same `priority-films-20261125` dependency revision. This also
+versions the teaching catalogue used by the corrected companion resolver, so
+an installed older service worker or browser HTTP cache cannot silently select
+the previous edition during an update. Repository integration and live Pages
+delivery remain separate acceptance steps.
 
 After deployment, run `tools/check_lesson_film_routes.py` for S009 and S010 on
 each of its five profiles using the public site URL. Retain those returned

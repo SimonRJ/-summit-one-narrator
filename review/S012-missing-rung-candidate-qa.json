@@ -1,0 +1,323 @@
+{
+  "sha256": "87e71ca9ae8e3355f9f092f05a7e4c0678313aa569bbc3b4cc63a200ff2cedd7",
+  "decoded_reference_comparisons": 138,
+  "picture_comparison_period_seconds": 1,
+  "maximum_picture_mean_channel_error_0_to_255": 1.945,
+  "maximum_caption_region_mean_channel_error_0_to_255": 2.147,
+  "minimum_source_audio_correlation_per_scene": 0.999556,
+  "recorded_scenes_checked": 8,
+  "timed_caption_phrases": 51,
+  "spoken_words": 351,
+  "source_voice_reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "source_word_alignment_percent": 99.52,
+  "lesson": "S012",
+  "title": "The missing rung",
+  "review_date_perth": "2026-11-25",
+  "duration_seconds": 137.333333,
+  "final_editorial_credit": false,
+  "candidate_local_verification": "verify_recorded.py rerun against this exact encoded master and archived final Voice C recording, using the source integrated with current main; complete audio correspondence per scene and whole-second drawing/caption comparisons passed.",
+  "authored_script_equals_archived_recording_script": true,
+  "independent_maths": {
+    "method": "Exhaustive 1/2-jump strings, cumulative landings, reject every path landing on 3; independent of the drawing recursion.",
+    "landing_counts": [
+      1,
+      1,
+      2,
+      0,
+      2,
+      2,
+      4,
+      6,
+      10
+    ],
+    "bell_routes": [
+      [
+        0,
+        2,
+        4,
+        5,
+        6,
+        8
+      ],
+      [
+        0,
+        2,
+        4,
+        5,
+        7,
+        8
+      ],
+      [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6,
+        8
+      ],
+      [
+        0,
+        1,
+        2,
+        4,
+        5,
+        7,
+        8
+      ],
+      [
+        0,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    ]
+  },
+  "originality": {
+    "compared_other_guide_editions": 181,
+    "compared_other_scenes": 1952,
+    "reviewed_new_scenes": 8,
+    "exact_scene_matches": [],
+    "longest_shared_passage": {
+      "words": 5,
+      "text": "six plus four gives ten",
+      "scene": 5,
+      "other": "S093-Illustrated",
+      "other_scene": 6,
+      "exact": false
+    },
+    "normalization": "lower-case alphanumeric words; digits not masked"
+  },
+  "source_files_sha256": {
+    "production/lesson-films/render_recorded.py": "e86effba97702a1a6a0ef9af2b087e6acba8d2559fc097d09b1b98931b982a41",
+    "production/t01-studio/prepare_audio.py": "f3c282b62ea1c85351ee11bffcd43441e9ba3c4b7aefb06423a9b81414d4d7e9",
+    "production/lesson-films/missing_rung.py": "9f61a151a272dc1abb9a6c7f49d5620e8f307c2d68f9bc71f839c474684c898d",
+    "production/scripts/S012.json": "3a30b1e8f07f7843a0c862a3f90057b3b93babcf584bb51601aafb301dc642ff"
+  },
+  "recording_files_sha256": {
+    "script.json": "3a30b1e8f07f7843a0c862a3f90057b3b93babcf584bb51601aafb301dc642ff",
+    "timeline.json": "f6348556151842ffdbcdfc8285a6a4078675e9ca9d6e26d23356161dc0fbc1fa",
+    "captions.vtt": "391c35e3dee90189869395a10078a49a5a17ab8967d64bb49fc8c1377c4c39f8",
+    "narration.flac": "05c124c1444ef4c05e384a27ca8222c3191ef097f8c8867c84932a952adb49fe"
+  },
+  "device_check_scope": "Emulated browser profiles served from a localhost candidate fixture, with grading isolated from the real backend. These results do not certify physical devices or deployed-main routes.",
+  "narration_review": "Full source/encoded audio correlation and per-scene recognition were checked against the authored narration. Automated normal-speed unmuted playback is not a separate human listening or editorial signoff.",
+  "protected_state": "No real learner progress, completed history, examination archive, credentials or saved movie selections were changed.",
+  "status": "immutable release and integrated public-media routes verified; live Pages and final editorial acceptance pending",
+  "source_commit": "b46d28d6d37434c91c164a74005e1a9ec8b5a21f",
+  "workflow": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45487384299",
+  "release_job_id": 138851167593,
+  "release_job_state": "completed",
+  "expected_release": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s012-missing-rung-20261125-b46d28d6d374/",
+  "visual_review": "The decoded iPhone portrait Pair the pieces capture shows the two distinct legal beginnings and three endings as a 2-by-3 correspondence. The earlier staged review inspected 16 encoded chapter frames; this verification reran all 138 whole-second source comparisons.",
+  "consumers": [
+    {
+      "slot": 12,
+      "kind": "dedicated",
+      "bridge": "Pause when the film marks rung 3 as broken. Is rung 4 still reachable? Trace its possible final jumps before the film fills in the table."
+    },
+    {
+      "slot": 248,
+      "kind": "technique",
+      "bridge": "Watch the film\u2019s blocked rung remove a possible previous landing. Then ask what extra information a path count would need if an entire kind of move were restricted."
+    }
+  ],
+  "device_checks": [
+    {
+      "profile": "iphone-portrait",
+      "engine": "webkit",
+      "viewport": {
+        "width": 390,
+        "height": 664
+      },
+      "site": "http://127.0.0.1:8765/",
+      "sha256": "87e71ca9ae8e3355f9f092f05a7e4c0678313aa569bbc3b4cc63a200ff2cedd7",
+      "film": "http://127.0.0.1:8765/build/candidate/S012.mp4",
+      "duration": 137.333333,
+      "chapters": 8,
+      "normal_speed_unmuted_to_ended": true,
+      "practice_grading": "isolated fixture",
+      "immutable_replay": true,
+      "active_frame_css_pixels": {
+        "width": 333.21875,
+        "height": 187.421875,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "notebook_frame_css_pixels": {
+        "width": 340,
+        "height": 303.4375,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "worked_example": {
+        "chapter": "Pair the pieces",
+        "decoded_media_time": 110.233333
+      },
+      "workflow_artifact_id": 14974185304,
+      "workflow_artifact_sha256": "ffb4526561aff8a12411f98c5fcf1fba8d664f449838cba126b4ff7ffafdee91"
+    },
+    {
+      "profile": "ipad-portrait",
+      "engine": "webkit",
+      "viewport": {
+        "width": 810,
+        "height": 1080
+      },
+      "site": "http://127.0.0.1:8765/",
+      "sha256": "87e71ca9ae8e3355f9f092f05a7e4c0678313aa569bbc3b4cc63a200ff2cedd7",
+      "film": "http://127.0.0.1:8765/build/candidate/S012.mp4",
+      "duration": 137.333333,
+      "chapters": 8,
+      "normal_speed_unmuted_to_ended": false,
+      "practice_grading": "isolated fixture",
+      "immutable_replay": true,
+      "active_frame_css_pixels": {
+        "width": 663.125,
+        "height": 373,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "notebook_frame_css_pixels": {
+        "width": 733.125,
+        "height": 704.5,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "worked_example": {
+        "chapter": "Pair the pieces",
+        "decoded_media_time": 110.233333
+      },
+      "workflow_artifact_id": 14974142091,
+      "workflow_artifact_sha256": "953f83ea163730a4d68fb7b61b4c423202b66231dc5d77adf96dd9db52c1e617"
+    },
+    {
+      "profile": "ipad-landscape",
+      "engine": "webkit",
+      "viewport": {
+        "width": 1080,
+        "height": 810
+      },
+      "site": "http://127.0.0.1:8765/",
+      "sha256": "87e71ca9ae8e3355f9f092f05a7e4c0678313aa569bbc3b4cc63a200ff2cedd7",
+      "film": "http://127.0.0.1:8765/build/candidate/S012.mp4",
+      "duration": 137.333333,
+      "chapters": 8,
+      "normal_speed_unmuted_to_ended": false,
+      "practice_grading": "isolated fixture",
+      "immutable_replay": true,
+      "active_frame_css_pixels": {
+        "width": 597.390625,
+        "height": 336.03125,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "notebook_frame_css_pixels": {
+        "width": 958,
+        "height": 420.65625,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "worked_example": {
+        "chapter": "Pair the pieces",
+        "decoded_media_time": 110.233333
+      },
+      "workflow_artifact_id": 14973062505,
+      "workflow_artifact_sha256": "1d8a4f668acb8d8fec90fe5bb9b0643ee2c421c402f56de32c8322436b8402c6"
+    },
+    {
+      "profile": "pc",
+      "engine": "chromium",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "site": "http://127.0.0.1:8765/",
+      "sha256": "87e71ca9ae8e3355f9f092f05a7e4c0678313aa569bbc3b4cc63a200ff2cedd7",
+      "film": "http://127.0.0.1:8765/build/candidate/S012.mp4",
+      "duration": 137.333333,
+      "chapters": 8,
+      "normal_speed_unmuted_to_ended": false,
+      "practice_grading": "isolated fixture",
+      "immutable_replay": true,
+      "active_frame_css_pixels": {
+        "width": 654,
+        "height": 367.875,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "notebook_frame_css_pixels": {
+        "width": 958,
+        "height": 499.765625,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "worked_example": {
+        "chapter": "Pair the pieces",
+        "decoded_media_time": 110.233333
+      },
+      "workflow_artifact_id": 14970128830,
+      "workflow_artifact_sha256": "53a48fa6866053426502fec0a46ebeef5cbe2c20e752ddd6cdac111c3a38fc12"
+    },
+    {
+      "profile": "iphone-landscape",
+      "engine": "webkit",
+      "viewport": {
+        "width": 664,
+        "height": 390
+      },
+      "site": "http://127.0.0.1:8765/",
+      "sha256": "87e71ca9ae8e3355f9f092f05a7e4c0678313aa569bbc3b4cc63a200ff2cedd7",
+      "film": "http://127.0.0.1:8765/build/candidate/S012.mp4",
+      "duration": 137.333333,
+      "chapters": 8,
+      "normal_speed_unmuted_to_ended": false,
+      "practice_grading": "isolated fixture",
+      "immutable_replay": true,
+      "active_frame_css_pixels": {
+        "width": 357.109375,
+        "height": 200.859375,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "notebook_frame_css_pixels": {
+        "width": 395.515625,
+        "height": 222.46875,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "worked_example": {
+        "chapter": "Pair the pieces",
+        "decoded_media_time": 110.233333
+      },
+      "workflow_artifact_id": 14967975376,
+      "workflow_artifact_sha256": "ba4932225daed57e44e709a9e8a5a5f2aa9d8417e36ee47e8ca5b7492039b565"
+    }
+  ],
+  "pending_before_final_credit": [
+    "Deploy the integrated catalogue and learner-route changes to main Pages.",
+    "Verify the deployed gallery, current lesson and completed notebook on all five profiles, including the technique consumer on PC/iPad portrait.",
+    "Complete final audible/editorial acceptance of the deployed edition before changing its review-register credit."
+  ],
+  "immutable_release_verified": true,
+  "public_release_evidence": "review/S012-public-release-20261125.json",
+  "release_job_conclusion": "success",
+  "completed_before_final_credit": [
+    "Downloaded all six immutable public assets and checked their published digests; movie and guide match the reviewed candidate.",
+    "Integrated the returned guide, dedicated lesson and technique consumer while preserving question content and grading."
+  ],
+  "integrated_public_media_route_evidence": "review/S012-public-routes-20261125.json"
+}

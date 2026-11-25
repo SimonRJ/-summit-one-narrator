@@ -20,8 +20,8 @@ import { problemFigure } from "./problem-figures.js";
 import {mountLessonPager} from "./lesson-pager.js?v=responsive-20261113";
 import {learningScreens} from "./lesson-screenflow.js?v=data-audit-20261114";
 import {buildCourseNavigation} from "./course-menu.js?v=menu-20261113";
-import {mountCourseMenu} from "./course-menu-ui.js?v=full-lessons-20261125";
-import {introMediaSource,lessonIntroId,loadIntroductionCatalogue,introductionGuideHref} from "./lesson-introduction-media.js?v=full-lessons-20261125";
+import {mountCourseMenu} from "./course-menu-ui.js?v=priority-films-20261125";
+import {introMediaSource,lessonIntroId,loadIntroductionCatalogue,introductionGuideHref} from "./lesson-introduction-media.js?v=priority-films-20261125";
 
 const app=document.getElementById("app");
 const problemTemplate=document.getElementById("problemTemplate");
@@ -82,7 +82,16 @@ const revisedTeachingFilms={"T16.3":"score-notebook","T13.E":"measured-edge-notc
 function finalVideoUrl(videoId){
   const id=String(videoId||"");
   // Only concept/worked-example T videos are public. Every challenge solution is attempt-gated.
-  if(!/^T\d{2}\.(?:1|2|3|E)$/.test(id))return "";
+  if(!/^T(?:0[1-9]|1[0-8])\.(?:1|2|3|E)$/.test(id))return "";
+  const declared=teaching.find(item=>item.id===id)?.video_url;
+  if(declared!=null&&declared!==""){
+    // A released catalogue edition must name this same public film on this site.
+    // This also lets chapter-only releases update their cache token in one place.
+    const prefix="media/"+id+".mp4?v=";
+    if(typeof declared!=="string"||!declared.startsWith(prefix))return "";
+    return /^[a-z0-9][a-z0-9_-]*$/.test(declared.slice(prefix.length))?declared:"";
+  }
+  // Retain the approved editions for legacy catalogue rows without a video URL.
   if(openingFilmIds.includes(id))return "media/"+id+".mp4?v=t01-studio-v1";
   if(id==="T02.1")return "media/T02.1.mp4?v=studio-v4";
   if(id==="T02.2")return "media/T02.2.mp4?v=studio-v1";
@@ -212,8 +221,8 @@ async function boot(){
     user=await currentUser();
     if(!user){location.href="login.html";return}
     const introCatalogue=loadIntroductionCatalogue();
-    const [c,t,m,h,tax,ms,lm,rl,later]=await Promise.all([fetch("data/sessions-372.json").then(r=>r.json()),fetch("data/teaching-72.json").then(r=>r.json()),fetch("data/mawa-investigations-20.json?v=mawa-visits-20261121").then(r=>r.json()),fetch("data/rossmoyne-h23.json").then(r=>r.json()),fetch("data/taxonomy-52.json").then(r=>r.json()),fetch("data/milestones.json").then(r=>r.json()),fetch("data/lesson-challenges.json?v=upper-primary-audit-20261114").then(r=>r.json()),fetch("data/read-watch-practise.json?v=full-lessons-20261125").then(r=>{if(!r.ok)throw Error("Lesson text could not be loaded");return r.json()}),
-      fetch("data/read-watch-practise-later.json?v=full-lessons-20261125").then(r=>{
+    const [c,t,m,h,tax,ms,lm,rl,later]=await Promise.all([fetch("data/sessions-372.json").then(r=>r.json()),fetch("data/teaching-72.json?v=priority-films-20261125").then(r=>r.json()),fetch("data/mawa-investigations-20.json?v=mawa-visits-20261121").then(r=>r.json()),fetch("data/rossmoyne-h23.json").then(r=>r.json()),fetch("data/taxonomy-52.json").then(r=>r.json()),fetch("data/milestones.json").then(r=>r.json()),fetch("data/lesson-challenges.json?v=upper-primary-audit-20261114").then(r=>r.json()),fetch("data/read-watch-practise.json?v=priority-films-20261125").then(r=>{if(!r.ok)throw Error("Lesson text could not be loaded");return r.json()}),
+      fetch("data/read-watch-practise-later.json?v=priority-films-20261125").then(r=>{
         if(!r.ok)throw Error("The later lesson text could not be loaded");
         return r.json();
       })]);

@@ -1,0 +1,102 @@
+{
+  "checked_at_utc": "2026-11-24T23:42:43.535887+00:00",
+  "release_tag": "carry-reversal-reviewed-20261125-bcbd31159202",
+  "release_url": "https://github.com/SimonRJ/-summit-one-narrator/releases/tag/carry-reversal-reviewed-20261125-bcbd31159202",
+  "published_at_utc": "2026-11-24T23:10:40Z",
+  "source_commit": "bcbd31159202426b90d4ec7250edf43910dc8a37",
+  "workflow_run": 45488154406,
+  "release_job": 138819426221,
+  "release_job_conclusion": "success",
+  "method": "All twelve public asset bodies were downloaded independently and SHA-256 checked against the published GitHub release asset digests. Both movies were also compared with the exact verified candidate identities.",
+  "asset_count": 12,
+  "total_bytes": 38003868,
+  "assets": [
+    {
+      "name": "S009-guide.json",
+      "bytes": 2700,
+      "sha256": "6a1e31c0439a91c1a8ac360178334c1ae1b5b937b3ed6258bb7cb78fbd28b1ba"
+    },
+    {
+      "name": "S009-poster.jpg",
+      "bytes": 102262,
+      "sha256": "e843a828da40a2034b185a8a465a3b724073218ce4df338effc4589bbd6944e3"
+    },
+    {
+      "name": "S009-qa.json",
+      "bytes": 572,
+      "sha256": "911f6b4d4ff2e115288b852bb4a21d6c41f4ff1af3284b9f897307e50dfe25a8"
+    },
+    {
+      "name": "S009-recording.zip",
+      "bytes": 10566604,
+      "sha256": "33e0af29c418fe8b8b3105bff05126e82cc062ca448959b192483f3333e7e730"
+    },
+    {
+      "name": "S009.mp4",
+      "bytes": 7470927,
+      "sha256": "39d28fec11fe4cc1b1d1b840d01ab8d8b3ae3ccb6d184bf37c1ccf4e37c16ef6"
+    },
+    {
+      "name": "S009.vtt",
+      "bytes": 3466,
+      "sha256": "985c6f17fb272168144c811541fd8baba81b45d999abe067296fe1e9934072ce"
+    },
+    {
+      "name": "S010-guide.json",
+      "bytes": 2861,
+      "sha256": "e4291a2fbd901ec9d6ba9fb05f99a588cbf1182b0535ffeb7f0feb4c808fd82f"
+    },
+    {
+      "name": "S010-poster.jpg",
+      "bytes": 105443,
+      "sha256": "6f49927e420dcf9ec9646e50054142032ee45b78e2e95b0cc8884ae343caf70e"
+    },
+    {
+      "name": "S010-qa.json",
+      "bytes": 573,
+      "sha256": "d55ae6a057ec5953105e0b79cbf99b2330d867a311cb7d365ca265a032ee6b5c"
+    },
+    {
+      "name": "S010-recording.zip",
+      "bytes": 11323514,
+      "sha256": "7a1d5b2bdad48fcb1da0040509bdd8ac3c400aa9a3eb67eaac08c890e700789c"
+    },
+    {
+      "name": "S010.mp4",
+      "bytes": 8421078,
+      "sha256": "e8e2e6f697b00cd9401479a603bf6992c2538a107b3fbd519cac0e0b9b7f9a71"
+    },
+    {
+      "name": "S010.vtt",
+      "bytes": 3868,
+      "sha256": "84224085d387f5a7027bc32b20b2bb1d8d6c82a3a094485b32f8b0879f153878"
+    }
+  ],
+  "returned_guides_equal_integrated_guides": true,
+  "dedicated_slots": [
+    9,
+    10
+  ],
+  "technique_slots": [
+    228,
+    319
+  ],
+  "assignment_diff": {
+    "base_local_commit": "2f661c0829aebb0c3ea575ca3b933c7f52b3a163",
+    "equivalent_base_remote_commit": "0dfec081086f153023e2ab74861717d75dbaa779",
+    "only_changed_fields": [
+      "videoTitle",
+      "movie",
+      "filmUse",
+      "bridge"
+    ],
+    "all_other_lesson_fields_unchanged": true,
+    "lesson_and_question_ids_unchanged": true,
+    "grading_editions_unchanged": true,
+    "scope": "S009/S010 assignment integration only; subsequent S012 integration and temporary S102 bridge corrections have their own evidence."
+  },
+  "live_pages_integration_verified": false,
+  "final_editorial_credit": false,
+  "acceptance_limit": "A published immutable movie and local application integration are distinct from deployed-main verification and final complete editorial acceptance. The learner database was not accessed or modified by these checks.",
+  "integrated_public_media_route_evidence": "review/released-digit-routes-20261125.json"
+}

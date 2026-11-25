@@ -1,0 +1,1286 @@
+{
+  "scope": "Focused active-inline S009 seek in pinned WebKit 26.0 using iPhone 13 emulation and the required workspace proxy. Existing isolated learner backend. No physical-device claim and no app/player change.",
+  "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S009.mp4",
+  "sha256": "39d28fec11fe4cc1b1d1b840d01ab8d8b3ae3ccb6d184bf37c1ccf4e37c16ef6",
+  "bytes": 7470927,
+  "seek_target_seconds": 96.1286,
+  "required_decoded_frame_range_seconds": [
+    98.7286,
+    104.88
+  ],
+  "finding": "The original capture deadline is too short for the observed public-media seek loading in this WebKit/proxy environment. The same bytes and seek decode correctly locally, and the public URL also decodes and advances with the longer allowance. No application auto-pause or permanent decoder freeze is demonstrated.",
+  "request_timing_note": "Request times use the diagnostic monotonic clock. Response-observed times are recorded after Playwright obtains the response headers; these are observation timings, not packet-capture measurements. Per-video event times use a separate performance.now clock. Only host/path, Range, status, Content-Range and request timing are retained from network records. Native media-request cancellations occur in both the passing local case and public cases.",
+  "cases": {
+    "public": {
+      "result": "TIMEOUT",
+      "frame_deadline_seconds": 10,
+      "initial": {
+        "label": "initial-play-pause",
+        "at": 0.709,
+        "time": 0.654886994,
+        "paused": true,
+        "seeking": false,
+        "ready": 4,
+        "network": 1,
+        "error": null,
+        "buffered": [
+          [
+            0,
+            132.434
+          ]
+        ],
+        "seekable": [
+          [
+            0,
+            132.434
+          ]
+        ],
+        "frames": 14,
+        "lastFrame": 0.766666,
+        "lastFrameAt": 0.707,
+        "visibility": "visible",
+        "muted": true,
+        "rate": 1
+      },
+      "attempts": [
+        {
+          "stamp": null,
+          "state": {
+            "label": "attempt-1",
+            "at": 10.753,
+            "time": 96.12859999999999,
+            "paused": false,
+            "seeking": true,
+            "ready": 4,
+            "network": 1,
+            "error": null,
+            "buffered": [],
+            "seekable": [
+              [
+                0,
+                132.434
+              ]
+            ],
+            "frames": 14,
+            "lastFrame": 0.766666,
+            "lastFrameAt": 0.707,
+            "visibility": "visible",
+            "muted": true,
+            "rate": 1
+          }
+        },
+        {
+          "stamp": null,
+          "state": {
+            "label": "attempt-2",
+            "at": 20.765000000000008,
+            "time": 96.12859999999999,
+            "paused": false,
+            "seeking": false,
+            "ready": 4,
+            "network": 1,
+            "error": null,
+            "buffered": [],
+            "seekable": [
+              [
+                0,
+                132.434
+              ]
+            ],
+            "frames": 14,
+            "lastFrame": 0.766666,
+            "lastFrameAt": 0.707,
+            "visibility": "visible",
+            "muted": true,
+            "rate": 1
+          }
+        }
+      ],
+      "seek_started_at_seconds": 0.759,
+      "time_to_success_seconds": null,
+      "final": {
+        "label": "final",
+        "at": 40.794,
+        "time": 96.12859999999999,
+        "paused": false,
+        "seeking": false,
+        "ready": 4,
+        "network": 1,
+        "error": null,
+        "buffered": [],
+        "seekable": [
+          [
+            0,
+            132.434
+          ]
+        ],
+        "frames": 14,
+        "lastFrame": 0.766666,
+        "lastFrameAt": 0.707,
+        "visibility": "visible",
+        "muted": true,
+        "rate": 1
+      },
+      "media_events": [
+        {
+          "label": "play",
+          "at": 0.032,
+          "time": 0.015125292,
+          "paused": false,
+          "seeking": false,
+          "ready": 4,
+          "network": 1,
+          "error": null,
+          "buffered": [],
+          "seekable": [
+            [
+              0,
+              132.434
+            ]
+          ],
+          "frames": 1,
+          "lastFrame": 0.066666,
+          "lastFrameAt": 0.009,
+          "visibility": "visible",
+          "muted": true,
+          "rate": 1
+        },
+        {
+          "label": "playing",
+          "at": 0.033,
+          "time": 0.015125292,
+          "paused": false,
+          "seeking": false,
+          "ready": 4,
+          "network": 1,
+          "error": null,
+          "buffered": [],
+          "seekable": [
+            [
+              0,
+              132.434
+            ]
+          ],
+          "frames": 1,
+          "lastFrame": 0.066666,
+          "lastFrameAt": 0.009,
+          "visibility": "visible",
+          "muted": true,
+          "rate": 1
+        },
+        {
+          "label": "pause",
+          "at": 0.699,
+          "time": 0.654886994,
+          "paused": true,
+          "seeking": false,
+          "ready": 4,
+          "network": 1,
+          "error": null,
+          "buffered": [
+            [
+              0,
+              132.434
+            ]
+          ],
+          "seekable": [
+            [
+              0,
+              132.434
+            ]
+          ],
+          "frames": 13,
+          "lastFrame": 0.733333,
+          "lastFrameAt": 0.69,
+          "visibility": "visible",
+          "muted": true,
+          "rate": 1
+        },
+        {
+          "label": "play",
+          "at": 0.727,
+          "time": 0.684538801,
+          "paused": false,
+          "seeking": false,
+          "ready": 4,
+          "network": 1,
+          "error": null,
+          "buffered": [
+            [
+              0,
+              132.434
+            ]
+          ],
+          "seekable": [
+            [
+              0,
+              132.434
+            ]
+          ],
+          "frames": 14,
+          "lastFrame": 0.766666,
+          "lastFrameAt": 0.707,
+          "visibility": "visible",
+          "muted": true,
+          "rate": 1
+        },
+        {
+          "label": "playing",
+          "at": 0.727,
+          "time": 0.684538801,
+          "paused": false,
+          "seeking": false,
+          "ready": 4,
+          "network": 1,
+          "error": null,
+          "buffered": [
+            [
+              0,
+              132.434
+            ]
+          ],
+          "seekable": [
+            [
+              0,
+              132.434
+            ]
+          ],
+          "frames": 14,
+          "lastFrame": 0.766666,
+          "lastFrameAt": 0.707,
+          "visibility": "visible",
+          "muted": true,
+          "rate": 1
+        },
+        {
+          "label": "seeking",
+          "at": 0.759,
+          "time": 96.12859999999999,
+          "paused": false,
+          "seeking": true,
+          "ready": 4,
+          "network": 1,
+          "error": null,
+          "buffered": [],
+          "seekable": [
+            [
+              0,
+              132.434
+            ]
+          ],
+          "frames": 14,
+          "lastFrame": 0.766666,
+          "lastFrameAt": 0.707,
+          "visibility": "visible",
+          "muted": true,
+          "rate": 1
+        },
+        {
+          "label": "seeking",
+          "at": 10.76,
+          "time": 96.12859999999999,
+          "paused": false,
+          "seeking": false,
+          "ready": 4,
+          "network": 1,
+          "error": null,
+          "buffered": [],
+          "seekable": [
+            [
+              0,
+              132.434
+            ]
+          ],
+          "frames": 14,
+          "lastFrame": 0.766666,
+          "lastFrameAt": 0.707,
+          "visibility": "visible",
+          "muted": true,
+          "rate": 1
+        },
+        {
+          "label": "seeked",
+          "at": 10.761,
+          "time": 96.12859999999999,
+          "paused": false,
+          "seeking": false,
+          "ready": 4,
+          "network": 1,
+          "error": null,
+          "buffered": [],
+          "seekable": [
+            [
+              0,
+              132.434
+            ]
+          ],
+          "frames": 14,
+          "lastFrame": 0.766666,
+          "lastFrameAt": 0.707,
+          "visibility": "visible",
+          "muted": true,
+          "rate": 1
+        },
+        {
+          "label": "pause",
+          "at": 35.784,
+          "time": 96.12859999999999,
+          "paused": false,
+          "seeking": false,
+          "ready": 4,
+          "network": 1,
+          "error": null,
+          "buffered": [],
+          "seekable": [
+            [
+              0,
+              132.434
+            ]
+          ],
+          "frames": 14,
+          "lastFrame": 0.766666,
+          "lastFrameAt": 0.707,
+          "visibility": "visible",
+          "muted": true,
+          "rate": 1
+        },
+        {
+          "label": "play",
+          "at": 35.785,
+          "time": 96.12859999999999,
+          "paused": false,
+          "seeking": false,
+          "ready": 4,
+          "network": 1,
+          "error": null,
+          "buffered": [],
+          "seekable": [
+            [
+              0,
+              132.434
+            ]
+          ],
+          "frames": 14,
+          "lastFrame": 0.766666,
+          "lastFrameAt": 0.707,
+          "visibility": "visible",
+          "muted": true,
+          "rate": 1
+        },
+        {
+          "label": "playing",
+          "at": 35.785,
+          "time": 96.12859999999999,
+          "paused": false,
+          "seeking": false,
+          "ready": 4,
+          "network": 1,
+          "error": null,
+          "buffered": [],
+          "seekable": [
+            [
+              0,
+              132.434
+            ]
+          ],
+          "frames": 14,
+          "lastFrame": 0.766666,
+          "lastFrameAt": 0.707,
+          "visibility": "visible",
+          "muted": true,
+          "rate": 1
+        }
+      ],
+      "range_requests": [
+        {
+          "host": "github.com",
+          "path": "/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S009.mp4",
+          "range": null,
+          "requested_at_seconds": 15.64,
+          "finished_at_seconds": 15.643,
+          "response_observed_at_seconds": 15.656,
+          "status": 0,
+          "content_range": null
+        },
+        {
+          "host": "github.com",
+          "path": "/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S009.mp4",
+          "range": null,
+          "requested_at_seconds": 15.82,
+          "finished_at_seconds": 23.011,
+          "response_observed_at_seconds": 23.012,
+          "status": 302,
+          "content_range": null
+        },
+        {
+          "host": "github.com",
+          "path": "/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S009.mp4",
+          "range": "bytes=657792-",
+          "requested_at_seconds": 32.065,
+          "finished_at_seconds": 32.425,
+          "response_observed_at_seconds": 32.425,
+          "status": 302,
+          "content_range": null
+        },
+        {
+          "host": "release-assets.githubusercontent.com",
+          "path": "/github-production-release-asset/1453226447/b7b671fc-f24a-4ebb-9cc1-83277a61e859",
+          "range": "bytes=657792-",
+          "requested_at_seconds": 32.425,
+          "response_observed_at_seconds": 32.617,
+          "status": 206,
+          "content_range": "bytes 657792-7470926/7470927",
+          "cancelled_at_seconds": 32.686
+        },
+        {
+          "host": "github.com",
+          "path": "/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S009.mp4",
+          "range": "bytes=5341570-",
+          "requested_at_seconds": 33.367,
+          "finished_at_seconds": 42.852,
+          "response_observed_at_seconds": 42.853,
+          "status": 302,
+          "content_range": null
+        },
+        {
+          "host": "release-assets.githubusercontent.com",
+          "path": "/github-production-release-asset/1453226447/b7b671fc-f24a-4ebb-9cc1-83277a61e859",
+          "range": "bytes=5341570-",
+          "requested_at_seconds": 42.853,
+          "cancelled_at_seconds": 67.218,
+          "response_observed_at_seconds": 67.224,
+          "status": 206,
+          "content_range": "bytes 5341570-7470926/7470927"
+        },
+        {
+          "host": "github.com",
+          "path": "/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S009.mp4",
+          "range": "bytes=5341570-",
+          "requested_at_seconds": 67.218
+        }
+      ],
+      "passive_after_15s": {
+        "label": "passive-after-15s",
+        "at": 35.771,
+        "time": 96.12859999999999,
+        "paused": false,
+        "seeking": false,
+        "ready": 4,
+        "network": 1,
+        "error": null,
+        "buffered": [],
+        "seekable": [
+          [
+            0,
+            132.434
+          ]
+        ],
+        "frames": 14,
+        "lastFrame": 0.766666,
+        "lastFrameAt": 0.707,
+        "visibility": "visible",
+        "muted": true,
+        "rate": 1
+      },
+      "after_pause_play": {
+        "label": "pause-play-after-5s",
+        "at": 40.791,
+        "time": 96.12859999999999,
+        "paused": false,
+        "seeking": false,
+        "ready": 4,
+        "network": 1,
+        "error": null,
+        "buffered": [],
+        "seekable": [
+          [
+            0,
+            132.434
+          ]
+        ],
+        "frames": 14,
+        "lastFrame": 0.766666,
+        "lastFrameAt": 0.707,
+        "visibility": "visible",
+        "muted": true,
+        "rate": 1
+      }
+    },
+    "local": {
+      "result": "PASS",
+      "frame_deadline_seconds": 10,
+      "initial": {
+        "label": "initial-play-pause",
+        "at": 0.739,
+        "time": 0.670023142,
+        "paused": true,
+        "seeking": false,
+        "ready": 4,
+        "network": 1,
+        "error": null,
+        "buffered": [
+          [
+            0,
+            132.434
+          ]
+        ],
+        "seekable": [
+          [
+            0,
+            132.434
+          ]
+        ],
+        "frames": 12,
+        "lastFrame": 0.8,
+        "lastFrameAt": 0.738,
+        "visibility": "visible",
+        "muted": true,
+        "rate": 1
+      },
+      "attempts": [
+        {
+          "stamp": 98.733333,
+          "state": {
+            "label": "attempt-1",
+            "at": 3.505,
+            "time": 98.685825514,
+            "paused": false,
+            "seeking": false,
+            "ready": 2,
+            "network": 2,
+            "error": null,
+            "buffered": [
+              [
+                0,
+                132.434
+              ]
+            ],
+            "seekable": [
+              [
+                0,
+                132.434
+              ]
+            ],
+            "frames": 44,
+            "lastFrame": 98.733333,
+            "lastFrameAt": 3.486,
+            "visibility": "visible",
+            "muted": true,
+            "rate": 1
+          }
+        }
+      ],
+      "seek_started_at_seconds": 0.8280000000000036,
+      "time_to_success_seconds": 2.677,
+      "final": {
+        "label": "final",
+        "at": 3.509,
+        "time": 98.690244798,
+        "paused": false,
+        "seeking": false,
+        "ready": 2,
+        "network": 2,
+        "error": null,
+        "buffered": [
+          [
+            0,
+            132.434
+          ]
+        ],
+        "seekable": [
+          [
+            0,
+            132.434
+          ]
+        ],
+        "frames": 44,
+        "lastFrame": 98.733333,
+        "lastFrameAt": 3.486,
+        "visibility": "visible",
+        "muted": true,
+        "rate": 1
+      },
+      "media_events": [
+        {
+          "label": "play",
+          "at": 0.02,
+          "time": 0.010092076,
+          "paused": false,
+          "seeking": false,
+          "ready": 4,
+          "network": 1,
+          "error": null,
+          "buffered": [],
+          "seekable": [
+            [
+              0,
+              132.434
+            ]
+          ],
+          "frames": 1,
+          "lastFrame": 0.066666,
+          "lastFrameAt": 0.013,
+          "visibility": "visible",
+          "muted": true,
+          "rate": 1
+        },
+        {
+          "label": "playing",
+          "at": 0.021,
+          "time": 0.010092076,
+          "paused": false,
+          "seeking": false,
+          "ready": 4,
+          "network": 1,
+          "error": null,
+          "buffered": [],
+          "seekable": [
+            [
+              0,
+              132.434
+            ]
+          ],
+          "frames": 1,
+          "lastFrame": 0.066666,
+          "lastFrameAt": 0.013,
+          "visibility": "visible",
+          "muted": true,
+          "rate": 1
+        },
+        {
+          "label": "pause",
+          "at": 0.7260000000000036,
+          "time": 0.670023142,
+          "paused": true,
+          "seeking": false,
+          "ready": 4,
+          "network": 1,
+          "error": null,
+          "buffered": [
+            [
+              0,
+              132.434
+            ]
+          ],
+          "seekable": [
+            [
+              0,
+              132.434
+            ]
+          ],
+          "frames": 11,
+          "lastFrame": 0.766666,
+          "lastFrameAt": 0.719,
+          "visibility": "visible",
+          "muted": true,
+          "rate": 1
+        },
+        {
+          "label": "play",
+          "at": 0.781,
+          "time": 0.713689313,
+          "paused": false,
+          "seeking": false,
+          "ready": 4,
+          "network": 1,
+          "error": null,
+          "buffered": [
+            [
+              0,
+              132.434
+            ]
+          ],
+          "seekable": [
+            [
+              0,
+              132.434
+            ]
+          ],
+          "frames": 12,
+          "lastFrame": 0.8,
+          "lastFrameAt": 0.738,
+          "visibility": "visible",
+          "muted": true,
+          "rate": 1
+        },
+        {
+          "label": "playing",
+          "at": 0.781,
+          "time": 0.713689313,
+          "paused": false,
+          "seeking": false,
+          "ready": 4,
+          "network": 1,
+          "error": null,
+          "buffered": [
+            [
+              0,
+              132.434
+            ]
+          ],
+          "seekable": [
+            [
+              0,
+              132.434
+            ]
+          ],
+          "frames": 12,
+          "lastFrame": 0.8,
+          "lastFrameAt": 0.738,
+          "visibility": "visible",
+          "muted": true,
+          "rate": 1
+        },
+        {
+          "label": "seeking",
+          "at": 0.8280000000000036,
+          "time": 96.12859999999999,
+          "paused": false,
+          "seeking": true,
+          "ready": 4,
+          "network": 1,
+          "error": null,
+          "buffered": [],
+          "seekable": [
+            [
+              0,
+              132.434
+            ]
+          ],
+          "frames": 12,
+          "lastFrame": 0.8,
+          "lastFrameAt": 0.738,
+          "visibility": "visible",
+          "muted": true,
+          "rate": 1
+        },
+        {
+          "label": "waiting",
+          "at": 0.949,
+          "time": 96.12952829,
+          "paused": false,
+          "seeking": false,
+          "ready": 2,
+          "network": 2,
+          "error": null,
+          "buffered": [
+            [
+              0,
+              132.434
+            ]
+          ],
+          "seekable": [
+            [
+              0,
+              132.434
+            ]
+          ],
+          "frames": 12,
+          "lastFrame": 0.8,
+          "lastFrameAt": 0.738,
+          "visibility": "visible",
+          "muted": true,
+          "rate": 1
+        },
+        {
+          "label": "seeked",
+          "at": 0.949,
+          "time": 96.12952829,
+          "paused": false,
+          "seeking": false,
+          "ready": 2,
+          "network": 2,
+          "error": null,
+          "buffered": [
+            [
+              0,
+              132.434
+            ]
+          ],
+          "seekable": [
+            [
+              0,
+              132.434
+            ]
+          ],
+          "frames": 12,
+          "lastFrame": 0.8,
+          "lastFrameAt": 0.738,
+          "visibility": "visible",
+          "muted": true,
+          "rate": 1
+        },
+        {
+          "label": "progress",
+          "at": 1.299,
+          "time": 96.479597089,
+          "paused": false,
+          "seeking": false,
+          "ready": 2,
+          "network": 2,
+          "error": null,
+          "buffered": [
+            [
+              0,
+              132.434
+            ]
+          ],
+          "seekable": [
+            [
+              0,
+              132.434
+            ]
+          ],
+          "frames": 15,
+          "lastFrame": 96.5,
+          "lastFrameAt": 1.274,
+          "visibility": "visible",
+          "muted": true,
+          "rate": 1
+        }
+      ],
+      "range_requests": [
+        {
+          "host": "127.0.0.1",
+          "path": "/__master__/S009.mp4",
+          "range": null,
+          "requested_at_seconds": 19.337,
+          "finished_at_seconds": 19.34,
+          "response_observed_at_seconds": 19.342,
+          "status": 0,
+          "content_range": null
+        },
+        {
+          "host": "127.0.0.1",
+          "path": "/__master__/S009.mp4",
+          "range": null,
+          "requested_at_seconds": 19.518,
+          "response_observed_at_seconds": 19.549,
+          "status": 200,
+          "content_range": null,
+          "cancelled_at_seconds": 19.627
+        },
+        {
+          "host": "127.0.0.1",
+          "path": "/__master__/S009.mp4",
+          "range": "bytes=5341570-",
+          "requested_at_seconds": 20.871,
+          "cancelled_at_seconds": 20.91,
+          "response_observed_at_seconds": 20.91,
+          "status": 206,
+          "content_range": "bytes 5341570-7470926/7470927"
+        },
+        {
+          "host": "127.0.0.1",
+          "path": "/__master__/S009.mp4",
+          "range": "bytes=5341570-",
+          "requested_at_seconds": 20.91,
+          "response_observed_at_seconds": 20.925,
+          "status": 206,
+          "content_range": "bytes 5341570-7470926/7470927",
+          "finished_at_seconds": 20.938
+        }
+      ],
+      "master": {
+        "bytes": 7470927,
+        "sha256": "39d28fec11fe4cc1b1d1b840d01ab8d8b3ae3ccb6d184bf37c1ccf4e37c16ef6"
+      }
+    },
+    "public60": {
+      "result": "PASS",
+      "frame_deadline_seconds": 60,
+      "initial": {
+        "label": "initial-play-pause",
+        "at": 0.905,
+        "time": 0.786747861,
+        "paused": true,
+        "seeking": false,
+        "ready": 4,
+        "network": 1,
+        "error": null,
+        "buffered": [
+          [
+            0,
+            132.434
+          ]
+        ],
+        "seekable": [
+          [
+            0,
+            132.434
+          ]
+        ],
+        "frames": 6,
+        "lastFrame": 0.833333,
+        "lastFrameAt": 0.843,
+        "visibility": "visible",
+        "muted": true,
+        "rate": 1
+      },
+      "attempts": [
+        {
+          "stamp": 98.733333,
+          "state": {
+            "label": "attempt-1",
+            "at": 23.368,
+            "time": 98.682593406,
+            "paused": false,
+            "seeking": false,
+            "ready": 2,
+            "network": 2,
+            "error": null,
+            "buffered": [
+              [
+                0,
+                132.434
+              ]
+            ],
+            "seekable": [
+              [
+                0,
+                132.434
+              ]
+            ],
+            "frames": 83,
+            "lastFrame": 98.733333,
+            "lastFrameAt": 23.359,
+            "visibility": "visible",
+            "muted": true,
+            "rate": 1
+          }
+        }
+      ],
+      "seek_started_at_seconds": 0.987,
+      "time_to_success_seconds": 22.381,
+      "final": {
+        "label": "final",
+        "at": 23.377,
+        "time": 98.691076686,
+        "paused": false,
+        "seeking": false,
+        "ready": 2,
+        "network": 2,
+        "error": null,
+        "buffered": [
+          [
+            0,
+            132.434
+          ]
+        ],
+        "seekable": [
+          [
+            0,
+            132.434
+          ]
+        ],
+        "frames": 83,
+        "lastFrame": 98.733333,
+        "lastFrameAt": 23.359,
+        "visibility": "visible",
+        "muted": true,
+        "rate": 1
+      },
+      "media_events": [
+        {
+          "label": "play",
+          "at": 0.079,
+          "time": 0.021956264,
+          "paused": false,
+          "seeking": false,
+          "ready": 4,
+          "network": 1,
+          "error": null,
+          "buffered": [],
+          "seekable": [
+            [
+              0,
+              132.434
+            ]
+          ],
+          "frames": 1,
+          "lastFrame": 0.066666,
+          "lastFrameAt": 0.014,
+          "visibility": "visible",
+          "muted": true,
+          "rate": 1
+        },
+        {
+          "label": "playing",
+          "at": 0.079,
+          "time": 0.021956264,
+          "paused": false,
+          "seeking": false,
+          "ready": 4,
+          "network": 1,
+          "error": null,
+          "buffered": [],
+          "seekable": [
+            [
+              0,
+              132.434
+            ]
+          ],
+          "frames": 1,
+          "lastFrame": 0.066666,
+          "lastFrameAt": 0.014,
+          "visibility": "visible",
+          "muted": true,
+          "rate": 1
+        },
+        {
+          "label": "pause",
+          "at": 0.896,
+          "time": 0.786747861,
+          "paused": true,
+          "seeking": false,
+          "ready": 4,
+          "network": 1,
+          "error": null,
+          "buffered": [
+            [
+              0,
+              132.434
+            ]
+          ],
+          "seekable": [
+            [
+              0,
+              132.434
+            ]
+          ],
+          "frames": 6,
+          "lastFrame": 0.833333,
+          "lastFrameAt": 0.843,
+          "visibility": "visible",
+          "muted": true,
+          "rate": 1
+        },
+        {
+          "label": "play",
+          "at": 0.928,
+          "time": 0.843064348,
+          "paused": false,
+          "seeking": false,
+          "ready": 4,
+          "network": 1,
+          "error": null,
+          "buffered": [
+            [
+              0,
+              132.434
+            ]
+          ],
+          "seekable": [
+            [
+              0,
+              132.434
+            ]
+          ],
+          "frames": 6,
+          "lastFrame": 0.833333,
+          "lastFrameAt": 0.843,
+          "visibility": "visible",
+          "muted": true,
+          "rate": 1
+        },
+        {
+          "label": "playing",
+          "at": 0.928,
+          "time": 0.843064348,
+          "paused": false,
+          "seeking": false,
+          "ready": 4,
+          "network": 1,
+          "error": null,
+          "buffered": [
+            [
+              0,
+              132.434
+            ]
+          ],
+          "seekable": [
+            [
+              0,
+              132.434
+            ]
+          ],
+          "frames": 6,
+          "lastFrame": 0.833333,
+          "lastFrameAt": 0.843,
+          "visibility": "visible",
+          "muted": true,
+          "rate": 1
+        },
+        {
+          "label": "seeking",
+          "at": 0.987,
+          "time": 96.12859999999999,
+          "paused": false,
+          "seeking": true,
+          "ready": 4,
+          "network": 1,
+          "error": null,
+          "buffered": [],
+          "seekable": [
+            [
+              0,
+              132.434
+            ]
+          ],
+          "frames": 6,
+          "lastFrame": 0.833333,
+          "lastFrameAt": 0.843,
+          "visibility": "visible",
+          "muted": true,
+          "rate": 1
+        },
+        {
+          "label": "waiting",
+          "at": 20.816,
+          "time": 96.12997321,
+          "paused": false,
+          "seeking": false,
+          "ready": 2,
+          "network": 2,
+          "error": null,
+          "buffered": [
+            [
+              0,
+              132.434
+            ]
+          ],
+          "seekable": [
+            [
+              0,
+              132.434
+            ]
+          ],
+          "frames": 7,
+          "lastFrame": 0.933333,
+          "lastFrameAt": 0.994,
+          "visibility": "visible",
+          "muted": true,
+          "rate": 1
+        },
+        {
+          "label": "seeked",
+          "at": 20.816,
+          "time": 96.12997321,
+          "paused": false,
+          "seeking": false,
+          "ready": 2,
+          "network": 2,
+          "error": null,
+          "buffered": [
+            [
+              0,
+              132.434
+            ]
+          ],
+          "seekable": [
+            [
+              0,
+              132.434
+            ]
+          ],
+          "frames": 7,
+          "lastFrame": 0.933333,
+          "lastFrameAt": 0.994,
+          "visibility": "visible",
+          "muted": true,
+          "rate": 1
+        },
+        {
+          "label": "progress",
+          "at": 21.165,
+          "time": 96.478935718,
+          "paused": false,
+          "seeking": false,
+          "ready": 2,
+          "network": 2,
+          "error": null,
+          "buffered": [
+            [
+              0,
+              132.434
+            ]
+          ],
+          "seekable": [
+            [
+              0,
+              132.434
+            ]
+          ],
+          "frames": 18,
+          "lastFrame": 96.533333,
+          "lastFrameAt": 21.162,
+          "visibility": "visible",
+          "muted": true,
+          "rate": 1
+        }
+      ],
+      "range_requests": [
+        {
+          "host": "github.com",
+          "path": "/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S009.mp4",
+          "range": null,
+          "requested_at_seconds": 7.834,
+          "finished_at_seconds": 7.841,
+          "response_observed_at_seconds": 7.841,
+          "status": 0,
+          "content_range": null
+        },
+        {
+          "host": "github.com",
+          "path": "/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S009.mp4",
+          "range": null,
+          "requested_at_seconds": 7.929,
+          "finished_at_seconds": 13.785,
+          "response_observed_at_seconds": 13.785,
+          "status": 302,
+          "content_range": null
+        },
+        {
+          "host": "github.com",
+          "path": "/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S009.mp4",
+          "range": "bytes=5341570-",
+          "requested_at_seconds": 25.205,
+          "finished_at_seconds": 25.602,
+          "response_observed_at_seconds": 25.602,
+          "status": 302,
+          "content_range": null
+        },
+        {
+          "host": "release-assets.githubusercontent.com",
+          "path": "/github-production-release-asset/1453226447/b7b671fc-f24a-4ebb-9cc1-83277a61e859",
+          "range": "bytes=5341570-",
+          "requested_at_seconds": 25.602,
+          "cancelled_at_seconds": 25.814,
+          "response_observed_at_seconds": 25.814,
+          "status": 206,
+          "content_range": "bytes 5341570-7470926/7470927"
+        },
+        {
+          "host": "github.com",
+          "path": "/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S009.mp4",
+          "range": "bytes=5341570-",
+          "requested_at_seconds": 25.814,
+          "finished_at_seconds": 35.351,
+          "response_observed_at_seconds": 35.352,
+          "status": 302,
+          "content_range": null
+        },
+        {
+          "host": "release-assets.githubusercontent.com",
+          "path": "/github-production-release-asset/1453226447/b7b671fc-f24a-4ebb-9cc1-83277a61e859",
+          "range": "bytes=5341570-",
+          "requested_at_seconds": 35.352,
+          "response_observed_at_seconds": 44.894,
+          "status": 206,
+          "content_range": "bytes 5341570-7470926/7470927",
+          "cancelled_at_seconds": 44.952
+        }
+      ]
+    }
+  }
+}

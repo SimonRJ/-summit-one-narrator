@@ -428,7 +428,7 @@
       },
       "intro": "In a letter sum, AB represents a number with A tens and B ones. Every appearance of A represents the same digit. When two ones digits add to ten or more, carry one ten into the next column.",
       "recap": "Write the units digit and mark the carry above the tens column. When the sum of two two-digit numbers has three digits, the hundreds digit must be 1. Put the completed numbers back into the original sum and check the rules about different letters.",
-      "bridge": "In the film, follow the ten ones when two numbers ending in 5 are added. Which column receives the extra ten? Later, what does the hundreds digit tell you before you try a single tens digit?"
+      "bridge": "Track the sleeve that crosses from the units drawer into the tens drawer. Later, read the hundreds drawer first."
     },
     "S045": {
       "example": {
@@ -645,7 +645,8 @@
         ],
         "prediction": "Which operation takes you back from 38 to the original number?"
       },
-      "recap": "Write any carried ten above the next column. After filling the digits, calculate the complete sum or product and check the conditions on the letters. Two different letters may be required to have different digits."
+      "recap": "Write any carried ten above the next column. After filling the digits, calculate the complete sum or product and check the conditions on the letters. Two different letters may be required to have different digits.",
+      "bridge": "In the ticket inspection, use the zero in the units column to force the missing digit. Then watch why 51 + 59 is rejected despite adding correctly."
     },
     "S330": {
       "example": {
@@ -727,7 +728,7 @@
         "prediction": "Track the 2 on its own. Does its value rise or fall when 23 becomes 32?"
       },
       "recap": "For a reversal, keep the subtraction in the order the question gives. For a letter sum, mark each carry. Finally, put the digits back into every position and check any restrictions on zero or repeated digits.",
-      "bridge": "When the film swaps 26 and 62, which digit gains the most value? In the final addition, pause at the first candidate: its sum is correct, but which two letters would have to share a digit?"
+      "bridge": "Follow the two digits when the ticket turns. At inspection, compare both the printed sum and the letters that received its digits."
     },
     "S011": {
       "intro": "Factor 50 as 2 × 5 × 5. To make two identical whole-number factors, put one 5 on each side. What happens to the 2? Tracking each copy of a prime will tell you which numbers are squares.",
@@ -1241,6 +1242,7 @@
       }
     },
     "S102": {
+      "bridge": "Keep the hundreds digit fixed and swap tens and units: 153 becomes 135. The film’s phrase “two end digits” is incorrect here. Count the printed threes in each column separately.",
       "example": {
         "prediction": "Which label supplies a 2 in both columns?"
       }
@@ -1707,7 +1709,8 @@
       "example": {
         "prediction": "Split the sum of the eights into tens and ones. Which column receives each part?"
       },
-      "intro": "Add 8 + 8 in the units column. The result, 16, has one ten to send to the next column and six units to leave behind. In a letter puzzle, either digit can become a clue."
+      "intro": "Add 8 + 8 in the units column. The result, 16, has one ten to send to the next column and six units to leave behind. In a letter puzzle, either digit can become a clue.",
+      "bridge": "When eight and eight make sixteen, follow the six loose units and the sleeve worth one ten. Where does each go before the tens are added?"
     },
     "S229": {
       "example": {
@@ -1980,6 +1983,7 @@
       "recap": "Locate the small cubes first. Face interiors stop one place short of each edge, edge interiors stop one place short of each corner, and clean cubes lie one layer below every painted face."
     },
     "S296": {
+      "bridge": "For the multiples-of-nine count, keep hundreds fixed and swap tens and units: 153 becomes 135. The film’s phrase “two end digits” is incorrect here. Which digit choices force the missing digit?",
       "example": {
         "prediction": "Starting with the digit 4, what totals could the two digits reach?"
       },

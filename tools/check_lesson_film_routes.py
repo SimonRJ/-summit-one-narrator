@@ -35,6 +35,22 @@ async def fits(page):
     assert dims['footerTop'] >= -2 and dims['footerBottom'] <= dims['height'] + 2, dims
 
 
+async def expect_bridge(page, bridge):
+    # KaTeX retains MathML, its TeX annotation and visual HTML for one expression.
+    # Read the authored expression once; raw textContent repeats those layers.
+    await page.wait_for_function("""expected => {
+      const source = document.querySelector('.rwl-bridge');
+      if (!source) return false;
+      const copy = source.cloneNode(true);
+      for (const math of copy.querySelectorAll('.katex')) {
+        const annotation = math.querySelector('annotation[encoding="application/x-tex"]');
+        if (annotation) math.replaceWith(document.createTextNode(annotation.textContent));
+      }
+      const normalise = text => text.replace(/\\s+/g, ' ').trim();
+      return normalise(copy.textContent).includes(normalise(expected));
+    }""", arg=bridge, timeout=20000)
+
+
 async def verify_media(page, player, movie, seconds):
     await player.wait_for()
     await page.wait_for_function("""([id, url]) => {
@@ -88,7 +104,9 @@ async def capture_worked_example(player, guide, output):
     for _ in range(2):
         stamp = await player.evaluate("""(v, [target, settle, end]) => new Promise(resolve => {
           let handle;
-          const timer = setTimeout(() => { v.cancelVideoFrameCallback(handle); resolve(null); }, 10000);
+          // A remote seek can start a redirected byte-range request even when
+          // WebKit reports the whole movie buffered. Match metadata's allowance.
+          const timer = setTimeout(() => { v.cancelVideoFrameCallback(handle); resolve(null); }, 60000);
           function frame(now, metadata) {
             const t = metadata.mediaTime;
             if (!v.seeking && t >= target + settle && t < end) {
@@ -190,7 +208,7 @@ async def verify(site, lesson, profile, digest, output, *, consumer_slot=None):
                                              timeout=(guide['seconds'] + 40) * 1000)
             await page.goto(site + f'?fixtureSlot={slot}', wait_until='domcontentloaded')
             await page.locator('#continue').click()
-            await expect(page.locator('.rwl-bridge')).to_contain_text(bridge, timeout=20000)
+            await expect_bridge(page, bridge)
             diagram = page.locator('.rwl-opening-figure')
             if await diagram.count():
                 await diagram.evaluate('async figure => { await figure.decode(); }')

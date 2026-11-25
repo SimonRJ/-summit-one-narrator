@@ -1,4 +1,4 @@
-import {introductionCatalogueComplete,introMediaSource,loadIntroductionCatalogue,loadIntroductionDetails} from "./lesson-introduction-media.js?v=full-lessons-20261125";
+import {introductionCatalogueComplete,introMediaSource,loadIntroductionCatalogue,loadIntroductionDetails} from "./lesson-introduction-media.js?v=priority-films-20261125";
 
 const formatTime = value => Math.floor(value / 60) + ":" + String(Math.floor(value % 60)).padStart(2,"0");
 const watchHref = slot => "watch-lesson-intro.html?slot=" + slot;
@@ -79,7 +79,8 @@ async function showVideo(route) {
   player.poster = media.poster;
   const chapterNote = {
     "S019-Intro-Illustrated.mp4": "At 0:45 the two squares removed are the two leftmost squares of the top row. The domino shown fits the two squares that remain in that row.",
-    "S020-Intro-Illustrated.mp4": "At 2:18, twelve full cycles account for powers 1 to 48. The next exponent is 49. It occupies position 1 in the next cycle."
+    "S020-Intro-Illustrated.mp4": "At 2:18, twelve full cycles account for powers 1 to 48. The next exponent is 49. It occupies position 1 in the next cycle.",
+    "S102-Intro.mp4": "Correction: keep the hundreds digit fixed and swap tens and units, so 153 becomes 135. The film’s phrase “two end digits” is incorrect here."
   }[new URL(media.movie, document.baseURI).pathname.split("/").pop()];
   if (chapterNote) player.after(element("p", chapterNote));
 

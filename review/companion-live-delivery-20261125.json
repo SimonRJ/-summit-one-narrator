@@ -1,0 +1,180 @@
+{
+  "checked_at_utc": "2026-11-25T00:02:07.231874+00:00",
+  "site": "https://simonrj.github.io/-summit-one-narrator/",
+  "source_commit": "0dfec081086f153023e2ab74861717d75dbaa779",
+  "expected_movie_sha256": "e2f9653a6e0e2d7d6192bbf897e4dd22b8add0becbf2e70d8eb007bafbb23ef6",
+  "files": [
+    {
+      "path": "index.html",
+      "url": "https://simonrj.github.io/-summit-one-narrator/index.html",
+      "http_status": 200,
+      "bytes": 4379,
+      "sha256": "6c2bbe3aade4013245c7aa99e1d2e6b6e7a9724e8f830ff0aeb886f5bc7991b7",
+      "expected_sha256": "6c2bbe3aade4013245c7aa99e1d2e6b6e7a9724e8f830ff0aeb886f5bc7991b7",
+      "exact_match": true,
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Content-Length": "4379",
+        "ETag": "\"6b062363-111b\"",
+        "Last-Modified": "Tue, 24 Nov 2026 23:53:07 GMT",
+        "Age": "0"
+      }
+    },
+    {
+      "path": "app-main.js",
+      "url": "https://simonrj.github.io/-summit-one-narrator/app-main.js?v=companion-routes-20261125",
+      "http_status": 200,
+      "bytes": 85162,
+      "sha256": "943d619ddc33e43d3793dd0c0fb006a0386af2ebefc958cbe50bbb74867ec2c8",
+      "expected_sha256": "943d619ddc33e43d3793dd0c0fb006a0386af2ebefc958cbe50bbb74867ec2c8",
+      "exact_match": true,
+      "headers": {
+        "Content-Type": "application/javascript; charset=utf-8",
+        "Content-Length": "85162",
+        "ETag": "\"6b062363-14caa\"",
+        "Last-Modified": "Tue, 24 Nov 2026 23:53:07 GMT",
+        "Age": "0"
+      }
+    },
+    {
+      "path": "sw.js",
+      "url": "https://simonrj.github.io/-summit-one-narrator/sw.js",
+      "http_status": 200,
+      "bytes": 7264,
+      "sha256": "0f1e62dcaf6f56470da227352e7899a2351ef96504a8fb229ea070208acec972",
+      "expected_sha256": "0f1e62dcaf6f56470da227352e7899a2351ef96504a8fb229ea070208acec972",
+      "exact_match": true,
+      "headers": {
+        "Content-Type": "application/javascript; charset=utf-8",
+        "Content-Length": "7264",
+        "ETag": "\"6b062363-1c60\"",
+        "Last-Modified": "Tue, 24 Nov 2026 23:53:07 GMT",
+        "Age": "0"
+      }
+    },
+    {
+      "path": "watch-t16-3.html",
+      "url": "https://simonrj.github.io/-summit-one-narrator/watch-t16-3.html",
+      "http_status": 200,
+      "bytes": 7787,
+      "sha256": "9d59d5a28e93915d261a1e2f1e3551501997327a2b11fb0a018d6c14974c2535",
+      "expected_sha256": "9d59d5a28e93915d261a1e2f1e3551501997327a2b11fb0a018d6c14974c2535",
+      "exact_match": true,
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Content-Length": "7787",
+        "ETag": "\"6b062363-1e6b\"",
+        "Last-Modified": "Tue, 24 Nov 2026 23:53:07 GMT",
+        "Age": "0"
+      }
+    },
+    {
+      "path": "data/teaching-72.json",
+      "url": "https://simonrj.github.io/-summit-one-narrator/data/teaching-72.json",
+      "http_status": 200,
+      "bytes": 137920,
+      "sha256": "abf94dc7fa0b6fb470502ca66462d4cbb4f51acf4a3aea5ea932aef69906cfe9",
+      "expected_sha256": "abf94dc7fa0b6fb470502ca66462d4cbb4f51acf4a3aea5ea932aef69906cfe9",
+      "exact_match": true,
+      "headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "137920",
+        "ETag": "\"6b062363-21ac0\"",
+        "Last-Modified": "Tue, 24 Nov 2026 23:53:07 GMT",
+        "Age": "0"
+      }
+    },
+    {
+      "path": "media/T16.3.mp4",
+      "url": "https://simonrj.github.io/-summit-one-narrator/media/T16.3.mp4?v=score-notebook",
+      "http_status": 200,
+      "bytes": 3858579,
+      "sha256": "e2f9653a6e0e2d7d6192bbf897e4dd22b8add0becbf2e70d8eb007bafbb23ef6",
+      "expected_sha256": "e2f9653a6e0e2d7d6192bbf897e4dd22b8add0becbf2e70d8eb007bafbb23ef6",
+      "exact_match": true,
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Content-Length": "3858579",
+        "ETag": "\"6b062364-3ae093\"",
+        "Last-Modified": "Tue, 24 Nov 2026 23:53:08 GMT",
+        "Age": "0"
+      }
+    }
+  ],
+  "score_notebook_refs": {
+    "watch_page": true,
+    "catalogue": true,
+    "app": true
+  },
+  "mutations": "None; read-only delivery checks",
+  "final_editorial_credit_changed": false,
+  "public_browser_checks": [
+    {
+      "film": "T16.3",
+      "slot": 26,
+      "engine": "chromium",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "route": "current-lesson-review",
+      "sha256": "e2f9653a6e0e2d7d6192bbf897e4dd22b8add0becbf2e70d8eb007bafbb23ef6",
+      "movie": "https://simonrj.github.io/-summit-one-narrator/media/T16.3.mp4?v=score-notebook",
+      "decoded": true,
+      "playback_advanced": true,
+      "learner_state_unchanged": true,
+      "fixture_writes": 0
+    },
+    {
+      "film": "T16.3",
+      "slot": 26,
+      "engine": "chromium",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "route": "completed-notebook",
+      "sha256": "e2f9653a6e0e2d7d6192bbf897e4dd22b8add0becbf2e70d8eb007bafbb23ef6",
+      "movie": "https://simonrj.github.io/-summit-one-narrator/media/T16.3.mp4?v=score-notebook",
+      "decoded": true,
+      "playback_advanced": true,
+      "learner_state_unchanged": true,
+      "fixture_writes": 0
+    },
+    {
+      "film": "T16.3",
+      "slot": 26,
+      "engine": "webkit",
+      "viewport": {
+        "width": 390,
+        "height": 664
+      },
+      "route": "current-lesson-review",
+      "sha256": "e2f9653a6e0e2d7d6192bbf897e4dd22b8add0becbf2e70d8eb007bafbb23ef6",
+      "movie": "https://simonrj.github.io/-summit-one-narrator/media/T16.3.mp4?v=score-notebook",
+      "decoded": true,
+      "playback_advanced": true,
+      "learner_state_unchanged": true,
+      "fixture_writes": 0
+    },
+    {
+      "film": "T16.3",
+      "slot": 26,
+      "engine": "webkit",
+      "viewport": {
+        "width": 390,
+        "height": 664
+      },
+      "route": "completed-notebook",
+      "sha256": "e2f9653a6e0e2d7d6192bbf897e4dd22b8add0becbf2e70d8eb007bafbb23ef6",
+      "movie": "https://simonrj.github.io/-summit-one-narrator/media/T16.3.mp4?v=score-notebook",
+      "decoded": true,
+      "playback_advanced": true,
+      "learner_state_unchanged": true,
+      "fixture_writes": 0
+    }
+  ],
+  "public_current_and_completed_routes_passed": true,
+  "scope_limits": "PC and iPhone browser emulation with isolated fixture backend. Required environment proxy/certificate handling is not a production TLS audit. No physical-device or fresh full-film audible editorial signoff.",
+  "visual_review": "Inspected the iPhone completed-notebook screenshot: the public score-notebook edition is visible, including its 20 points / 4 people / 20\u00f74=5 opening example."
+}

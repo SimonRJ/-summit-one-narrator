@@ -1,0 +1,158 @@
+{
+  "scope": "iPhone-width WebKit UI check using isolated learner and public-catalogue fixtures. Exact original film bytes serve metadata; no video is played.",
+  "source_sha256": {
+    "data/read-watch-practise-later.json": "89a89399f52e0b9f2fbb1f5a4db700b24c91b139d6949ab0d2fc9df1ff1cc5e1",
+    "tools/content/practice-revisions-20261121.json": "43e6d3c1a5326b88231c126c8408325f1ad896a2bb1652e7b167609f907df0a3",
+    "lesson-introduction-library.js": "f91b8c8760928bd9f83fd4a6d4c3fa6433f084b070f0b0ee56436fbc64f0c272"
+  },
+  "movie_sha256": "538f9142a5113e5d14d3a35b6a7851e8dd331e16aba7d98224a7d0c294601612",
+  "results": [
+    {
+      "slot": 102,
+      "bridge": "Keep the hundreds digit fixed and swap tens and units: 153 becomes 135. The film’s phrase “two end digits” is incorrect here. Count the printed threes in each column separately.",
+      "film": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S102-Intro.mp4",
+      "read_cue_bounds": {
+        "width": 335.21875,
+        "height": 92,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "watch_cue_bounds": {
+        "width": 335.21875,
+        "height": 64,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "watch_video_bounds": {
+        "width": 333.21875,
+        "height": 187.421875,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "watch_heading_bounds": {
+        "width": 323.171875,
+        "height": 24,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "replay_cue_bounds": {
+        "width": 342,
+        "height": 51,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "replay_video_bounds": {
+        "width": 340,
+        "height": 250.46875,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "replay_heading_bounds": {
+        "width": 342,
+        "height": 23,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "replay_back_bounds": {
+        "width": 166,
+        "height": 44,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "replay_home_bounds": {
+        "width": 166,
+        "height": 44,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "completed_replay_immutable": true,
+      "play_events": 0
+    },
+    {
+      "slot": 296,
+      "bridge": "For the multiples-of-nine count, keep hundreds fixed and swap tens and units: 153 becomes 135. The film’s phrase “two end digits” is incorrect here. Which digit choices force the missing digit?",
+      "film": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S102-Intro.mp4",
+      "read_cue_bounds": {
+        "width": 335.21875,
+        "height": 115,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "watch_cue_bounds": {
+        "width": 335.21875,
+        "height": 64,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "watch_video_bounds": {
+        "width": 333.21875,
+        "height": 187.421875,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "watch_heading_bounds": {
+        "width": 333.03125,
+        "height": 24,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "replay_cue_bounds": {
+        "width": 342,
+        "height": 51,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "replay_video_bounds": {
+        "width": 340,
+        "height": 250.46875,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "replay_heading_bounds": {
+        "width": 342,
+        "height": 23,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "replay_back_bounds": {
+        "width": 166,
+        "height": 44,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "replay_home_bounds": {
+        "width": 166,
+        "height": 44,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "completed_replay_immutable": true,
+      "play_events": 0
+    }
+  ],
+  "errors": [],
+  "browser": "26.0",
+  "viewport": {
+    "width": 390,
+    "height": 664
+  },
+  "guide_correction": "Correction: keep the hundreds digit fixed and swap tens and units, so 153 becomes 135. The film’s phrase “two end digits” is incorrect here.",
+  "guide_correction_bounds": {
+    "width": 351,
+    "height": 75,
+    "horizontal": 0,
+    "vertical": 0
+  },
+  "passed": true,
+  "base_commit": "8069d97b35f031b78c7768efa1cdccd942b19ec5",
+  "source_scope_checks": {
+    "only_public_manifest_fields_changed": [
+      "lessons[slot=102].bridge",
+      "lessons[slot=296].bridge"
+    ],
+    "generator_revision_bridges_match": true,
+    "all_other_lesson_and_revision_fields_unchanged": true,
+    "old_movie_urls_unchanged": true,
+    "guide_note_scoped_to_old_filename": "S102-Intro.mp4"
+  }
+}

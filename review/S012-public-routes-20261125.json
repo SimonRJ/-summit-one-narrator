@@ -1,0 +1,180 @@
+{
+  "checked_at_utc": "2026-11-25T00:15:45.582976+00:00",
+  "scope": "Local integrated application using unchanged public immutable media URLs, with an isolated learner backend. Not deployed-main or physical-device certification.",
+  "release_evidence": "review/S012-public-release-20261125.json",
+  "passing_route_profile_checks": 5,
+  "whole_normal_speed_unmuted_playbacks": 1,
+  "results": [
+    {
+      "slot": 12,
+      "profile": "ipad-portrait",
+      "engine": "webkit",
+      "viewport": {
+        "width": 810,
+        "height": 1080
+      },
+      "site": "http://127.0.0.1:38405/",
+      "sha256": "87e71ca9ae8e3355f9f092f05a7e4c0678313aa569bbc3b4cc63a200ff2cedd7",
+      "film": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s012-missing-rung-20261125-b46d28d6d374/S012.mp4",
+      "duration": 137.333333,
+      "chapters": 8,
+      "normal_speed_unmuted_to_ended": false,
+      "practice_grading": "isolated fixture",
+      "immutable_replay": true,
+      "active_frame_css_pixels": {
+        "width": 663.125,
+        "height": 373,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "notebook_frame_css_pixels": {
+        "width": 733.125,
+        "height": 667.5,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "worked_example": {
+        "chapter": "Pair the pieces",
+        "decoded_media_time": 110.233333
+      }
+    },
+    {
+      "slot": 12,
+      "profile": "iphone-portrait",
+      "engine": "webkit",
+      "viewport": {
+        "width": 390,
+        "height": 664
+      },
+      "site": "http://127.0.0.1:33825/",
+      "sha256": "87e71ca9ae8e3355f9f092f05a7e4c0678313aa569bbc3b4cc63a200ff2cedd7",
+      "film": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s012-missing-rung-20261125-b46d28d6d374/S012.mp4",
+      "duration": 137.333333,
+      "chapters": 8,
+      "normal_speed_unmuted_to_ended": true,
+      "practice_grading": "isolated fixture",
+      "immutable_replay": true,
+      "active_frame_css_pixels": {
+        "width": 333.21875,
+        "height": 187.421875,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "notebook_frame_css_pixels": {
+        "width": 340,
+        "height": 275.46875,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "worked_example": {
+        "chapter": "Pair the pieces",
+        "decoded_media_time": 110.233333
+      }
+    },
+    {
+      "slot": 12,
+      "profile": "pc",
+      "engine": "chromium",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "site": "http://127.0.0.1:38023/",
+      "sha256": "87e71ca9ae8e3355f9f092f05a7e4c0678313aa569bbc3b4cc63a200ff2cedd7",
+      "film": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s012-missing-rung-20261125-b46d28d6d374/S012.mp4",
+      "duration": 137.333333,
+      "chapters": 8,
+      "normal_speed_unmuted_to_ended": false,
+      "practice_grading": "isolated fixture",
+      "immutable_replay": true,
+      "active_frame_css_pixels": {
+        "width": 654,
+        "height": 367,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "notebook_frame_css_pixels": {
+        "width": 958,
+        "height": 462.65625,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "worked_example": {
+        "chapter": "Pair the pieces",
+        "decoded_media_time": 110.233333
+      }
+    },
+    {
+      "slot": 248,
+      "profile": "ipad-portrait",
+      "engine": "webkit",
+      "viewport": {
+        "width": 810,
+        "height": 1080
+      },
+      "site": "http://127.0.0.1:36089/",
+      "sha256": "87e71ca9ae8e3355f9f092f05a7e4c0678313aa569bbc3b4cc63a200ff2cedd7",
+      "film": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s012-missing-rung-20261125-b46d28d6d374/S012.mp4",
+      "duration": 137.333333,
+      "chapters": 8,
+      "normal_speed_unmuted_to_ended": false,
+      "practice_grading": "isolated fixture",
+      "immutable_replay": true,
+      "active_frame_css_pixels": {
+        "width": 663.125,
+        "height": 373,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "notebook_frame_css_pixels": {
+        "width": 733.125,
+        "height": 650.5,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "worked_example": {
+        "chapter": "Pair the pieces",
+        "decoded_media_time": 110.233333
+      }
+    },
+    {
+      "slot": 248,
+      "profile": "pc",
+      "engine": "chromium",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "site": "http://127.0.0.1:38023/",
+      "sha256": "87e71ca9ae8e3355f9f092f05a7e4c0678313aa569bbc3b4cc63a200ff2cedd7",
+      "film": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s012-missing-rung-20261125-b46d28d6d374/S012.mp4",
+      "duration": 137.333333,
+      "chapters": 8,
+      "normal_speed_unmuted_to_ended": false,
+      "practice_grading": "isolated fixture",
+      "immutable_replay": true,
+      "active_frame_css_pixels": {
+        "width": 654,
+        "height": 367.875,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "notebook_frame_css_pixels": {
+        "width": 958,
+        "height": 462.65625,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "worked_example": {
+        "chapter": "Pair the pieces",
+        "decoded_media_time": 110.233333
+      }
+    }
+  ],
+  "visual_review": "The actual iPhone and iPad worked frames show two legal arrivals at rung 5, all three final-jump patterns, and six pairing dots. Player bounds are unclipped.",
+  "interrupted_attempt": "The first iPad consumer 248 attempt ended when its execution session reported network approval cancelled before a decision. It produced no verdict. A consumer-only retry under the same permissions passed; the successful canonical route was not repeated.",
+  "network_limit": "The required workspace proxy and its certificate handling are used for application verification; this is not a public TLS audit.",
+  "real_learner_records_accessed_or_modified": false,
+  "live_pages_integration_verified": false,
+  "final_editorial_credit": false
+}

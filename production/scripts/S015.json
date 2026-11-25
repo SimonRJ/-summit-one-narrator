@@ -1,0 +1,63 @@
+{
+  "id": "S015",
+  "course_slot": 15,
+  "title": "Two stamps for the mail train",
+  "scenes": [
+    {
+      "n": 1,
+      "title": "The loose parcel",
+      "heading": "The loose parcel",
+      "stage": "BASIC",
+      "narration": "Parcels for the mail train are strapped in bundles of four. Seventeen parcels make four full bundles and one loose parcel. How many more parcels would fill that last bundle? Three. The remainder tells us what is already there. The gap tells us what is missing."
+    },
+    {
+      "n": 2,
+      "title": "Two sorting stamps",
+      "heading": "Two sorting stamps",
+      "stage": "PUZZLE",
+      "narration": "A parcel label earns a square stamp if its number divides evenly by four. It earns a triangle stamp if the number divides evenly by three. The four labels are three hundred and twenty four, three hundred and forty four, three hundred and fifty four, and three hundred and eighty four. Which get both stamps?"
+    },
+    {
+      "n": 3,
+      "title": "Read only what each stamp needs",
+      "heading": "Read only what each stamp needs",
+      "stage": "MEDIUM",
+      "narration": "For the square stamp, inspect the last two digits. A hundred is divisible by four, so the hundreds place cannot spoil the test. Twenty four, forty four and eighty four pass. Fifty four fails. For the triangle stamp, add the digits. The three survivors have sums nine, eleven and fifteen. Only the first and last labels get both stamps."
+    },
+    {
+      "n": 4,
+      "title": "One parcel short",
+      "heading": "One parcel short",
+      "stage": "PUZZLE",
+      "narration": "A crate contains between twenty three and fifty nine parcels, including both ends. Add one parcel. Now the crate can be packed exactly in fours, and it can also be packed exactly in sixes. How many different original loads could it have held?"
+    },
+    {
+      "n": 5,
+      "title": "Move both end stops",
+      "heading": "Move both end stops",
+      "stage": "MEDIUM",
+      "narration": "Push the whole interval one place to the right. Twenty three becomes twenty four, and fifty nine becomes sixty. We now need numbers in this shifted interval that the groups of four and the groups of six both reach."
+    },
+    {
+      "n": 6,
+      "title": "Mark the shared stops",
+      "heading": "Mark the shared stops",
+      "stage": "HARD",
+      "narration": "Mark the multiples of four above the line, and the multiples of six below. Both first meet at twelve after zero. The same arrangement repeats every twelve. In our shifted interval, the shared stops are twenty four, thirty six, forty eight and sixty."
+    },
+    {
+      "n": 7,
+      "title": "Unload the extra parcel",
+      "heading": "Unload the extra parcel",
+      "stage": "HARD",
+      "narration": "Each shared stop describes the crate after adding a parcel. Take one away from each. The original loads are twenty three, thirty five, forty seven and fifty nine. Four possibilities. Check the last one. The extra parcel makes sixty, which packs as fifteen fours or ten sixes."
+    },
+    {
+      "n": 8,
+      "title": "Which numbers are we counting?",
+      "heading": "Which numbers are we counting?",
+      "stage": "RECAP",
+      "narration": "A tempting answer keeps sixty and loses twenty three. That mixes two different number lines. Move the end stops when you change the quantity. Test the new quantity, then undo the change. For a different remainder problem, first ask whether one small move can make both divisions exact."
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "checked_at_utc": "2026-11-24T23:40:30.445299+00:00",
+  "previous_ref": "2cc35f1",
+  "previous_cache": "/-summit-one-narrator/:summit-one-full-lessons-20261125",
+  "current_cache": "/-summit-one-narrator/:summit-one-priority-films-20261125",
+  "source_sha256": {
+    "app-main.js": "a6cd3ada6ac9db3396e252e8736d0310dcfeb3d349d5adddd18c6837384a0e35",
+    "sw.js": "50d179c51bf4ea9e6ccf7913d35e33b24badd59877a00797521a6db4681b75ea",
+    "lesson-introduction-media.js": "542e633b154f28d9af1d22681a7e3009a6968f8776cb485a21ab3d981632e73b",
+    "data/recorded-studies.json": "6dec75b96696c415cffc7a40cde22ae08ff1dbdfccf35f562f910682b3115bb1",
+    "data/teaching-72.json": "abf94dc7fa0b6fb470502ca66462d4cbb4f51acf4a3aea5ea932aef69906cfe9",
+    "data/read-watch-practise.json": "aaf3cc40e2eea4efe139742e1d2fcfe15ae5c24728609b2403a47599e9b81dbd",
+    "data/read-watch-practise-later.json": "3144c3c5d892624bb99c5ebedf7543df3eced2e5d1cbcbc8b5c6e0f539f3f663",
+    "index.html": "2365d48ba86377cab91a477d631cee031a3c9d916b167f55d413b739e1b92c66",
+    "course-menu-ui.js": "08a99e43c80c2acf4adb4ba90cc4884c5a5b2f2e188912f37f51a6f6d5ffb757",
+    "lesson-introduction-library.js": "9c0e857a6642970aeaaee80cfcebea83669e8368866ba0bb4228fa0d4fdd21ed",
+    "lesson-introduction-videos.html": "410a2b23041cb468f2b44f646f7c20684d1ae98d3a20a53c7e783b5344e507fd",
+    "watch-lesson-intro.html": "d439fa875688582dc36fe239076d678188d6a99bd592e3ec3b2bf2eda4209e73",
+    "offline-reader.html": "a845ff909b3c785475f680ed71c1a679bb4d632ddc44ae2fec3328ae64c19249",
+    "offline-reader.js": "6a23561d62f0453d3662791d1e8ae232f0bf4a9c4a1b60586d985be829fc5955"
+  },
+  "checks": [
+    "Previous worker controls the page and its old T16.3 catalogue is warm.",
+    "Old catalogue URLs retain old T16.3 and absent S009/S010 guide entries after the server flips; the HTTP teaching cache bypasses the server.",
+    "S009 current Read and Watch use the new bridge and movie while the old worker controls.",
+    "S010 current Read and Watch use the new bridge and movie while the old worker controls.",
+    "Current T16.3 companion uses the new catalogue declaration under the old controller.",
+    "Gallery and S010 guide use the current recorded-study catalogue under the old controller.",
+    "Current reader uses the new manifest before new-worker installation is permitted.",
+    "After activation and origin shutdown, a fresh page reads new S010 offline and preserves the opened-reading list (1, 9, 10)."
+  ],
+  "scope": "Real Chromium service worker and browser HTTP-cache upgrade; isolated learner backend; source mappings and offline reader only, not media or editorial acceptance.",
+  "browser_version": "158.0.8127.0",
+  "warmed_t163_url": "media/T16.3.mp4?v=teaching-films-v1",
+  "stale_control_after_server_flip": {
+    "t163": "media/T16.3.mp4?v=teaching-films-v1",
+    "titles": [
+      null,
+      null
+    ]
+  },
+  "current_mappings": {
+    "S009": {
+      "bridge": "Track the sleeve that crosses from the units drawer into the tens drawer. Later, read the hundreds drawer first.",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S009.mp4",
+      "guide_title": "The carry counter"
+    },
+    "S010": {
+      "bridge": "Follow the two digits when the ticket turns. At inspection, compare both the printed sum and the letters that received its digits.",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S010.mp4",
+      "guide_title": "The reversal line"
+    },
+    "T16.3": "media/T16.3.mp4?v=score-notebook"
+  },
+  "held_worker_requests": 1,
+  "offline_slots": [
+    "1",
+    "9",
+    "10"
+  ],
+  "offline_colours": {
+    "body": {
+      "background": "rgb(246, 247, 244)",
+      "colour": "rgb(24, 44, 61)"
+    },
+    "picker": {
+      "background": "rgb(255, 255, 255)",
+      "colour": "rgb(29, 52, 69)"
+    }
+  },
+  "page_errors": [],
+  "passed": true,
+  "current_requested_versions": [
+    "data/read-watch-practise-later.json?v=priority-films-20261125",
+    "data/read-watch-practise.json?v=priority-films-20261125",
+    "data/recorded-studies.json?v=priority-films-20261125",
+    "data/teaching-72.json?v=priority-films-20261125",
+    "lesson-introduction-library.js?v=priority-films-20261125",
+    "lesson-introduction-media.js?v=priority-films-20261125",
+    "offline-reader.js?v=priority-films-20261125"
+  ]
+}

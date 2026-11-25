@@ -439,6 +439,152 @@
         "A mirror makes the last two digits follow the first two. To find the next palindrome, increase the first pair and reflect it again. When counting a pattern, test the change at a carry before assuming every step is equal."
       ],
       "bridge": "Predict the display after 3993. Watch the gap on the number line when the hundreds wheel carries."
+    },
+    "S009": {
+      "release": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/",
+      "id": "S009",
+      "title": "The carry counter",
+      "seconds": 132.433333,
+      "chapters": [
+        {
+          "title": "Two trays at the counter",
+          "start": 0.0
+        },
+        {
+          "title": "Where did the zero come from?",
+          "start": 13.88
+        },
+        {
+          "title": "Unpack the tens",
+          "start": 30.2
+        },
+        {
+          "title": "Which letter crossed the counter?",
+          "start": 45.72
+        },
+        {
+          "title": "The hundreds drawer can hold only one",
+          "start": 64.57
+        },
+        {
+          "title": "The first tray that fills a hundred",
+          "start": 81.85
+        },
+        {
+          "title": "Carry through a second drawer",
+          "start": 104.88
+        }
+      ],
+      "transcript": [
+        "Six loose counters arrive at two trays marked with the same letter. Split them equally. Three on this tray and three on its twin. A digit written twice must describe the same quantity both times.",
+        "Now each tray holds a two digit number ending in five. Together their total begins with seven. Tip the two groups of five into the units drawer. All ten fit in a sleeve worth one ten. The units drawer is empty. Its digit is zero.",
+        "The tens drawer shows seven sleeves. One just came across from the units. Take that one aside. Six sleeves remain, shared equally by the two trays. Each tray supplied three tens. Thirty five and thirty five make seventy.",
+        "Turn the counter round. Two copies of the number A B have made a three digit total labelled B C D. Different letters must have different digits. We want the smallest possible A B. Before opening the drawers, which letter can you name?",
+        "Even ninety nine doubled is only one hundred and ninety eight. The hundreds drawer must hold exactly one, so B is one. Move that digit back to both units places. One plus one leaves two units and sends nothing into the tens. D is two.",
+        "Four tens on each tray would make only eight tens. Five on each tray make ten tens. Exchange them for one hundred. No tens remain, so C is zero. Read the finished drawers: fifty one plus fifty one equals one hundred and two. Five, one, zero and two are all different. No smaller tens digit can work.",
+        "Now double sixty eight. Eight and eight make sixteen. Leave six in the units drawer and send one ten across. Six tens and six tens plus the carried ten make thirteen tens. Exchange ten of those tens for a hundred. The drawers read one hundred and thirty six. In a letter sum, keep the digit you write separate from the amount you carry."
+      ],
+      "bridge": "Track the sleeve that crosses from the units drawer into the tens drawer. Later, read the hundreds drawer first.",
+      "sha256": "39d28fec11fe4cc1b1d1b840d01ab8d8b3ae3ccb6d184bf37c1ccf4e37c16ef6"
+    },
+    "S010": {
+      "release": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/",
+      "id": "S010",
+      "title": "The reversal line",
+      "seconds": 140.433333,
+      "chapters": [
+        {
+          "title": "Turn a number ticket",
+          "start": 0.0
+        },
+        {
+          "title": "What a swap buys",
+          "start": 13.72
+        },
+        {
+          "title": "Two clues, one ticket",
+          "start": 29.88
+        },
+        {
+          "title": "The inspector’s rule",
+          "start": 47.0
+        },
+        {
+          "title": "A correct sum gets rejected",
+          "start": 68.25
+        },
+        {
+          "title": "Admit the next ticket",
+          "start": 90.48
+        },
+        {
+          "title": "Issue a ticket from two new clues",
+          "start": 110.48
+        }
+      ],
+      "transcript": [
+        "A ticket printer puts the same digit in two boxes. Together those digits add to eight, so each box shows four. Turning that ticket would change nothing. What changes when a ticket carries two different digits?",
+        "Slide the larger digit from units to tens. Each extra unit of digit difference now gains ten in one place and loses one in the other. The net gain is nine. A reversal that gains thirty six therefore moves a digit four larger into the tens place.",
+        "Our two digits also add to eight. Set four counters aside for the difference. The four left split into two matching pairs. The smaller digit is two and the larger is six. Print twenty six, then reverse it. Sixty two minus twenty six is thirty six.",
+        "Inspect a different pair of tickets. A B plus A C ends in zero, with hundreds digit B and tens digit D. All four letters use different digits. Find the smallest A B. Two two digit numbers cannot reach two hundred, so the new hundreds digit is one. B is one.",
+        "One plus C must end in zero. Only nine can complete the ten. Carry one. The tens total is twice A plus one. Four would give only nine, so the first candidate is five. Fifty one plus fifty nine equals one hundred and ten. Look at the hundreds and tens. Two different letters would both be one. Reject that ticket.",
+        "Move up one tens digit to six. Sixty one plus sixty nine makes one hundred and thirty. Read the four letters in order: six, one, nine, three. None collides. We have checked the only smaller candidate that could reach a hundred. The smallest legal first ticket is sixty one.",
+        "A fresh ticket gains twenty seven when you reverse its digits. The digits add to eleven. What is the ticket? Divide the gain by nine. The digits differ by three. Set three aside from eleven, then halve the eight left. The smaller digit is four, the larger seven. Check the journey: seventy four minus forty seven equals twenty seven. The ticket gaining value starts with the smaller digit."
+      ],
+      "bridge": "Follow the two digits when the ticket turns. At inspection, compare both the printed sum and the letters that received its digits.",
+      "sha256": "e8e2e6f697b00cd9401479a603bf6992c2538a107b3fbd519cac0e0b9b7f9a71"
+    },
+    "S012": {
+      "id": "S012",
+      "title": "The missing rung",
+      "seconds": 137.333333,
+      "chapters": [
+        {
+          "title": "The landing log",
+          "start": 0.0
+        },
+        {
+          "title": "Sort the final jumps",
+          "start": 15.61
+        },
+        {
+          "title": "Strike out a landing",
+          "start": 31.92
+        },
+        {
+          "title": "Jump over the gap",
+          "start": 46.93
+        },
+        {
+          "title": "Build the landing log",
+          "start": 61.01
+        },
+        {
+          "title": "The brass bell",
+          "start": 80.21
+        },
+        {
+          "title": "Pair the pieces",
+          "start": 96.5
+        },
+        {
+          "title": "Add arrivals, multiply choices",
+          "start": 114.41
+        }
+      ],
+      "transcript": [
+        "A beetle can climb one rung or two rungs in a jump. It starts on the ground. To reach rung two, it can jump straight there, or visit rung one first. Draw both routes with your finger.",
+        "How many routes reach rung three? Look backwards. The last jump came from rung two or rung one. Each route to rung two has one way to finish with a short jump. The single route to rung one can finish with a long jump. That makes three.",
+        "Now the third rung breaks. The beetle may fly over the gap, but it cannot land there. Does rung four become unreachable? Find the last safe place the beetle could have landed.",
+        "To land on four, the beetle must come from two. A jump from three is impossible. Both routes to two can cross the gap. Trace their different beginnings and their identical last jump. Write two routes beside four.",
+        "At every safe rung, add the counts at the two previous positions. Beside rung five write two. At six the counts are two and two, giving four. At seven they give six. At eight, six plus four gives ten. The zero stays in the log, holding the place of the broken rung.",
+        "A brass bell hangs on rung five. This time the beetle must land on that rung and ring the bell on its way to eight. Which of the ten routes count now? Imagine cutting a successful route into two pieces at the bell.",
+        "Two routes arrive at the bell. From five to eight the remaining climb is three rungs. The jumps can be three singles, a single followed by a double, or a double followed by a single. Each beginning accepts all three endings. Two groups of three give six bell routes.",
+        "Why did we add at a landing and multiply at the bell? Different final jumps put the routes in separate piles. At a compulsory stop, each beginning joins to each possible ending. Keep a zero for a forbidden landing. If a rule restricts the next jump, record how the route arrived as well."
+      ],
+      "bridge": "Pause when the film marks rung 3 as broken. Is rung 4 still reachable? Trace its possible final jumps before the film fills in the table.",
+      "sha256": "87e71ca9ae8e3355f9f092f05a7e4c0678313aa569bbc3b4cc63a200ff2cedd7",
+      "release": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s012-missing-rung-20261125-b46d28d6d374/"
     }
   }
 }

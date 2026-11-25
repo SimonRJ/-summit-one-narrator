@@ -30,6 +30,21 @@ def digit_sums(lesson):
            else "None of the allowed hundreds digits gives that double choice.")
     hundred_work=(f"The hundred block starting at {say(100*digit)} contributes {say(hundred_count)} occurrences, one for every multiple of nine in that block."
                   if hundred_count else f"The digit {say(digit)} never appears as a hundreds digit in the requested range.")
+    # S102 needs a concrete, reversible pairing in the corrected Voice C scene.
+    # Other visits keep their own examples and counts; correct the shared positional
+    # wording too so regeneration cannot restore the old end-digit error.
+    pairing = (
+        (f"Fix the ones digit at {say(digit)}. For each hundreds digit, choose a tens digit so the three digits add to a multiple of nine.", f"Ones fixed: h + t + {digit} must be divisible by 9."),
+        (f"Each required remainder for the tens digit gives one choice, except remainder zero gives zero and nine. {bonus}", f"{hundreds} ordinary choices and {tail_bonus} extra."),
+        (f"The tens count is the same: swap the tens and units digits, keeping the hundreds digit fixed. The digit sum and allowed range stay unchanged. Each place contributes {say(per_end)}.", f"Ones {per_end}; tens {per_end}."),
+    )
+    if lesson.id == "S102":
+        pairing = (
+            ("Fix the ones digit at three. For hundreds digits one through five, the tens digits are five, four, three, two and one.", "Ones: 153, 243, 333, 423, 513."),
+            ("Now keep the hundreds digit fixed and swap the tens and units digits. One hundred and fifty-three becomes one hundred and thirty-five.", "153 becomes 135; the hundreds digit stays 1."),
+            ("The digit sum and hundreds range are unchanged. Swapping back recovers the original, so this pairs the two lists exactly.", "Each pair stays divisible by 9 and between 100 and 599."),
+            ("The ones and tens columns contribute five each. Three hundred and thirty-three contributes once to each column.", "333 supplies one 3 in each column; do not drop it."),
+        )
     return Topic(
         (("A digit has a value and a position. The digit sum forgets the positions, but a count of written digits must consider every position.", "Digit sum and digit frequency answer different questions."),
          ("Break a range count into the ones, tens and hundreds places, then add those separate counts.", "Count appearances one place at a time.")),
@@ -52,9 +67,7 @@ def digit_sums(lesson):
             Example("Count a digit while writing only multiples of nine", (
                 (f"Write the multiples of nine from one hundred through {say(last)}, including any endpoint that is a multiple. Count every written {say(digit)}.", f"Multiples of 9 only, from 100 through {last}. Count all {digit}s."),
                 ("Split the appearances among the three places. A number can contribute in more than one place.", "Count written appearances, including repeats.")),
-                ((f"Fix the ones digit at {say(digit)}. For each hundreds digit, choose a tens digit so the three digits add to a multiple of nine.", f"Ones fixed: h + t + {digit} must be divisible by 9."),
-                 (f"Each required remainder for the tens digit gives one choice, except remainder zero gives zero and nine. {bonus}", f"{hundreds} ordinary choices and {tail_bonus} extra."),
-                 (f"The tens count is the same, since swapping the two end digits preserves the digit sum and the hundreds range. Each of these places contributes {say(per_end)}.", f"Ones {per_end}; tens {per_end}.")),
+                pairing,
                 table(("Hundreds","Tens","Ones"),("h","t",digit),("h",digit,"t")),proof=(
                     (f"For the hundreds place, fix the hundreds digit instead. {hundred_work}", f"Hundreds contribution: {hundred_count}."),
                     (f"Add the three position counts. An occurrence in one position is different from an occurrence in another, even in the same number. The total is {say(answer)}.", f"{per_end} + {per_end} + {hundred_count} = {answer}.")),

@@ -372,12 +372,12 @@
         ],
         "prediction": "What units total could end in 1 and still send a carry to the tens column?"
       },
-      "bridge": "In the film, follow the ten ones when two numbers ending in 5 are added. Which column receives the extra ten? Later, what does the hundreds digit tell you before you try a single tens digit?",
+      "bridge": "Track the sleeve that crosses from the units drawer into the tens drawer. Later, read the hundreds drawer first.",
       "recap": "Write the units digit and mark the carry above the tens column. When the sum of two two-digit numbers has three digits, the hundreds digit must be 1. Put the completed numbers back into the original sum and check the rules about different letters.",
       "skill": "DIG-05",
       "videoId": "S009",
-      "videoTitle": "Cryptarithms and symbol-to-digit arithmetic",
-      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S009-Intro-Illustrated.mp4",
+      "videoTitle": "The carry counter",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S009.mp4",
       "retained": [
         "O009T",
         "O009X"
@@ -407,7 +407,8 @@
           "prompt": "AB + AB + AB = BCD. All four letters are different digits; A and B are nonzero. What is the smallest possible AB?",
           "hint": "The first digit of BCD is nonzero. Which hundreds digits can three two-digit numbers reach? Test the smallest legal AB first."
         }
-      ]
+      ],
+      "filmUse": "dedicated"
     },
     {
       "slot": 10,
@@ -421,12 +422,12 @@
         ],
         "prediction": "Track the 2 on its own. Does its value rise or fall when 23 becomes 32?"
       },
-      "bridge": "When the film swaps 26 and 62, which digit gains the most value? In the final addition, pause at the first candidate: its sum is correct, but which two letters would have to share a digit?",
+      "bridge": "Follow the two digits when the ticket turns. At inspection, compare both the printed sum and the letters that received its digits.",
       "recap": "For a reversal, keep the subtraction in the order the question gives. For a letter sum, mark each carry. Finally, put the digits back into every position and check any restrictions on zero or repeated digits.",
       "skill": "DIG-05",
       "videoId": "S010",
-      "videoTitle": "Cryptarithms and symbol-to-digit arithmetic",
-      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S010-Intro-Illustrated.mp4",
+      "videoTitle": "The reversal line",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S010.mp4",
       "retained": [
         "O010X"
       ],
@@ -455,7 +456,8 @@
           "prompt": "AB + CB = BA. Each of A, B and C is a different nonzero digit. What is the greatest possible value of AB?",
           "hint": "Could the units column work without a carry? If it carries, start with the greatest possible B."
         }
-      ]
+      ],
+      "filmUse": "dedicated"
     },
     {
       "slot": 11,
@@ -521,8 +523,8 @@
       "recap": "Record the starting state and whether it counts as the first term. Sort routes into groups that cannot overlap. Give an impossible state zero ways and the empty starting route one way.",
       "skill": "SEQ-03",
       "videoId": "S012",
-      "videoTitle": "Recurrence relations, steps and branching",
-      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S012-Intro-Illustrated.mp4",
+      "videoTitle": "The missing rung",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s012-missing-rung-20261125-b46d28d6d374/S012.mp4",
       "retained": [
         "O012T",
         "O012X"
@@ -552,7 +554,8 @@
           "prompt": "A strip of 11 numbered cells is covered with single-cell tiles and two-cell tiles, with no gaps or overlaps. Cells 5 and 6 must be covered by the same tile. How many tilings are possible?",
           "hint": "After you fix the tile covering cells 5 and 6, sketch the cells left on each side. How can you combine one tiling of each side?"
         }
-      ]
+      ],
+      "filmUse": "dedicated"
     },
     {
       "slot": 13,

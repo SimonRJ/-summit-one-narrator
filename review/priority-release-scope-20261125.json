@@ -1,0 +1,83 @@
+{
+  "checked_at_utc": "2026-11-25T00:15:45.621409+00:00",
+  "base_remote_commit": "0dfec081086f153023e2ab74861717d75dbaa779",
+  "equivalent_local_base": "2f661c0829aebb0c3ea575ca3b933c7f52b3a163",
+  "runtime_independently_audited_commit": "c9032d6",
+  "changed_lesson_fields": [
+    {
+      "slot": 9,
+      "fields": [
+        "bridge",
+        "filmUse",
+        "movie",
+        "videoTitle"
+      ]
+    },
+    {
+      "slot": 10,
+      "fields": [
+        "bridge",
+        "filmUse",
+        "movie",
+        "videoTitle"
+      ]
+    },
+    {
+      "slot": 12,
+      "fields": [
+        "filmUse",
+        "movie",
+        "videoTitle"
+      ]
+    },
+    {
+      "slot": 102,
+      "fields": [
+        "bridge"
+      ]
+    },
+    {
+      "slot": 228,
+      "fields": [
+        "bridge",
+        "movie",
+        "videoTitle"
+      ]
+    },
+    {
+      "slot": 248,
+      "fields": [
+        "movie",
+        "videoTitle"
+      ]
+    },
+    {
+      "slot": 296,
+      "fields": [
+        "bridge"
+      ]
+    },
+    {
+      "slot": 319,
+      "fields": [
+        "bridge",
+        "movie",
+        "videoTitle"
+      ]
+    }
+  ],
+  "unchanged_question_objects": 1132,
+  "retained_question_ids_and_manifest_editions_unchanged": true,
+  "learner_backend_or_authentic_archive_updates": false,
+  "public_assets_verified": 18,
+  "public_asset_bytes_verified": 56203705,
+  "integrated_public_movie_route_checks": 15,
+  "full_normal_speed_unmuted_playbacks": 3,
+  "live_T163_route_checks": 4,
+  "cache_revision": "priority-films-20261125",
+  "warmed_worker_and_http_cache_check": "review/cache-upgrade-20261125/README.md",
+  "main_push_starts_new_voice_synthesis": false,
+  "final_editorial_credit_added": false,
+  "notes": "The independent source audit found no runtime/data/cache blocker. Stale S012 queued status text was reconciled with successful publication. Browser profiles are emulated; automated playback adds no final audible/editorial credit.",
+  "lessons_with_unchanged_question_content": 283
+}

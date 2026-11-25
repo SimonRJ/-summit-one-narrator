@@ -1,0 +1,87 @@
+{
+  "id": "S102",
+  "status": "source-ready; local Voice C scene 8 recording running; no production master or public release yet",
+  "changed_scenes": [
+    8
+  ],
+  "preserved_scenes": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    9,
+    10,
+    11
+  ],
+  "consumers": [
+    102,
+    296
+  ],
+  "source_movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S102-Intro.mp4",
+  "source_sha256": "538f9142a5113e5d14d3a35b6a7851e8dd331e16aba7d98224a7d0c294601612",
+  "source_guide_sha256": "4ff0df3427a7f09492a68252f931a1c2b39dcf98aaa4ea3af60b99b086c38b94",
+  "source_timeline_sha256": "81837aeb40efb9e7d5c6f1fed5994a504d0e939c29b20e36c201a8e63af5244e",
+  "corrected_narration_sha256": "25199fc25ed5d068cddd06cc45faf56d0821748ebc59a31b69afbe2dc32aa50e",
+  "voice_reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+  "voice_model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+  "pairing": [
+    [
+      153,
+      135
+    ],
+    [
+      243,
+      234
+    ],
+    [
+      333,
+      333
+    ],
+    [
+      423,
+      432
+    ],
+    [
+      513,
+      531
+    ]
+  ],
+  "counts": {
+    "ones": 5,
+    "tens": 5,
+    "hundreds": 11,
+    "total": 21
+  },
+  "source_timing_recovery_match_percent": {
+    "1": 100.0,
+    "2": 100.0,
+    "3": 100.0,
+    "4": 100.0,
+    "5": 100.0,
+    "6": 100.0,
+    "7": 100.0,
+    "8": 84.15,
+    "9": 100.0,
+    "10": 96.3,
+    "11": 94.51
+  },
+  "source_timing_note": "Recovered from original speech because the old release did not retain a full word timeline. The 84.15% source scene 8 is removed completely; preserved scenes score 94.51\u2013100%. Unchanged baked captions are retained.",
+  "pipeline": ".github/workflows/s102-digit-swap.yml",
+  "release_tag_pattern": "s102-tens-units-20261125-<12-character-source-commit>",
+  "remaining": [
+    "Finish or restore the one approved Voice C take.",
+    "Render and validate the full corrected master.",
+    "Watch/listen to the complete candidate, including the repaired proof and joins.",
+    "Run exact-master iPhone/iPad portrait+landscape and PC playback gates, including consumer 296.",
+    "Publish immutable assets and compare public bytes.",
+    "Integrate only the verified release into the recorded catalogue and both consumer movie routes, preserving the 296 technique bridge."
+  ],
+  "acceptance_limits": [
+    "No completion or originality credit claimed.",
+    "Four shared teaching scenes and the broader near-match example family still need editorial work.",
+    "No learner records, practice content, retained IDs or answer keys changed."
+  ]
+}

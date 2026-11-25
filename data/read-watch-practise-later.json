@@ -1415,7 +1415,7 @@
       "slot": 102,
       "headline": "Count digits in their own columns",
       "intro": "A printed label can use the same digit twice. Make a tally for each place, then add the tallies to count every printed copy.",
-      "bridge": "The film moves from adding the digits of 386 to counting printed threes. Decide which question needs the positions of the digits and which can ignore them.",
+      "bridge": "Keep the hundreds digit fixed and swap tens and units: 153 becomes 135. The film’s phrase “two end digits” is incorrect here. Count the printed threes in each column separately.",
       "recap": "Say whether the question wants labels or copies of a digit. A label with two copies counts once for the first question and twice for the second.",
       "example": {
         "prompt": "On the labels 20 through 23, how many copies of the digit 2 appear?",
@@ -6642,7 +6642,7 @@
       "slot": 228,
       "headline": "Track the carry as a second clue",
       "intro": "Add 8 + 8 in the units column. The result, 16, has one ten to send to the next column and six units to leave behind. In a letter puzzle, either digit can become a clue.",
-      "bridge": "The film adds a number ending in five to itself. Pause at the units column. The written units digit and the carry do two different jobs.",
+      "bridge": "When eight and eight make sixteen, follow the six loose units and the sleeve worth one ten. Where does each go before the tens are added?",
       "recap": "Confirm the completed addition with ordinary numbers. Check leading digits and every “different digits” rule.",
       "example": {
         "prompt": "Two copies of the digit 8 are added. What is written in the units column and what carries?",
@@ -6654,8 +6654,8 @@
       },
       "skill": "DIG-05",
       "videoId": "S009",
-      "videoTitle": "Cryptarithms and symbol-to-digit arithmetic",
-      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S009-Intro-Illustrated.mp4",
+      "videoTitle": "The carry counter",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S009.mp4",
       "filmUse": "technique",
       "retained": [
         "O228T",
@@ -7459,8 +7459,8 @@
       },
       "skill": "SEQ-03",
       "videoId": "S012",
-      "videoTitle": "Recurrence relations, steps and branching",
-      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S012-Intro-Illustrated.mp4",
+      "videoTitle": "The missing rung",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s012-missing-rung-20261125-b46d28d6d374/S012.mp4",
       "filmUse": "technique",
       "retained": [
         "O248T",
@@ -9378,7 +9378,7 @@
       "slot": 296,
       "headline": "Use a second rule before counting",
       "intro": "For a label with a missing digit, put a box in the empty place. Write down the digits the first clue permits, then test the digit sum of each completed label. Check any limits on the digit before counting.",
-      "bridge": "In the film the hard count keeps only multiples of nine. Ask which digit choices force the missing digit before you start a long list.",
+      "bridge": "For the multiples-of-nine count, keep hundreds fixed and swap tens and units: 153 becomes 135. The film’s phrase “two end digits” is incorrect here. Which digit choices force the missing digit?",
       "recap": "Check each candidate against both rules. Organising by position helps show that the list is complete.",
       "example": {
         "prompt": "Which two-digit multiple of 9 starts with 4?",
@@ -10353,7 +10353,7 @@
       "slot": 319,
       "headline": "Filter digit assignments column by column",
       "intro": "Column equations often restrict the possible digits before you know any whole number. Write down carries and borrows, then apply conditions such as “different digits” or “smallest”.",
-      "bridge": "For the film's final sum ending in zero, inspect the units column before guessing whole numbers. Its carry places a restriction on the next column.",
+      "bridge": "In the ticket inspection, use the zero in the units column to force the missing digit. Then watch why 51 + 59 is rejected despite adding correctly.",
       "recap": "Write any carried ten above the next column. After filling the digits, calculate the complete sum or product and check the conditions on the letters. Two different letters may be required to have different digits.",
       "example": {
         "prompt": "A two-digit number has 6 tens and units digit A. Subtracting 27 gives 38. Which digit is A?",
@@ -10365,8 +10365,8 @@
       },
       "skill": "DIG-05",
       "videoId": "S010",
-      "videoTitle": "Cryptarithms and symbol-to-digit arithmetic",
-      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S010-Intro-Illustrated.mp4",
+      "videoTitle": "The reversal line",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S010.mp4",
       "filmUse": "technique",
       "retained": [
         "O319T",

@@ -1,0 +1,76 @@
+{
+  "checked_at_utc": "2026-11-24T23:27:19.433580+00:00",
+  "repository_main_at_check": "0dfec081086f153023e2ab74861717d75dbaa779",
+  "method": "Public HTTPS GET of exact catalogue movie URLs, watch page, QA and app assets, with Cache-Control:no-cache. Whole returned MP4 bodies were hashed. No browser or learner writes were performed in this live delivery check.",
+  "delivered_films": [
+    {
+      "id": "T05.1",
+      "url": "media/T05.1.mp4?v=finish-tickets",
+      "http_status": 200,
+      "sha256": "71e513a64aaf66600ce13d91b31ce3cf9e5d6d5df7cd7feb6e1266669f3d76d6",
+      "matches_current_main": true
+    },
+    {
+      "id": "T13.3",
+      "url": "media/T13.3.mp4?v=cube-workshop",
+      "http_status": 200,
+      "sha256": "8692c103be7e53141525c4a51f0237fc594e92b0de1799492e05b4bc00812594",
+      "matches_current_main": true
+    },
+    {
+      "id": "T16.3",
+      "url": "media/T16.3.mp4?v=score-notebook",
+      "http_status": 200,
+      "sha256": "9e074ff4aefda57cce35853860f12ae782dc3ad1892425c5e5229b4744d2efda",
+      "matches_current_main": false,
+      "expected_main_sha256": "e2f9653a6e0e2d7d6192bbf897e4dd22b8add0becbf2e70d8eb007bafbb23ef6",
+      "live_qa_declares_same_delivered_hash": true
+    },
+    {
+      "id": "T18.1",
+      "url": "media/T18.1.mp4?v=teaching-films-v1",
+      "http_status": 200,
+      "sha256": "1e8e4d3084f84430756137619f6f7492fabf28a2bbde8bbcb42919ac9e0c6c91",
+      "staged_correction_sha256": "b06f8c225218bfecfbbd2dc97d7f55ccb406755825f0839999fbabf7799db8f1",
+      "correction_published": false
+    }
+  ],
+  "page_delivery": {
+    "index_app_revision": "lesson-review-20261125",
+    "index_sha256": "ce49c9dc0b4fff119baabc11e3c891d57a93b5aa4000099e641de2c0e76e66bf",
+    "t163_watch_source": "media/T16.3.mp4?v=teaching-films-v1",
+    "t163_watch_sha256": "47f7a655c807a59820515d96010b49c796ba1b5f46dc43ba93d6db001da25c0e",
+    "app_main_with_requested_companion_routes_query_sha256": "3c93ca9129865a0012612f8a301fd758f190bcd43b8d0d198c75e163e01f0ca5",
+    "requested_query_did_not_change_old_deployed_content": true,
+    "interpretation": "The live site was still serving a previous coherent edition. The T16.3 mismatch needs deployment of the committed corrected media, not another render."
+  },
+  "queued_t181_production": {
+    "run_id": 45496023370,
+    "commit": "50d2fe13de6c946dd485df013865aa5559aebfb4",
+    "chapter_14": "completed successfully",
+    "chapter_18": "queued",
+    "chapters_15_16_17": "queued",
+    "staging_branch_created": false,
+    "integration_rule": "Keep the current live T18.1 assignment until the checked movie, VTT, QA, poster and catalogue/watch-page versions are installed together. The staged local b06f8c\u2026 identity is not proof of a later CI export identity."
+  },
+  "prevented_regression": {
+    "cause": "Both queued notebook and native-chapter installers update the catalogue and watch pages without updating the app edition map.",
+    "change": "The learner resolver prefers a declared catalogue URL only for the 72 known T01\u2013T18 IDs and exact media/<same-id>.mp4?v=<safe-revision> paths. Invalid nonempty declarations fail closed. Existing approved fallbacks remain for blank legacy entries.",
+    "current_catalogue_checks": 72,
+    "simulated_new_edition_checks": 72,
+    "unsafe_url_cases": 14,
+    "negative_control": "The previous resolver passes current catalogue checks but fails the new-edition test at T01.1.",
+    "boundaries_checked": [
+      "absolute and protocol-relative URLs",
+      "same-origin absolute URLs",
+      "other film IDs",
+      "path traversal",
+      "percent-encoded paths/revisions",
+      "extra queries and fragments",
+      "empty and non-string revisions",
+      "out-of-range T IDs",
+      "protected and lesson film IDs"
+    ]
+  },
+  "acceptance_limit": "These results verify HTTP delivery and resolver behavior. They do not confer full moving-picture and audible editorial approval or physical-device acceptance."
+}

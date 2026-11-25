@@ -13,7 +13,7 @@
   "lesson": "S010",
   "title": "The reversal line",
   "review_date_perth": "2026-11-25",
-  "status": "candidate verified; immutable release and deployed-route review pending",
+  "status": "immutable release and integrated public-media routes verified; live Pages and final editorial acceptance pending",
   "final_editorial_credit": false,
   "source_commit": "bcbd31159202426b90d4ec7250edf43910dc8a37",
   "workflow": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45488154406",
@@ -252,9 +252,17 @@
     }
   ],
   "pending_before_final_credit": [
-    "Confirm immutable release assets exist and their returned hashes equal these reviewed candidates.",
-    "Integrate catalogue and the dedicated slots 9/10 plus technique revisits 228/319.",
-    "Run tools/check_lesson_film_routes.py against deployed main on all five profiles and retain exact-master evidence.",
-    "Complete final editorial acceptance of the deployed edition; then update the review register."
+    "Deploy the integrated catalogue and learner-route changes to main Pages.",
+    "Verify the deployed gallery, current lesson and completed notebook on all five profiles, including the technique consumer on PC/iPad portrait.",
+    "Complete final audible/editorial acceptance of the deployed edition before changing its review-register credit."
+  ],
+  "immutable_release_verified": true,
+  "public_release_evidence": "review/carry-reversal-public-release-20261125.json",
+  "integrated_public_media_route_evidence": "review/released-digit-routes-20261125.json",
+  "release_job_state": "completed",
+  "release_job_conclusion": "success",
+  "completed_before_final_credit": [
+    "Downloaded all six immutable public assets and checked their published digests; movie and guide match the reviewed candidate.",
+    "Integrated the returned guide, dedicated lesson and technique consumer while preserving question content and grading."
   ]
 }
