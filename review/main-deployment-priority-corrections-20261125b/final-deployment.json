@@ -1,0 +1,84 @@
+{
+  "live_site": "https://simonrj.github.io/-summit-one-narrator/",
+  "remote_main_commit": "900035e645847900726a85eb59e3a3104a6bca66",
+  "source_tree": "1f0b2371c192b193ece555fbebbf66d9a67028b3",
+  "equivalent_local_source": "48a2b77359c2b555e26a7a77e20a25c13d2c78c3",
+  "main_ref_independently_verified": true,
+  "all_six_workflows_successful_first_attempt": true,
+  "workflows": [
+    {
+      "id": 45530708800,
+      "name": "AMC split training QA",
+      "path": ".github/workflows/amc-split-training-qa.yml",
+      "head_sha": "900035e645847900726a85eb59e3a3104a6bca66",
+      "status": "completed",
+      "conclusion": "success",
+      "run_attempt": 1,
+      "updated_at": "2026-11-25T02:08:56Z",
+      "html_url": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45530708800"
+    },
+    {
+      "id": 45530708173,
+      "name": "pages build and deployment",
+      "path": "dynamic/pages/pages-build-deployment",
+      "head_sha": "900035e645847900726a85eb59e3a3104a6bca66",
+      "status": "completed",
+      "conclusion": "success",
+      "run_attempt": 1,
+      "updated_at": "2026-11-25T02:09:12Z",
+      "html_url": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45530708173"
+    },
+    {
+      "id": 45530708765,
+      "name": "Check every lesson opening on iPhone, iPad and PC",
+      "path": ".github/workflows/lesson-reading-devices.yml",
+      "head_sha": "900035e645847900726a85eb59e3a3104a6bca66",
+      "status": "completed",
+      "conclusion": "success",
+      "run_attempt": 1,
+      "updated_at": "2026-11-25T02:10:03Z",
+      "html_url": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45530708765"
+    },
+    {
+      "id": 45530708812,
+      "name": "Summit One release QA",
+      "path": ".github/workflows/release-qa.yml",
+      "head_sha": "900035e645847900726a85eb59e3a3104a6bca66",
+      "status": "completed",
+      "conclusion": "success",
+      "run_attempt": 1,
+      "updated_at": "2026-11-25T02:10:18Z",
+      "html_url": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45530708812"
+    },
+    {
+      "id": 45530708810,
+      "name": "Recorded lesson playback",
+      "path": ".github/workflows/recorded-study-playback.yml",
+      "head_sha": "900035e645847900726a85eb59e3a3104a6bca66",
+      "status": "completed",
+      "conclusion": "success",
+      "run_attempt": 1,
+      "updated_at": "2026-11-25T02:11:19Z",
+      "html_url": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45530708810"
+    },
+    {
+      "id": 45530708781,
+      "name": "Teaching behavior checks",
+      "path": ".github/workflows/teaching-checks.yml",
+      "head_sha": "900035e645847900726a85eb59e3a3104a6bca66",
+      "status": "completed",
+      "conclusion": "success",
+      "run_attempt": 1,
+      "updated_at": "2026-11-25T02:11:46Z",
+      "html_url": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45530708781"
+    }
+  ],
+  "final_public_delivery_report": "live-byte-comparison-900035e-20261125.json",
+  "previous_public_delivery_report": "../main-deployment-priority-corrections-20261125/live-byte-comparison-d51e138-20261125.json",
+  "live_iphone_smoke": "../live-welcome-t181-20261125/summary.json",
+  "final_live_http_responses_exact": 14,
+  "retained_previously_verified_resource_entries_unchanged": 52,
+  "lesson_and_technique_mappings_verified": 16,
+  "verified_project_completion": "652 of 1154; 56% rounded down",
+  "final_editorial_credit": false
+}

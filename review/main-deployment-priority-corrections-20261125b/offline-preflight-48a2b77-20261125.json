@@ -1,0 +1,925 @@
+{
+  "source_commit": "48a2b77359c2b555e26a7a77e20a25c13d2c78c3",
+  "source_tree": "1f0b2371c192b193ece555fbebbf66d9a67028b3",
+  "first_source": "d51e1382373a03aa0a3a828cfffa0a2a6c6a0198",
+  "deployment_commit": null,
+  "pages_run": null,
+  "checked_at_utc": "2026-11-25T02:06:12.770368+00:00",
+  "version": "priority-corrections-20261125b",
+  "offline_reuse": [
+    {
+      "path": "design-system.css",
+      "url": "https://simonrj.github.io/-summit-one-narrator/design-system.css?v=local-fonts-20261125",
+      "first_source_blob": "420c75799334f8a47676025a2861eec49a495367",
+      "followup_blob": "420c75799334f8a47676025a2861eec49a495367",
+      "match": true,
+      "prior_public_sha256": "e5e01df2ab094b176382b998a721dacf4951f012dae0de321881f013fad971b3",
+      "http_repeated": false
+    },
+    {
+      "path": "public-study-theme.css",
+      "url": "https://simonrj.github.io/-summit-one-narrator/public-study-theme.css?v=local-fonts-20261125",
+      "first_source_blob": "96eea1763ca395506025b15c8cd29f56c0b3bb53",
+      "followup_blob": "96eea1763ca395506025b15c8cd29f56c0b3bb53",
+      "match": true,
+      "prior_public_sha256": "4e342bcfe33a7b7c4edf965c49e1522f4098bc7ec1cfc2a961c88c459eacec04",
+      "http_repeated": false
+    },
+    {
+      "path": "fonts/sources.json",
+      "url": "https://simonrj.github.io/-summit-one-narrator/fonts/sources.json",
+      "first_source_blob": "a532a08a9292dccf9ecef02d80a0b57d7033b91d",
+      "followup_blob": "a532a08a9292dccf9ecef02d80a0b57d7033b91d",
+      "match": true,
+      "prior_public_sha256": "0fafd4bbadb0074b6925a310acecbfa69cebbca0f2e6193cfcc159d8c4abee88",
+      "http_repeated": false
+    },
+    {
+      "path": "fonts/stix-two-math-normal-all-8b2a6834cf.woff2",
+      "url": "https://simonrj.github.io/-summit-one-narrator/fonts/stix-two-math-normal-all-8b2a6834cf.woff2",
+      "first_source_blob": "00c3920487bde10860b3bac74873e7e6372d7e03",
+      "followup_blob": "00c3920487bde10860b3bac74873e7e6372d7e03",
+      "match": true,
+      "prior_public_sha256": "8b2a6834cfe1f4e0f3724ffa59fe92000013fc5a4c41e6a3f438006c26c60f0d",
+      "http_repeated": false
+    },
+    {
+      "path": "fonts/source-code-pro-normal-cyrillic-ext-dd503d60c3.woff2",
+      "url": "https://simonrj.github.io/-summit-one-narrator/fonts/source-code-pro-normal-cyrillic-ext-dd503d60c3.woff2",
+      "first_source_blob": "e94363cd3053c867bf656c1092a10a56daf22c69",
+      "followup_blob": "e94363cd3053c867bf656c1092a10a56daf22c69",
+      "match": true,
+      "prior_public_sha256": "dd503d60c322511f5618af7d1dc4f2d7002a58f665b515c7d62ea6f5535ac669",
+      "http_repeated": false
+    },
+    {
+      "path": "fonts/source-code-pro-normal-cyrillic-fd7699ecbd.woff2",
+      "url": "https://simonrj.github.io/-summit-one-narrator/fonts/source-code-pro-normal-cyrillic-fd7699ecbd.woff2",
+      "first_source_blob": "25b1c9bf5935c7d31bb9a827b9e219113210271f",
+      "followup_blob": "25b1c9bf5935c7d31bb9a827b9e219113210271f",
+      "match": true,
+      "prior_public_sha256": "fd7699ecbd3ce9ae5db900abc491150d176e8b1530aee9a9268cb3023658a5b3",
+      "http_repeated": false
+    },
+    {
+      "path": "fonts/source-code-pro-normal-greek-ext-01e467c83c.woff2",
+      "url": "https://simonrj.github.io/-summit-one-narrator/fonts/source-code-pro-normal-greek-ext-01e467c83c.woff2",
+      "first_source_blob": "903dd52423e523d0b0c30a37e185550de0f2ce3a",
+      "followup_blob": "903dd52423e523d0b0c30a37e185550de0f2ce3a",
+      "match": true,
+      "prior_public_sha256": "01e467c83c24a9b8e2a866e9fe443d6d50d9db9403bf7b710bd10b37ae8c208d",
+      "http_repeated": false
+    },
+    {
+      "path": "fonts/source-code-pro-normal-greek-34dfcd3f61.woff2",
+      "url": "https://simonrj.github.io/-summit-one-narrator/fonts/source-code-pro-normal-greek-34dfcd3f61.woff2",
+      "first_source_blob": "6d30aa636afc2389daed8b4f84cd0b1be2e70ea0",
+      "followup_blob": "6d30aa636afc2389daed8b4f84cd0b1be2e70ea0",
+      "match": true,
+      "prior_public_sha256": "34dfcd3f61fc26a6ba2a7ee30eab6bc4bdc5d4872a8b49a90a17f1bf9e70553b",
+      "http_repeated": false
+    },
+    {
+      "path": "fonts/source-code-pro-normal-vietnamese-d8a28d78c1.woff2",
+      "url": "https://simonrj.github.io/-summit-one-narrator/fonts/source-code-pro-normal-vietnamese-d8a28d78c1.woff2",
+      "first_source_blob": "45f697646bd7c73ba99b6f7e91469f463502d4e2",
+      "followup_blob": "45f697646bd7c73ba99b6f7e91469f463502d4e2",
+      "match": true,
+      "prior_public_sha256": "d8a28d78c1c6de660e1be91fdadc9b01268415407922ed3cf64909a0b02a6356",
+      "http_repeated": false
+    },
+    {
+      "path": "fonts/source-code-pro-normal-latin-ext-ab316ee7e4.woff2",
+      "url": "https://simonrj.github.io/-summit-one-narrator/fonts/source-code-pro-normal-latin-ext-ab316ee7e4.woff2",
+      "first_source_blob": "7757bfc4c13d9d667c4db52c98eb34a41e7a6967",
+      "followup_blob": "7757bfc4c13d9d667c4db52c98eb34a41e7a6967",
+      "match": true,
+      "prior_public_sha256": "ab316ee7e4a28a149fe9f74a3e9173c3d14a11bb7d4df898dd2fe10da7b7fe24",
+      "http_repeated": false
+    },
+    {
+      "path": "fonts/source-code-pro-normal-latin-8b774aaa51.woff2",
+      "url": "https://simonrj.github.io/-summit-one-narrator/fonts/source-code-pro-normal-latin-8b774aaa51.woff2",
+      "first_source_blob": "bc303f50c5d054c18e6de4411934639c72d67a44",
+      "followup_blob": "bc303f50c5d054c18e6de4411934639c72d67a44",
+      "match": true,
+      "prior_public_sha256": "8b774aaa5137a38ef40f4ac9d36db9a5eee152b2f66589dfdc82ff007fc87135",
+      "http_repeated": false
+    },
+    {
+      "path": "fonts/source-sans-3-italic-cyrillic-ext-9f9b2a3d40.woff2",
+      "url": "https://simonrj.github.io/-summit-one-narrator/fonts/source-sans-3-italic-cyrillic-ext-9f9b2a3d40.woff2",
+      "first_source_blob": "6c75aa19f43ccfdf1adee0f67aac8d3f14f4f57f",
+      "followup_blob": "6c75aa19f43ccfdf1adee0f67aac8d3f14f4f57f",
+      "match": true,
+      "prior_public_sha256": "9f9b2a3d4050cef3165f8ad546296ac9bf012acff4b97f9c820b58b99a19dcbe",
+      "http_repeated": false
+    },
+    {
+      "path": "fonts/source-sans-3-italic-cyrillic-747ba5266e.woff2",
+      "url": "https://simonrj.github.io/-summit-one-narrator/fonts/source-sans-3-italic-cyrillic-747ba5266e.woff2",
+      "first_source_blob": "264654d54a4021fc329311af6ceff5abc2eec0f4",
+      "followup_blob": "264654d54a4021fc329311af6ceff5abc2eec0f4",
+      "match": true,
+      "prior_public_sha256": "747ba5266ef049efc6d67eaa99058a81efa134ec00483c246ed388ef288186d2",
+      "http_repeated": false
+    },
+    {
+      "path": "fonts/source-sans-3-italic-greek-ext-eed2194fd9.woff2",
+      "url": "https://simonrj.github.io/-summit-one-narrator/fonts/source-sans-3-italic-greek-ext-eed2194fd9.woff2",
+      "first_source_blob": "f56af50df6e894a0212d86a18c142aac122ac2b5",
+      "followup_blob": "f56af50df6e894a0212d86a18c142aac122ac2b5",
+      "match": true,
+      "prior_public_sha256": "eed2194fd9fd800dace0ee1535cab3b9e75d0e0dda69ef96ca332124af79a4ec",
+      "http_repeated": false
+    },
+    {
+      "path": "fonts/source-sans-3-italic-greek-7ebcf40b8c.woff2",
+      "url": "https://simonrj.github.io/-summit-one-narrator/fonts/source-sans-3-italic-greek-7ebcf40b8c.woff2",
+      "first_source_blob": "483e282bce13777bcf12a9fe668f5e93bb79fa21",
+      "followup_blob": "483e282bce13777bcf12a9fe668f5e93bb79fa21",
+      "match": true,
+      "prior_public_sha256": "7ebcf40b8c0e5576c16546bd3e94a3fd7f5f0a410c268af74e9cbcf444f32cf8",
+      "http_repeated": false
+    },
+    {
+      "path": "fonts/source-sans-3-italic-vietnamese-aa44d57632.woff2",
+      "url": "https://simonrj.github.io/-summit-one-narrator/fonts/source-sans-3-italic-vietnamese-aa44d57632.woff2",
+      "first_source_blob": "0e3f92443fe6acf33d75e9830406beb4106c00ba",
+      "followup_blob": "0e3f92443fe6acf33d75e9830406beb4106c00ba",
+      "match": true,
+      "prior_public_sha256": "aa44d57632499ea829dc6eeb512d6b84955328d436567448e905d279c3589b4c",
+      "http_repeated": false
+    },
+    {
+      "path": "fonts/source-sans-3-italic-latin-ext-6fe10a66ec.woff2",
+      "url": "https://simonrj.github.io/-summit-one-narrator/fonts/source-sans-3-italic-latin-ext-6fe10a66ec.woff2",
+      "first_source_blob": "a5ee6af68d77ce66a4ffaf1ec852f77b1b78ca0f",
+      "followup_blob": "a5ee6af68d77ce66a4ffaf1ec852f77b1b78ca0f",
+      "match": true,
+      "prior_public_sha256": "6fe10a66ec416f77a26309b645471d032ad8175063bb605b886e9b7e57efaaa8",
+      "http_repeated": false
+    },
+    {
+      "path": "fonts/source-sans-3-italic-latin-5fbc14d56c.woff2",
+      "url": "https://simonrj.github.io/-summit-one-narrator/fonts/source-sans-3-italic-latin-5fbc14d56c.woff2",
+      "first_source_blob": "7c4bc85b493cd84381dd1c95e655a673fdb6147b",
+      "followup_blob": "7c4bc85b493cd84381dd1c95e655a673fdb6147b",
+      "match": true,
+      "prior_public_sha256": "5fbc14d56cea35e60596c72ca969b349443c6a536f74e11748eed8b3a396e61d",
+      "http_repeated": false
+    },
+    {
+      "path": "fonts/source-sans-3-normal-cyrillic-ext-c6e007862d.woff2",
+      "url": "https://simonrj.github.io/-summit-one-narrator/fonts/source-sans-3-normal-cyrillic-ext-c6e007862d.woff2",
+      "first_source_blob": "41b2ca313046cd4a5e82841847cffd70ff83fb0a",
+      "followup_blob": "41b2ca313046cd4a5e82841847cffd70ff83fb0a",
+      "match": true,
+      "prior_public_sha256": "c6e007862d29f6b59955f979a18508b75ec081f9d28248ccc9967522e1dd7506",
+      "http_repeated": false
+    },
+    {
+      "path": "fonts/source-sans-3-normal-cyrillic-b6b721e08d.woff2",
+      "url": "https://simonrj.github.io/-summit-one-narrator/fonts/source-sans-3-normal-cyrillic-b6b721e08d.woff2",
+      "first_source_blob": "dcd6fee0c5125b96bbaf90b389248d60404d670b",
+      "followup_blob": "dcd6fee0c5125b96bbaf90b389248d60404d670b",
+      "match": true,
+      "prior_public_sha256": "b6b721e08d0324b9e743858e8260463085d4c5e1e684f036f9d4a8ca6c62996f",
+      "http_repeated": false
+    },
+    {
+      "path": "fonts/source-sans-3-normal-greek-ext-67fbab24bd.woff2",
+      "url": "https://simonrj.github.io/-summit-one-narrator/fonts/source-sans-3-normal-greek-ext-67fbab24bd.woff2",
+      "first_source_blob": "7a5a7723b708a1d170f73b6894fa4f14fdefd845",
+      "followup_blob": "7a5a7723b708a1d170f73b6894fa4f14fdefd845",
+      "match": true,
+      "prior_public_sha256": "67fbab24bd97c2161850ce1b5308fe8bb4ad1dd9ddf3c38e875b185e5bacf52d",
+      "http_repeated": false
+    },
+    {
+      "path": "fonts/source-sans-3-normal-greek-dd6ec3878c.woff2",
+      "url": "https://simonrj.github.io/-summit-one-narrator/fonts/source-sans-3-normal-greek-dd6ec3878c.woff2",
+      "first_source_blob": "c7c74365d3240bf8f2d41e97780f32d8f5fa251a",
+      "followup_blob": "c7c74365d3240bf8f2d41e97780f32d8f5fa251a",
+      "match": true,
+      "prior_public_sha256": "dd6ec3878cf37dc8b864562acf1a37bd8c9e0ca638d7f75a7cd6b6f7ae16cf3d",
+      "http_repeated": false
+    },
+    {
+      "path": "fonts/source-sans-3-normal-vietnamese-a91edbcdcb.woff2",
+      "url": "https://simonrj.github.io/-summit-one-narrator/fonts/source-sans-3-normal-vietnamese-a91edbcdcb.woff2",
+      "first_source_blob": "784f1a32d993df9207e0af538d9eab0a10f29e79",
+      "followup_blob": "784f1a32d993df9207e0af538d9eab0a10f29e79",
+      "match": true,
+      "prior_public_sha256": "a91edbcdcb4e0f97ca0558994918fd3e489356c0f63aa0bc54972b5e513b4a59",
+      "http_repeated": false
+    },
+    {
+      "path": "fonts/source-sans-3-normal-latin-ext-a85a7459bd.woff2",
+      "url": "https://simonrj.github.io/-summit-one-narrator/fonts/source-sans-3-normal-latin-ext-a85a7459bd.woff2",
+      "first_source_blob": "7f78ca99b433c5e3ef9a72779397c30efa5c3169",
+      "followup_blob": "7f78ca99b433c5e3ef9a72779397c30efa5c3169",
+      "match": true,
+      "prior_public_sha256": "a85a7459bdb3cdc1136751e151a506bae653fc29ada3ca86237477df6f1b59e6",
+      "http_repeated": false
+    },
+    {
+      "path": "fonts/source-sans-3-normal-latin-19143dca07.woff2",
+      "url": "https://simonrj.github.io/-summit-one-narrator/fonts/source-sans-3-normal-latin-19143dca07.woff2",
+      "first_source_blob": "2622b1332b25c5a6f41264d563c43498b19c1c0d",
+      "followup_blob": "2622b1332b25c5a6f41264d563c43498b19c1c0d",
+      "match": true,
+      "prior_public_sha256": "19143dca075972bc84e3fd9eab7416dd40cc565dccb2435a044bdfabe060c7d5",
+      "http_repeated": false
+    },
+    {
+      "path": "fonts/source-serif-4-normal-cyrillic-ext-da49e14ae1.woff2",
+      "url": "https://simonrj.github.io/-summit-one-narrator/fonts/source-serif-4-normal-cyrillic-ext-da49e14ae1.woff2",
+      "first_source_blob": "6769570316b58687717e6e91568e4afb067bb2b5",
+      "followup_blob": "6769570316b58687717e6e91568e4afb067bb2b5",
+      "match": true,
+      "prior_public_sha256": "da49e14ae1d459f3d04cf4555fb954f6e54b247b708f8cfe2d8e7e4ee3c6829b",
+      "http_repeated": false
+    },
+    {
+      "path": "fonts/source-serif-4-normal-cyrillic-a81082707b.woff2",
+      "url": "https://simonrj.github.io/-summit-one-narrator/fonts/source-serif-4-normal-cyrillic-a81082707b.woff2",
+      "first_source_blob": "f6b8ceb697df7a95b57e38070f4ba181542b901d",
+      "followup_blob": "f6b8ceb697df7a95b57e38070f4ba181542b901d",
+      "match": true,
+      "prior_public_sha256": "a81082707b85203d7f2ae33833f7ae0bf832db167c8710f92f805a9808fb051a",
+      "http_repeated": false
+    },
+    {
+      "path": "fonts/source-serif-4-normal-greek-54c4728aa0.woff2",
+      "url": "https://simonrj.github.io/-summit-one-narrator/fonts/source-serif-4-normal-greek-54c4728aa0.woff2",
+      "first_source_blob": "7e4f3fa8bd4f21ab2d1fb5b6130d9e3782cb3119",
+      "followup_blob": "7e4f3fa8bd4f21ab2d1fb5b6130d9e3782cb3119",
+      "match": true,
+      "prior_public_sha256": "54c4728aa0fd97d59b89b6d89b230065794b4c088c55efe71abc9ce882cfa853",
+      "http_repeated": false
+    },
+    {
+      "path": "fonts/source-serif-4-normal-vietnamese-c3de01b514.woff2",
+      "url": "https://simonrj.github.io/-summit-one-narrator/fonts/source-serif-4-normal-vietnamese-c3de01b514.woff2",
+      "first_source_blob": "1ca7ff5f6577fd145796248e8edd8d0a591a5fc8",
+      "followup_blob": "1ca7ff5f6577fd145796248e8edd8d0a591a5fc8",
+      "match": true,
+      "prior_public_sha256": "c3de01b5144e1a2d7e70eeaf66ab92afdedcc4424ed1d7ffc1993a657d1c762a",
+      "http_repeated": false
+    },
+    {
+      "path": "fonts/source-serif-4-normal-latin-ext-d10ccbbd0d.woff2",
+      "url": "https://simonrj.github.io/-summit-one-narrator/fonts/source-serif-4-normal-latin-ext-d10ccbbd0d.woff2",
+      "first_source_blob": "35a7ae7f9fee99470820c71100bb88d884399bbc",
+      "followup_blob": "35a7ae7f9fee99470820c71100bb88d884399bbc",
+      "match": true,
+      "prior_public_sha256": "d10ccbbd0dc4ebae2938958dc1f622a53460fe297e9c958564742dd684309c3f",
+      "http_repeated": false
+    },
+    {
+      "path": "fonts/source-serif-4-normal-latin-382475f382.woff2",
+      "url": "https://simonrj.github.io/-summit-one-narrator/fonts/source-serif-4-normal-latin-382475f382.woff2",
+      "first_source_blob": "4c3e6b90c9518de98b75a1565cb2ec0f3865bb6f",
+      "followup_blob": "4c3e6b90c9518de98b75a1565cb2ec0f3865bb6f",
+      "match": true,
+      "prior_public_sha256": "382475f38242c52d42a3e5ff8dc69b5d73f10d0d21e4550b5fe232984688779a",
+      "http_repeated": false
+    },
+    {
+      "path": "welcome.html",
+      "url": "https://simonrj.github.io/-summit-one-narrator/welcome.html",
+      "first_source_blob": "bde5f986e19ad3d1c2526070c7f1c0ff6abcad37",
+      "followup_blob": "bde5f986e19ad3d1c2526070c7f1c0ff6abcad37",
+      "match": true,
+      "prior_public_sha256": "4ac46b6820394da64fafa7c483af688bc4418515e4dd8a28ebea7780409ac1a4",
+      "http_repeated": false
+    },
+    {
+      "path": "welcome.js",
+      "url": "https://simonrj.github.io/-summit-one-narrator/welcome.js?v=course-films-target-clock-20261125",
+      "first_source_blob": "e76a9ae5cf05b2ee6811d1a979c18fd85ac0a807",
+      "followup_blob": "e76a9ae5cf05b2ee6811d1a979c18fd85ac0a807",
+      "match": true,
+      "prior_public_sha256": "b795cd5ea8b2c1d7e6c5b48f35d28080a94d967b455e5f753692ba7f6e3a0825",
+      "http_repeated": false
+    },
+    {
+      "path": "welcome.css",
+      "url": "https://simonrj.github.io/-summit-one-narrator/welcome.css?v=chapter-navigation-20261122",
+      "first_source_blob": "250326cf88e880275b3a8ecc94ae4f2191f9910b",
+      "followup_blob": "250326cf88e880275b3a8ecc94ae4f2191f9910b",
+      "match": true,
+      "prior_public_sha256": "78accccdab5ec073ab41e597489260e18e2e5843b827782b5b4baa042d2f7d28",
+      "http_repeated": false
+    },
+    {
+      "path": "watch-amc-2025-q17.html",
+      "url": "https://simonrj.github.io/-summit-one-narrator/watch-amc-2025-q17.html",
+      "first_source_blob": "5fc29b88ec3afba9a74cec59e6dc1d169507ef30",
+      "followup_blob": "5fc29b88ec3afba9a74cec59e6dc1d169507ef30",
+      "match": true,
+      "prior_public_sha256": "d518e04519ef66eef4f956011a4f6161c73686c7bb9be21e7f5be9d88f61b568",
+      "http_repeated": false
+    },
+    {
+      "path": "watch-t18-1.html",
+      "url": "https://simonrj.github.io/-summit-one-narrator/watch-t18-1.html",
+      "first_source_blob": "1c7258f9a060a3db7a0ddb2bab00f413a72e53ce",
+      "followup_blob": "1c7258f9a060a3db7a0ddb2bab00f413a72e53ce",
+      "match": true,
+      "prior_public_sha256": "98616e777d4b455d4d0ed793c43953ab010141ac1807e82085abbd9d6e96a88d",
+      "http_repeated": false
+    },
+    {
+      "path": "teaching-videos.html",
+      "url": "https://simonrj.github.io/-summit-one-narrator/teaching-videos.html",
+      "first_source_blob": "e801e206b718a917ded8fe691bd97897d8447221",
+      "followup_blob": "e801e206b718a917ded8fe691bd97897d8447221",
+      "match": true,
+      "prior_public_sha256": "d9b47b6badcb4328eeb7069db8708a58b8719464979e01ebb51c55e11e2bdc73",
+      "http_repeated": false
+    },
+    {
+      "path": "lesson-video-chapters.js",
+      "url": "https://simonrj.github.io/-summit-one-narrator/lesson-video-chapters.js?v=chapter-seek-20261122",
+      "first_source_blob": "1e04e37dbe133997d7fd1b509bf1b46e26755211",
+      "followup_blob": "1e04e37dbe133997d7fd1b509bf1b46e26755211",
+      "match": true,
+      "prior_public_sha256": "531306e5142d9b48484117dcdb60503b1a6c84dde32065358c1b837c471dd9cc",
+      "http_repeated": false
+    },
+    {
+      "path": "lesson-video-chapters.js",
+      "url": "https://simonrj.github.io/-summit-one-narrator/lesson-video-chapters.js?v=seek-1",
+      "first_source_blob": "1e04e37dbe133997d7fd1b509bf1b46e26755211",
+      "followup_blob": "1e04e37dbe133997d7fd1b509bf1b46e26755211",
+      "match": true,
+      "prior_public_sha256": "531306e5142d9b48484117dcdb60503b1a6c84dde32065358c1b837c471dd9cc",
+      "http_repeated": false
+    },
+    {
+      "path": "media/AMCIntroduction.mp4",
+      "url": "https://simonrj.github.io/-summit-one-narrator/media/AMCIntroduction.mp4?v=course-films-target-clock-20261125",
+      "first_source_blob": "e6daed99bbbced04fb6e148ba9a5aec66d89fd50",
+      "followup_blob": "e6daed99bbbced04fb6e148ba9a5aec66d89fd50",
+      "match": true,
+      "prior_public_sha256": "5373ccb4f27d875cbd2f05ce8aa4d5d57de25643529c2a434f58ef3e602bb9f5",
+      "http_repeated": false
+    },
+    {
+      "path": "media/AMCIntroduction-poster.jpg",
+      "url": "https://simonrj.github.io/-summit-one-narrator/media/AMCIntroduction-poster.jpg?v=course-films-target-clock-20261125",
+      "first_source_blob": "a7bbf870eaabd4dc550647518823ea71cd8800bd",
+      "followup_blob": "a7bbf870eaabd4dc550647518823ea71cd8800bd",
+      "match": true,
+      "prior_public_sha256": "e1f55b424f96af68cb7737fbfba5e5cc2326fceb034cf679c9855a9bea302ed4",
+      "http_repeated": false
+    },
+    {
+      "path": "media/AMCIntroduction.vtt",
+      "url": "https://simonrj.github.io/-summit-one-narrator/media/AMCIntroduction.vtt",
+      "first_source_blob": "6f89c46283dfbb37ed4ec9543dd092dcc96ff701",
+      "followup_blob": "6f89c46283dfbb37ed4ec9543dd092dcc96ff701",
+      "match": true,
+      "prior_public_sha256": "73ea9d236dfa44687d44f39339bb5f85e67c0d5ef305dda3767ba0419bf86313",
+      "http_repeated": false
+    },
+    {
+      "path": "media/AMCIntroduction-transcript.txt",
+      "url": "https://simonrj.github.io/-summit-one-narrator/media/AMCIntroduction-transcript.txt",
+      "first_source_blob": "51792518d4445a9d6ed5dd0c0e74b47a2f841252",
+      "followup_blob": "51792518d4445a9d6ed5dd0c0e74b47a2f841252",
+      "match": true,
+      "prior_public_sha256": "0beb6d68e9695800cc5a42965eb231a41b5dc27d6c97f701bf33f7bb0e5f31f9",
+      "http_repeated": false
+    },
+    {
+      "path": "review/AMCIntroduction-qa.json",
+      "url": "https://simonrj.github.io/-summit-one-narrator/review/AMCIntroduction-qa.json?v=course-films-target-clock-20261125",
+      "first_source_blob": "5f2b020c8f3d5d2dfb6e696448f8c404f889dd14",
+      "followup_blob": "5f2b020c8f3d5d2dfb6e696448f8c404f889dd14",
+      "match": true,
+      "prior_public_sha256": "4357f89e3236096e647f9be3701e3e0c88c9078695f3a4556d10fd651be3cbfa",
+      "http_repeated": false
+    },
+    {
+      "path": "media/AMC2025Q17-voice-c.mp4",
+      "url": "https://simonrj.github.io/-summit-one-narrator/media/AMC2025Q17-voice-c.mp4?v=course-films-target-clock-20261125",
+      "first_source_blob": "16ef5eefb19c692dc0c185f144c01f5f503d63ac",
+      "followup_blob": "16ef5eefb19c692dc0c185f144c01f5f503d63ac",
+      "match": true,
+      "prior_public_sha256": "10c454496ef92f044a50841ebffc0f7711afc5432997386f577560cf4737950d",
+      "http_repeated": false
+    },
+    {
+      "path": "media/AMC2025Q17-voice-c-poster.jpg",
+      "url": "https://simonrj.github.io/-summit-one-narrator/media/AMC2025Q17-voice-c-poster.jpg?v=course-films-target-clock-20261125",
+      "first_source_blob": "3f36e5c004849a481d3026c2bcb46734138356db",
+      "followup_blob": "3f36e5c004849a481d3026c2bcb46734138356db",
+      "match": true,
+      "prior_public_sha256": "353a14212f96917900968baf21a1daea29356c24b0c2ef9a8c2b46f67646c23f",
+      "http_repeated": false
+    },
+    {
+      "path": "media/AMC2025Q17-voice-c.vtt",
+      "url": "https://simonrj.github.io/-summit-one-narrator/media/AMC2025Q17-voice-c.vtt?v=course-films-target-clock-20261125",
+      "first_source_blob": "aec32b8a879c70b798b1b457482529724334b230",
+      "followup_blob": "aec32b8a879c70b798b1b457482529724334b230",
+      "match": true,
+      "prior_public_sha256": "58d056c1b578c5004cef22a92f7e1b02d201800d4d7cfce6e853827504e4a162",
+      "http_repeated": false
+    },
+    {
+      "path": "review/AMC2025Q17-voice-c.json",
+      "url": "https://simonrj.github.io/-summit-one-narrator/review/AMC2025Q17-voice-c.json",
+      "first_source_blob": "2bbea5a7b5680af09097a2a5406b237875cbd170",
+      "followup_blob": "2bbea5a7b5680af09097a2a5406b237875cbd170",
+      "match": true,
+      "prior_public_sha256": "7dcabcbf9a9b6a01ef7eac750d97383a3b0eb1fd12d4b5eea3c2dce353850240",
+      "http_repeated": false
+    },
+    {
+      "path": "media/T18.1.mp4",
+      "url": "https://simonrj.github.io/-summit-one-narrator/media/T18.1.mp4?v=thirteen-search",
+      "first_source_blob": "ce45ce63b476a869fc69aebcafd1fa7409114bb5",
+      "followup_blob": "ce45ce63b476a869fc69aebcafd1fa7409114bb5",
+      "match": true,
+      "prior_public_sha256": "3527d02410e4b1158af7d42a5d8abce16cb6fed702947b8fa864af25590635ce",
+      "http_repeated": false
+    },
+    {
+      "path": "media/T18.1-studio-poster.jpg",
+      "url": "https://simonrj.github.io/-summit-one-narrator/media/T18.1-studio-poster.jpg?v=thirteen-search",
+      "first_source_blob": "d45c0bd8c5b6d6c25ddb13869986c7b86607e6fb",
+      "followup_blob": "d45c0bd8c5b6d6c25ddb13869986c7b86607e6fb",
+      "match": true,
+      "prior_public_sha256": "d5296dd117a2c7f4af9d7e4c7f202b0fc62827941413579dc4e9adddd1f0bf35",
+      "http_repeated": false
+    },
+    {
+      "path": "media/T18.1.vtt",
+      "url": "https://simonrj.github.io/-summit-one-narrator/media/T18.1.vtt",
+      "first_source_blob": "2bbf69e88c54337703a6290abfa7da0961bf16fe",
+      "followup_blob": "2bbf69e88c54337703a6290abfa7da0961bf16fe",
+      "match": true,
+      "prior_public_sha256": "81645151d9751b9312eda940e5b17a968e7a538eff6c0146ef19e0a249ce624c",
+      "http_repeated": false
+    },
+    {
+      "path": "review/T18.1-studio-qa.json",
+      "url": "https://simonrj.github.io/-summit-one-narrator/review/T18.1-studio-qa.json",
+      "first_source_blob": "0d5e40b38ccc9c0ee367194e4f26c446d34cd792",
+      "followup_blob": "0d5e40b38ccc9c0ee367194e4f26c446d34cd792",
+      "match": true,
+      "prior_public_sha256": "5d12f78efab13178ea999f448e83ffd787550512b7e05fb51b0cf20cef78094a",
+      "http_repeated": false
+    }
+  ],
+  "offline_52_match": true,
+  "source_declarations": {
+    "routes": [
+      {
+        "slot": 9,
+        "film": "S009",
+        "role": "canonical",
+        "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/stable-captions-20261125-2cde68c0f046/S009.mp4",
+        "guide_sha256": "999aba1a891fffeafe82e3c3b9e537d0b261a0332d507e967a199890f0a3d123",
+        "bridge": "Track the sleeve that crosses from the units drawer into the tens drawer. Later, read the hundreds drawer first.",
+        "checks": {
+          "exact_two_slots": true,
+          "film_identity": true,
+          "movie_and_catalogue": true,
+          "guide_sha256": true,
+          "title": true,
+          "film_use": true,
+          "bridge_preserved": true,
+          "canonical_bridge": true
+        },
+        "passed": true
+      },
+      {
+        "slot": 228,
+        "film": "S009",
+        "role": "consumer",
+        "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/stable-captions-20261125-2cde68c0f046/S009.mp4",
+        "guide_sha256": "999aba1a891fffeafe82e3c3b9e537d0b261a0332d507e967a199890f0a3d123",
+        "bridge": "When eight and eight make sixteen, follow the six loose units and the sleeve worth one ten. Where does each go before the tens are added?",
+        "checks": {
+          "exact_two_slots": true,
+          "film_identity": true,
+          "movie_and_catalogue": true,
+          "guide_sha256": true,
+          "title": true,
+          "film_use": true,
+          "bridge_preserved": true,
+          "canonical_bridge": true
+        },
+        "passed": true
+      },
+      {
+        "slot": 10,
+        "film": "S010",
+        "role": "canonical",
+        "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/stable-captions-20261125-2cde68c0f046/S010.mp4",
+        "guide_sha256": "5369c10e51e6ac79a925d04566ebe6780735de2069fb10f20d6242b4137a1a8a",
+        "bridge": "Follow the two digits when the ticket turns. At inspection, compare both the printed sum and the letters that received its digits.",
+        "checks": {
+          "exact_two_slots": true,
+          "film_identity": true,
+          "movie_and_catalogue": true,
+          "guide_sha256": true,
+          "title": true,
+          "film_use": true,
+          "bridge_preserved": true,
+          "canonical_bridge": true
+        },
+        "passed": true
+      },
+      {
+        "slot": 319,
+        "film": "S010",
+        "role": "consumer",
+        "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/stable-captions-20261125-2cde68c0f046/S010.mp4",
+        "guide_sha256": "5369c10e51e6ac79a925d04566ebe6780735de2069fb10f20d6242b4137a1a8a",
+        "bridge": "In the ticket inspection, use the zero in the units column to force the missing digit. Then watch why 51 + 59 is rejected despite adding correctly.",
+        "checks": {
+          "exact_two_slots": true,
+          "film_identity": true,
+          "movie_and_catalogue": true,
+          "guide_sha256": true,
+          "title": true,
+          "film_use": true,
+          "bridge_preserved": true,
+          "canonical_bridge": true
+        },
+        "passed": true
+      },
+      {
+        "slot": 12,
+        "film": "S012",
+        "role": "canonical",
+        "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/stable-captions-20261125-2cde68c0f046/S012.mp4",
+        "guide_sha256": "d36d6c733066f0e27d195e0268548cc0c8c3ce68bfd0cfac7348ac8529be2dd6",
+        "bridge": "Pause when the film marks rung 3 as broken. Is rung 4 still reachable? Trace its possible final jumps before the film fills in the table.",
+        "checks": {
+          "exact_two_slots": true,
+          "film_identity": true,
+          "movie_and_catalogue": true,
+          "guide_sha256": true,
+          "title": true,
+          "film_use": true,
+          "bridge_preserved": true,
+          "canonical_bridge": true
+        },
+        "passed": true
+      },
+      {
+        "slot": 248,
+        "film": "S012",
+        "role": "consumer",
+        "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/stable-captions-20261125-2cde68c0f046/S012.mp4",
+        "guide_sha256": "d36d6c733066f0e27d195e0268548cc0c8c3ce68bfd0cfac7348ac8529be2dd6",
+        "bridge": "Watch the film’s blocked rung remove a possible previous landing. Then ask what extra information a path count would need if an entire kind of move were restricted.",
+        "checks": {
+          "exact_two_slots": true,
+          "film_identity": true,
+          "movie_and_catalogue": true,
+          "guide_sha256": true,
+          "title": true,
+          "film_use": true,
+          "bridge_preserved": true,
+          "canonical_bridge": true
+        },
+        "passed": true
+      },
+      {
+        "slot": 15,
+        "film": "S015",
+        "role": "canonical",
+        "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s015-numeral-timing-20261125-41b7922d37ed/S015.mp4",
+        "guide_sha256": "19765de3ce9c28259d244c41d370cb3073513bc928124167e58cc21497098c89",
+        "bridge": "When the film adds 1 to make a number divisible by both 4 and 6, pause. Where must the two ends of the search interval move? After finding a common multiple, how will you get back to the original number?",
+        "checks": {
+          "exact_two_slots": true,
+          "film_identity": true,
+          "movie_and_catalogue": true,
+          "guide_sha256": true,
+          "title": true,
+          "film_use": true,
+          "bridge_preserved": true,
+          "canonical_bridge": true
+        },
+        "passed": true
+      },
+      {
+        "slot": 260,
+        "film": "S015",
+        "role": "consumer",
+        "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s015-numeral-timing-20261125-41b7922d37ed/S015.mp4",
+        "guide_sha256": "19765de3ce9c28259d244c41d370cb3073513bc928124167e58cc21497098c89",
+        "bridge": "Read the mail train’s two stamps independently. Which labels pass the divisibility-by-four test on the last two digits, and which of those also pass the digit-sum test for three?",
+        "checks": {
+          "exact_two_slots": true,
+          "film_identity": true,
+          "movie_and_catalogue": true,
+          "guide_sha256": true,
+          "title": true,
+          "film_use": true,
+          "bridge_preserved": true,
+          "canonical_bridge": true
+        },
+        "passed": true
+      },
+      {
+        "slot": 17,
+        "film": "S017",
+        "role": "canonical",
+        "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/stable-captions-20261125-2cde68c0f046/S017.mp4",
+        "guide_sha256": "7a2493a89821faca46c686fed5d4d003b27e6a4fe5779670202b6ae3ff5edfe4",
+        "bridge": "In the film’s marked grid, first count rectangles containing cell A. To remove the unwanted ones, which four boundary choices guarantee a rectangle contains both A and B?",
+        "checks": {
+          "exact_two_slots": true,
+          "film_identity": true,
+          "movie_and_catalogue": true,
+          "guide_sha256": true,
+          "title": true,
+          "film_use": true,
+          "bridge_preserved": true,
+          "canonical_bridge": true
+        },
+        "passed": true
+      },
+      {
+        "slot": 300,
+        "film": "S017",
+        "role": "consumer",
+        "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/stable-captions-20261125-2cde68c0f046/S017.mp4",
+        "guide_sha256": "7a2493a89821faca46c686fed5d4d003b27e6a4fe5779670202b6ae3ff5edfe4",
+        "bridge": "The film distinguishes grid cells from their boundary lines. As you follow the marked cells, also identify intersections where two boundary lines meet.",
+        "checks": {
+          "exact_two_slots": true,
+          "film_identity": true,
+          "movie_and_catalogue": true,
+          "guide_sha256": true,
+          "title": true,
+          "film_use": true,
+          "bridge_preserved": true,
+          "canonical_bridge": true
+        },
+        "passed": true
+      },
+      {
+        "slot": 19,
+        "film": "S019",
+        "role": "canonical",
+        "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s019-stable-captions-20261125-ac244dec7136/S019.mp4",
+        "guide_sha256": "5455c0c0119bedd897ddda6feb41002cf215575c8f8839565661674c42ad712c",
+        "bridge": "In the film’s first 4-by-4 example, the crosses mark the two leftmost squares in the top row. Which domino covers the two top squares that remain? What would you have to change if the middle two had been removed instead?",
+        "checks": {
+          "exact_two_slots": true,
+          "film_identity": true,
+          "movie_and_catalogue": true,
+          "guide_sha256": true,
+          "title": true,
+          "film_use": true,
+          "bridge_preserved": true,
+          "canonical_bridge": true
+        },
+        "passed": true
+      },
+      {
+        "slot": 333,
+        "film": "S019",
+        "role": "consumer",
+        "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s019-stable-captions-20261125-ac244dec7136/S019.mp4",
+        "guide_sha256": "5455c0c0119bedd897ddda6feb41002cf215575c8f8839565661674c42ad712c",
+        "bridge": "In the film, compare the two removed corner squares with the two neighbouring squares. Why does removing the same number of squares permit one tiling but rule out the other?",
+        "checks": {
+          "exact_two_slots": true,
+          "film_identity": true,
+          "movie_and_catalogue": true,
+          "guide_sha256": true,
+          "title": true,
+          "film_use": true,
+          "bridge_preserved": true,
+          "canonical_bridge": true
+        },
+        "passed": true
+      },
+      {
+        "slot": 20,
+        "film": "S020",
+        "role": "canonical",
+        "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s020-stable-captions-20261125-0dfec081086f/S020.mp4",
+        "guide_sha256": "5308674d7d66dee6545d05699311a192b13e2fce2d48b6d2f560ec35ce1e57f3",
+        "bridge": "For the sum in the film, 12 complete blocks use exponents 1 to 48. The next exponent is 49: which position is that in the repeating pattern of last digits?",
+        "checks": {
+          "exact_two_slots": true,
+          "film_identity": true,
+          "movie_and_catalogue": true,
+          "guide_sha256": true,
+          "title": true,
+          "film_use": true,
+          "bridge_preserved": true,
+          "canonical_bridge": true
+        },
+        "passed": true
+      },
+      {
+        "slot": 283,
+        "film": "S020",
+        "role": "consumer",
+        "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s020-stable-captions-20261125-0dfec081086f/S020.mp4",
+        "guide_sha256": "5308674d7d66dee6545d05699311a192b13e2fce2d48b6d2f560ec35ce1e57f3",
+        "bridge": "In the film's powers of three, label the exponent above each last digit. Find the first repeated digit together with its position before tackling the sum of many powers.",
+        "checks": {
+          "exact_two_slots": true,
+          "film_identity": true,
+          "movie_and_catalogue": true,
+          "guide_sha256": true,
+          "title": true,
+          "film_use": true,
+          "bridge_preserved": true,
+          "canonical_bridge": true
+        },
+        "passed": true
+      },
+      {
+        "slot": 102,
+        "film": "S102",
+        "role": "canonical",
+        "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s102-tens-units-20261125-a84046b06450/S102.mp4",
+        "guide_sha256": "f08e10363f675d7cb9e46fd31e5f766fdbbacd248af3ddded95b2a06eb40f6e1",
+        "bridge": "Keep the hundreds digit fixed and swap tens and units: 153 becomes 135. Count the printed threes in each column separately.",
+        "checks": {
+          "exact_two_slots": true,
+          "film_identity": true,
+          "movie_and_catalogue": true,
+          "guide_sha256": true,
+          "title": true,
+          "film_use": true,
+          "bridge_preserved": true,
+          "canonical_bridge": true,
+          "corrected_digit_swap": true
+        },
+        "passed": true
+      },
+      {
+        "slot": 296,
+        "film": "S102",
+        "role": "consumer",
+        "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s102-tens-units-20261125-a84046b06450/S102.mp4",
+        "guide_sha256": "f08e10363f675d7cb9e46fd31e5f766fdbbacd248af3ddded95b2a06eb40f6e1",
+        "bridge": "For the multiples-of-nine count, keep hundreds fixed and swap tens and units: 153 becomes 135. Which digit choices force the missing digit?",
+        "checks": {
+          "exact_two_slots": true,
+          "film_identity": true,
+          "movie_and_catalogue": true,
+          "guide_sha256": true,
+          "title": true,
+          "film_use": true,
+          "bridge_preserved": true,
+          "canonical_bridge": true,
+          "corrected_digit_swap": true
+        },
+        "passed": true
+      }
+    ],
+    "cache_references": [
+      {
+        "path": "index.html",
+        "missing": []
+      },
+      {
+        "path": "sw.js",
+        "missing": []
+      },
+      {
+        "path": "lesson-introduction-videos.html",
+        "missing": []
+      },
+      {
+        "path": "watch-lesson-intro.html",
+        "missing": []
+      },
+      {
+        "path": "offline-reader.html",
+        "missing": []
+      },
+      {
+        "path": "app-main.js",
+        "missing": []
+      },
+      {
+        "path": "course-menu-ui.js",
+        "missing": []
+      },
+      {
+        "path": "lesson-introduction-library.js",
+        "missing": []
+      },
+      {
+        "path": "lesson-introduction-media.js",
+        "missing": []
+      },
+      {
+        "path": "offline-reader.js",
+        "missing": []
+      }
+    ],
+    "passed": true
+  },
+  "repeated_media_or_font_downloads": false,
+  "learner_operations": false,
+  "editorial_credit": false,
+  "mode": "offline-plan",
+  "http_requests": 0,
+  "files": [
+    {
+      "path": "index.html",
+      "url": "https://simonrj.github.io/-summit-one-narrator/index.html",
+      "bytes": 4254,
+      "sha256": "8e5aeeec9c95f9080aac90f591a842a1a1a22922ff64f2d1ca521d2bfe9ec11e"
+    },
+    {
+      "path": "sw.js",
+      "url": "https://simonrj.github.io/-summit-one-narrator/sw.js",
+      "bytes": 9107,
+      "sha256": "7d8d1ad65b90b9c38eb0367bc3b9cfd3ea033379080469523a132b34f46c7f7a"
+    },
+    {
+      "path": "lesson-introduction-videos.html",
+      "url": "https://simonrj.github.io/-summit-one-narrator/lesson-introduction-videos.html",
+      "bytes": 1873,
+      "sha256": "fffa9edeab3c099908fcf762a81fe826d876b74162534bf857941c2803246cbe"
+    },
+    {
+      "path": "watch-lesson-intro.html",
+      "url": "https://simonrj.github.io/-summit-one-narrator/watch-lesson-intro.html",
+      "bytes": 1815,
+      "sha256": "7479970305bf0fe7ce65044a7ba7711570204f234d615634ea039285c382dc90"
+    },
+    {
+      "path": "offline-reader.html",
+      "url": "https://simonrj.github.io/-summit-one-narrator/offline-reader.html",
+      "bytes": 2272,
+      "sha256": "57cd2d9290243e6c274795326a7bb0b4a40d1924b3707f4b182e29af4f6f1fe7"
+    },
+    {
+      "path": "app-main.js",
+      "url": "https://simonrj.github.io/-summit-one-narrator/app-main.js?v=priority-corrections-20261125b",
+      "bytes": 85792,
+      "sha256": "7779d5ecdf82924b061aae335acd7659e7b1c35302b658111626f86dd1e5a4b8"
+    },
+    {
+      "path": "course-menu-ui.js",
+      "url": "https://simonrj.github.io/-summit-one-narrator/course-menu-ui.js?v=priority-corrections-20261125b",
+      "bytes": 10940,
+      "sha256": "440ac9dc73b0172908c8a41cfb58cfddbc3d896d43ece81f2712b6403842766f"
+    },
+    {
+      "path": "lesson-introduction-media.js",
+      "url": "https://simonrj.github.io/-summit-one-narrator/lesson-introduction-media.js?v=priority-corrections-20261125b",
+      "bytes": 5432,
+      "sha256": "98f20d7324190d08d7c31236fec3d155b91c96d00a2edd9cf7c31705314c0d4f"
+    },
+    {
+      "path": "lesson-introduction-library.js",
+      "url": "https://simonrj.github.io/-summit-one-narrator/lesson-introduction-library.js?v=priority-corrections-20261125b",
+      "bytes": 6754,
+      "sha256": "a37d18579a0a0279b9bb62cea14f2d1d1bbb1ebcf3aae39b1605d5a9800196bd"
+    },
+    {
+      "path": "offline-reader.js",
+      "url": "https://simonrj.github.io/-summit-one-narrator/offline-reader.js?v=priority-corrections-20261125b",
+      "bytes": 3642,
+      "sha256": "4f9e408f7ed2b37f80af10264e67da9a79e943d7914a6653601085dffb0a877a"
+    },
+    {
+      "path": "data/read-watch-practise.json",
+      "url": "https://simonrj.github.io/-summit-one-narrator/data/read-watch-practise.json?v=priority-corrections-20261125b",
+      "bytes": 166799,
+      "sha256": "9cdacaf0d8a50a66f6197e63ae4acecd54647f856ff829fe5d9b21fdb3054587"
+    },
+    {
+      "path": "data/read-watch-practise-later.json",
+      "url": "https://simonrj.github.io/-summit-one-narrator/data/read-watch-practise-later.json?v=priority-corrections-20261125b",
+      "bytes": 663731,
+      "sha256": "b465e44c128796568d19a79ad82bf4a6d37db4a9c83aaf0ab01cf3e5832b732a"
+    },
+    {
+      "path": "data/recorded-studies.json",
+      "url": "https://simonrj.github.io/-summit-one-narrator/data/recorded-studies.json?v=priority-corrections-20261125b",
+      "bytes": 56247,
+      "sha256": "8ea56fd7408cc6d67494fcd3e659681f3adc936ee1cf7d51a216254ce8c3c38c"
+    },
+    {
+      "path": "data/teaching-72.json",
+      "url": "https://simonrj.github.io/-summit-one-narrator/data/teaching-72.json?v=priority-corrections-20261125b",
+      "bytes": 137918,
+      "sha256": "47fab6eb4470ce454072834b9424bbb61619c3c48298312870366b4b555799be"
+    }
+  ],
+  "passed": true
+}
