@@ -1,6 +1,6 @@
 {
   "id": "S102",
-  "status": "source-ready; local Voice C scene 8 recording running; no production master or public release yet",
+  "status": "single Voice C take preserved; measured-timing local master checked; isolated exact-take production run started; public release and full editorial acceptance pending",
   "changed_scenes": [
     8
   ],
@@ -68,12 +68,10 @@
     "10": 96.3,
     "11": 94.51
   },
-  "source_timing_note": "Recovered from original speech because the old release did not retain a full word timeline. The 84.15% source scene 8 is removed completely; preserved scenes score 94.51\u2013100%. Unchanged baked captions are retained.",
+  "source_timing_note": "Recovered from original speech because the old release did not retain a full word timeline. The 84.15% source scene 8 is removed completely; preserved scenes score 94.51–100%. Unchanged baked captions are retained.",
   "pipeline": ".github/workflows/s102-digit-swap.yml",
   "release_tag_pattern": "s102-tens-units-20261125-<12-character-source-commit>",
   "remaining": [
-    "Finish or restore the one approved Voice C take.",
-    "Render and validate the full corrected master.",
     "Watch/listen to the complete candidate, including the repaired proof and joins.",
     "Run exact-master iPhone/iPad portrait+landscape and PC playback gates, including consumer 296.",
     "Publish immutable assets and compare public bytes.",
@@ -83,5 +81,50 @@
     "No completion or originality credit claimed.",
     "Four shared teaching scenes and the broader near-match example family still need editorial work.",
     "No learner records, practice content, retained IDs or answer keys changed."
-  ]
+  ],
+  "saved_recording": {
+    "lesson": "S102",
+    "scene": 8,
+    "narration_sha256": "25199fc25ed5d068cddd06cc45faf56d0821748ebc59a31b69afbe2dc32aa50e",
+    "reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+    "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+    "natural_speed": true,
+    "sample_rate_hz": 48000,
+    "duration_seconds": 32.29,
+    "recording_sha256": "4582dcd016527a350da681f165b53e32ade863c7e3ea011aa5863e892cb8593b"
+  },
+  "held_local_master_sha256": "dad309128905a96c6b3784b63eb12df2b6545ffe9fc930b7cf7ded0c89b9cec4",
+  "held_reason": "Full-take ASR collapsed the spoken 333 to zero-duration timing; reuse the same audio with corrected isolated-passage word timing.",
+  "local_master_sha256": "e627ab6df0a16f75adce97fdbf021013a84cf01b3d124ca43dc8afa7b2fc947a",
+  "local_duration_seconds": 215.633333,
+  "local_qa_record": "review/s102-digit-swap-local-qa-20261125.json",
+  "local_candidate_directory": "/workspace/scratch/2fdd119b5e17/s102-media/measured-candidate",
+  "integration_bridge_replacements": {
+    "102": "Keep the hundreds digit fixed and swap tens and units: 153 becomes 135. Count the printed threes in each column separately.",
+    "296": "For the multiples-of-nine count, keep hundreds fixed and swap tens and units: 153 becomes 135. Which digit choices force the missing digit?"
+  },
+  "integration_bridge_condition": "Apply only with a verified public corrected-film release; retain technique-specific wording for 296 and preserve every practice item.",
+  "positive_duration_corrected_words": 81,
+  "voice_synthesis_runs": 1,
+  "held_local_masters": [
+    {
+      "sha256": "dad309128905a96c6b3784b63eb12df2b6545ffe9fc930b7cf7ded0c89b9cec4",
+      "reason": "Full-take timing collapsed both 153 and 333."
+    },
+    {
+      "sha256": "c0bc373168fb2221642b660339d0cbf948d9019d283ad88dc002126a716e5c49",
+      "reason": "Intermediate fix corrected 333; 153 still had zero-duration timing."
+    }
+  ],
+  "production": {
+    "branch": "production/s102-digit-swap",
+    "source_commit": "a84046b0645063f273951ce85d938aa71fffa9ee",
+    "source_tree": "d6988eba0b6b56646526a9745fa28e7f8e74709d",
+    "run_id": 45518273975,
+    "workflow_url": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45518273975",
+    "recorded_status": "saved-take restoration job queued",
+    "additional_synthesis_permitted": false,
+    "main_updated": false,
+    "live_movie_assignment_changed": false
+  }
 }

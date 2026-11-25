@@ -1,7 +1,7 @@
 name: Complete S020 with stable phrase captions
 on:
   push:
-    branches: [main, production/s020-caption-stability]
+    branches: [production/s020-caption-stability]
     paths:
       - .github/workflows/s020-caption-stability.yml
       - production/lesson-films/recaption_spoken_condition.py

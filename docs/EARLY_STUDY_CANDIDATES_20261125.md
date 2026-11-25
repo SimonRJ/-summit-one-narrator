@@ -10,7 +10,7 @@ editorial credit.
 | --- | --- | --- |
 | S012, The missing rung | CI render, five browser profiles and immutable release passed; all six returned assets verified | `87e71ca9ae8e3355f9f092f05a7e4c0678313aa569bbc3b4cc63a200ff2cedd7` |
 | S015, Two stamps for the mail train | Local master and seven learner-route/profile combinations passed; original CI stopped before encoding | `67fdcbc472137a9deba2873a23a0e0785ccdd2dc76939534161638545b8adce0` |
-| S017, A frame around two tiles | Authored source and mathematics checked; existing voice scenes 7 and 8 queued | No completed master yet |
+| S017, A frame around two tiles | All eight approved takes verified; measured numeral timing corrected; recovery prepared, not started | No completed master yet |
 
 ## What was verified
 
@@ -180,12 +180,76 @@ and final audible/editorial acceptance before giving completion credit.
 
 ## S017 next step
 
-Keep the existing voice jobs intact: scene 7 is `138776830497` and scene 8 is
-`138776830534`. The old renderer `45488080237` also failed at the matrix wait
-before drawing. The source is ready for its final approved audio, followed by
-encoded verification, visual/listening review, five browser profiles and
-immutable release. Eventual consumers are dedicated slot 17 and technique
-slot 300. No S017 candidate or playback pass is asserted here.
+All eight existing S017 voice jobs have now succeeded. Scene 7 (`138776830497`)
+completed at 00:03:56 UTC and scene 8 (`138776830534`) at 00:05:00 UTC on
+25 November. All eight actual ZIP archives match their API digests and their
+script, approved Voice C reference, model revision and natural-speed metadata.
+The raw recording totals 129.19 seconds at 48 kHz mono; the final film duration
+will include the production pauses and is not asserted yet.
+
+The old renderer `45488080237` remains failed before drawing. The source run
+has queued alignment jobs after its matrix completed; leave those jobs intact.
+The isolated recovery pins the actual voice source branch
+`production/s012-missing-rung`, which differs from the original renderer's
+`production/original-studies-s015-s017` branch.
+
+`.github/workflows/s017-recorded-recovery.yml` and
+`tools/video/s017-recorded-takes.json` prepare recovery of those eight exact
+takes. Main pushes remain inert. Publishing the reviewed source tree once to
+`production/s017-recorded-recovery-20261125` is the prepared start mechanism;
+no publication, dispatch, synthesis, cancellation or rerun has been made for
+this handoff. The original-render guard refuses to duplicate an active or
+successful original rendering job.
+
+The workflow aligns the approved audio, renders the distinctive tile-wall
+animation, compares the encoded result to the source artwork/captions/audio,
+and runs all five canonical profiles plus technique consumer 300 on PC and
+iPad portrait. The disposable candidate overlay preserves both existing
+bridges and every question. Only passing candidate gates permit an immutable
+release; final public-route and audible/editorial acceptance remain separate.
+
+The independent timing audit found one numeric defect in the actual saved
+takes: scene 4's “Twenty four” had collapsed to 67.14 seconds, delaying its
+phrase caption by 0.46 seconds. A checked word-form recognition pass measures
+“Twenty” at 66.68–66.88 and “four” at 66.88–67.22 seconds. The bounded shared
+remedy replaces those two intervals and the immediately adjoining “rectangles”
+interval; all other word timing and every source sample remain unchanged.
+
+All eight baseline/secondary recognition records were replayed through the
+remedy. Only scene 4 needed the extra pass. A fresh local cached-model run on
+that complete original scene reproduced the exact correction. Source-rendered
+frames at 66.80 and 67.10 seconds now show the caption during the spoken number,
+with the grid and arithmetic intact. This is timing and source-frame evidence;
+no S017 movie was encoded and no final listening acceptance is claimed. The
+separate nonnumeric zero anchors “Call” and “Slide” remain recorded for the
+later editorial review rather than being changed by the numeric remedy. See
+`review/S017-numeral-timing-20261125.json`.
+
+The audit also checked every positive-duration ASR digit token. Scene 7's
+second “twenty four” had its final word end at 118.32 seconds instead of the
+measured 118.52. Its complete phrase was already visible from 117.54 to 120.77
+seconds; the remaining defect was early word emphasis. A source-specific
+post-alignment step now applies the measured “twenty”, “four” and adjoining
+“that” intervals. It binds the exact raw WAV and script hashes, uses
+scene-relative measurements, and checks bounded overlap against the current
+ASR intervals rather than requiring archived before-times to match exactly.
+The existing phrase captions and VTT remain byte-for-byte unchanged. The
+118.44-second source frame now emphasizes “four” instead of the premature
+“that”. No recognizer or recording is run by this refinement, and the shared
+automatic repair rule remains collapsed-only.
+
+Six provenance guard tests and eleven bounded numeral-timing tests passed.
+The source-specific checks also accept changed current ASR before-times and
+reject a wrong recording or a phrase too short for the measured number before
+writing the timeline. The recovery runs the shared tests before alignment,
+then performs this source-specific refinement and saves its provenance report.
+The real source API snapshots and all eight archives passed the unchanged
+recovery helper. Shell and embedded Python syntax, the two-row candidate
+overlay, 16 rendering
+paths, 45 playback paths and the 34-file local JavaScript import closure were
+checked. The complete artifact pins and validation record are in
+`review/S017-recorded-recovery-handoff-20261125.json`. No S017 encoded candidate
+or browser pass is asserted yet, and final editorial credit remains false.
 
 ## Protected state
 

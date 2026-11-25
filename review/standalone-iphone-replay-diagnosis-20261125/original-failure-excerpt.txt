@@ -1,0 +1,29 @@
+2026-11-25T00:24:08.9339181Z Traceback (most recent call last):
+2026-11-25T00:24:08.9350022Z   File "/home/runner/work/-summit-one-narrator/-summit-one-narrator/production/standalone-review/check_devices.py", line 78, in <module>
+2026-11-25T00:24:08.9350841Z     args=p.parse_args();asyncio.run(validate(args.site.rstrip('/')+'/',args.profile,args.out))
+2026-11-25T00:24:08.9351371Z                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-25T00:24:08.9351905Z   File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/asyncio/runners.py", line 195, in run
+2026-11-25T00:24:08.9352344Z     return runner.run(main)
+2026-11-25T00:24:08.9352582Z            ^^^^^^^^^^^^^^^^
+2026-11-25T00:24:08.9352984Z   File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/asyncio/runners.py", line 118, in run
+2026-11-25T00:24:08.9353962Z     return self._loop.run_until_complete(task)
+2026-11-25T00:24:08.9354261Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-25T00:24:08.9354773Z   File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+2026-11-25T00:24:08.9355255Z     return future.result()
+2026-11-25T00:24:08.9355502Z            ^^^^^^^^^^^^^^^
+2026-11-25T00:24:08.9356037Z   File "/home/runner/work/-summit-one-narrator/-summit-one-narrator/production/standalone-review/check_devices.py", line 60, in validate
+2026-11-25T00:24:08.9356800Z     await page.wait_for_function("()=>document.querySelector('video').ended",timeout=int((qa['duration_seconds']+35)*1000))
+2026-11-25T00:24:08.9357606Z   File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/playwright/async_api/_generated.py", line 11537, in wait_for_function
+2026-11-25T00:24:08.9360024Z     await self._impl_obj.wait_for_function(
+2026-11-25T00:24:08.9360706Z   File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/playwright/_impl/_page.py", line 1110, in wait_for_function
+2026-11-25T00:24:08.9361635Z     return await self._main_frame.wait_for_function(**locals_to_params(locals()))
+2026-11-25T00:24:08.9362266Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-25T00:24:08.9362847Z   File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/playwright/_impl/_frame.py", line 878, in wait_for_function
+2026-11-25T00:24:08.9366019Z     await self._channel.send("waitForFunction", self._timeout, params)
+2026-11-25T00:24:08.9366858Z   File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 69, in send
+2026-11-25T00:24:08.9367402Z     return await self._connection.wrap_api_call(
+2026-11-25T00:24:08.9367696Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-25T00:24:08.9368242Z   File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 559, in wrap_api_call
+2026-11-25T00:24:08.9368882Z     raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+2026-11-25T00:24:08.9369373Z playwright._impl._errors.TimeoutError: Page.wait_for_function: Timeout 85800ms exceeded.
+2026-11-25T00:24:08.9683837Z ##[error]Process completed with exit code 1.

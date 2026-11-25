@@ -1,0 +1,62 @@
+{
+  "source_movie_sha256": "51545b1baf76d155f052fdcedc6bfde126e45c63845e97468166c0e069bc365f",
+  "corrected_movie_sha256": "4a549a8cdb160102a38b9e9e63c409188f41406c300c05f2041694a3348d7a16",
+  "container_duration_seconds": 142.33,
+  "streams": [
+    {
+      "kind": "video",
+      "source": {
+        "codec_name": "h264",
+        "time_base": "1/15360",
+        "start_time": "0.000000",
+        "duration": "142.300000",
+        "nb_frames": "4269",
+        "width": 1920,
+        "height": 1080,
+        "r_frame_rate": "30/1",
+        "pix_fmt": "yuv420p"
+      },
+      "corrected": {
+        "codec_name": "h264",
+        "time_base": "1/15360",
+        "start_time": "0.000000",
+        "duration": "142.300000",
+        "nb_frames": "4269",
+        "width": 1920,
+        "height": 1080,
+        "r_frame_rate": "30/1",
+        "pix_fmt": "yuv420p"
+      }
+    },
+    {
+      "kind": "audio",
+      "source": {
+        "codec_name": "aac",
+        "time_base": "1/48000",
+        "start_time": "0.000000",
+        "duration": "142.330000",
+        "nb_frames": "6673",
+        "r_frame_rate": "0/0",
+        "sample_rate": "48000",
+        "channels": 1
+      },
+      "corrected": {
+        "codec_name": "aac",
+        "time_base": "1/48000",
+        "start_time": "0.000000",
+        "duration": "142.330000",
+        "nb_frames": "6673",
+        "r_frame_rate": "0/0",
+        "sample_rate": "48000",
+        "channels": 1
+      }
+    }
+  ],
+  "aac_packet_count": 6673,
+  "aac_packet_records_sha256": "6ce164b75e7969f42daa4815b8bd53e2045658232ff02b960cd0d0396f41e874",
+  "aac_packet_bytes_and_timestamps_identical": true,
+  "video_presentation_and_decode_timestamps_identical": true,
+  "video_frames": 4269,
+  "source_video_presentation_records_sha256": "82eede9dddebf3081ae505c75aa49e7e9857af35a62fa858bf0f44347d9a8268",
+  "source_video_decode_records_sha256": "5ba0624bbcd35515cd9d25cfdc9c21b037df1ca2ad71a31fd97ca7bfa5e6a8aa"
+}

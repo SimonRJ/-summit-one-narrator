@@ -1,0 +1,53 @@
+{
+  "run_id": 45497911900,
+  "run_attempt": 2,
+  "head_sha": "f9d8a50933df49be4e79e7e3943497bfbf3c1321",
+  "status": "queued",
+  "conclusion": null,
+  "updated_at": "2026-11-25T00:39:29Z",
+  "jobs": [
+    {
+      "id": 138888391944,
+      "name": "devices (iphone-portrait)",
+      "status": "queued",
+      "conclusion": null
+    },
+    {
+      "id": 138888393355,
+      "name": "voice (16)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 138888394026,
+      "name": "devices (ipad-portrait)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 138888394381,
+      "name": "devices (ipad-landscape)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 138888446470,
+      "name": "devices (iphone-landscape)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 138888458835,
+      "name": "devices (pc)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 138888461992,
+      "name": "prepare",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "scope": "Initial read-only retry snapshot after parent reran only the failed iPhone job. No later result inferred."
+}

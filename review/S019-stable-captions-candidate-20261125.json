@@ -1,0 +1,211 @@
+{
+  "lesson": "S019",
+  "status": "LOCAL_STABLE_CAPTION_CANDIDATE_VERIFIED_CI_PENDING",
+  "verified_at_utc": "2026-11-25T01:08:33.810971Z",
+  "source_base_commit": "a6619c7118d86d8d4c3dfc545706e4ee80f7b14d",
+  "held_source_movie_sha256": "51545b1baf76d155f052fdcedc6bfde126e45c63845e97468166c0e069bc365f",
+  "source_release_id": 457503450,
+  "source_release_tag": "s019-domino-condition-20261125-3d94f6856b47",
+  "source_release_commit": "3d94f6856b475eb160c11bf7b6334ff13e9c61b6",
+  "source_assets_sha256": {
+    "S019.mp4": "51545b1baf76d155f052fdcedc6bfde126e45c63845e97468166c0e069bc365f",
+    "S019-guide.json": "e072bbcb020b381720a7ebb5f23476b22d3070dd1beb413264228455a86c9639",
+    "S019-poster.jpg": "e51125931fcc24dcb1577ec7ad1cf05fc1e3803a632685f5c3e8524d30faf822",
+    "S019-qa.json": "2c6f54543d62bcd5dcb8ac021501008e8c7c4b16a41effe41802f6abd444eb5b",
+    "S019-recording.zip": "b1ad8709874843e26d52dd0cb104008c85010ff96e443b200b02c243c44d8abd",
+    "S019.vtt": "92f0c39344a9dc9729bf1f34db93b2f5c3047f5bde22cbcc419a8d09c46a3c41"
+  },
+  "corrected_local_movie_sha256": "4a549a8cdb160102a38b9e9e63c409188f41406c300c05f2041694a3348d7a16",
+  "candidate_assets": {
+    "S019-guide.json": {
+      "sha256": "b895da652dbebc8ff6fcd6a6ef99ad1d85865cd6fd010e7f429baae980714e49",
+      "bytes": 3339
+    },
+    "S019-poster.jpg": {
+      "sha256": "e51125931fcc24dcb1577ec7ad1cf05fc1e3803a632685f5c3e8524d30faf822",
+      "bytes": 122357
+    },
+    "S019-qa.json": {
+      "sha256": "2f1dd3621d728a89f29ac1a425589e173a96aa9aab5967b687fc18d1ff113131",
+      "bytes": 1928
+    },
+    "S019-recording.zip": {
+      "sha256": "b1ad8709874843e26d52dd0cb104008c85010ff96e443b200b02c243c44d8abd",
+      "bytes": 10604923
+    },
+    "S019.mp4": {
+      "sha256": "4a549a8cdb160102a38b9e9e63c409188f41406c300c05f2041694a3348d7a16",
+      "bytes": 6751183
+    },
+    "S019.vtt": {
+      "sha256": "92f0c39344a9dc9729bf1f34db93b2f5c3047f5bde22cbcc419a8d09c46a3c41",
+      "bytes": 3733
+    }
+  },
+  "scope": {
+    "redrawn_scene": 5,
+    "first_frame": 1348,
+    "stop_frame_exclusive": 1768,
+    "other_original_scenes_retained": 10,
+    "other_scene_rendering": "Original decoded video retained through the replacement graph and re-encoded; unchanged content is checked at 129 whole-second samples. This is not a claim of original video packet identity.",
+    "approved_condition": "Cross out top-row columns 1 and 2 of the four-by-four board. A top-row domino covers columns 3 and 4; two horizontal dominoes cover each remaining row.",
+    "mathematics": "Seven nonoverlapping edge-sharing dominoes cover the 14 remaining squares, seven of each colour.",
+    "timeline_vtt_script_lossless_recording_archive_byte_identical": true,
+    "recording_members_sha256": {
+      "script.json": "6edc61de4df68da8d693deb91111770309b8e2e5964e224a1bfff1130770f1a9",
+      "timeline.json": "5f22de9d6d320b8c0dce7eaaeb57ea350b7a74a709cc4aa9c5abead82e9130d0",
+      "captions.vtt": "92f0c39344a9dc9729bf1f34db93b2f5c3047f5bde22cbcc419a8d09c46a3c41",
+      "narration.flac": "30aded293d6f097e818af5e8dff7ed0025826ee62f73ba31901e1fc9b430796a"
+    },
+    "guide_transcript_chapters_bridge_duration_unchanged": true,
+    "new_synthesis": false,
+    "new_recognition": false
+  },
+  "stream_preservation": {
+    "source_movie_sha256": "51545b1baf76d155f052fdcedc6bfde126e45c63845e97468166c0e069bc365f",
+    "corrected_movie_sha256": "4a549a8cdb160102a38b9e9e63c409188f41406c300c05f2041694a3348d7a16",
+    "container_duration_seconds": 142.33,
+    "streams": [
+      {
+        "kind": "video",
+        "source": {
+          "codec_name": "h264",
+          "time_base": "1/15360",
+          "start_time": "0.000000",
+          "duration": "142.300000",
+          "nb_frames": "4269",
+          "width": 1920,
+          "height": 1080,
+          "r_frame_rate": "30/1",
+          "pix_fmt": "yuv420p"
+        },
+        "corrected": {
+          "codec_name": "h264",
+          "time_base": "1/15360",
+          "start_time": "0.000000",
+          "duration": "142.300000",
+          "nb_frames": "4269",
+          "width": 1920,
+          "height": 1080,
+          "r_frame_rate": "30/1",
+          "pix_fmt": "yuv420p"
+        }
+      },
+      {
+        "kind": "audio",
+        "source": {
+          "codec_name": "aac",
+          "time_base": "1/48000",
+          "start_time": "0.000000",
+          "duration": "142.330000",
+          "nb_frames": "6673",
+          "r_frame_rate": "0/0",
+          "sample_rate": "48000",
+          "channels": 1
+        },
+        "corrected": {
+          "codec_name": "aac",
+          "time_base": "1/48000",
+          "start_time": "0.000000",
+          "duration": "142.330000",
+          "nb_frames": "6673",
+          "r_frame_rate": "0/0",
+          "sample_rate": "48000",
+          "channels": 1
+        }
+      }
+    ],
+    "aac_packet_count": 6673,
+    "aac_packet_records_sha256": "6ce164b75e7969f42daa4815b8bd53e2045658232ff02b960cd0d0396f41e874",
+    "aac_packet_bytes_and_timestamps_identical": true,
+    "video_presentation_and_decode_timestamps_identical": true,
+    "video_frames": 4269,
+    "source_video_presentation_records_sha256": "82eede9dddebf3081ae505c75aa49e7e9857af35a62fa858bf0f44347d9a8268",
+    "source_video_decode_records_sha256": "5ba0624bbcd35515cd9d25cfdc9c21b037df1ca2ad71a31fd97ca7bfa5e6a8aa"
+  },
+  "encoded_verification": {
+    "sha256": "4a549a8cdb160102a38b9e9e63c409188f41406c300c05f2041694a3348d7a16",
+    "source_sha256": "c08c020ccb192987a2339e27a328248cb43b8b00753ba3fdf6d6c83cbdedc086",
+    "scene_replaced": 5,
+    "corrected_scene_recognition": "Take a full four by four board. In the top row cross out the two squares farthest to the left. One is blue and one is gold. Condominos cover the rest. Each domino covers two squares sharing an edge.",
+    "corrected_match_percent": 96.2,
+    "scene_audio_correlations": [
+      0.999987,
+      0.999976,
+      0.999974,
+      0.999981,
+      0.999972,
+      0.999982,
+      0.999971,
+      0.99997,
+      0.999978,
+      0.999972,
+      0.99998
+    ],
+    "full_duration_seconds": 142.33,
+    "picture_comparison_period_seconds": 1,
+    "decoded_reference_comparisons": 143,
+    "largest_mean_picture_difference": [
+      1.898066448801743,
+      2.132908950617284
+    ],
+    "caption_count": 55,
+    "prior_candidate_sha256": "51545b1baf76d155f052fdcedc6bfde126e45c63845e97468166c0e069bc365f",
+    "caption_treatment": "One stable bold phrase; no regular/bold glyph cross-fade in scene 5",
+    "audio_packets_identical": true,
+    "timeline_and_vtt_identical": true,
+    "caption_repair_reference_comparisons": 143,
+    "caption_repair_largest_mean_picture_difference": [
+      1.8952954793028323,
+      1.9876543209876543
+    ],
+    "caption_repair_scene": 5,
+    "other_scenes_retained": 10,
+    "original_other_scene_comparisons": 129,
+    "original_other_scene_maximum_difference": [
+      0.11638752723311546,
+      0.349266975308642
+    ],
+    "corrected_scene_comparisons": 14,
+    "original_video_frames": 4269,
+    "source_aac_packets": 6673,
+    "audio_packet_bytes_and_timestamps_identical": true,
+    "stream_times_and_video_frame_count_identical": true,
+    "video_presentation_and_decode_timestamps_identical": true,
+    "timeline_vtt_script_lossless_recording_archive_identical": true,
+    "new_synthesis": false,
+    "new_recognition": false,
+    "final_editorial_credit": false
+  },
+  "visual_evidence": "review/evidence/S019-stable-captions-20261125/frames.json",
+  "visual_inspection": "Exact 49.366667 and 50.033333 second decoded transitions have one stable glyph layer; the original farthest word is visibly doubled. Boundary frame pairs 1347/1348 and 1767/1768 are preserved for review.",
+  "workflow": ".github/workflows/s019-caption-stability.yml",
+  "production_branch": "production/s019-caption-stability",
+  "workflow_started": false,
+  "default_s020_compatibility": "Default lesson and original S020 asset pins remain unchanged. The already returned 5308674d stable CI movie passes all new stream/timestamp checks against its fa00 source without another render. S020 push is now purpose-branch-only; manual dispatch and its existing job remain intact.",
+  "test_results": {
+    "per_lesson_policy_and_stream_regressions": 4,
+    "shared_stable_caption_pixel_tests": 2,
+    "workflow_yaml_shell_embedded_python": "passed"
+  },
+  "consumers": [
+    19,
+    333
+  ],
+  "technique_bridge": "In the film, compare the two removed corner squares with the two neighbouring squares. Why does removing the same number of squares permit one tiling but rule out the other?",
+  "pending_before_installation": [
+    "Publish the prepared source once on its isolated production branch.",
+    "Verify the exact returned CI master and preserved streams; do not transfer this local hash to a new encode.",
+    "Pass five canonical profiles and consumer 333 on PC/iPad portrait.",
+    "Verify the six immutable release assets, then integrate the dedicated/technique consumers and check deployed routes.",
+    "Complete final audible/editorial acceptance; the inherited scene 5 recognition score remains 96.2% and has not been relabelled as a new listening pass."
+  ],
+  "final_editorial_credit": false,
+  "source_files_sha256": {
+    "production/lesson-films/recaption_spoken_condition.py": "5f7f89a02f500679e3979b11f18623b648306c69de87096b992cda9ef503b775",
+    "production/lesson-films/repair_spoken_condition.py": "eaad38419c7176d1a7261993f84a11e4407dc063585734557efa083e952d6cd0",
+    "production/lesson-films/render_recorded.py": "9e7597563cba4e942291fb854ae6aa91859eb51eddf36ed5f5a5df1a1412027d",
+    "production/t01-studio/stage.py": "64a74d9247aedf12f617674c9ffc0a7457f0e711d12bd6a0305515fb7d64ed4a"
+  },
+  "boundary_comparison": "review/evidence/S019-stable-captions-20261125/boundary-comparison.json"
+}
