@@ -1,0 +1,110 @@
+{
+  "lesson": "S017",
+  "production_run": 45527881044,
+  "production_commit": "2cde68c0f0463815627a1065f105cb08c6e799ef",
+  "production_source_tree": "e98ce7e8dd43f297a087cf205bc6c64265c4c50d",
+  "reviewed_local_source_commit": "456e82bbf9f2bd04e47f12b7f76da9a6fbcd1d3c",
+  "release_tag": "stable-captions-20261125-2cde68c0f046",
+  "baseline_source_commit": "e287b9102574b8a6cbc29beba97ccc9a7dc569fe",
+  "released_asset_sha256": {
+    "S017-guide.json": "bca76185a6fd8cce6b310fdf429368f4b0ceb0d8ebb403732987ce628d772a68",
+    "S017-poster.jpg": "47e33c907b140a6cd227b8b8a40ac0ac625b677736c76d2937d05583a2f3f491",
+    "S017-qa.json": "00289cb29fb7df128d0acb19fdc8993103d241b56745d31e82696bee14b2327a",
+    "S017-recording.zip": "a2e47a0e4bc471d775a7e34fca3fc1f5dd7272399c5b3d7a3e552468b39b40dc",
+    "S017.mp4": "7a2493a89821faca46c686fed5d4d003b27e6a4fe5779670202b6ae3ff5edfe4",
+    "S017.vtt": "56acee1be1c33ea3b4a3cc3c3a7b30c345cdba4d534709ed15766ce290d2cca4"
+  },
+  "catalogue_file": "data/recorded-studies.json",
+  "expected_existing_catalogue_entry": null,
+  "catalogue_entry": {
+    "id": "S017",
+    "title": "A frame around two tiles",
+    "seconds": 147.9,
+    "chapters": [
+      {
+        "title": "Slide four edges",
+        "start": 0.0
+      },
+      {
+        "title": "A two by one strip",
+        "start": 15.8
+      },
+      {
+        "title": "Keep the amber tile",
+        "start": 34.65
+      },
+      {
+        "title": "Count the four sliders",
+        "start": 54.14
+      },
+      {
+        "title": "Keep a blue tile out",
+        "start": 69.5
+      },
+      {
+        "title": "Clamp around both tiles",
+        "start": 90.26
+      },
+      {
+        "title": "Subtract the frames that fail",
+        "start": 107.06
+      },
+      {
+        "title": "An outside-corner test",
+        "start": 124.66
+      }
+    ],
+    "transcript": [
+      "A framer slides two upright edges and two level edges along the grout of a tiled wall. Once those four edges are fixed, the rectangle is fixed. A corner is a meeting of grout lines. A tile is the square between the lines.",
+      "Start with two square tiles side by side. How many rectangles can the framer outline? The top and bottom edges have no choice. There are three upright lines. Choose any two of them. The three outlines are the left tile, the right tile, and the whole strip.",
+      "The wall now has four columns and three rows. Call the amber tile A. It lies in the second row and the second column. Count rectangles that contain A. Choose a left edge on its left or farther out. How many right edges can still hold it inside?",
+      "The left slider has two positions. The right has three. The top and bottom sliders each have two. Each left choice works with every right choice, and every height pair. Multiply the four counts. Twenty four rectangles contain A.",
+      "Now mark tile B in the top row and third column. We want rectangles containing A but leaving B outside. A frame can miss B in more than one direction. Counting all the ways to miss it separately might count one frame twice. Which frames could we subtract instead?",
+      "Keep both marked tiles. Slide a small box around them. Its left boundary is set by A, and its right boundary by B. The top is set by B, and the bottom by A. Every rectangle containing both tiles must contain this whole box.",
+      "For both tiles, the left edge has two positions and the right edge has two. There is one top edge and there are two bottom edges. That gives eight frames containing both tiles. Of the twenty four that contained A, remove those eight. Sixteen rectangles keep A and leave B out.",
+      "Check the frame around A alone. It qualifies. Check the frame around the whole wall. It contains B, so it must disappear in the subtraction. On a new grid, locate the extreme marked tiles first. Count boundary lines on each side, and multiply choices that can be made independently."
+    ],
+    "bridge": "In the film’s marked grid, first count rectangles containing cell A. To remove the unwanted ones, which four boundary choices guarantee a rectangle contains both A and B?",
+    "sha256": "7a2493a89821faca46c686fed5d4d003b27e6a4fe5779670202b6ae3ff5edfe4",
+    "release": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/stable-captions-20261125-2cde68c0f046/"
+  },
+  "route_changes": [
+    {
+      "file": "data/read-watch-practise.json",
+      "slot": 17,
+      "expected_current_movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S017-Intro-Illustrated-v2.mp4",
+      "expected_current_video_id": "S017",
+      "expected_current_bridge": "In the film’s marked grid, first count rectangles containing cell A. To remove the unwanted ones, which four boundary choices guarantee a rectangle contains both A and B?",
+      "set": {
+        "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/stable-captions-20261125-2cde68c0f046/S017.mp4",
+        "videoTitle": "A frame around two tiles",
+        "filmUse": "dedicated"
+      },
+      "preserve_bridge": "In the film’s marked grid, first count rectangles containing cell A. To remove the unwanted ones, which four boundary choices guarantee a rectangle contains both A and B?"
+    },
+    {
+      "file": "data/read-watch-practise-later.json",
+      "slot": 300,
+      "expected_current_movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S017-Intro-Illustrated-v2.mp4",
+      "expected_current_video_id": "S017",
+      "expected_current_bridge": "The film distinguishes grid cells from their boundary lines. As you follow the marked cells, also identify intersections where two boundary lines meet.",
+      "set": {
+        "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/stable-captions-20261125-2cde68c0f046/S017.mp4",
+        "videoTitle": "A frame around two tiles",
+        "filmUse": "technique"
+      },
+      "preserve_bridge": "The film distinguishes grid cells from their boundary lines. As you follow the marked cells, also identify intersections where two boundary lines meet."
+    }
+  ],
+  "opening_bridge_changes": [],
+  "all_existing_bridges_preserved": true,
+  "independent_evidence": "review/stable-caption-public-release-20261125/S017/independent-public-check.json",
+  "remaining_release_steps": [
+    "Apply only the listed catalogue and route fields; all worked examples, practice IDs, bridges and grading editions remain byte-identical.",
+    "Use the combined priority-corrections-20261125b cache revision.",
+    "Verify the deployed catalogue and exact canonical/consumer route declarations.",
+    "Keep complete human audiovisual editorial review and physical-device acceptance separate."
+  ],
+  "source_tree_modified": false,
+  "final_editorial_credit": false
+}

@@ -1,0 +1,65 @@
+{
+  "title": "The domino colour test",
+  "seconds": 142.33,
+  "chapters": [
+    {
+      "title": "The colours of a chessboard",
+      "start": 0.0
+    },
+    {
+      "title": "What a domino uses",
+      "start": 9.57
+    },
+    {
+      "title": "Count the squares",
+      "start": 25.73
+    },
+    {
+      "title": "Pair the squares",
+      "start": 35.5
+    },
+    {
+      "title": "Cross out the leftmost pair",
+      "start": 44.933
+    },
+    {
+      "title": "A seven-domino covering",
+      "start": 58.933
+    },
+    {
+      "title": "Remove opposite corners",
+      "start": 72.39
+    },
+    {
+      "title": "Count each colour",
+      "start": 91.08
+    },
+    {
+      "title": "Six blue and eight gold",
+      "start": 101.01
+    },
+    {
+      "title": "When counts agree",
+      "start": 114.77
+    },
+    {
+      "title": "Build or rule out a covering",
+      "start": 127.73
+    }
+  ],
+  "transcript": [
+    "A chessboard may look like a collection of little squares. Its colours can reveal something numbers alone cannot: whether a covering is impossible.",
+    "In AMC, you may need to spot an odd or even pattern. In a Rossmoyne style problem, explain why every allowed piece follows the same rule. A MAWA investigation might explore which boards can be tiled. Let us move from pairs to colouring.",
+    "Start with a three by three chessboard. The top-left square is blue and the colours alternate. Count each colour. Is the number of squares odd or even?",
+    "There are five blue squares and four gold squares, nine altogether. They cannot all be grouped into pairs: one square remains.",
+    "Take a full four by four board. In the top row, cross out the two squares farthest to the left. One is blue and one is gold. Can dominoes cover the rest? Each domino covers two squares sharing an edge.",
+    "Yes. Place one domino across the remaining two squares in the top row. Then place two horizontal dominoes across each of the three lower rows. That is seven dominoes, covering fourteen squares.",
+    "Here is a harder puzzle. A four by four board has its top-left and bottom-right corners removed. Each domino covers two squares sharing an edge. The challenge is to cover the remaining board with seven dominoes and no overlap. Is that possible?",
+    "Colour the full board like a chessboard. There are eight blue squares and eight gold squares. Each domino, horizontal or vertical, covers one of each colour.",
+    "The two removed corners are both blue. That leaves six blue and eight gold squares. Seven dominoes would need seven of each colour. Since only six blue squares remain, the covering is impossible.",
+    "It is a mistake to stop at fourteen squares. Fourteen is divisible by two, but the colours do not balance. And colour balance alone does not guarantee a covering: the squares must still join up legally.",
+    "In an exam, identify what every allowed piece does. Pick a colouring that reveals the pattern. Count the colours and write a clear reason, not just an answer."
+  ],
+  "bridge": "In the film’s first 4-by-4 example, the crosses mark the two leftmost squares in the top row. Which domino covers the two top squares that remain? What would you have to change if the middle two had been removed instead?",
+  "sha256": "5455c0c0119bedd897ddda6feb41002cf215575c8f8839565661674c42ad712c"
+}

@@ -15,6 +15,15 @@ ROOT = Path(__file__).resolve().parents[1]
 CATALOGUE = json.loads((ROOT / 'data/recorded-studies.json').read_text())
 GUIDES = CATALOGUE['lessons']
 ALTERNATE = 'https://github.com/SimonRJ/-summit-one-narrator/releases/download/test-edition/'
+COURSE = json.loads((ROOT / 'data/sessions-372.json').read_text())['sessions']
+# Keep external-catalogue fixtures distinct from real recorded releases. A new
+# recorded edition must take precedence over its older external listing.
+UNRECORDED = [f"S{row['slot']:03}" for row in COURSE
+              if row['type'] == 'LESSON' and row['slot'] > 68
+              and f"S{row['slot']:03}" not in GUIDES]
+PENDING_ID, VERIFIED_ID = UNRECORDED[:2]
+RECORDED_ID = 'S102' if 'S102' in GUIDES else next(iter(GUIDES))
+PENDING_SLOT, VERIFIED_SLOT = int(PENDING_ID[1:]), int(VERIFIED_ID[1:])
 
 
 class QuietHandler(SimpleHTTPRequestHandler):
@@ -39,8 +48,9 @@ async def exercise(page, base):
             if mode == 'offline' or not url.path.endswith('/lesson-intros-live.json'):
                 return await route.abort()
             return await route.fulfill(json={'version':1, 'entries':[
-                {'id':'S101','title':'Under review','seconds':80,'status':'checking'},
-                {'id':'S102','title':'Verified example','seconds':125,'status':'verified'}
+                {'id':PENDING_ID,'title':'Under review','seconds':80,'status':'checking'},
+                {'id':VERIFIED_ID,'title':'Verified example','seconds':125,'status':'verified'},
+                {'id':RECORDED_ID,'title':'Older external edition','seconds':125,'status':'verified'}
             ]})
         if req.resource_type == 'media':
             loads.append(url.path)
@@ -58,16 +68,23 @@ async def exercise(page, base):
             assert -1 <= rect[0] and rect[1] <= page.viewport_size['width']+1, rect
     await page.route('**/*',fixture)
     await visit('lesson-introduction-videos.html')
-    await expect(gallery.locator('li[data-intro-slot="102"]')).to_contain_text('Verified example')
-    await expect(gallery.locator('li[data-intro-slot="101"]')).to_have_count(0)
+    await expect(gallery.locator(f'li[data-intro-slot="{VERIFIED_SLOT}"]')).to_contain_text('Verified example')
+    await expect(gallery.locator(f'li[data-intro-slot="{PENDING_SLOT}"]')).to_have_count(0)
+    recorded_row = gallery.locator(f'li[data-intro-slot="{int(RECORDED_ID[1:])}"]')
+    await expect(recorded_row).to_contain_text(GUIDES[RECORDED_ID]['title'])
+    await expect(recorded_row).not_to_contain_text('Older external edition')
     await expect(page.locator('#introProgress')).to_have_text(f'{len(GUIDES)+7} of 283 lesson introductions available')
     await fits()
-    await visit('watch-lesson-intro.html?slot=101')
+    await visit(f'watch-lesson-intro.html?slot={PENDING_SLOT}')
     await expect(status).to_contain_text('No lesson introduction is published')
     await expect(film).to_be_hidden()
     await expect(retry).to_be_hidden()
-    assert not any('S101' in url for url in loads)
-    await visit('watch-lesson-intro.html?slot=102')
+    assert not any(PENDING_ID in url for url in loads)
+    await visit(f'watch-lesson-intro.html?slot={int(RECORDED_ID[1:])}')
+    await expect(page.locator('#introTitle')).to_have_text(GUIDES[RECORDED_ID]['title'])
+    recorded_release = GUIDES[RECORDED_ID].get('release') or CATALOGUE['release']
+    await expect(film.locator('source')).to_have_attribute('src', f'{recorded_release}{RECORDED_ID}.mp4')
+    await visit(f'watch-lesson-intro.html?slot={VERIFIED_SLOT}')
     await expect(page.locator('#introTitle')).to_have_text('Verified example')
     await expect(page.locator('#introGuideStatus')).to_be_visible()
     await expect(retry).to_be_visible()
@@ -75,7 +92,7 @@ async def exercise(page, base):
     await visit('lesson-introduction-videos.html')
     await expect(page.locator('#introProgress')).to_contain_text('The full catalogue could not be loaded.')
     await expect(gallery.locator('li')).to_have_count(len(GUIDES)+6)
-    await visit('watch-lesson-intro.html?slot=102')
+    await visit(f'watch-lesson-intro.html?slot={VERIFIED_SLOT}')
     await expect(status).to_contain_text('Reconnect')
     await expect(film).to_be_hidden()
     await expect(retry).to_be_visible()

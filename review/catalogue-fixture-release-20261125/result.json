@@ -1,0 +1,30 @@
+{
+  "failed_main_commit": "d51e1382373a03aa0a3a828cfffa0a2a6c6a0198",
+  "failed_workflow_run": 45528347868,
+  "failed_jobs": [
+    138917168595,
+    138917168833
+  ],
+  "failure": "Synthetic external S102 title was expected after the real S102 recorded guide correctly took precedence.",
+  "product_regression": false,
+  "correction": "Choose pending and verified fixture IDs outside recorded releases; explicitly check that a recorded guide and movie override an older external edition.",
+  "fixtures": {
+    "pending": "S069",
+    "external_verified": "S071",
+    "recorded_precedence": "S102"
+  },
+  "browser_results": [
+    "chromium 320 catalogue and player recovery passed",
+    "chromium 390 catalogue and player recovery passed",
+    "chromium 1024 catalogue and player recovery passed",
+    "webkit 320 catalogue and player recovery passed",
+    "webkit 390 catalogue and player recovery passed",
+    "webkit 1024 catalogue and player recovery passed"
+  ],
+  "existing_recovery_and_layout_assertions_preserved": true,
+  "real_backend_access": false,
+  "product_files_changed": false,
+  "full_raw_log_retained": true,
+  "local_http_abort_notes": "The raw log retains expected BrokenPipeError output from local requests aborted during page navigation; all six checks completed successfully and the runner exited zero.",
+  "final_editorial_credit": false
+}

@@ -1,0 +1,49 @@
+{
+  "name": "welcome",
+  "url": "https://simonrj.github.io/-summit-one-narrator/welcome.html",
+  "viewport": {
+    "width": 390,
+    "height": 664
+  },
+  "page_errors": [],
+  "blocked_supabase": [],
+  "blocked_writes": [],
+  "external_font_attempts": [],
+  "font_responses": [
+    {
+      "url": "https://simonrj.github.io/-summit-one-narrator/fonts/source-sans-3-normal-latin-19143dca07.woff2",
+      "status": 200
+    },
+    {
+      "url": "https://simonrj.github.io/-summit-one-narrator/fonts/source-serif-4-normal-latin-382475f382.woff2",
+      "status": 200
+    }
+  ],
+  "failed_requests": [],
+  "http_errors": [],
+  "chapters_checked": [],
+  "passed": false,
+  "html_sha256": "4ac46b6820394da64fafa7c483af688bc4418515e4dd8a28ebea7780409ac1a4",
+  "fonts": {
+    "faces": [
+      {
+        "specification": "400 18px \"Source Sans 3\"",
+        "loaded": false
+      },
+      {
+        "specification": "500 18px \"Source Serif 4\"",
+        "loaded": false
+      },
+      {
+        "specification": "500 18px \"Source Code Pro\"",
+        "loaded": false
+      }
+    ],
+    "body_family": "\"Source Sans 3\", \"Helvetica Neue\", Arial, sans-serif",
+    "heading_family": "\"Source Serif 4\", \"Iowan Old Style\", Georgia, serif",
+    "overflow": 0
+  },
+  "failure": "AssertionError: ",
+  "failure_state": null,
+  "media_events": []
+}

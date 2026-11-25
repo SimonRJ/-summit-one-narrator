@@ -441,7 +441,6 @@
       "bridge": "Predict the display after 3993. Watch the gap on the number line when the hundreds wheel carries."
     },
     "S009": {
-      "release": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/",
       "id": "S009",
       "title": "The carry counter",
       "seconds": 132.433333,
@@ -485,10 +484,10 @@
         "Now double sixty eight. Eight and eight make sixteen. Leave six in the units drawer and send one ten across. Six tens and six tens plus the carried ten make thirteen tens. Exchange ten of those tens for a hundred. The drawers read one hundred and thirty six. In a letter sum, keep the digit you write separate from the amount you carry."
       ],
       "bridge": "Track the sleeve that crosses from the units drawer into the tens drawer. Later, read the hundreds drawer first.",
-      "sha256": "39d28fec11fe4cc1b1d1b840d01ab8d8b3ae3ccb6d184bf37c1ccf4e37c16ef6"
+      "sha256": "999aba1a891fffeafe82e3c3b9e537d0b261a0332d507e967a199890f0a3d123",
+      "release": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/stable-captions-20261125-2cde68c0f046/"
     },
     "S010": {
-      "release": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/",
       "id": "S010",
       "title": "The reversal line",
       "seconds": 140.433333,
@@ -532,7 +531,8 @@
         "A fresh ticket gains twenty seven when you reverse its digits. The digits add to eleven. What is the ticket? Divide the gain by nine. The digits differ by three. Set three aside from eleven, then halve the eight left. The smaller digit is four, the larger seven. Check the journey: seventy four minus forty seven equals twenty seven. The ticket gaining value starts with the smaller digit."
       ],
       "bridge": "Follow the two digits when the ticket turns. At inspection, compare both the printed sum and the letters that received its digits.",
-      "sha256": "e8e2e6f697b00cd9401479a603bf6992c2538a107b3fbd519cac0e0b9b7f9a71"
+      "sha256": "5369c10e51e6ac79a925d04566ebe6780735de2069fb10f20d6242b4137a1a8a",
+      "release": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/stable-captions-20261125-2cde68c0f046/"
     },
     "S012": {
       "id": "S012",
@@ -583,8 +583,8 @@
         "Why did we add at a landing and multiply at the bell? Different final jumps put the routes in separate piles. At a compulsory stop, each beginning joins to each possible ending. Keep a zero for a forbidden landing. If a rule restricts the next jump, record how the route arrived as well."
       ],
       "bridge": "Pause when the film marks rung 3 as broken. Is rung 4 still reachable? Trace its possible final jumps before the film fills in the table.",
-      "sha256": "87e71ca9ae8e3355f9f092f05a7e4c0678313aa569bbc3b4cc63a200ff2cedd7",
-      "release": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s012-missing-rung-20261125-b46d28d6d374/"
+      "sha256": "d36d6c733066f0e27d195e0268548cc0c8c3ce68bfd0cfac7348ac8529be2dd6",
+      "release": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/stable-captions-20261125-2cde68c0f046/"
     },
     "S020": {
       "title": "Clock turns and last digits",
@@ -769,6 +769,124 @@
       "bridge": "When the film adds 1 to make a number divisible by both 4 and 6, pause. Where must the two ends of the search interval move? After finding a common multiple, how will you get back to the original number?",
       "sha256": "19765de3ce9c28259d244c41d370cb3073513bc928124167e58cc21497098c89",
       "release": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s015-numeral-timing-20261125-41b7922d37ed/"
+    },
+    "S019": {
+      "title": "The domino colour test",
+      "seconds": 142.33,
+      "chapters": [
+        {
+          "title": "The colours of a chessboard",
+          "start": 0.0
+        },
+        {
+          "title": "What a domino uses",
+          "start": 9.57
+        },
+        {
+          "title": "Count the squares",
+          "start": 25.73
+        },
+        {
+          "title": "Pair the squares",
+          "start": 35.5
+        },
+        {
+          "title": "Cross out the leftmost pair",
+          "start": 44.933
+        },
+        {
+          "title": "A seven-domino covering",
+          "start": 58.933
+        },
+        {
+          "title": "Remove opposite corners",
+          "start": 72.39
+        },
+        {
+          "title": "Count each colour",
+          "start": 91.08
+        },
+        {
+          "title": "Six blue and eight gold",
+          "start": 101.01
+        },
+        {
+          "title": "When counts agree",
+          "start": 114.77
+        },
+        {
+          "title": "Build or rule out a covering",
+          "start": 127.73
+        }
+      ],
+      "transcript": [
+        "A chessboard may look like a collection of little squares. Its colours can reveal something numbers alone cannot: whether a covering is impossible.",
+        "In AMC, you may need to spot an odd or even pattern. In a Rossmoyne style problem, explain why every allowed piece follows the same rule. A MAWA investigation might explore which boards can be tiled. Let us move from pairs to colouring.",
+        "Start with a three by three chessboard. The top-left square is blue and the colours alternate. Count each colour. Is the number of squares odd or even?",
+        "There are five blue squares and four gold squares, nine altogether. They cannot all be grouped into pairs: one square remains.",
+        "Take a full four by four board. In the top row, cross out the two squares farthest to the left. One is blue and one is gold. Can dominoes cover the rest? Each domino covers two squares sharing an edge.",
+        "Yes. Place one domino across the remaining two squares in the top row. Then place two horizontal dominoes across each of the three lower rows. That is seven dominoes, covering fourteen squares.",
+        "Here is a harder puzzle. A four by four board has its top-left and bottom-right corners removed. Each domino covers two squares sharing an edge. The challenge is to cover the remaining board with seven dominoes and no overlap. Is that possible?",
+        "Colour the full board like a chessboard. There are eight blue squares and eight gold squares. Each domino, horizontal or vertical, covers one of each colour.",
+        "The two removed corners are both blue. That leaves six blue and eight gold squares. Seven dominoes would need seven of each colour. Since only six blue squares remain, the covering is impossible.",
+        "It is a mistake to stop at fourteen squares. Fourteen is divisible by two, but the colours do not balance. And colour balance alone does not guarantee a covering: the squares must still join up legally.",
+        "In an exam, identify what every allowed piece does. Pick a colouring that reveals the pattern. Count the colours and write a clear reason, not just an answer."
+      ],
+      "bridge": "In the film’s first 4-by-4 example, the crosses mark the two leftmost squares in the top row. Which domino covers the two top squares that remain? What would you have to change if the middle two had been removed instead?",
+      "sha256": "5455c0c0119bedd897ddda6feb41002cf215575c8f8839565661674c42ad712c",
+      "release": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s019-stable-captions-20261125-ac244dec7136/"
+    },
+    "S017": {
+      "id": "S017",
+      "title": "A frame around two tiles",
+      "seconds": 147.9,
+      "chapters": [
+        {
+          "title": "Slide four edges",
+          "start": 0.0
+        },
+        {
+          "title": "A two by one strip",
+          "start": 15.8
+        },
+        {
+          "title": "Keep the amber tile",
+          "start": 34.65
+        },
+        {
+          "title": "Count the four sliders",
+          "start": 54.14
+        },
+        {
+          "title": "Keep a blue tile out",
+          "start": 69.5
+        },
+        {
+          "title": "Clamp around both tiles",
+          "start": 90.26
+        },
+        {
+          "title": "Subtract the frames that fail",
+          "start": 107.06
+        },
+        {
+          "title": "An outside-corner test",
+          "start": 124.66
+        }
+      ],
+      "transcript": [
+        "A framer slides two upright edges and two level edges along the grout of a tiled wall. Once those four edges are fixed, the rectangle is fixed. A corner is a meeting of grout lines. A tile is the square between the lines.",
+        "Start with two square tiles side by side. How many rectangles can the framer outline? The top and bottom edges have no choice. There are three upright lines. Choose any two of them. The three outlines are the left tile, the right tile, and the whole strip.",
+        "The wall now has four columns and three rows. Call the amber tile A. It lies in the second row and the second column. Count rectangles that contain A. Choose a left edge on its left or farther out. How many right edges can still hold it inside?",
+        "The left slider has two positions. The right has three. The top and bottom sliders each have two. Each left choice works with every right choice, and every height pair. Multiply the four counts. Twenty four rectangles contain A.",
+        "Now mark tile B in the top row and third column. We want rectangles containing A but leaving B outside. A frame can miss B in more than one direction. Counting all the ways to miss it separately might count one frame twice. Which frames could we subtract instead?",
+        "Keep both marked tiles. Slide a small box around them. Its left boundary is set by A, and its right boundary by B. The top is set by B, and the bottom by A. Every rectangle containing both tiles must contain this whole box.",
+        "For both tiles, the left edge has two positions and the right edge has two. There is one top edge and there are two bottom edges. That gives eight frames containing both tiles. Of the twenty four that contained A, remove those eight. Sixteen rectangles keep A and leave B out.",
+        "Check the frame around A alone. It qualifies. Check the frame around the whole wall. It contains B, so it must disappear in the subtraction. On a new grid, locate the extreme marked tiles first. Count boundary lines on each side, and multiply choices that can be made independently."
+      ],
+      "bridge": "In the film’s marked grid, first count rectangles containing cell A. To remove the unwanted ones, which four boundary choices guarantee a rectangle contains both A and B?",
+      "sha256": "7a2493a89821faca46c686fed5d4d003b27e6a4fe5779670202b6ae3ff5edfe4",
+      "release": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/stable-captions-20261125-2cde68c0f046/"
     }
   }
 }

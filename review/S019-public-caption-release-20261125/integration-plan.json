@@ -1,0 +1,121 @@
+{
+  "lesson": "S019",
+  "production_run": 45524933207,
+  "production_commit": "ac244dec713654fa7fb47693c8c179d9fb436479",
+  "release_tag": "s019-stable-captions-20261125-ac244dec7136",
+  "released_asset_sha256": {
+    "S019.mp4": "5455c0c0119bedd897ddda6feb41002cf215575c8f8839565661674c42ad712c",
+    "S019.vtt": "92f0c39344a9dc9729bf1f34db93b2f5c3047f5bde22cbcc419a8d09c46a3c41",
+    "S019-guide.json": "60cd9a82a912f94634be1dba214f26e17bdc6eb0a30565e4ef717a2b4e4489d0",
+    "S019-qa.json": "bc65ed1e88de50b096d9840cc8852100d04e701d2297ba84ddc445cc194d72c1",
+    "S019-poster.jpg": "e51125931fcc24dcb1577ec7ad1cf05fc1e3803a632685f5c3e8524d30faf822",
+    "S019-recording.zip": "b1ad8709874843e26d52dd0cb104008c85010ff96e443b200b02c243c44d8abd"
+  },
+  "catalogue_file": "data/recorded-studies.json",
+  "catalogue_entry": {
+    "title": "The domino colour test",
+    "seconds": 142.33,
+    "chapters": [
+      {
+        "title": "The colours of a chessboard",
+        "start": 0.0
+      },
+      {
+        "title": "What a domino uses",
+        "start": 9.57
+      },
+      {
+        "title": "Count the squares",
+        "start": 25.73
+      },
+      {
+        "title": "Pair the squares",
+        "start": 35.5
+      },
+      {
+        "title": "Cross out the leftmost pair",
+        "start": 44.933
+      },
+      {
+        "title": "A seven-domino covering",
+        "start": 58.933
+      },
+      {
+        "title": "Remove opposite corners",
+        "start": 72.39
+      },
+      {
+        "title": "Count each colour",
+        "start": 91.08
+      },
+      {
+        "title": "Six blue and eight gold",
+        "start": 101.01
+      },
+      {
+        "title": "When counts agree",
+        "start": 114.77
+      },
+      {
+        "title": "Build or rule out a covering",
+        "start": 127.73
+      }
+    ],
+    "transcript": [
+      "A chessboard may look like a collection of little squares. Its colours can reveal something numbers alone cannot: whether a covering is impossible.",
+      "In AMC, you may need to spot an odd or even pattern. In a Rossmoyne style problem, explain why every allowed piece follows the same rule. A MAWA investigation might explore which boards can be tiled. Let us move from pairs to colouring.",
+      "Start with a three by three chessboard. The top-left square is blue and the colours alternate. Count each colour. Is the number of squares odd or even?",
+      "There are five blue squares and four gold squares, nine altogether. They cannot all be grouped into pairs: one square remains.",
+      "Take a full four by four board. In the top row, cross out the two squares farthest to the left. One is blue and one is gold. Can dominoes cover the rest? Each domino covers two squares sharing an edge.",
+      "Yes. Place one domino across the remaining two squares in the top row. Then place two horizontal dominoes across each of the three lower rows. That is seven dominoes, covering fourteen squares.",
+      "Here is a harder puzzle. A four by four board has its top-left and bottom-right corners removed. Each domino covers two squares sharing an edge. The challenge is to cover the remaining board with seven dominoes and no overlap. Is that possible?",
+      "Colour the full board like a chessboard. There are eight blue squares and eight gold squares. Each domino, horizontal or vertical, covers one of each colour.",
+      "The two removed corners are both blue. That leaves six blue and eight gold squares. Seven dominoes would need seven of each colour. Since only six blue squares remain, the covering is impossible.",
+      "It is a mistake to stop at fourteen squares. Fourteen is divisible by two, but the colours do not balance. And colour balance alone does not guarantee a covering: the squares must still join up legally.",
+      "In an exam, identify what every allowed piece does. Pick a colouring that reveals the pattern. Count the colours and write a clear reason, not just an answer."
+    ],
+    "bridge": "In the film’s first 4-by-4 example, the crosses mark the two leftmost squares in the top row. Which domino covers the two top squares that remain? What would you have to change if the middle two had been removed instead?",
+    "sha256": "5455c0c0119bedd897ddda6feb41002cf215575c8f8839565661674c42ad712c",
+    "release": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s019-stable-captions-20261125-ac244dec7136/"
+  },
+  "route_changes": [
+    {
+      "file": "data/read-watch-practise.json",
+      "slot": 19,
+      "expected_current_movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S019-Intro-Illustrated.mp4",
+      "expected_current_video_id": "S019",
+      "set": {
+        "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s019-stable-captions-20261125-ac244dec7136/S019.mp4",
+        "videoTitle": "The domino colour test",
+        "filmUse": "dedicated",
+        "bridge": "In the film’s first 4-by-4 example, the crosses mark the two leftmost squares in the top row. Which domino covers the two top squares that remain? What would you have to change if the middle two had been removed instead?"
+      }
+    },
+    {
+      "file": "data/read-watch-practise-later.json",
+      "slot": 333,
+      "expected_current_movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S019-Intro-Illustrated.mp4",
+      "expected_current_video_id": "S019",
+      "set": {
+        "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s019-stable-captions-20261125-ac244dec7136/S019.mp4",
+        "videoTitle": "The domino colour test",
+        "filmUse": "technique",
+        "bridge": "In the film, compare the two removed corner squares with the two neighbouring squares. Why does removing the same number of squares permit one tiling but rule out the other?"
+      }
+    }
+  ],
+  "canonical_opening_bridge": {
+    "file": "tools/content/practice-revisions-20261121.json",
+    "key": "S019",
+    "bridge": "In the film’s first 4-by-4 example, the crosses mark the two leftmost squares in the top row. Which domino covers the two top squares that remain? What would you have to change if the middle two had been removed instead?"
+  },
+  "additional_opening_bridges": [],
+  "remaining_release_steps": [
+    "Apply only the listed fields, retaining all worked examples, practice IDs and grading editions.",
+    "Refresh the catalogue query and matching app/service-worker cache versions in the combined release.",
+    "Run the recorded-study and read/practice checks, then check the exact public learner routes.",
+    "Keep final editorial credit pending until that independent acceptance is complete."
+  ],
+  "source_tree_modified": false,
+  "editorial_completion_awarded": false
+}

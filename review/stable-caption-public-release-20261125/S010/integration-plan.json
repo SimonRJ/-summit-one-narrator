@@ -1,0 +1,151 @@
+{
+  "lesson": "S010",
+  "production_run": 45527881044,
+  "production_commit": "2cde68c0f0463815627a1065f105cb08c6e799ef",
+  "production_source_tree": "e98ce7e8dd43f297a087cf205bc6c64265c4c50d",
+  "reviewed_local_source_commit": "456e82bbf9f2bd04e47f12b7f76da9a6fbcd1d3c",
+  "release_tag": "stable-captions-20261125-2cde68c0f046",
+  "baseline_source_commit": "e287b9102574b8a6cbc29beba97ccc9a7dc569fe",
+  "released_asset_sha256": {
+    "S010-guide.json": "28d82e652a5e8f9f4720fccbed5ea00cf6e0439921112ecfe8e046ed8d9881e6",
+    "S010-poster.jpg": "c9418876751a25c60e9444974d049a959a0f7142b202633a9648ad09ec4473c4",
+    "S010-qa.json": "1cc774d18343d782674c91ffb313f20416d9bca5cfe26f753580d07bb4a42c68",
+    "S010-recording.zip": "7a1d5b2bdad48fcb1da0040509bdd8ac3c400aa9a3eb67eaac08c890e700789c",
+    "S010.mp4": "5369c10e51e6ac79a925d04566ebe6780735de2069fb10f20d6242b4137a1a8a",
+    "S010.vtt": "84224085d387f5a7027bc32b20b2bb1d8d6c82a3a094485b32f8b0879f153878"
+  },
+  "catalogue_file": "data/recorded-studies.json",
+  "expected_existing_catalogue_entry": {
+    "release": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/",
+    "id": "S010",
+    "title": "The reversal line",
+    "seconds": 140.433333,
+    "chapters": [
+      {
+        "title": "Turn a number ticket",
+        "start": 0.0
+      },
+      {
+        "title": "What a swap buys",
+        "start": 13.72
+      },
+      {
+        "title": "Two clues, one ticket",
+        "start": 29.88
+      },
+      {
+        "title": "The inspector’s rule",
+        "start": 47.0
+      },
+      {
+        "title": "A correct sum gets rejected",
+        "start": 68.25
+      },
+      {
+        "title": "Admit the next ticket",
+        "start": 90.48
+      },
+      {
+        "title": "Issue a ticket from two new clues",
+        "start": 110.48
+      }
+    ],
+    "transcript": [
+      "A ticket printer puts the same digit in two boxes. Together those digits add to eight, so each box shows four. Turning that ticket would change nothing. What changes when a ticket carries two different digits?",
+      "Slide the larger digit from units to tens. Each extra unit of digit difference now gains ten in one place and loses one in the other. The net gain is nine. A reversal that gains thirty six therefore moves a digit four larger into the tens place.",
+      "Our two digits also add to eight. Set four counters aside for the difference. The four left split into two matching pairs. The smaller digit is two and the larger is six. Print twenty six, then reverse it. Sixty two minus twenty six is thirty six.",
+      "Inspect a different pair of tickets. A B plus A C ends in zero, with hundreds digit B and tens digit D. All four letters use different digits. Find the smallest A B. Two two digit numbers cannot reach two hundred, so the new hundreds digit is one. B is one.",
+      "One plus C must end in zero. Only nine can complete the ten. Carry one. The tens total is twice A plus one. Four would give only nine, so the first candidate is five. Fifty one plus fifty nine equals one hundred and ten. Look at the hundreds and tens. Two different letters would both be one. Reject that ticket.",
+      "Move up one tens digit to six. Sixty one plus sixty nine makes one hundred and thirty. Read the four letters in order: six, one, nine, three. None collides. We have checked the only smaller candidate that could reach a hundred. The smallest legal first ticket is sixty one.",
+      "A fresh ticket gains twenty seven when you reverse its digits. The digits add to eleven. What is the ticket? Divide the gain by nine. The digits differ by three. Set three aside from eleven, then halve the eight left. The smaller digit is four, the larger seven. Check the journey: seventy four minus forty seven equals twenty seven. The ticket gaining value starts with the smaller digit."
+    ],
+    "bridge": "Follow the two digits when the ticket turns. At inspection, compare both the printed sum and the letters that received its digits.",
+    "sha256": "e8e2e6f697b00cd9401479a603bf6992c2538a107b3fbd519cac0e0b9b7f9a71"
+  },
+  "catalogue_entry": {
+    "id": "S010",
+    "title": "The reversal line",
+    "seconds": 140.433333,
+    "chapters": [
+      {
+        "title": "Turn a number ticket",
+        "start": 0.0
+      },
+      {
+        "title": "What a swap buys",
+        "start": 13.72
+      },
+      {
+        "title": "Two clues, one ticket",
+        "start": 29.88
+      },
+      {
+        "title": "The inspector’s rule",
+        "start": 47.0
+      },
+      {
+        "title": "A correct sum gets rejected",
+        "start": 68.25
+      },
+      {
+        "title": "Admit the next ticket",
+        "start": 90.48
+      },
+      {
+        "title": "Issue a ticket from two new clues",
+        "start": 110.48
+      }
+    ],
+    "transcript": [
+      "A ticket printer puts the same digit in two boxes. Together those digits add to eight, so each box shows four. Turning that ticket would change nothing. What changes when a ticket carries two different digits?",
+      "Slide the larger digit from units to tens. Each extra unit of digit difference now gains ten in one place and loses one in the other. The net gain is nine. A reversal that gains thirty six therefore moves a digit four larger into the tens place.",
+      "Our two digits also add to eight. Set four counters aside for the difference. The four left split into two matching pairs. The smaller digit is two and the larger is six. Print twenty six, then reverse it. Sixty two minus twenty six is thirty six.",
+      "Inspect a different pair of tickets. A B plus A C ends in zero, with hundreds digit B and tens digit D. All four letters use different digits. Find the smallest A B. Two two digit numbers cannot reach two hundred, so the new hundreds digit is one. B is one.",
+      "One plus C must end in zero. Only nine can complete the ten. Carry one. The tens total is twice A plus one. Four would give only nine, so the first candidate is five. Fifty one plus fifty nine equals one hundred and ten. Look at the hundreds and tens. Two different letters would both be one. Reject that ticket.",
+      "Move up one tens digit to six. Sixty one plus sixty nine makes one hundred and thirty. Read the four letters in order: six, one, nine, three. None collides. We have checked the only smaller candidate that could reach a hundred. The smallest legal first ticket is sixty one.",
+      "A fresh ticket gains twenty seven when you reverse its digits. The digits add to eleven. What is the ticket? Divide the gain by nine. The digits differ by three. Set three aside from eleven, then halve the eight left. The smaller digit is four, the larger seven. Check the journey: seventy four minus forty seven equals twenty seven. The ticket gaining value starts with the smaller digit."
+    ],
+    "bridge": "Follow the two digits when the ticket turns. At inspection, compare both the printed sum and the letters that received its digits.",
+    "sha256": "5369c10e51e6ac79a925d04566ebe6780735de2069fb10f20d6242b4137a1a8a",
+    "release": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/stable-captions-20261125-2cde68c0f046/"
+  },
+  "route_changes": [
+    {
+      "file": "data/read-watch-practise.json",
+      "slot": 10,
+      "expected_current_movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S010.mp4",
+      "expected_current_video_id": "S010",
+      "expected_current_bridge": "Follow the two digits when the ticket turns. At inspection, compare both the printed sum and the letters that received its digits.",
+      "set": {
+        "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/stable-captions-20261125-2cde68c0f046/S010.mp4",
+        "videoTitle": "The reversal line",
+        "filmUse": "dedicated"
+      },
+      "preserve_bridge": "Follow the two digits when the ticket turns. At inspection, compare both the printed sum and the letters that received its digits."
+    },
+    {
+      "file": "data/read-watch-practise-later.json",
+      "slot": 319,
+      "expected_current_movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S010.mp4",
+      "expected_current_video_id": "S010",
+      "expected_current_bridge": "In the ticket inspection, use the zero in the units column to force the missing digit. Then watch why 51 + 59 is rejected despite adding correctly.",
+      "set": {
+        "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/stable-captions-20261125-2cde68c0f046/S010.mp4",
+        "videoTitle": "The reversal line",
+        "filmUse": "technique"
+      },
+      "preserve_bridge": "In the ticket inspection, use the zero in the units column to force the missing digit. Then watch why 51 + 59 is rejected despite adding correctly."
+    }
+  ],
+  "opening_bridge_changes": [],
+  "all_existing_bridges_preserved": true,
+  "independent_evidence": "review/stable-caption-public-release-20261125/S010/independent-public-check.json",
+  "remaining_release_steps": [
+    "Apply only the listed catalogue and route fields; all worked examples, practice IDs, bridges and grading editions remain byte-identical.",
+    "Use the combined priority-corrections-20261125b cache revision.",
+    "Verify the deployed catalogue and exact canonical/consumer route declarations.",
+    "Keep complete human audiovisual editorial review and physical-device acceptance separate."
+  ],
+  "source_tree_modified": false,
+  "final_editorial_credit": false
+}

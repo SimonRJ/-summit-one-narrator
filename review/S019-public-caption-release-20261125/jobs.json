@@ -1,0 +1,793 @@
+{
+  "total_count": 7,
+  "jobs": [
+    {
+      "id": 138905813578,
+      "run_id": 45524933207,
+      "workflow_name": "Complete S019 with stable phrase captions",
+      "head_branch": "production/s019-caption-stability",
+      "run_url": "https://api.github.com/repos/SimonRJ/-summit-one-narrator/actions/runs/45524933207",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOVp55z88AAAAgV26CSg",
+      "head_sha": "ac244dec713654fa7fb47693c8c179d9fb436479",
+      "url": "https://api.github.com/repos/SimonRJ/-summit-one-narrator/actions/jobs/138905813578",
+      "html_url": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45524933207/job/138905813578",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-25T01:19:51Z",
+      "started_at": "2026-11-25T01:21:25Z",
+      "completed_at": "2026-11-25T01:23:04Z",
+      "name": "recaption",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-25T01:21:26Z",
+          "completed_at": "2026-11-25T01:21:27Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-25T01:21:27Z",
+          "completed_at": "2026-11-25T01:21:30Z"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-25T01:21:30Z",
+          "completed_at": "2026-11-25T01:21:30Z"
+        },
+        {
+          "name": "Retrieve the exact published domino-condition recording",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-25T01:21:30Z",
+          "completed_at": "2026-11-25T01:21:32Z"
+        },
+        {
+          "name": "Redraw one caption layer and preserve the approved narration",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-25T01:21:32Z",
+          "completed_at": "2026-11-25T01:22:58Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-25T01:22:58Z",
+          "completed_at": "2026-11-25T01:23:00Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-25T01:23:00Z",
+          "completed_at": "2026-11-25T01:23:01Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-11-25T01:23:01Z",
+          "completed_at": "2026-11-25T01:23:02Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-11-25T01:23:02Z",
+          "completed_at": "2026-11-25T01:23:02Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-11-25T01:23:02Z",
+          "completed_at": "2026-11-25T01:23:02Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SimonRJ/-summit-one-narrator/check-runs/138905813578",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000006305,
+      "runner_name": "GitHub Actions 1000006305",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 138907150388,
+      "run_id": 45524933207,
+      "workflow_name": "Complete S019 with stable phrase captions",
+      "head_branch": "production/s019-caption-stability",
+      "run_url": "https://api.github.com/repos/SimonRJ/-summit-one-narrator/actions/runs/45524933207",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOVp55z88AAAAgV4LoNA",
+      "head_sha": "ac244dec713654fa7fb47693c8c179d9fb436479",
+      "url": "https://api.github.com/repos/SimonRJ/-summit-one-narrator/actions/jobs/138907150388",
+      "html_url": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45524933207/job/138907150388",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-25T01:23:04Z",
+      "started_at": "2026-11-25T01:24:24Z",
+      "completed_at": "2026-11-25T01:26:23Z",
+      "name": "playback (ipad-landscape)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-25T01:24:25Z",
+          "completed_at": "2026-11-25T01:24:28Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-25T01:24:29Z",
+          "completed_at": "2026-11-25T01:24:34Z"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-25T01:24:34Z",
+          "completed_at": "2026-11-25T01:24:34Z"
+        },
+        {
+          "name": "Run actions/download-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-25T01:24:34Z",
+          "completed_at": "2026-11-25T01:24:38Z"
+        },
+        {
+          "name": "Run python -m pip install 'playwright==1.58.0' aiohttp",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-25T01:24:38Z",
+          "completed_at": "2026-11-25T01:24:50Z"
+        },
+        {
+          "name": "Run python -m playwright install --with-deps webkit",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-25T01:24:50Z",
+          "completed_at": "2026-11-25T01:25:45Z"
+        },
+        {
+          "name": "Point isolated fixtures at the new candidate",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-25T01:25:45Z",
+          "completed_at": "2026-11-25T01:25:45Z"
+        },
+        {
+          "name": "Check gallery, active lessons and immutable notebooks",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-25T01:25:45Z",
+          "completed_at": "2026-11-25T01:26:17Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-11-25T01:26:17Z",
+          "completed_at": "2026-11-25T01:26:19Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-11-25T01:26:19Z",
+          "completed_at": "2026-11-25T01:26:19Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 18,
+          "started_at": "2026-11-25T01:26:19Z",
+          "completed_at": "2026-11-25T01:26:19Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 19,
+          "started_at": "2026-11-25T01:26:19Z",
+          "completed_at": "2026-11-25T01:26:19Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SimonRJ/-summit-one-narrator/check-runs/138907150388",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000006328,
+      "runner_name": "GitHub Actions 1000006328",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 138907150409,
+      "run_id": 45524933207,
+      "workflow_name": "Complete S019 with stable phrase captions",
+      "head_branch": "production/s019-caption-stability",
+      "run_url": "https://api.github.com/repos/SimonRJ/-summit-one-narrator/actions/runs/45524933207",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOVp55z88AAAAgV4LoSQ",
+      "head_sha": "ac244dec713654fa7fb47693c8c179d9fb436479",
+      "url": "https://api.github.com/repos/SimonRJ/-summit-one-narrator/actions/jobs/138907150409",
+      "html_url": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45524933207/job/138907150409",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-25T01:23:04Z",
+      "started_at": "2026-11-25T01:23:24Z",
+      "completed_at": "2026-11-25T01:24:55Z",
+      "name": "playback (iphone-landscape)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-25T01:23:25Z",
+          "completed_at": "2026-11-25T01:23:26Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-25T01:23:26Z",
+          "completed_at": "2026-11-25T01:23:28Z"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-25T01:23:28Z",
+          "completed_at": "2026-11-25T01:23:28Z"
+        },
+        {
+          "name": "Run actions/download-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-25T01:23:28Z",
+          "completed_at": "2026-11-25T01:23:29Z"
+        },
+        {
+          "name": "Run python -m pip install 'playwright==1.58.0' aiohttp",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-25T01:23:29Z",
+          "completed_at": "2026-11-25T01:23:34Z"
+        },
+        {
+          "name": "Run python -m playwright install --with-deps webkit",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-25T01:23:34Z",
+          "completed_at": "2026-11-25T01:24:13Z"
+        },
+        {
+          "name": "Point isolated fixtures at the new candidate",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-25T01:24:13Z",
+          "completed_at": "2026-11-25T01:24:13Z"
+        },
+        {
+          "name": "Check gallery, active lessons and immutable notebooks",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-25T01:24:13Z",
+          "completed_at": "2026-11-25T01:24:51Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-11-25T01:24:51Z",
+          "completed_at": "2026-11-25T01:24:53Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-11-25T01:24:53Z",
+          "completed_at": "2026-11-25T01:24:53Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 18,
+          "started_at": "2026-11-25T01:24:53Z",
+          "completed_at": "2026-11-25T01:24:53Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 19,
+          "started_at": "2026-11-25T01:24:53Z",
+          "completed_at": "2026-11-25T01:24:53Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SimonRJ/-summit-one-narrator/check-runs/138907150409",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000006321,
+      "runner_name": "GitHub Actions 1000006321",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 138907150595,
+      "run_id": 45524933207,
+      "workflow_name": "Complete S019 with stable phrase captions",
+      "head_branch": "production/s019-caption-stability",
+      "run_url": "https://api.github.com/repos/SimonRJ/-summit-one-narrator/actions/runs/45524933207",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOVp55z88AAAAgV4LpAw",
+      "head_sha": "ac244dec713654fa7fb47693c8c179d9fb436479",
+      "url": "https://api.github.com/repos/SimonRJ/-summit-one-narrator/actions/jobs/138907150595",
+      "html_url": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45524933207/job/138907150595",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-25T01:23:04Z",
+      "started_at": "2026-11-25T01:25:02Z",
+      "completed_at": "2026-11-25T01:27:16Z",
+      "name": "playback (ipad-portrait)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-25T01:25:03Z",
+          "completed_at": "2026-11-25T01:25:06Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-25T01:25:06Z",
+          "completed_at": "2026-11-25T01:25:11Z"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-25T01:25:11Z",
+          "completed_at": "2026-11-25T01:25:12Z"
+        },
+        {
+          "name": "Run actions/download-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-25T01:25:12Z",
+          "completed_at": "2026-11-25T01:25:15Z"
+        },
+        {
+          "name": "Run python -m pip install 'playwright==1.58.0' aiohttp",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-25T01:25:15Z",
+          "completed_at": "2026-11-25T01:25:25Z"
+        },
+        {
+          "name": "Run python -m playwright install --with-deps webkit",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-25T01:25:25Z",
+          "completed_at": "2026-11-25T01:26:20Z"
+        },
+        {
+          "name": "Point isolated fixtures at the new candidate",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-25T01:26:20Z",
+          "completed_at": "2026-11-25T01:26:20Z"
+        },
+        {
+          "name": "Check gallery, active lessons and immutable notebooks",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-25T01:26:20Z",
+          "completed_at": "2026-11-25T01:27:11Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-11-25T01:27:11Z",
+          "completed_at": "2026-11-25T01:27:14Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-11-25T01:27:14Z",
+          "completed_at": "2026-11-25T01:27:14Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 18,
+          "started_at": "2026-11-25T01:27:14Z",
+          "completed_at": "2026-11-25T01:27:14Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 19,
+          "started_at": "2026-11-25T01:27:14Z",
+          "completed_at": "2026-11-25T01:27:14Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SimonRJ/-summit-one-narrator/check-runs/138907150595",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000006337,
+      "runner_name": "GitHub Actions 1000006337",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 138907150692,
+      "run_id": 45524933207,
+      "workflow_name": "Complete S019 with stable phrase captions",
+      "head_branch": "production/s019-caption-stability",
+      "run_url": "https://api.github.com/repos/SimonRJ/-summit-one-narrator/actions/runs/45524933207",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOVp55z88AAAAgV4LpZA",
+      "head_sha": "ac244dec713654fa7fb47693c8c179d9fb436479",
+      "url": "https://api.github.com/repos/SimonRJ/-summit-one-narrator/actions/jobs/138907150692",
+      "html_url": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45524933207/job/138907150692",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-25T01:23:04Z",
+      "started_at": "2026-11-25T01:25:18Z",
+      "completed_at": "2026-11-25T01:26:34Z",
+      "name": "playback (pc)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-25T01:25:19Z",
+          "completed_at": "2026-11-25T01:25:21Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-25T01:25:21Z",
+          "completed_at": "2026-11-25T01:25:27Z"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-25T01:25:27Z",
+          "completed_at": "2026-11-25T01:25:27Z"
+        },
+        {
+          "name": "Run actions/download-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-25T01:25:27Z",
+          "completed_at": "2026-11-25T01:25:28Z"
+        },
+        {
+          "name": "Run python -m pip install 'playwright==1.58.0' aiohttp",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-25T01:25:28Z",
+          "completed_at": "2026-11-25T01:25:37Z"
+        },
+        {
+          "name": "Run python -m playwright install --with-deps webkit",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 6,
+          "started_at": "2026-11-25T01:25:37Z",
+          "completed_at": "2026-11-25T01:25:37Z"
+        },
+        {
+          "name": "Point isolated fixtures at the new candidate",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-25T01:25:37Z",
+          "completed_at": "2026-11-25T01:25:37Z"
+        },
+        {
+          "name": "Check gallery, active lessons and immutable notebooks",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-25T01:25:37Z",
+          "completed_at": "2026-11-25T01:26:31Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-11-25T01:26:31Z",
+          "completed_at": "2026-11-25T01:26:32Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-11-25T01:26:32Z",
+          "completed_at": "2026-11-25T01:26:33Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 18,
+          "started_at": "2026-11-25T01:26:33Z",
+          "completed_at": "2026-11-25T01:26:33Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 19,
+          "started_at": "2026-11-25T01:26:33Z",
+          "completed_at": "2026-11-25T01:26:33Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SimonRJ/-summit-one-narrator/check-runs/138907150692",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000006339,
+      "runner_name": "GitHub Actions 1000006339",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 138907150765,
+      "run_id": 45524933207,
+      "workflow_name": "Complete S019 with stable phrase captions",
+      "head_branch": "production/s019-caption-stability",
+      "run_url": "https://api.github.com/repos/SimonRJ/-summit-one-narrator/actions/runs/45524933207",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOVp55z88AAAAgV4LprQ",
+      "head_sha": "ac244dec713654fa7fb47693c8c179d9fb436479",
+      "url": "https://api.github.com/repos/SimonRJ/-summit-one-narrator/actions/jobs/138907150765",
+      "html_url": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45524933207/job/138907150765",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-25T01:23:04Z",
+      "started_at": "2026-11-25T01:25:23Z",
+      "completed_at": "2026-11-25T01:29:14Z",
+      "name": "playback (iphone-portrait)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-25T01:25:23Z",
+          "completed_at": "2026-11-25T01:25:24Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-25T01:25:24Z",
+          "completed_at": "2026-11-25T01:25:26Z"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-25T01:25:26Z",
+          "completed_at": "2026-11-25T01:25:26Z"
+        },
+        {
+          "name": "Run actions/download-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-25T01:25:26Z",
+          "completed_at": "2026-11-25T01:25:27Z"
+        },
+        {
+          "name": "Run python -m pip install 'playwright==1.58.0' aiohttp",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-25T01:25:27Z",
+          "completed_at": "2026-11-25T01:25:34Z"
+        },
+        {
+          "name": "Run python -m playwright install --with-deps webkit",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-25T01:25:34Z",
+          "completed_at": "2026-11-25T01:26:14Z"
+        },
+        {
+          "name": "Point isolated fixtures at the new candidate",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-25T01:26:14Z",
+          "completed_at": "2026-11-25T01:26:14Z"
+        },
+        {
+          "name": "Check gallery, active lessons and immutable notebooks",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-25T01:26:14Z",
+          "completed_at": "2026-11-25T01:29:11Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-11-25T01:29:11Z",
+          "completed_at": "2026-11-25T01:29:12Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-11-25T01:29:12Z",
+          "completed_at": "2026-11-25T01:29:12Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 18,
+          "started_at": "2026-11-25T01:29:12Z",
+          "completed_at": "2026-11-25T01:29:12Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 19,
+          "started_at": "2026-11-25T01:29:12Z",
+          "completed_at": "2026-11-25T01:29:12Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SimonRJ/-summit-one-narrator/check-runs/138907150765",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000006341,
+      "runner_name": "GitHub Actions 1000006341",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 138909700107,
+      "run_id": 45524933207,
+      "workflow_name": "Complete S019 with stable phrase captions",
+      "head_branch": "production/s019-caption-stability",
+      "run_url": "https://api.github.com/repos/SimonRJ/-summit-one-narrator/actions/runs/45524933207",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOVp55z88AAAAgV6nQCw",
+      "head_sha": "ac244dec713654fa7fb47693c8c179d9fb436479",
+      "url": "https://api.github.com/repos/SimonRJ/-summit-one-narrator/actions/jobs/138909700107",
+      "html_url": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45524933207/job/138909700107",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-25T01:29:14Z",
+      "started_at": "2026-11-25T01:29:17Z",
+      "completed_at": "2026-11-25T01:29:41Z",
+      "name": "release",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-25T01:29:18Z",
+          "completed_at": "2026-11-25T01:29:21Z"
+        },
+        {
+          "name": "Run actions/download-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-25T01:29:21Z",
+          "completed_at": "2026-11-25T01:29:28Z"
+        },
+        {
+          "name": "Publish a separate immutable edition and compare returned bytes",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-25T01:29:28Z",
+          "completed_at": "2026-11-25T01:29:39Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-25T01:29:39Z",
+          "completed_at": "2026-11-25T01:29:39Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SimonRJ/-summit-one-narrator/check-runs/138909700107",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000006375,
+      "runner_name": "GitHub Actions 1000006375",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    }
+  ]
+}

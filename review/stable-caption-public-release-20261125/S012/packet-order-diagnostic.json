@@ -1,0 +1,144 @@
+{
+  "lesson": "S012",
+  "failed_extra_assertion": "Video packet PTS/DTS/duration records identical at each packet index",
+  "result": "FAILED_EXPECTED_REENCODE_ORDER_CHANGE",
+  "source_packet_count": 4120,
+  "candidate_packet_count": 4120,
+  "per_packet_presentation_order_identical": false,
+  "first_packet_differences": [
+    {
+      "index": 20,
+      "source": {
+        "pts": 10240,
+        "dts": 9216,
+        "duration": 512
+      },
+      "candidate": {
+        "pts": 10752,
+        "dts": 9216,
+        "duration": 512
+      }
+    },
+    {
+      "index": 21,
+      "source": {
+        "pts": 12288,
+        "dts": 9728,
+        "duration": 512
+      },
+      "candidate": {
+        "pts": 10240,
+        "dts": 9728,
+        "duration": 512
+      }
+    },
+    {
+      "index": 22,
+      "source": {
+        "pts": 11264,
+        "dts": 10240,
+        "duration": 512
+      },
+      "candidate": {
+        "pts": 12800,
+        "dts": 10240,
+        "duration": 512
+      }
+    },
+    {
+      "index": 23,
+      "source": {
+        "pts": 10752,
+        "dts": 10752,
+        "duration": 512
+      },
+      "candidate": {
+        "pts": 11776,
+        "dts": 10752,
+        "duration": 512
+      }
+    },
+    {
+      "index": 24,
+      "source": {
+        "pts": 11776,
+        "dts": 11264,
+        "duration": 512
+      },
+      "candidate": {
+        "pts": 11264,
+        "dts": 11264,
+        "duration": 512
+      }
+    },
+    {
+      "index": 25,
+      "source": {
+        "pts": 14336,
+        "dts": 11776,
+        "duration": 512
+      },
+      "candidate": {
+        "pts": 12288,
+        "dts": 11776,
+        "duration": 512
+      }
+    },
+    {
+      "index": 26,
+      "source": {
+        "pts": 13312,
+        "dts": 12288,
+        "duration": 512
+      },
+      "candidate": {
+        "pts": 14848,
+        "dts": 12288,
+        "duration": 512
+      }
+    },
+    {
+      "index": 27,
+      "source": {
+        "pts": 12800,
+        "dts": 12800,
+        "duration": 512
+      },
+      "candidate": {
+        "pts": 13824,
+        "dts": 12800,
+        "duration": 512
+      }
+    },
+    {
+      "index": 28,
+      "source": {
+        "pts": 13824,
+        "dts": 13312,
+        "duration": 512
+      },
+      "candidate": {
+        "pts": 13312,
+        "dts": 13312,
+        "duration": 512
+      }
+    },
+    {
+      "index": 29,
+      "source": {
+        "pts": 14848,
+        "dts": 13824,
+        "duration": 512
+      },
+      "candidate": {
+        "pts": 14336,
+        "dts": 13824,
+        "duration": 512
+      }
+    }
+  ],
+  "sorted_presentation_times_and_durations_identical": true,
+  "decode_timestamps_and_durations_identical": true,
+  "interpretation": "The picture-only re-encode changed B-frame presentation ordering within the encoded packet sequence. Compare full presentation cadence and decoding cadence, not per-packet picture identity. AAC packet comparison remains exact.",
+  "final_editorial_credit": false
+}

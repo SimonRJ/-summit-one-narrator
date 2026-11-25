@@ -1,0 +1,161 @@
+{
+  "lesson": "S012",
+  "production_run": 45527881044,
+  "production_commit": "2cde68c0f0463815627a1065f105cb08c6e799ef",
+  "production_source_tree": "e98ce7e8dd43f297a087cf205bc6c64265c4c50d",
+  "reviewed_local_source_commit": "456e82bbf9f2bd04e47f12b7f76da9a6fbcd1d3c",
+  "release_tag": "stable-captions-20261125-2cde68c0f046",
+  "baseline_source_commit": "e287b9102574b8a6cbc29beba97ccc9a7dc569fe",
+  "released_asset_sha256": {
+    "S012-guide.json": "4e01af0f812414e942bd5dd7edbf60547c621ab74e0b21763ea10561837a719b",
+    "S012-poster.jpg": "6e386845cb901e1fde368c74d89fcb05c5ebdf03df2a186acd9432485346834a",
+    "S012-qa.json": "201b06e67672919251ee03f403f2ec653c0e8a4588f7a36080042a4fd1812321",
+    "S012-recording.zip": "d70464f3af57e93d8ef5edfabce3f389d1906afcdf73bc7d729e94b7f3d90940",
+    "S012.mp4": "d36d6c733066f0e27d195e0268548cc0c8c3ce68bfd0cfac7348ac8529be2dd6",
+    "S012.vtt": "391c35e3dee90189869395a10078a49a5a17ab8967d64bb49fc8c1377c4c39f8"
+  },
+  "catalogue_file": "data/recorded-studies.json",
+  "expected_existing_catalogue_entry": {
+    "id": "S012",
+    "title": "The missing rung",
+    "seconds": 137.333333,
+    "chapters": [
+      {
+        "title": "The landing log",
+        "start": 0.0
+      },
+      {
+        "title": "Sort the final jumps",
+        "start": 15.61
+      },
+      {
+        "title": "Strike out a landing",
+        "start": 31.92
+      },
+      {
+        "title": "Jump over the gap",
+        "start": 46.93
+      },
+      {
+        "title": "Build the landing log",
+        "start": 61.01
+      },
+      {
+        "title": "The brass bell",
+        "start": 80.21
+      },
+      {
+        "title": "Pair the pieces",
+        "start": 96.5
+      },
+      {
+        "title": "Add arrivals, multiply choices",
+        "start": 114.41
+      }
+    ],
+    "transcript": [
+      "A beetle can climb one rung or two rungs in a jump. It starts on the ground. To reach rung two, it can jump straight there, or visit rung one first. Draw both routes with your finger.",
+      "How many routes reach rung three? Look backwards. The last jump came from rung two or rung one. Each route to rung two has one way to finish with a short jump. The single route to rung one can finish with a long jump. That makes three.",
+      "Now the third rung breaks. The beetle may fly over the gap, but it cannot land there. Does rung four become unreachable? Find the last safe place the beetle could have landed.",
+      "To land on four, the beetle must come from two. A jump from three is impossible. Both routes to two can cross the gap. Trace their different beginnings and their identical last jump. Write two routes beside four.",
+      "At every safe rung, add the counts at the two previous positions. Beside rung five write two. At six the counts are two and two, giving four. At seven they give six. At eight, six plus four gives ten. The zero stays in the log, holding the place of the broken rung.",
+      "A brass bell hangs on rung five. This time the beetle must land on that rung and ring the bell on its way to eight. Which of the ten routes count now? Imagine cutting a successful route into two pieces at the bell.",
+      "Two routes arrive at the bell. From five to eight the remaining climb is three rungs. The jumps can be three singles, a single followed by a double, or a double followed by a single. Each beginning accepts all three endings. Two groups of three give six bell routes.",
+      "Why did we add at a landing and multiply at the bell? Different final jumps put the routes in separate piles. At a compulsory stop, each beginning joins to each possible ending. Keep a zero for a forbidden landing. If a rule restricts the next jump, record how the route arrived as well."
+    ],
+    "bridge": "Pause when the film marks rung 3 as broken. Is rung 4 still reachable? Trace its possible final jumps before the film fills in the table.",
+    "sha256": "87e71ca9ae8e3355f9f092f05a7e4c0678313aa569bbc3b4cc63a200ff2cedd7",
+    "release": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s012-missing-rung-20261125-b46d28d6d374/"
+  },
+  "catalogue_entry": {
+    "id": "S012",
+    "title": "The missing rung",
+    "seconds": 137.333333,
+    "chapters": [
+      {
+        "title": "The landing log",
+        "start": 0.0
+      },
+      {
+        "title": "Sort the final jumps",
+        "start": 15.61
+      },
+      {
+        "title": "Strike out a landing",
+        "start": 31.92
+      },
+      {
+        "title": "Jump over the gap",
+        "start": 46.93
+      },
+      {
+        "title": "Build the landing log",
+        "start": 61.01
+      },
+      {
+        "title": "The brass bell",
+        "start": 80.21
+      },
+      {
+        "title": "Pair the pieces",
+        "start": 96.5
+      },
+      {
+        "title": "Add arrivals, multiply choices",
+        "start": 114.41
+      }
+    ],
+    "transcript": [
+      "A beetle can climb one rung or two rungs in a jump. It starts on the ground. To reach rung two, it can jump straight there, or visit rung one first. Draw both routes with your finger.",
+      "How many routes reach rung three? Look backwards. The last jump came from rung two or rung one. Each route to rung two has one way to finish with a short jump. The single route to rung one can finish with a long jump. That makes three.",
+      "Now the third rung breaks. The beetle may fly over the gap, but it cannot land there. Does rung four become unreachable? Find the last safe place the beetle could have landed.",
+      "To land on four, the beetle must come from two. A jump from three is impossible. Both routes to two can cross the gap. Trace their different beginnings and their identical last jump. Write two routes beside four.",
+      "At every safe rung, add the counts at the two previous positions. Beside rung five write two. At six the counts are two and two, giving four. At seven they give six. At eight, six plus four gives ten. The zero stays in the log, holding the place of the broken rung.",
+      "A brass bell hangs on rung five. This time the beetle must land on that rung and ring the bell on its way to eight. Which of the ten routes count now? Imagine cutting a successful route into two pieces at the bell.",
+      "Two routes arrive at the bell. From five to eight the remaining climb is three rungs. The jumps can be three singles, a single followed by a double, or a double followed by a single. Each beginning accepts all three endings. Two groups of three give six bell routes.",
+      "Why did we add at a landing and multiply at the bell? Different final jumps put the routes in separate piles. At a compulsory stop, each beginning joins to each possible ending. Keep a zero for a forbidden landing. If a rule restricts the next jump, record how the route arrived as well."
+    ],
+    "bridge": "Pause when the film marks rung 3 as broken. Is rung 4 still reachable? Trace its possible final jumps before the film fills in the table.",
+    "sha256": "d36d6c733066f0e27d195e0268548cc0c8c3ce68bfd0cfac7348ac8529be2dd6",
+    "release": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/stable-captions-20261125-2cde68c0f046/"
+  },
+  "route_changes": [
+    {
+      "file": "data/read-watch-practise.json",
+      "slot": 12,
+      "expected_current_movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s012-missing-rung-20261125-b46d28d6d374/S012.mp4",
+      "expected_current_video_id": "S012",
+      "expected_current_bridge": "Pause when the film marks rung 3 as broken. Is rung 4 still reachable? Trace its possible final jumps before the film fills in the table.",
+      "set": {
+        "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/stable-captions-20261125-2cde68c0f046/S012.mp4",
+        "videoTitle": "The missing rung",
+        "filmUse": "dedicated"
+      },
+      "preserve_bridge": "Pause when the film marks rung 3 as broken. Is rung 4 still reachable? Trace its possible final jumps before the film fills in the table."
+    },
+    {
+      "file": "data/read-watch-practise-later.json",
+      "slot": 248,
+      "expected_current_movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s012-missing-rung-20261125-b46d28d6d374/S012.mp4",
+      "expected_current_video_id": "S012",
+      "expected_current_bridge": "Watch the film’s blocked rung remove a possible previous landing. Then ask what extra information a path count would need if an entire kind of move were restricted.",
+      "set": {
+        "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/stable-captions-20261125-2cde68c0f046/S012.mp4",
+        "videoTitle": "The missing rung",
+        "filmUse": "technique"
+      },
+      "preserve_bridge": "Watch the film’s blocked rung remove a possible previous landing. Then ask what extra information a path count would need if an entire kind of move were restricted."
+    }
+  ],
+  "opening_bridge_changes": [],
+  "all_existing_bridges_preserved": true,
+  "independent_evidence": "review/stable-caption-public-release-20261125/S012/independent-public-check.json",
+  "remaining_release_steps": [
+    "Apply only the listed catalogue and route fields; all worked examples, practice IDs, bridges and grading editions remain byte-identical.",
+    "Use the combined priority-corrections-20261125b cache revision.",
+    "Verify the deployed catalogue and exact canonical/consumer route declarations.",
+    "Keep complete human audiovisual editorial review and physical-device acceptance separate."
+  ],
+  "source_tree_modified": false,
+  "final_editorial_credit": false
+}

@@ -1,0 +1,151 @@
+{
+  "lesson": "S009",
+  "production_run": 45527881044,
+  "production_commit": "2cde68c0f0463815627a1065f105cb08c6e799ef",
+  "production_source_tree": "e98ce7e8dd43f297a087cf205bc6c64265c4c50d",
+  "reviewed_local_source_commit": "456e82bbf9f2bd04e47f12b7f76da9a6fbcd1d3c",
+  "release_tag": "stable-captions-20261125-2cde68c0f046",
+  "baseline_source_commit": "e287b9102574b8a6cbc29beba97ccc9a7dc569fe",
+  "released_asset_sha256": {
+    "S009-guide.json": "dba4b19374afe083af7734647d56f7373c20aa82f564dabd3c752bdbc5a49464",
+    "S009-poster.jpg": "6f69660713da54be02692bbae22b1a07766daaaec0c5e898bc56e0abed4ce838",
+    "S009-qa.json": "1e9e2ec1f489bdbeab0c08ddca657715f4832b9f931f3fa1d38d43987b619731",
+    "S009-recording.zip": "33e0af29c418fe8b8b3105bff05126e82cc062ca448959b192483f3333e7e730",
+    "S009.mp4": "999aba1a891fffeafe82e3c3b9e537d0b261a0332d507e967a199890f0a3d123",
+    "S009.vtt": "985c6f17fb272168144c811541fd8baba81b45d999abe067296fe1e9934072ce"
+  },
+  "catalogue_file": "data/recorded-studies.json",
+  "expected_existing_catalogue_entry": {
+    "release": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/",
+    "id": "S009",
+    "title": "The carry counter",
+    "seconds": 132.433333,
+    "chapters": [
+      {
+        "title": "Two trays at the counter",
+        "start": 0.0
+      },
+      {
+        "title": "Where did the zero come from?",
+        "start": 13.88
+      },
+      {
+        "title": "Unpack the tens",
+        "start": 30.2
+      },
+      {
+        "title": "Which letter crossed the counter?",
+        "start": 45.72
+      },
+      {
+        "title": "The hundreds drawer can hold only one",
+        "start": 64.57
+      },
+      {
+        "title": "The first tray that fills a hundred",
+        "start": 81.85
+      },
+      {
+        "title": "Carry through a second drawer",
+        "start": 104.88
+      }
+    ],
+    "transcript": [
+      "Six loose counters arrive at two trays marked with the same letter. Split them equally. Three on this tray and three on its twin. A digit written twice must describe the same quantity both times.",
+      "Now each tray holds a two digit number ending in five. Together their total begins with seven. Tip the two groups of five into the units drawer. All ten fit in a sleeve worth one ten. The units drawer is empty. Its digit is zero.",
+      "The tens drawer shows seven sleeves. One just came across from the units. Take that one aside. Six sleeves remain, shared equally by the two trays. Each tray supplied three tens. Thirty five and thirty five make seventy.",
+      "Turn the counter round. Two copies of the number A B have made a three digit total labelled B C D. Different letters must have different digits. We want the smallest possible A B. Before opening the drawers, which letter can you name?",
+      "Even ninety nine doubled is only one hundred and ninety eight. The hundreds drawer must hold exactly one, so B is one. Move that digit back to both units places. One plus one leaves two units and sends nothing into the tens. D is two.",
+      "Four tens on each tray would make only eight tens. Five on each tray make ten tens. Exchange them for one hundred. No tens remain, so C is zero. Read the finished drawers: fifty one plus fifty one equals one hundred and two. Five, one, zero and two are all different. No smaller tens digit can work.",
+      "Now double sixty eight. Eight and eight make sixteen. Leave six in the units drawer and send one ten across. Six tens and six tens plus the carried ten make thirteen tens. Exchange ten of those tens for a hundred. The drawers read one hundred and thirty six. In a letter sum, keep the digit you write separate from the amount you carry."
+    ],
+    "bridge": "Track the sleeve that crosses from the units drawer into the tens drawer. Later, read the hundreds drawer first.",
+    "sha256": "39d28fec11fe4cc1b1d1b840d01ab8d8b3ae3ccb6d184bf37c1ccf4e37c16ef6"
+  },
+  "catalogue_entry": {
+    "id": "S009",
+    "title": "The carry counter",
+    "seconds": 132.433333,
+    "chapters": [
+      {
+        "title": "Two trays at the counter",
+        "start": 0.0
+      },
+      {
+        "title": "Where did the zero come from?",
+        "start": 13.88
+      },
+      {
+        "title": "Unpack the tens",
+        "start": 30.2
+      },
+      {
+        "title": "Which letter crossed the counter?",
+        "start": 45.72
+      },
+      {
+        "title": "The hundreds drawer can hold only one",
+        "start": 64.57
+      },
+      {
+        "title": "The first tray that fills a hundred",
+        "start": 81.85
+      },
+      {
+        "title": "Carry through a second drawer",
+        "start": 104.88
+      }
+    ],
+    "transcript": [
+      "Six loose counters arrive at two trays marked with the same letter. Split them equally. Three on this tray and three on its twin. A digit written twice must describe the same quantity both times.",
+      "Now each tray holds a two digit number ending in five. Together their total begins with seven. Tip the two groups of five into the units drawer. All ten fit in a sleeve worth one ten. The units drawer is empty. Its digit is zero.",
+      "The tens drawer shows seven sleeves. One just came across from the units. Take that one aside. Six sleeves remain, shared equally by the two trays. Each tray supplied three tens. Thirty five and thirty five make seventy.",
+      "Turn the counter round. Two copies of the number A B have made a three digit total labelled B C D. Different letters must have different digits. We want the smallest possible A B. Before opening the drawers, which letter can you name?",
+      "Even ninety nine doubled is only one hundred and ninety eight. The hundreds drawer must hold exactly one, so B is one. Move that digit back to both units places. One plus one leaves two units and sends nothing into the tens. D is two.",
+      "Four tens on each tray would make only eight tens. Five on each tray make ten tens. Exchange them for one hundred. No tens remain, so C is zero. Read the finished drawers: fifty one plus fifty one equals one hundred and two. Five, one, zero and two are all different. No smaller tens digit can work.",
+      "Now double sixty eight. Eight and eight make sixteen. Leave six in the units drawer and send one ten across. Six tens and six tens plus the carried ten make thirteen tens. Exchange ten of those tens for a hundred. The drawers read one hundred and thirty six. In a letter sum, keep the digit you write separate from the amount you carry."
+    ],
+    "bridge": "Track the sleeve that crosses from the units drawer into the tens drawer. Later, read the hundreds drawer first.",
+    "sha256": "999aba1a891fffeafe82e3c3b9e537d0b261a0332d507e967a199890f0a3d123",
+    "release": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/stable-captions-20261125-2cde68c0f046/"
+  },
+  "route_changes": [
+    {
+      "file": "data/read-watch-practise.json",
+      "slot": 9,
+      "expected_current_movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S009.mp4",
+      "expected_current_video_id": "S009",
+      "expected_current_bridge": "Track the sleeve that crosses from the units drawer into the tens drawer. Later, read the hundreds drawer first.",
+      "set": {
+        "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/stable-captions-20261125-2cde68c0f046/S009.mp4",
+        "videoTitle": "The carry counter",
+        "filmUse": "dedicated"
+      },
+      "preserve_bridge": "Track the sleeve that crosses from the units drawer into the tens drawer. Later, read the hundreds drawer first."
+    },
+    {
+      "file": "data/read-watch-practise-later.json",
+      "slot": 228,
+      "expected_current_movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S009.mp4",
+      "expected_current_video_id": "S009",
+      "expected_current_bridge": "When eight and eight make sixteen, follow the six loose units and the sleeve worth one ten. Where does each go before the tens are added?",
+      "set": {
+        "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/stable-captions-20261125-2cde68c0f046/S009.mp4",
+        "videoTitle": "The carry counter",
+        "filmUse": "technique"
+      },
+      "preserve_bridge": "When eight and eight make sixteen, follow the six loose units and the sleeve worth one ten. Where does each go before the tens are added?"
+    }
+  ],
+  "opening_bridge_changes": [],
+  "all_existing_bridges_preserved": true,
+  "independent_evidence": "review/stable-caption-public-release-20261125/S009/independent-public-check.json",
+  "remaining_release_steps": [
+    "Apply only the listed catalogue and route fields; all worked examples, practice IDs, bridges and grading editions remain byte-identical.",
+    "Use the combined priority-corrections-20261125b cache revision.",
+    "Verify the deployed catalogue and exact canonical/consumer route declarations.",
+    "Keep complete human audiovisual editorial review and physical-device acceptance separate."
+  ],
+  "source_tree_modified": false,
+  "final_editorial_credit": false
+}

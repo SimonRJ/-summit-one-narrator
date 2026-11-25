@@ -1,0 +1,118 @@
+{
+  "status": "FOUR_PUBLIC_CAPTION_REFRESHES_VERIFIED_READY_FOR_INTEGRATION",
+  "verified_at_utc": "2026-11-25T02:02:59.970991+00:00",
+  "production_run": 45527881044,
+  "production_run_url": "https://github.com/SimonRJ/-summit-one-narrator/actions/runs/45527881044",
+  "production_commit": "2cde68c0f0463815627a1065f105cb08c6e799ef",
+  "production_source_tree": "e98ce7e8dd43f297a087cf205bc6c64265c4c50d",
+  "reviewed_local_source_commit": "456e82bbf9f2bd04e47f12b7f76da9a6fbcd1d3c",
+  "release_tag": "stable-captions-20261125-2cde68c0f046",
+  "release_url": "https://github.com/SimonRJ/-summit-one-narrator/releases/tag/stable-captions-20261125-2cde68c0f046",
+  "published_at": "2026-11-25T01:51:58Z",
+  "public_assets_downloaded_and_digest_verified": 24,
+  "public_bytes_verified": 70091638,
+  "exact_source_recording_archives_vtt_scripts_timelines_and_flac_preserved": true,
+  "all_original_aac_packet_bytes_and_timestamps_preserved": true,
+  "original_video_presentation_and_decode_cadences_preserved": true,
+  "video_packet_presentation_order_note": "The caption pictures were re-encoded. B-frame selection changed presentation ordering inside the packet sequence while the full presentation timeline, DTS sequence, frame count and durations remained identical. Picture-packet identity is not claimed; original AAC packet identity is verified.",
+  "known_bad_frames_independently_checked": 9,
+  "ci_route_gates_passed": 28,
+  "ci_whole_second_picture_comparisons": 560,
+  "lessons": [
+    {
+      "lesson": "S009",
+      "public_movie_sha256": "999aba1a891fffeafe82e3c3b9e537d0b261a0332d507e967a199890f0a3d123",
+      "source_movie_sha256": "39d28fec11fe4cc1b1d1b840d01ab8d8b3ae3ccb6d184bf37c1ccf4e37c16ef6",
+      "seconds": 132.433333,
+      "slots": [
+        9,
+        228
+      ],
+      "aac_packets_preserved": 6209,
+      "video_frames": 3973,
+      "caption_transition_frames": [
+        43,
+        153
+      ],
+      "maximum_caption_glyph_error": 1.4267,
+      "ci_whole_second_comparisons": 133,
+      "candidate_profile_gates": 5,
+      "technique_consumer_gates": 2,
+      "refresh_job_id": 138915620579,
+      "final_editorial_credit": false
+    },
+    {
+      "lesson": "S010",
+      "public_movie_sha256": "5369c10e51e6ac79a925d04566ebe6780735de2069fb10f20d6242b4137a1a8a",
+      "source_movie_sha256": "e8e2e6f697b00cd9401479a603bf6992c2538a107b3fbd519cac0e0b9b7f9a71",
+      "seconds": 140.433333,
+      "slots": [
+        10,
+        319
+      ],
+      "aac_packets_preserved": 6584,
+      "video_frames": 4213,
+      "caption_transition_frames": [
+        31,
+        272
+      ],
+      "maximum_caption_glyph_error": 5.6131,
+      "ci_whole_second_comparisons": 141,
+      "candidate_profile_gates": 5,
+      "technique_consumer_gates": 2,
+      "refresh_job_id": 138915620609,
+      "final_editorial_credit": false
+    },
+    {
+      "lesson": "S012",
+      "public_movie_sha256": "d36d6c733066f0e27d195e0268548cc0c8c3ce68bfd0cfac7348ac8529be2dd6",
+      "source_movie_sha256": "87e71ca9ae8e3355f9f092f05a7e4c0678313aa569bbc3b4cc63a200ff2cedd7",
+      "seconds": 137.333333,
+      "slots": [
+        12,
+        248
+      ],
+      "aac_packets_preserved": 6438,
+      "video_frames": 4120,
+      "caption_transition_frames": [
+        224,
+        1176
+      ],
+      "maximum_caption_glyph_error": 5.1885,
+      "ci_whole_second_comparisons": 138,
+      "candidate_profile_gates": 5,
+      "technique_consumer_gates": 2,
+      "refresh_job_id": 138915620327,
+      "final_editorial_credit": false
+    },
+    {
+      "lesson": "S017",
+      "public_movie_sha256": "7a2493a89821faca46c686fed5d4d003b27e6a4fe5779670202b6ae3ff5edfe4",
+      "source_movie_sha256": "3ceff0f24ada60db2d09d9900658eed406c8b1666eee85603af57b430a2fc7d7",
+      "seconds": 147.9,
+      "slots": [
+        17,
+        300
+      ],
+      "aac_packets_preserved": 6934,
+      "video_frames": 4437,
+      "caption_transition_frames": [
+        2006,
+        2017,
+        3538
+      ],
+      "maximum_caption_glyph_error": 5.7555,
+      "ci_whole_second_comparisons": 148,
+      "candidate_profile_gates": 5,
+      "technique_consumer_gates": 2,
+      "refresh_job_id": 138915620584,
+      "final_editorial_credit": false
+    }
+  ],
+  "final_editorial_credit": false,
+  "deployed_learner_routes_verified": false,
+  "remaining_limits": [
+    "Complete human listen/watch and physical-device acceptance remain separate.",
+    "New catalogue and learner route changes await the parent main release task."
+  ]
+}

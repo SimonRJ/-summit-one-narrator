@@ -1,0 +1,153 @@
+{
+  "lesson": "S012",
+  "mode": "actual encoded caption refresh",
+  "source_movie_sha256": "87e71ca9ae8e3355f9f092f05a7e4c0678313aa569bbc3b4cc63a200ff2cedd7",
+  "candidate_movie_sha256": "d36d6c733066f0e27d195e0268548cc0c8c3ce68bfd0cfac7348ac8529be2dd6",
+  "frames": [
+    {
+      "frame": 224,
+      "decoded_seconds": 7.466666666666667,
+      "glyph_pixels_checked": 16411,
+      "source_artwork_mean_error": 1.2674,
+      "held_caption_glyph_mean_error": 159.0247,
+      "maximum_candidate_caption_glyph_error": 12,
+      "original_image": "../../stable-caption-refresh-20261125/S012/S012-frame-224-original.png",
+      "source_reference_image": "../../stable-caption-refresh-20261125/S012/S012-frame-224-reference.png",
+      "candidate_caption_glyph_mean_error": 5.1885,
+      "candidate_artwork_mean_error": 1.2647,
+      "candidate_image": "S012-frame-224-candidate.png"
+    },
+    {
+      "frame": 1176,
+      "decoded_seconds": 39.2,
+      "glyph_pixels_checked": 14082,
+      "source_artwork_mean_error": 1.3364,
+      "held_caption_glyph_mean_error": 141.4872,
+      "maximum_candidate_caption_glyph_error": 12,
+      "original_image": "../../stable-caption-refresh-20261125/S012/S012-frame-1176-original.png",
+      "source_reference_image": "../../stable-caption-refresh-20261125/S012/S012-frame-1176-reference.png",
+      "candidate_caption_glyph_mean_error": 4.5486,
+      "candidate_artwork_mean_error": 1.338,
+      "candidate_image": "S012-frame-1176-candidate.png"
+    }
+  ],
+  "audio": {
+    "aac_packets": 6438,
+    "aac_packet_records_sha256": "64c80900d5b3fbf9d74d8f3faa6df29fae47afb14159c28c2ce5cc5ee52352f4",
+    "aac_bytes_and_timestamps_identical": true
+  },
+  "recording_members_unchanged": true,
+  "candidate_encoded_acceptance": true,
+  "final_editorial_credit": false,
+  "public_assets": [
+    {
+      "name": "S012-guide.json",
+      "bytes": 2825,
+      "sha256": "4e01af0f812414e942bd5dd7edbf60547c621ab74e0b21763ea10561837a719b",
+      "url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/stable-captions-20261125-2cde68c0f046/S012-guide.json"
+    },
+    {
+      "name": "S012-poster.jpg",
+      "bytes": 50940,
+      "sha256": "6e386845cb901e1fde368c74d89fcb05c5ebdf03df2a186acd9432485346834a",
+      "url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/stable-captions-20261125-2cde68c0f046/S012-poster.jpg"
+    },
+    {
+      "name": "S012-qa.json",
+      "bytes": 573,
+      "sha256": "201b06e67672919251ee03f403f2ec653c0e8a4588f7a36080042a4fd1812321",
+      "url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/stable-captions-20261125-2cde68c0f046/S012-qa.json"
+    },
+    {
+      "name": "S012-recording.zip",
+      "bytes": 10412014,
+      "sha256": "d70464f3af57e93d8ef5edfabce3f389d1906afcdf73bc7d729e94b7f3d90940",
+      "url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/stable-captions-20261125-2cde68c0f046/S012-recording.zip"
+    },
+    {
+      "name": "S012.mp4",
+      "bytes": 6434743,
+      "sha256": "d36d6c733066f0e27d195e0268548cc0c8c3ce68bfd0cfac7348ac8529be2dd6",
+      "url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/stable-captions-20261125-2cde68c0f046/S012.mp4"
+    },
+    {
+      "name": "S012.vtt",
+      "bytes": 3433,
+      "sha256": "391c35e3dee90189869395a10078a49a5a17ab8967d64bb49fc8c1377c4c39f8",
+      "url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/stable-captions-20261125-2cde68c0f046/S012.vtt"
+    }
+  ],
+  "actual_public_movie_sha256": "d36d6c733066f0e27d195e0268548cc0c8c3ce68bfd0cfac7348ac8529be2dd6",
+  "public_guide_and_qa_identify_movie": true,
+  "source_manifest_sha256": "0655f426365517903603ed2228398feb2d6ec756777d7cd2934858d4f9242e14",
+  "exact_recording_archive_and_vtt_preserved": true,
+  "video_packet_count": 4120,
+  "video_packet_pts_dts_duration_identical": false,
+  "video_presentation_times_and_durations_identical": true,
+  "video_decode_times_and_durations_identical": true,
+  "video_presentation_timing_sha256": "e56d1fad0a524b61f4d6c00a32777b74f7a4ad45c1ca87e08b6173284880c6f4",
+  "video_packet_timing_sha256": "4dccabf78249104c8d1c6cda95764bc540efebfbadcaddb8e7b18557dba58edf",
+  "stream_metadata_identical": true,
+  "streams": [
+    {
+      "codec_name": "h264",
+      "profile": "High",
+      "codec_type": "video",
+      "width": 1920,
+      "height": 1080,
+      "level": 41,
+      "avg_frame_rate": "30/1",
+      "time_base": "1/15360",
+      "duration": "137.333333",
+      "nb_frames": "4120"
+    },
+    {
+      "codec_name": "aac",
+      "profile": "LC",
+      "codec_type": "audio",
+      "sample_rate": "48000",
+      "channels": 1,
+      "channel_layout": "mono",
+      "avg_frame_rate": "0/0",
+      "time_base": "1/48000",
+      "duration": "137.310000",
+      "nb_frames": "6438"
+    }
+  ],
+  "ci_qa": {
+    "sha256": "d36d6c733066f0e27d195e0268548cc0c8c3ce68bfd0cfac7348ac8529be2dd6",
+    "decoded_reference_comparisons": 138,
+    "picture_comparison_period_seconds": 1,
+    "maximum_picture_mean_channel_error_0_to_255": 1.946,
+    "maximum_caption_region_mean_channel_error_0_to_255": 1.578,
+    "minimum_source_audio_correlation_per_scene": 0.999556,
+    "recorded_scenes_checked": 8,
+    "timed_caption_phrases": 51,
+    "spoken_words": 351,
+    "source_voice_reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+    "source_word_alignment_percent": 99.52
+  },
+  "production_run": 45527881044,
+  "production_commit": "2cde68c0f0463815627a1065f105cb08c6e799ef",
+  "release_tag": "stable-captions-20261125-2cde68c0f046",
+  "scope": "Read-only actual public file verification and decoded frame/packet comparison; no synthesis, alignment, browser replay or publication.",
+  "visually_inspected_public_frames": [
+    224,
+    1176
+  ],
+  "caption_visual_finding": "Both sampled actual public frames show clean single-layer bold phrases at the formerly doubled transitions.",
+  "actual_public_asset": true,
+  "verified_at_utc": "2026-11-25T02:02:59.836693+00:00",
+  "production_source": "2cde68c0f0463815627a1065f105cb08c6e799ef",
+  "production_source_tree": "e98ce7e8dd43f297a087cf205bc6c64265c4c50d",
+  "public_release_tag": "stable-captions-20261125-2cde68c0f046",
+  "source_recording_members_sha256": {
+    "captions.vtt": "391c35e3dee90189869395a10078a49a5a17ab8967d64bb49fc8c1377c4c39f8",
+    "narration.flac": "05c124c1444ef4c05e384a27ca8222c3191ef097f8c8867c84932a952adb49fe",
+    "script.json": "3a30b1e8f07f7843a0c862a3f90057b3b93babcf584bb51601aafb301dc642ff",
+    "timeline.json": "f6348556151842ffdbcdfc8285a6a4078675e9ca9d6e26d23356161dc0fbc1fa"
+  },
+  "guide_metadata_preserved_except_movie_sha256": true,
+  "actual_public_vtt_and_recording_zip_unchanged": true,
+  "public_learner_routes_verified": false
+}

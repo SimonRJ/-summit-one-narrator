@@ -1,0 +1,77 @@
+{
+  "date_utc": "2026-11-25",
+  "base_commit": "e287b9102574b8a6cbc29beba97ccc9a7dc569fe",
+  "state": "Actual public stable-caption S019 verified; strict integration plan prepared; no route assignment or deployment performed.",
+  "production_run": 45524933207,
+  "production_source": "ac244dec713654fa7fb47693c8c179d9fb436479",
+  "release_tag": "s019-stable-captions-20261125-ac244dec7136",
+  "public_movie_sha256": "5455c0c0119bedd897ddda6feb41002cf215575c8f8839565661674c42ad712c",
+  "public_movie_bytes": 6751206,
+  "public_asset_count": 6,
+  "public_asset_total_bytes": 17487486,
+  "production_jobs": "recaption, all five playback profiles and release succeeded",
+  "preservation": {
+    "original_aac_packet_records": 6673,
+    "original_video_frames": 4269,
+    "original_audio_payloads_side_data_timestamps_identical": true,
+    "video_presentation_and_decode_times_identical": true,
+    "original_recording_zip_and_vtt_identical": true,
+    "script_timeline_and_lossless_recording_identical": true
+  },
+  "picture_comparisons": {
+    "total": 143,
+    "retained_other_scenes": 129,
+    "stable_caption_scene_5": 14,
+    "largest_mean_difference": [
+      1.8952954793028323,
+      1.9876543209876543
+    ],
+    "other_scene_maximum": [
+      0.11638752723311546,
+      0.349266975308642
+    ]
+  },
+  "actual_public_frames_inspected_seconds": [
+    49.36666666666667,
+    50.03333333333333
+  ],
+  "held_or_unpublished_masters_explicitly_rejected": [
+    "51545b1baf76d155f052fdcedc6bfde126e45c63845e97468166c0e069bc365f",
+    "4a549a8cdb160102a38b9e9e63c409188f41406c300c05f2041694a3348d7a16"
+  ],
+  "policy_regressions": {
+    "actual_public_positive": "passed",
+    "isolated_negative_cases_rejected": 18,
+    "source_data_unchanged": true
+  },
+  "planned_route_changes": [
+    {
+      "slot": 19,
+      "file": "data/read-watch-practise.json",
+      "actual_changed_keys": [
+        "movie",
+        "videoTitle",
+        "filmUse"
+      ],
+      "bridge_preserved": true
+    },
+    {
+      "slot": 333,
+      "file": "data/read-watch-practise-later.json",
+      "actual_changed_keys": [
+        "movie",
+        "videoTitle"
+      ],
+      "bridge_preserved": true
+    }
+  ],
+  "canonical_generator_bridge_preserved": true,
+  "source_route_data_modified": false,
+  "editorial_completion_awarded": false,
+  "remaining_gates": [
+    "Root applies the exact catalogue and 19/333 plan in a separate coherent cache release.",
+    "Verify the deployed application/source and exact public learner gallery, active and immutable replay routes.",
+    "Full independent audiovisual editorial acceptance remains separate."
+  ],
+  "local_candidate_identity_note": "The public encoded video is not packet-identical to the local 4a549 candidate; 25 of 4,269 decoded frame hash records differ. No local identity was substituted. All returned public assets, original audio/timing, 143 public picture samples and both known caption frames were independently verified."
+}

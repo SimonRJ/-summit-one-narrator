@@ -1,0 +1,293 @@
+{
+  "name": "t181",
+  "url": "https://simonrj.github.io/-summit-one-narrator/watch-t18-1.html",
+  "viewport": {
+    "width": 390,
+    "height": 664
+  },
+  "page_errors": [],
+  "blocked_supabase": [],
+  "blocked_writes": [],
+  "external_font_attempts": [],
+  "font_responses": [
+    {
+      "url": "https://simonrj.github.io/-summit-one-narrator/fonts/source-sans-3-normal-latin-19143dca07.woff2",
+      "status": 200
+    },
+    {
+      "url": "https://simonrj.github.io/-summit-one-narrator/fonts/source-serif-4-normal-latin-382475f382.woff2",
+      "status": 200
+    },
+    {
+      "url": "https://simonrj.github.io/-summit-one-narrator/fonts/source-code-pro-normal-latin-8b774aaa51.woff2",
+      "status": 200
+    }
+  ],
+  "failed_requests": [
+    {
+      "url": "https://simonrj.github.io/-summit-one-narrator/media/T18.1.mp4?v=thirteen-search",
+      "failure": "Load request cancelled"
+    },
+    {
+      "url": "https://simonrj.github.io/-summit-one-narrator/media/T18.1.mp4?v=thirteen-search",
+      "failure": "Load request cancelled"
+    }
+  ],
+  "http_errors": [],
+  "chapters_checked": [
+    {
+      "target": 0.0,
+      "label": "0:00\nFind the condition that narrows the search",
+      "time": 0.218627479,
+      "paused": false,
+      "seeking": false,
+      "readyState": 4,
+      "networkState": 1,
+      "error": null,
+      "frames": {
+        "count": 4,
+        "mediaTime": 0.266666
+      },
+      "muted": false,
+      "volume": 1,
+      "playbackRate": 1,
+      "visibility": "visible"
+    },
+    {
+      "target": 61.4,
+      "label": "1:01\nUse area to list possible rectangle sides",
+      "time": 61.617967871,
+      "paused": false,
+      "seeking": false,
+      "readyState": 2,
+      "networkState": 2,
+      "error": null,
+      "frames": {
+        "count": 15,
+        "mediaTime": 61.666666
+      },
+      "muted": false,
+      "volume": 1,
+      "playbackRate": 1,
+      "visibility": "visible"
+    }
+  ],
+  "passed": true,
+  "html_sha256": "98616e777d4b455d4d0ed793c43953ab010141ac1807e82085abbd9d6e96a88d",
+  "fonts": {
+    "faces": [
+      {
+        "specification": "400 18px \"Source Sans 3\"",
+        "loaded": true
+      },
+      {
+        "specification": "500 18px \"Source Serif 4\"",
+        "loaded": true
+      },
+      {
+        "specification": "500 18px \"Source Code Pro\"",
+        "loaded": true
+      }
+    ],
+    "body_family": "\"Source Sans 3\", \"Helvetica Neue\", Arial, sans-serif",
+    "heading_family": "\"Source Serif 4\", \"Iowan Old Style\", Georgia, serif",
+    "overflow": 0
+  },
+  "initial_storage": {
+    "local": [],
+    "session": []
+  },
+  "initial_title": "T18.1 \u00b7 Start with the structure that limits the choices \u00b7 Summit One",
+  "initial_media_source": "https://simonrj.github.io/-summit-one-narrator/media/T18.1.mp4?v=thirteen-search",
+  "metadata": {
+    "width": 1920,
+    "height": 1080,
+    "duration": 117.434,
+    "source": "https://simonrj.github.io/-summit-one-narrator/media/T18.1.mp4?v=thirteen-search",
+    "controls": true,
+    "inline": true
+  },
+  "repaired_frame": {
+    "time": 79.749802829,
+    "paused": true,
+    "seeking": false,
+    "readyState": 2,
+    "networkState": 2,
+    "error": null,
+    "frames": {
+      "count": 561,
+      "mediaTime": 79.9
+    },
+    "muted": false,
+    "volume": 1,
+    "playbackRate": 1,
+    "visibility": "visible"
+  },
+  "video_bounds": {
+    "x": 18,
+    "y": 232.359375,
+    "width": 354,
+    "height": 199.125
+  },
+  "transcript_opens": true,
+  "final_overflow": 0,
+  "final_storage": {
+    "local": [],
+    "session": []
+  },
+  "media_events": [
+    {
+      "type": "play",
+      "time": 0.004532571,
+      "paused": false,
+      "seeking": false,
+      "readyState": 4,
+      "networkState": 1,
+      "error": null,
+      "frames": {
+        "count": 1,
+        "mediaTime": 0.066666
+      },
+      "muted": false,
+      "volume": 1,
+      "playbackRate": 1,
+      "visibility": "visible"
+    },
+    {
+      "type": "playing",
+      "time": 0.004532571,
+      "paused": false,
+      "seeking": false,
+      "readyState": 4,
+      "networkState": 1,
+      "error": null,
+      "frames": {
+        "count": 1,
+        "mediaTime": 0.066666
+      },
+      "muted": false,
+      "volume": 1,
+      "playbackRate": 1,
+      "visibility": "visible"
+    },
+    {
+      "type": "seeking",
+      "time": 0.044838513,
+      "paused": false,
+      "seeking": false,
+      "readyState": 4,
+      "networkState": 1,
+      "error": null,
+      "frames": {
+        "count": 1,
+        "mediaTime": 0.066666
+      },
+      "muted": false,
+      "volume": 1,
+      "playbackRate": 1,
+      "visibility": "visible"
+    },
+    {
+      "type": "seeked",
+      "time": 0.044838513,
+      "paused": false,
+      "seeking": false,
+      "readyState": 4,
+      "networkState": 1,
+      "error": null,
+      "frames": {
+        "count": 1,
+        "mediaTime": 0.066666
+      },
+      "muted": false,
+      "volume": 1,
+      "playbackRate": 1,
+      "visibility": "visible"
+    },
+    {
+      "type": "seeking",
+      "time": 61.4,
+      "paused": false,
+      "seeking": true,
+      "readyState": 2,
+      "networkState": 2,
+      "error": null,
+      "frames": {
+        "count": 7,
+        "mediaTime": 0.366666
+      },
+      "muted": false,
+      "volume": 1,
+      "playbackRate": 1,
+      "visibility": "visible"
+    },
+    {
+      "type": "waiting",
+      "time": 61.4,
+      "paused": false,
+      "seeking": true,
+      "readyState": 2,
+      "networkState": 2,
+      "error": null,
+      "frames": {
+        "count": 7,
+        "mediaTime": 0.366666
+      },
+      "muted": false,
+      "volume": 1,
+      "playbackRate": 1,
+      "visibility": "visible"
+    },
+    {
+      "type": "seeked",
+      "time": 61.4,
+      "paused": false,
+      "seeking": false,
+      "readyState": 2,
+      "networkState": 2,
+      "error": null,
+      "frames": {
+        "count": 8,
+        "mediaTime": 0.4
+      },
+      "muted": false,
+      "volume": 1,
+      "playbackRate": 1,
+      "visibility": "visible"
+    },
+    {
+      "type": "stalled",
+      "time": 64.664031019,
+      "paused": false,
+      "seeking": false,
+      "readyState": 2,
+      "networkState": 2,
+      "error": null,
+      "frames": {
+        "count": 106,
+        "mediaTime": 64.7
+      },
+      "muted": false,
+      "volume": 1,
+      "playbackRate": 1,
+      "visibility": "visible"
+    },
+    {
+      "type": "pause",
+      "time": 79.749802829,
+      "paused": true,
+      "seeking": false,
+      "readyState": 2,
+      "networkState": 2,
+      "error": null,
+      "frames": {
+        "count": 561,
+        "mediaTime": 79.9
+      },
+      "muted": false,
+      "volume": 1,
+      "playbackRate": 1,
+      "visibility": "visible"
+    }
+  ]
+}

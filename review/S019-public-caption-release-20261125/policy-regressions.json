@@ -1,0 +1,115 @@
+{
+  "positive_case": "Unmodified actual GitHub run/release API JSON and all six actual returned public assets",
+  "production_run": 45524933207,
+  "production_commit": "ac244dec713654fa7fb47693c8c179d9fb436479",
+  "public_movie_sha256": "5455c0c0119bedd897ddda6feb41002cf215575c8f8839565661674c42ad712c",
+  "positive_plan_passed": true,
+  "rejected_cases": [
+    {
+      "case": "queued workflow",
+      "rejected": true,
+      "reason": "Production render, playback and release gates have not all succeeded"
+    },
+    {
+      "case": "wrong workflow run",
+      "rejected": true,
+      "reason": "Wrong production workflow run"
+    },
+    {
+      "case": "wrong production source",
+      "rejected": true,
+      "reason": "Wrong production source commit"
+    },
+    {
+      "case": "wrong release source",
+      "rejected": true,
+      "reason": "Release source commit differs"
+    },
+    {
+      "case": "wrong public movie digest",
+      "rejected": true,
+      "reason": "Public GitHub digest does not match downloaded asset: S019.mp4"
+    },
+    {
+      "case": "held public 51545 master",
+      "rejected": true,
+      "reason": "Held or unpublished S019 candidate rejected"
+    },
+    {
+      "case": "unpublished local 4a549 candidate",
+      "rejected": true,
+      "reason": "Held or unpublished S019 candidate rejected"
+    },
+    {
+      "case": "wrong caption-repair source",
+      "rejected": true,
+      "reason": "S019 caption repair does not identify its pinned source"
+    },
+    {
+      "case": "changed recording archive",
+      "rejected": true,
+      "reason": "S019 original recording archive or VTT changed"
+    },
+    {
+      "case": "changed VTT",
+      "rejected": true,
+      "reason": "S019 original recording archive or VTT changed"
+    },
+    {
+      "case": "lost original AAC preservation",
+      "rejected": true,
+      "reason": "S019 original audio, timeline or caption preservation is unverified"
+    },
+    {
+      "case": "lost timeline preservation",
+      "rejected": true,
+      "reason": "S019 original audio, timeline or caption preservation is unverified"
+    },
+    {
+      "case": "new synthesis",
+      "rejected": true,
+      "reason": "S019 saved-take or exact stream-length evidence differs"
+    },
+    {
+      "case": "wrong caption-repair scene",
+      "rejected": true,
+      "reason": "S019 no longer describes the scoped scene-five caption repair"
+    },
+    {
+      "case": "incomplete full-picture comparisons",
+      "rejected": true,
+      "reason": "S019 lacks complete encoded-picture comparisons"
+    },
+    {
+      "case": "incomplete retained-scene comparisons",
+      "rejected": true,
+      "reason": "S019 lacks complete encoded-picture comparisons"
+    },
+    {
+      "case": "picture difference outside acceptance bound",
+      "rejected": true,
+      "reason": "S019 encoded-picture differences exceed the checked bounds"
+    },
+    {
+      "case": "changed canonical lesson bridge",
+      "rejected": true,
+      "reason": "S019 released guide would change the existing lesson bridge"
+    }
+  ],
+  "negative_cases_are_isolated_synthetic_mutations": true,
+  "lesson_bridges": [
+    {
+      "slot": 19,
+      "bridge": "In the film\u2019s first 4-by-4 example, the crosses mark the two leftmost squares in the top row. Which domino covers the two top squares that remain? What would you have to change if the middle two had been removed instead?",
+      "preserved": true
+    },
+    {
+      "slot": 333,
+      "bridge": "In the film, compare the two removed corner squares with the two neighbouring squares. Why does removing the same number of squares permit one tiling but rule out the other?",
+      "preserved": true
+    }
+  ],
+  "canonical_generator_bridge_preserved": true,
+  "source_data_unchanged": true,
+  "editorial_completion_awarded": false
+}

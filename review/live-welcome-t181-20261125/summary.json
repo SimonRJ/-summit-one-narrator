@@ -1,0 +1,86 @@
+{
+  "checked_at_utc": "2026-11-25T01:57:09.255929+00:00",
+  "pages_commit": "d51e1382373a03aa0a3a828cfffa0a2a6c6a0198",
+  "pages_run": 45528346333,
+  "frozen_source": "e287b9102574b8a6cbc29beba97ccc9a7dc569fe",
+  "frozen_tree": "de6b0b43b98bba31a2a6ec3cf633210c1c2b3bdf",
+  "profile": "iPhone 13 portrait WebKit emulation",
+  "passed": true,
+  "routes": [
+    {
+      "name": "welcome",
+      "url": "https://simonrj.github.io/-summit-one-narrator/welcome.html",
+      "html_sha256": "4ac46b6820394da64fafa7c483af688bc4418515e4dd8a28ebea7780409ac1a4",
+      "playwright": "1.58.0",
+      "browser_version": "26.0",
+      "viewport": {
+        "width": 390,
+        "height": 664
+      },
+      "chapter_targets": [
+        0.0,
+        228.42
+      ],
+      "repaired_frame_seconds": 243.766666,
+      "local_font_loads": [
+        "400 18px \"Source Sans 3\"",
+        "500 18px \"Source Serif 4\"",
+        "500 18px \"Source Code Pro\""
+      ],
+      "overflow_pixels": 0,
+      "transcript_opens": true,
+      "empty_storage_unchanged": true,
+      "report": "welcome-registered-fonts/welcome.json",
+      "screenshot": "welcome-registered-fonts/welcome-repaired-chapter.png"
+    },
+    {
+      "name": "t181",
+      "url": "https://simonrj.github.io/-summit-one-narrator/watch-t18-1.html",
+      "html_sha256": "98616e777d4b455d4d0ed793c43953ab010141ac1807e82085abbd9d6e96a88d",
+      "playwright": "1.58.0",
+      "browser_version": "26.0",
+      "viewport": {
+        "width": 390,
+        "height": 664
+      },
+      "chapter_targets": [
+        0.0,
+        61.4
+      ],
+      "repaired_frame_seconds": 79.9,
+      "local_font_loads": [
+        "400 18px \"Source Sans 3\"",
+        "500 18px \"Source Serif 4\"",
+        "500 18px \"Source Code Pro\""
+      ],
+      "overflow_pixels": 0,
+      "transcript_opens": true,
+      "empty_storage_unchanged": true,
+      "report": "evidence/t181.json",
+      "screenshot": "evidence/t181-repaired-chapter.png"
+    }
+  ],
+  "limits": {
+    "full_replays": false,
+    "physical_device": false,
+    "human_listening": false,
+    "final_editorial_acceptance": false,
+    "main_or_root_files_changed": false,
+    "actual_supabase_used": false
+  },
+  "retained_prior_attempts": [
+    "incompatible-runtime-attempt.json",
+    "evidence/welcome.json",
+    "evidence/result.json"
+  ],
+  "font_registration_finding": {
+    "initial_face_count": 0,
+    "registered_face_count_after_wait": 102,
+    "all_three_strict_font_loads_passed": true,
+    "product_change_required": false
+  },
+  "screenshot_sha256": {
+    "welcome-registered-fonts/welcome-repaired-chapter.png": "a88215408c724128d6d0bb83846dfe296969f7802dbf32227d341d8693c924db",
+    "evidence/t181-repaired-chapter.png": "5e79822541a18a6e8cfad108c0f10e136e19b6840b5e825ca45e454514bfea35"
+  }
+}

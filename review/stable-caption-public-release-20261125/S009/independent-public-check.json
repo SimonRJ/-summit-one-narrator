@@ -1,0 +1,117 @@
+{
+  "lesson": "S009",
+  "mode": "actual encoded caption refresh",
+  "source_movie_sha256": "39d28fec11fe4cc1b1d1b840d01ab8d8b3ae3ccb6d184bf37c1ccf4e37c16ef6",
+  "candidate_movie_sha256": "999aba1a891fffeafe82e3c3b9e537d0b261a0332d507e967a199890f0a3d123",
+  "frames": [
+    {
+      "frame": 43,
+      "decoded_seconds": 1.4333333333333333,
+      "glyph_pixels_checked": 147779,
+      "source_artwork_mean_error": 1.4243,
+      "held_caption_glyph_mean_error": 27.6982,
+      "maximum_candidate_caption_glyph_error": 12,
+      "original_image": "../../stable-caption-refresh-20261125/S009/S009-frame-43-original.png",
+      "source_reference_image": "../../stable-caption-refresh-20261125/S009/S009-frame-43-reference.png",
+      "candidate_caption_glyph_mean_error": 1.4267,
+      "candidate_artwork_mean_error": 1.4244,
+      "candidate_image": "S009-frame-43-candidate.png"
+    },
+    {
+      "frame": 153,
+      "decoded_seconds": 5.1,
+      "glyph_pixels_checked": 159990,
+      "source_artwork_mean_error": 1.4095,
+      "held_caption_glyph_mean_error": 20.0668,
+      "maximum_candidate_caption_glyph_error": 12,
+      "original_image": "../../stable-caption-refresh-20261125/S009/S009-frame-153-original.png",
+      "source_reference_image": "../../stable-caption-refresh-20261125/S009/S009-frame-153-reference.png",
+      "candidate_caption_glyph_mean_error": 1.2983,
+      "candidate_artwork_mean_error": 1.4044,
+      "candidate_image": "S009-frame-153-candidate.png"
+    }
+  ],
+  "audio": {
+    "aac_packets": 6209,
+    "aac_packet_records_sha256": "ab4e577ca445ac4384c649d95c0e6de46709b217e3549ea7f10a2a1840a1ec76",
+    "aac_bytes_and_timestamps_identical": true
+  },
+  "recording_members_unchanged": true,
+  "candidate_encoded_acceptance": true,
+  "final_editorial_credit": false,
+  "actual_public_asset": true,
+  "public_release_tag": "stable-captions-20261125-2cde68c0f046",
+  "production_source": "2cde68c0f0463815627a1065f105cb08c6e799ef",
+  "production_run": 45527881044,
+  "video_presentation_timestamps_unchanged": true,
+  "decode_timestamp_sequence_unchanged": true,
+  "video_packet_presentation_order_changed": true,
+  "video_packets": 3973,
+  "actual_public_vtt_and_recording_zip_unchanged": true,
+  "visually_inspected_public_frames": [
+    43
+  ],
+  "caption_visual_finding": "The inspected actual public frame has a single clear bold caption layer, with no doubled word outline.",
+  "public_assets": [
+    {
+      "name": "S009-guide.json",
+      "bytes": 2700,
+      "sha256": "dba4b19374afe083af7734647d56f7373c20aa82f564dabd3c752bdbc5a49464",
+      "url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/stable-captions-20261125-2cde68c0f046/S009-guide.json"
+    },
+    {
+      "name": "S009-poster.jpg",
+      "bytes": 98974,
+      "sha256": "6f69660713da54be02692bbae22b1a07766daaaec0c5e898bc56e0abed4ce838",
+      "url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/stable-captions-20261125-2cde68c0f046/S009-poster.jpg"
+    },
+    {
+      "name": "S009-qa.json",
+      "bytes": 573,
+      "sha256": "1e9e2ec1f489bdbeab0c08ddca657715f4832b9f931f3fa1d38d43987b619731",
+      "url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/stable-captions-20261125-2cde68c0f046/S009-qa.json"
+    },
+    {
+      "name": "S009-recording.zip",
+      "bytes": 10566604,
+      "sha256": "33e0af29c418fe8b8b3105bff05126e82cc062ca448959b192483f3333e7e730",
+      "url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/stable-captions-20261125-2cde68c0f046/S009-recording.zip"
+    },
+    {
+      "name": "S009.mp4",
+      "bytes": 6213123,
+      "sha256": "999aba1a891fffeafe82e3c3b9e537d0b261a0332d507e967a199890f0a3d123",
+      "url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/stable-captions-20261125-2cde68c0f046/S009.mp4"
+    },
+    {
+      "name": "S009.vtt",
+      "bytes": 3466,
+      "sha256": "985c6f17fb272168144c811541fd8baba81b45d999abe067296fe1e9934072ce",
+      "url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/stable-captions-20261125-2cde68c0f046/S009.vtt"
+    }
+  ],
+  "ci_qa": {
+    "sha256": "999aba1a891fffeafe82e3c3b9e537d0b261a0332d507e967a199890f0a3d123",
+    "decoded_reference_comparisons": 133,
+    "picture_comparison_period_seconds": 1,
+    "maximum_picture_mean_channel_error_0_to_255": 2.115,
+    "maximum_caption_region_mean_channel_error_0_to_255": 1.678,
+    "minimum_source_audio_correlation_per_scene": 0.999592,
+    "recorded_scenes_checked": 7,
+    "timed_caption_phrases": 55,
+    "spoken_words": 326,
+    "source_voice_reference_sha256": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+    "source_word_alignment_percent": 96.06
+  },
+  "verified_at_utc": "2026-11-25T02:02:59.591418+00:00",
+  "production_source_tree": "e98ce7e8dd43f297a087cf205bc6c64265c4c50d",
+  "source_manifest_sha256": "0655f426365517903603ed2228398feb2d6ec756777d7cd2934858d4f9242e14",
+  "source_recording_members_sha256": {
+    "captions.vtt": "985c6f17fb272168144c811541fd8baba81b45d999abe067296fe1e9934072ce",
+    "narration.flac": "a18fee9909c80de6adebad35b6c6ea194926291e0dac5d9a765882ab0ba9bbcd",
+    "script.json": "0400881b484b9b25d73469a8b77684d44dbe0b35b52516029b0596917da1c5d1",
+    "timeline.json": "e229fa2e22e2004af7589d2dcf9520ba8b6d9c38a0ff1940f2501efb21eb7d15"
+  },
+  "guide_metadata_preserved_except_movie_sha256": true,
+  "public_learner_routes_verified": false
+}

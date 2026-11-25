@@ -1,0 +1,14 @@
+{
+  "date_utc": "2026-11-25",
+  "pages_commit": "d51e1382373a03aa0a3a828cfffa0a2a6c6a0198",
+  "pages_run": 45528346333,
+  "python_playwright_version": "1.62.0",
+  "webkit_build": "2248",
+  "failed_operation": "await context.new_page()",
+  "outcome": "The outer 120-second case deadline expired before page creation completed.",
+  "live_navigation_reached": false,
+  "site_result": "No site result; incompatible local runner attempt.",
+  "correction": "Use existing Playwright 1.58.0 client through PYTHONPATH with the same existing WebKit build, as used in successful earlier checks.",
+  "product_changes": false,
+  "editorial_credit": false
+}

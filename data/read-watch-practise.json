@@ -377,7 +377,7 @@
       "skill": "DIG-05",
       "videoId": "S009",
       "videoTitle": "The carry counter",
-      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S009.mp4",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/stable-captions-20261125-2cde68c0f046/S009.mp4",
       "retained": [
         "O009T",
         "O009X"
@@ -427,7 +427,7 @@
       "skill": "DIG-05",
       "videoId": "S010",
       "videoTitle": "The reversal line",
-      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S010.mp4",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/stable-captions-20261125-2cde68c0f046/S010.mp4",
       "retained": [
         "O010X"
       ],
@@ -524,7 +524,7 @@
       "skill": "SEQ-03",
       "videoId": "S012",
       "videoTitle": "The missing rung",
-      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s012-missing-rung-20261125-b46d28d6d374/S012.mp4",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/stable-captions-20261125-2cde68c0f046/S012.mp4",
       "retained": [
         "O012T",
         "O012X"
@@ -676,8 +676,8 @@
       "recap": "Decide whether the question counts cells, crossings or rectangles. Include outside lines. For a rectangle containing a cell, put each edge on the correct side of that entire cell; subtract selections that break an exclusion rule.",
       "skill": "SPATIAL-02",
       "videoId": "S017",
-      "videoTitle": "Grid lines, crossings and coordinates",
-      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S017-Intro-Illustrated-v2.mp4",
+      "videoTitle": "A frame around two tiles",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/stable-captions-20261125-2cde68c0f046/S017.mp4",
       "retained": [
         "O017T",
         "O017X"
@@ -707,7 +707,8 @@
           "prompt": "A board has 5 columns and 4 rows. Cell A is in column 2, row 2; B is in column 4, row 3, measured from the left and bottom. How many grid-line rectangles contain exactly one of these two cells?",
           "hint": "Draw a rectangle enclosing both cells. Would it have appeared once or twice if you added the two single-cell counts?"
         }
-      ]
+      ],
+      "filmUse": "dedicated"
     },
     {
       "slot": 18,
@@ -777,8 +778,8 @@
       "recap": "To show a covering is impossible, compare the available colours with what each domino needs. To show a covering exists, describe the actual placements. If the middle two squares of the film’s top row are removed instead, cover each top corner and the square immediately below it with a vertical domino. Cover the middle two squares of row 2 with one horizontal domino. Each of the two full lower rows takes two horizontal dominoes.",
       "skill": "DIV-04",
       "videoId": "S019",
-      "videoTitle": "Parity, colouring and impossible tilings",
-      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/lesson-introductions/S019-Intro-Illustrated.mp4",
+      "videoTitle": "The domino colour test",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s019-stable-captions-20261125-ac244dec7136/S019.mp4",
       "retained": [],
       "questions": [
         {
@@ -805,7 +806,8 @@
           "prompt": "Start with a board of 3 rows and 8 columns. Remove all squares in columns 4 and 5. What is the greatest number of non-overlapping dominoes that can be placed on the remaining squares?",
           "hint": "Treat each side of the gap as its own board. Find an upper bound for one side, then draw dominoes to see whether it can be attained."
         }
-      ]
+      ],
+      "filmUse": "dedicated"
     },
     {
       "slot": 20,

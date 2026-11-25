@@ -14,14 +14,19 @@ REPOSITORY = 'SimonRJ/-summit-one-narrator'
 ROOT = Path(__file__).resolve().parents[1]
 POLICY = {
     'S019': {
-        'run': 45491819969,
-        'commit': '3d94f6856b475eb160c11bf7b6334ff13e9c61b6',
-        'workflow': '.github/workflows/s019-domino-condition.yml',
-        'tag': 's019-domino-condition-20261125-3d94f6856b47',
-        'sha256': '51545b1baf76d155f052fdcedc6bfde126e45c63845e97468166c0e069bc365f',
+        'run': 45524933207,
+        'commit': 'ac244dec713654fa7fb47693c8c179d9fb436479',
+        'workflow': '.github/workflows/s019-caption-stability.yml',
+        'tag': 's019-stable-captions-20261125-ac244dec7136',
+        'sha256': '5455c0c0119bedd897ddda6feb41002cf215575c8f8839565661674c42ad712c',
         'slots': [19, 333],
-        'hold_reason': ('S019 is held: the exact public scene-five captions visibly double their glyphs. '
-                        'A stable-caption replacement must be verified before integration.'),
+        'source_sha256': '51545b1baf76d155f052fdcedc6bfde126e45c63845e97468166c0e069bc365f',
+        'held_sha256': [
+            '51545b1baf76d155f052fdcedc6bfde126e45c63845e97468166c0e069bc365f',
+            '4a549a8cdb160102a38b9e9e63c409188f41406c300c05f2041694a3348d7a16',
+        ],
+        'recording_sha256': 'b1ad8709874843e26d52dd0cb104008c85010ff96e443b200b02c243c44d8abd',
+        'vtt_sha256': '92f0c39344a9dc9729bf1f34db93b2f5c3047f5bde22cbcc419a8d09c46a3c41',
     },
     'S020': {
         'run': 45503875492,
@@ -108,7 +113,41 @@ def prepare(lesson, run, release, package, root=ROOT):
     require(starts and starts[0] == 0 and starts == sorted(set(starts))
             and starts[-1] < guide['seconds'], 'Invalid measured chapters')
     if lesson == 'S019':
+        require(movie_digest not in policy['held_sha256'],
+                'Held or unpublished S019 candidate rejected')
         require(movie_digest == policy['sha256'], 'This is not the final S019 CI edition')
+        require(qa.get('prior_candidate_sha256') == policy['source_sha256'],
+                'S019 caption repair does not identify its pinned source')
+        require(identity['S019-recording.zip'] == policy['recording_sha256']
+                and identity['S019.vtt'] == policy['vtt_sha256'],
+                'S019 original recording archive or VTT changed')
+        require(all(qa.get(key) is True for key in (
+            'audio_packets_identical', 'timeline_and_vtt_identical',
+            'audio_packet_bytes_and_timestamps_identical',
+            'stream_times_and_video_frame_count_identical',
+            'video_presentation_and_decode_timestamps_identical',
+            'timeline_vtt_script_lossless_recording_archive_identical')),
+            'S019 original audio, timeline or caption preservation is unverified')
+        require(qa.get('new_synthesis') is False and qa.get('new_recognition') is False
+                and qa.get('original_video_frames') == 4269
+                and qa.get('source_aac_packets') == 6673,
+                'S019 saved-take or exact stream-length evidence differs')
+        require(qa.get('scene_replaced') == qa.get('caption_repair_scene') == 5
+                and qa.get('other_scenes_retained') == 10,
+                'S019 no longer describes the scoped scene-five caption repair')
+        require(qa.get('picture_comparison_period_seconds') == 1
+                and qa.get('decoded_reference_comparisons') == 143
+                and qa.get('caption_repair_reference_comparisons') == 143
+                and qa.get('original_other_scene_comparisons') == 129
+                and qa.get('corrected_scene_comparisons') == 14,
+                'S019 lacks complete encoded-picture comparisons')
+        for key in ('caption_repair_largest_mean_picture_difference',
+                    'original_other_scene_maximum_difference'):
+            differences = qa.get(key, [])
+            require(isinstance(differences, list) and len(differences) == 2
+                    and all(isinstance(value, (int, float)) and 0 <= value < 5
+                            for value in differences),
+                    'S019 encoded-picture differences exceed the checked bounds')
     elif lesson == 'S020':
         require(movie_digest != policy['held_sha256'], 'Held doubled-caption edition rejected')
         require(movie_digest == policy['sha256'], 'This is not the final S020 CI edition')
@@ -153,6 +192,13 @@ def prepare(lesson, run, release, package, root=ROOT):
         require(canonical or row.get('filmUse') == 'technique',
                 'A later lesson now has its own dedicated film; do not overwrite it')
         bridge = guide['bridge'] if canonical else row['bridge']
+        if lesson == 'S019':
+            # The existing canonical and technique cues are already correct.
+            # A caption-only release must not rewrite either lesson's bridge.
+            if canonical:
+                require(guide['bridge'] == row['bridge'],
+                        'S019 released guide would change the existing lesson bridge')
+            bridge = row['bridge']
         if lesson == 'S102' and not canonical:
             bridge = policy['consumer_bridge']
         changes.append({

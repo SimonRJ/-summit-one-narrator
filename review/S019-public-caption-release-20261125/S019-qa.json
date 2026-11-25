@@ -1,0 +1,54 @@
+{
+  "sha256": "5455c0c0119bedd897ddda6feb41002cf215575c8f8839565661674c42ad712c",
+  "source_sha256": "c08c020ccb192987a2339e27a328248cb43b8b00753ba3fdf6d6c83cbdedc086",
+  "scene_replaced": 5,
+  "corrected_scene_recognition": "Take a full four by four board. In the top row cross out the two squares farthest to the left. One is blue and one is gold. Condominos cover the rest. Each domino covers two squares sharing an edge.",
+  "corrected_match_percent": 96.2,
+  "scene_audio_correlations": [
+    0.999987,
+    0.999976,
+    0.999974,
+    0.999981,
+    0.999972,
+    0.999982,
+    0.999971,
+    0.99997,
+    0.999978,
+    0.999972,
+    0.99998
+  ],
+  "full_duration_seconds": 142.33,
+  "picture_comparison_period_seconds": 1,
+  "decoded_reference_comparisons": 143,
+  "largest_mean_picture_difference": [
+    1.898066448801743,
+    2.132908950617284
+  ],
+  "caption_count": 55,
+  "prior_candidate_sha256": "51545b1baf76d155f052fdcedc6bfde126e45c63845e97468166c0e069bc365f",
+  "caption_treatment": "One stable bold phrase; no regular/bold glyph cross-fade in scene 5",
+  "audio_packets_identical": true,
+  "timeline_and_vtt_identical": true,
+  "caption_repair_reference_comparisons": 143,
+  "caption_repair_largest_mean_picture_difference": [
+    1.8952954793028323,
+    1.9876543209876543
+  ],
+  "caption_repair_scene": 5,
+  "other_scenes_retained": 10,
+  "original_other_scene_comparisons": 129,
+  "original_other_scene_maximum_difference": [
+    0.11638752723311546,
+    0.349266975308642
+  ],
+  "corrected_scene_comparisons": 14,
+  "original_video_frames": 4269,
+  "source_aac_packets": 6673,
+  "audio_packet_bytes_and_timestamps_identical": true,
+  "stream_times_and_video_frame_count_identical": true,
+  "video_presentation_and_decode_timestamps_identical": true,
+  "timeline_vtt_script_lossless_recording_archive_identical": true,
+  "new_synthesis": false,
+  "new_recognition": false,
+  "final_editorial_credit": false
+}

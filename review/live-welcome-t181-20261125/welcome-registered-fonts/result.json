@@ -1,0 +1,311 @@
+{
+  "source_commit": "e287b9102574b8a6cbc29beba97ccc9a7dc569fe",
+  "source_tree": "de6b0b43b98bba31a2a6ec3cf633210c1c2b3bdf",
+  "pages_commit": "d51e1382373a03aa0a3a828cfffa0a2a6c6a0198",
+  "pages_run": 45528346333,
+  "profile": "iPhone 13 portrait WebKit emulation",
+  "checked_at_utc": "2026-11-25T01:55:17.273219+00:00",
+  "playwright": "1.58.0",
+  "service_workers": "blocked",
+  "fresh_context_per_page": true,
+  "supabase_blocked": true,
+  "non_read_requests_blocked": true,
+  "physical_device": false,
+  "human_listening": false,
+  "full_replay": false,
+  "final_editorial_acceptance": false,
+  "results": [
+    {
+      "name": "welcome",
+      "url": "https://simonrj.github.io/-summit-one-narrator/welcome.html",
+      "viewport": {
+        "width": 390,
+        "height": 664
+      },
+      "page_errors": [],
+      "blocked_supabase": [],
+      "blocked_writes": [],
+      "external_font_attempts": [],
+      "font_responses": [
+        {
+          "url": "https://simonrj.github.io/-summit-one-narrator/fonts/source-sans-3-normal-latin-19143dca07.woff2",
+          "status": 200
+        },
+        {
+          "url": "https://simonrj.github.io/-summit-one-narrator/fonts/source-sans-3-normal-latin-19143dca07.woff2",
+          "status": 200
+        },
+        {
+          "url": "https://simonrj.github.io/-summit-one-narrator/fonts/source-serif-4-normal-latin-382475f382.woff2",
+          "status": 200
+        },
+        {
+          "url": "https://simonrj.github.io/-summit-one-narrator/fonts/source-sans-3-normal-latin-19143dca07.woff2",
+          "status": 200
+        },
+        {
+          "url": "https://simonrj.github.io/-summit-one-narrator/fonts/source-code-pro-normal-latin-8b774aaa51.woff2",
+          "status": 200
+        }
+      ],
+      "failed_requests": [
+        {
+          "url": "https://simonrj.github.io/-summit-one-narrator/media/AMCIntroduction.mp4?v=course-films-target-clock-20261125",
+          "failure": "Load request cancelled"
+        },
+        {
+          "url": "https://simonrj.github.io/-summit-one-narrator/media/AMCIntroduction.mp4?v=course-films-target-clock-20261125",
+          "failure": "Load request cancelled"
+        },
+        {
+          "url": "https://simonrj.github.io/-summit-one-narrator/media/AMCIntroduction.mp4?v=course-films-target-clock-20261125",
+          "failure": "Load request cancelled"
+        }
+      ],
+      "http_errors": [],
+      "chapters_checked": [
+        {
+          "target": 0.0,
+          "label": "0:00\nWelcome",
+          "time": 0.222918947,
+          "paused": false,
+          "seeking": false,
+          "readyState": 4,
+          "networkState": 1,
+          "error": null,
+          "frames": {
+            "count": 6,
+            "mediaTime": 0.266666
+          },
+          "muted": false,
+          "volume": 1,
+          "playbackRate": 1,
+          "visibility": "visible"
+        },
+        {
+          "target": 228.42,
+          "label": "3:48\nPart A and Part B",
+          "time": 228.646808601,
+          "paused": false,
+          "seeking": false,
+          "readyState": 2,
+          "networkState": 2,
+          "error": null,
+          "frames": {
+            "count": 17,
+            "mediaTime": 228.7
+          },
+          "muted": false,
+          "volume": 1,
+          "playbackRate": 1,
+          "visibility": "visible"
+        }
+      ],
+      "passed": true,
+      "html_sha256": "4ac46b6820394da64fafa7c483af688bc4418515e4dd8a28ebea7780409ac1a4",
+      "font_faces_before_registration_wait": [],
+      "registered_font_face_count": 102,
+      "fonts": {
+        "faces": [
+          {
+            "specification": "400 18px \"Source Sans 3\"",
+            "loaded": true
+          },
+          {
+            "specification": "500 18px \"Source Serif 4\"",
+            "loaded": true
+          },
+          {
+            "specification": "500 18px \"Source Code Pro\"",
+            "loaded": true
+          }
+        ],
+        "body_family": "\"Source Sans 3\", \"Helvetica Neue\", Arial, sans-serif",
+        "heading_family": "\"Source Serif 4\", \"Iowan Old Style\", Georgia, serif",
+        "overflow": 0
+      },
+      "initial_storage": {
+        "local": [],
+        "session": []
+      },
+      "initial_title": "Your AMC introduction \u00b7 Summit One",
+      "initial_media_source": "https://simonrj.github.io/-summit-one-narrator/media/AMCIntroduction.mp4?v=course-films-target-clock-20261125",
+      "metadata": {
+        "width": 1920,
+        "height": 1080,
+        "duration": 260.534,
+        "source": "https://simonrj.github.io/-summit-one-narrator/media/AMCIntroduction.mp4?v=course-films-target-clock-20261125",
+        "controls": true,
+        "inline": true
+      },
+      "repaired_frame": {
+        "time": 243.449412895,
+        "paused": true,
+        "seeking": false,
+        "readyState": 2,
+        "networkState": 2,
+        "error": null,
+        "frames": {
+          "count": 464,
+          "mediaTime": 243.766666
+        },
+        "muted": false,
+        "volume": 1,
+        "playbackRate": 1,
+        "visibility": "visible"
+      },
+      "video_bounds": {
+        "x": 15,
+        "y": 230,
+        "width": 360,
+        "height": 202.5
+      },
+      "transcript_opens": true,
+      "final_overflow": 0,
+      "final_storage": {
+        "local": [],
+        "session": []
+      },
+      "media_events": [
+        {
+          "type": "play",
+          "time": 0,
+          "paused": false,
+          "seeking": false,
+          "readyState": 0,
+          "networkState": 2,
+          "error": null,
+          "frames": {
+            "count": 0,
+            "mediaTime": -1
+          },
+          "muted": false,
+          "volume": 1,
+          "playbackRate": 1,
+          "visibility": "visible"
+        },
+        {
+          "type": "waiting",
+          "time": 0,
+          "paused": false,
+          "seeking": false,
+          "readyState": 0,
+          "networkState": 2,
+          "error": null,
+          "frames": {
+            "count": 0,
+            "mediaTime": -1
+          },
+          "muted": false,
+          "volume": 1,
+          "playbackRate": 1,
+          "visibility": "visible"
+        },
+        {
+          "type": "playing",
+          "time": 0.005747762,
+          "paused": false,
+          "seeking": false,
+          "readyState": 4,
+          "networkState": 1,
+          "error": null,
+          "frames": {
+            "count": 0,
+            "mediaTime": -1
+          },
+          "muted": false,
+          "volume": 1,
+          "playbackRate": 1,
+          "visibility": "visible"
+        },
+        {
+          "type": "seeking",
+          "time": 228.42,
+          "paused": false,
+          "seeking": true,
+          "readyState": 4,
+          "networkState": 1,
+          "error": null,
+          "frames": {
+            "count": 10,
+            "mediaTime": 0.4
+          },
+          "muted": false,
+          "volume": 1,
+          "playbackRate": 1,
+          "visibility": "visible"
+        },
+        {
+          "type": "waiting",
+          "time": 228.427435265,
+          "paused": false,
+          "seeking": false,
+          "readyState": 2,
+          "networkState": 2,
+          "error": null,
+          "frames": {
+            "count": 10,
+            "mediaTime": 0.4
+          },
+          "muted": false,
+          "volume": 1,
+          "playbackRate": 1,
+          "visibility": "visible"
+        },
+        {
+          "type": "seeked",
+          "time": 228.427435265,
+          "paused": false,
+          "seeking": false,
+          "readyState": 2,
+          "networkState": 2,
+          "error": null,
+          "frames": {
+            "count": 10,
+            "mediaTime": 0.4
+          },
+          "muted": false,
+          "volume": 1,
+          "playbackRate": 1,
+          "visibility": "visible"
+        },
+        {
+          "type": "stalled",
+          "time": 231.939078118,
+          "paused": false,
+          "seeking": false,
+          "readyState": 2,
+          "networkState": 2,
+          "error": null,
+          "frames": {
+            "count": 112,
+            "mediaTime": 232
+          },
+          "muted": false,
+          "volume": 1,
+          "playbackRate": 1,
+          "visibility": "visible"
+        },
+        {
+          "type": "pause",
+          "time": 243.449412895,
+          "paused": true,
+          "seeking": false,
+          "readyState": 2,
+          "networkState": 2,
+          "error": null,
+          "frames": {
+            "count": 464,
+            "mediaTime": 243.766666
+          },
+          "muted": false,
+          "volume": 1,
+          "playbackRate": 1,
+          "visibility": "visible"
+        }
+      ]
+    }
+  ],
+  "browser_version": "26.0",
+  "passed": true
+}

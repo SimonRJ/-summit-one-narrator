@@ -20,8 +20,8 @@ import { problemFigure } from "./problem-figures.js";
 import {mountLessonPager} from "./lesson-pager.js?v=responsive-20261113";
 import {learningScreens} from "./lesson-screenflow.js?v=data-audit-20261114";
 import {buildCourseNavigation} from "./course-menu.js?v=menu-20261113";
-import {mountCourseMenu} from "./course-menu-ui.js?v=priority-corrections-20261125";
-import {introMediaSource,lessonIntroId,loadIntroductionCatalogue,introductionGuideHref} from "./lesson-introduction-media.js?v=priority-corrections-20261125";
+import {mountCourseMenu} from "./course-menu-ui.js?v=priority-corrections-20261125b";
+import {introMediaSource,lessonIntroId,loadIntroductionCatalogue,introductionGuideHref} from "./lesson-introduction-media.js?v=priority-corrections-20261125b";
 
 const app=document.getElementById("app");
 const problemTemplate=document.getElementById("problemTemplate");
@@ -221,8 +221,8 @@ async function boot(){
     user=await currentUser();
     if(!user){location.href="login.html";return}
     const introCatalogue=loadIntroductionCatalogue();
-    const [c,t,m,h,tax,ms,lm,rl,later]=await Promise.all([fetch("data/sessions-372.json").then(r=>r.json()),fetch("data/teaching-72.json?v=priority-corrections-20261125").then(r=>r.json()),fetch("data/mawa-investigations-20.json?v=mawa-visits-20261121").then(r=>r.json()),fetch("data/rossmoyne-h23.json").then(r=>r.json()),fetch("data/taxonomy-52.json").then(r=>r.json()),fetch("data/milestones.json").then(r=>r.json()),fetch("data/lesson-challenges.json?v=upper-primary-audit-20261114").then(r=>r.json()),fetch("data/read-watch-practise.json?v=priority-corrections-20261125").then(r=>{if(!r.ok)throw Error("Lesson text could not be loaded");return r.json()}),
-      fetch("data/read-watch-practise-later.json?v=priority-corrections-20261125").then(r=>{
+    const [c,t,m,h,tax,ms,lm,rl,later]=await Promise.all([fetch("data/sessions-372.json").then(r=>r.json()),fetch("data/teaching-72.json?v=priority-corrections-20261125b").then(r=>r.json()),fetch("data/mawa-investigations-20.json?v=mawa-visits-20261121").then(r=>r.json()),fetch("data/rossmoyne-h23.json").then(r=>r.json()),fetch("data/taxonomy-52.json").then(r=>r.json()),fetch("data/milestones.json").then(r=>r.json()),fetch("data/lesson-challenges.json?v=upper-primary-audit-20261114").then(r=>r.json()),fetch("data/read-watch-practise.json?v=priority-corrections-20261125b").then(r=>{if(!r.ok)throw Error("Lesson text could not be loaded");return r.json()}),
+      fetch("data/read-watch-practise-later.json?v=priority-corrections-20261125b").then(r=>{
         if(!r.ok)throw Error("The later lesson text could not be loaded");
         return r.json();
       })]);

@@ -2,11 +2,11 @@
 
 S020 and S102 have completed their production workflows, all five playback profiles and independent public-byte checks. Their exact returned guides are integrated with both canonical and technique-consumer assignments in this revision. S015 has separately completed the same public-release boundary and its twenty-one compound-number timing checks; its returned guide is assigned to lessons 15 and 260. Application deployment and final editorial acceptance remain separate evidence boundaries.
 
-S019's earlier production workflow succeeded and all six immutable public assets match their digests, but actual decoded scene-five frames show doubled glyphs. Its staged assignments were withdrawn before publication. The helper refuses that edition. The replacement source is published at `ac244dec713654fa7fb47693c8c179d9fb436479`, run `45524933207`; verify that complete workflow and exact returned public assets before changing its pinned policy or assignments.
+S019’s stable-caption replacement has now completed the required production, public-byte, preservation and decoded-picture checks. The helper pins run `45524933207`, source `ac244dec713654fa7fb47693c8c179d9fb436479` and actual public movie `5455c0c0119bedd897ddda6feb41002cf215575c8f8839565661674c42ad712c`. Its exact plan preserves both existing lesson bridges and assigns the public edition to lessons 19 and 333. Eighteen isolated negative cases reject mismatched or incomplete evidence.
 
 | Film | Required run | Required public release |
 |---|---:|---|
-| S019 | 45491819969 | `s019-domino-condition-20261125-3d94f6856b47` |
+| S019 | 45524933207 | `s019-stable-captions-20261125-ac244dec7136` |
 | S020 | 45503875492 | `s020-stable-captions-20261125-0dfec081086f` |
 | S102 | 45518273975 | `s102-tens-units-20261125-a84046b06450` |
 
@@ -31,7 +31,7 @@ python tools/prepare_spoken_film_release.py \
 
 Use the corresponding files and `--lesson S020` or `--lesson S102` for the other corrections. The helper checks the successful run, source commit, workflow path, published immutable tag, all six public asset locations, sizes and GitHub SHA-256 digests. It also checks the guide/movie/QA identities, chapter timing and each correction's required evidence.
 
-The output is a plan outside the repository. It never changes the live catalogue, source data, learner records or editorial completion credit. Pending workflows, drafts, missing assets, mismatched public bytes and either held S019 or held S020 edition produce no plan.
+The output is a plan outside the repository. It never changes the live catalogue, source data, learner records or editorial completion credit. Pending workflows, drafts, missing assets, mismatched public bytes, the held S019/S020 editions and the unpublished local S019 candidate produce no plan.
 
 ## Apply only after verification
 
@@ -42,3 +42,5 @@ If a corrected workflow is superseded by a different source commit or run, revie
 ## Helper verification
 
 Synthetic successful-release metadata was exercised against the actual S019/S020 CI packages and the S102 local package to check all three original plan paths. A later frame review placed S019 on hold, so its once-successful historical fixture is superseded by the explicit rejection. Queued workflows, wrong source commits, wrong public digests, a different S102 take, changed mathematical totals, missing passage timing and incomplete picture checks were rejected. Existing S019/S020 technique bridges were preserved; S102 received its two distinct corrected prompts. All source data remained byte-identical. See [the helper checks](../review/spoken-release-plan-checks-20261125.json). These fixture checks are not evidence that any pending public release has completed.
+
+The current S019 policy was exercised against the actual successful public release and all six downloaded assets. Its [eighteen negative regression cases](../review/S019-public-caption-release-20261125/policy-regressions.json) retain the original failures and require exact recording/VTT preservation plus all 143 picture comparisons. Historical helper fixtures above do not supersede these current pins.
