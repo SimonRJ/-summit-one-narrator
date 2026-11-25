@@ -1,6 +1,7 @@
 """Assemble and align the actual Voice C recordings without changing their speed."""
 
 import argparse
+import copy
 from difflib import SequenceMatcher
 import hashlib
 import json
@@ -223,6 +224,22 @@ def caption_phrases(sentence):
             if sentence[index - 1]["text"].endswith((",", ":")):
                 end = index
                 break
+        # A formatted numeral may span several authored words. Keep its full
+        # spoken form in one cue, rather than moving e.g. the final 'four' of
+        # 'three hundred and fifty four' into the next caption.
+        def inside_number(index):
+            if not 0 < index < len(sentence) or sentence[index-1]['text'].endswith((',', ':', ';')):
+                return False
+            return all(tokens(sentence[k]['text']) and set(tokens(sentence[k]['text'])) <= NUMBER_TERMS
+                       for k in (index-1, index))
+        safe_end = end
+        while inside_number(safe_end):
+            safe_end -= 1
+        if safe_end:
+            end = safe_end
+        else:
+            while inside_number(end):
+                end += 1
         yield sentence[:end]
         sentence = sentence[end:]
     if sentence:
@@ -247,7 +264,18 @@ def stamp(seconds):
     return f"{ms // 3600000:02}:{ms // 60000 % 60:02}:{ms // 1000 % 60:02}.{ms % 1000:03}"
 
 
-def transcribe(model, waveform, *, use_vad=False):
+def numeral_suppression_tokens(tokenizer):
+    """Suppress lexical digits, keeping timestamp/control tokens available."""
+    eot = tokenizer.token_to_id('<|endoftext|>')
+    if eot is None:
+        raise ValueError('Recognizer has no end-of-text token')
+    return [-1, *sorted(index for text, index in tokenizer.get_vocab().items()
+                       if index < eot and re.search(r'[0-9]', text))]
+
+
+def transcribe(model, waveform, *, use_vad=False, number_words=False):
+    options = ({'suppress_tokens': numeral_suppression_tokens(model.hf_tokenizer)}
+               if number_words else {})
     decoded, _ = model.transcribe(
         waveform[::3],
         word_timestamps=True,
@@ -255,8 +283,125 @@ def transcribe(model, waveform, *, use_vad=False):
         condition_on_previous_text=False,
         language="en",
         vad_filter=use_vad,
+        **options,
     )
     return [word for segment in decoded for word in segment.words or []]
+
+
+NUMBER_TERMS = frozenset(('zero one two three four five six seven eight nine ten eleven twelve '
+    'thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty thirty forty fifty '
+    'sixty seventy eighty ninety hundred thousand million billion trillion and minus negative point').split())
+
+
+def collapsed_numeral_groups(words, recognized, start):
+    """Find matched zero-width number words backed by a zero-width ASR numeral."""
+    anchors = [start + word.start for word in recognized
+               if re.search(r'[0-9]', word.word) and abs(word.end - word.start) <= 1e-6]
+    groups = []
+    cursor = 0
+    while cursor < len(words):
+        first = cursor
+        anchor = words[first]['start']
+        while cursor < len(words):
+            word = words[cursor]
+            terms = tokens(word['text'])
+            if not (word.get('matched') and terms and set(terms) <= NUMBER_TERMS
+                    and abs(word['end'] - anchor) <= 1e-6 and abs(word['start'] - anchor) <= 1e-6):
+                break
+            cursor += 1
+        if cursor > first:
+            terms = [term for word in words[first:cursor] for term in tokens(word['text'])]
+            if set(terms) - {'and', 'minus', 'negative', 'point'} and any(abs(anchor-t) <= 1e-6 for t in anchors):
+                groups.append((first, cursor))
+        else:
+            cursor += 1
+    return groups
+
+
+def completely_matched_words(script, recognized):
+    """Require every term of a compound number, not just e.g. 'forty' in 45."""
+    target = [(term, index) for index, word in enumerate(script.split()) for term in tokens(word)]
+    expected = {term for term, _ in target}
+    heard = [term for index in range(len(recognized))
+             for term in recognized_terms(recognized, index, expected)]
+    matched = set()
+    for block in SequenceMatcher(None, [term for term, _ in target], heard, autojunk=False).get_matching_blocks():
+        matched.update(range(block.a, block.a + block.size))
+    return {word for _, word in target
+            if all(index in matched for index, (_, owner) in enumerate(target) if owner == word)}
+
+
+def repair_measured_numeral_groups(script, words, alternate, start, end, primary_match, groups):
+    """Apply reviewed numeral groups with measured timing and bounded neighbours.
+
+    At most two adjoining words per side can join a repair when their old times
+    overlap the measured numeral. Every replaced term must match exactly. Unsafe
+    recognition fails closed instead of estimating a shift or requesting a retake.
+    Explicit groups also support an archived positive numeral whose caption was
+    evidenced to finish early; automatic preparation still selects only collapse.
+    """
+    if not groups:
+        return words, []
+    candidate, match = align(script, alternate, start, end)
+    if match < max(90, primary_match - 3):
+        raise ValueError(f'Word-form numeral recognition needs review: {match:.2f}%')
+    exact = completely_matched_words(script, alternate)
+    repaired = copy.deepcopy(words)
+    reports = []
+    for first, stop in groups:
+        if not 0 <= first < stop <= len(words):
+            raise ValueError('Numeral group is outside its script')
+        terms = [term for word in words[first:stop] for term in tokens(word['text'])]
+        if not terms or not set(terms) <= NUMBER_TERMS or not (
+                set(terms) - {'and', 'minus', 'negative', 'point'}):
+            raise ValueError('Measured group is not a numeral')
+        old_start, old_end = words[first]['start'], words[stop-1]['end']
+        if (candidate[first]['start'] > old_end + .02
+                or candidate[stop-1]['end'] < old_start - .02):
+            raise ValueError('Measured numeral does not span its original collapsed anchor or interval')
+        left, right = first, stop
+        while True:
+            previous_end = repaired[left-1]['end'] if left else start
+            following_start = repaired[right]['start'] if right < len(words) else end
+            if candidate[left]['start'] < previous_end - 1e-6:
+                if left == 0 or first-left >= 2:
+                    raise ValueError('Numeral repair exceeds its left context bound')
+                left -= 1
+            elif candidate[right-1]['end'] > following_start + 1e-6:
+                if right == len(words) or right-stop >= 2:
+                    raise ValueError('Numeral repair exceeds its right context bound')
+                right += 1
+            else:
+                break
+        if any(index not in exact or candidate[index]['end'] <= candidate[index]['start']
+               for index in range(left, right)):
+            raise ValueError('Numeral repair has an unmatched term or collapsed measured word')
+        if not start <= candidate[left]['start'] < candidate[right-1]['end'] <= end:
+            raise ValueError('Numeral repair leaves its recorded scene')
+        repaired[left:right] = copy.deepcopy(candidate[left:right])
+        reports.append({'phrase': ' '.join(w['text'] for w in words[first:stop]),
+            'original_start': old_start, 'original_end': old_end,
+            'measured_start': candidate[first]['start'], 'measured_end': candidate[stop-1]['end'],
+            'word_form_match_percent': match, 'replaced_word_indices': list(range(left, right)),
+            'adjoining_words': [words[index]['text'] for index in range(left, right)
+                                if not first <= index < stop]})
+    if any(a['end'] > b['start'] + 1e-6 for a, b in zip(repaired, repaired[1:])):
+        raise ValueError('Measured numeral repair overlaps another word')
+    return repaired, reports
+
+
+def repair_collapsed_numerals(script, recognized, words, alternate, start, end, primary_match):
+    """Automatically select only zero-width numbers backed by original ASR digits."""
+    groups = collapsed_numeral_groups(words, recognized, start)
+    return repair_measured_numeral_groups(script, words, alternate, start, end, primary_match, groups)
+
+
+def repair_numeral_timing(model, waveform, script, recognized, words, match, start, end):
+    """One additional pass at most; no extra recognition for already timed scenes."""
+    if not collapsed_numeral_groups(words, recognized, start):
+        return words, []
+    alternate = transcribe(model, waveform, number_words=True)
+    return repair_collapsed_numerals(script, recognized, words, alternate, start, end, match)
 
 
 def prepare(lesson):
@@ -267,6 +412,8 @@ def prepare(lesson):
     build.mkdir(parents=True, exist_ok=True)
     alignment_failure = build / "alignment-failure.json"
     alignment_failure.unlink(missing_ok=True)
+    timing_failure = build / 'timing-failure.json'
+    timing_failure.unlink(missing_ok=True)
     model = WhisperModel("base.en", device="cpu", compute_type="int8", cpu_threads=2)
     audio = [np.zeros(round(0.6 * RATE), dtype="float32")]
     cursor = len(audio[0])
@@ -289,6 +436,15 @@ def prepare(lesson):
             if checked_match >= 97 and len(checked) > 1:
                 spoken, words, match = checked, checked_words, checked_match
                 print(f"{lesson} scene {index}: speech-only recognition {match:.2f}%", flush=True)
+        try:
+            words, numeral_repairs = repair_numeral_timing(
+                model, waveform, scene['narration'], spoken, words, match, start, end)
+        except ValueError as error:
+            # Keep this separate from alignment-failure.json: the production
+            # recorder must not generate a new take to solve a timestamp problem.
+            timing_failure.write_text(json.dumps({'scene': index, 'reason': str(error),
+                'source_recording_preserved': True}) + '\n')
+            raise ValueError(f'{lesson} scene {index}: numeral timing needs review') from error
         print(f"{lesson} scene {index}: {match:.2f}% aligned, speech {start:.2f}–{end:.2f}s", flush=True)
         scenes.append({
             "n": index,
@@ -298,6 +454,7 @@ def prepare(lesson):
             "words": words,
             "recognized_speech": " ".join(word.word.strip() for word in spoken),
             "match_percent": match,
+            **({'numeral_timing_repairs': numeral_repairs} if numeral_repairs else {}),
         })
         captions.extend(caption_cues(words))
         audio.extend([waveform, gap])

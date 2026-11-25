@@ -179,7 +179,7 @@ assert(app.includes('modeKeys.every(key=>sessionDraft.evidence[key])'));
 assert(!app.includes('id="workshopReflection"') && !app.includes('id="takeaway"'));
 
 const design=read('../design-system.css'),maths=read('../math-typography.js'),brand=read('../summit-mark.svg');
-assert(html.includes('summit-mark.svg') && html.includes('design-system.css?v=advanced-20261113'));
+assert(html.includes('summit-mark.svg') && html.includes('design-system.css?v=local-fonts-20261125'));
 assert(html.includes('math-typography.js?v=advanced-20261113'));
 assert(html.includes('katex@0.16.47/dist/katex.min.css') && html.includes('katex@0.16.47/dist/katex.min.js'));
 assert(design.includes('Source Sans 3') && design.includes('Source Serif 4') && design.includes('STIX Two Math'));

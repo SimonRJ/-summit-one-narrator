@@ -160,7 +160,7 @@ button:focus-visible, a:focus-visible, summary:focus-visible {{ outline: 2px sol
 }}
 </style>
 {reading_assets}
-<link rel="stylesheet" href="public-study-theme.css">
+<link rel="stylesheet" href="public-study-theme.css?v=local-fonts-20261125">
 </head>
 <body>
 <main>
@@ -238,7 +238,7 @@ a:focus-visible {{ outline: 2px solid #9cdbbc; outline-offset: 3px; }}
 #filmFilters :is(input,select,button){{min-height:44px;max-width:100%;padding:.45rem .65rem;font:inherit;border:1px solid #72838a;border-radius:.4rem;color:#102d39;background:#fff}}
 #filmMatches{{align-self:center}}
 </style>
-<link rel="stylesheet" href="public-study-theme.css">
+<link rel="stylesheet" href="public-study-theme.css?v=local-fonts-20261125">
 </head>
 <body>
 <main>

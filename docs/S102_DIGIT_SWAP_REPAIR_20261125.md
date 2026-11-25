@@ -2,7 +2,7 @@
 
 ## Scope and current state
 
-This is a scoped mathematical correction to scene 8 of **Digit sums and counting digits in ranges**. The other ten narration passages and their original pictures are retained. The local approved Voice C take is recording; **there is no corrected production master, accepted release, or live assignment yet**.
+This is a scoped mathematical correction to scene 8 of **Digit sums and counting digits in ranges**. The other ten narration passages and their original pictures are retained. The single approved-voice take completed at 32.29 seconds and is saved losslessly. The final local corrected master has passed encoded comparisons; **there is no gated production release, final editorial acceptance, or changed live assignment yet**.
 
 The old narration says “swapping the two end digits”. For the required pairing, 153 must become 135. Hundreds stay fixed; tens and units swap. Reversing the operation returns the starting number. Keeping the hundreds digit is what preserves the full interval 100–599.
 
@@ -43,24 +43,46 @@ The original public guide contains exact scene starts but no word timing. `sourc
 
 The frame-aligned splice is original frames 3750 through 4589 (125.0–153.0 seconds). The last 40 ms before both boundaries have maximum decoded amplitudes below 0.005. The replacement is padded at natural speed to a complete 30 fps frame; later chapters and measured caption timings shift by the same duration difference.
 
-Record only scene 8 if its take is missing:
+The source take was recorded once with this command; reproducing the correction restores the saved take:
 
 ```sh
 python production/t01-studio/synth.py --lesson S102 --scene 8 --threads 2
 ```
 
-After that take finishes, preserve it losslessly for reuse:
+Restore its original samples and identity into the build directory:
 
 ```sh
 python - <<'PY'
 import sys
 sys.path.insert(0, 'production/lesson-films')
-from repair_digit_swap import cache_recording
-print(cache_recording())
+from repair_digit_swap import saved_recording
+saved_recording()
 PY
 ```
 
-This writes `production/lesson-films/voice-c-repairs/S102-tens-units.flac` and its identity JSON. The workflow requires and restores this exact saved recording. It fails closed while the take is absent; it cannot synthesize a duplicate. Do not start another recording while the current local take is running.
+The preserved source is `production/lesson-films/voice-c-repairs/S102-tens-units.flac` plus its identity JSON. Its SHA-256 is `4582dcd016527a350da681f165b53e32ade863c7e3ea011aa5863e892cb8593b`. All 1,549,920 PCM samples match the original 32.29-second WAV exactly. The workflow requires this exact digest and cannot synthesize a duplicate.
+
+## Stable timing for the spoken numbers
+
+The first full-take recognizer returned zero-duration timestamps for 153 and 333, although it recognized the correct numbers. That made their captions late. The saved timing file now aligns each of the four original recorded passages separately, suppressing numeral tokens so the recognizer times the full spoken words. Their 150 ms inter-passage gaps are verified against the exact zero samples in the original take. All 81 spoken words now have positive, ordered durations; passage recognition scores are 100%, 97.96%, 100% and 100%.
+
+The renderer checks the timing file against the exact FLAC hash and complete narration, then reuses these measured word times. It independently checks the full take again for content. Neither alignment nor rendering changes the audio samples or voice speed.
+
+The full-take recognizer also printed a low-confidence extra “each” (probability 0.036). Focused tail recognition with and without silence filtering did not repeat it. The unedited take remains the source, and the complete listening review remains pending. These recognition results are evidence for review, not a claim of final listening acceptance.
+
+The first local movie, `dad309128905a96c6b3784b63eb12df2b6545ffe9fc930b7cf7ded0c89b9cec4`, is held because it has the late numeral timings. Use the final measured-timing candidate and, ultimately, the separately verified production release.
+
+## Final local candidate
+
+- Movie SHA-256: `e627ab6df0a16f75adce97fdbf021013a84cf01b3d124ca43dc8afa7b2fc947a`
+- Duration: 215.633333 seconds; 1920 × 1080 at 30 fps.
+- Full-take recognition: 98.22%; saved passage timing scores: 100%, 97.96%, 100%, 100%.
+- Minimum correlation across all eleven scene audio spans: 0.999958.
+- 216 decoded reference comparisons across the entire film; largest mean picture/caption differences: 2.112 / 1.592 (limit 5).
+- Final AAC packets are identical to the initial render: timing corrections changed pictures and captions only.
+- Encoded proof frames were inspected for the 153 ↔ 135 pairing and 333 fixed point. Both numeral phrases now have full spoken-word durations.
+
+Complete evidence and every local asset hash are in `review/s102-digit-swap-local-qa-20261125.json`. This local digest is a review identity. The eventual CI master must pass its own exact-byte device and public-download gates.
 
 ## Render, gates and immutable release
 
@@ -70,12 +92,22 @@ python production/lesson-films/repair_digit_swap.py build/s102-candidate
 
 The builder pins source bytes, checks the narration and voice hashes, validates the mathematical pairing, measures replacement ASR alignment, preserves natural speed, verifies complete decoding, checks every scene's waveform correlation, and compares intended picture and caption regions once per second through the entire corrected master. These checks support review; they do not substitute for a complete listen/watch.
 
-`.github/workflows/s102-digit-swap.yml` contains saved-take restoration → render → five-profile playback → immutable release. It can be dispatched manually or triggered by the isolated `production/s102-digit-swap` branch. No external branch or workflow has been changed or started for this correction.
+`.github/workflows/s102-digit-swap.yml` contains saved-take restoration → render → five-profile playback → immutable release. The isolated `production/s102-digit-swap` branch was published once at `a84046b0645063f273951ce85d938aa71fffa9ee`, with tree `d6988eba0b6b56646526a9745fa28e7f8e74709d` exactly matching the reviewed local source. It started run `45518273975`; its saved-take restoration job was queued at the recorded checkpoint. This branch does not update main or live lesson assignments, and contains no synthesis path.
 
 The workflow checks iPhone and iPad in portrait and landscape plus PC, and checks consumer 296 on PC and iPad portrait. The release tag is `s102-tens-units-20261125-<commit-prefix>`. The six release assets are `S102.mp4`, `S102.vtt`, `S102-guide.json`, `S102-poster.jpg`, `S102-recording.zip`, and `S102-qa.json`; returned public bytes must match. The workflow does not change the live catalogue or learner records.
 
+`tools/prepare_spoken_film_release.py --lesson S102` pins this source commit, run and exact immutable tag. It prepares a field-level integration plan only after the successful full workflow and all six public-asset digests have been verified. It rejects the held local timings, a different Voice C take, changed proof counts or an old-guide bridge. Preparation adds no editorial credit.
+
 ## Integration and remaining acceptance
 
-Consumers are **102** (dedicated film) and **296** (technique film). Integrate only a successfully gated, immutable public release whose movie digest matches its guide and QA report. Update both movie URLs together, retaining the independent 296 bridge and practice content. Recheck the live gallery, active lesson and immutable completed-notebook routes.
+Consumers are **102** (dedicated film) and **296** (technique film). Integrate only a successfully gated, immutable public release whose movie digest matches its guide and QA report. Update both movie URLs together and remove the temporary wording-error sentence for the new film only. The final guide supplies this canonical 102 bridge:
+
+> Keep the hundreds digit fixed and swap tens and units: 153 becomes 135. Count the printed threes in each column separately.
+
+Preserve the independent 296 technique prompt with this post-release bridge:
+
+> For the multiples-of-nine count, keep hundreds fixed and swap tens and units: 153 becomes 135. Which digit choices force the missing digit?
+
+Update the matching `S102` and `S296` bridge overrides in `tools/content/practice-revisions-20261121.json` together with those two route rows. The integration plan includes both overrides so regeneration cannot restore the old warning underneath the corrected film. Every practice item remains unchanged. Recheck the live gallery, active lesson and immutable completed-notebook routes; old completed notebooks still need the old-film wording clarification when they retain that old movie.
 
 This repair earns no blanket “100% complete” or originality credit. The full corrected take still needs listening review; the exact production master needs all playback gates; and S102's four shared template scenes and related example family remain part of the broader originality work.

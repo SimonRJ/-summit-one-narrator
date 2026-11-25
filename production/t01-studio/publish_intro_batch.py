@@ -42,7 +42,7 @@ mountLessonModel(document.getElementById('lessonModel'), {{slot: {int(model_slot
 <link rel="icon" href="icon.svg">
 <link rel="stylesheet" href="lesson-introduction-videos.css?v={VERSION}">
 {script}
-<link rel="stylesheet" href="public-study-theme.css">
+<link rel="stylesheet" href="public-study-theme.css?v=local-fonts-20261125">
 </head>
 <body><main>
 {body}

@@ -1,0 +1,32 @@
+{
+  "lesson": "S010",
+  "mode": "held source and drawing reference only",
+  "source_movie_sha256": "e8e2e6f697b00cd9401479a603bf6992c2538a107b3fbd519cac0e0b9b7f9a71",
+  "candidate_movie_sha256": null,
+  "frames": [
+    {
+      "frame": 31,
+      "decoded_seconds": 1.0333333333333334,
+      "glyph_pixels_checked": 17956,
+      "source_artwork_mean_error": 1.1902,
+      "held_caption_glyph_mean_error": 161.6913,
+      "maximum_candidate_caption_glyph_error": 12,
+      "original_image": "S010-frame-31-original.png",
+      "source_reference_image": "S010-frame-31-reference.png"
+    },
+    {
+      "frame": 272,
+      "decoded_seconds": 9.066666666666666,
+      "glyph_pixels_checked": 16202,
+      "source_artwork_mean_error": 1.1989,
+      "held_caption_glyph_mean_error": 159.3848,
+      "maximum_candidate_caption_glyph_error": 12,
+      "original_image": "S010-frame-272-original.png",
+      "source_reference_image": "S010-frame-272-reference.png"
+    }
+  ],
+  "audio": null,
+  "recording_members_unchanged": true,
+  "candidate_encoded_acceptance": false,
+  "final_editorial_credit": false
+}

@@ -1,0 +1,197 @@
+{
+  "workflow": ".github/workflows/stable-recorded-captions.yml",
+  "workflow_sha256": "b35bb779cd04e32ee6f473916c404e4a2dcadce0db06f8dbe63109ee2f22a78f",
+  "manifest_sha256": "0655f426365517903603ed2228398feb2d6ec756777d7cd2934858d4f9242e14",
+  "shell_blocks_syntax_passed": 5,
+  "embedded_python_blocks_syntax_passed": 5,
+  "main_push_inert": true,
+  "push_branch": "production/stable-recorded-captions-20261125",
+  "only_matching_push_workflow": [
+    "stable-recorded-captions.yml"
+  ],
+  "lesson_jobs": [
+    "S017",
+    "S009",
+    "S010",
+    "S012"
+  ],
+  "route_cases": 28,
+  "candidate_artifact_retained_before_browser_checks": true,
+  "no_alignment_or_synthesis_command": true,
+  "no_asr_or_voice_model_dependency": true,
+  "candidate_overlays": {
+    "S017": [
+      {
+        "slot": 17,
+        "fields": [
+          "filmUse",
+          "movie",
+          "videoTitle"
+        ],
+        "bridge_preserved": true
+      },
+      {
+        "slot": 300,
+        "fields": [
+          "movie",
+          "videoTitle"
+        ],
+        "bridge_preserved": true
+      }
+    ],
+    "S009": [
+      {
+        "slot": 9,
+        "fields": [
+          "movie"
+        ],
+        "bridge_preserved": true
+      },
+      {
+        "slot": 228,
+        "fields": [
+          "movie"
+        ],
+        "bridge_preserved": true
+      }
+    ],
+    "S010": [
+      {
+        "slot": 10,
+        "fields": [
+          "movie"
+        ],
+        "bridge_preserved": true
+      },
+      {
+        "slot": 319,
+        "fields": [
+          "movie"
+        ],
+        "bridge_preserved": true
+      }
+    ],
+    "S012": [
+      {
+        "slot": 12,
+        "fields": [
+          "movie"
+        ],
+        "bridge_preserved": true
+      },
+      {
+        "slot": 248,
+        "fields": [
+          "movie"
+        ],
+        "bridge_preserved": true
+      }
+    ]
+  },
+  "other_rows_and_all_bridges_unchanged": true,
+  "sparse_paths": [
+    "production",
+    "data",
+    "tools",
+    "figures",
+    "fonts"
+  ],
+  "verified_dependency_paths": [
+    "advanced-connections.js",
+    "advanced-counting.js",
+    "advanced-geometry.js",
+    "advanced-number.js",
+    "app-main.js",
+    "course-menu-ui.js",
+    "course-menu.js",
+    "curriculum.js",
+    "data/read-watch-practise-later.json",
+    "data/read-watch-practise.json",
+    "data/recorded-studies.json",
+    "data/sessions-372.json",
+    "domino-model.js",
+    "exam-diagnostics.js",
+    "example-methods.js",
+    "figure-viewer.js",
+    "flash-cards.js",
+    "flash-ui.js",
+    "fonts/source-code-pro-normal-cyrillic-ext-dd503d60c3.woff2",
+    "fonts/source-code-pro-normal-cyrillic-fd7699ecbd.woff2",
+    "fonts/source-code-pro-normal-greek-34dfcd3f61.woff2",
+    "fonts/source-code-pro-normal-greek-ext-01e467c83c.woff2",
+    "fonts/source-code-pro-normal-latin-8b774aaa51.woff2",
+    "fonts/source-code-pro-normal-latin-ext-ab316ee7e4.woff2",
+    "fonts/source-code-pro-normal-vietnamese-d8a28d78c1.woff2",
+    "fonts/source-sans-3-italic-cyrillic-747ba5266e.woff2",
+    "fonts/source-sans-3-italic-cyrillic-ext-9f9b2a3d40.woff2",
+    "fonts/source-sans-3-italic-greek-7ebcf40b8c.woff2",
+    "fonts/source-sans-3-italic-greek-ext-eed2194fd9.woff2",
+    "fonts/source-sans-3-italic-latin-5fbc14d56c.woff2",
+    "fonts/source-sans-3-italic-latin-ext-6fe10a66ec.woff2",
+    "fonts/source-sans-3-italic-vietnamese-aa44d57632.woff2",
+    "fonts/source-sans-3-normal-cyrillic-b6b721e08d.woff2",
+    "fonts/source-sans-3-normal-cyrillic-ext-c6e007862d.woff2",
+    "fonts/source-sans-3-normal-greek-dd6ec3878c.woff2",
+    "fonts/source-sans-3-normal-greek-ext-67fbab24bd.woff2",
+    "fonts/source-sans-3-normal-latin-19143dca07.woff2",
+    "fonts/source-sans-3-normal-latin-ext-a85a7459bd.woff2",
+    "fonts/source-sans-3-normal-vietnamese-a91edbcdcb.woff2",
+    "fonts/source-serif-4-normal-cyrillic-a81082707b.woff2",
+    "fonts/source-serif-4-normal-cyrillic-ext-da49e14ae1.woff2",
+    "fonts/source-serif-4-normal-greek-54c4728aa0.woff2",
+    "fonts/source-serif-4-normal-latin-382475f382.woff2",
+    "fonts/source-serif-4-normal-latin-ext-d10ccbbd0d.woff2",
+    "fonts/source-serif-4-normal-vietnamese-c3de01b514.woff2",
+    "fonts/stix-two-math-normal-all-8b2a6834cf.woff2",
+    "index.html",
+    "learning-support.js",
+    "learning-ui.js",
+    "lesson-introduction-library.js",
+    "lesson-introduction-media.js",
+    "lesson-introduction-videos.html",
+    "lesson-journeys.js",
+    "lesson-models.js",
+    "lesson-pager.js",
+    "lesson-player.js",
+    "lesson-screenflow.js",
+    "model-claims.js",
+    "notebook-challenges.js",
+    "original-learning.js",
+    "problem-figures.js",
+    "production/lesson-films/carry_counter.py",
+    "production/lesson-films/missing_rung.py",
+    "production/lesson-films/render_recorded.py",
+    "production/lesson-films/reversal_line.py",
+    "production/lesson-films/tile_framer.py",
+    "production/lesson-films/verify_recorded.py",
+    "production/scripts/S009.json",
+    "production/scripts/S010.json",
+    "production/scripts/S012.json",
+    "production/scripts/S017.json",
+    "production/t01-studio/stage.py",
+    "read-practice.css",
+    "recognition.js",
+    "reviewed-lesson.js",
+    "route-model.js",
+    "session-intros.js",
+    "supabase-client.js",
+    "tools/browser_checks.py",
+    "tools/browser_lesson_fixed.py",
+    "tools/check_lesson_film_routes.py",
+    "tools/video/preserve_encoded_audio.py",
+    "tools/video/restore_recorded_candidate.py",
+    "tools/video/s017-recorded-takes.json",
+    "tools/video/stable-caption-refresh-20261125.json",
+    "tools/video/test_recorded_caption.py",
+    "tools/video/test_restore_recorded_candidate.py",
+    "tools/video/verify_caption_refresh.py",
+    "transfer-practice.js",
+    "watch-lesson-intro.html",
+    "workshop-studies.js"
+  ],
+  "module_import_closure_files": 34,
+  "local_font_files_checked": 28,
+  "release_asset_count": 24,
+  "release_requires_all_lesson_jobs": true,
+  "final_editorial_credit": false
+}

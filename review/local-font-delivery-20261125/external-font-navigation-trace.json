@@ -1,0 +1,134 @@
+{
+  "scope": "Navigation-only diagnostic; not a route pass. No production backend or learner session.",
+  "events": [
+    {
+      "seconds": 1.428,
+      "event": "request",
+      "url": "https://simonrj.github.io/-summit-one-narrator/lesson-introduction-videos.html"
+    },
+    {
+      "seconds": 21.113,
+      "event": "response",
+      "url": "https://simonrj.github.io/-summit-one-narrator/lesson-introduction-videos.html",
+      "status": 200
+    },
+    {
+      "seconds": 21.135,
+      "event": "committed",
+      "status": 200
+    },
+    {
+      "seconds": 21.139,
+      "event": "request",
+      "url": "https://simonrj.github.io/-summit-one-narrator/lesson-introduction-videos.css"
+    },
+    {
+      "seconds": 21.14,
+      "event": "request",
+      "url": "https://simonrj.github.io/-summit-one-narrator/lesson-introduction-library.js"
+    },
+    {
+      "seconds": 21.14,
+      "event": "request",
+      "url": "https://simonrj.github.io/-summit-one-narrator/summit-polish.css"
+    },
+    {
+      "seconds": 21.14,
+      "event": "request",
+      "url": "https://simonrj.github.io/-summit-one-narrator/public-study-theme.css"
+    },
+    {
+      "seconds": 21.174,
+      "event": "response",
+      "url": "https://simonrj.github.io/-summit-one-narrator/lesson-introduction-videos.css",
+      "status": 200
+    },
+    {
+      "seconds": 21.207,
+      "event": "response",
+      "url": "https://simonrj.github.io/-summit-one-narrator/lesson-introduction-library.js",
+      "status": 200
+    },
+    {
+      "seconds": 21.212,
+      "event": "request",
+      "url": "https://simonrj.github.io/-summit-one-narrator/lesson-introduction-media.js"
+    },
+    {
+      "seconds": 21.242,
+      "event": "response",
+      "url": "https://simonrj.github.io/-summit-one-narrator/public-study-theme.css",
+      "status": 200
+    },
+    {
+      "seconds": 21.242,
+      "event": "response",
+      "url": "https://simonrj.github.io/-summit-one-narrator/summit-polish.css",
+      "status": 200
+    },
+    {
+      "seconds": 21.251,
+      "event": "request",
+      "url": "https://simonrj.github.io/-summit-one-narrator/design-system.css"
+    },
+    {
+      "seconds": 21.27,
+      "event": "response",
+      "url": "https://simonrj.github.io/-summit-one-narrator/lesson-introduction-media.js",
+      "status": 200
+    },
+    {
+      "seconds": 21.332,
+      "event": "response",
+      "url": "https://simonrj.github.io/-summit-one-narrator/design-system.css",
+      "status": 200
+    },
+    {
+      "seconds": 21.333,
+      "event": "request",
+      "url": "https://fonts.googleapis.com/css2"
+    },
+    {
+      "seconds": 39.993,
+      "event": "response",
+      "url": "https://fonts.googleapis.com/css2",
+      "status": 200
+    },
+    {
+      "seconds": 39.995,
+      "event": "request",
+      "url": "https://simonrj.github.io/-summit-one-narrator/data/recorded-studies.json"
+    },
+    {
+      "seconds": 39.996,
+      "event": "request",
+      "url": "https://raw.githubusercontent.com/SimonRJ/-summit-one-narrator/refs/heads/lesson-intro-catalog/data/lesson-intros-live.json"
+    },
+    {
+      "seconds": 39.999,
+      "event": "domcontentloaded"
+    },
+    {
+      "seconds": 40.003,
+      "event": "request",
+      "url": "https://fonts.gstatic.com/s/sourceserif4/v15/vEFF2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6kDXr4.woff2"
+    },
+    {
+      "seconds": 40.004,
+      "event": "request",
+      "url": "https://fonts.gstatic.com/s/sourcesans3/v20/nwpStKy2OAdR1K-IwhWudF-R3w8aZQ.woff2"
+    },
+    {
+      "seconds": 40.031,
+      "event": "response",
+      "url": "https://simonrj.github.io/-summit-one-narrator/data/recorded-studies.json",
+      "status": 200
+    },
+    {
+      "seconds": 40.066,
+      "event": "ready",
+      "title": "Lesson introduction videos \u00b7 Summit One",
+      "body": "\u2190 Summit One\nLesson introduction videos\n\nChoose a lesson to watch its worked examples. Use the chapters to revisit a step or read the transcript.\n\nLoading the lesson catalogue\u2026\n\n01\nDivisibility tests and modular remainders\n2:51\n02\nPlace-value decomposition and estimation\n2:44\n03\nWorking backwards through operations\n3:03\n04\nDigits, zero and positional constraints\n3:30\n05\nDigit sums and counting digits in ranges\n3:32\n06\nUnit-cube counting and layered solids\n2:56"
+    }
+  ]
+}

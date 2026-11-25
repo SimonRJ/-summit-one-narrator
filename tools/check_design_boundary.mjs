@@ -62,5 +62,5 @@ assert.equal(blobHash,"17953e7757a605a334ea1c46c13ed7bb9ebb0338",
 console.log("Design-system scope, assets, home UI and authentic exam freeze verified.");
 
 for(const page of fs.readdirSync('.').filter(name=>name.startsWith('watch-') && name.endsWith('.html'))){
-  assert(fs.readFileSync(page,'utf8').includes('href="public-study-theme.css"'),page+' is missing the shared study theme');
+  assert(fs.readFileSync(page,'utf8').includes('href="public-study-theme.css?v=local-fonts-20261125"'),page+' is missing the shared study theme');
 }

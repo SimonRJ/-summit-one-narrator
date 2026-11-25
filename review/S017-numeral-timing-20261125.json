@@ -1,0 +1,479 @@
+{
+  "lesson": "S017",
+  "title": "A frame around two tiles",
+  "status": "Both measured numeral issues corrected: collapsed scene-4 onset and positive scene-7 word end; source-specific guards verified; encoded release/editorial acceptance pending",
+  "final_editorial_credit": false,
+  "base_commit": "f5a94d42da4211d9584ebfbedebd9cd90bd27077",
+  "baseline_prepare_audio_sha256": "f3c282b62ea1c85351ee11bffcd43441e9ba3c4b7aefb06423a9b81414d4d7e9",
+  "source_manifest": "tools/video/s017-recorded-takes.json",
+  "source_scope": "All eight already-recorded, digest-verified raw takes; no synthesis, model download, external execution or source audio change.",
+  "recognizer": {
+    "model": "Existing cached base.en",
+    "device": "cpu",
+    "compute_type": "int8",
+    "cpu_threads": 2,
+    "method": "Independent second pass with every lexical digit token below EOT suppressed; complete source scenes, word timestamps, beam size 5, no conditioning on previous text.",
+    "secondary_replaces_audio": false
+  },
+  "audit_finished_at_utc": "2026-11-25T00:27:47.957892+00:00",
+  "all_scenes": [
+    {
+      "scene": 1,
+      "raw_wav_sha256": "7fe4d51a5c59aea334a00b8f2bdda93145ed308f6e505845dd0c1323e5b47bf4",
+      "baseline_match_percent": 100.0,
+      "wordform_match_percent": 100.0,
+      "collapsed_numeric_words": []
+    },
+    {
+      "scene": 2,
+      "raw_wav_sha256": "d205a2adc4d6acac843df4eee07f80aaf47475547ac8324dca1ebc6eccc0a402",
+      "baseline_match_percent": 100.0,
+      "wordform_match_percent": 100.0,
+      "collapsed_numeric_words": []
+    },
+    {
+      "scene": 3,
+      "raw_wav_sha256": "d16ff4d1adea58c036ecb13577d227a05d8977720c3de932bc497eab411c4730",
+      "baseline_match_percent": 100.0,
+      "wordform_match_percent": 100.0,
+      "collapsed_numeric_words": []
+    },
+    {
+      "scene": 4,
+      "raw_wav_sha256": "77268f2d6796cea40e4f700139e7b02879cb4ed659390abe813a19fc89f34edd",
+      "baseline_match_percent": 100.0,
+      "wordform_match_percent": 98.73,
+      "collapsed_numeric_words": [
+        {
+          "index": 34,
+          "text": "Twenty",
+          "start": 67.14,
+          "end": 67.14,
+          "matched": true
+        },
+        {
+          "index": 35,
+          "text": "four",
+          "start": 67.14,
+          "end": 67.14,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "scene": 5,
+      "raw_wav_sha256": "7d3d3f505ff3ad67700c979b3cb6ddf7d8296d699bb8054bb359a3890c134d02",
+      "baseline_match_percent": 100.0,
+      "wordform_match_percent": 100.0,
+      "collapsed_numeric_words": []
+    },
+    {
+      "scene": 6,
+      "raw_wav_sha256": "54cb49a35818f3386790c1643de262e807af1e1545e295e16250aa89c2298722",
+      "baseline_match_percent": 96.63,
+      "wordform_match_percent": 96.63,
+      "collapsed_numeric_words": []
+    },
+    {
+      "scene": 7,
+      "raw_wav_sha256": "812894fc7a62bb17e7a002f804a31c0febda3d62107dcb985ebc11ffa558d598",
+      "baseline_match_percent": 100.0,
+      "wordform_match_percent": 100.0,
+      "collapsed_numeric_words": []
+    },
+    {
+      "scene": 8,
+      "raw_wav_sha256": "5692961a15d930f293c116a92e39f83c945287124784883a48b2c5c60b44ace1",
+      "baseline_match_percent": 100.0,
+      "wordform_match_percent": 100.0,
+      "collapsed_numeric_words": []
+    }
+  ],
+  "numeric_issue": {
+    "scene": 4,
+    "authored_phrase": "Twenty four rectangles contain A.",
+    "baseline_caption_start": 67.14,
+    "measured_wordform_caption_start": 66.68,
+    "delay_seconds": 0.46,
+    "collapsed_word_indices": [
+      34,
+      35
+    ],
+    "baseline_window": [
+      {
+        "index": 33,
+        "text": "counts.",
+        "start": 65.7,
+        "end": 66.02000000000001,
+        "matched": true
+      },
+      {
+        "index": 34,
+        "text": "Twenty",
+        "start": 67.14,
+        "end": 67.14,
+        "matched": true
+      },
+      {
+        "index": 35,
+        "text": "four",
+        "start": 67.14,
+        "end": 67.14,
+        "matched": true
+      },
+      {
+        "index": 36,
+        "text": "rectangles",
+        "start": 67.14,
+        "end": 67.78,
+        "matched": true
+      },
+      {
+        "index": 37,
+        "text": "contain",
+        "start": 67.78,
+        "end": 68.1,
+        "matched": true
+      }
+    ],
+    "wordform_window": [
+      {
+        "index": 33,
+        "text": "counts.",
+        "start": 65.7,
+        "end": 66.02000000000001,
+        "matched": true
+      },
+      {
+        "index": 34,
+        "text": "Twenty",
+        "start": 66.68,
+        "end": 66.88000000000001,
+        "matched": true
+      },
+      {
+        "index": 35,
+        "text": "four",
+        "start": 66.88000000000001,
+        "end": 67.22,
+        "matched": true
+      },
+      {
+        "index": 36,
+        "text": "rectangles",
+        "start": 67.22,
+        "end": 67.75999999999999,
+        "matched": true
+      },
+      {
+        "index": 37,
+        "text": "contain",
+        "start": 67.76,
+        "end": 68.14,
+        "matched": true
+      }
+    ],
+    "measurement_caveat": "The secondary pass contains one extra low-confidence \u201cpoints.\u201d after \u201ccounts.\u201d, reducing its match from 100% to 98.73%. Only exact, positively measured numeric spans and any necessary directly adjoining word may be adopted; do not replace unrelated scene timing.",
+    "raw_audio_energy": [
+      {
+        "start": 66.2,
+        "end": 66.4,
+        "rms_dbfs": -38.26
+      },
+      {
+        "start": 66.5,
+        "end": 66.65,
+        "rms_dbfs": -63.4
+      },
+      {
+        "start": 66.68,
+        "end": 66.88,
+        "rms_dbfs": -17.15
+      },
+      {
+        "start": 66.88,
+        "end": 67.1,
+        "rms_dbfs": -20.68
+      },
+      {
+        "start": 67.14,
+        "end": 67.22,
+        "rms_dbfs": -15.34
+      }
+    ],
+    "source_rendered_diagnostics": {
+      "at_66_80_seconds": "Mathematics is present, caption is absent while the measured number is spoken.",
+      "at_67_30_seconds": "The number phrase is visible after the late baseline cue start.",
+      "encoded_movie": false
+    }
+  },
+  "other_observations": [
+    {
+      "scene": 3,
+      "zero_duration_words": [
+        {
+          "index": 9,
+          "text": "Call",
+          "start": 37.75,
+          "end": 37.75,
+          "matched": true
+        }
+      ],
+      "unmatched_words": []
+    },
+    {
+      "scene": 6,
+      "zero_duration_words": [
+        {
+          "index": 4,
+          "text": "Slide",
+          "start": 92.7,
+          "end": 92.7,
+          "matched": true
+        }
+      ],
+      "unmatched_words": [
+        {
+          "text": "marked",
+          "matched": false,
+          "start": 91.16000000000001,
+          "end": 91.44000000000001
+        }
+      ]
+    }
+  ],
+  "other_observations_scope": "The separate nonnumeric anchors Call and Slide remain outside the numerical repair scope and do not establish whole-film audible/editorial acceptance.",
+  "repair": {
+    "shared_fix_commit": "bed51c9835f93ffe36996545bbc88ff4e91c7e35",
+    "integrated_as": "5b831b6142990499a9079b3e64d9d4bdfd6c8a14",
+    "prepare_audio_sha256": "7e7d9bbc24db64f88208b8fdbd31997296e6f7af8d9e0c24ad04b956538f5432",
+    "guard_tests_passed": 11,
+    "method": "One digit-suppressed word-form pass only for a zero-width numeric group backed by a zero-width ASR numeral. Complete normalized-token coverage, positive measured intervals, scene and anchor containment, secondary match within three percentage points and at least 90%, at most two adjoining words per side.",
+    "accepted_report": {
+      "phrase": "Twenty four",
+      "original_start": 67.14,
+      "original_end": 67.14,
+      "measured_start": 66.68,
+      "measured_end": 67.22,
+      "word_form_match_percent": 98.73,
+      "replaced_word_indices": [
+        34,
+        35,
+        36
+      ],
+      "adjoining_words": [
+        "rectangles"
+      ]
+    },
+    "caption_start_before": 67.14,
+    "caption_start_after": 66.68,
+    "source_waveform_unchanged": true,
+    "follow_up_shared_fix_commit": "6485a795534eb7033666b7236ac60984b407fe8c",
+    "follow_up_integrated_as": "02b53ae138b264344f99a28368ee2a3a6f94fc67"
+  },
+  "post_repair_verification": {
+    "all_scenes_replayed": 8,
+    "secondary_passes_during_replay": 1,
+    "remaining_collapsed_numeric_groups": 0,
+    "changed_word_indices_by_scene": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [
+        34,
+        35,
+        36
+      ],
+      "5": [],
+      "6": [],
+      "7": [],
+      "8": []
+    },
+    "all_eight_take_files_unchanged": true,
+    "live_complete_scene4_rerun": {
+      "scene": 4,
+      "baseline_match_percent": 100.0,
+      "reports": [
+        {
+          "phrase": "Twenty four",
+          "original_start": 67.14,
+          "original_end": 67.14,
+          "measured_start": 66.68,
+          "measured_end": 67.22,
+          "word_form_match_percent": 98.73,
+          "replaced_word_indices": [
+            34,
+            35,
+            36
+          ],
+          "adjoining_words": [
+            "rectangles"
+          ]
+        }
+      ],
+      "changed_word_indices": [
+        34,
+        35,
+        36
+      ],
+      "caption_start": 66.68,
+      "source_waveform_unchanged": true,
+      "cached_local_model_only": true
+    },
+    "all_word_text_unchanged": true,
+    "all_unrelated_word_intervals_unchanged": true,
+    "source_rendered_frames_visually_inspected": [
+      {
+        "seconds": 66.8,
+        "observation": "Caption visible during Twenty, with the authored arithmetic and grid intact."
+      },
+      {
+        "seconds": 67.1,
+        "observation": "Caption visible with four emphasized; no overlap or clipping."
+      }
+    ],
+    "no_movie_encoded": true,
+    "no_synthesis": true,
+    "no_model_download": true,
+    "verification_finished_at_utc": "2026-11-25T00:36:38.071434+00:00"
+  },
+  "positive_number_audit": {
+    "method": "Inspected every baseline ASR digit token in all eight saved recognition outputs and compared full number extents with the independently measured word forms.",
+    "additional_compound_tokens": [
+      {
+        "scene": 7,
+        "text": "24",
+        "baseline_interval": [
+          117.92,
+          118.32
+        ],
+        "measured_interval": [
+          117.92,
+          118.52
+        ],
+        "early_word_end_seconds": 0.2,
+        "retained_phrase_interval": [
+          117.54,
+          120.77
+        ],
+        "phrase_was_fully_visible": true,
+        "mid_number_caption_split": false
+      }
+    ],
+    "positive_single_word_tokens": [
+      {
+        "scene": 7,
+        "text": "8",
+        "baseline_interval": [
+          115.64,
+          115.96
+        ],
+        "measured_interval": [
+          115.64,
+          115.94
+        ]
+      },
+      {
+        "scene": 7,
+        "text": "8",
+        "baseline_interval": [
+          120.36,
+          120.64
+        ],
+        "measured_interval": [
+          120.38,
+          120.66
+        ]
+      },
+      {
+        "scene": 7,
+        "text": "16",
+        "baseline_interval": [
+          121.0,
+          121.46
+        ],
+        "measured_interval": [
+          121.02,
+          121.44
+        ]
+      }
+    ],
+    "source_specific_plan": "production/lesson-films/s017-number-timing.json",
+    "source_specific_plan_sha256": "0de195810f2a26294a6b3c65acb2c14e31ec30418381948eac2e684ff86c5360",
+    "source_specific_command": "python production/lesson-films/refine_s017_timing.py build/t01-studio/S017 --report build-s017-number-timing-review.json",
+    "reviewed_application": {
+      "lesson": "S017",
+      "scene": 7,
+      "plan_sha256": "0de195810f2a26294a6b3c65acb2c14e31ec30418381948eac2e684ff86c5360",
+      "source_wav_sha256": "812894fc7a62bb17e7a002f804a31c0febda3d62107dcb985ebc11ffa558d598",
+      "repairs": [
+        {
+          "phrase": "twenty four",
+          "original_start": 117.92,
+          "original_end": 118.32000000000001,
+          "measured_start": 117.92,
+          "measured_end": 118.52,
+          "word_form_match_percent": 100.0,
+          "replaced_word_indices": [
+            35,
+            36,
+            37
+          ],
+          "adjoining_words": [
+            "that"
+          ]
+        }
+      ],
+      "changed_word_indices": [
+        35,
+        36,
+        37
+      ],
+      "caption_cues_unchanged": true,
+      "vtt_unchanged": true,
+      "audio_unchanged": true,
+      "automatic_repair_rule_unchanged": true,
+      "final_editorial_credit": false
+    },
+    "verification": {
+      "lesson": "S017",
+      "source_specific_scene": 7,
+      "local_changed_indices": [
+        35,
+        36,
+        37
+      ],
+      "number_before": [
+        117.92,
+        118.32
+      ],
+      "number_after": [
+        117.92,
+        118.52
+      ],
+      "caption_before_and_after": [
+        117.54,
+        120.77
+      ],
+      "all_other_word_intervals_unchanged": true,
+      "caption_cues_and_vtt_unchanged": true,
+      "source_wav_unchanged": true,
+      "different_current_asr_before_times_accepted": true,
+      "wrong_wav_rejected_without_timeline_write": true,
+      "insufficient_caption_span_rejected_without_timeline_write": true,
+      "shared_compound_grouping_unchanged_for_s017": true,
+      "movie_encoded": false,
+      "new_recognition": false,
+      "new_synthesis": false,
+      "final_editorial_credit": false
+    },
+    "source_rendered_frame_review": {
+      "seconds": 118.44,
+      "before": "that is emphasized prematurely while the measured four is still spoken",
+      "after": "four is emphasized; the entire phrase, arithmetic and marked grid remain intact"
+    },
+    "ci_timestamp_tolerance": "No exact archived-before timestamps are required. Exact recording/script hashes bind the scene-relative measurements; the shared bounded helper checks overlap and immediate-neighbor constraints against current ASR words.",
+    "automatic_rule_unchanged": "Default recognition remains collapsed-only; this explicit positive group applies solely to the hash-bound S017 scene 7.",
+    "final_editorial_credit": false
+  }
+}

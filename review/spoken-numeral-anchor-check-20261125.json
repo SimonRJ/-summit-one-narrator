@@ -1,0 +1,69 @@
+{
+  "scope": "Targeted caption-anchor risk check of the exact returned S019/S020 CI candidates after the S015/S017 numeral issue was found. No audio, caption or learner changes.",
+  "candidates": [
+    {
+      "lesson": "S019",
+      "artifact_id": 14972215243,
+      "movie_sha256": "51545b1baf76d155f052fdcedc6bfde126e45c63845e97468166c0e069bc365f",
+      "guide_and_qa_match": true,
+      "word_count": 351,
+      "numeric_word_count": 34,
+      "zero_duration_numeric_words": [],
+      "sub_50ms_numeric_words": [
+        {
+          "word": {
+            "text": "One",
+            "start": 51.133333333333326,
+            "end": 51.173333333333325,
+            "matched": true
+          },
+          "visible_phrase": [
+            {
+              "start": 51.133333333333326,
+              "end": 52.47333333333333,
+              "text": "One is blue and one is gold."
+            }
+          ]
+        }
+      ],
+      "assessment": "No collapsed numeral groups; each short anchor occurs within a positive-duration phrase. Complete listening acceptance remains pending."
+    },
+    {
+      "lesson": "S020",
+      "artifact_id": 14978023824,
+      "movie_sha256": "5308674d7d66dee6545d05699311a192b13e2fce2d48b6d2f560ec35ce1e57f3",
+      "guide_and_qa_match": true,
+      "word_count": 495,
+      "numeric_word_count": 62,
+      "zero_duration_numeric_words": [],
+      "sub_50ms_numeric_words": [
+        {
+          "word": {
+            "text": "nine,",
+            "start": 76.8,
+            "end": 76.84,
+            "matched": true
+          },
+          "visible_phrase": [
+            {
+              "start": 73.82,
+              "end": 77.78,
+              "text": "The first four units digits are three, nine, seven and"
+            }
+          ]
+        }
+      ],
+      "assessment": "No collapsed numeral groups; each short anchor occurs within a positive-duration phrase. Complete listening acceptance remains pending."
+    }
+  ],
+  "S020_caption_glyph_repair": {
+    "frame_seconds": 145.5,
+    "evidence": "review/S020-stable-caption-ci-20261125.png",
+    "observation": "One clear stable phrase, including position; the prior doubled glyph is absent.",
+    "audio_packets_identical": true,
+    "timeline_and_vtt_identical": true,
+    "encoded_reference_comparisons": 192
+  },
+  "public_releases_verified": false,
+  "final_editorial_credit": false
+}

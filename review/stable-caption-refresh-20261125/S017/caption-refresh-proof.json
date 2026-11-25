@@ -1,0 +1,42 @@
+{
+  "lesson": "S017",
+  "mode": "held source and drawing reference only",
+  "source_movie_sha256": "3ceff0f24ada60db2d09d9900658eed406c8b1666eee85603af57b430a2fc7d7",
+  "candidate_movie_sha256": null,
+  "frames": [
+    {
+      "frame": 2006,
+      "decoded_seconds": 66.86666666666666,
+      "glyph_pixels_checked": 12429,
+      "source_artwork_mean_error": 1.4465,
+      "held_caption_glyph_mean_error": 146.811,
+      "maximum_candidate_caption_glyph_error": 12,
+      "original_image": "S017-frame-2006-original.png",
+      "source_reference_image": "S017-frame-2006-reference.png"
+    },
+    {
+      "frame": 2017,
+      "decoded_seconds": 67.23333333333333,
+      "glyph_pixels_checked": 12429,
+      "source_artwork_mean_error": 1.4466,
+      "held_caption_glyph_mean_error": 149.0146,
+      "maximum_candidate_caption_glyph_error": 12,
+      "original_image": "S017-frame-2017-original.png",
+      "source_reference_image": "S017-frame-2017-reference.png"
+    },
+    {
+      "frame": 3538,
+      "decoded_seconds": 117.93333333333334,
+      "glyph_pixels_checked": 20959,
+      "source_artwork_mean_error": 1.4307,
+      "held_caption_glyph_mean_error": 157.3516,
+      "maximum_candidate_caption_glyph_error": 12,
+      "original_image": "S017-frame-3538-original.png",
+      "source_reference_image": "S017-frame-3538-reference.png"
+    }
+  ],
+  "audio": null,
+  "recording_members_unchanged": true,
+  "candidate_encoded_acceptance": false,
+  "final_editorial_credit": false
+}

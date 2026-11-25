@@ -1,0 +1,281 @@
+{
+  "source_commit": "585081646578fe8b0020d2dee831a8f853eb3bca",
+  "checked_utc": "2026-11-25T00:37:49.552915+00:00",
+  "scope": "Live HTTP bytes and route declarations only; no browser or learner-state action.",
+  "files": [
+    {
+      "path": "index.html",
+      "url": "https://simonrj.github.io/-summit-one-narrator/index.html",
+      "expected_bytes": 4377,
+      "expected_sha256": "2365d48ba86377cab91a477d631cee031a3c9d916b167f55d413b739e1b92c66",
+      "status": 200,
+      "actual_bytes": 4377,
+      "actual_sha256": "2365d48ba86377cab91a477d631cee031a3c9d916b167f55d413b739e1b92c66",
+      "exact_match": true,
+      "headers": {
+        "ETag": "\"6b062d35-1119\"",
+        "Last-Modified": "Wed, 25 Nov 2026 00:35:01 GMT",
+        "Cache-Control": "max-age=600"
+      }
+    },
+    {
+      "path": "sw.js",
+      "url": "https://simonrj.github.io/-summit-one-narrator/sw.js",
+      "expected_bytes": 7302,
+      "expected_sha256": "50d179c51bf4ea9e6ccf7913d35e33b24badd59877a00797521a6db4681b75ea",
+      "status": 200,
+      "actual_bytes": 7302,
+      "actual_sha256": "50d179c51bf4ea9e6ccf7913d35e33b24badd59877a00797521a6db4681b75ea",
+      "exact_match": true,
+      "headers": {
+        "ETag": "\"6b062d35-1c86\"",
+        "Last-Modified": "Wed, 25 Nov 2026 00:35:01 GMT",
+        "Cache-Control": "max-age=600"
+      }
+    },
+    {
+      "path": "lesson-introduction-videos.html",
+      "url": "https://simonrj.github.io/-summit-one-narrator/lesson-introduction-videos.html",
+      "expected_bytes": 1843,
+      "expected_sha256": "410a2b23041cb468f2b44f646f7c20684d1ae98d3a20a53c7e783b5344e507fd",
+      "status": 200,
+      "actual_bytes": 1843,
+      "actual_sha256": "410a2b23041cb468f2b44f646f7c20684d1ae98d3a20a53c7e783b5344e507fd",
+      "exact_match": true,
+      "headers": {
+        "ETag": "\"6b062d35-733\"",
+        "Last-Modified": "Wed, 25 Nov 2026 00:35:01 GMT",
+        "Cache-Control": "max-age=600"
+      }
+    },
+    {
+      "path": "watch-lesson-intro.html",
+      "url": "https://simonrj.github.io/-summit-one-narrator/watch-lesson-intro.html",
+      "expected_bytes": 1785,
+      "expected_sha256": "d439fa875688582dc36fe239076d678188d6a99bd592e3ec3b2bf2eda4209e73",
+      "status": 200,
+      "actual_bytes": 1785,
+      "actual_sha256": "d439fa875688582dc36fe239076d678188d6a99bd592e3ec3b2bf2eda4209e73",
+      "exact_match": true,
+      "headers": {
+        "ETag": "\"6b062d35-6f9\"",
+        "Last-Modified": "Wed, 25 Nov 2026 00:35:01 GMT",
+        "Cache-Control": "max-age=600"
+      }
+    },
+    {
+      "path": "offline-reader.html",
+      "url": "https://simonrj.github.io/-summit-one-narrator/offline-reader.html",
+      "expected_bytes": 2191,
+      "expected_sha256": "a56b1aff9caae1638513cb324f8b25942ee9b6b6024e1e4c9512c4c1f41079a6",
+      "status": 200,
+      "actual_bytes": 2191,
+      "actual_sha256": "a56b1aff9caae1638513cb324f8b25942ee9b6b6024e1e4c9512c4c1f41079a6",
+      "exact_match": true,
+      "headers": {
+        "ETag": "\"6b062d36-88f\"",
+        "Last-Modified": "Wed, 25 Nov 2026 00:35:02 GMT",
+        "Cache-Control": "max-age=600"
+      }
+    },
+    {
+      "path": "app-main.js",
+      "url": "https://simonrj.github.io/-summit-one-narrator/app-main.js?v=priority-films-20261125",
+      "expected_bytes": 85757,
+      "expected_sha256": "a6cd3ada6ac9db3396e252e8736d0310dcfeb3d349d5adddd18c6837384a0e35",
+      "status": 200,
+      "actual_bytes": 85757,
+      "actual_sha256": "a6cd3ada6ac9db3396e252e8736d0310dcfeb3d349d5adddd18c6837384a0e35",
+      "exact_match": true,
+      "headers": {
+        "ETag": "\"6b062d35-14efd\"",
+        "Last-Modified": "Wed, 25 Nov 2026 00:35:01 GMT",
+        "Cache-Control": "max-age=600"
+      }
+    },
+    {
+      "path": "course-menu-ui.js",
+      "url": "https://simonrj.github.io/-summit-one-narrator/course-menu-ui.js?v=priority-films-20261125",
+      "expected_bytes": 10933,
+      "expected_sha256": "08a99e43c80c2acf4adb4ba90cc4884c5a5b2f2e188912f37f51a6f6d5ffb757",
+      "status": 200,
+      "actual_bytes": 10933,
+      "actual_sha256": "08a99e43c80c2acf4adb4ba90cc4884c5a5b2f2e188912f37f51a6f6d5ffb757",
+      "exact_match": true,
+      "headers": {
+        "ETag": "\"6b062d35-2ab5\"",
+        "Last-Modified": "Wed, 25 Nov 2026 00:35:01 GMT",
+        "Cache-Control": "max-age=600"
+      }
+    },
+    {
+      "path": "lesson-introduction-media.js",
+      "url": "https://simonrj.github.io/-summit-one-narrator/lesson-introduction-media.js?v=priority-films-20261125",
+      "expected_bytes": 5425,
+      "expected_sha256": "542e633b154f28d9af1d22681a7e3009a6968f8776cb485a21ab3d981632e73b",
+      "status": 200,
+      "actual_bytes": 5425,
+      "actual_sha256": "542e633b154f28d9af1d22681a7e3009a6968f8776cb485a21ab3d981632e73b",
+      "exact_match": true,
+      "headers": {
+        "ETag": "\"6b062d35-1531\"",
+        "Last-Modified": "Wed, 25 Nov 2026 00:35:01 GMT",
+        "Cache-Control": "max-age=600"
+      }
+    },
+    {
+      "path": "lesson-introduction-library.js",
+      "url": "https://simonrj.github.io/-summit-one-narrator/lesson-introduction-library.js?v=priority-films-20261125",
+      "expected_bytes": 6747,
+      "expected_sha256": "f91b8c8760928bd9f83fd4a6d4c3fa6433f084b070f0b0ee56436fbc64f0c272",
+      "status": 200,
+      "actual_bytes": 6747,
+      "actual_sha256": "f91b8c8760928bd9f83fd4a6d4c3fa6433f084b070f0b0ee56436fbc64f0c272",
+      "exact_match": true,
+      "headers": {
+        "ETag": "\"6b062d35-1a5b\"",
+        "Last-Modified": "Wed, 25 Nov 2026 00:35:01 GMT",
+        "Cache-Control": "max-age=600"
+      }
+    },
+    {
+      "path": "offline-reader.js",
+      "url": "https://simonrj.github.io/-summit-one-narrator/offline-reader.js?v=priority-films-20261125",
+      "expected_bytes": 3628,
+      "expected_sha256": "6a23561d62f0453d3662791d1e8ae232f0bf4a9c4a1b60586d985be829fc5955",
+      "status": 200,
+      "actual_bytes": 3628,
+      "actual_sha256": "6a23561d62f0453d3662791d1e8ae232f0bf4a9c4a1b60586d985be829fc5955",
+      "exact_match": true,
+      "headers": {
+        "ETag": "\"6b062d35-e2c\"",
+        "Last-Modified": "Wed, 25 Nov 2026 00:35:01 GMT",
+        "Cache-Control": "max-age=600"
+      }
+    },
+    {
+      "path": "data/read-watch-practise.json",
+      "url": "https://simonrj.github.io/-summit-one-narrator/data/read-watch-practise.json?v=priority-films-20261125",
+      "expected_bytes": 166753,
+      "expected_sha256": "6691319000b3f1339d8b0e7afccccb9dce374fffe57129c31a096810a3226df3",
+      "status": 200,
+      "actual_bytes": 166753,
+      "actual_sha256": "6691319000b3f1339d8b0e7afccccb9dce374fffe57129c31a096810a3226df3",
+      "exact_match": true,
+      "headers": {
+        "ETag": "\"6b062d35-28b61\"",
+        "Last-Modified": "Wed, 25 Nov 2026 00:35:01 GMT",
+        "Cache-Control": "max-age=600"
+      }
+    },
+    {
+      "path": "data/read-watch-practise-later.json",
+      "url": "https://simonrj.github.io/-summit-one-narrator/data/read-watch-practise-later.json?v=priority-films-20261125",
+      "expected_bytes": 663871,
+      "expected_sha256": "b91671cf6e2d9eb33c60507a5673718a6d97b02537e9c0821b57d2438b18b3c8",
+      "status": 200,
+      "actual_bytes": 663871,
+      "actual_sha256": "b91671cf6e2d9eb33c60507a5673718a6d97b02537e9c0821b57d2438b18b3c8",
+      "exact_match": true,
+      "headers": {
+        "ETag": "\"6b062d35-a213f\"",
+        "Last-Modified": "Wed, 25 Nov 2026 00:35:01 GMT",
+        "Cache-Control": "max-age=600"
+      }
+    },
+    {
+      "path": "data/recorded-studies.json",
+      "url": "https://simonrj.github.io/-summit-one-narrator/data/recorded-studies.json?v=priority-films-20261125",
+      "expected_bytes": 36266,
+      "expected_sha256": "ec02a3374303881887c1b26a4d6ceb00bcb282920e8195f6dd316be74f692004",
+      "status": 200,
+      "actual_bytes": 36266,
+      "actual_sha256": "ec02a3374303881887c1b26a4d6ceb00bcb282920e8195f6dd316be74f692004",
+      "exact_match": true,
+      "headers": {
+        "ETag": "\"6b062d35-8daa\"",
+        "Last-Modified": "Wed, 25 Nov 2026 00:35:01 GMT",
+        "Cache-Control": "max-age=600"
+      }
+    },
+    {
+      "path": "data/teaching-72.json",
+      "url": "https://simonrj.github.io/-summit-one-narrator/data/teaching-72.json?v=priority-films-20261125",
+      "expected_bytes": 137920,
+      "expected_sha256": "abf94dc7fa0b6fb470502ca66462d4cbb4f51acf4a3aea5ea932aef69906cfe9",
+      "status": 200,
+      "actual_bytes": 137920,
+      "actual_sha256": "abf94dc7fa0b6fb470502ca66462d4cbb4f51acf4a3aea5ea932aef69906cfe9",
+      "exact_match": true,
+      "headers": {
+        "ETag": "\"6b062d35-21ac0\"",
+        "Last-Modified": "Wed, 25 Nov 2026 00:35:01 GMT",
+        "Cache-Control": "max-age=600"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "slot": 9,
+      "film": "S009",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S009.mp4",
+      "video_title": "The carry counter",
+      "bridge": "Track the sleeve that crosses from the units drawer into the tens drawer. Later, read the hundreds drawer first.",
+      "guide_movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S009.mp4",
+      "guide_movie_sha256": "39d28fec11fe4cc1b1d1b840d01ab8d8b3ae3ccb6d184bf37c1ccf4e37c16ef6",
+      "match": true
+    },
+    {
+      "slot": 228,
+      "film": "S009",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S009.mp4",
+      "video_title": "The carry counter",
+      "bridge": "When eight and eight make sixteen, follow the six loose units and the sleeve worth one ten. Where does each go before the tens are added?",
+      "guide_movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S009.mp4",
+      "guide_movie_sha256": "39d28fec11fe4cc1b1d1b840d01ab8d8b3ae3ccb6d184bf37c1ccf4e37c16ef6",
+      "match": true
+    },
+    {
+      "slot": 10,
+      "film": "S010",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S010.mp4",
+      "video_title": "The reversal line",
+      "bridge": "Follow the two digits when the ticket turns. At inspection, compare both the printed sum and the letters that received its digits.",
+      "guide_movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S010.mp4",
+      "guide_movie_sha256": "e8e2e6f697b00cd9401479a603bf6992c2538a107b3fbd519cac0e0b9b7f9a71",
+      "match": true
+    },
+    {
+      "slot": 319,
+      "film": "S010",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S010.mp4",
+      "video_title": "The reversal line",
+      "bridge": "In the ticket inspection, use the zero in the units column to force the missing digit. Then watch why 51 + 59 is rejected despite adding correctly.",
+      "guide_movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S010.mp4",
+      "guide_movie_sha256": "e8e2e6f697b00cd9401479a603bf6992c2538a107b3fbd519cac0e0b9b7f9a71",
+      "match": true
+    },
+    {
+      "slot": 12,
+      "film": "S012",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s012-missing-rung-20261125-b46d28d6d374/S012.mp4",
+      "video_title": "The missing rung",
+      "bridge": "Pause when the film marks rung 3 as broken. Is rung 4 still reachable? Trace its possible final jumps before the film fills in the table.",
+      "guide_movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s012-missing-rung-20261125-b46d28d6d374/S012.mp4",
+      "guide_movie_sha256": "87e71ca9ae8e3355f9f092f05a7e4c0678313aa569bbc3b4cc63a200ff2cedd7",
+      "match": true
+    },
+    {
+      "slot": 248,
+      "film": "S012",
+      "movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s012-missing-rung-20261125-b46d28d6d374/S012.mp4",
+      "video_title": "The missing rung",
+      "bridge": "Watch the film\u2019s blocked rung remove a possible previous landing. Then ask what extra information a path count would need if an entire kind of move were restricted.",
+      "guide_movie": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s012-missing-rung-20261125-b46d28d6d374/S012.mp4",
+      "guide_movie_sha256": "87e71ca9ae8e3355f9f092f05a7e4c0678313aa569bbc3b4cc63a200ff2cedd7",
+      "match": true
+    }
+  ],
+  "all_bytes_match": true,
+  "all_six_routes_match": true
+}

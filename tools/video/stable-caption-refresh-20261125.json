@@ -1,0 +1,436 @@
+{
+  "schema_version": 1,
+  "repository": "SimonRJ/-summit-one-narrator",
+  "purpose": "Replace doubled caption glyphs while preserving the approved recording, measured timeline, VTT and exact AAC packets. No alignment or speech generation.",
+  "final_editorial_credit": false,
+  "implementation_files": {
+    "production/lesson-films/render_recorded.py": "9e7597563cba4e942291fb854ae6aa91859eb51eddf36ed5f5a5df1a1412027d",
+    "production/t01-studio/stage.py": "64a74d9247aedf12f617674c9ffc0a7457f0e711d12bd6a0305515fb7d64ed4a",
+    "tools/video/preserve_encoded_audio.py": "c71cfdef1ca0d633a7ee3e533f842bf53a4d2490272ab1507d0c9535e90f08f0"
+  },
+  "lessons": {
+    "S009": {
+      "id": "S009",
+      "source": {
+        "kind": "public_release",
+        "tag": "carry-reversal-reviewed-20261125-bcbd31159202"
+      },
+      "assets": {
+        "S009-guide.json": {
+          "bytes": 2700,
+          "sha256": "6a1e31c0439a91c1a8ac360178334c1ae1b5b937b3ed6258bb7cb78fbd28b1ba",
+          "url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S009-guide.json"
+        },
+        "S009-poster.jpg": {
+          "bytes": 102262,
+          "sha256": "e843a828da40a2034b185a8a465a3b724073218ce4df338effc4589bbd6944e3",
+          "url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S009-poster.jpg"
+        },
+        "S009-qa.json": {
+          "bytes": 572,
+          "sha256": "911f6b4d4ff2e115288b852bb4a21d6c41f4ff1af3284b9f897307e50dfe25a8",
+          "url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S009-qa.json"
+        },
+        "S009-recording.zip": {
+          "bytes": 10566604,
+          "sha256": "33e0af29c418fe8b8b3105bff05126e82cc062ca448959b192483f3333e7e730",
+          "url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S009-recording.zip"
+        },
+        "S009.mp4": {
+          "bytes": 7470927,
+          "sha256": "39d28fec11fe4cc1b1d1b840d01ab8d8b3ae3ccb6d184bf37c1ccf4e37c16ef6",
+          "url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S009.mp4"
+        },
+        "S009.vtt": {
+          "bytes": 3466,
+          "sha256": "985c6f17fb272168144c811541fd8baba81b45d999abe067296fe1e9934072ce",
+          "url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S009.vtt"
+        }
+      },
+      "recording_files": {
+        "captions.vtt": {
+          "bytes": 3466,
+          "sha256": "985c6f17fb272168144c811541fd8baba81b45d999abe067296fe1e9934072ce"
+        },
+        "narration.flac": {
+          "bytes": 10573761,
+          "sha256": "a18fee9909c80de6adebad35b6c6ea194926291e0dac5d9a765882ab0ba9bbcd"
+        },
+        "script.json": {
+          "bytes": 2707,
+          "sha256": "0400881b484b9b25d73469a8b77684d44dbe0b35b52516029b0596917da1c5d1"
+        },
+        "timeline.json": {
+          "bytes": 49095,
+          "sha256": "e229fa2e22e2004af7589d2dcf9520ba8b6d9c38a0ff1940f2501efb21eb7d15"
+        }
+      },
+      "artwork_file": "production/lesson-films/carry_counter.py",
+      "artwork_sha256": "0e2a7bf8b8de37cc9e4ade3c247fab8d64f4224c7fd7ae8a7fa2fd3b875c32d3",
+      "voice_reference": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+      "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+      "scenes": 7,
+      "duration": 132.42,
+      "spoken_words": 326,
+      "caption_phrases": 55,
+      "canonical_slot": 9,
+      "consumer_slot": 228,
+      "bridges": {
+        "9": "Track the sleeve that crosses from the units drawer into the tens drawer. Later, read the hundreds drawer first.",
+        "228": "When eight and eight make sixteen, follow the six loose units and the sleeve worth one ten. Where does each go before the tens are added?"
+      },
+      "caption_transition_frames": [
+        {
+          "frame": 43,
+          "word": "counters",
+          "original_evidence": "review/caption-layer-holds-20261125/S009-1-caption.png"
+        },
+        {
+          "frame": 153,
+          "word": "equally.",
+          "original_evidence": "review/caption-layer-holds-20261125/S009-2-caption.png"
+        }
+      ]
+    },
+    "S010": {
+      "id": "S010",
+      "source": {
+        "kind": "public_release",
+        "tag": "carry-reversal-reviewed-20261125-bcbd31159202"
+      },
+      "assets": {
+        "S010-guide.json": {
+          "bytes": 2861,
+          "sha256": "e4291a2fbd901ec9d6ba9fb05f99a588cbf1182b0535ffeb7f0feb4c808fd82f",
+          "url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S010-guide.json"
+        },
+        "S010-poster.jpg": {
+          "bytes": 105443,
+          "sha256": "6f49927e420dcf9ec9646e50054142032ee45b78e2e95b0cc8884ae343caf70e",
+          "url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S010-poster.jpg"
+        },
+        "S010-qa.json": {
+          "bytes": 573,
+          "sha256": "d55ae6a057ec5953105e0b79cbf99b2330d867a311cb7d365ca265a032ee6b5c",
+          "url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S010-qa.json"
+        },
+        "S010-recording.zip": {
+          "bytes": 11323514,
+          "sha256": "7a1d5b2bdad48fcb1da0040509bdd8ac3c400aa9a3eb67eaac08c890e700789c",
+          "url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S010-recording.zip"
+        },
+        "S010.mp4": {
+          "bytes": 8421078,
+          "sha256": "e8e2e6f697b00cd9401479a603bf6992c2538a107b3fbd519cac0e0b9b7f9a71",
+          "url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S010.mp4"
+        },
+        "S010.vtt": {
+          "bytes": 3868,
+          "sha256": "84224085d387f5a7027bc32b20b2bb1d8d6c82a3a094485b32f8b0879f153878",
+          "url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/carry-reversal-reviewed-20261125-bcbd31159202/S010.vtt"
+        }
+      },
+      "recording_files": {
+        "captions.vtt": {
+          "bytes": 3868,
+          "sha256": "84224085d387f5a7027bc32b20b2bb1d8d6c82a3a094485b32f8b0879f153878"
+        },
+        "narration.flac": {
+          "bytes": 11330804,
+          "sha256": "f62b680461b4f5e2166034773c3ff3b95741c4de247848543f7fb83019116231"
+        },
+        "script.json": {
+          "bytes": 2854,
+          "sha256": "30d4a5b801d683c243363e977b9da58e9bb9ca974c89aa49ca4a5af66d4c4faf"
+        },
+        "timeline.json": {
+          "bytes": 53786,
+          "sha256": "96ee9d191654b51ad7482c60cbf00712d36ab37dca1c73958603f2c11658e05c"
+        }
+      },
+      "artwork_file": "production/lesson-films/reversal_line.py",
+      "artwork_sha256": "2d743b9de16ae0bcf8ce153ebfbbf6dd6695145a9cfcbf201b86382da1e978c9",
+      "voice_reference": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+      "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+      "scenes": 7,
+      "duration": 140.42,
+      "spoken_words": 357,
+      "caption_phrases": 62,
+      "canonical_slot": 10,
+      "consumer_slot": 319,
+      "bridges": {
+        "10": "Follow the two digits when the ticket turns. At inspection, compare both the printed sum and the letters that received its digits.",
+        "319": "In the ticket inspection, use the zero in the units column to force the missing digit. Then watch why 51 + 59 is rejected despite adding correctly."
+      },
+      "caption_transition_frames": [
+        {
+          "frame": 31,
+          "word": "printer",
+          "original_evidence": "review/caption-layer-holds-20261125/S010-1-caption.png"
+        },
+        {
+          "frame": 272,
+          "word": "nothing.",
+          "original_evidence": "review/caption-layer-holds-20261125/S010-2-caption.png"
+        }
+      ]
+    },
+    "S012": {
+      "id": "S012",
+      "source": {
+        "kind": "public_release",
+        "tag": "s012-missing-rung-20261125-b46d28d6d374"
+      },
+      "assets": {
+        "S012-guide.json": {
+          "bytes": 2825,
+          "sha256": "a9ac27b46afbeace40951381a90c97c572c60caca6cb02137fbfc8e4055f4b51",
+          "url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s012-missing-rung-20261125-b46d28d6d374/S012-guide.json"
+        },
+        "S012-poster.jpg": {
+          "bytes": 51405,
+          "sha256": "17ba1e9b7cfa359591b3698f26bca6f02f719e5ae8102542003dd855ded7c867",
+          "url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s012-missing-rung-20261125-b46d28d6d374/S012-poster.jpg"
+        },
+        "S012-qa.json": {
+          "bytes": 573,
+          "sha256": "61fdccba03ca437f7297b1a0de2aa4994f01b3b5cc537f704707c591450b7f75",
+          "url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s012-missing-rung-20261125-b46d28d6d374/S012-qa.json"
+        },
+        "S012-recording.zip": {
+          "bytes": 10412014,
+          "sha256": "d70464f3af57e93d8ef5edfabce3f389d1906afcdf73bc7d729e94b7f3d90940",
+          "url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s012-missing-rung-20261125-b46d28d6d374/S012-recording.zip"
+        },
+        "S012.mp4": {
+          "bytes": 7729587,
+          "sha256": "87e71ca9ae8e3355f9f092f05a7e4c0678313aa569bbc3b4cc63a200ff2cedd7",
+          "url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s012-missing-rung-20261125-b46d28d6d374/S012.mp4"
+        },
+        "S012.vtt": {
+          "bytes": 3433,
+          "sha256": "391c35e3dee90189869395a10078a49a5a17ab8967d64bb49fc8c1377c4c39f8",
+          "url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s012-missing-rung-20261125-b46d28d6d374/S012.vtt"
+        }
+      },
+      "recording_files": {
+        "captions.vtt": {
+          "bytes": 3433,
+          "sha256": "391c35e3dee90189869395a10078a49a5a17ab8967d64bb49fc8c1377c4c39f8"
+        },
+        "narration.flac": {
+          "bytes": 10350104,
+          "sha256": "05c124c1444ef4c05e384a27ca8222c3191ef097f8c8867c84932a952adb49fe"
+        },
+        "script.json": {
+          "bytes": 3138,
+          "sha256": "3a30b1e8f07f7843a0c862a3f90057b3b93babcf584bb51601aafb301dc642ff"
+        },
+        "timeline.json": {
+          "bytes": 54913,
+          "sha256": "f6348556151842ffdbcdfc8285a6a4078675e9ca9d6e26d23356161dc0fbc1fa"
+        }
+      },
+      "artwork_file": "production/lesson-films/missing_rung.py",
+      "artwork_sha256": "9f61a151a272dc1abb9a6c7f49d5620e8f307c2d68f9bc71f839c474684c898d",
+      "voice_reference": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+      "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+      "scenes": 8,
+      "duration": 137.31,
+      "spoken_words": 351,
+      "caption_phrases": 51,
+      "canonical_slot": 12,
+      "consumer_slot": 248,
+      "bridges": {
+        "12": "Pause when the film marks rung 3 as broken. Is rung 4 still reachable? Trace its possible final jumps before the film fills in the table.",
+        "248": "Watch the film’s blocked rung remove a possible previous landing. Then ask what extra information a path count would need if an entire kind of move were restricted."
+      },
+      "caption_transition_frames": [
+        {
+          "frame": 224,
+          "word": "straight",
+          "original_evidence": "review/caption-layer-holds-20261125/S012-1-caption.png"
+        },
+        {
+          "frame": 1176,
+          "word": "unreachable?",
+          "original_evidence": "review/caption-layer-holds-20261125/S012-2-caption.png"
+        }
+      ]
+    },
+    "S017": {
+      "id": "S017",
+      "source": {
+        "kind": "actions_artifact",
+        "run": 45520621017,
+        "commit": "5794566847ce5fd47037f0377c424bc631ac0271",
+        "branch": "production/s017-recorded-recovery-20261125",
+        "workflow": ".github/workflows/s017-recorded-recovery.yml",
+        "render_job": 138891222565,
+        "candidate_artifact": {
+          "id": 14981085029,
+          "name": "S017-recorded-recovery-candidate",
+          "archive_name": "S017-recorded-recovery-candidate.zip",
+          "bytes": 18758988,
+          "sha256": "44c934edc5358fff7a87be8ef64ccda0190ced77ccf4bc102859d246ac851c7d"
+        },
+        "provenance_artifact": {
+          "id": 14978649628,
+          "name": "S017-recorded-recovery-provenance",
+          "archive_name": "S017-recorded-recovery-provenance.zip",
+          "bytes": 1463,
+          "sha256": "77df54ceac9d50047332bc9ef8f8b6c91a20b50bb01d15327cc93346ba6a7188",
+          "files": {
+            "build-s017-number-timing-review.json": {
+              "bytes": 799,
+              "sha256": "3c6a800268a3e10e82ef7414ff60986241a3a71e54bf100f90a6ac6201480401"
+            },
+            "build-take-recovery.json": {
+              "bytes": 1519,
+              "sha256": "0495e6e055b73cde05bf82f10722071ff4834eaa2fd7be5e4ef8e7a664c1b3c4"
+            }
+          }
+        }
+      },
+      "assets": {
+        "S017-guide.json": {
+          "bytes": 3036,
+          "sha256": "3044bb24e2f446c603b1f1f27b75be4a71cf07517c7c9b3db2cfef7e46648d07"
+        },
+        "S017-poster.jpg": {
+          "bytes": 59936,
+          "sha256": "cc2f3cc04868c4e5e3ccaa27dd5b1395047544f171dafc741a9e146c13c7fbe5"
+        },
+        "S017-qa.json": {
+          "bytes": 573,
+          "sha256": "0c61c597e521d954470a4fc455e839e45299d202bbd8a99bad64390cfcb5e056"
+        },
+        "S017-recording.zip": {
+          "bytes": 11400241,
+          "sha256": "a2e47a0e4bc471d775a7e34fca3fc1f5dd7272399c5b3d7a3e552468b39b40dc"
+        },
+        "S017.mp4": {
+          "bytes": 7752523,
+          "sha256": "3ceff0f24ada60db2d09d9900658eed406c8b1666eee85603af57b430a2fc7d7"
+        },
+        "S017.vtt": {
+          "bytes": 3589,
+          "sha256": "56acee1be1c33ea3b4a3cc3c3a7b30c345cdba4d534709ed15766ce290d2cca4"
+        }
+      },
+      "recording_files": {
+        "captions.vtt": {
+          "bytes": 3589,
+          "sha256": "56acee1be1c33ea3b4a3cc3c3a7b30c345cdba4d534709ed15766ce290d2cca4"
+        },
+        "narration.flac": {
+          "bytes": 11333839,
+          "sha256": "4ad56beb3300e20c0005b9ffa03d8465211613fa5e2d398dda846a0814cd57a6"
+        },
+        "script.json": {
+          "bytes": 3334,
+          "sha256": "d324df82ce2f6bd2b40440b105b189dd8f665521edeb954bc09e7bbc93169bda"
+        },
+        "timeline.json": {
+          "bytes": 59053,
+          "sha256": "92173baff9d2f0b807d466cb2b523b17946b4ac712c88b02dfc09bb5a7f4cf13"
+        }
+      },
+      "artwork_file": "production/lesson-films/tile_framer.py",
+      "artwork_sha256": "12b05ad73e9c43a3bb7fd52f052e82461d5218ee402d175adbb7abd07b4ebb75",
+      "voice_reference": "0f3304a393ee504e9fa22537267ac03f150569a5fab0859616f261d009513362",
+      "model_revision": "7936080b41163874f38610f46f438e2c0757f9fd",
+      "scenes": 8,
+      "duration": 147.89,
+      "spoken_words": 370,
+      "caption_phrases": 51,
+      "canonical_slot": 17,
+      "consumer_slot": 300,
+      "bridges": {
+        "17": "In the film’s marked grid, first count rectangles containing cell A. To remove the unwanted ones, which four boundary choices guarantee a rectangle contains both A and B?",
+        "300": "The film distinguishes grid cells from their boundary lines. As you follow the marked cells, also identify intersections where two boundary lines meet."
+      },
+      "caption_transition_frames": [
+        {
+          "frame": 2006,
+          "word": "Twenty / four"
+        },
+        {
+          "frame": 2017,
+          "word": "rectangles"
+        },
+        {
+          "frame": 3538,
+          "word": "the / twenty"
+        }
+      ],
+      "take_provenance": {
+        "lesson": "S017",
+        "takes": 8,
+        "source_run": 45487547111,
+        "mode": "pinned GitHub recovery",
+        "files": {
+          "S017-01.json": "dc9824e958a2103b1612b5cf26077e8a9413606ecc004885871c0df67c17d73b",
+          "S017-01.wav": "7fe4d51a5c59aea334a00b8f2bdda93145ed308f6e505845dd0c1323e5b47bf4",
+          "S017-02.json": "2a83e308e996d55588678fe2faa447f28b1921aab141089f183d92c44085d9b0",
+          "S017-02.wav": "d205a2adc4d6acac843df4eee07f80aaf47475547ac8324dca1ebc6eccc0a402",
+          "S017-03.json": "1f5a9f0937f08944ff6e13925793e17a40e4d2ea38a623e66c6213fc36a4c96d",
+          "S017-03.wav": "d16ff4d1adea58c036ecb13577d227a05d8977720c3de932bc497eab411c4730",
+          "S017-04.json": "e9b4634f072a555cc9685a6f87069e6d99c0ea6bc23f1ac0ca9d3131b89a7aed",
+          "S017-04.wav": "77268f2d6796cea40e4f700139e7b02879cb4ed659390abe813a19fc89f34edd",
+          "S017-05.json": "9e3dc4eb6f4875c709372042eb3ef842ee7b027900f2cc0781b7c44a2bae2a7a",
+          "S017-05.wav": "7d3d3f505ff3ad67700c979b3cb6ddf7d8296d699bb8054bb359a3890c134d02",
+          "S017-06.json": "c211b4ec9db724425c5bf28be8bd289c8a2a63d474be65fc5e1b53099450ce26",
+          "S017-06.wav": "54cb49a35818f3386790c1643de262e807af1e1545e295e16250aa89c2298722",
+          "S017-07.json": "8891f98357541cac79a9d3b56f82d9d4a74bed4bd17ae12b9df371785937d316",
+          "S017-07.wav": "812894fc7a62bb17e7a002f804a31c0febda3d62107dcb985ebc11ffa558d598",
+          "S017-08.json": "0fd7963acbc93050f985f8ad2d60c85696cb17d977c3a92d64a757a7dd536601",
+          "S017-08.wav": "5692961a15d930f293c116a92e39f83c945287124784883a48b2c5c60b44ace1"
+        }
+      },
+      "source_takes_manifest_sha256": "aeca9b0cb9dd5d075c84b95ef414fee38f1fc9000a2821ba77db221f66672e8c",
+      "retained_numeric_intervals": {
+        "4": [
+          {
+            "text": "Twenty",
+            "start": 66.7,
+            "end": 66.86,
+            "matched": true
+          },
+          {
+            "text": "four",
+            "start": 66.86,
+            "end": 67.22,
+            "matched": true
+          },
+          {
+            "text": "rectangles",
+            "start": 67.22,
+            "end": 67.75999999999999,
+            "matched": true
+          }
+        ],
+        "7": [
+          {
+            "text": "twenty",
+            "start": 117.92,
+            "end": 118.1,
+            "matched": true
+          },
+          {
+            "text": "four",
+            "start": 118.1,
+            "end": 118.52,
+            "matched": true
+          },
+          {
+            "text": "that",
+            "start": 118.52000000000001,
+            "end": 118.66000000000001,
+            "matched": true
+          }
+        ]
+      }
+    }
+  }
+}

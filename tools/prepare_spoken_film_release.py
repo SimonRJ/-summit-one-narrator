@@ -1,4 +1,4 @@
-"""Prepare S019/S020 catalogue changes only from successful, public releases.
+"""Prepare S019/S020/S102 changes only from successful, public releases.
 
 Pass unmodified GitHub workflow-run and release API JSON plus the downloaded
 public release package. This writes a reviewable plan to a new output file;
@@ -20,14 +20,34 @@ POLICY = {
         'tag': 's019-domino-condition-20261125-3d94f6856b47',
         'sha256': '51545b1baf76d155f052fdcedc6bfde126e45c63845e97468166c0e069bc365f',
         'slots': [19, 333],
+        'hold_reason': ('S019 is held: the exact public scene-five captions visibly double their glyphs. '
+                        'A stable-caption replacement must be verified before integration.'),
     },
     'S020': {
         'run': 45503875492,
         'commit': '0dfec081086f153023e2ab74861717d75dbaa779',
         'workflow': '.github/workflows/s020-caption-stability.yml',
         'tag': 's020-stable-captions-20261125-0dfec081086f',
+        'sha256': '5308674d7d66dee6545d05699311a192b13e2fce2d48b6d2f560ec35ce1e57f3',
         'slots': [20, 283],
         'held_sha256': 'fa00a38665821402f0a2060c40b4aa7ae4b89632609862a80607f39a4cc5006f',
+    },
+    'S102': {
+        'run': 45518273975,
+        'commit': 'a84046b0645063f273951ce85d938aa71fffa9ee',
+        'workflow': '.github/workflows/s102-digit-swap.yml',
+        'tag': 's102-tens-units-20261125-a84046b06450',
+        'slots': [102, 296],
+        'recording_sha256': '4582dcd016527a350da681f165b53e32ade863c7e3ea011aa5863e892cb8593b',
+        'source_sha256': '538f9142a5113e5d14d3a35b6a7851e8dd331e16aba7d98224a7d0c294601612',
+        'held_sha256': [
+            'dad309128905a96c6b3784b63eb12df2b6545ffe9fc930b7cf7ded0c89b9cec4',
+            'c0bc373168fb2221642b660339d0cbf948d9019d283ad88dc002126a716e5c49',
+        ],
+        'canonical_bridge': ('Keep the hundreds digit fixed and swap tens and units: 153 becomes 135. '
+                             'Count the printed threes in each column separately.'),
+        'consumer_bridge': ('For the multiples-of-nine count, keep hundreds fixed and swap tens and units: '
+                            '153 becomes 135. Which digit choices force the missing digit?'),
     },
 }
 
@@ -44,6 +64,7 @@ def sha256(path):
 
 def prepare(lesson, run, release, package, root=ROOT):
     policy = POLICY[lesson]
+    require(not policy.get('hold_reason'), policy.get('hold_reason'))
     require(run.get('id') == policy['run'], 'Wrong production workflow run')
     require(run.get('head_sha') == policy['commit'], 'Wrong production source commit')
     require(run.get('path') == policy['workflow'], 'Wrong production workflow path')
@@ -88,8 +109,9 @@ def prepare(lesson, run, release, package, root=ROOT):
             and starts[-1] < guide['seconds'], 'Invalid measured chapters')
     if lesson == 'S019':
         require(movie_digest == policy['sha256'], 'This is not the final S019 CI edition')
-    else:
+    elif lesson == 'S020':
         require(movie_digest != policy['held_sha256'], 'Held doubled-caption edition rejected')
+        require(movie_digest == policy['sha256'], 'This is not the final S020 CI edition')
         require(qa.get('prior_candidate_sha256') == policy['held_sha256'],
                 'Caption repair does not identify its pinned source candidate')
         require(qa.get('audio_packets_identical') is True
@@ -97,6 +119,26 @@ def prepare(lesson, run, release, package, root=ROOT):
                 'Approved audio or caption timing preservation is unverified')
         require(qa.get('caption_repair_reference_comparisons', 0) >= 190,
                 'Final caption repair lacks encoded-picture comparison evidence')
+    else:
+        require(movie_digest not in policy['held_sha256'], 'Held S102 numeral-timing edition rejected')
+        require(qa.get('input_recording_sha256') == policy['recording_sha256'],
+                'S102 does not use the one preserved Voice C take')
+        require(qa.get('source_sha256') == policy['source_sha256']
+                and qa.get('scene_replaced') == 8
+                and qa.get('preserved_source_scenes') == [1, 2, 3, 4, 5, 6, 7, 9, 10, 11],
+                'S102 no longer describes the scoped scene-eight repair')
+        require(qa.get('mathematical_check') == {
+            'range': [100, 599], 'divisor': 9,
+            'pairs': [[153, 135], [243, 234], [333, 333], [423, 432], [513, 531]],
+            'ones': 5, 'tens': 5, 'hundreds': 11, 'total': 21,
+        }, 'S102 digit pairing or count differs from the checked correction')
+        matches = qa.get('corrected_passage_match_percent', [])
+        require(len(matches) == 4 and min(matches) >= 95,
+                'S102 lacks all four measured spoken-number passages')
+        require(qa.get('decoded_reference_comparisons', 0) >= 216,
+                'S102 lacks complete encoded-picture comparisons')
+        require(guide['bridge'] == policy['canonical_bridge'],
+                'S102 released guide still has old or unreviewed bridge wording')
 
     rows = []
     for filename in ('read-watch-practise.json', 'read-watch-practise-later.json'):
@@ -110,6 +152,9 @@ def prepare(lesson, run, release, package, root=ROOT):
         canonical = row['slot'] == int(lesson[1:])
         require(canonical or row.get('filmUse') == 'technique',
                 'A later lesson now has its own dedicated film; do not overwrite it')
+        bridge = guide['bridge'] if canonical else row['bridge']
+        if lesson == 'S102' and not canonical:
+            bridge = policy['consumer_bridge']
         changes.append({
             'file': 'data/' + filename,
             'slot': row['slot'],
@@ -117,7 +162,7 @@ def prepare(lesson, run, release, package, root=ROOT):
             'expected_current_video_id': lesson,
             'set': {'movie': base + lesson + '.mp4', 'videoTitle': guide['title'],
                     'filmUse': 'dedicated' if canonical else 'technique',
-                    'bridge': guide['bridge'] if canonical else row['bridge']},
+                    'bridge': bridge},
         })
     return {
         'lesson': lesson,
@@ -130,6 +175,10 @@ def prepare(lesson, run, release, package, root=ROOT):
         'route_changes': changes,
         'canonical_opening_bridge': {'file': 'tools/content/practice-revisions-20261121.json',
                                      'key': lesson, 'bridge': guide['bridge']},
+        'additional_opening_bridges': ([{
+            'file': 'tools/content/practice-revisions-20261121.json',
+            'key': 'S296', 'bridge': policy['consumer_bridge'],
+        }] if lesson == 'S102' else []),
         'remaining_release_steps': [
             'Apply only the listed fields, retaining all worked examples, practice IDs and grading editions.',
             'Refresh the catalogue query and matching app/service-worker cache versions in the combined release.',

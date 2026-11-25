@@ -1,0 +1,236 @@
+{
+  "tag": "s019-domino-condition-20261125-3d94f6856b47",
+  "public_url_prefix": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s019-domino-condition-20261125-3d94f6856b47/",
+  "assets": [
+    {
+      "name": "S019-guide.json",
+      "bytes": 3339,
+      "sha256": "e072bbcb020b381720a7ebb5f23476b22d3070dd1beb413264228455a86c9639",
+      "public_returned_bytes_match": true
+    },
+    {
+      "name": "S019-poster.jpg",
+      "bytes": 122357,
+      "sha256": "e51125931fcc24dcb1577ec7ad1cf05fc1e3803a632685f5c3e8524d30faf822",
+      "public_returned_bytes_match": true
+    },
+    {
+      "name": "S019-qa.json",
+      "bytes": 880,
+      "sha256": "2c6f54543d62bcd5dcb8ac021501008e8c7c4b16a41effe41802f6abd444eb5b",
+      "public_returned_bytes_match": true
+    },
+    {
+      "name": "S019-recording.zip",
+      "bytes": 10604923,
+      "sha256": "b1ad8709874843e26d52dd0cb104008c85010ff96e443b200b02c243c44d8abd",
+      "public_returned_bytes_match": true
+    },
+    {
+      "name": "S019.mp4",
+      "bytes": 6964402,
+      "sha256": "51545b1baf76d155f052fdcedc6bfde126e45c63845e97468166c0e069bc365f",
+      "public_returned_bytes_match": true
+    },
+    {
+      "name": "S019.vtt",
+      "bytes": 3733,
+      "sha256": "92f0c39344a9dc9729bf1f34db93b2f5c3047f5bde22cbcc419a8d09c46a3c41",
+      "public_returned_bytes_match": true
+    }
+  ],
+  "total_bytes": 17699634,
+  "final_editorial_credit": false,
+  "production_run": 45491819969,
+  "production_source": "3d94f6856b475eb160c11bf7b6334ff13e9c61b6",
+  "production_conclusion": "success",
+  "route_changes": [
+    {
+      "slot": 19,
+      "keys": [
+        "filmUse",
+        "movie",
+        "videoTitle"
+      ]
+    },
+    {
+      "slot": 333,
+      "keys": [
+        "movie",
+        "videoTitle"
+      ]
+    }
+  ],
+  "technique_bridge_preserved": true,
+  "all_practice_items_and_editions_preserved": true,
+  "repository_integration": "Withdrawn before publication: public scene-five glyph ghosting confirmed at 49.0 and 49.3667 seconds.",
+  "deployed_verification": "Not integrated; stable-caption replacement required.",
+  "preview_route_results": [
+    {
+      "slot": 333,
+      "profile": "ipad-portrait",
+      "engine": "webkit",
+      "viewport": {
+        "width": 810,
+        "height": 1080
+      },
+      "site": "http://127.0.0.1:41879/",
+      "sha256": "51545b1baf76d155f052fdcedc6bfde126e45c63845e97468166c0e069bc365f",
+      "film": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s019-domino-condition-20261125-3d94f6856b47/S019.mp4",
+      "duration": 142.33,
+      "chapters": 11,
+      "normal_speed_unmuted_to_ended": false,
+      "practice_grading": "isolated fixture",
+      "immutable_replay": true,
+      "active_frame_css_pixels": {
+        "width": 663.125,
+        "height": 373,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "notebook_frame_css_pixels": {
+        "width": 733.125,
+        "height": 650.5,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "worked_example": {
+        "chapter": "When counts agree",
+        "decoded_media_time": 125.166666
+      }
+    },
+    {
+      "slot": 19,
+      "profile": "ipad-portrait",
+      "engine": "webkit",
+      "viewport": {
+        "width": 810,
+        "height": 1080
+      },
+      "site": "http://127.0.0.1:41879/",
+      "sha256": "51545b1baf76d155f052fdcedc6bfde126e45c63845e97468166c0e069bc365f",
+      "film": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s019-domino-condition-20261125-3d94f6856b47/S019.mp4",
+      "duration": 142.33,
+      "chapters": 11,
+      "normal_speed_unmuted_to_ended": false,
+      "practice_grading": "isolated fixture",
+      "immutable_replay": true,
+      "active_frame_css_pixels": {
+        "width": 663.125,
+        "height": 373,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "notebook_frame_css_pixels": {
+        "width": 733.125,
+        "height": 650.5,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "worked_example": {
+        "chapter": "When counts agree",
+        "decoded_media_time": 125.166666
+      }
+    },
+    {
+      "slot": 19,
+      "profile": "iphone-portrait",
+      "engine": "webkit",
+      "viewport": {
+        "width": 390,
+        "height": 664
+      },
+      "site": "http://127.0.0.1:41879/",
+      "sha256": "51545b1baf76d155f052fdcedc6bfde126e45c63845e97468166c0e069bc365f",
+      "film": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s019-domino-condition-20261125-3d94f6856b47/S019.mp4",
+      "duration": 142.33,
+      "chapters": 11,
+      "normal_speed_unmuted_to_ended": true,
+      "practice_grading": "isolated fixture",
+      "immutable_replay": true,
+      "active_frame_css_pixels": {
+        "width": 333.21875,
+        "height": 187.421875,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "notebook_frame_css_pixels": {
+        "width": 340,
+        "height": 258.46875,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "worked_example": {
+        "chapter": "When counts agree",
+        "decoded_media_time": 125.166666
+      }
+    },
+    {
+      "slot": 333,
+      "profile": "pc",
+      "engine": "chromium",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "site": "http://127.0.0.1:41879/",
+      "sha256": "51545b1baf76d155f052fdcedc6bfde126e45c63845e97468166c0e069bc365f",
+      "film": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s019-domino-condition-20261125-3d94f6856b47/S019.mp4",
+      "duration": 142.33,
+      "chapters": 11,
+      "normal_speed_unmuted_to_ended": false,
+      "practice_grading": "isolated fixture",
+      "immutable_replay": true,
+      "active_frame_css_pixels": {
+        "width": 654,
+        "height": 367.875,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "notebook_frame_css_pixels": {
+        "width": 958,
+        "height": 441.84375,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "worked_example": {
+        "chapter": "When counts agree",
+        "decoded_media_time": 125.166667
+      }
+    },
+    {
+      "slot": 19,
+      "profile": "pc",
+      "engine": "chromium",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "site": "http://127.0.0.1:41879/",
+      "sha256": "51545b1baf76d155f052fdcedc6bfde126e45c63845e97468166c0e069bc365f",
+      "film": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s019-domino-condition-20261125-3d94f6856b47/S019.mp4",
+      "duration": 142.33,
+      "chapters": 11,
+      "normal_speed_unmuted_to_ended": false,
+      "practice_grading": "isolated fixture",
+      "immutable_replay": true,
+      "active_frame_css_pixels": {
+        "width": 654,
+        "height": 367.875,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "notebook_frame_css_pixels": {
+        "width": 958,
+        "height": 441.84375,
+        "horizontal": 0,
+        "vertical": 0
+      },
+      "worked_example": {
+        "chapter": "When counts agree",
+        "decoded_media_time": 125.166667
+      }
+    }
+  ],
+  "caption_quality_hold": "caption-layer-holds-20261125/frames.json"
+}

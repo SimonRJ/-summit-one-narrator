@@ -1,0 +1,60 @@
+{
+  "checked_at_utc": "2026-11-25 01:18:32 UTC",
+  "run": {
+    "id": 45520621017,
+    "commit": "5794566847ce5fd47037f0377c424bc631ac0271",
+    "branch": "production/s017-recorded-recovery-20261125",
+    "status": "completed",
+    "conclusion": "success",
+    "updated_at": "2026-11-25T01:10:03Z"
+  },
+  "release": {
+    "id": 457525191,
+    "tag": "s017-recorded-recovery-20261125-5794566847ce",
+    "published_at": "2026-11-25T01:10:00Z",
+    "draft": false,
+    "assets": [
+      {
+        "name": "S017-guide.json",
+        "bytes": 3036,
+        "sha256": "3044bb24e2f446c603b1f1f27b75be4a71cf07517c7c9b3db2cfef7e46648d07",
+        "url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s017-recorded-recovery-20261125-5794566847ce/S017-guide.json"
+      },
+      {
+        "name": "S017-poster.jpg",
+        "bytes": 59936,
+        "sha256": "cc2f3cc04868c4e5e3ccaa27dd5b1395047544f171dafc741a9e146c13c7fbe5",
+        "url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s017-recorded-recovery-20261125-5794566847ce/S017-poster.jpg"
+      },
+      {
+        "name": "S017-qa.json",
+        "bytes": 573,
+        "sha256": "0c61c597e521d954470a4fc455e839e45299d202bbd8a99bad64390cfcb5e056",
+        "url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s017-recorded-recovery-20261125-5794566847ce/S017-qa.json"
+      },
+      {
+        "name": "S017-recording.zip",
+        "bytes": 11400241,
+        "sha256": "a2e47a0e4bc471d775a7e34fca3fc1f5dd7272399c5b3d7a3e552468b39b40dc",
+        "url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s017-recorded-recovery-20261125-5794566847ce/S017-recording.zip"
+      },
+      {
+        "name": "S017.mp4",
+        "bytes": 7752523,
+        "sha256": "3ceff0f24ada60db2d09d9900658eed406c8b1666eee85603af57b430a2fc7d7",
+        "url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s017-recorded-recovery-20261125-5794566847ce/S017.mp4"
+      },
+      {
+        "name": "S017.vtt",
+        "bytes": 3589,
+        "sha256": "56acee1be1c33ea3b4a3cc3c3a7b30c345cdba4d534709ed15766ce290d2cca4",
+        "url": "https://github.com/SimonRJ/-summit-one-narrator/releases/download/s017-recorded-recovery-20261125-5794566847ce/S017.vtt"
+      }
+    ]
+  },
+  "candidate_bytes_verified": true,
+  "published_asset_metadata_matches_verified_candidate": true,
+  "public_asset_bytes_redownloaded": false,
+  "held_for_visible_caption_ghosting": true,
+  "final_editorial_credit": false
+}
